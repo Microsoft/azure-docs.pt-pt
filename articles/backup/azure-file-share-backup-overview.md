@@ -3,16 +3,16 @@ title: Sobre a Azure file share backup
 description: Saiba como apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823885"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892257"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a Azure file share backup
 
-A azure file share backup é uma solução de backup baseada em nuvem nativa que protege os seus dados na nuvem e elimina despesas adicionais de manutenção envolvidas em soluções de backup no local. O serviço Azure Backup integra-se sem problemas com o Azure File Sync e permite centralizar os dados de partilha de ficheiros, bem como as suas cópias de segurança. Esta solução simples, fiável e segura permite-lhe configurar a proteção para as ações de ficheiros da sua empresa em poucos passos simples com a garantia de que pode recuperar os seus dados em caso de qualquer cenário de desastre.
+A azure file share backup é uma solução de backup baseada em nuvem nativa que protege os seus dados na nuvem e elimina despesas adicionais de manutenção envolvidas em soluções de backup no local. O serviço Azure Backup integra-se sem problemas com o Azure File Sync e permite centralizar os dados de partilha de ficheiros, bem como as suas cópias de segurança. Esta solução simples, fiável e segura permite-lhe configurar a proteção para as ações dos ficheiros da empresa em alguns passos simples com a garantia de que pode recuperar os seus dados em qualquer cenário de desastre.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Principais benefícios da cópia de segurança da partilha de ficheiros Azure
 

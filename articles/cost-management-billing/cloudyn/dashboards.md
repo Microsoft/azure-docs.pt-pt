@@ -6,15 +6,16 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 892df9a6e0eb4d791f818eed0a78c96a829e25a0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03d5e3959b85a2b0bd9ae30744051895ff026b77
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79464228"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691229"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Ver as métricas principais dos custos nos dashboards
 
@@ -43,7 +44,7 @@ Para começar a utilizar rapidamente um dashboard personalizado, pode duplicar u
 
 Para criar um dashboard personalizado:
 
-1. Na home page, clique em **Adicionar Novo +** . É apresentada a página O Meu Dashboard.  
+1. Na home page, clique em **Adicionar Novo +**. É apresentada a página O Meu Dashboard.  
     ![página O meu dashboard onde adiciona novos relatórios](./media/dashboards/my-dashboard.png)
 2. Clique em **Adicionar Novo Relatório**. É apresentada a caixa Adicionar Relatório.
 3. Selecione o relatório que quer adicionar à miniaplicação de dashboard. O widget é adicionado ao dashboard.

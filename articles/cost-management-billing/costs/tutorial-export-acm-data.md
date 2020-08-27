@@ -6,14 +6,15 @@ ms.author: banders
 ms.date: 08/05/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 69b7b4bff46ba2998ca931ba1cb6bc9e7c1d9096
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: c0fcc9d5753ce90365829fba658031e633819513
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272225"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683271"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir dados exportados
 

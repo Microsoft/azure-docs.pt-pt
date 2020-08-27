@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6b3909281cf475a003ffaaef6f6f48441337728e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810256"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892665"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Quickstart: Implementar a amostra nativa C++ para hololens
 
@@ -63,7 +63,6 @@ Mude a configuração de construção para *Debug* (ou *Soltar)* e *ARM64*. Cert
 
 Uma vez que as credenciais de conta são codificadas no código fonte do tutorial, altere-as para credenciais válidas. Para isso, abra o ficheiro `HolographicAppMain.cpp` dentro do Visual Studio e altere a parte onde o frontend é criado dentro do construtor de `HolographicAppMain` classe:
 
-
 ```cpp
 // 2. Create front end
 {
@@ -79,8 +78,8 @@ Uma vez que as credenciais de conta são codificadas no código fonte do tutoria
 ```
 
 Especificamente, alterar os seguintes valores:
-* `init.AccountId`e `init.AccountKey` para usar os dados da sua conta. Consulte o parágrafo sobre como [obter informações sobre contas](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* A região parte da `init.AccountDomain` cadeia para outras regiões do `westus2` que, por exemplo,`"westeurope.mixedreality.azure.com"`
+* `init.AccountId` e `init.AccountKey` para usar os dados da sua conta. Consulte o parágrafo sobre como [obter informações sobre contas](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* A região parte da `init.AccountDomain` cadeia para outras regiões do `westus2` que, por exemplo, `"westeurope.mixedreality.azure.com"`
 * Além disso, `m_sessionOverride` pode ser alterado para um ID de sessão existente. As sessões podem ser criadas fora desta amostra, por exemplo, utilizando [o script powershell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou utilizando diretamente a [Sessão REST API.](../../../how-tos/session-rest-api.md#create-a-session)
 Recomenda-se a criação de uma sessão fora da amostra quando a amostra deve ser executada várias vezes. Se nenhuma sessão for transmitida, a amostra criará uma nova sessão em cada startup, que poderá demorar vários minutos.
 

@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar e configurar cofres dos Serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 048b0e3fae776be5577948f91d84bb2be7fa2d59
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 0c0b7b25eeecad8e8c519d37139551590a51a29e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827363"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892359"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos Serviços de Recuperação
 
@@ -48,7 +48,7 @@ Como uma das opções de restauro, o Cross Region Restore (CRR) permite restaura
 
 Para escolher esta função, selecione **Enable Cross Region Restore** a partir do painel de **configuração de backup.**
 
-Para este processo, existem implicações nos preços tal como está ao nível do armazenamento.
+Para este processo, existem implicações nos preços, uma vez que está no nível de armazenamento.
 
 >[!NOTE]
 >Antes de começar:
