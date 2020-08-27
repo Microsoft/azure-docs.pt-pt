@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fb43a0d39beacf02a6949228eaa32a719164987
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd6b64f118460a115963ed0bf105641d80334348
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552228"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934995"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (pré-visualização) em Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Esta funcionalidade encontra-se atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2020-06-30-Preview](search-api-preview.md) fornece esta funcionalidade. Atualmente não existe porta ou suporte .NET SDK.
 
-`moreLikeThis=[key]`é um parâmetro de consulta na [API de Documentos de Busca](https://docs.microsoft.com/rest/api/searchservice/search-documents) que encontra documentos semelhantes ao documento especificado pela chave do documento. Quando um pedido de pesquisa é feito `moreLikeThis` com, uma consulta é gerada com termos de pesquisa extraídos do documento dado que descrevem melhor esse documento. A consulta gerada é então usada para fazer o pedido de pesquisa. Por predefinição, o conteúdo de todos os campos pes pesjáveis é considerado, menos quaisquer campos restritos que especificou usando o `searchFields` parâmetro. O `moreLikeThis` parâmetro não pode ser utilizado com o parâmetro de pesquisa, `search=[string]` .
+`moreLikeThis=[key]` é um parâmetro de consulta na [API de Documentos de Busca](/rest/api/searchservice/search-documents) que encontra documentos semelhantes ao documento especificado pela chave do documento. Quando um pedido de pesquisa é feito `moreLikeThis` com, uma consulta é gerada com termos de pesquisa extraídos do documento dado que descrevem melhor esse documento. A consulta gerada é então usada para fazer o pedido de pesquisa. Por predefinição, o conteúdo de todos os campos pes pesjáveis é considerado, menos quaisquer campos restritos que especificou usando o `searchFields` parâmetro. O `moreLikeThis` parâmetro não pode ser utilizado com o parâmetro de pesquisa, `search=[string]` .
 
 Por padrão, o conteúdo de todos os campos pescáveis de alto nível são considerados. Se quiser especificar determinados campos, pode utilizar o `searchFields` parâmetro. 
 
@@ -52,7 +52,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
 
 ### <a name="apply-filters"></a>Aplicar filtros
 
-`MoreLikeThis`pode ser combinado com outros parâmetros de consulta comuns como `$filter` . Por exemplo, a consulta pode ser restrita apenas a hotéis cuja categoria é "Orçamento" e onde a classificação seja superior a 3.5:
+`MoreLikeThis` pode ser combinado com outros parâmetros de consulta comuns como `$filter` . Por exemplo, a consulta pode ser restrita apenas a hotéis cuja categoria é "Orçamento" e onde a classificação seja superior a 3.5:
 
 ```
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2020-06-30-Preview
@@ -66,7 +66,7 @@ O `$top` seletor pode ser utilizado para limitar quantos resultados devem ser de
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2020-06-30-Preview
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode utilizar qualquer ferramenta de teste web para experimentar esta funcionalidade.  Recomendamos a utilização do Carteiro para este exercício.
 
