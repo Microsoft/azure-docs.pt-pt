@@ -3,15 +3,16 @@ title: Fazer o estorno dos custos das Reservas do Azure
 description: Saiba como ver os custos das Reservas do Azure para estorno.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 04e4e8dfce8549494eb9d2984d6307c18b88dc73
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4387a1aa5b22c9808f36364b71f89a71736958b8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287329"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689478"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Fazer o estorno dos custos das Reservas do Azure
 

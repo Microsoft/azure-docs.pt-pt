@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505721"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929499"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -37,7 +37,7 @@ Existem três versões de Azure Functions Core Tools. A versão que utiliza depe
 
 + **Versão 1.x**: Suporta a versão 1.x do tempo de funcionamento das Funções Azure. Esta versão das ferramentas só é suportada em computadores Windows e é instalada a partir de um [pacote npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Salvo indicação em contrário, os exemplos deste artigo são para a versão 3.x.
+Só é possível instalar uma versão do Core Tools num determinado computador. Salvo indicação em contrário, os exemplos deste artigo são para a versão 3.x.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -257,20 +257,21 @@ Mesmo quando utilizar o Emulador de Armazenamento Microsoft Azure para desenvolv
 
   ![Cadeia de ligação de cópia do Explorador de Armazenamento](./media/functions-run-local/storage-explorer.png)
 
-+ Utilize ferramentas principais para descarregar a cadeia de ligação do Azure com um dos seguintes comandos:
++ Utilize ferramentas core da raiz do projeto para descarregar a cadeia de ligação do Azure com um dos seguintes comandos:
 
   + Descarregue todas as definições de uma aplicação de função existente:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Obtenha o string Connection para uma conta de armazenamento específica:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Quando ainda não estás inscrito no Azure, és solicitado a fazê-lo.
+    Quando ainda não estás inscrito no Azure, és solicitado a fazê-lo. Estes comandos substituem quaisquer definições existentes no local.settings.jsem ficheiro. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Criar uma função
 

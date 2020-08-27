@@ -8,21 +8,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
-ms.openlocfilehash: d50e1acd104916d68f7fbb84ff568cf4efc0b46b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6d50a8e2c9d0263616b25e25958be6a6f0fb7fe1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289757"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929279"
 ---
-Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing Video Search para C#. Enquanto o Bing Video Search tem uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) com anotações adicionais e funcionalidades.
+Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing Video Search para C#. Enquanto a Bing Video Search tem uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente fornece uma maneira fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) com anotações adicionais e características.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Visual Studio 2017 ou mais tarde.](https://visualstudio.microsoft.com/downloads/)
-* O quadro Json.NET, disponível [como um pacote NuGet](https://www.nuget.org/packages/Newtonsoft.Json/).
+* Qualquer edição do [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/).
+* O quadro Json.NET, disponível [como um pacote NuGet.](https://www.nuget.org/packages/Newtonsoft.Json/)
 
-Para adicionar a biblioteca de clientes Bing Video Search ao seu projeto, selecione **Manage NuGet Packages** from **Solution Explorer** in Visual Studio. Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
+Para adicionar a biblioteca de clientes Bing Video Search ao seu projeto, **selecione Gerir pacotes NuGet** do **Solution Explorer** em Visual Studio. Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 
 A instalação do [pacote [NuGet Video Search SDK]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) também instala as seguintes dependências:
 
@@ -35,7 +36,7 @@ A instalação do [pacote [NuGet Video Search SDK]](https://www.nuget.org/packag
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie uma nova solução de consola C# no Estúdio Visual. Em seguida, adicione o seguinte no ficheiro de código principal.
+1. Crie uma nova solução de consola C# no Visual Studio. Em seguida, adicione o seguinte no ficheiro de código principal.
 
     ```csharp
     using System;
@@ -45,7 +46,7 @@ A instalação do [pacote [NuGet Video Search SDK]](https://www.nuget.org/packag
     using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
     ```
 
-2. Instantifique o cliente `ApiKeyServiceClientCredentials` criando um novo objeto com a sua chave de subscrição, e chamando o construtor.
+2. Instantânear o cliente criando um novo `ApiKeyServiceClientCredentials` objeto com a sua chave de subscrição, e chamando o construtor.
 
     ```csharp
     var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
@@ -59,7 +60,7 @@ A instalação do [pacote [NuGet Video Search SDK]](https://www.nuget.org/packag
     var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
     ```
 
-2. Se algum resultado for devolvido, `videoResults.Value[0]`obtenha o primeiro com . Em seguida, imprima a identificação, o título e a url do vídeo.
+2. Se os resultados forem devolvidos, obtenha o primeiro com `videoResults.Value[0]` . Em seguida, imprima o ID, título e url do vídeo.
 
     ```csharp
     if (videoResults.Value.Count > 0)
@@ -80,9 +81,9 @@ A instalação do [pacote [NuGet Video Search SDK]](https://www.nuget.org/packag
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma única página web app](../../tutorial-bing-video-search-single-page-app.md)
+> [Criar uma aplicação web de uma página única](../../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Ver também 
 
 * [O que é a API de Pesquisa de Vídeos do Bing?](../../overview.md)
-* [Serviços cognitivos .NET Amostras SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Serviços cognitivos .NET SDK amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

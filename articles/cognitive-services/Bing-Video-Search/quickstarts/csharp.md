@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Pesquisa de vídeos usando a REST API e C# - Bing Video Search'
+title: 'Quickstart: Procure vídeos utilizando a REST API e C# - Bing Video Search'
 titleSuffix: Azure Cognitive Services
-description: Utilize este quickstart para enviar pedidos de pesquisa de vídeo para a API de pesquisa de vídeo bing usando C#.
+description: Utilize este quickstart para enviar pedidos de pesquisa de vídeo para a API Bing Video Search REST usando C#.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,29 +10,30 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: d9d69d4550a5cd4a162795261b7ab3d8b59b7297
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c69fec46a6d1c8b177e5602ae24a6cbf0654dc20
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848945"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929215"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Quickstart: Procure vídeos usando a API e C de pesquisa de vídeo bing #
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Quickstart: Procure vídeos utilizando a API e C de pesquisa de vídeo Bing #
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação C# envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação C# envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-O código fonte desta amostra está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) com manipulação adicional de erros, funcionalidades e anotações de código.
+O código-fonte desta amostra está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) com tratamento adicional de erros, funcionalidades e anotações de código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Qualquer edição do [Visual Studio 2017 ou mais tarde.](https://www.visualstudio.com/downloads/)
+* Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
-* Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação utilizando [o Mono](https://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação utilizando [o Mono.](https://www.mono-project.com/)
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie uma nova solução de consola no Estúdio Visual. Em seguida, adicione os seguintes espaços de nome ao ficheiro de código principal:
+1. Crie uma nova solução de consola no Visual Studio. Em seguida, adicione os seguintes espaços de nome ao ficheiro de código principal:
 
     ```csharp
     using System;
@@ -42,7 +43,7 @@ O código fonte desta amostra está disponível [no GitHub](https://github.com/A
     using System.Collections.Generic;
     ```
 
-2. Adicione variáveis para a sua chave de subscrição, ponto final e termo de pesquisa. Para o `uriBase` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Adicione variáveis para a sua chave de subscrição, ponto final e termo de pesquisa. Pelo `uriBase` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```csharp
     const string accessKey = "enter your key here";
@@ -50,7 +51,7 @@ O código fonte desta amostra está disponível [no GitHub](https://github.com/A
     const string searchTerm = "kittens";
     ```
 
-## <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Crie uma estrutura para formatar a resposta da API de Pesquisa de Vídeo Bing
+## <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Criar uma estrutura para formatar a resposta da API de pesquisa de vídeo Bing
 
 Defina uma estrutura `SearchResult` para conter os resultados da pesquisa de imagens e as informações do cabeçalho JSON.
 
@@ -64,11 +65,11 @@ struct SearchResult
 
 ## <a name="create-and-handle-a-video-search-request"></a>Criar e lidar com um pedido de pesquisa de vídeo
 
-1. Crie um método nomeado `BingVideoSearch` para realizar a chamada para a API, e detete o tipo de retorno para a estrutura criada `SearchResult` anteriormente. 
+1. Crie um método nomeado `BingVideoSearch` para realizar a chamada para a API e desa um tipo de retorno para a estrutura criada `SearchResult` anteriormente. 
 
    Adicione código a este método nos passos que se seguem.
 
-1. Construa o URI do pedido de pesquisa. Forforte o termo de pesquisa antes de `toSearch` o anexar à corda.
+1. Construa o URI do pedido de pesquisa. Formatar o termo de pesquisa `toSearch` antes de apdicê-lo à cadeia.
 
     ```csharp    
     static SearchResult BingVideoSearch(string toSearch){
@@ -77,7 +78,7 @@ struct SearchResult
     //...
     ```
 
-2. Execute o pedido web adicionando a chave ao `Ocp-Acpim-Subscription-Key` cabeçalho e utilizando um `HttpWebResponse` objeto para armazenar a resposta DaPI. Em seguida, use um `StreamReader` para obter a corda JSON.
+2. Execute o pedido web adicionando a sua chave ao `Ocp-Acpim-Subscription-Key` cabeçalho e usando um `HttpWebResponse` objeto para armazenar a resposta da API. Então, use um `StreamReader` para obter a corda JSON.
 
     ```csharp
     //...
@@ -112,7 +113,7 @@ struct SearchResult
     Console.WriteLine(result.jsonResult);
     ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON 
+## <a name="example-json-response"></a>Exemplo JSON resposta 
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
@@ -227,6 +228,6 @@ struct SearchResult
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Ver também 
 
  [O que é a API de Pesquisa de Vídeos do Bing?](../overview.md)
