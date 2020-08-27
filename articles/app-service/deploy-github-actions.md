@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 713f4228bc2ba968fc96668d4d5c568f33b7e786
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080288"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962575"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar para o Serviço de Aplicações usando ações do GitHub
 
@@ -29,14 +29,14 @@ Para um fluxo de trabalho do Azure App Service, o ficheiro tem três secções:
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Defina um diretor de serviço. <br /> 2. Criar um segredo do GitHub. |
-|**Compilar** | 1. Criar o ambiente. <br /> 2. Construa a aplicação web. |
+|**Construir** | 1. Criar o ambiente. <br /> 2. Construa a aplicação web. |
 |**Implementar** | 1. Implementar a aplicação web. |
 
 ## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
 
 # <a name="user-level-credentials"></a>[Credenciais ao nível do utilizador](#tab/userlevel)
 
-Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) utilizando o comando [ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) no [Azure CLI](https://docs.microsoft.com/cli/azure/). Pode executar este comando utilizando [a Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Tentar.**
+Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) utilizando o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) no [Azure CLI](/cli/azure/). Pode executar este comando utilizando [a Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Tentar.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -99,11 +99,11 @@ Quando configurar o ficheiro de fluxo de trabalho mais tarde, utiliza o segredo 
 
 ---
 
-## <a name="set-up-the-environment"></a>Configure o ambiente
+## <a name="set-up-the-environment"></a>Configurar o ambiente
 
 A configuração do ambiente pode ser feita utilizando uma das ações de configuração.
 
-|**Linguagem**  |**Ação de configuração**  |
+|**Idioma**  |**Ação de configuração**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |

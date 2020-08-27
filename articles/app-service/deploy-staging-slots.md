@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236748"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962167"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
@@ -62,7 +62,7 @@ A aplicação deve estar a ser executada no nível **Standard,** **Premium**ou *
 
 6. Selecione o URL da aplicação na página de recursos da ranhura. A slot de implementação tem o seu próprio nome de anfitrião e é também uma aplicação ao vivo. Para limitar o acesso do público à ranhura de implementação, consulte as [restrições IP do Serviço de Aplicações Azure](app-service-ip-restrictions.md).
 
-A nova ranhura de implementação não tem conteúdo, mesmo que clone as definições de uma ranhura diferente. Por exemplo, pode [publicar nesta slot com o Git.](app-service-deploy-local-git.md) Você pode implantar para a ranhura a partir de um ramo de repositório diferente ou um repositório diferente.
+A nova ranhura de implementação não tem conteúdo, mesmo que clone as definições de uma ranhura diferente. Por exemplo, pode [publicar nesta slot com o Git.](./deploy-local-git.md) Você pode implantar para a ranhura a partir de um ramo de repositório diferente ou um repositório diferente.
 
 <a name="AboutConfiguration"></a>
 
@@ -83,7 +83,7 @@ Quando troca duas ranhuras (normalmente de uma ranhura de paragem para a ranhura
 
 1. Se [a cache local](overview-local-cache.md) estiver ativada, desencadeie a inicialização da cache local fazendo um pedido HTTP à raiz da aplicação ("/") em cada instância da ranhura de origem. Aguarde até que cada instância retorne qualquer resposta HTTP. A inicialização da cache local provoca um novo recomeço em cada instância.
 
-1. Se [a troca automática](#Auto-Swap) estiver ativada com aquecimento [personalizado,](#Warm-up)acionar o Início da [Aplicação](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) fazendo um pedido HTTP à raiz da aplicação ("/") em cada instância da ranhura de origem.
+1. Se [a troca automática](#Auto-Swap) estiver ativada com aquecimento [personalizado,](#Warm-up)acionar o Início da [Aplicação](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) fazendo um pedido HTTP à raiz da aplicação ("/") em cada instância da ranhura de origem.
 
     Se `applicationInitialization` não for especificado, desencadeie um pedido HTTP para a raiz de aplicação da ranhura de origem em cada instância. 
     
@@ -222,7 +222,7 @@ Se tiver algum problema, consulte [as trocas de resolução de problemas.](#trou
 
 ## <a name="monitor-a-swap"></a>Monitorizar uma troca
 
-Se a [operação de troca](#AboutConfiguration) demorar muito tempo a ser concluída, poderá obter informações sobre a operação de troca no registo de [atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Se a [operação de troca](#AboutConfiguration) demorar muito tempo a ser concluída, poderá obter informações sobre a operação de troca no registo de [atividades](../azure-monitor/platform/platform-logs-overview.md).
 
 Na página de recursos da sua aplicação no portal, no painel esquerdo, selecione **Registo de Atividade**.
 
@@ -335,7 +335,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-resource-manager-templates"></a>Automatize com modelos de Gestor de Recursos
 
-[Os modelos do Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) são ficheiros JSON declarativos utilizados para automatizar a implementação e configuração dos recursos Azure. Para trocar slots utilizando modelos de Gestor de Recursos, irá definir duas propriedades no *Microsoft.Web/sites/slots* e nos recursos *Microsoft.Web/sites:*
+[Os modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/overview.md) são ficheiros JSON declarativos utilizados para automatizar a implementação e configuração dos recursos Azure. Para trocar slots utilizando modelos de Gestor de Recursos, irá definir duas propriedades no *Microsoft.Web/sites/slots* e nos recursos *Microsoft.Web/sites:*
 
 - `buildVersion`: trata-se de uma propriedade de cordas que representa a versão atual da aplicação implantada na ranhura. Por exemplo: "v1", "1.0.0.1", ou "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: esta é uma propriedade de cordas que especifica o que `buildVersion` a ranhura deve ter. Se o targetBuildVersion não for igual à `buildVersion` corrente, isto irá desencadear a operação de troca encontrando a ranhura que tem a especificada `buildVersion` .

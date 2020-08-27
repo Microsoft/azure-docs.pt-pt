@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b917ef9234ef2e0d36526bc1688dfae2020d6b51
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b160f0aa50c30f7856bc09b88b3eb305f32d6f98
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075479"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961929"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de Backup e Restauro no [Azure App Service](overview.md) permite-lhe criar facilmente cópias de segurança de aplicações manualmente ou em horário. Pode configurar as cópias de segurança para serem mantidas até um tempo indefinido. Pode restaurar a aplicação para uma imagem instantânea de um estado anterior, sobressacando a aplicação existente ou restaurando para outra aplicação.
@@ -42,7 +42,7 @@ As seguintes soluções de base de dados são suportadas com recurso de backup:
 
 ## <a name="requirements-and-restrictions"></a>Requisitos e restrições
 * A funcionalidade de Backup e Restauro requer que o plano de Serviço de Aplicações esteja no nível **Standard,** **Premium** ou **Isolado.** Para obter mais informações sobre o escalonamento do seu plano de Serviço de Aplicações para utilizar um nível mais elevado, consulte [Scale up uma aplicação em Azure](manage-scale-up.md). **Os** níveis premium e **isolado** permitem um maior número de back ups diários do que o nível **Standard.**
-* Precisa de uma conta de armazenamento Azure e de um recipiente na mesma subscrição que a aplicação que pretende fazer. Para obter mais informações sobre as contas de armazenamento da Azure, consulte [a visão geral da conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+* Precisa de uma conta de armazenamento Azure e de um recipiente na mesma subscrição que a aplicação que pretende fazer. Para obter mais informações sobre as contas de armazenamento da Azure, consulte [a visão geral da conta de armazenamento Azure](../storage/common/storage-account-overview.md).
 * As cópias de segurança podem chegar a 10 GB de conteúdo de aplicações e bases de dados. Se o tamanho da cópia de segurança exceder este limite, obtém-se um erro.
 * As cópias de segurança da Base de Dados Azure ativada por TLS para o MySQL não são suportadas. Se um backup estiver configurado, receberá cópias de segurança falhadas.
 * Não são suportadas cópias de segurança da Base de Dados Azure ativada por TLS para PostgreSQL. Se um backup estiver configurado, receberá cópias de segurança falhadas.
@@ -169,4 +169,4 @@ Para amostras, consulte:
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter informações sobre a restauração de uma aplicação a partir de uma cópia de segurança, consulte [Restaurar uma aplicação no Azure.](web-sites-restore.md) 
+Para obter informações sobre a restauração de uma aplicação a partir de uma cópia de segurança, consulte [Restaurar uma aplicação no Azure.](web-sites-restore.md)

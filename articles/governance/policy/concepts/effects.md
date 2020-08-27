@@ -1,14 +1,14 @@
 ---
 title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544728"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958767"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -17,12 +17,12 @@ Cada definição de política no Azure Policy tem um efeito único. Este efeito 
 Estes efeitos são atualmente apoiados numa definição de política:
 
 - [Append](#append)
-- [Audit](#audit)
+- [Auditar](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [Negar](#deny)
+- [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Desativado](#disabled)
-- [Modify](#modify)
+- [Modificar](#modify)
 
 Os seguintes efeitos estão a ser _depreciados:_
 
@@ -479,14 +479,33 @@ Exemplo: Regra de controlo de admissão de porteiro v2 para permitir apenas as i
 
 ## <a name="modify"></a>Modificar
 
-Modificar é usado para adicionar, atualizar ou remover tags num recurso durante a criação ou atualização. Um exemplo comum é a atualização de etiquetas em recursos como o CostCenter. Uma política de modificação deve sempre ter `mode` definido para _Indexado,_ a menos que o recurso-alvo seja um grupo de recursos. Os recursos existentes não conformes podem ser remediados com uma [tarefa de reparação](../how-to/remediate-resources.md). Uma única regra de modificação pode ter qualquer número de operações.
+Modificar é usado para adicionar, atualizar ou remover propriedades ou tags em um recurso durante a criação ou atualização.
+Um exemplo comum é a atualização de etiquetas em recursos como o CostCenter. Os recursos existentes não conformes podem ser remediados com uma [tarefa de reparação](../how-to/remediate-resources.md). Uma única regra de modificação pode ter qualquer número de operações.
+
+As seguintes operações são suportadas pela Modificação:
+
+- Adicione, substitua ou remova as etiquetas de recursos. Para etiquetas, uma política de modificação deveria ter `mode` definido para _Indexado,_ a menos que o recurso-alvo seja um grupo de recursos.
+- Adicione ou substitua o valor do tipo de identidade gerido `identity.type` () de máquinas virtuais e conjuntos de balanças de máquinas virtuais.
+- Adicione ou substitua os valores de certos pseudónimos (pré-visualização).
+  - Utilizar o comando `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
+    em Azure PowerShell para obter uma lista de pseudónimos que podem ser usados com Modificação.
 
 > [!IMPORTANT]
-> A modificação é atualmente apenas para utilização com etiquetas. Se estiver a gerir tags, é aconselhável utilizar modificar em vez de apêndice, pois o Modificar fornece tipos de operação adicionais e a capacidade de remediar os recursos existentes. No entanto, o Apêndice é recomendado se não for capaz de criar uma identidade gerida.
+> Se estiver a gerir tags, é aconselhável utilizar modificar em vez de apêndice, pois o Modificar fornece tipos de operação adicionais e a capacidade de remediar os recursos existentes. No entanto, o Apêndice é recomendado se não for capaz de criar uma identidade gerida ou modificar ainda não suporta o pseudónimo para a propriedade de recursos.
 
 ### <a name="modify-evaluation"></a>Modificar a avaliação
 
-Modifique avaliações antes de o pedido ser processado por um Fornecedor de Recursos durante a criação ou atualização de um recurso. Modificar as etiquetas de adição ou atualizações num recurso quando **a** condição da regra política for cumprida.
+Modifique avaliações antes de o pedido ser processado por um Fornecedor de Recursos durante a criação ou atualização de um recurso. As operações de Modificação são aplicadas ao conteúdo do pedido quando **a** condição da regra política é cumprida. Cada operação de modificação pode especificar uma condição que determina quando é aplicada. As operações com condições que são avaliadas em _falso_ são ignoradas.
+
+Quando um pseudónimo é especificado, são realizados os seguintes controlos adicionais para garantir que a operação Modificação não altere o conteúdo do pedido de forma a levar o fornecedor de recursos a rejeitá-lo:
+
+- A propriedade a que o pseudónimo mapeia está marcada como "Modificável" na versão API do pedido.
+- O tipo de símbolo na operação Modificar corresponde ao tipo de símbolo esperado para a propriedade na versão API do pedido.
+
+Se um destes controlos falhar, a avaliação da política recaem para o **conflito especificado.**
+
+> [!IMPORTANT]
+> É recomefeitado que Modificar definições que incluem pseudónimos usam o **efeito de conflito** de _auditoria_ para evitar pedidos falhados usando versões API onde a propriedade mapeada não é 'Modifiável'. Se o mesmo pseudónimo se comportar de forma diferente entre as versões API, podem ser utilizadas operações de modificação condicional para determinar a operação de modificação utilizada para cada versão API.
 
 Quando uma definição de política usando o efeito Modificar é executada como parte de um ciclo de avaliação, não faz alterações aos recursos que já existem. Em vez disso, marca qualquer recurso que satisfaça **a** condição de não conforme.
 
@@ -498,7 +517,7 @@ Os **detalhes** da propriedade do efeito Modificar têm todas as subpropriedades
   - Esta propriedade deve incluir uma variedade de cordas que correspondam ao ID da função de controlo de acesso baseado em funções, acessível pela subscrição. Para obter mais informações, consulte [a remediação - configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
   - O papel definido deve incluir todas as operações concedidas ao [papel de contribuinte.](../../../role-based-access-control/built-in-roles.md#contributor)
 - **conflitoFeito** (opcional)
-  - Determina qual a definição de política "ganha" no caso de mais de uma definição de política modificar a mesma propriedade.
+  - Determina qual a definição de política "ganha" no caso de mais de uma definição de política modificar a mesma propriedade ou quando a operação Modificar não funciona no pseudónimo especificado.
     - Para recursos novos ou atualizados, a definição de política com _negação_ tem precedência. Definições de política com _auditoria_ saltam todas as **operações.** Se mais do que uma definição política _tiver negado,_ o pedido é negado como um conflito. Se todas as definições políticas tiverem _auditoria,_ nenhuma das **operações** das definições de política conflituosa será processada.
     - Para os recursos existentes, se mais do que uma definição política _tiver de negar,_ o estatuto de conformidade é _Conflito._ Se uma ou menos definições de política _tiverem de negar,_ cada atribuição devolve um estatuto de _conformidade de incumprimento_.
   - Valores disponíveis: _auditoria,_ _negação,_ _deficientes._
@@ -513,6 +532,9 @@ Os **detalhes** da propriedade do efeito Modificar têm todas as subpropriedades
     - **valor** (opcional)
       - O valor para definir a etiqueta para.
       - Esta propriedade é necessária se **a operação** for _addOrReplace_ ou _Add_.
+    - **condição** (opcional)
+      - Uma corda que contém uma expressão linguística Azure Policy com [funções políticas](./definition-structure.md#policy-functions) que _avaliam_ a verdade ou _falsa_.
+      - Não suporta as seguintes funções políticas: `field()` `resourceGroup()` . . . `subscription()` .
 
 ### <a name="modify-operations"></a>Modificar operações
 
@@ -546,11 +568,11 @@ O conjunto de propriedades **de operações** permite alterar várias tags de di
 
 A **propriedade de operação** tem as seguintes opções:
 
-|Operação |Description |
+|Operação |Descrição |
 |-|-|
-|addOrReplace |Adiciona a etiqueta definida e valor ao recurso, mesmo que a etiqueta já exista com um valor diferente. |
-|Adicionar |Adiciona a etiqueta definida e valor ao recurso. |
-|Remover |Remove a etiqueta definida do recurso. |
+|addOrReplace |Adiciona a propriedade definida ou etiqueta e valor ao recurso, mesmo que o imóvel ou etiqueta já exista com um valor diferente. |
+|Adicionar |Adiciona a propriedade definida ou etiqueta e valor ao recurso. |
+|Remover |Remove a propriedade ou etiqueta definida do recurso. |
 
 ### <a name="modify-examples"></a>Modificar exemplos
 
@@ -593,6 +615,28 @@ Exemplo 2: Retire a `env` etiqueta e adicione a etiqueta ou `environment` substi
                 "operation": "addOrReplace",
                 "field": "tags['environment']",
                 "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+Exemplo 3: Certifique-se de que uma conta de armazenamento não permite o acesso público blob, a operação Modificar é aplicada apenas ao avaliar pedidos com versão API maior ou igual a '2019-04-01':
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
             }
         ]
     }

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327349"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961980"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorizar o seu serviço de armazenamento com o Azure Monitor para armazenamento
 
@@ -54,11 +54,11 @@ Para visualizar a utilização e disponibilidade das suas contas de armazenament
 
 ### <a name="overview-workbook"></a>Livro de visão geral
 
-No livro **de resumo** para a subscrição selecionada, a tabela apresenta métricas de armazenamento interativas e estado de disponibilidade de serviço para até 10 contas de armazenamento agrupadas dentro da subscrição. Pode filtrar os resultados com base nas opções selecionadas nas seguintes listas de entrega:
+No livro **de resumo** para a subscrição selecionada, a tabela apresenta métricas de armazenamento interativas e estado de disponibilidade de serviço para até 5 contas de armazenamento agrupadas dentro da subscrição. Pode filtrar os resultados com base nas opções selecionadas nas seguintes listas de entrega:
 
 * **Subscrições** - apenas as subscrições que têm contas de armazenamento estão listadas.  
 
-* **Contas de Armazenamento** - por padrão, 10 contas de armazenamento são pré-selecionadas. Se selecionar todas ou múltiplas contas de armazenamento no seletor de âmbito, até 200 contas de armazenamento serão devolvidas. Por exemplo, se tivesse um total de 573 contas de armazenamento em três subscrições selecionadas, apenas 200 contas seriam apresentadas. 
+* **Contas de Armazenamento** - por padrão, 5 contas de armazenamento são pré-selecionadas. Se selecionar todas ou múltiplas contas de armazenamento no seletor de âmbito, até 200 contas de armazenamento serão devolvidas. Por exemplo, se tivesse um total de 573 contas de armazenamento em três subscrições selecionadas, apenas 200 contas seriam apresentadas. 
 
 * **Intervalo de tempo** - por padrão, apresenta as últimas 4 horas de informação com base nas respetivas seleções feitas.
 

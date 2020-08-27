@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079676"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959796"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorize aplicativos no Azure App Service
 [O Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidades de monitorização incorporadas para aplicações web, móveis e API no [portal Azure.](https://portal.azure.com)
@@ -152,14 +152,14 @@ Para encontrar quotas, selecione **Definições**  >  **Quotas**. Na tabela, pod
 
 Clicar em qualquer um desses gráficos irá levá-lo à vista de métricas onde pode criar gráficos personalizados, consultar métricas diferentes e muito mais. 
 
-Para saber mais sobre as métricas, consulte [as métricas de serviço do Monitor.](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
+Para saber mais sobre as métricas, consulte [as métricas de serviço do Monitor.](../azure-monitor/platform/data-platform.md)
 
 ## <a name="alerts-and-autoscale"></a>Alertas e autoescala
-As métricas para uma aplicação ou um plano de Serviço de Aplicações podem ser ligadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
+As métricas para uma aplicação ou um plano de Serviço de Aplicações podem ser ligadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../azure-monitor/platform/alerts-classic-portal.md).
 
 As aplicações do Serviço de Aplicações hospedadas em planos básicos ou superiores do Serviço de Aplicações suportam a autoescala. Com a autoescala, pode configurar regras que monitorizam as métricas do plano do Serviço de Aplicações. As regras podem aumentar ou diminuir a contagem de casos, que pode fornecer recursos adicionais, se necessário. As regras também podem ajudá-lo a economizar dinheiro quando a aplicação está sobre-aprovisionada.
 
-Para obter mais informações sobre a autoescala, consulte [Como escalar](../monitoring-and-diagnostics/insights-how-to-scale.md) e [As Melhores Práticas para autoscaling do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
+Para obter mais informações sobre a autoescala, consulte [Como escalar](../azure-monitor/platform/autoscale-get-started.md) e [As Melhores Práticas para autoscaling do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

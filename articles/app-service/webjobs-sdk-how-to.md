@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 25aaf49d32da29fe5fb082e6e4481cd9266f88e1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4a3bff9854e8e316bf368b2222d2244ab9ee6346
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208644"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962014"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Como utilizar o SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -815,7 +815,7 @@ Se quiser garantir que apenas uma instância de uma função é executado mesmo 
 
 ## <a name="filters"></a>Filtros
 
-Os Filtros de Função (pré-visualização) fornecem uma forma de personalizar o pipeline de execução WebJobs com a sua própria lógica. Os filtros são semelhantes aos [filtros do núcleo ASP.NET.](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters) Pode implementá-los como atributos declarativos que são aplicados às suas funções ou classes. Para obter mais informações, consulte [filtros de funções.](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters)
+Os Filtros de Função (pré-visualização) fornecem uma forma de personalizar o pipeline de execução WebJobs com a sua própria lógica. Os filtros são semelhantes aos [filtros do núcleo ASP.NET.](/aspnet/core/mvc/controllers/filters) Pode implementá-los como atributos declarativos que são aplicados às suas funções ou classes. Para obter mais informações, consulte [filtros de funções.](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters)
 
 ## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
 

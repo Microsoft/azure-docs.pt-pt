@@ -2,13 +2,13 @@
 title: Implementar uma especificação de modelo como um modelo ligado
 description: Aprenda a implementar uma especificação de modelo existente numa implementação ligada.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/27/2020
+ms.openlocfilehash: dd1bb00c1cfd737478a8d5f6ebffdb57e5e1640e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918388"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959209"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementar uma especificação de modelo como um modelo ligado (Pré-visualização)
 
@@ -130,7 +130,7 @@ id = $(az template-specs show --name $templateSpecName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Há um problema conhecido com a obtenção de id de especificação do modelo e, em seguida, atribuí-lo a uma variável no Windows PowerShell.
+> Há um problema conhecido em obter um ID de especificação de modelo e atribuí-lo a uma variável no Windows PowerShell.
 
 ---
 

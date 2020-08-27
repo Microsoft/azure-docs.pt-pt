@@ -5,16 +5,16 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 20c220bcb44a1a47e308f57d1466aee2773111a4
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 04e496806f2c388eb3a69df1b4cc3897b8132f6c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985687"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962915"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar a aplicação do Serviço de Aplicações eliminada com o PowerShell
 
-Se por acaso eliminar acidentalmente a sua aplicação no Azure App Service, pode restaurá-la utilizando os comandos do [módulo Az PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+Se por acaso eliminar acidentalmente a sua aplicação no Azure App Service, pode restaurá-la utilizando os comandos do [módulo Az PowerShell](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
 > - As aplicações eliminadas são expurgadas do sistema 30 dias após a eliminação inicial. Depois de uma aplicação ser purgada, não pode ser recuperada.
@@ -53,7 +53,7 @@ As informações detalhadas incluem:
 ## <a name="restore-deleted-app"></a>Restaurar app eliminada
 
 >[!NOTE]
-> `Restore-AzDeletedWebApp`não é suportado para aplicações de função.
+> `Restore-AzDeletedWebApp` não é suportado para aplicações de função.
 
 Uma vez identificada a aplicação que pretende restaurar, pode restaurá-la `Restore-AzDeletedWebApp` utilizando.
 
@@ -61,7 +61,7 @@ Uma vez identificada a aplicação que pretende restaurar, pode restaurá-la `Re
 Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> As ranhuras de implementação não são restauradas como parte da sua aplicação. Se precisar de restaurar uma ranhura de preparação, use a `-Slot <slot-name>` bandeira.
+> As ranhuras de implementação não são restauradas como parte da sua aplicação. Se precisar de restaurar uma ranhura de preparação, use a `-Slot <slot-name>`  bandeira.
 >
 
 As entradas para o comando são:
@@ -76,4 +76,4 @@ Por `Restore-AzDeletedWebApp` predefinição, restaurará tanto a configuração
 > Se a aplicação foi hospedada e depois eliminada de um Ambiente de Serviço de Aplicações, só pode ser restaurada se o ambiente de serviço de aplicações correspondente ainda existir.
 >
 
-Pode encontrar aqui a referência completa do comando: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+Pode encontrar aqui a referência completa do comando: [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).

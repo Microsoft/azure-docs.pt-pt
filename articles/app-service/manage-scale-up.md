@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: b8545c4f8c0dc86d83e0711147a1bda608c2897f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020171"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962490"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Dimensione uma aplicação no Azure App Service
 
@@ -18,7 +18,7 @@ Este artigo mostra-lhe como escalar a sua aplicação no Azure App Service. Exis
 
 * [Escala](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais CPU, memória, espaço em disco e funcionalidades extra como máquinas virtuais dedicadas (VMs), domínios e certificados personalizados, slots de encenação, autoscaling e muito mais. Aumenta-se alterando o nível de preços do plano de Serviço de Aplicações a que a sua aplicação pertence.
 * [Escala para fora](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumente o número de instâncias VM que executam a sua aplicação.
-  Você pode escalar até 30 instâncias, dependendo do seu nível de preços. [Ambientes de Serviço de Aplicações](environment/intro.md) em nível **isolado** aumentam ainda mais a sua contagem de escala para 100 instâncias. Para obter mais informações sobre a escala, consulte [a contagem de instâncias de escala manual ou automática](../monitoring-and-diagnostics/insights-how-to-scale.md). Lá, você descobre como usar autoscaling, que é escalar a contagem de instâncias automaticamente com base em regras e horários predefinidos.
+  Você pode escalar até 30 instâncias, dependendo do seu nível de preços. [Ambientes de Serviço de Aplicações](environment/intro.md) em nível **isolado** aumentam ainda mais a sua contagem de escala para 100 instâncias. Para obter mais informações sobre a escala, consulte [a contagem de instâncias de escala manual ou automática](../azure-monitor/platform/autoscale-get-started.md). Lá, você descobre como usar autoscaling, que é escalar a contagem de instâncias automaticamente com base em regras e horários predefinidos.
 
 As definições de escala demoram apenas alguns segundos a aplicar e a afetar todas as aplicações do seu [plano de Serviço de Aplicações.](../app-service/overview-hosting-plans.md)
 Não exigem que altere o seu código ou reimplante a sua aplicação.
@@ -77,7 +77,7 @@ Para uma tabela de limites de serviço, quotas e constrangimentos, e funcionalid
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md) (Dimensionar a contagem de instâncias manual ou automaticamente)  
+[Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md) (Dimensionar a contagem de instâncias manual ou automaticamente)  
 [Configure o nível PremiumV2 para o Serviço de Aplicações](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->

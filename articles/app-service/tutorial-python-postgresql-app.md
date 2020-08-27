@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: d9d8694c8ac81352ab36f3d610f02f3751090b27
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 368a87d1054e4a5ad12fa1e8c78bcde39f76ee63
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120597"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959413"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -121,7 +121,7 @@ Estas alterações são específicas para configurar o Django para funcionar em 
 ## <a name="create-postgres-database-in-azure"></a>Criar base de dados postgres em Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. -->
 
 Instale a `db-up` extensão para o Azure CLI:
 
@@ -184,7 +184,7 @@ Este comando executa as seguintes ações, que podem demorar alguns minutos:
 <!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
 <!-- No it doesn't. az webapp up doesn't respect --resource-group -->
 - Crie o [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) se já não existir. (Neste comando utiliza-se o mesmo grupo de recursos em que criou a base de dados anteriormente.)
-- Crie o plano de Serviço de [Aplicações](overview-hosting-plans.md) *DjangoPostgres-tutorial-plano* no nível básico de preços (B1), se não existir. `--plan`e `--sku` são opcionais.
+- Crie o plano de Serviço de [Aplicações](overview-hosting-plans.md) *DjangoPostgres-tutorial-plano* no nível básico de preços (B1), se não existir. `--plan` e `--sku` são opcionais.
 - Crie a aplicação De Serviço de Aplicações se não existir.
 - Ativar o registo predefinido para a aplicação, se ainda não estiver ativado.
 - Faça o upload do repositório utilizando a implementação ZIP com automatização de construção ativada.
@@ -414,7 +414,7 @@ Para parar o streaming de registo a qualquer momento, digite **Ctrl** + **C**.
 > [!NOTE]
 > Também pode inspecionar os ficheiros de registo do navegador em `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
 >
-> `az webapp up`liga o registo padrão para si. Por razões de desempenho, esta exploração se desliga após algum tempo, mas volta a funcionar sempre que `az webapp up` corre novamente. Para ligá-lo manualmente, executar o seguinte comando:
+> `az webapp up` liga o registo padrão para si. Por razões de desempenho, esta exploração se desliga após algum tempo, mas volta a funcionar sempre que `az webapp up` corre novamente. Para ligá-lo manualmente, executar o seguinte comando:
 >
 > ```azurecli
 > az webapp log config --docker-container-logging filesystem

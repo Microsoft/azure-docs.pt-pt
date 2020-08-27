@@ -4,12 +4,12 @@ description: Saiba como invocar processos de negócio a partir da sua aplicaçã
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 9d4136099a8cadc43a53298f367f6eeb784e5ce1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212850"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962201"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Enviar e-mail e invocar outros processos de negócio do Serviço de Aplicações
 
@@ -84,7 +84,7 @@ Implemente uma aplicação com o enquadramento linguístico da sua escolha para 
 1. Na parte inferior do designer, clique em **Novo passo,** **digite** Gmail na caixa de pesquisa de ações e encontre e selecione **Enviar e-mail (V2)**.
     
     > [!TIP]
-    > Pode pesquisar outros tipos de integrações, tais como SendGrid, MailChimp, Office 365 e SalesForce. Para mais informações, consulte [a documentação da Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+    > Pode pesquisar outros tipos de integrações, tais como SendGrid, MailChimp, Office 365 e SalesForce. Para mais informações, consulte [a documentação da Logic Apps](../logic-apps/index.yml).
 1. No diálogo do **Gmail,** selecione **Iniciar s.S.** e iniciar scontabilidade na conta do Gmail a partir do seguinte.
 
     ![Screenshot que mostra a caixa de diálogo do Gmail que usa para assinar na conta do Gmail a partir da a quais pretende enviar e-mail.](./media/tutorial-send-email/gmail-sign-in.png)
@@ -152,7 +152,7 @@ Clique no separador linguagem/quadro preferido abaixo para ver um exemplo.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-Em ASP.NET, pode enviar o post HTTP com a classe [System.net.http.httpClient.](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) Por exemplo:
+Em ASP.NET, pode enviar o post HTTP com a classe [System.net.http.httpClient.](/dotnet/api/system.net.http.httpclient) Por exemplo:
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ Se estiver a testar este código na aplicação da amostra para [Tutorial: Const
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-Em ASP.NET Core, pode enviar o post HTTP com a classe [System.net.http.httpClient.](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) Por exemplo:
+Em ASP.NET Core, pode enviar o post HTTP com a classe [System.net.http.httpClient.](/dotnet/api/system.net.http.httpclient) Por exemplo:
 
 ```csharp
 // requires using System.Net.Http;
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Este código está escrito para a simplicidade da demonstração. Na prática, não instantiem um `HttpClient` objeto para cada pedido. Siga as orientações da [Use IHttpClientFactory para implementar pedidos HTTP resilientes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+> Este código está escrito para a simplicidade da demonstração. Na prática, não instantiem um `HttpClient` objeto para cada pedido. Siga as orientações da [Use IHttpClientFactory para implementar pedidos HTTP resilientes](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Se estiver a testar este código na aplicação da amostra para [Tutorial: Construa uma aplicação core e SQL Database ASP.NET no Azure App Service,](tutorial-dotnetcore-sqldb-app.md)poderá usá-lo para enviar uma confirmação de e-mail na [ação Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), depois de o `Todo` item ser adicionado.
 

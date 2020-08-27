@@ -5,16 +5,16 @@ keywords: serviço de aplicações azure, aplicativo web, aplicativo móvel, app
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6c8aeeaded659fb7fd37409c3d9e495aa711fa6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 55ffb2d03a42809a41583e6be25066b0b8e104b1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080305"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961504"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicações Azure
 
-Este artigo mostra-lhe como o [Azure App Service](overview.md) ajuda a proteger a sua aplicação web, a aplicação móvel back end, a app API e [a aplicação de função.](/azure/azure-functions/) Também mostra como pode proteger ainda mais a sua aplicação com as funcionalidades incorporadas do Serviço de Aplicações.
+Este artigo mostra-lhe como o [Azure App Service](overview.md) ajuda a proteger a sua aplicação web, a aplicação móvel back end, a app API e [a aplicação de função.](../azure-functions/index.yml) Também mostra como pode proteger ainda mais a sua aplicação com as funcionalidades incorporadas do Serviço de Aplicações.
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
@@ -43,7 +43,7 @@ O Serviço de Aplicações suporta tanto o FTP como o FTPS para a implementaçã
 
 Por predefinição, a sua aplicação De Serviço de Aplicações aceita pedidos de todos os endereços IP a partir da internet, mas pode limitar esse acesso a um pequeno subconjunto de endereços IP. O Serviço de Aplicações no Windows permite definir uma lista de endereços IP que podem aceder à sua aplicação. A lista permitida pode incluir endereços IP individuais ou uma gama de endereços IP definidos por uma máscara de sub-rede. Para obter mais informações, consulte [as restrições estáticas de IP do Serviço de Aplicações Azure.](app-service-ip-restrictions.md)
 
-Para o Serviço de Aplicações no Windows, também pode restringir os endereços IP de forma dinâmica configurando o _web.config_. Para mais informações, consulte [a Dynamic IP Security \<dynamicIpSecurity> ](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Para o Serviço de Aplicações no Windows, também pode restringir os endereços IP de forma dinâmica configurando o _web.config_. Para mais informações, consulte [a Dynamic IP Security \<dynamicIpSecurity> ](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticação e autorização do cliente
 
@@ -55,7 +55,7 @@ A autenticação e autorização do Serviço de Aplicações suportam vários fo
 
 Ao autenticar contra um serviço back-end, o App Service fornece dois mecanismos diferentes dependendo da sua necessidade:
 
-- **Identidade de** serviço - Inscreva-se no recurso remoto utilizando a identidade da própria app. O Serviço de Aplicações permite-lhe criar facilmente uma [identidade gerida,](overview-managed-identity.md)que pode utilizar para autenticar com outros serviços, como [a Base de Dados Azure SQL](/azure/sql-database/) ou [o Cofre da Chave Azure.](/azure/key-vault/) Para obter um tutorial de ponta a ponta desta abordagem, consulte a [ligação Secure Azure SQL Database do Serviço de Aplicações utilizando uma identidade gerida.](app-service-web-tutorial-connect-msi.md)
+- **Identidade de** serviço - Inscreva-se no recurso remoto utilizando a identidade da própria app. O Serviço de Aplicações permite-lhe criar facilmente uma [identidade gerida,](overview-managed-identity.md)que pode utilizar para autenticar com outros serviços, como [a Base de Dados Azure SQL](/azure/sql-database/) ou [o Cofre da Chave Azure.](../key-vault/index.yml) Para obter um tutorial de ponta a ponta desta abordagem, consulte a [ligação Secure Azure SQL Database do Serviço de Aplicações utilizando uma identidade gerida.](app-service-web-tutorial-connect-msi.md)
 - **Em nome da OBO -** Faça o acesso delegado a recursos remotos em nome do utilizador. Com o Azure Ative Directory como fornecedor de autenticação, a sua aplicação de Serviço de Aplicações pode realizar o sign-in delegado a um serviço remoto, como [a Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) ou uma aplicação remota da API no Serviço de Aplicações. Para obter um tutorial de ponta a ponta desta abordagem, consulte [Authenticate e autorize os utilizadores de ponta a ponta no Azure App Service](tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividade com recursos remotos
@@ -70,13 +70,13 @@ Em cada um destes casos, o App Service fornece uma forma de fazer ligações seg
 
 ### <a name="azure-resources"></a>Recursos do Azure
 
-Quando a sua aplicação se conecta aos recursos Azure, como [a SQL Database](https://azure.microsoft.com/services/sql-database/) e [o Azure Storage,](/azure/storage/)a ligação permanece dentro do Azure e não ultrapassa os limites da rede. No entanto, a ligação passa pela rede partilhada em Azure, por isso certifique-se sempre de que a sua ligação está encriptada. 
+Quando a sua aplicação se conecta aos recursos Azure, como [a SQL Database](https://azure.microsoft.com/services/sql-database/) e [o Azure Storage,](../storage/index.yml)a ligação permanece dentro do Azure e não ultrapassa os limites da rede. No entanto, a ligação passa pela rede partilhada em Azure, por isso certifique-se sempre de que a sua ligação está encriptada. 
 
 Se a sua aplicação estiver hospedada num [ambiente de Serviço de Aplicações,](environment/intro.md)deverá [ligar-se aos serviços Azure suportados utilizando pontos finais de serviço de Rede Virtual.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Recursos dentro de uma Rede Virtual Azure
 
-A sua aplicação pode aceder a recursos numa [Rede Virtual Azure](/azure/virtual-network/) através da [integração da Rede Virtual.](web-sites-integrate-with-vnet.md) A integração é estabelecida com uma Rede Virtual utilizando uma VPN ponto-a-local. A aplicação pode então aceder aos recursos na Rede Virtual utilizando os seus endereços IP privados. A ligação ponto-a-local, no entanto, ainda atravessa as redes partilhadas em Azure. 
+A sua aplicação pode aceder a recursos numa [Rede Virtual Azure](../virtual-network/index.yml) através da [integração da Rede Virtual.](web-sites-integrate-with-vnet.md) A integração é estabelecida com uma Rede Virtual utilizando uma VPN ponto-a-local. A aplicação pode então aceder aos recursos na Rede Virtual utilizando os seus endereços IP privados. A ligação ponto-a-local, no entanto, ainda atravessa as redes partilhadas em Azure. 
 
 Para isolar completamente a conectividade dos recursos das redes partilhadas no Azure, crie a sua aplicação num [ambiente de Serviço de Aplicações.](environment/intro.md) Uma vez que um ambiente de Serviço de Aplicações é sempre implantado numa Rede Virtual dedicada, a conectividade entre a sua app e os recursos dentro da Rede Virtual está totalmente isolada. Para outros aspetos da segurança da rede num ambiente de Serviço de Aplicações, consulte [o isolamento da Rede](#network-isolation).
 
@@ -92,14 +92,14 @@ Pode aceder de forma segura aos recursos no local, como bases de dados, de três
 
 Não guarde segredos de aplicações, tais como credenciais de base de dados, fichas API e chaves privadas nos seus ficheiros de código ou configuração. A abordagem geralmente aceite é aceder-lhes como [variáveis ambientais](https://wikipedia.org/wiki/Environment_variable) usando o padrão padrão na sua linguagem de eleição. No Serviço de Aplicações, a forma de definir variáveis ambientais é através de [configurações de aplicações](configure-common.md#configure-app-settings) (e, especialmente para aplicações .NET, [cadeias de ligação).](configure-common.md#configure-connection-strings) As definições de aplicações e as cadeias de ligação são armazenadas encriptadas no Azure, e são desencriptadas apenas antes de serem injetadas na memória de processo da sua aplicação quando a aplicação começa. As chaves de encriptação são rodadas regularmente.
 
-Em alternativa, pode integrar a sua aplicação de Serviço de Aplicações com [o Azure Key Vault](/azure/key-vault/) para gestão de segredos avançados. Ao [aceder ao Cofre-Chave com uma identidade gerida,](../key-vault/tutorial-web-application-keyvault.md)a sua aplicação App Service pode aceder de forma segura aos segredos de que necessita.
+Em alternativa, pode integrar a sua aplicação de Serviço de Aplicações com [o Azure Key Vault](../key-vault/index.yml) para gestão de segredos avançados. Ao [aceder ao Cofre-Chave com uma identidade gerida,](../key-vault/general/tutorial-net-create-vault-azure-web-app.md)a sua aplicação App Service pode aceder de forma segura aos segredos de que necessita.
 
-## <a name="network-isolation"></a>Isolamento de rede
+## <a name="network-isolation"></a>Isolamento da rede
 
-Com exceção do nível de preços isolado, todos os níveis **executam** as suas aplicações na infraestrutura de rede partilhada no Serviço de Aplicações. Por exemplo, os endereços IP públicos e os equilibradores de carga frontal são partilhados com outros inquilinos. O nível **isolado** dá-lhe um completo isolamento de rede executando as suas aplicações dentro de um ambiente dedicado [do Serviço de Aplicações.](environment/intro.md) Um ambiente de Serviço de Aplicações funciona no seu próprio caso de [Rede Virtual Azure.](/azure/virtual-network/) Permite-lhe: 
+Com exceção do nível de preços isolado, todos os níveis **executam** as suas aplicações na infraestrutura de rede partilhada no Serviço de Aplicações. Por exemplo, os endereços IP públicos e os equilibradores de carga frontal são partilhados com outros inquilinos. O nível **isolado** dá-lhe um completo isolamento de rede executando as suas aplicações dentro de um ambiente dedicado [do Serviço de Aplicações.](environment/intro.md) Um ambiente de Serviço de Aplicações funciona no seu próprio caso de [Rede Virtual Azure.](../virtual-network/index.yml) Permite-lhe: 
 
 - Sirva as suas aplicações através de um ponto final público dedicado, com extremidades frontais dedicadas.
 - Sirva a aplicação interna utilizando um equilibrador de carga interno (ILB), que permite o acesso apenas a partir de dentro da sua Rede Virtual Azure. O ILB tem um endereço IP da sua sub-rede privada, que proporciona o isolamento total das suas aplicações a partir da internet.
 - [Utilize um ILB por trás de uma firewall de aplicação web (WAF)](environment/integrate-with-application-gateway.md). O WAF oferece proteção ao nível da empresa para as suas aplicações viradas para o público, tais como proteção DDoS, filtragem URI e prevenção de injeção SQL.
 
-Para mais informações, consulte [Introdução aos Ambientes de Serviço de Aplicações Azure](environment/intro.md). 
+Para mais informações, consulte [Introdução aos Ambientes de Serviço de Aplicações Azure](environment/intro.md).

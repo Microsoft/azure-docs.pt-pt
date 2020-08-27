@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7ec16b5de6053256fa6565db510ee94776def2c4
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272319"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962473"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -146,7 +146,7 @@ O Serviço de Aplicações transmite as reclamações dos utilizadores à sua ap
 
 Código que está escrito em qualquer idioma ou enquadramento pode obter a informação de que precisa destes cabeçalhos. Para ASP.NET 4.6 aplicações, o **ClaimsPrincipal** é automaticamente definido com os valores apropriados. ASP.NET Core, no entanto, não fornece um middleware de autenticação que se integre com as alegações do utilizador do App Service. Para uma solução alternativa, consulte [MaximeRouiller.Azure.AppService.EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-Se a [loja de fichas](overview-authentication-authorization.md#token-store) estiver ativada para a sua aplicação, também pode obter detalhes adicionais sobre o utilizador autenticado, ligando para `/.auth/me` . Os SDKs do servidor de Aplicações Móveis fornecem métodos de ajuda para trabalhar com estes dados. Para obter mais informações, consulte [Como utilizar as aplicações móveis Azure Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), e [trabalhar com o servidor de backend SDK .NET para aplicações móveis Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Se a [loja de fichas](overview-authentication-authorization.md#token-store) estiver ativada para a sua aplicação, também pode obter detalhes adicionais sobre o utilizador autenticado, ligando para `/.auth/me` . Os SDKs do servidor de Aplicações Móveis fornecem métodos de ajuda para trabalhar com estes dados. Para obter mais informações, consulte [Como utilizar as aplicações móveis Azure Node.js SDK](/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk#howto-tables-getidentity), e [trabalhar com o servidor de backend SDK .NET para aplicações móveis Azure](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Recuperar fichas no código de aplicações
 
@@ -489,7 +489,7 @@ Pode ver a versão atual do middleware de autenticação da plataforma, utilizan
 
 ##### <a name="from-the-azure-cli"></a>Do Azure CLI
 
-Utilizando o Azure CLI, veja a versão atual do middleware com o comando [az webapp auth show.](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show)
+Utilizando o Azure CLI, veja a versão atual do middleware com o comando [az webapp auth show.](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show)
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -520,7 +520,7 @@ Também pode acertar no ponto final /.auth/versão numa aplicação também para
 
 #### <a name="update-the-current-runtime-version"></a>Atualizar a versão atual do tempo de execução
 
-Utilizando o Azure CLI, pode atualizar a `runtimeVersion` definição na aplicação com o comando [de atualização auth auth da webapp.](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update)
+Utilizando o Azure CLI, pode atualizar a `runtimeVersion` definição na aplicação com o comando [de atualização auth auth da webapp.](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update)
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -530,7 +530,7 @@ az webapp auth update --name <my_app_name> \
 
 `<my_app_name>`Substitua-o pelo nome da sua aplicação. Substitua também `<my_resource_group>` o nome do grupo de recursos para a sua aplicação. Além disso, `<version>` substitua por uma versão válida do tempo de execução 1.x ou `~1` pela versão mais recente. Pode encontrar as notas de lançamento nas diferentes versões de tempo de execução [aqui] ( https://github.com/Azure/app-service-announcements) para ajudar a determinar a versão a fixar.
 
-Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior. **Try it** Também pode utilizar o [Azure CLI localmente](https://docs.microsoft.com/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](https://docs.microsoft.com/cli/azure/reference-index#az-login) para iniciar sessão.
+Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior. **Try it** Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1b32ae55030cc24c8892b204ff7330269993a483
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098566"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961572"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Apoio à Zona de Disponibilidade para Ambientes de Serviço de Aplicações
 
@@ -77,7 +77,7 @@ O exemplo do corte do modelo ARM abaixo mostra a propriedade das novas ***zonas*
     ]
 ```
 
-Para tornar a zona de aplicações redundante, precisa de implementar duas ASEs zonais do ILB. As duas ASEs zonais ILB devem estar em zonas de disponibilidade separadas. Em seguida, tem de implementar as suas aplicações em cada uma das ASEs ILB. Depois de as suas aplicações serem criadas, precisa de configurar uma solução de equilíbrio de carga. A solução recomendada é implantar uma [zona redundante Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) a montante das ASEs zonais do ILB. 
+Para tornar a zona de aplicações redundante, precisa de implementar duas ASEs zonais do ILB. As duas ASEs zonais ILB devem estar em zonas de disponibilidade separadas. Em seguida, tem de implementar as suas aplicações em cada uma das ASEs ILB. Depois de as suas aplicações serem criadas, precisa de configurar uma solução de equilíbrio de carga. A solução recomendada é implantar uma [zona redundante Gateway de aplicação](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) a montante das ASEs zonais do ILB. 
 
 ## <a name="in-region-data-residency"></a>Na Residência de Dados da Região ##
 
@@ -90,5 +90,3 @@ Os clientes podem validar que um Ambiente de Serviço de Aplicações está devi
 1. Utilizando [o Resource Explorer](https://resources.azure.com), navegue para o recurso ARM para o Ambiente de Serviço de Aplicações.  AsEs estão listadas em *fornecedores/Microsoft.Web/hostingEnvironments*.
 2. Se uma propriedade de *zonas* existe na vista da sintaxe ARM JSON, e contém uma única matriz JSON valorizada com um valor de "1", "2" ou "3", então o ASE é implementado zonalmente e os dados do cliente permanecem na mesma região.
 2. Se uma propriedade *de zonas* não existir, ou se o imóvel não tiver valor de zona válido como especificado anteriormente, então o ASE não é implantado zonalmente, e os dados do cliente não são armazenados exclusivamente na mesma região.
-
-

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 67816544e173c19cbc85c5779ffeba92578e00b2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211864"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961708"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configure uma aplicação ASP.NET para o Azure App Service
 
@@ -95,7 +95,7 @@ Reimplantar a sua aplicação com o *Web.config*atualizado. Deve agora ver a mes
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 
-Pode adicionar mensagens de diagnóstico no seu código de aplicação utilizando [System.Diagnostics.Trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). Por exemplo: 
+Pode adicionar mensagens de diagnóstico no seu código de aplicação utilizando [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace). Por exemplo: 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace

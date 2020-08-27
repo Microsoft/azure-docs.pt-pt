@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Tráfego web direto usando um modelo de Gestor de Recursos'
 titleSuffix: Azure Application Gateway
-description: Aprenda a usar um modelo de Gestor de Recursos para criar um Gateway de aplicação Azure que direcione o tráfego web para máquinas virtuais numa piscina de backend.
+description: Neste arranque rápido, você aprende a usar um modelo de Gestor de Recursos para criar um Gateway de aplicação Azure que direciona o tráfego web para máquinas virtuais em uma piscina de backend.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ebcb51dc4de9283752d61831eb0cad801ec1ac4b
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: f492521469281615d4182294feaefffff688bd21
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705950"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961691"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Quickstart: Tráfego web direto com Gateway de aplicação Azure - modelo ARM
 
@@ -77,7 +77,7 @@ Embora o IIS não seja necessário para criar o gateway de aplicações, está i
 
    Refresque o navegador várias vezes e deverá ver ligações tanto para o myVM1 como para o myVM2.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicações, elimine o grupo de recursos. Isto remove o gateway de aplicação e todos os recursos relacionados.
 

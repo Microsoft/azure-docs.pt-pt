@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 49045c8b8c7b3ccfa44a1077e59683191393e1ee
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220818"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962558"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilização de um balançador de carga interna com um ambiente de serviço de aplicações
 
@@ -104,7 +104,7 @@ O endereço IP do seu ILB está listado nas suas Propriedades como Endereço IP 
 #### <a name="network-security-groups"></a>Grupos de Segurança de Rede
 Um ILB ASE permite o isolamento da rede para as suas aplicações. As aplicações não são acessíveis nem sequer conhecidas pela internet. Esta abordagem é excelente para hospedar sites intranet, como aplicações de linha de negócio. Quando precisa de restringir ainda mais o acesso, ainda pode utilizar grupos de segurança de rede (NSGs) para controlar o acesso ao nível da rede. 
 
-Se pretender utilizar NSGs para restringir ainda mais o acesso, tem de se certificar de que não quebra a comunicação de que o ASE necessita para poder operar. Mesmo que o acesso HTTP/HTTPS seja apenas através do ILB utilizado pelo ASE, o ASE ainda depende de recursos fora do VNet. Para ver que acesso à rede ainda é necessário, consulte controlar o tráfego de entrada para um Ambiente de Serviço de [Aplicações][ControlInbound] e [Detalhes de Configuração de Rede para Ambientes de Serviço de Aplicações com ExpressRoute][ExpressRoute]. 
+Se pretender utilizar NSGs para restringir ainda mais o acesso, tem de se certificar de que não quebra a comunicação de que o ASE necessita para poder operar. Mesmo que o acesso HTTP/HTTPS seja apenas através do ILB utilizado pelo ASE, o ASE ainda depende de recursos fora do VNet. Para ver que acesso à rede ainda é necessário, consulte controlar o tráfego de entrada para um Ambiente de Serviço de [Aplicações][ControlInbound] e  [Detalhes de Configuração de Rede para Ambientes de Serviço de Aplicações com ExpressRoute][ExpressRoute]. 
 
 Para configurar os seus NSGs, deve conhecer o endereço IP que é utilizado pela Azure para gerir o seu ASE. Esse endereço IP é também o endereço IP de saída do seu ASE se fizer pedidos de internet. O endereço IP de saída do seu ASE permanece estático durante toda a vida do seu ASE. Se eliminar e recriar o seu ASE, obterá um novo endereço IP. Para encontrar o endereço IP, vá a **Definições -> Propriedades** e encontre o **Endereço IP de saída**. 
 
@@ -140,9 +140,9 @@ Para começar com ambientes de serviço de aplicações, consulte [Introdução 
 [WhatisASE]: app-service-app-service-environment-intro.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

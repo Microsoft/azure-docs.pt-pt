@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 51f1b40a6b429d478432e6ab440be68f8405e49a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1b5f6988a7f217669b2b2dfe90dd5152b880b41c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207652"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960433"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Crie uma aplicação core ASP.NET num recipiente Docker no Serviço de Aplicações a partir do Registo de Contentores Azure
 
@@ -44,6 +44,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, app A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Pode ver exemplos do script da CLI do Serviço de Aplicações adicionais na [documentação do Serviço de Aplicações do Azure](../samples-cli.md).

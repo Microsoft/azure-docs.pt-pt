@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1146b5979d81b91c6c6894aa54b2e0ca50c896c1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80637930"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961623"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Orientação sobre a implementação de aplicações web utilizando modelos de Gestor de Recursos Azure
 
@@ -90,7 +90,7 @@ Se o seu modelo de Gestor de Recursos utilizar o MSDeploy, as mensagens de erro 
 
 1. Aceda à [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console)do site.
 2. Navegue na pasta em D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Procure os ficheiros appManagerStatus.xml e appManagerLog.xml. O primeiro ficheiro regista o estado. O segundo ficheiro regista informações sobre o erro. Se o erro não for claro para si, pode incluí-lo quando estiver a pedir ajuda no [fórum.](https://docs.microsoft.com/answers/topics/azure-webapps.html)
+3. Procure os ficheiros appManagerStatus.xml e appManagerLog.xml. O primeiro ficheiro regista o estado. O segundo ficheiro regista informações sobre o erro. Se o erro não for claro para si, pode incluí-lo quando estiver a pedir ajuda no [fórum.](/answers/topics/azure-webapps.html)
 
 ## <a name="choose-a-unique-web-app-name"></a>Escolha um nome exclusivo de aplicativos web
 
@@ -131,7 +131,7 @@ No seu modelo, forneça o nome do certificado para `keyVaultSecretName` .
 
 Para obter um modelo de exemplo, consulte [implementar um certificado de Aplicação Web do segredo key Vault e usá-lo para criar a ligação SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para um tutorial sobre a implementação de aplicações web com um modelo, consulte [Provision e implemente microserviços previsivelmente em Azure](deploy-complex-application-predictably.md).
 * Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos em modelos, consulte [a referência do modelo do Gestor de Recursos Azure](/azure/templates/).

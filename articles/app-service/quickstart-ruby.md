@@ -6,19 +6,19 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 875649d2405aa5542a7b66e247cc50d4b2cba20d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 49f2100386af21cee8f76403d7a2d2e4ac6b8f63
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085277"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961343"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Criar uma App Ruby on Rails no Serviço de Aplicações
 
-[O Azure App Service no Linux](overview.md#app-service-on-linux) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial de arranque rápido mostra como implementar uma aplicação Ruby on Rails para o Serviço de Aplicações em Linux usando a [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+[O Azure App Service no Linux](overview.md#app-service-on-linux) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial de arranque rápido mostra como implementar uma aplicação Ruby on Rails para o Serviço de Aplicações em Linux usando a [Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
-> A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se quiser utilizar uma plataforma diferente, como o Sinatra, ou se pretender utilizar uma versão Ruby não suportada, tem de [a executar num recipiente personalizado.](containers/quickstart-docker-go.md)
+> A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se quiser utilizar uma plataforma diferente, como o Sinatra, ou se pretender utilizar uma versão Ruby não suportada, tem de [a executar num recipiente personalizado.](./quickstart-custom-container.md?pivots=platform-linux%3fpivots%3dplatform-linux)
 
 ![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 

@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9cb672f2ada88b1fc67bcd8f022c5faeeac6dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a41c5912ec285094c1f47540caf3744ddd4d469
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170805"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958331"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Resolução de problemas ERROS HTTP de "502 bad gateway" e "serviço 503 indisponível" no Azure App Service
 "502 bad gateway" e "503 service inavailable" são erros comuns na sua aplicação hospedada no [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda-o a resolver estes erros.
@@ -42,7 +42,7 @@ A resolução de problemas pode ser dividida em três tarefas distintas, por ord
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observar e monitorizar o comportamento da aplicação
 #### <a name="track-service-health"></a>Saúde do Serviço de Rastreio
-O Microsoft Azure divulga cada vez que há uma interrupção de serviço ou degradação de desempenho. Pode acompanhar a saúde do serviço no [Portal Azure.](https://portal.azure.com/) Para mais informações, consulte [a saúde do serviço track.](../monitoring-and-diagnostics/insights-service-health.md)
+O Microsoft Azure divulga cada vez que há uma interrupção de serviço ou degradação de desempenho. Pode acompanhar a saúde do serviço no [Portal Azure.](https://portal.azure.com/) Para mais informações, consulte [a saúde do serviço track.](../service-health/service-notifications.md)
 
 #### <a name="monitor-your-app"></a>Monitorize a sua aplicação
 Esta opção permite-lhe descobrir se a sua aplicação está a ter algum problema. Na lâmina da sua aplicação, clique nos **pedidos e erros** em azulejo. A lâmina **métrica** irá mostrar-lhe todas as métricas que pode adicionar.
@@ -51,7 +51,7 @@ Algumas das métricas que pode querer monitorizar para a sua aplicação são
 
 * Conjunto de trabalho de memória média
 * Tempo médio de resposta
-* Hora do CPU
+* Tempo de CPU
 * Conjunto de trabalho de memória
 * Pedidos
 
@@ -60,7 +60,7 @@ Algumas das métricas que pode querer monitorizar para a sua aplicação são
 Para obter mais informações, consulte:
 
 * [Monitorize aplicativos no Azure App Service](web-sites-monitor.md)
-* [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Receber notificações de alerta](../azure-monitor/platform/alerts-overview.md)
 
 <a name="collect"></a>
 
@@ -108,5 +108,4 @@ Esta é muitas vezes a forma mais simples de recuperar de problemas pontuais. No
 
  ![reiniciar app para resolver erros HTTP de 502 bad gateway e 503 serviço indisponíveis](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-Também pode gerir a sua aplicação usando a Azure Powershell. Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](../powershell-azure-resource-manager.md).
-
+Também pode gerir a sua aplicação usando a Azure Powershell. Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](../azure-resource-manager/management/manage-resources-powershell.md).

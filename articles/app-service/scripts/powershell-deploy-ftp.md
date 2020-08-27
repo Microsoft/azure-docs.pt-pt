@@ -6,16 +6,16 @@ ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: fd01e42570a10b0b9f9be182690dbd1daca5b896
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3b0eb74e49cbc2e5e5e0cc84e998796c85b73925
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083264"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960076"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>Carregar ficheiros para uma aplicação Web com FTP
 
-Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, implementa o seu código da aplicação Web com FTP (através de [WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)).
+Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, implementa o seu código da aplicação Web com FTP (através de [WebClient.UploadFile()](/dotnet/api/system.net.webclient.uploadfile?view=netcore-3.1)).
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 

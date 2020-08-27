@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: b6d8a73dd4f4e7c1a1e430b6f5ea494ed51d20c0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211689"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961487"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 
@@ -28,15 +28,15 @@ Aqui estão algumas características-chave do Serviço de Aplicações:
 * **Ambiente de produção gerido** - O Serviço de Aplicações [remenda e mantém automaticamente o sistema operativo e os quadros linguísticos](overview-patch-os-runtime.md) para si. Passe o tempo escrevendo grandes apps e deixe o Azure preocupar-se com a plataforma.
 * **Containerization e Docker** - Dockerize a sua app e hospede um recipiente personalizado Windows ou Linux no Serviço de Aplicações. Executar aplicativos multi-contentores com Docker Compose. Migrar as tuas habilidades Docker diretamente para o Serviço de Aplicações.
 * **Otimização de DevOps** – Configure a [integração e implementação contínuas](deploy-continuous-deployment.md) com o Azure DevOps, GitHub, BitBucket, Docker Hub ou Azure Container Registry. Promova atualizações através de [ambientes de teste](deploy-staging-slots.md). Faça a gestão das suas aplicações no App Service utilizando o [Azure PowerShell](/powershell/azure/) ou a [interface de linha de comandos (CLI) de várias plataformas](/cli/azure/install-azure-cli).
-* **Dimensionamento global com elevada disponibilidade** – aumente [verticalmente](manage-scale-up.md) ou [horizontalmente](../monitoring-and-diagnostics/insights-how-to-scale.md) de forma manual ou automática. Aloje as aplicações em qualquer lugar da infraestrutura do datacenter global da Microsoft e o App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promete elevada disponibilidade.
+* **Dimensionamento global com elevada disponibilidade** – aumente [verticalmente](manage-scale-up.md) ou [horizontalmente](../azure-monitor/platform/autoscale-get-started.md) de forma manual ou automática. Aloje as aplicações em qualquer lugar da infraestrutura do datacenter global da Microsoft e o App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promete elevada disponibilidade.
 * **Ligações a plataformas SaaS e dados no local** – escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas empresariais (como SAP), serviços SaaS (como o Salesforce) e serviços Internet (como o Facebook). Aceda a dados no local ao utilizar [Ligações Híbridas](app-service-hybrid-connections.md) e [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Segurança e conformidade** – o App Service está [em conformidade com ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autenticar utilizadores com [Diretório Ativo Azure](configure-authentication-provider-aad.md), [Google,](configure-authentication-provider-google.md) [Facebook,](configure-authentication-provider-facebook.md) [Twitter](configure-authentication-provider-twitter.md)ou [conta Microsoft.](configure-authentication-provider-microsoft.md) Crie [restrições de endereço IP](app-service-ip-restrictions.md) e [faça a gestão de identidades de serviço](overview-managed-identity.md).
 * **Modelos de aplicação** – escolha entre uma lista extensa de modelos de aplicação no [Azure Marketplace](https://azure.microsoft.com/marketplace/), como o WordPress, o Joomla e o Drupal.
 * **Integração visual studio e visual studio code** - Ferramentas dedicadas em Visual Studio e Visual Studio Code dinamizam o trabalho de criação, implantação e depuragem.
 * **API e funcionalidades móveis** - O Serviço de Aplicações fornece suporte CORS chave-na-turno para cenários DE API RESTful, e simplifica cenários de aplicações móveis, permitindo a autenticação, sincronização de dados offline, notificações push, e muito mais.
-* **Código sem servidor** - Execute um fragmento de código ou script a pedido, sem ter de aprovisionar ou gerir a infraestrutura explicitamente, e pague apenas o tempo de computação que o seu código utiliza (veja [Azure Functions (Funções do Azure)](/azure/azure-functions/)).
+* **Código sem servidor** - Execute um fragmento de código ou script a pedido, sem ter de aprovisionar ou gerir a infraestrutura explicitamente, e pague apenas o tempo de computação que o seu código utiliza (veja [Azure Functions (Funções do Azure)](../azure-functions/index.yml)).
 
-Além do Serviço de Aplicações, o Azure oferece outros serviços que podem ser usados para hospedar websites e aplicações web. Para a maioria dos cenários, o Serviço de Aplicações é a melhor escolha.  Para a arquitetura de microserviços, considere [o Azure Spring-Cloud Service](/azure/spring-cloud/) ou [o Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Se precisar de mais controlo sobre os VMs em que o seu código funciona, considere [as Máquinas Virtuais Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para obter mais informações sobre como escolher entre estes serviços do Azure, consulte a [Comparação entre o App Service do Azure, as Virtual Machines, o Service Fabric e os Cloud Services](overview-compare.md).
+Além do Serviço de Aplicações, o Azure oferece outros serviços que podem ser usados para hospedar websites e aplicações web. Para a maioria dos cenários, o Serviço de Aplicações é a melhor escolha.  Para a arquitetura de microserviços, considere [o Azure Spring-Cloud Service](../spring-cloud/index.yml) ou [o Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Se precisar de mais controlo sobre os VMs em que o seu código funciona, considere [as Máquinas Virtuais Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para obter mais informações sobre como escolher entre estes serviços do Azure, consulte a [Comparação entre o App Service do Azure, as Virtual Machines, o Service Fabric e os Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="app-service-on-linux"></a>Serviço de Aplicações no Linux
 
@@ -44,7 +44,7 @@ O Serviço de Aplicações também pode hospedar aplicações web de forma nativ
 
 ### <a name="built-in-languages-and-frameworks"></a>Línguas e quadros incorporados
 
-O Serviço de Aplicações no Linux suporta uma série de imagens incorporadas específicas do idioma. Basta implementar o seu código. As línguas suportadas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Corra [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para ver os mais recentes idiomas e versões suportadas. Se o tempo de execução que a sua aplicação necessita não for suportado nas imagens incorporadas, pode implantá-la com um recipiente personalizado.
+O Serviço de Aplicações no Linux suporta uma série de imagens incorporadas específicas do idioma. Basta implementar o seu código. As línguas suportadas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Corra [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para ver os mais recentes idiomas e versões suportadas. Se o tempo de execução que a sua aplicação necessita não for suportado nas imagens incorporadas, pode implantá-la com um recipiente personalizado.
 
 ### <a name="limitations"></a>Limitações
 

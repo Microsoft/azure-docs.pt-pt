@@ -1,5 +1,5 @@
 ---
-title: Explore um cenário de amostra
+title: Explorar um cenário de exemplo
 titleSuffix: Azure Digital Twins
 description: Utilize a amostra do ADT Explorer para visualizar e explorar um cenário pré-construído.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: b199a50443445b983011d755c3ffacaa71131faf
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: c3230294fd9d5761433b4507ff054bcaae7a11ad
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88894396"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959818"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -170,7 +170,7 @@ Na caixa *GRAPH VIEW,* bata no ícone *Import Graph.*
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Na caixa Graph View, destaca-se um ícone. Mostra uma seta apontando para uma nuvem." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-Na caixa de seletor de ficheiros, navegue novamente para a pasta *cliente/exemplos* e escolha o _** ficheirobuildingScenario.xlsx**_ folha de cálculo. Este ficheiro contém uma descrição do gráfico da amostra. Bata bem.
+Na caixa de seletor de ficheiros, navegue na pasta *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* e escolha o ficheiro _**buildingScenario.xlsx**_ folha de cálculo. Este ficheiro contém uma descrição do gráfico da amostra. Bata bem.
 
 Após alguns segundos, o ADT Explorer abrirá uma vista *de Importação* exibindo uma pré-visualização do gráfico que vai ser carregado.
 

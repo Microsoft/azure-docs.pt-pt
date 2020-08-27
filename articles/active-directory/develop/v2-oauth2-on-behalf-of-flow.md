@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3abef3324bee61f2d7eb96c80750ad589b15f342
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987040"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958665"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em nome do fluxo
 
@@ -153,7 +153,7 @@ O exemplo a seguir mostra uma resposta de sucesso a um pedido de acesso à https
 ```
 
 > [!NOTE]
-> O token de acesso acima é um símbolo em formato v1.0 para Microosft Graph. Isto porque o formato token baseia-se no **recurso** que está a ser acedido e não está relacionado com os pontos finais utilizados para o solicitar. O Microsoft Graph está configurado para aceitar fichas v1.0, pelo que a plataforma de identidade da Microsoft produz fichas de acesso v1.0 quando um cliente solicita fichas para o Microsoft Graph. Outras aplicações podem indicar que querem fichas em formato v2.0, fichas em formato v1.0 ou até formatos simbólicos ou encriptados.  Tanto os pontos finais v1.0 como v2.0 podem emitir qualquer formato de token - desta forma o recurso pode sempre obter o formato certo de token independentemente de como ou onde o token foi solicitado pelo cliente. 
+> O token de acesso acima é um símbolo em formato v1.0 para o Microsoft Graph. Isto porque o formato token baseia-se no **recurso** que está a ser acedido e não está relacionado com os pontos finais utilizados para o solicitar. O Microsoft Graph está configurado para aceitar fichas v1.0, pelo que a plataforma de identidade da Microsoft produz fichas de acesso v1.0 quando um cliente solicita fichas para o Microsoft Graph. Outras aplicações podem indicar que querem fichas em formato v2.0, fichas em formato v1.0 ou até formatos simbólicos ou encriptados.  Tanto os pontos finais v1.0 como v2.0 podem emitir qualquer formato de token - desta forma o recurso pode sempre obter o formato certo de token independentemente de como ou onde o token foi solicitado pelo cliente. 
 >
 > Apenas as aplicações devem olhar para os tokens de acesso. Os clientes **não devem** inspecioná-los. A inspeção de fichas de acesso a outras aplicações no seu código resultará na quebra inesperada da sua aplicação quando essa aplicação muda o formato dos seus tokens ou começa a criptografá-las. 
 

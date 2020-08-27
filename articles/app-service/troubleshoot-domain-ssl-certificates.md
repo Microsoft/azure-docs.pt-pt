@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668029"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958444"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Domínio de resolução de problemas e problemas de certificadoS TLS/SSL no Serviço de Aplicações Azure
 
@@ -131,7 +131,7 @@ Não é possível adicionar um novo nome de anfitrião a uma aplicação para at
 #### <a name="solution"></a>Solução
 
 - Consulte o administrador de subscrição para se certificar de que tem permissões para adicionar um nome de anfitrião à aplicação.
-- Se precisar de mais subdomínios, recomendamos que altere o anfitrião do domínio para o Serviço de Nome do Domínio Azure (DNS). Ao utilizar o Azure DNS, pode adicionar 500 nomes de anfitriões à sua aplicação. Para mais informações, consulte [Adicionar um subdomínio.](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)
+- Se precisar de mais subdomínios, recomendamos que altere o anfitrião do domínio para o Serviço de Nome do Domínio Azure (DNS). Ao utilizar o Azure DNS, pode adicionar 500 nomes de anfitriões à sua aplicação. Para mais informações, consulte [Adicionar um subdomínio.](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website)
 
 ### <a name="dns-cant-be-resolved"></a>DNS não pode ser resolvido
 
@@ -306,11 +306,11 @@ Quando compra um domínio, não é cobrado por um período de cinco dias, durant
 
 **Posso utilizar o domínio em outra aplicação do Azure App Service na minha subscrição?**
 
-Sim. Ao aceder aos Domínios Personalizados e à lâmina TLS no portal Azure, vê os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
+Yes. Ao aceder aos Domínios Personalizados e à lâmina TLS no portal Azure, vê os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
 
 **Posso transferir um domínio de uma subscrição para outra subscrição?**
 
-Pode mover um domínio para outro grupo de subscrição/recursos utilizando o [cmdlet Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell.
+Pode mover um domínio para outro grupo de subscrição/recursos utilizando o [cmdlet Move-AzResource](/powershell/module/az.Resources/Move-azResource) PowerShell.
 
 **Como posso gerir o meu domínio personalizado se não tenho atualmente uma aplicação do Azure App Service?**
 

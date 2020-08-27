@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 08a97f0f7b1a6a65feb7a2ec041001f2199ffdf7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e9bd97dc4afe0937ebd0553117640e008a72722e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81770638"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961752"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicações #
  
@@ -34,14 +34,14 @@ Os ambientes de Serviço de Aplicações (ASEs) são adequados para cargas de tr
 
 Os clientes podem criar vários ASEs numa única região do Azure ou em várias regiões do Azure. Esta flexibilidade torna os ASEs ideais para dimensionar horizontalmente camadas de aplicações sem monitorização de estado para suportar cargas de trabalho RPS elevadas.
 
-AsEs acolhe aplicações de apenas um cliente e fazê-lo num dos seus VNets. Os clientes têm um controlo otimizado sobre o tráfego de rede de aplicações de entrada e saída. As aplicações podem estabelecer ligações seguras de alta velocidade em VPNs aos recursos da empresa no local.
+AsEs acolhem aplicações de apenas um cliente e fazem-no num dos seus VNets. Os clientes têm um controlo otimizado sobre o tráfego de rede de aplicações de entrada e saída. As aplicações podem estabelecer ligações seguras de alta velocidade em VPNs aos recursos da empresa no local.
 
 * O ASE vem com o seu próprio escalão de preço. Saiba como a [Oferta isolada](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) ajuda a orientar a segurança e a hiperescala.
 * Os [Ambientes do Serviço de Aplicações v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) fornecem um ambiente para proteger as aplicações numa sub-rede da sua rede e fornece a sua própria implementação privada do Serviço de Aplicações do Azure.
 * É possível utilizar múltiplos ASEs para dimensionar horizontalmente. Para obter mais informações, veja [como configurar requisitos de espaço de uma aplicação geodistribuída](app-service-app-service-environment-geo-distributed-scale.md).
 * Os ASEs podem ser utilizados para configurar a arquitetura de segurança, conforme apresentado no AzureCon Deep Dive. Para ver como a arquitetura de segurança apresentada no AzureCon Deep Dive foi configurada, veja o [artigo sobre como implementar uma arquitetura de segurança por camadas](app-service-app-service-environment-layered-security.md) com ambientes de Serviço de Aplicações.
 * As aplicações em execução em ASEs podem ter o seu acesso protegido por dispositivos a montante, tais como firewalls de aplicações Web (WAFs). Para obter mais informações, veja [Firewall de aplicações Web (WAF)][AppGW].
-* Os ambientes de serviço de aplicações podem ser implantados em Zonas de Disponibilidade (AZ) utilizando a fixação de zona.  Consulte o Suporte ambiental do [serviço de aplicações para as zonas de disponibilidade][ASEAZ] para obter mais detalhes.
+* Os Ambientes de Serviço de Aplicações podem ser implantados em Zonas de Disponibilidade (AZ) utilizando a fixação de zonas.  Consulte [o Suporte ao Ambiente do Serviço de Aplicações para zonas de disponibilidade][ASEAZ] para obter mais detalhes.
 
 ## <a name="dedicated-environment"></a>Ambiente dedicado ##
 
@@ -61,13 +61,13 @@ Existe uma tarifa mensal fixa para um ASE que paga a infraestrutura e não muda 
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual ##
 
-A funcionalidade ASE é uma implantação do Serviço de Aplicações Azure diretamente na rede virtual do Gestor de Recursos Azure de um cliente. Para saber mais sobre as redes virtuais do Azure, veja as [Perguntas Frequentes sobre as redes virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Um ASE existe sempre numa rede virtual e, mais precisamente, numa sub-rede de uma rede virtual. Pode utilizar as funcionalidades de segurança das redes virtuais para controlar as comunicações de rede de entrada e saída para as suas aplicações.
+A funcionalidade ASE é uma implementação do Serviço de Aplicações Azure diretamente na rede virtual Azure Resource Manager de um cliente. Para saber mais sobre as redes virtuais do Azure, veja as [Perguntas Frequentes sobre as redes virtuais do Azure](../../virtual-network/virtual-networks-faq.md). Um ASE existe sempre numa rede virtual e, mais precisamente, numa sub-rede de uma rede virtual. Pode utilizar as funcionalidades de segurança das redes virtuais para controlar as comunicações de rede de entrada e saída para as suas aplicações.
 
 Um ASE pode ter acesso à Internet com um endereço IP público ou ter acesso interno apenas com um endereço do balanceador de carga interno (ILB) do Azure.
 
 Os [Grupos de Segurança de Rede][NSGs] restringem as comunicações de rede de entrada para a sub-rede onde um ASE se encontra. Pode utilizar NSGs para executar aplicações atrás de dispositivos e serviços a montante, tais como WAFs e fornecedores de SaaS de rede.
 
-As aplicações também precisam de aceder frequentemente a recursos da empresa, tais como bases de dados internas e serviços Web. Se implementar o ASE numa rede virtual que tenha uma ligação VPN à rede no local, as aplicações no ASE podem aceder aos recursos no local. Esta capacidade é verdadeira, independentemente de a VPN ser uma [rede de VPNs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) ou uma VPN [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+As aplicações também precisam de aceder frequentemente a recursos da empresa, tais como bases de dados internas e serviços Web. Se implementar o ASE numa rede virtual que tenha uma ligação VPN à rede no local, as aplicações no ASE podem aceder aos recursos no local. Esta capacidade é verdadeira, independentemente de a VPN ser uma [rede de VPNs](../../vpn-gateway/vpn-gateway-multi-site.md) ou uma VPN [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Para obter mais informações sobre como os ASEs funcionam com redes virtuais e redes no local, veja [Considerações sobre a rede do Ambiente de Serviço de Aplicações][ASENetwork].
 
@@ -95,12 +95,12 @@ O ASEv1 utiliza um modelo de preços diferente do ASEv2. No ASEv1, paga por cada
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/waf-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

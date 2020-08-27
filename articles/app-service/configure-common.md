@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4990862bacbf2afe2d4b5f39c2b9d31a7c48b78e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213577"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962898"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma app de Serviço de Aplicações no portal Azure
 
@@ -44,7 +44,7 @@ Outras pilhas linguísticas, igualmente, obtêm as configurações da aplicaçã
 As definições de aplicações são sempre encriptadas quando armazenadas (encriptadas em repouso).
 
 > [!NOTE]
-> As definições de aplicativos também podem ser resolvidas a partir do [Key Vault](/azure/key-vault/) usando [referências do Key Vault](app-service-key-vault-references.md).
+> As definições de aplicativos também podem ser resolvidas a partir do [Key Vault](../key-vault/index.yml) usando [referências do Key Vault](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Mostrar valores ocultos
 
@@ -115,7 +115,7 @@ Por exemplo, uma cadeia de ligação MySql chamada *connectionstring1* pode ser 
 As cadeias de ligação são sempre encriptadas quando armazenadas (encriptadas em repouso).
 
 > [!NOTE]
-> As cordas de ligação também podem ser resolvidas a partir do [Key Vault](/azure/key-vault/) utilizando [referências do Key Vault](app-service-key-vault-references.md).
+> As cordas de ligação também podem ser resolvidas a partir do [Key Vault](../key-vault/index.yml) utilizando [referências do Key Vault](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Mostrar valores ocultos
 

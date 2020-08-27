@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 21019917f37ad95dc15056daa51b3d9e53ec06fa
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 6af23aba28ce3cda9982878ed08ec515aa25633a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083230"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962609"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implementar um recipiente personalizado para o Serviço de Aplicações utilizando ações do GitHub
 
@@ -28,12 +28,12 @@ Para um fluxo de trabalho do serviço de aplicações Azure, o ficheiro tem trê
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Defina um diretor de serviço. <br /> 2. Criar um segredo do GitHub. |
-|**Compilar** | 1. Criar o ambiente. <br /> 2. Construa a imagem do recipiente. |
+|**Construir** | 1. Criar o ambiente. <br /> 2. Construa a imagem do recipiente. |
 |**Implementar** | 1. Desdobre a imagem do recipiente. |
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) utilizando o comando [ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) no [Azure CLI](https://docs.microsoft.com/cli/azure/). Pode executar este comando utilizando [a Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Tentar.**
+Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) utilizando o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) no [Azure CLI](/cli/azure/). Pode executar este comando utilizando [a Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Tentar.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \

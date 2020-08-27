@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e01954e0f2f311a7229a69cb18f881e0491b80d3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083166"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961725"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ do Serviço de Aplicações do Azure no Linux
 
@@ -35,7 +35,7 @@ Podes encontrar todos os ficheiros do Docker no [GitHub.](https://github.com/azu
 | Java SE         | o comando para iniciar a sua aplicação JAR (por exemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80` ) |
 | Tomcat          | a localização de um script para executar as configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh` )          |
 | Node.js         | o ficheiro de configuração PM2 ou o seu ficheiro de script                                |
-| .NET Core       | o nome DLL compilado como`dotnet <myapp>.dll`                                 |
+| .NET Core       | o nome DLL compilado como `dotnet <myapp>.dll`                                 |
 | Ruby            | o script Ruby que você quer inicializar a sua app com                     |
 
 Estes comandos ou scripts são executados após o início do recipiente docker incorporado, mas antes do seu código de aplicação ser iniciado.
@@ -66,7 +66,7 @@ Sim, para configurar a integração/implantação contínua para o Registo de Co
 
 **Apoia ambientes de encenação?**
 
-Sim.
+Yes.
 
 **Posso usar *webDeploy/MSDeploy* para implementar a minha aplicação web?**
 
@@ -100,7 +100,7 @@ const io = require('socket.io')(server,{
 
 **Suporta aplicações não-compensadas .NET Core?**
 
-Sim.
+Yes.
 
 **Apoia o Compositor como gestor de dependência para aplicações PHP?**
 
@@ -122,7 +122,7 @@ Forneça o URL de registo completo, incluindo `http://` ou `https://` .
 
 **Qual é o formato do nome de imagem na opção de registo privado?**
 
-Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para `docker-custom-image-name` definir, utilize a [ `az` ferramenta de linha de comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Adicione o nome de imagem completo, incluindo o URL de registo privado (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que utilizam uma porta personalizada [não podem ser introduzidos através do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para `docker-custom-image-name` definir, utilize a [ `az` ferramenta de linha de comando](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Posso expor mais do que uma porta na minha imagem personalizada do contentor?**
 
@@ -130,7 +130,7 @@ Não apoiamos expor mais do que um porto.
 
 **Posso levar o meu próprio armazém?**
 
-Sim, [traga o seu próprio armazenamento](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage) está em pré-visualização.
+Sim, [traga o seu próprio armazenamento](./configure-connect-to-azure-storage.md) está em pré-visualização.
 
 **Por que não posso navegar no sistema de ficheiros do meu contentor personalizado ou processar a partir do site SCM?**
 

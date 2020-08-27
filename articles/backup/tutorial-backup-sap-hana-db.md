@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 65f2a7ba51fcf811e36839d3998902ba37a90fc4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 063cd04ecfc67d5f0f761bb0159ab80dcff40030
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889996"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958818"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -36,7 +36,9 @@ Certifique-se de que faz o seguinte antes de configurar backups:
   * Deve estar presente na **hdbuserstore**padrão. O padrão é a conta sob a `<sid>adm` qual o SAP HANA está instalado.
   * Para o MDC, a chave deve apontar para a porta SQL de **NAMEERVER**. No caso do SDC, deve apontar para a porta SQL do **INDEXSERVER**
   * Deve ter credenciais para adicionar e apagar utilizadores
+  * Note que esta chave pode ser eliminada após executar o script pré-registo com sucesso
 * Executar o script de configuração de backup SAP HANA (script pré-registo) na máquina virtual onde o HANA está instalado, como utilizador principal. [Este guião](https://aka.ms/scriptforpermsonhana) prepara o sistema HANA para cópias de segurança. Consulte a secção [O que o script de pré-registo faz](#what-the-pre-registration-script-does) para saber mais sobre o script pré-registo.
+* Se a sua configuração HANA utilizar pontos de terminação privados, execute o [script de pré-registo](https://aka.ms/scriptforpermsonhana) com o parâmetro de verificação da rede *de sn* ou *skip-- skip-network.*
 
 >[!NOTE]
 >O script de pré-registo instala o **compat-unixODBC234** para cargas de trabalho SAP HANA em execução em RHEL (7.4, 7.6 e 7.7) e **unixODBC** para RHEL 8.1. [Este pacote está localizado no RHEL para SAP HANA (para RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  Para uma imagem Azure Marketplace RHEL, o repo seria **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
@@ -103,7 +105,7 @@ Executar o script de pré-registo executa as seguintes funções:
 
 * Com base na sua distribuição Linux, o script instala ou atualiza os pacotes necessários pelo agente Azure Backup.
 * Realiza verificações de conectividade de rede de saída com servidores Azure Backup e serviços dependentes como O Azure Ative Directory e Azure Storage.
-* Entra no seu sistema HANA utilizando a chave de utilizador listada como parte dos [pré-requisitos](#prerequisites). A chave do utilizador é utilizada para criar um utilizador de cópia de segurança (AZUREWLBACKUPHANAUSER) no sistema HANA e a chave do utilizador pode ser eliminada após o script pré-registo ser executado com sucesso.
+* Entra no seu sistema HANA utilizando a chave de utilizador listada como parte dos [pré-requisitos](#prerequisites). A chave do utilizador é utilizada para criar um utilizador de cópia de segurança (AZUREWLBACKUPHANAUSER) no sistema HANA e **a chave do utilizador pode ser eliminada após o script pré-registo ser executado com sucesso**.
 * A AZUREWLUPHANAUSER é atribuída a estas funções e permissões necessárias:
   * BASE DE DADOS ADMIN (no caso do MDC) e BACKUP ADMIN (no caso do SDC): criar novas bases de dados durante a restauração.
   * CATÁLOGO LEIA: para ler o catálogo de backup.

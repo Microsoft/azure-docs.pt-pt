@@ -1,18 +1,18 @@
 ---
 title: Identificar recursos em não conformidade
 description: Este guia acompanha-o através da reparação de recursos que não estão em conformidade com as políticas da Política Azure.
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636313"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958750"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não conformes com a Política Azure
 
-Os recursos que não sejam compatíveis com uma **política de implantaçãoIfNotExists** ou **modificar** políticas podem ser colocados num estado compatível através da **remediação**. A reparação é realizada instruindo a Azure Policy a executar o efeito **deployIfNotExists** ou as **operações** de etiqueta da política atribuída nos seus recursos existentes, quer essa atribuição seja para um grupo de gestão, uma subscrição, um grupo de recursos ou um recurso individual. Este artigo mostra os passos necessários para compreender e realizar a remediação com a Política Azure.
+Os recursos que não sejam compatíveis com uma **política de implantaçãoIfNotExists** ou **modificar** políticas podem ser colocados num estado compatível através da **remediação**. A reparação é realizada instruindo a Azure Policy a executar o efeito **deployIfNotExists** ou as **operações modificadas** da política atribuída nos seus recursos existentes, quer essa atribuição seja para um grupo de gestão, uma subscrição, um grupo de recursos ou um recurso individual. Este artigo mostra os passos necessários para compreender e realizar a remediação com a Política Azure.
 
 ## <a name="how-remediation-security-works"></a>Como funciona a segurança da reparação
 
@@ -182,7 +182,7 @@ Para outros cmdlets e exemplos de remediação, consulte o módulo [Az.PolicyIns
 
 Uma forma simplificada de criar uma tarefa de reparação é fazê-lo a partir do portal Azure durante a atribuição de políticas. Se a definição de política a atribuir for um **implementadorIfNotExists** ou um efeito **Modificar,** o assistente no **separador Remediação** oferece uma opção _de tarefa de remediação._ Se esta opção for selecionada, é criada uma tarefa de reparação ao mesmo tempo que a atribuição de políticas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

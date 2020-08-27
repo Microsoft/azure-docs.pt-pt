@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690260"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959158"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -153,7 +153,7 @@ Dentro da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.info/#
 * Suporta consulta do utilizador por ID e por gestor, de acordo com a secção 3.4.2 do protocolo SCIM.  
 * Suporta grupos de consulta por ID e por membro, de acordo com a secção 3.4.2 do protocolo SCIM.  
 * Aceita um único sinal de portador para autenticação e autorização da Azure AD para a sua aplicação.
-* Suporta a eliminação suave de um utilizador `active=false` e a restauração do utilizador `active=true` .
+* Suporta a eliminação suave de um utilizador `active=false` e a restauração do utilizador `active=true` (o objeto do utilizador deve ser devolvido num pedido, quer o utilizador esteja ou não ativo). A única altura em que o utilizador não deve ser devolvido é quando é duramente eliminado da aplicação. 
 
 Siga estas orientações gerais ao implementar um ponto final SCIM para garantir a compatibilidade com a Azure AD:
 

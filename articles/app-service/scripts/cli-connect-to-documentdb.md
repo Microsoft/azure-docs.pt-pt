@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 911282e71491c86fefa86d342e916cdff4fa8c9b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d2afcc19c5c2e67321ec24847dc9a6f0129eec8e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80058656"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962320"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Conecte uma aplicação de Serviço de Aplicações à Cosmos DB usando o CLI
 
@@ -47,6 +47,6 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, app A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Pode ver exemplos do script da CLI do Serviço de Aplicações adicionais na [documentação do Serviço de Aplicações do Azure](../samples-cli.md).

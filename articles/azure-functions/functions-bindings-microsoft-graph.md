@@ -6,14 +6,17 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 9dd4067d066362f5842b504971afbc59fd0717a3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d10b36047959299f5b66da5fb16beef8a591a983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212202"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962847"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Ligações do Microsoft Graph para Funções Azure
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 Este artigo explica como configurar e trabalhar com os gatilhos e encadernações do Microsoft Graph em Funções Azure. Com estes, pode utilizar as Funções Azure para trabalhar com dados, insights e eventos a partir do Gráfico da [Microsoft.](https://developer.microsoft.com/graph)
 
@@ -38,6 +41,9 @@ A ligação de entrada auth token é fornecida no pacote [Microsoft.Azure.WebJob
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Criação das extensões
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 As ligações do Microsoft Graph estão disponíveis através _de extensões de ligação_. As extensões de encadernação são componentes opcionais para o tempo de funcionamento das Funções Azure. Esta secção mostra como configurar as extensões do Microsoft Graph e auth token.
 
@@ -71,6 +77,9 @@ Se estiver a utilizar o portal Azure, verá um aviso abaixo da indicação para 
 
 <a name="token-input"></a>
 ## <a name="auth-token"></a>Ficha de Auth
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 A ligação de entrada simbólica auth recebe um token AD Azure para um determinado recurso e fornece-o ao seu código como uma cadeia. O recurso pode ser qualquer um para o qual a aplicação tenha permissões. 
 
@@ -229,6 +238,9 @@ O símbolo é sempre apresentado ao código como uma corda.
 
 <a name="excel-input"></a>
 ## <a name="excel-input"></a>Entrada Excel
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 A ligação de entrada da tabela Excel lê o conteúdo de uma tabela Excel armazenada no OneDrive.
 
@@ -538,6 +550,9 @@ A ligação expõe os seguintes tipos às funções .NET:
 <a name="onedrive-input"></a>
 ## <a name="file-input"></a>Entrada de ficheiros
 
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
+
 A ligação de entrada do Ficheiro OneDrive lê o conteúdo de um ficheiro armazenado no OneDrive.
 
 Esta secção contém as seguintes subsecções:
@@ -681,6 +696,9 @@ A ligação expõe os seguintes tipos às funções .NET:
 
 <a name="onedrive-output"></a>
 ## <a name="file-output"></a>Saída de ficheiro
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 A ligação de saída de ficheiro OneDrive modifica o conteúdo de um ficheiro armazenado no OneDrive.
 
@@ -828,6 +846,9 @@ A ligação expõe os seguintes tipos às funções .NET:
 
 <a name="outlook-output"></a>
 ## <a name="outlook-output"></a>Saída outlook
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 A vinculação da saída da mensagem do Outlook envia uma mensagem de correio através do Outlook.
 
@@ -979,6 +1000,9 @@ A ligação expõe os seguintes tipos às funções .NET:
 
 ## <a name="webhooks"></a>Webhooks
 
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
+
 Os webhooks permitem-lhe reagir a eventos no Gráfico microsoft. Para suportar webhooks, são necessárias funções para criar, refrescar e reagir a _subscrições webhook_. Uma solução webhook completa requer uma combinação das seguintes ligações:
 - Um [gatilho webhook microsoft Graph](#webhook-trigger) permite-lhe reagir a um webhook que está a chegar.
 - Uma [ligação de entrada de subscrição webhook do Microsoft Graph](#webhook-input) permite-lhe listar as subscrições existentes e a atualizá-las opcionalmente.
@@ -993,6 +1017,9 @@ Para obter mais informações sobre webhooks, consulte [Working with webhooks no
 
 
 ## <a name="webhook-trigger"></a>Gatilho webhook
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 O gatilho webhook microsoft Graph permite que uma função reaja a um webhook de entrada a partir do Gráfico microsoft. Todas as instâncias deste acionador podem reagir a um tipo de recurso do Microsoft Graph.
 
@@ -1096,7 +1123,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**| n/a |Requerido - o nome variável utilizado no código de função para a mensagem de correio. Ver [Utilizar uma saída de saída de mensagem Outlook a partir do código](#outlook-output-code).|
 |**tipo**| n/a |Necessário - deve ser definido para `graphWebhook` .|
 |**direção**| n/a |Necessário - deve ser definido para `trigger` .|
-|**RecursosType**|**ResourceType**|Requerido - o recurso gráfico para o qual esta função deve responder a webhooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code> - alterações efetuadas às mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> - alterações efetuadas nos itens de raiz OneDrive.</li><li><code>#Microsoft.Graph.Contact</code> - alterações efetuadas aos contactos pessoais no Outlook.</li><li><code>#Microsoft.Graph.Event</code> - alterações efetuadas aos itens do calendário do Outlook.</li></ul>|
+|**RecursosType**|**Tipo de recursos**|Requerido - o recurso gráfico para o qual esta função deve responder a webhooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code> - alterações efetuadas às mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> - alterações efetuadas nos itens de raiz OneDrive.</li><li><code>#Microsoft.Graph.Contact</code> - alterações efetuadas aos contactos pessoais no Outlook.</li><li><code>#Microsoft.Graph.Event</code> - alterações efetuadas aos itens do calendário do Outlook.</li></ul>|
 
 > [!Note]
 > Uma aplicação de função só pode ter uma função que está registada contra um determinado `resourceType` valor.
@@ -1112,6 +1139,9 @@ A ligação expõe os seguintes tipos às funções .NET:
 
 <a name="webhook-input"></a>
 ## <a name="webhook-input"></a>Entrada Webhook
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 A ligação de entrada webhook do Microsoft Graph permite-lhe recuperar a lista de subscrições geridas por esta aplicação de função. A ligação lê-se a partir do armazenamento de aplicações de funções, pelo que não reflete outras subscrições criadas de fora da app.
 
@@ -1264,6 +1294,9 @@ A ligação expõe os seguintes tipos às funções .NET:
 
 ## <a name="webhook-output"></a>Saída webhook
 
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
+
 A ligação de saída de subscrição webhook permite-lhe criar, eliminar e atualizar subscrições webhook no Gráfico do Microsoft.
 
 Esta secção contém as seguintes subsecções:
@@ -1407,6 +1440,9 @@ A ligação expõe os seguintes tipos às funções .NET:
 
 <a name="webhook-examples"></a>
 ## <a name="webhook-subscription-refresh"></a>Atualização de subscrição webhook
+
+> [!IMPORTANT]
+> As ligações de pré-visualização do Microsoft Graph estão agora depreciadas. Consulte as [Funções Build Azure com](https://docs.microsoft.com/graph/tutorials/azure-functions) o tutorial do Microsoft Graph para obter mais detalhes sobre como utilizar o Microsoft Graph com Funções Azure.
 
 Existem duas abordagens para subscrições refrescantes:
 

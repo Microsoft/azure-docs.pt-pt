@@ -7,19 +7,19 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 228e6f144a1d6e3d0fc4f8fd8cb35c6f4e989ee9
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 562185697f8f80fc52b06be80a9f15271f16c0a3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085357"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961470"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Crie uma aplicação multi-contentor (pré-visualização) utilizando uma configuração Docker Compose
 
 > [!NOTE]
 > O multi-contentor está em pré-visualização.
 
-A [Aplicação Web para Contentores](overview.md#app-service-on-linux) proporciona uma forma flexível de utilizar imagens do Docker. Este quickstart mostra como implementar uma aplicação multi-contentores (pré-visualização) para a Web App para contentores na [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) utilizando uma configuração Docker Compose.
+A [Aplicação Web para Contentores](overview.md#app-service-on-linux) proporciona uma forma flexível de utilizar imagens do Docker. Este quickstart mostra como implementar uma aplicação multi-contentores (pré-visualização) para a Web App para contentores na [Cloud Shell](../cloud-shell/overview.md) utilizando uma configuração Docker Compose.
 
 Este início rápido deverá ser concluído no Cloud Shell, mas também poderá executar estes comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). 
 

@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba6b8160eefb0a59bc8273989c27a3a8501a79b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b6509f684e611fbb79184383e1b332d793458b9
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547805"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958784"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -651,6 +651,13 @@ A lista de pseudónimos está sempre a crescer. Para encontrar os pseudónimos a
   # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
+
+  > [!NOTE]
+  > Para encontrar pseudónimos que possam ser usados com o efeito [modificar,](./effects.md#modify) utilize o seguinte comando:
+  >
+  > ```azurepowershell-interactive
+  > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
+  > ```
 
 - CLI do Azure
 

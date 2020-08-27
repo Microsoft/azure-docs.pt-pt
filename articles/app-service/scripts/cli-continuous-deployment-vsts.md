@@ -9,19 +9,19 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: d8889297267c2c583ac4b5bdcd4ff442ec3ef047
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 01855fa7920a4e04cff9fa178083d094142d59d7
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495595"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960909"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Criar uma aplicação de Serviço de Aplicações com implementação contínua usando O Azure CLI
 
 Este script de amostra cria uma aplicação no Serviço de Aplicações com os seus recursos relacionados, e depois configura a implementação contínua a partir de um repositório Azure DevOps. Neste exemplo, precisa de:
 
 * Um repositório Azure DevOps com código de aplicação, para o que tem permissões administrativas.
-* Um [Token de Acesso Pessoal (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) para a sua organização do Azure DevOps.
+* Um [Token de Acesso Pessoal (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) para a sua organização do Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,6 +49,6 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Pode ver exemplos do script da CLI do Serviço de Aplicações adicionais na [documentação do Serviço de Aplicações do Azure](../samples-cli.md).

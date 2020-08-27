@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 106427a6b26386e6ff881862f836e9108a27aa96
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084679"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959022"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Resolução de problemas de uma aplicação do Serviço de Aplicações com o Azure Monitor
 
@@ -18,11 +18,11 @@ ms.locfileid: "88084679"
 > A integração do Azure Monitor com o Serviço de Aplicações está em [pré-visualização.](https://aka.ms/appsvcblog-azmon)
 >
 
-Este tutorial mostra como resolver problemas numa aplicação [do Serviço de Aplicações](overview.md) utilizando [o Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/overview) A aplicação da amostra inclui código destinado a esgotar a memória e causar erros HTTP 500, para que possa diagnosticar e corrigir o problema usando o Azure Monitor. Quando terminar, terá uma aplicação de amostra em execução no Serviço de Aplicações em Linux integrada com [o Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/overview)
+Este tutorial mostra como resolver problemas numa aplicação [do Serviço de Aplicações](overview.md) utilizando [o Azure Monitor.](../azure-monitor/overview.md) A aplicação da amostra inclui código destinado a esgotar a memória e causar erros HTTP 500, para que possa diagnosticar e corrigir o problema usando o Azure Monitor. Quando terminar, terá uma aplicação de amostra em execução no Serviço de Aplicações em Linux integrada com [o Azure Monitor.](../azure-monitor/overview.md)
 
-[O Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximiza a disponibilidade e desempenho das suas aplicações e serviços, fornecendo uma solução abrangente para recolher, analisar e agir em telemetria a partir dos seus ambientes de nuvem e no local.
+[O Azure Monitor](../azure-monitor/overview.md) maximiza a disponibilidade e desempenho das suas aplicações e serviços, fornecendo uma solução abrangente para recolher, analisar e agir em telemetria a partir dos seus ambientes de nuvem e no local.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure uma aplicação web com o Azure Monitor
@@ -37,8 +37,8 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 
 Para completar este tutorial, você precisará:
 
-- [Assinatura Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Subscrição do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [CLI do Azure](/cli/azure/install-azure-cli)
 - [Rio Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Criar recursos do Azure
@@ -73,12 +73,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>Criar uma definição de diagnóstico
 
-As definições de diagnóstico podem ser usadas para recolher métricas de certos serviços Azure em Registos monitores Azure para análise com outros dados de monitorização utilizando consultas de registo. Para este tutorial, ativa o servidor web e os registos de saída/erro padrão. Consulte [os tipos de registo suportados](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) para obter uma lista completa de tipos e descrições de registos.
+As definições de diagnóstico podem ser usadas para recolher métricas de certos serviços Azure em Registos monitores Azure para análise com outros dados de monitorização utilizando consultas de registo. Para este tutorial, ativa o servidor web e os registos de saída/erro padrão. Consulte [os tipos de registo suportados](./troubleshoot-diagnostic-logs.md#supported-log-types) para obter uma lista completa de tipos e descrições de registos.
 
 Executou os seguintes comandos para criar definições de diagnóstico para AppServiceConsoleLogs (saída/erro padrão) e AppServiceHTTPLogs (registos de servidores web). Substitua _\<app-name>_ e _\<workspace-name>_ os seus valores. 
 
 > [!NOTE]
-> Os dois primeiros `resourceID` `workspaceID` comandos, e, são variáveis para serem usados no `az monitor diagnostic-settings create` comando. Consulte [Configurações de diagnóstico utilizando O Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) para obter mais informações sobre este comando.
+> Os dois primeiros `resourceID` `workspaceID` comandos, e, são variáveis para serem usados no `az monitor diagnostic-settings create` comando. Consulte [Configurações de diagnóstico utilizando O Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) para obter mais informações sobre este comando.
 >
 
 ```bash
@@ -129,7 +129,7 @@ No portal Azure, selecione o seu espaço de trabalho Log Analytics.
 
 ### <a name="log-queries"></a>Registar consultas
 
-As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados recolhidos nos Registos do Monitor Azure. Utiliza consultas de registo para identificar os registos tanto em AppServiceHTTPLogs como em AppServiceConsoleLogs. Consulte a [visão geral](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) da consulta de registo para obter mais informações sobre consultas de registo.
+As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados recolhidos nos Registos do Monitor Azure. Utiliza consultas de registo para identificar os registos tanto em AppServiceHTTPLogs como em AppServiceConsoleLogs. Consulte a [visão geral](../azure-monitor/log-query/log-query-overview.md) da consulta de registo para obter mais informações sobre consultas de registo.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Ver AppServiceHTTPLogs com consulta de log
 
@@ -186,7 +186,7 @@ Agora que identificou http 500s e erros padrão, tem de confirmar se existe uma 
 >
 > - Filtros HTTPLogs para 500 erros
 > - Registos de consola de consultas
-> - Junta-se às mesas`TimeGenerated`
+> - Junta-se às mesas `TimeGenerated`
 >
 
 Execute a seguinte consulta:
@@ -268,7 +268,7 @@ O que aprendeu:
 > * Enviaram registos para Registar Analytics
 > * Consultas de registo usadas para identificar e resolver erros de aplicações web
 
-## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
+## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)
 * [Serviço de aplicações Azure em Estúdio Visual](troubleshoot-dotnet-visual-studio.md)
 * [Analisar registos de aplicativos em HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

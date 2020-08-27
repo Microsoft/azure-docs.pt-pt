@@ -8,21 +8,21 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 238cd5e79fe749052206cfdf25d576f88f1020e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065442"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962235"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Criar duas aplicações web conectadas de forma segura com a integração Private Endpoint e VNet
 
-Este artigo ilustra um exemplo de utilização da integração [Private Endpoint](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) e [VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) regional para ligar duas aplicações web (frontend e backend) seguindo de forma segura estes passos:
+Este artigo ilustra um exemplo de utilização da integração [Private Endpoint](../networking/private-endpoint.md) e [VNet](../web-sites-integrate-with-vnet.md) regional para ligar duas aplicações web (frontend e backend) seguindo de forma segura estes passos:
 - Implementar um VNet
 - Criar a primeira sub-rede para a integração
 - Crie a segunda sub-rede para o ponto final privado, tem de definir um parâmetro específico para desativar as políticas de rede
 - Implementar um Plano de Serviço de Aplicações do tipo PremiumV2, sKU mínimo necessário para a funcionalidade Private Endpoint
-- Crie a aplicação web frontend com configurações específicas de aplicações para consumir a zona privada de DNS, [mais detalhes](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones)
+- Crie a aplicação web frontend com configurações específicas de aplicações para consumir a zona privada de DNS, [mais detalhes](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Ligue a aplicação web frontend à sub-rede de integração
 - Crie a aplicação web backend
 - Crie a zona privada DNS com o nome da zona de ligação privada para aplicações web privatelink.azurewebsites.net
@@ -31,7 +31,7 @@ Este artigo ilustra um exemplo de utilização da integração [Private Endpoint
 
 ## <a name="how-to-use-terraform-in-azure"></a>Como usar terraform em Azure
 
-Navegue pela [documentação do Azure](https://docs.microsoft.com/azure/developer/terraform/) para aprender a usar terraforme com Azure.
+Navegue pela [documentação do Azure](/azure/developer/terraform/) para aprender a usar terraforme com Azure.
 
 ## <a name="the-complete-terraform-file"></a>O ficheiro terraform completo
 
@@ -149,4 +149,4 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 ## <a name="next-steps"></a>Passos seguintes
 
 
-> [Saiba mais sobre a utilização do Terraform em Azure](https://docs.microsoft.com/azure/developer/terraform/)
+> [Saiba mais sobre a utilização do Terraform em Azure](/azure/developer/terraform/)

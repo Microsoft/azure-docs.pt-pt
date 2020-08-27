@@ -10,19 +10,19 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 274228ea5aa9ac9de9725176c8b6221ee9e9542e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a3067972dc42db6644006e33797fc44c2f494693
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182702"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961249"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Quickstart: Criar uma aplicação Java no Azure App Service
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este quickstart mostra como usar o [CLI Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Azure Web App Plugin para Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) implementar um ficheiro java web archive (WAR).
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este quickstart mostra como usar o [CLI Azure](/cli/azure/get-started-with-azure-cli) com o [Azure Web App Plugin para Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) implementar um ficheiro java web archive (WAR).
 
 > [!NOTE]
-> Neste artigo, estamos a trabalhar apenas com aplicações Java em pacotes de ficheiros WAR. O plug-in também suporta aplicações Web JAR, visite [Implementar um ficheiro JAR do Java SE no Serviço de Aplicações no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentar.
+> Neste artigo, estamos a trabalhar apenas com aplicações Java em pacotes de ficheiros WAR. O plug-in também suporta aplicações Web JAR, visite [Implementar um ficheiro JAR do Java SE no Serviço de Aplicações no Linux](/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentar.
 
 > [!NOTE]
 > O mesmo também pode ser feito usando IDEs populares como IntelliJ e Eclipse. Consulte os nossos documentos semelhantes no [Azure Toolkit para IntelliJ Quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) ou [Azure Toolkit para Eclipse Quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
@@ -186,7 +186,7 @@ Confirm (Y/N)? : Y
 
 Pode modificar as configurações do Serviço de Aplicações diretamente no `pom.xml` seu, se necessário, algumas comuns estão listadas abaixo:
 
- Propriedade | Necessário | Descrição | Versão
+ Propriedade | Obrigatório | Descrição | Versão
 ---|---|---|---
 `<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores suportados são: `v1` `v2` . . | 1.5.2
 `<resourceGroup>` | true | Grupo de Recursos Azure para a sua Aplicação Web. | 0.1.0+
@@ -235,13 +235,13 @@ Este comando pode demorar alguns minutos a ser executado.
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Ligue à Base de Dados Azure SQL com a Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Ligue à Base de Dados Azure SQL com a Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Ligue-se ao Azure DB para o MySQL com o Java](/azure/mysql/connect-java)
+> [Ligue-se ao Azure DB para o MySQL com o Java](../mysql/connect-java.md)
 
 > [!div class="nextstepaction"]
-> [Ligue-se ao Azure DB para PostgreSQL com Java](/azure/postgresql/connect-java)
+> [Ligue-se ao Azure DB para PostgreSQL com Java](../postgresql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Azure para Java Developers Resources](/java/azure/)
@@ -250,7 +250,7 @@ Este comando pode demorar alguns minutos a ser executado.
 > [Configure a app Java](configure-language-java.md)
 
 > [!div class="nextstepaction"]
-> [CI/CD com o Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+> [CI/CD com o Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin)
 
 > [!div class="nextstepaction"]
 > [Mapear domínio personalizado](app-service-web-tutorial-custom-domain.md)

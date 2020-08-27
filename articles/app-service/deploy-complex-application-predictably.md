@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: f5e4c4d89a1119b0f59aa15885406cd7261d2f69
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170008"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962031"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisão e implantação de microserviços previsivelmente em Azure
 Este tutorial mostra como providenciar e implementar uma aplicação composta por [microserviços](https://en.wikipedia.org/wiki/Microservices) no [Azure App Service](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível usando modelos de grupo de recursos JSON e scripts PowerShell. 
@@ -29,7 +29,7 @@ No tutorial, irá implementar uma aplicação que inclui:
 Neste tutorial, utilizará as seguintes ferramentas. Como não é uma discussão abrangente sobre ferramentas, vou manter-me no cenário de ponta a ponta e dar-te uma breve introdução a cada um, e onde podes encontrar mais informações sobre isso. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modelos de Gestor de Recursos Azure (JSON)
-Sempre que cria uma aplicação no Azure App Service, por exemplo, o Azure Resource Manager utiliza um modelo JSON para criar todo o grupo de recursos com os recursos componentes. Um modelo complexo do [Azure Marketplace](/azure/marketplace) pode incluir a base de dados, contas de armazenamento, o plano de Serviço de Aplicações, a própria app, regras de alerta, configurações de aplicações, configurações de autoescalação e muito mais, e todos estes modelos estão disponíveis para você através do PowerShell. Para obter mais informações sobre os modelos do Gestor de Recursos Azure, consulte [modelos de gestor de recursos Azure](../azure-resource-manager/templates/template-syntax.md)
+Sempre que cria uma aplicação no Azure App Service, por exemplo, o Azure Resource Manager utiliza um modelo JSON para criar todo o grupo de recursos com os recursos componentes. Um modelo complexo do [Azure Marketplace](../marketplace/index.yml) pode incluir a base de dados, contas de armazenamento, o plano de Serviço de Aplicações, a própria app, regras de alerta, configurações de aplicações, configurações de autoescalação e muito mais, e todos estes modelos estão disponíveis para você através do PowerShell. Para obter mais informações sobre os modelos do Gestor de Recursos Azure, consulte [modelos de gestor de recursos Azure](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 para Visual Studio
 O mais recente SDK contém melhorias no suporte do modelo do Gestor de Recursos no editor JSON. Pode usá-lo para criar rapidamente um modelo de grupo de recursos a partir do zero ou abrir um modelo JSON existente (como um modelo de galeria descarregado) para modificação, preencher o ficheiro de parâmetros e até mesmo implementar o grupo de recursos diretamente a partir de uma solução do Grupo de Recursos Azure.
@@ -39,12 +39,12 @@ Para mais informações, consulte [Azure SDK 2.6 para o Visual Studio](https://a
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 ou mais tarde
 A partir da versão 0.8.0, a instalação Azure PowerShell inclui o módulo Azure Resource Manager para além do módulo Azure. Este novo módulo permite-lhe scripts a implementação de grupos de recursos.
 
-Para obter mais informações, consulte [utilizar a Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md)
+Para obter mais informações, consulte [utilizar a Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 
 ### <a name="azure-resource-explorer"></a>Explorador de Recursos do Azure
 Esta [ferramenta de pré-visualização](https://resources.azure.com) permite-lhe explorar as definições JSON de todos os grupos de recursos na sua subscrição e nos recursos individuais. Na ferramenta, pode editar as definições JSON de um recurso, eliminar toda uma hierarquia de recursos e criar novos recursos.  As informações prontamente disponíveis nesta ferramenta são muito úteis para a autoria do modelo porque mostra-lhe quais as propriedades que precisa de definir para um determinado tipo de recurso, os valores corretos, etc. Pode até criar o seu grupo de recursos no [Portal Azure,](https://portal.azure.com/)depois inspecione as definições de JSON na ferramenta exploradora para o ajudar a terpluário do grupo de recursos.
 
-### <a name="deploy-to-azure-button"></a>Implementar para o botão Azure
+### <a name="deploy-to-azure-button"></a>Botão Implementar no Azure
 Se utilizar o GitHub para controlo de origem, pode colocar um [botão Implementar para Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) na sua README. MD, que permite uma colocação de chave de turno uI para Azure. Embora possa fazê-lo para qualquer aplicação simples, pode estender isto para permitir a implementação de um grupo inteiro de recursos, colocando uma azuredeploy.jsem ficheiros na raiz do repositório. Este ficheiro JSON, que contém o modelo de grupo de recursos, será utilizado pelo botão Implementar para Azure para criar o grupo de recursos. Por exemplo, consulte a amostra [do ToDoApp,](https://github.com/azure-appservice-samples/ToDoApp) que utilizará neste tutorial.
 
 ## <a name="get-the-sample-resource-group-template"></a>Obtenha o modelo do grupo de recursos de amostra
@@ -137,8 +137,8 @@ As definições da aplicação também são definidas como um recurso aninhado.
 
 No `properties` elemento para `config/appsettings` , tem duas configurações de aplicações no formato `"<name>" : "<value>"` .
 
-* `PROJECT`é uma [definição kudu](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) que diz à implementação do Azure qual projeto usar numa solução de Estúdio Visual multi-projecto. Vou mostrar-lhe mais tarde como o controlo de origem está configurado, mas como o código ToDoApp está numa solução de Estúdio Visual multi-projecto, precisamos desta configuração.
-* `clientUrl`é simplesmente uma definição de aplicação que o código de aplicação utiliza.
+* `PROJECT` é uma [definição kudu](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) que diz à implementação do Azure qual projeto usar numa solução de Estúdio Visual multi-projecto. Vou mostrar-lhe mais tarde como o controlo de origem está configurado, mas como o código ToDoApp está numa solução de Estúdio Visual multi-projecto, precisamos desta configuração.
+* `clientUrl` é simplesmente uma definição de aplicação que o código de aplicação utiliza.
 
 ##### <a name="connection-strings"></a>Cadeias de ligação
 As cordas de ligação também são definidas como um recurso aninhado.
@@ -157,7 +157,7 @@ As definições de controlo de origem também são definidas como um recurso ani
 
 ![Mostra como as definições de controlo de origem são definidas como um recurso aninhado no código JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
-`RepoUrl`e `branch` deve ser bastante intuitivo e deve apontar para o repositório git e o nome da filial para publicar de. Mais uma vez, estes são definidos por parâmetros de entrada. 
+`RepoUrl` e `branch` deve ser bastante intuitivo e deve apontar para o repositório git e o nome da filial para publicar de. Mais uma vez, estes são definidos por parâmetros de entrada. 
 
 Note no `dependsOn` elemento que, além do próprio recurso da app, `sourcecontrols/web` também depende e `config/appsettings` `config/connectionstrings` . Isto porque uma vez `sourcecontrols/web` configurado, o processo de implementação do Azure tentará automaticamente implementar, construir e iniciar o código de aplicação. Por isso, inserir esta dependência ajuda-o a certificar-se de que a aplicação tem acesso às definições de aplicação e cadeias de ligação necessárias antes de o código de aplicação ser executado. 
 
@@ -213,7 +213,7 @@ O botão **Implementar para Azure** é ótimo, mas permite-lhe implementar o mod
     
     ![Mostra como implementar o seu novo projeto.](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Inicie sessão na sua conta Azure se ainda não o fez.
-14. Selecione um grupo de recursos existente na sua subscrição ou crie um novo, selecioneazuredeploy.jse, em seguida, clique **em** **Editar Parâmetros**.
+14. Selecione um grupo de recursos existente na sua subscrição ou crie um novo, selecioneazuredeploy.jse, em seguida, clique ** em** **Editar Parâmetros**.
     
     ![Mostra como editar os parâmetros do azuredeploy.jsno ficheiro.](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
@@ -228,7 +228,7 @@ O botão **Implementar para Azure** é ótimo, mas permite-lhe implementar o mod
     > A autoscalagem é uma funcionalidade oferecida no nível **Standard** ou superior, e os alertas de nível de plano são funcionalidades oferecidas em nível **básico** ou superior, terá de definir o parâmetro **sku** para **Standard** ou **Premium** para ver todos os seus novos recursos app Insights iluminados.
     > 
     > 
-16. Clique **em Implementar**. Se selecionar **Guarde as palavras-passe,** a palavra-passe será guardada no ficheiro do parâmetro **em texto simples**. Caso contrário, será solicitado que introduza a palavra-passe da base de dados durante o processo de implementação.
+16. Clique em **Implementar**. Se selecionar **Guarde as palavras-passe,** a palavra-passe será guardada no ficheiro do parâmetro **em texto simples**. Caso contrário, será solicitado que introduza a palavra-passe da base de dados durante o processo de implementação.
 
 Já está! Agora basta ir ao [Portal Azure](https://portal.azure.com/) e à ferramenta [Azure Resource Explorer](https://resources.azure.com) para ver os novos alertas e definições de autoescala adicionadas à aplicação implementada pelo JSON.
 
@@ -254,7 +254,7 @@ Em DevOps, a repetibilidade e a previsibilidade são chaves para qualquer implem
 * [Modelos de gestor de recursos Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Funções do modelo do gestor de recursos Azure](../azure-resource-manager/templates/template-functions.md)
 * [Implementar uma aplicação com o modelo de Gestor de Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md)
-* [Utilizar o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Utilizar o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 * [Resolução de problemas de recursos de recursos implantações em Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Passos seguintes

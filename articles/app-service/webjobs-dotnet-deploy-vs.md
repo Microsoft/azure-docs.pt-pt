@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 14bb693ccaa1b1d16a1d07b7ee1cdeb4493960f5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212874"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959906"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Desenvolver e implementar WebJobs usando o Visual Studio
 
@@ -55,7 +55,7 @@ Implementar um projeto como webJob por si só, ou ligá-lo a um projeto web para
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Instale o Visual Studio 2017 ou o Visual Studio 2019 com a [carga de trabalho de desenvolvimento do Azure.](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads)
+Instale o Visual Studio 2017 ou o Visual Studio 2019 com a [carga de trabalho de desenvolvimento do Azure.](/visualstudio/install/install-visual-studio#step-4---choose-workloads)
 
 ### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> Ativar a implementação do WebJobs para um projeto de aplicações de consola existente
 

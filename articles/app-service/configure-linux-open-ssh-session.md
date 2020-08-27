@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f663b58de666e2a0fe44fa3c023816a524b7d6c5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d46aacc441b412a117d906e0201a9bed6046a338
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083153"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961610"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Abra uma sessão de SSH para um recipiente Linux no Azure App Service
 
@@ -48,7 +48,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 ```
 
 > [!TIP]
-> `&`no final do comando é apenas por conveniência se estiver a usar a Cloud Shell. Executa o processo em segundo plano para que possa executar o próximo comando na mesma concha.
+> `&` no final do comando é apenas por conveniência se estiver a usar a Cloud Shell. Executa o processo em segundo plano para que possa executar o próximo comando na mesma concha.
 
 A saída do comando dá-lhe a informação necessária para abrir uma sessão de SSH.
 
@@ -113,7 +113,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode publicar perguntas e preocupações no [fórum Azure.](https://docs.microsoft.com/answers/topics/azure-webapps.html)
+Pode publicar perguntas e preocupações no [fórum Azure.](/answers/topics/azure-webapps.html)
 
 Para obter mais informações sobre a Web App para contentores, consulte:
 

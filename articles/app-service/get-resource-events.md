@@ -4,16 +4,16 @@ description: Saiba como obter eventos de recursos através de Registos de Ativid
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: 7075e3eacc85198e22a9aa0e53f67a22416b2678
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5c84891187c540c0b24162cf5c8c7f96e9e731a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649067"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962303"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Obtenha eventos de recursos no Azure App Service
 
-O Azure App Service fornece ferramentas incorporadas para monitorizar o estado e a saúde dos seus recursos. Os eventos de recursos ajudam-no a compreender quaisquer alterações que foram feitas aos recursos da sua aplicação web subjacente e a tomar medidas conforme necessário. Exemplos de eventos incluem: dimensionamento de instâncias, atualizações para definições de aplicações, reinicio da aplicação web, e muito mais. Neste artigo, você vai aprender a ver [Registos de Atividades Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) e permitir que a [Grade de Eventos](https://docs.microsoft.com/azure/event-grid/) monitorize eventos de recursos relacionados com a sua aplicação web do Serviço de Aplicações.
+O Azure App Service fornece ferramentas incorporadas para monitorizar o estado e a saúde dos seus recursos. Os eventos de recursos ajudam-no a compreender quaisquer alterações que foram feitas aos recursos da sua aplicação web subjacente e a tomar medidas conforme necessário. Exemplos de eventos incluem: dimensionamento de instâncias, atualizações para definições de aplicações, reinicio da aplicação web, e muito mais. Neste artigo, você vai aprender a ver [Registos de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) e permitir que a [Grade de Eventos](../event-grid/index.yml) monitorize eventos de recursos relacionados com a sua aplicação web do Serviço de Aplicações.
 
 > [!NOTE]
 > A integração do Serviço de Aplicações com a Grade de Eventos está em **pré-visualização.** [Veja o anúncio para mais detalhes.](https://aka.ms/app-service-event-grid-announcement)
@@ -33,17 +33,17 @@ Registos de atividades Azure para detalhes do Serviço de Aplicações, tais com
 
 Os Registos de Atividade Azure podem ser consultados utilizando o portal Azure, PowerShell, REST API ou CLI. Pode enviar os registos para uma conta de armazenamento, Event Hub e Log Analytics. Também pode analisá-los no Power BI ou criar alertas para se manter atualizado sobre eventos de recursos.
 
-[Ver e recuperar eventos de registo de atividades Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+[Ver e recuperar eventos de registo de atividades Azure.](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 ## <a name="ship-activity-logs-to-event-grid"></a>Troncos de atividade do navio para a grelha de eventos
 
-Embora os registos de atividade sejam baseados no utilizador, há uma nova integração de [Event Grid](https://docs.microsoft.com/azure/event-grid/) com o App Service (pré-visualização) que regista as ações do utilizador e eventos automatizados. Com a Grade de Eventos, pode configurar um manipulador para reagir aos referidos eventos. Por exemplo, utilize o Event Grid para acionar instantaneamente uma função sem servidor para executar imagens de análises sempre que é adicionada uma fotografia nova a um contentor de armazenamento de blobs.
+Embora os registos de atividade sejam baseados no utilizador, há uma nova integração de [Event Grid](../event-grid/index.yml) com o App Service (pré-visualização) que regista as ações do utilizador e eventos automatizados. Com a Grade de Eventos, pode configurar um manipulador para reagir aos referidos eventos. Por exemplo, utilize o Event Grid para acionar instantaneamente uma função sem servidor para executar imagens de análises sempre que é adicionada uma fotografia nova a um contentor de armazenamento de blobs.
 
 Em alternativa, pode utilizar o Event Grid com o Logic Apps para processar dados em qualquer local sem ter de escrever código. O Event Grid liga as origens de dados e os processadores de eventos. Por exemplo, utilize o Event Grid para acionar instantaneamente uma função sem servidor para executar imagens de análises sempre que é adicionada uma fotografia nova a um contentor de armazenamento de blobs.
 
-[Ver as propriedades e esquema para eventos de serviço de aplicações Azure.](https://docs.microsoft.com/azure/event-grid/event-schema-app-service)
+[Ver as propriedades e esquema para eventos de serviço de aplicações Azure.](../event-grid/event-schema-app-service.md)
 
-## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
+## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)
 * [Como monitorizar o Serviço de Aplicações Azure](web-sites-monitor.md)
 * [Serviço de aplicações Azure em Estúdio Visual](troubleshoot-dotnet-visual-studio.md)

@@ -6,18 +6,18 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: dea07e8a2dd0f70c714c6213408db9264bd30750
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 48ef1344a76444af23fd462175a8087af2724d3e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826961"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961946"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este artigo mostra-lhe como criar, carregar ou importar um certificado privado ou um certificado público no Serviço de Aplicações. 
 
-Uma vez que o certificado seja adicionado à sua app de Serviço de Aplicações ou [aplicação de função,](https://docs.microsoft.com/azure/azure-functions/)pode [garantir um nome DNS personalizado com ele](configure-ssl-bindings.md) ou [usá-lo no seu código de aplicação](configure-ssl-certificate-in-code.md).
+Uma vez que o certificado seja adicionado à sua app de Serviço de Aplicações ou [aplicação de função,](../azure-functions/index.yml)pode [garantir um nome DNS personalizado com ele](configure-ssl-bindings.md) ou [usá-lo no seu código de aplicação](configure-ssl-certificate-in-code.md).
 
 A tabela que se segue lista as opções que tem para adicionar certificados no Serviço de Aplicações:
 
@@ -25,7 +25,7 @@ A tabela que se segue lista as opções que tem para adicionar certificados no S
 |-|-|
 | Criar um Certificado Gerido de Serviço de Aplicações gratuita (Pré-visualização) | Um certificado privado que é fácil de usar se apenas precisar de proteger o seu `www` [domínio personalizado](app-service-web-tutorial-custom-domain.md) ou qualquer domínio não nu no Serviço de Aplicações. |
 | Comprar um certificado de Serviço de Aplicações | Um certificado privado que é gerido pelo Azure. Combina a simplicidade da gestão automatizada de certificados e a flexibilidade das opções de renovação e exportação. |
-| Importar um certificado do Cofre-Chave | Útil se utilizar [o Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/) para gerir os seus [certificados PKCS12](https://wikipedia.org/wiki/PKCS_12). Consulte [os requisitos de certificado privado.](#private-certificate-requirements) |
+| Importar um certificado do Cofre-Chave | Útil se utilizar [o Cofre da Chave Azure](../key-vault/index.yml) para gerir os seus [certificados PKCS12](https://wikipedia.org/wiki/PKCS_12). Consulte [os requisitos de certificado privado.](#private-certificate-requirements) |
 | Faça upload de um certificado privado | Se já tem um certificado privado de um fornecedor de terceiros, pode carregá-lo. Consulte [os requisitos de certificado privado.](#private-certificate-requirements) |
 | Faça upload de um certificado público | Os certificados públicos não são usados para garantir domínios personalizados, mas pode carregá-los no seu código se precisar deles para aceder a recursos remotos. |
 
@@ -33,7 +33,7 @@ A tabela que se segue lista as opções que tem para adicionar certificados no S
 
 Para acompanhar este guia:
 
-- [Criar uma aplicação de Serviço de Aplicações.](/azure/app-service/)
+- [Criar uma aplicação de Serviço de Aplicações.](./index.yml)
 - Certificado gratuito apenas: mapear um subdomínio (por exemplo, `www.contoso.com` ) para o Serviço de Aplicações com um registo [CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
 
 ## <a name="private-certificate-requirements"></a>Requisitos de certificados privados
@@ -135,7 +135,7 @@ Selecione o certificado na página [de Certificados de Serviço](https://portal.
 
 ![Configure o armazenamento do cofre chave do certificado de Serviço de Aplicações](./media/configure-ssl-certificate/configure-key-vault.png)
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) é um serviço Azure que ajuda a salvaguardar chaves criptográficas e segredos usados por aplicações e serviços em nuvem. É o armazenamento de eleição para certificados de Serviço de Aplicações.
+[Key Vault](../key-vault/general/overview.md) é um serviço Azure que ajuda a salvaguardar chaves criptográficas e segredos usados por aplicações e serviços em nuvem. É o armazenamento de eleição para certificados de Serviço de Aplicações.
 
 Na página **Key Vault Status,** clique no **Repositório do Cofre de Chaves** para criar um novo cofre ou escolha um cofre existente. Se optar por criar um novo cofre, utilize a seguinte tabela para o ajudar a configurar o cofre e clique em Criar. Crie o novo Key Vault dentro do mesmo grupo de subscrição e recursos que a sua aplicação App Service.
 
@@ -199,7 +199,7 @@ Utilize a seguinte tabela para ajudá-lo a selecionar o certificado.
 | Definições | Descrição |
 |-|-|
 | Subscrição | A assinatura a que pertence o Cofre-Chave. |
-| Key Vault | O cofre com o certificado que quer importar. |
+| Cofre de Chaves | O cofre com o certificado que quer importar. |
 | Certificado | Selecione a partir da lista de certificados PKCS12 no cofre. Todos os certificados PKCS12 do cofre estão listados com as suas impressões digitais, mas nem todos são suportados no Serviço de Aplicações. |
 
 Quando a operação estiver concluída, consulte o certificado na lista **de Certificados-Chave Privados.** Se a importação falhar com um erro, o certificado não satisfaz os [requisitos do Serviço de Aplicações.](#private-certificate-requirements)
@@ -252,7 +252,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 Quando lhe for pedido, defina uma palavra-passe de exportação. Utilizará esta palavra-passe ao enviar o seu certificado TLS/SSL para o Serviço de Aplicações mais tarde.
 
-Se tiver utilizado o IIS ou _Certreq.exe_ para gerar o pedido de certificado, instale o certificado no seu computador local e [exporte-o para PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+Se tiver utilizado o IIS ou _Certreq.exe_ para gerar o pedido de certificado, instale o certificado no seu computador local e [exporte-o para PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
 
 ### <a name="upload-certificate-to-app-service"></a>Certificado de upload para o Serviço de Aplicações
 
@@ -331,9 +331,9 @@ Assim que a operação de renovação estiver concluída, clique em **Sync**. A 
 
 ### <a name="export-certificate"></a>Exportar o certificado
 
-Como um Certificado de Serviço de Aplicações é um [segredo key vault,](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets)você pode exportar uma cópia PFX do mesmo e usá-lo para outros serviços Azure ou fora de Azure.
+Como um Certificado de Serviço de Aplicações é um [segredo key vault,](../key-vault/general/about-keys-secrets-certificates.md)você pode exportar uma cópia PFX do mesmo e usá-lo para outros serviços Azure ou fora de Azure.
 
-Para exportar o Certificado de Serviço de Aplicações como um ficheiro PFX, execute os seguintes comandos na [Cloud Shell](https://shell.azure.com). Também pode executá-lo localmente se [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Substitua os espaços reservados pelos nomes utilizados quando [criou o certificado de Serviço de Aplicações.](#start-certificate-order)
+Para exportar o Certificado de Serviço de Aplicações como um ficheiro PFX, execute os seguintes comandos na [Cloud Shell](https://shell.azure.com). Também pode executá-lo localmente se [instalar o Azure CLI](/cli/azure/install-azure-cli). Substitua os espaços reservados pelos nomes utilizados quando [criou o certificado de Serviço de Aplicações.](#start-certificate-order)
 
 ```azurecli-interactive
 secretname=$(az resource show \
@@ -380,4 +380,4 @@ Agora pode apagar o certificado de Serviço de Aplicações. A partir da navega�
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Impor TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [Utilize um certificado TLS/SSL no seu código no Serviço de Aplicações Azure](configure-ssl-certificate-in-code.md)
-* [FAQ : Certificados de Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [FAQ : Certificados de Serviço de Aplicações](./faq-configuration-and-management.md)

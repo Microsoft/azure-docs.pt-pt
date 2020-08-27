@@ -9,12 +9,12 @@ author: ericgre
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 8b15b3c4444a6f26734b133f169cea7074956ae7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: f88ccd077c857826271484c9929b37f8c5d751fe
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88043030"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962711"
 ---
 # <a name="terraform-samples-for-azure-app-service"></a>Amostras terraform para Azure App Service
 
@@ -24,5 +24,5 @@ A tabela seguinte inclui links para scripts terraform.
 |-|-|
 |**Criar aplicação**||
 | [Crie duas aplicações e conecte-se de forma segura com a integração Private Endpoint e VNet](./scripts/terraform-secure-backend-frontend.md )| Cria duas aplicações de Serviço de Aplicações e conecta aplicações juntamente com a integração private Endpoint e VNet. |
-| [Serviço de Aplicação de Provisão e utilização de swap de slot para implementar](https://docs.microsoft.com/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Infraestrutura de Serviço de Aplicação de Provisão com slots de implantação Azure. |
+| [Serviço de Aplicação de Provisão e utilização de swap de slot para implementar](/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Infraestrutura de Serviço de Aplicação de Provisão com slots de implantação Azure. |
 | | |

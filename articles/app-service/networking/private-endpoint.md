@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 773e63cb5eb2a9825975402f65439acd6ad192ae
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 16ce03ad8d6af1908a9ea4d3b7759bb5eb3c1139
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135390"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961555"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para app Web Azure (pré-visualização)
 
@@ -122,7 +122,7 @@ Durante a pré-visualização, apenas a ranhura de produção é exposta por tr�
 
 Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para implementar o Private Endpoint para a sua Web App através do portal, consulte [como ligar-se privadamente a uma Aplicação Web com o Portal][howtoguide1]
 - Para implementar o Private Endpoint para a sua Web App utilizando o Azure CLI, consulte [como ligar-se privadamente a uma Aplicação Web com o Azure CLI][howtoguide2]
@@ -133,18 +133,18 @@ Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, con
 
 
 <!--Links-->
-[serviceendpoint]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
-[privatelink]: https://docs.microsoft.com/azure/private-link/private-link-overview
-[vnetintegrationfeature]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[disablesecuritype]: https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
-[accessrestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[serviceendpoint]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[privatelink]: ../../private-link/private-link-overview.md
+[vnetintegrationfeature]: ../web-sites-integrate-with-vnet.md
+[disablesecuritype]: ../../private-link/disable-private-endpoint-network-policy.md
+[accessrestrictions]: ../app-service-ip-restrictions.md
 [tcpproxy]: ../../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2
-[dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
-[pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
+[dnsvalidation]: ../app-service-web-tutorial-custom-domain.md
+[pllimitations]: ../../private-link/private-endpoint-overview.md#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
-[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
-[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
-[howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint
+[howtoguide1]: ../../private-link/create-private-endpoint-webapp-portal.md
+[howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
+[howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
+[howtoguide4]: ../scripts/template-deploy-private-endpoint.md
 [howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
-[howtoguide6]: https://docs.microsoft.com/azure/app-service/scripts/terraform-secure-backend-frontend
+[howtoguide6]: ../scripts/terraform-secure-backend-frontend.md

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160005"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962354"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gestão para aplicações web em Azure
 
@@ -65,7 +65,7 @@ Para definir o fuso horário do servidor para a sua aplicação web:
     * Valor = *O fuso horário que deseja*
 3. Selecione **Guardar**.
 
-Para os serviços de Aplicação que funcionam no Windows, consulte a coluna **Timezone** no artigo ["Fusos horários predefinidos"](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter valores aceites. Para os serviços de Aplicação que funcionam no Linux, desaprote o nome da [base de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor do fuso horário. Aqui está um exemplo do nome da base de dados TZ: America/Adak.
+Para os serviços de Aplicação que funcionam no Windows, consulte a coluna **Timezone** no artigo ["Fusos horários predefinidos"](/windows-hardware/manufacture/desktop/default-time-zones) para obter valores aceites. Para os serviços de Aplicação que funcionam no Linux, desaprote o nome da [base de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor do fuso horário. Aqui está um exemplo do nome da base de dados TZ: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Porque é que os meus Contínuos WebJobs às vezes falham?
 
@@ -147,7 +147,7 @@ A exceção foi causada por um problema com o Gestor de Ligação Híbrido que e
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Como adiciono uma regra de reescrita de URL?
 
-Para adicionar uma regra de reescrita de URL, crie um ficheiro web.config com as entradas config relevantes na pasta **wwwroot.** Para obter mais informações, consulte [os Serviços de Aplicações Azure: Compreensão do URL.](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)
+Para adicionar uma regra de reescrita de URL, crie um ficheiro web.config com as entradas config relevantes na pasta **wwwroot.** Para obter mais informações, consulte [os Serviços de Aplicações Azure: Compreensão do URL.](/archive/blogs/madhurabharadwaj/azure-app-services-understanding-url-re-write)
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Como controlo o tráfego de entrada para o Serviço de Aplicações?
 
@@ -222,7 +222,7 @@ Para resolver isto, certifique-se de que nenhuma das seguintes condições é ve
 * Um grupo de segurança de rede mau impede os requisitos de conectividade da rede de um Ambiente de Serviço de Aplicações.
 * Os túneis forçados estão ligados.
 
-Para obter mais informações, consulte [questões frequentes ao implementar (criando) um novo Azure App Service Environment](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
+Para obter mais informações, consulte [questões frequentes ao implementar (criando) um novo Azure App Service Environment](/archive/blogs/waws/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase).
 
 ## <a name="why-cant-i-delete-my-app-service-plan"></a>Por que não posso apagar o meu plano de Serviço de Aplicações?
 
@@ -286,7 +286,7 @@ Quando cria um novo website utilizando aplicações web em Azure, um nome de *si
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como determino qual versão da versão .NET está instalada no Serviço de Aplicações?
 
-A forma mais rápida de encontrar a versão do Microsoft .NET que está instalada no Serviço de Aplicações é utilizando a consola Kudu. Pode aceder à consola Kudu a partir do portal ou utilizando o URL da sua aplicação App Service. Para obter instruções detalhadas, consulte [determine a versão .NET instalada no Serviço de Aplicações.](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/)
+A forma mais rápida de encontrar a versão do Microsoft .NET que está instalada no Serviço de Aplicações é utilizando a consola Kudu. Pode aceder à consola Kudu a partir do portal ou utilizando o URL da sua aplicação App Service. Para obter instruções detalhadas, consulte [determine a versão .NET instalada no Serviço de Aplicações.](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services)
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Porque é que a Autoscale não está a funcionar como esperado?
 

@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 566307581b49922b9d47936f64beea73715f63ba
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 08e1878adab680329a33bc44020b49dce38de4d6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86028412"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959699"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente o Private Endpoint usando o Azure CLI
 
@@ -138,5 +138,5 @@ az network private-endpoint dns-zone-group create \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+- Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 - Pode ver exemplos do script da CLI do Serviço de Aplicações adicionais na [documentação do Serviço de Aplicações do Azure](../samples-cli.md).

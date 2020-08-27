@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
-ms.openlocfilehash: 7515fe7b7e3d2a9d0f1e0497aa226ceb3e6be16c
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 88a3876757c3f51d1fc70692976987560ee1b991
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085205"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961640"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -21,7 +21,7 @@ O motor de implementação do Serviço de Aplicações ativa automaticamente um 
 Este guia fornece conceitos e instruções fundamentais para os desenvolvedores de Python que usam um recipiente Linux incorporado no Serviço de Aplicações. Se nunca usou o Azure App Service, deve seguir primeiro o [quickstart python](quickstart-python.md) e [python com o tutorial PostgreSQL.](tutorial-python-postgresql-app.md)
 
 > [!NOTE]
-> O Linux é atualmente a opção recomendada para executar aplicações Python no Serviço de Aplicações. Para obter informações sobre a opção Windows, consulte [Python no sabor Windows do Serviço de Aplicações.](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service)
+> O Linux é atualmente a opção recomendada para executar aplicações Python no Serviço de Aplicações. Para obter informações sobre a opção Windows, consulte [Python no sabor Windows do Serviço de Aplicações.](/visualstudio/python/managing-python-on-azure-app-service)
 >
 
 ## <a name="show-python-version"></a>Mostrar versão Python

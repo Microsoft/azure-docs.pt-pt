@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb0765a1d7934d60f787ed277dd3bd1f9bc1359b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811708"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962949"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerir um plano de Serviço de Aplicações em Azure
 
@@ -82,7 +82,7 @@ Pode encontrar **a App Clone** na secção **Ferramentas** de Desenvolvimento do
 
 Para aumentar o nível de preços de um plano de aplicações, consulte [Scale up uma aplicação em Azure](manage-scale-up.md).
 
-Para aumentar a contagem de instâncias de uma aplicação, consulte [a contagem de instâncias de escala manual ou automática](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Para aumentar a contagem de instâncias de uma aplicação, consulte [a contagem de instâncias de escala manual ou automática](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="delete"></a>
 
@@ -93,7 +93,7 @@ Para evitar custos inesperados, quando elimina a última aplicação num plano d
 > [!IMPORTANT]
 > Os planos do Serviço de Aplicações que não têm aplicações associadas a eles ainda incorrem em encargos porque continuam a reservar as instâncias VM configuradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aumentar verticalmente uma aplicação no Azure](manage-scale-up.md)

@@ -4,18 +4,18 @@ description: Saiba como o Azure App Service atualiza o SISTEMA e os tempos de ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414943"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961521"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Correção de SO e tempo de execução no Serviço de Aplicações Azure
 
 Este artigo mostra-lhe como obter determinadas informações de versão relativas ao SISTEMA ou software no [Serviço de Aplicações.](overview.md) 
 
-O App Service é uma Plataforma-as-a-Service, o que significa que o SISTEMA e a pilha de aplicações são geridos por Azure; gere apenas a sua aplicação e os seus dados. Mais controlo sobre o sistema operativo e a pilha de aplicações está disponível em [Máquinas Virtuais Azure.](https://docs.microsoft.com/azure/virtual-machines/) Com isso em mente, é, no entanto, útil para si, como utilizador do Serviço de Aplicações, saber mais informações, tais como:
+O App Service é uma Plataforma-as-a-Service, o que significa que o SISTEMA e a pilha de aplicações são geridos por Azure; gere apenas a sua aplicação e os seus dados. Mais controlo sobre o sistema operativo e a pilha de aplicações está disponível em [Máquinas Virtuais Azure.](../virtual-machines/index.yml) Com isso em mente, é, no entanto, útil para si, como utilizador do Serviço de Aplicações, saber mais informações, tais como:
 
 -   Como e quando são aplicadas atualizações de SO?
 -   Como é que o Serviço de Aplicações é corrigido contra vulnerabilidades significativas (como o dia zero)?
@@ -25,7 +25,7 @@ Por razões de segurança, certas especificidades das informações de seguranç
 
 ## <a name="how-and-when-are-os-updates-applied"></a>Como e quando são aplicadas atualizações de SO?
 
-O Azure gere o patching de SO em dois níveis, os servidores físicos e as máquinas virtuais (VMs) que executam os recursos do Serviço de Aplicações. Ambos são atualizados mensalmente, o que alinha com o horário mensal [de terça-feira do Patch.](https://technet.microsoft.com/security/bulletins.aspx) Estas atualizações são aplicadas automaticamente, de forma a garantir a elevada disponibilidade dos serviços SLA da Azure. 
+O Azure gere o patching de SO em dois níveis, os servidores físicos e as máquinas virtuais (VMs) que executam os recursos do Serviço de Aplicações. Ambos são atualizados mensalmente, o que alinha com o horário mensal [de terça-feira do Patch.](/security-updates/) Estas atualizações são aplicadas automaticamente, de forma a garantir a elevada disponibilidade dos serviços SLA da Azure. 
 
 Para obter informações detalhadas sobre a forma como as atualizações são [aplicadas, consulte desmistificar a magia por trás das atualizações do Serviço de Aplicação OS](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
@@ -55,7 +55,7 @@ As atualizações de patch para a versão .NET, PHP, Java SDK ou Tomcat/Jetty s�
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e menores
 
-Quando uma nova versão maior ou menor é adicionada, é instalada lado a lado com as versões existentes. Pode atualizar manualmente a sua aplicação para a nova versão. Se configurar a versão de tempo de execução num ficheiro de configuração (como `web.config` `package.json` e), terá de atualizar com o mesmo método. Se usou uma definição de Serviço de Aplicações para configurar a sua versão de tempo de execução, pode alterá-la no [portal Azure](https://portal.azure.com) ou executando um comando [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no [Cloud Shell](../cloud-shell/overview.md), como mostram os seguintes exemplos:
+Quando uma nova versão maior ou menor é adicionada, é instalada lado a lado com as versões existentes. Pode atualizar manualmente a sua aplicação para a nova versão. Se configurar a versão de tempo de execução num ficheiro de configuração (como `web.config` `package.json` e), terá de atualizar com o mesmo método. Se usou uma definição de Serviço de Aplicações para configurar a sua versão de tempo de execução, pode alterá-la no [portal Azure](https://portal.azure.com) ou executando um comando [Azure CLI](/cli/azure/get-started-with-azure-cli) no [Cloud Shell](../cloud-shell/overview.md), como mostram os seguintes exemplos:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -86,7 +86,7 @@ A tabela a seguir mostra como as versões do Windows e do tempo de execução do
 | Versão java | Em `https://<appname>.scm.azurewebsites.net/DebugConsole` , executar o seguinte comando no comando pronta: <br> `java -version` |  
 
 > [!NOTE]  
-> O acesso ao local do registo `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages` , onde as informações sobre patches ["KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) são armazenadas, é bloqueado.
+> O acesso ao local do registo `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages` , onde as informações sobre patches ["KB"](/security-updates/SecurityBulletins/securitybulletins) são armazenadas, é bloqueado.
 >
 >
 

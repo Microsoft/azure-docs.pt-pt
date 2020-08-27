@@ -6,21 +6,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9bde9f86987602b69907a36fe4d8298834b14c3e
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 66c725e8d6c28137db5c3220e0a6548714da0911
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245864"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959600"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial:Criar um gateway de aplicação com o redirecionamento com base no caminho do URL, com a CLI do Azure
 
 Pode utilizar a CLI do Azure para configurar [regras de encaminhamento com base no caminho do URL](tutorial-url-route-cli.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, você cria piscinas de backend usando [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, vai criar regras de encaminhamento de URL que asseguram que o tráfego da Web é redirecionado para o conjunto de back-end adequado.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
@@ -36,11 +36,11 @@ Se preferir, pode executar este tutorial com o [Azure PowerShell](tutorial-url-r
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -308,7 +308,7 @@ Altere o URL para http:// &lt; endereço ip &gt; :8080/video/test.html, substitu
 
 Agora, altere o URL para http:// &lt; endereço IP &gt; :8081/images/test.htm, substituindo o seu endereço IP por &lt; ip-address &gt; , e deverá ver o tráfego redirecionado de volta para o pool de backend de imagens http:// &lt; endereço &gt; ip-endereço :8080/imagens.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 

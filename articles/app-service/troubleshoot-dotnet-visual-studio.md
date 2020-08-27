@@ -6,18 +6,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1ed7a6ebea12e5db37ec89c73db105dd7ce7e2ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de39789a45856211421e3ec5638a2df94d49976c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211990"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958716"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolução de problemas de uma aplicação no Azure App Service usando o Visual Studio
 ## <a name="overview"></a>Descrição geral
-Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar uma aplicação no Serviço de [Aplicações](https://go.microsoft.com/fwlink/?LinkId=529714), executando em [modo de depurar](https://docs.microsoft.com/visualstudio/debugger/) remotamente ou visualizando registos de aplicações e registos de servidores web.
+Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar uma aplicação no Serviço de [Aplicações](https://go.microsoft.com/fwlink/?LinkId=529714), executando em [modo de depurar](/visualstudio/debugger/) remotamente ou visualizando registos de aplicações e registos de servidores web.
 
-Irá aprender:
+Ficará a saber:
 
 * Quais as funções de gestão de aplicações disponíveis no Visual Studio.
 * Como utilizar a visão remota do Visual Studio para fazer mudanças rápidas numa aplicação remota.
@@ -680,7 +680,7 @@ Para obter mais informações sobre a análise de registos de servidores web, co
   Uma ferramenta para visualizar dados em registos de servidores web *(ficheiros.log).*
 * [Problemas de resolução de problemas Problemas IIS Problemas de Desempenho ou Erros de Aplicação usando LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Uma introdução à ferramenta Log Parser que pode utilizar para analisar registos de servidores web.
-* [Publicações de blog de Robert McMurray sobre a utilização do LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
+* [Publicações de blog de Robert McMurray sobre a utilização do LogParser](/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [O código de estado HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisar registos de rastreio de pedidos falhados
