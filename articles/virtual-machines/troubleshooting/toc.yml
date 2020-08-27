@@ -99,10 +99,14 @@
           href: troubleshoot-guide-windows-boot-manager-menu.md
         - name: A VM não responde devido a uma atualização
           href: unresponsive-vm-apply-windows-update.md
+        - name: A VM não está a responder ao aplicar a política de configuração de auditoria
+          href: vm-unresponsive-applying-audit-configuration-policy.md
         - name: A VM não responde ao aplicar a política de grupo
           href: unresponsive-vm-apply-group-policy.md
         - name: A VM não responde ao aplicar a política de segurança
           href: unresponsive-vm-apply-security-policy.md
+        - name: Erro de paragem do Windows - Informações de Configuração do Sistema Incorretas
+          href: windows-stop-error-bad-system-config-info.md
         - name: Erro de paragem do Windows - Estado Sem Memória
           href: troubleshoot-windows-stop-error.md
 - name: Não consigo ligar à minha VM

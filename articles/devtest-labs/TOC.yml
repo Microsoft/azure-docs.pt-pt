@@ -8,7 +8,7 @@
       href: lab-services-overview.md
 - name: Início Rápido
   items:
-    - name: Criar um laboratório - Modelo do ARM
+    - name: Criar um laboratório - Modelo do Resource Manager
       displayName: Resource Manager
       href: create-lab-windows-vm-template.md
 - name: Tutoriais
@@ -75,6 +75,8 @@
       items:
         - name: Criar um laboratório
           href: devtest-lab-create-lab.md
+        - name: Criar um laboratório isolado na rede
+          href: network-isolation.md
         - name: Criar ou modificar laboratórios com o modelo do Resource Manager
           href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
         - name: Especificar o grupo de recursos para as máquinas virtuais de laboratório

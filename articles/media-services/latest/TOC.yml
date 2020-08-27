@@ -56,6 +56,8 @@
           href: stream-files-dotnet-quickstart.md
         - name: Com o Node.js
           href: stream-files-nodejs-quickstart.md
+    - name: Armazenar eventos do AMS no Azure Log Analytics
+      href: tutorial-events-log-analytics.md
     - name: Codificar o ficheiro carregado e transmitir o vídeo
       displayName: 'encode, encoding, job, transform'
       href: stream-files-tutorial-with-api.md
@@ -376,7 +378,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Ir
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

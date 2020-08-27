@@ -4,9 +4,7 @@
   items:
     - name: Sobre os gateways de aplicação
       href: overview.md
-    - name: Novidades
-      href: whats-new.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar um Gateway de Aplicação - Portal

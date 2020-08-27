@@ -46,6 +46,8 @@
       href: dns-settings.md
     - name: Implementar vários IPs públicos - PowerShell
       href: multiple-public-ip-powershell.md
+    - name: Definir uma hierarquia de regras
+      href: rule-hierarchy.md
 - name: Referência
   items:
     - name: CLI do Azure
