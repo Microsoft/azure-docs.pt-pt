@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 3368a42248e084476eb27318abbcd1ca9fbfdacf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853250"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927549"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Crie & utilize ambientes de software em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -242,7 +242,11 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
-É útil primeiro construir imagens localmente usando o [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) método. E definir o parâmetro opcional `pushImageToWorkspaceAcr = True` irá empurrar a imagem resultante para o registo do espaço de trabalho Azure ML. 
+É útil primeiro construir imagens localmente usando o [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) método. Para construir uma imagem de estivador, desa um parâmetro `useDocker=True` opcional. Para empurrar a imagem resultante para o registo do espaço de trabalho AzureML, definir `pushImageToWorkspaceAcr=True` .
+
+```python
+build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=True)
+```
 
 > [!WARNING]
 >  Mudar a ordem das dependências ou canais num ambiente resultará num novo ambiente e exigirá uma nova construção de imagem. Além disso, chamar o `build()` método para uma imagem existente irá atualizar as suas dependências se houver novas versões. 

@@ -2,14 +2,15 @@
 title: Acompanhe as operações personalizadas com a Azure Application Insights .NET SDK
 description: Rastreio de operações personalizadas com Azure Application Insights .NET SDK
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 42a5318325f9961483465357403089755feb130d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320379"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933312"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhe as operações personalizadas com o Application Insights .NET SDK
 
@@ -347,9 +348,9 @@ Quando eliminar a mensagem do instrumento, certifique-se de que define os identi
 ### <a name="dependency-types"></a>Tipos de Dependência
 
 Application Insights usa tipo de dependência para personalizar experiências de UI. Para filas reconhece os seguintes tipos de que melhoram a experiência de `DependencyTelemetry` diagnóstico de [transações:](./transaction-diagnostics.md)
-- `Azure queue`para filas de armazenamento Azure
-- `Azure Event Hubs`para Azure Event Hubs
-- `Azure Service Bus`para a Azure Service Bus
+- `Azure queue` para filas de armazenamento Azure
+- `Azure Event Hubs` para Azure Event Hubs
+- `Azure Service Bus` para a Azure Service Bus
 
 ### <a name="batch-processing"></a>Processamento em lotes
 Com algumas filas, pode descodionar várias mensagens com um pedido. O processamento destas mensagens é presumivelmente independente e pertence às diferentes operações lógicas. Não é possível correlacionar a `Dequeue` operação com uma mensagem em particular a ser processada.
@@ -388,7 +389,7 @@ async Task BackgroundTask()
 }
 ```
 
-Neste exemplo, `telemetryClient.StartOperation` cria e preenche o contexto de `DependencyTelemetry` correlação. Digamos que tem uma operação de pais que foi criada por pedidos que marcaram a operação. Desde que `BackgroundTask` comece no mesmo fluxo de controlo assíncronos como um pedido de entrada, está correlacionado com a operação dos pais. `BackgroundTask`e todos os itens de telemetria aninhados estão automaticamente correlacionados com o pedido que o causou, mesmo após o fim do pedido.
+Neste exemplo, `telemetryClient.StartOperation` cria e preenche o contexto de `DependencyTelemetry` correlação. Digamos que tem uma operação de pais que foi criada por pedidos que marcaram a operação. Desde que `BackgroundTask` comece no mesmo fluxo de controlo assíncronos como um pedido de entrada, está correlacionado com a operação dos pais. `BackgroundTask` e todos os itens de telemetria aninhados estão automaticamente correlacionados com o pedido que o causou, mesmo após o fim do pedido.
 
 Quando a tarefa começa a partir do fio de fundo que não tem nenhuma operação ( `Activity` ) associada a ela, não tem nenhum `BackgroundTask` pai. No entanto, pode ter operações aninhadas. Todos os itens de telemetria comunicados da tarefa estão correlacionados com os `DependencyTelemetry` criados em `BackgroundTask` .
 
@@ -429,7 +430,7 @@ A operação de eliminação faz com que a operação seja interrompida, pelo qu
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Processamento e acompanhamento de operações paralelas
 
-`StopOperation`só para a operação que foi iniciada. Se a operação atual não corresponder à que queres parar, `StopOperation` não faz nada. Esta situação pode acontecer se iniciar várias operações paralelas no mesmo contexto de execução:
+`StopOperation` só para a operação que foi iniciada. Se a operação atual não corresponder à que queres parar, `StopOperation` não faz nada. Esta situação pode acontecer se iniciar várias operações paralelas no mesmo contexto de execução:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
@@ -469,11 +470,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>AplicaçõesInsights operações vs System.Diagnostics.Activity
-`System.Diagnostics.Activity`representa o contexto de rastreio distribuído e é utilizado por quadros e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar itens de telemetria. A atividade funciona em conjunto com `System.Diagnostics.DiagnosticSource` - o mecanismo de notificação entre o quadro/biblioteca para notificar sobre eventos interessantes (pedidos de entrada ou saída, exceções, etc).
+`System.Diagnostics.Activity` representa o contexto de rastreio distribuído e é utilizado por quadros e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar itens de telemetria. A atividade funciona em conjunto com `System.Diagnostics.DiagnosticSource` - o mecanismo de notificação entre o quadro/biblioteca para notificar sobre eventos interessantes (pedidos de entrada ou saída, exceções, etc).
 
 As atividades são cidadãos de primeira classe em Application Insights e a dependência automática e a recolha de pedidos depende fortemente deles, juntamente com `DiagnosticSource` eventos. Se criar Atividade na sua aplicação - não resultaria na criação de telemetria application Insights. O Application Insights precisa de receber eventos DiagnosticSource e conhecer os nomes e cargas de eventos para traduzir a Atividade em telemetria.
 
-Cada operação de Insights de Aplicação (pedido ou dependência) envolve `Activity` - quando `StartOperation` é chamado, cria Atividade por baixo. `StartOperation`é a forma recomendada de rastrear manualmente o pedido ou a dependência das telemetrias e garantir que tudo está correlacionado.
+Cada operação de Insights de Aplicação (pedido ou dependência) envolve `Activity` - quando `StartOperation` é chamado, cria Atividade por baixo. `StartOperation` é a forma recomendada de rastrear manualmente o pedido ou a dependência das telemetrias e garantir que tudo está correlacionado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

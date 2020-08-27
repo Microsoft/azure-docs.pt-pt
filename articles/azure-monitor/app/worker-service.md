@@ -2,13 +2,14 @@
 title: Insights de Aplicação para aplicações de Serviço de Trabalhadores (aplicações não-HTTP)
 description: Monitorização de .NET Core/.NET Aplicações não-HTTP com Insights de Aplicação do Monitor Azure.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: d429a1e0515d24d1c9953af7815dadf2488be302
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6f31236e516e44df9f5115e3efeb48db46853e8d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325411"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933278"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Pedidos de informação para aplicações de serviços de trabalhadores (aplicações não-HTTP)
 
@@ -46,7 +47,7 @@ Instruções específicas para cada tipo de aplicação são descritas nas segui
 O exemplo completo é partilhado [aqui](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
 1. Baixar e instalar [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Crie um novo projeto de Serviço dos Trabalhadores, utilizando o novo modelo de projeto ou linha de comando do Visual Studio`dotnet new worker`
+2. Crie um novo projeto de Serviço dos Trabalhadores, utilizando o novo modelo de projeto ou linha de comando do Visual Studio `dotnet new worker`
 3. Instale o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
 
 4. Adicione `services.AddApplicationInsightsTelemetryWorkerService();` ao método da sua `CreateHostBuilder()` `Program.cs` classe, como neste exemplo:
@@ -124,7 +125,7 @@ Em alternativa, especifique a chave de instrumentação em qualquer uma das segu
 `APPINSIGHTS_INSTRUMENTATIONKEY` ou `ApplicationInsights:InstrumentationKey`
 
 Por exemplo: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
-OU`SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
+OU `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 Tipicamente, `APPINSIGHTS_INSTRUMENTATIONKEY` especifica a chave de instrumentação para aplicações implementadas para Web Apps como Web Jobs.
 
@@ -312,7 +313,7 @@ A recolha de dependência é ativada por padrão. [Este](asp-net-dependencies.md
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule`é ativado por padrão, e irá recolher um conjunto padrão de contadores a partir de aplicações .NET Core 3.0. O tutorial [do EventCounter](eventcounters.md) lista o conjunto predefinido de contadores recolhidos. Também tem instruções para personalizar a lista.
+`EventCounterCollectionModule` é ativado por padrão, e irá recolher um conjunto padrão de contadores a partir de aplicações .NET Core 3.0. O tutorial [do EventCounter](eventcounters.md) lista o conjunto predefinido de contadores recolhidos. Também tem instruções para personalizar a lista.
 
 ### <a name="manually-tracking-additional-telemetry"></a>Rastreio manual de telemetria adicional
 
@@ -349,7 +350,7 @@ Pode modificar algumas configurações comuns passando `ApplicationInsightsServi
 
 Note que `ApplicationInsightsServiceOptions` neste SDK está no espaço de `Microsoft.ApplicationInsights.WorkerService` nomes em oposição `Microsoft.ApplicationInsights.AspNetCore.Extensions` ao ASP.NET Core SDK.
 
-Configurações comumente usadas em`ApplicationInsightsServiceOptions`
+Configurações comumente usadas em `ApplicationInsightsServiceOptions`
 
 |Definições | Descrição | Predefinição
 |---------------|-------|-------
@@ -425,7 +426,7 @@ Os seguintes módulos de recolha automática são ativados por predefinição. E
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`- (Existe atualmente um problema que envolve este módulo de telemetria. Para uma solução temporária consulte [a edição 1689 do GitHub .)](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
+* `AppServicesHeartbeatTelemetryModule` - (Existe atualmente um problema que envolve este módulo de telemetria. Para uma solução temporária consulte [a edição 1689 do GitHub .)](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
 )
 * `AzureInstanceMetadataTelemetryModule`
 

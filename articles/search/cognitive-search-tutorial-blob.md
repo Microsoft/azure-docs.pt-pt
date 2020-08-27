@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: ba30584ca40e7d093ecd9090b82b977d71fc1e0e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503307"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936015"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use REST e IA para gerar conteúdo pesmável a partir de bolhas Azure
 
 Se tiver texto ou imagens não estruturados no armazenamento de Azure Blob, um [oleoduto de enriquecimento de IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos que são úteis para a pesquisa completa de texto ou cenários de mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial REST foca-se no texto, aplicando a deteção de linguagem e processamento de linguagem natural para criar novos campos que você pode alavancar em consultas, facetas e filtros.
 
-Este tutorial utiliza o Carteiro e as [APIs search REST](https://docs.microsoft.com/rest/api/searchservice/) para executar as seguintes tarefas:
+Este tutorial utiliza o Carteiro e as [APIs search REST](/rest/api/searchservice/) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com documentos inteiros (texto não estruturado) como PDF, HTML, DOCX e PPTX no armazenamento Azure Blob.
@@ -135,7 +135,7 @@ Na Pesquisa Cognitiva Azure, o processamento de IA ocorre durante a indexação 
 
 ### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
 
-Um [objeto de origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) fornece o fio de ligação ao recipiente Blob que contém os ficheiros.
+Um [objeto de origem de dados](/rest/api/searchservice/create-data-source) fornece o fio de ligação ao recipiente Blob que contém os ficheiros.
 
 1. Utilize **o POST** e o seguinte URL, substituindo o SEU NOME DE SERVIÇO pelo nome real do seu serviço.
 
@@ -165,7 +165,7 @@ Se obtiver um erro 403 ou 404, verifique a construção do pedido: `api-version=
 
 ### <a name="step-2-create-a-skillset"></a>Passo 2: Criar um skillset
 
-Um [objeto skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) é um conjunto de passos de enriquecimento aplicados ao seu conteúdo. 
+Um [objeto skillset](/rest/api/searchservice/create-skillset) é um conjunto de passos de enriquecimento aplicados ao seu conteúdo. 
 
 1. Utilize **o PUT** e o seguinte URL, substituindo o SEU NOME DE SERVIÇO pelo nome real do seu serviço.
 
@@ -250,7 +250,7 @@ Um [objeto skillset](https://docs.microsoft.com/rest/api/searchservice/create-sk
 
 ### <a name="step-3-create-an-index"></a>Passo 3: Criar um índice
 
-Um [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) fornece o esquema usado para criar a expressão física do seu conteúdo em índices invertidos e outras construções em Azure Cognitive Search. O maior componente de um índice é a recolha de campos, onde o tipo de dados e os atributos determinam conteúdos e comportamentos na Pesquisa Cognitiva Azure.
+Um [índice](/rest/api/searchservice/create-index) fornece o esquema usado para criar a expressão física do seu conteúdo em índices invertidos e outras construções em Azure Cognitive Search. O maior componente de um índice é a recolha de campos, onde o tipo de dados e os atributos determinam conteúdos e comportamentos na Pesquisa Cognitiva Azure.
 
 1. Utilize **o PUT** e o seguinte URL, substituindo o SEU NOME DE SERVIÇO pelo nome real do seu serviço, para nomear o seu índice.
 
@@ -334,7 +334,7 @@ Um [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) for
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Passo 4: Criar e executar um indexador
 
-Um [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) conduz o oleoduto. Os três componentes que criou até agora (fonte de dados, skillset, índice) são entradas para um indexante. Criar o indexante na Azure Cognitive Search é o evento que coloca todo o oleoduto em movimento. 
+Um [Indexer](/rest/api/searchservice/create-indexer) conduz o oleoduto. Os três componentes que criou até agora (fonte de dados, skillset, índice) são entradas para um indexante. Criar o indexante na Azure Cognitive Search é o evento que coloca todo o oleoduto em movimento. 
 
 1. Utilize **o PUT** e o seguinte URL, substituindo o SEU NOME DE SERVIÇO pelo nome real do seu serviço, para nomear o seu indexante.
 
@@ -486,7 +486,7 @@ Lembre-se que começamos com conteúdo blob, onde todo o documento é embalado e
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
-Estas consultas ilustram algumas das formas de trabalhar com sintaxe de consulta e filtros em novos campos criados pela pesquisa cognitiva. Para obter mais exemplos de consulta, consulte [Exemplos em Documentos de Busca REST API,](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) [exemplos simples de consulta de sintaxe](search-query-simple-examples.md)e [exemplos de consulta de Lucene Completo.](search-query-lucene-examples.md)
+Estas consultas ilustram algumas das formas de trabalhar com sintaxe de consulta e filtros em novos campos criados pela pesquisa cognitiva. Para obter mais exemplos de consulta, consulte [Exemplos em Documentos de Busca REST API,](/rest/api/searchservice/search-documents#bkmk_examples) [exemplos simples de consulta de sintaxe](search-query-simple-examples.md)e [exemplos de consulta de Lucene Completo.](search-query-lucene-examples.md)
 
 <a name="reset"></a>
 
@@ -514,13 +514,13 @@ Este tutorial demonstra os passos básicos para criar um pipeline de indexação
 
 Por fim, aprendeu como testar os resultados e repor o sistema para iterações futuras. Aprendeu que a emissão de consultas acerca do índice devolve o resultado criado pelo pipeline de indexação melhorado. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação de todos os recursos ou grupos de recursos no painel de navegação à esquerda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está familiarizado com todos os objetos num oleoduto de enriquecimento de IA, vamos olhar mais de perto as definições de skillset e habilidades individuais.
 

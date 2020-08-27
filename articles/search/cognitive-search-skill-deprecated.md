@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85f3b9862bd8155c1a4b11860dc82d92a2f9e810
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792026"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936100"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Competências cognitivas preprecadas na Pesquisa Cognitiva Azure
 
@@ -38,7 +38,7 @@ Este documento descreve habilidades cognitivas que são consideradas depreciadas
 
 Utilize [microsoft.skills.text.EntityRecognitionSkill.](cognitive-search-skill-entity-recognition.md) Fornece a maior parte da funcionalidade do Denominado EntidadeRecognitionSkill com uma maior qualidade. Também tem informação mais rica nos seus complexos campos de produção.
 
-Para migrar para a Habilidade de Reconhecimento de [Entidade,](cognitive-search-skill-entity-recognition.md)terá de efetuar uma ou mais das seguintes alterações à sua definição de habilidade. Pode atualizar a definição de habilidades utilizando a [API de Atualização Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
+Para migrar para a Habilidade de Reconhecimento de [Entidade,](cognitive-search-skill-entity-recognition.md)terá de efetuar uma ou mais das seguintes alterações à sua definição de habilidade. Pode atualizar a definição de habilidades utilizando a [API de Atualização Skillset](/rest/api/searchservice/update-skillset).
 
 > [!NOTE]
 > Atualmente, a pontuação de confiança como conceito não é apoiada. O `minimumPrecision` parâmetro existe no para uso futuro e para `EntityRecognitionSkill` retrocompatibilidade.

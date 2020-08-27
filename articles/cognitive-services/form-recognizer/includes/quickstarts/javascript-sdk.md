@@ -9,12 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/21/2020
 ms.author: pafarley
-ms.openlocfilehash: 1c24eba79c26c4540e9d97a3e2b6646fd0b5439c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: cc72fa9e05dd25ef2d63f126f0fbb45841cb799c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88864704"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934361"
 ---
 > [!IMPORTANT]
 > * O SDK do Reconhecimento de Formulários tem atualmente como alvo v2.0 do serviço From Recogniser.

@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 529e79abbd7fa8f9733254d207af570237044305
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 145d8265412c4efcaa2afad97feb23528a36191d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080814"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936066"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de frase-chave
 
-A habilidade **de extração de frases-chave** avalia texto não estruturado e, para cada registo, devolve uma lista de frases-chave. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) em Serviços Cognitivos.
+A habilidade **de extração de frases-chave** avalia texto não estruturado e, para cada registo, devolve uma lista de frases-chave. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Text Analytics](../cognitive-services/text-analytics/overview.md) em Serviços Cognitivos.
 
 Esta capacidade é útil se precisar de identificar rapidamente os principais pontos de conversação do registo. Por exemplo, dado o texto de entrada "A comida era deliciosa e havia um pessoal maravilhoso", o serviço devolve "comida" e "funcionários maravilhosos".
 
@@ -31,7 +31,7 @@ Esta capacidade é útil se precisar de identificar rapidamente os principais po
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para o extrator de frases-chave, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.Length`](/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para o extrator de frases-chave, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
@@ -39,15 +39,15 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Entradas                | Descrição |
 |---------------------|-------------|
-| `defaultLanguageCode` | (Opcional) O código linguístico a aplicar a documentos que não especificam explicitamente a língua.  Se o código linguístico predefinido não for especificado, o inglês (en) será utilizado como código idioma predefinido. <br/> Consulte [a lista completa de línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) |
+| `defaultLanguageCode` | (Opcional) O código linguístico a aplicar a documentos que não especificam explicitamente a língua.  Se o código linguístico predefinido não for especificado, o inglês (en) será utilizado como código idioma predefinido. <br/> Consulte [a lista completa de línguas suportadas.](../cognitive-services/text-analytics/language-support.md) |
 | `maxKeyPhraseCount`   | (Opcional) O número máximo de frases-chave a produzir. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Entrada  | Descrição |
+| Input  | Descrição |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
-| `languageCode`    |  Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o código linguístico predefinido será utilizado para analisar os registos. <br/>Ver [lista completa de línguas apoiadas](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| `languageCode`    |  Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o código linguístico predefinido será utilizado para analisar os registos. <br/>Ver [lista completa de línguas apoiadas](../cognitive-services/text-analytics/language-support.md)|
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
@@ -91,7 +91,7 @@ Então a sua definição de habilidade pode ser assim:
   }
 ```
 
-##  <a name="sample-output"></a>Resultado da amostra
+##  <a name="sample-output"></a>Saída de exemplo
 
 Para o exemplo acima, a saída da sua habilidade será escrita para um novo nó na árvore enriquecida chamada "document/myKeyPhrases" uma vez que é o `targetName` que especificamos. Se não especificar `targetName` um, então seria "document/keyPhrases".
 
@@ -114,7 +114,7 @@ Se fornecer um código linguístico não suportado, é gerado um erro e não sã
 Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão analisados e será emitido um aviso.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

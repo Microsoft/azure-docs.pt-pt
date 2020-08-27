@@ -8,16 +8,16 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562626"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927141"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Upgrade para a versão mais recente do serviço de pesquisa cognitiva Azure REST API
 
-Se estiver a utilizar uma versão anterior da [API Search REST,](https://docs.microsoft.com/rest/api/searchservice/)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão API mais recente, 2020-06-30.
+Se estiver a utilizar uma versão anterior da [API Search REST,](/rest/api/searchservice/)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão API mais recente, 2020-06-30.
 
 A versão 2020-06-30 da API REST contém algumas alterações em versões anteriores. Estes são maioritariamente compatíveis com retrocesso, pelo que mudar o seu código deve exigir apenas o mínimo de esforço, dependendo da versão que estava a usar antes. [As medidas para atualizar](#UpgradeSteps) delineiam as alterações de código necessárias para a utilização de novas funcionalidades.
 
@@ -32,7 +32,7 @@ Ao atualizar para novas versões, provavelmente não terá de fazer alterações
 
 * O seu código falha quando as propriedades não reconhecidas são devolvidas numa resposta API. Por predefinição, a sua aplicação deve ignorar propriedades que não compreende.
 
-* O seu código persiste nos pedidos da API e tenta reencaendê-los para a nova versão API. Por exemplo, isto pode acontecer se a sua aplicação persistir em fichas de continuação devolvidas da API de pesquisa (para mais informações, procure `@search.nextPageParameters` na [Referência API de Pesquisa).](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+* O seu código persiste nos pedidos da API e tenta reencaendê-los para a nova versão API. Por exemplo, isto pode acontecer se a sua aplicação persistir em fichas de continuação devolvidas da API de pesquisa (para mais informações, procure `@search.nextPageParameters` na [Referência API de Pesquisa).](/rest/api/searchservice/Search-Documents)
 
 * O seu código refere uma versão API que antecede 2019-05-06 e está sujeito a uma ou mais alterações de rutura nessa versão. A secção [Upgrade para 2019-05-06](#upgrade-to-2019-05-06) fornece mais detalhes. 
 
@@ -141,9 +141,9 @@ Pode atualizar índices "plano" para o novo formato com os seguintes passos util
 > [!NOTE]
 > Não é possível gerir índices criados com o antigo formato "flat" do portal Azure. Por favor, atualize os seus índices da representação "plana" para a representação "árvore" o mais rapidamente possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja a documentação de referência da API Search REST. Se encontrar problemas, peça-nos ajuda no [Stack Overflow](https://stackoverflow.com/) ou [no suporte de contacto.](https://azure.microsoft.com/support/community/?product=search)
 
 > [!div class="nextstepaction"]
-> [Referência de API do serviço de pesquisa REST](https://docs.microsoft.com/rest/api/searchservice/)
+> [Referência de API do serviço de pesquisa REST](/rest/api/searchservice/)

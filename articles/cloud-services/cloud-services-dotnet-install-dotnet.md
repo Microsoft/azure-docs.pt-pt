@@ -7,15 +7,16 @@ author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
-ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79214712"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932241"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instale .NET nas funções Azure Cloud Services
 Este artigo descreve como instalar versões de .NET Framework que não vêm com o Azure Guest OS. Pode utilizar .NET no Guest OS para configurar as suas funções web e de trabalho do seu serviço de nuvem.

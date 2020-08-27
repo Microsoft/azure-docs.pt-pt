@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 4a8a2455ea3e5889293cb8285f36699942a46437
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d0391f3724533410a66f8d01bf77f5a3c5c8d9da
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209330"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936729"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Quickstart: Criar um índice de pesquisa utilizando a biblioteca cliente Microsoft.Azure.Search v10
 
@@ -24,7 +24,7 @@ Para novas soluções, recomendamos a nova biblioteca Azure.Search.Documents. Pa
 
 ## <a name="about-this-quickstart"></a>Sobre este arranque rápido
 
-Crie uma aplicação de consola .NET Core em C# que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure utilizando o Visual Studio e as [bibliotecas de clientes Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
+Crie uma aplicação de consola .NET Core em C# que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure utilizando o Visual Studio e as [bibliotecas de clientes Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
 
 Este artigo explica como criar a aplicação. Também pode [descarregar e executar a aplicação completa.](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v10)
 
@@ -102,7 +102,7 @@ Para este projeto, utilize a versão 10 do `Microsoft.Azure.Search` pacote NuGet
 
 ### <a name="add-class-method-files-to-your-project"></a>Adicionar classe ". Method" ficheiros para o seu projeto
 
-Este passo é necessário para produzir uma saída significativa na consola. Ao imprimir os resultados para a janela da consola, os campos individuais do objeto Hotel devem ser devolvidos como cordas. Este passo implementa [o ToString para](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) executar esta tarefa, o que faz copiando o código necessário para dois novos ficheiros.
+Este passo é necessário para produzir uma saída significativa na consola. Ao imprimir os resultados para a janela da consola, os campos individuais do objeto Hotel devem ser devolvidos como cordas. Este passo implementa [o ToString para](/dotnet/api/system.object.tostring?view=netframework-4.8) executar esta tarefa, o que faz copiando o código necessário para dois novos ficheiros.
 
 1. Adicione duas definições de classe vazias ao seu projeto: Address.Methods.cs, Hotel.Methods.cs
 
@@ -197,15 +197,15 @@ O índice de hotéis é composto por campos simples e complexos, onde um campo s
     Os atributos no campo determinam como é usado numa aplicação. Para melhor, todos os casos, é a sua mensagem na pesquisa por `IsSearchable` texto. Pode pesquisar por palavras ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases ou frases da semana. 
     
     > [!NOTE]
-    > No .NET SDK, os campos devem ser explicitamente atribuídos como [`IsSearchable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet) [`IsFilterable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) , e [`IsSortable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet) [`IsFacetable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet) . Este comportamento contrasta com a API REST que permite implicitamente a atribuição com base no tipo de dados (por exemplo, os campos de cordas simples são automaticamente pesquisáveis).
+    > No .NET SDK, os campos devem ser explicitamente atribuídos como [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet) [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) , e [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet) [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet) . Este comportamento contrasta com a API REST que permite implicitamente a atribuição com base no tipo de dados (por exemplo, os campos de cordas simples são automaticamente pesquisáveis).
 
     Exatamente um campo no seu índice de tipo `string` deve ser o campo *chave,* identificando exclusivamente cada documento. Neste esquema, a chave `HotelId` é.
 
-    Neste índice, os campos de descrição utilizam a [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) propriedade opcional, especificada quando pretende anular o analisador padrão padrão Lucene. O `description_fr` campo está a usar o analisador francês Lucene[(FrLucene)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)porque armazena texto francês. Está `description` a utilizar o analisador de idiomas opcional da Microsoft[(EnMicrosoft).](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)
+    Neste índice, os campos de descrição utilizam a [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) propriedade opcional, especificada quando pretende anular o analisador padrão padrão Lucene. O `description_fr` campo está a usar o analisador francês Lucene[(FrLucene)](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)porque armazena texto francês. Está `description` a utilizar o analisador de idiomas opcional da Microsoft[(EnMicrosoft).](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)
 
-1. Em Program.cs, crie uma instância da [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) classe para ligar ao serviço, utilizando valores que são armazenados no ficheiro config da aplicação (appsettings.jsligado). 
+1. Em Program.cs, crie uma instância da [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) classe para ligar ao serviço, utilizando valores que são armazenados no ficheiro config da aplicação (appsettings.jsligado). 
 
-   `SearchServiceClient` tem uma [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) propriedade, fornecendo todos os métodos necessários para criar, listar, atualizar ou eliminar índices de Pesquisa Cognitiva Azure. 
+   `SearchServiceClient` tem uma [`Indexes`](/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) propriedade, fornecendo todos os métodos necessários para criar, listar, atualizar ou eliminar índices de Pesquisa Cognitiva Azure. 
 
     ```csharp
     using System;
@@ -305,7 +305,7 @@ O índice de hotéis é composto por campos simples e complexos, onde um campo s
 
 Na Pesquisa Cognitiva Azure, os documentos são estruturas de dados que são entradas para indexação e saídas de consultas. Tal como obtido a partir de uma fonte de dados externa, as entradas de documentos podem ser linhas numa base de dados, bolhas no armazenamento blob ou documentos JSON no disco. Neste exemplo, estamos pegando um atalho e incorporando documentos JSON para quatro hotéis no próprio código. 
 
-Ao carregar documentos, deve utilizar um [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) objeto. Um `IndexBatch` contém uma coleção de [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objetos, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar ([upload, merge, delete e mergeOrUpload).](search-what-is-data-import.md#indexing-actions)
+Ao carregar documentos, deve utilizar um [`IndexBatch`](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) objeto. Um `IndexBatch` contém uma coleção de [`IndexAction`](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objetos, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar ([upload, merge, delete e mergeOrUpload).](search-what-is-data-import.md#indexing-actions)
 
 1. Em Program.cs, crie uma série de documentos e ações de índice, e depois passe a matriz para `IndexBatch` . Os documentos abaixo estão em conformidade com o índice hotel-quickstart, tal como definido pelas classes de hotel e endereço.
 
@@ -427,7 +427,7 @@ Ao carregar documentos, deve utilizar um [`IndexBatch`](https://docs.microsoft.c
     }
     ```
 
-    Uma vez inicializando o `IndexBatch` objeto, pode enviá-lo para o índice chamando [`Documents.Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) o seu [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) objeto. `Documents` é uma propriedade `SearchIndexClient` que fornece métodos para adicionar, modificar, eliminar ou consultar documentos no seu índice.
+    Uma vez inicializando o `IndexBatch` objeto, pode enviá-lo para o índice chamando [`Documents.Index`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) o seu [`SearchIndexClient`](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) objeto. `Documents` é uma propriedade `SearchIndexClient` que fornece métodos para adicionar, modificar, eliminar ou consultar documentos no seu índice.
 
     A `try` / `catch` chamada ao `Index` método apanha falhas de indexação, o que pode acontecer se o seu serviço estiver sob carga pesada. No código de produção, pode atrasar e, em seguida, voltar a tentar indexar os documentos que falharam, ou registar e continuar como a amostra faz, ou manuseá-lo de outra forma que satisfaça os requisitos de consistência de dados da sua aplicação.
 
@@ -451,10 +451,10 @@ Para obter mais informações sobre o processamento de [documentos, consulte "Co
 
 Pode obter resultados de consulta assim que o primeiro documento estiver indexado, mas os testes reais do seu índice devem aguardar até que todos os documentos estejam indexados. 
 
-Esta secção adiciona duas peças de funcionalidade: lógica de consulta e resultados. Para consultas, utilize o [`Search`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search?view=azure-dotnet
-) método. Este método requer texto de pesquisa, bem como [outros parâmetros.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet) 
+Esta secção adiciona duas peças de funcionalidade: lógica de consulta e resultados. Para consultas, utilize o [`Search`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search?view=azure-dotnet
+) método. Este método requer texto de pesquisa, bem como [outros parâmetros.](/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet) 
 
-A [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet) classe representa os resultados.
+A [`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet) classe representa os resultados.
 
 
 1. Em Program.cs, crie um método WriteDocuments que imprime os resultados de pesquisa para a consola.
@@ -570,4 +570,4 @@ O código de amostra e o índice são versões expandidas desta. A próxima amos
 Quer otimizar e economizar nos gastos na nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar custos com a Gestão de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

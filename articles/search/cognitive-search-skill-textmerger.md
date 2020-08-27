@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982021"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924644"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Função cognitiva de fusão de texto
 
@@ -35,7 +35,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 | `insertPostTag`   | Corda a incluir após cada inserção. O valor predefinido é `" "`. Para omitir o espaço, desa um valor para `""` .  |
 
 
-##  <a name="sample-input"></a>Entrada de amostra
+##  <a name="sample-input"></a>Entrada de exemplo
 Um documento JSON que forneça informações utilizáveis para esta habilidade pode ser:
 
 ```json
@@ -54,7 +54,7 @@ Um documento JSON que forneça informações utilizáveis para esta habilidade p
 }
 ```
 
-##  <a name="sample-output"></a>Resultado da amostra
+##  <a name="sample-output"></a>Saída de exemplo
 Este exemplo mostra a saída da entrada anterior, assumindo que o *Encaixe de inserção* está definido para `" "` , e *inserirPostTag* está definido para `""` . 
 
 ```json
@@ -75,7 +75,7 @@ Este exemplo mostra a saída da entrada anterior, assumindo que o *Encaixe de in
 
 Um cenário comum para a utilização da Fusão de Texto é fundir a representação textual de imagens (texto a partir de uma habilidade de OCR, ou a legenda de uma imagem) no campo de conteúdo de um documento. 
 
-O exemplo seguinte usa a habilidade OCR para extrair texto de imagens incorporadas no documento. Em seguida, cria um campo *merged_text* para conter texto original e OCRed de cada imagem. Pode saber mais sobre a habilidade de OCR [aqui.](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr)
+O exemplo seguinte usa a habilidade OCR para extrair texto de imagens incorporadas no documento. Em seguida, cria um campo *merged_text* para conter texto original e OCRed de cada imagem. Pode saber mais sobre a habilidade de OCR [aqui.](./cognitive-search-skill-ocr.md)
 
 ```json
 {
@@ -144,8 +144,8 @@ O exemplo acima pressupõe que existe um campo de imagens normalizadas. Para obt
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Criar Indexador (REST)](/rest/api/searchservice/create-indexer)

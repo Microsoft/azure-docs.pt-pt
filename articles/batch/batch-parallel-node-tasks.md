@@ -3,13 +3,13 @@ title: Executar tarefas paralelamente para otimizar recursos computacional
 description: Aumentar a eficiência e reduzir os custos utilizando menos nós de computação e executando tarefas simultâneas em cada nó num pool do Azure Batch
 ms.topic: how-to
 ms.date: 04/17/2019
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b13f7f276740cd4f37e8d4c4ba1f2967d919ccf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: e4c98244755cae7a606ebe26cbadef53ca5fd922
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961579"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926291"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Executar tarefas simultaneamente para maximizar o uso de nó de computação batch 
 
@@ -113,7 +113,7 @@ A segunda parte da amostra revela uma diminuição significativa da duração do
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 ### <a name="batch-explorer-heat-map"></a>Mapa de calor do explorador de lote
 [O Batch Explorer][batch_labs] é uma ferramenta cliente independente e independente, com destaque para ajudar a criar, depurar e monitorizar as aplicações do Azure Batch. O Batch Explorer contém uma funcionalidade *de Mapa de Calor* que fornece visualização da execução de tarefas. Ao executar a aplicação de amostra [ParallelTasks,][parallel_tasks_sample] pode utilizar a funcionalidade Heat Map para visualizar facilmente a execução de tarefas paralelas em cada nó.
 

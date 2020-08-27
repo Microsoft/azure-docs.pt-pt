@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 10e6d0a183afdda2bf89014bb72f58d03a3013ec
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3b3d88c9e605889846808bb53063b06a3e980049
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171895"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929759"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Upgrade para Azure Search .NET SDK versão 3
 
@@ -25,7 +25,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-Se estiver a utilizar a versão 2.0 pré-visualização ou mais antiga do [Azure Search .NET SDK,](https://docs.microsoft.com/dotnet/api/overview/azure/search)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 3.
+Se estiver a utilizar a versão 2.0 pré-visualização ou mais antiga do [Azure Search .NET SDK,](/dotnet/api/overview/azure/search)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 3.
 
 Para uma passagem mais geral do SDK, incluindo exemplos, consulte [Como utilizar a Azure Search a partir de uma aplicação .NET](search-howto-dotnet-sdk.md).
 
@@ -63,7 +63,7 @@ Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft
 
 O próximo passo é corrigir este erro de construção. Consulte [Breaking changes na versão 3](#ListOfChanges) para obter detalhes sobre o que causa o erro e como corrigi-lo.
 
-Pode ver avisos adicionais de construção relacionados com métodos ou propriedades obsoletos. As advertências incluirão instruções sobre o que usar em vez da função prevada. Por exemplo, se a sua aplicação usar a `IndexingParameters.Base64EncodeKeys` propriedade, deve receber um aviso que diz`"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
+Pode ver avisos adicionais de construção relacionados com métodos ou propriedades obsoletos. As advertências incluirão instruções sobre o que usar em vez da função prevada. Por exemplo, se a sua aplicação usar a `IndexingParameters.Base64EncodeKeys` propriedade, deve receber um aviso que diz `"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
 
 Uma vez corrigido quaisquer erros de construção, pode escoar alterações na sua aplicação para tirar partido de novas funcionalidades, se desejar. As novas funcionalidades no SDK são detalhadas no [que há de novo na versão 3](#WhatsNew).
 
@@ -132,7 +132,7 @@ index.Analyzers = new Analyzer[]
 
 Pode ver erros de construção relacionados com métodos ou propriedades que foram marcados como obsoletos na versão 2.0-pré-visualização e posteriormente removidos na versão 3. Se encontrar tais erros, eis como resolvê-los:
 
-- Se estava a usar este construtor: `ScoringParameter(string name, string value)` use este em vez disso:`ScoringParameter(string name, IEnumerable<string> values)`
+- Se estava a usar este construtor: `ScoringParameter(string name, string value)` use este em vez disso: `ScoringParameter(string name, IEnumerable<string> values)`
 - Se você estava usando a `ScoringParameter.Value` propriedade, use a `ScoringParameter.Values` propriedade ou o método em vez `ToString` disso.
 - Se você estava usando a `SearchRequestOptions.RequestId` propriedade, use a `ClientRequestId` propriedade em vez disso.
 

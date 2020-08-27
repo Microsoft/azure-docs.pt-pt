@@ -9,20 +9,20 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84ddc4b427f6dc168c044f34b41e81e3b0ff19e5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835957"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935046"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para Azure Cognitive Search no portal Azure
 
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [API REST](/rest/api/searchmanagement/)
+> * [SDK do .NET](/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Pitão](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -33,9 +33,9 @@ A Azure Cognitive Search é um serviço de pesquisa totalmente gerido e baseado 
 * Gerencie o acesso utilizando a página **Keys** à esquerda.
 * Ajuste a capacidade utilizando a página **Escala** para a esquerda.
 
-As mesmas tarefas executadas no portal também podem ser tratadas programáticamente através das [APIs de Gestão](https://docs.microsoft.com/rest/api/searchmanagement/) e [módulo Az.Search PowerShell](search-manage-powershell.md). As tarefas administrativas estão totalmente representadas em interfaces portais e programáticas. Não existe uma tarefa administrativa específica que esteja disponível apenas numa modalidade.
+As mesmas tarefas executadas no portal também podem ser tratadas programáticamente através das [APIs de Gestão](/rest/api/searchmanagement/) e [módulo Az.Search PowerShell](search-manage-powershell.md). As tarefas administrativas estão totalmente representadas em interfaces portais e programáticas. Não existe uma tarefa administrativa específica que esteja disponível apenas numa modalidade.
 
-A Azure Cognitive Search aproveita outros serviços Azure para uma monitorização e gestão mais profundas. Por si só, os únicos dados armazenados com um serviço de pesquisa são o conteúdo (índices, indexantes e definições de fonte de dados, e outros objetos). As métricas reportadas às páginas do portal são retiradas de troncos internos num ciclo de 30 dias. Para retenção de registos controlada pelo utilizador e eventos adicionais, necessitará do [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+A Azure Cognitive Search aproveita outros serviços Azure para uma monitorização e gestão mais profundas. Por si só, os únicos dados armazenados com um serviço de pesquisa são o conteúdo (índices, indexantes e definições de fonte de dados, e outros objetos). As métricas reportadas às páginas do portal são retiradas de troncos internos num ciclo de 30 dias. Para retenção de registos controlada pelo utilizador e eventos adicionais, necessitará do [Azure Monitor](../azure-monitor/index.yml). 
 
 ## <a name="fixed-service-properties"></a>Propriedades de serviço fixo
 
@@ -58,7 +58,7 @@ No que diz respeito ao acesso ao ponto final, qualquer pessoa com acesso ao URL 
 
 Os direitos ao aparelho de prestação de serviços são concedidos através de atribuições de funções. [O Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) é um sistema de autorização construído no [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o fornecimento de recursos Azure. 
 
-No contexto da Azure Cognitive Search, as atribuições de [funções da Azure](search-security-rbac.md) determinarão quem pode executar tarefas, independentemente de estarem a utilizar o [portal,](search-manage.md) [o PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão:](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)
+No contexto da Azure Cognitive Search, as atribuições de [funções da Azure](search-security-rbac.md) determinarão quem pode executar tarefas, independentemente de estarem a utilizar o [portal,](search-manage.md) [o PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão:](/rest/api/searchmanagement/search-howto-management-rest-api)
 
 * Criar ou apagar um serviço
 * Dimensione o serviço
@@ -73,12 +73,12 @@ No contexto da Azure Cognitive Search, as atribuições de [funções da Azure](
 
 No nível básico e acima, a Microsoft monitoriza todos os serviços de Pesquisa Cognitiva Azure para uma disponibilidade de 99,9% por acordos de nível de serviço (SLA). Se o serviço for lento ou o pedido de saída ficar abaixo dos limiares de SLA, as equipas de suporte analisam os ficheiros de registo disponíveis e resolvem o problema.
 
-A Azure Cognitive Search aproveita [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) para recolher e armazenar atividade de indexação e consulta. Um serviço de pesquisa por si só armazena apenas o seu conteúdo (índices, definições indexantes, definições de fonte de dados, definições de skillset, mapas de sinónimo). A informação de caching e registrado é armazenada fora de serviço, muitas vezes numa conta de Armazenamento Azure. Para obter mais informações sobre a indexação de registos e consultas, consulte [recolher e analisar dados de registo.](search-monitor-logs.md)
+A Azure Cognitive Search aproveita [o Azure Monitor](../azure-monitor/index.yml) para recolher e armazenar atividade de indexação e consulta. Um serviço de pesquisa por si só armazena apenas o seu conteúdo (índices, definições indexantes, definições de fonte de dados, definições de skillset, mapas de sinónimo). A informação de caching e registrado é armazenada fora de serviço, muitas vezes numa conta de Armazenamento Azure. Para obter mais informações sobre a indexação de registos e consultas, consulte [recolher e analisar dados de registo.](search-monitor-logs.md)
 
 Em termos de informação geral sobre o seu serviço, utilizando apenas as instalações incorporadas na própria Pesquisa Cognitiva do Azure, pode obter informações das seguintes formas:
 
 * Utilização da página **de visão geral** do serviço, através de notificações, propriedades e mensagens de estado.
-* Utilizar [a PowerShell](search-manage-powershell.md) ou a [API Management REST](https://docs.microsoft.com/rest/api/searchmanagement/) para obter propriedades de [serviço.](https://docs.microsoft.com/rest/api/searchmanagement/services) Não há novas informações ou operações fornecidas na camada programática. As interfaces existem para que possa escrever scripts.
+* Utilizar [a PowerShell](search-manage-powershell.md) ou a [API Management REST](/rest/api/searchmanagement/) para obter propriedades de [serviço.](/rest/api/searchmanagement/services) Não há novas informações ou operações fornecidas na camada programática. As interfaces existem para que possa escrever scripts.
 
 ## <a name="monitor-resource-usage"></a>Monitorizar a utilização de recursos
 
@@ -86,8 +86,8 @@ No painel de instrumentos, a monitorização dos recursos limita-se às informa�
 
 Utilizando o serviço de pesquisa REST API, pode obter uma contagem de documentos e índices programáticamente: 
 
-* [Obter Estatísticas de Índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Documentos de Contagem](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Obter Estatísticas de Índice](/rest/api/searchservice/Get-Index-Statistics)
+* [Documentos de Contagem](/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Recuperação de desastres e interrupções de serviço
 
@@ -135,7 +135,7 @@ Em contraste com a remoção de réplicas, que não requer nenhum esforço extra
 
 Não existe um método de deteção que lhe diga quais os fragmentos de índice armazenados em divisórias específicas. Cada divisória fornece aproximadamente 25 GB de armazenamento, por isso terá de reduzir o armazenamento para um tamanho que pode ser acomodado pelo número de divisórias que tem. Se quiser voltar a uma partição, todos os 12 fragmentos terão de caber.
 
-Para ajudar no planeamento futuro, pode querer verificar o armazenamento (usando [as estatísticas do Índice Get](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver quanto realmente utilizou. 
+Para ajudar no planeamento futuro, pode querer verificar o armazenamento (usando [as estatísticas do Índice Get](/rest/api/searchservice/Get-Index-Statistics)) para ver quanto realmente utilizou. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

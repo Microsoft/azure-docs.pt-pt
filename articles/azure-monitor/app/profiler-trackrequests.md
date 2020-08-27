@@ -4,14 +4,15 @@ description: Escreva código para rastrear pedidos com Insights de Aplicação p
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
+ms.custom: devx-track-csharp
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaa1d6df9faa20b1a561bfccdfea682af7645c18
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671601"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930252"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Escreva código para rastrear pedidos com Insights de Aplicação
 

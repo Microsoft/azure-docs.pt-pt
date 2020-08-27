@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113863"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935539"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Como fazer referência a anotações num skillset de pesquisa cognitiva Azure
 
@@ -95,7 +95,7 @@ Quando as anotações são matrizes ou coleções de cordas, é possível que qu
 
 Às vezes é preciso agrupar todas as anotações de um tipo específico para as passar a uma determinada habilidade. Considere uma habilidade hipotética personalizada que identifica o apelido mais comum de todos os apelidos extraídos no Exemplo 2. Para fornecer apenas os últimos nomes à habilidade personalizada, especifique o contexto como `"/document"` e a entrada como `"/document/people/*/lastname"` .
 
-Note que a cardinalidade `"/document/people/*/lastname"` é maior do que a do documento. Pode haver 10 nós de último nome enquanto há apenas um nó de documento para este documento. Nesse caso, o sistema criará automaticamente uma matriz de `"/document/people/*/lastname"` contenção de todos os elementos do documento.
+Note que a cardinalidade `"/document/people/*/lastname"` é maior do que a do documento. Pode haver 10 nós de último nome enquanto há apenas um nó de documento para este documento. Nesse caso, o sistema criará automaticamente uma matriz de  `"/document/people/*/lastname"` contenção de todos os elementos do documento.
 
 ```json
   {
@@ -120,8 +120,8 @@ Note que a cardinalidade `"/document/people/*/lastname"` é maior do que a do do
 
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 + [Como integrar uma habilidade personalizada num oleoduto de enriquecimento](cognitive-search-custom-skill-interface.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Criar Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Criar Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [Como mapear campos enriquecidos para um índice](cognitive-search-output-field-mapping.md)

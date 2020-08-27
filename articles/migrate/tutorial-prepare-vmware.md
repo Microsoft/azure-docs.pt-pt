@@ -4,18 +4,18 @@ description: Saiba como se preparar para a avaliação/migração de VMware VMs 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8d4d6ac1149c397442a8ca7dd01f46f04ffc89b4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109581"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927311"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
 Este artigo ajuda-o a preparar-se para a avaliação e migração de VMware VMs para Azure utilizando [a Azure Migrate.](migrate-services-overview.md)
 
-Este tutorial é o primeiro de uma série que mostra como avaliar e migrar VMware VMs. Neste tutorial, ficará a saber como:
+Este tutorial é o primeiro de uma série que mostra como avaliar e migrar VMware VMs. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Prepare o Azure para trabalhar com a Azure Migrate.
@@ -36,8 +36,8 @@ A tabela resume as tarefas que precisa de completar em Azure. Instruções para 
 --- | --- | ---
 **Criar um projeto Azure Migrate** | Um projeto Azure Migrate fornece uma localização central para orquestrar e gerir avaliações e migrações com ferramentas Azure Migrate, ferramentas Microsoft e ofertas de terceiros. | A sua conta Azure necessita de permissões de Contribuinte ou Proprietário no grupo de recursos em que o projeto reside.
 **Aparelho de registo** | A Azure Migrate utiliza um aparelho Azure Migrate leve para descobrir VMs, para os avaliar com a ferramenta de avaliação do servidor e para os migrar usando migração sem agente com a ferramenta de migração do servidor. [Saiba mais](migrate-appliance-architecture.md#appliance-registration) sobre o registo. | Para registar o aparelho, a sua conta Azure necessita de permissões de Contribuinte ou Proprietário na assinatura Azure.
-**Criar aplicativos AD AZure** | Ao registar um aparelho, a Azure Migrate cria aplicações Azure Ative Directory (Azure AD). <br/><br/> - A primeira aplicação é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho e a Azure Migrate. <br/><br/> - A segunda aplicação é utilizada exclusivamente para aceder ao KeyVault criado na subscrição do utilizador para migração VMware VMware sem agente.   | A sua conta Azure necessita de permissões para criar aplicações AD Azure.
-**Criar um Key Vault** | Para migrar VMware VMs usando migração sem agente, a Azure Migrate cria um Cofre-Chave para gerir as chaves de acesso à conta de replicação na sua subscrição. | Para permitir que a Azure Migrate crie o Cofre de Chaves, define permissões (Proprietário, ou Administrador de Acesso ao Utilizador) no grupo de recursos em que reside o projeto Azure Migrate.
+**Criar aplicativos AD AZure** | Ao registar um aparelho, a Azure Migrate cria aplicações Azure two Ative Directory (Azure AD). <br/><br/> - A primeira aplicação é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho e a Azure Migrate. <br/><br/> - A segunda aplicação é utilizada exclusivamente para aceder ao KeyVault criado na subscrição do utilizador para migração VMware VMware sem agente.   | A sua conta Azure precisa [destas permissões](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps) para criar aplicações AD Azure.
+**Criar um Key Vault** | - O primeiro Cofre-chave é criado como parte do registo do aparelho e é utilizado para a gestão do certificado descarregado no aparelho durante a sua configuração. <br/><br/> -Para migrar VMware VMs usando migração sem agente, a Azure Migrate cria outro Cofre-Chave para gerir as chaves de acesso à conta de replicação na sua subscrição.| Para permitir que a Azure Migrate crie o Cofre de Chaves, define permissões (Proprietário, ou Administrador de Acesso ao Utilizador) no grupo de recursos em que reside o projeto Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto

@@ -3,13 +3,13 @@ title: Criar dependências de tarefas para executar tarefas
 description: Crie tarefas que dependam da conclusão de outras tarefas para o processamento do estilo MapReduce e cargas de trabalho de big data semelhantes em Azure Batch.
 ms.topic: how-to
 ms.date: 05/22/2017
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4aad67b4537befd251798aac7601bc4efcc276f2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: 05b1bb289c215208be448d8ca7de144c82b313b8
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965234"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936984"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Criar dependências de tarefas para executar tarefas que dependem de outras tarefas
 
@@ -203,7 +203,7 @@ O projeto de amostra [TaskDependencies][github_taskdependencies] é uma das amos
 - Como criar tarefas que dependam de outras tarefas
 - Como executar essas tarefas num conjunto de nós computacional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - A funcionalidade de pacotes de [aplicações](batch-application-packages.md) do Batch fornece uma maneira fácil de implementar e ver versão as aplicações que as suas tarefas executam nos nós computacional.
 - Consulte [a instalação de aplicações e os dados de paragem dos nós de computação batch][forum_post] no fórum Azure Batch para obter uma visão geral dos métodos para preparar os seus nós para executar tarefas. Escrito por um dos membros da equipa do Azure Batch, este post é um bom primer sobre as diferentes formas de copiar aplicações, dados de entrada de tarefas e outros ficheiros para os seus nós de computação.

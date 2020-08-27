@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 06c353cf5fbd5c2b1058d99e7f91e9fcc3853cb1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76169834"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929051"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Adicionar rostos a um PersonGroup
 

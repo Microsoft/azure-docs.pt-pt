@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: da97f8a485d6eea740e8119a64205cda431e876d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 86931f738bd00e244f2ef39927e9916695de7bfd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407846"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925534"
 ---
 # <a name="quickstart-translate-speech-to-multiple-languages"></a>Quickstart: Traduzir a fala para várias línguas
 

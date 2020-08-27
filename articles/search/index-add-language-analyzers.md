@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130556"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935889"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem a campos de cordas num índice de pesquisa cognitiva Azure
 
@@ -59,9 +59,9 @@ Os analisadores linguísticos são usados como está. Para cada campo na defini�
 > [!NOTE]
 > Não é possível utilizar um analisador de linguagem diferente no tempo de indexação do que no tempo de consulta para um campo. Essa capacidade é reservada para [analisadores personalizados.](index-add-custom-analyzers.md) Por esta razão, se tentar definir as propriedades **de PesquisaNallyzer** ou **IndexAnalyzer** para o nome de um analisador de idiomas, a API REST devolverá uma resposta de erro. Em vez disso, deve utilizar a propriedade **do analisador.**
 
-Utilize o parâmetro de consulta **searchFields** para especificar qual o campo específico da linguagem a procurar nas suas consultas. Pode rever exemplos de consulta que incluem a propriedade do analisador em [Documentos de Busca.](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+Utilize o parâmetro de consulta **searchFields** para especificar qual o campo específico da linguagem a procurar nas suas consultas. Pode rever exemplos de consulta que incluem a propriedade do analisador em [Documentos de Busca.](/rest/api/searchservice/search-documents) 
 
-Para obter mais informações sobre propriedades de índice, consulte [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Para obter mais informações sobre a análise na Pesquisa Cognitiva Azure, consulte [Os Analisadores em Pesquisa Cognitiva Azure.](https://docs.microsoft.com/azure/search/search-analyzers)
+Para obter mais informações sobre propriedades de índice, consulte [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index). Para obter mais informações sobre a análise na Pesquisa Cognitiva Azure, consulte [Os Analisadores em Pesquisa Cognitiva Azure.](./search-analyzers.md)
 
 <a name="language-analyzer-list"></a>
 
@@ -82,7 +82,7 @@ Para obter mais informações sobre propriedades de índice, consulte [Create In
 |Checo|cs.microsoft|cs.lucene|  
 |Dinamarquês|da.microsoft|da.lucene|  
 |Neerlandês|nl.microsoft|nl.lucene|  
-|Inglês|en.microsoft|en.lucene|  
+|Em inglês|en.microsoft|en.lucene|  
 |Estónio|et.microsoft||  
 |Finlandês|fi.microsoft|fi.lucene|  
 |Francês|fr.microsoft|fr.lucene|  
@@ -129,9 +129,8 @@ Para obter mais informações sobre propriedades de índice, consulte [Create In
 
  Todos os analisadores com nomes anotados com **Lucene** são alimentados pelos [analisadores linguísticos de Apache Lucene.](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Ver também  
 
-+ [Criar índice &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
++ [Criar índice &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)  
 
-+ [Aula de Nome Analisador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
-
++ [Aula de Nome Analisador](/dotnet/api/microsoft.azure.search.models.analyzername)

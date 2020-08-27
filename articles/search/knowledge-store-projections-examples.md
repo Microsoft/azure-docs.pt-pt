@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566000"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924168"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Como moldar e exportar enriquecimentos
 
@@ -206,7 +206,7 @@ Projetar para tabelas no Azure Storage é útil para relatórios e análises usa
 Vamos construir um dashboard para visualizar as frases-chave extraídas de documentos como uma nuvem de palavras. Para criar a estrutura de dados certa, adicione uma habilidade Shaper ao skillset para criar uma forma personalizada que tenha os detalhes específicos do documento e frases-chave. A forma personalizada será chamada `pbiShape` no `document` nó raiz.
 
 > [!NOTE] 
-> As projeções da tabela são tabelas de armazenamento Azure, regidas pelos limites de armazenamento impostos pela Azure Storage. Para obter mais informações, consulte [os limites de armazenamento de mesas.](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model) É útil saber que o tamanho da entidade não pode exceder 1 MB e uma única propriedade não pode ser maior que 64 KB. Estes constrangimentos fazem das mesas uma boa solução para armazenar um grande número de pequenas entidades.
+> As projeções da tabela são tabelas de armazenamento Azure, regidas pelos limites de armazenamento impostos pela Azure Storage. Para obter mais informações, consulte [os limites de armazenamento de mesas.](/rest/api/storageservices/understanding-the-table-service-data-model) É útil saber que o tamanho da entidade não pode exceder 1 MB e uma única propriedade não pode ser maior que 64 KB. Estes constrangimentos fazem das mesas uma boa solução para armazenar um grande número de pequenas entidades.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Usando uma habilidade shaper para criar uma forma personalizada
 
@@ -664,7 +664,7 @@ Ao definir uma projeção, existem algumas questões comuns que podem causar res
 
 + Erros de sintaxe do caminho. Os seletores de caminhos são sensíveis ao caso e podem levar a avisos de entrada em falta se não utilizar a caixa exata para o seletor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os exemplos deste artigo demonstram padrões comuns sobre como criar projeções. Agora que tem uma boa compreensão dos conceitos, está mais bem equipado para construir projeções para o seu cenário específico.
 
@@ -677,4 +677,3 @@ Para uma visão geral sobre as projeções, saiba mais sobre capacidades como gr
 
 > [!div class="nextstepaction"]
 > [Projeções numa loja de conhecimento](knowledge-store-projection-overview.md)
-

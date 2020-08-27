@@ -4,14 +4,15 @@ description: Uma visão geral sobre como configurar várias instâncias de servi
 author: chenkennt
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 1bf8191b0a76ad442ac5d2b286c214f6ee9da822
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 71bcb72b645c574eedd24ff868751f366738e73d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504857"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935692"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Resiliência e recuperação de desastres no Serviço Azure SignalR
 
@@ -131,7 +132,7 @@ Seja notado independentemente dos padrões que escolher utilizar, terá de ligar
 Também devido à natureza da ligação SignalR (é uma ligação longa), os clientes vão experimentar quedas de conexão quando há um desastre e falha ocorrer.
 Terá de lidar com estes casos ao lado do cliente para torná-lo transparente para os seus clientes finais. Por exemplo, reconecte-se depois de fechado um ligação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar a sua aplicação para obter resiliência para o serviço SignalR. Para obter mais detalhes sobre a ligação servidor/cliente e o encaminhamento de ligação no serviço SignalR, pode ler [este artigo](signalr-concept-internals.md) para os internos do serviço SignalR.
 

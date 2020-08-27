@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 4f969b08c16b26fe67ca6520323fcde780d43925
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510917"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929776"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure no Carteiro usando APIs REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Este artigo explica como formular pedidos de API rest interactivemente usando as APIs de [Rest de Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice) e um cliente API para o envio e receção de pedidos. Com um cliente API e estas instruções, pode enviar pedidos e visualizar respostas antes de escrever qualquer código.
+Este artigo explica como formular pedidos de API rest interactivemente usando as APIs de [Rest de Pesquisa Cognitiva Azure](/rest/api/searchservice) e um cliente API para o envio e receção de pedidos. Com um cliente API e estas instruções, pode enviar pedidos e visualizar respostas antes de escrever qualquer código.
 
 O artigo usa a aplicação do Carteiro. Você pode [baixar e importar uma coleção de Carteiro](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) se preferir usar pedidos predefinidos. 
 
@@ -74,7 +74,7 @@ No Carteiro, formula um pedido que se parece com a seguinte imagem. Escolha **GE
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-Na Pesquisa Cognitiva Azure, normalmente cria o índice antes de o carregar com dados. A [API De Criar Índices](https://docs.microsoft.com/rest/api/searchservice/create-index) É utilizada para esta tarefa. 
+Na Pesquisa Cognitiva Azure, normalmente cria o índice antes de o carregar com dados. A [API De Criar Índices](/rest/api/searchservice/create-index) É utilizada para esta tarefa. 
 
 O URL é estendido para incluir o nome do `hotels` índice.
 
@@ -128,7 +128,7 @@ Quando submete este pedido, deverá receber uma resposta HTTP 201, que indica qu
 
 ## <a name="2---load-documents"></a>2 - Documentos de carga
 
-A criação e o preenchimento do índice são dois passos distintos. Na Pesquisa Cognitiva Azure, o índice contém todos os dados pesmáveis. Neste cenário, os dados são fornecidos como documentos JSON. A [AAPI de Adicionar, Atualizar ou Eliminar Documentos REST](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) É utilizada para esta tarefa. 
+A criação e o preenchimento do índice são dois passos distintos. Na Pesquisa Cognitiva Azure, o índice contém todos os dados pesmáveis. Neste cenário, os dados são fornecidos como documentos JSON. A [AAPI de Adicionar, Atualizar ou Eliminar Documentos REST](/rest/api/searchservice/addupdate-or-delete-documents) É utilizada para esta tarefa. 
 
 O URL é estendido para incluir as `docs` coleções e `index` o funcionamento.
 
@@ -236,12 +236,12 @@ Em poucos segundos, deverá ver uma resposta HTTP 201 na lista de sessões. Isto
 Se obtiver um 207, pelo menos um documento falhou ao carregar. Se obtiver um 404, tem um erro de sintaxe no cabeçalho ou no corpo do pedido. Confirme que alterou o ponto final, de modo a incluir `/docs/index`.
 
 > [!Tip]
-> Em determinadas origens de dados, pode escolher a abordagem de *indexador* alternativa, que simplifica e reduz a quantidade de código necessário para a indexação. Para obter mais informações, veja [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) (Operações do indexador).
+> Em determinadas origens de dados, pode escolher a abordagem de *indexador* alternativa, que simplifica e reduz a quantidade de código necessário para a indexação. Para obter mais informações, veja [Indexer operations](/rest/api/searchservice/indexer-operations) (Operações do indexador).
 
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Agora que um conjunto de índices e documentos estão carregados, pode emitir consultas contra eles usando [documentos de pesquisa REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Agora que um conjunto de índices e documentos estão carregados, pode emitir consultas contra eles usando [documentos de pesquisa REST API](/rest/api/searchservice/search-documents).
 
 O URL é estendido para incluir uma expressão de consulta, especificada usando o operador de pesquisa.
 
@@ -278,7 +278,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 ```
 
 ## <a name="get-index-properties"></a>Obtenha propriedades de índice
-Também pode utilizar [Obter Estatísticas](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) para consultar as contagens de documentos e o tamanho do índice: 
+Também pode utilizar [Obter Estatísticas](/rest/api/searchservice/get-index-statistics) para consultar as contagens de documentos e o tamanho do índice: 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30
@@ -290,7 +290,7 @@ Adicionar `/stats` ao seu URL retorna informações de índice. No Postman, o pe
 
 Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` caminho de URL separa o caminho do URL da cadeia de consulta, enquanto & separa cada par 'name=value' na cadeia de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

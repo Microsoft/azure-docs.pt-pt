@@ -11,15 +11,16 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: 21ff3e456a587a7d676de379987c86f154878c61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887641"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936950"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Manage expiration of web content in Azure CDN (Gerir a expiração do conteúdo Web na CDN do Azure)
 > [!div class="op_single_selector"]
@@ -87,10 +88,10 @@ O método preferido para configurar o cabeçalho de um servidor web `Cache-Contr
 Para conteúdos estáticos, como imagens e folhas de estilo, pode controlar a frequência de atualização modificando os ficheiros de configuração **applicationHost.config** ou **Web.config** para a sua aplicação web. Para definir o `Cache-Control` cabeçalho para o seu conteúdo, utilize o `<system.webServer>/<staticContent>/<clientCache>` elemento em qualquer ficheiro.
 
 ### <a name="using-applicationhostconfig-files"></a>Utilização de ficheiros ApplicationHost.config
-O **ficheiroApplicationHost.config** é o ficheiro raiz do sistema de configuração IIS. As definições de configuração num ficheiro **ApplicationHost.config** afetam todas as aplicações no site, mas são ultrapassadas pelas definições de quaisquer **ficheirosWeb.config** que existam para uma aplicação web.
+O ** ficheiroApplicationHost.config** é o ficheiro raiz do sistema de configuração IIS. As definições de configuração num ficheiro **ApplicationHost.config** afetam todas as aplicações no site, mas são ultrapassadas pelas definições de quaisquer ** ficheirosWeb.config** que existam para uma aplicação web.
 
 ### <a name="using-webconfig-files"></a>Utilização de ficheiros Web.config
-Com um ficheiro **Web.config,** pode personalizar a forma como toda a sua aplicação web ou um diretório específico na sua aplicação web se comporta. Normalmente, tem pelo menos um **ficheiroWeb.config** na pasta raiz da sua aplicação web. Para cada **Web.config** ficheiro numa pasta específica, as definições de configuração afetam tudo nessa pasta e nas suas sub-dobradeiras, a menos que sejam ultrapassadas ao nível da sub-fase por outro ficheiro **Web.config.** 
+Com um ficheiro **Web.config, ** pode personalizar a forma como toda a sua aplicação web ou um diretório específico na sua aplicação web se comporta. Normalmente, tem pelo menos um ** ficheiroWeb.config** na pasta raiz da sua aplicação web. Para cada **Web.config** ficheiro numa pasta específica, as definições de configuração afetam tudo nessa pasta e nas suas sub-dobradeiras, a menos que sejam ultrapassadas ao nível da sub-fase por outro ficheiro **Web.config.** 
 
 Por exemplo, pode definir um `<clientCache>` elemento num ficheiro **Web.config** na pasta raiz da sua aplicação web para cache de todo o conteúdo estático na sua aplicação web durante três dias. Também pode adicionar um ficheiro **Web.config** numa sub-dobradeira com mais conteúdo variável (por exemplo, `\frequent` ) e definir o seu elemento para cache o conteúdo `<clientCache>` da sub-dobradeira durante seis horas. O resultado líquido é que o conteúdo em todo o site é cached por três dias, exceto para qualquer conteúdo no `\frequent` diretório, que é em cache por apenas seis horas.  
 

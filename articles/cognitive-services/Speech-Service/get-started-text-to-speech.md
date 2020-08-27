@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: speech-full-stack
-ms.openlocfilehash: e66da95bea0b03ddad1096b2b19751f73aaacbe0
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 12ee7fbbd7699d09deae85971ffe411e115609ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88173134"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934702"
 ---
 # <a name="get-started-with-speech-synthesis"></a>Começar com a síntese da fala
 

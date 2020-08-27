@@ -3,12 +3,12 @@ title: Definir o âmbito para a descoberta VMware VM com Azure Migrate
 description: Descreve como definir o âmbito de descoberta para a avaliação e migração de VMware VMware com Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: e53eb0d01df2152aeced2901335f75879885fd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770395"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919731"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Definir o âmbito de descoberta para VMware VMs
 
@@ -58,6 +58,6 @@ Atualmente, a ferramenta de Avaliação do Servidor não consegue descobrir VMs 
 A configuração do controlo de acesso baseado em funções garante que a conta de utilizador correspondente do vCenter tenha acesso apenas a VMs específicos do arrendatário.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Instale o aparelho](how-to-set-up-appliance-vmware.md)e [inicie a descoberta contínua](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).
+[Configurar o aparelho](how-to-set-up-appliance-vmware.md)

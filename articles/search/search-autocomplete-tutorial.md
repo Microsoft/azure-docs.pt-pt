@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 2de282da56a40c92eacde84ac913be0ceacf9e2b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: be873ed122bb521ce00e2d18d55a9be8197a0048
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413022"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936763"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar autocompleto e sugestões a aplicativos clientes
 
@@ -23,7 +23,7 @@ O search-as-you-type é uma técnica comum para melhorar a produtividade das con
 Para implementar estas experiências na Azure Cognitive Search, você precisará:
 
 + Um *sugestivo* na parte de trás.
-+ Uma *consulta que* especifica [API autocompleta](https://docs.microsoft.com/rest/api/searchservice/autocomplete) ou [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) sobre o pedido.
++ Uma *consulta que* especifica [API autocompleta](/rest/api/searchservice/autocomplete) ou [sugestões](/rest/api/searchservice/suggestions) sobre o pedido.
 + Um *controlo de UI* para lidar com interações de pesquisa como você-tipo na sua aplicação de cliente. Recomendamos a utilização de uma biblioteca JavaScript existente para este fim.
 
 Na Pesquisa Cognitiva Azure, as consultas autocompletas e os resultados sugeridos são recuperados a partir do índice de pesquisa, a partir de campos selecionados que registou com um sugestivo. Um sugestivo faz parte do índice, e especifica quais os campos que fornecerão conteúdo que ou completa uma consulta, sugere um resultado, ou faz ambos. Quando o índice é criado e carregado, uma estrutura de dados sugestiva é criada internamente para armazenar prefixos usados para combinar em consultas parciais. Para sugestões, escolher campos adequados que sejam únicos, ou pelo menos não repetitivos, é essencial para a experiência. Para obter mais informações, consulte [Criar um sugestivo.](index-add-suggesters.md)
@@ -54,16 +54,16 @@ Os fósforos estão no início de um termo em qualquer lugar da cadeia de entrad
 
 Siga estes links para as páginas de referência REST e .NET SDK:
 
-+ [Sugestões REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
-+ [API DE REST autocompleto](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
-+ [Sugestão Método DeHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [Método AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [Sugestões REST API](/rest/api/searchservice/suggestions) 
++ [API DE REST autocompleto](/rest/api/searchservice/autocomplete) 
++ [Sugestão Método DeHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [Método AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
 ## <a name="structure-a-response"></a>Estruturar uma resposta
 
-As respostas para o preconto automático e as sugestões são o que se pode esperar para o padrão: [O preconto automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete#response) devolve uma lista de termos, [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions#response) devolve termos mais um documento de ID para que possa ir buscar o documento (use a API [do Documento de Procura](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para obter o documento específico para uma página de detalhe).
+As respostas para o preconto automático e as sugestões são o que se pode esperar para o padrão: [O preconto automático](/rest/api/searchservice/autocomplete#response) devolve uma lista de termos, [sugestões](/rest/api/searchservice/suggestions#response) devolve termos mais um documento de ID para que possa ir buscar o documento (use a API [do Documento de Procura](/rest/api/searchservice/lookup-document) para obter o documento específico para uma página de detalhe).
 
-As respostas são moldadas pelos parâmetros do pedido. Para concluir automaticamente, defina [**automaticamente oMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) para determinar se a conclusão do texto ocorre em um ou dois termos. Para Sugestões, o campo que escolhe determina o conteúdo da resposta.
+As respostas são moldadas pelos parâmetros do pedido. Para concluir automaticamente, defina [**automaticamente oMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) para determinar se a conclusão do texto ocorre em um ou dois termos. Para Sugestões, o campo que escolhe determina o conteúdo da resposta.
 
 Para sugestões, deve aperfeiçoar ainda mais a resposta para evitar duplicados ou o que parece ser resultados não relacionados. Para controlar os resultados, inclua mais parâmetros sobre o pedido. Os seguintes parâmetros aplicam-se tanto a autocompletos como a sugestões, mas são talvez mais necessários para sugestões, especialmente quando um sugestivo inclui vários campos.
 
@@ -141,7 +141,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
-O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](./search-howto-dotnet-sdk.md).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -175,7 +175,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-A função Suggest aceita dois parâmetros que determinam se são devolvidos detetores de ocorrências ou é utilizada a correspondência difusa além da introdução do termo de pesquisa. O método cria um [objeto SuggestParameters,](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet)que é depois passado para a API sugestiva. Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
+A função Suggest aceita dois parâmetros que determinam se são devolvidos detetores de ocorrências ou é utilizada a correspondência difusa além da introdução do termo de pesquisa. O método cria um [objeto SuggestParameters,](/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet)que é depois passado para a API sugestiva. Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
 
 ## <a name="autocomplete"></a>Preenchimento Automático
 
@@ -218,7 +218,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Função autocompleta
 
-O preconto automático baseia-se no [método DocumentsOperationsExtensions.Autocomplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Tal como nas sugestões, este bloco de códigos entraria no **ficheiro HomeController.cs.**
+O preconto automático baseia-se no [método DocumentsOperationsExtensions.Autocomplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Tal como nas sugestões, este bloco de códigos entraria no **ficheiro HomeController.cs.**
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -243,9 +243,9 @@ public ActionResult AutoComplete(string term)
 }
 ```
 
-A função Autocomplete requer a entrada do termo de pesquisa. O método cria um [objeto AutoCompleteParameters](https://docs.microsoft.com/rest/api/searchservice/autocomplete). Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
+A função Autocomplete requer a entrada do termo de pesquisa. O método cria um [objeto AutoCompleteParameters](/rest/api/searchservice/autocomplete). Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga estes links para instruções ou códigos de ponta a ponta que demonstrem ambas as experiências de pesquisa como você. Ambos os exemplos de código incluem implementações híbridas de sugestões e autocompleto em conjunto.
 

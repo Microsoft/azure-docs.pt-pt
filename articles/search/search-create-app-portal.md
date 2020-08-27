@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c5431150141a8a2421c80ac4858f85ad41b002
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496757"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927107"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de demonstração no portal (Azure Cognitive Search)
 
@@ -98,7 +98,7 @@ O índice subjacente é composto por dados fictícios gerados que foram duplicad
 ![Executar a aplicação](media/search-create-app-portal/run-app.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
@@ -106,9 +106,9 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Embora a aplicação predefinitiva seja útil para a exploração inicial e pequenas tarefas, a revisão das APIs no início irá ajudá-lo a compreender os conceitos e o fluxo de trabalho a um nível mais profundo:
 
 > [!div class="nextstepaction"]
-> [Criar um índice usando .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Criar um índice usando .NET SDK](./search-get-started-dotnet.md)

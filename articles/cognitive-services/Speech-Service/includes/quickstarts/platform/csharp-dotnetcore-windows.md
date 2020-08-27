@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Speech SDK for C# .NET Core configuração da plataforma - Serviço de fala'
+title: 'Quickstart: Speech SDK for C# .NET Core platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia para configurar a sua plataforma para C# em .NET Core no Windows ou macOS com o serviço de Fala SDK.
+description: Utilize este guia para configurar a sua plataforma para C# em .NET Core no Windows ou macOS com o serviço de voz SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 2387e0879ac73ae79858b110eaa88dcb8fe0eb78
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 980bfb7fa6295f98ebc43f6793b76eec26d46012
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78924987"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926690"
 ---
-Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Fala para C# .NET Core. Se você só quer que o nome do `Install-Package Microsoft.CognitiveServices.Speech` pacote seja iniciado por conta própria, corra na consola NuGet.
+Este guia mostra como instalar o [SDK de discurso](~/articles/cognitive-services/speech-service/speech-sdk.md) para C# .NET Core. Se só quer que o nome do pacote seja iniciado por conta própria, corra `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
 
 > [!NOTE]
 > O .NET Core é uma plataforma .NET de código-fonte aberto para várias plataformas, que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -35,7 +35,7 @@ Este início rápido requer:
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
-Agora pode passar para [os próximos passos](#next-steps) abaixo.
+Pode agora passar para os [próximos passos](#next-steps) abaixo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,15 +7,16 @@ author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: ac843ec2084cd019ec9d3bc90f6c8bbcb5c34279
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0d00db9909f05028b55505400d0810b00e0114c0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590358"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932547"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 

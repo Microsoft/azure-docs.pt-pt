@@ -8,21 +8,21 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 699715e1188616c2d6bda47016ec1ea7b05cef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125601"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932802"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configure firewall IP para pesquisa cognitiva Azure
 
 A Azure Cognitive Search suporta regras IP para suporte a firewall de entrada. Este modelo fornece uma camada adicional de segurança para o seu serviço de pesquisa semelhante às regras IP que encontrará num grupo de segurança de rede virtual Azure. Com estas regras de IP, pode configurar o seu serviço de pesquisa para ser acessível apenas a partir de um conjunto aprovado de máquinas e/ou serviços na nuvem. O acesso aos dados armazenados no seu serviço de pesquisa a partir destes conjuntos de máquinas e serviços aprovados ainda exigirá que o chamador apresente um token de autorização válido.
 
 > [!Important]
-> As regras IP do seu serviço de Pesquisa Cognitiva Azure podem ser configuradas utilizando o portal Azure ou a [versão API Management REST 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/).
+> As regras IP do seu serviço de Pesquisa Cognitiva Azure podem ser configuradas utilizando o portal Azure ou a [versão API Management REST 2020-03-13](/rest/api/searchmanagement/).
 
-## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a>Configure uma firewall IP utilizando o portal Azure
+## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configure uma firewall IP utilizando o portal Azure
 
 Para definir a política de controlo de acesso IP no portal Azure, aceda à sua página de serviço de Pesquisa Cognitiva Azure e selecione **Networking** no menu de navegação. A conectividade de rede de pontos finais deve ser **pública.** Se a sua conectividade estiver definida para **Private,** só pode aceder ao seu serviço de pesquisa através de um Ponto Final Privado.
 
@@ -55,7 +55,7 @@ Ativar uma política de controlo de acesso IP para o seu serviço de Pesquisa Co
 
 Quando acede ao serviço de Pesquisa Cognitiva Azure utilizando o SDK a partir de máquinas que não estão na lista permitida, uma resposta genérica **403 Proibida** é devolvida sem detalhes adicionais. Verifique a lista IP permitida para a sua conta e certifique-se de que a configuração correta é atualizada para o seu serviço de pesquisa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o acesso ao seu serviço de pesquisa através do Private Link, consulte o seguinte artigo:
 

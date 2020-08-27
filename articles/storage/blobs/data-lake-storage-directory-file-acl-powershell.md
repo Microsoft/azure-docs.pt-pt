@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: ef205a9a94ef7b40ed271387df617a5d96a78307
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054311"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923879"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o PowerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -264,7 +264,7 @@ Pode utilizar o `-Force` parâmetro para remover o ficheiro sem uma solicitaçã
 Pode obter, definir e atualizar permissões de acesso de diretórios e ficheiros. Estas permissões são capturadas nas listas de controlo de acesso (ACLs).
 
 > [!NOTE]
-> Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído à [função de Proprietário de Dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de [acesso na Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído à [função de Proprietário de Dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de  [acesso na Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ### <a name="get-an-acl"></a>Obtenha um ACL
 
@@ -297,7 +297,7 @@ $file.ACL
 
 A imagem a seguir mostra a saída depois de obter o ACL de um diretório.
 
-![Obtenha a saída ACL](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
+![Obtenha a saída ACL para o diretório](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
 
 Neste exemplo, o próprio utilizador leu, escreveu e executou permissões. O grupo de donos só leu e executou permissões. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -344,31 +344,9 @@ $file.ACL
 
 A imagem a seguir mostra a saída após a definição do ACL de um ficheiro.
 
-![Obtenha a saída ACL](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
+![Obtenha a saída ACL para arquivo](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
 
 Neste exemplo, o próprio utilizador e o grupo de proprietária apenas leram e escreveram permissões. Todos os outros utilizadores têm permissões de escrita e execução. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-
-### <a name="set-acls-on-all-items-in-a-container"></a>Definir ACLs em todos os itens em um recipiente
-
-Pode utilizar o `Get-AzDataLakeGen2Item` e o `-Recurse` parâmetro juntamente com o `Update-AzDataLakeGen2Item` cmdlet para recursivamente definir o ACL para diretórios e ficheiros num recipiente. 
-
-```powershell
-$filesystemName = "my-file-system"
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
-
-$Token = $Null
-do
-{
-     $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
-     if($items.Count -le 0) { Break;}
-     $items | Update-AzDataLakeGen2Item -Acl $acl
-     $Token = $items[$items.Count -1].ContinuationToken;
-}
-While ($Token -ne $Null) 
-```
 
 ### <a name="add-or-update-an-acl-entry"></a>Adicionar ou atualizar uma entrada ACL
 
@@ -405,6 +383,10 @@ foreach ($a in $aclnew)
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
 
+### <a name="set-an-acl-recursively-preview"></a>Desaprote um ACL de forma recursiva (pré-visualização)
+
+Pode adicionar, atualizar e remover ACLs de forma recorrente nos itens infantis existentes de um diretório de pais sem ter de escamar estas alterações individualmente para cada item infantil. Para obter mais informações, consulte [as listas de controlo de acesso (ACLs) de forma recorrente para Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
+
 <a id="gen1-gen2-map"></a>
 
 ## <a name="gen1-to-gen2-mapping"></a>Gen1 para Gen2 Mapping
@@ -422,7 +404,7 @@ A tabela seguinte mostra como os cmdlets usados para o mapa de Data Lake Storage
 |Set-AzDataStoreItemOwner<br>Set-AzDataStoreItemPermission<br>Set-AzDataStoreItemAcl|Atualização-AzDataLakeGen2Item|O cmdlet Update-AzDataLakeGen2Item atualiza apenas um item e não recursivamente. Se pretender atualizar novamente, liste os itens utilizando o cmdlet Get-AzDataLakeStoreChildItem e, em seguida, faça o pipeline para o cmdlet Update-AzDataGen2Item.|
 |Teste-AzDataLakeStoreItem|Get-AzDataGen2Item|O cmdlet Get-AzDataLakeGen2Item reportará um erro se o item não existir.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)

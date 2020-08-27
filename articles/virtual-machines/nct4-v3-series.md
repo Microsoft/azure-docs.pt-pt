@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: d07da12ecef7dfc6cf1a6df67f6beae01c4573d9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 73d583cb371876cefc10c982dbe66f6e15bddf03
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168121"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932615"
 ---
 # <a name="ncast4_v3-series"></a>Série NCasT4_v3 
 
@@ -34,9 +34,9 @@ Atualizações de preservação da memória: Não suportadas
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | NICs máximos |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 |
-| Standard_NV8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4  |
-| Standard_NV16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8  |
-| Standard_NV64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8  |
+| Standard_NC8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4  |
+| Standard_NC16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8  |
+| Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8  |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

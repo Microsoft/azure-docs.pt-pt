@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206908"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935760"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
 
@@ -22,11 +22,11 @@ Neste artigo, você usará o portal Azure para criar uma nova instância do serv
 Os pontos finais privados são fornecidos pela [Azure Private Link,](../private-link/private-link-overview.md)como um serviço separado. Para obter mais informações sobre os custos, consulte [a página de preços.](https://azure.microsoft.com/pricing/details/private-link/)
 
 > [!Important]
-> O suporte private Endpoint para a Pesquisa Cognitiva Azure pode ser configurado utilizando o portal Azure ou a [versão API Management REST 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). Quando o ponto final de serviço é privado, algumas funcionalidades do portal são desativadas. Poderá ver e gerir informações de nível de serviço, mas o acesso do portal aos dados de índice e aos vários componentes do serviço, como as definições de índice, indexador e skillset, é restringido por razões de segurança.
+> O suporte private Endpoint para a Pesquisa Cognitiva Azure pode ser configurado utilizando o portal Azure ou a [versão API Management REST 2020-03-13](/rest/api/searchmanagement/). Quando o ponto final de serviço é privado, algumas funcionalidades do portal são desativadas. Poderá ver e gerir informações de nível de serviço, mas o acesso do portal aos dados de índice e aos vários componentes do serviço, como as definições de índice, indexador e skillset, é restringido por razões de segurança.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Porquê usar um Ponto Final Privado para acesso seguro?
 
-[Os pontos finais privados](../private-link/private-endpoint-overview.md) para a Azure Cognitive Search permitem que um cliente numa rede virtual aceda de forma segura a dados num índice de pesquisa sobre um [Link Privado](../private-link/private-link-overview.md). O ponto final privado utiliza um endereço IP a partir do [espaço de endereço de rede virtual](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) para o seu serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública. Para obter uma lista de outros serviços PaaS que suportam o Private Link, consulte a [secção de disponibilidade](../private-link/private-link-overview.md#availability) na documentação do produto.
+[Os pontos finais privados](../private-link/private-endpoint-overview.md) para a Azure Cognitive Search permitem que um cliente numa rede virtual aceda de forma segura a dados num índice de pesquisa sobre um [Link Privado](../private-link/private-link-overview.md). O ponto final privado utiliza um endereço IP a partir do [espaço de endereço de rede virtual](../virtual-network/private-ip-addresses.md) para o seu serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública. Para obter uma lista de outros serviços PaaS que suportam o Private Link, consulte a [secção de disponibilidade](../private-link/private-link-overview.md#availability) na documentação do produto.
 
 Os pontos finais privados do seu serviço de pesquisa permitem-lhe:
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fd405513f8bdef09e6d3ab996fc2c04bd397db13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72d00b70cf3568466715668aa441ee295614c740
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659435"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935250"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Adicione a pesquisa completa de texto aos dados blob do Azure usando a Pesquisa Cognitiva Azure
 
@@ -27,7 +27,7 @@ A Azure Cognitive Search integra-se com o armazenamento Azure Blob na camada de 
 
 Uma vez criado e povoado o índice, existe independentemente do seu recipiente blob, mas pode re-repetir as operações de indexação para refrescar o seu índice com alterações no recipiente subjacente. As informações sobre o tempo em bolhas individuais são utilizadas para deteção de alterações. Pode optar pela execução programada ou pela indexação a pedido como mecanismo de atualização.
 
-As entradas são as suas bolhas, num único recipiente, no armazenamento de Azure Blob. As bolhas podem ser quase qualquer tipo de dados de texto. Se as suas bolhas contiverem imagens, pode adicionar [enriquecimento de IA à indexação de bolhas](search-blob-ai-integration.md) para criar e extrair texto das imagens.
+As entradas são as suas bolhas, num único recipiente, no armazenamento de Azure Blob. As bolhas podem ser quase qualquer tipo de dados de texto. Se as suas bolhas contiverem imagens, pode adicionar [enriquecimento de IA à indexação de bolhas ](search-blob-ai-integration.md) para criar e extrair texto das imagens.
 
 A saída é sempre um índice de Pesquisa Cognitiva Azure, utilizado para pesquisa rápida de texto, recuperação e exploração em aplicações de clientes. Pelo meio está a própria arquitetura do gasoduto de indexação. O pipeline baseia-se na característica *indexante,* discutida mais aprofundadamente neste artigo.
 
@@ -73,7 +73,7 @@ A saída de uma indexação é um índice de pesquisa, usado para exploração i
 
 Uma solução mais permanente é recolher entradas de consulta e apresentar a resposta como resultados de pesquisa numa aplicação do cliente. O seguinte tutorial C# explica como construir uma aplicação de pesquisa: [Crie a sua primeira aplicação em Azure Cognitive Search](tutorial-csharp-create-first-app.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-+ [Upload, download e liste blobs com o portal Azure (armazenamento Azure Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Configurar um indexante blob (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
++ [Upload, download e liste blobs com o portal Azure (armazenamento Azure Blob)](../storage/blobs/storage-quickstart-blobs-portal.md)
++ [Configurar um indexante blob (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md)

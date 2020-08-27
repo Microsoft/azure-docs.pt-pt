@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 49918335dc6855726e7d8de15c01a5f15280af08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 895e22d94122539ee68bcac8ee4debce2d824ff0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503222"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935284"
 ---
 # <a name="sentiment-cognitive-skill"></a>Capacidade cognitiva do sentimento
 
-A habilidade **sentimentais** avalia o texto não estruturado ao longo de um contínuo positivo-negativo, e para cada registo, devolve uma pontuação numérica entre 0 e 1. Pontuações próximas de 1 indicam sentimento positivo, e pontuações perto de 0 indicam sentimento negativo. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) em Serviços Cognitivos.
+A habilidade **sentimentais** avalia o texto não estruturado ao longo de um contínuo positivo-negativo, e para cada registo, devolve uma pontuação numérica entre 0 e 1. Pontuações próximas de 1 indicam sentimento positivo, e pontuações perto de 0 indicam sentimento negativo. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Text Analytics](../cognitive-services/text-analytics/overview.md) em Serviços Cognitivos.
 
 > [!NOTE]
 > À medida que expande o âmbito, aumentando a frequência do processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As taxas acumulam-se ao chamar APIs em Serviços Cognitivos, e para a extração de imagem como parte da fase de cracking de documentos em Azure Cognitive Search. Não há encargos para a extração de texto a partir de documentos.
@@ -29,7 +29,7 @@ A habilidade **sentimentais** avalia o texto não estruturado ao longo de um con
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um disco deve ser de 5000 caracteres medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para o analisador de sentimentos, utilize a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um disco deve ser de 5000 caracteres medido por [`String.Length`](/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para o analisador de sentimentos, utilize a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
@@ -38,14 +38,14 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Nome do Parâmetro | Descrição |
 |----------------|----------------------|
-| `defaultLanguageCode` | (opcional) O código linguístico a aplicar a documentos que não especificam explicitamente a língua. <br/> Ver [lista completa de línguas apoiadas](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
+| `defaultLanguageCode` | (opcional) O código linguístico a aplicar a documentos que não especificam explicitamente a língua. <br/> Ver [lista completa de línguas apoiadas](../cognitive-services/text-analytics/language-support.md) |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades 
 
 | Nome de entrada | Descrição |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
-| `languageCode`    |  (Opcional) Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o valor predefinido é "en". <br/>Consulte [a lista completa de línguas suportadas.](../cognitive-services/text-analytics/text-analytics-supported-languages.md)|
+| `languageCode`    |  (Opcional) Uma corda que indica a linguagem dos registos. Se este parâmetro não for especificado, o valor predefinido é "en". <br/>Consulte [a lista completa de línguas suportadas.](../cognitive-services/text-analytics/language-support.md)|
 
 ## <a name="skill-outputs"></a>Saídas de competências
 
@@ -78,7 +78,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 }
 ```
 
-##  <a name="sample-input"></a>Entrada de amostra
+##  <a name="sample-input"></a>Entrada de exemplo
 
 ```json
 {
@@ -95,7 +95,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ```
 
 
-##  <a name="sample-output"></a>Resultado da amostra
+##  <a name="sample-output"></a>Saída de exemplo
 
 ```json
 {
@@ -116,7 +116,7 @@ Se estiver vazio, uma pontuação de sentimento não é devolvida para esses reg
 ## <a name="error-cases"></a>Casos de erro
 Se uma língua não for suportada, um erro é gerado e nenhuma pontuação de sentimento é devolvida.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

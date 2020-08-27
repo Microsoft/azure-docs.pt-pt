@@ -2,13 +2,13 @@
 title: Crie uma especificação de modelo com modelos ligados
 description: Aprenda a criar uma especificação de modelo com modelos ligados.
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/26/2020
+ms.openlocfilehash: 49a26bf61c3c66f41761afe293471575e76c4eb9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387868"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936372"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Criar uma especificação de modelo com modelos ligados (Pré-visualização)
 
@@ -35,7 +35,7 @@ O modelo ligado é chamado **linkedTemplate.jsem**, e é armazenado em uma sub-p
 
 A `relativePath` propriedade é sempre relativa ao ficheiro de modelo onde é `relativePath` declarado, por isso, se houver outra linkedTemplate2.jssobre o que é chamado a partir de linkedTemplate.jse linkedTemplate2.jsestá armazenado na mesma subpagadora de artefactos, o parentePath especificado em linkedTemplate.jsé apenas `linkedTemplate2.json` .
 
-1. Crie o modelo principal com o seguinte JSON. Guarde o modelo principal à medida **queazuredeploy.jspara** o computador local. Este tutorial assume que guardou para um caminho **c:\Templates\linkedTS\azuredeploy.js,** mas pode usar qualquer caminho.
+1. Crie o modelo principal com o seguinte JSON. Guarde o modelo principal à medida ** queazuredeploy.jspara** o computador local. Este tutorial assume que guardou para um caminho **c:\Templates\linkedTS\azuredeploy.js,** mas pode usar qualquer caminho.
 
     ```json
     {
@@ -164,28 +164,59 @@ A `relativePath` propriedade é sempre relativa ao ficheiro de modelo onde é `r
 
 As especificações dos modelos são armazenadas em grupos de recursos.  Crie um grupo de recursos e, em seguida, crie uma especificação de modelo com o seguinte script. O nome de especificação do modelo é **webSpec.**
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name templateSpecRG `
   -Location westus2
 
 New-AzTemplateSpec `
-  -ResourceGroupName templateSpecRG `
   -Name webSpec `
   -Version "1.0.0.0" `
+  -ResourceGroupName templateSpecRG `
   -Location westus2 `
   -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name templateSpecRG \
+  --location westus2
+
+az template-specs create \
+  --name webSpec \
+  --version "1.0.0.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "c:\Templates\linkedTS\azuredeploy.json"
+```
+
+---
+
 Quando terminar, pode ver a especificação do modelo a partir do portal Azure ou utilizando o seguinte cmdlet:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+```
+
+---
+
 ## <a name="deploy-template-spec"></a>Implementar especificação de modelo
 
 Agora pode implementar a especificação do modelo. Implementar a especificação do modelo é como implementar o modelo que contém, exceto que você passa no ID de recurso da especificação do modelo. Utiliza os mesmos comandos de implantação e, se necessário, passa em valores de parâmetro para a especificação do modelo.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -199,6 +230,25 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+id = $(az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+
+az deployment group create \
+  --resource-group webRG \
+  --template-spec $id
+```
+
+> [!NOTE]
+> Há um problema conhecido com a obtenção de id de especificação do modelo e, em seguida, atribuí-lo a uma variável no Windows PowerShell.
+
+---
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender sobre a implementação de uma especificação de modelo como um modelo ligado, consulte [Tutorial: Implemente uma especificação de modelo como um modelo ligado](template-specs-deploy-linked-template.md).

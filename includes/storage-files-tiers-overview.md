@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 62c2193a0045cc2ee35930e87b360446e94ba861
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: cace61739e13514bb4aba1169c51ea670a167c9d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88864716"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944448"
 ---
 A Azure Files oferece quatro níveis diferentes de armazenamento, premium, transação otimizado, quente e fresco para permitir-lhe adaptar as suas ações aos requisitos de desempenho e preço do seu cenário:
 
@@ -30,6 +30,8 @@ As ações de ficheiros quentes e frescas estão atualmente disponíveis no subc
 - Austrália Central 2
 - Leste da Austrália
 - Austrália Sudeste
+- Leste do Canadá
+- Canadá Central
 - França Central
 - Sul de França
 - Alemanha Norte (público)
@@ -45,6 +47,8 @@ As ações de ficheiros quentes e frescas estão atualmente disponíveis no subc
 - Oeste da Noruega
 - África do Sul Norte
 - África do Sul
+- Suíça Norte
+- Suíça Oeste
 - Centro dos Emirados Árabes Unidos
 - Uae Norte
 - Sul do Reino Unido
