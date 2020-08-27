@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 51b6be8b4deffd81da6c0b714bc6afeff4b06ab2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa30c6c2c3ecd9c9c119fee80b7ef90999e42d30
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073947"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962626"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua para o Serviço de Aplicações Azure
 
@@ -23,11 +23,11 @@ Para obter mais informações sobre os serviços de controlo de origem, consulte
 
 ## <a name="authorize-azure-app-service"></a>Autorizar o Serviço de Aplicações Azure 
 
-Para utilizar o Azure Repos, certifique-se de que a sua organização Azure DevOps está ligada à sua subscrição Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web.](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)
+Para utilizar o Azure Repos, certifique-se de que a sua organização Azure DevOps está ligada à sua subscrição Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web.](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)
 
 Para o Bitbucket ou o GitHub, autorize o Serviço de Aplicações Azure a ligar-se ao seu repositório. Só precisa de autorizar um serviço de controlo de fonte uma vez. 
 
-1. No [portal Azure,](https://portal.azure.com)procure serviços de **aplicações** e selecione.
+1. No [portal Azure,](https://portal.azure.com)procure serviços de  **aplicações** e selecione.
 
    ![Procure por serviços de aplicações.](media/app-service-continuous-deployment/search-for-app-services.png)
 
@@ -58,7 +58,7 @@ Você pode usar o servidor de construção de aplicações Kudu incorporado para
 1. Selecione o seu fornecedor autorizado de controlo de fonte na página **'Centro de Implantação'** e selecione **Continue**. Para GitHub ou Bitbucket, também pode selecionar alterar a **conta Change** para alterar a conta autorizada. 
    
    > [!NOTE]
-   > Para utilizar o Azure Repos, certifique-se de que a sua organização Azure DevOps Services está ligada à sua subscrição Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web.](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)
+   > Para utilizar o Azure Repos, certifique-se de que a sua organização Azure DevOps Services está ligada à sua subscrição Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web.](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)
    
 1. Para GitHub ou Azure Repos, na página do **fornecedor Build,** selecione o **serviço de construção do Serviço de Aplicações**e, em seguida, selecione **Continue**. A Bitbucket usa sempre o serviço de construção do Serviço de Aplicações.
    
@@ -76,9 +76,9 @@ Você pode usar o servidor de construção de aplicações Kudu incorporado para
    - Para Azure Repos, selecione a **Azure DevOps Organization**, **Project,** **Repository**e **Branch** que pretende implementar continuamente.
      
      > [!NOTE]
-     > Se a sua organização do Azure DevOps não estiver listada, confirme se está associada à sua subscrição do Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)..
+     > Se a sua organização do Azure DevOps não estiver listada, confirme se está associada à sua subscrição do Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)..
      
-1. Selecione **Continuar**.
+1. **Selecione Continuar**.
    
    ![Preencha as informações do repositório e, em seguida, selecione Continue.](media/app-service-continuous-deployment/configure-kudu.png)
    

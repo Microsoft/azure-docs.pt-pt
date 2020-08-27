@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9359fe07818b3c5fbc08082cdf1f96195a7836ab
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080614"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962524"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar uma aplicação web num App Service Environment v1
 
@@ -57,7 +57,7 @@ Este tutorial pressupõe que criou um Ambiente de Serviço de Aplicações. Se a
     Se o seu ASE utilizar um VIP Interno, então o URL de uma aplicação em que o ASE é: [*nome do site*]. *[subdomínio especificado durante a criação da ASE*]   
     Depois de selecionar o seu ASP durante a criação da ASE, verá a atualização do subdomínio abaixo **Nome**
 
-## <a name="create-an-app-service-plan"></a><a name="createplan"></a>Criar um plano de Serviço de Aplicações
+## <a name="create-an-app-service-plan"></a><a name="createplan"></a> Criar um plano de Serviço de Aplicações
 Quando cria um plano de Serviço de Aplicações num Ambiente de Serviço de Aplicações, as suas escolhas de trabalhadores são diferentes, uma vez que não existem trabalhadores partilhados num ASE.  Os trabalhadores que tem de usar são os que foram atribuídos à ASE pela administração.  Isto significa que para criar um novo plano, é necessário ter mais trabalhadores alocados à sua piscina de trabalhadores ase do que o número total de casos em todos os seus planos já naquela piscina de trabalhadores.  Se não tem trabalhadores suficientes na sua piscina de trabalhadores da ASE para criar o seu plano, precisa de trabalhar com o seu administrador ASE para os adicionar.
 
 Outra diferença com os planos do Serviço de Aplicações hospedados por um Ambiente de Serviço de Aplicações é a falta de seleção de preços.  Quando tem um App Service Environment está a pagar pelos recursos compute utilizados pelo sistema e não tem taxas adicionais para os planos nesse ambiente.  Normalmente, quando cria um plano de Serviço de Aplicações, seleciona um plano de preços que determina a sua faturação.  Um Ambiente de Serviço de Aplicações é essencialmente um local privado onde pode criar conteúdo.  Paga-se pelo ambiente e não acolhe o seu conteúdo.
@@ -105,4 +105,4 @@ Depois de criar a sua aplicação web e o plano de Serviço de Aplicações, é 
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/management/overview.md
-[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[AzurePowershell]: /powershell/azure/?view=azps-3.8.0

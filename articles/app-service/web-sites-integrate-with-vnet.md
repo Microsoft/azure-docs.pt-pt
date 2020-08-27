@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 88801e3f79884bbf3e7cd15e61572edf7763f83f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 399689f3f7d07a6e77128037be6b7439e7bf5184
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874219"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960025"
 ---
-# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integre a sua app com uma rede virtual Azure
+# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a aplicação numa rede virtual do Azure
 
 Este artigo descreve a funcionalidade de Integração VNet do Serviço de Aplicações Azure e como conehá-la com aplicações no [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Com [a Rede Virtual Azure][VNETOverview] (VNets), pode colocar muitos dos seus recursos Azure numa rede não-internet-routable. A funcionalidade de Integração VNet permite que as suas aplicações acedam a recursos dentro ou através de um VNet. A Integração VNet não permite que as suas aplicações sejam acedidas em privado.
 
@@ -212,19 +212,19 @@ Para a integração VNet exigida por gateways, pode integrar o Serviço de Aplic
 
 
 <!--Links-->
-[VNETOverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
+[VNETOverview]: ../virtual-network/virtual-networks-overview.md
 [AzurePortal]: https://portal.azure.com/
 [ASPricing]: https://azure.microsoft.com/pricing/details/app-service/
 [VNETPricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: https://azure.microsoft.com/pricing/details/data-transfers/
-[V2VNETP2S]: https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[V2VNETP2S]: ../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md
 [ILBASE]: environment/create-ilb-ase.md
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
 [creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
-[creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
-[setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
-[VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
-[installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/
+[creategateway]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
+[setp2saddresses]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool
+[VNETRouteTables]: ../virtual-network/manage-route-table.md
+[installCLI]: /cli/azure/install-azure-cli?view=azure-cli-latest%2f
 [privateendpoints]: networking/private-endpoint.md

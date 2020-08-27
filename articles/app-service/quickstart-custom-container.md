@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aed6a2fea38f10a2e06ea51edb7fb529c8a2dde
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 33eaf6274f2da09ab98a21e6028b0103df817744
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212520"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961368"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Executar um recipiente personalizado em Azure
 
@@ -103,7 +103,7 @@ Crie uma aplicação web ASP.NET seguindo estes passos:
 
    ![Configurar você é uma web app para contentores](media/quickstart-custom-container/configure-web-app-continer.png)
 
-    Se tiver uma imagem personalizada noutra localização para a sua aplicação Web, como no [Azure Container Registry](/azure/container-registry/) ou noutro repositório privado, pode configurá-la aí.
+    Se tiver uma imagem personalizada noutra localização para a sua aplicação Web, como no [Azure Container Registry](../container-registry/index.yml) ou noutro repositório privado, pode configurá-la aí.
 
 1. Selecione **Rever e criar** e, em seguida, **criar** e esperar que a Azure crie os recursos necessários.
 
@@ -173,8 +173,8 @@ Os registos transmitidos têm o seguinte aspeto:
 
 Você é livre de usar uma imagem personalizada diferente do Docker para executar a sua aplicação. No entanto, deve escolher a imagem dos pais certos [(imagem base)](https://docs.docker.com/develop/develop-images/baseimages/) para a estrutura que deseja:
 
-- Para implementar aplicações .NET Framework, utilize uma imagem-mãe baseada na versão do Windows Server Core 2019 [Canal de Manutenção a Longo Prazo (LTSC).](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 
-- Para implementar aplicações .NET Core, utilize uma imagem-mãe baseada na versão [semi-anual do Windows](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) Server Nano 1809 (SAC). 
+- Para implementar aplicações .NET Framework, utilize uma imagem-mãe baseada na versão do Windows Server Core 2019 [Canal de Manutenção a Longo Prazo (LTSC).](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 
+- Para implementar aplicações .NET Core, utilize uma imagem-mãe baseada na versão [semi-anual do Windows](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) Server Nano 1809 (SAC). 
 
 O carregamento das imagens principais durante o arranque da aplicação demora algum tempo. No entanto, pode utilizar uma das seguintes imagens principais que já estão em cache no Serviço de Aplicações do Azure para reduzir o tempo de arranque:
 
@@ -188,7 +188,7 @@ O carregamento das imagens principais durante o arranque da aplicação demora a
 ::: zone-end  
 
 ::: zone pivot="container-linux"
-O Serviço de Aplicações no Linux fornece pilhas de aplicações pré-definidas no Linux com suporte para idiomas como .NET, PHP, Node.js e outros. Também pode utilizar uma imagem personalizada do Docker para executar a aplicação Web numa pilha de aplicação que ainda não esteja definida no Azure. Este quickstart mostra-lhe como implementar uma imagem de um Registo de [Contentores Azure](/azure/container-registry) (ACR) para o Serviço de Aplicações.
+O Serviço de Aplicações no Linux fornece pilhas de aplicações pré-definidas no Linux com suporte para idiomas como .NET, PHP, Node.js e outros. Também pode utilizar uma imagem personalizada do Docker para executar a aplicação Web numa pilha de aplicação que ainda não esteja definida no Azure. Este quickstart mostra-lhe como implementar uma imagem de um Registo de [Contentores Azure](../container-registry/index.yml) (ACR) para o Serviço de Aplicações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -200,7 +200,7 @@ O Serviço de Aplicações no Linux fornece pilhas de aplicações pré-definida
 
 ## <a name="create-an-image"></a>Criar uma imagem
 
-Para completar este arranque rápido, você precisará de uma imagem de aplicação web adequada armazenada num [Registo de Contentores Azure.](/azure/container-registry) Siga as instruções em [Quickstart: Crie um registo de contentores privados utilizando o portal Azure,](/azure/container-registry/container-registry-get-started-portal)mas utilize a `mcr.microsoft.com/azuredocs/go` imagem em vez da `hello-world` imagem. Para referência, a [amostra Dockerfile encontra-se em Azure Samples repo](https://github.com/Azure-Samples/go-docs-hello-world).
+Para completar este arranque rápido, você precisará de uma imagem de aplicação web adequada armazenada num [Registo de Contentores Azure.](../container-registry/index.yml) Siga as instruções em [Quickstart: Crie um registo de contentores privados utilizando o portal Azure,](../container-registry/container-registry-get-started-portal.md)mas utilize a `mcr.microsoft.com/azuredocs/go` imagem em vez da `hello-world` imagem. Para referência, a [amostra Dockerfile encontra-se em Azure Samples repo](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Certifique-se de que define a opção **Admin User** para **Ativar** quando criar o registo do contentor. Também pode defini-lo a partir da secção de **teclas de acesso** da sua página de registo no portal Azure. Esta definição é necessária para o acesso ao Serviço de Aplicações.
@@ -261,4 +261,4 @@ Em seguida, confira as outras extensões do Azure.
 
 Ou obtenha-os todos instalando o pacote de extensões [Azure Tools.](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-::: zone-end  
+::: zone-end

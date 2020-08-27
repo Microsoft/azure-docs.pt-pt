@@ -3,14 +3,14 @@ title: Executar os runbooks da Azure Automation em um trabalhador de runbook hí
 description: Este artigo diz como executar livros em máquinas no seu datacenter local ou fornecedor de nuvem com o Trabalhador de Runbook Híbrido.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2019
+ms.date: 08/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22ab982abe9f73aa77cb9bb2c8d3eaa383bc42fb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 13c982dcfab21371ea6017f730065cc5ced4b79e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186219"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959574"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 
@@ -43,7 +43,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-Também pode utilizar uma atividade [InlineScript.](automation-powershell-workflow.md#use-inlinescript) `InlineScript`permite executar blocos de código em outro computador com credenciais.
+Também pode utilizar uma atividade [InlineScript.](automation-powershell-workflow.md#use-inlinescript) `InlineScript` permite executar blocos de código em outro computador com credenciais.
 
 ## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>Utilize a autenticação de runbook com identidades geridas
 
@@ -70,7 +70,7 @@ Siga os próximos passos para utilizar uma identidade gerida para os recursos da
     ```
 
     > [!NOTE]
-    > `Connect-AzAccount -Identity`funciona para um Trabalhador de Runbook Híbrido utilizando uma identidade atribuída ao sistema e uma única identidade atribuída ao utilizador. Se utilizar várias identidades atribuídas ao utilizador no Trabalhador do Runbook Híbrido, o seu livro de execução deve especificar o `AccountId` parâmetro `Connect-AzAccount` para selecionar uma identidade específica atribuída ao utilizador.
+    > `Connect-AzAccount -Identity` funciona para um Trabalhador de Runbook Híbrido utilizando uma identidade atribuída ao sistema e uma única identidade atribuída ao utilizador. Se utilizar várias identidades atribuídas ao utilizador no Trabalhador do Runbook Híbrido, o seu livro de execução deve especificar o `AccountId` parâmetro `Connect-AzAccount` para selecionar uma identidade específica atribuída ao utilizador.
 
 ## <a name="use-runbook-authentication-with-run-as-account"></a>Utilize a autenticação do runbook com a conta Run As
 
@@ -304,6 +304,14 @@ Ao iniciar um livro de execução utilizando o PowerShell, utilize o `RunOn` par
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
+
+## <a name="logging"></a>Registo
+
+Para ajudar a resolver problemas com os seus runbooks em execução num trabalhador híbrido, os registos são armazenados localmente no seguinte local:
+
+* No Windows `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` para o registo detalhado do processo de execução do trabalho. Os eventos de estado de trabalho de alto nível são escritos para o registo de **eventos de aplicações e serviços\Microsoft-Automation\Operations** event log.
+
+* No Linux, os registos híbridos do utilizador podem ser encontrados em `/home/nxautomation/run/worker.log` , e os registos de trabalhadores do sistema podem ser encontrados em `/var/opt/microsoft/omsagent/run/automationworker/worker.log` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

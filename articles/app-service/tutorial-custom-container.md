@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: serviço de aplicativos azure, web app, linux, janelas, estivador, recipiente
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212952"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958495"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrar software personalizado para o Azure App Service usando um recipiente personalizado
 
 ::: zone pivot="container-windows"  
 
-O [Serviço de Aplicações do Azure](overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). No entanto, a utilização de um recipiente personalizado do Windows no Serviço de Aplicações (Preview) permite-lhe fazer alterações de SO de que a sua aplicação necessita, pelo que é fácil migrar no local uma aplicação que requer um sistema operativo personalizado e configuração de software. Este tutorial demonstra como migrar para o Serviço de Aplicações uma aplicação ASP.NET que utiliza tipos de letra personalizados instalados na biblioteca de tipos de letra do Windows. Implemente uma imagem do Windows configurada e personalizada do Visual Studio no [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), e, em seguida, execute-a no Serviço de Aplicações.
+O [Serviço de Aplicações do Azure](overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). No entanto, a utilização de um recipiente personalizado do Windows no Serviço de Aplicações (Preview) permite-lhe fazer alterações de SO de que a sua aplicação necessita, pelo que é fácil migrar no local uma aplicação que requer um sistema operativo personalizado e configuração de software. Este tutorial demonstra como migrar para o Serviço de Aplicações uma aplicação ASP.NET que utiliza tipos de letra personalizados instalados na biblioteca de tipos de letra do Windows. Implemente uma imagem do Windows configurada e personalizada do Visual Studio no [Azure Container Registry](../container-registry/index.yml), e, em seguida, execute-a no Serviço de Aplicações.
 
 ![Mostra a aplicação web a funcionar num recipiente Windows.](media/tutorial-custom-container/app-running.png)
 
@@ -92,7 +92,7 @@ Pode encontrar _InstallFont.ps1_ no projeto **CustomFontSample**. É um script s
 
 ## <a name="publish-to-azure-container-registry"></a>Publicar no Azure Container Registry
 
-[O Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) pode armazenar as imagens de implementação de contentores. Pode configurar o Serviço de Aplicações para utilizar imagens alojadas no Azure Container Registry.
+[O Azure Container Registry](../container-registry/index.yml) pode armazenar as imagens de implementação de contentores. Pode configurar o Serviço de Aplicações para utilizar imagens alojadas no Azure Container Registry.
 
 ### <a name="open-publish-wizard"></a>Abrir o assistente de publicação
 
@@ -213,7 +213,7 @@ Os registos transmitidos têm o seguinte aspeto:
 
 O Azure App Service utiliza a tecnologia de contentores Docker para acolher imagens incorporadas e imagens personalizadas. Para ver uma lista de imagens incorporadas, execute o comando Azure CLI, ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). Se essas imagens não satisfizerem as suas necessidades, pode construir e implementar uma imagem personalizada.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Construa uma imagem personalizada se nenhuma imagem incorporada satisfaz as suas necessidades
@@ -439,7 +439,7 @@ Para implantar um contentor no Azure App Service, primeiro cria uma aplicação 
     
     Para obter mais informações sobre esta variável ambiental, consulte a [leitura no repositório GitHub da amostra.](https://github.com/Azure-Samples/docker-django-webapp-linux)
 
-1. Ativar [a identidade gerida](/azure/app-service/overview-managed-identity) para a aplicação web utilizando o [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) comando:
+1. Ativar [a identidade gerida](./overview-managed-identity.md) para a aplicação web utilizando o [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) comando:
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -466,7 +466,7 @@ Para implantar um contentor no Azure App Service, primeiro cria uma aplicação 
     - `<registry-name>` com o nome do seu registo de contentores
     - `<subscription-id>` com o ID de subscrição recuperado do `az account show` comando
 
-Para obter mais informações sobre estas permissões, consulte [o que é o controlo de acesso baseado em funções do Azure](/azure/role-based-access-control/overview) e 
+Para obter mais informações sobre estas permissões, consulte [o que é o controlo de acesso baseado em funções do Azure](../role-based-access-control/overview.md) e 
 
 ## <a name="deploy-the-image-and-test-the-app"></a>Implemente a imagem e teste a aplicação
 
@@ -539,7 +539,7 @@ Nesta secção, faz uma alteração ao código da aplicação web, reconstrói o
     az webapp restart --name <app_name> --resource-group AppSvc-DockerTutorial-rg
     ```
 
-    Substitua `<app_name>` pelo nome da sua aplicação Web. Após o reinício, o Serviço de Aplicações retira a imagem atualizada do registo do contentor.
+    Substitua `<app_name>` pelo nome da aplicação Web. Após o reinício, o Serviço de Aplicações retira a imagem atualizada do registo do contentor.
 
 1. Verifique se a atualização foi implementada navegando para `http://<app-name>.azurewebsites.net` .
 
@@ -604,7 +604,7 @@ service ssh start
 
 ### <a name="open-ssh-connection-to-container"></a>Abrir a ligação SSH ao contentor
 
-1. Navegue e `https://<app-name>.scm.azurewebsites.net/webssh/host` inscreva-se na sua conta Azure. Substitua `<app-name>` pelo nome da sua aplicação Web.
+1. Navegue e `https://<app-name>.scm.azurewebsites.net/webssh/host` inscreva-se na sua conta Azure. Substitua `<app-name>` pelo nome da aplicação Web.
 
 1. Uma vez assinado, é redirecionado para uma página informativa para a aplicação web. Selecione **SSH** no topo da página para abrir a concha e utilizar comandos.
 

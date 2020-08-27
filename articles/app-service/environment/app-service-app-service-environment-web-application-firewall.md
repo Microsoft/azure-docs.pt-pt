@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d629aca791794de6c3e065fdc9f4a9e7f6d8a5df
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85833186"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961844"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurar uma Firewall de Aplicações Web (WAF) para o Ambiente de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral
 
-As firewalls de aplicações Web (WAF) ajudam a proteger as suas aplicações Web ao inspecionarem o tráfego Web de entrada para bloquear injeções de SQL, Scripting Entre Sites, carregamentos de malware, DDoS de aplicações e outros ataques. Também inspecionam as respostas dos servidores Web do back-end quanto a Prevenção de Perda de Dados (DLP). Em combinação com o isolamento e o dimensionamento adicional que os Ambientes de Serviço de Aplicações proporcionam, as firewalls oferecem um ambiente ideal para alojar aplicações Web criticas das empresas que têm de conseguir suportar pedidos maliciosos e altos volumes de tráfego. O Azure proporciona uma capacidade de WAF com o [Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Para saber como integrar o Ambiente de Serviço de Aplicações num Gateway de Aplicação, leia o documento [Integrate your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) (Integrar o ASE de ILB num Gateway de Aplicação).
+As firewalls de aplicações Web (WAF) ajudam a proteger as suas aplicações Web ao inspecionarem o tráfego Web de entrada para bloquear injeções de SQL, Scripting Entre Sites, carregamentos de malware, DDoS de aplicações e outros ataques. Também inspecionam as respostas dos servidores Web do back-end quanto a Prevenção de Perda de Dados (DLP). Em combinação com o isolamento e o dimensionamento adicional que os Ambientes de Serviço de Aplicações proporcionam, as firewalls oferecem um ambiente ideal para alojar aplicações Web criticas das empresas que têm de conseguir suportar pedidos maliciosos e altos volumes de tráfego. O Azure proporciona uma capacidade de WAF com o [Gateway de Aplicação](../../application-gateway/overview.md).  Para saber como integrar o Ambiente de Serviço de Aplicações num Gateway de Aplicação, leia o documento [Integrate your ILB ASE with an Application Gateway](./integrate-with-application-gateway.md) (Integrar o ASE de ILB num Gateway de Aplicação).
 
 Para além do Gateway de Aplicação do Azure, existem muitas opções no mercado, como o [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure), que estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=PlansAndPrice). O resto deste documento centra-se em integrar o seu Ambiente de Serviço de Aplicações num dispositivo Barracuda WAF.
 
@@ -34,7 +34,7 @@ Neste documento, vamos configurar o Ambiente de Serviço de Aplicações por tr�
 > 
 
 ## <a name="configuring-your-app-service-environment"></a>Configurar o Ambiente de Serviço de Aplicações
-Para configurar um Ambiente de Serviço de Aplicações, veja a [nossa documentação](app-service-web-how-to-create-an-app-service-environment.md) sobre o assunto. Quando tiver um Ambiente de Serviço de Aplicações criado, pode criar Aplicações Web, Aplicações API e [Aplicações Móveis](../../app-service-mobile/app-service-mobile-value-prop.md) nesse ambiente, as quais estarão protegidas por trás do WAF que vamos configurar na próxima secção.
+Para configurar um Ambiente de Serviço de Aplicações, veja a [nossa documentação](app-service-web-how-to-create-an-app-service-environment.md) sobre o assunto. Quando tiver um Ambiente de Serviço de Aplicações criado, pode criar Aplicações Web, Aplicações API e [Aplicações Móveis](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) nesse ambiente, as quais estarão protegidas por trás do WAF que vamos configurar na próxima secção.
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>Configurar o Serviço Cloud Barracuda WAF
 A Barracuda tem um [artigo detalhado](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) sobre a implementação do respetivo WAF em máquinas virtuais no Azure. Contudo, uma vez que pretendemos ter redundância e não introduzir um ponto único de falha, recomendamos que implemente pelo menos duas instâncias de VMs do WAF no mesmo Serviço Cloud quando seguir essas instruções.

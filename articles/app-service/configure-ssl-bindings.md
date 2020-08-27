@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078636"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962643"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteja um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service
 
-Este artigo mostra-lhe como proteger o [domínio personalizado](app-service-web-tutorial-custom-domain.md) na sua app ou [aplicação de função](https://docs.microsoft.com/azure/azure-functions/) [App Service,](https://docs.microsoft.com/azure/app-service/) criando uma ligação de certificado. Quando terminar, pode aceder à sua aplicação De Serviço de Aplicações no ponto final para o `https://` seu nome DNS personalizado (por exemplo, `https://www.contoso.com` ). 
+Este artigo mostra-lhe como proteger o [domínio personalizado](app-service-web-tutorial-custom-domain.md) na sua app ou [aplicação de função](../azure-functions/index.yml) [App Service,](./index.yml) criando uma ligação de certificado. Quando terminar, pode aceder à sua aplicação De Serviço de Aplicações no ponto final para o `https://` seu nome DNS personalizado (por exemplo, `https://www.contoso.com` ). 
 
 ![Aplicativo Web com certificado TLS/SSL personalizado](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -24,7 +24,7 @@ Garantir um [domínio personalizado](app-service-web-tutorial-custom-domain.md) 
 - [Adicione um certificado privado ao Serviço de Aplicações](configure-ssl-certificate.md) que satisfaça todos os [requisitos de certificado privado.](configure-ssl-certificate.md#private-certificate-requirements)
 -  Crie uma ligação TLS ao domínio personalizado correspondente. Este segundo passo é abordado por este artigo.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Atualizar o escalão de preço da sua aplicação
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 
 Para acompanhar este guia:
 
-- [Criar uma aplicação do Serviço de Aplicações](/azure/app-service/)
+- [Criar uma aplicação do Serviço de Aplicações](./index.yml)
 - [Mapeie um nome de domínio para a sua app](app-service-web-tutorial-custom-domain.md) ou compre e [configuure-o em Azure](manage-custom-dns-buy-domain.md)
 - [Adicione um certificado privado à sua aplicação](configure-ssl-certificate.md)
 
@@ -168,4 +168,4 @@ Guias de configuração específicos do idioma, como o guia [de configuração N
 ## <a name="more-resources"></a>Mais recursos
 
 * [Utilize um certificado TLS/SSL no seu código no Serviço de Aplicações Azure](configure-ssl-certificate-in-code.md)
-* [FAQ : Certificados de Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [FAQ : Certificados de Serviço de Aplicações](./faq-configuration-and-management.md)

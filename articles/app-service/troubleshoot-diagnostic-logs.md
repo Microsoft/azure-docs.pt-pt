@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207525"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962184"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
 ## <a name="overview"></a>Descrição geral
@@ -46,12 +46,12 @@ Para ativar o registo de aplicações para aplicações do Windows no [portal Az
 
 Selecione **On** for **Application Logging (Filesystem)** ou **Application Logging (Blob)** ou ambos. 
 
-A opção **Filesystem** destina-se a depurações temporárias e desliga-se em 12 horas. A opção **Blob** é para a exploração madeireira a longo prazo, e precisa de um recipiente de armazenamento de bolhas para escrever registos.  A opção **Blob** também inclui informações adicionais nas mensagens de registo, tais como o ID da origem VM instância da mensagem de registo `InstanceId` (, thread ID ( `Tid` ) e um timetamp mais granular ( [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) ).
+A opção **Filesystem** destina-se a depurações temporárias e desliga-se em 12 horas. A opção **Blob** é para a exploração madeireira a longo prazo, e precisa de um recipiente de armazenamento de bolhas para escrever registos.  A opção **Blob** também inclui informações adicionais nas mensagens de registo, tais como o ID da origem VM instância da mensagem de registo `InstanceId` (, thread ID ( `Tid` ) e um timetamp mais granular ( [`EventTickCount`](/dotnet/api/system.datetime.ticks) ).
 
 > [!NOTE]
 > Atualmente apenas os registos de aplicações .NET podem ser escritos para o armazenamento do blob. Java, PHP, Node.js, os registos de aplicações Python só podem ser armazenados no sistema de ficheiros do Serviço de Aplicações (sem modificações de código para escrever registos para armazenamento externo).
 >
-> Além disso, se [regenerar as teclas de acesso da sua conta de armazenamento,](../storage/common/storage-create-storage-account.md)tem de redefinir a respetiva configuração de registo para utilizar as teclas de acesso atualizadas. Para efetuar este procedimento:
+> Além disso, se [regenerar as teclas de acesso da sua conta de armazenamento,](../storage/common/storage-account-create.md)tem de redefinir a respetiva configuração de registo para utilizar as teclas de acesso atualizadas. Para efetuar este procedimento:
 >
 > 1. No **separador Configurar,** desafie a respetiva função de registo para **Desligar**. Guarde a sua configuração.
 > 2. Volte a ativar o registo na bolha da conta de armazenamento. Guarde a sua configuração.
@@ -89,7 +89,7 @@ Para **fazer login no servidor Web**, selecione **Armazenamento** para armazenar
 No **Período de Retenção (Dias)**, desa um número de dias os registos devem ser mantidos.
 
 > [!NOTE]
-> Se [regenerar as teclas de acesso da sua conta de armazenamento,](../storage/common/storage-create-storage-account.md)tem de redefinir a respetiva configuração de registo para utilizar as teclas atualizadas. Para efetuar este procedimento:
+> Se [regenerar as teclas de acesso da sua conta de armazenamento,](../storage/common/storage-account-create.md)tem de redefinir a respetiva configuração de registo para utilizar as teclas atualizadas. Para efetuar este procedimento:
 >
 > 1. No **separador Configurar,** desafie a respetiva função de registo para **Desligar**. Guarde a sua configuração.
 > 2. Volte a ativar o registo na bolha da conta de armazenamento. Guarde a sua configuração.
@@ -116,7 +116,7 @@ No seu código de aplicação, utiliza as instalações habituais de registo par
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Por padrão, ASP.NET Core utiliza o fornecedor de registo [microsoft.Extensions.Logging.AzureAppServices.](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) Para obter mais informações, consulte [ASP.NET Core a registar-se em Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- Por padrão, ASP.NET Core utiliza o fornecedor de registo [microsoft.Extensions.Logging.AzureAppServices.](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) Para obter mais informações, consulte [ASP.NET Core a registar-se em Azure](/aspnet/core/fundamentals/logging/).
 
 ## <a name="stream-logs"></a>Transmitir registos
 
@@ -151,7 +151,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### <a name="in-local-terminal"></a>No terminal local
 
-Para transmitir registos na consola local, [instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e [inicie sessão na sua conta.](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) Uma vez assinado, seguiu as [instruções para Cloud Shell](#in-cloud-shell)
+Para transmitir registos na consola local, [instale o Azure CLI](/cli/azure/install-azure-cli) e [inicie sessão na sua conta.](/cli/azure/authenticate-azure-cli) Uma vez assinado, seguiu as [instruções para Cloud Shell](#in-cloud-shell)
 
 ## <a name="access-log-files"></a>Aceder a ficheiros de registos
 

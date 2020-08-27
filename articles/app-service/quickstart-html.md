@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: bd1e44aefed310826465dbf44dee1324f5a085b3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d624d332fa35bf458e9158e00aaf83ce495b9061
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085363"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961351"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este quickstart mostra como implementar um site básico HTML+CSS para o Azure App Service. Você completará este quickstart em [Cloud Shell,](https://docs.microsoft.com/azure/cloud-shell/overview)mas também pode executar estes comandos localmente com [Azure CLI](/cli/azure/install-azure-cli).
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este quickstart mostra como implementar um site básico HTML+CSS para o Azure App Service. Você completará este quickstart em [Cloud Shell,](../cloud-shell/overview.md)mas também pode executar estes comandos localmente com [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Página inicial da aplicação de exemplo](media/quickstart-html/hello-world-in-browser-az.png)
 
@@ -58,7 +58,7 @@ O comando `az webapp up` executa as seguintes ações:
 
 - Cria uma aplicação com o nome especificado.
 
-- [Implementa](https://docs.microsoft.com/azure/app-service/deploy-zip) os ficheiros zip do diretório atual de trabalho para a aplicação Web.
+- [Implementa](./deploy-zip.md) os ficheiros zip do diretório atual de trabalho para a aplicação Web.
 
 Este comando pode demorar alguns minutos a ser executado. Ao executar, apresenta informações semelhantes ao exemplo seguinte:
 

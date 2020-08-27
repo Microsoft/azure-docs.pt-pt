@@ -2,15 +2,15 @@
 title: Criar e implementar especificações de modelo
 description: Aprenda a criar uma especificação de modelo a partir do modelo ARM. Em seguida, implemente a especificação do modelo para um grupo de recursos na sua subscrição.
 author: tfitzmac
-ms.date: 08/26/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: aaceac9fccf21074732c4b6c4b3e72cc09552a65
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 84422862cfa73c2cbb27411bf0c1a7fb3fab9b35
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936389"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962660"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
 
@@ -257,7 +257,7 @@ Agora pode implementar a especificação do modelo. Implementar a especificaçã
     ```
 
     > [!NOTE]
-    > Há um problema conhecido com a obtenção de id de especificação do modelo e, em seguida, atribuí-lo a uma variável no Windows PowerShell.
+    > Há um problema conhecido em obter um ID de especificação de modelo e atribuí-lo a uma variável no Windows PowerShell.
 
 1. Implemente a especificação do modelo.
 

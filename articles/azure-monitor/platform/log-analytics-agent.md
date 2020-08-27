@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e1fa2fe11873d08fae5add1ee3206f6f887975eb
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121532"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960922"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/). Os agentes windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Azure Monitor, bem como quaisquer registos ou métricas únicos definidos numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, como [o Azure Monitor para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center,](../../security-center/index.yml)e [Azure Automation.](../../automation/automation-intro.md)
@@ -22,7 +22,7 @@ Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sist
 > Também pode ver o agente Log Analytics referido como o Agente de Monitorização da Microsoft (MMA) ou o agente OMS Linux.
 
 > [!NOTE]
-> A extensão Azure Diagnostics é um dos agentes disponíveis para recolher dados de monitorização do sistema operativo de recursos computatórios dos hóspedes. Consulte [a visão geral dos agentes do Monitor Azure](agents-overview.md) para obter uma descrição dos diferentes agentes e orientações sobre a seleção dos agentes adequados para os seus requisitos.
+> A extensão Azure Diagnostics é um dos agentes disponíveis para recolher dados de monitorização do sistema operativo de recursos computatórios dos hóspedes. Consulte [a visão geral dos agentes do Monitor Azure ](agents-overview.md) para obter uma descrição dos diferentes agentes e orientações sobre a seleção dos agentes adequados para os seus requisitos.
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Comparação com a extensão de diagnósticos Azure
 A [extensão de diagnóstico Azure](diagnostics-extension-overview.md) no Azure Monitor também pode ser usada para recolher dados de monitorização do sistema operativo convidado de máquinas virtuais Azure. Pode optar por utilizar qualquer um ou ambos dependendo dos seus requisitos. Consulte [a visão geral dos agentes do Monitor Azure](agents-overview.md) para uma comparação detalhada dos agentes do Monitor Azure. 
@@ -118,9 +118,9 @@ Começando com versões lançadas após agosto de 2018, estamos a fazer as segui
 ### <a name="python-2-requirement"></a>Requisito python 2
  O agente Log Analytics requer Python 2. Se a sua máquina virtual estiver a utilizar um distro que não inclua python 2 por defeito, então deve instalá-lo. Os seguintes comandos de amostra instalarão Python 2 em diferentes distros.
 
- - Chapéu Vermelho, CentOS, Oráculo:`yum install -y python2`
- - Ubuntu, Debian:`apt-get install -y python2`
- - SUSE:`zypper install -y python2`
+ - Chapéu Vermelho, CentOS, Oráculo: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
 
 A piton2 executável deve ser aliasada à *pitão* utilizando o seguinte procedimento:
 
@@ -186,7 +186,7 @@ O agente do Windows começará a utilizar exclusivamente a assinatura SHA-2 no d
 4. Recomendado para configurar o agente para [utilizar o TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
 
-## <a name="network-requirements"></a>Requisitos de rede
+## <a name="network-requirements"></a>Requisitos da rede
 O agente do Linux e do Windows comunica a saída do serviço Azure Monitor através da porta TCP 443, e se a máquina ligar através de uma firewall ou servidor de procuração para comunicar através da Internet, rever os requisitos abaixo para entender a configuração de rede necessária. Se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à Internet, pode configurar um [gateway Log Analytics](gateway.md) e, em seguida, configurar o agente para ligar através do gateway para os registos do Azure Monitor. O agente pode então receber informações de configuração e enviar dados recolhidos dependendo das regras de recolha de dados e das soluções de monitorização que ativou no seu espaço de trabalho.
 
 ![Diagrama de comunicação do agente do Log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
@@ -197,10 +197,10 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
-|*.blob.core.windows.net |Porto 443 |Saída|Yes |
-|*.azure-automation.net |Porto 443 |Saída|Yes |
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.blob.core.windows.net |Porto 443 |Saída|Sim |
+|*.azure-automation.net |Porto 443 |Saída|Sim |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
@@ -213,9 +213,6 @@ O agente Windows e Linux suporta a comunicação através de um servidor proxy o
 Para o agente Linux, o servidor proxy é especificado durante a instalação ou após a [instalação](agent-manage.md#update-proxy-settings) modificando o ficheiro de configuração proxy.conf.  O valor de configuração de procuração do agente Linux tem a seguinte sintaxe:
 
 `[protocol://][user:password@]proxyhost[:port]`
-
-> [!NOTE]
-> Se o seu servidor proxy não necessitar de autenticar, o agente Linux ainda necessita de fornecer um pseudo utilizador/senha. Este pode ser qualquer nome de utilizador ou senha.
 
 |Propriedade| Descrição |
 |--------|-------------|

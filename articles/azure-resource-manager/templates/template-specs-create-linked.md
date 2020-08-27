@@ -2,13 +2,13 @@
 title: Crie uma especificação de modelo com modelos ligados
 description: Aprenda a criar uma especificação de modelo com modelos ligados.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 49a26bf61c3c66f41761afe293471575e76c4eb9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/27/2020
+ms.openlocfilehash: a70d4be2810b8d5a19fa9d806444cac1674e1a05
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936372"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959226"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Criar uma especificação de modelo com modelos ligados (Pré-visualização)
 
@@ -245,7 +245,7 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> Há um problema conhecido com a obtenção de id de especificação do modelo e, em seguida, atribuí-lo a uma variável no Windows PowerShell.
+> Há um problema conhecido em obter um ID de especificação de modelo e atribuí-lo a uma variável no Windows PowerShell.
 
 ---
 

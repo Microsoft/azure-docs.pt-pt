@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7dea761afb459363e9f469c808b2735ead9f25ab
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085321"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961458"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Criar uma aplicação web PHP no Azure App Service
 
@@ -22,7 +22,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de introdução mostra como implementar uma aplicação PHP no Serviço de Aplicações do Azure no Linux.
 ::: zone-end  
 
-Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e utilize o Git para implementar o código PHP de exemplo para a aplicação Web.
+Crie a aplicação Web com a [CLI do Azure](/cli/azure/get-started-with-azure-cli) no Cloud Shell e utilize o Git para implementar o código PHP de exemplo para a aplicação Web.
 
 ![Aplicação Web de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
 

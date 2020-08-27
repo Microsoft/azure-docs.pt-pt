@@ -11,18 +11,18 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6572f2e71b794f9f147278970b3f5f29fceb29d7
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081592"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962694"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Quickstart: Criar uma base de dados única Azure SQL Database
 
 Neste arranque rápido, você usa o portal Azure, um script PowerShell ou um script Azure CLI para criar uma única base de dados na Base de Dados Azure SQL. Em seguida, consulta a base de **dados** utilizando o editor de consulta no portal Azure.
 
-Uma [única base de dados](single-database-overview.md) é a opção mais rápida e simples para a Base de Dados Azure SQL. Gere uma única base de dados dentro de um [servidor](logical-servers.md), que está dentro de um [grupo de recursos Azure](../../active-directory-b2c/overview.md) numa região específica de Azure. Neste arranque rápido, cria-se um novo grupo de recursos e servidor para a nova base de dados.
+Uma [única base de dados](single-database-overview.md) é a opção mais rápida e simples para a Base de Dados Azure SQL. Gere uma única base de dados dentro de um [servidor](logical-servers.md), que está dentro de um [grupo de recursos Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md) numa região específica de Azure. Neste arranque rápido, cria-se um novo grupo de recursos e servidor para a nova base de dados.
 
 Pode criar uma única base de dados no nível de computação *previsto* ou *sem servidor.* Uma base de dados alocada é pré-atribuída a uma quantidade fixa de recursos computacionais, incluindo CPU e memória, e utiliza um de dois [modelos de compra](purchasing-models.md). Este quickstart cria uma base de dados a provisionada utilizando o modelo de compra [baseado em vCore,](service-tiers-vcore.md) mas também pode escolher um modelo [baseado em DTU.](service-tiers-dtu.md)
 
@@ -61,13 +61,13 @@ Uma vez criada a base de dados, pode utilizar o editor de **consulta** incorpora
 
 1. Feche a página do **editor de consulta** e selecione **OK** quando solicitado para descartar as suas edições não salvas.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Mantenha o grupo de recursos, servidor e base de dados única para passar aos próximos passos e aprenda a ligar e consultar a sua base de dados com diferentes métodos.
 
 Quando terminar de utilizar estes recursos, pode eliminar o grupo de recursos que criou, que também eliminará o servidor e a base de dados única dentro do mesmo.
 
-### <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
+### <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
 
 Para eliminar **o myResourceGroup** e todos os seus recursos utilizando o portal Azure:
 
@@ -75,7 +75,7 @@ Para eliminar **o myResourceGroup** e todos os seus recursos utilizando o portal
 1. Na página do grupo de recursos, selecione **Eliminar o grupo de recursos**.
 1. Em **'Digite' o nome do grupo de recursos**, insira o *myResourceGroup*e, em seguida, selecione **Delete**.
 
-### <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+### <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Para eliminar o grupo de recursos e todos os seus recursos, executar o seguinte comando Azure CLI, utilizando o nome do seu grupo de recursos:
 
@@ -93,7 +93,7 @@ Remove-AzResourceGroup -Name <your resource group>
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Conecte e questione a](connect-query-content-reference-guide.md) sua base de dados utilizando diferentes ferramentas e idiomas:
 > [!div class="nextstepaction"]

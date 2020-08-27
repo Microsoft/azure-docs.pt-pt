@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Tráfego web direto usando OCli'
 titleSuffix: Azure Application Gateway
-description: Aprenda a usar o Azure CLI para criar um Gateway de aplicação Azure que direcione o tráfego web para máquinas virtuais numa piscina de backend.
+description: Neste arranque rápido, aprende-se a usar o CLI Azure para criar um Gateway de aplicação Azure que direciona o tráfego web para máquinas virtuais numa piscina de backend.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: d79f51e32fa62527140ccf19cfc3573339d22fab
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499131"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961759"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure
 
@@ -24,12 +24,14 @@ O gateway de aplicações direciona o tráfego web da aplicação para recursos 
 
 Também pode completar este quickstart utilizando [o Azure PowerShell](quick-create-powershell.md) ou o [portal Azure](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Versão Azure CLI 2.0.4 ou posterior](/cli/azure/install-azure-cli) (se executar a Azure CLI localmente).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
@@ -185,7 +187,7 @@ Copie e cole o endereço IP público na barra de endereço do seu navegador.
 
 Ao refrescar o navegador, deverá ver o nome do segundo VM. Isto indica que o gateway de aplicação foi criado com sucesso e pode ligar-se com o backend.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicação, utilize o `az group delete` comando para eliminar o grupo de recursos. Quando elimina o grupo de recursos, também elimina o gateway de aplicações e todos os seus recursos relacionados.
 

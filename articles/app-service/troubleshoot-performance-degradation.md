@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9d3de5d4a88c782ad541ceb4916ec90a3bdd7b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170771"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958257"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Resolução de problemas problemas de desempenho de aplicações lentas no Azure App Service
 Este artigo ajuda-o a resolver problemas de desempenho de aplicações lentas no [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -43,7 +43,7 @@ A resolução de problemas pode ser dividida em três tarefas distintas, por ord
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observar e monitorizar o comportamento da aplicação
 #### <a name="track-service-health"></a>Saúde do Serviço de Rastreio
-O Microsoft Azure divulga cada vez que há uma interrupção de serviço ou degradação de desempenho. Pode acompanhar a saúde do serviço no [portal Azure.](https://portal.azure.com/) Para mais informações, consulte [a saúde do serviço track.](../monitoring-and-diagnostics/insights-service-health.md)
+O Microsoft Azure divulga cada vez que há uma interrupção de serviço ou degradação de desempenho. Pode acompanhar a saúde do serviço no [portal Azure.](https://portal.azure.com/) Para mais informações, consulte [a saúde do serviço track.](../service-health/service-notifications.md)
 
 #### <a name="monitor-your-app"></a>Monitorize a sua aplicação
 Esta opção permite-lhe descobrir se a sua aplicação está a ter algum problema. Na lâmina da sua aplicação, clique nos **pedidos e erros** em azulejo. A lâmina **métrica** mostra-lhe todas as métricas que pode adicionar.
@@ -52,7 +52,7 @@ Algumas das métricas que pode querer monitorizar para a sua aplicação são
 
 * Conjunto de trabalho de memória média
 * Tempo médio de resposta
-* Hora do CPU
+* Tempo de CPU
 * Conjunto de trabalho de memória
 * Pedidos
 
@@ -61,7 +61,7 @@ Algumas das métricas que pode querer monitorizar para a sua aplicação são
 Para obter mais informações, consulte:
 
 * [Monitorize aplicativos no Azure App Service](web-sites-monitor.md)
-* [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Receber notificações de alerta](../azure-monitor/platform/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Monitorar o estado do ponto final da web
 Se estiver a executar a sua aplicação no nível de preços **Standard,** o App Service permite-lhe monitorizar dois pontos finais de três localizações geográficas.
@@ -161,4 +161,4 @@ Reiniciar é muitas vezes a forma mais simples de recuperar de problemas únicos
 
  ![reiniciar app para resolver problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Também pode gerir a sua aplicação usando a Azure Powershell. Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](../powershell-azure-resource-manager.md).
+Também pode gerir a sua aplicação usando a Azure Powershell. Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](../azure-resource-manager/management/manage-resources-powershell.md).

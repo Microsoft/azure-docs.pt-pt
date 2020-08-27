@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869951"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962813"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral do Serviço de Aplicações Azure
 
@@ -20,7 +20,7 @@ Quando estiver a executar uma aplicação web, pretende estar preparado para qua
 
 Embora esta experiência seja mais útil quando está com problemas com a sua app nas últimas 24 horas, todos os gráficos de diagnóstico estão sempre disponíveis para analisar.
 
-O Serviço de Aplicações funciona não só para a sua aplicação no Windows, mas também para aplicações em [Linux/containers,](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro) [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)e [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+O Serviço de Aplicações funciona não só para a sua aplicação no Windows, mas também para aplicações em [Linux/containers,](./overview.md#app-service-on-linux) [App Service Environment](./environment/intro.md)e [Azure Functions](../azure-functions/functions-overview.md).
 
 ## <a name="open-app-service-diagnostics"></a>Diagnósticos abertos do Serviço de Aplicações
 
@@ -71,7 +71,7 @@ Há quatro gráficos diferentes no check-up de saúde.
 
 ### <a name="investigate-application-code-issues-only-for-windows-app"></a>Investigue problemas de código de aplicação (apenas para aplicação Windows)
 
-Como muitos problemas de aplicações estão relacionados com problemas no seu código de aplicação, o Serviço de Aplicações integra-se com [o Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) para destacar exceções e problemas de dependência para correlacionar com o tempo de inatividade selecionado. Os Insights de Aplicação têm de ser ativados separadamente.
+Como muitos problemas de aplicações estão relacionados com problemas no seu código de aplicação, o Serviço de Aplicações integra-se com [o Application Insights](../azure-monitor/app/app-insights-overview.md) para destacar exceções e problemas de dependência para correlacionar com o tempo de inatividade selecionado. Os Insights de Aplicação têm de ser ativados separadamente.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 

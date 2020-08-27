@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 5efca8ab51c789a619e48b1ae96a53494ae411ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831170"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962065"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicações
 ## <a name="overview"></a>Descrição geral
@@ -31,8 +31,8 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 A lista a seguir contém as portas utilizadas por um Ambiente de Serviço de Aplicações. Todas as portas são **TCP,** salvo indicação em contrário:
 
-* 454: **Porto necessário** utilizado pela infraestrutura Azure para gerir e manter ambientes de serviço de aplicações via TLS.  Não bloqueie o tráfego para este porto.  Este porto está sempre ligado ao PÚBLICO VIP de um ASE.
-* 455: **Porto necessário** utilizado pela infraestrutura Azure para gerir e manter ambientes de serviço de aplicações via TLS.  Não bloqueie o tráfego para este porto.  Este porto está sempre ligado ao PÚBLICO VIP de um ASE.
+* 454:  **Porto necessário** utilizado pela infraestrutura Azure para gerir e manter ambientes de serviço de aplicações via TLS.  Não bloqueie o tráfego para este porto.  Este porto está sempre ligado ao PÚBLICO VIP de um ASE.
+* 455:  **Porto necessário** utilizado pela infraestrutura Azure para gerir e manter ambientes de serviço de aplicações via TLS.  Não bloqueie o tráfego para este porto.  Este porto está sempre ligado ao PÚBLICO VIP de um ASE.
 * 80: Porta padrão para tráfego HTTP de entrada para aplicações em execução em Planos de Serviço de Aplicações num Ambiente de Serviço de Aplicações.  Num ASE ativado pelo ILB, esta porta está ligada ao endereço ILB da ASE.
 * 443: Porta padrão para tráfego TLS de entrada para aplicações que funcionam em Planos de Serviço de Aplicações num Ambiente de Serviço de Aplicações.  Num ASE ativado pelo ILB, esta porta está ligada ao endereço ILB da ASE.
 * 21: Canal de controlo para FTP.  Esta porta pode ser bloqueada com segurança se a FTP não estiver a ser utilizada.  Num ASE ativado pelo ILB, esta porta pode ser ligada ao endereço ILB para um ASE.
@@ -130,12 +130,11 @@ Para obter mais informações, consulte [a ligação segura aos recursos backend
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md
 [NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->
-

@@ -5,21 +5,21 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610246"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962881"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configure um nome de domínio personalizado no Azure App Service com integração de Gestor de Tráfego
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 > [!NOTE]
-> Para serviços na nuvem, consulte [configurar um nome de domínio personalizado para um serviço de nuvem Azure](../cloud-services/cloud-services-custom-domain-name.md).
+> Para serviços na nuvem, consulte [configurar um nome de domínio personalizado para um serviço de nuvem Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-Quando utiliza [o Azure Traffic Manager](/azure/traffic-manager/) para carregar o tráfego de equilíbrio para o [Azure App Service,](overview.md)a aplicação do Serviço de Aplicações pode ser acedida através ** \<traffic-manager-endpoint> de .trafficmanager.net**. Pode atribuir um nome de domínio personalizado, como o \. contoso.com, com a sua aplicação App Service, de forma a fornecer um nome de domínio mais reconhecível para os seus utilizadores.
+Quando utiliza [o Azure Traffic Manager](../traffic-manager/index.yml) para carregar o tráfego de equilíbrio para o [Azure App Service,](overview.md)a aplicação do Serviço de Aplicações pode ser acedida através ** \<traffic-manager-endpoint> de .trafficmanager.net**. Pode atribuir um nome de domínio personalizado, como o \. contoso.com, com a sua aplicação App Service, de forma a fornecer um nome de domínio mais reconhecível para os seus utilizadores.
 
 Este artigo mostra-lhe como configurar um nome de domínio personalizado com uma aplicação de Serviço de Aplicações que está integrada com [o Traffic Manager.](../traffic-manager/traffic-manager-overview.md)
 
@@ -55,7 +55,7 @@ Clique em **Aplicar**.
 
 ## <a name="create-traffic-manager-endpoint"></a>Criar ponto final do Gestor de Tráfego
 
-Seguindo os passos no [Add or Delete Endpoints,](../traffic-manager/traffic-manager-endpoints.md)adicione a sua aplicação Serviço de Aplicações como ponto final no seu perfil de Gestor de Tráfego.
+Seguindo os passos no [Add or Delete Endpoints,](../traffic-manager/traffic-manager-manage-endpoints.md)adicione a sua aplicação Serviço de Aplicações como ponto final no seu perfil de Gestor de Tráfego.
 
 Uma vez que a sua aplicação De Serviço de Aplicações está num nível de preços suportado, ele aparece na lista de alvos disponíveis do Serviço de Aplicações quando adiciona o ponto final. Se a sua aplicação não estiver listada, [verifique o nível de preços da sua aplicação.](#prepare-the-app)
 

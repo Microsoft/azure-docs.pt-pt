@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 89c317e6623a868fd75b09274c726720e726e470
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 512776f2498a88f1fda9b5e7f0e2db0ddd32b955
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848643"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962333"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de código aberto FAQs para Web Apps em Azure
 
@@ -32,8 +32,8 @@ Para ligar a registo de PHP:
 4. Selecione a pasta **wwwroot.**
 5. Selecione o **+** ícone e, em seguida, selecione **Novo Ficheiro**.
 6. Desave o nome do ficheiro para **.user.ini**.
-7. Selecione o ícone do lápis ao lado **de.user.ini**.
-8. No ficheiro, adicione este código:`log_errors=on`
+7. Selecione o ícone do lápis ao lado ** de.user.ini**.
+8. No ficheiro, adicione este código: `log_errors=on`
 9. Selecione **Guardar**.
 10. Selecione o ícone do lápis ao lado **de wp-config.php**.
 11. Altere o texto para o seguinte código:
@@ -43,7 +43,7 @@ Para ligar a registo de PHP:
     ```
 12. No portal Azure, no menu de aplicações web, reinicie a sua aplicação web.
 
-Para obter mais informações, consulte [ativar os registos de erro wordpress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Para obter mais informações, consulte [ativar os registos de erro wordpress](/archive/blogs/azureossds/logging-php-errors-in-wordpress-2).
 
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>Como faço o registo de erros de aplicação Python em aplicações que estão hospedadas no Serviço de Aplicações?
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
@@ -72,7 +72,7 @@ Para alterar a versão da aplicação Node.js, pode utilizar uma das seguintes o
   O processo de implantação do controlo de fontes Azure envolve as seguintes etapas:
   1. Move o conteúdo para a aplicação web Azure.
   2. Cria um script de implementação predefinido, se não houver um (implementar ficheiros.cmd, .deployment files) na pasta raiz da aplicação web.
-  3. Executa um script de implementação no qual cria um ficheiro iisnode.yml se mencionar a versão Node.js no package.jsno ficheiro > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  3. Executa um script de implementação no qual cria um ficheiro iisnode.yml se mencionar a versão Node.js no package.jsno ficheiro > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
   4. O ficheiro iisnode.yml tem a seguinte linha de código:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -80,7 +80,7 @@ Para alterar a versão da aplicação Node.js, pode utilizar uma das seguintes o
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Vejo a mensagem "Erro que estabelece uma ligação de base de dados" na minha aplicação WordPress que está hospedada no Serviço de Aplicações. Como é que resolvo isto?
 
-Se vir este erro na sua aplicação Azure WordPress, para ativar php_errors.log e debug.log, preencha os passos detalhados nos [registos de erro do Enable WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Se vir este erro na sua aplicação Azure WordPress, para ativar php_errors.log e debug.log, preencha os passos detalhados nos [registos de erro do Enable WordPress](/archive/blogs/azureossds/logging-php-errors-in-wordpress-2).
 
 Quando os registos estiverem ativados, reproduza o erro e, em seguida, verifique os registos para ver se está a ficar sem ligações:
 ```
@@ -97,11 +97,11 @@ Se vir este erro nos ficheiros de debug.log ou php_errors.log, a sua aplicação
 
 ## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>Como posso instalar módulos Python nativos numa aplicação web do Serviço de Aplicações ou numa aplicação API?
 
-Algumas embalagens podem não ser instaladas utilizando pip em Azure. O pacote pode não estar disponível no Python Package Index, ou pode ser necessário um compilador (um compilador não está disponível no computador que está a executar a aplicação web no Serviço de Aplicações). Para obter informações sobre a instalação de módulos nativos em aplicações web do App Service e aplicações API, consulte [instalar módulos Python no Serviço de Aplicações.](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/)
+Algumas embalagens podem não ser instaladas utilizando pip em Azure. O pacote pode não estar disponível no Python Package Index, ou pode ser necessário um compilador (um compilador não está disponível no computador que está a executar a aplicação web no Serviço de Aplicações). Para obter informações sobre a instalação de módulos nativos em aplicações web do App Service e aplicações API, consulte [instalar módulos Python no Serviço de Aplicações.](/archive/blogs/azureossds/install-native-python-modules-on-azure-web-apps-api-apps)
 
 ## <a name="how-do-i-deploy-a-django-app-to-app-service-by-using-git-and-the-new-version-of-python"></a>Como posso implementar uma aplicação Django para o App Service usando o Git e a nova versão do Python?
 
-Para obter informações sobre a instalação do Django, consulte [implementar uma aplicação Django para o Serviço de Aplicações.](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/)
+Para obter informações sobre a instalação do Django, consulte [implementar uma aplicação Django para o Serviço de Aplicações.](/archive/blogs/azureossds/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python)
 
 ## <a name="where-are-the-tomcat-log-files-located"></a>Onde estão os ficheiros de registo do Tomcat?
 
@@ -183,7 +183,7 @@ Se emigrou recentemente para Azure, o WordPress poderá redirecionar para o anti
 
 WordPress Buddy+ é uma extensão do Site Azure que pode utilizar para atualizar o URL de reorientação diretamente na base de dados. Para obter mais informações sobre a utilização do WordPress Buddy+, consulte [as ferramentas WordPress e a migração MySQL com o WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Em alternativa, se preferir atualizar manualmente o URL de reorientação utilizando consultas SQL ou PHPMyAdmin, consulte [WordPress: Redirecionamento para URL errado](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Em alternativa, se preferir atualizar manualmente o URL de reorientação utilizando consultas SQL ou PHPMyAdmin, consulte [WordPress: Redirecionamento para URL errado](/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Como posso alterar a minha palavra-passe de entrada do WordPress?
 
@@ -197,12 +197,12 @@ Se se encontrar bloqueado fora do WordPress depois de ter instalado recentemente
 
 Tem várias opções para migrar a base de dados MySQL que está ligada ao seu website WordPress:
 
-* Desenvolvedores: Utilize o [pedido de comando ou PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Desenvolvedores: Utilize o [pedido de comando ou PHPMyAdmin](/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service)
 * Não desenvolvedores: Use [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Como posso ajudar a tornar o WordPress mais seguro?
 
-Para saber mais sobre as melhores práticas de segurança para o WordPress, consulte [as melhores práticas para a segurança WordPress em Azure](https://blogs.msdn.microsoft.com/azureossds/2016/12/26/best-practices-for-wordpress-security-on-azure/).
+Para saber mais sobre as melhores práticas de segurança para o WordPress, consulte [as melhores práticas para a segurança WordPress em Azure](/archive/blogs/azureossds/best-practices-for-wordpress-security-on-azure).
 
 ## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>Estou a tentar usar phpMyAdmin, e vejo a mensagem "Acesso negado". Como posso resolver isto?
 

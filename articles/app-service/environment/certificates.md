@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831884"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962048"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente de Serviço de Aplicações 
 
-O App Service Environment (ASE) é uma implementação do Azure App Service que funciona dentro da sua Rede Virtual Azure (VNet). Pode ser implantado com um ponto final de aplicação acessível à Internet ou um ponto final de aplicação que está no seu VNet. Se implementar o ASE com um ponto final acessível à Internet, essa implementação é chamada de ASE Externa. Se colocar o ASE com um ponto final no seu VNet, essa implementação chama-se ILB ASE. Pode saber mais sobre o ILB ASE a partir do Create e utilizar um documento [ILB ASE.](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase)
+O App Service Environment (ASE) é uma implementação do Azure App Service que funciona dentro da sua Rede Virtual Azure (VNet). Pode ser implantado com um ponto final de aplicação acessível à Internet ou um ponto final de aplicação que está no seu VNet. Se implementar o ASE com um ponto final acessível à Internet, essa implementação é chamada de ASE Externa. Se colocar o ASE com um ponto final no seu VNet, essa implementação chama-se ILB ASE. Pode saber mais sobre o ILB ASE a partir do Create e utilizar um documento [ILB ASE.](./create-ilb-ase.md)
 
 O ASE é um sistema de inquilinos únicos. Por ser inquilino único, existem algumas funcionalidades disponíveis apenas com um ASE que não estão disponíveis no Serviço de Aplicações multi-arrendatários. 
 
@@ -75,7 +75,7 @@ Para fazer o upload do certificado para a sua aplicação na sua ASE:
 
 1. Gere um ficheiro *.cer* para o seu certificado. 
 2. Vá à app que precisa do certificado no portal Azure
-3. Aceda às definições SSL na aplicação. Clique em Carregar Certificado. Selecione Public. Selecione Máquina Local. Forneça um nome. Navegue e selecione o seu ficheiro *.cer.* Selecione upload. 
+3. Aceda às definições SSL na aplicação. Clique em Carregar Certificado. Selecione Público. Selecione Máquina Local. Forneça um nome. Navegue e selecione o seu ficheiro *.cer.* Selecione upload. 
 4. Copie a impressão digital.
 5. Aceda às Definições de Aplicação. Crie uma configuração de WEBSITE_LOAD_ROOT_CERTIFICATES de aplicação com a impressão digital como valor. Se tiver vários certificados, pode colocá-los na mesma definição separada por vírgulas e nenhum espaço em branco como 
 
