@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3394882574f94e4a1af3aa942f3b0bd87be55368
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f202a9d616809d1f14366350d8d60ef2bc06b96b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690090"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934519"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -58,9 +58,9 @@ Cada documento SSML é criado com elementos SSML (ou tags). Estes elementos são
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `version` | Indica a versão da especificação SSML utilizada para interpretar a marcação do documento. A versão atual é 1.0. | Necessário |
-| `xml:lang` | Especifica a linguagem do documento raiz. O valor pode conter um código linguístico de duas letras (por exemplo), `en` ou o código linguístico e o país/região de maiúsculas (por exemplo, `en-US` ). | Necessário |
-| `xmlns` | Especifica o URI ao documento que define o vocabulário de marcação (os tipos de elementos e os nomes de atributos) do documento SSML. O URI atual http://www.w3.org/2001/10/synthesis é. | Necessário |
+| `version` | Indica a versão da especificação SSML utilizada para interpretar a marcação do documento. A versão atual é 1.0. | Obrigatório |
+| `xml:lang` | Especifica a linguagem do documento raiz. O valor pode conter um código linguístico de duas letras (por exemplo), `en` ou o código linguístico e o país/região de maiúsculas (por exemplo, `en-US` ). | Obrigatório |
+| `xmlns` | Especifica o URI ao documento que define o vocabulário de marcação (os tipos de elementos e os nomes de atributos) do documento SSML. O URI atual http://www.w3.org/2001/10/synthesis é. | Obrigatório |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Escolha uma voz para texto-a-discurso
 
@@ -78,7 +78,7 @@ O `voice` elemento é necessário. É utilizado para especificar a voz que é us
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Necessário |
+| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Obrigatório |
 
 **Exemplo**
 
@@ -101,7 +101,7 @@ Dentro do `speak` elemento, pode especificar várias vozes para a saída texto-a
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Necessário |
+| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Obrigatório |
 
 > [!IMPORTANT]
 > Várias vozes são incompatíveis com a função de limite da palavra. A função de limite da palavra precisa de ser desativada para utilizar várias vozes.
@@ -576,7 +576,7 @@ As alterações de tom podem ser aplicadas às vozes padrão ao nível da palavr
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Necessário |
+| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Obrigatório |
 | `format` | Fornece informações adicionais sobre a formatação precisa do texto do elemento para tipos de conteúdo que podem ter formatos ambíguos. SSML define formatos para tipos de conteúdo que os utilizam (ver tabela abaixo). | Opcional |
 | `detail` | Indica o nível de detalhe a ser falado. Por exemplo, este atributo pode solicitar que o motor de síntese da fala pronuncie marcas de pontuação. Não existem valores padrão definidos para `detail` . | Opcional |
 

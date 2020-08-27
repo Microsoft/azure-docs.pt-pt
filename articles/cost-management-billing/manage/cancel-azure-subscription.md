@@ -5,15 +5,16 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 592a5d9573cb4e475c5d1ca6b4f06002f949e197
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 16ba70717d04c44e950ce2ed2c47e54859c4be47
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136257"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684886"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar a sua subscrição do Azure
 

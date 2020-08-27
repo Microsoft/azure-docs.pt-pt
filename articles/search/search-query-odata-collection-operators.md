@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4c1243d5d9122539466e94b6bbfdd5ced588e69a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146061"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934910"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de recolha OData em Pesquisa Cognitiva Azure - `any` e`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de recolha OData em Pesquisa Cognitiva Azure - `any` e `all`
 
 Ao escrever uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) para usar com Azure Cognitive Search, é frequentemente útil filtrar em campos de recolha. Pode conseguir isso utilizando os `any` operadores e `all` operadores.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática de uma expressão OData que utiliza `any` ou `all` .
 
@@ -107,4 +107,4 @@ Para obter mais detalhes sobre estas limitações, bem como exemplos, consulte [
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para pesquisa cognitiva de Azure](search-query-odata-syntax-reference.md)
-- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

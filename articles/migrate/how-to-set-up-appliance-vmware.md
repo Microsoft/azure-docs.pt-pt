@@ -3,12 +3,12 @@ title: Crie um aparelho Azure Migrate para VMware
 description: Saiba como configurar um aparelho Azure Migrate para avaliar e migrar VMware VMs.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c9a9f1567f984fc5770b47d3998610cb69643360
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386746"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923631"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um aparelho para VMware VMs
 
@@ -27,17 +27,28 @@ Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate:Server A
 ## <a name="appliance-deployment-ova"></a>Implantação do aparelho (OVA)
 
 Para configurar o aparelho utilizando um modelo OVA:
+- Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal
 - Descarregue um ficheiro de modelo OVA e importe-o para o vCenter Server.
 - Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Azure Migrate.
-- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate.
+- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate utilizando a chave do projeto Azure Migrate.
 
-## <a name="download-the-ova-template"></a>Descarregue o modelo OVA
+### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, click **.click**.
+1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMware vSphere hypervisor**
-3. Clique em **Transferir** para transferir o ficheiro de modelo .OVA.
+3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de VMware VMs.O nome deve ser alfanumérico com 14 caracteres ou menos.
+1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
+1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
+1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
-  ![Seleções para descarregar um ficheiro OVA](./media/tutorial-assess-vmware/download-ova.png)
+### <a name="download-the-ova-template"></a>Descarregue o modelo OVA
+Em **2: Descarregue o aparelho Azure Migrate,** selecione o . Ficheiro OVA e clique no **Download**. 
+
+
+   ![Seleções para máquinas Discover](./media/tutorial-assess-vmware/servers-discover.png)
+
+
+   ![Seleções para Gerar Tecla](./media/tutorial-assess-vmware/generate-key-vmware.png)
 
 ### <a name="verify-security"></a>Verificar segurança
 
@@ -72,64 +83,66 @@ Importe o ficheiro descarregado e crie um VM.
 Certifique-se de que o aparelho VM pode ligar-se aos URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 
-## <a name="configure-the-appliance"></a>Configure o aparelho
+### <a name="configure-the-appliance"></a>Configure o aparelho
 
-Coloque o aparelho pela primeira vez. Se utilizar o aparelho utilizando um script em vez de um modelo OVA, os dois primeiros passos do procedimento não são aplicáveis.
+Coloque o aparelho pela primeira vez.
 
-1. Na consola do vSphere Client, clique com o botão direito do rato na VM > **Abrir Consola**.
+> [!NOTE]
+> Se configurar o aparelho utilizando um [script PowerShell](deploy-appliance-script.md) em vez do OVA descarregado, os dois primeiros passos deste procedimento não são relevantes.
+
+1. Na consola vSphere Client, clique com o botão direito no VM e, em seguida, selecione **Open Console**.
 2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
 3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
 
-   Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho clicando no atalho da aplicação.
-4. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
-    - **Licença**: Aceite os termos da licença e leia as informações de terceiros.
-    - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um representante:
-        - Clique **nas definições de Procuração**e especifique o endereço de procuração e a porta de audição, no formulário http://ProxyIPAddress ou http://ProxyFQDN .
-        - Especifique as credenciais se o proxy precisar de autenticação.
-        - Apenas é suportado o proxy HTTP.
-    - **Sincronização temporal:** O tempo é verificado. O tempo do aparelho deve estar sincronizado com o tempo de internet para que a descoberta funcione corretamente.
-    - **Instalar atualizações**: A Azure Migrate verifica se as atualizações mais recentes do aparelho estão instaladas.
-    - **Instalar VDDK**: Azure Migrate verifica se o Kit de Desenvolvimento de Discos Virtuais VMware vSphere (VDDK) está instalado.
-        - Azure Migrates usa o VDDK para replicar máquinas durante a migração para Azure.
-        - Baixe o VDDK 6.7 da VMware e extraia o conteúdo zip descarregado para a localização especificada no aparelho.
+   Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho selecionando o atalho da aplicação.
+1. Aceite os termos da **licença**e leia as informações de terceiros.
+1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
+   - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um representante:
+     - Clique em **Configurar o representante** para especificar o endereço de procuração (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) audição.
+     - Especifique as credenciais se o proxy precisar de autenticação.
+     - Apenas é suportado o proxy HTTP.
+     - Se tiver adicionado detalhes de procuração ou desativado o proxy e/ou autenticação, clique em **Guardar** para ativar novamente a verificação de conectividade.
+   - **Sincronização de tempo**: O tempo do aparelho deve estar sincronizado com o tempo de internet para que a descoberta funcione corretamente.
+   - **Instalação de atualizações**: O aparelho assegura a instalação das atualizações mais recentes. Depois de concluída a verificação, pode clicar nos **serviços do aparelho para** ver o estado e as versões dos componentes em funcionamento no aparelho.
+   - **Instalação VDDK**: O aparelho verifica se o Kit de Desenvolvimento de Discos Virtuais VMware vSphere (VDDK) está instalado. Se não estiver instalado, faça o download do VDDK 6.7 da VMware e extraia o conteúdo zip descarregado para o local especificado no aparelho, conforme indicado nas **instruções de instalação**.
 
-## <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
+     A migração do servidor Azure Migrate usa o VDDK para replicar máquinas durante a migração para Azure. 
+1. Se desejar, pode **repetir os pré-requisitos** a qualquer momento durante a configuração do aparelho para verificar se o aparelho cumpre todos os requisitos.
 
-1. Clique **em iniciar sessão**. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
-2. No novo separador, inscreva-se utilizando as suas credenciais Azure.
-    - Inscreva-se com o seu nome de utilizador e senha.
-    - Iniciar sedução com um PIN não é suportado.
-3. Depois de iniciar sessão com sucesso, volte à aplicação web.
-2. Selecione a subscrição em que o projeto Azure Migrate foi criado. Em seguida, selecione o projeto.
-3. Especifique um nome para o aparelho. O nome deve ser alfanumérico com 14 caracteres ou menos.
-4. Clique em **Registar**.
+### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
+
+1. Cole a chave do **projeto Azure Migrate** copiada do portal. Se não tiver a chave, vá à Avaliação do Servidor> Descubra> Gerir os **aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
+1. Clique em **Iniciar sessão**. Abrirá um pedido de login do Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
+1. No novo separador, inscreva-se utilizando o seu nome de utilizador E palavra-passe Azure.
+   
+   O s-in com um PIN não é suportado.
+3. Depois de iniciar sessão com sucesso, volte à aplicação web. 
+4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](tutorial-prepare-vmware.md#prepare-azure) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
+1. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
 
 
-## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>Inicie a descoberta contínua fornecendo o servidor vCenter e a credencial VM
+## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
 O aparelho precisa de se ligar ao servidor vCenter para descobrir a configuração e os dados de desempenho dos VMs.
 
-### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
-1. Nos **detalhes do Servidor Do VCenter,** especifique o nome (FQDN) ou endereço IP do servidor vCenter. Pode deixar a porta predefinida ou especificar uma porta personalizada na qual o seu vCenter Server ouve.
-2. No **nome de utilizador** e na **palavra-passe**, especifique as credenciais de conta apenas de leitura que o aparelho utilizará para descobrir VMs no servidor vCenter. Pode fazer o âmbito da descoberta limitando o acesso à conta vCenter. [Saiba mais](set-discovery-scope.md).
-3. Clique **em Validar** a ligação para se certificar de que o aparelho pode ligar-se ao servidor vCenter.
+1. No **passo 1: Forneça credenciais do servidor vCenter**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicionar **nome de utilizador** e **palavra-passe** para a conta vCenter Server que o aparelho utilizará para descobrir VMs na instância do servidor vCenter.
+    - Deveria ter criado uma conta com as permissões necessárias no [tutorial anterior.](tutorial-prepare-vmware.md#set-up-permissions-for-assessment)
+    - Se pretender estender a descoberta a objetos VMware específicos (centros de dados vCenter Server, clusters, uma pasta de clusters, anfitriões, uma pasta de anfitriões ou VMs individuais.), reveja as instruções [deste artigo](set-discovery-scope.md) para restringir a conta utilizada pela Azure Migrate.
+1. No **passo 2: Forneça detalhes do servidor vCenter**, clique na **fonte de descoberta Adicionar** para selecionar o nome amigável para credenciais a partir do drop-down, especificar o endereço **IP/FQDN** da instância vCenter Server. Pode deixar a **Porta** para predefinição (443) ou especificar uma porta personalizada na qual o vCenter Server ouve e clica em **Guardar**.
+1. Ao clicar em Guardar, o aparelho tentará validar a ligação ao servidor vCenter com as credenciais fornecidas e mostrar o **estado de Validação** na tabela contra o endereço IP/FQDN do servidor vCenter.
+1. Pode **revalidar** a conectividade ao vCenter Server a qualquer momento antes de iniciar a descoberta.
+1. No **passo 3: Forneça credenciais VM para descobrir aplicações instaladas e realizar mapeamento de dependência sem agente,** clique **em Adicionar credenciais,** e especifique o sistema operativo para o qual as credenciais são fornecidas, nome amigável para credenciais e o **nome** de utilizador e **senha**. Em seguida, clique em **Guardar**.
 
-### <a name="specify-vm-credentials"></a>Especificar credenciais VM
-Para a descoberta de aplicações, funções e funcionalidades e visualizar dependências dos VMs, pode fornecer uma credencial VM que tenha acesso aos VMware VMs. Pode adicionar uma credencial para VMs windows e uma credencial para Os VMs Do Linux. [Saiba mais](./migrate-support-matrix-vmware.md) sobre os privilégios de acesso necessários.
+    - Você opcionalmente adiciona credenciais aqui se você criou uma conta para usar para o recurso de descoberta de [aplicações](how-to-discover-applications.md), ou a [funcionalidade de análise de dependência sem agente](how-to-create-group-machine-dependencies-agentless.md).
+    - Se não quiser utilizar estas funcionalidades, pode clicar no slider para saltar o passo. Pode inverter a intenção a qualquer momento depois.
+    - Reveja as credenciais necessárias para [a descoberta de aplicações,](migrate-support-matrix-vmware.md#application-discovery-requirements)ou para [análise de dependência sem agentes.](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)
 
-> [!NOTE]
-> Esta entrada é opcional e é necessária para permitir a descoberta de aplicações e visualização de dependência sem agentes.
+5. Clique em **Iniciar a descoberta,** para iniciar a descoberta de VM. Após a descoberta ter sido iniciada com sucesso, pode verificar o estado de descoberta com o endereço IP/FQDN do servidor vCenter na tabela.
 
-1. In **Discover applications and dependências em VMs,** clique em **Adicionar credenciais**.
-2. Selecione o **Sistema Operativo.**
-3. Forneça um nome amigável para a credencial.
-4. No **nome de utilizador** e **palavra-passe,** especifique uma conta que tenha pelo menos acesso ao hóspede nos VMs.
-5. Clique em **Adicionar**.
+A descoberta funciona da seguinte forma:
+- Leva cerca de 15 minutos para que os metadados VM descobertos apareçam no portal.
+- A descoberta de aplicações, funções e funcionalidades instaladas leva algum tempo. A duração depende do número de VMs descobertos. Para 500 VMs, leva aproximadamente uma hora para o inventário da aplicação aparecer no portal Azure Migrate.
 
-Uma vez especificado as credenciais vCenter Server e VM (opcional), clique em **Guardar e iniciar** a descoberta para iniciar a descoberta do ambiente no local.
-
-Leva cerca de 15 minutos para que os metadados de VMs descobertos apareçam no portal. A descoberta de aplicações, funções e funcionalidades instaladas demora algum tempo, a duração depende do número de VMs a serem descobertos. Para 500 VMs, leva aproximadamente 1 hora para o inventário da aplicação aparecer no portal Azure Migrate.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os tutoriais para [avaliação de VMware](tutorial-assess-vmware.md) e [migração sem agentes.](tutorial-migrate-vmware.md)

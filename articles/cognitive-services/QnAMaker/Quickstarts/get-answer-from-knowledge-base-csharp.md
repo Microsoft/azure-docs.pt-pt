@@ -3,14 +3,14 @@ title: 'Quickstart: Obtenha resposta da base de conhecimento - REST, C# - QnA Ma
 description: Este quickstart baseado em C# REST acompanha-o através de obter uma resposta de uma base de conhecimento, programáticamente.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-csharp
 ms.topic: how-to
-ms.openlocfilehash: 8e821531fdc7be13833b134b087d26c2b157425a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d8a5a576ee3f7be099374b2294b35ec8c1c87f89
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342838"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934196"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Quickstart: Obtenha respostas para uma pergunta de uma base de conhecimento com C #
 
@@ -26,7 +26,7 @@ Este quickstart acompanha-o programáticamente recebendo uma resposta de uma bas
 
     As definições da página de publicação incluem o valor da rota POST, o valor do anfitrião e o valor endpointKey.
 
-    ![Publish settings (Definições de publicação)](../media/qnamaker-quickstart-get-answer/publish-settings.png)
+    ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
 ## <a name="create-a-knowledge-base-project"></a>Criar um projeto de base de dados de conhecimento
 
@@ -63,7 +63,7 @@ Construa e execute o programa a partir do Visual Studio. Enviará automaticament
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

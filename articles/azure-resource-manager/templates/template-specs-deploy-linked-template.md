@@ -2,17 +2,17 @@
 title: Implementar uma especificação de modelo como um modelo ligado
 description: Aprenda a implementar uma especificação de modelo existente numa implementação ligada.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 5d4824ea432d804418fda2cdc90d49154d496722
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097731"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918388"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementar uma especificação de modelo como um modelo ligado (Pré-visualização)
 
-Aprenda a implementar uma [especificação](template-specs.md) de modelo existente utilizando uma [implementação ligada](linked-templates.md#linked-template). Utiliza especificações de modelo para partilhar modelos ARM com outros utilizadores na sua organização. Depois de ter criado uma especificação de modelo, pode implementar a especificação do modelo utilizando o Azure PowerShell. Também pode implementar a especificação do modelo como parte da sua solução utilizando um modelo ligado.
+Aprenda a implementar uma [especificação](template-specs.md) de modelo existente utilizando uma [implementação ligada](linked-templates.md#linked-template). Utiliza especificações de modelo para partilhar modelos ARM com outros utilizadores na sua organização. Depois de ter criado uma especificação de modelo, pode implementar a especificação do modelo utilizando o Azure PowerShell ou o Azure CLI. Também pode implementar a especificação do modelo como parte da sua solução utilizando um modelo ligado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,9 +117,22 @@ Para implementar uma especificação de modelo num modelo ARM, adicione um [recu
 
 O ID de especificação do modelo é gerado utilizando a [`resourceID()`](template-functions-resource.md#resourceid) função. O argumento do grupo de recursos na função resourceID() é opcional se o modeloSpec estiver no mesmo grupo de recursos da implementação atual.  Também pode passar diretamente no ID de recurso como parâmetro. Para obter a ID, use:
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli-interactive
+id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+```
+
+> [!NOTE]
+> Há um problema conhecido com a obtenção de id de especificação do modelo e, em seguida, atribuí-lo a uma variável no Windows PowerShell.
+
+---
 
 A sintaxe para passar parâmetros para a especificação do modelo é:
 
@@ -138,6 +151,8 @@ A sintaxe para passar parâmetros para a especificação do modelo é:
 
 Quando implementa o modelo ligado, implementa tanto a aplicação web como a conta de armazenamento. A implementação é o mesmo que a implantação de outros modelos ARM.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
@@ -147,6 +162,21 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
   -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+az deployment group create \
+  --resource-group webRG \
+  --template-file "c:\Templates\deployTS\azuredeploy.json"
+
+```
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

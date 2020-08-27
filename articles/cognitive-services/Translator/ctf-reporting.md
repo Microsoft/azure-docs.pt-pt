@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: cc06f73aba216f37db570bb33b9f897fabb16cbf
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 68b0de40940fa75dd4eb4e1572405f31ce1c22b8
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244130"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934383"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
 
@@ -50,7 +51,7 @@ Estes métodos permitem-lhe:
 
 Este método obtém a contagem de traduções que são criadas pelo utilizador. Fornece a lista de contagens de tradução agrupadas pelo uriPrefix, de, para, utilizador, minRating e maxRating request parâmetros.
 
-**Sintaxe**
+**Syntax**
 
 > [!div class="tabbedCodeSnippets"]
 > ```cs
@@ -121,7 +122,7 @@ O conjunto de resultados contém a matriz do **UserTranslationCount**. Cada User
 
 Este método recupera as traduções que são criadas pelo utilizador. Fornece as traduções agrupadas pelo uriPrefix, de, para, utilizador, e minRating e maxRating request parâmetros.
 
-**Sintaxe**
+**Syntax**
 
 > [!div class="tabbedCodeSnippets"]
 > ```cs

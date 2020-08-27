@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a configurar, iniciar e gerir operações de 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: a0ad08e9fd750166f8df82a1b3a36cecd8f12f27
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826417"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890336"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API
 
@@ -23,7 +23,7 @@ Vamos supor que pretende proteger um VM "testVM" sob um grupo de recursos "testR
 
 ### <a name="discover-unprotected-azure-vms"></a>Descubra VMs Azure desprotegidos
 
-Primeiro, o cofre deve ser capaz de identificar o Azure VM. Isto é acionado utilizando a [operação de atualização](/rest/api/backup/protectioncontainers/refresh). É uma operação *POST*  assíncronea que garante que o cofre recebe a mais recente lista de todos os VM desprotegidos na subscrição atual e 'caches' neles. Uma vez que o VM é 'cached', os serviços de recuperação poderão aceder ao VM e protegê-lo.
+Primeiro, o cofre deve ser capaz de identificar o Azure VM. Isto é acionado utilizando a [operação de atualização](/rest/api/backup/protectioncontainers/refresh). É uma operação *POST*  assíncronea que garante que o cofre recebe a mais recente lista de todos os VM desprotegidos na subscrição atual e 'caches' deles. Uma vez que o VM é 'cached', os serviços de recuperação poderão aceder ao VM e protegê-lo.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01

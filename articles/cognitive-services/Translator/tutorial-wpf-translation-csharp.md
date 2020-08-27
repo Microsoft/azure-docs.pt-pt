@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 70550b61354c23889836b48be6f09475569ecd52
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ef5384abd63dcd9aeb4789dc4955f4b80068d330
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589661"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921244"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com o WPF
 
@@ -114,7 +115,7 @@ Vamos ver o que estamos a construir.
 
 A interface do utilizador inclui estes componentes:
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Apresenta uma lista dos idiomas suportados pelo Microsoft Tradutor para tradução de texto. O utilizador seleciona o idioma de origem que está a traduzir. |
 | `ToLanguageComboBox` | ComboBox | Apresenta a mesma lista de idiomas que `FromComboBox` , mas é usado para selecionar o idioma a que o utilizador está a traduzir. |
@@ -250,7 +251,7 @@ Todo o nosso projeto está encapsulado na `MainWindow : Window` aula. Vamos come
 
 Neste bloco de códigos, declaramos duas variáveis de membro que contêm informações sobre línguas disponíveis para tradução:
 
-| Variável | Tipo | Description |
+| Variável | Tipo | Descrição |
 |----------|------|-------------|
 |`languageCodes` | Matriz de cordas |Coloca em cache os códigos de idioma. O serviço Translator utiliza códigos curtos, como `en` para inglês, para identificar idiomas. |
 |`languageCodesAndTitles` | Dicionário ordenado | Mapeia os nomes "amigáveis" na interface do utilizador de volta para os códigos curtos utilizados na API. São mantidos ordenados por ordem alfabética, sem ter em conta as maiúsculas/minúsculas. |

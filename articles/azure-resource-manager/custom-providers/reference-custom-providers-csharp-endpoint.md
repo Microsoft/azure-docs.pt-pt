@@ -2,15 +2,16 @@
 title: Referência de ponto final restful do fornecedor personalizado C# RESTful
 description: Fornece referência básica para um ponto final Azure Custom Providers C# RESTful. O ponto final é fornecido através de uma aplicação de função Azure.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: b6ecb22cb968e0d963242c8c2d5dd1a6cb24229c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce329e7cd8db73e217162fa0bc1bb433d57e9971
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651179"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935641"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Referência de ponto final restful do fornecedor personalizado C# RESTful
 
@@ -253,7 +254,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral dos fornecedores de recursos personalizados Azure](overview.md)
 - [Tutorial: Criar um fornecedor de recursos personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)

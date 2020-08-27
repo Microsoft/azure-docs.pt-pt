@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2951d0ee8719ec3b0f195a9abcd1af6f65f2c141
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761819"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890506"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança Azure para backup
 
@@ -186,7 +186,7 @@ Além disso, a Azure Backup envia eventos de diagnóstico que podem ser recolhid
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: Monitor e revisão de Registos
 
-**Orientação**: A Azure Backup fornece capacidades de monitorização e alerta incorporadas num cofre dos Serviços de Recuperação. Estas capacidades estão disponíveis sem qualquer infraestrutura de gestão adicional. Também pode aumentar a escala da sua monitorização e reporte utilizando o Azure Monitor.
+**Orientação**: A Azure Backup fornece capacidades de monitorização e alerta incorporadas num cofre dos Serviços de Recuperação. Estas funcionalidades estão disponíveis sem infraestruturas de gestão adicionais. Também pode aumentar a escala da sua monitorização e reporte utilizando o Azure Monitor.
 
 Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho do Log Analytics. Realize consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights baseados nos Dados de Registo de Atividade que podem ter sido recolhidos para cofres dos Serviços de Recuperação.
 
@@ -202,7 +202,7 @@ Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Permitir alertas para atividades anómalas
 
-**Orientação**: A Azure Backup fornece capacidades de monitorização e alerta incorporadas num cofre dos Serviços de Recuperação. Estas capacidades estão disponíveis sem qualquer infraestrutura de gestão adicional. Também pode aumentar a escala da sua monitorização e reporte utilizando o Azure Monitor.
+**Orientação**: A Azure Backup fornece capacidades de monitorização e alerta incorporadas num cofre dos Serviços de Recuperação. Estas funcionalidades estão disponíveis sem infraestruturas de gestão adicionais. Também pode aumentar a escala da sua monitorização e reporte utilizando o Azure Monitor.
 
 Os alertas são principalmente cenários em que os utilizadores são notificados para que possam tomar medidas relevantes. A secção alertas de cópia de segurança mostra alertas gerados pelo serviço Azure Backup. Estes alertas são definidos pelo serviço e não é possível criar alertas personalizados.
 
@@ -426,7 +426,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 
-**Orientação**: Ao apoiar os VMs Azure IaaS, o Azure Backup fornece cópias de segurança independentes e isoladas para evitar a destruição acidental de dados originais. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão incorporada de pontos de recuperação.
+**Orientação**: Ao apoiar os VMs Azure IaaS, o Azure Backup fornece cópias de segurança independentes e isoladas para evitar a destruição acidental de dados originais. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão de pontos de recuperação incorporada.
 
 Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção de Serviços de Recuperação Cofres. Os recursos devem ser separados por VNet/Subnet, marcados adequadamente e protegidos por uma Firewall NSG ou Azure. Os recursos que armazenam ou processam dados sensíveis devem ser suficientemente isolados. Para máquinas virtuais armazenar ou processar dados sensíveis, implementar políticas e procedimentos para desligá-los quando não estiverem a ser utilizados.
 
@@ -580,7 +580,7 @@ Plataforma subjacente digitalizada e corrigida pela Microsoft. Reveja os control
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Use a Azure Asset Discovery
 
-**Orientação**: Utilize o Azure Resource Graph para consultar/descobrir todos os recursos (tais como computação, armazenamento, rede, portas e protocolos, etc.) dentro da sua(s) subscrição( s).  Certifique-se de permissões (de leitura) adequadas no seu inquilino e enumera todas as subscrições do Azure, bem como os recursos dentro das suas subscrições.
+**Orientação**: Utilize o Azure Resource Graph para consultar/descobrir todos os recursos (tais como computação, armazenamento, rede, portas e protocolos) dentro da sua(s) subscrição(s).  Certifique-se de permissões (de leitura) adequadas no seu inquilino e enumera todas as subscrições do Azure, bem como os recursos dentro das suas subscrições.
 
 Embora os recursos clássicos do Azure possam ser descobertos através do Gráfico de Recursos, é altamente recomendado criar e utilizar recursos do Azure Resource Manager.
 
@@ -860,7 +860,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: O Microsoft Antimalware está ativado no anfitrião subjacente que suporta os serviços Azure (por exemplo, Azure Backup), no entanto não funciona no seu conteúdo.
 
-Pré-digitalizar quaisquer ficheiros que sejam enviados para recursos Azure não computados, tais como App Service, Data Lake Storage, Blob Storage, etc.
+Pré-digitalize quaisquer ficheiros que sejam enviados para recursos Azure não computados, tais como App Service, Data Lake Storage e Blob Storage.
 
 Utilize a deteção de ameaças do Azure Security Center para detetar malware enviado para contas de armazenamento.
 

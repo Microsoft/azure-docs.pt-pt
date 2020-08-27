@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 9e8d1c012ae07fc458a324315e2635f04c3dbd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496540"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932887"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Criar um índice básico de pesquisa em Azure Cognitive Search
 
@@ -26,10 +26,10 @@ A estrutura física de um índice é determinada pelo esquema, com campos marcad
 Pode criar um índice com as seguintes ferramentas e APIs:
 
 * No portal Azure, utilize índice **de adicionar** ou importar o assistente **de dados**
-* Utilizando o [Índice de Criação (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* Utilizando o [.NET SDK](search-create-index-dotnet.md)
+* Utilizando o [Índice de Criação (REST API)](/rest/api/searchservice/create-index)
+* Utilizando o [.NET SDK](./search-get-started-dotnet.md)
 
-É mais fácil aprender com uma ferramenta de portal. O portal aplica requisitos e regras de esquema para tipos de dados específicos, tais como a não permitir capacidades completas de pesquisa de texto em campos numéricos. Uma vez que tenha um índice viável, pode transitar para código recuperando a definição JSON do serviço usando [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) e adicioná-lo à sua solução.
+É mais fácil aprender com uma ferramenta de portal. O portal aplica requisitos e regras de esquema para tipos de dados específicos, tais como a não permitir capacidades completas de pesquisa de texto em campos numéricos. Uma vez que tenha um índice viável, pode transitar para código recuperando a definição JSON do serviço usando [Get Index (REST API)](/rest/api/searchservice/get-index) e adicioná-lo à sua solução.
 
 ## <a name="recommended-workflow"></a>Fluxo de trabalho recomendado
 
@@ -59,7 +59,7 @@ Chegar a um design de índice final é um processo iterativo. É comum começar 
 
    ![Adicionar página de índice mostrando atributos por tipo de dados](media/search-what-is-an-index//field-definitions.png "Adicionar página de índice mostrando atributos por tipo de dados")
 
-1. Descarregue o esquema de índice usando [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) e uma ferramenta de teste web como [o Carteiro.](search-get-started-postman.md) Tem agora uma representação JSON do índice que pode adaptar-se ao código.
+1. Descarregue o esquema de índice usando [Get Index (REST API)](/rest/api/searchservice/get-index) e uma ferramenta de teste web como [o Carteiro.](search-get-started-postman.md) Tem agora uma representação JSON do índice que pode adaptar-se ao código.
 
 1. [Carregue o seu índice com dados.](search-what-is-data-import.md) A Azure Cognitive Search aceita documentos JSON. Para carregar os seus dados programáticamente, pode utilizar o Carteiro com documentos JSON na carga útil do pedido. Se os seus dados não forem facilmente expressos como JSON, este passo será o mais intensivo de trabalho. 
 
@@ -169,7 +169,7 @@ Os campos têm um nome, um tipo que classifica os dados armazenados, e atributos
 
 ### <a name="data-types"></a>Tipos de dados
 
-| Tipo | Description |
+| Tipo | Descrição |
 |------|-------------|
 | Edm.String |Texto que pode opcionalmente ser tokenized para pesquisa de texto completo (quebra de palavras, cauling, e assim por diante). |
 | Coleção (Edm.String) |Uma lista de cadeias que pode, opcionalmente, ser atomizada para pesquisa em texto completo. Não existe um limite superior teórico do número de itens numa coleção, contudo, o limite superior de 16 MB de tamanho de payload aplica-se às coleções. |
@@ -180,7 +180,7 @@ Os campos têm um nome, um tipo que classifica os dados armazenados, e atributos
 | Edm.DateTimeOffset |Valores de hora de data representados no formato OData V4 (por exemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm` ). |
 | Edm.GeographyPoint |Um ponto que representa uma localização geográfica no mundo. |
 
-Para obter mais informações, consulte [os tipos de dados suportados.](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)
+Para obter mais informações, consulte [os tipos de dados suportados.](/rest/api/searchservice/Supported-data-types)
 
 <a name="index-attributes"></a>
 
@@ -195,14 +195,14 @@ Os campos de cordas são frequentemente marcados como "pesmáveis" e "recuperáv
 |"Pesmável" |Texto completo pesquisável, sujeito a análise lexical, como separação de palavras durante a indexação. Se definir um campo pesquisável para um valor como "sunny day", será dividido internamente nos tokens individuais "sunny" e "day". Para obter detalhes, veja [Como funciona a pesquisa em texto completo](search-lucene-query-architecture.md).|  
 |"filtrado" |Referenciado na consulta $filter. Os campos filtráveis do tipo `Edm.String` ou `Collection(Edm.String)` não são submetidos a separação de palavras, pelo que as comparações destinam-se apenas a correspondências exatas. Por exemplo, se definir um campo f para "sunny day", `$filter=f eq 'sunny'` não encontrará correspondências, mas `$filter=f eq 'sunny day'` sim. |  
 |"tributável" |Por predefinição, o sistema ordena os resultados por classificação, mas pode configurar a ordenação com base nos campos nos documentos. Campos do tipo `Collection(Edm.String)` não podem ser "ordenados". |  
-|"facetable" |Normalmente, é utilizado numa apresentação de resultados de pesquisa que inclui uma contagem de resultados por categoria (por exemplo, hotéis numa cidade específica). Esta opção não pode ser utilizada com campos do tipo `Edm.GeographyPoint`. Os campos do tipo `Edm.String` que são filtrados, "ordenados", ou "facetable" podem ter no máximo 32 quilobytes de comprimento. Para mais detalhes, veja [Criar um Índice (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|"facetable" |Normalmente, é utilizado numa apresentação de resultados de pesquisa que inclui uma contagem de resultados por categoria (por exemplo, hotéis numa cidade específica). Esta opção não pode ser utilizada com campos do tipo `Edm.GeographyPoint`. Os campos do tipo `Edm.String` que são filtrados, "ordenados", ou "facetable" podem ter no máximo 32 quilobytes de comprimento. Para mais detalhes, veja [Criar um Índice (API REST)](/rest/api/searchservice/create-index).|  
 |"chave" |Identificador exclusivo de documentos no índice. Deve ser selecionado exatamente um campo como o campo de chave e tem de ser do tipo `Edm.String`.|  
 |"recuperável" |Determina se o campo pode ser devolvido num resultado da pesquisa. Isto é útil quando quiser utilizar um campo (como *margem de lucro*) como mecanismo de filtro, ordenação ou classificação, mas não quer que o campo esteja visível para o utilizador final. Este atributo tem de ser `true` para campos `key`.|  
 
 Embora possa adicionar novos campos em qualquer altura, as definições de campos existentes estão bloqueadas durante o ciclo de vida do índice. Por este motivo, os programadores utilizam normalmente o portal para criar índices simples, testar ideias ou utilizar as páginas do portal para procurar uma definição. A iteração frequente através de uma estrutura de índice é mais eficiente se seguir uma abordagem baseada em código de modo a poder reconstruir o índice facilmente.
 
 > [!NOTE]
-> As APIs que usa para construir um índice têm diferentes comportamentos predefinidos. Para as [APIs REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), a maioria dos atributos são ativados por padrão (por exemplo, "pesmável" e "recuperável" são verdadeiros para campos de cordas) e muitas vezes só precisa de os definir se quiser desligá-los. Para o .NET SDK, o oposto é verdade. Em qualquer propriedade que não se desconte explicitamente, o padrão é desativar o comportamento de pesquisa correspondente, a menos que o ative especificamente.
+> As APIs que usa para construir um índice têm diferentes comportamentos predefinidos. Para as [APIs REST](/rest/api/searchservice/Create-Index), a maioria dos atributos são ativados por padrão (por exemplo, "pesmável" e "recuperável" são verdadeiros para campos de cordas) e muitas vezes só precisa de os definir se quiser desligá-los. Para o .NET SDK, o oposto é verdade. Em qualquer propriedade que não se desconte explicitamente, o padrão é desativar o comportamento de pesquisa correspondente, a menos que o ative especificamente.
 
 ## `analyzers`
 
@@ -210,7 +210,7 @@ O elemento dos analisadores define o nome do analisador de idiomas para usar par
 
 ## `suggesters`
 
-Um sugestivo é uma secção do esquema que define quais os campos de um índice que são usados para suportar consultas auto-completas ou de tipo-à-frente em pesquisas. Normalmente, as cadeias parciais de pesquisa são enviadas para as [Sugestões (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) enquanto o utilizador está digitando uma consulta de pesquisa, e a API devolve um conjunto de documentos ou frases sugeridos. 
+Um sugestivo é uma secção do esquema que define quais os campos de um índice que são usados para suportar consultas auto-completas ou de tipo-à-frente em pesquisas. Normalmente, as cadeias parciais de pesquisa são enviadas para as [Sugestões (REST API)](/rest/api/searchservice/suggestions) enquanto o utilizador está digitando uma consulta de pesquisa, e a API devolve um conjunto de documentos ou frases sugeridos. 
 
 Os campos adicionados a um sugestivo são usados para construir termos de pesquisa de tipo-à-frente. Todos os termos de pesquisa são criados durante a indexação e armazenados separadamente. Para obter mais informações sobre a criação de uma estrutura sugestiva, consulte [Add suggesters](index-add-suggesters.md).
 
@@ -249,7 +249,7 @@ Os índices que suportam filtro e classificação são proporcionalmente maiores
 > [!Note]
 > A arquitetura de armazenamento é considerada um detalhe de implementação da Azure Cognitive Search e pode mudar sem aviso prévio. Não há garantias de que o comportamento atual permaneça no futuro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com uma compreensão da composição do índice, pode continuar no portal para criar o seu primeiro índice. Recomendamos começar com o assistente de **dados de Importação,** escolhendo a *amostra realestate-us-us-amostra* ou *hotéis-amostra* de fontes de dados hospedados.
 

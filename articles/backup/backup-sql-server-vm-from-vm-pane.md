@@ -3,12 +3,12 @@ title: Apoie um SQL Server VM a partir do painel VM
 description: Neste artigo, aprenda a fazer o back bases de dados do SQL Server em máquinas virtuais Azure a partir do painel VM.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: 3d44c856d264c784d07b8301fa5605affddd7c02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827482"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891662"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Apoie um Servidor SQL a partir do painel VM
 
@@ -35,7 +35,7 @@ Pode ativar a cópia de segurança no seu SQL Server VM a partir do painel **de 
     ![Vista de backup do SQL Server](./media/backup-sql-server-vm-from-vm-pane/sql-server-backup-view.png)
 
     >[!NOTE]
-    >Não vê o estandarte? O banner é apresentado apenas para os VMs do SqL Server que são criados usando imagens do Azure Marketplace. É adicionalmente exibido para os VMs que estão protegidos com cópia de segurança Azure VM. Para outras imagens, pode configurar backup como explicado [aqui](backup-sql-server-database-azure-vms.md).
+    >Não vê o estandarte? O banner é apresentado apenas para os VMs do SqL Server que são criados usando imagens do Azure Marketplace. É adicionalmente exibido para os VMs que estão protegidos com backup Azure VM. Para outras imagens, pode configurar backup como explicado [aqui](backup-sql-server-database-azure-vms.md).
 
 2. Insira o nome do cofre dos Serviços de Recuperação. Um cofre é uma entidade lógica para armazenar e gerir todos os seus backups. Se criar um novo cofre:
 

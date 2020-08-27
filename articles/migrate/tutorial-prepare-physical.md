@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de servidores 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: aba1608c9219e7e8dffe66344b04fa3f085b06f3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420792"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927379"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para avaliação e migração de servidores físicos para Azure
 
@@ -17,7 +17,7 @@ Este artigo descreve como se preparar para a avaliação dos servidores físicos
 
 [A Azure Migrate](./migrate-services-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar aplicações, infraestruturas e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas Azure Migrate e ofertas de fornecedores de software independentes de terceiros (ISV). 
 
-Este tutorial é o primeiro de uma série que mostra como avaliar servidores físicos com Azure Migrate. Neste tutorial, ficará a saber como:
+Este tutorial é o primeiro de uma série que mostra como avaliar servidores físicos com Azure Migrate. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Prepara o Azure. Configure as permissões para a sua conta Azure e recursos para trabalhar com a Azure Migrate.
@@ -40,6 +40,7 @@ Instale o Azure para trabalhar com a Azure Migrate.
 **Criar um projeto Azure Migrate** | A sua conta Azure necessita de permissões de Colaborador ou Proprietário para criar um projeto. 
 **Registar fornecedores de recursos (apenas avaliação)** | A Azure Migrate utiliza um aparelho Azure Migrate leve para descobrir e avaliar máquinas com Azure Migrate:Avaliação do servidor.<br/><br/> Durante o registo do aparelho, os fornecedores de recursos estão registados com a assinatura escolhida no aparelho. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registar os fornecedores de recursos, precisa de uma função de Contribuinte ou Proprietário na subscrição.
 **Criar app AD Azure (apenas avaliação)** | Ao registar o aparelho, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) que é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho com os respetivos serviços em funcionamento no Azure. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Precisa de permissões para criar aplicações AD Azure (disponíveis no Desenvolvedor de Aplicações).
+**Criar um Key Vault** | O Cofre-Chave é criado como parte do registo do aparelho e é utilizado para a gestão do certificado descarregado no aparelho durante a sua configuração.<br/><br/>Para permitir que a Azure Migrate crie o Cofre-Chave, a sua conta Azure necessita de permissões de contribuinte no grupo de recursos em que reside o projeto Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto 
@@ -159,7 +160,7 @@ Reveja os requisitos para a migração de servidores físicos.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201990"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917878"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos OData em Pesquisa Cognitiva Azure - `and` , `or``not`
 
@@ -36,7 +36,7 @@ ms.locfileid: "86201990"
 
 Estes, juntamente com os operadores de [recolha `any` e, `all` ](search-query-odata-collection-operators.md)permitem-lhe construir filtros que possam expressar critérios de pesquisa muito complexos.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática de uma expressão OData que utiliza os operadores lógicos.
 
@@ -58,21 +58,21 @@ Está também disponível um diagrama de sintaxe interativo:
 
 Existem duas formas de expressões lógicas: binárias, `and` / `or` onde existem duas subexpressões, e unary `not` (), onde há apenas uma. As subexpressões podem ser expressões booleanas de qualquer tipo:
 
-- Campos ou variáveis de gama de tipo`Edm.Boolean`
-- Funções que devolvem valores de `Edm.Boolean` tipo, tais como `geo.intersects` ou`search.ismatch`
-- [Expressões de comparação,](search-query-odata-comparison-operators.md)tais como`rating gt 4`
-- [Expressões de recolha,](search-query-odata-collection-operators.md)tais como`Rooms/any(room: room/Type eq 'Deluxe Room')`
+- Campos ou variáveis de gama de tipo `Edm.Boolean`
+- Funções que devolvem valores de `Edm.Boolean` tipo, tais como `geo.intersects` ou `search.ismatch`
+- [Expressões de comparação,](search-query-odata-comparison-operators.md)tais como `rating gt 4`
+- [Expressões de recolha,](search-query-odata-collection-operators.md)tais como `Rooms/any(room: room/Type eq 'Deluxe Room')`
 - Os literais booleanos `true` ou `false` .
 - Outras expressões lógicas construídas com `and` `or` , e `not` .
 
 > [!IMPORTANT]
 > Existem algumas situações em que nem todos os tipos de subexposição podem ser `and` / `or` usados, particularmente no interior das expressões de lambda. Consulte [os operadores de recolha OData na Azure Cognitive Search](search-query-odata-collection-operators.md#limitations) para obter detalhes.
 
-### <a name="logical-operators-and-null"></a>Operadores lógicos e`null`
+### <a name="logical-operators-and-null"></a>Operadores lógicos e `null`
 
 A maioria das expressões booleanas, tais como funções e comparações, não podem produzir `null` valores, e os operadores lógicos não podem ser aplicados diretamente ao `null` literal (por exemplo, `x and null` não é permitido). No entanto, os campos booleanos podem ser `null` , por isso é preciso estar ciente de como os , e os `and` `or` `not` operadores se comportam na presença de nulos. Isto é resumido na tabela seguinte, onde `b` está um campo de `Edm.Boolean` tipo:
 
-| Expressão | Resultado quando `b` é`null` |
+| Expression | Resultado quando `b` é `null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -120,4 +120,4 @@ Combine documentos para hotéis em Vancouver, Canadá onde há um quarto de luxo
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para pesquisa cognitiva de Azure](search-query-odata-syntax-reference.md)
-- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

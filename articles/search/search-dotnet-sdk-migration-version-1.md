@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d6c30cb7abffc7e25e78eeabf5fb43fc8c1f682
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3c8e44a3d57ee519ff792de97ed2b3d183bf666b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171963"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923369"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Upgrade para Azure Search .NET SDK versão 1.1
 
-Se estiver a utilizar a versão 1.0.2 pré-visualização ou mais antiga do [Azure Search .NET SDK,](https://docs.microsoft.com/dotnet/api/overview/azure/search)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 1.1.
+Se estiver a utilizar a versão 1.0.2 pré-visualização ou mais antiga do [Azure Search .NET SDK,](/dotnet/api/overview/azure/search)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 1.1.
 
 Para uma passagem mais geral do SDK, incluindo exemplos, consulte [Como utilizar a Azure Search a partir de uma aplicação .NET](search-howto-dotnet-sdk.md).
 
@@ -53,9 +53,9 @@ Finalmente, uma vez corrigido quaisquer erros de construção, pode escoar alter
 A lista a seguir é ordenada pela probabilidade de a alteração afetar o seu código de aplicação.
 
 ### <a name="indexbatch-and-indexaction-changes"></a>Alterações de IndexBatch e IndexAction
-`IndexBatch.Create`foi renomeado `IndexBatch.New` e já não tem `params` argumentos. Pode utilizar `IndexBatch.New` para lotes que misturam diferentes tipos de ações (fusões, eliminações, etc.). Além disso, existem novos métodos estáticos para a criação de lotes onde todas as ações são as mesmas: `Delete` `Merge` , , e `MergeOrUpload` `Upload` .
+`IndexBatch.Create` foi renomeado `IndexBatch.New` e já não tem `params` argumentos. Pode utilizar `IndexBatch.New` para lotes que misturam diferentes tipos de ações (fusões, eliminações, etc.). Além disso, existem novos métodos estáticos para a criação de lotes onde todas as ações são as mesmas: `Delete` `Merge` , , e `MergeOrUpload` `Upload` .
 
-`IndexAction`já não tem construtores públicos e as suas propriedades são agora imutáveis. Deve utilizar os novos métodos estáticos para criar ações para diferentes finalidades: `Delete` `Merge` , e `MergeOrUpload` `Upload` . `IndexAction.Create`foi removido. Se utilizar a sobrecarga que leva apenas um documento, certifique-se de que `Upload` utiliza.
+`IndexAction` já não tem construtores públicos e as suas propriedades são agora imutáveis. Deve utilizar os novos métodos estáticos para criar ações para diferentes finalidades: `Delete` `Merge` , e `MergeOrUpload` `Upload` . `IndexAction.Create` foi removido. Se utilizar a sobrecarga que leva apenas um documento, certifique-se de que `Upload` utiliza.
 
 #### <a name="example"></a>Exemplo
 Se o seu código se parece com isto:
@@ -169,7 +169,7 @@ Começando pela versão 1.1, o Azure Search .NET SDK organiza métodos de funcio
 
 * Os parâmetros opcionais são agora modelados como parâmetros padrão em vez de sobrecargas adicionais do método. Isto reduz o número de sobrecargas de métodos, às vezes dramaticamente.
 * Os métodos de extensão agora escondem muitos dos detalhes extra-hediondos de HTTP do chamador. Por exemplo, versões mais antigas do SDK devolveram um objeto de resposta com um código de estado HTTP, que muitas vezes não precisava de verificar porque os métodos de funcionamento lançam `CloudException` para qualquer código de estado que indique um erro. Os novos métodos de extensão apenas devolvem objetos do modelo, poupando-lhe o trabalho de ter que desembrulhá-los no seu código.
-* Inversamente, as interfaces centrais agora expõem métodos que lhe dão mais controlo ao nível HTTP se precisar. Agora pode passar em cabeçalhos HTTP personalizados para serem incluídos em pedidos, e o novo `AzureOperationResponse<T>` tipo de devolução dá-lhe acesso direto ao `HttpRequestMessage` e para a `HttpResponseMessage` operação. `AzureOperationResponse`é definido no `Microsoft.Rest.Azure` espaço de nome e substitui `Hyak.Common.OperationResponse` .
+* Inversamente, as interfaces centrais agora expõem métodos que lhe dão mais controlo ao nível HTTP se precisar. Agora pode passar em cabeçalhos HTTP personalizados para serem incluídos em pedidos, e o novo `AzureOperationResponse<T>` tipo de devolução dá-lhe acesso direto ao `HttpRequestMessage` e para a `HttpResponseMessage` operação. `AzureOperationResponse` é definido no `Microsoft.Rest.Azure` espaço de nome e substitui `Hyak.Common.OperationResponse` .
 
 ### <a name="scoringparameters-changes"></a>Alterações de Pontuação Parametros
 Uma nova classe nomeada `ScoringParameter` foi adicionada no mais recente SDK para facilitar a disponibilização de parâmetros para marcar perfis numa consulta de pesquisa. Anteriormente, a `ScoringProfiles` propriedade da classe era `SearchParameters` dactilografada `IList<string>` como; Agora é dactilografado como `IList<ScoringParameter>` .
@@ -199,10 +199,10 @@ sp.ScoringParameters =
 ### <a name="model-class-changes"></a>Mudanças de classe de modelo
 Devido às alterações de assinatura descritas nas [alterações do método de Operação,](#OperationMethodChanges)muitas classes no espaço de `Microsoft.Azure.Search.Models` nome foram renomeadas ou removidas. Por exemplo:
 
-* `IndexDefinitionResponse`foi substituído por`AzureOperationResponse<Index>`
+* `IndexDefinitionResponse` foi substituído por `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` mudou de nome para `DocumentSearchResult`
 * `IndexResult` mudou de nome para `IndexingResult`
-* `Documents.Count()`agora devolve um `long` com a contagem de documentos em vez de um`DocumentCountResponse`
+* `Documents.Count()` agora devolve um `long` com a contagem de documentos em vez de um `DocumentCountResponse`
 * `IndexGetStatisticsResponse` mudou de nome para `IndexGetStatisticsResult`
 * `IndexListResponse` mudou de nome para `IndexListResult`
 
@@ -401,4 +401,3 @@ Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 Por esta razão, recomendamos ainda que utilize tipos nulos nas suas aulas de modelo como uma boa prática.
 
 Para mais detalhes sobre este bug e a correção, consulte [este problema no GitHub.](https://github.com/Azure/azure-sdk-for-net/issues/1063)
-

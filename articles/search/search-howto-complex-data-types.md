@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 0fd7ba1723da77313407725ec676e69b0ef3bca1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b26a317f7338b3e87623b8312d9f7efd10dbed1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496677"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917861"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos na Pesquisa Cognitiva Azure
 
@@ -33,7 +33,7 @@ Para começar, recomendamos o [conjunto de dados do Hotels,](https://github.com/
 
 ## <a name="example-of-a-complex-structure"></a>Exemplo de uma estrutura complexa
 
-O seguinte documento JSON é composto por campos simples e campos complexos. Campos complexos, tais como `Address` `Rooms` e, têm sub-campos. `Address`tem um único conjunto de valores para esses sub-campos, uma vez que é um único objeto no documento. Em contraste, `Rooms` tem vários conjuntos de valores para os seus sub-campos, um para cada objeto na coleção.
+O seguinte documento JSON é composto por campos simples e campos complexos. Campos complexos, tais como `Address` `Rooms` e, têm sub-campos. `Address` tem um único conjunto de valores para esses sub-campos, uma vez que é um único objeto no documento. Em contraste, `Rooms` tem vários conjuntos de valores para os seus sub-campos, um para cada objeto na coleção.
 
 ```json
 {
@@ -62,9 +62,9 @@ O seguinte documento JSON é composto por campos simples e campos complexos. Cam
 
 ## <a name="creating-complex-fields"></a>Criação de campos complexos
 
-Como em qualquer definição de índice, pode utilizar o portal, [REST API,](https://docs.microsoft.com/rest/api/searchservice/create-index)ou [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) para criar um esquema que inclua tipos complexos. 
+Como em qualquer definição de índice, pode utilizar o portal, [REST API,](/rest/api/searchservice/create-index)ou [.NET SDK](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) para criar um esquema que inclua tipos complexos. 
 
-O exemplo a seguir mostra um esquema de índice JSON com campos simples, coleções e tipos complexos. Note que dentro de um tipo complexo, cada sub-campo tem um tipo e pode ter atributos, tal como os campos de alto nível têm. O esquema corresponde aos dados de exemplo acima. `Address`é um campo complexo que não é uma coleção (um hotel tem uma morada). `Rooms`é um campo de recolha complexo (um hotel tem muitos quartos).
+O exemplo a seguir mostra um esquema de índice JSON com campos simples, coleções e tipos complexos. Note que dentro de um tipo complexo, cada sub-campo tem um tipo e pode ter atributos, tal como os campos de alto nível têm. O esquema corresponde aos dados de exemplo acima. `Address` é um campo complexo que não é uma coleção (um hotel tem uma morada). `Rooms` é um campo de recolha complexo (um hotel tem muitos quartos).
 
 ```json
 {
@@ -151,7 +151,7 @@ Para filtrar num campo de recolha complexo, pode utilizar uma **expressão lambd
 
 Tal como acontece com os campos simples de alto nível, os subtis simples de campos complexos só podem ser incluídos em filtros se tiverem o atributo **filtrado** definido `true` na definição de índice. Para obter mais informações, consulte a [referência API do Índice de Criação](/rest/api/searchservice/create-index).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o [conjunto de dados do Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) no assistente de **dados de importação.** Você precisará da informação de ligação cosmos DB fornecida na leitura para aceder aos dados.
 

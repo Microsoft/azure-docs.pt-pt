@@ -2,13 +2,14 @@
 title: Resolução de problemas sem dados - Application Insights para .NET
 description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: eeae4503111897d7a2fa64bc2a69c13381515157
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7cf3371dc60f97b8bba61012e87b7b4bd4899aa6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563080"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936474"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -66,7 +67,7 @@ Parece que algo correu mal enquanto instalava Insights de Aplicação ou talvez 
 
 No Solution Explorer, clique com o botão direito do seu projeto e escolha **Insights de Aplicação > Configure Application Insights**. Receberá um diálogo que o convida a iniciar sessão no Azure e a criar um recurso Application Insights ou a reutilizar um existente.
 
-## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a>"Pacotes NuGet(s) estão em falta" no meu servidor de construção
+## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> "Pacotes NuGet(s) estão em falta" no meu servidor de construção
 *Tudo se constrói bem quando estou a depurar a minha máquina de desenvolvimento, mas tenho um erro do NuGet no servidor de construção.*
 
 Consulte a [Restauração do Pacote NuGet](https://docs.nuget.org/Consume/Package-Restore) e [a Restauração automática do pacote.](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore)
@@ -120,7 +121,7 @@ Correção:
   Lá verá alguns gráficos de resumo. Pode clicar neles para ver mais detalhes.
 * No Visual Studio, enquanto depura a sua aplicação, clique no botão Application Insights.
 
-## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a>Sem dados do servidor (ou nenhum dado)
+## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a> Sem dados do servidor (ou nenhum dado)
 *Corri a minha aplicação e abri o serviço application Insights no Microsoft Azure, mas todos os gráficos mostram 'Saiba como recolher...' ou "Não configurado."* Ou, *apenas, Visualização de página e dados do utilizador, mas sem dados do servidor.*
 
 * Execute a sua aplicação em modo depuror no Visual Studio (F5). Utilize a aplicação de modo a gerar alguma telemetria. Verifique se pode ver os eventos registados na janela de saída do Estúdio Visual.  
@@ -185,7 +186,7 @@ Siga estas instruções para capturar registos de resolução de problemas para 
 
 ### <a name="net-framework"></a>.NET Framework
 
-1. Instale o pacote [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) a partir do NuGet. A versão que instala deve corresponder à versão atual instalada de`Microsoft.ApplicationInsighs`
+1. Instale o pacote [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) a partir do NuGet. A versão que instala deve corresponder à versão atual instalada de `Microsoft.ApplicationInsighs`
 
 2. Modifique o seu ficheiro applicationinsights.config para incluir o seguinte:
 
@@ -227,7 +228,7 @@ Siga estas instruções para capturar registos de resolução de problemas para 
 4. Reverta estas mudanças quando terminar.
 
 
-## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a>Recolher registos com PerfView
+## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a> Recolher registos com PerfView
 [PerfView](https://github.com/Microsoft/perfview) é uma ferramenta de diagnóstico e análise de desempenho gratuita que ajuda a isolar CPU, memória e outros problemas, recolhendo e visualizando informações de diagnóstico de muitas fontes.
 
 Os registos SDK log SDK de registo de resolução de problemas de resolução de problemas que podem ser capturados pelo PerfView.
@@ -249,7 +250,7 @@ Para mais informações,
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Recolher troncos com traços de dotnet
 
-Um método alternativo de recolha de troncos para resolução de problemas que pode ser particularmente útil para ambientes baseados em linux é[`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
+Um método alternativo de recolha de troncos para resolução de problemas que pode ser particularmente útil para ambientes baseados em linux é [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore

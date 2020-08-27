@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987477"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936117"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (pré-visualização)
 
@@ -22,7 +22,7 @@ ms.locfileid: "84987477"
 
 A habilidade **de Pesquisa de Entidade Personalizada** procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos.  
 
-Esta habilidade não está ligada a uma API de Serviços Cognitivos e pode ser utilizada gratuitamente durante o período de pré-visualização. No entanto, deve [ainda anexar um recurso de Serviços Cognitivos](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services)para anular o limite diário de enriquecimento. O limite diário aplica-se ao acesso gratuito aos Serviços Cognitivos quando acedido através da Azure Cognitive Search.
+Esta habilidade não está ligada a uma API de Serviços Cognitivos e pode ser utilizada gratuitamente durante o período de pré-visualização. No entanto, deve [ainda anexar um recurso de Serviços Cognitivos](./cognitive-search-attach-cognitive-services.md)para anular o limite diário de enriquecimento. O limite diário aplica-se ao acesso gratuito aos Serviços Cognitivos quando acedido através da Azure Cognitive Search.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.text.customentityLookupSkill 
@@ -231,7 +231,7 @@ Em alternativa, se decidir fornecer um ponteiro para o ficheiro de definição d
 
 ```
 
-##    <a name="sample-input"></a>Entrada de amostra
+##    <a name="sample-input"></a>Entrada de exemplo
 
 ```json
 {
@@ -248,7 +248,7 @@ Em alternativa, se decidir fornecer um ponteiro para o ficheiro de definição d
 }
 ```
 
-##    <a name="sample-output"></a>Resultado da amostra
+##    <a name="sample-output"></a>Saída de exemplo
 
 ```json
   { 
@@ -302,7 +302,7 @@ Em alternativa, se decidir fornecer um ponteiro para o ficheiro de definição d
 
 Este aviso será emitido se o número de partidas detetadas for superior ao máximo permitido. Neste caso, deixaremos de incluir correspondências duplicadas. Se isto for inaceitável para si, por favor preencha um [bilhete de apoio](https://ms.portal.azure.com/#create/Microsoft.Support) para que possamos ajudá-lo com o seu caso de uso individual.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

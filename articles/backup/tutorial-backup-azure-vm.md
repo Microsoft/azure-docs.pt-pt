@@ -4,12 +4,12 @@ description: Este tutorial detalha o backup de vários VMs Azure para um cofre d
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc
-ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 46dd6ef15e3b0dad53f029ec722acf0fb5a0df7c
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513222"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889843"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer cópias de segurança de VMs do Azure com o PowerShell
 
@@ -52,13 +52,13 @@ Um [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-o
 
 Crie o cofre da seguinte forma:
 
-1. Utilize o [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)para criar o cofre. Especifique o nome do grupo de recursos e a localização do VM que pretende fazer o back up.
+1. Utilize o  [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)para criar o cofre. Especifique o nome do grupo de recursos e a localização do VM que pretende fazer o back up.
 
     ```powershell
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
     ```
 
-2. Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por este motivo, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação do Backup numa variável.
+2. Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por esta razão, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação de Backup numa variável.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault –Name myRSVault
@@ -113,7 +113,7 @@ Unregister-AzRecoveryServicesBackupContainer -Container $namedContainer
 Remove-AzRecoveryServicesVault -Vault $vault1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Reveja](backup-azure-vms-automation.md) uma passagem mais detalhada de backup e restauro de VMs Azure com PowerShell.
 * [Gerir e monitorizar os VMs do Azure](backup-azure-manage-vms.md)
