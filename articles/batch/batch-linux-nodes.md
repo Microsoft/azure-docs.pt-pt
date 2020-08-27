@@ -3,13 +3,13 @@ title: Executar Linux em nó de computação de máquina virtual
 description: Aprenda a processar as suas cargas de trabalho paralelas em piscinas de máquinas virtuais Linux em Azure Batch.
 ms.topic: how-to
 ms.date: 06/01/2018
-ms.custom: H1Hack27Feb2017, devx-track-python
-ms.openlocfilehash: bc4c98472609ef906d59159fb31d396071bf6a8d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
+ms.openlocfilehash: c4dd74a3f2b27680de81c6295f1f27fbcdac16c9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853013"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919442"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisão Linux nómada em piscinas de Lote
 
@@ -58,7 +58,7 @@ O agente de nó batch é um programa que funciona em cada nó na piscina e forne
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>Criar uma piscina Linux: Batch Python
-O seguinte corte de código mostra um exemplo de como usar a [Microsoft Azure Batch Client Library para Python][py_batch_package] para criar um conjunto de nós de computação Ubuntu Server. A documentação de referência para o módulo Batch Python pode ser encontrada no [pacote chazure.bat][py_batch_docs] na Leitura dos Docs.
+O seguinte corte de código mostra um exemplo de como usar a [Microsoft Azure Batch Client Library para Python][py_batch_package] para criar um conjunto de nós de computação Ubuntu Server. A documentação de referência para o módulo Batch Python pode ser encontrada no [ pacote chazure.bat][py_batch_docs] na Leitura dos Docs.
 
 Este snippet cria uma [ImageReference][py_imagereference] explicitamente e especifica cada uma das suas propriedades (editora, oferta, SKU, versão). No código de produção, no entanto, recomendamos que utilize o método [list_supported_images][py_list_supported_images] para determinar e selecionar a partir das combinações SKU do agente de imagem e nó disponível no tempo de execução.
 

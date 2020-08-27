@@ -7,21 +7,22 @@ documentationcenter: .net
 author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: tagore
-ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8270766413729454181c461d469d49e418a1aa67
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75386515"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932309"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Trace o fluxo de uma aplicação de Serviços cloud com diagnósticos Azure
 O rastreio é uma forma de monitorizar a execução da sua aplicação enquanto está em execução. Pode utilizar as classes [System.Diagnostics.Trace,](/dotnet/api/system.diagnostics.trace) [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug)e [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) para registar informações sobre erros e execução de aplicações em registos, ficheiros de texto ou outros dispositivos para posterior análise. Para obter mais informações sobre o rastreio, consulte [aplicações de rastreio e instrumentação.](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications)
 
 ## <a name="use-trace-statements-and-trace-switches"></a>Use traços e comutadores de vestígios
-Implementar o rastreio na sua aplicação Cloud Services adicionando o [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) à configuração da aplicação e fazendo chamadas para System.Diagnostics.Trace ou System.Diagnostics.Debug no seu código de aplicação. Utilize o ficheiro de configuração *app.config* para funções de trabalhador e *oweb.config* para funções web. Quando cria um novo serviço hospedado utilizando um modelo de Estúdio Visual, o Azure Diagnostics é automaticamente adicionado ao projeto e o DiagnosticMonitorTraceListener é adicionado ao ficheiro de configuração apropriado para as funções que adiciona.
+Implementar o rastreio na sua aplicação Cloud Services adicionando o [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) à configuração da aplicação e fazendo chamadas para System.Diagnostics.Trace ou System.Diagnostics.Debug no seu código de aplicação. Utilize o ficheiro de configuração *app.config* para funções de trabalhador e * oweb.config* para funções web. Quando cria um novo serviço hospedado utilizando um modelo de Estúdio Visual, o Azure Diagnostics é automaticamente adicionado ao projeto e o DiagnosticMonitorTraceListener é adicionado ao ficheiro de configuração apropriado para as funções que adiciona.
 
 Para obter informações sobre a colocação de declarações de rastreio, consulte [Como: Adicionar declarações de rastreio ao Código de Aplicação](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 

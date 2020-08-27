@@ -2,13 +2,13 @@
 title: Mover VMs Azure para novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: e812f2cee44fc48dccbd8ab66a3343e087790803
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063090"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933244"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
@@ -18,7 +18,6 @@ Este artigo descreve os cenários que não são suportados atualmente e os passo
 
 Os seguintes cenários ainda não são apoiados:
 
-* Os Discos Geridos em Zonas de Disponibilidade não podem ser transferidos para uma subscrição diferente.
 * Os conjuntos de balança de máquinas virtuais com o balanceador de carga SKU padrão ou o IP público standard SKU não podem ser movidos.
 * Máquinas virtuais criadas a partir de recursos do Marketplace com planos anexados não podem ser movidas através de subscrições. Desavisar a máquina virtual na subscrição atual, e implementar novamente na nova subscrição.
 * As máquinas virtuais de uma rede virtual existente não podem ser transferidas para uma nova subscrição quando não está a mover todos os recursos da rede virtual.
@@ -63,15 +62,15 @@ Se [a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md
 * Encontre a localização da sua Máquina Virtual.
 * Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
 * Se em PowerShell, use o `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-* Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
+* Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
 * Encontre a localização da sua Máquina Virtual.
 * Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
-* Se em CLI, usar o`az resource list -g AzureBackupRG_<location of your VM>_1`
-* Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação`AzureBackup_<name of your VM that you're trying to move>_###########`
+* Se em CLI, usar o `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -8,16 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 32a31892317cadb37f16e48df80bef7d6d8a99ef
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3f8f7c41e4d18909ec4f483a0e37d83b4d05e79d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925191"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931097"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação C#. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
-Quer ver o código imediatamente? As amostras para as [bibliotecas de clientes bing search para .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) estão disponíveis no GitHub.
+Quer ver o código imediatamente? As amostras para as [bibliotecas de clientes Bing Search para .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) estão disponíveis no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
@@ -35,7 +36,7 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 > [!TIP]
 > Obter o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-O primeiro passo é criar um novo projeto de consola. Se precisar de ajuda para a criação de um projeto de consola, consulte [Hello World -- O seu primeiro programa (C# Programming Guide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para utilizar o SDK de Pesquisa na Web do Bing na sua aplicação, terá de instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` através do Gestor de Pacotes NuGet.
+O primeiro passo é criar um novo projeto de consola. Se precisar de ajuda para configurar um projeto de consola, consulte [Hello World -- O Seu Primeiro Programa (C# Guia de Programação)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para utilizar o SDK de Pesquisa na Web do Bing na sua aplicação, terá de instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` através do Gestor de Pacotes NuGet.
 
 O [pacote do SDK de Pesquisa na Web](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) também instala:
 
@@ -57,7 +58,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Criar a estrutura do projeto
 
-Quando criou o seu novo projeto de consola, deverá ter sido criado um espaço de nomes e uma classe para a sua aplicação. O seu programa deve parecer este exemplo:
+Quando criou o seu novo projeto de consola, deverá ter sido criado um espaço de nomes e uma classe para a sua aplicação. O seu programa deve parecer-se com este exemplo:
 
 ```csharp
 namespace WebSearchSDK
@@ -414,12 +415,12 @@ Este exemplo utiliza os parâmetros `answer_count`, `promote` e `safe_search` pa
 
 3. Execute a aplicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de remover a sua chave de subscrição do código da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Amostras de Node.js SDK de Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
+> [Serviços Cognitivos Node.js amostras de SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
                                     

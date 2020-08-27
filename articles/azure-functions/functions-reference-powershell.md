@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 8af1e52477cf047bbbec46884717166ec014fc6c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816410"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933528"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
 
@@ -128,7 +128,7 @@ Seguem-se os seguintes parâmetros válidos para a `Push-OutputBinding` chamada:
 
 | Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadeia | 1 | O nome da vinculação de saída que pretende definir. |
+| **`-Name`** | String | 1 | O nome da vinculação de saída que pretende definir. |
 | **`-Value`** | Objeto | 2 | O valor da vinculação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | ParâmetroOpcional | Nomeado | (Opcional) Quando especificado, força o valor a ser definido para uma ligação de saída especificada. | 
 
@@ -384,14 +384,60 @@ Quando cria uma aplicação de função utilizando ferramentas, como o Código d
 
 ## <a name="powershell-versions"></a>Versões PowerShell
 
-A tabela a seguir mostra as versões PowerShell suportadas por cada versão principal do tempo de execução das Funções e a versão .NET necessária:
+A tabela a seguir mostra as versões PowerShell disponíveis para cada versão principal do tempo de execução das Funções, e a versão .NET necessária:
 
 | Versão de funções | Versão PowerShell                               | Versão .NET  | 
 |-------------------|--------------------------------------------------|---------------|
-| 3.x (recomendado) | PowerShell 7 (recomendado)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 3.1 |
+| 3.x (recomendado) | PowerShell 7 (recomendado)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
 | 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 Pode ver a versão atual imprimindo `$PSVersionTable` a partir de qualquer função.
+
+### <a name="running-local-on-a-specific-version"></a>Executando local em uma versão específica
+
+Ao executar localmente, o tempo de execução das funções Azure está a predefinição da utilização do PowerShell Core 6. Em vez disso, para utilizar o PowerShell 7 quando estiver a funcionar localmente, é necessário adicionar a definição `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` à matriz no local.setting.jsficheiro na raiz do `Values` projeto. Ao correr localmente no PowerShell 7, o seu local.settings.jsno ficheiro parece o seguinte exemplo: 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "powershell",
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"
+  }
+}
+```
+
+### <a name="changing-the-powershell-version"></a>Alterar a versão PowerShell
+
+A sua aplicação de função deve estar a funcionar na versão 3.x para poder fazer o upgrade do PowerShell Core 6 para o PowerShell 7. Para aprender a fazê-lo, consulte [ver e atualizar a versão atual do tempo de execução](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
+Utilize os seguintes passos para alterar a versão PowerShell utilizada pela sua aplicação de função. Pode fazê-lo no portal Azure ou utilizando o PowerShell.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+1. No [portal Azure,](https://portal.azure.com)navegue pela sua aplicação de função.
+
+1. Em **Definições**, escolha **Configuração**. No separador **Definições Gerais,** localize a **versão PowerShell**. 
+
+    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Escolha a versão PowerShell utilizada pela aplicação de função"::: 
+
+1. Escolha a **versão powerShell Core** desejada e selecione **Save**. Quando avisado sobre o reinício pendente escolha **Continue**. A aplicação de função reinicia na versão escolhida do PowerShell. 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Execute o seguinte script para alterar a versão PowerShell: 
+
+```powershell
+Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<FUNCTION_APP>/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
+
+```
+
+Substitua `<SUBSCRIPTION_ID>` , `<RESOURCE_GROUP>` e pelo `<FUNCTION_APP>` ID da sua subscrição Azure, o nome do seu grupo de recursos e app de função, respectivamente.  Além disso, `<VERSION>` substitua-o por um `~6` ou. `~7` Pode verificar o valor atualizado da `powerShellVersion` configuração da `Properties` tabela de haxixe devolvida. 
+
+---
+
+A aplicação de função reinicia após a alteração ser feita para a configuração.
 
 ## <a name="dependency-management"></a>Gestão de dependências
 

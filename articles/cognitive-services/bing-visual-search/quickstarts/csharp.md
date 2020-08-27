@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Obtenha insights de imagem usando a REST API e C# - Bing Visual Search'
+title: 'Quickstart: Obtenha insights de imagem utilizando a API REST e C# - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a enviar uma imagem para a API de Pesquisa Visual bing e obtenha informações sobre isso.
+description: Aprenda a enviar uma imagem para a API de Pesquisa Visual Bing e obtenha informações sobre isso.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,22 +10,23 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: b64a3e9d3e6f5393fb47c41ad34a9f1ed78cb44a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e5f772fe8152f209a8188ab5bf2d0010248feabf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872767"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934315"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Quickstart: Obtenha insights de imagem usando o Bing Visual Search REST API e C #
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Quickstart: Obtenha insights de imagem utilizando a API e C de Pesquisa Visual Bing #
 
-Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual Bing e visualizar as ideias que retorna.
+Este quickstart demonstra como fazer o upload de uma imagem para a API de Pesquisa Visual Bing e ver as ideias que retorna.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Visual Studio 2019.](https://www.visualstudio.com/downloads/)
+* Qualquer edição do [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * O [quadro Json.NET,](https://www.newtonsoft.com/json)disponível como um pacote NuGet.
-* Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação utilizando [o Mono](https://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação utilizando [o Mono.](https://www.mono-project.com/)
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
@@ -41,7 +42,7 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
     using System.Collections.Generic;
     ```
 
-2. Adicione variáveis para a sua chave de subscrição, ponto final e caminho para a imagem que pretende carregar. Para o `uriBase` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Adicione variáveis para a sua chave de subscrição, ponto final e caminho para a imagem que pretende carregar. Pelo `uriBase` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```csharp
         const string accessKey = "<my_subscription_key>";
@@ -69,7 +70,7 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
 
 ## <a name="build-the-form-data"></a>Construir os dados do formulário
 
-1. Para fazer upload de uma imagem local, primeiro construa os dados do formulário para enviar para a API. Os dados do formulário incluem o `Content-Disposition` cabeçalho, o `name` parâmetro definido para "imagem", e o `filename` parâmetro definido para o nome de ficheiro da imagem. O conteúdo do formulário contém os dados binários da imagem. O tamanho máximo de imagem que pode carregar é de 1 MB.
+1. Para fazer o upload de uma imagem local, primeiro construa os dados do formulário para enviar para a API. Os dados do formulário incluem o `Content-Disposition` cabeçalho, o `name` parâmetro definido para "imagem", e o `filename` parâmetro definido para o nome do ficheiro da imagem. O conteúdo do formulário contém os dados binários da imagem. O tamanho máximo de imagem que pode carregar é de 1 MB.
 
     ```
     --boundary_1234-abcd
@@ -80,7 +81,7 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
     --boundary_1234-abcd--
     ```
 
-2. Adicione cordas de limite para formatar os dados do formulário POST. As cordas de fronteira determinam o início, o fim e os caracteres de linha nova para os dados.
+2. Adicione cordas de fronteira para formatar os dados do formulário POST. As cordas de fronteira determinam o início, fim e caracteres newline para os dados.
 
     ```csharp
     // Boundary strings for form data in body of POST.
@@ -97,7 +98,7 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
     const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
     ```
 
-4. Crie uma função nomeada para criar o início dos dados do formulário utilizando as cordas de fronteira e o caminho da `BuildFormDataStart()` imagem.
+4. Crie uma função nomeada `BuildFormDataStart()` para criar o início dos dados do formulário utilizando as cordas de fronteira e o caminho da imagem.
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -111,7 +112,7 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
         }
     ```
 
-5. Crie uma função nomeada `BuildFormDataEnd()` para criar a extremidade dos dados do formulário utilizando as cordas de fronteira.
+5. Crie uma função nomeada `BuildFormDataEnd()` para criar o fim dos dados do formulário utilizando as cordas de fronteira.
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
@@ -122,11 +123,11 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
 
 ## <a name="call-the-bing-visual-search-api"></a>Ligue para a API de Pesquisa Visual Bing
 
-1. Crie uma função para ligar para o ponto final de Pesquisa Visual Bing e devolva a resposta JSON. A função assume o início e o fim dos dados do formulário, um matriz de byte contendo os dados de imagem, e um `contentType` valor.
+1. Crie uma função para ligar para o ponto final de Pesquisa Visual Bing e devolver a resposta JSON. A função toma o início e o fim dos dados do formulário, uma matriz byte contendo os dados de imagem, e um `contentType` valor.
 
-2. Utilize um `WebRequest` para armazenar o seu URI, valor de conteúdoType e cabeçalhos.  
+2. Utilize um `WebRequest` para armazenar o seu URI, o valor de conteúdoType e os cabeçalhos.  
 
-3. Use para escrever o seu formulário e dados de `request.GetRequestStream()` imagem, e em seguida, obter a resposta. A sua função deve ser semelhante ao seguinte código:
+3. Use `request.GetRequestStream()` para escrever o seu formulário e dados de imagem, e depois obtenha a resposta. A sua função deve ser semelhante ao seguinte código:
         
     ```csharp
         static string BingImageSearch(string startFormData, string endFormData, byte[] image, string contentTypeValue)
@@ -165,7 +166,7 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
     var imageBinary = GetImageBinary(imagePath);
     ```
 
-2. Instale o corpo do POST formando o seu limite. Em seguida, ligue `BuildFormDataStart()` e `BuildFormDataEnd()` crie os dados do formulário.
+2. Configurar o corpo POST formando o seu limite. Em seguida, ligue `BuildFormDataStart()` e `BuildFormDataEnd()` crie os dados do formulário.
 
     ```csharp
     // Set up POST body.
@@ -174,13 +175,13 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
     var endFormData = BuildFormDataEnd(boundary);
     ```
 
-3. Criar o valor através da `ContentType` formatação `CONTENT_TYPE_HEADER_PARAMS` e da fronteira de dados da forma.
+3. Crie o `ContentType` valor formando `CONTENT_TYPE_HEADER_PARAMS` e o limite de dados do formulário.
 
     ```csharp
     var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
     ```
 
-4. Obtenha a resposta da API ligando e, em `BingImageSearch()` seguida, imprima a resposta.
+4. Obtenha a resposta da API ligando `BingImageSearch()` e, em seguida, imprima a resposta.
 
     ```csharp
     var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
@@ -191,7 +192,7 @@ Este quickstart demonstra como enviar uma imagem para a API de Pesquisa Visual B
 
 ## <a name="using-httpclient"></a>Utilizar HttpClient
 
-Se `HttpClient` utilizar, pode usar a `MultipartFormDataContent` classe para construir os dados do formulário. Utilize as seguintes secções de código para substituir os métodos correspondentes no exemplo anterior:
+Se `HttpClient` utilizar, pode utilizar a `MultipartFormDataContent` classe para construir os dados do formulário. Utilize as seguintes secções de código para substituir os métodos correspondentes no exemplo anterior:
 
 1. Substitua o método `Main()` pelo código abaixo:
 

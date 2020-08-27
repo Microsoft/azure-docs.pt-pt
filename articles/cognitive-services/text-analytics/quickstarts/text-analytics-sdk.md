@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/27/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: ba53b4a4765a2b3db0aa048a990a0a48f74682d0
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874984"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931187"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use a biblioteca de clientes Text Analytics
 
@@ -83,7 +83,7 @@ Se clicou neste separador, provavelmente não viu um arranque rápido na sua lin
 | Linguagem | Versão disponível | 
 |----------|------------------------|
 | Ruby     | [Versão 2.1](ruby-sdk.md) | 
-| Ir       | [Versão 2.1](go-sdk.md) | 
+| Go       | [Versão 2.1](go-sdk.md) | 
 
 ::: zone-end
 
@@ -102,5 +102,5 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detetar Idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Detetar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

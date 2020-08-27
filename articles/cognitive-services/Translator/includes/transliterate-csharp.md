@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 4573224a77b080e0ba6cefe5069164466e7df5b9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 058450a4f28fb03da317debc9557a9beb45b2e90
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586552"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921433"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -17,26 +18,26 @@ ms.locfileid: "83586552"
 
 ## <a name="create-a-net-core-project"></a>Criar um projeto .NET Core
 
-Abra um novo pedido de comando (ou sessão terminal) e execute estes comandos:
+Abra uma nova solicitação de comando (ou sessão terminal) e execute estes comandos:
 
 ```console
 dotnet new console -o transliterate-sample
 cd transliterate-sample
 ```
 
-O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `transliterate-sample` . O segundo comando muda para o diretório para o seu projeto.
+O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET e cria um diretório chamado `transliterate-sample` . O segundo comando muda o diretório para o seu projeto.
 
-Em seguida, terá de instalar Json.Net. A partir do diretório do seu projeto, corra:
+Em seguida, terá de instalar Json.Net. Do diretório do seu projeto, corra:
 
 ```console
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="select-the-c-language-version"></a>Selecione a versão em língua C#
+## <a name="select-the-c-language-version"></a>Selecione a versão linguística C#
 
-Este quickstart requer C# 7.1 ou mais tarde. Existem algumas formas de alterar a versão C# para o seu projeto. Neste guia, vamos mostrar-lhe como ajustar o `transliterate-sample.csproj` ficheiro. Para todas as opções disponíveis, tais como alterar o idioma no Estúdio Visual, consulte [Selecione a versão em língua C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+Este arranque rápido requer C# 7.1 ou mais tarde. Existem algumas formas de mudar a versão C# para o seu projeto. Neste guia, vamos mostrar-lhe como ajustar o `transliterate-sample.csproj` ficheiro. Para todas as opções disponíveis, como alterar o idioma no Estúdio Visual, consulte [a versão linguística C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Abra o seu projeto e `transliterate-sample.csproj` abra. Certifique-se de que `LangVersion` está definido para 7.1 ou mais tarde. Se não houver um grupo imobiliário para a versão linguística, adicione estas linhas:
+Abra o seu projeto e, em seguida, `transliterate-sample.csproj` abra. Certifique-se de que `LangVersion` está definido para 7.1 ou mais tarde. Se não houver um grupo de propriedade para a versão linguística, adicione estas linhas:
 
 ```xml
 <PropertyGroup>
@@ -44,9 +45,9 @@ Abra o seu projeto e `transliterate-sample.csproj` abra. Certifique-se de que `L
 </PropertyGroup>
 ```
 
-## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome sinuosos necessários ao seu projeto
+## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome necessários ao seu projeto
 
-O `dotnet new console` comando que dirigiu anteriormente criou um projeto, incluindo. `Program.cs` Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs` e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
+O `dotnet new console` comando que dirigiu anteriormente criou um projeto, incluindo. `Program.cs` Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs` , e substitua as declarações existentes. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação da amostra.
 
 ```csharp
 using System;
@@ -57,9 +58,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 ```
 
-## <a name="create-classes-for-the-json-response"></a>Criar aulas para a resposta json
+## <a name="create-classes-for-the-json-response"></a>Criar aulas para a resposta JSON
 
-Em seguida, vamos criar uma classe que é usada quando desserializar a resposta JSON devolvida pelo Tradutor.
+Em seguida, vamos criar uma classe que é usada quando desercializar a resposta JSON devolvida pelo Tradutor.
 
 ```csharp
 /// <summary>
@@ -72,9 +73,9 @@ public class TransliterationResult
 }
 ```
 
-## <a name="get-subscription-information-from-environment-variables"></a>Obtenha informações de subscrição de variáveis ambientais
+## <a name="get-subscription-information-from-environment-variables"></a>Obtenha informações de subscrição a partir de variáveis ambientais
 
-Adicione as seguintes linhas à `Program` aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
+Adicione as seguintes linhas à `Program` classe. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lançam um erro se encontrar algum problema.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -99,7 +100,7 @@ static Program()
 
 ## <a name="create-a-function-to-transliterate-text"></a>Criar uma função para transliterar texto
 
-Dentro da `Program` classe, crie uma função assíncrona chamada `TransliterateTextRequest()` . Esta função requer quatro argumentos: `subscriptionKey` `endpoint` , , e `route` `inputText` .
+Dentro da `Program` classe, crie uma função assíncronea chamada `TransliterateTextRequest()` . Esta função requer quatro argumentos: `subscriptionKey` `endpoint` , , e `route` `inputText` .
 
 ```csharp
 static public async Task TransliterateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
@@ -120,7 +121,7 @@ object[] body = new object[] { new { Text = inputText } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
-## <a name="instantiate-the-client-and-make-a-request"></a>Instantie o cliente e faça um pedido
+## <a name="instantiate-the-client-and-make-a-request"></a>Instantaneamente o cliente e faça um pedido
 
 Estas linhas instantaneamente o `HttpClient` e `HttpRequestMessage` o:
 
@@ -132,18 +133,18 @@ using (var request = new HttpRequestMessage())
 }
 ```
 
-## <a name="construct-the-request-and-print-the-response"></a>Construir o pedido e imprimir a resposta
+## <a name="construct-the-request-and-print-the-response"></a>Construa o pedido e imprima a resposta
 
-Dentro do `HttpRequestMessage` seu vai:
+Dentro do `HttpRequestMessage` you:ll:
 
-* Declarar o método HTTP
+* Declare o método HTTP
 * Construa o pedido URI
-* Insira o corpo de pedido (objeto JSON serializado)
-* Adicione cabeçalhos necessários
-* Faça um pedido assíncrono
+* Insira o corpo do pedido (objeto JSON serializado)
+* Adicionar cabeçalhos necessários
+* Faça um pedido assíncronos
 * Imprimir a resposta
 
-Adicione este código ao `HttpRequestMessage` :
+Adicione este código `HttpRequestMessage` ao:
 
 ```csharp
 // Build the request.
@@ -167,11 +168,11 @@ foreach (TransliterationResult o in deserializedOutput)
 }
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço dos Serviços Cognitivos, também deve incluir os parâmetros do `Ocp-Apim-Subscription-Region` seu pedido. [Saiba mais sobre a autenticação com a subscrição multi-serviço.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-O último passo é chamar `TransliterateTextRequest()` a `Main` função. Nesta amostra, estamos a transliterar de japonês para latim. `static void Main(string[] args)`Localize-o e substitua-o por este código:
+O último passo é chamar `TransliterateTextRequest()` a `Main` função. Nesta amostra, estamos a transliterar do guião japonês para o latim. `static void Main(string[] args)`Localize-o e substitua-o por este código:
 
 ```csharp
 static async Task Main(string[] args)
@@ -188,11 +189,11 @@ static async Task Main(string[] args)
 }
 ```
 
-Vais reparar `Main` nisso, estás a `subscriptionKey` `endpoint` declarar, `route` e o guião para transliterar. `textToTransliterate`
+Vais reparar que `Main` em , estás a declarar , `subscriptionKey` e o `endpoint` `route` guião para transliterar `textToTransliterate` .
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao seu diretório de projeto e corra:
+Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao diretório do projeto e corra:
 
 ```console
 dotnet run
@@ -200,7 +201,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Depois de executar a amostra, deve ver o seguinte impresso no terminal:
+Depois de analisar a amostra, deverá ver o seguinte impresso no terminal:
 
 ```bash
 Transliterated to latn script: Kon\'nichiwa
@@ -217,9 +218,9 @@ Esta mensagem é construída a partir do JSON cru, que será assim:
 ]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Certifique-se de remover quaisquer informações confidenciais do código fonte da sua aplicação de amostra, como as chaves de subscrição.
+Certifique-se de remover qualquer informação confidencial do código fonte da sua aplicação de amostra, como chaves de subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 

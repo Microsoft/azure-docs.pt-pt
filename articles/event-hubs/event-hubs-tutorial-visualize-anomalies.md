@@ -3,12 +3,12 @@ title: Azure Event Hubs - Visualizar anomalias de dados em eventos em tempo real
 description: 'Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos da Microsoft Azure'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85315623"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934060"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
 
@@ -16,7 +16,7 @@ Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para ver
 
 Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Em seguida, você leu o fluxo de dados em tempo real com a Azure Stream Analytics, que separa as transações válidas das transações inválidas, e depois usa o Power BI para identificar visualmente as transações que são marcadas como inválidas.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Criar um hub de eventos
@@ -308,7 +308,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
    ![Captura de ecrã da especificação do conjunto de dados.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Selecione **Cartão** para o tipo de visualização. Em **Campos**, clique em **Adicionar valor** e selecione **fraudulentuses**.
+9. Selecione **Cartão** para o tipo de visualização. Em **Campos**, clique **em Adicionar valor**e, em seguida, selecione `fraudulentuses` .
 
    ![Captura de ecrã da especificação do tipo de visualização e dos campos.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -329,9 +329,9 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
 12. Em **Tipo de Visualização**, selecione **Gráfico de linhas**.
 
-13. Em **Eixo**, clique em **Adicionar Valor** e selecione **windowend**. 
+13. No **eixo,** clique em **Adicionar Valor**e selecione `windowend` . 
 
-14. Em **Valores**, clique em **Adicionar valor** e selecione **fraudulentuses**.
+14. Em **Valores**, clique **em Adicionar valor** e selecione `fraudulentuses` .
 
 15. Em **Janela de tempo a apresentar**, selecione os últimos cinco minutos. Clique em **Seguinte**.
 
@@ -341,7 +341,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
     ![Captura de ecrã que mostra os resultados do Power BI](./media/event-hubs-tutorial-visualize-anomalies/power-bi-results.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser remover todos os recursos que criou, remova os dados de visualização do Power BI e, em seguida, elimine o grupo de recursos. Eliminar o grupo de recursos elimina todos os recursos incluídos no grupo. Neste caso, remove o hub de eventos, o espaço de nomes do Hub de Eventos, tarefa do Stream Analytics e o próprio grupo de recursos. 
 
@@ -378,6 +378,6 @@ Neste tutorial, ficou a saber como:
 Avance para o artigo seguinte para saber mais sobre os Hubs de Eventos do Azure.
 
 > [!div class="nextstepaction"]
-> [Introdução ao envio de mensagens para os Hubs de Eventos do Azure no .NET Standard](get-started-dotnet-standard-send-v2.md)
+> [Introdução ao envio de mensagens para os Hubs de Eventos do Azure no .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
 [criar uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

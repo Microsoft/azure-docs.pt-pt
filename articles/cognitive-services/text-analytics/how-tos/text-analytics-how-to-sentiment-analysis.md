@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 08/25/2020
 ms.author: aahi
-ms.openlocfilehash: e7dca6f74145d1ea50c5a9bfc57b52e1cbdfcab3
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869835"
+ms.locfileid: "88933023"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar sentimento usando a API de Análise de Texto
 
@@ -40,7 +40,7 @@ A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-vi
 
 A Análise de Sentimento na V3 aplica rótulos de sentimento ao texto, que são devolvidos a um nível de frase e documento, com uma pontuação de confiança para cada um. 
 
-Os rótulos `positive` `negative` são, e `neutral` . A nível de documento, a `mixed` etiqueta de sentimento também pode ser devolvida. O sentimento do documento é determinado a seguir:
+Os rótulos são *positivos,* *negativos*e *neutros.* Ao nível do documento, a etiqueta de sentimento *misto* também pode ser devolvida. O sentimento do documento é determinado a seguir:
 
 | Sentimento da sentença                                                                            | Etiqueta de documento devolvido |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -49,7 +49,7 @@ Os rótulos `positive` `negative` são, e `neutral` . A nível de documento, a `
 | Pelo menos uma `negative` frase e pelo menos uma frase `positive` estão no documento.    | `mixed`                 |
 | Todas as frases do documento `neutral` são.                                                  | `neutral`               |
 
-Os resultados de confiança variam de 1 a 0. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. As pontuações de confiança dentro de cada frase (não documento) somam até 1.
+Os resultados de confiança variam de 1 a 0. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. Para cada documento ou para cada frase, as pontuações previstas associadas aos rótulos (positivos, negativos e neutros) somam até 1.
 
 ### <a name="opinion-mining"></a>Mineração de opinião
 
