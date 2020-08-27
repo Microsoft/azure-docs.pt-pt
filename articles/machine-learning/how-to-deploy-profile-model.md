@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 6bbee606c59482e4a06f344d3221e8611f6dcc9d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544588"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935590"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Perfilar o seu modelo para determinar a utilização de recursos
 
@@ -36,6 +36,9 @@ Para perfilar o seu modelo, necessitará:
 
 > [!IMPORTANT]
 > Neste momento, apenas apoiamos o perfil de serviços que esperam que os seus dados de pedido sejam uma cadeia, por exemplo: json serializado de cordas, texto, imagem serializada de cordas, etc. O conteúdo de cada linha do conjunto de dados (cadeia) será colocado no corpo do pedido HTTP e enviado para o serviço que encapsula o modelo para pontuação.
+
+> [!IMPORTANT]
+> Apoiamos apenas perfis até 2 CPUs na região da ChinaEast2 e USGovArizona.
 
 Abaixo está um exemplo de como é possível construir um conjunto de dados de entrada para perfilar um serviço que espera que os dados do seu pedido de entrada contenham json serializado. Neste caso, criámos um conjunto de dados com base em 100 casos do mesmo conteúdo de dados de pedido. Em cenários reais, sugerimos que utilize conjuntos de dados maiores que contenham várias entradas, especialmente se o uso/comportamento do seu modelo de recursos depende.
 
@@ -127,9 +130,9 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
-* [Atualizar o serviço web](how-to-deploy-update-web-service.md)
+* [Atualizar serviços Web](how-to-deploy-update-web-service.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
-* [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
+* [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
 * [Criar alertas e gatilhos de eventos para implementações de modelos](how-to-use-event-grid.md)

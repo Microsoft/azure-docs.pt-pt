@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-two-with-js-go-spx
-ms.openlocfilehash: a78a4f54913a40b92c04239340ffcb459ec2b1d8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 266b671914bfaff6a73161f12c4e916c916c20d3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875205"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926450"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Quickstart: Reconhecer a fala a partir de um microfone
 

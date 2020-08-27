@@ -2,13 +2,14 @@
 title: Azure Application Insights for ASP.NET Core applications [ Microsoft Docs
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 719bf997254c98c5790d6d6733982fea08541967
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518089"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936525"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
@@ -471,5 +472,5 @@ Para obter as últimas atualizações e correções de erro [consulte as notas d
 * [Configure uma coleção instantânea](./snapshot-debugger.md) para ver o estado do código fonte e as variáveis no momento em que uma exceção é lançada.
 * [Utilize a API](./api-custom-events-metrics.md) para enviar os seus próprios eventos e métricas para uma visão detalhada do desempenho e utilização da sua aplicação.
 * Utilize [testes de disponibilidade](./monitor-web-app-availability.md) para verificar a sua aplicação constantemente de todo o mundo.
-* [Injeção de dependência no núcleo ASP.NET](/aspnet/core/fundamentals/dependency-injection)
+* [Injeção de Dependências no ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 

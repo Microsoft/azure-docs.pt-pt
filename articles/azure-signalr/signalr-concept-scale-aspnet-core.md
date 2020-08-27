@@ -4,14 +4,15 @@ description: Uma descrição geral da utilização do serviço Azure SignalR par
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 8a4012d204b6dafa1233e4ce3d878590120be47d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d104e0f1f2c6a978a5fce2c046a36e50a7056970
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60640230"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928505"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Dimensionar aplicações do SignalR do ASP.NET Core com o Azure SignalR Service
 

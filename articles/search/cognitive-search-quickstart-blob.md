@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 9bbe06cbdc5ad349995d93d01cc325ed8d7951a0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488958"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935403"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Quickstart: Criar uma pesquisa cognitiva Azure no portal Azure
 
@@ -29,7 +29,7 @@ Antes de começar, deve ter o seguinte:
 
 + Um serviço de Pesquisa Cognitiva Azure. [Crie um serviço](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
 
-+ Uma conta de armazenamento Azure com [armazenamento Blob](https://docs.microsoft.com/azure/storage/blobs/).
++ Uma conta de armazenamento Azure com [armazenamento Blob](../storage/blobs/index.yml).
 
 > [!NOTE]
 > Este quickstart também usa [serviços cognitivos Azure](https://azure.microsoft.com/services/cognitive-services/) para a IA. Como a carga de trabalho é tão pequena, os Serviços Cognitivos são aproveitados nos bastidores para processamento gratuito até 20 transações. Isto significa que você pode completar este exercício sem ter que criar um recurso adicional de Serviços Cognitivos.
@@ -40,7 +40,7 @@ Nos passos seguintes, instale um recipiente blob no Azure Storage para armazenar
 
 1. A [transferência de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) é constituída por um pequeno conjunto de ficheiros de diferentes tipos. Desaperte os ficheiros.
 
-1. [Crie uma conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [encontre uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Crie uma conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [encontre uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Escolha a mesma região que a Azure Cognitive Search para evitar cargas de largura de banda. 
 
@@ -56,7 +56,7 @@ Está agora pronto para avançar com o assistente de dados de Importação.
 
 ## <a name="run-the-import-data-wizard"></a>Executar o assistente de dados de importação
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta Azure.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
 
 1. [Encontre o seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e na página 'Vista Geral', clique em Importar **dados** na barra de comando para configurar o enriquecimento cognitivo em quatro etapas.
 
@@ -169,9 +169,9 @@ Outro conceito importante é que as competências operam sobre os tipos de conte
 
 A produção é direcionada para um índice de pesquisa, e há um mapeamento entre pares de valor-nome criados durante a indexação e campos individuais no seu índice. Internamente, o portal configura as [anotações](cognitive-search-concept-annotations-syntax.md) e define um [conjunto de competências](cognitive-search-defining-skillset.md) ao estabelecer a ordem das operações e o fluxo geral. Estes passos estão ocultos no portal, mas quando começar a escrever código, estes conceitos tornam-se importantes.
 
-Finalmente, aprendeu que pode verificar o conteúdo consultando o índice. No final, o que a Azure Cognitive Search fornece é um índice pesmável, que pode consultar usando a [sintaxe de consulta](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) [simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ou totalmente alargada. Um índice com campos melhorados é igual a qualquer outro. Se pretender incorporar [analisadores](search-analyzers.md)standard ou [personalizados, perfis de pontuação,](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) [sinónimos, filtros](search-synonyms.md) [facetados,](search-filters-facets.md)geo-pesquisa ou qualquer outra funcionalidade de Pesquisa Cognitiva Azure, certamente poderá fazê-lo.
+Finalmente, aprendeu que pode verificar o conteúdo consultando o índice. No final, o que a Azure Cognitive Search fornece é um índice pesmável, que pode consultar usando a [sintaxe de consulta](/rest/api/searchservice/lucene-query-syntax-in-azure-search) [simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) ou totalmente alargada. Um índice com campos melhorados é igual a qualquer outro. Se pretender incorporar [analisadores](search-analyzers.md)standard ou [personalizados, perfis de pontuação,](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) [sinónimos, filtros](search-synonyms.md) [facetados,](search-filters-facets.md)geo-pesquisa ou qualquer outra funcionalidade de Pesquisa Cognitiva Azure, certamente poderá fazê-lo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
@@ -184,7 +184,7 @@ Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três
 Pode criar habilidades utilizando o portal,NET SDK ou REST API. Para promover o seu conhecimento, experimente a API REST utilizando o Carteiro e mais dados de amostra.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Extrair texto e estrutura de bolhas JSON usando APIs REST](cognitive-search-tutorial-blob.md)
+> [Tutorial: Extrair texto e estrutura de bolhas JSON usando APIs REST ](cognitive-search-tutorial-blob.md)
 
 > [!Tip]
 > Se quiser repetir este exercício ou experimentar uma passagem diferente de enriquecimento de IA, elimine o indexante no portal. A eliminação do indexante repõe o contador de transações diários gratuito de volta a zero para o processamento de Serviços Cognitivos.

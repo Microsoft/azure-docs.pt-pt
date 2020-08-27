@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 6813db0b7416695fb9433a701114f2684dd0e122
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554027"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927124"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço Azure Cognitive Search no portal
 
@@ -96,7 +96,7 @@ A Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 
  Se estiver a utilizar o enriquecimento de IA, crie o seu serviço de pesquisa na mesma região que os Serviços Cognitivos. *A co-localização da Azure Cognitive Search and Cognitive Services na mesma região é um requisito para o enriquecimento de IA.*
 
- Os clientes com requisitos de continuidade e recuperação de desastres (BCDR) devem criar os seus serviços em [pares regionais.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs) Por exemplo, se estiver a operar na América do Norte, poderá escolher os EUA e o Oeste dos EUA, ou o Norte Central DOS EUA e o Centro Sul dos EUA, para cada serviço.
+ Os clientes com requisitos de continuidade e recuperação de desastres (BCDR) devem criar os seus serviços em [pares regionais.](../best-practices-availability-paired-regions.md#azure-regional-pairs) Por exemplo, se estiver a operar na América do Norte, poderá escolher os EUA e o Oeste dos EUA, ou o Norte Central DOS EUA e o Centro Sul dos EUA, para cada serviço.
 
 ### <a name="recommendations"></a>Recomendações
 
@@ -160,7 +160,7 @@ A maioria dos clientes usa apenas um serviço prestado num nível que fornece o 
 
 Embora a maioria dos clientes utilize apenas um serviço, a redundância de serviços pode ser necessária se os requisitos operacionais incluírem o seguinte:
 
-+ [Continuidade do negócio e recuperação de desastres (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). A Azure Cognitive Search não proporciona falha instantânea em caso de interrupção.
++ [Continuidade do negócio e recuperação de desastres (BCDR)](../best-practices-availability-paired-regions.md). A Azure Cognitive Search não proporciona falha instantânea em caso de interrupção.
 
 + [As arquiteturas multi-arrendatários](search-modeling-multitenant-saas-applications.md) às vezes exigem dois ou mais serviços.
 
@@ -171,7 +171,7 @@ Embora a maioria dos clientes utilize apenas um serviço, a redundância de serv
 
 Não é necessário um segundo serviço para elevada disponibilidade. A elevada disponibilidade para consultas é alcançada ao utilizar 2 ou mais réplicas no mesmo serviço. As atualizações de réplicas são sequenciais, o que significa que pelo menos uma está operacional quando uma atualização de serviço é lançada. Para obter mais informações sobre o tempo de paragem, consulte [Os Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de prestar um serviço, pode continuar no portal para criar o seu primeiro índice.
 

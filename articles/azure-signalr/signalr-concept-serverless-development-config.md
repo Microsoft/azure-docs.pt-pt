@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e25a874af66b73f5f75a07a5df65c155a16c9f01
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387154"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928569"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service
 
@@ -109,20 +109,20 @@ Todas as funções que pretendem alavancar o modelo baseado na classe têm de se
 
 ### <a name="define-hub-method"></a>Definir método do hub
 
-Todos os métodos do hub **devem** ter um `[SignalRTrigger]` atributo e **devem** utilizar um construtor sem parâmetros. Em seguida, o nome do **método** é tratado como **evento de**parâmetros .
+Todos os métodos do hub **devem**  ter um `[SignalRTrigger]` atributo e **devem** utilizar um construtor sem parâmetros. Em seguida, o nome do **método** é tratado como **evento de**parâmetros .
 
 Por padrão, `category=messages` exceto o nome do método é um dos seguintes nomes:
 
-* **OnConnected**: Tratado como`category=connections, event=connected`
-* **OnDisconnected**: Tratado como`category=connections, event=disconnected`
+* **OnConnected**: Tratado como `category=connections, event=connected`
+* **OnDisconnected**: Tratado como `category=connections, event=disconnected`
 
 ### <a name="parameter-binding-experience"></a>Experiência de ligação de parâmetros
 
 No modelo baseado em classe, `[SignalRParameter]` é desnecessário porque todos os argumentos são marcados como por `[SignalRParameter]` defeito, exceto que é uma das seguintes situações:
 
 * O argumento é decorado por um atributo vinculativo.
-* O tipo do argumento é `ILogger` ou`CancellationToken`
-* O argumento é decorado pelo atributo`[SignalRIgnore]`
+* O tipo do argumento é `ILogger` ou `CancellationToken`
+* O argumento é decorado pelo atributo `[SignalRIgnore]`
 
 ### <a name="negotiate-experience-in-class-based-model"></a>Negociar experiência em modelo baseado em classe
 
@@ -218,8 +218,8 @@ O cliente JavaScript/TypeScript faz pedidos HTTP à função de negociação par
 
 Ao executar a aplicação Função no seu computador local, pode adicionar uma `Host` secção para *local.settings.js* para ativar o CORS. Na `Host` secção, adicione duas propriedades:
 
-* `CORS`- inserir o URL base que é a origem da aplicação do cliente
-* `CORSCredentials`- defini-lo `true` para permitir pedidos "com OsCredentais"
+* `CORS` - inserir o URL base que é a origem da aplicação do cliente
+* `CORSCredentials` - defini-lo `true` para permitir pedidos "com OsCredentais"
 
 Exemplo:
 
@@ -319,6 +319,6 @@ public static Task SendMessage(
 
 Para obter informações sobre outros idiomas, consulte as [ligações do Serviço Azure SignalR](../azure-functions/functions-bindings-signalr-service.md) para referência às Funções Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a desenvolver e configurar aplicações de Serviço SignalR sem servidor usando Funções Azure. Tente criar uma aplicação utilizando um dos arranques rápidos ou tutoriais na [página de visão geral do Serviço SignalR](index.yml).

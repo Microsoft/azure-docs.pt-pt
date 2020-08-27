@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
-ms.openlocfilehash: 693a7006a9f5742341a11af23b64bcd8c501618f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: b5b27e201242f87e15af780bc26328dbdc5eb7fc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705899"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935964"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesmável gerado pela IA a partir de bolhas Azure usando o .NET SDK
 
 Se tiver texto ou imagens não estruturados no armazenamento de Azure Blob, um [oleoduto de enriquecimento de IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos que são úteis para a pesquisa completa de texto ou cenários de mineração de conhecimento. Neste tutorial C#, aplique reconhecimento de caracteres óticos (OCR) em imagens e realize o processamento de linguagem natural para criar novos campos que possa alavancar em consultas, facetas e filtros.
 
-Este tutorial utiliza C# e o [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) para executar as seguintes tarefas:
+Este tutorial utiliza C# e o [.NET SDK](/dotnet/api/overview/azure/search) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com ficheiros de aplicações e imagens no armazenamento Azure Blob.
@@ -127,7 +127,7 @@ Comece por abrir o Visual Studio e criar um novo projeto de App de Consola que p
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-O [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) é composto por algumas bibliotecas de clientes que lhe permitem gerir os seus índices, fontes de dados, indexadores e skillsets, bem como carregar e gerir documentos e executar consultas, tudo sem ter de lidar com os detalhes de HTTP e JSON. Estas bibliotecas de clientes são distribuídas como pacotes NuGet.
+O [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search) é composto por algumas bibliotecas de clientes que lhe permitem gerir os seus índices, fontes de dados, indexadores e skillsets, bem como carregar e gerir documentos e executar consultas, tudo sem ter de lidar com os detalhes de HTTP e JSON. Estas bibliotecas de clientes são distribuídas como pacotes NuGet.
 
 Para este projeto, instale a versão 9 ou posterior do `Microsoft.Azure.Search` pacote NuGet.
 
@@ -680,7 +680,7 @@ Adicione a seguinte declaração de utilização para resolver a referência de 
 using Index = Microsoft.Azure.Search.Models.Index;
 ```
 
-Para saber mais sobre a definição de um índice, consulte [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para saber mais sobre a definição de um índice, consulte [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Passo 4: Criar e executar um indexador
 
@@ -905,7 +905,7 @@ catch (Exception e)
 }
 ```
 
-Repita para campos adicionais: conteúdo, languageCode, keyPhrases e organizações neste exercício. Pode devolver vários campos através da propriedade [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) utilizando uma lista delimitada por vírgula.
+Repita para campos adicionais: conteúdo, languageCode, keyPhrases e organizações neste exercício. Pode devolver vários campos através da propriedade [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) utilizando uma lista delimitada por vírgula.
 
 <a name="reset"></a>
 
@@ -925,7 +925,7 @@ Este tutorial demonstrou os passos básicos para a construção de um gasoduto d
 
 Por fim, aprendeu como testar os resultados e repor o sistema para iterações futuras. Aprendeu que a emissão de consultas acerca do índice devolve o resultado criado pelo pipeline de indexação melhorado. Também aprendeu como verificar o estado do indexador e quais os objetos a eliminar antes de executar novamente um pipeline.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

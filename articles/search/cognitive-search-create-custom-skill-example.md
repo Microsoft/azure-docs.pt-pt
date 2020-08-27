@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46170a0eede92584b8ac4cc77ad61ca673cae65c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113814"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935488"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: Criar uma habilidade personalizada utilizando a API de Pesquisa de Entidade Bing
 
@@ -31,7 +31,7 @@ Neste exemplo, aprenda a criar uma habilidade personalizada da API web. Esta hab
 
 Embora este exemplo utilize uma Função Azure para hospedar uma API web, não é necessário.  Desde que cumpra os requisitos de [interface para uma habilidade cognitiva,](cognitive-search-custom-skill-interface.md)a abordagem que toma é irrelevante. As Funções Azure, no entanto, facilitam a criação de uma habilidade personalizada.
 
-### <a name="create-a-function-app"></a>Criar uma aplicação de função
+### <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 1. No Visual Studio, selecione **New**  >  **Project** a partir do menu Ficheiro.
 
@@ -475,11 +475,11 @@ Aqui, contamos com a capacidade de reconhecimento de [entidades incorporadas](co
 },
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Parabéns! Criaste a tua primeira habilidade personalizada. Agora pode seguir o mesmo padrão para adicionar a sua própria funcionalidade personalizada. Clique nos seguintes links para saber mais.
 
 + [Power Skills: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Adicione uma habilidade personalizada a um oleoduto de enriquecimento de IA](cognitive-search-custom-skill-interface.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Criar Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Criar Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

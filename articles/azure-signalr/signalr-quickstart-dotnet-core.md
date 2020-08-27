@@ -5,14 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 4665666fe56c208b2437a7051bbf9201383365f8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c3a482dc1fa63b997b948cc3bc5cacefc9c2ad0a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962140"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928535"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Quickstart: Criar uma sala de chat utilizando o Serviço SignalR
 
@@ -256,7 +257,7 @@ Nesta secção, você adicionará um ambiente de desenvolvimento para ASP.NET Co
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se continuar para o próximo tutorial, pode manter os recursos criados neste quickstart e reutilizá-los.
 

@@ -2,15 +2,16 @@
 title: Diagnosticar falhas e exceções com a Azure Application Insights
 description: Capture exceções de aplicações ASP.NET juntamente com a telemetria de pedido.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/11/2019
-ms.openlocfilehash: c91ab4bcf8a0d2172c89fa04bd7a3b4999b2217e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321365"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936508"
 ---
-# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas suas aplicações web com Insights de Aplicação
+# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas aplicações Web com o Application Insights
 As exceções na sua aplicação web ao vivo são reportadas pela [Application Insights](./app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos tanto no cliente como no servidor, para que possa diagnosticar rapidamente as causas.
 
 ## <a name="set-up-exception-reporting"></a>Configurar relatórios de exceções
@@ -77,7 +78,7 @@ Tem várias opções:
 
 Para ver estes eventos, abra [a pesquisa](./diagnostic-search.md) a partir do menu esquerdo, selecione os **tipos**de eventos do menu suspenso e, em seguida, escolha Evento Personalizado, Trace ou Exceção.
 
-![Pormenorizar](./media/asp-net-exceptions/customevents.png)
+![Pormenorização](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. Eventos que fazem parte da mesma operação serão selecionados ou desescolados como um grupo, para que possa navegar entre eventos relacionados. [Aprenda a provar.](./sampling.md)
@@ -91,7 +92,7 @@ Os dados do pedido não incluem os dados enviados para a sua aplicação numa ch
 * Insira código na sua aplicação para ligar para [Microsoft.ApplicationInsights.TrackTrace()](./api-custom-events-metrics.md#tracktrace). Envie os dados POST no parâmetro da mensagem. Existe um limite para o tamanho permitido, por isso deve tentar enviar apenas os dados essenciais.
 * Quando investigar um pedido falhado, encontre os vestígios associados.
 
-## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>Captura de exceções e dados de diagnóstico conexos
+## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Captura de exceções e dados de diagnóstico conexos
 No início, não verá no portal todas as exceções que causam falhas na sua app. Verá quaisquer exceções ao navegador (se estiver a utilizar o [SDK JavaScript](./javascript.md) nas suas páginas web). Mas a maioria das exceções ao servidor são apanhadas pelo IIS e tens de escrever um código para as veres.
 
 Pode:

@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
 ms.topic: include
-ms.openlocfilehash: 0434ddb1e90789628d14d4782eccb6514fccf8d8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a8262d8830f6a3297482429d88cc6152e1fdfd89
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226331"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926061"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,6 +66,6 @@ Agora está pronto para construir e testar a sua aplicação.
 
    ![Interface de utilizador de tradução de fala](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

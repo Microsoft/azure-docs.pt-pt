@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aac184b9dc7eae8afcf796376d2f7dca684b4367
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852791"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936134"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemplo: Criar uma habilidade personalizada usando Python
 
@@ -26,12 +26,12 @@ A habilidade personalizada é simples por design (concatena duas cordas) para qu
 
 + Reveja a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md) para uma introdução na interface entrada/saída que uma habilidade personalizada deve implementar.
 
-+ Crie o seu ambiente. Seguimos [este tutorial de ponta a ponta](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) para configurar a Função Azure sem servidor usando extensões visual Studio Code e Python. O tutorial conduz-o através da instalação das seguintes ferramentas e componentes: 
++ Crie o seu ambiente. Seguimos [este tutorial de ponta a ponta](/azure/python/tutorial-vs-code-serverless-python-01) para configurar a Função Azure sem servidor usando extensões visual Studio Code e Python. O tutorial conduz-o através da instalação das seguintes ferramentas e componentes: 
 
   + [Python 3.75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Extensão python para código de estúdio visual](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
   + [Extensão das Funções do Azure para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
@@ -270,5 +270,5 @@ Parabéns! Criaste a tua primeira habilidade personalizada. Agora pode seguir o 
 + [Power Skills: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Adicione uma habilidade personalizada a um oleoduto de enriquecimento de IA](cognitive-search-custom-skill-interface.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Criar Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Criar Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

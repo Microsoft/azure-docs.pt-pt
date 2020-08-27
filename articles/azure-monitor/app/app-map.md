@@ -3,13 +3,14 @@ title: Mapa de aplicações em Insights de Aplicação Azure / Microsoft Docs
 description: Monitorize topologias complexas de aplicações com o mapa de aplicações
 ms.topic: conceptual
 ms.date: 03/15/2019
+ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d4067b23c4ff365857c37d7dfdce6dc42e129989
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421302"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936610"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas por triagem
 
@@ -292,7 +293,7 @@ Para fornecer feedback, utilize a opção de feedback.
 
 ![Imagem mapLink-1](./media/app-map/14-updated.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como funciona a correlação no Application Insights consulte o [artigo de correlação de telemetria](correlation.md).
 * A [experiência de diagnóstico de transações de ponta a ponta](transaction-diagnostics.md) correlaciona a telemetria do lado do servidor de todos os seus componentes monitores application insights numa única visão.

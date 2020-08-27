@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 99b64ca8e807fcf6a142f10878d90e77e3639698
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749476"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926869"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -44,8 +44,8 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 | Campos de recolha complexos máximos por índice |40 |40 |40 |40 |40 |40 |40 |40 |
 | Elementos máximos em todas as coleções complexas por documento &nbsp; <sup>2</sup> |3.000 |3.000 |3.000 |3.000 |3.000 |3.000 |3.000 |3.000 |
 | Profundidade máxima de campos complexos |10 |10 |10 |10 |10 |10 |10 |10 |
-| Indicadores [máximos](https://docs.microsoft.com/rest/api/searchservice/suggesters) por índice |1 |1 |1 |1 |1 |1 |1 |1 |
-| Perfis [de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) máximo por índice |100 |100 |100 |100 |100 |100 |100 |100 |
+| Indicadores [máximos](/rest/api/searchservice/suggesters) por índice |1 |1 |1 |1 |1 |1 |1 |1 |
+| Perfis [de pontuação](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) máximo por índice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Funções máximas por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Os serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) nos índices. O nível básico é o único SKU com um limite inferior de 100 campos por índice.
@@ -58,7 +58,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 A partir de outubro de 2018, já não existem limites de contagem de documentos para qualquer novo serviço criado em qualquer nível faturativo (Básico, S1, S2, S3, S3) em qualquer região. Os serviços mais antigos criados antes de outubro de 2018 podem ainda estar sujeitos a limites de contagem de documentos.
 
-Para determinar se o seu serviço tem limites de documentos, utilize a [API de Estatísticas de Serviço GET](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Os limites do documento refletem-se na resposta, `null` não indicando limites.
+Para determinar se o seu serviço tem limites de documentos, utilize a [API de Estatísticas de Serviço GET](/rest/api/searchservice/get-service-statistics). Os limites do documento refletem-se na resposta, `null` não indicando limites.
 
 > [!NOTE]
 > Embora não existam limites de documentos impostos pelo serviço, existe um limite de fragmentos de aproximadamente 24 mil milhões de documentos por índice nos serviços de pesquisa Basic, S1, S2 e S3. Para o S3 HD, o limite de fragmentos é de 2 mil milhões de documentos por índice. Cada elemento de uma coleção complexa conta como um documento separado em termos de limites de fragmentos.
@@ -120,7 +120,7 @@ Para os níveis otimizados de armazenamento (L1 e L2), deverá esperar uma produ
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de IA)
 
-Um [oleoduto de enriquecimento de IA](cognitive-search-concept-intro.md) que faz chamadas para um recurso Text Analytics para reconhecimento de [entidades](cognitive-search-skill-entity-recognition.md), [extração de frases-chave,](cognitive-search-skill-keyphrases.md)análise de [sentimentos,](cognitive-search-skill-sentiment.md) [deteção](cognitive-search-skill-language-detection.md)de linguagem e [deteção de informação pessoal](cognitive-search-skill-pii-detection.md) está sujeito a limites de dados. O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para o analisador de sentimentos, utilize a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+Um [oleoduto de enriquecimento de IA](cognitive-search-concept-intro.md) que faz chamadas para um recurso Text Analytics para reconhecimento de [entidades](cognitive-search-skill-entity-recognition.md), [extração de frases-chave,](cognitive-search-skill-keyphrases.md)análise de [sentimentos,](cognitive-search-skill-sentiment.md) [deteção](cognitive-search-skill-language-detection.md)de linguagem e [deteção de informação pessoal](cognitive-search-skill-pii-detection.md) está sujeito a limites de dados. O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.Length`](/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para o analisador de sentimentos, utilize a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limites de estrangulamento
 
@@ -141,7 +141,7 @@ Limites de pedido de taxa estática para operações relacionadas com um índice
 * Máximo 32 campos na cláusula $orderby
 * O tamanho máximo do período de pesquisa é de 32.766 bytes (32 KB menos 2 bytes) de texto codificado UTF-8
 
-<sup>1</sup> Em Azure Cognitive Search, o corpo de um pedido está sujeito a um limite superior de 16 MB, impondo um limite prático ao conteúdo de campos ou coleções individuais que não são de outra forma limitados por limites teóricos (ver tipos de [dados suportados](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para mais informações sobre composição e restrições de campo).
+<sup>1</sup> Em Azure Cognitive Search, o corpo de um pedido está sujeito a um limite superior de 16 MB, impondo um limite prático ao conteúdo de campos ou coleções individuais que não são de outra forma limitados por limites teóricos (ver tipos de [dados suportados](/rest/api/searchservice/supported-data-types) para mais informações sobre composição e restrições de campo).
 
 ## <a name="api-response-limits"></a>Limites de resposta da API
 * Máximo de 1000 documentos devolvidos por página de resultados de pesquisa

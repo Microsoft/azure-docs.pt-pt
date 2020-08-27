@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 4dbf9dddd46e38ae9b8cec3288bdacccb1ef1c78
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9a69c0b7f204fb07e6d4ec94e8a2cecb0a404735
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586898"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921376"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -17,24 +18,24 @@ ms.locfileid: "83586898"
 
 ## <a name="create-a-net-core-project"></a>Criar um projeto .NET Core
 
-Abra um novo pedido de comando (ou sessão terminal) e execute estes comandos:
+Abra uma nova solicitação de comando (ou sessão terminal) e execute estes comandos:
 
 ```console
 dotnet new console -o languages-sample
 cd languages-sample
 ```
 
-O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `languages-sample` . O segundo comando muda para o diretório para o seu projeto.
+O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET e cria um diretório chamado `languages-sample` . O segundo comando muda o diretório para o seu projeto.
 
-Em seguida, terá de instalar Json.Net. A partir do diretório do seu projeto, corra:
+Em seguida, terá de instalar Json.Net. Do diretório do seu projeto, corra:
 
 ```console
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome sinuosos necessários ao seu projeto
+## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome necessários ao seu projeto
 
-O `dotnet new console` comando que dirigiu anteriormente criou um projeto, incluindo. `Program.cs` Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs` e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
+O `dotnet new console` comando que dirigiu anteriormente criou um projeto, incluindo. `Program.cs` Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs` , e substitua as declarações existentes. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação da amostra.
 
 ```csharp
 using System;
@@ -43,9 +44,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="get-endpoint-information-from-an-environment-variable"></a>Obtenha informações sobre ponto final de uma variável ambiental
+## <a name="get-endpoint-information-from-an-environment-variable"></a>Obtenha informações de ponto final de uma variável ambiental
 
-Adicione as seguintes linhas à `Program` aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
+Adicione as seguintes linhas à `Program` classe. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lançam um erro se encontrar algum problema.
 
 ```csharp
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
@@ -62,7 +63,7 @@ static Program()
 
 ## <a name="create-a-function-to-get-a-list-of-languages"></a>Criar uma função para obter uma lista de idiomas
 
-Na `Program` aula, crie uma função chamada `GetLanguages` . Esta classe encapsula o código usado para chamar o recurso Idiomas e imprime o resultado para consolar.
+Na `Program` classe, crie uma função chamada `GetLanguages` . Esta classe encapsula o código utilizado para chamar o recurso Languages e imprime o resultado para consolar.
 
 ```csharp
 static void GetLanguages()
@@ -82,7 +83,7 @@ Adicione estas linhas à `GetLanguages` função.
 string route = "/languages?api-version=3.0";
 ```
 
-## <a name="instantiate-the-client-and-make-a-request"></a>Instantie o cliente e faça um pedido
+## <a name="instantiate-the-client-and-make-a-request"></a>Instantaneamente o cliente e faça um pedido
 
 Estas linhas instantaneamente o `HttpClient` e `HttpRequestMessage` o:
 
@@ -94,17 +95,17 @@ using (var request = new HttpRequestMessage())
 }
 ```
 
-## <a name="construct-the-request-and-print-the-response"></a>Construir o pedido e imprimir a resposta
+## <a name="construct-the-request-and-print-the-response"></a>Construa o pedido e imprima a resposta
 
-Dentro do `HttpRequestMessage` seu vai:
+Dentro do `HttpRequestMessage` you:ll:
 
-* Declarar o método HTTP
+* Declare o método HTTP
 * Construa o pedido URI
-* Adicione cabeçalhos necessários
-* Faça um pedido assíncrono
+* Adicionar cabeçalhos necessários
+* Faça um pedido assíncronos
 * Imprimir a resposta
 
-Adicione este código ao `HttpRequestMessage` :
+Adicione este código `HttpRequestMessage` ao:
 
 ```csharp
 // Set the method to GET
@@ -119,9 +120,9 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço dos Serviços Cognitivos, também deve incluir os parâmetros do `Ocp-Apim-Subscription-Region` seu pedido. [Saiba mais sobre a autenticação com a subscrição multi-serviço.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
-Para imprimir a resposta com "Pretty Print" (formatação para a resposta), adicione esta função à sua classe Program:
+Para imprimir a resposta com "Pretty Print" (formatação para a resposta), adicione esta função à sua classe Programa:
 
 ```csharp
 static string PrettyPrint(string s)
@@ -141,7 +142,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao seu diretório de projeto e corra:
+Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao diretório do projeto e corra:
 
 ```console
 dotnet run
@@ -235,9 +236,9 @@ Encontre a abreviatura país/região nesta [lista de línguas.](https://docs.mic
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Certifique-se de remover quaisquer informações confidenciais do código fonte da sua aplicação de amostra, como as chaves de subscrição.
+Certifique-se de remover qualquer informação confidencial do código fonte da sua aplicação de amostra, como chaves de subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 

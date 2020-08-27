@@ -9,25 +9,25 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5f6a198445f9c9bd8e02cd8b6df3405431263e0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076408"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936712"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Versões de upgrade do Azure Search .NET Management SDK
 
 Este artigo explica como migrar para versões sucessivas do Azure Search .NET Management SDK, usado para a prestação ou deprovisionamento de serviços de pesquisa, ajustar a capacidade e gerir as chaves API.
 
-Os SDKs de gestão visam uma versão específica da API management REST. Para obter mais informações sobre conceitos e operações, consulte [Gestão de Pesquisa (REST)](https://docs.microsoft.com/rest/api/searchmanagement/).
+Os SDKs de gestão visam uma versão específica da API management REST. Para obter mais informações sobre conceitos e operações, consulte [Gestão de Pesquisa (REST)](/rest/api/searchmanagement/).
 
 ## <a name="versions"></a>Versões
 
 | Versão do SDK | Versão API de REST correspondente | Adição de recursos ou mudança de comportamento |
 |-------------|--------------------------------|-------------------------------------|
 | [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-versão=2020-30-20 | Adiciona segurança de ponto final (firewalls IP e integração com [Azure Private Link)](../private-link/private-endpoint-overview.md) |
-| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-versão=2019-10-01 | Melhorias na usabilidade. Alteração de rutura nas [teclas de consulta de lista](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) (GET é descontinuado). |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-versão=2019-10-01 | Melhorias na usabilidade. Alteração de rutura nas [teclas de consulta de lista](/rest/api/searchmanagement/querykeys/listbysearchservice) (GET é descontinuado). |
 | [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-versão=2015-08-19  | Primeira versão |
 
 ## <a name="how-to-upgrade"></a>Como atualizar
@@ -48,21 +48,21 @@ A versão 3.0 adiciona proteção privada ao ponto final, restringindo o acesso 
 
 | API | Categoria| Detalhes |
 |-----|--------|------------------|
-| [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | Firewall de IP | Restringir o acesso a um ponto final de serviço a uma lista de endereços IP permitidos. Consulte [a firewall IP configurar](service-configure-firewall.md) para obter conceitos e instruções do portal. |
-| [Recurso de ligação privada compartilhado](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Crie um recurso de ligação privada partilhado para ser utilizado por um serviço de pesquisa.  |
-| [Conexões de ponto final privadas](https://docs.microsoft.com/rest/api/searchmanagement/privateendpointconnections) | Private Link | Estabeleça e gere as ligações a um serviço de pesquisa através de um ponto final privado. Consulte [Criar um ponto final privado](service-create-private-endpoint.md) para obter conceitos e instruções do portal.|
-| [Recursos de Ligação Privada](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Private Link | Para um serviço de pesquisa que tenha uma ligação de ponto final privado, obtenha uma lista de todos os serviços utilizados na mesma rede virtual. Se a sua solução de pesquisa incluir indexadores que retiram de fontes de dados Azure (Azure Storage, Cosmos DB, Azure SQL), ou utiliza serviços cognitivos ou Cofre-Chave, então todos esses recursos devem ter pontos finais na rede virtual, e esta API deve devolver uma lista. |
-| [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Esta é uma propriedade em pedidos de Serviço de Criar ou Atualizar. Quando desativado, o link privado é a única modalidade de acesso. |
+| [NetworkRuleSet](/rest/api/searchmanagement/services/createorupdate#networkruleset) | Firewall de IP | Restringir o acesso a um ponto final de serviço a uma lista de endereços IP permitidos. Consulte [a firewall IP configurar](service-configure-firewall.md) para obter conceitos e instruções do portal. |
+| [Recurso de ligação privada compartilhado](/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Crie um recurso de ligação privada partilhado para ser utilizado por um serviço de pesquisa.  |
+| [Conexões de ponto final privadas](/rest/api/searchmanagement/privateendpointconnections) | Private Link | Estabeleça e gere as ligações a um serviço de pesquisa através de um ponto final privado. Consulte [Criar um ponto final privado](service-create-private-endpoint.md) para obter conceitos e instruções do portal.|
+| [Recursos de Ligação Privada](/rest/api/searchmanagement/privatelinkresources/) | Private Link | Para um serviço de pesquisa que tenha uma ligação de ponto final privado, obtenha uma lista de todos os serviços utilizados na mesma rede virtual. Se a sua solução de pesquisa incluir indexadores que retiram de fontes de dados Azure (Azure Storage, Cosmos DB, Azure SQL), ou utiliza serviços cognitivos ou Cofre-Chave, então todos esses recursos devem ter pontos finais na rede virtual, e esta API deve devolver uma lista. |
+| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Esta é uma propriedade em pedidos de Serviço de Criar ou Atualizar. Quando desativado, o link privado é a única modalidade de acesso. |
 
 ### <a name="breaking-changes"></a>Alterações interruptivas
 
-Já não é possível utilizar o GET num pedido [de Chaves de Consulta de Lista.](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) Em lançamentos anteriores pode utilizar GET ou POST, neste lançamento e em todas as versões a avançar, apenas o POST é suportado. 
+Já não é possível utilizar o GET num pedido [de Chaves de Consulta de Lista.](/rest/api/searchmanagement/querykeys/listbysearchservice) Em lançamentos anteriores pode utilizar GET ou POST, neste lançamento e em todas as versões a avançar, apenas o POST é suportado. 
 
 ## <a name="upgrade-to-20"></a>Upgrade para 2.0
 
 A versão 2 do Azure Search .NET Management SDK é uma pequena atualização, pelo que alterar o seu código deve exigir apenas o mínimo de esforço. As alterações ao SDK são alterações estritamente do lado do cliente para melhorar a usabilidade do próprio SDK. Estas alterações incluem o seguinte:
 
-* `Services.CreateOrUpdate`e as suas versões assíncronas agora automaticamente pesquisam o provisionamento `SearchService` e não regressam até que o fornecimento de serviço esteja completo. Isto evita que tenha de escrever um código de sondagens.
+* `Services.CreateOrUpdate` e as suas versões assíncronas agora automaticamente pesquisam o provisionamento `SearchService` e não regressam até que o fornecimento de serviço esteja completo. Isto evita que tenha de escrever um código de sondagens.
 
 * Se ainda quiser fazer sondagens manualmente, pode utilizar o novo `Services.BeginCreateOrUpdate` método ou uma das suas versões assíncronos.
 

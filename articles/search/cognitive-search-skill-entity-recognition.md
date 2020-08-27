@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080848"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936083"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competência cognitiva de reconhecimento de entidades
 
-A **competência de Reconhecimento de Entidade** extrai entidades de diferentes tipos de texto. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) em Serviços Cognitivos.
+A **competência de Reconhecimento de Entidade** extrai entidades de diferentes tipos de texto. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Text Analytics](../cognitive-services/text-analytics/overview.md) em Serviços Cognitivos.
 
 > [!NOTE]
 > À medida que expande o âmbito, aumentando a frequência do processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As taxas acumulam-se ao chamar APIs em Serviços Cognitivos, e para a extração de imagem como parte da fase de cracking de documentos em Azure Cognitive Search. Não há encargos para a extração de texto a partir de documentos.
@@ -29,7 +29,7 @@ A **competência de Reconhecimento de Entidade** extrai entidades de diferentes 
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para o extrator de frases-chave, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um disco deve ser de 50.000 caracteres medido por [`String.Length`](/dotnet/api/system.string.length) . Se precisar de separar os seus dados antes de os enviar para o extrator de frases-chave, considere utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
@@ -40,7 +40,7 @@ Os parâmetros são sensíveis a casos e são todos opcionais.
 | `categories`    | Conjunto de categorias que devem ser extraídas.  Possíveis tipos de categorias: `"Person"` , , , , , , , . `"Location"` `"Organization"` `"Quantity"` `"Datetime"` `"URL"` `"Email"` . Se não for fornecida nenhuma categoria, todos os tipos são devolvidos.|
 | `defaultLanguageCode` |    Código linguístico do texto de entrada. São apoiadas as seguintes línguas: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans` . Nem todas as categorias de entidades são apoiadas para todas as línguas; ver nota abaixo.|
 | `minimumPrecision` | Um valor entre 0 e 1. Se a pontuação de confiança (na saída) for inferior a `namedEntities` este valor, a entidade não é devolvida. A predefinição é 0. |
-| `includeTypelessEntities` | De definido para `true` se quiser reconhecer entidades conhecidas que não se enquadram nas categorias atuais. Entidades reconhecidas são devolvidas no `entities` complexo campo de saída. Por exemplo, o "Windows 10" é uma entidade conhecida (um produto), mas como "Produtos" não é uma categoria suportada, esta entidade seria incluída no campo de saída das entidades. O padrão é`false` |
+| `includeTypelessEntities` | De definido para `true` se quiser reconhecer entidades conhecidas que não se enquadram nas categorias atuais. Entidades reconhecidas são devolvidas no `entities` complexo campo de saída. Por exemplo, o "Windows 10" é uma entidade conhecida (um produto), mas como "Produtos" não é uma categoria suportada, esta entidade seria incluída no campo de saída das entidades. O padrão é `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -53,7 +53,7 @@ Os parâmetros são sensíveis a casos e são todos opcionais.
 ## <a name="skill-outputs"></a>Saídas de competências
 
 > [!NOTE]
-> Nem todas as categorias de entidades são suportadas para todas as línguas. Os `"Person"` `"Location"` tipos de categorias , e `"Organization"` entidades são suportados para a lista completa de idiomas acima. Apenas _de,_ _en_, _es_, _fr_, e _zh-hans_ apoiam a extração `"Quantity"` `"Datetime"` de, `"URL"` e `"Email"` tipos. Para mais informações, consulte [o suporte de Língua e região para a API text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
+> Nem todas as categorias de entidades são suportadas para todas as línguas. Os `"Person"` `"Location"` tipos de categorias , e `"Organization"` entidades são suportados para a lista completa de idiomas acima. Apenas _de,_ _en_, _es_, _fr_, e _zh-hans_ apoiam a extração `"Quantity"` `"Datetime"` de, `"URL"` e `"Email"` tipos. Para mais informações, consulte [o suporte de Língua e região para a API text Analytics](../cognitive-services/text-analytics/language-support.md).  
 
 | Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
@@ -97,7 +97,7 @@ Os parâmetros são sensíveis a casos e são todos opcionais.
     ]
   }
 ```
-##    <a name="sample-input"></a>Entrada de amostra
+##    <a name="sample-input"></a>Entrada de exemplo
 
 ```json
 {
@@ -114,7 +114,7 @@ Os parâmetros são sensíveis a casos e são todos opcionais.
 }
 ```
 
-##    <a name="sample-output"></a>Resultado da amostra
+##    <a name="sample-output"></a>Saída de exemplo
 
 ```json
 {
@@ -187,12 +187,12 @@ Os parâmetros são sensíveis a casos e são todos opcionais.
 }
 ```
 
-Note que as compensações devolvidas às entidades na saída desta habilidade são diretamente devolvidas da [Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), o que significa que se estiver a usá-las para indexar na cadeia original, deverá utilizar a classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) em .NET para extrair o conteúdo correto.  [Mais detalhes podem ser encontrados aqui.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Note que as compensações devolvidas às entidades na saída desta habilidade são diretamente devolvidas da [Text Analytics API](../cognitive-services/text-analytics/overview.md), o que significa que se estiver a usá-las para indexar na cadeia original, deverá utilizar a classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) em .NET para extrair o conteúdo correto.  [Mais detalhes podem ser encontrados aqui.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>Casos de erro
 Se o código linguístico do documento não for suportado, um erro é devolvido e nenhuma entidade é extraída.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

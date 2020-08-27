@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: d535866881fa6ed73b51eb6039baa9d515b770b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a1f8e30be2983c0df93ff5a7229460f8f39214
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080837"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936049"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Capacidade cognitiva de análise de imagem
 
-A habilidade **de Análise de Imagem** extrai um rico conjunto de funcionalidades visuais baseadas no conteúdo da imagem. Por exemplo, pode gerar uma legenda a partir de uma imagem, gerar tags ou identificar celebridades e marcos. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Visão Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) nos Serviços Cognitivos. 
+A habilidade **de Análise de Imagem** extrai um rico conjunto de funcionalidades visuais baseadas no conteúdo da imagem. Por exemplo, pode gerar uma legenda a partir de uma imagem, gerar tags ou identificar celebridades e marcos. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Visão Computacional](../cognitive-services/computer-vision/home.md) nos Serviços Cognitivos. 
 
 > [!NOTE]
 > Pequenos volumes (menos de 20 transações) podem ser executados gratuitamente na Pesquisa Cognitiva Azure, mas cargas de trabalho maiores [requerem a anexação de um recurso de Serviços Cognitivos faturados](cognitive-search-attach-cognitive-services.md). As taxas acumulam-se ao chamar APIs em Serviços Cognitivos, e para a extração de imagem como parte da fase de cracking de documentos em Azure Cognitive Search. Não há encargos para a extração de texto a partir de documentos.
@@ -35,7 +35,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `defaultLanguageCode` |  Uma corda indicando a linguagem para voltar. O reconhecimento de retornos de serviço resulta numa língua especificada. Se este parâmetro não for especificado, o valor predefinido é "en". <br/><br/>As línguas apoiadas são: <br/>*en* - Inglês (padrão) <br/> *es* - Espanhol <br/> *ja* - Japonês <br/> *pt* - Português <br/> *zh* - Chinês simplificado|
-| `visualFeatures` |    Uma série de cordas que indicam os tipos de funcionalidades visuais para regressar. Os tipos de recursos visuais válidos incluem:  <ul><li>*adulto* - deteta se a imagem é pornográfica (representa nudez ou um ato sexual), ou é sangrenta (retrata extrema violência ou sangue). Também é detetado conteúdo sexualmente sugestivo (também conhecido como conteúdo picante).</li><li>*marcas* - deteta várias marcas dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual das *marcas* só está disponível em inglês.</li><li> *categorias* - categoriza o conteúdo da imagem de acordo com uma taxonomia definida na documentação de [Visão Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)dos Serviços Cognitivos . </li><li>*descrição* - descreve o conteúdo da imagem com uma frase completa em línguas apoiadas.</li><li>*faces* - deteta se os rostos estão presentes. Se presente, gera coordenadas, sexo e idade.</li><li>   *objetos* - deteta vários objetos dentro de uma imagem, incluindo a localização aproximada. A função visual dos *objetos* só está disponível em inglês.</li><li> *tags* - marca a imagem com uma lista detalhada de palavras relacionadas com o conteúdo da imagem.</li></ul> Os nomes das características visuais são sensíveis a casos. Note que as características visuais de *cor* e *imagemType* foram depreciadas, mas esta funcionalidade ainda pode ser acedida através de uma [habilidade personalizada](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface).|
+| `visualFeatures` |    Uma série de cordas que indicam os tipos de funcionalidades visuais para regressar. Os tipos de recursos visuais válidos incluem:  <ul><li>*adulto* - deteta se a imagem é pornográfica (representa nudez ou um ato sexual), ou é sangrenta (retrata extrema violência ou sangue). Também é detetado conteúdo sexualmente sugestivo (também conhecido como conteúdo picante).</li><li>*marcas* - deteta várias marcas dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual das *marcas* só está disponível em inglês.</li><li> *categorias* - categoriza o conteúdo da imagem de acordo com uma taxonomia definida na documentação de [Visão Computacional](../cognitive-services/computer-vision/category-taxonomy.md)dos Serviços Cognitivos . </li><li>*descrição* - descreve o conteúdo da imagem com uma frase completa em línguas apoiadas.</li><li>*faces* - deteta se os rostos estão presentes. Se presente, gera coordenadas, sexo e idade.</li><li>  *objetos* - deteta vários objetos dentro de uma imagem, incluindo a localização aproximada. A função visual dos *objetos* só está disponível em inglês.</li><li> *tags* - marca a imagem com uma lista detalhada de palavras relacionadas com o conteúdo da imagem.</li></ul> Os nomes das características visuais são sensíveis a casos. Note que as características visuais de *cor* e *imagemType* foram depreciadas, mas esta funcionalidade ainda pode ser acedida através de uma [habilidade personalizada](./cognitive-search-custom-skill-interface.md).|
 | `details` | Uma série de cordas indicando quais detalhes específicos do domínio para devolver. Os tipos de recursos visuais válidos incluem: <ul><li>*celebridades* - identifica celebridades se detetadas na imagem.</li><li>*marcos* - identifica marcos se detetados na imagem. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -333,7 +333,7 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
             "targetFieldName": "celebrities"
         }
 ```
-##  <a name="sample-input"></a>Entrada de amostra
+##  <a name="sample-input"></a>Entrada de exemplo
 
 ```json
 {
@@ -357,7 +357,7 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
 }
 ```
 
-##  <a name="sample-output"></a>Resultado da amostra
+##  <a name="sample-output"></a>Saída de exemplo
 
 ```json
 {
@@ -538,8 +538,8 @@ Se obter o erro `"One or more skills are invalid. Details: Error in skill #<num>
             ]
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
-+ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Criar Indexador (REST)](/rest/api/searchservice/create-indexer)

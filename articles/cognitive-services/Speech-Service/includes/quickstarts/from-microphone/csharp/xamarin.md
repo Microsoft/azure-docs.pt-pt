@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 709efa3fb4f85ab5d0c3d345fd9a5ceada274459
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 48a80d7367943c2c86fd3822a5c236b0cdf11846
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226208"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926460"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -144,6 +145,6 @@ Adicione agora o código C# que define a parte específica do UWP da aplicação
 
 A construção e execução de aplicações Android e iOS no dispositivo ou simulador acontecem de forma semelhante à UWP. Certifique-se de que todos os SDKs estão instalados corretamente, conforme necessário na secção "Pré-requisitos" deste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

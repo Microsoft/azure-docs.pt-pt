@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/02/2020
-ms.openlocfilehash: 51422be944d514de398d4bfa424679e2f6d531b6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1745a2bf83cb704c8cc73e9d3bf0eba8245329b3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534758"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924270"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Criar uma loja de conhecimentos usando REST e Carteiro
 
@@ -36,7 +36,7 @@ Como a carga de trabalho é tão pequena, os Serviços Cognitivos são aproveita
 
 1. [Descarregue HotelReviews_Free.csv. ](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D) Estes dados são dados de revisão do hotel guardados num ficheiro CSV (originários de Kaggle.com) e contém 19 peças de feedback do cliente sobre um único hotel. 
 
-1. [Crie uma conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [encontre uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) na sua subscrição atual. Você usará o armazenamento Azure para que tanto o conteúdo bruto seja importado, como a loja de conhecimento que é o resultado final.
+1. [Crie uma conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [encontre uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) na sua subscrição atual. Você usará o armazenamento Azure para que tanto o conteúdo bruto seja importado, como a loja de conhecimento que é o resultado final.
 
    Escolha o tipo de conta **StorageV2 (finalidade geral V2).**
 
@@ -50,7 +50,7 @@ Como a carga de trabalho é tão pequena, os Serviços Cognitivos são aproveita
 
     ![Criar o recipiente Azure Blob](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Criar o recipiente Azure Blob")
 
-1. Está quase pronto com este recurso, mas antes de deixar estas páginas, use um link no painel de navegação esquerdo para abrir a página **'Chaves de Acesso'.** Obtenha uma cadeia de ligação para obter dados do armazenamento blob. Uma cadeia de ligação é semelhante ao seguinte exemplo:`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+1. Está quase pronto com este recurso, mas antes de deixar estas páginas, use um link no painel de navegação esquerdo para abrir a página **'Chaves de Acesso'.** Obtenha uma cadeia de ligação para obter dados do armazenamento blob. Uma cadeia de ligação é semelhante ao seguinte exemplo: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 1. Ainda no portal, mude para Azure Cognitive Search. [Crie um novo serviço](search-create-service-portal.md) ou [encontre um serviço existente.](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) Você pode usar um serviço gratuito para este exercício.
 
@@ -172,7 +172,7 @@ O próximo passo é especificar o skillset, que especifica tanto as melhorias a 
 
 Existem dois grandes objetos de alto nível: `skills` e `knowledgeStore` . Cada objeto dentro do `skills` objeto é um serviço de enriquecimento. Cada serviço de enriquecimento tem `inputs` `outputs` e. O `LanguageDetectionSkill` tem uma saída de `targetName` `Language` . O valor deste nó é usado pela maioria das outras habilidades como entrada. A fonte `document/Language` é. A capacidade de utilizar a saída de um nó como entrada para outro é ainda mais evidente em `ShaperSkill` , que especifica como os dados fluem para as tabelas da loja de conhecimento.
 
-O `knowledge_store` objeto liga-se à conta de armazenamento através da `{{storage-connection-string}}` variável Carteiro. `knowledge_store`contém um conjunto de mapeamentos entre o documento melhorado e tabelas e colunas na loja de conhecimento. 
+O `knowledge_store` objeto liga-se à conta de armazenamento através da `{{storage-connection-string}}` variável Carteiro. `knowledge_store` contém um conjunto de mapeamentos entre o documento melhorado e tabelas e colunas na loja de conhecimento. 
 
 Para gerar o skillset, selecione o botão **Enviar** no Carteiro para colocar o pedido:
 
@@ -306,7 +306,7 @@ Para gerar o skillset, selecione o botão **Enviar** no Carteiro para colocar o 
 
 O passo final é criar o indexante. O indexante lê os dados e ativa o skillset. No Carteiro, selecione o pedido **de Criar Indexer** e, em seguida, reveja o corpo. A definição do indexante refere-se a vários outros recursos que já criou: a fonte de dados, o índice e o skillset. 
 
-O `parameters/configuration` objeto controla a forma como o indexante ingere os dados. Neste caso, os dados de entrada estão num único documento que tem uma linha de cabeçalho e valores separados por vírgula. A chave do documento é um identificador único para o documento. Antes de codificar, a chave do documento é o URL do documento de origem. Finalmente, os valores de produção de skillset, como código de linguagem, sentimento e frases-chave, são mapeados para as suas localizações no documento. Embora haja um único valor para `Language` , é aplicado a cada elemento na matriz de `Sentiment` `pages` . `Keyphrases`é uma matriz que também é aplicada a cada elemento na `pages` matriz.
+O `parameters/configuration` objeto controla a forma como o indexante ingere os dados. Neste caso, os dados de entrada estão num único documento que tem uma linha de cabeçalho e valores separados por vírgula. A chave do documento é um identificador único para o documento. Antes de codificar, a chave do documento é o URL do documento de origem. Finalmente, os valores de produção de skillset, como código de linguagem, sentimento e frases-chave, são mapeados para as suas localizações no documento. Embora haja um único valor para `Language` , é aplicado a cada elemento na matriz de `Sentiment` `pages` . `Keyphrases` é uma matriz que também é aplicada a cada elemento na `pages` matriz.
 
 Depois de definir os `api-key` `Content-type` cabeçalhos e confirmar que o corpo do pedido é semelhante ao seguinte código fonte, selecione **Enviar** o Carteiro. O carteiro envia um pedido de PUT para `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}` . A Azure Cognitive Search cria e executa o indexante. 
 

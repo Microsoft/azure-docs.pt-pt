@@ -3,12 +3,12 @@ title: Como direcionar as versões de tempo de execução do Azure Functions
 description: O Azure Functions suporta várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de uma aplicação de função hospedada no Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a7d86ef26d50d60389ae09bf3245ed97fea2c3e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830874"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926580"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar as versões de tempo de execução do Azure Functions
 
@@ -27,7 +27,7 @@ Quando uma nova versão está disponível publicamente, um pedido no portal dá-
 
 A tabela a seguir mostra os `FUNCTIONS_EXTENSION_VERSION` valores de cada versão principal para permitir atualizações automáticas:
 
-| Versão principal | `FUNCTIONS_EXTENSION_VERSION`valor |
+| Versão principal | `FUNCTIONS_EXTENSION_VERSION` valor |
 | ------------- | ----------------------------------- |
 | 3.x  | `~3` |
 | 2.x  | `~2` |
@@ -42,19 +42,16 @@ Pode alterar a versão de tempo de execução utilizada pela sua aplicação de 
 > [!IMPORTANT]
 > Embora a versão de tempo de execução seja determinada pela `FUNCTIONS_EXTENSION_VERSION` definição, deve fazer esta alteração no portal Azure e não alterando a definição diretamente. Isto porque o portal valida as suas alterações e faz outras alterações relacionadas conforme necessário.
 
-### <a name="from-the-azure-portal"></a>No portal do Azure
+# <a name="portal"></a>[Portal](#tab/portal)
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
 > Utilizando o portal Azure, não é possível alterar a versão de tempo de execução para uma aplicação de função que já contém funções.
 
-### <a name="from-the-azure-cli"></a><a name="view-and-update-the-runtime-version-using-azure-cli"></a>Do Azure CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 
-Também pode ver e definir `FUNCTIONS_EXTENSION_VERSION` o Azure CLI.
-
->[!NOTE]
->Uma vez que outras definições podem ser impactadas pela versão de tempo de execução, deve alterar a versão no portal. O portal faz automaticamente as outras atualizações necessárias, como Node.js versão e stack de tempo de execução, quando altera as versões de tempo de execução.  
+Também pode ver e definir `FUNCTIONS_EXTENSION_VERSION` o Azure CLI.  
 
 Utilizando o CLI Azure, veja a versão atual do tempo de execução com o comando [de configuração de appsettings az functionapp.](/cli/azure/functionapp/config/appsettings)
 
@@ -93,16 +90,36 @@ Vê-se `FUNCTIONS_EXTENSION_VERSION` a seguinte saída, que foi truncada para cl
 Pode atualizar a `FUNCTIONS_EXTENSION_VERSION` definição na aplicação de função com o comando de configuração de configuração de [appsettings az functionapp.](/cli/azure/functionapp/config/appsettings)
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group <my_resource_group> \
---settings FUNCTIONS_EXTENSION_VERSION=<version>
+az functionapp config appsettings set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--settings FUNCTIONS_EXTENSION_VERSION=<VERSION>
 ```
 
-`<function_app>`Substitua-o pelo nome da sua aplicação de função. Substitua também `<my_resource_group>` o nome do grupo de recursos para a sua aplicação de função. Além disso, `<version>` substitua por uma versão válida do tempo de execução 1.x ou `~2` pela versão 2.x.
+`<FUNCTION_APP>`Substitua-o pelo nome da sua aplicação de função. Substitua também `<RESOURCE_GROUP>` o nome do grupo de recursos para a sua aplicação de função. Além disso, `<VERSION>` substitua-a por uma versão específica, ou `~3` , ou `~2` `~1` .
 
 Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo-o na amostra de código anterior. **Try it** Também pode utilizar o [Azure CLI localmente](/cli/azure/install-azure-cli) para executar este comando depois de executar [o login az](/cli/azure/reference-index#az-login) para iniciar sessão.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
+Para verificar o tempo de funcionamento das funções Azure, utilize o seguinte cmdlet: 
+
+```powershell
+Get-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>"
+```
+
+`<FUNCTION_APP>`Substitua-o pelo nome da sua aplicação de função e `<RESOURCE_GROUP>` . O valor atual da `FUNCTIONS_EXTENSION_VERSION` definição é devolvido na tabela de haxixe.
+
+Utilize o seguinte script para alterar o tempo de execução das funções:
+
+```powershell
+Update-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>" -AppSetting @{"FUNCTIONS_EXTENSION_VERSION" = "<VERSION>"} -Force
+```
+
+Como antes, `<FUNCTION_APP>` substitua-o pelo nome da sua aplicação de função e `<RESOURCE_GROUP>` pelo nome do grupo de recursos. Além disso, `<VERSION>` substitua-a pela versão específica ou pela versão principal, como `~2` ou `~3` . Pode verificar o valor atualizado da `FUNCTIONS_EXTENSION_VERSION` definição na tabela de haxixe devolvido. 
+
+---
+
+A aplicação de função reinicia após a alteração da definição da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

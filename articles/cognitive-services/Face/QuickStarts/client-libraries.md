@@ -11,13 +11,13 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.custom: devx-track-python
-ms.openlocfilehash: ce229672648fed999034c33efe04a142c5352499
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 9352b99214598f252658ad0b5b4c1b74f193c0c5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505895"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931510"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>Quickstart: Use a biblioteca do cliente Face
 

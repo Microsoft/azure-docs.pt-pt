@@ -3,13 +3,13 @@ title: Utilize a biblioteca De Gestão de Lotes .NET para gerir os recursos de c
 description: Criar, eliminar e modificar os recursos da conta Azure Batch com a biblioteca Batch Management .NET.
 ms.topic: how-to
 ms.date: 04/24/2017
-ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 1684a177f139a3acff8a4957c0c1e89f46d8848d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: seodec18, has-adal-ref, devx-track-csharp
+ms.openlocfilehash: 0672a7dc1a5c26eff88806ca37b28d70b49f2288
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145034"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926529"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerir contas e quotas do Batch com a biblioteca de clientes de Batch Management para .NET
 

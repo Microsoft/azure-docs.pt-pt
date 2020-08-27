@@ -4,19 +4,19 @@ description: Saiba como se preparar para a avaliação/migração de VMs hiper-V
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8ecb886b5d5cd9d6811788043b924880b4c366c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109625"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928926"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs hiper-V para Azure
 
 Este artigo ajuda-o a preparar-se para a avaliação e migração de VMs Hiper-V para Azure, utilizando [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), e [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
-Este tutorial é o primeiro de uma série que mostra como avaliar e migrar Hiper-VMs para Azure. Neste tutorial, ficará a saber como:
+Este tutorial é o primeiro de uma série que mostra como avaliar e migrar Hiper-VMs para Azure. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Prepare o Azure para trabalhar com a Azure Migrate.
@@ -38,6 +38,7 @@ A tabela resume as tarefas que precisa de completar em Azure. As instruções se
 **Criar um projeto Azure Migrate** | Um projeto Azure Migrate fornece uma localização central para orquestrar e gerir avaliações e migrações com ferramentas Azure Migrate, ferramentas Microsoft e ofertas de terceiros. | A sua conta Azure necessita de permissões de Contribuinte ou Proprietário no grupo de recursos em que o projeto reside.
 **Aparelho de registo** | A Azure Migrate utiliza um aparelho Azure Migrate leve para descobrir e avaliar os Hiper-VM. [Saiba mais](migrate-appliance-architecture.md#appliance-registration). | Para registar o aparelho, a sua conta Azure necessita de permissões de Contribuinte ou Proprietário na assinatura Azure.
 **Criar aplicação do Azure AD** | Ao registar o aparelho, a Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) que é utilizada para a comunicação entre os agentes que estão a trabalhar no aparelho e a Azure Migrate. | A sua conta Azure necessita de permissões para criar aplicações AD Azure.
+**Criar um Key Vault** | O Cofre-Chave é criado como parte do registo do aparelho e é utilizado para a gestão do certificado descarregado no aparelho durante a sua configuração.| Para permitir que a Azure Migrate crie o Cofre-Chave, a sua conta Azure necessita de permissões de contribuinte no grupo de recursos em que reside o projeto Azure Migrate.
 **Criar uma VM** | Precisa de permissões para criar um VM no grupo de recursos e rede virtual, e para escrever para um disco gerido pelo Azure. | A conta Azure precisa do papel de Contribuinte de Máquina Virtual.
 
 
@@ -81,6 +82,7 @@ O arrendatário/administrador global pode conceder permissões da seguinte forma
 #### <a name="assign-application-developer-role"></a>Atribuir função de Desenvolvedor de Aplicações
 
 O administrador inquilino/global pode atribuir o papel de Desenvolvedor de Aplicações a uma conta. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 
 ### <a name="assign-azure-account-permissions"></a>Atribuir permissões de conta Azure
 

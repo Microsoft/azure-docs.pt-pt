@@ -6,15 +6,16 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-csharp
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: e2302c92cf723b1ab28611d46769290ed54df43c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 8307cfee90fdf65d119bbc1e55eabb0533a4a6ad
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226355"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926470"
 ---
 > [!NOTE]
 > O Speech SDK for Unitity suporta o Windows Desktop (x86 e x64) ou a Plataforma Universal windows (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulador x64, ARM32 e ARM64)
@@ -131,7 +132,7 @@ Agora estás pronto para executar a candidatura dentro do Editor de Unidade.
 Esta aplicação também pode ser implementada como uma aplicação Android, uma aplicação autónoma do Windows ou uma aplicação UWP.
 Para mais informações, consulte o nosso [repositório de amostras.](https://aka.ms/csspeech/samples) A `quickstart/csharp-unity` pasta descreve a configuração para estes alvos adicionais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
 

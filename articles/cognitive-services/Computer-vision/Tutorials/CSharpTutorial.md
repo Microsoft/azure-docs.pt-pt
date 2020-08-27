@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 522cf801e7c1bfdd3ed1f452c123a2db701c0c42
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84983610"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936355"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Amostra: Explore uma aplicação de processamento de imagem com C #
 
@@ -306,7 +306,7 @@ O `UploadAndThumbnailImageAsync` método cria uma nova `ComputerVisionClient` in
 
 O `RecognizeUrlAsync` método cria uma nova `ComputerVisionClient` instância, utilizando a chave de subscrição especificada e URL de ponto final. Chama o `ComputerVisionClient.GenerateThumbnailAsync` método, passando a largura, a altura, o URL para a imagem, e se usar a colheita inteligente, em seguida, devolve o resultado como um `Stream` . Os métodos herdados da `ImageScenarioPage` classe apresentam os resultados devolvidos na página do cenário.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine a pasta na qual clonou o `Microsoft/Cognitive-Vision-Windows` repositório. Se optou por utilizar as imagens da amostra, também elimine a pasta na qual clonou o `Microsoft/Cognitive-Face-Windows` repositório.
 

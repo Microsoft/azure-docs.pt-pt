@@ -3,12 +3,12 @@ title: Receber eventos com o Host Do Processador de Eventos - Azure Event Hubs !
 description: Este artigo descreve o Anfitrião do Processador de Eventos em Azure Event Hubs, o que simplifica a gestão de checkpointing, leasing e leitura de eventos paralelos.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002527"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936185"
 ---
 # <a name="event-processor-host"></a>Anfitrião do processador de eventos
 > [!NOTE]
@@ -43,7 +43,7 @@ Em vez de construir a sua própria solução para isso, o Event Hubs fornece est
 
 ## <a name="ieventprocessor-interface"></a>Interface IEventProcessor
 
-Em primeiro lugar, as aplicações consumistas implementam a interface [IEventProcessor,](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) que tem quatro métodos: [OpenAsync, CloseAsync, ProcessErrorAsync e ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Esta interface contém o código real para consumir os eventos que o Event Hubs envia. O seguinte código mostra uma simples implementação:
+Em primeiro lugar, as aplicações consumistas implementam a interface  [IEventProcessor,](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) que tem quatro métodos: [OpenAsync, CloseAsync, ProcessErrorAsync e ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Esta interface contém o código real para consumir os eventos que o Event Hubs envia. O seguinte código mostra uma simples implementação:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -192,10 +192,10 @@ Não recomendamos a utilização da aplicação quando se cria um recetor com é
 Agora que está familiarizado com o Anfitrião do Processador de Eventos, consulte os seguintes artigos para saber mais sobre os Centros de Eventos:
 
 - Introdução ao Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-node-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência em Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)

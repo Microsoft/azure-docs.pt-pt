@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 6b07236fd639c9878c59523f78de5215b173ffc6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553169"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936593"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida (pré-visualização)
 
@@ -31,7 +31,7 @@ Estas preocupações podem ser resolvidas através da configuração da sua liga
 
 ## <a name="using-managed-identities"></a>Utilização de identidades geridas
 
-[Identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) é uma funcionalidade que fornece aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta funcionalidade na Azure Cognitive Search para criar um objeto de origem de dados com uma cadeia de ligação que não inclua quaisquer credenciais. Em vez disso, o seu serviço de pesquisa terá acesso à fonte de dados através do controlo de acesso baseado em funções (RBAC).
+[Identidades geridas](../active-directory/managed-identities-azure-resources/overview.md) é uma funcionalidade que fornece aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta funcionalidade na Azure Cognitive Search para criar um objeto de origem de dados com uma cadeia de ligação que não inclua quaisquer credenciais. Em vez disso, o seu serviço de pesquisa terá acesso à fonte de dados através do controlo de acesso baseado em funções (RBAC).
 
 Ao configurar uma fonte de dados utilizando uma identidade gerida, pode alterar as suas credenciais de origem de dados e os seus indexantes ainda poderão ligar-se à fonte de dados. Também pode criar objetos de origem de dados no seu código sem ter de incluir uma chave de conta ou utilizar o Key Vault para recuperar uma chave de conta.
 
@@ -40,7 +40,7 @@ Ao configurar uma fonte de dados utilizando uma identidade gerida, pode alterar 
 As fontes de dados que se seguem suportam a criação de uma ligação indexante utilizando identidades geridas. 
 
 * [Armazenamento Azure Blob, Azure Data Lake Storage Gen2 (pré-visualização), Armazenamento da Mesa Azure](search-howto-managed-identities-storage.md)
-* [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
+* [BD do Cosmos para o Azure](search-howto-managed-identities-cosmos-db.md)
 * [Base de Dados SQL do Azure](search-howto-managed-identities-sql.md)
 
 As seguintes funcionalidades não suportam atualmente a utilização de identidades geridas para configurar a ligação:
@@ -52,5 +52,5 @@ As seguintes funcionalidades não suportam atualmente a utilização de identida
 Saiba mais sobre como configurar uma ligação indexante utilizando identidades geridas:
 
 * [Armazenamento Azure Blob, Azure Data Lake Storage Gen2 (pré-visualização), Armazenamento da Mesa Azure](search-howto-managed-identities-storage.md)
-* [Azure Cosmos DB](search-howto-managed-identities-cosmos-db.md)
+* [BD do Cosmos para o Azure](search-howto-managed-identities-cosmos-db.md)
 * [Base de Dados SQL do Azure](search-howto-managed-identities-sql.md)

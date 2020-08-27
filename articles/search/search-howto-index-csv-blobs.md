@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9008b30fd89e9d57923f6c612b7a454aa1ba528e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14846761535a77f28adbd0147d244817cb799d86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084097"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935845"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Como indexar as bolhas CSV utilizando o modo de análise detexto delimitado e os indexadores Blob em Azure Cognitive Search
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a analisar as bolhas de CSV com um indexante de b
 > Siga as recomendações de configuração do indexante em [indexação one-to-many](search-howto-index-one-to-many-blobs.md) para obter vários documentos de pesquisa de uma bolha Azure.
 
 ## <a name="setting-up-csv-indexing"></a>Criação de indexação de CSV
-Para indexar as bolhas CSV, crie ou atualize uma definição de indexante com o `delimitedText` modo de análise num pedido de Criar [Indexer:](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+Para indexar as bolhas CSV, crie ou atualize uma definição de indexante com o `delimitedText` modo de análise num pedido de Criar [Indexer:](/rest/api/searchservice/create-indexer)
 
 ```http
     {
@@ -42,7 +42,7 @@ Para indexar as bolhas CSV, crie ou atualize uma definição de indexante com o 
     }
 ```
 
-`firstLineContainsHeaders`indica que a primeira linha (não em branco) de cada bolha contém cabeçalhos.
+`firstLineContainsHeaders` indica que a primeira linha (não em branco) de cada bolha contém cabeçalhos.
 Se as bolhas não contiverem uma linha inicial de cabeçalho, os cabeçalhos devem ser especificados na configuração do indexante: 
 
 ```http
@@ -98,4 +98,3 @@ Indexante:
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a melhorar a pesquisa cognitiva do Azure
 Se tiver pedidos de funcionalidades ou ideias para melhorias, forneça a sua entrada no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

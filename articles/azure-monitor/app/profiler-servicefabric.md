@@ -2,16 +2,17 @@
 title: Perfil ao vivo Aplicativos de Tecido de Serviço Azure com Insights de Aplicação
 description: Ativar o Profiler para uma aplicação de Tecido de Serviço
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d63d932756495584b2870c597d3332077f8e86c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 317c02fe03a56ea3cd3a98b00f8a0080b3917108
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539844"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930286"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Aplicações de tecido de serviço Azure ao vivo com Insights de Aplicação
 
@@ -54,7 +55,7 @@ Para configurar o seu ambiente, tome as seguintes ações:
 1. Reimplantar a sua aplicação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Gere tráfego para a sua aplicação (por exemplo, lance um [teste de disponibilidade).](monitor-web-app-availability.md) Em seguida, aguarde 10 a 15 minutos para que os vestígios comecem a ser enviados para a instância De Insights de Aplicação.
 * Consulte [os vestígios do Profiler](profiler-overview.md?toc=/azure/azure-monitor/toc.json) no portal Azure.

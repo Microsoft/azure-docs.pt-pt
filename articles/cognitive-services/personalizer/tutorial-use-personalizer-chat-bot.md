@@ -3,18 +3,19 @@ title: Use Personalizar no chat bot - Personalizer
 description: Personalize um bot de chat C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
 ms.topic: tutorial
 ms.date: 07/17/2020
-ms.openlocfilehash: 8e936b4017ad50434bc7d6b05b4217f82a9080e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131672"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935658"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Use personalizar em .NET chat bot
 
 Utilize um bot de chat C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador. Este bot de chat sugere um café ou chá específico para um utilizador. O utilizador pode aceitar ou rejeitar essa sugestão. Isto dá informações personalizadas para ajudar a tornar a próxima sugestão mais apropriada.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -191,8 +192,8 @@ Mantenha o site em funcionamento porque o tutorial explica o que o bot está a f
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Use o bot no emulador de bot
 
 1. Peça para ver o menu `I would like to see the menu` entrando. O bot de chat exibe os itens.
-1. Deixe o bot sugerir um item introduzindo `Please suggest a drink for me.` O emulador exibe o pedido de Rank e resposta na janela de chat, para que possa ver o JSON completo. E o bot faz uma sugestão, algo como`How about Latte?`
-1. Resposta que gostaria que aceitasse a melhor seleção classificada do Personalizer, `I like it.` o emulador exibe o pedido de Recompensa com a pontuação de recompensa 1 e resposta na janela de chat, para que possa ver o JSON completo. E o bot responde com `That’s great! I’ll keep learning your preferences over time.` e`Would you like to get a new suggestion or reset the simulated context to a new day?`
+1. Deixe o bot sugerir um item introduzindo `Please suggest a drink for me.` O emulador exibe o pedido de Rank e resposta na janela de chat, para que possa ver o JSON completo. E o bot faz uma sugestão, algo como `How about Latte?`
+1. Resposta que gostaria que aceitasse a melhor seleção classificada do Personalizer, `I like it.` o emulador exibe o pedido de Recompensa com a pontuação de recompensa 1 e resposta na janela de chat, para que possa ver o JSON completo. E o bot responde com `That’s great! I’ll keep learning your preferences over time.` e `Would you like to get a new suggestion or reset the simulated context to a new day?`
 
     Se responder com `no` a seleção, a pontuação de recompensa de 0 é enviada para Personalizer.
 
@@ -201,9 +202,9 @@ Mantenha o site em funcionamento porque o tutorial explica o que o bot está a f
 
 A solução .NET é um simples bot de chat de estrutura bot. O código relacionado com o Personaler está nas seguintes pastas:
 * `/samples/ChatbotExample/Bots`
-    * `PersonalizerChatbot.cs`arquivo para a interação entre bot e Personalizer
-* `/samples/ChatbotExample/ReinforcementLearning`- gere as ações e funcionalidades do modelo Personalizer
-* `/samples/ChatbotExample/Model`- ficheiros para as ações e funcionalidades do Personaler, e para as intenções do LUIS
+    * `PersonalizerChatbot.cs` arquivo para a interação entre bot e Personalizer
+* `/samples/ChatbotExample/ReinforcementLearning` - gere as ações e funcionalidades do modelo Personalizer
+* `/samples/ChatbotExample/Model` - ficheiros para as ações e funcionalidades do Personaler, e para as intenções do LUIS
 
 ### <a name="personalizerchatbotcs---working-with-personalizer"></a>PersonalizerChatbot.cs - trabalhar com o Personaler
 
@@ -429,7 +430,7 @@ Quando terminar este tutorial, limpe os seguintes recursos:
 * Apague o seu diretório de projeto de amostra.
 * Elimine o seu recurso Personalizer e LUIS no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Como funciona o Personalizador](how-personalizer-works.md)
 * [Características](concepts-features.md): aprenda conceitos sobre funcionalidades usando com ações e contexto
 * [Recompensas](concept-rewards.md): conheça o cálculo das recompensas

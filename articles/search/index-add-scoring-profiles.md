@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: ae41cc620960bd49603e6712759585796e76fe67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c32e1bc6e219ff645223cc34cf78991e229b86f0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029948"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935930"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de classificação a um índice do Azure Cognitive Search
 
@@ -64,7 +64,7 @@ ms.locfileid: "87029948"
 GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30 
 ```  
 
- Esta consulta procura o termo 'inn' e passa na localização atual. Note que esta consulta inclui outros parâmetros, tais como `scoringParameter` . Os parâmetros de consulta são descritos em [Documentos de Busca &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
+ Esta consulta procura o termo 'inn' e passa na localização atual. Note que esta consulta inclui outros parâmetros, tais como `scoringParameter` . Os parâmetros de consulta são descritos em [Documentos de Busca &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents).  
 
  Clique [em Exemplo](#bkmk_ex) para rever um exemplo mais detalhado de um perfil de pontuação.  
 
@@ -82,7 +82,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  A encomenda baseada em relevância também é implementada através de perfis de pontuação. Considere as páginas de resultados de pesquisa que usou no passado que lhe permitem classificar por preço, data, classificação ou relevância. Na Pesquisa Cognitiva Azure, os perfis de pontuação conduzem a opção de "relevância". A definição de relevância é controlada por si, baseada em objetivos de negócio e no tipo de experiência de pesquisa que pretende realizar.  
 
-##  <a name="example"></a><a name="bkmk_ex"></a>Exemplo  
+##  <a name="example"></a><a name="bkmk_ex"></a> Exemplo  
  Como notado anteriormente, a pontuação personalizada é implementada através de um ou mais perfis de pontuação definidos num esquema de índice.  
 
  Este exemplo mostra o esquema de um índice com dois perfis de pontuação `boostGenre` (, . `newAndHighlyRated` Qualquer consulta contra este índice que inclua qualquer perfil como parâmetro de consulta utilizará o perfil para marcar o conjunto de resultados.  
@@ -157,18 +157,18 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Comece com o [Modelo](#bkmk_template) fornecido neste tópico.  
 
- Forneça um nome. Os perfis de pontuação são opcionais, mas se adicionar um, o nome é necessário. Certifique-se de seguir as convenções de nomeação para campos (começa com uma letra, evita caracteres especiais e palavras reservadas). Consulte [as regras de nomeação &#40;&#41;de pesquisa cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/naming-rules) para a lista completa.  
+ Forneça um nome. Os perfis de pontuação são opcionais, mas se adicionar um, o nome é necessário. Certifique-se de seguir as convenções de nomeação para campos (começa com uma letra, evita caracteres especiais e palavras reservadas). Consulte [as regras de nomeação &#40;&#41;de pesquisa cognitiva Azure ](/rest/api/searchservice/naming-rules) para a lista completa.  
 
  O corpo do perfil de pontuação é construído a partir de campos e funções ponderados.  
 
 |||  
 |-|-|  
 |**Pesos**|Especifique os pares de valor-nome que atribuem um peso relativo a um campo. No [Exemplo](#bkmk_ex), o álbumTitle, género e artistName fields são impulsionados 1,5, 5 e 2 respectivamente. Por que o género é aumentado muito mais alto que os outros? Se a pesquisa for realizada sobre dados que são um pouco homogéneos (como é o caso do 'género' `musicstoreindex` no), poderá necessitar de uma maior variação nos pesos relativos. Por exemplo, no `musicstoreindex` "rock" aparece como um género e em descrições de géneros com frases idênticas. Se quiser que o género sobrepõe a descrição do género, o campo de género precisará de um peso relativo muito maior.|  
-|**Funções**|Utilizados quando são necessários cálculos adicionais para contextos específicos. Valores válidos `freshness` `magnitude` `distance` são, , e `tag` . Cada função tem parâmetros únicos.<br /><br /> -   `freshness`deve ser usado quando quiser aumentar o quão novo ou antigo é um item. Esta função só pode ser utilizada com `datetime` campos (edm. DataTimeOffset). Note que o `boostingDuration` atributo é utilizado apenas com a `freshness` função.<br />-   `magnitude`deve ser usado quando pretender aumentar com base no valor numérico alto ou baixo. Os cenários que exigem esta função incluem o aumento da margem de lucro, o preço mais alto, o preço mais baixo ou a contagem de downloads. Esta função só pode ser utilizada com campos duplos e inteiros.<br />     Para a `magnitude` função, pode inverter a gama, de alto a baixo, se quiser o padrão inverso (por exemplo, para aumentar os itens a preços mais baixos do que os itens mais caros). Dada uma gama de preços de $100 a $1, você definiria `boostingRangeStart` a 100 e `boostingRangeEnd` a 1 para aumentar os itens mais baixos.<br />-   `distance`deve ser usado quando pretender aumentar pela proximidade ou localização geográfica. Esta função só pode ser utilizada com `Edm.GeographyPoint` campos.<br />-   `tag`deve ser usado quando pretender aumentar por etiquetas em comum entre documentos e consultas de pesquisa. Esta função só pode ser utilizada com `Edm.String` campos e `Collection(Edm.String)` campos.<br /><br /> **Regras para a utilização de funções**<br /><br /> O tipo de função `freshness` `magnitude` (, , `distance` , deve ser `tag` mais baixo.<br /><br /> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome de campo, tem que defini-lo para algo.<br /><br /> As funções só podem ser aplicadas em campos filtrados. Consulte [o Índice de Criação &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter mais informações sobre campos filtrados.<br /><br /> As funções só podem ser aplicadas em campos definidos na recolha de campos de um índice.|  
+|**Funções**|Utilizados quando são necessários cálculos adicionais para contextos específicos. Valores válidos `freshness` `magnitude` `distance` são, , e `tag` . Cada função tem parâmetros únicos.<br /><br /> -   `freshness` deve ser usado quando quiser aumentar o quão novo ou antigo é um item. Esta função só pode ser utilizada com `datetime` campos (edm. DataTimeOffset). Note que o `boostingDuration` atributo é utilizado apenas com a `freshness` função.<br />-   `magnitude` deve ser usado quando pretender aumentar com base no valor numérico alto ou baixo. Os cenários que exigem esta função incluem o aumento da margem de lucro, o preço mais alto, o preço mais baixo ou a contagem de downloads. Esta função só pode ser utilizada com campos duplos e inteiros.<br />     Para a `magnitude` função, pode inverter a gama, de alto a baixo, se quiser o padrão inverso (por exemplo, para aumentar os itens a preços mais baixos do que os itens mais caros). Dada uma gama de preços de $100 a $1, você definiria `boostingRangeStart` a 100 e `boostingRangeEnd` a 1 para aumentar os itens mais baixos.<br />-   `distance` deve ser usado quando pretender aumentar pela proximidade ou localização geográfica. Esta função só pode ser utilizada com `Edm.GeographyPoint` campos.<br />-   `tag` deve ser usado quando pretender aumentar por etiquetas em comum entre documentos e consultas de pesquisa. Esta função só pode ser utilizada com `Edm.String` campos e `Collection(Edm.String)` campos.<br /><br /> **Regras para a utilização de funções**<br /><br /> O tipo de função `freshness` `magnitude` (, , `distance` , deve ser `tag` mais baixo.<br /><br /> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome de campo, tem que defini-lo para algo.<br /><br /> As funções só podem ser aplicadas em campos filtrados. Consulte [o Índice de Criação &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index) para obter mais informações sobre campos filtrados.<br /><br /> As funções só podem ser aplicadas em campos definidos na recolha de campos de um índice.|  
 
- Após a definição do índice, constroem o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar Índice &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) e [Adicionar, Atualizar ou Eliminar Documentos &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) de instruções sobre estas operações. Uma vez que o índice é construído, você deve ter um perfil de pontuação funcional que funciona com os seus dados de pesquisa.  
+ Após a definição do índice, constroem o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar Índice &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index) e [Adicionar, Atualizar ou Eliminar Documentos &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/addupdate-or-delete-documents) de instruções sobre estas operações. Uma vez que o índice é construído, você deve ter um perfil de pontuação funcional que funciona com os seus dados de pesquisa.  
 
-##  <a name="template"></a><a name="bkmk_template"></a>Modelo  
+##  <a name="template"></a><a name="bkmk_template"></a> Modelo  
  Esta secção mostra a sintaxe e o modelo para perfis de pontuação. Consulte a [referência de atributos Index](#bkmk_indexref) na secção seguinte para descrições dos atributos.  
 
 ```  
@@ -222,7 +222,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 . . .  
 ```  
 
-##  <a name="index-attributes-reference"></a><a name="bkmk_indexref"></a>Referência de atributos de índice  
+##  <a name="index-attributes-reference"></a><a name="bkmk_indexref"></a> Referência de atributos de índice  
 
 > [!NOTE]  
 >  Uma função de pontuação só pode ser aplicada em campos que são filtrados.  
@@ -238,20 +238,20 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 |`fieldname`|Necessário para as funções de pontuação. Uma função de pontuação só pode ser aplicada em campos que fazem parte da recolha de campo do índice, e que são filtrados. Além disso, cada tipo de função introduz restrições adicionais (a frescura é utilizada com campos de data, magnitude com campos inteiros ou duplos, e distância com campos de localização). Só é possível especificar um único campo por definição de função. Por exemplo, para usar a magnitude duas vezes no mesmo perfil, você precisaria incluir duas definições de magnitude, uma para cada campo.|  
 |`interpolation`|Necessário para as funções de pontuação. Define a inclinação para a qual a pontuação aumenta desde o início da gama até ao fim da gama. Valores válidos incluem Linear (padrão), Constante, Quadrático e Logarítmico. Consulte [as interpolações definidas](#bkmk_interpolation) para obter mais detalhes.|  
 |`magnitude`|A função de pontuação de magnitude é usada para alterar classificações com base na gama de valores para um campo numérico. Alguns dos exemplos de utilização mais comuns são:<br /><br /> -   **Classificações de estrelas:** Altere a pontuação com base no valor dentro do campo "Star Rating". Quando dois itens forem relevantes, o item com a classificação mais alta será apresentado primeiro.<br />-   **Margem:** Quando dois documentos são relevantes, um retalhista pode querer aumentar os documentos que têm margens mais elevadas primeiro.<br />-   **Click conta:** Para aplicações que rastreiam clique através de ações para produtos ou páginas, você poderia usar a magnitude para aumentar itens que tendem a obter mais tráfego.<br />-   **As contagens de descarregamento:** Para aplicações que rastreiam downloads, a função de magnitude permite aumentar itens que têm mais downloads.|  
-|`magnitude`&#124;`boostingRangeStart`|Define o valor inicial do intervalo sobre o qual a magnitude é pontuada. O valor deve ser um número inteiro ou de ponto flutuante. Para classificações de estrelas de 1 a 4, este seria 1. Para margens superiores a 50%, seriam 50.|  
-|`magnitude`&#124;`boostingRangeEnd`|Define o valor final do intervalo sobre o qual a magnitude é pontuada. O valor deve ser um número inteiro ou de ponto flutuante. Para classificações de estrelas de 1 a 4, este seria 4.|  
-|`magnitude`&#124;`constantBoostBeyondRange`|Valores válidos são verdadeiros ou falsos (padrão). Quando definido como verdadeiro, o boost completo continuará a aplicar-se a documentos que têm um valor para o campo alvo que é superior à extremidade superior da gama. Se for falso, o impulso desta função não será aplicado a documentos com um valor para o campo alvo que cai fora do alcance.|  
+|`magnitude` &#124; `boostingRangeStart`|Define o valor inicial do intervalo sobre o qual a magnitude é pontuada. O valor deve ser um número inteiro ou de ponto flutuante. Para classificações de estrelas de 1 a 4, este seria 1. Para margens superiores a 50%, seriam 50.|  
+|`magnitude` &#124; `boostingRangeEnd`|Define o valor final do intervalo sobre o qual a magnitude é pontuada. O valor deve ser um número inteiro ou de ponto flutuante. Para classificações de estrelas de 1 a 4, este seria 4.|  
+|`magnitude` &#124; `constantBoostBeyondRange`|Valores válidos são verdadeiros ou falsos (padrão). Quando definido como verdadeiro, o boost completo continuará a aplicar-se a documentos que têm um valor para o campo alvo que é superior à extremidade superior da gama. Se for falso, o impulso desta função não será aplicado a documentos com um valor para o campo alvo que cai fora do alcance.|  
 |`freshness`|A função de pontuação de frescura é usada para alterar as pontuações de classificação para itens baseados em valores nos `DateTimeOffset` campos. Por exemplo, um item com uma data mais recente pode ser classificado mais alto do que itens mais antigos.<br /><br /> Também é possível classificar itens como eventos de calendário com datas futuras de modo a que os itens mais próximos do presente possam ser classificados mais alto do que itens mais adiante no futuro.<br /><br /> Na atual versão de serviço, uma das extremidades da gama será fixada à hora atual. A outra extremidade é uma época no passado baseada `boostingDuration` no. Para aumentar uma série de vezes no futuro, use um negativo `boostingDuration` .<br /><br /> A taxa a que o aumento muda de um intervalo máximo e mínimo é determinada pela Interpolação aplicada ao perfil de pontuação (ver figura abaixo). Para inverter o fator de impulso aplicado, escolha um fator de impulso inferior a 1.|  
-|`freshness`&#124;`boostingDuration`|Estabelece um período de validade após o qual o reforço irá parar para um determinado documento. Ver [Conjunto de aumentoDuration](#bkmk_boostdur) na secção seguinte para sintaxe e exemplos.|  
+|`freshness` &#124; `boostingDuration`|Estabelece um período de validade após o qual o reforço irá parar para um determinado documento. Ver [Conjunto de aumentoDuration](#bkmk_boostdur) na secção seguinte para sintaxe e exemplos.|  
 |`distance`|A função de pontuação de distância é utilizada para afetar a pontuação de documentos com base na sua proximidade ou longe em relação a uma localização geográfica de referência. A localização de referência é dada como parte da consulta num parâmetro (usando a `scoringParameterquery` opção de corda) como um argumento lon,lat.|  
-|`distance`&#124;`referencePointParameter`|Um parâmetro a ser passado em consultas para usar como local de referência. `scoringParameter`é um parâmetro de consulta. Consulte [documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para descrições de parâmetros de consulta.|  
-|`distance`&#124;`boostingDistance`|Um número que indica a distância em quilómetros do local de referência onde termina a distância.|  
+|`distance` &#124; `referencePointParameter`|Um parâmetro a ser passado em consultas para usar como local de referência. `scoringParameter` é um parâmetro de consulta. Consulte [documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents) para descrições de parâmetros de consulta.|  
+|`distance` &#124; `boostingDistance`|Um número que indica a distância em quilómetros do local de referência onde termina a distância.|  
 |`tag`|A função de pontuação da etiqueta é usada para afetar a pontuação de documentos com base em etiquetas em documentos e consultas de pesquisa. Os documentos que tenham etiquetas em comum com a consulta de pesquisa serão aumentados. As etiquetas para a consulta de pesquisa são fornecidas como um parâmetro de pontuação em cada pedido de pesquisa (usando a `scoringParameterquery` opção de cadeia).|  
-|`tag`&#124;`tagsParameter`|Um parâmetro a ser passado em consultas para especificar etiquetas para um pedido específico. `scoringParameter`é um parâmetro de consulta. Consulte [documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para descrições de parâmetros de consulta.|  
+|`tag` &#124; `tagsParameter`|Um parâmetro a ser passado em consultas para especificar etiquetas para um pedido específico. `scoringParameter` é um parâmetro de consulta. Consulte [documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents) para descrições de parâmetros de consulta.|  
 |`functionAggregation`|Opcional. Só se aplica quando as funções são especificadas. Os valores válidos incluem: soma (padrão), média, mínima, máxima e primeira partida. Uma pontuação de pesquisa é um único valor que é calculado a partir de múltiplas variáveis, incluindo múltiplas funções. Este atributo indica como os impulsos de todas as funções são combinados num único impulso agregado que depois é aplicado na pontuação do documento base. A pontuação base baseia-se no valor [tf-idf](http://www.tfidf.com/) calculado a partir do documento e na consulta de pesquisa.|  
 |`defaultScoringProfile`|Ao executar um pedido de pesquisa, se não for especificado nenhum perfil de pontuação, então é utilizada a pontuação predefinida (apenas[tf-idf).](http://www.tfidf.com/)<br /><br /> Um nome de perfil de pontuação padrão pode ser definido aqui, fazendo com que a Azure Cognitive Search use esse perfil quando não é dado nenhum perfil específico no pedido de pesquisa.|  
 
-##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Definir interpolações  
+##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a> Definir interpolações  
  As interpolações permitem definir a forma da inclinação utilizada para a pontuação. Como a pontuação é alta a baixa, a inclinação está sempre a diminuir, mas a interpolação determina a curva da inclinação descendente. Podem ser utilizadas as seguintes interpolações:  
 
 | Interpolação | Descrição |  
@@ -263,10 +263,10 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  ![Linhas constantes, lineares, quadráticas, log10 no gráfico](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
-##  <a name="set-boostingduration"></a><a name="bkmk_boostdur"></a>Conjunto impulsionandoDuração  
- `boostingDuration`é um atributo da `freshness` função. Utilize-o para definir um período de validade após o qual o reforço irá parar para um determinado documento. Por exemplo, para impulsionar uma linha de produto ou marca por um período promocional de 10 dias, você especificaria o período de 10 dias como "P10D" para esses documentos.  
+##  <a name="set-boostingduration"></a><a name="bkmk_boostdur"></a> Conjunto impulsionandoDuração  
+ `boostingDuration` é um atributo da `freshness` função. Utilize-o para definir um período de validade após o qual o reforço irá parar para um determinado documento. Por exemplo, para impulsionar uma linha de produto ou marca por um período promocional de 10 dias, você especificaria o período de 10 dias como "P10D" para esses documentos.  
 
- `boostingDuration`deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão para isso é: "P[nD][T[nH][nM][nS]]]".  
+ `boostingDuration` deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão para isso é: "P[nD][T[nH][nM][nS]]]".  
 
  A tabela a seguir apresenta vários exemplos.  
 
@@ -281,6 +281,6 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
 ## <a name="see-also"></a>Ver também  
 
-+ [Referência da API REST](https://docs.microsoft.com/rest/api/searchservice/)   
-+ [Criar API de Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-+ [Pesquisa Cognitiva Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [Referência API DE REPOUSO](/rest/api/searchservice/)   
++ [Criar API de Índice](/rest/api/searchservice/create-index)   
++ [Pesquisa Cognitiva Azure .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)

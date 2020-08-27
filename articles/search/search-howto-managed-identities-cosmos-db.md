@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: f65aa4b307108682fa6e190a229e9d82b6efdec0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: df37b7f1c5b1ed35b6c3779eea470b2fb0936ecf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553207"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936661"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Configurar uma ligação indexante a uma base de dados cosmos DB utilizando uma identidade gerida (pré-visualização)
 
@@ -57,7 +57,7 @@ Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão 
 
 ### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
 
-A [API REST,](https://docs.microsoft.com/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados da Cosmos DB usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
+A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados da Cosmos DB usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
 
 Ao utilizar identidades geridas para autenticar, as **credenciais** não incluirão uma chave de conta.
 
@@ -87,7 +87,7 @@ O corpo do pedido contém a definição de fonte de dados, que deve incluir os s
 | **nome** | Necessário. Escolha qualquer nome para representar o seu objeto de origem de dados. |
 |**tipo**| Necessário. Deve `cosmosdb` ser. |
 |**credenciais** | Necessário. <br/><br/>Ao ligar-se utilizando uma identidade gerida, o formato **de credenciais** deve ser: Base de *dados=[nome da base de dados]; ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>O formato ResourceId: *ResourceId=/subscrições/**o seu ID**de subscrição /grupos de recursos/**o nome do grupo de recursos**/fornecedores/Microsoft.DocumentDB/databaseSAcounts/ o seu nome de**conta cosmos db**/;*<br/><br/>Para as coleções SQL, a cadeia de ligação não requer uma ApiKind.<br/><br/>Para as coleções MongoDB, adicione **ApiKind=MongoDb** à cadeia de ligação. <br/><br/>Para gráficos gremlin e tabelas Cassandra, inscreva-se para a [pré-visualização](https://aka.ms/azure-cognitive-search/indexer-preview) do indexante fechado para ter acesso à pré-visualização e informações sobre como formatar as credenciais.<br/>|
-| **contentor** | Contém os seguintes elementos: <br/>**nome:** Obrigatório. Especifique o ID da recolha da base de dados a ser indexado.<br/>**consulta**: Opcional. Pode especificar uma consulta para aplainar um documento JSON arbitrário num esquema plano que a Azure Cognitive Search pode indexar.<br/>Para a API mongodb, Gremlin API e Cassandra API, as consultas não são apoiadas. |
+| **recipiente** | Contém os seguintes elementos: <br/>**nome:** Obrigatório. Especifique o ID da recolha da base de dados a ser indexado.<br/>**consulta**: Opcional. Pode especificar uma consulta para aplainar um documento JSON arbitrário num esquema plano que a Azure Cognitive Search pode indexar.<br/>Para a API mongodb, Gremlin API e Cassandra API, as consultas não são apoiadas. |
 | **dataChangeDetectionPolicy** | Recomendado |
 |**dataDeletionDetectionPolicy** | Opcional |
 
@@ -111,7 +111,7 @@ api-key: [admin key]
 }
 ```
 
-Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Para obter mais informações sobre a criação de índices, consulte [Criar Índice](/rest/api/searchservice/create-index)
 
 ### <a name="5---create-the-indexer"></a>5 - Criar o indexador
 
@@ -136,7 +136,7 @@ Definição de indexante de exemplo:
 
 Este indexante será executado de duas em duas horas (o intervalo de horário está definido para "PT2H"). Para executar um indexante a cada 30 minutos, desajuste o intervalo para "PT30M". O intervalo suportado mais curto é de 5 minutos. O horário é opcional - se omitido, um indexante funciona apenas uma vez quando é criado. No entanto, pode executar um indexante a qualquer momento.   
 
-Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](/rest/api/searchservice/create-indexer).
 
 Para obter mais informações sobre a definição de horários de indexantes, consulte [Como agendar indexadores para a Pesquisa Cognitiva do Azure](search-howto-schedule-indexers.md).
 

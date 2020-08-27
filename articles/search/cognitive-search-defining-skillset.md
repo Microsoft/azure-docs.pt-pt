@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214086"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935454"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um skillset num oleoduto de enriquecimento de IA em Azure Cognitive Search 
 
@@ -49,14 +49,14 @@ O seguinte diagrama ilustra um hipotético gasoduto de enriquecimento:
 ![Um oleoduto hipotético de enriquecimento](media/cognitive-search-defining-skillset/sample-skillset.png "Um oleoduto hipotético de enriquecimento")
 
 
-Uma vez que tenha uma ideia justa do que quer no oleoduto, poderá expressar a habilidade que fornece estes passos. Funcionalmente, o skillset é expresso quando envia a definição do indexante para Azure Cognitive Search. Para saber mais sobre como carregar o seu indexante, consulte a [documentação indexante](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Uma vez que tenha uma ideia justa do que quer no oleoduto, poderá expressar a habilidade que fornece estes passos. Funcionalmente, o skillset é expresso quando envia a definição do indexante para Azure Cognitive Search. Para saber mais sobre como carregar o seu indexante, consulte a [documentação indexante](/rest/api/searchservice/create-indexer).
 
 
 No diagrama, o passo *de rachadura* do documento acontece automaticamente. Essencialmente, a Azure Cognitive Search sabe abrir ficheiros bem conhecidos e cria um campo de *conteúdo* contendo o texto extraído de cada documento. As caixas brancas são enriquecedores embutidos, e a caixa pontilhada "Bing Entity Search" representa um enriquecimento personalizado que está a criar. Como ilustrado, o skillset contém três habilidades.
 
 ## <a name="skillset-definition-in-rest"></a>Definição de skillset em REST
 
-Um skillset é definido como uma variedade de habilidades. Cada habilidade define a origem das suas entradas e o nome das saídas produzidas. Utilizando a [API Create Skillset REST,](https://docs.microsoft.com/rest/api/searchservice/create-skillset)pode definir um skillset que corresponda ao diagrama anterior: 
+Um skillset é definido como uma variedade de habilidades. Cada habilidade define a origem das suas entradas e o nome das saídas produzidas. Utilizando a [API Create Skillset REST,](/rest/api/searchservice/create-skillset)pode definir um skillset que corresponda ao diagrama anterior: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -281,4 +281,4 @@ Pode optar por guardar os documentos enriquecidos como tabelas com relações hi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que está familiarizado com o oleoduto de enriquecimento e habilidades, continue com [como referenciar anotações em um skillset](cognitive-search-concept-annotations-syntax.md) ou [Como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md). 
+Agora que está familiarizado com o oleoduto de enriquecimento e habilidades, continue com [como referenciar anotações em um skillset](cognitive-search-concept-annotations-syntax.md) ou [Como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md).

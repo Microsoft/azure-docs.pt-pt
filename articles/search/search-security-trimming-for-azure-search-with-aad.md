@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b8fd25e209316e828e234b4c64c8b2a2152de6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080496"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928586"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de segurança para aparar resultados de pesquisa cognitiva do Azure utilizando identidades do Ative Directory
 
@@ -40,7 +40,7 @@ O seu pedido também deve ser registado na AAD, conforme descrito no seguinte pr
 
 ### <a name="register-your-application-with-aad"></a>Registe a sua candidatura com a AAD
 
-Este passo integra a sua aplicação com a AAD com o propósito de aceitar inscrições de contas de utilizador e grupo. Se você não é um administrador da AAD na sua organização, você pode precisar [de criar um novo inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) para executar os seguintes passos.
+Este passo integra a sua aplicação com a AAD com o propósito de aceitar inscrições de contas de utilizador e grupo. Se você não é um administrador da AAD na sua organização, você pode precisar [de criar um novo inquilino](../active-directory/develop/quickstart-create-new-tenant.md) para executar os seguintes passos.
 
 1. Aceda à aplicação [**Converged Portal de Registo de Aplicações**](https://apps.dev.microsoft.com)  >   **Converged app**  >  **Adicione uma aplicação.**
 2. Introduza um nome para a sua aplicação e, em seguida, clique em **Criar**. 
@@ -63,7 +63,7 @@ No entanto, se não tiver utilizadores existentes, pode utilizar apis do Microso
 
 A adesão ao utilizador e ao grupo pode ser muito fluida, especialmente em grandes organizações. O código que constrói identidades de utilizador e grupo deve ser executado frequentemente o suficiente para captar alterações na adesão à organização. Da mesma forma, o seu índice de Pesquisa Cognitiva Azure requer um crono de atualização semelhante para refletir o estado atual dos utilizadores e recursos permitidos.
 
-### <a name="step-1-create-aad-group"></a>Passo 1: Criar [grupo AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-group"></a>Passo 1: Criar [grupo AAD](/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-user"></a>Passo 2: Criar [utilizador AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-user"></a>Passo 2: Criar [utilizador AAD](/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -98,9 +98,9 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Passo 4: Cache os identificadores de grupos
-Opcionalmente, para reduzir a latência da rede, pode cache as associações do grupo de utilizadores para que quando um pedido de pesquisa é emitido, os grupos sejam devolvidos da cache, economizando uma ida e volta para a AAD. Pode utilizar [a AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) para enviar um único pedido http com vários utilizadores e construir a cache.
+Opcionalmente, para reduzir a latência da rede, pode cache as associações do grupo de utilizadores para que quando um pedido de pesquisa é emitido, os grupos sejam devolvidos da cache, economizando uma ida e volta para a AAD. Pode utilizar [a AAD Batch API](/graph/json-batching) para enviar um único pedido http com vários utilizadores e construir a cache.
 
-O Microsoft Graph foi concebido para lidar com um grande volume de pedidos. Se ocorrer um número esmagador de pedidos, o Microsoft Graph falha o pedido com o código de estado HTTP 429. Para obter mais informações, consulte [o estrangulamento do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
+O Microsoft Graph foi concebido para lidar com um grande volume de pedidos. Se ocorrer um número esmagador de pedidos, o Microsoft Graph falha o pedido com o código de estado HTTP 429. Para obter mais informações, consulte [o estrangulamento do Microsoft Graph](/graph/throttling).
 
 ## <a name="index-document-with-their-permitted-groups"></a>Documento de índice com os seus grupos permitidos
 
@@ -138,7 +138,7 @@ Para filtrar os documentos devolvidos nos resultados da pesquisa com base em gru
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Passo 1: Recuperar os identificadores do grupo de utilizadores
 
-Se os grupos do utilizador ainda não estiverem em cache, ou a cache tiver expirado, emita o pedido dos [grupos](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0)
+Se os grupos do utilizador ainda não estiverem em cache, ou a cache tiver expirado, emita o pedido dos [grupos](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0)
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {
@@ -186,7 +186,7 @@ A resposta inclui uma lista filtrada de documentos, constituídos por aqueles qu
 
 Nesta passagem, aprendeu técnicas para usar os sign-ins AAD para filtrar documentos nos resultados da Pesquisa Cognitiva Azure, aparando os resultados de documentos que não correspondem ao filtro fornecido no pedido.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Controlo de acesso baseado em identidade usando filtros de pesquisa cognitiva Azure](search-security-trimming-for-azure-search.md)
 + [Filtros em Pesquisa Cognitiva Azure](search-filters.md)

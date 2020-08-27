@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a9f8b02d8821c76b2a7766f35244834934db1d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511403"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935913"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores personalizados a campos de cordas num índice de pesquisa cognitiva Azure
 
@@ -21,7 +21,7 @@ Um *analisador personalizado* é um tipo específico de [analisador](search-anal
 
  Pode definir vários analisadores personalizados para variar a combinação de filtros, mas cada campo só pode usar um analisador para analisar a indexação e um para análise de pesquisa. Para obter uma ilustração do aspeto de um analisador de clientes, consulte [o exemplo do analisador personalizado.](search-analyzers.md#Custom-analyzer-example)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
  O papel de um [motor de pesquisa de texto completo,](search-lucene-query-architecture.md)em termos simples, é processar e armazenar documentos de uma forma que permita uma consulta e recuperação eficientes. A um nível elevado, tudo se resume a extrair palavras importantes de documentos, colocando-as num índice, e depois usando o índice para encontrar documentos que correspondam às palavras de uma determinada consulta. O processo de extrair palavras de documentos e consultas de pesquisa chama-se *análise lexical.* Os componentes que realizam análises lexicais são *chamados de analisadores.*
 
@@ -53,7 +53,7 @@ Um *analisador personalizado* é um tipo específico de [analisador](search-anal
 
  O `tokenizer_name` nome de um tokenizer, e são os `token_filter_name_1` `token_filter_name_2` nomes dos filtros simbólicos, `char_filter_name_1` e são os `char_filter_name_2` nomes dos filtros de carvão (ver [tokenizers,](#Tokenizers) [filtros Token](#TokenFilters) e quadros de filtros Char para valores válidos).
 
-A definição de analisador é uma parte do índice maior. Consulte [a API do Índice de Criação](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter informações sobre o resto do índice.
+A definição de analisador é uma parte do índice maior. Consulte [a API do Índice de Criação](/rest/api/searchservice/create-index) para obter informações sobre o resto do índice.
 
 ```
 "analyzers":(optional)[
@@ -133,9 +133,9 @@ Definições para filtros de carvão, tokenizers e filtros de fichas só são ad
 
 ## <a name="test-custom-analyzers"></a>Testar analisadores personalizados
 
-Pode utilizar a **operação do Analisador de Teste** na [API REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para ver como um analisador quebra o texto dado em fichas.
+Pode utilizar a **operação do Analisador de Teste** na [API REST](/rest/api/searchservice/test-analyzer) para ver como um analisador quebra o texto dado em fichas.
 
-**Pedido**
+**Pedir**
 ```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
@@ -302,7 +302,7 @@ Na tabela abaixo, os tokenizers que são implementados usando Apache Lucene est�
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Descrição e Opções**|  
 |-|-|-|  
-|[clássico](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Tokenizer baseado em gramática que é adequado para o processamento da maioria dos documentos de língua europeia.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int) - O comprimento máximo do token. Padrão: 255, máximo: 300. As fichas mais compridas do que o comprimento máximo são divididas.|  
+|[clássica](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Tokenizer baseado em gramática que é adequado para o processamento da maioria dos documentos de língua europeia.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int) - O comprimento máximo do token. Padrão: 255, máximo: 300. As fichas mais compridas do que o comprimento máximo são divididas.|  
 |[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|Tokenizes a entrada de uma borda em n-gramas de tamanho determinado( s).<br /><br /> **Opções**<br /><br /> minGram (tipo: int) - Padrão: 1, máximo: 300.<br /><br /> maxGram (tipo: int) - Padrão: 2, máximo: 300. Deve ser maior que o minGram.<br /><br /> tokenChars (tipo: matriz de cordas) - Classes de caracteres para manter nos tokens. Valores permitidos: <br />"letra", "dígito", "espaço em branco", "pontuação", "símbolo". Predefinições para uma matriz vazia - mantém todos os caracteres. |  
 |[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|Palavras-chaveTokenizerV2|Emite toda a entrada como um único símbolo.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int) - O comprimento máximo do token. Padrão: 256, máximo: 300. As fichas mais compridas do que o comprimento máximo são divididas.|  
 |[carta](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LetterTokenizer.html)|(o tipo só se aplica quando as opções estão disponíveis)  |Divide texto em não-letras. Tokens com mais de 255 caracteres são divididos.|  
@@ -331,7 +331,7 @@ Na tabela abaixo, os filtros simbólicos que são implementados usando o Apache 
 |[asciifolding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html)|AsciiFoldingTokenFilter|Converte caracteres unicócnicos alfabéticos, numéricos e simbólicos que não estão nos primeiros 127 caracteres ASCII (o bloco Unicode "Basic Latin" nos seus equivalentes ASCII, se existirem.<br /><br /> **Opções**<br /><br /> preservar aOriginal (tipo: bool) - Se for verdade, o token original é mantido. O padrão é falso.|  
 |[cjk_bigram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/cjk/CJKBigramFilter.html)|CjkBigramTokenFilter|Forma bigrams de termos CJK que são gerados a partir de StandardTokenizer.<br /><br /> **Opções**<br /><br /> ignoreScripts (tipo: matriz de cordas) - Scripts a ignorar. Os valores permitidos incluem: "han", "hiragana", "katakana", "hangul". O padrão é uma lista vazia.<br /><br /> outputUnigrams (tipo: bool) - Definido como verdadeiro se sempre quiser fazer produção tanto de unigramas como de bigrams. O padrão é falso.|  
 |[cjk_width](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/cjk/CJKWidthFilter.html)|(o tipo só se aplica quando as opções estão disponíveis)  |Normaliza as diferenças de largura do CJK. Dobra as variantes ASCII de largura total nas variantes de Katakana em latim e meia largura equivalentes para o kana equivalente. |  
-|[clássico](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicFilter.html)|(o tipo só se aplica quando as opções estão disponíveis)  |Remove os possessivos ingleses e pontos das siglas. |  
+|[clássica](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicFilter.html)|(o tipo só se aplica quando as opções estão disponíveis)  |Remove os possessivos ingleses e pontos das siglas. |  
 |[common_grams](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/commongrams/CommonGramsFilter.html)|CommonGramTokenFilter|Construa bigrams para termos que ocorrem frequentemente durante a indexação. Os termos únicos ainda estão indexados também, com os bigrams sobrepostos.<br /><br /> **Opções**<br /><br /> commonWords (tipo: matriz de cordas) - O conjunto de palavras comuns. O padrão é uma lista vazia. Necessário.<br /><br /> ignoreCase (tipo: bool) - Se for verdade, combinar é caso insensível. O padrão é falso.<br /><br /> queryMode (tipo: bool) - Gera bigrams em seguida, remove palavras comuns e termos únicos seguidos por uma palavra comum. O padrão é falso.|  
 |[dictionary_decompounder](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/compound/DictionaryCompoundWordTokenFilter.html)|DictionaryDecompounderTokenFilter|Decompõe palavras compostas encontradas em muitas línguas germânicas.<br /><br /> **Opções**<br /><br /> wordList (tipo: matriz de cordas) - A lista de palavras a combinar. O padrão é uma lista vazia. Necessário.<br /><br /> minWordSize (tipo: int) - Apenas palavras mais longas do que esta ser processada. O padrão é 5.<br /><br /> minSubwordSize (tipo: int) - Apenas as sub-palavras mais compridas do que esta são outputadas. O padrão é 2.<br /><br /> maxSubwordSize (tipo: int) - Apenas as sub-palavras mais curtas do que esta são outputadas. A predefinição é 15.<br /><br /> onlyLongestMatch (tipo: bool) - Adicione apenas a sub-palavra de correspondência mais longa à saída. O padrão é falso.|  
 |[edgeNGram_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenFilter.html)|EdgenGramTokenFilterV2|Gera n-gramas do tamanho(s) dado a partir da frente ou na parte de trás de um token de entrada.<br /><br /> **Opções**<br /><br /> minGram (tipo: int) - Padrão: 1, máximo: 300.<br /><br /> maxGram (tipo: int) - Padrão: 2, máximo 300. Deve ser maior que o minGram.<br /><br /> lado (tipo: cadeia) - Especifica de que lado da entrada o n-grama deve ser gerado. Valores permitidos: "frontal", "back" |  
@@ -371,7 +371,7 @@ Na tabela abaixo, os filtros simbólicos que são implementados usando o Apache 
  <sup>1</sup> Os tipos de filtro token são sempre pré-fixados em código com "#Microsoft.Azure.Search" de modo a que "ArabicNormalizationTokenFilter" seja especificado como "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter".  Removemos o prefixo para reduzir a largura da tabela, mas lembre-se de incluí-lo no seu código.  
 
 
-## <a name="see-also"></a>Veja também  
- [APIs de pesquisa cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/)   
+## <a name="see-also"></a>Ver também  
+ [APIs de pesquisa cognitiva Azure](/rest/api/searchservice/)   
  [Analisadores em Azure Cognitive Search > Exemplos](search-analyzers.md#examples)    
- [Criar índice &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Criar índice &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)

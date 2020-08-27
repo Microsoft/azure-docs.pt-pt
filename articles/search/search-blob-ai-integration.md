@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 591437eb3951164d53388b6164103948e9ad65e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce5eafe0b36f07d8de366b6d4adb92e894fcb67e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73496436"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936746"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Use AI para entender os dados de armazenamento blob
 
@@ -112,7 +112,7 @@ Um documento enriquecido no final do gasoduto difere da sua versão inicial de e
 
 Há muito mais que você pode fazer com o enriquecimento de IA para tirar o máximo partido dos seus dados no Azure Storage, incluindo combinar Serviços Cognitivos de diferentes maneiras, e autoria de habilidades personalizadas para casos em que não existe serviço cognitivo existente para o cenário. Pode saber mais seguindo os links abaixo.
 
-+ [Upload, download e liste blobs com o portal Azure (armazenamento Azure Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Upload, download e liste blobs com o portal Azure (armazenamento Azure Blob)](../storage/blobs/storage-quickstart-blobs-portal.md)
 + [Configurar um indexante blob (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
 + [Visão geral do enriquecimento de IA (Azure Cognitive Search)](cognitive-search-concept-intro.md) 
 + [Criar um skillset (Azure Cognitive Search)](cognitive-search-defining-skillset.md)

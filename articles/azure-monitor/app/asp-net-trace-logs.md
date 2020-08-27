@@ -2,13 +2,14 @@
 title: Explore registos de traços .NET em Insights de Aplicação
 description: Registos de pesquisa gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: c192ae8fad6cf463af892018fcac385b3bdcd345
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c17f1f4eb8d2fb680f31a42009247b25c74941c9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321331"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936457"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore registos de traços .NET/.NET e Python em Insights de Aplicação
 
@@ -204,7 +205,7 @@ Se estiver a utilizar o Java SDK, utilize os [adaptadores de registo Java](./jav
 * Certifique-se de que tem a versão mais recente do Application Insights. No Estúdio Visual, **Tools**vá a  >  **Extensões e Atualizações de Ferramentas**e abra o **separador Atualizações.** Se **o Desenvolvedor Analytics Tools** estiver lá, selecione-o para atualizá-lo.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Recebo a mensagem de erro "Instrumentação não pode ser vazia"
-Provavelmente instalou o pacote Nuget do adaptador de registo sem instalar o Application Insights. No Solution Explorer, *clique *ApplicationInsights.configà direita e selecione **Update Application Insights**. Será solicitado que entre no Azure e crie um recurso Application Insights ou reutilizar um existente. Isto deve resolver o problema.
+Provavelmente instalou o pacote Nuget do adaptador de registo sem instalar o Application Insights. No Solution Explorer, * clique *ApplicationInsights.configà direita e selecione **Update Application Insights**. Será solicitado que entre no Azure e crie um recurso Application Insights ou reutilizar um existente. Isto deve resolver o problema.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>Posso ver vestígios, mas não outros eventos em pesquisa de diagnóstico
 Pode levar algum tempo para todos os eventos e pedidos para passar pelo oleoduto.
