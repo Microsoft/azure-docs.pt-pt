@@ -49,3 +49,9 @@
       items:
         - name: Problemas de ligação do agente
           href: troubleshoot-agent-onboard.md
+    - name: Referência
+      items:
+        - name: Disponibilidade de região e residência dos dados
+          href: data-residency.md
+        - name: REST
+          href: /rest/api/hybridcompute
