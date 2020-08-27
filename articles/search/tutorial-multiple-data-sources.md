@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: d63e437090b2875c7e6a8273fdf22d49597d408f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 815709611c0d7985a97ce52584b9e223c6d79aa2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85262213"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924117"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Índice de várias fontes de dados utilizando o .NET SDK
 
@@ -21,7 +21,7 @@ A Azure Cognitive Search pode importar, analisar e indexar dados de várias font
 
 Este tutorial descreve como indexar os dados do hotel a partir de uma fonte de dados DB da Azure Cosmos e fundir isso com detalhes do quarto de hotel extraídos de documentos de armazenamento Azure Blob. O resultado será um índice combinado de pesquisa de hotéis contendo tipos de dados complexos.
 
-Este tutorial utiliza C# e o [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). Neste tutorial, realizará as seguintes tarefas:
+Este tutorial utiliza C# e o [.NET SDK](/dotnet/api/overview/azure/search). Neste tutorial, realizará as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Carre faça upload de dados de amostras e crie fontes de dados
@@ -34,8 +34,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
-+ [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
++ [Armazenamento do Azure](../storage/common/storage-account-create.md)
 + [Visual Studio 2019](https://visualstudio.microsoft.com/)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -80,7 +80,7 @@ Esta amostra usa dois pequenos conjuntos de dados que descrevem sete hotéis fic
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)navegue para a sua conta de armazenamento Azure, clique em **Blobs**e clique **em + Recipiente**.
 
-1. [Crie um recipiente de blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) chamado **quartos de hotel** para armazenar os ficheiros JSON do quarto de hotel. Pode definir o Nível de Acesso Público a qualquer um dos seus valores válidos.
+1. [Crie um recipiente de blob](../storage/blobs/storage-quickstart-blobs-portal.md) chamado **quartos de hotel** para armazenar os ficheiros JSON do quarto de hotel. Pode definir o Nível de Acesso Público a qualquer um dos seus valores válidos.
 
    ![Criar um contentor de blobs](media/tutorial-multiple-data-sources/blob-add-container.png "Criar um contentor de blobs")
 
@@ -171,7 +171,7 @@ Esta simples aplicação de consola C#/.NET executa as seguintes tarefas:
 
 ### <a name="create-an-index"></a>Criar um índice
 
-Este programa de amostragem utiliza o .NET SDK para definir e criar um índice de Pesquisa Cognitiva Azure. Aproveita a classe [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) para gerar uma estrutura de índice a partir de uma classe de modelo de dados C#.
+Este programa de amostragem utiliza o .NET SDK para definir e criar um índice de Pesquisa Cognitiva Azure. Aproveita a classe [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) para gerar uma estrutura de índice a partir de uma classe de modelo de dados C#.
 
 O modelo de dados é definido pela classe Hotel, que também contém referências às classes Address e Room. O FieldBuilder perfura através de múltiplas definições de classe para gerar uma estrutura de dados complexa para o índice. As tags de metadados são usadas para definir os atributos de cada campo, tais como se é pesmável ou ordenado.
 
@@ -319,7 +319,7 @@ As bolhas JSON contêm um campo chave nomeado **`Id`** em vez de **`HotelId`** .
 
 Os indexantes de armazenamento blob podem usar parâmetros que identifiquem o modo de análise a ser utilizado. O modo de análise difere para bolhas que representam um único documento, ou vários documentos dentro da mesma bolha. Neste exemplo, cada bolha representa um único documento de índice, pelo que o código utiliza o `IndexingParameters.ParseJson()` parâmetro.
 
-Para obter mais informações sobre os parâmetros de análise do indexante para as bolhas JSON, consulte [as bolhas índice JSON](search-howto-index-json-blobs.md). Para obter mais informações sobre a especificação destes parâmetros utilizando o .NET SDK, consulte a classe [IndexerParametersExtension.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingparametersextensions)
+Para obter mais informações sobre os parâmetros de análise do indexante para as bolhas JSON, consulte [as bolhas índice JSON](search-howto-index-json-blobs.md). Para obter mais informações sobre a especificação destes parâmetros utilizando o .NET SDK, consulte a classe [IndexerParametersExtension.](/dotnet/api/microsoft.azure.search.models.indexingparametersextensions)
 
 O programa eliminará quaisquer indexantes existentes com o mesmo nome antes de criar o novo, caso pretenda executar este exemplo mais de uma vez.
 
@@ -363,7 +363,7 @@ O código de amostra deste tutorial verifica os objetos existentes e elimina-os 
 
 Também pode utilizar o portal para eliminar índices, indexadores e fontes de dados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

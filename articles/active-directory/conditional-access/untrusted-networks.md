@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7986ca441f7d274670d8fa0238e7dcfa01497b6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253176"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948169"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: Exigir MFA para acesso a partir de redes não fidedquipantes com Acesso Condicional   
 
@@ -67,6 +67,6 @@ Em vez de tentar definir quais são todos os locais que não são de confiança,
 
 Com a abordagem descrita neste artigo, pode agora configurar uma política de acesso condicional para locais não fidedignais. Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte [Como implementar uma nova política.](best-practices.md#how-should-you-deploy-a-new-policy) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Se quiser saber mais sobre o Acesso Condicional, veja [o que é o Acesso Condicional no Diretório Ativo Azure?](../active-directory-conditional-access-azure-portal.md)
+Se quiser saber mais sobre o Acesso Condicional, veja [o que é o Acesso Condicional no Diretório Ativo Azure?](./overview.md)

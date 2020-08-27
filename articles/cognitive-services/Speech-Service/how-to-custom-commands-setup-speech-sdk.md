@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027635"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918830"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integre com uma aplicação de cliente usando a Speech SDK
 
@@ -64,7 +65,7 @@ Neste passo, adicionamos o código XAML que define a interface de utilizador da 
 
 Crie a interface de utilizador da aplicação adicionando o código XAML.
 
-1. In **Solution Explorer,** open`MainPage.xaml`
+1. In **Solution Explorer,** open `MainPage.xaml`
 
 1. Na vista XAML do designer, substitua todo o conteúdo pelo seguinte corte de código:
 
@@ -302,7 +303,7 @@ Adicione a fonte por trás do código da seguinte forma:
     > 1. Escolha **Gerir pacotes nuget para solução,** selecione **atualizações** 
     > 1. Se vir **microsoft.NETCore.UniversalWindowsPlatform** na lista de atualizações, atualize **Microsoft.NETCore.UniversalWindowsPlatform** para a versão mais recente
 
-1. Adicione o seguinte código ao corpo do método de`InitializeDialogServiceConnector`
+1. Adicione o seguinte código ao corpo do método de `InitializeDialogServiceConnector`
 
    ```csharp
    // This code creates the `DialogServiceConnector` with your subscription information.
@@ -319,7 +320,7 @@ Adicione a fonte por trás do código da seguinte forma:
 
 1. Substitua as `YourApplicationId` cordas, `YourSpeechSubscriptionKey` e pelos seus `YourServiceRegion` próprios valores para a sua app, subscrição de discurso e [região](regions.md)
 
-1. Anexar o seguinte corte de código para o fim do corpo método de`InitializeDialogServiceConnector`
+1. Anexar o seguinte corte de código para o fim do corpo método de `InitializeDialogServiceConnector`
 
    ```csharp
    //
@@ -417,7 +418,7 @@ Adicione a fonte por trás do código da seguinte forma:
 
 1. **Selecione Talk**, e diga uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como: enviar atividade para a aplicação do cliente (Pré-visualização)](./how-to-custom-commands-send-activity-to-client.md)

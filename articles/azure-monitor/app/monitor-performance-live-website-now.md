@@ -3,12 +3,13 @@ title: Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azu
 description: Monitorize o desempenho de um site sem o reimplementar. Funciona com ASP.NET aplicações web hospedadas no local ou em VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310451"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923828"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
@@ -140,7 +141,7 @@ Estamos a acompanhar esta [questão.](https://github.com/Microsoft/ApplicationIn
   
 ### <a name="detailed-logs"></a>Registos detalhados
 
-* Por predefinição, o Monitor de Estado irá fazer registos de diagnóstico em:`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+* Por predefinição, o Monitor de Estado irá fazer registos de diagnóstico em: `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
 * Para obter registos verbosos, modifique o ficheiro config: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e adicione `<add key="TraceLevel" value="All" />` ao `appsettings` .
 Em seguida, reinicie o monitor de estado.
@@ -243,7 +244,7 @@ Descubra que aplicações estão a ser monitorizadas:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: o nome de uma aplicação Web no IIS.
-* `-InstrumentationKey`(Opcional.) Utilize isto para alterar o recurso para o qual a telemetria da aplicação é enviada.
+* `-InstrumentationKey` (Opcional.) Utilize isto para alterar o recurso para o qual a telemetria da aplicação é enviada.
 * Este cmdlet:
   * Atualiza a aplicação nomeada para a versão do SDK mais recentemente transferida para esta máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
   * Se fornecer uma chave de instrumentação, a aplicação nomeada é reconfigurada para enviar a telemetria para o recurso com essa chave. (Funciona se `SdkState != Disabled`)

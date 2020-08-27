@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 16366d9f3be1144a7588ceb9133fb4e2e60db95c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 0b914059567e9a513b605ce733407465b625a909
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373713"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950022"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Debug e resolução de problemas ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,11 +25,11 @@ Neste artigo, aprende-se a depurar e a resolver problemas na aula [ParallelRunSt
 
 ## <a name="testing-scripts-locally"></a>Testar scripts localmente
 
-Consulte a [secção de scripts de teste local](how-to-debug-pipelines.md#testing-scripts-locally) para os oleodutos de aprendizagem automática. O seu ParallelRunStep funciona como um passo nos oleodutos ML, pelo que a mesma resposta se aplica a ambos.
+Consulte a [secção de scripts de teste local](how-to-debug-pipelines.md#debug-scripts-locally) para os oleodutos de aprendizagem automática. O seu ParallelRunStep funciona como um passo nos oleodutos ML, pelo que a mesma resposta se aplica a ambos.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depurando scripts do contexto remoto
 
-A transição de depurar um guião de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um salto difícil. Para obter informações sobre a descoberta dos seus registos no portal, a [secção de gasodutos de aprendizagem automática sobre a depuragem de scripts de um contexto remoto](how-to-debug-pipelines.md#debugging-scripts-from-remote-context). A informação nessa secção também se aplica a um ParallelRunStep.
+A transição de depurar um guião de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um salto difícil. Para obter informações sobre a descoberta dos seus registos no portal, a [secção de gasodutos de aprendizagem automática sobre a depuragem de scripts de um contexto remoto](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). A informação nessa secção também se aplica a um ParallelRunStep.
 
 Por exemplo, o ficheiro de registo `70_driver_log.txt` contém informações do controlador que lança o código ParallelRunStep.
 

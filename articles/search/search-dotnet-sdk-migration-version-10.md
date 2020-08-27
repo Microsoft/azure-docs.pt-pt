@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 61fee97323d110875cb05fb48157527a39c80f56
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 101fd5298482f2f92e2a3fa4284d6e3fe94989a1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905786"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923233"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Upgrade para Azure Cognitive Search .NET SDK versão 10
 
-Se estiver a utilizar a versão 9.0 ou mais antiga do [.NET SDK,](https://docs.microsoft.com/dotnet/api/overview/azure/search)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 10.
+Se estiver a utilizar a versão 9.0 ou mais antiga do [.NET SDK,](/dotnet/api/overview/azure/search)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 10.
 
 A Azure Search é renomeado para Azure Cognitive Search na versão 10, mas os espaços de nome e os nomes dos pacotes são inalterados. As versões anteriores do SDK (9.0 e anteriores) continuam a utilizar o nome anterior. Para obter mais informações sobre a utilização do SDK, incluindo exemplos, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](search-howto-dotnet-sdk.md).
 
@@ -35,13 +35,13 @@ A versão 10 adiciona várias funcionalidades e correções de bugs, elevando-a 
 Versão 10 do Azure Cognitive Search .NET SDK alvos REST API `2019-05-06` com estas atualizações:
 
 * Introdução de duas novas competências - [competência condicional](cognitive-search-skill-conditional.md) e [tradução de texto.](cognitive-search-skill-text-translation.md)
-* [As entradas de habilidades](cognitive-search-skill-shaper.md) do shaper foram reestruturadas para acomodar a consolidação a partir de contextos aninhados. Para mais informações, consulte este [exemplo da definição JSON.](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts)
+* [As entradas de habilidades](cognitive-search-skill-shaper.md) do shaper foram reestruturadas para acomodar a consolidação a partir de contextos aninhados. Para mais informações, consulte este [exemplo da definição JSON.](./cognitive-search-skill-shaper.md#scenario-3-input-consolidation-from-nested-contexts)
 * Adição de duas novas funções de [mapeamento de campo:](search-indexer-field-mappings.md)
-    - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
-    - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
-* Em certas ocasiões, erros e avisos que aparecem no [estado de execução do indexante](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) podem ter detalhes adicionais que ajudam a depurar. `IndexerExecutionResult`foi atualizado para refletir este comportamento.
+    - [urlEncode](./search-indexer-field-mappings.md#urlencode-function)
+    - [urlDecode](./search-indexer-field-mappings.md#urldecode-function)
+* Em certas ocasiões, erros e avisos que aparecem no [estado de execução do indexante](/rest/api/searchservice/get-indexer-status) podem ter detalhes adicionais que ajudam a depurar. `IndexerExecutionResult` foi atualizado para refletir este comportamento.
 * As competências individuais definidas dentro de um [skillset](cognitive-search-defining-skillset.md) podem opcionalmente ser identificadas especificando um `name` imóvel.
-* `ServiceLimits`mostra limites para [tipos complexos](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) e `IndexerExecutionInfo` mostra limites/quotas de indexante pertinentes.
+* `ServiceLimits` mostra limites para [tipos complexos](./search-howto-complex-data-types.md) e `IndexerExecutionInfo` mostra limites/quotas de indexante pertinentes.
 
 <a name="UpgradeSteps"></a>
 
@@ -139,13 +139,13 @@ var skillset = new Skillset()
 }
 ```
 
-`SentimentSkill`é atribuído um `#1` nome, `WebApiSkill` é `#2` atribuído, é atribuído e assim por `ShaperSkill` `#3` diante.
+`SentimentSkill` é atribuído um `#1` nome, `WebApiSkill` é `#2` atribuído, é atribuído e assim por `ShaperSkill` `#3` diante.
 
 Se optar por identificar habilidades por um nome personalizado, certifique-se de atualizar todas as instâncias dos seus clientes para a versão 10 do SDK primeiro. Caso contrário, existe a possibilidade de um cliente que usa uma versão mais antiga do SDK poder `null` eliminar a propriedade de uma habilidade, fazendo com que o cliente recue no esquema de `Name` nomeação padrão.
 
 ## <a name="details-about-errors-and-warnings"></a>Detalhes sobre erros e avisos
 
-`ItemError`e `ItemWarning` os modelos que englobam detalhes de erros e advertências (respectivamente) que ocorrem durante uma execução indexante foram modificados para incluir três novas propriedades com o objetivo de ajudar na depuração do indexante. Estas propriedades são:
+`ItemError` e `ItemWarning` os modelos que englobam detalhes de erros e advertências (respectivamente) que ocorrem durante uma execução indexante foram modificados para incluir três novas propriedades com o objetivo de ajudar na depuração do indexante. Estas propriedades são:
 
 - `Name`: O nome da fonte à qual o erro originou. Por exemplo, poderia referir-se a uma habilidade específica no skillset anexo.
 - `Details`: Detalhes verbosos adicionais sobre o erro ou aviso.
@@ -159,4 +159,3 @@ Se optar por identificar habilidades por um nome personalizado, certifique-se de
 - As alterações na habilidade do Shaper têm o impacto mais potencial no código novo ou existente. Como próximo passo, certifique-se de revisitar este exemplo ilustrando a estrutura de entrada: [Exemplo de definição JSON de habilidade de modelador](cognitive-search-skill-shaper.md)
 - Ver a visão geral do [enriquecimento da IA.](cognitive-search-concept-intro.md)
 - Congratulamo-nos com o seu feedback sobre o SDK. Se encontrar problemas, sinta-se à vontade para nos pedir ajuda no [Stack Overflow.](https://stackoverflow.com/questions/tagged/azure-search) Se encontrar um bug, pode arquivar um problema no [repositório Azure .NET SDK GitHub](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se de pré-afixar o seu título de emissão com "[Azure Cognitive Search]".
-

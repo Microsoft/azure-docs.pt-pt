@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6295dfbbee2d44b61b5dc832163adc8d643ab0f1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9caa377ebcdff5b0ae379f1b0b8269dac5b8f499
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036152"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924100"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Azure Blob Storage com Azure Cognitive Search
 
@@ -32,8 +32,8 @@ O indexante blob pode extrair texto dos seguintes formatos de documento:
 Pode configurar um indexador de armazenamento Azure Blob utilizando:
 
 * [Portal do Azure](https://ms.portal.azure.com)
-* Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Pesquisa Cognitiva Azure [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
+* Pesquisa Cognitiva Azure [.NET SDK](/dotnet/api/overview/azure/search)
 
 > [!NOTE]
 > Algumas funcionalidades (por exemplo, mapeamentos de campo) ainda não estão disponíveis no portal e têm de ser utilizadas programáticamente.
@@ -66,7 +66,7 @@ Para criar uma fonte de dados:
     }   
 ```
 
-Para obter mais informações sobre a API de Fonte de Dados, consulte [Criar Fonte de Dados.](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
+Para obter mais informações sobre a API de Fonte de Dados, consulte [Criar Fonte de Dados.](/rest/api/searchservice/create-data-source)
 
 <a name="Credentials"></a>
 #### <a name="how-to-specify-credentials"></a>Como especificar credenciais ####
@@ -77,7 +77,7 @@ Pode fornecer as credenciais para o recipiente blob de uma destas formas:
 - **Cadeia de** ligação de assinatura de conta de armazenamento (SAS): O `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS deve ter a lista e ler permissões em recipientes e objetos (bolhas neste caso).
 -  **Assinatura de acesso partilhado do contentor**: O `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS deve ter a lista e ler permissões no recipiente.
 
-Para obter mais informações sobre assinaturas de acesso partilhado de armazenamento, consulte [usando assinaturas de acesso partilhado.](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+Para obter mais informações sobre assinaturas de acesso partilhado de armazenamento, consulte [usando assinaturas de acesso partilhado.](../storage/common/storage-sas-overview.md)
 
 > [!NOTE]
 > Se utilizar credenciais SAS, terá de atualizar periodicamente as credenciais de origem de dados com assinaturas renovadas para evitar a sua expiração. Se as credenciais SAS expirarem, o indexante falhará com uma mensagem de erro semelhante a `Credentials provided in the connection string are invalid or have expired.` .  
@@ -101,7 +101,7 @@ Aqui está como criar um índice com um `content` campo pesquisável para armaze
     }
 ```
 
-Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Para obter mais informações sobre a criação de índices, consulte [Criar Índice](/rest/api/searchservice/create-index)
 
 ### <a name="step-3-create-an-indexer"></a>Passo 3: Criar um indexador
 Um indexante conecta uma fonte de dados com um índice de pesquisa de alvo, e fornece um horário para automatizar a atualização de dados.
@@ -123,7 +123,7 @@ Uma vez criado o índice e a fonte de dados, está pronto para criar o indexador
 
 Este indexante será executado de duas em duas horas (o intervalo de horário está definido para "PT2H"). Para executar um indexante a cada 30 minutos, desajuste o intervalo para "PT30M". O intervalo suportado mais curto é de 5 minutos. O horário é opcional - se omitido, um indexante funciona apenas uma vez quando é criado. No entanto, pode executar um indexante a qualquer momento.   
 
-Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](/rest/api/searchservice/create-indexer).
 
 Para obter mais informações sobre a definição de horários de indexantes, consulte [Como agendar indexadores para a Pesquisa Cognitiva do Azure](search-howto-schedule-indexers.md).
 
@@ -169,8 +169,8 @@ Na Pesquisa Cognitiva Azure, a chave do documento identifica um documento de for
 
 Deve considerar cuidadosamente qual o campo extraído que deve mapear para o campo chave para o seu índice. Os candidatos são:
 
-* **Nome \_ \_ de armazenamento de metadados** - este pode ser um candidato conveniente, mas note que 1) os nomes podem não ser únicos, pois você pode ter bolhas com o mesmo nome em diferentes pastas, e 2) o nome pode conter caracteres que são inválidos em chaves de documento, como traços. Pode lidar com caracteres inválidos utilizando a `base64Encode` [função de mapeamento](search-indexer-field-mappings.md#base64EncodeFunction) de campo - se o fizer, lembre-se de codificar as chaves do documento ao passá-las em chamadas API como o Lookup. (Por exemplo, em .NET pode utilizar o [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para o efeito).
-* **caminho \_ \_ de armazenamento de metadados** - usando o caminho completo garante a singularidade, mas o caminho definitivamente contém caracteres que são `/` [inválidos numa chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como acima, tem a opção de codificar as teclas utilizando a `base64Encode` [função](search-indexer-field-mappings.md#base64EncodeFunction).
+* **Nome \_ \_ de armazenamento de metadados** - este pode ser um candidato conveniente, mas note que 1) os nomes podem não ser únicos, pois você pode ter bolhas com o mesmo nome em diferentes pastas, e 2) o nome pode conter caracteres que são inválidos em chaves de documento, como traços. Pode lidar com caracteres inválidos utilizando a `base64Encode` [função de mapeamento](search-indexer-field-mappings.md#base64EncodeFunction) de campo - se o fizer, lembre-se de codificar as chaves do documento ao passá-las em chamadas API como o Lookup. (Por exemplo, em .NET pode utilizar o [método UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) para o efeito).
+* **caminho \_ \_ de armazenamento de metadados** - usando o caminho completo garante a singularidade, mas o caminho definitivamente contém caracteres que são `/` [inválidos numa chave de documento](/rest/api/searchservice/naming-rules).  Como acima, tem a opção de codificar as teclas utilizando a `base64Encode` [função](search-indexer-field-mappings.md#base64EncodeFunction).
 * Se nenhuma das opções acima funcionar para si, pode adicionar uma propriedade de metadados personalizado às bolhas. Esta opção requer, no entanto, que o seu processo de upload blob adicione essa propriedade de metadados a todas as bolhas. Uma vez que a chave é uma propriedade necessária, todas as bolhas que não têm essa propriedade deixarão de ser indexadas.
 
 > [!IMPORTANT]
@@ -268,9 +268,9 @@ Se ambos `indexedFileNameExtensions` e `excludedFileNameExtensions` parâmetros 
 
 Pode controlar quais as partes das bolhas indexadas utilizando o `dataToExtract` parâmetro de configuração. Pode assumir os seguintes valores:
 
-* `storageMetadata`- especifica que apenas as [propriedades padrão blob e metadados especificados pelo utilizador](../storage/blobs/storage-properties-metadata.md) estão indexados.
-* `allMetadata`- especifica que os metadados de armazenamento e os [metadados específicos](#ContentSpecificMetadata) do tipo de conteúdo extraídos do conteúdo blob são indexados.
-* `contentAndMetadata`- especifica que todos os metadados e conteúdos texuais extraídos da bolha estão indexados. Este é o valor predefinido.
+* `storageMetadata` - especifica que apenas as [propriedades padrão blob e metadados especificados pelo utilizador](../storage/blobs/storage-blob-container-properties-metadata.md) estão indexados.
+* `allMetadata` - especifica que os metadados de armazenamento e os [metadados específicos](#ContentSpecificMetadata) do tipo de conteúdo extraídos do conteúdo blob são indexados.
+* `contentAndMetadata` - especifica que todos os metadados e conteúdos texuais extraídos da bolha estão indexados. Este é o valor predefinido.
 
 Por exemplo, para indexar apenas os metadados de armazenamento, utilize:
 
@@ -316,7 +316,7 @@ Para algumas bolhas, a Azure Cognitive Search não consegue determinar o tipo de
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-A Azure Cognitive Search limita o tamanho das bolhas que são indexadas. Estes limites estão documentados nos [Limites de Serviço na Pesquisa Cognitiva Azure.](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) As bolhas de grandes dimensões são tratadas como erros por defeito. No entanto, ainda pode indexar metadados de armazenamento de bolhas de grandes dimensões se definir `indexStorageMetadataOnlyForOversizedDocuments` o parâmetro de configuração para ser verdadeiro: 
+A Azure Cognitive Search limita o tamanho das bolhas que são indexadas. Estes limites estão documentados nos [Limites de Serviço na Pesquisa Cognitiva Azure.](./search-limits-quotas-capacity.md) As bolhas de grandes dimensões são tratadas como erros por defeito. No entanto, ainda pode indexar metadados de armazenamento de bolhas de grandes dimensões se definir `indexStorageMetadataOnlyForOversizedDocuments` o parâmetro de configuração para ser verdadeiro: 
 
 ```http
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
@@ -345,15 +345,15 @@ Existem duas formas de implementar a abordagem de eliminação suave. Ambos são
 ### <a name="native-blob-soft-delete-preview"></a>Exclusão suave de blob nativo (pré-visualização)
 
 > [!IMPORTANT]
-> O suporte para a eliminação suave de blob nativo está em pré-visualização. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2020-06-30-Preview](https://docs.microsoft.com/azure/search/search-api-preview) fornece esta funcionalidade. Atualmente não existe porta ou suporte .NET SDK.
+> O suporte para a eliminação suave de blob nativo está em pré-visualização. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2020-06-30-Preview](./search-api-preview.md) fornece esta funcionalidade. Atualmente não existe porta ou suporte .NET SDK.
 
 > [!NOTE]
 > Ao utilizar a política de exclusão suave de blob nativa, as chaves do documento para os documentos no seu índice devem ser uma propriedade blob ou metadados blob.
 
-Neste método utilizará a função [de exclusão suave de blob nativa](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) oferecida pelo armazenamento Azure Blob. Se a exclusão suave de blob nativa estiver ativada na sua conta de armazenamento, a sua fonte de dados tem um conjunto de política de exclusão suave nativa, e o indexante encontra uma bolha que foi transitada para um estado de eliminação suave, o indexante removerá esse documento do índice. A política de eliminação suave de blob nativo não é suportada ao indexar bolhas do Azure Data Lake Storage Gen2.
+Neste método utilizará a função [de exclusão suave de blob nativa](../storage/blobs/soft-delete-blob-overview.md) oferecida pelo armazenamento Azure Blob. Se a exclusão suave de blob nativa estiver ativada na sua conta de armazenamento, a sua fonte de dados tem um conjunto de política de exclusão suave nativa, e o indexante encontra uma bolha que foi transitada para um estado de eliminação suave, o indexante removerá esse documento do índice. A política de eliminação suave de blob nativo não é suportada ao indexar bolhas do Azure Data Lake Storage Gen2.
 
 Utilize os passos seguintes:
-1. Ativar [a eliminação suave nativa para o armazenamento do Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Recomendamos definir a política de retenção para um valor muito superior ao seu calendário de intervalos indexante. Desta forma, se houver um problema a executar o indexante ou se tiver um grande número de documentos para indexar, há muito tempo para o indexante processar eventualmente as bolhas apagadas suaves. Os indexantes de Pesquisa Cognitiva Azure só apagarão um documento do índice se processar a bolha enquanto estiver em estado de eliminação suave.
+1. Ativar [a eliminação suave nativa para o armazenamento do Azure Blob](../storage/blobs/soft-delete-blob-overview.md). Recomendamos definir a política de retenção para um valor muito superior ao seu calendário de intervalos indexante. Desta forma, se houver um problema a executar o indexante ou se tiver um grande número de documentos para indexar, há muito tempo para o indexante processar eventualmente as bolhas apagadas suaves. Os indexantes de Pesquisa Cognitiva Azure só apagarão um documento do índice se processar a bolha enquanto estiver em estado de eliminação suave.
 1. Configure uma política de deteção de eliminação suave de bolhas nativas na fonte de dados. Apresentamos um exemplo abaixo. Uma vez que esta funcionalidade está em pré-visualização, tem de utilizar a pré-visualização REST API.
 1. Executar o indexante ou definir o indexante para executar em um horário. Quando o indexante executa e processa a bolha, o documento será removido do índice.
 
@@ -434,7 +434,7 @@ Indexar bolhas pode ser um processo demorado. Nos casos em que tem milhões de b
 
 Pode querer "montar" documentos de várias fontes no seu índice. Por exemplo, pode querer fundir texto de bolhas com outros metadados armazenados em Cosmos DB. Pode até usar o push indexing API juntamente com vários indexantes para acumular documentos de pesquisa de várias partes. 
 
-Para que isto funcione, todos os indexantes e outros componentes têm de concordar com a chave do documento. Para obter mais detalhes sobre este tópico, consulte [várias fontes de dados do Azure indexar](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Para obter um walk-through detalhado, consulte este artigo externo: [Combine documentos com outros dados na Azure Cognitive Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para que isto funcione, todos os indexantes e outros componentes têm de concordar com a chave do documento. Para obter mais detalhes sobre este tópico, consulte [várias fontes de dados do Azure indexar](./tutorial-multiple-data-sources.md). Para obter um walk-through detalhado, consulte este artigo externo: [Combine documentos com outros dados na Azure Cognitive Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexação de texto simples 

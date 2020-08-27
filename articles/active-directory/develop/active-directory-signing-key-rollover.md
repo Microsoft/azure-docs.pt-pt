@@ -8,26 +8,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42f100618ac6ce8769c4a7da67a5bd586794c63b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115599"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948135"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Assinatura de capotamento de chaves na plataforma de identidade da Microsoft
-Este artigo discute o que precisa de saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar fichas de segurança. É importante notar que estas teclas rerolam periodicamente e, em caso de emergência, podem ser reviradas imediatamente. Todas as aplicações que utilizam a plataforma de identidade da Microsoft devem ser capazes de lidar programáticamente com o processo de capotamento da chave ou estabelecer um processo de rollover manual periódico. Continuar a ler Para entender como funcionam as teclas, como avaliar o impacto da capotamento na sua aplicação e como atualizar a sua aplicação ou estabelecer um processo de capotamento manual periódico para lidar com a capotamento da chave, se necessário.
+Este artigo discute o que precisa de saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar fichas de segurança. É importante notar que estas teclas rerolam periodicamente e, em caso de emergência, podem ser reviradas imediatamente. Todas as aplicações que utilizam a plataforma de identidade da Microsoft devem ser capazes de lidar programáticamente com o processo de capotamento da chave. Continuar a ler Para entender como funcionam as teclas, como avaliar o impacto da capotamento na sua aplicação e como atualizar a sua aplicação ou estabelecer um processo de capotamento manual periódico para lidar com a capotamento da chave, se necessário.
 
 ## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Visão geral das chaves de assinatura na plataforma de identidade da Microsoft
-A plataforma de identidade da Microsoft utiliza criptografia de chaves públicas baseada nos padrões da indústria para estabelecer confiança entre si e as aplicações que a utilizam. Em termos práticos, isto funciona da seguinte forma: a plataforma de identidade da Microsoft utiliza uma chave de assinatura que consiste num par de chaves público e privado. Quando um utilizador assina uma aplicação que utiliza a plataforma de identidade da Microsoft para autenticação, a plataforma de identidade da Microsoft cria um símbolo de segurança que contém informações sobre o utilizador. Este token é assinado pela plataforma de identidade da Microsoft utilizando a sua chave privada antes de ser devolvido à aplicação. Para verificar se o token é válido e originado da plataforma de identidade microsoft, a aplicação deve validar a assinatura do token utilizando a chave pública exposta pela plataforma de identidade Microsoft que está contida no documento de [descoberta OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do inquilino ou [documento de metadados](../azuread-dev/azure-ad-federation-metadata.md)da federação SAML/WS-Fed.
+A plataforma de identidade da Microsoft utiliza criptografia de chaves públicas baseada nos padrões da indústria para estabelecer confiança entre si e as aplicações que a utilizam. Em termos práticos, isto funciona da seguinte forma: a plataforma de identidade da Microsoft utiliza uma chave de assinatura que consiste num par de chaves público e privado. Quando um utilizador assina uma aplicação que utiliza a plataforma de identidade da Microsoft para autenticação, a plataforma de identidade da Microsoft cria um símbolo de segurança que contém informações sobre o utilizador. Este token é assinado pela plataforma de identidade da Microsoft utilizando a sua chave privada antes de ser devolvido à aplicação. Para verificar se o token é válido e originado da plataforma de identidade microsoft, a aplicação deve validar a assinatura do token utilizando as chaves públicas expostas pela plataforma de identidade Microsoft que está contida no documento de [descoberta OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do inquilino ou [documento de metadados da federação](../azuread-dev/azure-ad-federation-metadata.md)SAML/WS-Fed.
 
-Por razões de segurança, a plataforma de assinatura da Microsoft é a chave de assinaturas numa base periódica e, em caso de emergência, pode ser revirada imediatamente. Qualquer aplicação que se integre com a plataforma de identidade da Microsoft deve estar preparada para lidar com um evento de capotamento de chaves, independentemente da frequência com que possa ocorrer. Se isso não acontecer, e a sua aplicação tentar usar uma chave caducada para verificar a assinatura num token, o pedido de inscrição falhará.
+Por razões de segurança, a plataforma de assinatura da Microsoft é a chave de assinaturas numa base periódica e, em caso de emergência, pode ser revirada imediatamente. Não existe tempo definido ou garantido entre estes rolos-chave - qualquer aplicação que se integre com a plataforma de identidade da Microsoft deve estar preparada para lidar com um evento de capotamento chave, independentemente da frequência com que possa ocorrer. Se isso não acontecer, e a sua aplicação tentar usar uma chave caducada para verificar a assinatura num token, o pedido de inscrição falhará.  Verificar a cada 24 horas para obter atualizações é uma boa prática, com acelerações (uma vez a cada cinco minutos no máximo) atualizações imediatas do documento chave se um sinal for encontrado com um identificador de chave desconhecido. 
 
-Há sempre mais do que uma chave válida disponível no documento de descoberta OpenID Connect e no documento de metadados da federação. A sua aplicação deve estar preparada para utilizar qualquer uma das chaves especificadas no documento, uma vez que uma chave pode ser enrolada em breve, outra pode ser a sua substituição, e assim por diante.
+Há sempre mais do que uma chave válida disponível no documento de descoberta OpenID Connect e no documento de metadados da federação. A sua aplicação deve estar preparada para utilizar todas e todas as chaves especificadas no documento, uma vez que uma chave pode ser enrolada em breve, outra pode ser a sua substituição, e assim por diante.  O número de chaves presentes pode mudar ao longo do tempo com base na arquitetura interna da plataforma de identidade da Microsoft, uma vez que apoiamos novas plataformas, novas nuvens ou novos protocolos de autenticação. Nem a ordem das chaves na resposta JSON nem a ordem em que foram expostas devem ser consideradas mesquinhas para a sua aplicação. 
+
+As aplicações que suportam apenas uma única chave de assinatura, ou aquelas que requerem atualizações manuais às teclas de assinatura, são inerentemente menos seguras e fiáveis.  Devem ser atualizados para utilizar [bibliotecas-padrão](reference-v2-libraries.md) para garantir que estão sempre a utilizar chaves de assinatura atualizadas, entre outras boas práticas. 
 
 ## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Como avaliar se a sua aplicação será afetada e o que fazer em relação a isso
 A forma como a sua aplicação lida com a capotamento da chave depende de variáveis como o tipo de aplicação ou que protocolo de identidade e biblioteca foi usado. As secções abaixo avaliam se os tipos de aplicações mais comuns são impactados pela capotagem da chave e fornecem orientações sobre como atualizar a aplicação para suportar a capotagem automática ou atualizar manualmente a chave.
@@ -58,7 +60,7 @@ As aplicações de clientes nativos, seja desktop ou mobile, enquadram-se nesta 
 ### <a name="web-applications--apis-accessing-resources"></a><a name="webclient"></a>Aplicações web / APIs que acedem a recursos
 Aplicações que só acedem a recursos (i.e) Microsoft Graph, KeyVault, Outlook API e outras APIs da Microsoft) geralmente só obtêm um token e o transmitem ao proprietário do recurso. Dado que não estão a proteger quaisquer recursos, não inspecionam o símbolo e, por conseguinte, não necessitam de assegurar a sua correta assinatura.
 
-As aplicações web e as APIs web que estão a utilizar o fluxo apenas de aplicações (credenciais de cliente/certificado de cliente), enquadram-se nesta categoria e, portanto, não são impactadas pela capotamento.
+As aplicações web e as APIs web que estão a utilizar o fluxo apenas de aplicações (credenciais de cliente/certificado de cliente) para solicitar que os tokens se enquadram nesta categoria e, portanto, não são impactados pelo capotamento.
 
 ### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Aplicações web / APIs protegendo recursos e construídos usando serviços de aplicações Azure
 A funcionalidade autenticação /Autorização (EasyAuth) da Azure App Services já tem a lógica necessária para lidar automaticamente com a capotagem da chave.
@@ -148,7 +150,7 @@ Se criou uma aplicação web API no Visual Studio 2013 utilizando o modelo da AP
 
 Se configurar manualmente a autenticação, siga as instruções abaixo para aprender a configurar a sua API web para atualizar automaticamente as suas informações-chave.
 
-O seguinte corte de código demonstra como obter as chaves mais recentes do documento de metadados da federação e, em seguida, usar o [Manipulador de Token JWT](/previous-versions/dotnet/framework/security/json-web-token-handler) para validar o token. O código de corte assume que irá utilizar o seu próprio mecanismo de caching para persistir na chave para validar futuras fichas da plataforma de identidade da Microsoft, seja numa base de dados, ficheiro de configuração ou em qualquer outro lugar.
+O seguinte corte de código demonstra como obter as chaves mais recentes do documento de metadados da federação e, em seguida, usar o [Manipulador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O código de corte assume que irá utilizar o seu próprio mecanismo de caching para persistir na chave para validar futuras fichas da plataforma de identidade da Microsoft, seja numa base de dados, ficheiro de configuração ou em qualquer outro lugar.
 
 ```
 using System;
@@ -239,7 +241,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2012
-Se a sua aplicação foi construída no Visual Studio 2012, provavelmente usou a Ferramenta de Identidade e Acesso para configurar a sua aplicação. Também é provável que esteja a utilizar o [Registo de Nomes emitentes validadores (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). O VINR é responsável pela manutenção de informações sobre fornecedores de identidade fidedignos (plataforma de identidade microsoft) e as chaves utilizadas para validar fichas emitidas por eles. O VINR também facilita a atualização automática das informações-chave armazenadas num ficheiro Web.config, descarregando o mais recente documento de metadados da federação associado ao seu diretório, verificando se a configuração está desatualizada com o documento mais recente e atualizando a aplicação para utilizar a nova chave conforme necessário.
+Se a sua aplicação foi construída no Visual Studio 2012, provavelmente usou a Ferramenta de Identidade e Acesso para configurar a sua aplicação. Também é provável que esteja a utilizar o [Registo de Nomes emitentes validadores (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável pela manutenção de informações sobre fornecedores de identidade fidedignos (plataforma de identidade microsoft) e as chaves utilizadas para validar fichas emitidas por eles. O VINR também facilita a atualização automática das informações-chave armazenadas num ficheiro Web.config, descarregando o mais recente documento de metadados da federação associado ao seu diretório, verificando se a configuração está desatualizada com o documento mais recente e atualizando a aplicação para utilizar a nova chave conforme necessário.
 
 Se criou a sua aplicação utilizando qualquer uma das amostras de código ou documentação de passagem fornecida pela Microsoft, a lógica de capotamento da chave já está incluída no seu projeto. Você vai notar que o código abaixo já existe no seu projeto. Se a sua aplicação ainda não tiver esta lógica, siga os passos abaixo para adicioná-la e verificar se está a funcionar corretamente.
 
@@ -288,14 +290,14 @@ Siga os passos abaixo para verificar se a lógica de capotamento da chave está 
 Se construiu uma aplicação em WIF v1.0, não existe nenhum mecanismo fornecido para atualizar automaticamente a configuração da sua aplicação para usar uma nova chave.
 
 * *A maneira mais fácil* Utilize a ferramenta FedUtil incluída no WIF SDK, que pode recuperar o documento mais recente de metadados e atualizar a sua configuração.
-* Atualize a sua aplicação para .NET 4.5, que inclui a versão mais recente do WIF localizada no espaço de nomes do Sistema. Em seguida, pode utilizar o [Registo de Nome do Emitente Validador (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) para realizar atualizações automáticas da configuração da aplicação.
+* Atualize a sua aplicação para .NET 4.5, que inclui a versão mais recente do WIF localizada no espaço de nomes do Sistema. Em seguida, pode utilizar o [Registo de Nome do Emitente Validador (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) para realizar atualizações automáticas da configuração da aplicação.
 * Efetuar uma capotamento manual de acordo com as instruções no final deste documento de orientação.
 
 Instruções para utilizar o FedUtil para atualizar a sua configuração:
 
 1. Verifique se tem o WIF v1.0 SDK instalado na sua máquina de desenvolvimento para o Visual Studio 2008 ou 2010. Pode [descarregá-lo a partir daqui](https://www.microsoft.com/en-us/download/details.aspx?id=4451) se ainda não o tiver instalado.
 2. No Visual Studio, abra a solução e, em seguida, clique com a direita no projeto aplicável e selecione **Metadados da Federação de Atualização**. Se esta opção não estiver disponível, a FedUtil e/ou a WIF v1.0 SDK não foi instalada.
-3. A partir do pedido, selecione **Update** para começar a atualizar os metadados da federação. Se tiver acesso ao ambiente do servidor onde a aplicação está hospedada, pode utilizar opcionalmente o programador automático de [atualização de metadados](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))da FedUtil .
+3. A partir do pedido, selecione **Update** para começar a atualizar os metadados da federação. Se tiver acesso ao ambiente do servidor onde a aplicação está hospedada, pode utilizar opcionalmente o programador automático de [atualização de metadados](https://msdn.microsoft.com/library/ee517272.aspx)da FedUtil .
 4. Clique **em Terminar** para concluir o processo de atualização.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplicações web / APIs protegendo recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos suportados

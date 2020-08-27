@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849937"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948832"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir dispositivos geridos para acesso a aplicações em nuvem com acesso condicional
 
@@ -28,7 +28,7 @@ Este artigo explica como pode configurar políticas de Acesso Condicional que re
 
 A necessidade de dispositivos geridos para acesso a aplicações na nuvem liga o **Acesso Condicional Azure AD** e a gestão de **dispositivos AZure AD** em conjunto. Se ainda não está familiarizado com uma destas áreas, deve ler os seguintes tópicos, primeiro:
 
-- **[Acesso Condicional no Diretório Ativo Azure](../active-directory-conditional-access-azure-portal.md)** - Este artigo fornece-lhe uma visão geral conceptual do Acesso Condicional e da terminologia relacionada.
+- **[Acesso Condicional no Diretório Ativo Azure](./overview.md)** - Este artigo fornece-lhe uma visão geral conceptual do Acesso Condicional e da terminologia relacionada.
 - **[Introdução à gestão de dispositivos no Azure Ative Directory](../devices/overview.md)** - Este artigo dá-lhe uma visão geral das várias opções que tem de colocar os dispositivos sob controlo organizacional. 
 - Para suporte ao Chrome na **Atualização de Criadores do Windows 10 (versão 1703)** ou posterior, instale a extensão das [contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Esta extensão é necessária quando uma política de acesso condicional requer detalhes específicos do dispositivo.
 
@@ -108,7 +108,7 @@ As organizações devem completar os seguintes passos para exigir a utilização
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione **Office 365 (pré-visualização)**.
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
@@ -124,6 +124,6 @@ Ao utilizar o [fluxo OAuth do código do dispositivo,](../develop/v2-oauth2-devi
 
 No Windows 7, iOS, Android, macOS e alguns navegadores web de terceiros, a Azure AD identifica o dispositivo usando um certificado de cliente que é a provisionado quando o dispositivo está registado no Azure AD. Quando um utilizador entra pela primeira vez através do navegador, o utilizador é solicitado a selecionar o certificado. O utilizador final deve selecionar este certificado antes de poder continuar a utilizar o navegador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Antes de configurar uma política de acesso condicional baseada no dispositivo no seu ambiente, deve dar uma olhada nas [melhores práticas de acesso condicional no Diretório Ativo Azure](best-practices.md).

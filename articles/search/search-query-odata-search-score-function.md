@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: c31304228d9629b0df7f7511ecca2616b4891ee7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0a84d0310573a1210e21157102a445fff9244782
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206956"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923981"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Função OData `search.score` em Pesquisa Cognitiva Azure
 
 Quando envia uma consulta para a Azure Cognitive Search sem o parâmetro [ **$orderby,** ](search-query-odata-orderby.md)os resultados que voltarem serão classificados em ordem descendente por pontuação de relevância. Mesmo quando utilizar **$orderby,** a pontuação de relevância será usada para quebrar laços por defeito. No entanto, por vezes é útil utilizar a pontuação de relevância como critérios de classificação inicial, e alguns outros critérios como o desempate. A `search.score` função permite-lhe fazer isto.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 A sintaxe para `search.score` **em $orderby** é `search.score()` . A função `search.score` não requer parâmetros. Pode ser usado com o `asc` especificador ou `desc` de ordem de classificação, assim como qualquer outra cláusula no parâmetro **$orderby.** Pode aparecer em qualquer lugar da lista de critérios de classificação.
 
@@ -46,4 +46,4 @@ Ordenar hotéis em ordem descendente por `search.score` `rating` e, em seguida, 
 
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para pesquisa cognitiva de Azure](search-query-odata-syntax-reference.md)
-- [Documentos de pesquisa &#40;Azure Cognitive Search EST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Documentos de pesquisa &#40;Azure Cognitive Search EST API&#41;](/rest/api/searchservice/Search-Documents)

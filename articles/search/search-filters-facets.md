@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5771a6e615535a9a158e6378cd36b6e0df58bc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084216"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923131"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como construir um filtro de faceta na Pesquisa Cognitiva Azure 
 
@@ -38,12 +38,12 @@ As facetas podem ser calculadas sobre campos de valor único, bem como coleçõe
 
 A faceta é ativada numa base campo por campo quando cria o índice, definindo o `facetable` atributo para `true` . Em geral, deve também definir o `filterable` atributo para esses campos para que a sua `true` aplicação de pesquisa possa filtrar nesses campos com base em facetas que o utilizador final seleciona. 
 
-Ao criar um índice utilizando a API REST, qualquer [tipo de campo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) que possa ser utilizado na navegação facetada é marcado como por `facetable` padrão:
+Ao criar um índice utilizando a API REST, qualquer [tipo de campo](/rest/api/searchservice/supported-data-types) que possa ser utilizado na navegação facetada é marcado como por `facetable` padrão:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ Tipos de campo numérico: `Edm.Int32` `Edm.Int64` ,`Edm.Double`
++ Tipos de campo numérico: `Edm.Int32` `Edm.Int64` , `Edm.Double`
 + Coleções dos tipos acima (por exemplo, `Collection(Edm.String)` `Collection(Edm.Double)` ou)
 
 Não é possível utilizar `Edm.GeographyPoint` ou `Collection(Edm.GeographyPoint)` campos na navegação com face. As facetas funcionam melhor em campos com baixa cardinalidade. Devido à resolução de geo-coordenadas, é raro que quaisquer dois conjuntos de coordenadas sejam iguais num determinado conjunto de dados. Como tal, as facetas não são suportadas para geo-coordenadas. Precisaria de um campo de cidade ou região para enfrentar por local.
@@ -77,11 +77,11 @@ Os atributos de índice que controlam a forma como um campo é utilizado são ad
 ```
 
 > [!Note]
-> Esta definição de índice é copiada a partir de [Criar um índice de pesquisa cognitiva Azure utilizando a API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). É idêntico, exceto para diferenças superficiais nas definições de campo. Os `filterable` `facetable` atributos e atributos são explicitamente adicionados em `category` , , , e `tags` `parkingIncluded` `smokingAllowed` `rating` campos. Na prática, `filterable` e `facetable` seria ativado por padrão nestes campos quando utilizar a API REST. Ao utilizar o .NET SDK, estes atributos devem ser ativados explicitamente.
+> Esta definição de índice é copiada a partir de [Criar um índice de pesquisa cognitiva Azure utilizando a API REST](./search-get-started-powershell.md). É idêntico, exceto para diferenças superficiais nas definições de campo. Os `filterable` `facetable` atributos e atributos são explicitamente adicionados em `category` , , , e `tags` `parkingIncluded` `smokingAllowed` `rating` campos. Na prática, `filterable` e `facetable` seria ativado por padrão nestes campos quando utilizar a API REST. Ao utilizar o .NET SDK, estes atributos devem ser ativados explicitamente.
 
 ## <a name="build-and-load-an-index"></a>Construa e carregue um índice
 
-Um passo intermédio (e talvez óbvio) é que é preciso [construir e preencher o índice](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) antes de formular uma consulta. Mencionamos este passo aqui para a completude. Uma forma de determinar se o índice está disponível é verificando a lista de índices no [portal](https://portal.azure.com).
+Um passo intermédio (e talvez óbvio) é que é preciso [construir e preencher o índice](./search-get-started-dotnet.md#1---create-an-index) antes de formular uma consulta. Mencionamos este passo aqui para a completude. Uma forma de determinar se o índice está disponível é verificando a lista de índices no [portal](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Adicione filtros de faceta a uma consulta
 
@@ -107,7 +107,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-Se o utilizador clicar num valor faceta para um campo de recolha `tags` como, por exemplo, o valor "pool", a sua aplicação deve utilizar a seguinte sintaxe de filtro:`$filter=tags/any(t: t eq 'pool')`
+Se o utilizador clicar num valor faceta para um campo de recolha `tags` como, por exemplo, o valor "pool", a sua aplicação deve utilizar a seguinte sintaxe de filtro: `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Dicas e soluções alternativas
 
@@ -124,5 +124,5 @@ Embora este seja um caso de uso comum, não é algo que a estrutura de navegaç�
 ## <a name="see-also"></a>Ver também
 
 + [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
-+ [Criar Índice REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST)
++ [Criar Índice REST API](/rest/api/searchservice/create-index)
++ [Search Documents REST API](/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST)

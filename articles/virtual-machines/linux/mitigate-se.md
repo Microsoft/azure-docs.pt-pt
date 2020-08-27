@@ -1,6 +1,6 @@
 ---
-title: Orientação para atenuar a execução especulativa em Azure
-description: Orientação para atenuar as vulnerabilidades especulativas de execução em Azure.
+title: Orientação para atenuar a execução especulativa
+description: Saiba mais sobre a mitigação das vulnerabilidades especulativas de execução em Azure.
 services: virtual-machines
 author: cynthn
 keywords: espectro,fusão, espectro
@@ -10,13 +10,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 1bd80ecdb4496f26c2138ac7dfe71500207f57b5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3fe21b522688fab1d5974b6840c31c2ef2d7fe32
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284902"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950311"
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Orientação para atenuar as vulnerabilidades especulativas de execução em Azure
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Orientação para atenuar as vulnerabilidades especulativas de execução de canais laterais
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]
