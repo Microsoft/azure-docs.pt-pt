@@ -3,12 +3,12 @@ title: Restaurar o Estado do Sistema num Servidor windows
 description: Explicação passo a passo para restaurar o Estado do Sistema do Servidor do Windows a partir de uma cópia de segurança no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1adf20b08a5c7f93108b3af5077afae9555f2219
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827108"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892546"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para o Servidor do Windows
 
@@ -181,7 +181,7 @@ Este artigo será apenas discutido o primeiro cenário, que exige uma restauraç
     * Siga as instruções acima para aplicar o [Estado do Sistema restaurado num Servidor do Windows](#apply-restored-system-state-on-a-windows-server) com o utilitário de backup do Servidor do Windows.
 
         >[!NOTE]
-        >Se estiver a restaurar todos os dados do Ative Directory (e não houver controladores de domínio funcional na floresta), no passo 9 acima certifique-se de selecionar **Executar uma restauração autoritária de ficheiros ative directory**.
+        >Se estiver a restaurar todos os dados do Ative Directory (e não houver controladores de domínio a funcionar na floresta), no passo 9 acima certifique-se de selecionar **Executar uma restauração autoritária de ficheiros ative directory**.
 
     * Utilize o utilitário [wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) para executar o restauro a partir da linha de comando.
 

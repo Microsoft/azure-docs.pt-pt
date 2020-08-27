@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 2e62296e95a7b412a24c9d0c151c2bc9175ab4b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf7ae504e57d0b7947f4ff7dc48d50b2e0141eea
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529749"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936644"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorizar o estado e os resultados do indexante de pesquisa cognitiva do Azure
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre a investigação de erros e avisos indexante
 
 ## <a name="monitor-using-rest-apis"></a>Monitorize usando APIs de REST
 
-Pode recuperar o estado e o histórico de execução de um indexante utilizando o [comando 'Obter Indexer Status':](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
+Pode recuperar o estado e o histórico de execução de um indexante utilizando o [comando 'Obter Indexer Status':](/rest/api/searchservice/get-indexer-status)
 
 ```http
 GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
@@ -125,7 +125,7 @@ Cada execução do indexante também tem o seu próprio estatuto que indica se e
 
 Quando um indexante é reiniciado para atualizar o seu estado de rastreio de alterações, uma entrada separada do histórico de execução é adicionada com um estado **de Reset.**
 
-Para obter mais detalhes sobre códigos de estado e dados de monitorização do indexante, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Para obter mais detalhes sobre códigos de estado e dados de monitorização do indexante, consulte [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
@@ -184,8 +184,8 @@ Cada execução do indexante também tem o seu próprio estatuto para saber se e
 
 Quando um indexante é reiniciado para atualizar o seu estado de rastreio de alterações, uma entrada de histórico separada é adicionada com um estado **de Reset.**
 
-Para obter mais detalhes sobre códigos de estado e informações de monitorização do indexante, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) na API REST.
+Para obter mais detalhes sobre códigos de estado e informações de monitorização do indexante, consulte [GetIndexerStatus](/rest/api/searchservice/get-indexer-status) na API REST.
 
 Os detalhes sobre erros ou avisos específicos do documento podem ser recuperados enumerando as listas `IndexerExecutionResult.Errors` e `IndexerExecutionResult.Warnings` . .
 
-Para obter mais informações sobre as classes .NET SDK utilizadas para monitorizar os indexantes, consulte [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+Para obter mais informações sobre as classes .NET SDK utilizadas para monitorizar os indexantes, consulte [IndexerExecutionInfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

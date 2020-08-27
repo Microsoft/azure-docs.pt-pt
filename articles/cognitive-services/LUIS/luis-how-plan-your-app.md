@@ -3,12 +3,12 @@ title: Planeie a sua app - LUIS
 description: Delineie as intenções e entidades de aplicações relevantes e, em seguida, crie os seus planos de aplicação em Serviços Inteligentes de Compreensão de Linguagem (LUIS).
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 8141e2a47e2a550a5dba50bc22117649c0bd04e2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 38d80a77303e248ab137f87f8063b5cbc358f51a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340237"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892920"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeie o seu esquema de aplicações LUIS com domínio sujeito e extração de dados
 
@@ -64,7 +64,7 @@ Considere as seguintes duas expressões que são muito próximas considerando a 
 
 Em vez de ter duas intenções separadas, crie uma única intenção com uma `FlightAction` entidade de aprendizagem automática. A entidade de machine learning deve extrair os detalhes da ação tanto para um agendamento como para um pedido de cancelamento, bem como para uma origem ou localização de destino.
 
-A `FlightAction` entidade seria estruturada no seguinte esquema de suedo-schema da entidade de aprendizagem automática e subentidades:
+A `FlightAction` entidade seria estruturada no pseudo-esquema da entidade e subentências de machine learning:
 
 * Reação de Voo
     * Ação
@@ -73,7 +73,7 @@ A `FlightAction` entidade seria estruturada no seguinte esquema de suedo-schema 
 
 Para ajudar a extração adicione características às subentidades. Escolherá as suas funcionalidades com base no vocabulário que espera ver nas declarações dos utilizadores e nos valores que pretende devolvidos na resposta de previsão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aprender o ciclo de desenvolvimento LUIS](luis-concept-app-iteration.md)

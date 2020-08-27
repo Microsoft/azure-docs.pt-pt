@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552520"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935080"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitor solicita pedidos de consulta em Azure Cognitive Search
 
@@ -39,7 +39,7 @@ O volume é medido como **Consultas de Pesquisa Por Segundo** (QPS), uma métric
 | Tipo de Agregação | Descrição |
 |------------------|-------------|
 | Média | O número médio de segundos dentro de um minuto durante o qual ocorreu a execução de consultas.|
-| Contagem | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
+| de palavras | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
 | Máximo | O maior número de consultas de pesquisa por segundo registados durante um minuto. |
 | Mínimo | O menor número de consultas de pesquisa por segundo registado durante um minuto.  |
 | Soma | A soma de todas as consultas executadas dentro de um minuto.  |
@@ -57,7 +57,7 @@ Em todo o serviço, o desempenho da consulta é medido como latência de pesquis
 | Tipo de Agregação | Latência | 
 |------------------|---------|
 | Média | Duração média da consulta em milissegundos. | 
-| Contagem | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
+| de palavras | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
 | Máximo | Consulta de maior duração na amostra. | 
 | Mínimo | Consulta de funcionamento mais curta na amostra.  | 
 | Total | Tempo total de execução de todas as consultas na amostra, executando dentro do intervalo (um minuto).  |
@@ -85,7 +85,7 @@ Para confirmar consultas estranguladas, use a métrica **das consultas de pesqui
 | Tipo de Agregação | Limitação |
 |------------------|-----------|
 | Média | Percentagem de consultas diminuiu dentro do intervalo. |
-| Contagem | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
+| de palavras | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
 | Máximo | Percentagem de consultas diminuiu dentro do intervalo.|
 | Mínimo | Percentagem de consultas diminuiu dentro do intervalo. |
 | Total | Percentagem de consultas diminuiu dentro do intervalo. |
@@ -100,7 +100,7 @@ Na imagem seguinte, o primeiro número é a contagem (ou número de métricas en
 
 Para uma rápida análise dos números atuais, o **separador monitor na** página de visão geral do serviço mostra três métricas (**Procura de latência,** **consultas de pesquisa por segundo (por unidade de pesquisa)**, **Percentagens de pesquisa aceleradas**) sobre intervalos fixos medidos em horas, dias e semanas, com a opção de alterar o tipo de agregação.
 
-Para uma exploração mais profunda, o explorador de métricas abertas a partir do menu **de Monitorização** para que possa em camadas, zoom e visualizar dados para explorar tendências ou anomalias. Saiba mais sobre o explorador de métricas completando este [tutorial na criação de um gráfico de métricas.](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer)
+Para uma exploração mais profunda, o explorador de métricas abertas a partir do menu **de Monitorização** para que possa em camadas, zoom e visualizar dados para explorar tendências ou anomalias. Saiba mais sobre o explorador de métricas completando este [tutorial na criação de um gráfico de métricas.](../azure-monitor/learn/tutorial-metrics-explorer.md)
 
 1. Na secção de Monitorização, selecione **Métricas** para abrir o explorador de métricas com o âmbito definido para o seu serviço de pesquisa.
 
@@ -187,7 +187,7 @@ Se especificar uma notificação por e-mail, receberá um e-mail do "Microsoft A
 
 Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, reveja os fundamentos da monitorização do serviço de pesquisa para saber mais sobre toda a gama de capacidades de supervisão.
 

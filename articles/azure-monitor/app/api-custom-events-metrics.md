@@ -3,13 +3,13 @@ title: Aplicações Insights API para eventos e métricas personalizados Microso
 description: Insira algumas linhas de código no seu dispositivo ou aplicação de ambiente de trabalho, página web ou serviço, para rastrear problemas de utilização e diagnóstico.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 430ec96006ed8f564ea5bbd0a28beca858ebe1ab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f60fdf9164d09b10d12ada7481edb503cd57a411
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366877"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936576"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -41,7 +41,7 @@ Se ainda não tem uma referência sobre a Aplicação Insights SDK:
   * [projeto ASP.NET](./asp-net.md)
   * [Projeto ASP.NET Core](./asp-net-core.md)
   * [Projeto Java](./java-get-started.md)
-  * [projetoNode.js](./nodejs.md)
+  * [ projetoNode.js](./nodejs.md)
   * [JavaScript em cada página web](./javascript.md) 
 * No seu dispositivo ou código do servidor web, inclua:
 
@@ -59,7 +59,7 @@ Obtenha um exemplo de `TelemetryClient` (exceto em JavaScript em páginas web):
 
 Para [ASP.NET](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) aplicações Core e não HTTP/Worker para aplicações [.NET/.NET Core,](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) recomenda-se obter uma instância `TelemetryClient` do recipiente de injeção de dependência, conforme explicado na respetiva documentação.
 
-Se utilizar AzureFunctions v2+ ou Azure WebJobs v3+ - siga este documento:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+Se utilizar AzureFunctions v2+ ou Azure WebJobs v3+ - siga este documento: https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
 *C#*
 
@@ -204,8 +204,8 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 A telemetria está disponível na `customMetrics` tabela no Application Insights [Analytics](../log-query/log-query-overview.md). Cada linha representa uma chamada para a `trackMetric(..)` sua aplicação.
 
-* `valueSum`- Esta é a soma das medições. Para obter o valor médio, divida `valueCount` por.
-* `valueCount`- O número de medições que foram agregadas nesta `trackMetric(..)` chamada.
+* `valueSum` - Esta é a soma das medições. Para obter o valor médio, divida `valueCount` por.
+* `valueCount` - O número de medições que foram agregadas nesta `trackMetric(..)` chamada.
 
 ## <a name="page-views"></a>Vistas da página
 
@@ -825,7 +825,7 @@ Note que:
 * Quando extrai um valor das medidas personalizadas JSON, tem um tipo dinâmico, pelo que deve lanhá-lo `tostring` ou `todouble` .
 * Para ter em conta a possibilidade de [amostragem,](./sampling.md)deve `sum(itemCount)` utilizar, não `count()` .
 
-## <a name="timing-events"></a><a name="timed"></a>Eventos de cronometragem
+## <a name="timing-events"></a><a name="timed"></a> Eventos de cronometragem
 
 Às vezes, queremos traçar o tempo que demora a realizar uma ação. Por exemplo, podes querer saber quanto tempo os utilizadores demoram a considerar escolhas num jogo. Pode utilizar o parâmetro de medição para isto.
 
@@ -972,7 +972,7 @@ applicationInsights.setup()
     .start();
 ```
 
-Para desativar estes colecionadores após a inicialização, utilize o objeto de configuração:`applicationInsights.Configuration.setAutoCollectRequests(false)`
+Para desativar estes colecionadores após a inicialização, utilize o objeto de configuração: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
 ## <a name="developer-mode"></a><a name="debug"></a>Modo de desenvolvimento
 
@@ -1001,7 +1001,7 @@ applicationInsights.setup("ikey")
 applicationInsights.defaultClient.config.maxBatchSize = 0;
 ```
 
-## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a>Definição da chave de instrumentação para telemetria personalizada selecionada
+## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a> Definição da chave de instrumentação para telemetria personalizada selecionada
 
 *C#*
 
@@ -1011,7 +1011,7 @@ telemetry.InstrumentationKey = "---my key---";
 // ...
 ```
 
-## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Chave de instrumentação dinâmica
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Chave de instrumentação dinâmica
 
 Para evitar misturar telemetria a partir de ambientes de desenvolvimento, teste e produção, pode [criar recursos separados de Insights de Aplicação](./create-new-resource.md) e alterar as suas chaves, dependendo do ambiente.
 

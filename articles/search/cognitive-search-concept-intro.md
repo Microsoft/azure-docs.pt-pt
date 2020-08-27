@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319053"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935505"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -29,7 +29,7 @@ As competências incorporadas enquadram-se nestas categorias:
 
 ![Diagrama do gasoduto de enriquecimento](./media/cognitive-search-intro/cogsearch-architecture.png "Visão geral do gasoduto de enriquecimento")
 
-As competências incorporadas na Pesquisa Cognitiva Azure baseiam-se em modelos pré-treinados de aprendizagem automática em APIs de Serviços Cognitivos: [Visão computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [Análise de Texto.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) Pode anexar um recurso de Serviços Cognitivos se quiser aproveitar estes recursos durante o processamento de conteúdos.
+As competências incorporadas na Pesquisa Cognitiva Azure baseiam-se em modelos pré-treinados de aprendizagem automática em APIs de Serviços Cognitivos: [Visão computacional](../cognitive-services/computer-vision/index.yml) e [Análise de Texto.](../cognitive-services/text-analytics/overview.md) Pode anexar um recurso de Serviços Cognitivos se quiser aproveitar estes recursos durante o processamento de conteúdos.
 
 O processamento de linguagem natural e de imagem é aplicado durante a fase de ingestão de dados, com os resultados a tornarem-se parte da composição de um documento num índice pesquisável na Pesquisa Cognitiva do Azure. Os dados são obtidos como um conjunto de dados Azure e, em seguida, empurrados através de um pipeline de indexação usando [as habilidades incorporadas](cognitive-search-predefined-skills.md) que você precisa.  
 
@@ -57,9 +57,9 @@ Um [skillset](cognitive-search-defining-skillset.md) que é montado usando habil
 
 ### <a name="more-about-custom-skills"></a>Mais sobre habilidades personalizadas
 
-As habilidades personalizadas podem suportar cenários mais complexos, tais como reconhecer formulários ou deteção de entidades personalizadas usando um modelo que fornece e embrulha na [interface web de habilidades personalizadas.](cognitive-search-custom-skill-interface.md) Vários exemplos de competências personalizadas incluem [Formas Recogniser,](/azure/cognitive-services/form-recognizer/overview)integração da [API de Pesquisa de Entidade Bing,](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)e [reconhecimento de entidades personalizadas.](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
+As habilidades personalizadas podem suportar cenários mais complexos, tais como reconhecer formulários ou deteção de entidades personalizadas usando um modelo que fornece e embrulha na [interface web de habilidades personalizadas.](cognitive-search-custom-skill-interface.md) Vários exemplos de competências personalizadas incluem [Formas Recogniser,](../cognitive-services/form-recognizer/overview.md)integração da [API de Pesquisa de Entidade Bing,](./cognitive-search-create-custom-skill-example.md)e [reconhecimento de entidades personalizadas.](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
 
-## <a name="steps-in-an-enrichment-pipeline"></a>Passos num oleoduto de enriquecimento<a name="enrichment-steps"></a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Passos num oleoduto de enriquecimento <a name="enrichment-steps"></a>
 
 Um gasoduto de enriquecimento baseia-se em [*indexadores.*](search-indexer-overview.md) Os indexantes preenchem um índice baseado em mapeamentos campo-a-campo entre o índice e a sua fonte de dados para a quebra de documentos. Competências, agora ligadas a indexantes, intercetam e enriquecem documentos de acordo com as competências que define. Uma vez indexado, pode aceder ao conteúdo através de pedidos de pesquisa através de todos os [tipos de consulta suportados pela Azure Cognitive Search](search-query-overview.md).  Se você é novo em indexadores, esta secção leva você através dos degraus.
 
@@ -83,7 +83,7 @@ Internamente, o gasoduto gera uma coleção de documentos enriquecidos. Pode dec
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Adicione um elemento knowledgeStore para salvar enriquecimentos
 
-[Search REST api-version=2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) estende habilidades com uma `knowledgeStore` definição que fornece uma conexão de armazenamento Azure e projeções que descrevem como os enriquecimentos são armazenados. Isto é além do seu índice. Num gasoduto de IA padrão, os documentos enriquecidos são transitórios, utilizados apenas durante a indexação e depois descartados. Com a loja de conhecimento, os documentos enriquecidos são preservados. Para mais informações, consulte [a Loja de Conhecimento.](knowledge-store-concept-intro.md)
+[Search REST api-version=2020-06-30](/rest/api/searchservice/) estende habilidades com uma `knowledgeStore` definição que fornece uma conexão de armazenamento Azure e projeções que descrevem como os enriquecimentos são armazenados. Isto é além do seu índice. Num gasoduto de IA padrão, os documentos enriquecidos são transitórios, utilizados apenas durante a indexação e depois descartados. Com a loja de conhecimento, os documentos enriquecidos são preservados. Para mais informações, consulte [a Loja de Conhecimento.](knowledge-store-concept-intro.md)
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Passo 3: Índice de pesquisa e acesso baseado em consultas
 
@@ -99,13 +99,13 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 
 1. Subestraça os seus dados de origem Azure numa amostra representativa. A indexação leva tempo, por isso comece com um pequeno conjunto de dados representativo e, em seguida, acumuça-o incrementalmente à medida que a sua solução amadurece.
 
-1. Crie um [objeto de origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) na Pesquisa Cognitiva Azure para fornecer uma cadeia de ligação para a recuperação de dados.
+1. Crie um [objeto de origem de dados](/rest/api/searchservice/create-data-source) na Pesquisa Cognitiva Azure para fornecer uma cadeia de ligação para a recuperação de dados.
 
-1. Crie um [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com passos de enriquecimento.
+1. Crie um [skillset](/rest/api/searchservice/create-skillset) com passos de enriquecimento.
 
-1. Defina o [esquema de índice.](https://docs.microsoft.com/rest/api/searchservice/create-index) A recolha *fields* inclui campos a partir de dados de origem. Também deve retirar campos adicionais para manter valores gerados para o conteúdo criado durante o enriquecimento.
+1. Defina o [esquema de índice.](/rest/api/searchservice/create-index) A recolha *fields* inclui campos a partir de dados de origem. Também deve retirar campos adicionais para manter valores gerados para o conteúdo criado durante o enriquecimento.
 
-1. Defina o [indexante](https://docs.microsoft.com/rest/api/searchservice/create-indexer) referindo a fonte de dados, skillset e índice.
+1. Defina o [indexante](/rest/api/searchservice/create-indexer) referindo a fonte de dados, skillset e índice.
 
 1. Dentro do indexador, adicione *outputFieldMappings*. Esta secção mapeia a saída do skillset (no passo 3) para os campos de entradas no esquema de índice (no passo 4).
 

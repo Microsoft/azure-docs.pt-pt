@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f1e19fd41b4d98cb401582cd86232d8ada25733
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76838263"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935522"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informação de imagens em cenários de enriquecimento de IA
 
@@ -42,7 +42,7 @@ Descreva o parâmetro **parsingMode** para `json` (para indexar cada bolha como 
 
 O padrão de 2000 pixels para as imagens normalizadas a largura e altura máxima baseia-se nos tamanhos máximos suportados pela [habilidade de OCR](cognitive-search-skill-ocr.md) e pela habilidade de análise de [imagem](cognitive-search-skill-image-analysis.md). A [habilidade OCR](cognitive-search-skill-ocr.md) suporta uma largura e altura máximas de 4200 para línguas não inglesas, e 10000 para inglês.  Se aumentar os limites máximos, o processamento pode falhar em imagens maiores, dependendo da definição de skillset e da linguagem dos documentos. 
 
-Especifica a imagemAcção na [definição do indexante](https://docs.microsoft.com/rest/api/searchservice/create-indexer) da seguinte forma:
+Especifica a imagemAcção na [definição do indexante](/rest/api/searchservice/create-indexer) da seguinte forma:
 
 ```json
 {
@@ -213,8 +213,8 @@ Como ajudante, se precisar de transformar coordenadas normalizadas para o espaç
         }
 ```
 
-## <a name="see-also"></a>Veja também
-+ [Criar indexante (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+## <a name="see-also"></a>Ver também
++ [Criar indexante (REST)](/rest/api/searchservice/create-indexer)
 + [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md)
 + [Habilidade de OCR](cognitive-search-skill-ocr.md)
 + [Habilidade de fusão de texto](cognitive-search-skill-textmerger.md)

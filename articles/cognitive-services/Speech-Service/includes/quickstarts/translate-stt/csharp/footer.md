@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Traduzir discurso-texto, C# (.NET Framework Windows) - Serviço de fala'
+title: 'Quickstart: Traduzir discurso-a-texto, C# (.NET Framework Windows) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: a04932f409b97cd3e4e1991e51968de1f9e15184
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 942ca90b50cd7de03401d2b32044a66d5b846c35
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75466985"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925695"
 ---
 > [!div class="nextstepaction"]
-> [Explore as amostras de C# no GitHub](https://aka.ms/speech/github-csharp)
+> [Explore as amostras C# no GitHub](https://aka.ms/speech/github-csharp)

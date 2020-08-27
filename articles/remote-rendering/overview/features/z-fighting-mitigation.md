@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 017bda3f29f70448504650965a0f19bbaf5852bd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022423"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892716"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de combate Z
 
@@ -42,13 +42,13 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 ```cpp
 void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 {
-    ApiHandle<ZFightingMitigationSettings> settings = *session->Actions()->ZFightingMitigationSettings();
+    ApiHandle<ZFightingMitigationSettings> settings = session->Actions()->GetZFightingMitigationSettings();
 
     // enabling z-fighting mitigation
-    settings->Enabled(true);
+    settings->SetEnabled(true);
 
     // enabling checkerboard highlighting of z-fighting potential
-    settings->Highlighting(highlight);
+    settings->SetHighlighting(highlight);
 }
 ```
 
@@ -76,7 +76,7 @@ A mitigação proporcionada de luta z é um grande esforço. Não há garantias 
 * Permitir a mitigação do combate z incorre pouco a nenhuma sobrecarga de desempenho.
 * Além disso, permitir a sobreposição de luta de z incorrerá numa sobrecarga de desempenho não trivial, embora possa variar dependendo da cena.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Modos de composição](../../concepts/rendering-modes.md)
 * [Reprojeção da última fase](late-stage-reprojection.md)

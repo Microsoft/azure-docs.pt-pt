@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260989"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935777"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Pesquisa parcial de prazo e padrões com caracteres especiais (wildcard, regex, padrões)
 
@@ -51,7 +51,7 @@ Quando precisa de pesquisar em fragmentos ou padrões ou caracteres especiais, p
 + Construir e testar o índice
 
 > [!TIP]
-> Avaliar os analisadores é um processo iterativo que requer reconstruções frequentes de índices. Pode facilitar este passo utilizando o Carteiro, as APIs REST para [Criar Índice,](https://docs.microsoft.com/rest/api/searchservice/create-index) [Eliminar Índice,](https://docs.microsoft.com/rest/api/searchservice/delete-index)[Documentos de Carga](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)e [Documentos de Busca](https://docs.microsoft.com/rest/api/searchservice/search-documents). Para documentos de carga, o organismo de pedido deve conter um pequeno conjunto de dados representativos que pretende testar (por exemplo, um campo com números de telefone ou códigos de produto). Com estas APIs na mesma coleção do Carteiro, você pode pedalar através destes passos rapidamente.
+> Avaliar os analisadores é um processo iterativo que requer reconstruções frequentes de índices. Pode facilitar este passo utilizando o Carteiro, as APIs REST para [Criar Índice,](/rest/api/searchservice/create-index) [Eliminar Índice,](/rest/api/searchservice/delete-index)[Documentos de Carga](/rest/api/searchservice/addupdate-or-delete-documents)e [Documentos de Busca](/rest/api/searchservice/search-documents). Para documentos de carga, o organismo de pedido deve conter um pequeno conjunto de dados representativos que pretende testar (por exemplo, um campo com números de telefone ou códigos de produto). Com estas APIs na mesma coleção do Carteiro, você pode pedalar através destes passos rapidamente.
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para diferentes cenários
 
@@ -85,7 +85,7 @@ Ao escolher um analisador que produz tokens de longo prazo, os seguintes analisa
 | [espaço branco](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa-se apenas em espaços brancos. Os termos que incluem traços ou outros caracteres são tratados como um único símbolo. |
 | [analisador personalizado](index-add-custom-analyzers.md) | (recomendado) A criação de um analisador personalizado permite especificar tanto o tokenizer como o filtro token. Os analisadores anteriores devem ser utilizados como tal. Um analisador personalizado permite-lhe escolher quais os tokenizers e filtros simbólicos para usar. <br><br>Uma combinação recomendada é o [tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) de [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)com um filtro de ficha minúscula . Por si só, o [analisador de palavras-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinido não diminui qualquer texto maiústário, o que pode fazer com que as consultas falhem. Um analisador personalizado dá-lhe um mecanismo para adicionar o filtro de token em minúsculas. |
 
-Se estiver a utilizar uma ferramenta de teste web de API como o Carteiro, pode adicionar a [chamada de RESE DO Analisador de Teste](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para inspecionar a saída tokenizada.
+Se estiver a utilizar uma ferramenta de teste web de API como o Carteiro, pode adicionar a [chamada de RESE DO Analisador de Teste](/rest/api/searchservice/test-analyzer) para inspecionar a saída tokenizada.
 
 Deve ter um índice populoso para trabalhar. Dado um índice existente e um campo contendo traços ou termos parciais, você pode experimentar vários analisadores em termos específicos para ver que fichas são emitidas.  
 
@@ -160,7 +160,7 @@ Quer esteja a avaliar os analisadores ou a avançar com uma configuração espec
 
 Os analisadores incorporados ou predefinidos podem ser especificados pelo nome numa `analyzer` propriedade de uma definição de campo, sem necessidade de configuração adicional no índice. O exemplo a seguir demonstra como definiria o `whitespace` analisador num campo. 
 
-Para outros cenários e para saber mais sobre outros analisadores incorporados, consulte [a lista de analisadores predefinidos.](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference) 
+Para outros cenários e para saber mais sobre outros analisadores incorporados, consulte [a lista de analisadores predefinidos.](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference) 
 
 ```json
     {
@@ -222,19 +222,19 @@ Depois de definir um índice com analisadores e definições de campo que suport
 
 As secções anteriores explicaram a lógica. Esta secção passa por cada API que deve ligar ao testar a sua solução. Como já foi dito anteriormente, se utilizar uma ferramenta de teste web interativa, como o Carteiro, pode passar por estas tarefas rapidamente.
 
-+ [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index) remove um índice existente com o mesmo nome para que possa recriá-lo.
++ [Delete Index](/rest/api/searchservice/delete-index) remove um índice existente com o mesmo nome para que possa recriá-lo.
 
-+ [O Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) cria a estrutura de índice no seu serviço de pesquisa, incluindo definições de analisador e campos com uma especificação de analisador.
++ [O Create Index](/rest/api/searchservice/create-index) cria a estrutura de índice no seu serviço de pesquisa, incluindo definições de analisador e campos com uma especificação de analisador.
 
-+ [Documentos de Carga](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importa documentos com a mesma estrutura que o seu índice, bem como conteúdo pesmável. Após este passo, o seu índice está pronto para consultar ou testar.
++ [Documentos de Carga](/rest/api/searchservice/addupdate-or-delete-documents) importa documentos com a mesma estrutura que o seu índice, bem como conteúdo pesmável. Após este passo, o seu índice está pronto para consultar ou testar.
 
-+ [O Analisador de Testes](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) foi introduzido no [Choose a analyzer](#choose-an-analyzer). Teste algumas das cordas do seu índice usando uma variedade de analisadores para entender como os termos são tokenizados.
++ [O Analisador de Testes](/rest/api/searchservice/test-analyzer) foi introduzido no [Choose a analyzer](#choose-an-analyzer). Teste algumas das cordas do seu índice usando uma variedade de analisadores para entender como os termos são tokenizados.
 
-+ [Os Documentos de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) explicam como construir um pedido de consulta, utilizando [sintaxe simples](query-simple-syntax.md) ou [sintaxe Lucene completa](query-lucene-syntax.md) para expressões wildcard e regulares.
++ [Os Documentos de Pesquisa](/rest/api/searchservice/search-documents) explicam como construir um pedido de consulta, utilizando [sintaxe simples](query-simple-syntax.md) ou [sintaxe Lucene completa](query-lucene-syntax.md) para expressões wildcard e regulares.
 
   Para consultas parciais, como consultar "3-6214" para encontrar uma correspondência em "+1 (425) 703-6214", pode utilizar a sintaxe simples: `search=3-6214&queryType=simple` .
 
-  Para consultas de infixo e sufixo, tais como consulta "num" ou "numérico para encontrar uma correspondência em "alfanumérico", utilize a sintaxe lucene completa e uma expressão regular:`search=/.*num.*/&queryType=full`
+  Para consultas de infixo e sufixo, tais como consulta "num" ou "numérico para encontrar uma correspondência em "alfanumérico", utilize a sintaxe lucene completa e uma expressão regular: `search=/.*num.*/&queryType=full`
 
 ## <a name="tune-query-performance"></a>Otimizar o desempenho de consultas
 
@@ -281,11 +281,11 @@ Como pode imaginar, a tokenização adicional resulta num índice maior. Se tive
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo explica como os analisadores contribuem para problemas de consulta e para resolver problemas de consulta. Como passo seguinte, analise mais de perto o impacto do analisador no processamento de indexação e consulta. Em particular, considere usar a API de Texto de Análise para devolver a saída tokenizada para que possa ver exatamente o que um analisador está a criar para o seu índice.
 
 + [Analisadores de idiomas](search-language-support.md)
 + [Analisadores para processamento de texto em Pesquisa Cognitiva Azure](search-analyzers.md)
-+ [Analisar API de texto (REST)](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
++ [Analisar API de texto (REST)](/rest/api/searchservice/test-analyzer)
 + [Como funciona a pesquisa completa de texto (arquitetura de consulta)](search-lucene-query-architecture.md)

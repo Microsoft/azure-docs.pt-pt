@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: bc1805202696fda2d57374e08e269045e1fe044c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a198275f850b551b1e571064b3c676de4afa0c10
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226299"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925548"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -125,6 +126,6 @@ TRANSLATED into 'de': Wie ist das Wetter in Seattle?
 TRANSLATED into 'fr': Quel temps fait-il à Seattle ?
 ````
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

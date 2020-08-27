@@ -2,15 +2,16 @@
 title: Azure Application Insights - Coleção Automática de Dependência / Microsoft Docs
 description: Application Insights recolhem e visualizam automaticamente dependências
 ms.topic: reference
+ms.custom: devx-track-dotnet
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ca1c63f042bd06c19f232c2ff8170d23741e73f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324187"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936440"
 ---
 # <a name="dependency-auto-collection"></a>Coleção automática da dependência
 
@@ -23,8 +24,8 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | formas web ASP.NET | 4.5+ |
 | ASP.NET MVC | 4+ |
 | ASP.NET WebAPI | 4.5+ |
-| Núcleo de ASP.NET | 1.1+ |
-| <b>Bibliotecas de comunicação</b> |
+| ASP.NET Core | 1.1+ |
+| <b> Bibliotecas de comunicação</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
 | [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 - última libertação estável. (Ver nota abaixo.)
@@ -43,8 +44,8 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | [Tomcat](https://tomcat.apache.org/) | 7, 8 | 
 | [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
-| <b>Quadros de aplicativos</b> |  |
-| [Spring](https://spring.io/) | 3,0 |
+| <b>Quadros de aplicativos </b> |  |
+| [Spring](https://spring.io/) | 3.0 |
 | [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
 | Java Servlet | 3.1+ |
 | <b>Bibliotecas de comunicação</b> |  |
@@ -53,7 +54,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
 | [Postgresql (Suporte Beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
-| [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
+| [MySQL]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Bibliotecas de exploração madeireira</b> | |
 | [Logback](https://logback.qos.ch/) | 1+ |
 | [Log4j](https://logging.apache.org/log4j/) | 1.2+ |

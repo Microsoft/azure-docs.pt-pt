@@ -10,14 +10,14 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 699f2c3b16346a88bdd5828c32dc64225a712e05
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0a0f501f56f7537923f301ed41e4c044cf6ec71c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852043"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936878"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Quickstart: Use a biblioteca de clientes Da Visão de Computador
 

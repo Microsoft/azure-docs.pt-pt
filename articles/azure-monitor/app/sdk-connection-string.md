@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 375929a983c5dfea01a88fb64fd5ab19bf105c0c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 944257c93e00dca77507f26db15f7bf45fbb387e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383635"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936423"
 ---
 # <a name="connection-strings"></a>Cadeias de ligação
 
@@ -56,13 +56,13 @@ A ligação tem um comprimento máximo suportado de 4096 caracteres.
 
 #### <a name="key-value-pairs"></a>Pares chave-valor
 
-A cadeia de ligação consiste numa lista de configurações representadas como pares de valor-chave separados por pontos e vírgulas:`key1=value1;key2=value2;key3=value3`
+A cadeia de ligação consiste numa lista de configurações representadas como pares de valor-chave separados por pontos e vírgulas: `key1=value1;key2=value2;key3=value3`
 
-#### <a name="syntax"></a>Sintaxe
+#### <a name="syntax"></a>Syntax
 
 - `InstrumentationKey`(ex: 00000000-0000-0000-0000-0000000000000000000000000000)  A cadeia de ligação é um campo **necessário.**
-- `Authorization`(ex: ikey) (Esta configuração é opcional porque hoje só apoiamos a autorização ikey.)
-- `EndpointSuffix`(ex: applicationinsights.azure.cn) A definição do sufixo do ponto final instrui a nuvem Azure a que se conecta. O SDK reunirá o resto do ponto final para serviços individuais.
+- `Authorization` (ex: ikey) (Esta configuração é opcional porque hoje só apoiamos a autorização ikey.)
+- `EndpointSuffix` (ex: applicationinsights.azure.cn) A definição do sufixo do ponto final instrui a nuvem Azure a que se conecta. O SDK reunirá o resto do ponto final para serviços individuais.
 - Pontos finais explícitos.
   Qualquer serviço pode ser explicitamente ultrapassado na cadeia de ligação.
    - `IngestionEndpoint``https://dc.applicationinsights.azure.com`(ex)
@@ -83,7 +83,7 @@ Aqui está uma lista de sufixos válidos
 - applicationinsights.us
 
 
-Consulte também:https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+Consulte também: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
 
 
 ##### <a name="valid-prefixes"></a>Prefixos válidos
@@ -107,10 +107,10 @@ Neste exemplo, apenas foi definida a Chave de Instrumentação.
 - Regime de autorização falha no "ikey" 
 - Chave de instrumentação: 0000000-0000-0000-0000-0000-0000000000000000000
 - Os URIs de serviço regional baseiam-se nos incumprimentos da [SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e ligar-se-ão ao Azure global público:
-   - Ingestão:`https://dc.services.visualstudio.com/`
-   - Métricas ao vivo:`https://rt.services.visualstudio.com/`
-   - Perfilador:`https://agent.azureserviceprofiler.net/`
-   - Debugger:`https://agent.azureserviceprofiler.net/`
+   - Ingestão: `https://dc.services.visualstudio.com/`
+   - Métricas ao vivo: `https://rt.services.visualstudio.com/`
+   - Perfilador: `https://agent.azureserviceprofiler.net/`
+   - Debugger: `https://agent.azureserviceprofiler.net/`
 
 
 
@@ -123,10 +123,10 @@ Neste exemplo, esta cadeia de ligação especifica o sufixo do ponto final e o S
 - Regime de autorização falha no "ikey" 
 - Chave de instrumentação: 0000000-0000-0000-0000-0000-0000000000000000000
 - As URI de serviço regional baseiam-se no sufixo de ponto final fornecido: 
-   - Ingestão:`https://dc.ai.contoso.com`
-   - Métricas ao vivo:`https://live.ai.contoso.com`
-   - Perfilador:`https://profiler.ai.contoso.com`
-   - Debugger:`https://snapshot.ai.contoso.com`  
+   - Ingestão: `https://dc.ai.contoso.com`
+   - Métricas ao vivo: `https://live.ai.contoso.com`
+   - Perfilador: `https://profiler.ai.contoso.com`
+   - Debugger: `https://snapshot.ai.contoso.com`  
 
 
 
@@ -139,10 +139,10 @@ Neste exemplo, esta cadeia de ligação especifica sobreposições explícitas p
 - Regime de autorização falha no "ikey" 
 - Chave de instrumentação: 0000000-0000-0000-0000-0000-0000000000000000000
 - Os URIs de serviço regional baseiam-se nos valores explícitos de sobreposição: 
-   - Ingestão:`https://custom.com:111/`
-   - Métricas ao vivo:`https://custom.com:222/`
-   - Perfilador:`https://custom.com:333/`
-   - Debugger:`https://custom.com:444/`  
+   - Ingestão: `https://custom.com:111/`
+   - Métricas ao vivo: `https://custom.com:222/`
+   - Perfilador: `https://custom.com:333/`
+   - Debugger: `https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Como definir uma cadeia de ligação
@@ -160,11 +160,11 @@ Uma cadeia de ligação pode ser definida por código, variável ambiental ou fi
 
 ### <a name="environment-variable"></a>Variável de ambiente
 
-- Cadeia de ligação:`APPLICATIONINSIGHTS_CONNECTION_STRING`
+- Cadeia de ligação: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 # <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
-TelemetriaConfiguration.ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetriaConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
 .NET Explicitamente Definido:
 ```csharp
@@ -271,7 +271,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução ao tempo de execução com:
 

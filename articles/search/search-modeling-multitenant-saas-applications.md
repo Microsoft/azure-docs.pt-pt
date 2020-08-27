@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230762"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935029"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicações SaaS multitenant e Pesquisa Cognitiva Azure
 
@@ -119,7 +119,7 @@ Os padrões de design acima para modelar cenários multitenantes na Azure Cognit
 
 Se os modelos de serviço por inquilino e índice por inquilino não forem suficientemente pequenos, é possível modelar um índice para atingir um grau ainda mais fino de granularidade.
 
-Para ter um único índice a comportar-se de forma diferente para diferentes pontos finais do cliente, um campo pode ser adicionado a um índice que designa um determinado valor para cada cliente possível. Cada vez que um cliente chama Azure Cognitive Search para consultar ou modificar um índice, o código da aplicação do cliente especifica o valor adequado para esse campo usando a capacidade de [filtro](https://msdn.microsoft.com/library/azure/dn798921.aspx) da Azure Cognitive Search no momento da consulta.
+Para ter um único índice a comportar-se de forma diferente para diferentes pontos finais do cliente, um campo pode ser adicionado a um índice que designa um determinado valor para cada cliente possível. Cada vez que um cliente chama Azure Cognitive Search para consultar ou modificar um índice, o código da aplicação do cliente especifica o valor adequado para esse campo usando a capacidade de [filtro](./query-odata-filter-orderby-syntax.md) da Azure Cognitive Search no momento da consulta.
 
 Este método pode ser usado para obter funcionalidades de contas de utilizador separadas, níveis de permissão separados e até mesmo aplicações completamente separadas.
 
@@ -132,4 +132,3 @@ Este método pode ser usado para obter funcionalidades de contas de utilizador s
 A Azure Cognitive Search é uma escolha convincente para muitas aplicações. Ao avaliar os vários padrões de design para aplicações multitenantes, considere os [vários níveis de preços](https://azure.microsoft.com/pricing/details/search/) e os [respetivos limites](search-limits-quotas-capacity.md) de serviço para melhor adaptar a Azure Cognitive Search para se adaptar às cargas de trabalho de aplicações e arquiteturas de todos os tamanhos.
 
 Quaisquer questões sobre a Pesquisa Cognitiva Azure e cenários multitenantes podem ser direcionadas para azuresearch_contact@microsoft.com .
-

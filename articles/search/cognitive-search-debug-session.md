@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560377"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936168"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessões de Debug em Pesquisa Cognitiva Azure
 
@@ -90,9 +90,9 @@ Esta janela exibe todos os erros e avisos que o skillset produz à medida que é
 
 Os sesis de depurg funcionam com todas as fontes de dados geralmente disponíveis amd a maioria das fontes de dados de pré-visualização. A API mongoDB (pré-visualização) e a Cassandra API (pré-visualização) da Cosmos DB não são atualmente suportadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que compreende os elementos das sessões de Debug, experimente o tutorial para uma experiência prática.
 
 > [!div class="nextstepaction"]
-> [Explore o tutorial das sessões de Debug](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+> [Explore o tutorial das sessões de Debug](./cognitive-search-tutorial-debug-sessions.md)

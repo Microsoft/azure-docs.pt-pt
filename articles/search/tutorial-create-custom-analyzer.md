@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 667ee4b362d62cd4b7bd1b6c5a8ecf762adb0730
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021890"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936627"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -21,7 +21,7 @@ ms.locfileid: "87021890"
 
 Em alguns casos, como com um campo de texto gratuito, simplesmente selecionar o [analisador de idiomas](index-add-language-analyzers.md) correto melhorará os resultados da pesquisa. No entanto, alguns cenários como pesquisar com precisão números de telefone, URLs ou e-mails podem exigir o uso de analisadores personalizados.
 
-Este tutorial utiliza [apis](https://docs.microsoft.com/rest/api/searchservice/) de descanso do Carteiro e da Azure Cognitive Search para:
+Este tutorial utiliza [apis](/rest/api/searchservice/) de descanso do Carteiro e da Azure Cognitive Search para:
 
 > [!div class="checklist"]
 > * Explique como os analisadores funcionam
@@ -201,7 +201,7 @@ Esta consulta devolve **três dos quatro resultados esperados,** mas também dev
 }
 ```
 
-Em seguida, vamos procurar um número sem qualquer formatação`4255550100`
+Em seguida, vamos procurar um número sem qualquer formatação `4255550100`
 
 ```http
 GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/docs?api-version=2019-05-06&search=4255550100
@@ -225,7 +225,7 @@ Se achas estes resultados confusos, não estás sozinho. Na próxima secção, v
 
 ## <a name="4---debug-search-results"></a>4 - Resultados da pesquisa de Debug
 
-Para compreender estes resultados de pesquisa, é importante primeiro entender como os analisadores funcionam. A partir daí, podemos testar o analisador padrão usando a [API de Texto de Análise](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) e, em seguida, criar um analisador que atenda às nossas necessidades.
+Para compreender estes resultados de pesquisa, é importante primeiro entender como os analisadores funcionam. A partir daí, podemos testar o analisador padrão usando a [API de Texto de Análise](/rest/api/searchservice/test-analyzer) e, em seguida, criar um analisador que atenda às nossas necessidades.
 
 ### <a name="how-analyzers-work"></a>Como os analisadores funcionam
 
@@ -260,7 +260,7 @@ Se os termos de consulta não corresponderem aos termos do seu índice invertido
 
 ### <a name="test-analyzer-using-the-analyze-text-api"></a>Analisador de teste usando a API de Texto de Análise
 
-A Azure Cognitive Search fornece uma [API de Texto de Análise](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) que permite testar os analisadores para entender como processam o texto.
+A Azure Cognitive Search fornece uma [API de Texto de Análise](/rest/api/searchservice/test-analyzer) que permite testar os analisadores para entender como processam o texto.
 
 A API de Texto de Análise é chamada utilizando o seguinte pedido:
 
@@ -404,7 +404,7 @@ Embora não precisemos de usar nenhum desses filtros para este cenário, usaremo
 
 O [filtro de fichas nGram_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenFilter.html) divide fichas em n-gramas de um dado tamanho com base nos `minGram` parâmetros e `maxGram` parâmetros.
 
-Para o analisador de telefone, definimos `minGram` para porque este é o `3` sublpesto mais curto que esperamos que os utilizadores procurem. `maxGram`está definido `20` para garantir que todos os números de telefone, mesmo com extensões, caberão num único n-grama.
+Para o analisador de telefone, definimos `minGram` para porque este é o `3` sublpesto mais curto que esperamos que os utilizadores procurem. `maxGram` está definido `20` para garantir que todos os números de telefone, mesmo com extensões, caberão num único n-grama.
 
  O infeliz efeito colateral de n-gramas é que alguns falsos positivos serão devolvidos. Vamos corrigir isto no passo 7 construindo um analisador separado para pesquisas que não incluam o filtro n-gram token.
 
@@ -584,7 +584,7 @@ Este tutorial demonstrou o processo de construção e teste de um analisador per
 
 Embora o analisador definido neste tutorial ofereça uma solução fácil para pesquisar números de telefone, este mesmo processo pode ser usado para construir um analisador de telefone personalizado para qualquer cenário que possa ter.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando está a trabalhar na sua própria subscrição, é uma boa ideia remover os recursos que já não precisa no final de um projeto. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

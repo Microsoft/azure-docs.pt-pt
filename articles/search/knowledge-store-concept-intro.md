@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3ec556c6198a00f217568f6591bd4b43c7fc743e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230779"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924304"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Loja de conhecimento em Azure Cognitive Search
 
@@ -21,7 +21,7 @@ A loja de conhecimento é uma característica da Azure Cognitive Search que pers
 
 Se já usou habilidades cognitivas no passado, já sabe que *as habilidades* movem um documento através de uma sequência de enriquecimentos. O resultado pode ser um índice de pesquisa, ou projeções numa loja de conhecimento. As duas saídas, índice de pesquisa e loja de conhecimento, são produtos do mesmo oleoduto; derivado das mesmas entradas, mas resultando numa saída estruturada, armazenada e usada de formas muito diferentes.
 
-Fisicamente, uma loja de conhecimento é [a Azure Storage,](https://docs.microsoft.com/azure/storage/common/storage-account-overview)ou o armazenamento da Azure Table, o armazenamento Azure Blob, ou ambos. Qualquer ferramenta ou processo que possa ligar-se ao Azure Storage pode consumir o conteúdo de uma loja de conhecimento.
+Fisicamente, uma loja de conhecimento é [a Azure Storage,](../storage/common/storage-account-overview.md)ou o armazenamento da Azure Table, o armazenamento Azure Blob, ou ambos. Qualquer ferramenta ou processo que possa ligar-se ao Azure Storage pode consumir o conteúdo de uma loja de conhecimento.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -39,7 +39,7 @@ Enumerados, os benefícios da loja de conhecimento incluem:
 
 + Consumir documentos enriquecidos em [ferramentas de análise e reporte que](#tools-and-apps) não a procura. Power BI com Power Query é uma escolha convincente, mas qualquer ferramenta ou app que possa ligar-se ao Azure Storage pode puxar de uma loja de conhecimento que cria.
 
-+ Refinar um gasoduto de indexação de IA enquanto depura passos e definições de skillset. Uma loja de conhecimento mostra-lhe o produto de uma definição de skillset num oleoduto de indexação de IA. Você pode usar esses resultados para projetar um melhor skillset porque você pode ver exatamente como os enriquecimentos são. Pode utilizar [o Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) no Azure Storage para ver o conteúdo de uma loja de conhecimento.
++ Refinar um gasoduto de indexação de IA enquanto depura passos e definições de skillset. Uma loja de conhecimento mostra-lhe o produto de uma definição de skillset num oleoduto de indexação de IA. Você pode usar esses resultados para projetar um melhor skillset porque você pode ver exatamente como os enriquecimentos são. Pode utilizar [o Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) no Azure Storage para ver o conteúdo de uma loja de conhecimento.
 
 + Moldar os dados em novas formas. A remodelação é codificada em skillsets, mas a questão é que um skillset pode agora fornecer esta capacidade. A [habilidade do Shaper](cognitive-search-skill-shaper.md) em Azure Cognitive Search foi estendida para acomodar esta tarefa. A reformulação permite-lhe definir uma projeção que se alinha com a utilização pretendida dos dados, preservando as relações.
 
@@ -84,7 +84,7 @@ No entanto, é possível criar `table` - `object` - `file` vários conjuntos de 
 
 ## <a name="requirements"></a>Requisitos 
 
-É necessário [o armazenamento Azure.](https://docs.microsoft.com/azure/storage/) Fornece armazenamento físico. Você pode usar armazenamento Blob, armazenamento de mesa ou ambos. O armazenamento de bolhas é utilizado para documentos enriquecidos intactos, normalmente quando a saída vai para os processos a jusante. O armazenamento de mesa destina-se a fatias de documentos enriquecidos, normalmente utilizados para análise e reporte.
+É necessário [o armazenamento Azure.](../storage/index.yml) Fornece armazenamento físico. Você pode usar armazenamento Blob, armazenamento de mesa ou ambos. O armazenamento de bolhas é utilizado para documentos enriquecidos intactos, normalmente quando a saída vai para os processos a jusante. O armazenamento de mesa destina-se a fatias de documentos enriquecidos, normalmente utilizados para análise e reporte.
 
 [Skillset](cognitive-search-working-with-skillsets.md) é necessário. Contém a `knowledgeStore` definição, e determina a estrutura e composição de um documento enriquecido. Não é possível criar uma loja de conhecimento usando um skillset vazio. Deve ter pelo menos uma habilidade numa habilidade.
 
@@ -130,16 +130,16 @@ Uma vez que os enriquecimentos existam no armazenamento, qualquer ferramenta ou 
 
 + [Power BI](knowledge-store-connect-power-bi.md) para reportagem e análise. 
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) para mais manipulação.
++ [Azure Data Factory](../data-factory/index.yml) para mais manipulação.
 
 <a name="kstore-rest-api"></a>
 
 ## <a name="api-reference"></a>Referência da API
 
-A versão REST API `2020-06-30` fornece loja de conhecimento através de definições adicionais sobre skillsets. Além da referência, consulte [Criar uma loja de conhecimento usando o Carteiro](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
+A versão REST API `2020-06-30` fornece loja de conhecimento através de definições adicionais sobre skillsets. Além da referência, consulte  [Criar uma loja de conhecimento usando o Carteiro](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
 
-+ [Create Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Atualização Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
++ [Create Skillset (versão api=2020-06-30)](/rest/api/searchservice/create-skillset)
++ [Atualização Skillset (versão api=2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Passos seguintes

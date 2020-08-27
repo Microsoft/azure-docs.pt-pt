@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: b49669dac2b28dac631f71b9cd07c0851ff8df05
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448839"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935607"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos do Azure Monitor para o Balanceador de Carga Básico público
 
@@ -29,7 +29,7 @@ Pode utilizar diferentes tipos de registos em Azure para gerir e resolver proble
 * **Registos de sondas de saúde:** Pode utilizar este registo para visualizar problemas detetados pela sua sonda de saúde, como o número de casos na sua piscina de backend que não estão a receber pedidos do equilibrador de carga devido a falhas na sonda de saúde. Este registo é escrito quando há uma alteração no estado da sonda de saúde.
 
 > [!IMPORTANT]
-> **Os registos de eventos de sonda de saúde não estão atualmente funcionais e estão listados nas [edições conhecidas para o Balançador de Carga Azure](whats-new.md#known-issues).** Atualmente, os registos do Azure Monitor funcionam apenas para os equilibros de carga básicos públicos. Os registos só estão disponíveis para os recursos implantados no modelo de implementação do Gestor de Recursos. Não é possível utilizar registos de recursos no modelo clássico de implantação. Para obter mais informações sobre os modelos de implementação, consulte [a implementação do Understanding Resource Manager e a implementação clássica.](../azure-resource-manager/management/deployment-models.md)
+> **Os registos de eventos de sonda de saúde não estão atualmente funcionais e estão listados nas [edições conhecidas para o Balançador de Carga Azure](whats-new.md#known-issues).** Os registos só estão disponíveis para os recursos implantados no modelo de implementação do Gestor de Recursos. Não é possível utilizar registos de recursos no modelo clássico de implantação. Para obter mais informações sobre os modelos de implementação, consulte [a implementação do Understanding Resource Manager e a implementação clássica.](../azure-resource-manager/management/deployment-models.md)
 
 ## <a name="enable-logging"></a>Ativar registo
 

@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083564"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935318"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Criar um índice de Pesquisa Cognitiva Azure no portal Azure
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Para este tutorial, usamos um conjunto de dados de amostras incorporado que pode
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Passo 1 - Inicie o assistente de dados de importação e crie uma fonte de dados
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta Azure.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
 
 1. [Encontre o seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e na página 'Vista Geral', clique em Importar **dados** na barra de comando para criar e preencher um índice de pesquisa.
 
@@ -136,11 +136,11 @@ Outras construções, como a classificação de perfis e as opções de CORS, po
 
 Para compreender claramente o que pode e não pode editar durante o design do índice, dispense um minuto para ver as opções de definição do índice. As opções desativadas são um indicador de que um valor não pode ser alterado nem eliminado. 
 
-## <a name="query-using-search-explorer"></a><a name="query-index"></a>Consulta usando explorador de pesquisa
+## <a name="query-using-search-explorer"></a><a name="query-index"></a> Consulta usando explorador de pesquisa
 
 Mais adiante, já deve ter um índice de pesquisa pronto para consultar com a página de consulta [**Explorador de procura**](search-explorer.md) incorporada. Fornece uma caixa de pesquisa para que possa testar as cadeias de consulta arbitrária.
 
-**O explorador de pesquisa** está apenas equipado para lidar com [pedidos de API REST,](https://docs.microsoft.com/rest/api/searchservice/search-documents)mas aceita sintaxe tanto para [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) como para o [parser de consulta lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações de [API do Documento de Busca](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) REST.
+**O explorador de pesquisa** está apenas equipado para lidar com [pedidos de API REST,](/rest/api/searchservice/search-documents)mas aceita sintaxe tanto para [sintaxe de consulta simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) como para o [parser de consulta lucene completo](/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações de [API do Documento de Busca](/rest/api/searchservice/search-documents#bkmk_examples) REST.
 
 > [!TIP]
 > Os seguintes passos são demonstrados a 6m08s no [vídeo Azure Cognitive Search Overview](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -164,7 +164,7 @@ Pode introduzir termos e frases, semelhantes ao que pode fazer numa pesquisa de 
 
 ### <a name="simple-query-with-top-n-results"></a>Consulta simples com N principais resultados
 
-#### <a name="example-string-query-searchspa"></a>Exemplo (consulta de cordas):`search=spa`
+#### <a name="example-string-query-searchspa"></a>Exemplo (consulta de cordas): `search=spa`
 
 * O parâmetro **de pesquisa** é utilizado para inserir uma pesquisa de palavras-chave para a pesquisa completa de texto, neste caso, devolvendo dados do hotel para aqueles que contenham *spa* em qualquer campo pes pes pes pes pes pesjável no documento.
 
@@ -172,7 +172,7 @@ Pode introduzir termos e frases, semelhantes ao que pode fazer numa pesquisa de 
 
 * Os documentos são compostos por todos os campos marcados como "recuperáveis" no índice. Para ver os atributos do índice no portal, clique em *hotéis-amostra* na lista **de Índices.**
 
-#### <a name="example-parameterized-query-searchspacounttruetop10"></a>Exemplo (consulta parametrizada):`search=spa&$count=true&$top=10`
+#### <a name="example-parameterized-query-searchspacounttruetop10"></a>Exemplo (consulta parametrizada): `search=spa&$count=true&$top=10`
 
 * O **&** símbolo é utilizado para anexar parâmetros de pesquisa, que podem ser especificados em qualquer ordem.
 
@@ -188,7 +188,7 @@ Os filtros são incluídos nos pedidos de pesquisa se acrescentar o parâmetro *
 
 * O parâmetro **$filter** devolve resultados que correspondem aos critérios que indicou. Neste caso, classificações superiores a 4.
 
-* A sintaxe do filtro é uma construção OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+* A sintaxe do filtro é uma construção OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> Facetar a consulta
 
@@ -207,7 +207,7 @@ Os filtros de faceta são incluídos nos resultados da pesquisa. Pode utilizar o
 
 * Apenas os campos filtráveis podem ser facetados. Apenas os campos recuperáveis podem ser devolvidos nos resultados.
 
-* O campo *rating* é um ponto flutuante de dupla precisão e o agrupamento será por valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "3 estrelas ratings", "4 estrelas ratings", etc.), consulte [Como implementar a navegação faceta em Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* O campo *rating* é um ponto flutuante de dupla precisão e o agrupamento será por valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "3 estrelas ratings", "4 estrelas ratings", etc.), consulte [Como implementar a navegação faceta em Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
 
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Realçar os resultados de pesquisa
@@ -240,11 +240,11 @@ Quando **queryType** não é especificado, é utilizado o analisador de consulta
 
 A pesquisa difusa e a pesquisa com carateres universais têm implicações no resultado da pesquisa. A análise linguística não é realizada nestes formatos de consulta. Antes de utilizar a pesquisa fuzzy e wildcard, [reveja como funciona a pesquisa completa de texto na Pesquisa Cognitiva Azure](search-lucene-query-architecture.md#stage-2-lexical-analysis) e procure a secção sobre exceções à análise lexical.
 
-Para obter mais informações sobre cenários de consulta habilitados pelo parser de consulta completo, consulte [a sintaxe de consulta lucene em Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Para obter mais informações sobre cenários de consulta habilitados pelo parser de consulta completo, consulte [a sintaxe de consulta lucene em Azure Cognitive Search](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="try-geospatial-search"></a><a name="geo-search"></a> Experimentar a pesquisa geoespacial
 
- A pesquisa geoespacial é suportada através do [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em campos que contenham coordenadas. A pesquisa geográfica é um tipo de filtros especificado em [Filter OData syntax (Sintaxe de Filtros OData)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+ A pesquisa geoespacial é suportada através do [tipo de dados edm.GeographyPoint](/rest/api/searchservice/supported-data-types) em campos que contenham coordenadas. A pesquisa geográfica é um tipo de filtros especificado em [Filter OData syntax (Sintaxe de Filtros OData)](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 #### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Exemplo (filtros de coordenadas geográficas): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -256,13 +256,13 @@ A pesquisa geoespacial é útil se a sua aplicação de pesquisa tiver uma funci
 
 Este tutorial proporcionou uma rápida introdução à Pesquisa Cognitiva Azure utilizando o portal Azure.
 
-Aprendeu a criar um índice de pesquisa com o assistente para **Importar dados**. Aprendeu sobre [indexadores](search-indexer-overview.md), bem como o fluxo de trabalho básico para o design de índices, incluindo [modificações suportadas num índice publicado](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Aprendeu a criar um índice de pesquisa com o assistente para **Importar dados**. Aprendeu sobre [indexadores](search-indexer-overview.md), bem como o fluxo de trabalho básico para o design de índices, incluindo [modificações suportadas num índice publicado](/rest/api/searchservice/update-index).
 
 Ao utilizar o **explorador do Search** no portal do Azure, aprendeu a sintaxe básica das consultas através de exemplos práticos que demonstram as capacidades principais, como filtros, detetor de ocorrências, pesquisa difusa e pesquisa geográfica.
 
 Também aprendeu a encontrar índices, indexadores e fontes de dados no portal. Utilizando uma origem de dados nova no futuro, pode utilizar o portal para verificar rapidamente as definições ou as coleções de campos da mesma com um esforço mínimo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
@@ -270,7 +270,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize um assistente de portal para gerar uma aplicação web pronta a usar que funciona num browser. Pode experimentar este assistente no pequeno índice que acabou de criar ou utilizar um dos conjuntos de dados de amostras incorporados para uma experiência de pesquisa mais rica.
 
@@ -280,4 +280,4 @@ Utilize um assistente de portal para gerar uma aplicação web pronta a usar que
 Quer otimizar e economizar nos gastos na nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar custos com a Gestão de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.openlocfilehash: 5d21508a794683096009f53314bebca4e4f2ac98
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565302"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924372"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Quickstart: Criar uma loja de conhecimentos Azure Cognitive Search no portal Azure
 
@@ -31,7 +31,7 @@ Antes de começar, deve ter o seguinte:
 
 + Um serviço de Pesquisa Cognitiva Azure. [Crie um serviço](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
 
-+ Uma conta de armazenamento Azure com [armazenamento Blob](https://docs.microsoft.com/azure/storage/blobs/).
++ Uma conta de armazenamento Azure com [armazenamento Blob](../storage/blobs/index.yml).
 
 > [!NOTE]
 > Este quickstart também usa [serviços cognitivos Azure](https://azure.microsoft.com/services/cognitive-services/) para a IA. Como a carga de trabalho é tão pequena, os Serviços Cognitivos são aproveitados nos bastidores para processamento gratuito até 20 transações. Isto significa que você pode completar este exercício sem ter que criar um recurso adicional de Serviços Cognitivos.
@@ -42,7 +42,7 @@ Nos passos seguintes, instale um recipiente blob no Azure Storage para armazenar
 
 1. [Descarregue HotelReviews_Free.csv. ](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D) Estes dados são dados de revisão do hotel guardados num ficheiro CSV (originários de Kaggle.com) e contém 19 peças de feedback do cliente sobre um único hotel. 
 
-1. [Crie uma conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [encontre uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) na sua subscrição atual. Você usará o armazenamento Azure para que tanto o conteúdo bruto seja importado, como a loja de conhecimento que é o resultado final.
+1. [Crie uma conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [encontre uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) na sua subscrição atual. Você usará o armazenamento Azure para que tanto o conteúdo bruto seja importado, como a loja de conhecimento que é o resultado final.
 
    + Escolha o tipo de conta **StorageV2 (finalidade geral V2).**
 
@@ -56,13 +56,13 @@ Nos passos seguintes, instale um recipiente blob no Azure Storage para armazenar
 
     ![Criar o recipiente Azure Blob](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Criar o recipiente Azure Blob")
 
-1. Antes de deixar as páginas de armazenamento Blob, utilize um link no painel de navegação esquerdo para abrir a página **'Chaves de Acesso'.** Obtenha uma cadeia de ligação para obter dados do armazenamento blob. Uma cadeia de ligação é semelhante ao seguinte exemplo:`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+1. Antes de deixar as páginas de armazenamento Blob, utilize um link no painel de navegação esquerdo para abrir a página **'Chaves de Acesso'.** Obtenha uma cadeia de ligação para obter dados do armazenamento blob. Uma cadeia de ligação é semelhante ao seguinte exemplo: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 Está agora pronto para avançar com o assistente **de dados de Importação.**
 
 ## <a name="run-the-import-data-wizard"></a>Executar o assistente de dados de importação
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta Azure.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
 
 1. [Encontre o seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e na página 'Vista Geral', clique em Importar **dados** na barra de comando para criar uma loja de conhecimento em quatro etapas.
 
@@ -101,7 +101,7 @@ Neste passo de feiticeiro, você vai criar um skillset com enriquecimentos cogni
 1. Para **o nível de granularidade de enriquecimento,** selecione **Páginas (pedaços de 5000 caracteres)**
 
 1. Selecione estas habilidades cognitivas:
-    + **Extrair expressões-chave**
+    + **Extrair Expressões-Chave**
     + **Traduzir texto**
     + **Detetar sentimento**
 

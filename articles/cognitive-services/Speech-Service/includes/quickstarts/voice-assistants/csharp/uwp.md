@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 548d324a67b1bbee4741724faf2cf27ec6c3c3c1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84754635"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925439"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,7 +86,7 @@ A vista Design é atualizada para mostrar a interface de utilizador da aplicaç�
 
 1. No **Solution Explorer,** abra o ficheiro de código por trás `MainPage.xaml.cs` . (Está agrupado em `MainPage.xaml` .) Substitua o conteúdo deste ficheiro pelo seguinte, que inclui:
 
-- `using`declarações para os `Speech` espaços e `Speech.Dialog` nomes
+- `using` declarações para os `Speech` espaços e `Speech.Dialog` nomes
 - Uma implementação simples para garantir o acesso ao microfone, ligada a um manipulador de botões
 - Ajudantes básicos da UI para apresentar mensagens e erros na aplicação
 - Um ponto de aterragem para o caminho do código de inicialização que será povoado mais tarde

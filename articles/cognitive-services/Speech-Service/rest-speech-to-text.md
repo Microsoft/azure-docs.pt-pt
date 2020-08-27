@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
-ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056827"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934587"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -74,7 +75,7 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de discur
 
 O áudio é enviado no corpo do `POST` pedido HTTP. Deve estar num dos formatos desta tabela:
 
-| Formatar | Codec | Taxa de bit | Taxa de amostra  |
+| Formato | Codec | Taxa de bit | Taxa de amostra  |
 |--------|-------|----------|--------------|
 | WAV    | PCM   | 256 kbps | 16 kHz, mono |
 | OGG    | OPUS  | 256 km/h | 16 kHz, mono |
@@ -155,7 +156,7 @@ O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 
 A transferência em `Transfer-Encoding: chunked` pedaços pode ajudar a reduzir a latência do reconhecimento. Permite que o serviço Desematado comece a processar o ficheiro áudio enquanto este é transmitido. A API REST não fornece resultados parciais ou provisórios.
 
-Esta amostra de código mostra como enviar áudio em pedaços. Apenas o primeiro pedaço deve conter o cabeçalho do ficheiro áudio. `request`é um `HttpWebRequest` objeto ligado ao ponto final apropriado REST. `audioFile`é o caminho para um ficheiro áudio no disco.
+Esta amostra de código mostra como enviar áudio em pedaços. Apenas o primeiro pedaço deve conter o cabeçalho do ficheiro áudio. `request` é um `HttpWebRequest` objeto ligado ao ponto final apropriado REST. `audioFile` é o caminho para um ficheiro áudio no disco.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);

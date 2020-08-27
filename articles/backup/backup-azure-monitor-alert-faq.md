@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o Alerta 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 2112a439585e6b111614e728dbc4a1a5eb4ee3d2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827176"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892563"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitorização de backup Azure - FAQ
 
@@ -38,7 +38,7 @@ Depois de criar um espaço de trabalho em LA, pode optar por reter dados por um 
 
 ### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>Verei todos os meus dados em relatórios depois de configurar o espaço de trabalho de LA?
 
- Todos os dados gerados após configurar as definições de diagnóstico são empurrados para o espaço de trabalho de LA e estão disponíveis em relatórios. Os empregos em curso não são pressionados para reportar. Após o fim ou falha do trabalho, é enviado para relatórios.
+ Todos os dados gerados após configurar as definições de diagnóstico são empurrados para o espaço de trabalho de LA e estão disponíveis em relatórios. Os empregos em curso não são pressionados para reportar. Depois que o trabalho termina ou falha, é enviado para relatórios.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Posso ver relatórios através de cofres e assinaturas?
 
@@ -46,7 +46,7 @@ Sim, pode ver relatórios através de cofres e assinaturas, bem como de regiões
 
 ### <a name="can-i-view-reports-across-tenants"></a>Posso ver relatórios entre inquilinos?
 
-Se é um utilizador [do Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) com acesso delegado às subscrições dos seus clientes ou espaços de trabalho de LA, pode utilizar relatórios de backup para visualizar dados em todos os seus inquilinos.
+Se é um utilizador do [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) com acesso delegado às subscrições dos seus clientes ou espaços de trabalho de LA, pode utilizar relatórios de backup para visualizar dados em todos os seus inquilinos.
 
 ## <a name="recovery-services-vault"></a>Cofre dos Serviços de Recuperação
 

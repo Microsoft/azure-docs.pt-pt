@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146184"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934927"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com resultados de pesquisa na Azure Cognitive Search
 
 Este artigo explica como obter uma resposta de consulta que volta com uma contagem total de documentos correspondentes, resultados paginados, resultados classificados e termos de sucesso realçados.
 
-A estrutura de uma resposta é determinada por parâmetros na consulta: [Documento de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) na API REST, ou Classe [Reulte Deresulto documental](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) no .NET SDK.
+A estrutura de uma resposta é determinada por parâmetros na consulta: [Documento de Pesquisa](/rest/api/searchservice/Search-Documents) na API REST, ou Classe [Reulte Deresulto documental](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) no .NET SDK.
 
 ## <a name="result-composition"></a>Composição do resultado
 
@@ -47,9 +47,9 @@ Para devolver um número diferente de documentos correspondentes, adicione `$top
 
 + Adicione `$count=true` para obter uma contagem do número total de documentos correspondentes dentro de um índice.
 
-+ Devolva o primeiro conjunto de 15 documentos correspondentes mais uma contagem de correspondências totais:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
++ Devolva o primeiro conjunto de 15 documentos correspondentes mais uma contagem de correspondências totais: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Volte a jogar o segundo conjunto, saltando os primeiros 15 para obter os próximos 15: `$top=15&$skip=15` . Faça o mesmo para o terceiro conjunto de 15:`$top=15&$skip=30`
++ Volte a jogar o segundo conjunto, saltando os primeiros 15 para obter os próximos 15: `$top=15&$skip=15` . Faça o mesmo para o terceiro conjunto de 15: `$top=15&$skip=30`
 
 Os resultados das consultas paginadas não são garantidos como estáveis se o índice subjacente estiver a mudar. A paging altera o valor de `$skip` cada página, mas cada consulta é independente e opera na visão atual dos dados tal como existe no índice no momento da consulta (por outras palavras, não há caching ou instantâneo de resultados, como os encontrados numa base de dados para fins gerais).
  
@@ -87,7 +87,7 @@ As pontuações de pesquisa transmitem sentido geral de relevância, refletindo 
 | Causa | Descrição |
 |-----------|-------------|
 | Volatilidade dos dados | O conteúdo do índice varia à medida que adiciona, modifica ou elimina documentos. As frequências de prazo mudarão à medida que as atualizações de índices forem processadas ao longo do tempo, afetando as pontuações de pesquisa de documentos correspondentes. |
-| Múltiplas réplicas | Para serviços que utilizam réplicas múltiplas, as consultas são emitidas contra cada réplica em paralelo. As estatísticas de índice utilizadas para calcular uma pontuação de pesquisa são calculadas numa base por réplica, com resultados fundidos e encomendados na resposta de consulta. As réplicas são sobretudo espelhos uns dos outros, mas as estatísticas podem diferir devido a pequenas diferenças de estado. Por exemplo, uma réplica poderia ter eliminado documentos que contribuíam para as suas estatísticas, que foram fundidos a partir de outras réplicas. Tipicamente, as diferenças nas estatísticas por réplica são mais percetíveis em índices menores. |
+| Várias réplicas | Para serviços que utilizam réplicas múltiplas, as consultas são emitidas contra cada réplica em paralelo. As estatísticas de índice utilizadas para calcular uma pontuação de pesquisa são calculadas numa base por réplica, com resultados fundidos e encomendados na resposta de consulta. As réplicas são sobretudo espelhos uns dos outros, mas as estatísticas podem diferir devido a pequenas diferenças de estado. Por exemplo, uma réplica poderia ter eliminado documentos que contribuíam para as suas estatísticas, que foram fundidos a partir de outras réplicas. Tipicamente, as diferenças nas estatísticas por réplica são mais percetíveis em índices menores. |
 | Pontuações idênticas | Se vários documentos tiverem a mesma pontuação, qualquer um deles pode aparecer primeiro.  |
 
 ### <a name="consistent-ordering"></a>Encomenda consistente
@@ -98,7 +98,7 @@ Outra opção é utilizar um [perfil de pontuação personalizado.](index-add-sc
 
 ## <a name="hit-highlighting"></a>Detetor de ocorrências
 
-O destaque do hit refere-se à formatação de texto (como destaques arrojados ou amarelos) aplicados aos termos correspondentes num resultado, facilitando a visão da partida. As instruções de realce são fornecidas no [pedido de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+O destaque do hit refere-se à formatação de texto (como destaques arrojados ou amarelos) aplicados aos termos correspondentes num resultado, facilitando a visão da partida. As instruções de realce são fornecidas no [pedido de consulta](/rest/api/searchservice/search-documents). 
 
 Para ativar o destaque do impacto, adicione `highlight=[comma-delimited list of string fields]` para especificar quais os campos que utilizarão o realce. O destaque é útil para campos de conteúdo mais longos, como um campo de descrição, onde a partida não é imediatamente óbvia. Apenas as definições de campo que são atribuídas como **pesmáveis** qualificam-se para o destaque de sucesso.
 

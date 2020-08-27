@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510868"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935471"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -54,7 +54,7 @@ Nesse caso, é melhor dizer ao indexante para ignorar os erros. Faça isso defin
 
 ## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Dica 4: Use sessões de Debug para identificar e resolver problemas com o seu skillset 
 
-A Debug Sessions é uma editora visual que trabalha com uma habilidade existente no portal Azure. Numa sessão de depuração pode identificar e resolver erros, validar alterações e comprometer alterações a uma habilidade de produção no pipeline de enriquecimento de IA. Esta é uma funcionalidade de pré-visualização [leia a documentação.](https://docs.microsoft.com/azure/search/cognitive-search-debug-session) Para obter mais informações sobre conceitos e começar, consulte as [sessões de Debug.](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+A Debug Sessions é uma editora visual que trabalha com uma habilidade existente no portal Azure. Numa sessão de depuração pode identificar e resolver erros, validar alterações e comprometer alterações a uma habilidade de produção no pipeline de enriquecimento de IA. Esta é uma funcionalidade de pré-visualização [leia a documentação.](./cognitive-search-debug-session.md) Para obter mais informações sobre conceitos e começar, consulte as [sessões de Debug.](./cognitive-search-tutorial-debug-sessions.md)
 
 As sessões de depuração funcionam num único documento são uma ótima maneira de construir iterativamente oleodutos de enriquecimento mais complexos.
 
@@ -112,7 +112,7 @@ Para a indexação baseada no portal (como descrito no arranque rápido), escolh
 Para [uma indexação paralela,](search-howto-large-index.md)coloque os seus dados em vários recipientes ou várias pastas virtuais dentro do mesmo recipiente. Em seguida, crie vários pares de recursos de dados e indexantes. Todos os indexantes podem usar o mesmo skillset e escrever no mesmo índice de pesquisa alvo, por isso a sua aplicação de pesquisa não precisa de estar ciente desta partição.
 Para obter mais informações, consulte [Indexar grandes conjuntos de dados.](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 + [Quickstart: Criar um oleoduto de enriquecimento de IA no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Aprenda AI enriquecimento REST APIs](cognitive-search-tutorial-blob.md)
 + [Especificar credenciais de origem de dados](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

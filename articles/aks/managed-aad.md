@@ -3,14 +3,14 @@ title: Use Azure AD no serviço Azure Kubernetes
 description: Saiba como utilizar o Azure AD no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: fd13fbc3b1ada0a9e974742d36bd231e3caf6ef6
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661066"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937001"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração do Azure Ative Directory gerido pela AKS
 
@@ -37,17 +37,19 @@ A integração do Azure Ative Directory gerida pela AKS está disponível em reg
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A versão Azure CLI 2.9.0 ou mais tarde
-* Kubectl com uma versão mínima de [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
+* A versão Azure CLI 2.11.0 ou mais tarde
+* Kubectl com uma versão mínima de [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) ou [kubelogin](https://github.com/Azure/kubelogin)
+* Se estiver a utilizar [o leme,](https://github.com/helm/helm)versão mínima do leme 3.3.
 
 > [!Important]
-> Você deve usar Kubectl com uma versão mínima de 1.18
+> Deve utilizar o Kubectl com uma versão mínima de 1.18.1 ou kubelogin. Se não utilizar a versão correta, irá notar problemas de autenticação.
 
-Para instalar kubectl, utilize os seguintes comandos:
+Para instalar kubectl e kubelogin, utilize os seguintes comandos:
 
 ```azurecli-interactive
 sudo az aks install-cli
 kubectl version --client
+kubelogin --version
 ```
 
 Utilize [estas instruções](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para outros sistemas operativos.

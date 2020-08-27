@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
-ms.openlocfilehash: eb770dab33e1ec0e1a35f7ebcb6e620fc93692aa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: da0c3284b42be6d9054b7386839004b57d8ca274
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383023"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935743"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service authentication (Autenticação do Azure SignalR Service)
 
@@ -32,7 +32,7 @@ O código deste tutorial está disponível para transferência no [repositório 
 
 ![OAuth concluída alojada no Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Registar uma aplicação de OAuth nova na sua conta do GitHub
@@ -582,7 +582,7 @@ Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. 
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, adicionou a autenticação com OAuth para proporcionar uma melhor abordagem à autenticação com o Azure SignalR Service. Para saber mais sobre como utilizar o Azure SignalR Service, avance para os exemplos da CLI do Azure para SignalR Service.
 

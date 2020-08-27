@@ -3,18 +3,19 @@ title: Use aplicativo web - Personalizer
 description: Personalize uma aplicação web C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446369"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935624"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicione Personalizer a uma aplicação web .NET
 
 Personalize uma aplicação web C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -152,7 +153,7 @@ private string GetUsersTastePreference()
 ## <a name="how-does-the-web-app-use-personalizer"></a>Como é que a aplicação web usa o Personalizer?
 
 A aplicação web usa Personalizer para selecionar a melhor ação da lista de escolhas de alimentos. Fá-lo enviando as seguintes informações com cada chamada da API do Rank:
-* **ações** com as suas características, tais como `taste` e`spiceLevel`
+* **ações** com as suas características, tais como `taste` e `spiceLevel`
 * funcionalidades de **contexto** como `time` o dia, a preferência do utilizador `taste` e as informações do agente de utilizador do navegador, e as funcionalidades de contexto
 * **ações para excluir,** como o sumo
 * **eventId**, que é diferente para cada chamada para Rank API.
@@ -231,7 +232,7 @@ Instale o seguinte software:
 1. [Crie um recurso Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) no portal Azure.
 
 1. No portal Azure, encontre o `Endpoint` e `Key1` `Key2` (ou funcionará) no **separador Chaves e Pontos Finais.** Estes são os seus `PersonalizerServiceEndpoint` e os `PersonalizerApiKey` seus.
-1. Preencha o `PersonalizerServiceEndpoint` **inappsettings.jsem**.
+1. Preencha o `PersonalizerServiceEndpoint` ** inappsettings.jsem**.
 1. Configure os `PersonalizerApiKey` segredos como uma [aplicação](https://docs.microsoft.com/aspnet/core/security/app-secrets) de uma das seguintes formas:
 
     * Se estiver a utilizar o CLI .NET Core, pode utilizar o `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` comando.
@@ -248,7 +249,7 @@ Instale o seguinte software:
 Construa e executar HttpRequestFeaturesExample com um dos seguintes métodos:
 
 * Visual Studio 2019: Press **F5**
-* .NET Core CLI: `dotnet build` então`dotnet run`
+* .NET Core CLI: `dotnet build` então `dotnet run`
 
 Através de um navegador web, pode enviar um pedido de Rank e um pedido de Recompensa e ver as suas respostas, bem como as funcionalidades de pedido de http extraídas do seu ambiente.
 

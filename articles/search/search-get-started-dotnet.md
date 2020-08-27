@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
-ms.openlocfilehash: a2a860a2ff96c74f9d19fe7abfd845bbae8023cd
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4569137bc80fc2a9af26d58bb2ba3863325a3368
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922273"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936695"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Quickstart: Criar um índice de pesquisa utilizando a biblioteca de clientes Azure.Search.Documents
 
-Utilize a nova [biblioteca de clientesAzure.Search.Doc(versão 11)](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) para criar uma aplicação de consola .NET Core em C# que cria, carrega e consulta um índice de pesquisa.
+Utilize a nova [ biblioteca de clientesAzure.Search.Doc(versão 11)](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) para criar uma aplicação de consola .NET Core em C# que cria, carrega e consulta um índice de pesquisa.
 
 [Faça o download do código fonte](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v11) para começar com um projeto acabado ou siga os passos deste artigo para criar o seu próprio.
 
@@ -55,7 +55,7 @@ Inicie o Visual Studio e crie um novo projeto de App de Consola que possa funcio
 
 ### <a name="install-the-nuget-package"></a>Instale o pacote NuGet
 
-Após a criação do projeto, adicione a biblioteca do cliente. O [pacoteAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) é composto por uma biblioteca de clientes que fornece todas as APIs utilizadas para trabalhar com um serviço de pesquisa em .NET.
+Após a criação do projeto, adicione a biblioteca do cliente. O [ pacoteAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) é composto por uma biblioteca de clientes que fornece todas as APIs utilizadas para trabalhar com um serviço de pesquisa em .NET.
 
 1. In **Tools**  >  **NuGet Package Manager**, selecione Gerir **pacotes nuget para solução...**. 
 
@@ -77,7 +77,7 @@ Após a criação do projeto, adicione a biblioteca do cliente. O [pacoteAzure.S
    using Azure.Search.Documents.Models;
    ```
 
-1. Criar dois clientes: [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) cria o índice e [o SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) funciona com um índice existente. Ambos precisam do ponto final de serviço e de uma chave API de administração para autenticação com direitos de criação/eliminação.
+1. Criar dois clientes: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) cria o índice e [o SearchClient](/dotnet/api/azure.search.documents.searchclient) funciona com um índice existente. Ambos precisam do ponto final de serviço e de uma chave API de administração para autenticação com direitos de criação/eliminação.
 
    ```csharp
    static void Main(string[] args)
@@ -99,7 +99,7 @@ Após a criação do projeto, adicione a biblioteca do cliente. O [pacoteAzure.S
 
 Este quickstart constrói um índice de Hotéis que você carregará com dados do hotel e executar consultas. Neste passo, definir os campos no índice. Cada definição de campo inclui um nome, tipo de dados e atributos que determinam como o campo é usado.
 
-Neste exemplo, os métodos sincronizados da biblioteca Azure.Search.Documents são usados para a simplicidade e legibilidade. No entanto, para cenários de produção, deve utilizar métodos assíncronos para manter a sua aplicação escalável e responsiva. Por exemplo, utilizaria [o CreateIndexAsync](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) em vez de [CreateIndex.](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex)
+Neste exemplo, os métodos sincronizados da biblioteca Azure.Search.Documents são usados para a simplicidade e legibilidade. No entanto, para cenários de produção, deve utilizar métodos assíncronos para manter a sua aplicação escalável e responsiva. Por exemplo, utilizaria [o CreateIndexAsync](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) em vez de [CreateIndex.](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex)
 
 1. Adicione uma definição de classe vazia ao seu projeto: **Hotel.cs**
 
@@ -131,7 +131,7 @@ Neste exemplo, os métodos sincronizados da biblioteca Azure.Search.Documents s�
     }
     ```
 
-1. Em **Program.cs,** especifique os campos e atributos. [SearchIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindex) e [CreateIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) são usados para criar um índice.
+1. Em **Program.cs,** especifique os campos e atributos. [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) e [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) são usados para criar um índice.
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -154,9 +154,9 @@ Neste exemplo, os métodos sincronizados da biblioteca Azure.Search.Documents s�
 
 Os atributos no campo determinam como é usado numa aplicação. Por exemplo, o `IsFilterable` atributo deve ser atribuído a todos os campos que suportem uma expressão de filtro.
 
-Em contraste com as versões anteriores do .NET SDK que requerem [issarchable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable) em campos de cordas pesquisáveis, pode utilizar [SearchableField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchablefield) e [SimpleField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.simplefield) para simplificar definições de campo.
+Em contraste com as versões anteriores do .NET SDK que requerem [issarchable](/dotnet/api/microsoft.azure.search.models.field.issearchable) em campos de cordas pesquisáveis, pode utilizar [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) e [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) para simplificar definições de campo.
 
-À semelhança das versões anteriores, outros atributos ainda são necessários na própria definição. Por exemplo, [IsFilterable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)e [IsFacetable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) devem ser explicitamente atribuídos, como mostrado na amostra acima. 
+À semelhança das versões anteriores, outros atributos ainda são necessários na própria definição. Por exemplo, [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)e [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) devem ser explicitamente atribuídos, como mostrado na amostra acima. 
 
 <a name="load-documents"></a>
 
@@ -166,7 +166,7 @@ A azure Cognitive Search procura sobre o conteúdo armazenado no serviço. Neste
 
 Na Pesquisa Cognitiva Azure, os documentos são estruturas de dados que são entradas para indexação e saídas de consultas. Tal como obtido a partir de uma fonte de dados externa, as entradas de documentos podem ser linhas numa base de dados, bolhas no armazenamento blob ou documentos JSON no disco. Neste exemplo, estamos pegando um atalho e incorporando documentos JSON para cinco hotéis no próprio código. 
 
-Ao carregar documentos, deve utilizar um objeto [IndexDocumentsBatch.](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) Um IndexDocumentsBatch contém uma coleção de [Ações,](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)cada uma das quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar ([upload, merge, delete e mergeOrUpload).](search-what-is-data-import.md#indexing-actions)
+Ao carregar documentos, deve utilizar um objeto [IndexDocumentsBatch.](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) Um IndexDocumentsBatch contém uma coleção de [Ações,](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)cada uma das quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar ([upload, merge, delete e mergeOrUpload).](search-what-is-data-import.md#indexing-actions)
 
 1. Em **Program.cs**, crie uma série de documentos e ações de índice, e depois passe a matriz para `ndexDocumentsBatch` os documentos abaixo em conformidade com o índice hotels-quickstart-v11, tal como definido pela classe hoteleira.
 
@@ -185,7 +185,7 @@ Ao carregar documentos, deve utilizar um objeto [IndexDocumentsBatch.](https://d
     qryclient.IndexDocuments(batch, idxoptions);
     ```
 
-    Uma vez inicializando o objeto [IndexDocumentsBatch,](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) pode enviá-lo para o índice chamando [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) no seu objeto [SearchClient.](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient)
+    Uma vez inicializando o objeto [IndexDocumentsBatch,](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) pode enviá-lo para o índice chamando [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) no seu objeto [SearchClient.](/dotnet/api/azure.search.documents.searchclient)
 
 1. Como esta é uma aplicação de consola que executa todos os comandos sequencialmente, adicione um tempo de espera de 2 segundos entre indexação e consultas.
 
@@ -201,9 +201,9 @@ Ao carregar documentos, deve utilizar um objeto [IndexDocumentsBatch.](https://d
 
 Pode obter resultados de consulta assim que o primeiro documento estiver indexado, mas os testes reais do seu índice devem aguardar até que todos os documentos estejam indexados.
 
-Esta secção adiciona duas peças de funcionalidade: lógica de consulta e resultados. Para consultas, utilize o método ['Procurar'.](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.search) Este método requer o texto de pesquisa (a cadeia de consulta) bem como outras [opções](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions).
+Esta secção adiciona duas peças de funcionalidade: lógica de consulta e resultados. Para consultas, utilize o método ['Procurar'.](/dotnet/api/azure.search.documents.searchclient.search) Este método requer o texto de pesquisa (a cadeia de consulta) bem como outras [opções](/dotnet/api/azure.search.documents.searchoptions).
 
-A classe [SearchResults](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.searchresults-1) representa os resultados.
+A classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) representa os resultados.
 
 1. Em **Program.cs**, crie um método WriteDocuments que imprime os resultados de pesquisa para a consola.
 
@@ -267,19 +267,19 @@ Este exemplo mostra as duas [formas de combinar termos numa consulta:](search-qu
 
 + Consultas de pesquisa por texto completo para obter um ou mais termos nos campos pes pes pesjáveis no seu índice. A primeira consulta é a pesquisa completa por texto. Pode pesquisar por palavras ou melhor. A pesquisa por texto completo produz pontuações de relevância usadas para classificar os resultados.
 
-+ O filtro é uma expressão booleana que é avaliada sobre os campos [IsFilterable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) num índice. As consultas de filtro incluem ou excluem valores. Como tal, não existe uma pontuação de relevância associada a uma consulta de filtro. As duas últimas consultas demonstram a procura de filtros.
++ O filtro é uma expressão booleana que é avaliada sobre os campos [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) num índice. As consultas de filtro incluem ou excluem valores. Como tal, não existe uma pontuação de relevância associada a uma consulta de filtro. As duas últimas consultas demonstram a procura de filtros.
 
 Pode utilizar a pesquisa por texto completo e os filtros juntos ou separadamente.
 
-Tanto as pesquisas como os filtros são realizados utilizando o método [SearchClient.Search.](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.search) Uma consulta de pesquisa pode ser passada na `searchText` cadeia, enquanto uma expressão de filtro pode ser passada na propriedade [Filter](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions.filter) da classe [SearchOptions.](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions) Para filtrar sem procurar, basta passar `"*"` para o parâmetro do método De `searchText` [pesquisa.](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.search) Para pesquisar sem filtrar, deixe a `Filter` propriedade desaparada, ou não passe em qualquer `SearchOptions` caso.
+Tanto as pesquisas como os filtros são realizados utilizando o método [SearchClient.Search.](/dotnet/api/azure.search.documents.searchclient.search) Uma consulta de pesquisa pode ser passada na `searchText` cadeia, enquanto uma expressão de filtro pode ser passada na propriedade [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) da classe [SearchOptions.](/dotnet/api/azure.search.documents.searchoptions) Para filtrar sem procurar, basta passar `"*"` para o parâmetro do método De `searchText` [pesquisa.](/dotnet/api/azure.search.documents.searchclient.search) Para pesquisar sem filtrar, deixe a `Filter` propriedade desaparada, ou não passe em qualquer `SearchOptions` caso.
 
-## <a name="run-the-program"></a>Executar o programa
+## <a name="run-the-program"></a>Execute o programa
 
 Prima F5 para reconstruir a app e executar o programa na sua totalidade. 
 
-A saída inclui mensagens de [Console.WriteLIne,](https://docs.microsoft.com/dotnet/api/system.console.writeline)com a adição de informações e resultados de consulta.
+A saída inclui mensagens de [Console.WriteLIne,](/dotnet/api/system.console.writeline)com a adição de informações e resultados de consulta.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
@@ -297,4 +297,4 @@ Neste início rápido C#, trabalhou através de uma série de tarefas para criar
 Quer otimizar e economizar nos gastos na nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar custos com a Gestão de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
