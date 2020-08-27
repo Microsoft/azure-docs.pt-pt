@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 3dc58b68270707eb5e92214def85ec8cf9cb3f5b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4821d4637a90acda12fec5656907ad3eedb24163
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587051"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921477"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -17,24 +18,24 @@ ms.locfileid: "83587051"
 
 ## <a name="create-a-net-core-project"></a>Criar um projeto .NET Core
 
-Abra um novo pedido de comando (ou sessão terminal) e execute estes comandos:
+Abra uma nova solicitação de comando (ou sessão terminal) e execute estes comandos:
 
 ```console
 dotnet new console -o alternate-sample
 cd alternate-sample
 ```
 
-O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `alternate-sample` . O segundo comando muda para o diretório para o seu projeto.
+O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET e cria um diretório chamado `alternate-sample` . O segundo comando muda o diretório para o seu projeto.
 
-Em seguida, terá de instalar Json.Net. A partir do diretório do seu projeto, corra:
+Em seguida, terá de instalar Json.Net. Do diretório do seu projeto, corra:
 
 ```console
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome sinuosos necessários ao seu projeto
+## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome necessários ao seu projeto
 
-O `dotnet new console` comando que dirigiu anteriormente criou um projeto, incluindo. `Program.cs` Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs` e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
+O `dotnet new console` comando que dirigiu anteriormente criou um projeto, incluindo. `Program.cs` Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs` , e substitua as declarações existentes. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação da amostra.
 
 ```csharp
 using System;
@@ -43,9 +44,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="get-subscription-information-from-environment-variables"></a>Obtenha informações de subscrição de variáveis ambientais
+## <a name="get-subscription-information-from-environment-variables"></a>Obtenha informações de subscrição a partir de variáveis ambientais
 
-Adicione as seguintes linhas à `Program` aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
+Adicione as seguintes linhas à `Program` classe. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lançam um erro se encontrar algum problema.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -70,7 +71,7 @@ static Program()
 
 ## <a name="create-a-function-to-get-alternate-translations"></a>Criar uma função para obter traduções alternativas
 
-Dentro da `Program` classe, crie uma função chamada `AltTranslation` . Esta classe encapsula o código usado para chamar o recurso dicionário e imprime o resultado para consolar.
+Dentro da `Program` classe, crie uma função chamada `AltTranslation` . Esta classe encapsula o código utilizado para chamar o recurso Dicionário e imprime o resultado para consolar.
 
 ```csharp
 static void AltTranslation()
@@ -84,7 +85,7 @@ static void AltTranslation()
 
 ## <a name="construct-the-uri"></a>Construa o URI
 
-Adicione estas linhas à `AltTranslation` função. Vai notar que, juntamente com `api-version` os.dois parâmetros adicionais foram declarados. Estes parâmetros são utilizados para definir a entrada e saída de tradução. Nesta amostra, estes são ingleses `en` e espanhóis `es` .
+Adicione estas linhas à `AltTranslation` função. Notarão que, juntamente com os `api-version` dois parâmetros adicionais, foram declarados dois parâmetros adicionais. Estes parâmetros são utilizados para definir a entrada e a saída de tradução. Nesta amostra, estes são inglês ( `en` ) e espanhol `es` ().
 
 ```csharp
 string route = "/dictionary/lookup?api-version=3.0";
@@ -92,14 +93,14 @@ static string params_ = "from=en&to=es";
 static string uri = endpoint + path + params_;
 ```
 
-Em seguida, precisamos criar e serializar o objeto JSON que inclui o texto que pretende traduzir. Lembre-se, pode passar mais do que um objeto na `body` matriz.
+Em seguida, precisamos criar e serializar o objeto JSON que inclui o texto que pretende traduzir. Tenha em mente que pode passar mais do que um objeto na `body` matriz.
 
 ```csharp
 System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
-## <a name="instantiate-the-client-and-make-a-request"></a>Instantie o cliente e faça um pedido
+## <a name="instantiate-the-client-and-make-a-request"></a>Instantaneamente o cliente e faça um pedido
 
 Estas linhas instantaneamente o `HttpClient` e `HttpRequestMessage` o:
 
@@ -111,18 +112,18 @@ using (var request = new HttpRequestMessage())
 }
 ```
 
-## <a name="construct-the-request-and-print-the-response"></a>Construir o pedido e imprimir a resposta
+## <a name="construct-the-request-and-print-the-response"></a>Construa o pedido e imprima a resposta
 
-Dentro do `HttpRequestMessage` seu vai:
+Dentro do `HttpRequestMessage` you:ll:
 
-* Declarar o método HTTP
+* Declare o método HTTP
 * Construa o pedido URI
-* Insira o corpo de pedido (objeto JSON serializado)
-* Adicione cabeçalhos necessários
-* Faça um pedido assíncrono
+* Insira o corpo do pedido (objeto JSON serializado)
+* Adicionar cabeçalhos necessários
+* Faça um pedido assíncronos
 * Imprimir a resposta
 
-Adicione este código ao `HttpRequestMessage` :
+Adicione este código `HttpRequestMessage` ao:
 
 ```csharp
 // Set the method to POST
@@ -154,7 +155,7 @@ static string PrettyPrint(string s)
 }
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço dos Serviços Cognitivos, também deve incluir os parâmetros do `Ocp-Apim-Subscription-Region` seu pedido. [Saiba mais sobre a autenticação com a subscrição multi-serviço.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
@@ -168,7 +169,7 @@ Console.ReadKey();
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao seu diretório de projeto e corra:
+Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao diretório do projeto e corra:
 
 ```console
 dotnet run
@@ -202,9 +203,9 @@ dotnet run
 ]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Certifique-se de remover quaisquer informações confidenciais do código fonte da sua aplicação de amostra, como as chaves de subscrição.
+Certifique-se de remover qualquer informação confidencial do código fonte da sua aplicação de amostra, como chaves de subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 

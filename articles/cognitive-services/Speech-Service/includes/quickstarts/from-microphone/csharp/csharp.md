@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Reconhecer discurso a partir de um microfone, C# - Serviço de fala'
+title: 'Quickstart: Reconhecer a fala a partir de um microfone, C# - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -9,20 +9,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: efa5e6d576f7bd2965353ce3493fda2e06567180
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a2890e8af2daf4ccd6e6cf9d163b873557e165e0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80658583"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926482"
 ---
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 [!INCLUDE [dotnet](./dotnet.md)]
 
-# <a name="unity"></a>[Unidade](#tab/unity)
+# <a name="unity"></a>[Unity](#tab/unity)
 
 [!INCLUDE [unity](./unity.md)]
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: dacfeeff06d58a084d4313ca50b51f262cf61381
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553085"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917980"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurar uma ligação a uma conta de Armazenamento Azure utilizando uma identidade gerida (pré-visualização)
 
@@ -68,7 +68,7 @@ Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão 
 
 ### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
 
-A [API REST,](https://docs.microsoft.com/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma conta de armazenamento usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
+A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
 
 Ao indexar a partir de uma conta de armazenamento, a fonte de dados deve ter as seguintes propriedades necessárias:
 
@@ -83,7 +83,7 @@ Ao indexar a partir de uma conta de armazenamento, a fonte de dados deve ter as 
         * *ResourceId=/subscrições/**o seu ID**de subscrição /grupos de recursos/ o nome do grupo de**recursos**/fornecedores/Microsoft.Storage/storageAcounts/ o nome da sua conta**de armazenamento**/;*
 * **O recipiente** especifica um recipiente ou nome de mesa na sua conta de armazenamento. Por predefinição, todas as bolhas dentro do recipiente são recuperáveis. Se quiser apenas indexar bolhas num determinado diretório virtual, pode especificar esse diretório utilizando o parâmetro de **consulta** opcional.
 
-Exemplo de como criar um objeto de origem de dados blob utilizando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Exemplo de como criar um objeto de origem de dados blob utilizando a [API REST](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -118,7 +118,7 @@ Aqui está como criar um índice com um `content` campo pesquisável para armaze
     }
 ```
 
-Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Para obter mais informações sobre a criação de índices, consulte [Criar Índice](/rest/api/searchservice/create-index)
 
 ### <a name="5---create-the-indexer"></a>5 - Criar o indexador
 
@@ -143,7 +143,7 @@ Definição de indexante de exemplo para um indexador blob:
 
 Este indexante será executado de duas em duas horas (o intervalo de horário está definido para "PT2H"). Para executar um indexante a cada 30 minutos, desajuste o intervalo para "PT30M". O intervalo suportado mais curto é de 5 minutos. O horário é opcional - se omitido, um indexante funciona apenas uma vez quando é criado. No entanto, pode executar um indexante a qualquer momento.   
 
-Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](/rest/api/searchservice/create-indexer).
 
 Para obter mais informações sobre a definição de horários de indexantes, consulte [Como agendar indexadores para a Pesquisa Cognitiva do Azure](search-howto-schedule-indexers.md).
 

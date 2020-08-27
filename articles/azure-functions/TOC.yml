@@ -175,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Desenvolvimento de Ferramentas de Núcleo
               href: functions-run-local.md
+              displayName: 'local, runtime'
         - name: Criar funções
           items:
             - name: Acionador HTTP

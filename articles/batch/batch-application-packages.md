@@ -3,13 +3,13 @@ title: Implementar pacotes de aplicações para calcular os nosdes
 description: Utilize a funcionalidade de pacotes de aplicação do Azure Batch para gerir facilmente várias aplicações e versões para instalação em nós computacional Batch.
 ms.topic: how-to
 ms.date: 04/26/2019
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: 8d0ab6227e232728818afbbc58ca6521d9a417df
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147214"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922009"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nóns com pacotes de aplicações batch
 
@@ -170,7 +170,7 @@ Para atualizar ou eliminar um pacote de aplicações existente, abra os detalhes
 
 ![Atualizar ou eliminar pacote no portal Azure][7]
 
-**Atualização**
+**Atualizar**
 
 Quando clicar em **Atualização,** as janelas **de pacote de atualização** são apresentadas. Esta janela é semelhante à janela do **pacote de novas aplicações,** no entanto apenas o campo de seleção de pacotes está ativado, permitindo especificar um novo ficheiro ZIP para carregar.
 
@@ -180,7 +180,7 @@ Quando clicar em **Atualização,** as janelas **de pacote de atualização** s�
 
 Quando clicar em **Eliminar,** é-lhe pedido que confirme a eliminação da versão do pacote e o Batch elimina a embalagem do Azure Storage. Se eliminar a versão predefinida de uma aplicação, a definição **de versão Predefinição** é removida para a aplicação.
 
-![Excluir aplicação][12]
+![Excluir aplicação ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalar aplicações em nó de computação
 Agora que aprendeu a gerir pacotes de aplicações com o portal Azure, podemos discutir como implantá-los para calcular nós e executá-los com tarefas de Batch.
@@ -255,7 +255,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`e `version` são valores que correspondem à versão de aplicação e pacote que especificou para implementação. Por exemplo, se especificasse que a versão 2.7 do *liquidificador* de aplicações deveria ser instalada nos nós windows, as linhas de comando da tarefa utilizariam esta variável ambiente para aceder aos seus ficheiros:
+`APPLICATIONID` e `version` são valores que correspondem à versão de aplicação e pacote que especificou para implementação. Por exemplo, se especificasse que a versão 2.7 do *liquidificador* de aplicações deveria ser instalada nos nós windows, as linhas de comando da tarefa utilizariam esta variável ambiente para aceder aos seus ficheiros:
 
 ```
 Windows:

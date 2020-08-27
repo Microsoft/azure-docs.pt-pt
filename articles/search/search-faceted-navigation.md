@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dd00c357a422a407a3367e45531e3443577f9bec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171946"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923250"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Como implementar a navegação facetada na Pesquisa Cognitiva do Azure
 
@@ -50,7 +50,7 @@ O ponto de partida é uma página de aplicação que fornece navegação facial,
 1. Uma consulta enviada para a Azure Cognitive Search especifica a estrutura de navegação facetada através de um ou mais parâmetros de consulta faceta. Por exemplo, a consulta pode incluir `facet=Rating` , talvez com uma ou `:values` `:sort` opção para aperfeiçoar ainda mais a apresentação.
 2. A camada de apresentação torna uma página de pesquisa que proporciona navegação facial, utilizando as facetas especificadas no pedido.
 3. Dada uma estrutura de navegação facetada que inclui rating, clique em "4" para indicar que apenas produtos com uma classificação igual ou superior devem ser mostrados. 
-4. Em resposta, a aplicação envia uma consulta que inclui`$filter=Rating ge 4` 
+4. Em resposta, a aplicação envia uma consulta que inclui `$filter=Rating ge 4` 
 5. A camada de apresentação atualiza a página, mostrando um conjunto de resultados reduzido, contendo apenas os itens que satisfazem os novos critérios (neste caso, produtos avaliados 4 e acima).
 
 Uma faceta é um parâmetro de consulta, mas não o confunda com entrada de consulta. Nunca é utilizado como critério de seleção numa consulta. Em vez disso, pense nos parâmetros de consulta de faceta como entradas para a estrutura de navegação que volta na resposta. Para cada parâmetro de consulta faceta que fornece, a Azure Cognitive Search avalia quantos documentos estão nos resultados parciais para cada valor faceta.
@@ -63,7 +63,7 @@ No código de aplicação, o padrão é usar parâmetros de consulta faceta para
 
 ### <a name="query-basics"></a>Básicos de consulta
 
-Na Pesquisa Cognitiva Azure, um pedido é especificado através de um ou mais parâmetros de consulta (ver [Documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) de Busca para uma descrição de cada um). Nenhum dos parâmetros de consulta são necessários, mas deve ter pelo menos um para que uma consulta seja válida.
+Na Pesquisa Cognitiva Azure, um pedido é especificado através de um ou mais parâmetros de consulta (ver [Documentos](/rest/api/searchservice/Search-Documents) de Busca para uma descrição de cada um). Nenhum dos parâmetros de consulta são necessários, mas deve ter pelo menos um para que uma consulta seja válida.
 
 A precisão, entendida como a capacidade de filtrar acessos irrelevantes, é conseguida através de uma ou ambas as expressões:
 
@@ -230,7 +230,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Um parâmetro de consulta faceta é definido para um campo e, dependendo do tipo de dados, pode ser ainda mais parametrizado por lista delimitada por vírgula que `count:<integer>` `sort:<>` inclui, `interval:<integer>` e `values:<list>` . Uma lista de valores é suportada para dados numéricos ao configurar intervalos. Consulte [documentos de pesquisa (Azure Cognitive Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter detalhes de utilização.
+Um parâmetro de consulta faceta é definido para um campo e, dependendo do tipo de dados, pode ser ainda mais parametrizado por lista delimitada por vírgula que `count:<integer>` `sort:<>` inclui, `interval:<integer>` e `values:<list>` . Uma lista de valores é suportada para dados numéricos ao configurar intervalos. Consulte [documentos de pesquisa (Azure Cognitive Search API)](/rest/api/searchservice/Search-Documents) para obter detalhes de utilização.
 
 Juntamente com as facetas, o pedido formulado pela sua aplicação também deve construir filtros para reduzir o conjunto de documentos candidatos com base numa seleção de valor faceta. Para uma loja de bicicletas, a navegação com face fornece pistas para questões como *Que cores, fabricantes e tipos de bicicletas estão disponíveis?* Filtrar responde a perguntas como *Quais as bicicletas exatas vermelhas, de montanha, nesta gama de preços?* Quando clica em "Vermelho" para indicar que apenas os produtos vermelhos devem ser mostrados, a próxima consulta que a aplicação envia inclui `$filter=Color eq 'Red'` .
 
@@ -299,7 +299,7 @@ Em geral, se descobrir que os resultados das facetas são consistentemente demas
 
 Para cada campo virado na árvore de navegação, existe um limite padrão de 10 valores. Este padrão faz sentido para as estruturas de navegação porque mantém a lista de valores para um tamanho manejável. Pode anular o padrão atribuindo um valor a contar.
 
-* `&facet=city,count:5`especifica que apenas as cinco primeiras cidades encontradas nos resultados mais bem classificados são devolvidas como resultado faceta. Considere uma consulta de amostra com um termo de pesquisa de "aeroporto" e 32 fósforos. Se a consulta `&facet=city,count:5` especificar, apenas as cinco primeiras cidades únicas com mais documentos nos resultados da pesquisa estão incluídas nos resultados da faceta.
+* `&facet=city,count:5` especifica que apenas as cinco primeiras cidades encontradas nos resultados mais bem classificados são devolvidas como resultado faceta. Considere uma consulta de amostra com um termo de pesquisa de "aeroporto" e 32 fósforos. Se a consulta `&facet=city,count:5` especificar, apenas as cinco primeiras cidades únicas com mais documentos nos resultados da pesquisa estão incluídas nos resultados da faceta.
 
 Note a distinção entre resultados de faceta e resultados de pesquisa. Os resultados da pesquisa são todos os documentos que correspondem à consulta. Os resultados faceta são os fósforos para cada valor faceta. No exemplo, os resultados da pesquisa incluem nomes do City que não estão na lista de classificação faceta (5 no nosso exemplo). Os resultados que são filtrados através da navegação facial tornam-se visíveis quando limpam as facetas, ou escolhem outras facetas para além do City. 
 
@@ -319,7 +319,7 @@ Quando adicionar um filtro a uma consulta facetada, é melhor manter a declaraç
 
 **Certifique-se de obter contagens de facetas precisas**
 
-Em certas circunstâncias, poderá descobrir que as contagens de faceta não correspondem aos conjuntos de resultados (ver [navegação facetada em Azure Cognitive Search (Microsoft Q&Página de perguntas)](https://docs.microsoft.com/answers/topics/azure-cognitive-search.html)).
+Em certas circunstâncias, poderá descobrir que as contagens de faceta não correspondem aos conjuntos de resultados (ver [navegação facetada em Azure Cognitive Search (Microsoft Q&Página de perguntas)](/answers/topics/azure-cognitive-search.html)).
 
 As contagens de faceta podem ser imprecisas devido à arquitetura de fragmentos. Cada índice de pesquisa tem vários fragmentos, e cada fragmento relata as facetas N superiores por contagem de documentos, que é então combinado em um único resultado. Se alguns fragmentos tiverem muitos valores correspondentes, enquanto outros têm menos, poderá descobrir que alguns valores de faceta estão em falta ou sub-contados nos resultados.
 
@@ -333,12 +333,12 @@ As etiquetas são tipicamente definidas no HTML ou na forma `index.cshtml` (na a
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtro baseado numa gama
-Encarar os intervalos de valores é um requisito comum de aplicação de pesquisa. As gamas são suportadas para dados numéricos e valores datetime. Pode ler mais sobre cada abordagem em [Documentos de Busca (Azure Cognitive Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Encarar os intervalos de valores é um requisito comum de aplicação de pesquisa. As gamas são suportadas para dados numéricos e valores datetime. Pode ler mais sobre cada abordagem em [Documentos de Busca (Azure Cognitive Search API)](/rest/api/searchservice/Search-Documents).
 
 A Azure Cognitive Search simplifica a construção do alcance, fornecendo duas abordagens para a computação de uma gama. Para ambas as abordagens, a Azure Cognitive Search cria as gamas apropriadas dadas as entradas que forneceu. Por exemplo, se especificar valores de gama de 10/20/30, cria automaticamente intervalos de 0-10, 10-20, 20-30. A sua aplicação pode remover opcionalmente quaisquer intervalos que estejam vazios. 
 
 **Abordagem 1: Utilize o parâmetro de intervalo**  
-Para definir as facetas de preço em incrementos de $10, especificaria:`&facet=price,interval:10`
+Para definir as facetas de preço em incrementos de $10, especificaria: `&facet=price,interval:10`
 
 **Abordagem 2: Utilize uma lista de valores**  
 Para dados numéricos, pode utilizar uma lista de valores.  Considere o alcance da faceta de um `listPrice` campo, prestado da seguinte forma:
@@ -404,4 +404,3 @@ Para obter mais informações sobre os princípios de design para a navegação 
 
 * [Padrões de design: Navegação com face](https://alistapart.com/article/design-patterns-faceted-navigation)
 * [Preocupações frontais ao implementar a procura facetada – Parte 1](https://articles.uie.com/faceted_search2/)
-

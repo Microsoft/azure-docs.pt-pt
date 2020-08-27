@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed95cf0b98edd8a6775c980876a6092c00e3a68d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366932"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918592"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
 
@@ -91,7 +91,7 @@ Para obter mais informações sobre identidades geridas, consulte [identidades g
 | Recurso | Permissões |
 | ----- | ----- |
 | Área de trabalho | Contribuinte |
-| Conta de armazenamento | Colaborador de dados blob de armazenamento |
+| Conta de armazenamento | Contribuinte de Dados do Armazenamento de Blobs |
 | Key Vault | Acesso a todas as chaves, segredos, certificados |
 | Registo de Contentores do Azure | Contribuinte |
 | Grupo de recursos que contém o espaço de trabalho | Contribuinte |
@@ -116,22 +116,17 @@ Também pode ativar o Azure Private Link para o seu espaço de trabalho. O Priva
 >
 > A exemplo de computação de aprendizagem automática Azure é um ambiente dev/teste. Ao usá-lo, recomendamos que guarde os seus ficheiros, como cadernos e scripts, numa partilha de ficheiros. Os seus dados devem ser armazenados numa data-loja.
 
-### <a name="encryption-at-rest"></a>Encriptação de dados inativos
+### <a name="encryption-at-rest"></a>Encriptação inativa
 
 > [!IMPORTANT]
-> Se o seu espaço de trabalho contiver dados sensíveis, recomendamos que se estabeleça a [bandeira hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria o seu espaço de trabalho. 
+> Se o seu espaço de trabalho contiver dados sensíveis, recomendamos que se estabeleça a [bandeira hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria o seu espaço de trabalho. A `hbi_workspace` bandeira só pode ser colocada quando um espaço de trabalho é criado. Não pode ser alterado para um espaço de trabalho existente.
 
-A `hbi_workspace` bandeira controla a quantidade de dados que a Microsoft recolhe para fins de diagnóstico e permite encriptação adicional em ambientes geridos pela Microsoft. Além disso, permite as seguintes ações:
+A `hbi_workspace` bandeira controla a quantidade de [dados que](#microsoft-collected-data) a Microsoft recolhe para fins de diagnóstico e permite [encriptação adicional em ambientes geridos pela Microsoft](../security/fundamentals/encryption-atrest.md). Além disso, permite as seguintes ações:
 
 * Começa a encriptar o disco de risco local no seu cluster de cálculo Azure Machine Learning desde que não tenha criado nenhum cluster anterior nessa subscrição. Caso contrário, você precisa levantar um bilhete de apoio para permitir a encriptação do disco de risco dos seus clusters de computação 
 * Limpa o disco local de armazenamento temporário entre as execuções
 * Passa credenciais de segurança para a sua conta de armazenamento, registo de contentores e conta SSH da camada de execução para os seus clusters de computação usando o seu cofre-chave
 * Permite a filtragem IP para garantir que os lotes subjacentes não podem ser chamados por outros serviços externos que não o AzureMachineLearningService
-
-> [!WARNING]
-> A `hbi_workspace` bandeira só pode ser colocada quando um espaço de trabalho é criado. Não pode ser alterado para um espaço de trabalho existente.
-
-Para obter mais informações sobre como a encriptação em repouso funciona em Azure, consulte [a encriptação de dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
@@ -202,9 +197,9 @@ Para utilizar a chave ao implementar um modelo para Azure Container Instance, cr
 
 Para obter mais informações sobre a criação e utilização de uma configuração de implantação, consulte os seguintes artigos:
 
-* [Referência AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) referência
 * [Onde e como implementar](how-to-deploy-and-where.md)
-* [Implementar um modelo para instâncias de contentores Azure](how-to-deploy-azure-container-instance.md)
+* [Implementar um modelo no Azure Container Instances](how-to-deploy-azure-container-instance.md)
 
 Para obter mais informações sobre a utilização de uma chave gerida pelo cliente com ACI, consulte [os dados de encriptação com uma chave gerida pelo cliente](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 

@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6268bf94350699518d8d578e3a1d5a56a52ad785
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db2017a3bb1a8910049527796f422227b741b960
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562350"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923199"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Upgrade para Azure Search .NET SDK versão 9
 
-Se estiver a utilizar a versão 7.0 pré-visualização ou mais antiga do [Azure Search .NET SDK,](https://docs.microsoft.com/dotnet/api/overview/azure/search)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 9.
+Se estiver a utilizar a versão 7.0 pré-visualização ou mais antiga do [Azure Search .NET SDK,](/dotnet/api/overview/azure/search)este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 9.
 
 > [!NOTE]
 > Se pretender utilizar a versão 8.0-pré-visualização para avaliar funcionalidades que não estão geralmente disponíveis ainda, também pode seguir as instruções deste artigo para atualizar para 8.0-pré-visualização de versões anteriores.
@@ -106,12 +106,12 @@ O construtor sem parâmetros `Field` foi `internal` feito. A partir de agora, ca
 
 Na versão 7.0-pré-visualização e anterior, as várias classes que encapsulam grupos de documentos foram estruturadas em hierarquias de classe paralelas:
 
-  -  `DocumentSearchResult`e `DocumentSearchResult<T>` herdado de`DocumentSearchResultBase`
-  -  `DocumentSuggestResult`e `DocumentSuggestResult<T>` herdado de`DocumentSuggestResultBase`
-  -  `IndexAction`e `IndexAction<T>` herdado de`IndexActionBase`
-  -  `IndexBatch`e `IndexBatch<T>` herdado de`IndexBatchBase`
-  -  `SearchResult`e `SearchResult<T>` herdado de`SearchResultBase`
-  -  `SuggestResult`e `SuggestResult<T>` herdado de`SuggestResultBase`
+  -  `DocumentSearchResult` e `DocumentSearchResult<T>` herdado de `DocumentSearchResultBase`
+  -  `DocumentSuggestResult` e `DocumentSuggestResult<T>` herdado de `DocumentSuggestResultBase`
+  -  `IndexAction` e `IndexAction<T>` herdado de `IndexActionBase`
+  -  `IndexBatch` e `IndexBatch<T>` herdado de `IndexBatchBase`
+  -  `SearchResult` e `SearchResult<T>` herdado de `SearchResultBase`
+  -  `SuggestResult` e `SuggestResult<T>` herdado de `SuggestResultBase`
 
 Os tipos derivados sem um parâmetro genérico do tipo destinavam-se a ser utilizados em cenários "de tipo dinâmico" e assumiam a utilização do `Document` tipo.
 

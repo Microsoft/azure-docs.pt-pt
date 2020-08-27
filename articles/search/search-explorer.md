@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488210"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929793"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Quickstart: Use o explorador de pesquisa para executar consultas no portal
 
 **O Explorador** de Pesquisa é uma ferramenta de consulta incorporada usada para executar consultas contra um índice de pesquisa em Azure Cognitive Search. Esta ferramenta facilita a aprendizagem da sintaxe de consulta, testa uma consulta ou expressão de filtro, ou confirma a atualização de dados verificando se existem novos conteúdos no índice.
 
-Este quickstart utiliza um índice existente para demonstrar o explorador de pesquisa. Os pedidos são formulados utilizando a [API Search REST,](https://docs.microsoft.com/rest/api/searchservice/)com respostas devolvidas como documentos JSON.
+Este quickstart utiliza um índice existente para demonstrar o explorador de pesquisa. Os pedidos são formulados utilizando a [API Search REST,](/rest/api/searchservice/)com respostas devolvidas como documentos JSON.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -133,7 +133,7 @@ Adicione [**$orderby**](search-query-odata-orderby.md) para classificar resultad
 
    ![Expressão ordem](./media/search-explorer/search-explorer-example-ordery.png "Alterar a sequência de ordenação")
 
-Expressões **$filter** e **$orderby** são construções OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Expressões **$filter** e **$orderby** são construções OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="start-search-explorer"></a>
 
@@ -147,9 +147,9 @@ Neste quickstart, utilizou **o Explorador de Pesquisa** para consultar um índic
 
 + Consultas de formulário livre, semelhantes ao que você pode introduzir num navegador web comercial, são úteis para testar uma experiência de utilizador final. Por exemplo, assumindo o índice de amostras de imóveis incorporado, você poderia entrar em "Seattle apartments lake washington", e então você pode usar Ctrl-F para encontrar termos dentro dos resultados da pesquisa. 
 
-+ As expressões de consulta e filtro são articuladas numa sintaxe suportada pela Azure Cognitive Search. O padrão é uma [sintaxe simples,](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)mas pode opcionalmente usar [Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para consultas mais poderosas. [As expressões de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) são uma sintaxe OData.
++ As expressões de consulta e filtro são articuladas numa sintaxe suportada pela Azure Cognitive Search. O padrão é uma [sintaxe simples,](/rest/api/searchservice/simple-query-syntax-in-azure-search)mas pode opcionalmente usar [Lucene completo](/rest/api/searchservice/lucene-query-syntax-in-azure-search) para consultas mais poderosas. [As expressões de filtro](/rest/api/searchservice/odata-expression-syntax-for-azure-search) são uma sintaxe OData.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
@@ -159,7 +159,7 @@ Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre estruturas de consulta e sintaxe, use o Carteiro ou uma ferramenta equivalente para criar expressões de consulta que alavancam mais partes da API. A [API Search REST](https://docs.microsoft.com/rest/api/searchservice/) é especialmente útil para a aprendizagem e exploração.
+Para saber mais sobre estruturas de consulta e sintaxe, use o Carteiro ou uma ferramenta equivalente para criar expressões de consulta que alavancam mais partes da API. A [API Search REST](/rest/api/searchservice/) é especialmente útil para a aprendizagem e exploração.
 
 > [!div class="nextstepaction"]
 > [Criar uma consulta básica no Carteiro](search-query-simple-examples.md)
