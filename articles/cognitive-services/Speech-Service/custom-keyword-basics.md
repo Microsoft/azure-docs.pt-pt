@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
-ms.openlocfilehash: cef47d1c6598e73d2c17c6799f3de90458206a8d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098302"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919017"
 ---
-# <a name="custom-keyword-basics"></a>Básicos de palavras-chave personalizados
+# <a name="custom-keyword-basics"></a>Informações básicas sobre a palavra-chave personalizada
 
 Neste artigo, aprende-se o básico de trabalhar com palavras-chave personalizadas, utilizando o Speech Studio e o Speech SDK. Uma palavra-chave é uma palavra ou frase curta que permite ativar a voz do seu produto. Crias modelos de palavras-chave no Speech Studio e depois exportas um ficheiro modelo que usas com o Speech SDK nas tuas aplicações.
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c79a42bbd60d7a1857649cffc97ed7f0103fa16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 070f9336c3e0ff00f35c4a17460c5c0a60a54031
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653520"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919697"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS 2.0
 
@@ -25,7 +25,11 @@ Este artigo destina-se a organizações federadas com o Azure Active Directory e
 Esta documentação abrange a utilização do Servidor Multi-Factor Authentication do Azure com o AD FS 2.0. Para mais informações sobre o AD FS, consulte [Securing cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS (Proteger recursos na cloud e no local através do Servidor Multi-Factor Authentication do Azure com o AD FS no Windows Server 2012 R2)](howto-mfaserver-adfs-2012.md).
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o MFA Server antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft já não oferece O MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores (MFA) durante os eventos de entrada devem utilizar a autenticação multi-factor Azure baseada na nuvem.
+>
+> Para começar com mFA baseado na nuvem, consulte [Tutorial: Secure user in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Os clientes existentes que ativaram o MFA Server antes de 1 de julho de 2019 podem descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="secure-ad-fs-20-with-a-proxy"></a>Proteger o AD FS 2.0 com um proxy
 

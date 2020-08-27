@@ -11,19 +11,25 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbd4ea4438e82ea9fb1d503b262bfda1b22b2737
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5c072298bf5cce4e22fe50d2474c7abe6b915f74
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690311"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919510"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configurar o Servidor Multi-Factor Authentication do Azure para aplicações Web IIS
 
 Utilize a secção Autenticação do IIS do Servidor do Multi-Factor Authentication (MFA) do Azure que permite ativar e configurar a autenticação do IIS para integração com aplicações Web do Microsoft IIS. O Servidor do MFA do Azure instala um plug-in que pode filtrar os pedidos efetuados para o servidor Web do IIS para adicionar o Multi-Factor Authentication do Azure. O plug-in do IIS fornece suporte para Autenticação Baseada em Formulários e Autenticação HTTP Integrada do Windows. Também podem ser configurados IPs Fidedignos para excluir os endereços IP internos da autenticação de dois fatores.
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o MFA Server antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume. Quando utiliza a autenticação multi-factor Azure baseada na nuvem, não existe alternativa ao plugin IIS fornecido pelo Azure Multi-Factor Authentication (MFA) Server. Em vez disso, utilize o Proxy de Aplicação Web (WAP) com serviços da Federação de Diretórios Ativos (AD FS) ou o Proxy de Aplicação do Diretório Ativo da Azure.
+> A partir de 1 de julho de 2019, a Microsoft já não oferece O MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores (MFA) durante os eventos de entrada devem utilizar a autenticação multi-factor Azure baseada na nuvem.
+>
+> Para começar com mFA baseado na nuvem, consulte [Tutorial: Secure user in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Os clientes existentes que ativaram o MFA Server antes de 1 de julho de 2019 podem descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+>
+> Quando utiliza a autenticação multi-factor Azure baseada na nuvem, não existe alternativa ao plugin IIS fornecido pelo Azure Multi-Factor Authentication (MFA) Server. Em vez disso, utilize o Proxy de Aplicação Web (WAP) com serviços da Federação de Diretórios Ativos (AD FS) ou o Proxy de Aplicação do Diretório Ativo da Azure.
 
 ![Autenticação do IIS no Servidor MFA](./media/howto-mfaserver-iis/iis.png)
 

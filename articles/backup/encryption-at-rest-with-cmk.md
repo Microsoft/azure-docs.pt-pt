@@ -3,12 +3,12 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9e299095709e07d3c73c8e8c847042cc51f549dd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827346"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892648"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
@@ -232,7 +232,7 @@ Ao executar uma restauração de ficheiros, os dados restaurados serão encripta
 
 Ao restaurar a partir de uma base de dados SAP HANA/SQL com rede de apoio que funciona num Azure VM, os dados restaurados serão encriptados utilizando a chave de encriptação utilizada no local de armazenamento do alvo. Pode ser uma chave gerida pelo cliente ou uma chave gerida pela plataforma usada para encriptar os discos do VM.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="can-i-encrypt-an-existing-backup-vault-with-customer-managed-keys"></a>Posso encriptar um cofre de reserva existente com chaves geridas pelo cliente?
 

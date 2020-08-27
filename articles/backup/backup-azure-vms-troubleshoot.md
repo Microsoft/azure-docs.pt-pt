@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: bf2a811098138663f1b7f2acd174d6bca4aa6150
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826245"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892342"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -192,7 +192,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Desta forma, garante-es que os instantâneos são criados através do anfitrião e não do Convidado. Repita a operação de cópia de segurança.
 
-**Passo 2**: Tente alterar o horário de backup para uma altura em que o VM esteja menos carregado (menos CPU/IOps, etc.)
+**Passo 2**: Tente alterar o horário de backup para uma altura em que o VM esteja menos carregado (como menos CPU ou IOps)
 
 **Passo 3**: Tente [aumentar o tamanho do VM](https://azure.microsoft.com/blog/resize-virtual-machines/) e reforce a operação
 
@@ -336,7 +336,7 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 * **Se mais de quatro VMs partilharem o mesmo serviço de nuvem, espalhe os VMs através de várias políticas de backup**. Escalonar os tempos de reserva, por isso não mais do que quatro backups VM começam ao mesmo tempo. Tente separar os tempos ini por uma hora nas apólices.
 * **O VM funciona com cpu alto ou memória**. Se a máquina virtual funciona com alta memória ou utilização de CPU, mais de 90%, a sua tarefa instantânea é a sua tarefa de instantâneo estão na fila e atrasadas. Eventualmente, acaba por ser assim. Se este problema acontecer, tente um backup a pedido.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se precisar de um IP estático privado, configurá-lo através do portal Azure ou PowerShell. Certifique-se de que a opção DHCP dentro do VM está ativada.
 Obtenha mais informações sobre como configurar um IP estático através do PowerShell:

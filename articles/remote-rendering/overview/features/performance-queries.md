@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc05fa713186eb1e2379c3c4c170d29f1c07958a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022799"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892801"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de desempenho do lado do servidor
 
@@ -110,7 +110,8 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
     assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
     {
         // do something with the result:
-        PerformanceAssessment result = *res->Result();
+        PerformanceAssessment result = res->GetResult();
+
         // ...
 
     });
@@ -171,7 +172,7 @@ A `GetStatsString` API forma uma cadeia de todos os valores, mas cada valor úni
 
 Há também variantes dos membros, que agregam os valores ao longo do tempo. Consulte os membros com sufixo, `*Avg` `*Max` ou `*Total` . O membro `FramesUsedForAverage` indica quantos quadros foram usados para esta agregação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar traços de desempenho](../../how-tos/performance-tracing.md)
 * [Configurar a conversão do modelo](../../how-tos/conversion/configure-model-conversion.md)

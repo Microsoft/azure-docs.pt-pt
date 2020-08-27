@@ -1,15 +1,15 @@
 ---
 title: Integração contínua com os Pipelines do Azure
 description: Aprenda a construir, testar e implementar continuamente modelos de Gestor de Recursos Azure.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86118924"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892682"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos do Gestor de Recursos Azure com Pipelines Azure
 
@@ -29,7 +29,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Criar um gasoduto Azure
 > * Verifique a implantação do gasoduto
 > * Atualizar o modelo e reimplantar
-> * Limpar recursos
+> * Limpar os recursos
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -175,8 +175,8 @@ Para criar um oleoduto com um passo para implementar um modelo:
     * **Localização**: Selecione uma localização para o grupo de recursos, por exemplo, **Central US**.
     * **Localização do modelo**: Selecione **artefacto ligado,** o que significa que a tarefa procura o ficheiro do modelo diretamente do repositório ligado.
     * **Modelo**: **Introduza CreateWebApp/azuredeploy.jsem**. Se alterar o nome da pasta e o nome do ficheiro, tem de alterar este valor.
-    * **Parâmetros do modelo**: Deixe este campo em branco. Irá especificar os valores dos parâmetros nos parâmetros do modelo **Override.
-    * **overrideParameters**: Enter **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Substitua o nome do projeto e o url do modelo ligado. O URL de modelo ligado é o que você escreveu no final do [repositório Criar um GitHub](#create-a-github-repository).
+    * **Parâmetros do modelo**: Deixe este campo em branco. Especificará os valores dos parâmetros nos parâmetros do **modelo de substituição**.
+    * **Parâmetros do modelo de substituição**: **Enter-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Substitua o nome do projeto e o url do modelo ligado. O URL de modelo ligado é o que você escreveu no final do [repositório Criar um GitHub](#create-a-github-repository). Começa **https://raw.githubusercontent.com** com.
     * **Modo de implantação**: Selecione **Incremental**.
     * **Nome de implementação**: Enter **DeployPipelineTemplate**. Selecione **Avançado** antes de ver **o nome de Implementação**.
 
@@ -228,7 +228,7 @@ Quando atualiza o modelo e empurra as alterações para o repositório remoto, o
 
 Para verificar as alterações, pode verificar a propriedade replicação da conta de armazenamento.  Ver [Verificar a implantação](#verify-the-deployment).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 

@@ -11,19 +11,23 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e7b5f6bef5358acf0709f994b85215e505fa4db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f5f1e123447bfff53a603bad23b0444a93e4a83
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653371"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919629"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configure Servidor de Autenticação Multi-Factor Azure para alta disponibilidade
 
 Para obter uma elevada disponibilidade com a sua implementação MFA do Azure Server, é necessário implementar vários servidores MFA. Esta secção fornece informações sobre um design equilibrado de carga para atingir os seus alvos de alta disponibilidade na sua implementação do Azure MFS Server.
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o MFA Server antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft já não oferece O MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores (MFA) durante os eventos de entrada devem utilizar a autenticação multi-factor Azure baseada na nuvem.
+>
+> Para começar com mFA baseado na nuvem, consulte [Tutorial: Secure user in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Os clientes existentes que ativaram o MFA Server antes de 1 de julho de 2019 podem descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="mfa-server-overview"></a>Visão geral do servidor do MFA
 
@@ -72,6 +76,6 @@ Note os seguintes itens para a área numerada correspondente do diagrama anterio
    ![Servidor Azure MFA - Portal do Utilizador e Serviço de Aplicações Móveis HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)
 3. A quinta do Servidor ADFS é equilibrada e publicada na Internet através de proxies ADFS equilibrados em carga na rede de perímetro. Cada Servidor ADFS utiliza o agente ADFS para comunicar com os Servidores MFA Azure utilizando um único URL equilibrado em carga (mfaapp.contoso.com) sobre a porta TCP 443.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Instalar e configurar o Servidor MFA do Azure](howto-mfaserver-deploy.md)

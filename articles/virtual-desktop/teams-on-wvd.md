@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509608"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922570"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
 >[!IMPORTANT]
->A otimização dos meios de comunicação para equipas não é suportada para ambientes do Governo microsoft 365.
+>A otimização dos meios de comunicação para equipas é suportada para ambientes do Governo microsoft 365 (GCC). A otimização dos meios de comunicação para equipas não é suportada para GCC-High ou DoD.
 
 >[!NOTE]
 >A otimização de meios para o Microsoft Teams só está disponível para o cliente do Windows Desktop em máquinas Windows 10. As otimizações dos meios de comunicação requerem a versão 1.2.1026.0 ou posterior do cliente do Windows Desktop.
@@ -32,7 +32,7 @@ Antes de poder utilizar as Equipas microsoft no Windows Virtual Desktop, terá d
 - [Prepare a sua rede](/microsoftteams/prepare-network/) para as Equipas microsoft.
 - Instale o [cliente Windows Desktop](connect-windows-7-10.md) num dispositivo Do Windows 10 ou Windows 10 IoT Enterprise que satisfaça os [requisitos de hardware](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)das Equipas microsoft teams para equipas num PC Windows .
 - Ligue-se a uma máquina virtual do Windows 10 ou do Windows 10 Enterprise (VM).
-- Instale a aplicação de ambiente de trabalho Teams no anfitrião utilizando a instalação por máquina. A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
+- [Descarregue](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) e instale a aplicação de ambiente de trabalho Teams no anfitrião utilizando a instalação por máquina. A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
 
 ## <a name="install-the-teams-desktop-app"></a>Instale a aplicação de desktop Teams
 
@@ -94,8 +94,8 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
 
         Isto instala equipas para a pasta Ficheiros de Programa (x86) num sistema operativo de 64 bits e para a pasta Ficheiros de Programa num sistema operativo de 32 bits. Neste ponto, a configuração da imagem dourada está completa. A instalação de Equipas por máquina é necessária para configurações não persistentes.
 
-        Existem duas bandeiras que podem ser definidas ao instalar equipas, **ALLUSER=1** e **ALLUSERS=1**. É importante compreender a diferença entre estes parâmetros. O parâmetro **ALLUSER=1** é utilizado apenas em ambientes VDI para especificar uma instalação por máquina. O parâmetro **ALLUSERS=1** pode ser utilizado em ambientes não-VDI e VDI. Quando define este parâmetro, o instalador de máquinas de equipas aparece no Programa e nas Funcionalidades no Painel de Controlo, bem como aplicações & funcionalidades nas Definições do Windows. Todos os utilizadores com credenciais de administração na máquina podem desinstalar equipas. 
-       
+        Existem duas bandeiras que podem ser definidas ao instalar equipas, **ALLUSER=1** e **ALLUSERS=1**. É importante compreender a diferença entre estes parâmetros. O parâmetro **ALLUSER=1** é utilizado apenas em ambientes VDI para especificar uma instalação por máquina. O parâmetro **ALLUSERS=1** pode ser utilizado em ambientes não-VDI e VDI. Quando define este parâmetro, o instalador de máquinas de equipas aparece no Programa e nas Funcionalidades no Painel de Controlo, bem como aplicações & funcionalidades nas Definições do Windows. Todos os utilizadores com credenciais de administração na máquina podem desinstalar equipas.
+
         > [!NOTE]
         > Os utilizadores e administradores não podem desativar o lançamento automático das Equipas durante a entrada neste momento.
 

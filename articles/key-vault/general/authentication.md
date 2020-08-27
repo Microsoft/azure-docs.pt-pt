@@ -7,12 +7,12 @@ ms.date: 06/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 7645600a476a1c2294ddd4a24fe01e2ffe51d5ac
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6336a0d4d8aa9c781befed0470d9a190af5aa9eb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589988"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930864"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticar para cofre de chave Azure
 
@@ -112,14 +112,9 @@ Neste momento tem um diretor de serviço registado. Pode vê-lo selecionando "Re
 1. Criar um certificado
 
     * Opção 1: Criar um certificado utilizando [o OpenSSL](https://www.openssl.org/) (apenas para efeitos de teste, não utilizar certificados auto-assinados na produção)
-
-    ```console
-    openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-    ```
-
     * Opção 2: Criar um certificado utilizando o cofre de chaves. [Criar um certificado no Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-your-first-key-vault-certificate)
 
-1. Faça o download do certificado no formato PEM
+1. Faça o download do certificado no formato PEM/PFX
 1. Faça login no portal Azure e navegue para o Azure Ative Directory
 1. Clique em "Registos de Aplicações"
 1. Selecione o principal de serviço que criou na Parte 1.

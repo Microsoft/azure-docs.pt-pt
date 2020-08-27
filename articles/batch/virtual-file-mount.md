@@ -2,13 +2,14 @@
 title: Monte um sistema de arquivo virtual em uma piscina
 description: Saiba como montar um sistema de ficheiros virtuais numa piscina de Lote.
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ms.date: 08/13/2019
-ms.openlocfilehash: 3f948f8441208f4a8741949e65afc8032f0a5080
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6b42d73954bf7ccaedfec15371cc73115c51198a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144422"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921635"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monte um sistema de ficheiros virtual numa piscina de Lote
 

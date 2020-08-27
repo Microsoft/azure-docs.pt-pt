@@ -10,30 +10,31 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: ba8cf9a25a12ecc261845477c4e32a86f585906e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 16f639a2a263aee286cec8bb0827fa506b50e3df
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592207"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921125"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como utilizar o método TransformText
 
 > [!NOTE]
-> Este método está premeditado. Não está disponível em V3.0 do Tradutor.
+> Este método é precotado. Não está disponível na V3.0 do Tradutor.
 
-O método TransformText é uma função de normalização de texto para as redes sociais, que devolve uma forma normalizada da entrada. O método pode ser usado como um passo de pré-processamento na tradução automática ou outras aplicações que esperam texto de entrada limpo que não é tipicamente encontrado nas redes sociais ou no conteúdo gerado pelo utilizador. A função funciona atualmente apenas com a entrada inglesa.
+O método TransformText é uma função de normalização de texto para as redes sociais, que devolve uma forma normalizada da entrada. O método pode ser usado como um passo de pré-processamento na tradução automática ou outras aplicações que esperam texto de entrada limpo que não é tipicamente encontrado nas redes sociais ou conteúdo gerado pelo utilizador. Atualmente, a função funciona apenas com a entrada inglesa.
 
-O método é um serviço RESTful usando GET over HTTP. Suporta a simples serialização xml e JSON.
+O método é um serviço RESTful utilizando GET over HTTP. Suporta uma simples serialização de XML e JSON.
 
 ## <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Descrição |
 |:---|:---|
-| Cabeçalho de autorização | **Obrigatório** Cabeçalho HTTP usado para identificar a aplicação. Utilize a tecla: "Autorização" e valor: "Portador" + " + ficha de acesso. Para mais detalhes, vá aqui.|
-| language | **Obrigatório** Uma corda que representa o código linguístico. Este parâmetro suporta apenas o inglês **com** o nome da língua.|
-| categoria | **Opcional** Uma cadeia que contenha a categoria ou domínio da tradução. Este parâmetro suporta apenas a opção por defeito **geral**.|
-| sentença | **Obrigatório** Uma frase que quer corrigir. |
+| Cabeçalho de autorização | **Requerido** Cabeçalho HTTP utilizado para identificar a aplicação. Utilize a tecla: "Autorização" e valor: "Portador" + " + token de acesso. Para mais detalhes, vá aqui.|
+| language | **Requerido** Uma cadeia que representa o código linguístico. Este parâmetro suporta apenas o inglês **com en** como nome da língua.|
+| categoria | **Opcional** Uma cadeia que contém a categoria ou domínio da tradução. Este parâmetro suporta apenas a opção **padrão geral**.|
+| sentença | **Requerido** Uma sentença que quer corrigir. |
 
 ## <a name="return-value"></a>Valor devolvido
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253312"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922118"
 ---
 # <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)
 
@@ -33,11 +33,11 @@ Copie os dados JSON e, em seguida, cole-os na caixa de texto relacionada. Não f
 
 A opção de criar um controlo personalizado está na secção **Gerir** a página **de Acesso Condicional.**
 
-![Controlo](./media/controls/82.png)
+![Interface de controlos personalizados em Acesso Condicional](./media/controls/custom-controls-conditional-access.png)
 
 Clicando em **Novo controlo personalizado,** abre uma lâmina com uma caixa de texto para os dados JSON do seu controlo.  
 
-![Controlo](./media/controls/81.png)
+![Novo controlo personalizado](./media/controls/new-custom-controls-conditional-access.png)
 
 ## <a name="deleting-custom-controls"></a>Apagar controlos personalizados
 
@@ -53,9 +53,9 @@ Para editar um controlo personalizado, deve eliminar o controlo de corrente e cr
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-Os controlos personalizados não podem ser utilizados com a automatização da Proteção de Identidade que requer a autenticação multi-factor Azure, o reset da palavra-passe de autosserviço AD Azure (SSPR), a satisfação dos requisitos de reclamação de autenticação de vários fatores ou a elevação de funções no Privileged Identity Manager (PIM).
+Os controlos personalizados não podem ser utilizados com a automatização da Proteção de Identidade que requer a autenticação multi-factor Azure, o reset da palavra-passe de autosserviço AZure AD (SSPR), satisfazendo os requisitos de reclamação de autenticação de vários fatores, para elevar as funções no Privileged Identity Manager (PIM), ou como parte da inscrição do dispositivo Intune.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

@@ -2,13 +2,14 @@
 title: Azure Windows Communication Foundation (WCF) Relay híbrido no local/aplicação em nuvem (.NET) Microsoft Docs
 description: Saiba como expor um serviço WCF no local a uma aplicação web na nuvem utilizando o Azure Relay
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: a9ac01beb28b1246122f437bcf1c7a7be7a1dfd9
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d6299899ee45bbad8b5e5fdbca01805604794d62
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079965"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922553"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expor um serviço WCF no local a uma aplicação web na nuvem utilizando o Azure Relay
 
@@ -186,7 +187,7 @@ Faça as seguintes alterações de código na sua solução:
     }
     ```
 
-1. No **Solution Explorer,** clique duas **vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual. Na parte inferior do `<system.ServiceModel>` elemento, mas ainda dentro `<system.ServiceModel>` , adicione o seguinte código XML. Certifique-se de substituir `yourServiceNamespace` pelo nome do seu espaço de nome, e pela chave `yourKey` SAS que recuperou anteriormente do portal:
+1. No **Solution Explorer,** clique duas ** vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual. Na parte inferior do `<system.ServiceModel>` elemento, mas ainda dentro `<system.ServiceModel>` , adicione o seguinte código XML. Certifique-se de substituir `yourServiceNamespace` pelo nome do seu espaço de nome, e pela chave `yourKey` SAS que recuperou anteriormente do portal:
 
     ```xml
     <system.serviceModel>

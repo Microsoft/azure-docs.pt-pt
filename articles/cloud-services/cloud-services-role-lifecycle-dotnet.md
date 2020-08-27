@@ -5,15 +5,16 @@ services: cloud-services
 documentationcenter: .net
 author: tgore03
 ms.service: cloud-services
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: e23eea439235659cf68da1063ae50a718a847a8d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d64414abfbc62e52b172a2c42796ec8d89d1719f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142320"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930065"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalize o ciclo de vida de uma função Web ou Trabalhador em .NET
 Quando cria um papel de trabalhador, estende-se a classe [RoleEntryPoint,](/previous-versions/azure/reference/ee758619(v=azure.100)) que fornece métodos para que possa anular que lhe permitam responder a eventos de ciclo de vida. Para funções web esta classe é opcional, por isso deve usá-la para responder a eventos de ciclo de vida.
@@ -74,7 +75,7 @@ Não é necessário ultrapassar o método **Run;** a implementação padrão ini
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementação dos métodos de ciclo de vida ASP.NET para um papel web
 Pode utilizar os métodos de ciclo de vida ASP.NET, para além dos fornecidos pela classe **RoleEntryPoint,** para gerir sequências de inicialização e de encerramento para um papel web. Isto pode ser útil para fins de compatibilidade se estiver a apresentar uma aplicação ASP.NET existente ao Azure. Os métodos ASP.NET do ciclo de vida são chamados a partir dos métodos **RoleEntryPoint.** O método ** \_ Início de Aplicação** é chamado após o fim do método **RoleEntryPoint.OnStart.** O método ** \_ Final de Aplicação** é chamado antes do método **RoleEntryPoint.OnStop** ser chamado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [criar um pacote de serviços em nuvem.](cloud-services-model-and-package.md)
 
 

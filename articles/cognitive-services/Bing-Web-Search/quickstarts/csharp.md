@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Realizar uma pesquisa na Web com C# - Bing Web Search REST API'
+title: 'Quickstart: Realize uma pesquisa na web com C# - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Utilize este quickstart para enviar pedidos para a API de Pesquisa Web bing usando C#, e receba uma resposta JSON.
+description: Utilize este quickstart para enviar pedidos para a API Bing Web Search REST usando C#, e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,17 +10,17 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 2c13931c7ab7c084b635abb7080f97de6d4bf4bb
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-csharp
+ms.openlocfilehash: 2760e6a46801871a25ecbe23a2400211ae312650
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873898"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921703"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Quickstart: Pesquisar na web usando o Bing Web Search REST API e C #
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Quickstart: Pesquise na web utilizando a API e C de Pesquisa web Bing #
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing. Esta aplicação C# envia um pedido de pesquisa para a API, e mostra a resposta JSON. Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa web Bing. Este pedido C# envia um pedido de pesquisa à API, e mostra a resposta JSON. Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 Este programa de exemplo neste quickstart utiliza apenas classes .NET Core.
 
@@ -28,7 +28,7 @@ Este programa de exemplo neste quickstart utiliza apenas classes .NET Core.
 
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
-* Windows: [Estúdio Visual 2017 ou mais tarde](https://www.visualstudio.com/downloads/)
+* Windows: [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](https://www.mono-project.com/)  
 * Uma chave de subscrição
 
@@ -64,11 +64,11 @@ namespace BingSearchApisQuickstart
 
 Tem de definir algumas variáveis para que possamos continuar. Adicione este código à `Program` classe que criou na secção anterior: 
 
-1. Para o `uriBase` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. 
+1. Pelo `uriBase` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso. 
 
 2. Confirme que `uriBase` é válido e substitua o valor por `accessKey` uma chave de subscrição da sua conta Azure. 
 
-3. Opcionalmente, personalize a consulta de pesquisa substituindo o valor por `searchTerm` . 
+3. Opcionalmente, personalize a consulta de pesquisa substituindo o valor de `searchTerm` . 
 
 ```csharp
 // Enter a valid subscription key.
@@ -84,7 +84,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Declarar o método Principal
 
-O `Main()` método é necessário e é o primeiro método invocado quando iniciar o programa. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
+O `Main()` método é necessário e é o primeiro método invocado quando inicia o programa. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
 
 O `main()` método depende dos métodos que se criam nas secções seguintes.
 
@@ -115,7 +115,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Criar uma estrutura para os resultados de pesquisa
 
-Crie uma estrutura que retorne os resultados da pesquisa com cabeçalhos relevantes. Ligue-lhe quando faz um pedido à API de Pesquisa web bing para criar um objeto de resultados.
+Crie uma estrutura que retorne os resultados da pesquisa com cabeçalhos relevantes. Ligue-o quando fizer um pedido à API de Pesquisa Web Bing para criar um objeto de resultado.
 
 ```csharp
 // Returns search results with headers.
@@ -164,7 +164,7 @@ static SearchResult BingWebSearch(string searchQuery)
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-Este método formata a resposta JSON, principalmente através do recuo e da adição de quebras de linha.
+Este método forma a resposta JSON, principalmente através do entalhe e da adição de quebras de linha.
 
 ```csharp
 /// <summary>
@@ -241,9 +241,9 @@ static string JsonPrettyPrint(string json)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-O último passo é executar o seu código. Se quiser comparar o seu código com o nosso, consulte o [código da amostra no GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs)
+O último passo é executar o seu código. Se quiser comparar o seu código com o nosso, consulte o código de [amostra no GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs)
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.  
 
@@ -372,6 +372,6 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicativo de pesquisa web bing Web API](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicação de pesquisa web de pesquisa web Bing Web API](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

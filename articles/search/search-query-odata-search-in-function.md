@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206916"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922825"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Função OData `search.in` em Pesquisa Cognitiva Azure
 
@@ -46,7 +46,7 @@ No entanto, há uma maneira mais curta de escrever isto, usando a `search.in` fu
 > [!NOTE]
 > A versão 4.01 da norma OData introduziu recentemente o [ `in` operador](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), que tem um comportamento semelhante ao da `search.in` função em Azure Cognitive Search. No entanto, a Azure Cognitive Search não suporta este operador, pelo que deve utilizar a `search.in` função.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática da `search.in` função:
 
@@ -82,7 +82,7 @@ Os parâmetros são definidos na tabela seguinte:
 
 <a name="bkmk_performance"></a>
 
-### <a name="performance-of-searchin"></a>Desempenho de`search.in`
+### <a name="performance-of-searchin"></a>Desempenho de `search.in`
 
 Se `search.in` utilizar, pode esperar tempo de resposta de segundo quando o segundo parâmetro contiver uma lista de centenas ou milhares de valores. Não existe um limite explícito no número de itens a que pode `search.in` passar, embora ainda esteja limitado pelo tamanho máximo de pedido. No entanto, a latência vai crescer à medida que o número de valores aumenta.
 
@@ -123,4 +123,4 @@ Encontre todos os hotéis sem a etiqueta 'motel' ou 'cabine':
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para pesquisa cognitiva de Azure](search-query-odata-syntax-reference.md)
-- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Documentos de pesquisa &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

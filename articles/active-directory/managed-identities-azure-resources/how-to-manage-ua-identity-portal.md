@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 08/26/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27144dcd4c7d7490aba3626264e1cb4b64fbb162
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 348d436d1cb1fa838a34c9ebe86f5e37f0f85803
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019204"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930571"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure
 
 Identidades geridas para recursos Azure fornecem aos serviços Azure uma identidade gerida no Azure Ative Directory. Pode utilizar esta identidade para autenticar serviços que suportem a autenticação Azure AD, sem precisar de credenciais no seu código. 
 
-Neste artigo, aprende-se a criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador através do Portal Azure.
+Neste artigo, aprende-se a criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador através do portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,13 +40,13 @@ Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição do Azure para criar a identidade gerida atribuída ao utilizador.
 2. Na caixa de pesquisa, *digite Identidades Geridas,* e em **Serviços,** clique em **Identidades Geridas**.
 3. Clique em **Adicionar** e introduzir valores nos seguintes campos em Criar painel de identidade **gerido atribuído pelo utilizador:**
-   - **Nome do recurso**: Este é o nome da sua identidade gerida atribuída pelo utilizador, por exemplo UAI1.
-   - **Subscrição**: Escolha a subscrição para criar a identidade gerida atribuída pelo utilizador
-   - **Grupo de Recursos**: Criar um novo grupo de recursos para conter a identidade gerida atribuída ao utilizador ou escolher **Utilização existente** para criar a identidade gerida atribuída pelo utilizador num grupo de recursos existente.
-   - **Localização**: Escolha um local para implementar a identidade gerida atribuída pelo utilizador, por **exemplo, West US**.
-4. Clique em **Create** (Criar).
-
-![Criar uma identidade gerida atribuída pelo utilizador](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+    - **Subscrição**: Escolha a subscrição para criar a identidade gerida atribuída pelo utilizador.
+    - **Grupo de recursos**: Escolha um grupo de recursos para criar a identidade gerida atribuída pelo utilizador ou clique em **Criar novo** para criar um novo grupo de recursos.
+    - **Região**: Escolha uma região para implantar a identidade gerida atribuída pelo utilizador, por **exemplo, os EUA Ocidentais.**
+    - **Nome**: Este é o nome da sua identidade gerida atribuída pelo utilizador, por exemplo UAI1.
+    ![Criar uma identidade gerida atribuída ao utilizador](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+4. Clique **em Rever + caixa** para rever as alterações.
+5. Clique em **Criar**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista de identidades geridas atribuídas pelo utilizador
 
@@ -83,7 +83,7 @@ Para atribuir uma função a uma identidade gerida atribuída pelo utilizador, a
 
 5. Na lâmina de atribuição de funções Adicionar, configure os seguintes valores e, em seguida, clique em **Guardar**:
    - **Papel** - o papel a atribuir
-   - **Atribuir acesso a** - o recurso para atribuir a identidade gerida atribuída pelo utilizador
+   - **Atribuir acesso a**  - o recurso para atribuir a identidade gerida atribuída pelo utilizador
    - **Selecione** - o membro para atribuir acesso
    
    ![IAM de identidade gerida atribuída pelo utilizador](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  

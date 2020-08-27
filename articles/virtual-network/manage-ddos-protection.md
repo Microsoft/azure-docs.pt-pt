@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: d94e19753a93d2682043d7b67b867325067cee5d
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 73036ba1a72d657fd07a826bbee8651781f70e9b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762305"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931969"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure
 
@@ -38,7 +38,7 @@ Um plano de proteção DDoS define um conjunto de redes virtuais que têm o padr
 A criação de mais do que um plano não é necessária para a maioria das organizações. Um plano não pode ser movido entre subscrições. Se quiser alterar a subscrição em que se encontra um plano, tem de [eliminar o plano existente](#work-with-ddos-protection-plans) e criar um novo.
 
 1. **Selecione Criar um recurso** no canto superior esquerdo do portal Azure.
-2. Procure *por DDoS*. Quando o **plano de proteção dos DDos** aparecer nos resultados da pesquisa, selecione-o.
+2. Procure *por DDoS*. Quando **o plano de proteção DDoS** aparecer nos resultados da pesquisa, selecione-o.
 3. Selecione **Criar**.
 4. Insira ou selecione os seus próprios valores, ou introduza, ou selecione os seguintes valores de exemplo e, em seguida, **selecione Criar**:
 
@@ -61,7 +61,7 @@ A criação de mais do que um plano não é necessária para a maioria das organ
     | Subscrição    | Selecione a sua subscrição.                                    |
     | Grupo de recursos  | Selecione **Utilizar a utilização existente**e, em seguida, selecione **myResourceGroup** |
     | Localização        | E.U.A Leste                                                      |
-    | Proteção de DDos | Selecione **Standard** e, em seguida, sob **proteção DDoS,** selecione **myDdosProtectionPlan**. O plano que seleciona pode ser na mesma, ou subscrição diferente da rede virtual, mas ambas as subscrições devem estar associadas ao mesmo inquilino do Azure Ative Directory.|
+    | Padrão de Proteção DDos | Selecione **Ativar**. O plano que seleciona pode ser na mesma, ou subscrição diferente da rede virtual, mas ambas as subscrições devem estar associadas ao mesmo inquilino do Azure Ative Directory.|
 
 Não é possível mover uma rede virtual para outro grupo de recursos ou subscrição quando o DDoS Standard estiver ativado para a rede virtual. Se precisar de mover uma rede virtual com o DDoS Standard ativado, desative primeiro a DDoS Standard, mova a rede virtual e, em seguida, ative a norma DDoS. Após a mudança, os limiares de política afinados automaticamente para todos os endereços IP públicos protegidos na rede virtual são reiniciados.
 
