@@ -7,12 +7,13 @@ ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089418"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001914"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Utilize o emulador Azurite para o desenvolvimento local do armazenamento Azure
 
@@ -327,10 +328,10 @@ Se estiver a utilizar os Azure SDKs, inicie a Azurite com as `--oauth basic and 
 
 ### <a name="well-known-storage-account-and-key"></a>Conta de armazenamento bem conhecida e chave
 
-A Azurite aceita a mesma conta e chave bem conhecida usada pelo emulador de armazenamento Azure.
+A Azurite aceita a mesma conta e chave bem conhecida usada pelo legado Azure Storage Emulator.
 
-- Nome da conta:`devstoreaccount1`
-- Chave da conta:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+- Nome da conta: `devstoreaccount1`
+- Chave da conta: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### <a name="custom-storage-accounts-and-keys"></a>Contas e chaves de armazenamento personalizado
 
@@ -508,12 +509,12 @@ Siga estes passos para adicionar Azurite HTTPS ao Explorador de Armazenamento:
 
 Os seguintes ficheiros e pastas podem ser criados no local do espaço de trabalho ao rubricar a Azurite.
 
-- `__blobstorage__`- Diretório contendo serviço de bolhas Azurite persistia dados binários
-- `__queuestorage__`- Diretório contendo serviço de fila Azurite persistido dados binários
-- `__azurite_db_blob__.json`- Ficheiro de metadados de serviço de blob azurite
-- `__azurite_db_blob_extent__.json`- Ficheiro de metadados de extensão de serviço de blob azurite
-- `__azurite_db_queue__.json`- Ficheiro de metadados de serviço de fila Azurite
-- `__azurite_db_queue_extent__.json`- Ficheiro de metadados de extensão de serviço de fila Azurite
+- `__blobstorage__` - Diretório contendo serviço de bolhas Azurite persistia dados binários
+- `__queuestorage__` - Diretório contendo serviço de fila Azurite persistido dados binários
+- `__azurite_db_blob__.json` - Ficheiro de metadados de serviço de blob azurite
+- `__azurite_db_blob_extent__.json` - Ficheiro de metadados de extensão de serviço de blob azurite
+- `__azurite_db_queue__.json` - Ficheiro de metadados de serviço de fila Azurite
+- `__azurite_db_queue_extent__.json` - Ficheiro de metadados de extensão de serviço de fila Azurite
 
 Para limpar o Azurite, elimine os ficheiros e as pastas acima e reinicie o emulador.
 
@@ -561,5 +562,5 @@ As contribuições e sugestões para a Azurite são bem-vindas. Vá à página d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Utilize o emulador de armazenamento Azure para desenvolvimento e teste](storage-use-emulator.md) de documentos o emulador de armazenamento Azure, que está a ser substituído pela Azurite.
+- [Utilize o Emulador de Armazenamento Azure para desenvolvimento e teste](storage-use-emulator.md) de documentos o legado Azure Storage Emulator, que está a ser substituído pela Azurite.
 - [As cordas de conexão de armazenamento Azure configure](storage-configure-connection-string.md) explicam como montar uma cadeia de ligação de armazenamento Azure válida.

@@ -6,17 +6,15 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom:
-- mvc
-- amqp
+ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683997"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012335"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialize telemetria usando tampão de protocolo
 
@@ -267,7 +265,7 @@ Para configurar e executar a simulação:
 
 Para interromper a simulação, selecione o pedido **de simulação Stop** no Carteiro e clique em **Enviar**.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode parar os dois microserviços de funcionamento local nas suas instâncias do Código do Estúdio Visual **(Debug \> Stop Debugging).**
 
@@ -277,6 +275,6 @@ Se já não necessitar das instâncias IoT Hub e Cosmos DB, elimine-as da sua as
 
 Muitas funcionalidades do IoT Hub não suportam de forma nativa o Protobuf ou outros formatos binários. Por exemplo, não é possível fazer uma rota com base na carga útil da mensagem porque o IoT Hub não poderá processar a carga útil da mensagem. Pode, no entanto, fazer percurso com base em cabeçalhos de mensagens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a personalizar a Simulação do Dispositivo para usar o Protobuf para enviar telemetria, o próximo passo é aprender agora a [implementar uma imagem personalizada para a nuvem.](iot-accelerators-device-simulation-deploy-image.md)

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: b92d26da837cab72a4c4404a7b5b3de5d3116480
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 610006dc84abc0b8590353e1edd52582dfd6fac6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043357"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022008"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Stream ao vivo com serviços de mídia
 
@@ -171,7 +171,7 @@ Para assistir ao evento, copie o URL de streaming que obteve quando executou o c
 
 O Live Event converte automaticamente eventos em conteúdo sonoro quando parado. Mesmo depois de parar e apagar o evento, os utilizadores podem transmitir o seu conteúdo arquivado como um vídeo a pedido enquanto não eliminar o ativo. Um ativo não pode ser eliminado se for usado por um evento; o evento deve ser apagado primeiro.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 

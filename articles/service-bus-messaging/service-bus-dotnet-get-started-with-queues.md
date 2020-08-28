@@ -4,12 +4,13 @@ description: Neste tutorial, cria aplicações de consola .NET Core para enviar 
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 477d9d5a23e50d9b303d560b5530cbc22104c5cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cff2b8a8a0f6aefad43737aeb6fe63d40facac05
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337544"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021668"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -181,7 +182,7 @@ Selecione o nome da sua fila na janela **Overview** do espaço de nome para exib
 
 O valor **da contagem de mensagens Ative** para a fila é agora de **10**. Cada vez que executam esta aplicação de remetente sem recuperar as mensagens, este valor aumenta em 10.
 
-O tamanho atual da fila aumenta o valor **CURRENT** em **Essentials** cada vez que a aplicação adiciona mensagens à fila.
+O tamanho atual da fila aumenta o valor **CURRENT** em **Essentials**  cada vez que a aplicação adiciona mensagens à fila.
 
 A secção seguinte descreve como recuperar estas mensagens.
 
@@ -387,7 +388,7 @@ Parabéns! Criou agora uma fila, enviou um conjunto de mensagens para aquela fil
 > [!NOTE]
 > Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem facilmente a um espaço de nomes de Service Bus e administram entidades de mensagens. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o nosso [repositório do GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram algumas das funcionalidades mais avançadas das mensagens do Service Bus.
 

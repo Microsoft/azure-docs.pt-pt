@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463337"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002288"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia para converter funções web e trabalhadoras para serviços apátridas de tecido de serviço
 Este artigo descreve como migrar os seus serviços web e trabalhadores para serviços apátridas de tecido. Esta é a rota de migração mais simples dos Serviços de Cloud para o Tecido de Serviço para aplicações cuja arquitetura global vai permanecer aproximadamente a mesma.
@@ -45,7 +46,7 @@ Os APIs de serviço de função de trabalhador e de tecido de serviço oferecem 
 | Em processamento |`Run()` |`RunAsync()` |
 | Início do VM |`OnStart()` |N/D |
 | Paragem VM |`OnStop()` |N/D |
-| Ouvinte aberto para pedidos de clientes |N/D |<ul><li> `CreateServiceInstanceListener()`para apátridas</li><li>`CreateServiceReplicaListener()`para imponente</li></ul> |
+| Ouvinte aberto para pedidos de clientes |N/D |<ul><li> `CreateServiceInstanceListener()` para apátridas</li><li>`CreateServiceReplicaListener()` para imponente</li></ul> |
 
 ### <a name="worker-role"></a>Papel do Trabalhador
 ```csharp
@@ -113,7 +114,7 @@ A API de ambiente cloud Services fornece informações e funcionalidades para a 
 | --- | --- | --- |
 | Configurações de configuração e notificação de alteração |`RoleEnvironment` |`CodePackageActivationContext` |
 | Armazenamento local |`RoleEnvironment` |`CodePackageActivationContext` |
-| Informação sobre ponto final |`RoleInstance` <ul><li>Instância atual:`RoleEnvironment.CurrentRoleInstance`</li><li>Outros papéis e instâncias:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`para o endereço atual do nó</li><li>`FabricClient`e `ServicePartitionResolver` para a descoberta do ponto final de serviço</li> |
+| Informação sobre ponto final |`RoleInstance` <ul><li>Instância atual: `RoleEnvironment.CurrentRoleInstance`</li><li>Outros papéis e instâncias: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` para o endereço atual do nó</li><li>`FabricClient` e `ServicePartitionResolver` para a descoberta do ponto final de serviço</li> |
 | Emulação ambiental |`RoleEnvironment.IsEmulated` |N/D |
 | Evento de mudança simultânea |`RoleEnvironment` |N/D |
 
@@ -243,7 +244,7 @@ No Tecido de Serviço é configurado um ponto de entrada de arranque por serviç
 ## <a name="a-note-about-development-environment"></a>Uma nota sobre ambiente de desenvolvimento
 Tanto os Serviços cloud como o Tecido de Serviço são integrados no Visual Studio com modelos de projeto e suporte para depuração, configuração e implantação tanto local como para Azure. Tanto os Serviços cloud como o Tecido de Serviço também fornecem um ambiente de execução de desenvolvimento local. A diferença é que enquanto o tempo de funcionamento do Serviço cloud imita o ambiente Azure em que funciona, o Service Fabric não utiliza um emulador - utiliza o tempo completo de funcionamento do Tecido de Serviço. O ambiente de Tecido de Serviço que você executa na sua máquina de desenvolvimento local é o mesmo ambiente que funciona em produção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia mais sobre serviços fiáveis de tecido de serviço e as diferenças fundamentais entre a arquitetura da aplicação Cloud Services e Service Fabric para entender como aproveitar o conjunto completo de funcionalidades do Service Fabric.
 
 * [Começar com serviços fiáveis de tecido de serviço](service-fabric-reliable-services-quick-start.md)

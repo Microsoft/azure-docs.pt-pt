@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Construa uma app de consola .NET para gerir os recursos da API Azure Cosmos DB SQL
-description: Aprenda a construir uma aplicação de consola .NET para gerir os recursos da conta Azure Cosmos DB SQL API neste arranque rápido.
+title: Quickstart - Construa uma aplicação de consola .NET para gerir os recursos API API da Azure Cosmos DB SQL
+description: Saiba como construir uma aplicação de consola .NET para gerir os recursos da conta AZure Cosmos DL API neste arranque rápido.
 author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
@@ -8,52 +8,53 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/11/2020
-ms.openlocfilehash: 829cbad707f24daf3331c87a5cc373239bb83b98
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: c76a6666be805aa088bab7c5716ffd88a30519c1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658323"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002084"
 ---
-# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Quickstart: Construa uma app de consola .NET para gerir os recursos da API Azure Cosmos DB SQL
+# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Quickstart: Construa uma aplicação de consola .NET para gerir os recursos API API da Azure Cosmos DB SQL
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java SDK v4](create-sql-api-java.md)
+> * [SDK v4 de Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Inicie-se com a biblioteca de clientes Azure Cosmos DB SQL API para .NET. Siga os passos neste doc para instalar o pacote .NET, construir uma app e experimentar o código de exemplo para operações crud básicas nos dados armazenados em Azure Cosmos DB. 
+Começa com a biblioteca de clientes Azure Cosmos DB SQL API para .NET. Siga os passos neste doc para instalar o pacote .NET, construir uma aplicação e experimentar o código de exemplo para operações básicas da CRUD nos dados armazenados no Azure Cosmos DB. 
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode utilizar o Azure Cosmos DB para criar e consultar rapidamente as bases de dados de chaves/valor, documentos e gráficos. Utilize a biblioteca de clientes Azure Cosmos DB SQL API para.NET para:
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode utilizar a Azure Cosmos DB para criar e consultar rapidamente bases de dados de chaves/valor, documentos e gráficos. Utilize a biblioteca de clientes Azure Cosmos DB SQL API para .NET para:
 
-* Crie uma base de dados Azure Cosmos e um recipiente
-* Adicione dados da amostra ao recipiente
+* Criar uma base de dados Azure Cosmos e um recipiente
+* Adicione dados de amostra ao recipiente
 * Consultar os dados 
-* Apagar a base de dados
+* Eliminar a base de dados
 
-[Documentação de](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet)  |  referência da API Código fonte [da biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[Documentação de](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/) ou pode [Experimentar O Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos. 
-* O [Núcleo .NET 2.1 SDK ou posterior](https://dotnet.microsoft.com/download/dotnet-core/2.1).
+* Azure subscription - [crie um gratuitamente](https://azure.microsoft.com/free/) ou pode [experimentar gratuitamente a Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos. 
+* O [Núcleo .NET 2.1 SDK ou mais tarde](https://dotnet.microsoft.com/download/dotnet-core/2.1).
 
 ## <a name="setting-up"></a>Configuração
 
-Esta secção acompanha-o através da criação de uma conta Azure Cosmos e da criação de um projeto que utiliza a biblioteca de clientes Azure Cosmos DB SQL API para a gestão de recursos. O código de exemplo descrito neste artigo cria uma `FamilyDatabase` base de dados e membros da família (cada membro da família é um item) dentro dessa base de dados. Cada membro da família tem propriedades `Id, FamilyName, FirstName, LastName, Parents, Children, Address,` como. A `LastName` propriedade é usada como chave de partição para o recipiente. 
+Esta secção acompanha-o através da criação de uma conta Azure Cosmos e da criação de um projeto que utiliza a biblioteca de clientes API API AZure Cosmos DB SQL para .NET para gerir recursos. O código de exemplo descrito neste artigo cria uma `FamilyDatabase` base de dados e membros da família (cada membro da família é um item) dentro dessa base de dados. Cada membro da família tem propriedades `Id, FamilyName, FirstName, LastName, Parents, Children, Address,` como. A `LastName` propriedade é usada como chave de partição para o recipiente. 
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Criar uma conta do Azure Cosmos
 
-Se utilizar o [Try Azure Cosmos DB para](https://azure.microsoft.com/try/cosmosdb/) uma opção gratuita para criar uma conta Azure Cosmos, tem de criar uma conta Azure Cosmos DB do tipo **SQL API**. Já foi criada uma conta de teste Azure Cosmos DB para si. Não tem de criar a conta explicitamente, para que possa saltar esta secção e passar para a secção seguinte.
+Se utilizar o [Try Azure Cosmos DB para](https://azure.microsoft.com/try/cosmosdb/) opção gratuita para criar uma conta Azure Cosmos, deve criar uma conta DB Azure Cosmos do tipo **SQL API**. Uma conta de teste DB da Azure Cosmos já foi criada para si. Não precisa de criar a conta explicitamente, para que possa saltar esta secção e passar para a secção seguinte.
 
-Se tiver a sua própria subscrição Azure ou tiver criado uma subscrição gratuitamente, deverá criar explicitamente uma conta Azure Cosmos. O código seguinte criará uma conta Azure Cosmos com consistência da sessão. A conta é replicada `South Central US` `North Central US` e.  
+Se tiver a sua própria subscrição Azure ou tiver uma subscrição gratuita, deverá criar uma conta Azure Cosmos explicitamente. O seguinte código criará uma conta Azure Cosmos com consistência da sessão. A conta é replicada em `South Central US` e `North Central US` .  
 
-Você pode usar Azure Cloud Shell para criar a conta Azure Cosmos. O Azure Cloud Shell é uma shell interativa, autenticada e compatível com browsers para gerir recursos do Azure. Dá a flexibilidade de escolher a experiência de shell mais adequada ao seu método de trabalho, quer seja baseada em Bash ou no PowerShell. Para este arranque rápido, escolha o modo **Bash.** A Azure Cloud Shell também requer uma conta de armazenamento, podecriar uma quando solicitada.
+Pode utilizar a Azure Cloud Shell para criar a conta Azure Cosmos. O Azure Cloud Shell é uma shell interativa, autenticada e compatível com browsers para gerir recursos do Azure. Dá a flexibilidade de escolher a experiência de shell mais adequada ao seu método de trabalho, quer seja baseada em Bash ou no PowerShell. Para este arranque rápido, escolha o modo **Bash.** AZure Cloud Shell também requer uma conta de armazenamento, pode criar uma quando solicitada.
 
-Selecione o botão **Try It** ao lado do código seguinte, escolha o modo **Bash** selecione criar uma conta de **armazenamento** e iniciar sessão na Cloud Shell. Próxima cópia e cole o seguinte código para Azure Cloud Shell e executá-lo. O nome da conta Azure Cosmos deve ser globalmente único, certifique-se de atualizar o valor antes de `mysqlapicosmosdb` executar o comando.
+Selecione o botão **Try It** ao lado do seguinte código, escolha o modo **Bash** **selecione criar uma conta de armazenamento** e iniciar sessão na Cloud Shell. Em seguida, copie e cole o seguinte código para Azure Cloud Shell e execute-o. O nome da conta Azure Cosmos deve ser globalmente único, certifique-se de atualizar o `mysqlapicosmosdb` valor antes de executar o comando.
 
 ```azurecli-interactive
 
@@ -80,11 +81,11 @@ az cosmosdb create \
 
 ```
 
-A criação da conta Azure Cosmos demora algum tempo, uma vez que a operação é bem sucedida, pode ver a saída de confirmação. Depois do comando terminar com sucesso, assine no [portal Azure](https://portal.azure.com/) e verifique se a conta Azure Cosmos com o nome especificado existe. Pode fechar a janela Azure Cloud Shell depois de o recurso ser criado. 
+A criação da conta Azure Cosmos demora algum tempo, uma vez que a operação é bem sucedida, você pode ver a saída de confirmação. Após o comando ter concluído com sucesso, inscreva-se no [portal Azure](https://portal.azure.com/) e verifique se existe a conta Azure Cosmos com o nome especificado. Pode fechar a janela Azure Cloud Shell após a criação do recurso. 
 
 ### <a name="create-a-new-net-app"></a><a id="create-dotnet-core-app"></a>Criar uma nova aplicação .NET
 
-Crie uma nova aplicação .NET no seu editor ou IDE preferido. Abra o pedido de comando do Windows ou uma janela terminal a partir do seu computador local. Executará todos os comandos nas próximas secções a partir do pedido de comando ou terminal.  Executar o novo comando do dotnet seguinte para criar uma nova app com o nome `todo` . O parâmetro --langVersion define a propriedade LangVersion no ficheiro de projeto criado.
+Crie uma nova aplicação .NET no seu editor preferido ou IDE. Abra o pedido de comando do Windows ou uma janela do terminal a partir do computador local. Executará todos os comandos nas próximas secções a partir do comando ou terminal.  Executar o seguinte comando dotnet novo para criar uma nova app com o nome `todo` . O parâmetro langVersion define a propriedade LangVersion no ficheiro do projeto criado.
 
 ```console
 dotnet new console --langVersion 7.1 -n todo
@@ -97,7 +98,7 @@ cd todo
 dotnet build
 ```
 
-A saída esperada da construção deve ser algo assim:
+A produção esperada da construção deve ser algo assim:
 
 ```console
   Restore completed in 100.37 ms for C:\Users\user1\Downloads\CosmosDB_Samples\todo\todo.csproj.
@@ -111,27 +112,27 @@ Build succeeded.
 Time Elapsed 00:00:34.17
 ```
 
-### <a name="install-the-azure-cosmos-db-package"></a><a id="install-package"></a>Instale o pacote Azure Cosmos DB
+### <a name="install-the-azure-cosmos-db-package"></a><a id="install-package"></a>Instale o pacote DB Azure Cosmos
 
-Ainda no diretório de aplicações, instale a biblioteca de clientes Azure Cosmos DB para .NET Core utilizando o comando de pacote de adição de dotnet.
+Enquanto ainda está no diretório de aplicações, instale a biblioteca de clientes Azure Cosmos DB para .NET Core utilizando o comando do pacote de adicionar dotnet.
 
 ```console
 dotnet add package Microsoft.Azure.Cosmos
 ```
 
-### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>Copie as credenciais da sua conta Azure Cosmos do portal Azure
+### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>Copie as suas credenciais de conta Azure Cosmos do portal Azure
 
-A aplicação da amostra precisa de autenticar na sua conta Azure Cosmos. Para autenticar, deverá passar as credenciais da conta Azure Cosmos para a aplicação. Obtenha as credenciais da sua conta Azure Cosmos seguindo estes passos:
+A aplicação da amostra precisa de autenticar na sua conta Azure Cosmos. Para autenticar, deve passar as credenciais de conta Azure Cosmos para a aplicação. Obtenha as suas credenciais de conta Azure Cosmos seguindo estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Navegue para a sua conta Azure Cosmos.
 
-1. Abra o painel **de Teclas** e copie a CHAVE **URI** e **PRIMÁRIA** da sua conta. Você adicionará os valores URI e chaves a uma variável ambiental no próximo passo.
+1. Abra o painel **de chaves** e copie o **URI** e **a CHAVE PRINCIPAL** da sua conta. Irá adicionar o URI e os valores das teclas a uma variável ambiental no passo seguinte.
 
 ### <a name="set-the-environment-variables"></a>Definir as variáveis ambientais
 
-Depois de ter copiado a CHAVE **URI** e **PRIMÁRIA** da sua conta, guarde-as para uma nova variável ambiental na máquina local que executa a aplicação. Para definir a variável ambiental, abra uma janela da consola e execute o seguinte comando. Certifique-se de substituir `<Your_Azure_Cosmos_account_URI>` e `<Your_Azure_Cosmos_account_PRIMARY_KEY>` valores.
+Depois de copiar o **URI** e a **CHAVE PRIMÁRIA** da sua conta, guarde-os para uma nova variável ambiental na máquina local que executa a aplicação. Para definir a variável ambiente, abra uma janela da consola e execute o seguinte comando. Certifique-se de que substitui `<Your_Azure_Cosmos_account_URI>` e `<Your_Azure_Cosmos_account_PRIMARY_KEY>` valoriza.
 
 **Windows**
 
@@ -156,32 +157,32 @@ export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 
  ## <a name="object-model"></a><a id="object-model"></a>Modelo de objeto
 
-Antes de começar a construir a aplicação, vamos olhar para a hierarquia de recursos em Azure Cosmos DB e o modelo de objeto usado para criar e aceder a esses recursos. O Azure Cosmos DB cria recursos na seguinte ordem:
+Antes de começar a construir a aplicação, vamos olhar para a hierarquia de recursos em Azure Cosmos DB e o modelo de objeto usado para criar e aceder a estes recursos. O Azure Cosmos DB cria recursos na seguinte ordem:
 
 * Conta Azure Cosmos 
 * Bases de Dados 
 * Contentores 
 * Itens
 
-Para saber mais sobre a hierarquia de diferentes entidades, consulte o trabalho com bases de [dados, contentores e itens no artigo da Azure Cosmos DB.](databases-containers-items.md) Utilizará as seguintes classes .NET para interagir com estes recursos:
+Para saber mais sobre a hierarquia de diferentes entidades, consulte o [trabalho com bases de dados, contentores e itens no artigo da Azure Cosmos DB.](databases-containers-items.md) Utilizará as seguintes classes .NET para interagir com estes recursos:
 
-* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) - Esta classe fornece uma representação lógica do lado do cliente para o serviço Azure Cosmos DB. O objeto do cliente é usado para configurar e executar pedidos contra o serviço.
+* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) - Esta classe proporciona uma representação lógica do lado do cliente para o serviço DB Azure Cosmos. O objeto cliente é usado para configurar e executar pedidos contra o serviço.
 
-* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) - Este método cria (se não existe) ou obtém (se já existe) um recurso de base de dados como uma operação assíncrona. 
+* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) - Este método cria (se não existir) ou obtém (se já existe) um recurso de base de dados como uma operação assíncrono. 
 
-* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet)- Este método cria (se não existe) ou obtém (se já existe) um recipiente como uma operação assíncrona. Pode verificar o código de estado a partir da resposta para determinar se o recipiente foi recém-criado (201) ou se um contentor existente foi devolvido (200). 
+* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet)- - Este método cria (se não existir) ou obtém (se já existe) um recipiente como uma operação assíncrona. Pode verificar o código de estado da resposta para determinar se o recipiente foi recém-criado (201) ou se foi devolvido um contentor existente (200). 
 * [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) - Este método cria um item dentro do recipiente. 
 
 * [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) - Este método cria um item dentro do recipiente se já não existir ou substituir o item se já existir. 
 
 * [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
-) - Este método cria uma consulta para itens sob um recipiente numa base de dados Azure Cosmos usando uma declaração SQL com valores parametrizados. 
+) - Este método cria uma consulta para itens debaixo de um recipiente numa base de dados do Azure Cosmos utilizando uma declaração SQL com valores parametrizados. 
 
-* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) - Elimina a base de dados especificada da sua conta Azure Cosmos. `DeleteAsync`método apenas elimina a base de dados. A eliminação da `Cosmosclient` instância deve acontecer separadamente (o que acontece no método DeleteDatabaseAndCleanupAsync. 
+* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) - Elimina a base de dados especificada da sua conta Azure Cosmos. `DeleteAsync` método apenas elimina a base de dados. A eliminação do `Cosmosclient` caso deve ocorrer separadamente (o que acontece no método DeleteDatabaseAndCleanUpAsync. 
 
  ## <a name="code-examples"></a><a id="code-examples"></a>Exemplos de código
 
-O código de amostra descrito neste artigo cria uma base de dados familiar em Azure Cosmos DB. A base de dados familiar contém detalhes familiares como nome, endereço, localização, pais, crianças e animais de estimação associados. Antes de povoar os dados na sua conta Azure Cosmos, defina as propriedades de um item familiar. Crie uma nova classe chamada `Family.cs` ao nível raiz da sua aplicação de amostra e adicione-lhe o seguinte código:
+O código de amostra descrito neste artigo cria uma base de dados familiar em Azure Cosmos DB. A base de dados da família contém detalhes familiares como nome, endereço, localização, pais, crianças e animais de estimação associados. Antes de povoar os dados para a sua conta Azure Cosmos, defina as propriedades de um item familiar. Crie uma nova classe nomeada `Family.cs` ao nível da raiz da sua aplicação de amostra e adicione-lhe o seguinte código:
 
 ```csharp
 using Newtonsoft.Json;
@@ -235,7 +236,7 @@ namespace todo
 
 ### <a name="add-the-using-directives--define-the-client-object"></a>Adicione as diretivas de utilização & definir o objeto cliente
 
-A partir do diretório do projeto, abra o `Program.cs` ficheiro no seu editor e adicione as seguintes diretivas utilizando as diretivas no topo da sua aplicação:
+A partir do diretório do projeto, abra o `Program.cs` ficheiro no seu editor e adicione as seguintes diretivas no topo da sua aplicação:
 
 ```csharp
 
@@ -247,7 +248,7 @@ using System.Net;
 using Microsoft.Azure.Cosmos;
 ```
 
-Ao ficheiro **Program.cs,** adicione código para ler as variáveis ambientais que definiu no passo anterior. Defina `CosmosClient` o, `Database` e os `Container` objetos. Em seguida, adicione código ao método principal que chama o `GetStartedDemoAsync` método onde gere os recursos da conta Azure Cosmos. 
+Ao **Program.cs** ficheiro, adicione código para ler as variáveis ambientais que definiu no passo anterior. Defina `CosmosClient` `Database` o, e os `Container` objetos. Em seguida, adicione código ao método principal que chama o `GetStartedDemoAsync` método onde gere os recursos da conta Azure Cosmos. 
 
 ```csharp
 namespace todo
@@ -304,7 +305,7 @@ public class Program
 
 ### <a name="create-a-database"></a>Criar uma base de dados 
 
-Defina o `CreateDatabaseAsync` método dentro da `program.cs` classe. Este método cria o `FamilyDatabase` se já não existir.
+Defina o `CreateDatabaseAsync` método dentro da `program.cs` classe. Este método cria o `FamilyDatabase` se já não existe.
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -317,7 +318,7 @@ private async Task CreateDatabaseAsync()
 
 ### <a name="create-a-container"></a>Criar um contentor
 
-Defina o `CreateContainerAsync` método dentro da `program.cs` classe. Este método cria o `FamilyContainer` se já não existir. 
+Defina o `CreateContainerAsync` método dentro da `program.cs` classe. Este método cria o `FamilyContainer` se já não existe. 
 
 ```csharp
 /// Create the container if it does not exist. 
@@ -332,7 +333,7 @@ private async Task CreateContainerAsync()
 
 ### <a name="create-an-item"></a>Criar um item
 
-Crie um item familiar adicionando o `AddItemsToContainerAsync` método com o seguinte código. Pode utilizar os `CreateItemAsync` ou `UpsertItemAsync` métodos para criar um item:
+Crie um item familiar adicionando o `AddItemsToContainerAsync` método com o seguinte código. Pode utilizar os `CreateItemAsync` métodos ou `UpsertItemAsync` métodos para criar um item:
 
 ```csharp
 private async Task AddItemsToContainerAsync()
@@ -381,7 +382,7 @@ private async Task AddItemsToContainerAsync()
 
 ### <a name="query-the-items"></a>Consultar os itens
 
-Depois de inserir um item, pode fazer uma consulta para obter os detalhes da família "Andersen". O código seguinte mostra como executar a consulta utilizando a consulta SQL diretamente. A consulta da SQL para obter os detalhes da família "Anderson" é: `SELECT * FROM c WHERE c.LastName = 'Andersen'` . Defina o `QueryItemsAsync` método dentro da classe e `program.cs` adicione-lhe o seguinte código:
+Depois de inserir um item, você pode executar uma consulta para obter os detalhes da família "Andersen". O código que se segue mostra como executar a consulta utilizando a consulta SQL diretamente. A consulta do SQL para obter os detalhes da família "Anderson" é: `SELECT * FROM c WHERE c.LastName = 'Andersen'` . Defina o `QueryItemsAsync` método dentro da classe e `program.cs` adicione-lhe o seguinte código:
 
 
 ```csharp
@@ -409,9 +410,9 @@ private async Task QueryItemsAsync()
 
 ```
 
-### <a name="delete-the-database"></a>Apagar a base de dados 
+### <a name="delete-the-database"></a>Eliminar a base de dados 
 
-Por fim, pode eliminar a base de dados adicionando o `DeleteDatabaseAndCleanupAsync` método com o seguinte código:
+Finalmente pode eliminar a base de dados adicionando o `DeleteDatabaseAndCleanupAsync` método com o seguinte código:
 
 ```csharp
 private async Task DeleteDatabaseAndCleanupAsync()
@@ -426,9 +427,9 @@ private async Task DeleteDatabaseAndCleanupAsync()
 }
 ```
 
-### <a name="execute-the-crud-operations"></a>Executar as operações do CRUD
+### <a name="execute-the-crud-operations"></a>Executar as operações CRUD
 
-Depois de definir todos os métodos necessários, execute-os com o `GetStartedDemoAsync` método. O `DeleteDatabaseAndCleanupAsync` método comentado neste código porque não verá quaisquer recursos se esse método for executado. Pode descocomentá-lo depois de validar que os seus recursos Azure Cosmos DB foram criados no portal Azure. 
+Depois de definir todos os métodos necessários, execute-os com o `GetStartedDemoAsync` método. O `DeleteDatabaseAndCleanupAsync` método comentado neste código porque não verá quaisquer recursos se esse método for executado. Pode descomprê-lo depois de validar que os seus recursos DB Azure Cosmos foram criados no portal Azure. 
 
 ```csharp
 public async Task GetStartedDemoAsync()
@@ -446,7 +447,7 @@ Depois de adicionar todos os métodos necessários, guarde o `Program.cs` fichei
 
 ## <a name="run-the-code"></a>Executar o código
 
-Em seguida, construa e execute a aplicação para criar os recursos Do BD Azure Cosmos. Certifique-se de abrir uma nova janela de solicitação de comando, não use a mesma instância que usou para definir as variáveis ambientais. Porque as variáveis ambientais não estão definidas na janela aberta atual. Terá de abrir um novo pedido de comando para ver as atualizações. 
+Em seguida, construa e execute a aplicação para criar os recursos DB Azure Cosmos. Certifique-se de abrir uma nova janela de pedido de comando, não utilize a mesma instância que usou para definir as variáveis ambientais. Porque as variáveis ambientais não estão definidas na janela aberta atual. Terá de abrir um novo pedido de comando para ver as atualizações. 
 
 ```console
 dotnet build
@@ -456,7 +457,7 @@ dotnet build
 dotnet run
 ```
 
-A seguinte saída é gerada quando executa a aplicação. Também pode entrar no portal Azure e validar que os recursos são criados:
+A seguinte saída é gerada quando executar a aplicação. Também pode entrar no portal Azure e validar que os recursos são criados:
 
 ```console
 Created Database: FamilyDatabase
@@ -472,19 +473,19 @@ Running query: SELECT * FROM c WHERE c.LastName = 'Andersen'
 End of demo, press any key to exit.
 ```
 
-Pode validar que os dados são criados através da assinatura no portal Azure e ver os itens necessários na sua conta Azure Cosmos. 
+Pode validar que os dados são criados assinando no portal Azure e ver os itens necessários na sua conta Azure Cosmos. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover a conta Azure Cosmos e o grupo de recursos correspondente. O seguinte comando mostra como eliminar o grupo de recursos utilizando o ClI Azure:
+Quando já não é necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover a conta Azure Cosmos e o grupo de recursos correspondente. O seguinte comando mostra como eliminar o grupo de recursos utilizando o Azure CLI:
 
 ```azurecli
 az group delete -g "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a criar uma conta Azure Cosmos, criar uma base de dados e um recipiente usando uma aplicação .NET Core. Pode agora importar dados adicionais para a sua conta Azure Cosmos com as instruções int int no seguinte artigo. 
+Neste quickstart, aprendeu a criar uma conta Azure Cosmos, criar uma base de dados e um contentor utilizando uma aplicação .NET Core. Pode agora importar dados adicionais para a sua conta Azure Cosmos com as instruções int o seguinte artigo. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

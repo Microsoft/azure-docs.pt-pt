@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: d0391f3724533410a66f8d01bf77f5a3c5c8d9da
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5a9cc1ebbe8cfea2548f61ee1d88180ed39a75eb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936729"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002441"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Quickstart: Criar um índice de pesquisa utilizando a biblioteca cliente Microsoft.Azure.Search v10
 
@@ -57,7 +58,7 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
 Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="set-up-your-environment"></a>Configurar o ambiente
+## <a name="set-up-your-environment"></a>Configurar o seu ambiente
 
 Comece por abrir o Visual Studio e criar um novo projeto de App de Consola que pode funcionar em .NET Core.
 

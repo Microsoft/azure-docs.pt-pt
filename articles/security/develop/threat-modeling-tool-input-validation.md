@@ -15,18 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a10dec01757fd344c9fa2bc92082082d2af085e9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539803"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000571"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entradas / Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicação Web** | <ul><li>[Desativar a script xSLT para todas as transformações usando folhas de estilo não fided quantos fidedhias](#disable-xslt)</li><li>[Certifique-se de que cada página que pode conter conteúdo controlável do utilizador opta por não cheirar mime automático](#out-sniffing)</li><li>[Resolução de entidades De endurecimento ou Desativação de XML](#xml-resolution)</li><li>[Aplicações que usando http.sys realizar verificação de canonização URL](#app-verification)</li><li>[Certifique-se de que existem controlos adequados ao aceitar ficheiros dos utilizadores](#controls-users)</li><li>[Certifique-se de que os parâmetros de segurança do tipo são usados na Aplicação Web para acesso a dados](#typesafe)</li><li>[Utilize classes de ligação de modelos separadas ou listas de filtros de encadernação para evitar a vulnerabilidade da atribuição em massa do MVC](#binding-mvc)</li><li>[Codificar a saída web não fideditada antes da renderização](#rendering)</li><li>[Executar validação de entrada e filtragem em todas as propriedades do tipo de cadeias](#typemodel)</li><li>[A sanitização deve ser aplicada em campos de formulário que aceitam todos os caracteres, por exemplo, editor de texto rico](#richtext)</li><li>[Não atribuir elementos DOM a pias que não tenham codificação incorporada](#inbuilt-encode)</li><li>[Validar todos os redirecionamentos dentro da aplicação são fechados ou feitos com segurança](#redirect-safe)</li><li>[Implementar validação de entrada em todos os parâmetros do tipo de corda aceites pelos métodos do Controlador](#string-method)</li><li>[Definir prazo limite superior para o processamento regular de expressão para prevenir doS devido a más expressões regulares](#dos-expression)</li><li>[Evite utilizar html.Raw em vistas razor](#html-razor)</li></ul> | 
-| **Base de Dados** | <ul><li>[Não utilize consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
+| **Base de dados** | <ul><li>[Não utilize consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
 | **API Web** | <ul><li>[Certifique-se de que a validação do modelo é feita em métodos web de API](#validation-api)</li><li>[Implementar validação de entrada em todos os parâmetros do tipo de cadeia aceites pelos métodos web API](#string-api)</li><li>[Certifique-se de que os parâmetros de segurança do tipo são usados na API web para acesso a dados](#typesafe-api)</li></ul> | 
 | **Documento Azure DB** | <ul><li>[Use consultas SQL para a Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Validação de entrada do WCF através da ligação de Schema](#schema-binding)</li><li>[WCF- Validação de entradas através de Inspetores de Parâmetros](#parameters)</li></ul> |
@@ -36,7 +37,7 @@ ms.locfileid: "87539803"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [XSLT Security](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript Property](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
@@ -68,7 +69,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [IE8 Parte de Segurança V - Proteção Abrangente](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
@@ -137,7 +138,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Expansão da Entidade XML](https://capec.mitre.org/data/definitions/197.html), [XML Negação de Ataques e Defesas de Serviços](https://msdn.microsoft.com/magazine/ee335713.aspx), [Visão Geral de Segurança MSXML,](https://msdn.microsoft.com/library/ms754611(v=VS.85).aspx) [Melhores Práticas para Assegurar código MSXML](https://msdn.microsoft.com/library/ms759188(VS.85).aspx), [Referência do Protocolo deDelegamento NSXMLParser,](https://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html) [Resolução de Referências Externas](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
@@ -199,7 +200,7 @@ Note que em MSXML6, o ProibiDTD é definido como verdadeiro (desativação do pr
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -210,7 +211,7 @@ Note que em MSXML6, o ProibiDTD é definido como verdadeiro (desativação do pr
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Upload de ficheiros sem restrições,](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload) [tabela de assinatura de ficheiro](https://www.garykessler.net/library/file_sigs.html) |
@@ -326,7 +327,7 @@ Para o último ponto relativo à validação da assinatura do formato de ficheir
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -356,18 +357,18 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Atributos de metadados](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [vulnerabilidade e mitigação de segurança de chaves públicas,](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation) [Guia Completo para Atribuição de Massas em ASP.NET MVC](https://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [Começar com EF usando MVC](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
-| **Passos** | <ul><li>**Quando devo procurar vulnerabilidades de sobre-postagem?** As vulnerabilidades de sobre-publicação podem ocorrer em qualquer local onde se vinculem as classes de modelos da entrada do utilizador. Quadros como o MVC podem representar dados de utilizadores em classes personalizadas .NET, incluindo objetos CLR Simples (POCOs). O MVC povoa automaticamente estas classes de modelos com dados do pedido, proporcionando uma representação conveniente para lidar com a entrada do utilizador. Quando estas classes incluem propriedades que não devem ser definidas pelo utilizador, a aplicação pode ser vulnerável a ataques de sobre-postagem, que permitem o controlo do utilizador de dados que a aplicação nunca pretendeu. Tal como a ligação do modelo MVC, tecnologias de acesso a bases de dados, tais como mappers de objetos/relacionais como o Entity Framework, muitas vezes também suportam o uso de objetos POCO para representar dados de base de dados. Estas classes de modelos de dados fornecem a mesma conveniência no tratamento dos dados de base de dados que a MVC faz no tratamento da entrada do utilizador. Como tanto o MVC como a base de dados suportam modelos semelhantes, como objetos POCO, parece fácil reutilizar as mesmas classes para ambos os fins. Esta prática não preserva a separação de preocupações, e é uma área comum onde as propriedades não intencionais são expostas à ligação de modelos, permitindo ataques de sobre-postagem.</li><li>**Por que não usar as minhas aulas de modelo de base de dados não filtradas como parâmetros para as minhas ações de MVC?** Porque a ligação do modelo MVC vai ligar qualquer coisa nessa classe. Mesmo que os dados não apareçam na sua visão, um utilizador malicioso pode enviar um pedido HTTP com estes dados incluídos, e o MVC irá ligá-lo de bom grado porque a sua ação diz que a classe de base de dados é a forma dos dados que deve aceitar para a entrada do utilizador.</li><li>**Por que me importaria com a forma usada para a ligação de modelos?** A utilização de ASP.NET de um modelo MVC com modelos demasiado amplos expõe uma aplicação a ataques de sobreposição. A sobre-publicação poderia permitir que os atacantes alterassem os dados da aplicação para além do pretendido pelo desenvolvedor, como por exemplo, sobrevam o preço de um item ou os privilégios de segurança de uma conta. As aplicações devem utilizar modelos de ligação específicos de ação (ou listas específicas de filtros de propriedade) para fornecer um contrato explícito para o que a entrada não fidedíssquica permitir através da ligação do modelo.</li><li>**Ter modelos de ligação separados é apenas um código duplicado?** Não, é uma questão de separação de preocupações. Se reutilizar os modelos de base de dados em métodos de ação, está a dizer que qualquer propriedade (ou sublote) dessa classe pode ser definida pelo utilizador num pedido HTTP. Se não é isso que pretende que o MVC faça, precisa de uma lista de filtros ou de uma forma de classe separada para mostrar ao MVC quais os dados que podem vir da entrada do utilizador.</li><li>**Se tiver modelos de ligação separados para a entrada do utilizador, tenho de duplicar todos os meus atributos de anotação de dados?** Não necessariamente. Pode utilizar o MetadataTypeAttribute na classe modelo de base de dados para ligar aos metadados numa classe de ligação modelo. Basta ter em atenção que o tipo referenciado pelo MetadataTypeAttribute deve ser um subconjunto do tipo de referência (pode ter menos propriedades, mas não mais).</li><li>**Mover dados para trás e para a frente entre os modelos de entrada do utilizador e os modelos de base de dados é aborrecido. Posso copiar todas as propriedades usando reflexo? **Sim, é um pouco. As únicas propriedades que aparecem nos modelos de encadernação são as que determinou serem seguras para a entrada do utilizador. Não há nenhuma razão de segurança que impeça o uso de reflexão para copiar todas as propriedades que existem em comum entre estes dois modelos.</li><li>**E quanto a [Bind(Excluir &euro; =""""")]. Posso usar isso em vez de ter modelos de ligação separados? -** Esta abordagem não é recomendada. A utilização [Desresu por defeito (Exclui &euro; =""")] significa que qualquer nova propriedade é vinculada por defeito. Quando uma nova propriedade é adicionada, há um passo extra para lembrar para manter as coisas seguras, em vez de ter o design seguro por padrão. Dependendo do desenvolvedor verificar esta lista cada vez que uma propriedade é adicionada é arriscado.</li><li>**[Bind (Incluir &euro; =""""")] é útil para operações de edição?** [O encaixe (Incluir &euro; =""""")] só é adequado para operações de inserção (adicionando novos dados). Para operações de estilo UPDATE (revisão dos dados existentes), utilize outra abordagem, como ter modelos de ligação separados ou passar uma lista explícita de propriedades permitidas para UpdateModel ou TryUpdateModel. Adicionar um atributo [Bind &euro; =""""")] numa operação de Edição significa que o MVC criará uma instância de objeto e definirá apenas as propriedades listadas, deixando todas as outras nos seus valores padrão. Quando os dados são persistidos, substituirá totalmente a entidade existente, repondo os valores de quaisquer propriedades omitidas aos seus padrão. Por exemplo, se o IsAdmin fosse omitido de um atributo [Incluindo &euro; ="""""")] numa operação de Edição, qualquer utilizador cujo nome tenha sido editado através desta ação seria reposto para IsAdmin = falso (qualquer utilizador editado perderia o estatuto de administrador). Se pretender evitar atualizações a determinadas propriedades, utilize uma das outras abordagens acima. Note que algumas versões de ferramentas MVC geram classes de controladores com [Bind ("Include &euro; =""""")] em ações de Edição e implicam que remover uma propriedade dessa lista impedirá ataques de sobre-postagem. No entanto, tal como acima descrito, esta abordagem não funciona como pretendido e, em vez disso, irá redefinir quaisquer dados nas propriedades omitidas aos seus valores predefinidos.</li><li>**Para as operações de criação, existem ressalvas usando [Incluir &euro; ="""")] em vez de modelos de ligação separados?** Em primeiro lugar, esta abordagem não funciona para os cenários de Edição, exigindo a manutenção de duas abordagens separadas para mitigar todas as vulnerabilidades de sobre-posting. Em segundo lugar, modelos de ligação separados impõem a separação das preocupações entre a forma utilizada para a entrada do utilizador e a forma utilizada para a persistência, algo que [Bind &euro; =""".")] não faz. Em terceiro lugar, note que [Bind (Incluir &euro; =""""")] só pode lidar com propriedades de nível superior; não pode permitir apenas partes de sub-propriedades (como "Details.Name") no atributo. Finalmente, e talvez o mais importante, usar [Bind (Incluído &euro; ="""")] adiciona um passo extra que deve ser lembrado sempre que a classe é usada para a ligação do modelo. Se um novo método de ação se ligar diretamente à classe de dados e se esquecer de incluir um atributo [Incluindo &euro; ="""."), pode ser vulnerável a ataques sobre-postais, pelo que a abordagem [Bind &euro; =""""")] é um pouco menos segura por padrão. Se utilizar [Bind (Incluir &euro; ="""")], tenha sempre o cuidado de se lembrar de especirá-lo sempre que as suas classes de dados aparecerem como parâmetros do método de ação.</li><li>**Para as operações de criação, que tal colocar o atributo [Bind &euro; =""""")] na própria classe modelo? Esta abordagem não evita a necessidade de se lembrar de colocar o atributo em todos os métodos de ação? -** Esta abordagem funciona em alguns casos. A utilização [Bind (Incluir &euro; ="""")] no próprio tipo de modelo (em vez de em parâmetros de ação utilizando esta classe), evita a necessidade de se lembrar de incluir o atributo [Incluir &euro; ="""")] em todos os métodos de ação. A utilização do atributo diretamente na classe cria efetivamente uma área de superfície separada desta classe para fins de ligação do modelo. No entanto, esta abordagem só permite uma forma de ligação modelo por classe de modelo. Se um método de ação tiver de permitir a ligação do modelo de um campo (por exemplo, uma ação apenas para administrador que atualiza as funções dos utilizadores) e outras ações devem impedir a ligação do modelo deste campo, esta abordagem não funcionará. Cada classe só pode ter uma forma de encadernação de modelo; se diferentes ações precisarem de diferentes formas de ligação do modelo, precisam de representar estas formas separadas utilizando classes de ligação de modelos separadas ou atributos separados [Incluindo &euro; =""".")] nos métodos de ação.</li><li>**O que são modelos de encadernação? São a mesma coisa que os modelos de visualização? -** São dois conceitos relacionados. O modelo de ligação do termo refere-se a uma classe modelo utilizada na lista de parâmetros de uma ação (a forma passada do modelo MVC ligando-se ao método de ação). O modelo de visualização do termo refere-se a uma classe modelo passada de um método de ação para uma visão. A utilização de um modelo específico da vista é uma abordagem comum para passar dados de um método de ação para uma visão. Muitas vezes, esta forma também é adequada para a encadernação do modelo, e o modelo de vista de fim pode ser usado para referir o mesmo modelo usado em ambos os lugares. Para ser mais preciso, este procedimento fala especificamente sobre modelos vinculativos, centrando-se na forma transmitida à ação, que é o que importa para fins de atribuição em massa.</li></ul>| 
+| **Passos** | <ul><li>**Quando devo procurar vulnerabilidades de sobre-postagem?** As vulnerabilidades de sobre-publicação podem ocorrer em qualquer local onde se vinculem as classes de modelos da entrada do utilizador. Quadros como o MVC podem representar dados de utilizadores em classes personalizadas .NET, incluindo objetos CLR Simples (POCOs). O MVC povoa automaticamente estas classes de modelos com dados do pedido, proporcionando uma representação conveniente para lidar com a entrada do utilizador. Quando estas classes incluem propriedades que não devem ser definidas pelo utilizador, a aplicação pode ser vulnerável a ataques de sobre-postagem, que permitem o controlo do utilizador de dados que a aplicação nunca pretendeu. Tal como a ligação do modelo MVC, tecnologias de acesso a bases de dados, tais como mappers de objetos/relacionais como o Entity Framework, muitas vezes também suportam o uso de objetos POCO para representar dados de base de dados. Estas classes de modelos de dados fornecem a mesma conveniência no tratamento dos dados de base de dados que a MVC faz no tratamento da entrada do utilizador. Como tanto o MVC como a base de dados suportam modelos semelhantes, como objetos POCO, parece fácil reutilizar as mesmas classes para ambos os fins. Esta prática não preserva a separação de preocupações, e é uma área comum onde as propriedades não intencionais são expostas à ligação de modelos, permitindo ataques de sobre-postagem.</li><li>**Por que não usar as minhas aulas de modelo de base de dados não filtradas como parâmetros para as minhas ações de MVC?** Porque a ligação do modelo MVC vai ligar qualquer coisa nessa classe. Mesmo que os dados não apareçam na sua visão, um utilizador malicioso pode enviar um pedido HTTP com estes dados incluídos, e o MVC irá ligá-lo de bom grado porque a sua ação diz que a classe de base de dados é a forma dos dados que deve aceitar para a entrada do utilizador.</li><li>**Por que me importaria com a forma usada para a ligação de modelos?** A utilização de ASP.NET de um modelo MVC com modelos demasiado amplos expõe uma aplicação a ataques de sobreposição. A sobre-publicação poderia permitir que os atacantes alterassem os dados da aplicação para além do pretendido pelo desenvolvedor, como por exemplo, sobrevam o preço de um item ou os privilégios de segurança de uma conta. As aplicações devem utilizar modelos de ligação específicos de ação (ou listas específicas de filtros de propriedade) para fornecer um contrato explícito para o que a entrada não fidedíssquica permitir através da ligação do modelo.</li><li>**Ter modelos de ligação separados é apenas um código duplicado?** Não, é uma questão de separação de preocupações. Se reutilizar os modelos de base de dados em métodos de ação, está a dizer que qualquer propriedade (ou sublote) dessa classe pode ser definida pelo utilizador num pedido HTTP. Se não é isso que pretende que o MVC faça, precisa de uma lista de filtros ou de uma forma de classe separada para mostrar ao MVC quais os dados que podem vir da entrada do utilizador.</li><li>**Se tiver modelos de ligação separados para a entrada do utilizador, tenho de duplicar todos os meus atributos de anotação de dados?** Não necessariamente. Pode utilizar o MetadataTypeAttribute na classe modelo de base de dados para ligar aos metadados numa classe de ligação modelo. Basta ter em atenção que o tipo referenciado pelo MetadataTypeAttribute deve ser um subconjunto do tipo de referência (pode ter menos propriedades, mas não mais).</li><li>**Mover dados para trás e para a frente entre os modelos de entrada do utilizador e os modelos de base de dados é aborrecido. Posso copiar todas as propriedades usando reflexo? ** Sim, é um pouco. As únicas propriedades que aparecem nos modelos de encadernação são as que determinou serem seguras para a entrada do utilizador. Não há nenhuma razão de segurança que impeça o uso de reflexão para copiar todas as propriedades que existem em comum entre estes dois modelos.</li><li>**E quanto a [Bind(Excluir &euro; =""""")]. Posso usar isso em vez de ter modelos de ligação separados? -** Esta abordagem não é recomendada. A utilização [Desresu por defeito (Exclui &euro; =""")] significa que qualquer nova propriedade é vinculada por defeito. Quando uma nova propriedade é adicionada, há um passo extra para lembrar para manter as coisas seguras, em vez de ter o design seguro por padrão. Dependendo do desenvolvedor verificar esta lista cada vez que uma propriedade é adicionada é arriscado.</li><li>**[Bind (Incluir &euro; =""""")] é útil para operações de edição?** [O encaixe (Incluir &euro; =""""")] só é adequado para operações de inserção (adicionando novos dados). Para operações de estilo UPDATE (revisão dos dados existentes), utilize outra abordagem, como ter modelos de ligação separados ou passar uma lista explícita de propriedades permitidas para UpdateModel ou TryUpdateModel. Adicionar um atributo [Bind &euro; =""""")] numa operação de Edição significa que o MVC criará uma instância de objeto e definirá apenas as propriedades listadas, deixando todas as outras nos seus valores padrão. Quando os dados são persistidos, substituirá totalmente a entidade existente, repondo os valores de quaisquer propriedades omitidas aos seus padrão. Por exemplo, se o IsAdmin fosse omitido de um atributo [Incluindo &euro; ="""""")] numa operação de Edição, qualquer utilizador cujo nome tenha sido editado através desta ação seria reposto para IsAdmin = falso (qualquer utilizador editado perderia o estatuto de administrador). Se pretender evitar atualizações a determinadas propriedades, utilize uma das outras abordagens acima. Note que algumas versões de ferramentas MVC geram classes de controladores com [Bind ("Include &euro; =""""")] em ações de Edição e implicam que remover uma propriedade dessa lista impedirá ataques de sobre-postagem. No entanto, tal como acima descrito, esta abordagem não funciona como pretendido e, em vez disso, irá redefinir quaisquer dados nas propriedades omitidas aos seus valores predefinidos.</li><li>**Para as operações de criação, existem ressalvas usando [Incluir &euro; ="""")] em vez de modelos de ligação separados?** Em primeiro lugar, esta abordagem não funciona para os cenários de Edição, exigindo a manutenção de duas abordagens separadas para mitigar todas as vulnerabilidades de sobre-posting. Em segundo lugar, modelos de ligação separados impõem a separação das preocupações entre a forma utilizada para a entrada do utilizador e a forma utilizada para a persistência, algo que [Bind &euro; =""".")] não faz. Em terceiro lugar, note que [Bind (Incluir &euro; =""""")] só pode lidar com propriedades de nível superior; não pode permitir apenas partes de sub-propriedades (como "Details.Name") no atributo. Finalmente, e talvez o mais importante, usar [Bind (Incluído &euro; ="""")] adiciona um passo extra que deve ser lembrado sempre que a classe é usada para a ligação do modelo. Se um novo método de ação se ligar diretamente à classe de dados e se esquecer de incluir um atributo [Incluindo &euro; ="""."), pode ser vulnerável a ataques sobre-postais, pelo que a abordagem [Bind &euro; =""""")] é um pouco menos segura por padrão. Se utilizar [Bind (Incluir &euro; ="""")], tenha sempre o cuidado de se lembrar de especirá-lo sempre que as suas classes de dados aparecerem como parâmetros do método de ação.</li><li>**Para as operações de criação, que tal colocar o atributo [Bind &euro; =""""")] na própria classe modelo? Esta abordagem não evita a necessidade de se lembrar de colocar o atributo em todos os métodos de ação? -** Esta abordagem funciona em alguns casos. A utilização [Bind (Incluir &euro; ="""")] no próprio tipo de modelo (em vez de em parâmetros de ação utilizando esta classe), evita a necessidade de se lembrar de incluir o atributo [Incluir &euro; ="""")] em todos os métodos de ação. A utilização do atributo diretamente na classe cria efetivamente uma área de superfície separada desta classe para fins de ligação do modelo. No entanto, esta abordagem só permite uma forma de ligação modelo por classe de modelo. Se um método de ação tiver de permitir a ligação do modelo de um campo (por exemplo, uma ação apenas para administrador que atualiza as funções dos utilizadores) e outras ações devem impedir a ligação do modelo deste campo, esta abordagem não funcionará. Cada classe só pode ter uma forma de encadernação de modelo; se diferentes ações precisarem de diferentes formas de ligação do modelo, precisam de representar estas formas separadas utilizando classes de ligação de modelos separadas ou atributos separados [Incluindo &euro; =""".")] nos métodos de ação.</li><li>**O que são modelos de encadernação? São a mesma coisa que os modelos de visualização? -** São dois conceitos relacionados. O modelo de ligação do termo refere-se a uma classe modelo utilizada na lista de parâmetros de uma ação (a forma passada do modelo MVC ligando-se ao método de ação). O modelo de visualização do termo refere-se a uma classe modelo passada de um método de ação para uma visão. A utilização de um modelo específico da vista é uma abordagem comum para passar dados de um método de ação para uma visão. Muitas vezes, esta forma também é adequada para a encadernação do modelo, e o modelo de vista de fim pode ser usado para referir o mesmo modelo usado em ambos os lugares. Para ser mais preciso, este procedimento fala especificamente sobre modelos vinculativos, centrando-se na forma transmitida à ação, que é o que importa para fins de atribuição em massa.</li></ul>| 
 
 ## <a name="encode-untrusted-web-output-prior-to-rendering"></a><a id="rendering"></a>Codificar a saída web não fideditada antes da renderização
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, Formulários Web, MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Como prevenir a scripting cross-site em ASP.NET,](https://msdn.microsoft.com/library/ms998274.aspx) [Scripting cross-site](https://cwe.mitre.org/data/definitions/79.html), [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
@@ -392,7 +393,7 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Adicionar validação](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [validar dados de modelos numa aplicação MVC,](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx) [princípios orientadores para as suas aplicações de MVC ASP.NET](https://msdn.microsoft.com/magazine/dd942822.aspx) |
@@ -403,7 +404,7 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Codificar entrada insegura](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [desinfetante HTML](https://github.com/mganss/HtmlSanitizer) |
@@ -414,7 +415,7 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -429,14 +430,14 @@ $("#userName").html(res.Name);
 return $('<div/>').html(value)
 $('body').append(resHTML);   
 ```
-Não `innerHtml` utilize; em vez disso, use `innerText` . Da mesma forma, em vez `$("#elm").html()` de, usar`$("#elm").text()` 
+Não `innerHtml` utilize; em vez disso, use `innerText` . Da mesma forma, em vez `$("#elm").html()` de, usar `$("#elm").text()` 
 
 ## <a name="validate-all-redirects-within-the-application-are-closed-or-done-safely"></a><a id="redirect-safe"></a>Validar todos os redirecionamentos dentro da aplicação são fechados ou feitos com segurança
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [O Quadro de Autorização OAuth 2.0 - Redirecionadores abertos](https://tools.ietf.org/html/rfc6749#section-10.15) |
@@ -447,7 +448,7 @@ Não `innerHtml` utilize; em vez disso, use `innerText` . Da mesma forma, em vez
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Validação de dados de modelos numa aplicação MVC,](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx) [princípios orientadores para as suas aplicações de MVC ASP.NET](https://msdn.microsoft.com/magazine/dd942822.aspx) |
@@ -458,7 +459,7 @@ Não `innerHtml` utilize; em vez disso, use `innerText` . Da mesma forma, em vez
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, Formulários Web, MVC5, MVC6  |
 | **Atributos**              | N/D  |
 | **Referências**              | [Propriedade DefaultRegexMatchTimeout](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
@@ -476,7 +477,7 @@ Por exemplo, a seguinte configuração lançará uma RegexMatchTimeoutException,
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -494,14 +495,14 @@ Segue-se um exemplo inseguro:
         </div>
 </div>
 ```
-Não utilize `Html.Raw()` a menos que precise de visualizar a marcação. Este método não executa a codificação de saída implicitamente. Utilize outros ASP.NET ajudantes, por exemplo,`@Html.DisplayFor()` 
+Não utilize `Html.Raw()` a menos que precise de visualizar a marcação. Este método não executa a codificação de saída implicitamente. Utilize outros ASP.NET ajudantes, por exemplo, `@Html.DisplayFor()` 
 
 ## <a name="do-not-use-dynamic-queries-in-stored-procedures"></a><a id="stored-proc"></a>Não utilize consultas dinâmicas em procedimentos armazenados
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -561,7 +562,7 @@ AS
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Validação de modelos em ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
@@ -618,7 +619,7 @@ namespace MyApi.Controllers
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, MVC 5, MVC 6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Validação de dados de modelos numa aplicação MVC,](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx) [princípios orientadores para as suas aplicações de MVC ASP.NET](https://msdn.microsoft.com/magazine/dd942822.aspx) |
@@ -629,7 +630,7 @@ namespace MyApi.Controllers
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -659,7 +660,7 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Documento Azure DB | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Anunciando a Parametrização SQL em Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
@@ -670,7 +671,7 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Quadro genérico e LÍQUIDO 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff647820.aspx) |
@@ -681,7 +682,7 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Quadro genérico e LÍQUIDO 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |

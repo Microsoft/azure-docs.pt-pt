@@ -5,12 +5,13 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: bf004b913c032d8a121bf4d508adf4cf9be1c7f9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a60ebff06562c12415b2a106a9a11127feb94dab
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253325"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021991"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Backup e restaurar Serviços Fiáveis e Atores Fiáveis
 A Azure Service Fabric é uma plataforma de alta disponibilidade que replica o estado em vários nós para manter esta alta disponibilidade.  Assim, mesmo que um nó no cluster falhe, os serviços continuam disponíveis. Embora este despedimento incorporado fornecido pela plataforma possa ser suficiente para alguns, em certos casos é desejável que o serviço suporte dados (para uma loja externa).
@@ -80,7 +81,7 @@ Os utilizadores podem aumentar a probabilidade de serem capazes de fazer cópias
 Aumentar estes valores aumenta o uso por réplica do disco.
 Para mais informações, consulte [configuração de serviços fiáveis](service-fabric-reliable-services-configuration.md)
 
-`BackupInfo`fornece informações sobre a cópia de segurança, incluindo a localização da pasta onde o tempo de execução guardou a cópia de segurança `BackupInfo.Directory` (). A função de retorno pode mover `BackupInfo.Directory` a função para uma loja externa ou outro local.  Esta função também devolve um bool que indica se foi capaz de mover com sucesso a pasta de backup para a sua localização alvo.
+`BackupInfo` fornece informações sobre a cópia de segurança, incluindo a localização da pasta onde o tempo de execução guardou a cópia de segurança `BackupInfo.Directory` (). A função de retorno pode mover `BackupInfo.Directory` a função para uma loja externa ou outro local.  Esta função também devolve um bool que indica se foi capaz de mover com sucesso a pasta de backup para a sua localização alvo.
 
 O seguinte código demonstra como o `BackupCallbackAsync` método pode ser usado para carregar a cópia de segurança para o Azure Storage:
 
@@ -137,15 +138,15 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-`RestoreDescription`passou para a `RestoreContext.RestoreAsync` chamada contém um membro chamado `BackupFolderPath` .
+`RestoreDescription` passou para a `RestoreContext.RestoreAsync` chamada contém um membro chamado `BackupFolderPath` .
 Ao restaurar uma única cópia de segurança completa, esta `BackupFolderPath` deve ser definida para o caminho local da pasta que contém a sua cópia de segurança completa.
 Ao restaurar uma cópia de segurança completa e uma série de backups incrementais, `BackupFolderPath` deve ser definido para o caminho local da pasta que não só contém a cópia de segurança completa, mas também todas as cópias de segurança incrementais.
-`RestoreAsync`a chamada pode ser lançada `FabricMissingFullBackupException` se o fornecido não conter uma cópia de segurança `BackupFolderPath` completa.
+`RestoreAsync` a chamada pode ser lançada `FabricMissingFullBackupException` se o fornecido não conter uma cópia de segurança `BackupFolderPath` completa.
 Também pode lançar `ArgumentException` se tiver uma cadeia quebrada de `BackupFolderPath` backups incrementais.
 Por exemplo, se contiver a cópia de segurança completa, a primeira incremental e a terceira cópia de segurança incremental, mas não a segunda cópia de segurança incremental.
 
 > [!NOTE]
-> A RestorePolicy está definida como Segura por defeito.  Isto significa que a `RestoreAsync` API falhará com a ArgumentException se detetar que a pasta de backup contém um estado mais antigo ou igual ao estado contido nesta réplica.  `RestorePolicy.Force`pode ser usado para saltar esta verificação de segurança. Isto é especificado como parte de `RestoreDescription` .
+> A RestorePolicy está definida como Segura por defeito.  Isto significa que a `RestoreAsync` API falhará com a ArgumentException se detetar que a pasta de backup contém um estado mais antigo ou igual ao estado contido nesta réplica.  `RestorePolicy.Force` pode ser usado para saltar esta verificação de segurança. Isto é especificado como parte de `RestoreDescription` .
 > 
 
 ## <a name="deleted-or-lost-service"></a>Serviço apagado ou perdido
@@ -223,7 +224,7 @@ Quando a cópia de segurança incremental está ativada, `KvsActorStateProvider`
 Ao restaurar a partir de uma cadeia de backup, semelhante a Reliable Services, o BackupFolderPath deve conter subdiretórios com uma subdirectória contendo cópias de segurança completas e outras subdiretórios que contenham backup incremental(s). A API de restauro lançará a FabricException com uma mensagem de erro apropriada se a validação da cadeia de backup falhar. 
 
 > [!NOTE]
-> `KvsActorStateProvider`atualmente ignora a opção RestorePolicy.Safe. O suporte a esta funcionalidade está previsto para o próximo lançamento.
+> `KvsActorStateProvider` atualmente ignora a opção RestorePolicy.Safe. O suporte a esta funcionalidade está previsto para o próximo lançamento.
 > 
 
 ## <a name="testing-back-up-and-restore"></a>Testar back-up e restaurar
@@ -237,7 +238,7 @@ Ao restaurar a partir de uma cadeia de backup, semelhante a Reliable Services, o
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Sob o capot: mais detalhes sobre backup e restauro
 Aqui estão mais alguns detalhes sobre o backup e restauro.
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 O Gestor de Estado Fiável fornece a capacidade de criar backups consistentes sem bloquear quaisquer operações de leitura ou escrita. Para tal, utiliza um mecanismo de persistência de pontos de controlo e registo.  O Gestor de Estado Fiável toma pontos de verificação felpudos (leves) em determinados pontos para aliviar a pressão do diário transacional e melhorar os tempos de recuperação.  Quando `BackupAsync` é chamado, o Gestor de Estado Fiável instrui todos os objetos fiáveis para copiarem os seus ficheiros de verificação mais recentes para uma pasta de backup local.  Em seguida, o Gestor de Estado Fiável copia todos os registos de registo, a partir do "ponto de partida" para o registo de registo mais recente na pasta de backup.  Uma vez que todos os registos de registo até ao registo mais recente estão incluídos na cópia de segurança e o Gestor de Estado Fiável preserva a marcação de registo sonoro, o Gestor de Estado Fiável garante que todas as transações que são cometidas `CommitAsync` (devolvidas com sucesso) estão incluídas na cópia de segurança.
 
 Qualquer transação que se comprometa depois `BackupAsync` foi chamada pode ou não estar na cópia de segurança.  Uma vez que a pasta de backup local tenha sido povoada pela plataforma (isto é, a cópia de segurança local é completada pelo tempo de funcionamento), o backback de backup do serviço é invocado.  Esta chamada é responsável por mover a pasta de reserva para um local externo, como o Azure Storage.
@@ -251,7 +252,7 @@ Isto implica que para os implementadores statefulService, `RunAsync` não serão
 Então, `OnDataLossAsync` será invocado nas novas primárias.
 Até que um serviço complete esta API com sucesso (devolvendo verdadeiro ou falso) e termine a reconfiguração relevante, a API continuará a ser chamada uma de cada vez.
 
-`RestoreAsync`primeiro deixa cair todo o estado existente na réplica primária que foi chamado. Em seguida, o Gestor de Estado Fiável cria todos os objetos fiáveis que existem na pasta de reserva. Em seguida, os objetos Fidedignas são instruídos a restaurar a partir dos seus pontos de verificação na pasta de reserva. Finalmente, o Gestor de Estado Fiável recupera o seu próprio estado a partir dos registos de registos na pasta de backup e realiza a recuperação. Como parte do processo de recuperação, as operações a partir do "ponto de partida" que cometeram registos de registos na pasta de backup são reproduzidas nos objetos Fidedignas. Este passo garante que o estado recuperado é consistente.
+`RestoreAsync` primeiro deixa cair todo o estado existente na réplica primária que foi chamado. Em seguida, o Gestor de Estado Fiável cria todos os objetos fiáveis que existem na pasta de reserva. Em seguida, os objetos Fidedignas são instruídos a restaurar a partir dos seus pontos de verificação na pasta de reserva. Finalmente, o Gestor de Estado Fiável recupera o seu próprio estado a partir dos registos de registos na pasta de backup e realiza a recuperação. Como parte do processo de recuperação, as operações a partir do "ponto de partida" que cometeram registos de registos na pasta de backup são reproduzidas nos objetos Fidedignas. Este passo garante que o estado recuperado é consistente.
 
 ## <a name="next-steps"></a>Passos seguintes
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)

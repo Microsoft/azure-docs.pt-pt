@@ -16,12 +16,13 @@ ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3bad65dbecd6e4a7d9bcb7fbdee6faafc31ead86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078031"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010788"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico deixou cair notificações em Azure Notification Hubs
 
@@ -232,7 +233,7 @@ Em seguida, você pode usar a `EnableTestSend` propriedade Boolean. Utilize a `E
     }
 ```
 
-#### <a name="sample-output"></a>Resultado da amostra
+#### <a name="sample-output"></a>Saída de exemplo
 
 ```text
 DetailedStateAvailable

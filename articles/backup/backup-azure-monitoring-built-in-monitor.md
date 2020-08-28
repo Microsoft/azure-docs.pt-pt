@@ -4,12 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 2fae7cfdb8b316341e01d15b43811d3f0e7638ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 0e1e50f27c6d0563ab51a74bbfa22d2a7f54ecd3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827193"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000741"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -106,4 +106,4 @@ Para inativar/resolver um alerta ativo, pode selecionar o item da lista correspo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Monitorar cargas de trabalho de backup do Azure usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+[Monitorar cargas de trabalho de backup do Azure usando o Monitor Azure](backup-azure-monitoring-use-azuremonitor.md)

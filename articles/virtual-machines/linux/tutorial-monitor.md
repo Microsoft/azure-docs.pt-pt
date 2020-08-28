@@ -15,18 +15,18 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dc4c348315dce59d5eaf58046c9a8d8f7f2e3725
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c8d7b13f9e35a41a414a44c908997cfcc550af41
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313681"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011740"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize uma máquina virtual Linux em Azure
 
 A monitorização do Azure utiliza agentes para recolher dados de boot e desempenho a partir de VMs Azure, armazenar estes dados no armazenamento Azure, e torná-lo acessível através do portal, o módulo Azure PowerShell e Azure CLI. A monitorização avançada é entregue com o Azure Monitor para VMs, recolhendo métricas de desempenho, descobrendo componentes de aplicação instalados no VM, e inclui gráficos de desempenho e mapa de dependência.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Ativar diagnósticos de arranque numa VM
@@ -192,4 +192,4 @@ Neste tutorial, configuraste e viste o desempenho do teu VM. Aprendeu a:
 Avance para o próximo tutorial para saber mais sobre o Centro de Segurança do Azure.
 
 > [!div class="nextstepaction"]
-> [Gerir segurança de VM](../../security/fundamentals/overview.md)
+> [Gerir segurança de VM](tutorial-azure-security.md)

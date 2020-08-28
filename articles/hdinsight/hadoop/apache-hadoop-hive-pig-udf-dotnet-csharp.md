@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: db49a3660d3f1aab6a8a9945751fed9461a6b8fd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086046"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000622"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use funções definidas pelo utilizador C# com Apache Hive e Apache Pig em Apache Hadoop em HDInsight
 
@@ -52,11 +52,11 @@ As secções seguintes descrevem como criar um projeto C# em Visual Studio para 
 
 Para criar um projeto C# para um Apache Hive UDF:
 
-1. Inicie o Visual Studio.
+1. Lançamento Visual Studio.
 
 2. **Selecione Criar um novo projeto.**
 
-3. Na nova janela do **projeto,** escolha o modelo **de App consola (.NET Framework)** (a versão C#). Em seguida, selecione **Seguinte**.
+3. Na nova janela do **projeto,** escolha o modelo **de App consola (.NET Framework)** (a versão C#). e selecione **Seguinte**.
 
 4. Na janela do **Configure o seu novo projeto,** insira um nome de **Projeto** da *HiveCSharp,* e navegue para ou crie uma **Localização** para salvar o novo projeto em. Em seguida, selecione **Criar**.
 
@@ -123,7 +123,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 2. Na janela **Iniciar,** **selecione Criar um novo projeto.**
 
-3. Na nova janela do **projeto,** escolha o modelo **de App consola (.NET Framework)** (a versão C#). Em seguida, selecione **Seguinte**.
+3. Na nova janela do **projeto,** escolha o modelo **de App consola (.NET Framework)** (a versão C#). e selecione **Seguinte**.
 
 4. Na **configuração** da sua nova janela de projeto, insira um **nome** de Projeto da *PigUDF,* e vá ou crie uma **Localização** para salvar o novo projeto em. Em seguida, selecione **Criar**.
 
@@ -252,7 +252,7 @@ Você também pode executar um trabalho de porco que usa a sua aplicação Pig U
     DUMP DETAILS;
     ```
 
-    A `DEFINE` declaração cria um pseudónimo para a `streamer` aplicação *PigUDF.exe,* e `CACHE` carrega-a do armazenamento padrão para o cluster. Posteriormente, `streamer` é utilizado com o operador para processar as `STREAM` linhas únicas contidas `LOG` e devolver os dados como uma série de colunas.
+    A `DEFINE` declaração cria um pseudónimo para a `streamer` aplicação *PigUDF.exe, * e `CACHE` carrega-a do armazenamento padrão para o cluster. Posteriormente, `streamer` é utilizado com o operador para processar as `STREAM` linhas únicas contidas `LOG` e devolver os dados como uma série de colunas.
 
     > [!NOTE]
     > O nome da aplicação utilizado para o streaming deve ser rodeado pelo \` carácter (retrosetro) quando aliased, e pelo carácter ' (citação única) quando usado com `SHIP` .
@@ -269,7 +269,7 @@ Você também pode executar um trabalho de porco que usa a sua aplicação Pig U
 
 5. Use `exit` para sair de porco.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a usar uma aplicação .NET Framework da Hive and Pig on HDInsight. Se você gostaria de aprender a usar Python com Colmeia e Porco, consulte [Use Python com Apache Hive e Apache Pig em HDInsight](python-udf-hdinsight.md).
 

@@ -3,16 +3,17 @@ title: Disponibilidade e consistência - Azure Event Hubs Microsoft Docs
 description: Como fornecer a quantidade máxima de disponibilidade e consistência com os Azure Event Hubs usando divisórias.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 45ca5cc5790824d6c67a47a23691c6b0cae0b9f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 774332b8f2d5c336f1a22d717516ae35a62b341f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537212"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000639"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de Eventos
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O Azure Event Hubs usa um [modelo de partição](event-hubs-scalability.md#partitions) para melhorar a disponibilidade e a paralelização dentro de um único centro de eventos. Por exemplo, se um centro de eventos tiver quatro divisórias, e uma dessas divisórias for movida de um servidor para outro numa operação de equilíbrio de carga, ainda pode enviar e receber de três outras divisórias. Além disso, ter mais divisórias permite-lhe ter leitores mais simultâneos a processar os seus dados, melhorando a sua produção agregada. Compreender as implicações da partilha e da encomenda num sistema distribuído é um aspeto crítico do design de soluções.
 
 Para ajudar a explicar a troca entre encomendas e disponibilidade, consulte [o teorema da PAC](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como teorema de Brewer. Este teorema discute a escolha entre consistência, disponibilidade e tolerância à partição. Diz que para os sistemas divididos por rede há sempre uma compensação entre a consistência e a disponibilidade.
@@ -138,8 +139,8 @@ await producer.SendAsync(data);
 
 Este exemplo envia o seu evento para uma das divisórias disponíveis no seu centro de eventos e define o número de sequência correspondente a partir da sua aplicação. Esta solução requer que o estado seja mantido pela sua aplicação de processamento, mas dá aos seus remetentes um ponto final mais provável de estar disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Visão geral do serviço do Event Hubs](./event-hubs-about.md)
-* [Criar um centro de eventos](event-hubs-create.md)
+* [Criar um hub de eventos](event-hubs-create.md)

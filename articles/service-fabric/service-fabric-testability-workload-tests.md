@@ -5,12 +5,13 @@ author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: d3d9f6478336c59adb875bf21438d5ffa457b1d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c193ef00d56b2d2fc7ad806cc795dcbe360db548
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645995"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022110"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante as cargas de trabalho de serviço
 Os cenários de testabilidade no Azure Service Fabric permitem aos desenvolvedores não se preocupar em lidar com falhas individuais. Há cenários, no entanto, em que uma interligagem explícita da carga de trabalho e das falhas do cliente pode ser necessária. A interligagem da carga de trabalho e das falhas do cliente garante que o serviço está realmente a realizar alguma ação quando a falha acontece. Dado o nível de controlo que a capacidade de teste proporciona, estes podem estar em pontos precisos da execução da carga de trabalho. Esta indução de falhas em diferentes estados da aplicação pode encontrar bugs e melhorar a qualidade.
@@ -18,7 +19,7 @@ Os cenários de testabilidade no Azure Service Fabric permitem aos desenvolvedor
 ## <a name="sample-custom-scenario"></a>Cenário personalizado de amostra
 Este teste mostra um cenário que interliga a carga de trabalho do negócio com [falhas graciosas e ingracidam.](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions) As falhas devem ser induzidas a meio das operações de serviço ou a computação para obter os melhores resultados.
 
-Vamos percorrer um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada um corresponde a um conjunto de fluxos de trabalho e pode ser compute, armazenamento ou uma mistura. Por uma questão de simplicidade, vamos resumir as cargas de trabalho no nosso exemplo. As diferentes falhas executadas neste exemplo são:
+Vamos percorrer um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada um corresponde a um conjunto de fluxos de trabalho e pode ser computacional, armazenamento ou uma mistura. Por uma questão de simplicidade, vamos resumir as cargas de trabalho no nosso exemplo. As diferentes falhas executadas neste exemplo são:
 
 * RestartNode: Falha ingraciosa para simular um reinício da máquina.
 * RestartDeployedCodePackage: Falha ingrazada para simular falhas no processo do hospedeiro de serviço.

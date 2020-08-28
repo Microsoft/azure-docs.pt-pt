@@ -3,12 +3,12 @@ title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825584"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000367"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -119,7 +119,7 @@ Considere as seguintes orientações ao criar a Política de Backup:
   * Se a retenção for reduzida, os pontos de recuperação são marcados para poda no próximo trabalho de limpeza e subsequentemente eliminados.
   * As últimas regras de retenção aplicam-se a todos os pontos de retenção (excluindo os pontos de retenção a pedido). Assim, se o período de retenção for prorrogado (por exemplo, para 100 dias), então quando a cópia de segurança é tomada, seguida da redução da retenção (por exemplo de 100 dias para sete dias), todos os dados de backup serão conservados de acordo com o último período de retenção especificado (ou seja, 7 dias).
 
-* A azure backup fornece-lhe a flexibilidade para *parar de proteger e gerir as suas cópias de segurança:*
+* O Azure Backup proporciona-lhe a flexibilidade para *parar de proteger e gerir as suas cópias de segurança:*
   * *Pare a proteção e retenha os dados de backup*. Se estiver a retirar ou a desativar a sua fonte de dados (VM, aplicação), mas precisar de reter dados para fins de auditoria ou conformidade, então pode usar esta opção para impedir que todos os futuros trabalhos de backup protejam a sua fonte de dados e retenha os pontos de recuperação que foram apoiados. Em seguida, pode restaurar ou retomar a proteção VM.
   * *Parar a proteção e eliminar dados de cópia de segurança*. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM e eliminarão todos os pontos de recuperação. Não poderá restaurar o VM nem utilizar a opção de backup do Resume.
 
@@ -214,7 +214,7 @@ As capacidades do serviço Azure Backup oferecem a flexibilidade para gerir efic
 
 * O Azure Backup tira fotos dos VMs Azure e armazena-os juntamente com os discos para aumentar a criação de pontos de recuperação e acelerar as operações de restauro. Isto é referido como Restauro Instantâneo. Por predefinição, as imagens instante Restore são mantidas durante dois dias. Esta funcionalidade permite uma operação de restauro a partir destes instantâneos, reduzindo os tempos de restauro. Reduz o tempo necessário para transformar e copiar dados do cofre. Como resultado, você verá os custos de armazenamento que correspondem a instantâneos tirados durante este período. [Saiba mais aqui.](backup-instant-restore-capability.md#configure-snapshot-retention)
 
-* O tipo de replicação de armazenamento do cofre de backup Azure por predefinição é definido para Geo-redundante (GRS). Esta opção não pode ser alterada depois de proteger os itens. O armazenamento geo-redundante (GRS) proporciona um nível mais elevado de durabilidade de dados do que o armazenamento localmente redundante (LRS), permite que um opt-in utilize o Cross Region Restore e custa mais. Reveja as compensações entre custos mais baixos e maior durabilidade de dados que é o melhor para o seu cenário. [Saiba mais aqui](backup-create-rs-vault.md#set-storage-redundancy)
+* O tipo de replicação de armazenamento do cofre de backup Azure por predefinição é definido para Geo-redundante (GRS). Esta opção não pode ser alterada depois de proteger os itens. O armazenamento geo-redundante (GRS) proporciona um nível mais elevado de durabilidade de dados do que o armazenamento localmente redundante (LRS), permite que um opt-in utilize o Cross Region Restore e custa mais. Reveja as compensações entre custos mais baixos e maior durabilidade dos dados, e decida o que é melhor para o seu cenário. [Saiba mais aqui](backup-create-rs-vault.md#set-storage-redundancy)
 
 * Se estiver a proteger a carga de trabalho que funciona dentro de um VM e do próprio VM, verifique se esta dupla proteção é necessária.
 

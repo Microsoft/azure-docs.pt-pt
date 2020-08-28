@@ -3,12 +3,13 @@ title: 'Tutorial: Enviar dados do Event Hubs para o armazém de dados - Grade de
 description: 'Tutorial: Descreve como usar a Azure Event Grid e os Centros de Eventos para migrar dados para um Armazém de Dados SQL. Utiliza uma Função Azure para recuperar um ficheiro Captura.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1c4a1943981fc3e9f1df0fafff540e24ee3631e9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86117564"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007473"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir big data para um armazém de dados
 A Azure [Event Grid](overview.md) é um serviço inteligente de encaminhamento de eventos que lhe permite reagir a notificações (eventos) de apps e serviços. Por exemplo, pode desencadear uma Função Azure para processar dados do Event Hubs que foram capturados para um armazenamento Azure Blob ou Azure Data Lake Storage, e migrar os dados para outros repositórios de dados. Esta [amostra de integração de Centros de Eventos e Grelha de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra-lhe como usar os Centros de Eventos com a Grade de Eventos para migrar sem problemas dados de Centros de Eventos capturados desde o armazenamento de blobs até um Armazém de Dados SQL.
@@ -61,7 +62,7 @@ Neste passo, você implanta a infraestrutura necessária com um [modelo de Gesto
     ![Portal do Azure](media/event-grid-event-hubs-integration/azure-portal.png)
 3. Você vê a Cloud Shell aberta na parte inferior do navegador.
 
-    ![Cloud Shell,](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
+    ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
 4. Na Cloud Shell, se vir uma opção para selecionar entre **Bash** e **PowerShell,** selecione **Bash**. 
 5. Se estiver a utilizar o Cloud Shell pela primeira vez, crie uma conta de armazenamento selecionando **Criar armazenamento**. A Azure Cloud Shell requer uma conta de armazenamento Azure para armazenar alguns ficheiros. 
 

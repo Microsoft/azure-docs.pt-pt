@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fd8b1478b6e5112092349eddb5f24d20f6902621
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 67700ec643a27f8ae5c581fe9de8e3295a1925e5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520260"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998242"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para telefones windows específicos usando hubs de notificação Azure
 
@@ -35,7 +35,7 @@ Para possibilitar este cenário, inclua uma ou mais *etiquetas* quando criar um 
 > [!NOTE]
 > O SDK dos Notification Hubs do Windows Phone não suporta a utilização do Serviço de Notificações Push do Windows (WNS) com aplicações do Windows Phone 8.1 Silverlight. Para utilizar o WNS (em vez do MPNS) com aplicações para Windows Phone 8.1 Silverlight, siga o [tutorial Hubs de Notificação – Windows Phone Silverlight], que utiliza APIs REST.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Adicionar a seleção de categorias à aplicação móvel
@@ -308,7 +308,7 @@ A aplicação está agora completa, sendo capaz de armazenar um conjunto de cate
 
     ![Mensagem de notificação][3]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a enviar notificações push para dispositivos específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push para utilizadores específicos que podem utilizar vários dispositivos, avance para o tutorial seguinte: 
 

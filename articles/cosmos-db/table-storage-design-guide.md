@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: seodec18
-ms.openlocfilehash: b5e2dc56ad84504f0bf5ced09d865d7cb4e467fa
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027797"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002181"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de mesa de armazenamento de mesa de mesa Azure: tabelas escaláveis e performantes
 
@@ -39,7 +39,7 @@ O exemplo a seguir mostra um design de mesa simples para armazenar funcionários
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Carimbo de data/hora</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -152,8 +152,8 @@ A tabela a seguir inclui alguns dos valores-chave a ter em conta quando está a 
 | Número de divisórias numa tabela |Limitado apenas pela capacidade da conta de armazenamento. |
 | Número de entidades em partição |Limitado apenas pela capacidade da conta de armazenamento. |
 | Tamanho de uma entidade individual |Até 1 MB, com um máximo de 255 propriedades (incluindo o `PartitionKey` `RowKey` , e `Timestamp` . |
-| Tamanho do`PartitionKey` |Uma corda até 1 KB de tamanho. |
-| Tamanho do`RowKey` |Uma corda até 1 KB de tamanho. |
+| Tamanho do `PartitionKey` |Uma corda até 1 KB de tamanho. |
+| Tamanho do `RowKey` |Uma corda até 1 KB de tamanho. |
 | Dimensão de uma transação de grupo de entidades |Uma transação pode incluir no máximo 100 entidades, e a carga útil deve ter um tamanho inferior a 4 MB. Um EGT só pode atualizar uma entidade uma vez. |
 
 Para obter mais informações, consulte [o modelo de dados de serviço de tabela.](https://msdn.microsoft.com/library/azure/dd179338.aspx)  
@@ -195,8 +195,8 @@ Os exemplos a seguir assumem que o armazenamento de mesa está a armazenar entid
 
 | Nome da coluna | Tipo de dados |
 | --- | --- |
-| `PartitionKey`(Nome do departamento) |String |
-| `RowKey`(ID do empregado) |Cadeia |
+| `PartitionKey` (Nome do departamento) |String |
+| `RowKey` (ID do empregado) |Cadeia |
 | `FirstName` |Cadeia |
 | `LastName` |Cadeia |
 | `Age` |Número inteiro |
@@ -222,7 +222,7 @@ Por exemplo, código do lado do cliente que pode lidar com vários tipos de enti
 
 * [Trabalhar com tipos de entidades heterogéneas](#work-with-heterogeneous-entity-types)  
 
-### <a name="choose-an-appropriate-partitionkey"></a>Escolha um apropriado`PartitionKey`
+### <a name="choose-an-appropriate-partitionkey"></a>Escolha um apropriado `PartitionKey`
 A sua escolha `PartitionKey` deve equilibrar a necessidade de permitir a utilização de EGTs (para garantir a consistência) contra a exigência de distribuir as suas entidades por múltiplas divisórias (para garantir uma solução escalável).  
 
 Num extremo, pode armazenar todas as suas entidades numa única divisória. Mas isso pode limitar a escalabilidade da sua solução, e impedir que o armazenamento da Mesa seja capaz de carregar pedidos de equilíbrio. No outro extremo, pode armazenar uma entidade por partição. Isto é altamente escalável e permite o armazenamento de mesa para pedidos de equilíbrio de carga, mas impede-o de usar transações de grupos de entidades.  
@@ -330,7 +330,7 @@ A tabela seguinte resume os prós e os contras de cada uma das abordagens para a
 <tr>
 <th>Abordagem</th>
 <th>Vantagens</th>
-<th>Contras</th>
+<th>Desvantagens</th>
 </tr>
 <tr>
 <td>Tipos de entidades separadas, mesma divisória, mesma tabela</td>
@@ -1127,7 +1127,7 @@ O armazenamento de mesa é uma loja de mesa *sem esquemas.* Isto significa que u
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Carimbo de data/hora</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1219,7 +1219,7 @@ Cada entidade ainda deve `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Carimbo de data/hora</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1236,7 +1236,7 @@ Cada entidade ainda deve `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Empregado</td>
+<td>Funcionário</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1258,7 +1258,7 @@ Cada entidade ainda deve `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Empregado</td>
+<td>Funcionário</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1299,7 +1299,7 @@ Cada entidade ainda deve `PartitionKey` ter, `RowKey` e `Timestamp` valores, mas
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Empregado</td>
+<td>Funcionário</td>
 <td></td>
 <td></td>
 <td></td>

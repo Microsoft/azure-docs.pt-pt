@@ -6,12 +6,13 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 3c13d37e62da8abfa860d5fdbdf186302519c93e
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7733148777cde2a487e5c93d7750eb7a24ff531c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606498"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999398"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Ligar à Base de Dados do Azure para MySQL com a Identidade Gerida
 

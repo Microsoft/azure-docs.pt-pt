@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 08/27/2020
 ms.author: aahi
-ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141862"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000962"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -82,32 +82,13 @@ Esta secção foi movida para um artigo separado para melhor deteção. Consulte
 
 ## <a name="data-limits"></a>Limites de dados
 
-Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é de 5.120 caracteres para cada documento; se precisar de analisar documentos maiores, pode separá-los em pedaços menores.
-
-| Limite | Valor |
-|------------------------|---------------|
-| Tamanho máximo de um documento único | 5.120 caracteres medidos por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) . |
-| Tamanho máximo do pedido completo | 1 MB |
-| Número máximo de documentos num pedido | Até 1.000[documentos (varia para cada recurso)](concepts/data-limits.md) |
-
-O seu limite de tarifas variará em função do seu nível de preços.
-
-| Escalão          | Pedidos por segundo | Pedidos por minuto |
-|---------------|---------------------|---------------------|
-| S / Multi-serviço | 1000                | 1000                |
-| S0 / F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1000                | 1000                |
-
-Os pedidos são medidos para cada função de Análise de Texto separadamente. Por exemplo, pode enviar o número máximo de pedidos para o seu nível de preços para cada recurso, ao mesmo tempo.      
+Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. Consulte o artigo [Data limits](concepts/data-limits.md) para obter mais informações.
 
 ## <a name="unicode-encoding"></a>Codificação Unicode
 
 A API de Análise de Texto utiliza a codificação Unicode para representação de texto e cálculos de contagem de carateres. Os pedidos podem ser submetidos em UTF-8 e UTF-16, sem diferenças mensuráveis na contagem de carateres. Os pontos de código Unicode são utilizados como a heurística para o comprimento dos carateres, e são considerados equivalentes para efeitos de limites de dados de análise de texto. Se utilizar [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) para obter a contagem de caracteres, está a usar o mesmo método que usamos para medir o tamanho dos dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Crie um recurso Azure](../cognitive-services-apis-create-account.md) para text Analytics para obter uma chave e ponto final para as suas aplicações.
 

@@ -15,12 +15,13 @@ ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 0a8781a5afb8b6df0444ce177be452f84c73413e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e8258aeef33be9192608f0d4cb29b46f08da64e2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087225"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010635"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para APNS
 
@@ -95,7 +96,7 @@ desc.ApnsCredential.Endpoint = @"https://api.development.push.apple.com:443/3/de
 nm.UpdateNotificationHubAsync(desc);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md)
 * [Configurar um centro de notificação no portal Azure](create-notification-hub-portal.md)

@@ -8,18 +8,19 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
-ms.openlocfilehash: 73bc21307ff0648b7e0aab7611e57f6fa60a806b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84809568"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008799"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Tutorial: Trabalhar com filas de armazenamento Azure em .NET
 
 O armazenamento da Fila Azure implementa filas baseadas em nuvem para permitir a comunicação entre componentes de uma aplicação distribuída. Cada fila mantém uma lista de mensagens que podem ser adicionadas por um componente remetente e processadas por um componente recetor. Com uma fila, a sua aplicação pode escalar imediatamente para satisfazer a procura. Este artigo mostra os passos básicos para trabalhar com uma fila de armazenamento Azure.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >

@@ -6,16 +6,17 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 08/19/2020
-ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ece2fdf5c75decb9a2139b973ad4bbb3f0803a0b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607532"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011180"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Use o Emulador Azure Cosmos para desenvolvimento local e testes
 
-O Azure Cosmos Emulator fornece um ambiente local que imita o serviço DB Azure Cosmos para fins de desenvolvimento. Utilizando o Emulador Azure Cosmos, pode desenvolver e testar a sua aplicação localmente, sem criar uma subscrição Azure ou incorrer em quaisquer custos. Quando estiver satisfeito com o funcionamento da sua aplicação no Emulator Azure Cosmos, pode mudar para usar uma conta Azure Cosmos na nuvem.
+O Emulador do Azure Cosmos disponibiliza um ambiente local que emula o serviço do Azure Cosmos DB para fins de desenvolvimento. Ao utilizar o Emulador do Azure Cosmos, pode desenvolver e testar a aplicação localmente, sem criar uma subscrição do Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento da aplicação no Emulador do Azure Cosmos, pode mudar e começar a utilizar uma conta do Azure Cosmos na cloud.
 
 Você pode desenvolver usando Azure Cosmos Emulator com contas [SQL,](local-emulator.md#sql-api) [Cassandra,](local-emulator.md#cassandra-api) [MongoDB,](local-emulator.md#azure-cosmos-dbs-api-for-mongodb) [Gremlin](local-emulator.md#gremlin-api)e [Table](local-emulator.md#table-api) API. No entanto, neste momento, a vista do Data Explorer no emulador suporta totalmente os clientes apenas para a API SQL. 
 
@@ -539,7 +540,7 @@ Use as seguintes dicas para ajudar a resolver problemas que encontra com o Emula
 
 - Se receber uma mensagem de **serviço indisponível**, o emulador poderá estar a falhar ao inicializar a pilha de rede. Verifique se tem as redes de cliente seguro Pulse ou Juniper instaladas, dado que os respetivos controladores de filtro de rede poderão causar o problema. Desinstalar os controladores de filtro de rede de terceiros normalmente corrige o problema. Em alternativa, inicie o emulador com /DisableRIO, que irá mudar a comunicação da rede do emulador para winsock regular. 
 
-- Se encontrar **"Proibido", mensagem":"O pedido está a ser feito com uma encriptação proibida no protocolo de trânsito ou cifra. Consulte a conta SSL/TLS de definição mínima permitida de protocolo..."** problemas de conectividade, que podem ser causados por alterações globais no SISTEMA (por exemplo, Insider Preview Build 20170) ou pelas configurações do navegador que permitem o TLS 1.3 como padrão. Pode ocorrer um erro semelhante ao utilizar o SDK para executar um pedido contra o emulador cosmos, como **Microsoft.Azure.Documents.DocumentClientExcepção: O pedido está a ser feito com uma encriptação proibida no protocolo de trânsito ou cifra. Consulte a conta SSL/TLS definição mínima de protocolo permitido**. Isto é esperado neste momento, uma vez que o emulador cosmos só aceita e trabalha com o protocolo TLS 1.2. O trabalho recomendado é alterar as definições e o predefinição para TLS 1.2; por exemplo, no IIS Manager navegue para "Sites" -> "Web Sites predefinidos" e localize as "Ligações do Site" para a porta 8081 e edite-os para desativar o TLS 1.3. O funcionamento semelhante pode ser realizado para o navegador Web através das opções "Definições".
+- Se encontrar **"Proibido", mensagem":"O pedido está a ser feito com uma encriptação proibida no protocolo de trânsito ou cifra. Consulte a conta SSL/TLS de definição mínima permitida de protocolo..."** problemas de conectividade, que podem ser causados por alterações globais no SISTEMA (por exemplo, Insider Preview Build 20170) ou pelas configurações do navegador que permitem o TLS 1.3 como padrão. Pode ocorrer um erro semelhante ao utilizar o SDK para executar um pedido contra o emulador cosmos, como **Microsoft.Azure.Documents.DocumentClientExcepção: O pedido está a ser feito com uma encriptação proibida no protocolo de trânsito ou cifra. Consulte a conta SSL/TLS definição mínima de protocolo permitido**. Atualmente, este é um problema esperado, uma vez que o emulador do Cosmos só aceita e funciona com o protocolo TLS 1.2. O trabalho recomendado é alterar as definições e o predefinição para TLS 1.2; por exemplo, no IIS Manager navegue para "Sites" -> "Web Sites predefinidos" e localize as "Ligações do Site" para a porta 8081 e edite-os para desativar o TLS 1.3. Pode ser realizada uma operação semelhante no browser através das opções nas “Definições”.
 
 - Enquanto o emulador estiver em execução, se o computador entrar no modo de suspensão ou executar quaisquer atualizações do SO, poderá ver a mensagem **O serviço está indisponível neste momento**. Repor os dados do emulador, clicando à direita no ícone que aparece no tabuleiro de notificação do Windows e selecione **Dados de Reset**.
 

@@ -3,12 +3,13 @@ title: Desenvolver testes unitários para serviços estatais
 description: Saiba mais sobre os testes de unidade no Azure Service Fabric para serviços estatais e considerações especiais a ter em mente durante o desenvolvimento.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 287c0544daa3c44d91fd336b502c496b9b4bb266
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639841"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011400"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Criar testes unitários para serviços estatais
 Os serviços de teste de serviço de serviço de unidades desvendam erros comuns que não seriam necessariamente apanhados por aplicações convencionais ou testes de unidade específicos de domínio. Ao desenvolver testes unitários para serviços estatais, existem algumas considerações especiais que devem ser mentedas.
@@ -127,5 +128,5 @@ public async Task TestServiceState_InMemoryState_PromoteActiveSecondary()
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Aprenda a testar a [comunicação de serviço-a-serviço](service-fabric-testability-scenarios-service-communication.md) e [simular falhas utilizando o caos controlado](service-fabric-controlled-chaos.md).
