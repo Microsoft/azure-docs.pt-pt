@@ -3,12 +3,13 @@ title: Serviço DNS de Tecido de Serviço Azure
 description: Utilize o serviço dns da Service Fabric para descobrir microserviços a partir do interior do cluster.
 ms.topic: conceptual
 ms.date: 7/20/2018
-ms.openlocfilehash: 6a6611281fd2d2368809419ad594d2eb1289b5a0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258909"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021277"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O Serviço DNS é um serviço de sistema opcional que pode permitir no seu cluster descobrir outros serviços utilizando o protocolo DNS. 
@@ -116,7 +117,7 @@ O nome DNS para o seu serviço é resolúvel em todo o cluster, pelo que é impo
 É altamente recomendável que utilize um esquema de nomeação `<ServiceDnsName>.<AppInstanceName>` de; por exemplo, `service1.application1` . Se uma aplicação for implementada usando a composição do Docker, os serviços são automaticamente atribuídos nomes DNS usando este esquema de nomeação.
 
 ### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Definição do nome DNS para um serviço predefinido no ApplicationManifest.xml
-Abra o seu projeto no Visual Studio, ou no seu editor favorito, e abra o ficheiro ApplicationManifest.xml. Aceda à secção de serviços predefinidos e para cada serviço adicione o `ServiceDnsName` atributo. O exemplo a seguir mostra como definir o nome DNS do serviço para`service1.application1`
+Abra o seu projeto no Visual Studio, ou no seu editor favorito, e abra o ficheiro ApplicationManifest.xml. Aceda à secção de serviços predefinidos e para cada serviço adicione o `ServiceDnsName` atributo. O exemplo a seguir mostra como definir o nome DNS do serviço para `service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -143,7 +144,7 @@ O exemplo a seguir define o nome DNS para um serviço imponente para `statefulsv
 ```
 
 ### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Definição do nome DNS para um serviço utilizando Powershell
-Pode definir o nome DNS para um serviço ao criá-lo utilizando o `New-ServiceFabricService` comando Powershell. O exemplo a seguir cria um novo serviço apátrida com o nome DNS`service1.application1`
+Pode definir o nome DNS para um serviço ao criá-lo utilizando o `New-ServiceFabricService` comando Powershell. O exemplo a seguir cria um novo serviço apátrida com o nome DNS `service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -173,9 +174,9 @@ As consultas de DNS que visam uma partição são formatadas da seguinte forma:
 Em que:
 
 - *First-Label-Of-Partitioned-Service-DNSName* é a primeira parte do nome DNS do seu serviço.
-- *PartitionPrefix* é um valor que pode ser definido na secção DnsService do manifesto do cluster ou através do modelo de Gestor de Recursos do cluster. O valor predefinido é "--". Para saber mais, consulte [as definições do Serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* é um valor que pode ser definido na secção DnsService do manifesto do cluster ou através do modelo de Gestor de Recursos do cluster. O valor predefinido é "--". Para saber mais, consulte  [as definições do Serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Nome-alvo-Partição* é o nome da partição. 
-- *O partitionS sufixo* é um valor que pode ser definido na secção DnsService do manifesto do cluster ou através do modelo de Gestor de Recursos do cluster. O valor predefinido é a corda vazia. Para saber mais, consulte [as definições do Serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *O partitionS sufixo* é um valor que pode ser definido na secção DnsService do manifesto do cluster ou através do modelo de Gestor de Recursos do cluster. O valor predefinido é a corda vazia. Para saber mais, consulte  [as definições do Serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Restante-Partilhationed-Service-DNSName* é a parte restante do nome DNS do seu serviço.
 
 Os exemplos a seguir mostram consultas de DNS para serviços divididos em execução num cluster que tem definições padrão para `PartitionPrefix` e `PartitionSuffix` : 
@@ -252,4 +253,4 @@ public class ValuesController : Controller
 * O serviço DNS para serviços de Service Fabric ainda não está suportado no Linux. O serviço DNS é suportado para contentores em Linux. A resolução manual utilizando o Fabric Client/ServicePartitionResolver é a alternativa disponível.
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre a comunicação de serviços dentro do cluster com [a ligação e comunicação com os serviços](service-fabric-connect-and-communicate-with-services.md)
+Saiba mais sobre a comunicação de serviços dentro do cluster com  [a ligação e comunicação com os serviços](service-fabric-connect-and-communicate-with-services.md)

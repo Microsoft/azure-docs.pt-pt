@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b9b234f0d701ae2ef269b53c3b3c0276ca31f7f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052821"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020614"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver funções de Azure com serviços de mídia
 
@@ -42,7 +43,7 @@ Se pretende explorar e implementar as Funções Azure existentes que utilizam os
 
 ## <a name="configure-function-app-settings"></a>Configurar definições de aplicativos de função
 
-Ao desenvolver funções de Media Services, é útil adicionar variáveis ambientais que serão usadas ao longo das suas funções. Para configurar as definições de aplicações, clique no link Configurações de Configurações de Aplicações Configure. Para obter mais informações, consulte [como configurar as definições da aplicação Azure Function](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+Ao desenvolver funções de Media Services, é útil adicionar variáveis ambientais que serão usadas ao longo das suas funções. Para configurar as definições de aplicações, clique no link Configurações de Configurações de Aplicações Configure. Para obter mais informações, consulte  [como configurar as definições da aplicação Azure Function](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
 A função, definida neste artigo, pressupõe que tem as seguintes variáveis ambientais nas definições da sua aplicação:
 
@@ -70,7 +71,7 @@ Uma vez implementada a sua aplicação de função, pode encontrá-la entre as F
 
     ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Clique em **Create** (Criar). 
+4. Clique em **Criar**. 
 
 ## <a name="files"></a>Ficheiros
 

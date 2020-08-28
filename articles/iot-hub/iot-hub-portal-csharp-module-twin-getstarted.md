@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: amqp
-ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, devx-track-csharp
+ms.openlocfilehash: a10c8b21da1e4dc08a186ccb6ba6528b7a655943
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759776"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022076"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade de módulo e ao módulo duplo do Hub IoT com o portal e o dispositivo .NET
 
@@ -93,7 +93,7 @@ A identidade do módulo e o módulo gémeo estão em pré-visualização públic
 
 ### <a name="get-your-module-connection-string"></a>Obtenha a sua cadeia de ligação módulo
 
-Precisa da cadeia de ligação do módulo para a sua aplicação de consola. Siga estes passos.
+Precisa da cadeia de ligação do módulo para a sua aplicação de consola. Siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -184,7 +184,7 @@ Para criar a sua aplicação, siga estes passos:
 
 Este código de exemplo mostra como obter o módulo duplo e atualizar as propriedades reportadas com o protocolo AMQP. Na pré-visualização pública, o protocolo AMQP só é suportado para operações de módulo duplo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 

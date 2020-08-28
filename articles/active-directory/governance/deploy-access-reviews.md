@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853026"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011349"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -182,7 +182,7 @@ Os alvos típicos para revisão incluem:
 
 * Membro [do](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) grupo (sincronizado com Azure AD, ou criado em Azure AD ou Office 365, incluindo Microsoft Teams).
 
-* [Pacote de acesso](/entitlement-management-overview.md) que agrupam recursos (grupos, apps e sites) num único pacote para gerir o acesso.
+* [Pacote de acesso](/azure/active-directory/governance/entitlement-management-overview) que agrupam recursos (grupos, apps e sites) num único pacote para gerir o acesso.
 
 * [Funções de AD AZure e Funções de Recursos Azure definidas](../privileged-identity-management/pim-resource-roles-assign-roles.md) na Gestão de Identidade Privilegiada.
 
@@ -422,7 +422,7 @@ Para reduzir o risco de acesso à estagnação, os administradores podem permiti
 | Artigos de procedimentos| Descrição |
 | - | - |
 | [Criar comentários de acesso](entitlement-management-access-reviews-create.md)| Ativar comentários sobre pacote de acesso. |
-| [Realizar comentários de acesso](/entitlement-management-access-reviews-review-access.md)| Execute comentários de acesso a outros utilizadores que estejam atribuídos a um Pacote de Acesso. |
+| [Realizar comentários de acesso](entitlement-management-access-reviews-review-access.md)| Execute comentários de acesso a outros utilizadores que estejam atribuídos a um Pacote de Acesso. |
 | [Pacotes de acesso atribuídos por auto-revisão](entitlement-management-access-reviews-self-review.md)| Auto-revisão dos pacotes de acesso atribuídos |
 
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718956"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003546"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planear e implementar no local Azure Ative Directory Password Protection
 
@@ -49,6 +49,8 @@ Também é possível que uma validação mais forte da palavra-passe afete a aut
 * [A despromoção do controlador de domínio falha devido a uma senha de administrador local fraca](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 Depois de a funcionalidade estar a funcionar em modo de auditoria durante um período razoável, pode mudar a configuração de *Auditoria* para *Enforce* para exigir senhas mais seguras. Um acompanhamento adicional durante este tempo é uma boa ideia.
+
+É importante notar que o Azure AD Password Protection só pode validar palavras-passe durante a alteração de senha ou as operações definidas. As palavras-passe que foram aceites e armazenadas no Ative Directory antes da implementação da Azure AD Password Protection nunca serão validadas e continuarão a funcionar como está. Com o tempo, todos os utilizadores e contas irão eventualmente começar a utilizar senhas validadas pela Azure AD Password Protection, uma vez que as suas palavras-passe existentes expiram normalmente. As contas configuradas com "password nunca expira" estão isentas desta situação.
 
 ### <a name="multiple-forest-considerations"></a>Múltiplas considerações florestais
 

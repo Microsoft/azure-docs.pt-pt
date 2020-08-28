@@ -5,13 +5,13 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dekapur
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devcenter, devx-track-csharp
+ms.openlocfilehash: 876359b45daa280a1f5701f2490ce505327f309b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75351724"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011009"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Saiba como atualizar uma aplicação de Tecido de Serviço usando o Visual Studio
 
@@ -61,7 +61,7 @@ Atualizaremos o `WebFrontEnd_cpu` parâmetro para atualizar os recursos do CPU p
 > Por predefinição, o ficheiro de parâmetros que é um par do ficheiro profile.yaml será utilizado para fornecer os valores para esse ficheiro profile.yaml.
 > Por exemplo, Ambientes > Os parâmetros > cloud.yaml fornecem os valores de parâmetro para Ambientes > perfil de > cloud.yaml.
 >
-> Pode anular isto adicionando o seguinte ao ficheiro profile.yaml: `parametersFilePath=”relative or full path to the parameters file”` Por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou`parametersFilePath=”..\CommonParameters.yaml”`
+> Pode anular isto adicionando o seguinte ao ficheiro profile.yaml: `parametersFilePath=”relative or full path to the parameters file”` Por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificar o modelo
 
@@ -151,7 +151,7 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Abra um browser e navegue para o URL para ver o site em execução no Azure. Deve agora ver uma página web que contenha uma coluna de categoria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]

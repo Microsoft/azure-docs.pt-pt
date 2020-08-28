@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529306"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022195"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core em Serviço Azure Fabric Reliable Services
 
@@ -50,7 +51,7 @@ Uma instância de Serviço Fiável é representada pela sua classe de serviço d
 ![Diagrama para hospedar ASP.NET Core em um serviço confiável][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Núcleo ICommunicationIseners
-As `ICommunicationListener` implementações para Kestrel e HTTP.sys nos `Microsoft.ServiceFabric.AspNetCore.*` pacotes NuGet têm padrões de utilização semelhantes. Mas realizam ações ligeiramente diferentes específicas de cada servidor web. 
+As `ICommunicationListener` implementações para Kestrel e HTTP.sys nos  `Microsoft.ServiceFabric.AspNetCore.*` pacotes NuGet têm padrões de utilização semelhantes. Mas realizam ações ligeiramente diferentes específicas de cada servidor web. 
 
 Ambos os ouvintes de comunicação fornecem um construtor que toma os seguintes argumentos:
  - **`ServiceContext serviceContext`**: Este é o `ServiceContext` objeto que contém informações sobre o serviço de funcionamento.
@@ -87,19 +88,19 @@ O diagrama que se segue mostra o fluxo de pedido com o middleware ativado:
 
 ![Tecido de Serviço ASP.NET Integração core][2]
 
-Tanto a Kestrel como a HTTP.sys `ICommunicationListener` implementações utilizam este mecanismo exatamente da mesma forma. Embora HTTP.sys possa diferenciar internamente os pedidos com base em caminhos DE URL únicos utilizando a funcionalidade de partilha **de portaHTTP.sys** subjacente, essa funcionalidade *não* é utilizada pela `ICommunicationListener` implementação HTTP.sys. Isto porque resulta em códigos de estado de erro HTTP 503 e HTTP 404 no cenário descrito anteriormente. Isto por sua vez dificulta que os clientes determinem a intenção do erro, uma vez que HTTP 503 e HTTP 404 são normalmente utilizados para indicar outros erros. 
+Tanto a Kestrel como a HTTP.sys `ICommunicationListener` implementações utilizam este mecanismo exatamente da mesma forma. Embora HTTP.sys possa diferenciar internamente os pedidos com base em caminhos DE URL únicos utilizando a funcionalidade de partilha ** de portaHTTP.sys** subjacente, essa funcionalidade *não* é utilizada pela `ICommunicationListener` implementação HTTP.sys. Isto porque resulta em códigos de estado de erro HTTP 503 e HTTP 404 no cenário descrito anteriormente. Isto por sua vez dificulta que os clientes determinem a intenção do erro, uma vez que HTTP 503 e HTTP 404 são normalmente utilizados para indicar outros erros. 
 
 Assim, tanto as implementações da Kestrel como HTTP.sys `ICommunicationListener` normalizam o middleware fornecido pelo método de `UseServiceFabricIntegration` extensão. Por isso, os clientes apenas precisam de realizar um ponto final de serviço para re-resolver a ação em respostas HTTP 410.
 
 ## <a name="httpsys-in-reliable-services"></a>HTTP.sys em Serviços Fiáveis
-Pode utilizar HTTP.sys em Serviços Fiáveis importando o pacote **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet. Este pacote `HttpSysCommunicationListener` contém, uma implementação de `ICommunicationListener` . `HttpSysCommunicationListener`permite-lhe criar um Core WebHost ASP.NET dentro de um serviço confiável, utilizando HTTP.sys como servidor web.
+Pode utilizar HTTP.sys em Serviços Fiáveis importando o pacote **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet. Este pacote `HttpSysCommunicationListener` contém, uma implementação de `ICommunicationListener` . `HttpSysCommunicationListener` permite-lhe criar um Core WebHost ASP.NET dentro de um serviço confiável, utilizando HTTP.sys como servidor web.
 
 HTTP.sys é construído na [API](/windows/win32/http/http-api-start-page)do Servidor HTTP do Windows HTTP . Esta API utiliza o **HTTP.sys** controlador de núcleo para processar pedidos HTTP e encaminhá-los para processos que executam aplicações web. Isto permite que vários processos na mesma máquina física ou virtual aloquem aplicações web na mesma porta, desambiguadas por um caminho URL único ou nome de hospedeiro. Estas funcionalidades são úteis no Service Fabric para hospedar vários websites no mesmo cluster.
 
 >[!NOTE]
 >HTTP.sys implementação funciona apenas na plataforma Windows.
 
-O seguinte diagrama ilustra como HTTP.sys utiliza **o**HTTP.syscondutor de núcleo no Windows para partilha de porta:
+O seguinte diagrama ilustra como HTTP.sys utiliza ** o **HTTP.syscondutor de núcleo no Windows para partilha de porta:
 
 ![diagrama de HTTP.sys][3]
 
@@ -129,7 +130,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HTTP.sys num serviço imponente
 
-`HttpSysCommunicationListener`não é projetado atualmente para uso em serviços estatais devido a complicações com a funcionalidade de partilha **deHTTP.sys** portuária subjacente. Para mais informações, consulte a secção seguinte sobre a atribuição dinâmica do porto com HTTP.sys. Para serviços estatais, Kestrel é o servidor web sugerido.
+`HttpSysCommunicationListener` não é projetado atualmente para uso em serviços estatais devido a complicações com a funcionalidade de partilha ** deHTTP.sys** portuária subjacente. Para mais informações, consulte a secção seguinte sobre a atribuição dinâmica do porto com HTTP.sys. Para serviços estatais, Kestrel é o servidor web sugerido.
 
 ### <a name="endpoint-configuration"></a>Configuração do ponto final
 
@@ -189,7 +190,7 @@ Para utilizar uma porta atribuída dinamicamente com HTTP.sys, omita a `Port` pr
 Uma porta dinâmica atribuída por uma `Endpoint` configuração fornece apenas uma porta *por processo de hospedeiro*. O modelo de hospedagem de tecido de serviço atual permite que várias instâncias de serviço e/ou réplicas sejam hospedadas no mesmo processo. Isto significa que cada um partilhará a mesma porta quando atribuída através da `Endpoint` configuração. **VáriasHTTP.sys** casos podem partilhar uma porta utilizando a funcionalidade de partilha **de portaHTTP.sys** subjacente. Mas não é suportado `HttpSysCommunicationListener` devido às complicações que introduz para os pedidos dos clientes. Para uma utilização dinâmica da porta, o Kestrel é o servidor web sugerido.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel em Serviços Fiáveis
-Pode utilizar o Kestrel em Serviços Fiáveis importando o pacote **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet. Este pacote `KestrelCommunicationListener` contém, uma implementação de `ICommunicationListener` . `KestrelCommunicationListener`permite-lhe criar um Core WebHost ASP.NET dentro de um serviço confiável, utilizando o Kestrel como servidor web.
+Pode utilizar o Kestrel em Serviços Fiáveis importando o pacote **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet. Este pacote `KestrelCommunicationListener` contém, uma implementação de `ICommunicationListener` . `KestrelCommunicationListener` permite-lhe criar um Core WebHost ASP.NET dentro de um serviço confiável, utilizando o Kestrel como servidor web.
 
 Kestrel é um servidor web de plataforma cruzada para ASP.NET Core. Ao contrário HTTP.sys, o Kestrel não usa um gestor centralizado de pontos finais. Também ao contrário HTTP.sys, Kestrel não suporta a partilha de portas entre vários processos. Cada instância de Kestrel deve usar uma porta única. Para mais informações sobre kestrel, consulte os Detalhes de [Implementação.](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2)
 
@@ -511,7 +512,7 @@ Os serviços estatais que são chamados apenas de dentro do cluster devem utiliz
 | Configuração da porta | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
 | Opções de Integração de ServiçosFabric | UseUniqueServiceUrl | Com uma atribuição dinâmica da porta, esta definição impede o problema de identidade errado descrito anteriormente. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Depurar a sua aplicação do Service Fabric com o Visual Studio](service-fabric-debugging-your-application.md)
 
 

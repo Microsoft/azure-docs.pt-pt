@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749013"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003886"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Problemas na resolução de gémeos digitais Azure: Métricas
 
@@ -24,7 +24,7 @@ As métricas são ativadas por padrão. Pode ver as métricas do Azure Digital T
 
 1. Crie uma instância Azure Digital Twins. Pode encontrar instruções sobre como configurar uma instância Azure Digital Twins em [*Como-a- Configurar um caso e autenticação*](how-to-set-up-instance-scripted.md).
 
-2. Encontre a sua instância Azure Digital Twins no [portal Azure](https:/portal.azure.com) (pode abrir a página para ela digitando o seu nome na barra de pesquisa do portal). 
+2. Encontre a sua instância Azure Digital Twins no [portal Azure](https://portal.azure.com) (pode abrir a página para ela digitando o seu nome na barra de pesquisa do portal). 
 
     A partir do menu do caso, selecione **Metrics**.
    

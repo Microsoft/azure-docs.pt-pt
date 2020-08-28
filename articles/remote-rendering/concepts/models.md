@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7832f999de2f6f16cfe816c061925e371f90662e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758695"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021889"
 ---
 # <a name="models"></a>Modelos
 
@@ -118,7 +119,7 @@ Depois pode atravessar a hierarquia da entidade e modificar as entidades e compo
 > [!CAUTION]
 > Todas as funções *Async* em ARR retornam objetos de operação assíncronos. Deve guardar uma referência a esses objetos até que a operação esteja concluída. Caso contrário, o coletor de lixo C# pode apagar a operação mais cedo e nunca poderá terminar. No código de amostra acima da utilização de *garantias* de que a variável local 'loadOp' mantém uma referência até que o carregamento do modelo esteja terminado. No entanto, se utilizar o evento *Complete,* terá de armazenar a operação assíncronea numa variável de membro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Entidades](entities.md)
 * [Malhas](meshes.md)

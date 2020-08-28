@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ad99dc3dc17e81c3b5da144b21519781353baa47
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fdd0cd6995a294be03640693fcca9fb814f3acbe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826828"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021702"
 ---
-# <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>Como é que os novos Azure Digital Twins são diferentes da versão anterior (2018)?
+# <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Quais são as novas Gémeas Digitais Azure? Qual é a diferença da versão anterior (2018)?
 
 A primeira pré-estreia pública da Azure Digital Twins foi lançada em outubro de 2018. Embora os conceitos fundamentais dessa versão anterior tenham passado para o novo serviço na pré-visualização pública, muitas das interfaces e detalhes de implementação mudaram para tornar o serviço mais flexível e acessível. Estas alterações foram motivadas pelo feedback do cliente.
 
@@ -44,5 +44,4 @@ Para obter uma lista dos limites das Gémeas Digitais Azure durante esta pré-vi
 
 Em seguida, mergulhe em trabalhar com a Azure Digital Twins com o primeiro tutorial:
 
-> [!div class="nextstepaction"]
-> [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)
+[*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

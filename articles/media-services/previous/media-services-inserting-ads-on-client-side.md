@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 93b449636282568ab614b42a46d939935f576895
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594870"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021311"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserir anúncios no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
@@ -160,7 +161,7 @@ Os anúncios não lineares também são especificados num `<Creative>` elemento.
     </Creative>
 ```
 
-O elemento <**NonLinearAds**> pode conter um ou mais elementos <> **não lineares,** cada um dos quais pode descrever um anúncio não linear. O elemento **<NonLinear**> especifica o recurso para o anúncio não linear. O recurso pode ser um> **staticresource** <, um> **<IFrameResource,** ou um> **htmlresource** <. \<**StaticResource**>descreve um recurso não-HTML e define um atributo CreativeType que especifica como o recurso é exibido:
+O elemento <**NonLinearAds**> pode conter um ou mais elementos <> **não lineares,** cada um dos quais pode descrever um anúncio não linear. O elemento **<NonLinear**> especifica o recurso para o anúncio não linear. O recurso pode ser um> **staticresource** <, um> **<IFrameResource,** ou um> **htmlresource** <. \<**StaticResource**> descreve um recurso não-HTML e define um atributo CreativeType que especifica como o recurso é exibido:
 
 Imagem/gif, imagem/jpeg, imagem/png – o recurso é apresentado numa etiqueta de **<IMG**>.
 
@@ -239,9 +240,9 @@ Dentro do `<AdBreak>` elemento, pode haver um <**elemento> AdSource.** O element
 
 O elemento **<AdSource**> fornece ao jogador uma resposta de anúncio inline ou uma referência a uma resposta de anúncio. Pode conter um dos seguintes elementos:
 
-* `<VASTAdData>`indica que uma resposta de anúncio VAST está incorporada no ficheiro VMAP
-* `<AdTagURI>`um URI que faz referência a uma resposta de anúncio de outro sistema
-* `<CustomAdData>`-uma cadeia arbitrária que representa uma resposta não-VASTA
+* `<VASTAdData>` indica que uma resposta de anúncio VAST está incorporada no ficheiro VMAP
+* `<AdTagURI>` um URI que faz referência a uma resposta de anúncio de outro sistema
+* `<CustomAdData>` -uma cadeia arbitrária que representa uma resposta não-VASTA
 
 Neste exemplo, uma resposta de anúncio em linha é especificada com um `<VASTAdData>` elemento que contém uma resposta de anúncio VAST. Para obter mais informações sobre os outros elementos, consulte [vMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
@@ -276,7 +277,7 @@ O exemplo a seguir mostra um ficheiro VMAP que especifica eventos de rastreio
     </vmap:VMAP>
 ```
 
-Para obter mais informações sobre o <**TrackingEvents**> elemento e seus filhos, consultehttp://iab.net/VMAP.pdf
+Para obter mais informações sobre o <**TrackingEvents**> elemento e seus filhos, consulte http://iab.net/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Usando um modelo de seqüência abstrata de mídia (MAST)
 Um ficheiro MAST permite especificar os gatilhos que definem quando um anúncio é apresentado. Segue-se um ficheiro MAST de exemplo que contém gatilhos para um anúncio pré-roll, um anúncio de meio-rolo e um anúncio pós-roll.
@@ -327,7 +328,7 @@ Um ficheiro MAST permite especificar os gatilhos que definem quando um anúncio 
 
 Um ficheiro MAST começa com um elemento **MAST** que contém um elemento **de gatilho.** O `<triggers>` elemento contém um ou mais elementos de **gatilho** que definem quando um anúncio deve ser reproduzido.
 
-O elemento **de gatilho** contém um elemento **startConditions** que especifica quando um anúncio deve começar a ser reproduzido. O elemento **startConditions** contém um ou mais `<condition>` elementos. Quando cada `<condition>` um avalia para verdadeiro um gatilho é iniciado ou revogado dependendo se o é contido dentro de `<condition>` um elemento **startConditions** ou **endConditions** respectivamente. Quando `<condition>` vários elementos estão presentes, são tratados como um OR implícito, qualquer condição que avalie verdadeiramente fará com que o gatilho inicie. `<condition>`elementos podem ser aninhados. Quando `<condition>` os elementos infantis estão predefinidos, são tratados como um E implícito, todas as condições devem avaliar-se verdadeiramente para o gatilho iniciar. O `<condition>` elemento contém os seguintes atributos que definem a condição:
+O elemento **de gatilho** contém um elemento **startConditions** que especifica quando um anúncio deve começar a ser reproduzido. O elemento **startConditions** contém um ou mais `<condition>` elementos. Quando cada `<condition>` um avalia para verdadeiro um gatilho é iniciado ou revogado dependendo se o é contido dentro de `<condition>` um elemento **startConditions** ou **endConditions** respectivamente. Quando `<condition>` vários elementos estão presentes, são tratados como um OR implícito, qualquer condição que avalie verdadeiramente fará com que o gatilho inicie. `<condition>` elementos podem ser aninhados. Quando `<condition>` os elementos infantis estão predefinidos, são tratados como um E implícito, todas as condições devem avaliar-se verdadeiramente para o gatilho iniciar. O `<condition>` elemento contém os seguintes atributos que definem a condição:
 
 1. **tipo** – especifica o tipo de condição, evento ou propriedade
 2. **nome** – o nome do imóvel ou evento a utilizar durante a avaliação

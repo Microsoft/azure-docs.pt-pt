@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19d94c7ec08dbf2556ae72da2f0e5645fb228569
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494671"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020512"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics virtual machine extension for Windows (Extensão de máquina virtual do Log Analytics para Windows)
 
@@ -29,7 +29,7 @@ O Azure Monitor Logs fornece capacidades de monitorização através de ativos d
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Para obter mais informações sobre os sistemas operativos suportados pelo Windows, consulte o artigo de visão geral do [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+Para obter mais informações sobre os sistemas operativos windows suportados, consulte o artigo [dos agentes do Azure Monitor.](../../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 ### <a name="agent-and-vm-extension-version"></a>Versão de extensão de agente e VM
 A tabela seguinte fornece um mapeamento da versão da extensão VM do Windows Log Analytics e do pacote de agente Log Analytics para cada lançamento. 
@@ -86,16 +86,16 @@ O JSON seguinte mostra o esquema para a extensão do agente Log Analytics. A ext
 ```
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo |
+| Nome | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1,0 |
+| typeHandlerVersion | 1.0 |
 | workspaceId (por exemplo)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRsGo9TXffbrTahyrwv35W0pOqQAUUQ== |
 
-\*O workspaceId é chamado de consumerId na API log Analytics.
+\* O workspaceId é chamado de consumerId na API log Analytics.
 
 > [!NOTE]
 > Para obter propriedades adicionais consulte Azure [Connect Windows Computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md).
@@ -162,7 +162,7 @@ Ao colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma refe
 }
 ```
 
-## <a name="powershell-deployment"></a>Implantação powerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 
 O `Set-AzVMExtension` comando pode ser utilizado para implantar a extensão da máquina virtual do agente Log Analytics a uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa tabela de haxixe PowerShell. 
 
@@ -183,7 +183,7 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolver Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o módulo Azure PowerShell.
 

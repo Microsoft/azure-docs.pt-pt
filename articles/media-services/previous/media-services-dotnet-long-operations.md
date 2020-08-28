@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1c5b008b9771e636201f95f3a56f81d4e75b7ea2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4365796a9d7f7b72687db19573c09ccfdf9ea8de
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831741"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020534"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de streaming ao vivo com serviços de media Azure
 
@@ -32,7 +33,7 @@ O Serviço de Comunicação Social .NET SDK fornece APIs que enviam o pedido e a
 Há cenários em que uma aplicação não pode esperar por um pedido http de longa duração e quer fazer sondagens para a operação avançar manualmente. Um exemplo típico seria um navegador interagindo com um serviço web apátrida: quando o navegador solicita a criação de um canal, o serviço web inicia uma longa operação e devolve o ID de operação ao navegador. O navegador poderia então pedir ao serviço web para obter o estado de funcionamento com base no ID. O Media Services .NET SDK fornece APIs que são úteis para este cenário. Estas APIs são chamadas de "métodos não-eleitorais".
 Os "métodos de não votação" têm o seguinte padrão de nomeação: Enviar*Operação Operação Natal*(por exemplo, Envio de Operações). Enviar*OperaçãoName*Métodos de operação devolvem o objeto **IOperação;** o objeto devolvido contém informações que podem ser usadas para rastrear a operação. Os métodos de regresso da*Operação Operação Operação Operação*Operação OperaçãoSync **. \<IOperation> **
 
-Atualmente, as seguintes classes apoiam métodos de não votação: **Canal,** **StreamingEndpoint**e **Programa**.
+Atualmente, as seguintes classes apoiam métodos de não votação:  **Canal,** **StreamingEndpoint**e **Programa**.
 
 Para fazer uma sondagem para o estado de funcionamento, utilize o método **GetOperation** na classe **OperationBaseCollection.** Utilizar os seguintes intervalos para verificar o estado de funcionamento: para as operações **channel** and **streamingEndpoint,** utilize 30 segundos; para operações **do programa,** utilize 10 segundos.
 

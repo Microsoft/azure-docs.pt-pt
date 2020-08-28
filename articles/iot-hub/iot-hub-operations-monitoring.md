@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
-ms.custom: amqp
-ms.openlocfilehash: edbc3431c860794c7cd1dd8e5011c0d7d11d692d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, devx-track-csharp
+ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732223"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022025"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorização das operações do IoT Hub (depreciada)
 
@@ -265,7 +265,7 @@ class Program
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 

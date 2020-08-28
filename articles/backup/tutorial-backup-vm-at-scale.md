@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a criar um cofre dos Serviços de Recupera�
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6556731ed18bd591e930ed89264cd62893fe9ac6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757511"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022059"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -53,7 +53,7 @@ O cofre dos Serviços de Recuperação também contém os dados para os quais fo
 
     ![Valores do cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    Os cofres dos Serviços de Recuperação têm de estar na mesma localização das máquinas virtuais que estão a ser protegidas. Se tiver máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada região. Este tutorial cria um cofre dos Serviços de Recuperação na *Europa Ocidental*, uma vez que *myVM* (a máquina virtual criada com o início rápido) foi criada aí.
+    Os cofres dos Serviços de Recuperação têm de estar na mesma localização das máquinas virtuais que estão a ser protegidas. Se tiver máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada região. Este tutorial cria um cofre de Serviços de Recuperação na *Europa Ocidental* porque foi aí que o *myVM* (a máquina virtual criada com o arranque rápido) foi criado.
 
 1. Quando estiver pronto para criar o cofre dos Serviços de Recuperação, selecione **Criar**.
 
@@ -150,7 +150,7 @@ Para executar um trabalho de cópia de segurança a pedido:
 
     ![Mosaico Tarefas de cópia de segurança](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende continuar a trabalhar com tutoriais subsequentes, não limpe os recursos criados neste tutorial. Se não pretende continuar, use os seguintes passos para eliminar todos os recursos criados por este tutorial no portal Azure.
 

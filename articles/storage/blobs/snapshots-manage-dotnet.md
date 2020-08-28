@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9404cc8037b9cd7ef3e6f74265ce803177eb0465
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d50357a648d63984ae70a32e0fdd7260a86d6a6a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185286"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020818"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerir um instantâneo blob em .NET
 

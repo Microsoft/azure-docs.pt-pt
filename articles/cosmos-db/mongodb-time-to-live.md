@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1fe5d2839650cef2d965d613d2b87459c770618c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f2168338031b8c5b81fd1998f71adf47dcadc44e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421965"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020716"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Dados de expiração com a API do Azure Cosmos DB para MongoDB
 
@@ -77,6 +77,6 @@ A funcionalidade TTL por documento pode ser ativada com a API da Azure Cosmos DB
 
 :::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Screenshot da ativação da funcionalidade TTL por documento no Portal":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Expire os dados em Azure Cosmos DB automaticamente com tempo de vida](../cosmos-db/time-to-live.md)
 * [Indexar a sua base de dados cosmos configurada com API da Azure Cosmos para a MongoDB](../cosmos-db/mongodb-indexing.md)

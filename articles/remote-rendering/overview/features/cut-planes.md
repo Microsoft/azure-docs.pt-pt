@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: d0497162c8535b80b7e9d9a564b12dc6966a4120
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b92bfad99c854f75c945121d352a7122d8c6db89
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891441"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011604"
 ---
 # <a name="cut-planes"></a>Cortar planos
 

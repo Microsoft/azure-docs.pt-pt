@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: f781018fc5fc832be92de34c3ef220517ad28d75
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118258"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020427"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação .NET Framework ou Core utilizando a conta API API AZure Cosmos DB Gremlin
 
@@ -40,7 +41,7 @@ Se ainda não tiver o Visual Studio 2019 instalado, **free** pode baixar e utili
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Adicionar um gráfico
+## <a name="add-a-graph"></a>Adicionar um grafo
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -111,7 +112,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar o ponto final":::
 
-   Para executar esta amostra, copie o valor **gremlin Endpoint,** elimine o número de porta no final, ou seja, o URI torna-se `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . O valor do ponto final deve parecer`testgraphacct.gremlin.cosmosdb.azure.com`
+   Para executar esta amostra, copie o valor **gremlin Endpoint,** elimine o número de porta no final, ou seja, o URI torna-se `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . O valor do ponto final deve parecer `testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Em seguida, navegue no separador **Chaves** e copie o valor **KEY PRINCIPAL** a partir do portal Azure. 
 
@@ -152,7 +153,7 @@ Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

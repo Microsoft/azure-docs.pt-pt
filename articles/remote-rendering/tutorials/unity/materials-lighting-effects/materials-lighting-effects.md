@@ -5,16 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 39560966b542999b2c0c3472075c7497f2146455
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207345"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021073"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Tutorial: Materiais de refinação, iluminação e efeitos
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -514,7 +515,7 @@ Vamos criar um script **RemoteSky** que tem uma lista dos Cubemaps disponíveis 
 
 1. Adicione o script **RemoteSky** ao seu **SkyLight** GameObject.
 
-    A troca entre as luzes do céu pode ser feita ligando `SetSky` com uma das teclas de corda definidas em `AvailableCubemaps` . O controlador de visualização incorporado no **AppMenu** cria automaticamente botões e liga os seus eventos para ligar `SetSky` com a respetiva chave.
+    A troca entre as luzes do céu pode ser feita ligando `SetSky` com uma das teclas de corda definidas em `AvailableCubemaps` . O controlador de visualização incorporado no  **AppMenu** cria automaticamente botões e liga os seus eventos para ligar `SetSky` com a respetiva chave.
 1. Prima Play no Editor de Unidade e autorize uma ligação.
 1. Depois de ligar o tempo de execução local a uma sessão remota, navegue **em AppMenu -> Session Tools -> Remote Sky** para explorar as diferentes opções do céu e ver como afetam o **TestModel**.
 

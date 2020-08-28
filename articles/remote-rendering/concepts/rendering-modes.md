@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 385086bd46145be717ee5a14a10f889ec811e17e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6d7a895f3b565fdd4ec4659045034d0200355a60
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505656"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021872"
 ---
 # <a name="rendering-modes"></a>Modos de composição
 

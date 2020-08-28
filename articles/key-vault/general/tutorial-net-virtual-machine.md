@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc
-ms.openlocfilehash: ead0c13a1fce0b5d56c9dd875c594a2269e2c78c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: b4f832750f7a94a6a60cbb1d3ba630925dd4fff2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513116"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021736"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Use a Azure Key Vault com uma máquina virtual em .NET
 
@@ -144,7 +144,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Adicione estas linhas, atualizando o URI para refletir o `vaultUri` cofre da chave. Abaixo o código está a usar ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre de chaves, que está a usar o token da identidade gerida pela aplicação para autenticar. Também está a usar recuo exponencial para retros em caso de adoção de cofre-chave estar a ser estrangulada.
+Adicione estas linhas, atualizando o URI para refletir o `vaultUri` cofre da chave. Abaixo o código está a usar  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre de chaves, que está a usar o token da identidade gerida pela aplicação para autenticar. Também está a usar recuo exponencial para retros em caso de adoção de cofre-chave estar a ser estrangulada.
 
 ```csharp
   class Program

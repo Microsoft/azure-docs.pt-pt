@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5171db64f931d59d4f5b66143072cfc8153e8775
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 85f14329359eaf051b992f657ac0e4e634d504cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935199"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020835"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Como gerir a concordância na Pesquisa Cognitiva Azure
 

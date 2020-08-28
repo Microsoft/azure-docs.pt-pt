@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/10/2020
 ms.author: kumud
-ms.openlocfilehash: d789d74f79fa691a2d5b374530450d966e0c40ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9eedba6c8aee5c8aab73e2ed598a4511b4c5982
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047260"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020461"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalize um modelo de linguagem com o site do Indexer de Vídeo
 
@@ -133,7 +133,9 @@ O Video Indexer suporta a personalização automática de modelos linguísticos 
 
     ![Personalizar transcrição de edição de modelo de linguagem — Índice de vídeo](./media/customize-language-model/edits.png)
 
-    O Indexer de Vídeo captura todas as linhas que são corrigidas por si na transcrição do seu vídeo e adiciona-as automaticamente a um ficheiro de texto chamado "A partir de edições de transcrição". Estas edições são usadas para retreinar o modelo linguístico específico que foi usado para indexar este vídeo.
+    O Indexer de Vídeo captura todas as linhas que são corrigidas por si na transcrição do seu vídeo e adiciona-as automaticamente a um ficheiro de texto chamado "A partir de edições de transcrição". Estas edições são usadas para retreinar o modelo linguístico específico que foi usado para indexar este vídeo. 
+    
+    As edições que foram feitas na linha [temporal do widget](video-indexer-embed-widgets.md) também estão incluídas.
     
     Se não especificou um modelo de Linguagem ao indexar este vídeo, todas as edições para este vídeo serão armazenadas num modelo de Linguagem padrão chamado "Adaptações de Conta" dentro da linguagem detetada do vídeo.
     

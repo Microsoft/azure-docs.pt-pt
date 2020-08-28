@@ -16,12 +16,13 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 36d74a8819285c5eb5fb0367a2b32ae299ae6c8e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084318"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003631"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
 
@@ -89,7 +90,7 @@ O código de amostra completo está disponível nas [Amostras do Hub de Notifica
     }
     ```
 
-    c. `CreateTopic`é usado para criar o tópico de Service Bus.
+    c. `CreateTopic` é usado para criar o tópico de Service Bus.
 
     ```csharp
     public static void CreateTopic(string connectionString)
@@ -106,7 +107,7 @@ O código de amostra completo está disponível nas [Amostras do Hub de Notifica
     }
     ```
 
-    d. `SendMessage`é usado para enviar as mensagens para este Tópico de Autocarro de Serviço. Este código simplesmente envia um conjunto de mensagens aleatórias para o tópico periodicamente para efeitos da amostra. Normalmente existe um sistema de backend, que envia mensagens quando ocorre um evento.
+    d. `SendMessage` é usado para enviar as mensagens para este Tópico de Autocarro de Serviço. Este código simplesmente envia um conjunto de mensagens aleatórias para o tópico periodicamente para efeitos da amostra. Normalmente existe um sistema de backend, que envia mensagens quando ocorre um evento.
 
     ```csharp
     public static void SendMessage(string connectionString)
@@ -158,7 +159,7 @@ O código de amostra completo está disponível nas [Amostras do Hub de Notifica
     }
     ```
 
-    c. `CreateSubscription`é usado para criar uma subscrição de Service Bus para o tópico onde o sistema de backend envia mensagens. Dependendo do cenário de negócio, este componente cria uma ou mais subscrições para tópicos correspondentes (por exemplo, alguns podem estar a receber mensagens do sistema de RH, algumas do sistema financeiro, e assim por diante)
+    c. `CreateSubscription` é usado para criar uma subscrição de Service Bus para o tópico onde o sistema de backend envia mensagens. Dependendo do cenário de negócio, este componente cria uma ou mais subscrições para tópicos correspondentes (por exemplo, alguns podem estar a receber mensagens do sistema de RH, algumas do sistema financeiro, e assim por diante)
 
     ```csharp
     static void CreateSubscription(string connectionString)
@@ -174,7 +175,7 @@ O código de amostra completo está disponível nas [Amostras do Hub de Notifica
     }
     ```
 
-    d. `ReceiveMessageAndSendNotification`é utilizado para ler a mensagem a partir do tópico usando a sua subscrição e se a leitura for bem sucedida, então criar uma notificação (no cenário da amostra uma notificação de torrada nativa do Windows) para ser enviada para a aplicação móvel usando Azure Notification Hubs.
+    d. `ReceiveMessageAndSendNotification` é utilizado para ler a mensagem a partir do tópico usando a sua subscrição e se a leitura for bem sucedida, então criar uma notificação (no cenário da amostra uma notificação de torrada nativa do Windows) para ser enviada para a aplicação móvel usando Azure Notification Hubs.
 
     ```csharp
     static void ReceiveMessageAndSendNotification(string connectionString)

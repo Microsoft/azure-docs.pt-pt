@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 619ec7e5510f9d3a5a17dcd5961fbd2182674df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f2defeb2c417e94109721d32d8d4b611e2e46569
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263488"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003223"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar recipientes não divididos para recipientes divididos
 
@@ -126,7 +127,7 @@ Se consultar do V3 SDK os itens que são inseridos utilizando V2 SDK, ou os iten
 
 Se forem inseridos novos itens com valores diferentes para a chave de partição, a consulta de tal item conta ao passar a chave apropriada `FeedOptions` não terá quaisquer problemas. Depois de inserir novos documentos com chave de partição, se precisar de consultar apenas a contagem do documento sem o valor da chave de partição, essa consulta poderá voltar a incorrer em RU/s mais elevado semelhante às coleções divisórias regulares.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)

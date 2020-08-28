@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2a1a506e7e4c4a90ed39f4371b48e47b632918c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071910"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021510"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como construir uma aplicação de loja de Windows de streaming suave  
 
@@ -45,7 +46,7 @@ A solução completa para cada lição pode ser descarregada a partir de amostra
 * [Lição 1](https://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - Um simples leitor de multimédia de streaming suave Windows 8, 
 * [Lição 2](https://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - Um simples leitor de multimédia de streaming suave Windows 8 com um controlo de barra de slider, 
 * [Lição 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - Um leitor de multimédia de streaming suave do Windows 8 com seleção de stream,  
-* [Lição 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - Um leitor de multimédia de streaming suave do Windows 8 com seleção de faixas.
+* [Lição 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907)  - Um leitor de multimédia de streaming suave do Windows 8 com seleção de faixas.
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lição 1: Criar uma aplicação básica de loja de streaming suave
 
@@ -66,11 +67,11 @@ Para obter mais informações sobre o desenvolvimento da aplicação Windows Sto
 1. A partir do menu **FILE,** clique em **Novo**e, em seguida, clique em **Projeto**.
 1. A partir do diálogo do Novo Projeto, escreva ou selecione os seguintes valores:
 
-    | Name | Valor |
+    | Nome | Valor |
     | --- | --- |
     | Grupo de modelo |Instalado/Modelos/Visual C#/Windows Store |
     | Modelo |App em branco (XAML) |
-    | Name |SSPlayer |
+    | Nome |SSPlayer |
     | Localização |C:\SSTutorials |
     | Nome da Solução |SSPlayer |
     | Criar diretório para solução |(selecionado) |
@@ -82,7 +83,7 @@ Para obter mais informações sobre o desenvolvimento da aplicação Windows Sto
 1. A partir do Solution Explorer, clique à direita **no SSPlayer**e, em seguida, clique em **Adicionar Referência**.
 1. Escreva ou selecione os seguintes valores:
 
-    | Name | Valor |
+    | Nome | Valor |
     | --- | --- |
     | Grupo de referência |Janelas/Extensões |
     | Referência |Selecione Microsoft Smooth Streaming Client SDK para Windows 8 e Microsoft Visual C++ Pacote de tempo de execução |

@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 9498c4a0e0dc5b528066ffadd6a9638fe99b1135
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: dbfb90abcf301cb22a84ba28359c6cb0bfaacfd6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874797"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021090"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configurar a distribuição global da Azure Cosmos DB utilizando a API SQL
 
@@ -28,7 +28,7 @@ Este artigo abrange as seguintes tarefas:
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a>Ligação a uma região preferida utilizando a API SQL
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a> Ligação a uma região preferida utilizando a API SQL
 
 Para tirar o máximo partido da [distribuição global](distribute-data-globally.md), as aplicações cliente podem especificar a lista de preferência ordenada de regiões a utilizar nas operações de documentos. Com base na configuração da conta do Azure Cosmos DB, disponibilidade regional atual e lista de preferência especificada, o SDK SQL selecionará o ponto final ideal para efetuar operações de escrita e leitura.
 
@@ -159,7 +159,7 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-preferred-locations"></a>Java V4 SDK
+## <a name="java-v4-sdk"></a><a id="java4-preferred-locations"></a> Java V4 SDK
 
 O seguinte código mostra como definir locais preferenciais utilizando o Java SDK:
 
@@ -179,7 +179,7 @@ O seguinte código mostra como definir locais preferenciais utilizando o Java SD
 
 ## <a name="rest"></a>REST
 
-Uma vez disponibilizada uma conta de base de dados em várias regiões, os clientes podem consultar a sua disponibilidade através da realização de um pedido GET sobre este URI`https://{databaseaccount}.documents.azure.com/`
+Uma vez disponibilizada uma conta de base de dados em várias regiões, os clientes podem consultar a sua disponibilidade através da realização de um pedido GET sobre este URI `https://{databaseaccount}.documents.azure.com/`
 
 O serviço devolverá uma lista de regiões e os URIs de ponto final correspondentes do Azure Cosmos DB para as réplicas. A região de escrita atual será indicada na resposta. Em seguida, o cliente pode selecionar o ponto final adequado para obter todos os pedidos da API REST da seguinte forma.
 

@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 70d824522e1ae71bd49050779ff37e821d560783
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d30949327f3025c06d4c98670494809c486631a3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954711"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022212"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utilize o Moderador de Conteúdo de Mídia Azure para detetar possíveis conteúdos adultos e picantes 
 
@@ -31,7 +32,7 @@ O processador de mídia **Azure Media Content (MP)** permite-lhe utilizar modera
 
 O **Moderador de Conteúdo de Azure Media** ESTÁ atualmente em Pré-Visualização.
 
-Este artigo dá detalhes sobre **o Azure Media Content Moderador** e mostra como usá-lo com a Media Services SDK para .NET.
+Este artigo dá detalhes sobre  **o Azure Media Content Moderador** e mostra como usá-lo com a Media Services SDK para .NET.
 
 ## <a name="content-moderator-input-files"></a>Ficheiros de entrada de moderadores de conteúdo
 Ficheiros de vídeo. Atualmente, os seguintes formatos são suportados: MP4, MOV e WMV.
@@ -62,7 +63,7 @@ A saída JSON inclui os seguintes elementos:
 
 |Elemento|Descrição|
 |---|---|
-| start |A hora de início do primeiro evento em "tiques". |
+| iniciar |A hora de início do primeiro evento em "tiques". |
 | duration |O comprimento do fragmento, em "carrapatos". |
 | intervalo |O intervalo de cada entrada de evento dentro do fragmento, em "tiques". |
 | [eventos](#events-json-elements) |Cada evento representa um clip e cada clip contém quadros de chaves detetados e rastreados dentro dessa duração. É uma variedade de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituída por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
@@ -71,7 +72,7 @@ A saída JSON inclui os seguintes elementos:
 
 |Elemento|Descrição|
 |---|---|
-| reviewRecomumended | `true`ou `false` dependendo se o **adultScore** ou **racyScore** excedem os limiares internos. |
+| reviewRecomumended | `true` ou `false` dependendo se o **adultScore** ou **racyScore** excedem os limiares internos. |
 | adultScore | Pontuação de confiança para possível conteúdo adulto, numa escala de 0,00 a 0,99. |
 | racyScore | Pontuação de confiança para possível conteúdo picante, numa escala de 0,00 a 0,99. |
 | índice | índice do quadro numa escala do primeiro frame index para o último índice de quadro. |
@@ -235,7 +236,7 @@ O exemplo seguinte de uma saída JSON moderador de conteúdo foi truncado.
 
 [Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a solução de [moderação e revisão](../../cognitive-services/Content-Moderator/video-moderation-human-review.md)de vídeo do Content Moderador.
 

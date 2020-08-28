@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
-ms.openlocfilehash: 8bec102064d6269964cb917d745af206acf948ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 71ebc90834083def5b82e16dc387a6e61943206d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262553"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021753"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obtenha métricas de execução de consulta SQL e analise o desempenho da consulta usando .NET SDK
 
@@ -240,7 +241,7 @@ Para saber mais sobre o desempenho da consulta de sintonização, consulte o art
 - [JSON](https://json.org/)
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Otimizar o desempenho de consultas](sql-api-query-metrics.md)
 - [Descrição geral da indexação](index-overview.md)

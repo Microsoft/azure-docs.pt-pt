@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ce81ce9afa45c93010c457bc292bba037607f96f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556063"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020886"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retiring the S1, S2, and S3 performance levels (Os níveis de desempenho S1, S2 e S3 vão ser preteridos)
 
@@ -128,7 +129,7 @@ Visite a [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 
 Os clientes da EA estarão protegidos pelo preço até ao final do seu contrato atual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre preços e gestão de dados com a Azure Cosmos DB, explore estes recursos:
 
 1.  [Dados de partilha em Cosmos DB](sql-api-partition-data.md). Compreenda a diferença entre um único recipiente de partição e recipientes divididos, bem como dicas sobre a implementação de uma estratégia de partição para escalar sem problemas.

@@ -7,14 +7,14 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 9acb9db0024ea1601f82b96376f084536fbbeabb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7ce7697b92df9c6bef61bbf9eccb9f4252ce957f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431862"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020699"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Retreine e implemente um modelo de aprendizagem automática
 
@@ -35,7 +35,7 @@ Seguirá estes passos para retreinar e implementar um novo serviço web de apren
 
 ## <a name="deploy-the-retraining-web-service"></a>Implementar o serviço web de reconversão
 
-Um serviço web de reconversão permite-lhe reconverter o seu modelo com um novo conjunto de parâmetros, como novos dados, e guardá-lo para mais tarde. Quando liga uma **saída de Serviço Web** a um Modelo de **Comboio,** a experiência de treino produz um novo modelo para utilizar.
+Um serviço web de reconversão permite-lhe reconverter o seu modelo com um novo conjunto de parâmetros, como novos dados, e guardá-lo para mais tarde. Quando liga uma **saída de Serviço Web**  a um Modelo de **Comboio,** a experiência de treino produz um novo modelo para utilizar.
 
 Utilize os seguintes passos para implementar um serviço web de reconversão:
 
@@ -208,7 +208,7 @@ Por fim, utilize o [cmdlet Update-AzMlWebService](https://docs.microsoft.com/pow
 Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como gerir serviços web ou acompanhar várias experiências, consulte os seguintes artigos:
 

@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a3f19d1240c2dcf1e62d5723c40b4f7c8b2154f0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 246b1456c05605c4015c19e1a139e9ad65f6eaba
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253291"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022161"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Remoing de serviço em C# com Serviços Fiáveis
 
@@ -109,7 +110,7 @@ Um utilizador pode configurar estes valores passando o objeto OperationRetrySett
 
 A partir da versão 2.8 do pacote de remoing NuGet, tem a opção de utilizar a pilha V2 de remoting. A pilha V2 de remoing tem um melhor desempenho. Também fornece funcionalidades como serialização personalizada e APIs mais pluggable.
 O código do modelo continua a utilizar a pilha V1 de remoting.
-O remoting V2 não é compatível com V1 (a pilha de remoting anterior). Siga as instruções do artigo [Faça upgrade de V1 para V2](#upgrade-from-remoting-v1-to-remoting-v2) para evitar efeitos na disponibilidade do serviço.
+O remoting V2 não é compatível com V1 (a pilha de remoting anterior). Siga as instruções do artigo  [Faça upgrade de V1 para V2](#upgrade-from-remoting-v1-to-remoting-v2) para evitar efeitos na disponibilidade do serviço.
 
 As seguintes abordagens estão disponíveis para ativar a pilha V2.
 
@@ -127,7 +128,7 @@ Estes passos alteram o código do modelo para utilizar a pilha V2 utilizando um 
    </Resources>
    ```
 
-2. Utilize o `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` método de extensão para criar ouvintes de remoing (igual tanto para V1 como V2).
+2. Utilize o `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners`  método de extensão para criar ouvintes de remoing (igual tanto para V1 como V2).
 
    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -268,7 +269,7 @@ Construa o conjunto do cliente com o conjunto de interfaces para se certificar d
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Utilize aulas explícitas de remoing para criar uma fábrica de ouvintes/clientes para a versão V2 (compatível com interface)
 
-Siga estes passos:
+Siga estes passos.
 
 1. Adicione um recurso de ponto final com o nome "ServiceEndpointV2_1" no manifesto de serviço.
 
@@ -357,7 +358,7 @@ Este passo garante que o serviço está a ouvir apenas no ouvinte V2.
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Use serialização personalizada com uma mensagem embrulhada de remoting
 
 Para uma mensagem embrulhada de remoing, criamos um único objeto embrulhado com todos os parâmetros como campo.
-Siga estes passos:
+Siga estes passos.
 
 1. Implemente a `IServiceRemotingMessageSerializationProvider` interface para fornecer implementação para serialização personalizada.
     Este código mostra como é a implementação.

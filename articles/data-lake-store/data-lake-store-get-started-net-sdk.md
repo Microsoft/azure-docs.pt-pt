@@ -6,12 +6,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 379f0c5418c2e15786b16cf1e4f67487432fa905
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ffd00ace0445b1b8cc13881834d7759aa217c4c6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985935"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020971"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de gestão de conta na Azure Data Lake Storage Gen1 usando .NET SDK
 > [!div class="op_single_selector"]
@@ -141,9 +142,9 @@ O seguinte corte elimina a conta Desemarse De Armazenamento de Dados Gen1 que cr
 _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Operações de sistema de ficheiros na Data Lake Storage Gen1 utilizando .NET SDK](data-lake-store-data-operations-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK Referência](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)

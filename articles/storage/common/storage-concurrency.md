@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b1ec7661bc2823932328bd994ec7bc7f6167f13a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2732781d32e92c8ec03116988e33ec4fbe0b2330
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030389"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021566"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Managing Concurrency in Microsoft Azure Storage (Gerir a Simultaneidade no Armazenamento do Microsoft Azure)
 
@@ -195,7 +196,7 @@ As seguintes operações de contentores podem utilizar locações para gerir a c
 * Conjunto de recipiente ACL
 * Recipiente de Arrendamento  
 
-Para obter mais informações, veja:  
+Para obter mais informações, consulte:  
 
 * [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx) (Especificar Cabeçalhos Condicionais para Operações do Serviço Blob)
 * [Recipiente de Arrendamento](https://msdn.microsoft.com/library/azure/jj159103.aspx)
@@ -256,7 +257,7 @@ Note que as operações **de Inserção ou Substituição** de Entidade e **Inse
 
 Em geral, os desenvolvedores que utilizam tabelas devem confiar na concordância otimista no desenvolvimento de aplicações escaláveis. Se for necessário um bloqueio pessimista, uma abordagem que os desenvolvedores podem ter ao aceder às Tabelas é atribuir uma bolha designada para cada mesa e tentar arrendar a bolha antes de operar em cima da mesa. Esta abordagem requer a aplicação para garantir que todas as vias de acesso aos dados obtenham o arrendamento antes de operar em cima da mesa. Deve também ter em conta que o tempo mínimo de locação é de 15 segundos, o que requer uma cuidadosa consideração pela escalabilidade.  
 
-Para obter mais informações, veja:  
+Para obter mais informações, consulte:  
 
 * [Operações em Entidades](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
@@ -266,7 +267,7 @@ Um dos cenários em que a concordância é uma preocupação no serviço de fila
 
 O serviço de fila não tem suporte para uma concordância otimista ou pessimista e, por isso, os clientes que processam mensagens recuperadas de uma fila devem garantir que as mensagens são processadas de forma idempotente. Uma última estratégia de vitórias é usada para operações de atualização como SetQueueServiceProperties, SetQueueMetaData, SetQueueACL e UpdateMessage.  
 
-Para obter mais informações, veja:  
+Para obter mais informações, consulte:  
 
 * [API REST de Serviço de Filas](https://msdn.microsoft.com/library/azure/dd179363.aspx)
 * [Receber mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
@@ -277,7 +278,7 @@ O serviço de ficheiros pode ser acedido utilizando dois pontos finais de protoc
 
 Quando um cliente SMB abre um ficheiro para apagar, marca o ficheiro como pendente de exclusão até que todos os outros clientes SMB abram as pegas desse ficheiro. Enquanto um ficheiro estiver marcado como eliminação pendente, qualquer operação REST nesse ficheiro devolverá o código de estado 409 (Conflito) com o código de erro SMBDeletePending. O código de estado 404 (Não Encontrado) não é devolvido, uma vez que é possível ao cliente SMB remover a bandeira de eliminação pendente antes de fechar o ficheiro. Por outras palavras, o código de estado 404 (Não Encontrado) só é esperado quando o ficheiro tiver sido removido. Note que enquanto um ficheiro estiver num estado de exclusão pendente de SMB, este não será incluído nos resultados dos Ficheiros de Lista. Além disso, note que as operações DE EXCLUIR FICHEIRO e REST Delete Diretório são comprometidas atomicamente e não resultam num estado de exclusão pendente.  
 
-Para obter mais informações, veja:  
+Para obter mais informações, consulte:  
 
 * [Gestão de fechaduras de ficheiros](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 

@@ -3,12 +3,12 @@ title: Azure Monitor regista modelo de dados
 description: Neste artigo, conheça os dados do modelo de dados do Azure Monitor Log Analytics para os dados do Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890268"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020954"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Registar modelo de dados do Analytics para dados de backup do Azure
 
@@ -472,7 +472,7 @@ Consulte a terceira coluna 'Descrição' no modelo de [dados](#using-azure-backu
 
 Como o esquema V1 está em um caminho de depreciação, é recomendado usar apenas o esquema V2 em todas as suas consultas personalizadas sobre dados de diagnóstico de backup Azure. Abaixo está um exemplo de como atualizar as suas consultas para remover a dependência do esquema V1:
 
-1. Identifique se a sua consulta está a utilizar qualquer campo que seja aplicável apenas ao esquema V1. Assuma que tem uma consulta para listar todos os itens de backup e os seus servidores protegidos associados da seguinte forma:
+1. Identifique se a sua consulta está a usar qualquer campo que seja aplicável apenas ao esquema V1. Assuma que tem uma consulta para listar todos os itens de backup e os seus servidores protegidos associados da seguinte forma:
 
     ````Kusto
     AzureDiagnostics

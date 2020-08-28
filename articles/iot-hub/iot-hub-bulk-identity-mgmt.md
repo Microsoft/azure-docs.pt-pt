@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5b9170e0fcf4bba8b928522cdc881f34968d771f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417944"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003869"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades do dispositivo do Hub IoT em massa
 
@@ -423,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a realizar operações a granel contra o registo de identidade num centro de IoT. Muitas destas operações, incluindo como mover dispositivos de um hub para outro, são usadas nos [dispositivos de Gestão registados na secção de hub IoT de Como Clonar um Hub IoT](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
 

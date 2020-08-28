@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 147fecdd9777e06ce078e4ed1531d6d0a0da749c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c2dc90b84446917c4f06de707047b92e52cf7bc8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954626"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020988"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure 
 > [!div class="op_single_selector"]
@@ -199,8 +200,8 @@ São necessários os seguintes parâmetros na mini-solução que utiliza o servi
 | --- | --- |
 | ID chave de comunicação |Deve ser incluído como valor da alegação "com_key_id" em ficha JWT (ver [esta](media-services-axinom-integration.md#jwt-token-generation) secção). |
 | Chave de comunicação |Deve ser utilizado como a chave de assinatura do símbolo JWT (ver [esta](media-services-axinom-integration.md#jwt-token-generation) secção). |
-| Semente chave |Deve ser utilizado para gerar chave de conteúdo com qualquer identificação da chave de conteúdo (ver [esta](media-services-axinom-integration.md#content-protection) secção). |
-| URL de aquisição de licenças de widevine |Deve ser utilizado na configuração da política de entrega de ativos para o streaming DOR (ver [esta](media-services-axinom-integration.md#content-protection) secção). |
+| Semente chave |Deve ser utilizado para gerar chave de conteúdo com qualquer identificação da chave de conteúdo (ver  [esta](media-services-axinom-integration.md#content-protection) secção). |
+| URL de aquisição de licenças de widevine |Deve ser utilizado na configuração da política de entrega de ativos para o streaming DOR (ver  [esta](media-services-axinom-integration.md#content-protection) secção). |
 | ID da chave de conteúdo |Deve ser incluído como parte do valor da reclamação da mensagem de direito do símbolo JWT (ver [esta](media-services-axinom-integration.md#jwt-token-generation) secção). |
 
 ## <a name="additional-notes"></a>Notas adicionais

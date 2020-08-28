@@ -9,12 +9,13 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26592b94ce13f73192890601811d22b2fd06fbe2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f54b91ab1ea4521c17a3b40c88214f5637ab47a3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105018"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021617"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e cofre de chave Azure para armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -243,7 +244,7 @@ Como mencionado acima, se a entidade implementar a TableEntity, então as propri
 ## <a name="encryption-and-performance"></a>Encriptação e desempenho
 Note que encriptar os seus dados de armazenamento resulta em despesas adicionais de desempenho. A chave de conteúdo e IV devem ser gerados, o conteúdo em si deve ser encriptado, e os meta-dados adicionais devem ser formatados e carregados. Esta sobrecarga variará dependendo da quantidade de dados que estão a ser encriptados. Recomendamos que os clientes testem sempre as suas aplicações para desempenho durante o desenvolvimento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Tutorial: Criptografe e desencriptar bolhas no Microsoft Azure Storage usando o Cofre da Chave Azure](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Descarregue a [Biblioteca do Cliente de Armazenamento Azure para pacote .NET NuGet](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Descarregue os pacotes Azure Key Vault NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)e [Extensões](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)  

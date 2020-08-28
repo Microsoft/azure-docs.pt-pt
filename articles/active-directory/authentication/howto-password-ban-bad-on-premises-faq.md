@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717783"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003478"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD Password Protection no local frequentemente perguntas
 
@@ -48,6 +48,14 @@ Um conjunto de palavra-passe (por vezes chamado de redefinição de palavra-pass
 
 A política de validação de palavras-passe comporta-se da mesma forma, independentemente de estar a ser feita uma alteração ou um conjunto de palavras-passe. O serviço Azure AD Password Protection DC Agent regista eventos diferentes para informá-lo se foi feita uma alteração de senha ou uma operação de definição de palavras-passe.  Consulte [a monitorização e registo de registo de passwords Azure AD](./howto-password-ban-bad-on-premises-monitor.md).
 
+**P: A Azure AD Password Protection valida as palavras-passe existentes após a instalação?**
+
+Não - A Azure AD Password Protection só pode impor a política de palavra-passe em palavras-passe claras durante uma alteração de palavra-passe ou operação definida. Uma vez que uma palavra-passe é aceite pelo Ative Directory, apenas os hashes específicos do protocolo de autenticação dessa palavra-passe são persistidos. A palavra-passe de texto claro nunca é persistiu, pelo que a Proteção de PasswordS AD Azure não pode validar as palavras-passe existentes.
+
+Após a implementação inicial da Azure AD Password Protection, todos os utilizadores e contas irão eventualmente começar a usar uma palavra-passe validada por Password AD Azure, uma vez que as suas palavras-passe existentes expiram normalmente ao longo do tempo. Se desejar, este processo pode ser acelerado por uma expiração manual única das palavras-passe da conta de utilizador.
+
+As contas configuradas com "password nunca expira" nunca serão obrigadas a alterar a sua palavra-passe a menos que a expiração manual seja feita.
+
 **P: Por que razão são registados eventos duplicados de rejeição de palavras-passe ao tentar definir uma palavra-passe fraca utilizando o snap-in de gestão de Diretório Ativo e computadores?**
 
 O snap-in de gestão de utilizadores e computadores de Diretório Ativo tentará primeiro definir a nova palavra-passe utilizando o protocolo Kerberos. Após a falha, o snap-in fará uma segunda tentativa para definir a palavra-passe usando um protocolo legado (SAM RPC) (os protocolos específicos utilizados não são importantes). Se a nova palavra-passe for considerada fraca pela Azure AD Password Protection, este comportamento de snap-in resultará em dois conjuntos de eventos de rejeição de redefinição de palavra-passe que estão a ser registados.
@@ -58,7 +66,7 @@ O Ative Directory suporta a capacidade de testar uma palavra-passe para ver se p
 
 **P: É suportado para instalar a Proteção de PasswordS Azure AD lado a lado com outros produtos baseados em filtro de palavra-passe?**
 
-Sim. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
+Yes. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
 
 **P: Como posso implementar e configurar a Proteção de Passwords Azure AD no meu ambiente de Diretório Ativo sem usar o Azure?**
 
@@ -99,7 +107,7 @@ Não. Uma vez que o servidor proxy é apátrida, não é importante que servidor
 
 **P: Não há problema em implementar o serviço de proteção de senhas Azure AD, lado a lado com outros serviços, como o Azure AD Connect?**
 
-Sim. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
+Yes. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
 
 Infelizmente, foi encontrada uma incompatibilidade entre a versão do serviço Microsoft Azure AD Connect Agent Updater que é instalado pelo software Azure AD Password Protection Proxy e a versão do serviço que é instalado pelo software [Azure Ative Directory Application Proxy.](../manage-apps/application-proxy.md) Esta incompatibilidade pode resultar na incapacidade do serviço De Atualização do Agente para obter contacto com a Azure para atualizações de software. Não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação de Diretório Ativo Azure na mesma máquina.
 

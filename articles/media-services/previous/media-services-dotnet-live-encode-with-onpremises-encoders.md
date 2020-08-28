@@ -13,12 +13,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 04c4157ab44864ba7063150a624d6d3927141091
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1bb17ce92d590dd64047d4c7f0c627f52e5fa4a9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038822"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020547"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como realizar streaming ao vivo com codificadores no local usando .NET
 > [!div class="op_single_selector"]

@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
-ms.openlocfilehash: 82bcc61d06ac519447307c1e92784f33794d5817
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258019"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020597"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar e-mail usando SendGrid com Azure
 ## <a name="overview"></a>Descrição geral
@@ -276,7 +277,7 @@ A SendGrid oferece várias APIs e webhooks que pode utilizar para alavancar func
 Agora que aprendeu o básico do serviço de email SendGrid, siga estes links para saber mais.
 
 * Repo da biblioteca SendGrid \# C: [sendgrid-csharp][sendgrid-csharp]
-* Documentação da SendGrid API:<https://sendgrid.com/docs>
+* Documentação da SendGrid API: <https://sendgrid.com/docs>
 
 [Next steps]: #next-steps
 [What is the SendGrid Email Service?]: #whatis

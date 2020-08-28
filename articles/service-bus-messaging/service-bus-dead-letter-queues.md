@@ -3,13 +3,13 @@ title: Filas de cartas mortas do Service Bus Microsoft Docs
 description: Descreve filas de cartas mortas no Azure Service Bus. As filas de autocarros de serviço e as subscrições de tópicos fornecem um subqueue secundário, chamado de fila de letras mortas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: fasttrack-edit, devx-track-csharp
+ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511216"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021685"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de cartas mortas do Service Bus
 
@@ -56,7 +56,7 @@ Este comportamento não pode ser desativado, mas pode definir [o MaxDeliveryCoun
 
 ## <a name="exceeding-timetolive"></a>Excedendo o TempoToLive
 
-Quando a propriedade [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) é definida como **verdadeira** (o padrão é **falso),** todas as mensagens caduques são transferidas para o DLQ, especificando o `TTLExpiredException` código de razão.
+Quando a propriedade [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) é definida como **verdadeira** (o padrão é **falso),** todas as mensagens caduques são transferidas para o DLQ, especificando o  `TTLExpiredException` código de razão.
 
 As mensagens expiradas só são purgadas e transferidas para o DLQ quando há pelo menos um recetor ativo a puxar da fila principal ou subscrição, e [as mensagens diferidas](./message-deferral.md) também não serão purgadas e transferidas para a fila da letra morta após o seu termo. Estes comportamentos são por desígnio.
 
@@ -80,7 +80,7 @@ Para recuperar estas mensagens com letras mortas, pode criar um recetor utilizan
 
 ## <a name="example"></a>Exemplo
 
-O seguinte corte de código cria um recetor de mensagens. No circuito de receção para a fila principal, o código recupera a mensagem com [Receive (TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), que pede ao corretor que devolva instantaneamente qualquer mensagem prontamente disponível ou que regresse sem resultado. Se o código receber uma mensagem, abandona-a imediatamente, o que aumenta o `DeliveryCount` . Uma vez que o sistema move a mensagem para o DLQ, a fila principal está vazia e o loop sai, uma vez [que o ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) retorna **nulo**.
+O seguinte corte de código cria um recetor de mensagens. No circuito de receção para a fila principal, o código recupera a mensagem com [Receive (TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), que pede ao corretor que devolva instantaneamente qualquer mensagem prontamente disponível ou que regresse sem resultado. Se o código receber uma mensagem, abandona-a imediatamente, o que aumenta o  `DeliveryCount` . Uma vez que o sistema move a mensagem para o DLQ, a fila principal está vazia e o loop sai, uma vez [que o ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) retorna **nulo**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
@@ -110,7 +110,7 @@ Pode aceder à fila da letra morta utilizando a seguinte sintaxe:
 Se estiver a utilizar o .NET SDK, pode obter o caminho para a fila de letras mortas utilizando o método SubscriptionClient.FormatDeadLetterPath(). Este método tem o nome de tópico/nome de subscrição e sufixa com **/$DeadLetterQueue**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para obter mais informações sobre as filas do Service Bus:
 

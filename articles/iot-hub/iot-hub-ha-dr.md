@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260163"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021435"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Elevada disponibilidade e recuperação após desastre do Hub IoT
 
@@ -57,12 +57,14 @@ Ambas as opções de failover oferecem os seguintes objetivos de ponto de recupe
 
 <sup>1</sup> As mensagens em nuvem-para-dispositivo e os trabalhos dos pais não são recuperados como parte do failover manual.
 
-Uma vez concluída a operação de failover para o hub IoT, espera-se que todas as operações do dispositivo e aplicações de back-end continuem a funcionar sem necessidade de uma intervenção manual. Isto significa que as suas mensagens dispositivo-nuvem devem continuar a funcionar e todo o registo do dispositivo está intacto. Os eventos emitidos através da Grade de Eventos podem ser consumidos através das mesmas subscrições configuradas mais cedo, desde que essas subscrições da Grelha de Eventos continuem disponíveis.
+Uma vez concluída a operação de failover para o hub IoT, espera-se que todas as operações do dispositivo e aplicações de back-end continuem a funcionar sem necessidade de uma intervenção manual. Isto significa que as suas mensagens dispositivo-nuvem devem continuar a funcionar e todo o registo do dispositivo está intacto. Os eventos emitidos através da Grade de Eventos podem ser consumidos através das mesmas subscrições configuradas mais cedo, desde que essas subscrições da Grelha de Eventos continuem disponíveis. Não é necessário manuseamento adicional para pontos finais personalizados.
 
 > [!CAUTION]
-> - O nome e ponto final compatíveis com o Event Hub do IoT Hub incorporado alteram-se após a falha. Ao receber mensagens de telemetria do ponto final incorporado utilizando o cliente Event Hub ou o anfitrião do processador de eventos, deverá [utilizar o fio de ligação do hub IoT](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para estabelecer a ligação. Isto garante que as suas aplicações de back-end continuem a funcionar sem necessitar de um pós de intervenção manual que falhe. Se utilizar o nome e o ponto final compatíveis com o Event Hub na sua aplicação diretamente, terá de [ir buscar o novo ponto final compatível com o Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) após a falha para continuar as operações. Se utilizar funções Azure ou Azure Stream Analytics para ligar o ponto final incorporado, poderá ter de executar um **Restart**.
+> - O nome e ponto final compatíveis com o Event Hub do IoT Hub incorporado alteram-se após a falha. Ao receber mensagens de telemetria do ponto final incorporado utilizando o cliente Event Hub ou o anfitrião do processador de eventos, deverá [utilizar o fio de ligação do hub IoT](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para estabelecer a ligação. Isto garante que as suas aplicações de back-end continuem a funcionar sem necessitar de um pós de intervenção manual que falhe. Se utilizar o nome e o ponto final compatíveis com o Event Hub na sua aplicação diretamente, terá de [ir buscar o novo ponto final compatível com o Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) após a falha para continuar as operações. 
 >
-> - Ao encaminhar para o armazenamento, recomendamos listar as bolhas ou ficheiros e, em seguida, iterar sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. O intervalo de partição pode potencialmente mudar durante uma falha de falha iniciada pela Microsoft ou falha manual. Pode utilizar a [Lista Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de ficheiros. 
+> - Se utilizar funções Azure ou Azure Stream Analytics para ligar o ponto final de Eventos incorporados, poderá ter de realizar um **Restart**. Isto porque durante o failover anteriores as compensações deixaram de ser válidas.
+>
+> - Ao encaminhar para o armazenamento, recomendamos listar as bolhas ou ficheiros e, em seguida, iterar sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. O intervalo de partição pode potencialmente mudar durante uma falha de falha iniciada pela Microsoft ou falha manual. Pode utilizar a [Lista Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de ficheiros. Para saber mais, consulte [o Azure Storage como um ponto final de encaminhamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Falha iniciada pela Microsoft
 
@@ -133,7 +135,7 @@ Aqui está um resumo das opções HA/DR apresentadas neste artigo que pode ser u
 | Opção HA/DR | RTO | RPO | Requer intervenção manual? | Complexidade de implementação | Impacto adicional dos custos|
 | --- | --- | --- | --- | --- | --- |
 | Falha iniciada pela Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhum|Nenhum|
-| Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Yes|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhum|
+| Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhum|
 | Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução ha personalizada|Não|Alto|> 1x o custo de 1 hub IoT|
 
 ## <a name="next-steps"></a>Passos seguintes

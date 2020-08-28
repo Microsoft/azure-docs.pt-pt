@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: gwallace
-ms.openlocfilehash: 22b33d7b4b0ff69a2e751cadff70453f73ed4f8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 104f969f5e27ef36ad43eb10e19176a4bcfd6648
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69876811"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021141"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Como usar twilio para capacidades de voz e SMS do Azure
 Este guia demonstra como executar tarefas de programação comuns com o serviço Twilio API em Azure. Os cenários abrangidos incluem fazer uma chamada telefónica e enviar uma mensagem do Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre Twilio e utilizando voz e SMS nas suas aplicações, consulte a secção [etapas seguintes.](#NextSteps)
@@ -83,7 +84,7 @@ Twilio fornece um conjunto de bibliotecas de ajuda .NET que envolvem vários asp
 
 Twilio fornece cinco bibliotecas para desenvolvedores .NET:
 
-| Biblioteca | Description |
+| Biblioteca | Descrição |
 | --- | --- |
 | Twilio.API | A biblioteca central de Twilio que envolve a API Twilio REST numa simpática biblioteca .NET. Esta biblioteca está disponível para .NET, Silverlight e Windows Phone 7. |
 | Twilio.TwiML | Fornece uma forma amigável .NET de gerar marcação TwiML. |
