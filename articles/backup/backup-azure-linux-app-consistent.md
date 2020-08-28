@@ -3,12 +3,12 @@ title: Backups consistentes de aplicação dos LM Linux
 description: Crie cópias de segurança consistentes com aplicações das suas máquinas virtuais Linux para o Azure. Este artigo explica a configuração da estrutura do script para apoiar os LM Linux implantados pelo Azure. Este artigo também inclui informações sobre resolução de problemas.
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407103"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999245"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Cópia de segurança consistente com aplicações de VMs Linux do Azure
 
@@ -83,6 +83,6 @@ Certifique-se de que adiciona registos adequados enquanto escreve o seu pré-scr
 | Pré-ScriptTimeout | A execução do pré-script de backup consistente da aplicação. | Verifique o script e aumente o tempo limite no **VMSnapshotScriptPluginConfig.jsno** ficheiro localizado em **/etc/azure**. |
 | Pós-ScriptTimeout | A execução do backup consistente de aplicação pós-script cronometrado. | Verifique o script e aumente o tempo limite no **VMSnapshotScriptPluginConfig.jsno** ficheiro localizado em **/etc/azure**. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configure o backup VM para um cofre dos Serviços de Recuperação](./backup-azure-vms-first-look-arm.md)

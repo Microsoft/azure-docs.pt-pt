@@ -8,15 +8,13 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:
-- amqp
-- mqtt
-ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, mqtt, devx-track-csharp
+ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730913"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016959"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreenda o tempo de execução Azure IoT Edge e a sua arquitetura
 
@@ -92,22 +90,22 @@ Cada item no manifesto de implantação contém informações específicas sobre
 * **estado** – O estado em que o agente IoT Edge coloca o módulo. Normalmente, este valor está definido para *funcionar,* uma vez que a maioria das pessoas quer que o agente IoT Edge inicie imediatamente todos os módulos do dispositivo. No entanto, pode especificar o estado inicial de um módulo a ser parado e esperar por um tempo futuro para dizer ao agente IoT Edge para iniciar um módulo.O agente IoT Edge reporta o estado de cada módulo de volta à nuvem nas propriedades relatadas. Uma diferença entre a propriedade desejada e a propriedade reportada é um indicador de um dispositivo de mau comportamento. Os estatutos suportados são:
 
   * Download
-  * A executar
+  * Em Execução
   * Mau estado de funcionamento
-  * Falhou
+  * Com falhas
   * Parada
 
 * **reiniciarPolícia** – Como o agente IoT Edge reinicia um módulo. Valores possíveis incluem:
   
-  * `never`– O agente IoT Edge nunca reinicia o módulo.
-  * `on-failure`- Se o módulo falhar, o agente IoT Edge reinicia-o. Se o módulo desligar-se limpo, o agente IoT Edge não o reinicia.
-  * `on-unhealthy`- Se o módulo se despenhar ou for considerado insalubre, o agente IoT Edge reinicia-o.
-  * `always`- Se o módulo falhar, for considerado insalubre ou se desligar de alguma forma, o agente IoT Edge reinicia-o.
+  * `never` – O agente IoT Edge nunca reinicia o módulo.
+  * `on-failure` - Se o módulo falhar, o agente IoT Edge reinicia-o. Se o módulo desligar-se limpo, o agente IoT Edge não o reinicia.
+  * `on-unhealthy` - Se o módulo se despenhar ou for considerado insalubre, o agente IoT Edge reinicia-o.
+  * `always` - Se o módulo falhar, for considerado insalubre ou se desligar de alguma forma, o agente IoT Edge reinicia-o.
 
 * **imagemPullPolicy** - Se o agente IoT Edge tenta puxar a imagem mais recente para um módulo automaticamente ou não. Se não especificar um valor, o padrão é *onCreate*. Valores possíveis incluem:
 
-  * `on-create`- Ao iniciar um módulo ou atualizar um módulo com base num novo manifesto de implantação, o agente IoT Edge tentará retirar a imagem do módulo do registo do contentor.
-  * `never`- O agente IoT Edge nunca tentará retirar a imagem do módulo do registo do contentor. Com esta configuração, é responsável por colocar a imagem do módulo no dispositivo e gerir quaisquer atualizações de imagem.
+  * `on-create` - Ao iniciar um módulo ou atualizar um módulo com base num novo manifesto de implantação, o agente IoT Edge tentará retirar a imagem do módulo do registo do contentor.
+  * `never` - O agente IoT Edge nunca tentará retirar a imagem do módulo do registo do contentor. Com esta configuração, é responsável por colocar a imagem do módulo no dispositivo e gerir quaisquer atualizações de imagem.
 
 O agente IoT Edge envia resposta de tempo de execução para o IoT Hub. Aqui está uma lista de possíveis respostas:
   
@@ -126,6 +124,6 @@ O agente IoT Edge desempenha um papel crítico na segurança de um dispositivo I
 
 Para obter mais informações sobre o quadro de segurança Azure IoT Edge, leia sobre o [gestor de segurança IoT Edge](iot-edge-security-manager.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Compreender os módulos do Azure IoT Edge](iot-edge-modules.md)

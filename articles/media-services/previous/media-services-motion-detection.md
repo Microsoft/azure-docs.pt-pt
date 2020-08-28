@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 17b325ab15f55a8fc02729c6f5ed0cb0330ecca2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77913009"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016840"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detetar movimentos com Azure Media Analytics
 
@@ -34,7 +35,7 @@ Direcionada para feeds de vídeo de segurança, esta tecnologia é capaz de cate
 
 O **Azure Media Motion Detetor** MP está atualmente em Pré-visualização.
 
-Este artigo dá detalhes sobre **o Azure Media Motion Detetor** e mostra como usá-lo com a Media Services SDK para .NET
+Este artigo dá detalhes sobre  **o Azure Media Motion Detetor** e mostra como usá-lo com a Media Services SDK para .NET
 
 ## <a name="motion-detector-input-files"></a>Ficheiros de entrada do Detetor de Movimento
 Ficheiros de vídeo. Atualmente, os seguintes formatos são suportados: MP4, MOV e WMV.
@@ -45,7 +46,7 @@ Ao criar uma tarefa com **o Azure Media Motion Detetor,** tem de especificar uma
 ### <a name="parameters"></a>Parâmetros
 Pode utilizar os seguintes parâmetros:
 
-| Name | Opções | Descrição | Predefinição |
+| Nome | Opções | Descrição | Predefinição |
 | --- | --- | --- | --- |
 | sensibilidadeLevel |Corda:'baixo', 'médio', 'alto' |Define o nível de sensibilidade em que os movimentos são relatados. Ajuste isto para ajustar o número de falsos positivos. |'meio' |
 | frameSamplingValue |Inteiro positivo |Define a frequência em que o algoritmo funciona. 1 é igual a cada quadro, 2 significa cada segundo quadro, e assim por diante. |1 |
@@ -105,7 +106,7 @@ A tabela seguinte descreve elementos do ficheiro JSON de saída.
 | offset |O tempo compensado para os carimbos de tempo em "tiques". Na versão 1.0 das APIs de vídeo, este será sempre 0. Em cenários futuros que apoiamos, este valor pode mudar. |
 | framerate |Fotogramas por segundo do vídeo. |
 | largura, altura |Refere-se à largura e altura do vídeo em pixels. |
-| start |A marca de tempo de início em "tiques". |
+| iniciar |A marca de tempo de início em "tiques". |
 | duration |A duração do evento, em "tiques". |
 | intervalo |O intervalo de cada entrada no evento, em "tiques". |
 | eventos |Cada fragmento de evento contém o movimento detetado dentro dessa duração. |
@@ -114,7 +115,7 @@ A tabela seguinte descreve elementos do ficheiro JSON de saída.
 | regiões |Refere-se à área do seu vídeo onde se preocupa com o movimento. <br/><br/>-"Id" representa a área da região – nesta versão há apenas um, ID 0. <br/>-"tipo" representa a forma da região com que se preocupa com o movimento. Atualmente, o "retângulo" e o "polígono" são suportados.<br/> Se especificou "retângulo", a região tem dimensões em X, Y, Largura e Altura. As coordenadas X e Y representam as coordenadas XY superiores à esquerda da região numa escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região numa escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, Width e Height são sempre fixados a 0, 0 e 1, 1. <br/>Se especificou "polígono", a região tem dimensões em pontos. <br/> |
 | fragmentos |Os metadados são divididos em diferentes segmentos chamados fragmentos. Cada fragmento contém um início, duração, número de intervalos e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detetado durante a hora de início e duração. |
 | parênteses [] |Cada suporte representa um intervalo no evento. Os suportes vazios para esse intervalo significam que nenhum movimento foi detetado. |
-| localizações |Esta nova entrada em eventos lista o local onde a moção ocorreu. Isto é mais específico do que as zonas de deteção. |
+| Locais |Esta nova entrada em eventos lista o local onde a moção ocorreu. Isto é mais específico do que as zonas de deteção. |
 
 O exemplo JSON a seguir mostra a saída:
 

@@ -5,12 +5,13 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: db47a758d33c3ed6e861601285e7737514ab416d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260436"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016704"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida do ator, recolha automática de lixo e eliminação manual
 Um ator é ativado na primeira vez que uma chamada é feita para qualquer um dos seus métodos. Um ator é desativado (lixo recolhido pelos atores em tempo de execução) se não for utilizado por um período de tempo configurável. Um ator e o seu estado também podem ser apagados manualmente a qualquer momento.
@@ -40,7 +41,7 @@ Quando um ator é desativado, as referências ao objeto do ator são libertadas 
 O que conta como "ser usado" para fins de desativação e recolha de lixo?
 
 * Receber uma chamada
-* `IRemindable.ReceiveReminderAsync`método sendo invocado (aplicável apenas se o ator usar lembretes)
+* `IRemindable.ReceiveReminderAsync` método sendo invocado (aplicável apenas se o ator usar lembretes)
 
 > [!NOTE]
 > se o ator usa temporizadores e o seu temporizador é invocado, **não** conta como "ser usado".

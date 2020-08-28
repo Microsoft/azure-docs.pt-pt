@@ -8,12 +8,13 @@ ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1c625e628f53d156ad56a1c69df1c23aec9120ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9feef9ec04bcc44bc09d55202b72ada4adc94cf5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548718"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017061"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Compreender os módulos do Azure IoT Edge
 
@@ -70,7 +71,7 @@ Twin twin = await client.GetTwinAsync();
 
 Os módulos Azure IoT Edge podem funcionar offline indefinidamente depois de sincronizados com o IoT Hub pelo menos uma vez. Os dispositivos IoT Edge também podem estender esta capacidade offline a outros dispositivos IoT. Para obter mais informações, consulte [compreender as capacidades offline alargadas para dispositivos IoT Edge, módulos e dispositivos infantis](offline-capabilities.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender os requisitos e ferramentas para o desenvolvimento de módulos IoT Edge](module-development.md)
 * [Compreenda o tempo de execução Azure IoT Edge e a sua arquitetura](iot-edge-runtime.md)

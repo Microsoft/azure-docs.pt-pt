@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 876c4f5f45ff6c81a53274cf32e8bebecc1acfce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 33a15b3c6f570d3b4d36a205f91bce7b042f3bb4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349311"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016585"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Notas sobre tecido de serviço Fiáveis Atores tipo serialização
 Os argumentos de todos os métodos, tipos de resultados das tarefas devolvidas por cada método numa interface de ator, e objetos armazenados no gestor estatal de um ator devem ser [serializáveis por contratos de dados](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Isto aplica-se também aos argumentos dos métodos definidos nas [interfaces de eventos de ator.](service-fabric-reliable-actors-events.md) (Os métodos de interface de evento de ator voltam sempre vazios.)
@@ -136,7 +137,7 @@ public class VoicemailBox implements Serializable
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Ciclo de vida do ator e coleção de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Temporizadores e lembretes do ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de atores](service-fabric-reliable-actors-events.md)

@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 621e325d0b549d2970180a5a40eb09260c1f2ee0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1cd90d4567bde6cd2c4f2a29e2d516b51b79e2af
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253478"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016619"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os atores fiáveis usam a plataforma de tecido de serviço
 Este artigo explica como os Atores Fiáveis funcionam na plataforma Azure Service Fabric. Os Atores Fiáveis funcionam num quadro que é hospedado numa implementação de um serviço de confiança estatal chamado serviço de *ator.* O serviço de ator contém todos os componentes necessários para gerir o ciclo de vida e o envio de mensagens para os seus atores:
@@ -61,7 +62,7 @@ Os serviços de ator são serviços estatais divididos. Cada divisão de um serv
 Os Serviços Fiáveis podem ser criados com diferentes esquemas de partição e gamas-chave de partição. O serviço de ator usa o esquema de partição Int64 com toda a gama de chaves Int64 para mapear atores para divisórias.
 
 ### <a name="actor-id"></a>ID do ator
-Cada ator que é criado no serviço tem uma identificação única associada a ele, representada pela `ActorId` classe. `ActorId`é um valor de ID opaco que pode ser usado para distribuição uniforme de atores através das divisórias de serviço, gerando IDs aleatórios:
+Cada ator que é criado no serviço tem uma identificação única associada a ele, representada pela `ActorId` classe. `ActorId` é um valor de ID opaco que pode ser usado para distribuição uniforme de atores através das divisórias de serviço, gerando IDs aleatórios:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());

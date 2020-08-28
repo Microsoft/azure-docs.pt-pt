@@ -3,12 +3,13 @@ title: Temporizadores e lembretes de atores confiáveis
 description: Introdução aos temporizadores e lembretes para Service Fabric Reliable Actors, incluindo orientações sobre quando usar cada um.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: a464fda3f8b0f293efd36cf0a064156bd7795d44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2b97b15ca4eb287f8d8f2c1af932f22acafae546
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245953"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016551"
 ---
 # <a name="actor-timers-and-reminders"></a>Temporizadores e lembretes do ator
 Os atores podem agendar trabalhos periódicos sobre si mesmos, registando ou temporizadores ou lembretes. Este artigo mostra como usar temporizadores e lembretes e explica as diferenças entre eles.
@@ -204,7 +205,7 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 ```
 
-Quando um lembrete é desencadeado, o tempo de execução dos Atores Fidedignas invocará o `ReceiveReminderAsync` método (C#) ou `receiveReminderAsync` (Java) no Ator. Um ator pode registar vários lembretes, e o `ReceiveReminderAsync` método (C#) ou `receiveReminderAsync` (Java) é invocado quando qualquer um desses lembretes é desencadeado. O ator pode usar o nome de lembrete que é passado para o `ReceiveReminderAsync` método (C#) ou `receiveReminderAsync` (Java) para descobrir que lembrete foi desencadeado.
+Quando um lembrete é desencadeado, o tempo de execução dos Atores Fidedignas invocará o  `ReceiveReminderAsync` método (C#) ou `receiveReminderAsync` (Java) no Ator. Um ator pode registar vários lembretes, e o `ReceiveReminderAsync` método (C#) ou `receiveReminderAsync` (Java) é invocado quando qualquer um desses lembretes é desencadeado. O ator pode usar o nome de lembrete que é passado para o `ReceiveReminderAsync` método (C#) ou `receiveReminderAsync` (Java) para descobrir que lembrete foi desencadeado.
 
 O tempo de execução dos Atores salva o estado do ator quando a `ReceiveReminderAsync` chamada (C#) ou `receiveReminderAsync` (Java) termina. Se ocorrer um erro na salvação do estado, esse objeto ator será desativado e será ativado um novo caso.
 

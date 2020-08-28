@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4e485463f41cdfbadeb166ecbb3a86d4a32c1589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7552609fc4c85cdd5033e67b1bab7fb58cb6ebf1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75348930"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016568"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfismo no quadro de atores fiáveis
 A estrutura de Atores Fidedigtos permite-lhe construir atores usando muitas das mesmas técnicas que usaria no design orientado para objetos. Uma dessas técnicas é o polimorfismo, que permite que tipos e interfaces herdem de pais mais generalizados. A herança no quadro de Atores Fiáveis segue geralmente o modelo .NET com alguns constrangimentos adicionais. No caso de Java/Linux, segue o modelo Java.
@@ -85,7 +86,7 @@ public class Circle extends ShapeImpl implements Circle
 
 Note o `ActorService` atributo no tipo de ator. Este atributo diz ao quadro de Ator Fiável que deve criar automaticamente um serviço para hospedar atores deste tipo. Em alguns casos, poderá desejar criar um tipo base que se destina exclusivamente à partilha de funcionalidades com subtipos e nunca será utilizado para instantaneaizar atores concretos. Nesses casos, deve usar a `abstract` palavra-chave para indicar que nunca criará um ator com base nesse tipo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Veja [como o quadro de Atores Fidedigtos aproveita a plataforma Service Fabric](service-fabric-reliable-actors-platform.md) para fornecer fiabilidade, escalabilidade e estado consistente.
 * Conheça o ciclo de vida do [ator.](service-fabric-reliable-actors-lifecycle.md)
 

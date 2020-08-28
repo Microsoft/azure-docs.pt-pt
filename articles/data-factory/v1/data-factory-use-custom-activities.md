@@ -10,14 +10,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
+ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 1f0d60d1f76523beca6567517ef44d50b910b221
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537620"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997460"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Utilize atividades personalizadas num pipeline da versão 1 da Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -713,7 +714,7 @@ A resolução de problemas consiste em algumas técnicas básicas:
     ```
 
     Crie o projeto. Excluir Azure.Conjunto de armazenamento da versão > 4.3.0 da pasta bin\Debug. Crie um ficheiro zip com binários e o ficheiro PDB. Substitua o antigo ficheiro zip por este no recipiente blob (recipiente deactividade personalizada). Reexecutar as fatias que falharam (fatia de clique direito e clique em Executar).
-8. A atividade personalizada não utiliza o **ficheiroapp.config** do seu pacote. Portanto, se o seu código ler quaisquer cadeias de ligação do ficheiro de configuração, não funciona em tempo de execução. A melhor prática ao utilizar o Azure Batch é guardar quaisquer segredos num **Azure KeyVault,** usar um principal de serviço baseado em certificados para proteger o **teclado,** e distribuir o certificado para a piscina Azure Batch. A atividade personalizada de .NET pode, então, aceder aos segredos do Cofre de Chaves durante o tempo de execução. Esta solução é uma solução genérica e pode escalar para qualquer tipo de segredo, e não apenas cadeia de conexão.
+8. A atividade personalizada não utiliza o ** ficheiroapp.config** do seu pacote. Portanto, se o seu código ler quaisquer cadeias de ligação do ficheiro de configuração, não funciona em tempo de execução. A melhor prática ao utilizar o Azure Batch é guardar quaisquer segredos num **Azure KeyVault,** usar um principal de serviço baseado em certificados para proteger o **teclado,** e distribuir o certificado para a piscina Azure Batch. A atividade personalizada de .NET pode, então, aceder aos segredos do Cofre de Chaves durante o tempo de execução. Esta solução é uma solução genérica e pode escalar para qualquer tipo de segredo, e não apenas cadeia de conexão.
 
    Existe uma solução mais fácil (mas não uma boa prática): pode criar um **serviço ligado Azure SQL** com definições de cadeias de ligação, criar um conjunto de dados que utiliza o serviço ligado e acorrentar o conjunto de dados como um conjunto de dados de entrada manequim para a atividade personalizada .NET. Em seguida, pode aceder à cadeia de ligação do serviço ligado no código de atividade personalizado.
 

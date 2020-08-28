@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: willzhan
-ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b603b800dfdfb96e9b6b1074dc1e39d31b994c06
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80887202"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997783"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming offline Widevine para Android com Media Services v3
 
@@ -121,7 +122,7 @@ Os desenvolvedores devem fazer referência ao [Guia de Desenvolvimento do ExoPla
 
 Para alguns dispositivos Android mais antigos, deve definir valores para as seguintes propriedades **policy_overrides** (definidas no [modelo de licença Widevine](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**e **license_duration_seconds**. Em alternativa, pode defini-los a zero, o que significa duração infinita/ilimitada.  
 
-Os valores devem ser definidos para evitar que um inseto inteiro transborde. Para mais explicações sobre o assunto, consulte https://github.com/google/ExoPlayer/issues/3150 https://github.com/google/ExoPlayer/issues/3112 e. <br/>Se não definir explicitamente os valores para **PlaybackDurationRemaining** e **LicenseDurationRemaining** será atribuído, (por exemplo, 9223372036854775807, que é o valor máximo positivo para um número inteiro de 64 bits). Como resultado, a licença Widevine aparece caducada e, portanto, a desencriptação não vai acontecer. 
+Os valores devem ser definidos para evitar que um inseto inteiro transborde. Para mais explicações sobre o assunto, consulte https://github.com/google/ExoPlayer/issues/3150 https://github.com/google/ExoPlayer/issues/3112 e. <br/>Se não definir explicitamente os valores para  **PlaybackDurationRemaining** e **LicenseDurationRemaining** será atribuído, (por exemplo, 9223372036854775807, que é o valor máximo positivo para um número inteiro de 64 bits). Como resultado, a licença Widevine aparece caducada e, portanto, a desencriptação não vai acontecer. 
 
 Este problema não ocorre no Android 5.0 Lollipop ou mais tarde, uma vez que o Android 5.0 é a primeira versão Android, que foi projetada para suportar totalmente arMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) e plataformas de 64 bits, enquanto o Android 4.4 KitKat foi originalmente projetado para suportar plataformas ARMv7 e 32 bits como em outras versões Android mais antigas.
 
@@ -147,7 +148,7 @@ Se atualizar o seu navegador Chrome móvel para v62 (ou superior) num telefone A
 
 A aplicação PWA de código aberto acima é da autoria em Node.js. Se pretender hospedar a sua própria versão num servidor Ubuntu, lembre-se dos seguintes problemas comuns encontrados que podem impedir a reprodução:
 
-1. Problema CORS: O vídeo da amostra na aplicação da amostra está hospedado em https://storage.googleapis.com/biograf-video-files/videos/ . A Google criou o CORS para todas as suas amostras de teste hospedadas no balde de armazenamento do Google Cloud. São servidos com cabeçalhos CORS, especificando explicitamente a entrada CORS: `https://biograf-155113.appspot.com` (o domínio em que o Google hospeda a sua amostra) impedindo o acesso por qualquer outro sites. Se tentar, verá o seguinte erro HTTP:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+1. Problema CORS: O vídeo da amostra na aplicação da amostra está hospedado em https://storage.googleapis.com/biograf-video-files/videos/ . A Google criou o CORS para todas as suas amostras de teste hospedadas no balde de armazenamento do Google Cloud. São servidos com cabeçalhos CORS, especificando explicitamente a entrada CORS: `https://biograf-155113.appspot.com` (o domínio em que o Google hospeda a sua amostra) impedindo o acesso por qualquer outro sites. Se tentar, verá o seguinte erro HTTP: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Emissão de certificado: A partir do Chrome v 58, a EME for Widevine requer HTTPS. Por isso, é necessário hospedar a aplicação da amostra em HTTPS com um certificado X509. Um certificado de ensaio habitual não funciona devido aos seguintes requisitos: É necessário obter um certificado que cumpra os seguintes requisitos mínimos:
     - Chrome e Firefox exigem que a definição de Nome Alternativo san-subject exista no certificado
     - O certificado deve ter confiado em AC e um certificado de desenvolvimento auto-assinado não funciona
