@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: abeb409ae213768f52194401933e0ae7afb53741
-  ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+  ms.openlocfilehash: 4896271a1ac03fba688bd7159cdd8452f0cc59dc
+  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88234810"
+  ms.lasthandoff: 08/27/2020
+  ms.locfileid: "89021022"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -133,7 +133,7 @@ landingContent:
     - text: SDK do Azure para .Net
       url: https://go.microsoft.com/fwlink/?linkid=2092056
     - text: Fornecedor do Spring Boot
-      url: https://go.microsoft.com/fwlink/?linkid=2074659
+      url: https://github.com/microsoft/spring-cloud-azure/tree/master/
     - text: SDK do Azure para Java
       url: https://go.microsoft.com/fwlink/?linkid=2098196
     - text: SDK do Azure para Python

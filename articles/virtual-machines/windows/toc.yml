@@ -82,7 +82,7 @@
             - name: Copiar um disco gerido
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportar um instantâneo como VHD para uma conta de armazenamento
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Exportar o VHD de um disco gerido para uma conta de armazenamento
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
             - name: Criar um instantâneo a partir de um VHD
@@ -124,7 +124,7 @@
             - name: Copiar um disco gerido
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportar um instantâneo como VHD para uma conta de armazenamento
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Exportar o VHD de um disco gerido para uma conta de armazenamento
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
             - name: Copiar instantâneo
