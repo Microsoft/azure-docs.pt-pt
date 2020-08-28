@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.custom: seodec18
-ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: fff1a228e32f115c498678a654f6c8f028772161
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921852"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015684"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver funções padrão .NET para trabalhos Azure Stream Analytics (Pré-visualização)
 
@@ -158,7 +158,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`é passado como um parâmetro de entrada para o método UDF e pode ser usado dentro do UDF para publicar informações de registo personalizado. No exemplo abaixo, `MyUdfMethod` define uma entrada de **dados,** que é fornecida pela consulta, e uma entrada de **contexto** como o , fornecido pelo motor de tempo `StreamingContext` de execução. 
+`StreamingContext` é passado como um parâmetro de entrada para o método UDF e pode ser usado dentro do UDF para publicar informações de registo personalizado. No exemplo abaixo, `MyUdfMethod` define uma entrada de **dados,** que é fornecida pela consulta, e uma entrada de **contexto** como o , fornecido pelo motor de tempo `StreamingContext` de execução. 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)
@@ -191,7 +191,7 @@ A pré-visualização da UDF tem atualmente as seguintes limitações:
 
 * O Código Personalizado do Utilizador não suporta pastas vazias. Não adicione pastas vazias aos ficheiros de suporte do projeto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Escreva uma função definida pelo utilizador C# para um trabalho Azure Stream Analytics (Pré-visualização)](stream-analytics-edge-csharp-udf.md)
 * [Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

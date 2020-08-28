@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c51b5c4d9cd7362aeda0a0998d8031d0ba358ce1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050687"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012352"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de apoio ao Serviço Azure Kubernetes
 
@@ -20,7 +20,7 @@ Este artigo fornece detalhes sobre políticas de suporte técnico e limitações
 ## <a name="service-updates-and-releases"></a>Atualizações e lançamentos de serviços
 
 * Para obter informações sobre a libertação, consulte [as notas de lançamento da AKS](https://github.com/Azure/AKS/releases).
-* Para obter informações sobre as funcionalidades na pré-visualização, consulte [as funcionalidades de pré-visualização da AKS e os projetos relacionados.](https://github.com/Azure/AKS/blob/master/previews.md)
+* Para obter informações sobre as funcionalidades na pré-visualização, consulte [as funcionalidades de pré-visualização da AKS e os projetos relacionados.](https://awesomeopensource.com/projects/aks?categoryPage=11)
 
 ## <a name="managed-features-in-aks"></a>Funcionalidades geridas em AKS
 
@@ -140,7 +140,7 @@ Embora os clientes possam inscrever-se e alterar os nós dos trabalhadores, faz�
 Como um serviço gerido, a AKS tem requisitos específicos de networking e conectividade. Estes requisitos são menos flexíveis do que os requisitos para os componentes normais do IAAS. Em AKS, operações como personalizar regras NSG, bloquear uma porta específica (por exemplo, usar regras de firewall que bloqueiam a porta de saída 443), e adicionar URLs a uma lista de permitis pode tornar o seu cluster insuportável.
 
 > [!NOTE]
-> Atualmente, a AKS não permite que bloqueie completamente o tráfego de saída do seu cluster. Para controlar a lista de URLs e portas o seu cluster pode usar para tráfego de saída ver [tráfego de saída limite](limit-egress-traffic.md).
+> Atualmente, a AKS não permite que bloqueie completamente o tráfego de saída do seu cluster. Para controlar a lista de URLs e portas o seu cluster pode usar para tráfego de saída ver  [tráfego de saída limite](limit-egress-traffic.md).
 
 ## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Características alfa e beta não suportadas
 
@@ -149,7 +149,7 @@ A AKS suporta apenas funcionalidades estáveis dentro do projeto Kubernetes a mo
 Em dois cenários, as funcionalidades alfa ou beta podem ser lançadas antes de estarem geralmente disponíveis:
 
 * Os clientes reuniram-se com o produto AKS, suporte ou equipas de engenharia e foram convidados a experimentar estas novas funcionalidades.
-* Estas características foram [ativadas por uma bandeira de recurso.](https://github.com/Azure/AKS/blob/master/previews.md) Os clientes devem optar explicitamente pela utilização destas funcionalidades.
+* Estas características foram [ativadas por uma bandeira de recurso.](https://awesomeopensource.com/projects/aks?categoryPage=11) Os clientes devem optar explicitamente pela utilização destas funcionalidades.
 
 ## <a name="preview-features-or-feature-flags"></a>Funcionalidades de pré-visualização ou bandeiras de recurso
 

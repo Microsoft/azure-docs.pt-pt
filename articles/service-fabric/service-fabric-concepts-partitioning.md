@@ -3,12 +3,13 @@ title: Serviços de tecido de partilha
 description: Descreve como fazer serviços de tecido de partição. As divisórias permitem o armazenamento de dados nas máquinas locais para que os dados e o cálculo possam ser dimensionados em conjunto.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045421"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005433"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
 Este artigo fornece uma introdução aos conceitos básicos de serviços fiáveis de tecido de serviço azure. O código fonte utilizado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -224,7 +225,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     }
     ```
    
-    `ProcessInternalRequest`lê os valores do parâmetro de cadeia de consulta utilizado para chamar a partição e chama `AddUserAsync` para adicionar o último nome ao dicionário fiável `dictionary` .
+    `ProcessInternalRequest` lê os valores do parâmetro de cadeia de consulta utilizado para chamar a partição e chama `AddUserAsync` para adicionar o último nome ao dicionário fiável `dictionary` .
 10. Vamos adicionar um serviço apátrida ao projeto para ver como se pode chamar uma partição particular.
     
     Este serviço serve como uma interface web simples que aceita o último nome como parâmetro de cadeia de consulta, determina a chave de partição e envia-o para o serviço Alphabet.Processing para processamento.
@@ -307,7 +308,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
     ```
     
     Lembre-se, para este exemplo, estamos usando 26 divisórias com uma chave de partição por partição.
-    Em seguida, obtemos a divisória de serviço `partition` para esta chave usando o método no `ResolveAsync` `servicePartitionResolver` objeto. `servicePartitionResolver`é definido como
+    Em seguida, obtemos a divisória de serviço `partition` para esta chave usando o método no `ResolveAsync` `servicePartitionResolver` objeto. `servicePartitionResolver` é definido como
     
     ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
@@ -349,7 +350,7 @@ Como queremos literalmente ter uma divisória por letra, podemos usar 0 como cha
 
 Todo o código fonte da amostra está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre os conceitos de Tecido de Serviço, consulte o seguinte:
 
 * [Disponibilidade de serviços de tecido de serviço](service-fabric-availability-services.md)

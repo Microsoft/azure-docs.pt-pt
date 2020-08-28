@@ -3,12 +3,12 @@ title: Faça o back up ações de ficheiros Azure com a Azure CLI
 description: Saiba como usar o Azure CLI para apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 54852112591b5f5eec1ecbac34b836b4cb0f4f1f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763257"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012029"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Faça o back up ações de ficheiros Azure com o CLI
 
@@ -74,7 +74,7 @@ Name                                  ResourceGroup
 0caa93f4-460b-4328-ac1d-8293521dd928  azurefiles
 ```
 
-O atributo **Nome** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a sua operação **de backup.** Para controlar o estado do trabalho, use o cmdlet [de trabalho de reserva az.](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show)
+O atributo **Nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a sua operação **de backup.** Para controlar o estado do trabalho, use o cmdlet [de trabalho de reserva az.](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show)
 
 ## <a name="trigger-an-on-demand-backup-for-file-share"></a>Desencadear uma cópia de segurança a pedido para a partilha de ficheiros
 

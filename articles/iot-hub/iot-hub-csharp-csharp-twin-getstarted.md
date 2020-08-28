@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 91cebee1196dc38af8ece4086b6e6ab66fdc14da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: mqtt, devx-track-csharp
+ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135554"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013763"
 ---
 # <a name="get-started-with-device-twins-net"></a>Começar com os gémeos do dispositivo (.NET)
 
@@ -65,7 +65,7 @@ Nesta secção, cria-se uma aplicação de consola .NET, utilizando C#, que adic
 
 1. No Solution Explorer, clique com o botão direito no projeto **AddTagsAndQuery** e, em seguida, **selecione Gerir pacotes NuGet**.
 
-1. **Selecione Procurar** e procurar e selecione **Dispositivos Microsoft.Azure..** Selecione **Instalar**.
+1. **Selecione Procurar** e procurar e selecione **Dispositivos Microsoft.Azure..** Selecione **Install** (Instalar).
 
     ![Janela Gestor de Pacote NuGet](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
 
@@ -145,7 +145,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que se conecta ao seu hu
 
 1. No Solution Explorer, clique com o botão direito no projeto **ReportConnectivity** e, em seguida, **selecione Gerir Pacotes NuGet**.
 
-1. **Selecione Procurar** e procurar e escolher **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
+1. **Selecione Procurar** e procurar e escolher **Microsoft.Azure.Devices.Client**. Selecione **Install** (Instalar).
 
    Este passo descarrega, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e às suas dependências.
 
@@ -211,7 +211,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que se conecta ao seu hu
     }
     ```
 
-   O código acima atualiza a propriedade reportada do **myDeviceId** com a informação de conectividade.
+   O código acima atualiza a propriedade reportada do  **myDeviceId** com a informação de conectividade.
 
 1. Por fim, adicione as seguintes linhas ao método **Main**:
 
@@ -244,7 +244,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que se conecta ao seu hu
 
     ![Conectividade do dispositivo reportada com sucesso](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionou metadados de dispositivo como tags de uma aplicação de back-end, e escreveu uma aplicação de dispositivo simulado para reportar informações de conectividade do dispositivo no twin do dispositivo. Você também aprendeu a consultar esta informação usando a linguagem de consulta IoT Hub semelhante ao SQL.
 

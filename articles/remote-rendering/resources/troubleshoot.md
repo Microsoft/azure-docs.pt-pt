@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509285"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014596"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -34,6 +34,14 @@ Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers,
 Verifique se a sua GPU suporta a descodificamento de vídeo de hardware. Ver [Desenvolvimento PC](../overview/system-requirements.md#development-pc).
 
 Se estiver a trabalhar num portátil com duas GPUs, é possível que a GPU em que esteja a funcionar por defeito não forneça funcionalidades de descodagem de vídeo de hardware. Em caso afirmativo, tente forçar a sua aplicação a utilizar a outra GPU. Isto é frequentemente possível nas definições do condutor da GPU.
+
+## <a name="retrieve-sessionconversion-status-fails"></a>Falha no estado de sessão/conversão da sessão de recuperação
+
+Enviar comandos REST API com demasiada frequência fará com que o servidor se ausse e volte a falhar eventualmente. O código de estado http no caso do estrangulamento é de 429 ("demasiados pedidos"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
+
+Note que este limite não afeta apenas as chamadas de API rest quando chamadas diretamente, mas também as suas congéneres C#/C++, tais `Session.GetPropertiesAsync` `Session.RenewAsync` como, ou `Frontend.GetAssetConversionStatusAsync` .
+
+Se experimentar estrangulamento do lado do servidor, altere o código para fazer as chamadas com menos frequência. O servidor reinicia o estado de estrangulamento a cada minuto, pelo que é seguro voltar a ser reiniciado o código após um minuto.
 
 ## <a name="h265-codec-not-available"></a>Código H265 não disponível
 
@@ -239,4 +247,4 @@ Superfícies coplanares podem ter uma série de causas diferentes:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Requisitos de sistema](../overview/system-requirements.md)
-* [Requisitos de rede](../reference/network-requirements.md)
+* [Requisitos da rede](../reference/network-requirements.md)

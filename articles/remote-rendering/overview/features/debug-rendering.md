@@ -5,12 +5,13 @@ author: jumeder
 ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
-ms.openlocfilehash: f4c6883753e9acbe66aa11dd6c26a5af67143f44
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891424"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013593"
 ---
 # <a name="debug-rendering"></a>Composição de Depuração
 

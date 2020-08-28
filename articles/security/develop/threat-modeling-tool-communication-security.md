@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 73210da43c9919af1d92d0e8c354e1d7f9c77bed
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d795d30e3ad420e0fed002baddf37469ddcf995
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543950"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004567"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de Segurança: Segurança de Comunicação / Mitigações 
 | Produto/Serviço | Artigo |
@@ -31,7 +32,7 @@ ms.locfileid: "87543950"
 | **Azure Data Factory** | <ul><li>[Utilize o gateway de gestão de dados ao ligar o Servidor SQL às Fábrica de Dados do Azure](#sqlserver-factory)</li></ul> |
 | **Servidor de Identidade** | <ul><li>[Certifique-se de que todo o tráfego para o Servidor de Identidade está sobre a ligação HTTPS](#identity-https)</li></ul> |
 | **Aplicação Web** | <ul><li>[Verifique os certificados X.509 utilizados para autenticar ligações SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configure o certificado TLS/SSL para domínio personalizado no Serviço de Aplicações Azure](#ssl-appservice)</li><li>[Forçar todo o tráfego para o Serviço de Aplicações Azure sobre a ligação HTTPS](#appservice-https)</li><li>[Ativar a segurança estrita do transporte http (HSTS)](#http-hsts)</li></ul> |
-| **Base de Dados** | <ul><li>[Garantir encriptação de ligação ao servidor SQL e validação de certificados](#sqlserver-validation)</li><li>[Force a comunicação encriptada para o servidor SQL](#encrypted-sqlserver)</li></ul> |
+| **Base de dados** | <ul><li>[Garantir encriptação de ligação ao servidor SQL e validação de certificados](#sqlserver-validation)</li><li>[Force a comunicação encriptada para o servidor SQL](#encrypted-sqlserver)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Certifique-se de que a comunicação ao Azure Storage acabou https](#comm-storage)</li><li>[Valide o hash MD5 após o download do blob se HTTPS não puder ser ativado](#md5-https)</li><li>[Utilize cliente compatível com SMB 3.0 para garantir encriptação de dados em trânsito para Azure File Shares](#smb-shares)</li></ul> |
 | **Cliente Móvel** | <ul><li>[Implementar pinning de certificado](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Ativar HTTPS - Canal de Transporte Seguro](#https-transport)</li><li>[WCF: Definir o nível de proteção de segurança da mensagem para encriptar esferindo](#message-protection)</li><li>[WCF: Utilize uma conta menos privilegiada para executar o seu serviço WCF](#least-account-wcf)</li></ul> |
@@ -45,7 +46,7 @@ ms.locfileid: "87543950"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Visão geral do modelo de autenticação e segurança do Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -56,7 +57,7 @@ ms.locfileid: "87543950"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -89,7 +90,7 @@ ms.locfileid: "87543950"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -100,7 +101,7 @@ ms.locfileid: "87543950"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | EnvironmentType - Azure |
 | **Referências**              | [Ativar HTTPS para uma aplicação no Azure App Service](../../app-service/configure-ssl-bindings.md) |
@@ -111,7 +112,7 @@ ms.locfileid: "87543950"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | EnvironmentType - Azure |
 | **Referências**              | [Impor HTTPS no Serviço de Aplicações Azure](../../app-service/configure-ssl-bindings.md#enforce-https) |
@@ -144,7 +145,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [OWASP HTTP Folha de batota de segurança de transporte rigorosa](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html) |
@@ -155,7 +156,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | SQL Azure  |
 | **Atributos**              | Versão SQL - V12 |
 | **Referências**              | [Boas práticas na escrita de cadeias de conexão seguras para base de dados SQL](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
@@ -166,7 +167,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | OnPrem |
 | **Atributos**              | VERSÃO SQL - MsSQL2016, VERSÃO SQL - MsSQL2012, VERSÃO SQL - MsSQL2014 |
 | **Referências**              | [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192) (Ativar as Ligações Encriptadas para o Motor de Base de Dados)  |
@@ -188,7 +189,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Dispositivo de Armazenamento - Blob |
 | **Referências**              | [Visão geral do Windows Azure Blob MD5](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/) |
@@ -199,7 +200,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente Móvel | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | StorageType - Arquivo |
 | **Referências**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Azure File Storage SMB Support for Windows Clients](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
@@ -210,7 +211,7 @@ Esta regra funciona devolvendo um código de estado HTTP de 301 (redirecionament
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, Windows Phone |
 | **Atributos**              | N/D  |
 | **Referências**              | [Certificado e Chave Pública](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) |
@@ -287,7 +288,7 @@ namespace CertificatePinningExample
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Quadro LÍQUIDO 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
@@ -298,7 +299,7 @@ namespace CertificatePinningExample
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .Net Framework 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
@@ -327,7 +328,7 @@ string GetData(int value);
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .Net Framework 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
@@ -338,7 +339,7 @@ string GetData(int value);
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Aplicação do SSL num Controlador web de API](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
@@ -379,7 +380,7 @@ public class ValuesController : ApiController
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cache do Azure para Redis | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Suporte Azure Redis TLS](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
@@ -392,7 +393,7 @@ Por favor, note que o Redis foi concebido para ser acedido por clientes de confi
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -403,7 +404,7 @@ Por favor, note que o Redis foi concebido para ser acedido por clientes de confi
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de nuvem IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Escolha o seu Protocolo de Comunicação](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |

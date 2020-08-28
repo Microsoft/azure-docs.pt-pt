@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261431"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022484"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de executor a granel para o suporte a granel em Azure Cosmos DB .NET V3 SDK
 
@@ -93,7 +94,7 @@ Tal como acontece com outras operações com o .NET SDK, a utilização do fluxo
 
 A utilização de APIs de fluxo só é possível se a natureza dos dados utilizados corresponder à de um fluxo de bytes (por exemplo, streams de ficheiros). Nesses casos, a `CreateItemStreamAsync` `ReplaceItemStreamAsync` utilização, ou `DeleteItemStreamAsync` métodos e o trabalho com `ResponseMessage` (em vez de ) aumenta a `ItemResponse` produção que pode ser alcançada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre os lançamentos .NET SDK, consulte o artigo [da Azure Cosmos DB SDK.](sql-api-sdk-dotnet.md)
 * Obtenha o código fonte de [migração](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration) completo do GitHub.

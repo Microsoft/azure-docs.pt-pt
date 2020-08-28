@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e27c6661c34ab6d177feec11f8e9ec891987ab48
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75834426"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005756"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de colocação para serviços de tecidos de serviço
 As políticas de colocação são regras adicionais que podem ser usadas para governar a colocação de serviços em alguns cenários específicos e menos comuns. Alguns exemplos desses cenários são:
@@ -122,7 +123,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 Agora, seria possível utilizar estas configurações para serviços num cluster que não foi geograficamente abrangedo? Podias, mas não há uma boa razão também. As configurações de domínio necessárias, inválidas e preferenciais devem ser evitadas, a menos que os cenários as exijam. Não faz sentido tentar forçar uma determinada carga de trabalho a funcionar numa única prateleira, ou preferir algum segmento do seu cluster local em vez de outro. Diferentes configurações de hardware devem ser espalhadas por domínios de avaria e manuseadas através de restrições normais de colocação e propriedades de nó.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre serviços de configuração, [Saiba mais sobre a configuração dos serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png

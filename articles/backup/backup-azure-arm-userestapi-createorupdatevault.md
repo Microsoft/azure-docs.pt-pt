@@ -4,16 +4,16 @@ description: Neste artigo, aprenda a gerir backup e restaurar as operações de 
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757256"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012607"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar cofre dos Serviços de Recuperação Azure usando REST API
 
-Os passos para criar um cofre dos Serviços de Recuperação Azure usando a API REST são delineados na criação de documentação [API de REPOUSO DO COFRE.](/rest/api/recoveryservices/vaults/createorupdate) Usemos este documento como referência para criar um cofre chamado "testVault" em "West US".
+Os passos para criar um cofre dos Serviços de Recuperação Azure usando a API REST são delineados na criação de documentação [API de REPOUSO DO COFRE.](/rest/api/recoveryservices/vaults/createorupdate) Vamos usar este documento como referência para criar um cofre chamado "testVault" em "West US".
 
 Para criar ou atualizar um cofre dos Serviços de Recuperação Azure, utilize a seguinte operação *PUT.*
 
@@ -40,8 +40,8 @@ As seguintes definições comuns são utilizadas para construir um organismo de 
 
 |Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia      |  ETag opcional       |
-|localização     |  true       |Cadeia         |   Localização de recursos      |
+|eTag     |         |   String      |  ETag opcional       |
+|localização     |  true       |String         |   Localização de recursos      |
 |propriedades     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador de sistema único para cada recurso Azure     |
 |etiquetas     |         | Objeto        |     Etiquetas de recursos    |

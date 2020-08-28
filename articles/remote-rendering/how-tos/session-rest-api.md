@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509846"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012386"
 ---
 # <a name="use-the-session-management-rest-api"></a>Utilizar a API REST de gestão de sessões
 
@@ -117,7 +117,14 @@ A resposta do pedido acima inclui uma **sessãoId,** que você precisa para todo
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 ```
 
-## <a name="update-a-session"></a>Atualizar uma sessão
+## <a name="modify-and-query-session-properties"></a>Modificar e consultar propriedades da sessão
+
+Existem alguns comandos para consultar ou modificar os parâmetros das sessões existentes.
+
+> [!CAUTION]
+No que diz respeito a todas as chamadas REST, o envio demasiado frequente destes comandos fará com que o servidor se ausse e retornará eventualmente. O código de estado neste caso é 429 ("muitos pedidos"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
+
+### <a name="update-session-parameters"></a>Atualizar parâmetros de sessão
 
 Este comando atualiza os parâmetros de uma sessão. Atualmente só pode estender o tempo de arrendamento de uma sessão.
 
@@ -138,7 +145,7 @@ Este comando atualiza os parâmetros de uma sessão. Atualmente só pode estende
 |-----------|:-----------|:-----------|
 | 200 | | Success |
 
-### <a name="example-script-update-a-session"></a>Script de exemplo: Atualizar uma sessão
+#### <a name="example-script-update-a-session"></a>Script de exemplo: Atualizar uma sessão
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
@@ -160,7 +167,7 @@ Headers           : {[MS-CV, Fe+yXCJumky82wuoedzDTA.0], [Content-Length, 0], [Da
 RawContentLength  : 0
 ```
 
-## <a name="get-active-sessions"></a>Obtenha sessões ativas
+### <a name="get-active-sessions"></a>Obtenha sessões ativas
 
 Este comando devolve uma lista de sessões ativas.
 
@@ -174,7 +181,7 @@ Este comando devolve uma lista de sessões ativas.
 |-----------|:-----------|:-----------|
 | 200 | - sessões: variedade de propriedades de sessão | consulte a secção "Obter propriedades de sessão" para uma descrição das propriedades da sessão |
 
-### <a name="example-script-query-active-sessions"></a>Script de exemplo: Sessões ativas de consulta
+#### <a name="example-script-query-active-sessions"></a>Script de exemplo: Sessões ativas de consulta
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -203,7 +210,7 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 2
 ```
 
-## <a name="get-sessions-properties"></a>Obtenha propriedades de sessões
+### <a name="get-sessions-properties"></a>Obtenha propriedades de sessões
 
 Este comando retorna informações sobre uma sessão, como o seu nome de anfitrião VM.
 
@@ -217,7 +224,7 @@ Este comando retorna informações sobre uma sessão, como o seu nome de anfitri
 |-----------|:-----------|:-----------|
 | 200 | - mensagem: corda<br/>- sessãoElapsedTime: timepan<br/>- sessãoOstname: corda<br/>- sessionId: string<br/>- sessãoMaxLeaseTime: timepan<br/>- sessãoSize: enum<br/>- sessionStatus: enum | enum sessionStatus { começando, pronto, parando, parado, expirado, erro}<br/>Se o estado for 'erro' ou 'expirado', a mensagem conterá mais informações |
 
-### <a name="example-script-get-session-properties"></a>Script de exemplo: Obtenha propriedades de sessão
+#### <a name="example-script-get-session-properties"></a>Script de exemplo: Obtenha propriedades de sessão
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }

@@ -1,6 +1,6 @@
 ---
-title: Construa uma app Xamarin com .NET e API da Azure Cosmos DB para MongoDB
-description: Apresenta uma amostra de código Xamarin que pode usar para ligar e consultar a API da Azure Cosmos DB para MongoDB
+title: Construa uma app Xamarin com API da AZure Cosmos para a MongoDB
+description: Apresenta uma amostra de código Xamarin que pode usar para ligar e consultar a API da Azure Cosmos DB para o MongoDB
 author: codemillmatt
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -8,14 +8,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: db28455c47541b49b38ddbbc4d5e83ae20e2279d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0d5e8643abf41a488dd5f9b8cbc39c3f1bac1c0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659171"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005042"
 ---
-# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>QuickStart: Construa uma aplicação Xamarin.Forms com .NET SDK e Azure Cosmos DB's API para MongoDB
+# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>QuickStart: Construa uma app Xamarin.Forms com API da .NET SDK e Azure Cosmos DB para a MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,13 +29,13 @@ ms.locfileid: "83659171"
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
 
-Este quickstart demonstra como criar uma [conta Cosmos configurada com a API da Azure Cosmos DB para MongoDB,](mongodb-introduction.md)base de dados de documentos e recolha usando o portal Azure. Em seguida, você vai construir uma aplicação de todo o lado Xamarin.Forms app usando o [controlador MongoDB .NET](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+Este quickstart demonstra como criar uma [conta Cosmos configurada com a API da Azure Cosmos DB para o MongoDB,](mongodb-introduction.md)base de dados de documentos e recolha utilizando o portal Azure. Em seguida, você construirá uma aplicação toda app Xamarin.Forms usando o [controlador MongoDB .NET](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Pré-requisitos para executar a aplicação de exemplo
 
 Para executar o exemplo, precisa do [Visual Studio](https://www.visualstudio.com/downloads/) ou do [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) e de uma conta válida do Azure CosmosDB.
 
-Se ainda não tem o Visual Studio, baixe a [Edição Comunitária visual 2019](https://www.visualstudio.com/downloads/) com o desenvolvimento mobile com a carga de trabalho **.NET** instalada com configuração.
+Se ainda não tem Visual Studio, baixe [o Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) com o desenvolvimento mobile com a carga de trabalho **.NET** instalada com configuração.
 
 Se preferir trabalhar num Mac, transfira o [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) e execute a configuração.
 
@@ -50,13 +51,13 @@ O exemplo descrito neste artigo é compatível com MongoDB.Driver versão 2.6.1.
 
 ## <a name="clone-the-sample-app"></a>Clonar a aplicação de exemplo
 
-Primeiro, descarregue a aplicação de amostra saque a partir do GitHub. Esta implementa uma aplicação de tarefas com o modelo de armazenamento de documentos do MongoDB.
+Primeiro, descarregue a aplicação de amostras do GitHub. Esta implementa uma aplicação de tarefas com o modelo de armazenamento de documentos do MongoDB.
 
 
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-1. No Windows abra um pedido de comando ou em Mac abra o terminal, crie uma nova pasta chamada git-samples e, em seguida, feche a janela.
+1. No Windows abra um pedido de comando ou no Mac abra o terminal, crie uma nova pasta chamada amostras de git e feche a janela.
 
     ```batch
     md "C:\git-samples"
@@ -78,13 +79,13 @@ Primeiro, descarregue a aplicação de amostra saque a partir do GitHub. Esta im
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started.git
     ```
 
-Se não quiser usar git, também pode [descarregar o projeto como um ficheiro ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started/archive/master.zip)
+Se você não deseja usar git, você também pode [baixar o projeto como um arquivo ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started/archive/master.zip)
 
 ## <a name="review-the-code"></a>Rever o código
 
 Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string).
 
-Os seguintes cortes são todos retirados da `MongoService` classe, encontrados no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
+Os seguintes excertos são todos retirados da `MongoService` classe, encontrados no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
 
 * Inicializar o cliente Mongo.
     ```cs
@@ -150,7 +151,7 @@ Os seguintes cortes são todos retirados da `MongoService` classe, encontrados n
     }
     ```
 
-* Apagar uma tarefa de uma coleção.
+* Elimine uma tarefa de uma coleção.
     ```cs
     public async Task DeleteTask(MyTask task)
     {
@@ -170,16 +171,16 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 3. Copie o seu valor da **cadeia de ligação primária** do portal (com o botão de cópia) e torne-o o valor do campo **ConnectionString** no seu ficheiro **APIKeys.cs**.
 
-4. Retire `&replicaSet=globaldb` da corda de ligação. Terá um erro de tempo de execução se não remover esse valor da cadeia de consulta.
+4. `&replicaSet=globaldb`Retire da cadeia de ligação. Obterá um erro de tempo de execução se não remover esse valor da cadeia de consulta.
 
 > [!IMPORTANT]
-> Deve remover o par chave/valor da corda de consulta da corda de ligação para evitar um erro de tempo de `&replicaSet=globaldb` execução.
+> Deve remover o `&replicaSet=globaldb` par de tecla/valor da cadeia de consulta da cadeia de ligação para evitar um erro de tempo de execução.
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-### <a name="visual-studio-2019"></a>Visual Studio 2019
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. No Visual Studio, clique com o botão direito do rato em cada projeto no **Explorador de Soluções** e clique em **Gerir Pacotes NuGet**.
 2. Clique em **Restaurar todos os pacotes NuGet**.
@@ -198,13 +199,13 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB e a executar uma aplicação Xamarin.Forms com a API do MongoDB. Agora, pode importar dados adicionais à sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Dados de importação para O BD Do MongoDB da Azure Cosmos configurados com a API da Azure Cosmos DB para o MongoDB](mongodb-migrate.md)
+> [Dados de importação para Azure Cosmos DB configurados com API da Azure Cosmos DB para a MongoDB](mongodb-migrate.md)

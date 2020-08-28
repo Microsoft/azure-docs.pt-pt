@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75452004"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005654"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestão do consumo de recursos e carga em Tecido de Serviço com métricas
 *As métricas* são os recursos que os seus serviços preocupam e que são fornecidos pelos nós no cluster. Uma métrica é tudo o que pretende gerir para melhorar ou monitorizar o desempenho dos seus serviços. Por exemplo, pode ver o consumo de memória para saber se o seu serviço está sobrecarregado. Outra utilidade é descobrir se o serviço poderia mover-se para outro lugar onde a memória é menos limitada para obter um melhor desempenho.
@@ -18,17 +19,17 @@ ms.locfileid: "75452004"
 Coisas como memória, disco e uso de CPU são exemplos de métricas. Estas métricas são métricas físicas, recursos que correspondem a recursos físicos no nó que precisam de ser geridos. As métricas também podem ser (e geralmente são) métricas lógicas. Métricas lógicas são coisas como "MyWorkQueueDepth" ou "MessagesToProcess" ou "TotalRecords". As métricas lógicas são definidas pela aplicação e correspondem indiretamente a algum consumo físico de recursos. As métricas lógicas são comuns porque pode ser difícil medir e reportar o consumo de recursos físicos numa base de serviço. A complexidade de medir e reportar as suas próprias métricas físicas é também a razão pela qual o Service Fabric fornece algumas métricas padrão.
 
 ## <a name="default-metrics"></a>Métricas padrão
-Digamos que quer começar a escrever e a implementar o seu serviço. Neste momento não sabe que recursos físicos ou lógicos consome. Não há problema! O Gestor de Recursos do Cluster de Tecido de Serviço utiliza algumas métricas padrão quando não são especificadas outras métricas. São:
+Digamos que quer começar a escrever e a implementar o seu serviço. Neste momento não sabe que recursos físicos ou lógicos consome. Não há problema! O Gestor de Recursos do Cluster de Tecido de Serviço utiliza algumas métricas padrão quando não são especificadas outras métricas. A saber:
 
   - PrimaryCount - contagem de réplicas primárias no nó 
   - ReplicaCount - contagem de réplicas totais no nó
   - Conde - contagem de todos os objetos de serviço (apátridas e imponentes) no nó
 
-| Metric | Carga apátrida de instância | Carga Secundária Imponente | Carga Primária Imponente | Peso |
+| Métrica | Carga apátrida de instância | Carga Secundária Imponente | Carga Primária Imponente | Peso |
 | --- | --- | --- | --- | --- |
-| Contagem primária |0 |0 |1 |Alta |
+| Contagem primária |0 |0 |1 |Alto |
 | ReplicaCount |0 |1 |1 |Médio |
-| Contagem |1 |1 |1 |Baixa |
+| de palavras |1 |1 |1 |Baixa |
 
 
 Para cargas de trabalho básicas, as métricas padrão proporcionam uma distribuição decente do trabalho no cluster. No exemplo seguinte, vamos ver o que acontece quando criamos dois serviços e dependemos das métricas padrão para equilibrar. O primeiro serviço é um serviço imponente com três divisórias e uma réplica de três tamanhos. O segundo serviço é um serviço apátrida com uma divisória e uma contagem de três casos.
@@ -134,7 +135,7 @@ Como lembrete: se apenas quiser usar as métricas padrão, não precisa de tocar
 
 Agora, vamos analisar cada uma destas configurações com mais detalhes e falar sobre o comportamento que influencia.
 
-## <a name="load"></a>Carregar
+## <a name="load"></a>Carregamento
 O objetivo de definir métricas é representar alguma carga. *A carga* é a quantidade de uma determinada métrica consumida por alguma instância de serviço ou réplica num dado nó. A carga pode ser configurada em quase qualquer ponto. Por exemplo:
 
   - A carga pode ser definida quando um serviço é criado. Isto chama-se _carga predefinida._
@@ -258,7 +259,7 @@ No exemplo de topo baseado apenas no equilíbrio global, o cluster no seu conjun
 
 No exemplo inferior, o Cluster Resource Manager distribuiu as réplicas com base no equilíbrio global e por serviço. Ao calcular a pontuação da solução, dá a maior parte do peso à solução global, e uma porção (configurável) para serviços individuais. O saldo global de uma métrica é calculado com base na média dos pesos métricos de cada serviço. Cada serviço é equilibrado de acordo com os seus próprios pesos métricos definidos. Isto garante que os serviços são equilibrados dentro de si de acordo com as suas próprias necessidades. Como resultado, se o mesmo primeiro nó falhar, a falha é distribuída por todas as divisórias de todos os serviços. O impacto para cada um é o mesmo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre serviços de configuração, [Saiba sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
 - Definir métricas de desfragmentação é uma forma de consolidar a carga nos nós em vez de espalhá-la. Para aprender a configurar a desfragmentação, consulte [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 - Para saber como o Cluster Resource Manager gere e equilibra a carga no cluster, confira o artigo sobre a [carga de equilíbrio](service-fabric-cluster-resource-manager-balancing.md)

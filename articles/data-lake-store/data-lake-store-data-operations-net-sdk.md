@@ -6,12 +6,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: eb950f6029511cf834791c161e6a730bcadcabcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 1044af94df43e61ae8c0032041bc80a356331f1a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515654"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022467"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operações de sistema de ficheiros na Data Lake Storage Gen1 utilizando o .NET SDK
 
@@ -48,8 +49,8 @@ O exemplo de código disponível no [GitHub](https://github.com/Azure-Samples/da
    1. No separador **NuGet Package Manager,** certifique-se de que a **fonte do Pacote** está definida para **nuget.org**. Além disso, certifique-se de que a caixa de verificação **de pré-lançamento** inclui ser selecionada.
    1. Procure e instale os seguintes pacotes NuGet:
 
-      * `Microsoft.Azure.DataLake.Store`- Este artigo usa v1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`- Este artigo utiliza v2.3.1.
+      * `Microsoft.Azure.DataLake.Store` - Este artigo usa v1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Este artigo utiliza v2.3.1.
 
       Feche o **Gestor de Pacotes NuGet**.
 
@@ -198,11 +199,11 @@ Aqui estão algumas amostras que mostram como usar o Sistema de Ficheiros Gen1 d
 * [Amostra básica no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Amostra avançada no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Operações de gestão de conta na Data Lake Storage Gen1 utilizando .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK Referência](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)

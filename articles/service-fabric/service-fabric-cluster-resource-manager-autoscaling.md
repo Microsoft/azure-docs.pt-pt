@@ -5,12 +5,13 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793096"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005518"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao Auto Scaling
 A escala automática é uma capacidade adicional do Service Fabric para escalar dinamicamente os seus serviços com base na carga que os serviços estão a reportar, ou com base no seu uso de recursos. A escala automática proporciona uma grande elasticidade e permite o fornecimento de instâncias ou divisórias adicionais do seu serviço a pedido. Todo o processo de escala automática é automatizado e transparente, e uma vez configurado as suas políticas num serviço não há necessidade de operações de escala manual ao nível do serviço. O dimensionamento automático pode ser ligado na hora da criação do serviço, ou a qualquer momento, atualizando o serviço.
@@ -201,5 +202,5 @@ De forma a permitir que o serviço de monitorização de recursos se dimensione 
 Há duas métricas que representam recursos físicos reais. Um deles é o servicefabric:/_CpuCores que representam o uso real do CPU (0,5 representa metade de um núcleo) e o outro é o servicefabric:/_MemoryInMB que representa o uso da memória em MBs.
 O ResourceMonitorService é responsável pelo rastreio do cpu e do uso da memória dos serviços do utilizador. Este serviço aplicará uma média móvel ponderada, a fim de dar conta de potenciais picos de curta duração. A monitorização de recursos é suportada tanto para aplicações contentorizadas como não contentorizadas no Windows e para as contentorizadas em Linux. A escala automática de recursos só está ativada para serviços ativados em [modelo de processo exclusivo.](service-fabric-hosting-model.md#exclusive-process-model)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a escalabilidade da aplicação.](service-fabric-concepts-scalability.md)

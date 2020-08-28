@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: mimckitt
-ms.openlocfilehash: df1f5e1c21c28fa8c1fcdef6b2278fb92014a3b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 90e7bafab3fb9658cd9e11d0417f84269adcfa13
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272564"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022348"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Como fazer uma chamada telefónica usando Twilio em um papel web em Azure
 Este guia demonstra como usar twilio para fazer uma chamada a partir de uma página web hospedada em Azure. A aplicação resultante solicita ao utilizador que faça uma chamada com o número e mensagem dados, como mostrado na imagem seguinte.
@@ -149,7 +150,7 @@ A chamada é feita, e o ponto final de Twilio, versão API e o estado da chamada
 
 Mais informações sobre o TwiML podem ser encontradas em [https://www.twilio.com/docs/api/twiml][twiml] . Mais informações sobre &lt; Say &gt; e outros verbos twilio podem ser encontrados em [https://www.twilio.com/docs/api/twiml/say][twilio_say] .
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Próximos passos
+## <a name="next-steps"></a><a id="nextsteps"></a>Passos seguintes
 Este código foi fornecido para mostrar-lhe a funcionalidade básica usando Twilio numa ASP.NET papel web no Azure. Antes de ser implantado no Azure em produção, é melhor adicionar mais manipulação de erros ou outras funcionalidades. Por exemplo:
 
 * Em vez de utilizar um formulário web, pode utilizar o armazenamento Azure Blob ou uma instância de base de dados Azure SQL para armazenar números de telefone e texto de chamada. Para obter informações sobre a utilização de Blobs em Azure, consulte [Como utilizar o serviço de armazenamento Azure Blob em .NET][howto_blob_storage_dotnet]. Para obter informações sobre a utilização da Base de Dados [SQL, consulte Como utilizar a Base de Dados Azure SQL em aplicações .NET][howto_sql_azure_dotnet].
@@ -157,7 +158,7 @@ Este código foi fornecido para mostrar-lhe a funcionalidade básica usando Twil
 * Leia as Diretrizes de Segurança Twilio em [https://www.twilio.com/docs/security][twilio_docs_security] .
 * Saiba mais sobre twilio [https://www.twilio.com/docs][twilio_docs] em.
 
-## <a name="see-also"></a><a name="seealso"></a>Veja também
+## <a name="see-also"></a><a name="seealso"></a>Ver também
 * [Como utilizar twilio para capacidades de voz e SMS do Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

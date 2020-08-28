@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7f4df99ccd960a6569cd293a86f21359368c139f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 27e4fd7762f1f65a46aa7c3aaaf5c131220caba7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000578"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013015"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteja o seu conteúdo HLS com Apple FairPlay ou Microsoft PlayReady
 

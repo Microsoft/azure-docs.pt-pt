@@ -3,13 +3,13 @@ title: 'Crie a sua primeira aplicação de Tecido de Serviço em C #'
 description: Introdução à criação de uma aplicação Microsoft Azure Service Fabric com serviços apátridas e imponentes.
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: sfrev
-ms.openlocfilehash: 201131f774632e1130c6be6a0dbcb950b96ec508
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: sfrev, devx-track-csharp
+ms.openlocfilehash: 1de77f870bce5766ab704249034d6d7b6c8b098e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260473"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012743"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
 
@@ -103,7 +103,7 @@ A plataforma chama este método quando uma instância de um serviço é colocada
 
 Esta orquestração é gerida pelo sistema para manter o seu serviço altamente disponível e devidamente equilibrado.
 
-`RunAsync()`não deve bloquear sincronizadamente. A sua implementação do RunAsync deve devolver uma Tarefa ou aguardar quaisquer operações de longo prazo ou bloqueio para permitir que o tempo de execução continue. Note-se `while(true)` no loop no exemplo anterior, é utilizado um retorno de `await Task.Delay()` tarefas. Se a sua carga de trabalho tiver de bloquear sincronizadamente, deverá agendar uma nova Tarefa `Task.Run()` na sua `RunAsync` implementação.
+`RunAsync()` não deve bloquear sincronizadamente. A sua implementação do RunAsync deve devolver uma Tarefa ou aguardar quaisquer operações de longo prazo ou bloqueio para permitir que o tempo de execução continue. Note-se `while(true)` no loop no exemplo anterior, é utilizado um retorno de `await Task.Delay()` tarefas. Se a sua carga de trabalho tiver de bloquear sincronizadamente, deverá agendar uma nova Tarefa `Task.Run()` na sua `RunAsync` implementação.
 
 O cancelamento da sua carga de trabalho é um esforço de cooperação orquestrado pelo token de cancelamento fornecido. O sistema aguardará o fim da sua tarefa (com sucesso de conclusão, cancelamento ou falha) antes de seguir em frente. É importante honrar o token de cancelamento, terminar qualquer trabalho e sair `RunAsync()` o mais rápido possível quando o sistema solicita cancelamento.
 
@@ -161,7 +161,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ### <a name="runasync"></a>RunAsync
 
-`RunAsync()`opera da mesma forma em serviços apátridas e apátridas. No entanto, num serviço imponente, a plataforma realiza trabalhos adicionais em seu nome antes de executar `RunAsync()` . Este trabalho pode incluir garantir que o Gestor de Estado Fiável e as Coleções Fiáveis estão prontas a usar.
+`RunAsync()` opera da mesma forma em serviços apátridas e apátridas. No entanto, num serviço imponente, a plataforma realiza trabalhos adicionais em seu nome antes de executar `RunAsync()` . Este trabalho pode incluir garantir que o Gestor de Estado Fiável e as Coleções Fiáveis estão prontas a usar.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Coleções fiáveis e o Gestor de Estado Fiável
 
