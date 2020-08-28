@@ -3,12 +3,12 @@ title: Apoie uma fazenda SharePoint em Azure Stack
 description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os dados do SharePoint no Azure Stack. Este artigo fornece as informações para configurar a sua quinta SharePoint para que os dados desejados possam ser armazenados em Azure. Pode restaurar dados protegidos do SharePoint a partir do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7319cf064ab2bab20e4140f8a208be843df7fa71
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538790"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017977"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Apoie uma fazenda SharePoint em Azure Stack
 
@@ -84,7 +84,7 @@ Para fazer o back up da quinta SharePoint, configuure a proteção para o ShareP
 
     Quando expande o servidor MABS do SharePoint consulta VSS para ver que dados o MABS pode proteger.  Se a base de dados SharePoint for remota, o MABS liga-se a ela. Se as fontes de dados do SharePoint não aparecerem, verifique se o escritor VSS está a funcionar no servidor SharePoint e em qualquer servidor SQL remoto, e certifique-se de que o agente MABS está instalado tanto no servidor SharePoint como no servidor SQL remoto. Além disso, certifique-se de que as bases de dados do SharePoint não estão a ser protegidas em outros lugares como bases de dados do SQL Server.
 
-1. No **método de proteção de dados Select**, especifique como pretende lidar com a cópia de segurança a curto e longo \- prazo. As cópias de segurança de curto\- prazo são sempre efetuadas para o disco em primeiro lugar, com a opção de criar a cópia de segurança do disco para a nuvem do Azure com a cópia de segurança do Azure \(para curto ou longo\- prazo\).
+1. No **método de proteção de dados Select**, especifique como pretende lidar com a cópia de segurança a curto e longo \- prazo. O \- back up de curto prazo é sempre para dissumir primeiro, com a opção de fazer backup do disco para a nuvem Azure com Azure Backup para curto ou longo \( prazo \- \) .
 
 1. Em **Selecione \- metas de curto prazo**, especifique como pretende voltar ao armazenamento de curto prazo no \- disco.   No **intervalo de retenção,** especifica-se quanto tempo pretende manter os dados no disco. Na **frequência de sincronização,** especifica quantas vezes pretende executar uma cópia de segurança incremental no disco. Se não quiser definir um intervalo de backup, pode verificar antes de um ponto de recuperação para que o MABS execute uma cópia de segurança expressa antes de cada ponto de recuperação ser programado.
 
@@ -104,7 +104,7 @@ Para fazer o back up da quinta SharePoint, configuure a proteção para o ShareP
 
 1. In **Escolha a replicação on-line**, especifique como a replicação completa inicial dos dados ocorrerá. Pode replicar através da rede ou criar uma cópia de segurança offline (propagação offline). A cópia de segurança offline utiliza a funcionalidade de Importação do Azure. [Leia mais.](./backup-azure-backup-import-export.md)
 
-1. Na página **Resumo,** reveja as suas definições. Depois de clicar em **Criar Grupo,** ocorre a replicação inicial dos dados. Quando terminar, o estado do grupo de proteção mostrará **como OK** na página **'Status'.** A criação da cópia de segurança está em conformidade com as definições do grupo de proteção.
+1. Na página  **Resumo,** reveja as suas definições. Depois de clicar em **Criar Grupo,** ocorre a replicação inicial dos dados. Quando terminar, o estado do grupo de proteção mostrará **como OK** na página **'Status'.** A criação da cópia de segurança está em conformidade com as definições do grupo de proteção.
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -161,7 +161,7 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
    >
 8. Selecione o **Processo de Recuperação** que pretende utilizar.
 
-   * **Selecione Recuperar sem utilizar uma quinta de recuperação** se a quinta SharePoint não tiver mudado e for o mesmo ponto de recuperação que está a ser restaurado.
+   * **Selecione Recuperar sem usar uma fazenda de recuperação** se a fazenda SharePoint não tiver mudado e for o mesmo ponto de recuperação que está a ser restaurado.
    * **Selecione Recuperar usando uma fazenda de recuperação** se a fazenda SharePoint tiver mudado desde que o ponto de recuperação foi criado.
 
      ![Processo de Recuperação](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -257,7 +257,7 @@ O procedimento a seguir utiliza o exemplo de uma quinta de servidores com dois s
 
 1. Se tiver realizado o passo 6, pode agora retirar o volume do grupo de proteção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte os ficheiros de cópia de segurança e o artigo [de aplicação.](backup-mabs-files-applications-azure-stack.md)
 * Consulte o servidor SQL de backup no artigo [Azure Stack.](backup-mabs-sql-azure-stack.md)

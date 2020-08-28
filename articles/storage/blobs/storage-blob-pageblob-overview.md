@@ -9,12 +9,13 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 270461ad0ba5c77f845af13d7cd4a24d0c098b31
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 542c9374b70cd765ed27dd4dd158ad81035269f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182464"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018846"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure
 

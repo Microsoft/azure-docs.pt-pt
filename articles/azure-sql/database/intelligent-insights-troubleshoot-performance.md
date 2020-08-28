@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 329d3208037548bd1cb5a5564a4a393747ed48f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986392"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017282"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Resolução de problemas Azure SQL Database e Azure SQL Gerenciados Problemas de desempenho com Insights Inteligentes
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -168,7 +168,7 @@ Como um pagelatch é um mecanismo de controlo interno, determina automaticamente
 
 Um método para lidar com a contenção do fecho é substituir uma chave de índice sequencial por uma chave não sequencial para distribuir uniformemente os inserções através de uma gama de índices. Tipicamente, uma coluna líder no índice distribui a carga de trabalho proporcionalmente. Outro método a considerar é a divisão de mesa. Criar um esquema de partição de haxixe com uma coluna computada sobre uma mesa dividida é uma abordagem comum para atenuar a contenção excessiva do trinco. No caso de contenção de IO pagelatch, a introdução de índices ajuda a atenuar esta questão de desempenho.
 
-Para obter mais informações, consulte [Diagnosticar e resolver a contenção do fecho no SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (download PDF).
+Para obter mais informações, consulte [Diagnosticar e resolver a contenção do fecho no SQL Server](http://databaser.net/moniwiki/pds/PerformanceTuning/SQLServerLatchContention.pdf) (download PDF).
 
 ## <a name="missing-index"></a>Índice em falta
 
@@ -328,7 +328,7 @@ Aceda a Insights Inteligentes através do portal Azure indo ao Azure SQL Analyti
 
 Insights Inteligentes geralmente precisam de uma hora de tempo para realizar a análise da causa raiz do problema de desempenho. Se não conseguir localizar o seu problema em Insights Inteligentes e é fundamental para si, utilize a Loja de Consultas para identificar manualmente a causa principal do problema de desempenho. (Normalmente, estas questões têm menos de uma hora de idade.) Para obter mais informações, consulte [o desempenho do Monitor utilizando a Loja de Consultas.](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda [conceitos de Insights Inteligentes.](intelligent-insights-overview.md)
 - Utilize o [registo de diagnósticos de desempenho de Insights Inteligentes](intelligent-insights-use-diagnostics-log.md).

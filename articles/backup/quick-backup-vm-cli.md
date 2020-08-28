@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2bd3487e58f204ba7ada9320b50d4b87538ae987
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 98eff02dacb5b44839937f826cd676fe16670cbb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826570"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017486"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Criar uma cópia de segurança de uma máquina virtual no Azure com a CLI
 
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento georredundante garante que os dados das cópias de segurança são replicados numa região do Azure secundária, que está situada a centenas de quilómetros de distância da região principal. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [de backup-propriedades de backup do cofre az.](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set)
+Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento geo-redundante garante que os seus dados de reserva são replicados numa região secundária de Azure que fica a centenas de quilómetros da região primária. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [de backup-propriedades de backup do cofre az.](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set)
 
 ```azurecli
 az backup vault backup-properties set \

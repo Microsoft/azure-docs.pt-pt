@@ -12,23 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: e13e7c1057d5a01867b561fc7ee7d1eed1a97ca3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 865aaf748fd8fad5f10350cb5b57d31b3eadf7a0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530495"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018047"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: enviar notificações para utilizadores específicos com Hubs de Notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end de ASP.NET WebAPI é utilizado para autenticar clientes. Quando o back-end autentica um utilizador de aplicação de cliente, adiciona automaticamente uma etiqueta ao registo de notificação. O back-end utiliza esta etiqueta para enviar notificações para o utilizador específico.
 
@@ -337,7 +337,7 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
 
     ![Screenshot da aplicação 'Centros de Notificação' mostrando a mensagem que foi empurrada.][15]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial:
 

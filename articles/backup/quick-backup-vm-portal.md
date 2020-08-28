@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: c41fb7426cf740b5861b0b571cf7ce5c54d681ef
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b0060c0aff8293ca5748cf8c055ebb2bbfb596e2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757613"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017452"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 
@@ -39,7 +39,7 @@ Um cofre dos Serviços de Recuperação é um contentor lógico que armazena os 
 
     ![Ativar a cópia de segurança da VM no portal do Azure](./media/quick-backup-vm-portal/enable-backup.png)
 
-    Por predefinição, o cofre está definido para Armazenamento georredundante. Para proteger ainda mais os seus dados, este nível de redundância de armazenamento garante que os dados das cópias de segurança são replicados numa região do Azure secundária, que está situada a centenas de quilómetros de distância da região principal.
+    Por predefinição, o cofre está definido para Armazenamento georredundante. Para proteger ainda mais os seus dados, este nível de redundância de armazenamento garante que os seus dados de backup são replicados para uma região secundária de Azure que está a centenas de milhas de distância da região primária.
 
     Para definir quando uma é executada uma tarefa de cópia de segurança e durante quanto tempo os pontos de recuperação são armazenados, tem de criar e utilizar políticas. A política de proteção predefinida executa uma tarefa de cópia de segurança todos os dias e mantém os pontos de recuperação durante 30 dias. Pode utilizar estes valores da política predefinida para proteger rapidamente a sua VM.
 

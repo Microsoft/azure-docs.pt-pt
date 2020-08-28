@@ -8,12 +8,13 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
-ms.openlocfilehash: d8c61c90456607d73fc0e8abc24709d901328ecf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ae1d2dfaf7d83d3b2323812f637bddd91b9a2ea2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829531"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018234"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Tutorial: Enviar notificações push para dispositivos Android usando a versão 1.0.0-preview do Firebase SDK
 

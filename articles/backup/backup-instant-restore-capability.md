@@ -4,22 +4,22 @@ description: Capacidade de restauro instantâneo Azure e FAQs para pilha de back
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892631"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000384"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha uma cópia de segurança melhorada e restaure o desempenho com a capacidade de restauro instantâneo de backup Azure
 
 > [!NOTE]
 > Com base no feedback dos utilizadores, rebatizámos **a pilha de backup V2 v2** para Instant **Restore** para reduzir a confusão com a funcionalidade Azure Stack.
-> Todos os utilizadores de backup do Azure foram agora atualizados para **Instant Restore**.
+> Todos os utilizadores da Azure Backup foram agora atualizados para **Instant Restore**.
 
 O novo modelo para Instant Restore fornece as seguintes melhorias de funcionalidades:
 
-* Capacidade de usar instantâneos tomados como parte de um trabalho de backup que está disponível para recuperação sem esperar que os dados transfiram para o cofre para terminar. Reduz o tempo de espera para as imagens copiarem para o cofre antes de desencadear o restauro.
+* Capacidade de usar instantâneos tomados como parte de um trabalho de reserva que está disponível para recuperação sem esperar que os dados transfiram para o cofre para terminar. Reduz o tempo de espera para as imagens copiarem para o cofre antes de desencadear o restauro.
 * Reduz os tempos de backup e restauro, retendo instantâneos localmente, durante dois dias por padrão. Este valor de retenção de instantâneo padrão é configurável a qualquer valor entre 1 a 5 dias.
 * Suporta tamanhos de disco até 32 TB. A redimensionamento dos discos não é recomendada pela Azure Backup.
 * Suporta discos SSD standard juntamente com discos HDD standard e discos Premium SSD.
@@ -108,9 +108,9 @@ Se o tipo de recuperação for "instantâneo e abóbada", a restauração será 
 
 O novo modelo não permite apagar o ponto de restauro (Tier2) a menos que o instantâneo (Tier1) seja eliminado. Recomendamos o período de retenção do ponto de restauração do ponto de programação (Tier2) superior ao período de retenção do instantâneo.
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Porque é que o meu instantâneo existe mesmo depois do período de retenção definido na política de backup?
+### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Porque é que a minha foto ainda existe, mesmo depois do período de retenção definido na política de backup?
 
-Se o ponto de recuperação tiver instantâneo e este for o mais recente RP disponível, é mantido até ao próximo backup bem sucedido. Isto de acordo com a política de "recolha de lixo" (GC) hoje desenhada que determina que pelo menos um RP mais recente esteja sempre presente no caso de todos os backups mais longe no fracasso devido a um problema no VM. Em cenários normais, os RPs são limpos no máximo 24 horas após a sua expiração.
+Se o ponto de recuperação tiver uma foto e for o último ponto de recuperação disponível, é mantido até ao próximo backup bem sucedido. Isto de acordo com a política designada de "recolha de lixo" (GC). Determina que pelo menos um último ponto de recuperação esteja sempre presente, caso todos os backups subsequentes falhem devido a um problema no VM. Em cenários normais, os pontos de recuperação são limpos no máximo 24 horas após a sua expiração.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Não preciso da funcionalidade De Restauro Instantâneo. Pode ser desativado?
 

@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
-ms.openlocfilehash: 7c805e9cf15e22b9200ef86c6c22ac3f50e77719
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9a60683b8dbf809bc3e91ffd8720b545db4c361d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236391"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008680"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de mesas
 

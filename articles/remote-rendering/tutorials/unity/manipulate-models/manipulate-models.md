@@ -5,16 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449051"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018863"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -110,7 +111,7 @@ Os limites de um modelo são definidos pela caixa que contém todo o modelo - ta
     > [!NOTE]
     > Se vir um erro no Estúdio Visual alegando que o *Recurso 'X' não está disponível em C# 6. Por favor, utilize a versão linguística 7.0 ou superior,* estes erros podem ser ignorados com segurança. Isto está relacionado com a Solução e geração de projetos da Unidade.
 
-    Este script deve ser adicionado ao mesmo GameObject que o script que implementa **o Modelo De BaseRemoteRendered**. Neste caso, isto significa **RemoteRenderedModel**. Semelhante aos scripts anteriores, este código inicial irá lidar com todas as alterações de estado, eventos e dados relacionados com limites remotos.
+    Este script deve ser adicionado ao mesmo GameObject que o script que implementa  **o Modelo De BaseRemoteRendered**. Neste caso, isto significa **RemoteRenderedModel**. Semelhante aos scripts anteriores, este código inicial irá lidar com todas as alterações de estado, eventos e dados relacionados com limites remotos.
 
     Existem dois métodos para implementar: **QueryBounds** e **ProcessQueryResult**. **A QueryBounds** apanha os limites, e o **ProcessQueryResult** toma o resultado da consulta e aplica-o ao **BoxCollider**local.
 

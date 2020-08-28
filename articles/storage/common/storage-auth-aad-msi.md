@@ -10,12 +10,13 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8273be760b37c12f3db7a393e59ab8ead291ec02
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2087e5f8ec397123df504e9d30d351a0ba79b4a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828001"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018761"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure
 
@@ -30,7 +31,7 @@ Antes de poder utilizar identidades geridas para a Azure Resources para autoriza
 - [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modelo de gestor de recursos Azure](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Modelo Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de clientes Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 Para obter mais informações sobre identidades geridas, consulte [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md).

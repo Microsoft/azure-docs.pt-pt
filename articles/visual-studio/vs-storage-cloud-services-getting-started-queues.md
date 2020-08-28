@@ -7,18 +7,18 @@ manager: jillfra
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-csharp
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8410d082369c5eb5bc7212c50a5546e9b74c5b95
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 9f0a3c3a96a73bd71a9b0c769a3ceff85ae428f1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131519"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017622"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução aos serviços ligados (projetos de serviços cloud) Armazenamento de Filas do Azure e o Visual Studio
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -177,6 +177,6 @@ Para eliminar uma fila e todas as mensagens nela contidas, chame o método **Eli
 messageQueue.Delete();
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 

@@ -8,12 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
-ms.openlocfilehash: 3645b6752a49a0cf2544d170ac55a77cc8ae5e40
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082017"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000197"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para a Tempestade Apache utilizando as ferramentas data lake para o Estúdio Visual
 
@@ -150,9 +151,9 @@ Em seguida, adicione o código para o bico, que é usado para ler dados numa top
 
    * `NextTuple`: Chamado por tempestade quando o bico é permitido emitir novos tuples.
 
-   * `Ack`(apenas topologia transacional): Cabos de reconhecimento iniciados por outros componentes na topologia para tuples enviados do bico. Reconhecer um tuple permite que o bico saiba que foi processado com sucesso por componentes a jusante.
+   * `Ack` (apenas topologia transacional): Cabos de reconhecimento iniciados por outros componentes na topologia para tuples enviados do bico. Reconhecer um tuple permite que o bico saiba que foi processado com sucesso por componentes a jusante.
 
-   * `Fail`(apenas topologia transacional): Manuseia tuples que estão a processar outros componentes na topologia. A implementação de um `Fail` método permite-lhe reedição da tuple para que possa ser processada novamente.
+   * `Fail` (apenas topologia transacional): Manuseia tuples que estão a processar outros componentes na topologia. A implementação de um `Fail` método permite-lhe reedição da tuple para que possa ser processada novamente.
 
 2. Substitua o conteúdo da `Spout` classe pelo seguinte texto:
 
@@ -477,13 +478,13 @@ Considere o seguinte quando estiver a criar e submeter uma topologia híbrida:
 
 * Ao submeter a topologia ao servidor, deve utilizar a opção **configurações adicionais** para especificar os caminhos do **Ficheiro Java**. O caminho especificado deve ser o diretório que tem os ficheiros JAR que contêm as suas aulas de Java.
 
-### <a name="azure-event-hubs"></a>Azure Event Hubs
+### <a name="azure-event-hubs"></a>Hubs de Eventos do Azure
 
 SCP.NET versão 0.9.4.203 introduz uma nova classe e método especificamente para trabalhar com o bico do Event Hub (um bico java que lê a partir de Event Hubs). Quando criar uma topologia que utiliza um bico de Centro de Eventos (por exemplo, utilizando o modelo de amostra de **leitor Storm EventHub),** utilize as seguintes APIs:
 
-* `EventHubSpoutConfig`classe: Cria um objeto que contém a configuração para o componente do bico.
+* `EventHubSpoutConfig` classe: Cria um objeto que contém a configuração para o componente do bico.
 
-* `TopologyBuilder.SetEventHubSpout`método: Adiciona o componente de bico do Event Hub à topologia.
+* `TopologyBuilder.SetEventHubSpout` método: Adiciona o componente de bico do Event Hub à topologia.
 
 > [!NOTE]  
 > Deve ainda utilizar os `CustomizedInteropJSONSerializer` dados para serializar os dados produzidos pelo bico.
@@ -689,7 +690,7 @@ Embora seja fácil implantar uma topologia num cluster, em alguns casos, você p
 1. Utilize o **Windows Explorer** para localizar o diretório que contém o seu projeto. (Por exemplo: *C: \\ Utilizadores \\ \<your_user_name> \\ origem \\ repos \\ WordCount \\ WordCount*.) Em seguida, neste diretório, abra *o Bin*e, em seguida, selecione *Debug*. Deve ver os ficheiros de texto que foram produzidos quando os testes foram realizados: *sentences.txt*, *counter.txt*e *splitter.txt*. Abra cada ficheiro de texto e inspecione os dados.
 
    > [!NOTE]  
-   > Os dados de cadeia persistem como uma série de valores decimais nestes ficheiros. Por exemplo, `[[97,103,111]]` no **ficheirosplitter.txt** representa a palavra *atrás*.
+   > Os dados de cadeia persistem como uma série de valores decimais nestes ficheiros. Por exemplo, `[[97,103,111]]` no ** ficheirosplitter.txt** representa a palavra *atrás*.
 
 > [!NOTE]  
 > Certifique-se de que devolve o **tipo de Projeto** à Biblioteca de **Classes** nas propriedades do projeto antes de se implantar num cluster Storm on HDInsight.
@@ -739,7 +740,7 @@ Se o ficheiro de registo *hdinsight-scpwebapi.out* contiver `FileNotFoundExcepti
 * O JDK não está no caminho do ambiente de desenvolvimento. Verifique se o JDK está instalado no ambiente de desenvolvimento, e que `%JAVA_HOME%/bin` está no caminho.
 * Falta-te uma dependência java. Certifique-se de que está a incluir quaisquer ficheiros de frascos necessários como parte da submissão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um exemplo de processamento de dados de Centros de Eventos, consulte [eventos de processo de Azure Event Hubs com Storm on HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

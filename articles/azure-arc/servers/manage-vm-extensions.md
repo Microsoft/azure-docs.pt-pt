@@ -3,12 +3,12 @@ title: Gestão de extensão VM com servidores ativados Azure Arc (pré-visualiza
 description: Os servidores ativados pelo Azure Arc (pré-visualização) podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213110"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018166"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Gestão de extensão de máquina virtual com servidores ativados do Azure Arc (pré-visualização)
 
@@ -89,7 +89,7 @@ As extensões VM podem ser aplicadas ao seu Arc para o servidor (pré-visualiza�
 
     ![Instalar extensão VM do Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Para completar a instalação, é-lhe exigido que forneça o ID do espaço de trabalho e a chave primária. Se não estiver familiarizado com a forma de encontrar esta informação, consulte [a identificação do espaço de trabalho e a chave.](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+    Para completar a instalação, é-lhe exigido que forneça o ID do espaço de trabalho e a chave primária. Se não estiver familiarizado com a forma de encontrar esta informação, consulte [a identificação do espaço de trabalho e a chave.](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 
 4. Depois de confirmar as informações necessárias fornecidas, selecione **Criar**. É apresentado um resumo da implantação e pode rever o estado da implantação.
 

@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3ac1855c0cc72a3c4afc20598d023f0adce2bd76
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 14a342e2b7b08113721527855b81a904c2a2e743
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034146"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001321"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com armazenamento Azure
 

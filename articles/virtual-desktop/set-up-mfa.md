@@ -3,15 +3,15 @@ title: Configurar a autenticação multi-factor Azure para o Windows Virtual Des
 description: Como configurar a autenticação multi-factor Azure para uma maior segurança no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009465"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017787"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Ativar o Multi-Factor Authentication do Microsoft Azure para o Windows Virtual Desktop
 
@@ -47,29 +47,36 @@ Eis como criar uma política de acesso condicional que requer autenticação de 
 6. Em **Incluir**, **selecione Selecione utilizadores e grupos**  >  **Utilizadores e grupos** > Escolha o grupo que criou na fase [de pré-requisitos.](#prerequisites)
 7. Selecione **Concluído**.
 8. Em **aplicativos ou ações cloud**  >  **Inclua**, **selecione apps Select**.
-9. Selecione um dos seguintes grupos de aplicações com base na versão do Windows Virtual Desktop que está a utilizar.
-   - Se estiver a utilizar o Windows Virtual Desktop (clássico), escolha estas duas aplicações:
+9. Selecione uma das seguintes aplicações com base na versão do Windows Virtual Desktop que está a utilizar.
+   - Se estiver a utilizar o Windows Virtual Desktop (clássico), escolha esta aplicação:
        - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739)
-   - Se estiver a utilizar o Windows Virtual Desktop, escolha estas duas aplicações em vez disso:
+   - Se estiver a utilizar o Windows Virtual Desktop, escolha esta aplicação em vez disso:
        -  **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
-       -  **Windows Virtual Desktop Client** (App ID a85cf173-4192-42f8-81fa-77763e6e2c)
 
    >[!IMPORTANT]
-   > As aplicações do Windows Virtual Desktop Client são utilizadas para o cliente web. No entanto, não selecione a aplicação chamada Fornecedor de Gestor de Recursos Virtual Desktop Azure (50e95039-b200-4007-bc97-8d5790743a63). Esta aplicação é usada apenas para recuperar o feed do utilizador e não deve ter MFA.
+   > Não selecione a aplicação chamada Fornecedor de Gestor de Recursos Virtual Desktop Azure (50e95039-b200-4007-bc97-8d5790743a63). Esta aplicação é usada apenas para recuperar o feed do utilizador e não deve ter MFA.
 
-1. Uma vez selecionado a sua aplicação, escolha **Select**e, em seguida, selecione **Fazer**.
+10. Vá às aplicações do Cliente **condições,**  >  **Client apps**em seguida, selecione onde pretende aplicar a política para:
+    
+    - Selecione **Browser** se quiser que a política se aplique ao cliente web.
+    - Selecione **aplicativos Móveis e clientes de desktop** se quiser aplicar a política a outros clientes.
+    - Selecione ambas as caixas de verificação se quiser aplicar a apólice a todos os clientes.
+   
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da página de aplicativos do Cliente. O utilizador selecionou as aplicações móveis e a caixa de verificação dos clientes de ambiente de trabalho.](media/select-apply.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Uma imagem da página de aplicações ou ações cloud. As aplicações do Windows Virtual Desktop e do Windows Virtual Desktop Client estão em destaque a vermelho.](media/cloud-apps-enterprise.png)
+11. Uma vez selecionado a sua aplicação, escolha **Select**e, em seguida, selecione **Fazer**.
 
-   >[!NOTE]
-   >Para encontrar o ID da aplicação que pretende selecionar, vá a **Aplicações empresariais** e selecione **as Aplicações** microsoft a partir do menu suspenso do tipo de aplicação.
+    > [!div class="mx-imgBorder"]
+    > ![Uma imagem da página de aplicações ou ações cloud. As aplicações do Windows Virtual Desktop e do Windows Virtual Desktop Client estão em destaque a vermelho.](media/cloud-apps-enterprise.png)
 
-10. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e, em seguida, **Selecione**.
-11. In **Access controls**  >  **Session**, selecione a frequência de **inscrição,** descreva o valor para **1** e a unidade para **Horas**, e, em seguida, selecione **Select**.
-12. Confirme as suas definições e defina **Ativar** a política para **on**.
-13. **Selecione Criar** para ativar a sua política.
+    >[!NOTE]
+    >Para encontrar o ID da aplicação que pretende selecionar, vá a **Aplicações empresariais** e selecione **as Aplicações** microsoft a partir do menu suspenso do tipo de aplicação.
+
+12. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e, em seguida, **Selecione**.
+13. In **Access controls**  >  **Session**, selecione a frequência de **inscrição,** descreva o valor para **1** e a unidade para **Horas**, e, em seguida, selecione **Select**.
+14. Confirme as suas definições e defina **Ativar** a política para **on**.
+15. **Selecione Criar** para ativar a sua política.
 
 ## <a name="next-steps"></a>Passos seguintes
 

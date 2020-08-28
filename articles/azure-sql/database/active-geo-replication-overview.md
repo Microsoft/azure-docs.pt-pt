@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/28/2020
-ms.openlocfilehash: 10c0d3d5f043d31454810b55e808cd6df01467a4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/27/2020
+ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448747"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018387"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Para alcançar a continuidade real do negócio, adicionar redundância de base d
 Para garantir que a sua aplicação pode aceder imediatamente ao novo primário após o failover, certifique-se de que os requisitos de autenticação do seu servidor secundário e base de dados estão devidamente configurados. Para mais informações, consulte [a segurança da Base de Dados SQL após a recuperação de desastres.](active-geo-replication-security-configure.md) Para garantir o cumprimento após o incumprimento, certifique-se de que a política de retenção de backup na base de dados secundária corresponde à das primárias. Estas definições não fazem parte da base de dados e não são replicadas. Por predefinição, o secundário será configurado com um período de retenção pitr predefinido de sete dias. Para mais informações, consulte [as cópias de segurança automatizadas sql Database](automated-backups-overview.md).
 
 > [!IMPORTANT]
-> Se a sua base de dados for membro de um grupo de failover, não pode iniciar a sua falha utilizando o comando de falha de geo-replicação. Utilize o comando de falha para o grupo. Se precisar de falhar com uma base de dados individual, deve removê-la primeiro do grupo de failover. Consulte [os grupos de failover](auto-failover-group-overview.md) para mais detalhes.
+> Se a sua base de dados for membro de um grupo de failover, não pode iniciar a sua falha utilizando o comando de falha de geo-replicação. Utilize o comando de falha para o grupo. Se precisar de falhar com uma base de dados individual, deve removê-la primeiro do grupo de failover. Consulte  [os grupos de failover](auto-failover-group-overview.md) para mais detalhes.
 
 ## <a name="configuring-secondary-database"></a>Configuração da base de dados secundária
 
@@ -178,7 +178,8 @@ O cliente que executa as alterações precisa de acesso à rede ao servidor prim
 
 ### <a name="on-the-master-of-the-secondary-server"></a>No mestre do servidor secundário
 
-1. Adicione o endereço IP à lista de admissões do cliente que executa as alterações. Deve ter o mesmo endereço IP exato do servidor primário.
+1. Adicione o endereço IP do cliente à lista permitida de acordo com as regras de firewall para o servidor secundário. Valide que o mesmo endereço IP do cliente que foi adicionado no servidor primário também foi adicionado ao secundário. Este é um passo necessário a ser feito antes de executar o comando ALTER DATABASE ADD SECONDARY para iniciar a geo-replicação.
+
 1. Crie o mesmo login que no servidor primário, utilizando a mesma palavra-passe do nome de utilizador, e SID:
 
    ```sql
@@ -229,7 +230,7 @@ Devido à elevada latência de amplas redes de área, a cópia contínua utiliza
 
 ## <a name="monitoring-geo-replication-lag"></a>Atraso de geo-replicação de monitorização
 
-Para monitorizar o lag em relação à RPO, utilize *replication_lag_sec* coluna [de sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) na base de dados primária. Mostra um atraso em segundos entre as transações cometidas nas primárias e persistiu no secundário. Por exemplo, se o valor do lag for de 1 segundo, significa que se a primária for impactada por uma paragem neste momento e o failover for iniciado, 1 segundo das transições mais recentes não serão salvas.
+Para monitorizar o atraso no que diz respeito à RPO, utilize *replication_lag_sec* coluna de [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) na base de dados primária. Mostra um atraso em segundos entre as transações cometidas nas primárias e persistiu no secundário. Por exemplo, se o valor do lag for de 1 segundo, significa que se a primária for impactada por uma paragem neste momento e o failover for iniciado, 1 segundo das transições mais recentes não serão salvas.
 
 Para medir o atraso no que diz respeito às alterações na base de dados primária que foram aplicadas no secundário, ou seja, disponível para ler a partir do secundário, compare *last_commit* tempo na base de dados secundária com o mesmo valor na base de dados primária.
 

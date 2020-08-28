@@ -9,13 +9,14 @@ ms.topic: overview
 ms.subservice: spark
 ms.date: 07/28/2020
 ms.author: euang
+ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 4559446c3de61c552d8fe091fbb95e8b52163472
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 655daeb0149228d78d5288b0e5d0d705a5743d28
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658525"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008646"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Visão geral do Lago Delta da Fundação Linux
 

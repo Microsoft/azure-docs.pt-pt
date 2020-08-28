@@ -7,18 +7,18 @@ manager: jillfra
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-csharp
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6d46aa8c7077fdd43169f0f4a6dbf5a7721682d5
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 670aef4f6f866788ef7a1a4502de242e765f5cc6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135922"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017656"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução aos serviços ligados (projetos de serviços cloud) Armazenamento de Blobs do Azure e o Visual Studio
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -268,6 +268,6 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 

@@ -8,12 +8,13 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: baed9ef099ed818fa0967c7a3e7ab61fb4921f75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719313"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018965"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Alterar o feed de mudança de processo no Armazenamento Azure Blob (Pré-visualização)
 

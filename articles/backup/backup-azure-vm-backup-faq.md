@@ -4,18 +4,18 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: ec79fc7c09f2bc1aeb2c07016365e831932fa1ff
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761513"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018115"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
 Este artigo responde a perguntas comuns sobre o backup dos VMs Azure com o serviço [Azure Backup.](./backup-overview.md)
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Que imagens VM podem ser ativadas para backup quando as crio?
 
@@ -59,11 +59,11 @@ O feiticeiro só lista VMs na mesma região que o cofre, e isso já não está a
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>O meu VM está desligado. Um trabalho de reserva ou de reserva?
 
-Sim. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
+Yes. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de reserva em progresso?
 
-Sim. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
+Yes. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
 
 ### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Consegui bloquear o grupo de recursos criado pelo Azure Backup Service (por exemplo, `AzureBackupRG_<geo>_<number>` ). As minhas cópias de segurança vão continuar a funcionar?
 
@@ -71,7 +71,7 @@ Se bloquear o grupo de recursos criado pelo Serviço de Backup Azure, as cópias
 
 Retire a fechadura e limpe a recolha do ponto de restauro desse grupo de recursos para que as futuras cópias de segurança seja bem sucedida. [Siga estes passos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a recolha do ponto de restauro.
 
-### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O Azure suporta discos geridos por SSD padrão?
+### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O Azure Backup suporta discos geridos por SSD padrão?
 
 Sim, o Azure Backup suporta [discos geridos SSD padrão.](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)
 
@@ -135,7 +135,7 @@ No caso de uma restauração gerida do VM, mesmo que a criação de VM falhe, os
 
 ### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Posso restaurar um VM que foi apagado?
 
-Sim. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
+Yes. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como posso restaurar um VM para os mesmos conjuntos de disponibilidade?
 
@@ -195,7 +195,7 @@ Sim, há um limite de 100 VMs que podem ser associados à mesma política de bac
 
 ### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>Como posso ver as definições de retenção para os meus backups?
 
-Atualmente, pode ver as definições de retenção a um nível de produto de backup (VM) com base na política de backup que é atribuída ao VM.
+Atualmente, pode ver as definições de retenção a um nível de backup item (VM) com base na política de backup que é atribuída ao VM.
 
 Uma forma de visualizar as definições de retenção para as suas cópias de segurança é navegar para o [painel de instrumentos](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) de reserva para o seu VM, no portal Azure. Clicar no link para a sua política de backup ajuda-o a ver a duração de retenção de todos os pontos de retenção diários, semanais, mensais e anorais associados ao VM.
 

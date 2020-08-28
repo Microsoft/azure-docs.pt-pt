@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: has-adal-ref
-ms.openlocfilehash: 57d1cda2e74cfe4ae3948e55124123d05682591b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: d842974b0b53e0b0ce199334a07f11e5c998b18d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534231"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018812"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token da Azure AD para autorizar pedidos de um pedido de cliente
 
@@ -54,7 +54,7 @@ Em seguida, conceda permissões à sua candidatura para ligar para as APIs de Ar
 1. Na secção **de permissões API,** selecione **Adicionar uma permissão** e escolha **APIs da Microsoft**.
 1. Selecione **Azure Storage** da lista de resultados para exibir o painel de **permissões da API do Pedido.**
 1. Em **Que tipo de permissões a sua aplicação requer?** **Delegated permissions** Esta opção é selecionada por padrão.
-1. Na secção **de permissões Select** do painel de **permissões da API do Pedido,** selecione a caixa de verificação ao lado **de user_impersonation,** em seguida, clique em **Adicionar permissões**.
+1. Na secção **de permissões Select** do painel de **permissões da API do Pedido,** selecione a caixa de verificação ao lado **de user_impersonation,** em seguida, clique em  **Adicionar permissões**.
 
     ![Screenshot mostrando permissões para armazenamento](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
@@ -281,7 +281,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>Permitir o fluxo de subvenção implícita
 
-Para executar a amostra, poderá ser necessário configurar o fluxo implícito de subvenção para o registo da sua aplicação. Siga estes passos:
+Para executar a amostra, poderá ser necessário configurar o fluxo implícito de subvenção para o registo da sua aplicação. Siga estes passos.
 
 1. Navegue para o registo da sua aplicação no portal Azure.
 1. Na secção **Gerir,** selecione a **definição de Autenticação.**

@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 8e9fe46bf3f7528b3a6a08a7c8d90ea6f9117cdd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890897"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017673"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 

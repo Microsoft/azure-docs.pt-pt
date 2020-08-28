@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 3cc74faa39b21b1ab275149db4f85de8f55fd07e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-csharp
+ms.openlocfilehash: 5760c574e64a3b3b4a1df12092cff44374790a90
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733479"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018404"
 ---
 # <a name="get-started-with-device-management-net"></a>Começar com a gestão do dispositivo (.NET)
 
@@ -154,7 +154,7 @@ Para criar a aplicação do dispositivo simulado, siga estes passos:
 
 1. No Solution Explorer, clique com o botão direito no novo projeto **SimulateManagedDevice** e, em seguida, **selecione Gerir pacotes NuGet**.
 
-1. **Selecione Procurar**e, em seguida, procurar e selecionar **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
+1. **Selecione Procurar**e, em seguida, procurar e selecionar **Microsoft.Azure.Devices.Client**. Selecione **Install** (Instalar).
 
     ![Aplicativo de cliente de janela do Gestor de pacotes NuGet](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
 

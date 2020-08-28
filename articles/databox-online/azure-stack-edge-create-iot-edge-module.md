@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d8cea74ec24efa7562caab5074d87d436cddaffb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339897"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018489"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros no Azure Stack Edge
 
@@ -59,7 +60,7 @@ Antes de começar, certifique-se de que tem:
     - [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
     - [Docker CE.](https://store.docker.com/editions/community/docker-ce-desktop-windows) Poderá ter de criar uma conta para descarregar e instalar o software.
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
 Um registo de contentor do Azure é um registo do Docker privado no Azure, onde pode armazenar e gerir as imagens privadas de contentor do Docker. Os dois populares serviços de registo docker disponíveis na nuvem são O Registo de Contentores Azure e Docker Hub. Este artigo utiliza o Registo de Contentores.
 
@@ -256,7 +257,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCo
 
 2. Quando solicitado para obter a senha, forneça a senha. Também pode recuperar os valores do servidor de login, nome de utilizador e palavra-passe a partir das Chaves de **Acesso** no registo do seu contentor no portal Azure.
  
-3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique commodule.jsà direita **no** ficheiro e selecione **a solução Build and Push IoT Edge**.
+3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique commodule.jsà direita ** no** ficheiro e selecione **a solução Build and Push IoT Edge**.
 
     ![Construa e empurre a solução IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
@@ -275,6 +276,6 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCo
 
 4. Pode ver o endereço da imagem de contentor completo com a etiqueta no terminal integrado do VS Code. O endereço de imagem é construído a partir de informações que estão no module.jsem arquivo com o formato `<repository>:<version>-<platform>` . Para este artigo, deve `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` parecer.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para implementar e executar este módulo no Azure Stack Edge, consulte os passos em [Adicionar um módulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).

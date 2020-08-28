@@ -3,7 +3,7 @@ title: Configurar identidades geridas em Azure VMSS - Azure AD
 description: Instruções passo a passo para configurar identidades geridas para recursos Azure numa escala de máquina virtual definida usando o portal Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d05ee1be18b315c63ccf9d564ea95391a163826e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6b47bba00b3eb09b643e3cc0d8f610557cc1f211
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924500"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000894"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando o portal Azure
 

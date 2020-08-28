@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: b7ddbff2643086f1875ca190b67f521edb115c3e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930541"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017724"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeie um Azure Ative Directory My Apps
 
-Azure Ative Directory (Azure AD) My Apps é um portal baseado na Web que ajuda a reduzir os custos de suporte, aumentar a produtividade e a segurança e reduzir a frustração dos utilizadores. O sistema inclui relatórios detalhados que rastreia quando acede ao sistema e notifica administradores de uso indevido ou abuso.
+Azure Ative Directory (Azure AD) My Apps é um portal baseado na Web que ajuda a reduzir os custos de suporte, aumentar a produtividade e a segurança e reduzir a frustração dos utilizadores. O sistema inclui relatórios detalhados que rastreia quando acede ao sistema e notifica administradores de uso indevido ou abuso. Para aprender a utilizar as Minhas Apps numa perspetiva de utilizador final, consulte [o portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 Ao utilizar as minhas apps Azure AD, pode:
 
@@ -42,7 +42,7 @@ Azure AD My Apps beneficia as empresas das seguintes formas:
 
 **Proporciona uma experiência intuitiva**do utilizador : As minhas apps fornecem-lhe uma única plataforma para todas as suas aplicações ligadas a Azure single sign-on (SSO)." Tem um portal unificado para encontrar as definições existentes e novas capacidades, como a gestão de grupos e o reset da palavra-passe de autosserviço, tal como são adicionados. A experiência intuitiva permite que os utilizadores regressem ao trabalho mais rápido e sejam mais produtivos, reduzindo ao mesmo tempo a sua frustração.
 
-**Aumenta a produtividade**: Todas as aplicações de utilizadores nas Minhas Apps têm SSO ativado. Permitir o SSO através de aplicações empresariais e o Microsoft 365 cria uma experiência de sing-in superior reduzindo ou eliminando pedidos de inscrição adicionais. As minhas Apps usam o self-service e a adesão dinâmica e melhoram a segurança geral do seu sistema de identidade. Fá-lo garantindo que as pessoas certas consigam o acesso às aplicações. As minhas Apps servem como uma página de aterragem coerente para que encontre rapidamente recursos e continue as tarefas de trabalho.
+**Aumenta a produtividade**: Todas as aplicações de utilizadores nas Minhas Apps têm SSO ativado. Permitir o SSO através de aplicações empresariais e o Microsoft 365 cria uma experiência de sing-in superior reduzindo ou eliminando pedidos de inscrição adicionais. As minhas Apps usam o self-service e a adesão dinâmica e melhoram a segurança geral do seu sistema de identidade. As minhas Apps garantem que as pessoas certas gerem o acesso às aplicações. As minhas Apps servem como uma página de aterragem coerente para que encontre rapidamente recursos e continue as tarefas de trabalho.
 
 **Gere o custo**: Permitir as minhas apps com Azure AD pode ajudar na alienação de infraestruturas no local. Reduz os custos de suporte fornecendo-lhe um portal consistente para encontrar todas as suas apps, solicitar acesso a recursos e gerir contas.
 
@@ -89,6 +89,10 @@ A tabela a seguir descreve os principais casos de utilização para uma implemen
 | Experiência do Utilizador| Os utilizadores podem gerir as suas contas. |
 | Experiência do Utilizador| Os utilizadores estão cientes da compatibilidade do navegador. |
 | Suporte| Os utilizadores podem encontrar suporte para os problemas das Minhas Apps. |
+
+
+> [!TIP]
+> As minhas Aplicações podem ser utilizadas com URLs da empresa interna durante a utilização remota de Aplicações Proxy. Para saber mais, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md).
 
 ### <a name="best-practices-for-deploying-azure-ad-my-apps"></a>Boas práticas para implantar Azure AD My Apps
 
@@ -255,7 +259,7 @@ Consulte [atribuir utilizadores e grupos a uma aplicação no Ative Directory](m
 
 Se durante o teste ou implementação pretender adicionar os grupos mas ainda não permitir que as aplicações apareçam nas Minhas Apps, consulte [Ocultar uma aplicação da experiência do utilizador no Azure Ative Directory](hide-application-from-user-portal.md).
 
-### <a name="deploy-microsoft-microsoft-365-applications-to-my-apps"></a>Implementar aplicações Microsoft Microsoft 365 para as minhas apps
+### <a name="deploy-microsoft-365-applications-to-my-apps"></a>Implementar aplicações microsoft 365 para as minhas apps
 
 Para aplicações microsoft 365, os utilizadores recebem uma cópia do Office com base nas licenças que lhes são atribuídas. Um pré-requisito para o acesso às aplicações do Office é que os utilizadores sejam atribuídos as licenças corretas ligadas às aplicações do Office. Quando atribuir uma licença a um utilizador, verão automaticamente as aplicações que estão associadas à licença na sua página My Apps e no lançador de aplicações microsoft 365.
 
@@ -303,7 +307,7 @@ Os seguintes testes devem ser realizados com dispositivos corporativos e disposi
 
 ## <a name="manage-your-implementation"></a>Gerir a sua implementação
 
-Deve utilizar o papel menos privilegiado para realizar uma tarefa necessária no Diretório Azure Ative. [Reveja as diferentes funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md) e escolha a certa para resolver as suas necessidades para cada persona para esta aplicação. Algumas funções podem ter de ser aplicadas temporariamente e removidas após a colocação concluída.
+Utilize o papel menos privilegiado para realizar uma tarefa necessária no Diretório Ativo Azure. [Reveja as diferentes funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md) e escolha a certa para resolver as suas necessidades para cada persona para esta aplicação. Algumas funções podem ter de ser aplicadas temporariamente e removidas após a colocação concluída.
 
 | Pessoas fictícias| Funções| Papel de AD AZure  |
 | - | -| -|

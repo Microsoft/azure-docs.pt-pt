@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81481841"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017707"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicações Multi-inquilino no Azure
 Uma aplicação multitenante é um recurso partilhado que permite que "utilizadores em inquilinos separados" vejam a aplicação como se fosse sua. Um cenário típico que se presta a uma aplicação multitenante é aquele em que todos os utilizadores da aplicação de diferentes inquilinos podem querer personalizar a experiência do utilizador, mas de outra forma têm os mesmos requisitos básicos de negócio. Exemplos de grandes aplicações multitenantes são o Office 365, Outlook.com e visualstudio.com.
@@ -67,7 +68,7 @@ Gestão de dados como Azure SQL Database ou serviços de Armazenamento Azure, co
 
 * Azure Service Bus, uma infraestrutura de mensagens que se situa entre aplicações que lhes permite trocar mensagens de forma vagamente acoptada para uma escala e resiliência melhoradas.
 
-**Serviços de Networking**
+**Serviços de Rede**
 
 O Azure disponibiliza vários serviços de networking que suportam a autenticação e melhoram a gestão das suas aplicações hospedadas. Estes serviços incluem os seguintes:
 

@@ -3,12 +3,12 @@ title: Perguntas sobre a descoberta, avaliação e análise de dependência em A
 description: Obtenha respostas a perguntas comuns sobre a descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 9b8ba0ec83b9f2faedebb2bfb4ba84109f6f8b77
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d4f833926541bafbae211caff37e5974b57e1047
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263508"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019016"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -181,13 +181,13 @@ Não, o relatório de visualização de dependência na visualização baseada e
 Para visualização de dependência baseada em agentes:
 
 - Utilize um [script para instalar o agente Dependency](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
-- Para MMA, [utilize a linha de comando ou automação,](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration)ou utilize um [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- Para MMA, [utilize a linha de comando ou automação,](../azure-monitor/platform/log-analytics-agent.md#installation-options)ou utilize um [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - Além dos scripts, pode utilizar ferramentas de implementação como o Microsoft Endpoint Configuration Manager e [o Intigua](https://www.intigua.com/intigua-for-azure-migration) para implementar os agentes.
 
 ## <a name="what-operating-systems-does-mma-support"></a>Que sistemas operativos suporta o MMA?
 
-- Veja a lista de [sistemas operativos Windows que o MMA suporta.](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
-- Veja a lista dos [sistemas operativos Linux que o MMA suporta.](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+- Veja a lista de [sistemas operativos Windows que o MMA suporta.](../azure-monitor/platform/log-analytics-agent.md#installation-options)
+- Veja a lista dos [sistemas operativos Linux que o MMA suporta.](../azure-monitor/platform/log-analytics-agent.md#installation-options)
 
 ## <a name="can-i-visualize-dependencies-for-more-than-one-hour"></a>Posso visualizar as dependências por mais de uma hora?
 

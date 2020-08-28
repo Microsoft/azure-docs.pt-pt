@@ -3,12 +3,12 @@ title: Backup da base de dados do SQL Server de resolução de problemas
 description: Informações de resolução de problemas para fazer backup das bases de dados do SQL Server em execução em VMs Azure com Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 53b701e5bfae9313732f4b76a4e13b63afb3864a
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 53e97e768dc13c32f6c174d01dfb222e0de61e43
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826723"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017877"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
 
@@ -172,7 +172,7 @@ A operação está bloqueada, uma vez que o cofre atingiu o seu limite máximo p
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet. | O VM precisa de conectividade de saída para o Serviço de Backup Azure, Armazenamento Azure ou Serviços de Diretório Ativo Azure.| - Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço AzureBackup para permitir o acesso de saída ao Serviço de Backup Azure, ao Armazenamento Azure ou aos serviços do Azure Ative Directory. Siga estes [passos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>- Certifique-se de que o DNS está a resolver os pontos finais do Azure.<br>- Verifique se o VM está por detrás de um equilibrador de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará.<br>- Verifique se não existe firewall/antivírus/procuração que bloqueie chamadas para os três serviços-alvo acima.
+O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet. | O VM precisa de conectividade de saída para o Serviço de Backup Azure, Armazenamento Azure ou Serviços de Diretório Ativo Azure.| - Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço AzureBackup para permitir o acesso de saída ao Serviço de Backup Azure, ao Armazenamento Azure ou aos serviços do Azure Ative Directory. Siga estes [passos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>- Certifique-se de que o DNS está a resolver os pontos finais do Azure.<br>- Verifique se o VM está por detrás de um equilibrador de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará.<br>- Verifique se não há firewall/antivírus/procuração que bloqueie chamadas para os três serviços-alvo acima.
 
 ## <a name="re-registration-failures"></a>Falhas de re-registo
 

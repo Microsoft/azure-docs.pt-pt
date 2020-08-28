@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892767"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017741"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -56,7 +56,7 @@ Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, ent�
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso fazer um Restauro ao Nível dos Itens (ILR) em VMs com cópia de segurança num cofre de Serviços de Recuperação?
 
 - O ILR é suportado nas VMs do Azure com cópia de segurança efetuada pela cópia de segurança da VM do Azure. Para obter mais informações, veja este [artigo](backup-azure-restore-files-from-vm.md)
-- O ILR não é suportado para pontos de recuperação on-line de VMs no local apoiados pelo Azure backup Server ou System Center DPM.
+- O ILR não é suportado para pontos de recuperação on-line de VMs no local apoiados pelo Azure Backup Server (MABS) ou pelo System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 
@@ -127,7 +127,7 @@ BMR/Estado do sistema |Cada cópia individual da BMR ou estado do sistema do com
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Existe algum limite à quantidade de dados para os quais são criadas cópias de segurança com um cofre dos Serviços de Recuperação?
 
-Não há limite para a quantidade total de dados que pode fazer com o cofre dos Serviços de Recuperação. As fontes de dados individuais (com além dos VMs Azure), podem ter um tamanho máximo de 54.400 GB. Para obter mais informações sobre limites, consulte a [secção limites](./backup-support-matrix.md#vault-support)do cofre na matriz de suporte .
+Não há limite para a quantidade total de dados que podes fazer usando um cofre dos Serviços de Recuperação. As fontes de dados individuais (com além dos VMs Azure), podem ter um tamanho máximo de 54.400 GB. Para obter mais informações sobre limites, consulte a [secção limites](./backup-support-matrix.md#vault-support)do cofre na matriz de suporte .
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que é que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é mais pequeno do que os dados selecionados para cópia de segurança?
 
@@ -184,7 +184,7 @@ Pode criar até 9999 pontos de recuperação por instância protegida. Uma inst�
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quantas vezes posso recuperar dados contidos em cópias de segurança no Azure?
 
-Não existe limite no número de recuperações do Backup do Azure.
+Não há limite para o número de recuperações do Reforço Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Quando restaurar os dados, pago pelo tráfego de saída do Azure?
 

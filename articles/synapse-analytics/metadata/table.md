@@ -9,12 +9,13 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 28f666fe295b2b49fb6795306e9fad489c867517
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d00232d602ce7b2de0db4e06ef3c7456f552833e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387222"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018744"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics partilhou tabelas de metadados
 
@@ -73,12 +74,12 @@ As tabelas de faíscas fornecem diferentes tipos de dados do que os motores Syna
 | `decimal`      | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | Com colagem`Latin1_General_CP1_CI_AS_UTF8` |
+| `string`    |    `varchar(max)`   | Com colagem `Latin1_General_CP1_CI_AS_UTF8` |
 | `binary`    |    `varbinary(max)` ||
 | `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | Serializa em JSON com colagem`Latin1_General_CP1_CI_AS_UTF8` |
-| `map`       |    `varchar(max)`   | Serializa em JSON com colagem`Latin1_General_CP1_CI_AS_UTF8` |
-| `struct`    |    `varchar(max)`   | Serializa em JSON com colagem`Latin1_General_CP1_CI_AS_UTF8` |
+| `array`     |    `varchar(max)`   | Serializa em JSON com colagem `Latin1_General_CP1_CI_AS_UTF8` |
+| `map`       |    `varchar(max)`   | Serializa em JSON com colagem `Latin1_General_CP1_CI_AS_UTF8` |
+| `struct`    |    `varchar(max)`   | Serializa em JSON com colagem `Latin1_General_CP1_CI_AS_UTF8` |
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 
@@ -190,7 +191,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre os metadados partilhados da Azure Synapse Analytics](overview.md)
 - [Saiba mais sobre a base de dados de metadados partilhados da Azure Synapse Analytics](database.md)

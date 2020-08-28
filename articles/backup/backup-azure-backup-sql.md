@@ -3,12 +3,12 @@ title: Apoiar o SQL Server para Azure como uma carga de trabalho DPM
 description: Uma introdução para fazer backup das bases de dados do SQL Server utilizando o serviço de backup Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e7877d9104fe1263368083eaabd99eae3bdc657b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876313"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017316"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Apoiar o SQL Server para Azure como uma carga de trabalho DPM
 
@@ -38,7 +38,7 @@ Para fazer uma base de dados do SQL Server para Azure e recuperá-la do Azure:
   * O DPM deteta uma ativação pós-falha e continua a proteção da base de dados.
   * O DPM suporta configurações de cluster multilocal para uma instância do SQL Server.
 * Quando são protegidas bases de dados que utilizam a funcionalidade AlwaysOn, o DPM tem as seguintes limitações:
-  * O DPM respeitará a política de cópia de segurança para grupos de disponibilidade que está definida no SQL Server com base nas preferências de cópia de segurança, da seguinte forma:
+  * O DPM honrará a política de backup para grupos de disponibilidade definidos no SQL Server com base nas preferências de backup, da seguinte forma:
     * Preferir secundária – as cópias de segurança devem ocorrer numa réplica secundária, exceto se a réplica primária for a única online. Se houver várias réplicas secundárias disponíveis, então o nó com a maior prioridade de backup será selecionado para cópia de segurança. Se apenas a réplica primária estiver disponível, então a cópia de segurança deve ocorrer na réplica primária.
     * Apenas secundária – a cópia de segurança não deve ser criada na réplica primária. Se a réplica primária for a única online, a cópia de segurança não deve ser criada.
     * Primária – as cópias de segurança devem ser sempre criadas na réplica primária.
@@ -70,11 +70,11 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
 1. Selecione **Novo** para criar um grupo de proteção.
 
     ![Criar um grupo de proteção](./media/backup-azure-backup-sql/protection-group.png)
-1. Na página inicial, reveja as orientações sobre a criação de um grupo de proteção. Em seguida, selecione **Seguinte**.
+1. Na página inicial, reveja as orientações sobre a criação de um grupo de proteção. e selecione **Seguinte**.
 1. Selecione **Servidores**.
 
     ![Selecione o tipo de grupo de proteção servers](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expanda a máquina virtual SQL Server onde estão localizadas as bases de dados que pretende fazer. Vê as fontes de dados que podem ser monitorizadas a partir desse servidor. Expanda **todas as Ações SQL** e, em seguida, selecione as bases de dados que pretende fazer. Neste exemplo, selecionamos ReportServer$MSDPM2012 e ReportServer$MSDPM2012TempDB. Em seguida, selecione **Seguinte**.
+1. Expanda a máquina virtual SQL Server onde estão localizadas as bases de dados que pretende fazer. Vê as fontes de dados que podem ser monitorizadas a partir desse servidor. Expanda **todas as Ações SQL** e, em seguida, selecione as bases de dados que pretende fazer. Neste exemplo, selecionamos ReportServer$MSDPM2012 e ReportServer$MSDPM2012TempDB. e selecione **Seguinte**.
 
     ![Selecione uma base de dados do SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nomeie o grupo de proteção e, em seguida, **selecione Eu quero proteção on-line**.
@@ -99,7 +99,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
 
     Se selecionar **Automaticamente os volumes,** o DPM pode explicar o aumento do volume de backup à medida que os dados de produção crescem. Se não selecionar **automaticamente o crescimento dos volumes,** o DPM limita o armazenamento de backup às fontes de dados do grupo de proteção.
 
-1. Se for administrador, pode optar por transferir esta cópia de segurança inicial **automaticamente pela rede** e escolher a hora da transferência. Ou opte por transferir **manualmente** a cópia de segurança. Em seguida, selecione **Seguinte**.
+1. Se for administrador, pode optar por transferir esta cópia de segurança inicial **automaticamente pela rede** e escolher a hora da transferência. Ou opte por transferir **manualmente** a cópia de segurança. e selecione **Seguinte**.
 
     ![Escolha um método de criação de réplicas](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -107,13 +107,13 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
 
     Após os acabamentos de backup iniciais, as cópias de backup continuam incrementalmente na cópia inicial de backup. As cópias de segurança incrementais tendem a ser pequenas e são facilmente transferidas através da rede.
 
-1. Escolha quando fazer uma verificação de consistência. Em seguida, selecione **Seguinte**.
+1. Escolha quando fazer uma verificação de consistência. e selecione **Seguinte**.
 
     ![Escolha quando fazer uma verificação de consistência](./media/backup-azure-backup-sql/pg-consistent.png)
 
     O DPM pode verificar a integridade do ponto de reserva. Calcula a parte de verificação do ficheiro de cópia de segurança no servidor de produção (o computador SQL Server neste exemplo) e os dados de backup para esse ficheiro em DPM. Se o cheque encontrar um conflito, então o ficheiro de apoio no DPM é assumido como corrupto. O DPM corrige os dados de back-up enviando os blocos que correspondem ao desfasamento da parte de verificação. Como a verificação de consistência é uma operação intensiva de desempenho, os administradores podem optar por agendar a verificação de consistência ou executá-la automaticamente.
 
-1. Selecione as fontes de dados para proteger em Azure. Em seguida, selecione **Seguinte**.
+1. Selecione as fontes de dados para proteger em Azure. e selecione **Seguinte**.
 
     ![Selecione fontes de dados para proteger em Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
 1. Se for administrador, pode escolher horários de backup e políticas de retenção que se adequam às políticas da sua organização.
@@ -179,12 +179,12 @@ Para recuperar uma entidade protegida, como uma base de dados SQL Server, a part
 1. Clique com o botão direito no nome da base de dados e selecione **Recuperar.**
 
     ![Recuperar uma base de dados do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. O DPM mostra os detalhes do ponto de recuperação. Selecione **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do SQL Server**. Em seguida, selecione **Seguinte**.
+1. O DPM mostra os detalhes do ponto de recuperação. Selecione **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do SQL Server**. e selecione **Seguinte**.
 
     ![Recuperar uma base de dados para a sua localização original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     Neste exemplo, o DPM permite que a base de dados seja recuperada para outra instância do SQL Server ou para uma pasta de rede autónoma.
-1. Na página **'Especificar Opções de Recuperação',** pode selecionar as opções de recuperação. Por exemplo, pode escolher **o uso da largura de banda da rede** para acelerar a largura de banda que a recuperação utiliza. Em seguida, selecione **Seguinte**.
+1. Na página **'Especificar Opções de Recuperação',** pode selecionar as opções de recuperação. Por exemplo, pode escolher **o uso da largura de banda da rede** para acelerar a largura de banda que a recuperação utiliza. e selecione **Seguinte**.
 1. Na página **Resumo,** vê a configuração atual de recuperação. Selecione **Recuperar**.
 
     O estado de recuperação mostra a base de dados a ser recuperada. Pode selecionar **Perto** para fechar o assistente e ver o progresso no espaço de trabalho **de monitorização.**

@@ -1,15 +1,15 @@
 ---
-title: O que é o Backup do Azure?
+title: O que é o Azure Backup?
 description: Fornece uma visão geral do serviço Azure Backup, e como contribui para a sua estratégia de continuidade e recuperação de desastres (BCDR).
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: da4f9b4814e93a964105a7ed3ea4addaecd43864
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611233"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017894"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço Azure Backup?
 
@@ -32,13 +32,13 @@ O serviço Azure Backup fornece soluções simples, seguras e económicas que lh
 A Azure Backup oferece estes principais benefícios:
 
 - **Descarrega no local o backup**: O Azure Backup oferece uma solução simples para apoiar os seus recursos no local para a nuvem. Obtenha apoio a curto e longo prazo sem a necessidade de implementar soluções de backup complexas no local.
-- **Backup Azure IaaS VMs**: Azure Backup fornece backups independentes e isolados para proteger contra a destruição acidental de dados originais. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão incorporada de pontos de recuperação. A configuração e a escalabilidade são simples, as cópias de segurança são otimizadas e pode facilmente restaurar conforme necessário.
+- **Backup Azure IaaS VMs**: Azure Backup fornece backups independentes e isolados para proteger contra a destruição acidental de dados originais. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão de pontos de recuperação incorporada. A configuração e a escalabilidade são simples, as cópias de segurança são otimizadas e pode facilmente restaurar conforme necessário.
 - **Escala facilmente** - A azure Backup utiliza a potência subjacente e a escala ilimitada da nuvem Azure para fornecer alta disponibilidade sem manutenção ou monitorização por cima.
 - **Obtenha transferência ilimitada de dados**: A Azure Backup não limita a quantidade de dados de entrada ou saída que transfere, nem cobra pelos dados que são transferidos.
   - Os dados de saída são os dados transferidos a partir de um cofre dos Serviços de Recuperação durante uma operação de restauro.
   - Se efetuar uma cópia de segurança inicial offline utilizando o serviço Azure Import/Export para importar grandes quantidades de dados, há um custo associado aos dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md).
 - **Mantenha os dados seguros**: A Azure Backup fornece soluções para a segurança de dados [em trânsito](backup-azure-security-feature.md) e [em repouso](backup-azure-security-feature-cloud.md).
-- **Monitorização e gestão centralizadas**: A Azure Backup fornece [capacidades de monitorização e alerta incorporadas](backup-azure-monitoring-built-in-monitor.md) num cofre dos Serviços de Recuperação. Estas capacidades estão disponíveis sem qualquer infraestrutura de gestão adicional. Também pode aumentar a escala da sua monitorização e reporte [utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+- **Monitorização e gestão centralizadas**: A Azure Backup fornece [capacidades de monitorização e alerta incorporadas](backup-azure-monitoring-built-in-monitor.md) num cofre dos Serviços de Recuperação. Estas funcionalidades estão disponíveis sem infraestruturas de gestão adicionais. Também pode aumentar a escala da sua monitorização e reporte [utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 - **Obtenha cópias de segurança consistentes com aplicações**: Uma cópia de segurança consistente com aplicações significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de cópia de segurança. O Azure Backup fornece cópias de segurança consistentes com aplicações, que garantem que não são necessárias correções adicionais para restaurar os dados. Restaurar dados consistentes com as aplicações reduz o tempo de restauro, permitindo-lhe voltar rapidamente a um estado de execução.
 - **Reter dados a curto e longo prazo**: Pode utilizar [cofres dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para retenção de dados a curto e longo prazo.
 - **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com a Azure Backup, não há custos para usar dispositivos de armazenamento no local. O Azure Backup atribui automaticamente e gere o armazenamento de cópia de segurança, e utiliza um modelo de pagamento enquanto utiliza. Então, só paga pelo armazenamento que consome. [Saiba mais](https://azure.microsoft.com/pricing/details/backup) sobre preços.

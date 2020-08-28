@@ -8,21 +8,19 @@ ms.author: kgremban
 ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom:
-- mvc
-- amqp
-ms.openlocfilehash: ba438971f3499b0d4f34affee8b4e4d0051ff828
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.custom: mvc, amqp, devx-track-csharp
+ms.openlocfilehash: b904fcd03247f6e6ae01f51c5048c29826bb8e5a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809924"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018472"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo C# IoT Edge para dispositivos Windows
 
 Utilize o Visual Studio para desenvolver o código C# e implemente-o num dispositivo Windows que executa o Azure IoT Edge.
 
-Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, ficará a saber como:
+Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >

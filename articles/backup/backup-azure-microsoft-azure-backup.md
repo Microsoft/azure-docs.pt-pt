@@ -3,12 +3,12 @@ title: Use o Servidor de Backup Azure para fazer backup de cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892291"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001183"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instale e atualize o Servidor de Backup do Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "88892291"
 Este artigo explica como preparar o seu ambiente para fazer backup de cargas de trabalho usando o Microsoft Azure Backup Server (MABS). Com o Azure Backup Server, pode proteger as cargas de trabalho da aplicação tais como Hiper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e clientes Windows a partir de uma única consola.
 
 > [!NOTE]
-> O Azure Backup Server pode agora proteger VMware VMs e fornecer capacidades de segurança melhoradas. Instale o produto conforme explicado nas secções abaixo e no mais recente Agente de Backup Azure. Para saber mais sobre como fazer backup de servidores VMware com O Servidor de Backup Azure, consulte o artigo, Use o [Azure Backup Server para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md). Para saber mais sobre as capacidades de segurança, consulte a [documentação das funcionalidades de segurança de backup da Azure](backup-azure-security-feature.md).
+> O Azure Backup Server pode agora proteger VMware VMs e fornecer capacidades de segurança melhoradas. Instale o produto conforme explicado nas secções abaixo e no mais recente Agente de Backup Azure. Para saber mais sobre como fazer backup de servidores VMware com O Servidor de Backup Azure, consulte o artigo, Use o [Azure Backup Server para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md). Para saber mais sobre as capacidades de segurança, consulte a [documentação das funcionalidades de segurança do Azure Backup](backup-azure-security-feature.md).
 >
 >
 
@@ -66,9 +66,9 @@ Pode desduplicar o armazenamento DPM utilizando a deduplica do Servidor do Windo
 >
 > * Um computador em execução como um controlador de domínio
 > * Um computador no qual a função de Servidor de Aplicações está instalada
-> * Um computador que é um servidor de gestão do System Center Operations Manager
+> * Um computador que é um servidor de gestão de gestor de operações do System Center
 > * Um computador no qual o Exchange Server está em execução
-> * Um computador que é um nó de um cluster
+> * Um computador que é um nó de um aglomerado
 >
 > A instalação do Azure Backup Server não é suportada no Windows Server Core ou no Microsoft Hyper-V Server.
 
@@ -262,24 +262,24 @@ Aqui estão os passos se precisar de mover o MABS para um novo servidor, mantend
   > [!IMPORTANT]
   >
   > * O nome do novo servidor deve ter o mesmo nome que a instância original do Servidor de Backup Azure. Não é possível alterar o nome da nova instância do Servidor de Backup Azure se pretender utilizar o pool de armazenamento anterior e a Base de Dados MABS (DPMDB) para manter pontos de recuperação.
-  > * Deve ter uma cópia de segurança da Base de Dados MABS (DPMDB). Precisa restaurar a base de dados.
+  > * Deve ter uma cópia de segurança da Base de Dados MABS (DPMDB). Vai precisar dele para restaurar a base de dados.
 
 1. No painel de visualização, selecione os computadores clientes para os quais pretende atualizar o agente de proteção.
-2. Desligue o servidor de reserva original do Azure ou tire-o do fio.
-3. Repôs a conta da máquina no diretório ativo.
-4. Instale o Servidor 2016 em nova máquina e nomeie-o com o mesmo nome da máquina que o servidor original de Backup Azure.
-5. Junte-se ao Domínio
-6. Instale o servidor de backup V3 ou mais tarde (mova os discos de piscina MABS storage do antigo servidor e importe)
+2. Desligue o servidor original de Backup Azure ou desligue-o offline.
+3. Repor a conta da máquina no Ative Directory.
+4. Instale o Servidor 2016 numa nova máquina e dê-lhe o mesmo nome de máquina que o servidor original de Backup Azure.
+5. Junte-se ao domínio.
+6. Instale o Azure Backup Server V3 ou mais tarde (mova os discos de armazenamento MABS do servidor antigo e importe).
 7. Restaurar o DPMDB dado no passo 1.
 8. Prenda o armazenamento do servidor de reserva original ao novo servidor.
-9. Do SQL Restaurar o DPMDB
-10. Da linha de comando de administração no novo cd do servidor até ao Microsoft Azure Backup instalar localização e pasta de contentores
+9. A partir do SQL, restaurar o DPMDB.
+10. Executar CMD (como administrador) no novo servidor. Aceda à localização de instalação do Microsoft Azure Backup e à pasta do caixote do lixo
 
     Exemplo do caminho: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
-11. Para a azure backup, executar DPMSYNC -SYNC
+11. Para ligar ao Azure Backup, corra `DPMSYNC -SYNC`
 
-    Se adicionou discos NOVOS à piscina de armazenamento DPM em vez de mover os antigos, em seguida, executar DPMSYNC -Reallocatereplica
+    Se tiver adicionado **novos** discos à piscina de armazenamento DPM em vez de mover os antigos, então corra `DPMSYNC -Reallocatereplica`
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 

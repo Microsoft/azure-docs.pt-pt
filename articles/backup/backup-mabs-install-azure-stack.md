@@ -3,12 +3,12 @@ title: Instalar Azure Backup Server no Azure Stack
 description: Neste artigo, aprenda a usar o Azure Backup Server para proteger ou fazer backup de cargas de trabalho em Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827012"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018132"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -99,7 +99,7 @@ Proteger cargas de trabalho com o Azure Backup Server tem muitas nuances. A [mat
 > - Um computador em execução como um controlador de domínio
 > - Um computador no qual a função de Servidor de Aplicações está instalada
 > - Um computador no qual o Exchange Server está em execução
-> - Um computador que é um nó de um cluster
+> - Um computador que é um nó de um aglomerado
 
 Junte sempre o Servidor de Backup Azure a um domínio. Se precisar de mover o Azure Backup Server para um domínio diferente, instale primeiro o Azure Backup Server e, em seguida, junte-o ao novo domínio. Uma vez implantado O Servidor de Backup Azure, não poderá movê-lo para um novo domínio.
 

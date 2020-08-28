@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8142ef5e2aaaf5831c01215d28eecf8d06e1d8ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 32b3207fc86f9aab7194d63a0e57eea459fd7eac
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071914"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018030"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Realizar codificação avançada personalizando predefinições MES 
 

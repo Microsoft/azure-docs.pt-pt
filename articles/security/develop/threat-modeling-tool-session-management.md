@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 6a40d89db3e81721ec8a35973b79a558c17caee4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: has-adal-ref, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: b6cb79c4310237e2052ff7eca59a5e2d356968a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543695"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000469"
 ---
 # <a name="security-frame-session-management"></a>Quadro de Segurança: Gestão de Sessão
 | Produto/Serviço | Artigo |
@@ -39,7 +39,7 @@ ms.locfileid: "87543695"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -74,7 +74,7 @@ Também deve destruir a sessão do utilizador chamando o método Session.Abandon
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -85,7 +85,7 @@ Também deve destruir a sessão do utilizador chamando o método Session.Abandon
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Documento Azure DB | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -96,7 +96,7 @@ Também deve destruir a sessão do utilizador chamando o método Session.Abandon
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | ADFS | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -145,7 +145,7 @@ Também deve destruir a sessão do utilizador chamando o método Session.Abandon
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de Identidade | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Assinatura IdentitáriaServer3-Federada](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
@@ -156,7 +156,7 @@ Também deve destruir a sessão do utilizador chamando o método Session.Abandon
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referências**              | [httpCookies Element (ASP.NET Definições Schema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure Property](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
@@ -175,7 +175,7 @@ A definição é aplicada mesmo que HTTP seja utilizado para aceder à aplicaç�
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Formulários Web, MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referências**              | N/D  |
@@ -197,7 +197,7 @@ A definição é aplicada mesmo que HTTP seja utilizado para aceder à aplicaç�
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Atributo de cookies seguros](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
@@ -218,7 +218,7 @@ Todas as aplicações baseadas em HTTP que utilizam cookies devem especificar ht
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Formulários Web |
 | **Atributos**              | N/D  |
 | **Referências**              | [FormuláriosAufercation.requer propriedade de Sl](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
@@ -235,7 +235,7 @@ O exemplo de código a seguir define o atributo requereSSL no ficheiro Web.confi
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referências**              | [Configuração da Fundação da Identidade do Windows (WIF) – Parte II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
@@ -260,7 +260,7 @@ A configuração seguinte mostra a configuração correta:
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -269,7 +269,7 @@ A configuração seguinte mostra a configuração correta:
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Prevenção XSRF/CSRF em ASP.NET MVC e Páginas Web](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
@@ -355,7 +355,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Formulários Web |
 | **Atributos**              | N/D  |
 | **Referências**              | [Aproveite ASP.NET funcionalidades incorporadas para evitar ataques web](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
@@ -375,7 +375,7 @@ void Page_Init (object sender, EventArgs e) {
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
@@ -395,7 +395,7 @@ void Page_Init (object sender, EventArgs e) {
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Formulários Web |
 | **Atributos**              | N/D  |
 | **Referências**              | [Formulários elemento para autenticação (ASP.NET Esquema de Definições)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
@@ -410,7 +410,7 @@ void Page_Init (object sender, EventArgs e) {
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Formulários Web, MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referências**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
@@ -445,7 +445,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -456,7 +456,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -465,7 +465,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Prevenção de ataques de falsificação de pedidos de transcomerções (CSRF) em ASP.NET API web](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
@@ -552,7 +552,7 @@ Filtro de autorização que verifica:
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | Fornecedor de identidade - ADFS, Fornecedor de Identidade - Azure AD |
 | **Referências**              | [Garantir uma API web com contas individuais e login local em ASP.NET Web API 2.2](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |

@@ -15,12 +15,13 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Operations'
 - devx-track-javascript
-ms.openlocfilehash: 223ec01165922702f8f8fa17b09e530b16fa79e5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-csharp
+ms.openlocfilehash: f8971faec53830746c76d09a6cf7f22d2c80c45a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423478"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017690"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -79,7 +80,7 @@ Para obter mais informações sobre como construir e usar fichas de segurança, 
 
 Cada protocolo suportado, como MQTT, AMQP e HTTPS, transporta fichas de diferentes maneiras.
 
-Ao utilizar o MQTT, o pacote CONNECT tem o dispositivoId como ClientId, `{iothubhostname}/{deviceId}` no campo username, e um token SAS no campo Password. `{iothubhostname}`deve ser o CName completo do hub IoT (por exemplo, contoso.azure-devices.net).
+Ao utilizar o MQTT, o pacote CONNECT tem o dispositivoId como ClientId, `{iothubhostname}/{deviceId}` no campo username, e um token SAS no campo Password. `{iothubhostname}` deve ser o CName completo do hub IoT (por exemplo, contoso.azure-devices.net).
 
 Ao utilizar [amQP,](https://www.amqp.org/)o IoT Hub suporta [sasl PLAIN](https://tools.ietf.org/html/rfc4616) e [AMQP Claims-Based-Security](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
 
@@ -87,8 +88,8 @@ Se utilizar a segurança baseada em reclamações amQP, a norma especifica como 
 
 Para SASL PLAIN, o **nome de utilizador** pode ser:
 
-* `{policyName}@sas.root.{iothubName}`se utilizar fichas de nível de hub IoT.
-* `{deviceId}@sas.{iothubname}`se utilizar fichas com mira de dispositivos.
+* `{policyName}@sas.root.{iothubName}` se utilizar fichas de nível de hub IoT.
+* `{deviceId}@sas.{iothubname}` se utilizar fichas com mira de dispositivos.
 
 Em ambos os casos, o campo de palavra-passe contém o símbolo, conforme descrito em [fichas de segurança IoT Hub](iot-hub-devguide-security.md#security-tokens).
 
@@ -96,7 +97,7 @@ HTTPS implementa a autenticação através da inclusão de um token válido no c
 
 #### <a name="example"></a>Exemplo
 
-Nome de utilizador (DeviceId é sensível a casos):`iothubname.azure-devices.net/DeviceId`
+Nome de utilizador (DeviceId é sensível a casos): `iothubname.azure-devices.net/DeviceId`
 
 Palavra-passe (Pode gerar um token SAS com o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token), ou as [Ferramentas IoT Azure para Código do Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 

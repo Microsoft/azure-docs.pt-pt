@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ff34b967e2ba42c01c904b8854ecfa04c394e17
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551528"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017544"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Conector Google Cloud (G Suite)
 
@@ -225,15 +225,18 @@ Nesta secção, você permitirá que B.Simon use o único sinal de Azure, conced
 
     b. No campo **URL de página de entrada** no Conector Google Cloud (G Suite), cole o valor do URL de **Login** que copiou do portal Azure.
 
-    c. No campo **URL da página de sign-out** no Conector Google Cloud (G Suite), cole o valor do URL **logout** que copiou do portal Azure.
+    c. No campo **URL da página de acesso ao** resultado do Google Cloud (G Suite), cole o valor do URL de **login** que copiou do portal Azure.
 
-    d. No campo URL de **palavra-passe Change** no Conector Google Cloud (G Suite), cole o valor do URL de **palavra-passe Change** que copiou do portal Azure.
+    > [!NOTE]
+    > A nuvem do Google (Suíte G) baseia-se no protocolo DE LOGOUT DA SAML. Assim, no campo **URL da página de sign-out** precisamos de usar o URL de logout SAML, ou seja, o URL de login como o valor para o mesmo.
 
-    e. No Conector Google Cloud (G Suite), para o **certificado de Verificação,** faça o upload do certificado que descarregou a partir do portal Azure.
+    d. No Conector Google Cloud (G Suite), para o **certificado de Verificação,** faça o upload do certificado que descarregou a partir do portal Azure.   
 
-    f. Verifique/desmarque a utilização de uma opção **de emitente específica** de domínio, de acordo com a nota mencionada na secção **de Configuração BÁSICA SAML** acima no AD Azure.
+    e. Verifique/desmarque a utilização de uma opção **de emitente específica** de domínio, de acordo com a nota mencionada na secção **de Configuração BÁSICA SAML** acima no AD Azure.
 
-    exemplo, Clique em **Guardar Alterações**.
+    f. No campo URL de **palavra-passe Change** no Conector Google Cloud (G Suite), cole o valor do URL de **palavra-passe Change** que copiou do portal Azure.
+
+    exemplo, Clique em **Guardar**.
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Criar o utilizador de teste do conector Google Cloud (G Suite)
 

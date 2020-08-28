@@ -7,14 +7,14 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 572b5328a433839dafbfe23eb7207dfaeb9ea309
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158151"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017860"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender a Azure IoT Central com regras personalizadas usando Stream Analytics, Funções Azure e SendGrid
 
@@ -65,26 +65,26 @@ Utilize o [portal Azure para criar um espaço de nomes de Centros de Eventos](ht
 | Definição | Valor |
 | ------- | ----- |
 | Nome    | Escolha o seu nome de espaço de nome |
-| Escalão de preço | Básica |
+| Escalão de preço | Básico |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | Deteta desacossados |
-| Localização | E.U.A. Leste |
+| Localização | E.U.A Leste |
 | Unidades de Débito | 1 |
 
 ### <a name="stream-analytics-job"></a>Trabalho de Stream Analytics
 
-Utilize o [portal Azure para criar um trabalho stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes definições:
+Utilize o [portal Azure para criar um trabalho stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)  com as seguintes definições:
 
 | Definição | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do seu trabalho |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | Deteta desacossados |
-| Localização | E.U.A. Leste |
+| Localização | E.U.A Leste |
 | Ambiente de alojamento | Cloud |
 | Unidades de transmissão em fluxo | 3 |
 
-### <a name="function-app"></a>Function app
+### <a name="function-app"></a>Aplicação de funções
 
 Utilize o [portal Azure para criar uma aplicação de função](https://portal.azure.com/#create/Microsoft.FunctionApp) com as seguintes definições:
 
@@ -95,7 +95,7 @@ Utilize o [portal Azure para criar uma aplicação de função](https://portal.a
 | Grupo de recursos | Deteta desacossados |
 | SO | Windows |
 | Plano de Alojamento | Plano de Consumo |
-| Localização | E.U.A. Leste |
+| Localização | E.U.A Leste |
 | Pilha de Tempo de Execução | .NET |
 | Armazenamento | Criar novo |
 
@@ -249,7 +249,7 @@ Esta solução utiliza uma consulta stream Analytics para detetar quando um disp
     | Alias de entrada | centraltelemetria |
     | Subscrição | A sua subscrição |
     | Espaço de nomes do hub de eventos | O seu espaço de nomes do Centro de Eventos |
-    | O nome do hub de eventos | Utilizar o ex-exposição existente - **centralexport** |
+    | Nome do Hub de Eventos | Utilizar o ex-exposição existente - **centralexport** |
 
 1. Em **Topologia de Jobs,** selecione **Outputs,** escolha **+ Adicionar**e, em seguida, escolha a **função Azure**.
 1. Utilize as informações na tabela a seguir para configurar a saída e, em seguida, escolha **Guardar:**
@@ -258,7 +258,7 @@ Esta solução utiliza uma consulta stream Analytics para detetar quando um disp
     | ------- | ----- |
     | Alias de saída | e-mailnotificação |
     | Subscrição | A sua subscrição |
-    | Function app | O seu aplicativo de função |
+    | Aplicação de funções | O seu aplicativo de função |
     | Função  | HttpTrigger1 |
 
 1. Em **Topologia de Jobs,** **selecione Consulta** e substitua a consulta existente pelo seguinte SQL:
@@ -321,8 +321,8 @@ No site do [gestor de aplicações Azure IoT Central,](https://aka.ms/iotcentral
     | Espaço de nomes dos Event Hubs | O nome do seu espaço de nome do Event Hubs |
     | Hub de eventos | centralexport |
     | Medições | Ativado |
-    | Dispositivos | Desativado |
-    | Modelos de dispositivo | Desativado |
+    | Dispositivos | Desativada |
+    | Modelos de dispositivo | Desativada |
 
 ![Configuração contínua da exportação de dados](media/howto-create-custom-rules/cde-configuration.png)
 

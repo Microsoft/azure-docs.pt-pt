@@ -3,7 +3,7 @@ title: Pare de usar extensão VM de identidade gerida - Azure AD
 description: Instruções passo a passo para parar de usar a extensão VM e começar a usar o Serviço de Metadados de Instância Azure (IMDS) para autenticação.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: markvi
-ms.openlocfilehash: afcbf5187a3b5ef3f44aebda22d376e9b796bf59
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.author: barclayn
+ms.openlocfilehash: 67e7f8890923dec2dca369b6a57399232c0198cc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848392"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018381"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de usar a extensão de identidades geridas pela máquina virtual e começar a usar o Serviço de Metadados de Instância Azure
 
@@ -166,9 +166,9 @@ No Windows e em certas versões do Linux, se a extensão parar, pode ser utiliza
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-Onde: 
-- O nome de extensão e o tipo para Windows é:`ManagedIdentityExtensionForWindows`
-- O nome de extensão e o tipo para Linux é:`ManagedIdentityExtensionForLinux`
+Em que: 
+- O nome de extensão e o tipo para Windows é: `ManagedIdentityExtensionForWindows`
+- O nome de extensão e o tipo para Linux é: `ManagedIdentityExtensionForLinux`
 
 #### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>"Script de automação" falha ao tentar exportar esquema para identidades geridas para extensão de recursos Azure
 
@@ -186,7 +186,7 @@ Existem várias limitações importantes para a utilização da extensão da má
 
  * A limitação mais grave é o facto de as credenciais utilizadas para solicitar fichas serem armazenadas na máquina virtual. Um intruso que viole com sucesso a máquina virtual pode exfiltrar as credenciais. 
  * Além disso, a extensão da máquina virtual ainda não é suportada por várias distribuições linux, com um enorme custo de desenvolvimento para modificar, construir e testar a extensão em cada uma dessas distribuições. Atualmente, apenas as seguintes distribuições Linux são suportadas: 
-    * CoreOS Estável
+    * CoreOS Stable
     * CentOS 7.1 
     * Chapéu Vermelho 7.2 
     * Ubuntu 15.04 

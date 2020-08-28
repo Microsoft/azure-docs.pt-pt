@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 4c71a108d1967027465d127db50737119af3e2c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-csharp
+ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733374"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018506"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Horários e trabalhos de transmissão (.NET)
 
@@ -78,7 +78,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
 
 1. No Solution Explorer, clique com o botão direito no projeto **SimulateDeviceMethods** e, em seguida, selecione **Gerir pacotes NuGet**.
 
-1. No **NuGet Package Manager**, selecione **Procurar** e escolher **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
+1. No **NuGet Package Manager**, selecione **Procurar** e escolher **Microsoft.Azure.Devices.Client**. Selecione **Install** (Instalar).
 
     ![Aplicativo de cliente de janela do Gestor de pacotes NuGet](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
@@ -305,7 +305,7 @@ Já está pronto para executar as aplicações.
 
     ![Executar as aplicações para agendar empregos](./media/iot-hub-csharp-csharp-schedule-jobs/schedule-jobs-console-results.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, utilizou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do dispositivo Twin.
 

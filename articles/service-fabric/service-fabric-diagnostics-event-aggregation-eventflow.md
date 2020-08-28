@@ -5,12 +5,13 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: cde24657cc8ed78b91e72df16d51df4077a6e030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463090"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018659"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e recolha de eventos usando EventFlow
 
@@ -24,12 +25,12 @@ Os binários EventFlow estão disponíveis como um conjunto de pacotes NuGet. Pa
 
 Você verá uma lista de vários pacotes aparecem, rotulados com "Inputs" e "Outputs". O EventFlow suporta vários fornecedores e analisadores de registos diferentes. O eventFlow de hospedagem de serviço deve incluir pacotes apropriados dependendo da origem e destino para os registos de aplicações. Além do pacote Core ServiceFabric, também precisa de pelo menos uma entrada e saída configuradas. Por exemplo, pode adicionar os seguintes pacotes para enviar eventos EventSource para Insights de Aplicação:
 
-* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`para capturar dados da classe EventSource do serviço, e de EventSources padrão como *Microsoft-ServiceFabric-Services* e *Microsoft-ServiceFabric-Actors*)
-* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`(vamos enviar os registos para um recurso Azure Application Insights)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` para capturar dados da classe EventSource do serviço, e de EventSources padrão como *Microsoft-ServiceFabric-Services* e *Microsoft-ServiceFabric-Actors*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (vamos enviar os registos para um recurso Azure Application Insights)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(permite a inicialização do gasoduto EventFlow a partir da configuração do serviço service Fabric e reporta quaisquer problemas com o envio de dados de diagnóstico como relatórios de saúde do Service Fabric)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Inputs.EventSource`pacote requer que o projeto de serviço se desponte para o Quadro .NET 4.6 ou mais recente. Certifique-se de que define o quadro-alvo adequado nas propriedades do projeto antes de instalar este pacote.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` pacote requer que o projeto de serviço se desponte para o Quadro .NET 4.6 ou mais recente. Certifique-se de que define o quadro-alvo adequado nas propriedades do projeto antes de instalar este pacote.
 
 Depois de todos os pacotes estarem instalados, o próximo passo é configurar e ativar o EventFlow no serviço.
 
@@ -139,13 +140,13 @@ O EventFlow suporta a utilização de configurações de Tecido de Serviço e pa
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>`é o nome da secção de configuração do Tecido de Serviço, e `<setting-name>` é a definição de configuração que fornece o valor que será usado para configurar uma definição eventFlow. Para ler mais sobre como fazê-lo, vá ao [Suporte para Configurações de Tecido de Serviço e parâmetros de aplicação](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` é o nome da secção de configuração do Tecido de Serviço, e `<setting-name>` é a definição de configuração que fornece o valor que será usado para configurar uma definição eventFlow. Para ler mais sobre como fazê-lo, vá ao [Suporte para Configurações de Tecido de Serviço e parâmetros de aplicação](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Verificação
 
 Inicie o seu serviço e observe a janela de saída Debug no Visual Studio. Após o início do serviço, deverá começar a ver provas de que o seu serviço está a enviar registos para a saída que configuraram. Navegue para a sua plataforma de análise e visualização de eventos e confirme que os registos começaram a aparecer (pode demorar alguns minutos).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Análise e Visualização de Eventos com Insights de Aplicações](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análise e Visualização de Eventos com registos do Monitor Azure](service-fabric-diagnostics-event-analysis-oms.md)

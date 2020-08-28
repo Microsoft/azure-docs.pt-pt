@@ -4,19 +4,19 @@ description: Use o Control de Acesso baseado em funções para gerir o acesso a 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1a4bb617511f5d5ccf882ccb11e7d88eb7a848ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533466"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017809"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure
 
 O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
 
 > [!IMPORTANT]
-> As funções fornecidas pela Azure Backup estão limitadas a ações que podem ser executadas no portal Azure ou através de cofres de API ou Serviços de Recuperação powerShell ou CLI. As ações realizadas no Azure backup Agent Client UI ou System center Data Protection Manager UI ou Azure Backup Server UI estão fora de controlo destas funções.
+> As funções fornecidas pela Azure Backup estão limitadas a ações que podem ser executadas no portal Azure ou através de cofres de API ou Serviços de Recuperação powerShell ou CLI. As ações realizadas no UI do agente de backup Azure ou no System center Data Protection Manager UI ou no Azure Backup Server UI estão fora de controlo destas funções.
 
 O Azure Backup fornece três funções incorporadas para controlar as operações de gestão de backup. Saiba mais sobre [os papéis embutidos no Azure](../role-based-access-control/built-in-roles.md)
 

@@ -3,12 +3,12 @@ title: Restaurar ficheiros no Windows Server utilizando o Agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure num servidor Windows ou num computador Windows com o Agente microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 59e212b31d79c0d9a75369e542fee5e86f29653a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892512"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018914"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar ficheiros no Windows Server utilizando o Agente MARS
 
@@ -89,7 +89,7 @@ Estes passos incluem a seguinte terminologia:
 * *Cofre de amostras* – O cofre dos Serviços de Recuperação ao qual está registada a máquina de origem e a máquina-alvo.
 
 > [!NOTE]
-> As cópias de segurança não podem ser restauradas numa máquina-alvo que esteja a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança tirada de um computador Windows 7 pode ser restaurada num computador do Windows 7 (ou posteriormente). Uma cópia de segurança tirada de um computador Windows 8 não pode ser restaurada num computador Windows 7.
+> As cópias de segurança não podem ser restauradas numa máquina-alvo que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança tirada de um computador Windows 7 pode ser restaurada num computador do Windows 7 (ou posteriormente). Uma cópia de segurança tirada de um computador Windows 10 não pode ser restaurada num computador Windows 7.
 >
 >
 

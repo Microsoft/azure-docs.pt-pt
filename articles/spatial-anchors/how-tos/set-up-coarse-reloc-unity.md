@@ -8,12 +8,13 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 5c976bd020d37672c44c89113bf7786e1ccf141b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 42a237caf03d4d3fb6dd9aa70668cbb84ff40072
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76548259"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008629"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-c"></a>Como criar e localizar âncoras usando relocalização grosseira em C #
 

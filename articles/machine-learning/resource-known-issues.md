@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: cd9b015c292d262430d3fd845e06e38866bc6239
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757290"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018727"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -184,6 +184,8 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
 ## <a name="set-up-your-environment"></a>Configurar o seu ambiente
 
 * **Problemas na criação do AmlCompute**: Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
+
+* **Atualmente, o Registo de Contentores Azure não suporta caracteres unicode em nomes do Grupo de Recursos**: É possível que os pedidos de ACR falhem porque o seu nome de grupo de recursos contém caracteres unicódigo. Para mitigar este problema, recomendamos a criação de um ACR num grupo de recursos com nome diferente.
 
 ## <a name="work-with-data"></a>Trabalhar com dados
 

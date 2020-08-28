@@ -7,12 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4fa2d7f3884a30e60ce703dd45b295a85722fe67
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285293"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001421"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Quickstart: Azure Blob storage client library v11 for .NET
 
@@ -102,7 +103,7 @@ Do diretório do projeto:
 2. Remova a `Console.WriteLine` declaração
 3. Adicionar `using` diretivas
 4. Crie um `ProcessAsync` método onde o código principal para o exemplo resida
-5. Assíncronosamente chamar o `ProcessAsync` método de`Main`
+5. Assíncronosamente chamar o `ProcessAsync` método de `Main`
 
 Aqui está o código:
 

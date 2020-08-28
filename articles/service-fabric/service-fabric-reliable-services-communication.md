@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 0899e33e875fea4a1708e593876b7ef771004677
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253189"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018642"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar as APIs de comunicação de Serviços Fiáveis
 A Azure Service Fabric como plataforma é completamente agnóstica sobre a comunicação entre serviços. Todos os protocolos e pilhas são aceitáveis, da UDP ao HTTP. Cabe ao promotor de serviços escolher como os serviços devem comunicar. A estrutura de aplicação reliable Services fornece pilhas de comunicação incorporadas, bem como APIs que você pode usar para construir seus componentes de comunicação personalizados.
@@ -231,7 +232,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient`é o objeto que é usado para comunicar com o cluster de Tecido de Serviço para várias operações de gestão no cluster. Isto é útil quando você quer mais controlo sobre como uma divisória de serviço resolver interage com o seu cluster. `FabricClient`executa o caching internamente e é geralmente caro de criar, por isso é importante reutilizar `FabricClient` os casos tanto quanto possível.
+`FabricClient` é o objeto que é usado para comunicar com o cluster de Tecido de Serviço para várias operações de gestão no cluster. Isto é útil quando você quer mais controlo sobre como uma divisória de serviço resolver interage com o seu cluster. `FabricClient` executa o caching internamente e é geralmente caro de criar, por isso é importante reutilizar `FabricClient` os casos tanto quanto possível.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -262,7 +263,7 @@ Normalmente, o código do cliente não precisa de funcionar diretamente com o Se
 ### <a name="communication-clients-and-factories"></a>Clientes e fábricas de comunicação
 A biblioteca da fábrica de comunicação implementa um padrão típico de retagem de manipulação de falhas que facilita a reagem às ligações aos pontos finais de serviço resolvidos. A biblioteca de fábrica fornece o mecanismo de repetição enquanto fornece os manipuladores de erros.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`define a interface base implementada por uma fábrica de clientes de comunicação que produz clientes que podem falar com um serviço de Tecido de Serviço. A implementação da ComunicaçãoClientFactory depende da pilha de comunicação utilizada pelo serviço de Tecido de Serviço onde o cliente quer comunicar. A API de Serviços Fiáveis fornece um `CommunicationClientFactoryBase<TCommunicationClient>` . Isto fornece uma implementação base da interface CommunicationClientFactory e executa tarefas que são comuns a todas as pilhas de comunicação. (Estas tarefas incluem a utilização de um ServicePartitionResolver para determinar o ponto final de serviço). Os clientes normalmente implementam a classe Abstrata CommunicationClientFactoryBase para lidar com a lógica específica da pilha de comunicação.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` define a interface base implementada por uma fábrica de clientes de comunicação que produz clientes que podem falar com um serviço de Tecido de Serviço. A implementação da ComunicaçãoClientFactory depende da pilha de comunicação utilizada pelo serviço de Tecido de Serviço onde o cliente quer comunicar. A API de Serviços Fiáveis fornece um `CommunicationClientFactoryBase<TCommunicationClient>` . Isto fornece uma implementação base da interface CommunicationClientFactory e executa tarefas que são comuns a todas as pilhas de comunicação. (Estas tarefas incluem a utilização de um ServicePartitionResolver para determinar o ponto final de serviço). Os clientes normalmente implementam a classe Abstrata CommunicationClientFactoryBase para lidar com a lógica específica da pilha de comunicação.
 
 O cliente de comunicação acaba de receber um endereço e usa-o para se ligar a um serviço. O cliente pode usar o protocolo que quiser.
 

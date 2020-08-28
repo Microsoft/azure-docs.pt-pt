@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8f8b18d36453ac65300a5dd19fa7e07b1449bc28
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 1de363e66a4d5780258b75d777a95318f36333fd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87538953"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000503"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados sensíveis / Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança da máquina** | <ul><li>[Certifique-se de que os binários são obfuscados se contiverem informações sensíveis](#binaries-info)</li><li>[Considere usar o Sistema de Ficheiros Encriptados (EFS) usado para proteger dados confidenciais específicos do utilizador](#efs-user)</li><li>[Certifique-se de que os dados sensíveis armazenados pela aplicação no sistema de ficheiros são encriptados](#filesystem)</li></ul> | 
 | **Aplicação Web** | <ul><li>[Certifique-se de que o conteúdo sensível não está em cache no navegador](#cache-browser)</li><li>[Criptografe secções dos ficheiros de configuração da Web App que contenham dados sensíveis](#encrypt-data)</li><li>[Desativar explicitamente o atributo HTML auto-completa em formas e entradas sensíveis](#autocomplete-input)</li><li>[Certifique-se de que os dados sensíveis apresentados no ecrã do utilizador são mascarados](#data-mask)</li></ul> | 
-| **Base de Dados** | <ul><li>[Implementar máscaras dinâmicas de dados para limitar utilizadores sensíveis de exposição a dados não privilegiados](#dynamic-users)</li><li>[Certifique-se de que as palavras-passe são armazenadas em formato de haxixe salgado](#salted-hash)</li><li>[Certifique-se de que os dados sensíveis nas colunas de base de dados são encriptados](#db-encrypted)</li><li>[Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada](#tde-enabled)</li><li>[Certifique-se de que as cópias de segurança da base de dados são encriptadas](#backup)</li></ul> | 
+| **Base de dados** | <ul><li>[Implementar máscaras dinâmicas de dados para limitar utilizadores sensíveis de exposição a dados não privilegiados](#dynamic-users)</li><li>[Certifique-se de que as palavras-passe são armazenadas em formato de haxixe salgado](#salted-hash)</li><li>[Certifique-se de que os dados sensíveis nas colunas de base de dados são encriptados](#db-encrypted)</li><li>[Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada](#tde-enabled)</li><li>[Certifique-se de que as cópias de segurança da base de dados são encriptadas](#backup)</li></ul> | 
 | **API Web** | <ul><li>[Certifique-se de que os dados sensíveis relevantes para a API Web não são armazenados no armazenamento do navegador](#api-browser)</li></ul> | 
 | Documento Azure DB | <ul><li>[Criptografe dados sensíveis armazenados em Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Fronteira da Confiança Azure IaaS VM Boundary** | <ul><li>[Use encriptação do disco Azure para encriptar discos utilizados por Máquinas Virtuais](#disk-vm)</li></ul> | 
@@ -54,7 +54,7 @@ ms.locfileid: "87538953"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança da máquina | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -76,7 +76,7 @@ ms.locfileid: "87538953"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, Formulários Web, MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -129,7 +129,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Como: Criptografar secções de configuração em ASP.NET 2.0 Utilizando o DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Especificando um Fornecedor de Configuração Protegido](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Usando o cofre de chave Azure para proteger os segredos da aplicação](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
@@ -140,7 +140,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN: atributo autocompleto](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Utilização Automática em HTML](https://msdn.microsoft.com/library/ms533032.aspx), [Vulnerabilidade de Sanitização HTML,](https://technet.microsoft.com/security/bulletin/MS10-071) [Autocomplete.,,again?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
@@ -159,7 +159,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -170,10 +170,10 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Sql Azure, OnPrem |
 | **Atributos**              | Versão SQL - V12, VERSÃO SQL - MsSQL2016 |
-| **Referências**              | [Mascaramento dinâmico de dados](https://msdn.microsoft.com/library/mt130841) |
+| **Referências**              | [Máscara de Dados Dinâmicos](https://msdn.microsoft.com/library/mt130841) |
 | **Passos** | O objetivo da mascaração dinâmica de dados é limitar a exposição de dados sensíveis, impedindo os utilizadores que não devem ter acesso aos dados de visualização dos mesmos. A mascaração dinâmica de dados não visa impedir que os utilizadores de bases de dados se conectem diretamente à base de dados e executem consultas exaustivas que exponham peças dos dados sensíveis. A máscara dinâmica de dados é complementar a outras funcionalidades de segurança do SQL Server (auditoria, encriptação, segurança ao nível da linha...) e é altamente recomendado utilizar esta funcionalidade em conjunto com eles, além de melhor proteger os dados sensíveis na base de dados. Por favor, note que esta funcionalidade é suportada apenas pelo SQL Server a partir de 2016 e Azure SQL Database. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Certifique-se de que as palavras-passe são armazenadas em formato de haxixe salgado
@@ -181,7 +181,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Hashing de palavra-passe usando .NET Crypto APIs](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
@@ -192,7 +192,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Versão SQL - Todos |
 | **Referências**              | [Encriptar dados sensíveis no servidor SQL,](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx) [Como: Encriptar uma Coluna de Dados no SqL Server](https://msdn.microsoft.com/library/ms179331), [Criptografar por Certificado](https://msdn.microsoft.com/library/ms188061) |
@@ -203,7 +203,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Compreender a encriptação de dados transparentes do sql server (TDE)](https://technet.microsoft.com/library/bb934049(v=sql.105).aspx) |
@@ -214,7 +214,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | Versão SQL - V12, VERSÃO SQL - MsSQL2014 |
 | **Referências**              | [Encriptação de backup de base de dados SQL](https://msdn.microsoft.com/library/dn449489) |
@@ -225,7 +225,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC 5, MVC 6 |
 | **Atributos**              | Fornecedor de identidade - ADFS, Fornecedor de Identidade - Azure AD |
 | **Referências**              | N/D  |
@@ -249,7 +249,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Documento Azure DB | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -271,7 +271,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança do tecido de serviço | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Ambiente - Azure |
 | **Referências**              | [Gestão de segredos em aplicações de Tecido de Serviço](https://azure.microsoft.com/documentation/articles/service-fabric-application-secret-management/) |
@@ -282,7 +282,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -326,7 +326,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Dispositivo de Armazenamento - Blob |
 | **Referências**              | [Encriptação do serviço de armazenamento Azure para dados em repouso (pré-visualização)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
@@ -337,7 +337,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Encriptação do lado do cliente e cofre de chave Azure para armazenamento de Azure do Microsoft](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutorial: Criptografe e desencripta as bolhas no Armazenamento Azure da Microsoft usando o Cofre da Chave Azure](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [armazenando dados de forma segura no armazenamento de blob Azure com extensões de encriptação Azure](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
@@ -348,7 +348,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente Móvel | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico  |
 | **Atributos**              | N/D  |
 | **Referências**              | [Gerir definições e funcionalidades nos seus dispositivos com as políticas Microsoft Intune](https://docs.microsoft.com/mem/intune/configuration/), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
@@ -398,7 +398,7 @@ Se a aplicação não for uma aplicação da empresa, utilize a plataforma forne
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente Móvel | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Cripto Obfuscação para .Net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
@@ -409,7 +409,7 @@ Se a aplicação não for uma aplicação da empresa, utilize a plataforma forne
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .Net Framework 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Fortificar](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
@@ -428,7 +428,7 @@ Desconfiem do Cliente Tipôm de Identificação para Certificado ou Windows.
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, .NET Framework 3 |
 | **Atributos**              | Modo de Segurança - Transporte, Modo de Segurança - Mensagem |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado,](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) [Fundamentos da WcF Security CoDe Magazine](https://www.codemag.com/article/0611051) |

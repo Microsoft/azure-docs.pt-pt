@@ -3,7 +3,7 @@ title: '`:`Tutorial Utilização gerida identidade para aceder ao Armazenamento 
 description: Um tutorial que mostra como usar uma identidade gerida pelo sistema Windows VM para aceder ao Azure Storage, utilizando uma credencial SAS em vez de uma chave de acesso à conta de armazenamento.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ca5ec32e1f88572812b19cf08d4c6f9dc70af6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 92a7c9580d48f70d4bc2391e5c13c8571c38feae
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018579"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018591"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilize uma identidade gerida atribuída ao sistema Windows VM para aceder ao Azure Storage através de uma credencial SAS
 
@@ -50,7 +50,7 @@ Se ainda não tiver uma, irá agora criar uma conta de armazenamento. Também po
 3. Introduza um nome para a conta de armazenamento, que irá utilizar mais tarde.  
 4. O **Modelo de implementação** e o **Tipo de conta** devem ser definidos como "Gestor de recursos" e "Fins gerais", respetivamente. 
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
-6. Clique em **Create** (Criar).
+6. Clique em **Criar**.
 
     ![Criar nova conta de armazenamento](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 

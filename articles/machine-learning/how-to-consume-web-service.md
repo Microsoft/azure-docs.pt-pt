@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6e34bd91a1deb5bbd28c11e8f23ea2b812333aaf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.custom: how-to, devx-track-python, devx-track-csharp
+ms.openlocfilehash: 56cd2117a352626cf59023d62ea8c931401389c5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652598"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018098"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,7 +179,7 @@ Para obter informações sobre como ativar o suporte do CORS no seu serviço, co
 
 ## <a name="call-the-service-c"></a>Ligue para o serviço (C#)
 
-Este exemplo demonstra como usar C# para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Este exemplo demonstra como usar C# para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)
 
 ```csharp
 using System;
@@ -268,7 +268,7 @@ Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-go"></a>Ligue para o serviço (Go)
 
-Este exemplo demonstra como usar o Go para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Este exemplo demonstra como usar o Go para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)
 
 ```go
 package main
@@ -360,7 +360,7 @@ Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-java"></a>Ligue para o serviço (Java)
 
-Este exemplo demonstra como usar a Java para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Este exemplo demonstra como usar a Java para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)
 
 ```java
 import java.io.IOException;
@@ -440,7 +440,7 @@ Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-python"></a>Ligue para o serviço (Python)
 
-Este exemplo demonstra como usar python para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Este exemplo demonstra como usar python para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)
 
 ```python
 import requests

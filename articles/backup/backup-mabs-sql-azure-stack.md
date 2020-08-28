@@ -3,12 +3,12 @@ title: Apoie as cargas de trabalho do SQL Server na Azure Stack
 description: Neste artigo, aprenda a configurar o Microsoft Azure Backup Server (MABS) para proteger as bases de dados do SQL Server no Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 706050fa37e4234a0ffc902f6b696ebd84e6701e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e56b29f886224617a9ae13d58c8b3dd8dda0dcf8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032651"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017968"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Apoiar o SQL Server na Azure Stack
 
@@ -157,7 +157,7 @@ Embora os passos anteriores tenham criado uma política de backup, um "ponto de 
 
 São necessários os seguintes passos para recuperar uma entidade protegida (base de dados SQL Server) do Azure.
 
-1. Abra a consola de gestão do servidor de backup Azure. Navegue para o espaço de trabalho **recovery** onde pode ver os servidores protegidos. Pesquise a base de dados requerida (neste caso, ReportServer$MSDPM2012). Selecione uma **Recuperação a partir do** tempo que é especificado como um ponto **Online.**
+1. Abra a consola de gestão do servidor de backup Azure. Navegue para o espaço de trabalho **recovery** onde pode ver os servidores protegidos. Pesquise a base de dados requerida (neste caso, ReportServer$MSDPM2012). Selecione uma **Recuperação a partir do** tempo especificado como um ponto **Online.**
 
     ![Selecione ponto de recuperação](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Clique com o botão direito no nome da base de dados e clique em **Recuperar.**
