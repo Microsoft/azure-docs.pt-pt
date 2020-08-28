@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 79f85473f4eb1839a283ce4fc0d3311defaa741e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439613"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999628"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento 
 
@@ -115,7 +116,7 @@ Seguem-se os passos gerais para gerar chaves de conteúdo que associa a ativos q
     ---|---
     Id | O ID ContentKey é gerado usando o seguinte formato, "nb:kid:UUID: \<NEW GUID> ".
     ContentKeyType | O tipo de chave de conteúdo é um número inteiro que define a chave. Para o formato de encriptação de armazenamento, o valor é 1.
-    CriptografadoContentKey | Criamos um novo valor chave de conteúdo que é um valor de 256 bits (32 bytes). A chave é encriptada utilizando o certificado de encriptação de armazenamento X.509 que recuperamos do Microsoft Azure Media Services executando um pedido HTTP GET para os Métodos GetProtectionKeyId e GetProtectionKey. Como exemplo, consulte o seguinte código .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    CriptografadoContentKey | Criamos um novo valor chave de conteúdo que é um valor de 256 bits (32 bytes). A chave é encriptada utilizando o certificado de encriptação de armazenamento X.509 que recuperamos do Microsoft Azure Media Services executando um pedido HTTP GET para os Métodos GetProtectionKeyId e GetProtectionKey. Como exemplo, consulte o seguinte código .NET: o método  **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProteçãoKeyId | Este é o ID chave de proteção para o certificado de encriptação de armazenamento X.509 que foi usado para encriptar a nossa chave de conteúdo.
     ProteçãoKeyType | Este é o tipo de encriptação para a chave de proteção que foi usada para encriptar a chave de conteúdo. Este valor é StorageEncrypation(1) para o nosso exemplo.
     Soma de verificação |O MD5 calculou a parte de verificação da chave de conteúdo. É calculado encriptando o ID de conteúdo com a chave de conteúdo. O código de exemplo demonstra como calcular a quantidade de cheques.

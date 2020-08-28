@@ -5,12 +5,13 @@ author: motanv
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 14b2b5bd2577a10ad77a715fb5d20e10da84cf1d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518984"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022178"
 ---
 # <a name="testability-actions"></a>Ações de testability
 De forma a simular uma infraestrutura pouco fiável, a Azure Service Fabric fornece-lhe, o desenvolvedor, formas de simular várias falhas no mundo real e transições estatais. Estas são expostas como ações de testabilidade. As ações são as APIs de baixo nível que causam uma injeção específica de falhas, transição do estado ou validação. Ao combinar estas ações, pode escrever cenários de teste abrangentes para os seus serviços.
@@ -218,7 +219,7 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Cenários de testabilidade](service-fabric-testability-scenarios.md)
 * Como testar o seu serviço
   * [Simular falhas durante as cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)

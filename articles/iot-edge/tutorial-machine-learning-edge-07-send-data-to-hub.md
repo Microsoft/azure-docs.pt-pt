@@ -8,12 +8,13 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 718f4c0b41400ae2e35b88820b2d4154dab23111
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 78d3cbac28a85452f23e4a7c7ba3904fe3d1f488
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272829"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997885"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados via gateway transparente
 
@@ -219,7 +220,7 @@ Incluímos um simples utilitário de linha de comando para ler um ficheiro Avro 
    }
    ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia explorar os recursos utilizados por este tutorial de ponta a ponta, espere até terminar para limpar os recursos que criou. Caso contrário, utilize os seguintes passos para os eliminar:
 

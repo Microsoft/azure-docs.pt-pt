@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: cb598f9a9b8d078c86e9911fa64d872788f47b4b
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447691"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003359"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -103,7 +103,7 @@ Este problema pode ser causado por problemas de configuração locais ou por con
 
 1. Execute o resolução de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux,](update-agent-issues-linux.md#troubleshoot-offline)dependendo do SISTEMA.
 
-2. Certifique-se de que a sua máquina está a reportar para o espaço de trabalho correto. Para obter orientações sobre como verificar este aspeto, consulte [verificar a conectividade do agente para registar análises](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Certifique-se também de que este espaço de trabalho está ligado à sua conta Azure Automation. Para confirmar, vá à sua conta de Automação e selecione **espaço de trabalho linked** under Related **Resources**.
+2. Certifique-se de que a sua máquina está a reportar para o espaço de trabalho correto. Para obter orientações sobre como verificar este aspeto, consulte [verificar a conectividade do agente com o Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Certifique-se também de que este espaço de trabalho está ligado à sua conta Azure Automation. Para confirmar, vá à sua conta de Automação e selecione **espaço de trabalho linked** under Related **Resources**.
 
 3. Certifique-se de que as máquinas aparecem no espaço de trabalho Do Log Analytics ligado à sua conta Automation. Executar a seguinte consulta no espaço de trabalho Log Analytics.
 
@@ -417,7 +417,7 @@ No Windows, as atualizações são instaladas automaticamente assim que estão d
 
 ### <a name="resolution"></a>Resolução
 
-A `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` chave de registo não tem padrão para uma definição de 4: `auto download and install` .
+A  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` chave de registo não tem padrão para uma definição de 4: `auto download and install` .
 
 Para os clientes de Gestão de Atualização, recomendamos definir esta chave para 3: `auto download but do not auto install` .
 
@@ -534,7 +534,7 @@ Se vir um HRESULT, clique duas vezes na exceção exibida a vermelho para ver to
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Estes indicam problemas de conectividade de rede. Certifique-se de que a sua máquina tem conectividade de rede para a Gestão de Atualização. Consulte a secção [de planeamento](../update-management/update-mgmt-overview.md#ports) da rede para obter uma lista de portas e endereços necessários.        |
 |`0x8024001E`| A operação de atualização não foi concluída porque o serviço ou o sistema estavam a desligar-se.|
 |`0x8024002E`| O serviço de atualização do Windows está desativado.|
-|`0x8024402C`     | Se estiver a utilizar um servidor WSUS, certifique-se de que os valores de registo para `WUServer` e `WUStatusServer` sob a `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` tecla de registo especificam o servidor WSUS correto.        |
+|`0x8024402C`     | Se estiver a utilizar um servidor WSUS, certifique-se de que os valores de registo para `WUServer` e `WUStatusServer` sob a  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` tecla de registo especificam o servidor WSUS correto.        |
 |`0x80072EE2`|Há um problema de conectividade de rede ou um problema em falar com um servidor WSUS configurado. Verifique as definições da WSUS e certifique-se de que o serviço está acessível ao cliente.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Certifique-se de que o serviço de Atualização do Windows (wuauserv) está em funcionamento e não está desativado.        |
 |`0x80070005`| Um erro negado de acesso pode ser causado por qualquer um dos seguintes:<br> Computador infetado<br> As definições de Atualização do Windows não configuradas corretamente<br> Erro de permissão de ficheiro com %WinDir%\Pasta de distribuição de software<br> Espaço insuficiente do disco na unidade do sistema (C:).

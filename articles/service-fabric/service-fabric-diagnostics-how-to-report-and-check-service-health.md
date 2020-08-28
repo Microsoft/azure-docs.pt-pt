@@ -5,12 +5,13 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 751af36c630d1b0faa0c07bdd3a8b7519bd328c9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 59c8202b03bf1be2be5a68b75a1d7c7404b2213d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241935"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020206"
 ---
 # <a name="report-and-check-service-health"></a>Comunicar e verificar o estado de funcionamento dos serviços
 Quando os seus serviços encontram problemas, a sua capacidade de responder e corrigir incidentes e interrupções depende da sua capacidade de detetar os problemas rapidamente. Se reportar problemas e falhas ao gestor de saúde Azure Service Fabric a partir do seu código de serviço, pode utilizar ferramentas de monitorização sanitária padrão que o Service Fabric fornece para verificar o estado de saúde.
@@ -19,7 +20,7 @@ Há três maneiras de relatar a saúde do serviço:
 
 * Utilize [objetos partição](/dotnet/api/system.fabric.istatefulservicepartition) ou [CodePackageActivationContexto.](/dotnet/api/system.fabric.codepackageactivationcontext)  
   Pode utilizar o `Partition` e `CodePackageActivationContext` os objetos para relatar a saúde de elementos que fazem parte do contexto atual. Por exemplo, o código que funciona como parte de uma réplica só pode reportar a saúde nessa réplica, a partição a que pertence, e a aplicação da qual faz parte.
-* Utilize`FabricClient`.   
+* Utilize `FabricClient`.   
   Pode utilizar `FabricClient` para reportar a saúde a partir do código de serviço se o cluster não estiver [seguro](service-fabric-cluster-security.md) ou se o serviço estiver a funcionar com privilégios administrativos. A maioria dos cenários do mundo real não usam aglomerados não protegidos, nem fornecem privilégios administrativos. Com `FabricClient` , você pode reportar saúde sobre qualquer entidade que faça parte do cluster. No entanto, o código de serviço apenas deve enviar relatórios relacionados com a sua própria saúde.
 * Utilize as APIs REST no cluster, aplicação, aplicação implantada, serviço, pacote de serviço, partição, réplica ou níveis de nó. Isto pode ser usado para reportar a saúde a partir de um recipiente.
 
@@ -131,7 +132,7 @@ HealthInformation healthInformation = new HealthInformation("ServiceCode", "Stat
 this.Partition.ReportPartitionHealth(healthInformation);
 ```
 
-Para informar a saúde sobre `Application` , e , usar `DeployedApplication` `DeployedServicePackage` `CodePackageActivationContext` .
+Para informar a saúde sobre `Application` , e , usar `DeployedApplication` `DeployedServicePackage`  `CodePackageActivationContext` .
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);

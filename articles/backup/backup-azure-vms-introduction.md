@@ -3,18 +3,18 @@ title: Acerca das cópias de segurança de VMs do Azure
 description: Neste artigo, saiba como o serviço Azure Backup apoia as máquinas Azure Virtual e como seguir as melhores práticas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587502"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014647"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup Azure VM
 
 Este artigo descreve como o [serviço de backup Azure](./backup-overview.md) faz backup de máquinas virtuais Azure (VMs).
 
-A Azure Backup fornece backups independentes e isolados para proteger contra a destruição não intencional dos dados nos seus VMs. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão incorporada de pontos de recuperação. A configuração e o dimensionamento são simples, as cópias de segurança são otimizadas e pode facilmente restaurar conforme necessário.
+O Azure Backup fornece cópias de segurança independentes e isoladas para que estas protejam os dados nas suas VMs contra a destruição acidental. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão de pontos de recuperação incorporada. A configuração e o dimensionamento são simples, as cópias de segurança são otimizadas e pode restaurar facilmente, conforme necessário.
 
 Como parte do processo de backup, [é tirada](#snapshot-creation)uma imagem instantânea , e os dados são transferidos para o cofre dos Serviços de Recuperação sem impacto nas cargas de trabalho de produção. O instantâneo proporciona diferentes níveis de consistência, como [descrito aqui.](#snapshot-consistency)
 
@@ -22,7 +22,7 @@ O Azure Backup também tem ofertas especializadas para cargas de dados de base d
 
 ## <a name="backup-process"></a>Processo de cópia de segurança
 
-Eis como a Azure Backup completa uma cópia de segurança para os VMs do Azure:
+Eis como o Azure Backup conclui uma cópia de segurança para as VMs do Azure:
 
 1. Para os VMs Azure que são selecionados para cópia de segurança, o Azure Backup inicia um trabalho de backup de acordo com o horário de backup especificado.
 1. Durante a primeira cópia de segurança, é instalada uma extensão de backup no VM se o VM estiver em funcionamento.
@@ -33,9 +33,9 @@ Eis como a Azure Backup completa uma cópia de segurança para os VMs do Azure:
     - Se o Backup não conseguir tirar uma imagem consistente da aplicação, então é necessário um instantâneo consistente de ficheiro do armazenamento subjacente (porque não ocorre nenhuma aplicação escrita enquanto o VM é parado).
 1. Para os VMs Linux, o Backup recebe uma cópia de segurança consistente com ficheiros. Para instantâneos consistentes com aplicações, é necessário personalizar manualmente scripts pré/post.
 1. Depois de o Backup tirar a fotografia, transfere os dados para o cofre.
-    - A cópia de segurança é otimizada através da cópia de segurança em paralelo com cada disco VM.
-    - Para cada disco que está a ser apoiado, o Azure Backup lê os blocos no disco e identifica e transfere apenas os blocos de dados que mudaram (o delta) desde a cópia de segurança anterior.
-    - Os dados do instantâneo podem não ser imediatamente copiados para o cofre. Pode levar algumas horas em horas de pico. O tempo total de backup para um VM será inferior a 24 horas para as políticas diárias de backup.
+    - A cópia de segurança é otimizada ao criar a cópia de segurança de cada disco da VM em paralelo.
+    - Para cada disco cuja cópia de segurança está a ser criada, o Azure Backup lê os blocos no disco e identifica e transfere apenas os blocos de dados que mudaram (os delta) desde a primeira cópia de segurança.
+    - Os dados do instantâneo podem não ser copiados para o cofre imediatamente. Pode levar algumas horas em horas de pico. O tempo total de backup de uma VM será inferior a 24 horas para políticas de cópias de segurança diárias.
 1. As alterações efetuadas a um Windows VM após a ativação do Backup Azure são:
     - Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.40660 está instalado no VM
     - Tipo de arranque do serviço Volume Shadow Copy (VSS) alterado para automático a partir de manual
@@ -83,7 +83,7 @@ A tabela a seguir explica os diferentes tipos de consistência instantânea:
 **Consistente com acidentes** | Normalmente, ocorrem instantâneos consistentes em acidentes se um VM Azure desligar no momento da cópia de segurança. Apenas os dados que já existem no disco no momento da cópia de segurança são capturados e apoiados. | Começa com o processo de arranque VM seguido de uma verificação de disco para corrigir erros de corrupção. Quaisquer dados na memória ou operações de escrita que não tenham sido transferidas para o disco antes do acidente se perderem. As aplicações implementam a sua própria verificação de dados. Por exemplo, uma aplicação de base de dados pode usar o seu registo de transações para verificação. Se o registo de transações tiver entradas que não estão na base de dados, o software de base de dados ressa o resultado até que os dados sejam consistentes. | A VM está em estado de encerramento (parado/deallocated).
 
 >[!NOTE]
-> Se o estado de provisionamento for **bem sucedido,** o Azure Backup recebe cópias de segurança consistentes do sistema de ficheiros. Se o estado de provisionamento não estiver **disponível** ou **falhado,** serão tomadas cópias de segurança consistentes. Se o estado de provisionamento estiver **a criar** ou **a apagar,** isso significa que o backup do Azure está a voltar a tentar as operações.
+> Se o estado de provisionamento for **bem sucedido,** o Azure Backup recebe cópias de segurança consistentes do sistema de ficheiros. Se o estado de provisionamento não estiver **disponível** ou **falhado,** serão tomadas cópias de segurança consistentes. Se o estado de provisionamento estiver a **criar** ou **a eliminar,** isso significa que o Azure Backup está a voltar a tentar as operações.
 
 ## <a name="backup-and-restore-considerations"></a>Considerações sobre a cópia de segurança e o restauro
 

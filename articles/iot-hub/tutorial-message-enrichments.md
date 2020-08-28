@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: b3a049d76f880f590060a999ddda00e3706bac94
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 1e04ed8fe9087cb06b1533887da3c0fed61259ef
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500219"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019730"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Use enriquecimentos de mensagens Azure IoT Hub
 
@@ -62,7 +62,7 @@ Além de criar os recursos necessários, o script Azure CLI configura também as
 > Todas as mensagens são encaminhadas para ambos os pontos finais, mas apenas as mensagens que vão para o ponto final com enriquecimentos de mensagens configuradas serão enriquecidas.
 >
 
-Pode utilizar o script que se segue ou pode abrir o script na pasta /recursos do repositório descarregado. O script realiza os seguintes passos:
+Pode utilizar o script que se segue ou pode abrir o script na pasta /recursos do repositório descarregado. O script realiza os passos seguintes:
 
 * Criar um hub IoT.
 * Criar uma conta de armazenamento.
@@ -77,7 +77,7 @@ Se ainda não o fez, abra uma janela Azure [Cloud Shell](https://shell.azure.com
 
 Aqui estão os recursos criados pelo guião. *Enriquecido* significa que o recurso é para mensagens com enriquecimentos. *Original* significa que o recurso é para mensagens que não são enriquecidas.
 
-| Name | Valor |
+| Nome | Valor |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome do recipiente | Original  |
@@ -297,7 +297,7 @@ Pode utilizar um modelo de Gestor de Recursos para criar e configurar os recurso
 
    Aqui estão os recursos criados carregando o modelo. **Enriquecido** significa que o recurso é para mensagens com enriquecimentos. **Original** significa que o recurso é para mensagens que não são enriquecidas. Estes são os mesmos valores utilizados no script Azure CLI.
 
-   | Name | Valor |
+   | Nome | Valor |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome do recipiente | Original  |
@@ -380,7 +380,7 @@ Aqui está uma mensagem não enfeitada. Note que "o meu IoT Hub", "devicelocatio
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover todos os recursos que criou neste tutorial, elimine o grupo de recursos. Esta ação também elimina todos os recursos contidos no grupo. Neste caso, remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos.
 

@@ -3,12 +3,12 @@ title: Excluir suave para cópia de segurança do Azure
 description: Aprenda a usar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 921d04c530695ee8909fb17b216029849c4fc4a2
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a23d9d1e2ceeb767784490ba65542a5e91b6785b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892478"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004923"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Excluir suave para cópia de segurança do Azure
 
@@ -164,7 +164,7 @@ Yes.
 
 ### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso voltar a ativar as cópias de segurança programadas para um recurso apagado?
 
-Undelete seguido de uma operação retomada protegerá o recurso novamente. A operação de currículo associa uma política de backup para desencadear as cópias de segurança programadas com o período de retenção selecionado. Além disso, o coletor de lixo funciona assim que a operação do currículo terminar. Se desejar efetuar uma restauração a partir de um ponto de recuperação que já tenha ultrapassado a data de validade, é aconselhável fazê-lo antes de desencadear a operação do currículo.
+Undelete seguido de uma operação retomada protegerá o recurso novamente. A operação de currículo associa uma política de backup para desencadear as cópias de segurança programadas com o período de retenção selecionado. Além disso, o coletor de lixo funciona assim que a operação do currículo terminar. Se desejar efetuar uma restauração a partir de um ponto de recuperação que já passou da data de validade, é aconselhável fazê-lo antes de desencadear a operação do currículo.
 
 ### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso apagar o meu cofre se houver itens suaves apagados no cofre?
 

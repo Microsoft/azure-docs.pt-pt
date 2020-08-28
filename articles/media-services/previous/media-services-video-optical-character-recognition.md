@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 44d4e5b6d3e96d2bafa9a7e22f36c6544eaff151
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918347"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999551"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Use a Azure Media Analytics para converter conteúdo de texto em ficheiros de vídeo em texto digital  
 
@@ -33,7 +34,7 @@ Quando usado em conjunto com um motor de busca, pode facilmente indexar os seus 
 
 O processador **Azure Media OCR** encontra-se atualmente em Pré-Visualização.
 
-Este artigo dá detalhes sobre **o Azure Media OCR** e mostra como usá-lo com a Media Services SDK para .NET. Para mais informações e exemplos, consulte [este blog.](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/)
+Este artigo dá detalhes sobre  **o Azure Media OCR** e mostra como usá-lo com a Media Services SDK para .NET. Para mais informações e exemplos, consulte [este blog.](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/)
 
 ## <a name="ocr-input-files"></a>Ficheiros de entrada de OCR
 Ficheiros de vídeo. Atualmente, os seguintes formatos são suportados: MP4, MOV e WMV.
@@ -49,7 +50,7 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com **o Azure Med
 | Nome do atributo | Descrição |
 | --- | --- |
 |Saída Avançada| Se definir o AdvancedOutput como verdadeiro, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se não quiser ver estes detalhes, coloque a bandeira em falso. O valor predefinido é false. Para mais informações, consulte [este blog.](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)|
-| Linguagem |(opcional) descreve a linguagem do texto para a qual procurar. Um dos seguintes: AutoDetect (padrão), Árabe, Chinês Simplificado, Chinês Tradicional, Português, Português, Holandês, Inglês, Finlandês, Francês, Alemão, Grego, Húngaro, Italiano, Japonês, Coreano, Norueguês, Polaco, Português, Romeno, Russo, SérvioCyrillic, Sérvio, Sérvio, Eslovaco, Espanhol, Sueco, Turco. |
+| Idioma |(opcional) descreve a linguagem do texto para a qual procurar. Um dos seguintes: AutoDetect (padrão), Árabe, Chinês Simplificado, Chinês Tradicional, Português, Português, Holandês, Inglês, Finlandês, Francês, Alemão, Grego, Húngaro, Italiano, Japonês, Coreano, Norueguês, Polaco, Português, Romeno, Russo, SérvioCyrillic, Sérvio, Sérvio, Eslovaco, Espanhol, Sueco, Turco. |
 | TextOrientation |(opcional) descreve a orientação do texto para o qual procurar.  "Esquerda" significa que o topo de todas as letras são apontados para a esquerda.  O texto predefinido (como o que pode ser encontrado num livro) pode ser chamado de "Up" orientado para o texto.  Um dos seguintes: AutoDetect (padrão), Up, Right, Down, Left. |
 | TimeInterval |(opcional) descreve a taxa de amostragem.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH:mm:ss. SSS (padrão 00:00:00.500)<br/>Formato XML – W3C XSD duração primitiva (PT0.5 padrão) |
 | Deteção de Regiões |(opcional) Uma matriz de objetos detecteRegion especificando regiões dentro da moldura de vídeo para detetar texto.<br/>Um objeto detectRegion é feito dos seguintes quatro valores inteiros:<br/>Esquerda – pixels da margem esquerda<br/>Top – pixels da margem superior<br/>Largura – largura da região em pixels<br/>Altura – altura da região em pixels |
@@ -115,11 +116,11 @@ A saída contém os seguintes atributos:
 | largura |largura do vídeo em pixels |
 | altura |altura do vídeo em pixels |
 | Fragmentos |matriz de pedaços de vídeo baseados no tempo em que os metadados são em pedaços |
-| start |tempo de início de um fragmento em "tiques" |
+| iniciar |tempo de início de um fragmento em "tiques" |
 | duration |comprimento de um fragmento em "carrapatos" |
 | intervalo |intervalo de cada evento dentro do fragmento dado |
 | eventos |matriz que contém regiões |
-| . |objeto representando palavras ou frases detetadas |
+| region |objeto representando palavras ou frases detetadas |
 | language |linguagem do texto detetado numa região |
 | orientação |orientação do texto detetado numa região |
 | linhas |matriz de linhas de texto detetadas dentro de uma região |

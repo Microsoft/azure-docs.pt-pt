@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 22a79f75fa795226e45e54947f410db4c2a57a7c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836450"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020665"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas com o Media Encoder Standard com .NET 
 
@@ -407,7 +408,7 @@ O seguinte exemplo de código utiliza os Serviços de Comunicação Social .NET 
 
 * Criar um trabalho de codificação.
 * Obtenha uma referência ao codificar Media Encoder Standard.
-* Carregue o [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) predefinido ou [o JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contenham a predefinição de codificação, bem como as informações necessárias para gerar miniaturas. Pode guardar este [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) num ficheiro e utilizar o seguinte código para carregar o ficheiro.
+* Carregue o [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) predefinido ou [o JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contenham a predefinição de codificação, bem como as informações necessárias para gerar miniaturas. Pode guardar este  [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) ou [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) num ficheiro e utilizar o seguinte código para carregar o ficheiro.
 
     ```csharp
     // Load the XML (or JSON) from the local file.

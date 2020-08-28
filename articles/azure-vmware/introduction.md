@@ -3,12 +3,12 @@ title: Introdução
 description: Aprenda as funcionalidades e benefícios da Azure VMware Solution para implementar e gerir cargas de trabalho baseadas em VMware em Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d39cb759190eef535519decccec943ab66de2c7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752139"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005059"
 ---
 # <a name="what-is-azure-vmware-solution-preview"></a>O que é Azure VMware Solution Preview?
 
@@ -46,7 +46,7 @@ Atualizações regulares do software Azure VMware Solution e software VMware gar
 
 ## <a name="monitoring-your-private-cloud"></a>Monitorização da sua nuvem privada
 
-Pode utilizar [Logs in Azure Monitor](../azure-monitor/overview.md) para recolher registos nas suas máquinas virtuais em execução na sua nuvem privada Azure VMware Solution. Pode [descarregar e instalar o agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) em máquinas virtuais Linux e Windows que funcionam nas suas nuvens privadas Azure VMware Solution, utilizando as mesmas consultas que executa nos seus VMs no local. Pode executar as mesmas consultas que normalmente executaria nas suas máquinas virtuais da mesma forma. Para saber mais sobre a criação de consultas, veja [como escrever consultas.](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries)
+Pode utilizar [Logs in Azure Monitor](../azure-monitor/overview.md) para recolher registos nas suas máquinas virtuais em execução na sua nuvem privada Azure VMware Solution. Pode [descarregar e instalar o agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) em máquinas virtuais Linux e Windows que funcionam nas suas nuvens privadas Azure VMware Solution, utilizando as mesmas consultas que executa nos seus VMs no local. Pode executar as mesmas consultas que normalmente executaria nas suas máquinas virtuais da mesma forma. Para saber mais sobre a criação de consultas, veja [como escrever consultas.](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.custom: devx-track-python
-ms.openlocfilehash: 6c095083f88c00f706d19d1c652e19da007c6542
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876432"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019271"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB C# (pré-visualização)
 
@@ -59,7 +59,7 @@ Para saber mais, consulte as [amostras .NET V3 SDK](https://github.com/Azure/azu
 > [!IMPORTANT]
 > O Azure Cosmos DB .NET SDK incorporado é suportado apenas para contas API SQL (Core). Para outras APIs, terá de [instalar o controlador .NET relevante](#install-a-new-nuget-package) que corresponda à API. 
 
-## <a name="set-custom-options-using-cosmosclientoptions"></a>Definir opções personalizadas usando``CosmosClientOptions``
+## <a name="set-custom-options-using-cosmosclientoptions"></a>Definir opções personalizadas usando ``CosmosClientOptions``
 Para maior flexibilidade, pode definir a propriedade personalizada ``CosmosClientOptions`` e passá-la no seu ``CosmosClient`` caso. Você pode usar esta propriedade para:
 
 - Desa estaladie um nome de aplicação no sufixo do agente de utilizador para incluí-lo em cada pedido.

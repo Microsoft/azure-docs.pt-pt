@@ -10,17 +10,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: 'mvc, ms.custom: devx-track-csharp'
 ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 232bd96373f22957a88c94585f53237e05d5e5cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 07a0581cd7fe2e7a9c13f860c862e34da3cfd1ca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076695"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998293"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para apps da Plataforma Universal windows usando hubs de notificação do Azure
 
@@ -63,7 +63,7 @@ Para enviar notificações push para aplicações do UWP, associe a aplicação 
 2. Escreva um nome para a aplicação e selecione **Reservar nome do produto**. Desta forma, é criado um registo novo da Loja Windows para a sua aplicação.
 
     ![Nome da aplicação na loja](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. Expandir **a gestão do produto,** selecione **WNS/MPNS,** e, em seguida, selecione **site de Serviços ao Vivo**. Inicie sessão com a sua conta Microsoft. A página de registo de candidatura abre num novo separador. Em alternativa, pode navegar diretamente para a página [das minhas aplicações](https://apps.dev.microsoft.com) e selecionar o nome da sua candidatura para chegar a esta página.
+3. Expandir **a gestão do produto,** selecione **WNS/MPNS,** e, em seguida, selecione **site de Serviços ao Vivo**. Inicie sessão com a sua conta Microsoft. A página de registo de inscrição abre num novo separador. Em alternativa, pode navegar diretamente para a página [das minhas aplicações](https://apps.dev.microsoft.com) e selecionar o nome da sua candidatura para chegar a esta página.
 
     ![Página do WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 4. Note a palavra-passe **'Segredos de Aplicação'** e o **identificador de segurança do pacote (SID)**.

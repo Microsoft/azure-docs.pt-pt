@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067278"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001064"
 ---
 # <a name="enable-and-manage-blob-versioning-preview"></a>Ativar e gerir a versão blob (pré-visualização)
 

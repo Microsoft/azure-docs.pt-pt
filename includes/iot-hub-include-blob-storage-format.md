@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/15/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 27a254b664e2035cc66109f7a473a3e9ef4d730e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b20c97bf919073b01f564b59b3a55eccb7614005
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "73612145"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89042990"
 ---
 <!-- This is the note explaining about the avro and json formats when routing to blob storage. -->
 > [!NOTE]
@@ -21,5 +21,5 @@ ms.locfileid: "73612145"
 >    
 > A capacidade de codificar o formato JSON está em pré-visualização em todas as regiões em que o IoT Hub está disponível, exceto os EUA, Eua Ocidental e Europa Ocidental. O formato de codificação só pode ser definido no momento em que o ponto final de armazenamento do blob estiver configurado. O formato não pode ser alterado para um ponto final que já foi criado. Ao utilizar a codificação JSON, deve definir o conteúdoType para JSON e o conteúdoEncoding para UTF-8 nas propriedades do sistema de mensagem. 
 >
-> Para obter informações mais detalhadas sobre a utilização de um ponto final de armazenamento de bolhas, consulte [orientações sobre o encaminhamento para armazenamento](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage).
+> Para obter informações mais detalhadas sobre a utilização de um ponto final de armazenamento de bolhas, consulte [orientações sobre o encaminhamento para armazenamento](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 >

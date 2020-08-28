@@ -13,12 +13,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f23bb2469136373c130ce600892b85dfcb4f3866
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d7125c67fb68665408009ffbe7823842ac1c99cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038873"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019509"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar bolhas existentes num Ativo de Serviços de Mídia
 

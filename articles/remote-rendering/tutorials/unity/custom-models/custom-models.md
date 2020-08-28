@@ -5,16 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 3753c809d8222030a885693ede800fe17c08b14b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ebadaf51a7dfbb286dac0bbdb0c3c8437ae2356f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224548"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022229"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Tutorial: Interfaces e modelos personalizados
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -296,7 +297,7 @@ Siga os passos especificados no [Quickstart: Converta um modelo para renderizaç
 
 1. Remova o seu objeto modelo personalizado da cena do crime. A melhor experiência para este tutorial será usar o modelo de teste. Apesar de vários modelos serem certamente suportados em ARR, este tutorial foi escrito para melhor suportar um único modelo remoto de cada vez.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode carregar os seus próprios modelos na Renderização Remota Azure e vê-los na sua aplicação! Em seguida, vamos guiá-lo através da manipulação dos seus modelos.
 

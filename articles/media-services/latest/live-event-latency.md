@@ -13,12 +13,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 24eb5f8691c94c1f319820f3133b66065504ace3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e454ce84049f0f7c90da45ed77532f9ba2d90fd4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000896"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018710"
 ---
 # <a name="live-event-low-latency-settings"></a>Configurações de baixa latência do Evento Ao Vivo
 

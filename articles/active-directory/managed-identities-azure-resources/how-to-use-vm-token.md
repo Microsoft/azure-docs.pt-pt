@@ -3,7 +3,7 @@ title: Utilize identidades geridas numa máquina virtual para adquirir o token d
 description: Instruções passo a passo e exemplos para a utilização de identidades geridas para recursos Azure em máquinas virtuais para adquirir um token de acesso OAuth.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0bcf6d99511f744b321a7a47913b44dc376143f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608386"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016143"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para adquirir um token de acesso 
 
@@ -373,15 +373,15 @@ Esta secção documenta as possíveis respostas de erro. Um estado de "200 OK" �
 
 | Código de estado | Erro | Descrição do Erro | Solução |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Mau Pedido | invalid_resource | AADSTS50001: O pedido nomeado *\<URI\>* não foi encontrado no arrendatário denominado *\<TENANT-ID\>* . Este erro poderá ocorrer se a aplicação não tiver sido instalada pelo administrador do inquilino ou não tiver sido permitida por qualquer utilizador do inquilino. Pode ter enviado o seu pedido de autenticação ao inquilino errado. | (apenas Linux) |
-| 400 Mau Pedido | bad_request_102 | Cabeçalho de metadados necessário não especificado | Ou o `Metadata` campo de cabeçalho de pedido está ausente do seu pedido, ou é formatado incorretamente. O valor deve ser especificado como `true` , em todos os casos inferiores. Consulte o "pedido de amostra" na secção REST anterior, por exemplo.|
-| 401 Não Autorizado | unknown_source | Fonte Desconhecida*\<URI\>* | Verifique se o seu pedido HTTP GET URI está formatado corretamente. A `scheme:host/resource-path` parte deve ser especificada como `http://localhost:50342/oauth2/token` . Consulte o "pedido de amostra" na secção REST anterior, por exemplo.|
+| 400 Pedido Incorreto | invalid_resource | AADSTS50001: O pedido nomeado *\<URI\>* não foi encontrado no arrendatário denominado *\<TENANT-ID\>* . Este erro poderá ocorrer se a aplicação não tiver sido instalada pelo administrador do inquilino ou não tiver sido permitida por qualquer utilizador do inquilino. Pode ter enviado o seu pedido de autenticação ao inquilino errado. | (apenas Linux) |
+| 400 Pedido Incorreto | bad_request_102 | Cabeçalho de metadados necessário não especificado | Ou o `Metadata` campo de cabeçalho de pedido está ausente do seu pedido, ou é formatado incorretamente. O valor deve ser especificado como `true` , em todos os casos inferiores. Consulte o "pedido de amostra" na secção REST anterior, por exemplo.|
+| 401 Não Autorizado | unknown_source | Fonte Desconhecida *\<URI\>* | Verifique se o seu pedido HTTP GET URI está formatado corretamente. A `scheme:host/resource-path` parte deve ser especificada como `http://localhost:50342/oauth2/token` . Consulte o "pedido de amostra" na secção REST anterior, por exemplo.|
 |           | invalid_request | O pedido está em falta de um parâmetro necessário, inclui um valor de parâmetro inválido, inclui um parâmetro mais de uma vez, ou está mal formado. |  |
 |           | unauthorized_client | O cliente não está autorizado a solicitar um token de acesso usando este método. | Causado por um pedido que não usou o loopback local para ligar para a extensão, ou em um VM que não tem identidades geridas para recursos Azure configurados corretamente. Consulte [identidades geridas para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração VM. |
 |           | access_denied | O proprietário de recursos ou servidor de autorização negou o pedido. |  |
 |           | unsupported_response_type | O servidor de autorização não suporta obter um token de acesso utilizando este método. |  |
 |           | invalid_scope | O âmbito solicitado é inválido, desconhecido ou mal formado. |  |
-| 500 Erro interno do servidor | desconhecido | Falhou em recuperar o símbolo do diretório Ativo. Para mais detalhes, consulte os registos*\<file path\>* | Verifique se as identidades geridas para os recursos Azure foram ativadas no VM. Consulte [identidades geridas para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração VM.<br><br>Verifique também se o seu pedido HTTP GET URI está formatado corretamente, particularmente o recurso URI especificado na cadeia de consulta. Consulte o "pedido de amostra" na secção REST anterior, por exemplo, ou [os serviços Azure que suportam a autenticação AZure AD](services-support-msi.md) para uma lista de serviços e respetivos IDs de recursos.
+| Erro interno do servidor 500 | desconhecido | Falhou em recuperar o símbolo do diretório Ativo. Para mais detalhes, consulte os registos *\<file path\>* | Verifique se as identidades geridas para os recursos Azure foram ativadas no VM. Consulte [identidades geridas para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração VM.<br><br>Verifique também se o seu pedido HTTP GET URI está formatado corretamente, particularmente o recurso URI especificado na cadeia de consulta. Consulte o "pedido de amostra" na secção REST anterior, por exemplo, ou [os serviços Azure que suportam a autenticação AZure AD](services-support-msi.md) para uma lista de serviços e respetivos IDs de recursos.
 
 ## <a name="retry-guidance"></a>Orientação de retíria 
 
@@ -400,7 +400,7 @@ Para reefaça, recomendamos a seguinte estratégia:
 Consulte [os serviços Azure que suportam a autenticação Azure AD](services-support-msi.md) para uma lista de recursos que suportam a Azure AD e foram testados com identidades geridas para recursos Azure, e respetivas identidades de recursos.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para permitir identidades geridas para recursos Azure num Azure VM, consulte [identidades geridas configure para recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md).
 

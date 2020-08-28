@@ -5,16 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: e9c29edb28700d0f2d3411925c0985adc0f53e92
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225806"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006470"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -42,7 +43,7 @@ Para este tutorial você precisa:
 
 Para ter acesso ao serviço de renderização remota Azure, primeiro precisa [de criar uma conta.](../../../how-tos/create-an-account.md#create-an-account)
 
-## <a name="create-a-new-unity-project"></a>Criar um novo projeto de Unidade
+## <a name="create-a-new-unity-project"></a>Criar um novo projeto do Unity
 
 > [!TIP]
 > O [repositório de amostras de ARR](https://github.com/Azure/azure-remote-rendering) contém um projeto com todos os tutoriais concluídos, pode ser usado como referência. Veja em *Unidade\Tutorial-Completo* para o projeto completo de Unidade.
@@ -838,7 +839,7 @@ Dispomos agora de todo o código necessário para visualizar um modelo renderiza
 > [!NOTE]
 > O modelo remoto nunca será visível na vista Cena, apenas na vista do jogo. Isto porque o ARR está a render os quadros remotamente especificamente para a perspetiva da câmara de visualização do Jogo e não está ciente da câmara do Editor (usada para tornar a vista de Cena).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ![Modelo carregado](./media/test-model-rendered.png)
 

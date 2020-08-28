@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring
-ms.openlocfilehash: 98c8bc07e1f5bb790c2f907bbc3c2125cae383a5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: monitoring, devx-track-csharp
+ms.openlocfilehash: 7010e47dd9272ce620f8e057fbfb36e1fd5b26c9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903226"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021175"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registo de análise de armazenamento Azure
 
@@ -89,7 +89,7 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 
 |Atributo|Descrição|
 |---------------|-----------------|
-|`<service-name>`|O nome do serviço de armazenamento. Por exemplo: `blob` `table` , ou`queue`|
+|`<service-name>`|O nome do serviço de armazenamento. Por exemplo: `blob` `table` , ou `queue`|
 |`YYYY`|O ano de quatro dígitos para o registo. Por exemplo: `2011`|
 |`MM`|Os dois dígitos do mês para o registo. Por exemplo: `07`|
 |`DD`|O dia dos dois dígitos para o registo. Por exemplo: `31`|
@@ -105,7 +105,7 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- Quando um pedido de armazenamento é registado, o nome de registo resultante correlaciona-se com a hora em que a operação solicitada foi concluída. Por exemplo, se um pedido GetBlob fosse concluído às 18:30 em 7/31/2011, o registo seria escrito com o seguinte prefixo:`blob/2011/07/31/1800/`
+ Quando um pedido de armazenamento é registado, o nome de registo resultante correlaciona-se com a hora em que a operação solicitada foi concluída. Por exemplo, se um pedido GetBlob fosse concluído às 18:30 em 7/31/2011, o registo seria escrito com o seguinte prefixo: `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Registar metadados
 
@@ -113,7 +113,7 @@ Para obter informações sobre a listagem de blobs programáticamente, consulte 
 
 |Atributo|Descrição|
 |---------------|-----------------|
-|`LogType`|Descreve se o registo contém informações relativas a ler, escrever ou apagar operações. Este valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas.<br /><br /> Exemplo 1:`write`<br /><br /> Exemplo 2:`read,write`<br /><br /> Exemplo 3:`read,write,delete`|
+|`LogType`|Descreve se o registo contém informações relativas a ler, escrever ou apagar operações. Este valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas.<br /><br /> Exemplo 1: `write`<br /><br /> Exemplo 2: `read,write`<br /><br /> Exemplo 3: `read,write,delete`|
 |`StartTime`|A primeira hora de uma entrada no tronco, na forma de `YYYY-MM-DDThh:mm:ssZ` . Por exemplo: `2011-07-31T18:21:46Z`|
 |`EndTime`|A última hora de uma entrada no registo, na forma de `YYYY-MM-DDThh:mm:ssZ` . Por exemplo: `2011-07-31T18:22:09Z`|
 |`LogVersion`|A versão do formato de registo.|

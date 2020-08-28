@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849731"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009615"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
 
@@ -69,6 +69,9 @@ Os cenários de utilização de exemplo para o nível de acesso ao arquivo inclu
 - Dados originais (não processados) que têm de ser preservados, mesmo depois de terem sido processados para a forma utilizável final.
 - Dados de conformidade e arquivo que têm ser armazenados durante muito tempo e que raramente são acedidos.
 
+> [!NOTE]
+> O nível de arquivo não é atualmente suportado para contas ZRS, GZRS ou RA-GZRS.
+
 ## <a name="account-level-tiering"></a>Tiering de nível de conta
 
 As bolhas nos três níveis de acesso podem coexistir na mesma conta. Qualquer bolha que não tenha um nível explicitamente atribuído infere o nível a partir da definição do nível de acesso à conta. Se o nível de acesso vier da conta, vê a propriedade blob **inferred de acesso** definida como "verdadeira", e a propriedade **blob Access Tier** corresponde ao nível da conta. No portal Azure, a propriedade _inferida do nível de acesso_ é exibida com o nível de acesso blob como **Hot (inferido)** ou **Cool (inferido)**.
@@ -119,7 +122,7 @@ A tabela a seguir mostra uma comparação entre o armazenamento de blocos de des
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
 | **Disponibilidade** <br> **(leituras RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Offline           |
-| **Custos de utilização**                         | Custos de armazenamento mais elevados, acesso mais baixo e custo de transação | Custos de armazenamento mais elevados, menor acesso e custos de transação | Custos de armazenamento mais baixos, acesso mais elevado e custos de transação | Custos de armazenamento mais baixos, acesso mais elevado e custos de transação |
+| **Taxas de utilização**                         | Custos de armazenamento mais elevados, acesso mais baixo e custo de transação | Custos de armazenamento mais elevados, menor acesso e custos de transação | Custos de armazenamento mais baixos, acesso mais elevado e custos de transação | Custos de armazenamento mais baixos, acesso mais elevado e custos de transação |
 | **Tamanho mínimo do objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Duração mínima do armazenamento**              | N/D                       | N/D          | 30 dias<sup>1</sup> | 180 dias
 | **Latência** <br> **(Tempo até ao primeiro byte)** | Milissegundos de um dígito | milissegundos | milissegundos        | horas<sup>2</sup> |
@@ -230,7 +233,7 @@ A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes
 
 **Posso armazenar objetos nos três níveis de acesso (quentes, frescos e de arquivo) na mesma conta?**
 
-Sim. O atributo **Access Tier** definido ao nível da conta é o nível de conta padrão que se aplica a todos os objetos nessa conta sem um nível definido explícito. O nível de nível de bolhas permite-lhe definir o nível de acesso ao nível do objeto, independentemente da definição do nível de acesso na conta. Podem existir bolhas em qualquer uma das três camadas de acesso (quentes, frias ou arquivadas) dentro da mesma conta.
+Yes. O atributo **Access Tier** definido ao nível da conta é o nível de conta padrão que se aplica a todos os objetos nessa conta sem um nível definido explícito. O nível de nível de bolhas permite-lhe definir o nível de acesso ao nível do objeto, independentemente da definição do nível de acesso na conta. Podem existir bolhas em qualquer uma das três camadas de acesso (quentes, frias ou arquivadas) dentro da mesma conta.
 
 **Posso alterar o nível de acesso predefinido da minha conta de armazenamento Blob ou GPv2?**
 
