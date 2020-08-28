@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131778"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047091"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastres à escala para VMware VMs/servidores físicos
 
@@ -100,8 +100,8 @@ O que obedece significa? Para iniciar um Azure VM, a Azure exige que alguns cond
 
 **A máquina está de acordo com o Azure?** | **Limites Azure VM (falha de disco gerido)**
 --- | --- 
-Sim | 2000
-Não | 1000
+Yes | 2000
+No | 1000
 
 - Os limites pressupõem que estão em curso outros postos de trabalho mínimos na região-alvo para a subscrição.
 - Algumas regiões de Azure são menores e podem ter limites ligeiramente mais baixos.
@@ -205,7 +205,7 @@ Pode preparar-se antecipadamente para o failover da seguinte forma:
     - Estimar o RTO de ponta a ponta para as suas aplicações.
     - Estimar o RPO de ponta a ponta para as suas cargas de trabalho.
     - Identifique conflitos de intervalo de endereço IP.
-    - Ao fazer exercícios, recomendamos que não utilize redes de produção para brocas, evite utilizar os mesmos nomes de sub-redes nas redes de produção e teste e limpe as falhas de teste após cada broca.
+    - Ao fazer exercícios, recomendamos que não utilize redes de produção para exercícios e limpe as falhas de teste após cada broca.
 
 Para executar uma falha em larga escala, recomendamos o seguinte:
 
@@ -218,7 +218,7 @@ Para executar uma falha em larga escala, recomendamos o seguinte:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Monitorizar o Site Recovery](site-recovery-monitor-and-troubleshoot.md)

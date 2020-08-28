@@ -3,12 +3,12 @@ title: Apoio à migração de Hiper-V em Azure Migrate
 description: Saiba mais sobre o suporte à migração hiper-V com a Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871501"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051156"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração hiper-V
 
@@ -26,7 +26,10 @@ Pode selecionar até 10 VMs de uma só vez para replicação. Se quiser migrar m
 | **Implementação**       | O hospedeiro Hyper-V pode ser autónomo ou implantado num cluster. <br/>O software de replicação Azure Migrate (fornecedor de replicação Hiper-V) está instalado nos anfitriões Hyper-V.|
 | **Permissões**           | Precisa de permissões de administrador no anfitrião do Hiper-V. |
 | **Sistema operativo anfitrião** | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2 com as mais recentes atualizações. Note que a instalação do núcleo do Servidor destes sistemas operativos também é suportada. |
+| **Outros requisitos de Software** | .NET Quadro 4.7 ou posterior |
 | **Acesso portuário** |  Ligações de saída na porta HTTPS 443 para enviar dados de replicação VM.
+| **Espaço livre em disco (cache)** |  600 GB |
+| **Espaço livre em disco (disco de retenção)** |  600 GB |
 
 
 ## <a name="hyper-v-vms"></a>VMs Hyper-V
@@ -39,6 +42,7 @@ Pode selecionar até 10 VMs de uma só vez para replicação. Se quiser migrar m
 | **Alterações necessárias para o Azure** | Alguns VMs podem necessitar de alterações para que possam ser executados em Azure. Faça ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazê-lo. |
 | **Bota Linux**                 | Se o arranque estiver numa divisória dedicada, deve residir no disco OS e não ser espalhado por vários discos.<br/> Se /boot é parte da raiz (/) partição, então a partição '/' deve estar no disco DE, e não abranger outros discos. |
 | **Bota UEFI**                  | Suportado. Certifique-se de que seleciona um tamanho VM suportado pela geração Azure 2 VM  |
+| **UEFI - Arranque seguro**         | Não apoiado para a migração.|
 | **Tamanho do disco**                  | 2 TB para o disco de so, 4 TB para discos de dados.|
 | **Número do disco** | Um máximo de 16 discos por VM.|
 | **Discos/volumes encriptados**    | Não apoiado para a migração.|

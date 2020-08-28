@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Amostra de planta para novo ambiente'
 description: Neste tutorial, você usa uma amostra de planta para criar uma definição de planta que configura dois grupos de recursos e configura uma atribuição de papel para cada um.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80677081"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048737"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de uma amostra de planta
 
@@ -100,10 +100,10 @@ Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribu
 
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos ProdRG|Grupo de recursos|Nome|ProductionRG|Define o nome do primeiro grupo de recursos.|
+     |Grupo de recursos ProdRG|Grupo de recursos|Name|ProductionRG|Define o nome do primeiro grupo de recursos.|
      |Grupo de recursos ProdRG|Grupo de recursos|Localização|E.U.A. Oeste 2|Define a localização do primeiro grupo de recursos.|
      |Contribuinte|Atribuição de função|Utilizador ou Grupo|{O seu ID}|Define qual utilizador ou grupo para conceder a atribuição de função _de contribuinte_ dentro do primeiro grupo de recursos.|
-     |Grupo de recursos PréProdRG|Grupo de recursos|Nome|Pré-Produção|Define o nome do segundo grupo de recursos.|
+     |Grupo de recursos PréProdRG|Grupo de recursos|Name|Pré-Produção|Define o nome do segundo grupo de recursos.|
      |Grupo de recursos PréProdRG|Grupo de recursos|Localização|E.U.A. Oeste|Define a localização do segundo grupo de recursos.|
      |Proprietário|Atribuição de função|Utilizador ou Grupo|{O seu ID}|Define qual utilizador ou grupo para conceder a atribuição de função _do Proprietário_ dentro do segundo grupo de recursos.|
      |Leitores|Atribuição de função|Utilizador ou Grupo|{O seu ID}|Define qual utilizador ou grupo para conceder a atribuição de função aos _Leitores_ dentro do segundo grupo de recursos.|
@@ -122,7 +122,7 @@ A atribuição da planta cria e rastreia os artefactos definidos na definição 
 
 1. Selecione a página **de plantas atribuídas** à esquerda. Utilize os filtros para encontrar a atribuição de projeto _de design de atribuição de duas rgs-com-função_ e, em seguida, selecione-o.
 
-   A partir desta página, podemos ver a atribuição bem sucedida e a lista de recursos criados juntamente com o seu estado de bloqueio de planta. Se a atribuição for atualizada, a **operação** de atribuição mostra detalhes sobre a implementação de cada versão de definição. Cada recurso listado que foi criado pode ser clicado e abre essa página de propriedade de recursos.
+   A partir desta página, podemos ver a atribuição bem sucedida e a lista de recursos criados juntamente com o seu estado de bloqueio de planta. Se a atribuição for atualizada, a **operação** de atribuição mostra detalhes sobre a implementação de cada versão de definição. Cada recurso listado que foi criado pode ser selecionado e abre essa página de propriedade de recursos.
 
 1. Selecione o grupo de recursos **ProductionRG.**
 

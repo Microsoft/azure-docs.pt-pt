@@ -1,14 +1,14 @@
 ---
 title: Configurar o seu ambiente para o Operador de Blueprint
 description: Aprenda a configurar o seu ambiente Azure para utilização com o papel incorporado do Operador de Plantas.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 9390958507a135497c4c48a260a44bc0f4492ffa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499811"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051462"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar o seu ambiente para um Operador Blueprint
 

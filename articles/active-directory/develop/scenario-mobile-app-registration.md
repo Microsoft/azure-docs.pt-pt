@@ -1,7 +1,7 @@
 ---
 title: Registar aplicações móveis que chamam APIs web Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como construir uma aplicação móvel que chame APIs web (configuração de código da app)
+description: Saiba como construir uma aplicação móvel que chame APIs web (registo da app)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652648"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047678"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registar aplicativos móveis que chamam APIs web
 
@@ -40,7 +40,7 @@ Também pode assinar nos utilizadores usando identidades sociais que passam por 
 
 Para mais informações, consulte [Cenários e fluxos](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e Cenários de autenticação [suportados e plataformas e idiomas suportados.](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configuração da plataforma e REdireccionamento uris  
+## <a name="platform-configuration-and-redirect-uris"></a>Configuração da plataforma e REdireccionamento uris
 
 ### <a name="interactive-authentication"></a>Autenticação interativa
 
@@ -72,20 +72,20 @@ Quando completar os passos, o URI de redirecionamento é calculado para si, como
 
 Se preferir configurar manualmente o URI de redirecionamento, pode fazê-lo através do manifesto de aplicação. Aqui está o formato recomendado para o manifesto:
 
-- **iOS:**`msauth.<BUNDLE_ID>://auth` 
-  - Por exemplo, introduzir`msauth.com.yourcompany.appName://auth`
+- **iOS:**`msauth.<BUNDLE_ID>://auth`
+  - Por exemplo, introduzir `msauth.com.yourcompany.appName://auth`
 - **Android:**`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Pode gerar o hash de assinatura Android utilizando a chave de desbloqueio ou depuração através do comando KeyTool.
 
 ### <a name="username-password-authentication"></a>Autenticação de nome de utilizador-senha
 
-Se a sua aplicação utilizar apenas a autenticação de nome de utilizador-password, não precisa de registar um URI de redirecionamento para a sua aplicação. Este fluxo faz uma viagem de ida e volta à versão 2.0 da plataforma de identidade da Microsoft. A sua candidatura não será chamada de volta em nenhum URI específico. 
+Se a sua aplicação utilizar apenas a autenticação de nome de utilizador-password, não precisa de registar um URI de redirecionamento para a sua aplicação. Este fluxo faz uma viagem de ida e volta à versão 2.0 da plataforma de identidade da Microsoft. A sua candidatura não será chamada de volta em nenhum URI específico.
 
 No entanto, tem de identificar a sua aplicação como uma aplicação de cliente público. Para tal, comece na secção **autenticação** da sua aplicação. Na subsecção **de definições Avançadas,** no parágrafo padrão do **tipo cliente,** para a **pergunta Tratar a aplicação como cliente público,** selecione **Sim**.
 
 ## <a name="api-permissions"></a>Permissões de API
 
-As aplicações móveis chamam APIs em nome do utilizador inscrito. A sua aplicação precisa de solicitar permissões delegadas. Estas permissões também são chamadas de âmbitos. Dependendo da experiência que pretende, pode solicitar permissões delegadas estáticamente através do portal Azure. Ou podes pedir-lhes dinamicamente no tempo de execução. 
+As aplicações móveis chamam APIs em nome do utilizador inscrito. A sua aplicação precisa de solicitar permissões delegadas. Estas permissões também são chamadas de âmbitos. Dependendo da experiência que pretende, pode solicitar permissões delegadas estáticamente através do portal Azure. Ou podes pedir-lhes dinamicamente no tempo de execução.
 
 Ao registar estáticamente permissões, permite que os administradores aprovem facilmente a sua aplicação. Recomenda-se o registo estático.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995314"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049269"
 ---
 # <a name="conditional-access-block-access"></a>Acesso Condicional: Acesso ao bloco
 
@@ -38,7 +38,7 @@ As políticas de acesso condicional são ferramentas poderosas, recomendamos exc
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
-As seguintes medidas ajudarão a criar políticas de Acesso Condicional para bloquear o acesso a todas as aplicações, com exceção [do Office 365,](concept-conditional-access-cloud-apps.md#office-365-preview) se os utilizadores não estiverem numa rede de confiança. Estas políticas são colocadas no [modo report-only](howto-conditional-access-report-only.md) para iniciar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores se sentem confortáveis em que as políticas se apliquem como pretendem, podem mudá-las para **On**.
+As seguintes medidas ajudarão a criar políticas de Acesso Condicional para bloquear o acesso a todas as aplicações, com exceção [do Office 365,](concept-conditional-access-cloud-apps.md#office-365-preview) se os utilizadores não estiverem numa rede de confiança. Estas políticas são colocadas no [modo report-only](howto-conditional-access-insights-reporting.md) para iniciar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores se sentem confortáveis em que as políticas se apliquem como pretendem, podem mudá-las para **On**.
 
 A primeira política bloqueia o acesso a todas as aplicações, com exceção das aplicações do Office 365, caso não se desemosse numa localização fidedigna.
 
@@ -49,7 +49,7 @@ A primeira política bloqueia o acesso a todas as aplicações, com exceção da
 1. Em **Atribuições**, selecione **Utilizadores e grupos**.
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. Em **aplicativos ou ações cloud,** selecione as seguintes opções:
    1. Em **Incluir**, selecione **Todas as aplicações em nuvem**.
    1. Under **Exclude**, selecione **Office 365 (pré-visualização)**, selecione select , em seguida, selecione **Fazer**. **Select**
@@ -58,7 +58,7 @@ A primeira política bloqueia o acesso a todas as aplicações, com exceção da
       1. Definir **Configurar** para **Sim**
       1. Em **Incluir**, selecione **Qualquer local**.
       1. Em **'Excluir'** selecione **Todas as localizações fidedignas**.
-      1. Selecione **Done** (Concluído).
+      1. Selecione **Concluído**.
    1. Sob **as aplicações do Cliente (Preview)**, desconfigure para **Sim**, e selecione **Feito**, em seguida, **Feito**. **Configure**
 1. Sob **controlos de acesso**  >  **Grant**, selecione **o acesso ao Bloco**e, em seguida, selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política **apenas para reportar**.
@@ -71,7 +71,7 @@ Uma segunda política é criada abaixo para exigir a autenticação de vários f
 1. Em **Atribuições**, selecione **Utilizadores e grupos**.
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. No **âmbito das aplicações ou ações cloud**  >  **Inclua**, **selecione selecione apps**, escolha o Office **365 (pré-visualização)** e selecione **Select**, em seguida, **Feito**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione **Grant access**.
    1. **Selecione Exigir a autenticação de vários fatores** e **exigir que o dispositivo seja marcado como compatível** **Selecione**.
@@ -80,10 +80,10 @@ Uma segunda política é criada abaixo para exigir a autenticação de vários f
 1. Confirme as suas definições e defina **Ativar** a política **apenas para reportar**.
 1. Selecione **Criar** para criar para ativar a sua política.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032089"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049252"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Autenticação do legado do bloco
 
@@ -24,7 +24,7 @@ Devido ao risco acrescido associado aos protocolos de autenticação, a Microsof
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
-As seguintes etapas ajudarão a criar uma política de acesso condicional para bloquear pedidos de autenticação legado. Esta política é colocada no [modo report-only](howto-conditional-access-report-only.md) para iniciar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores estão confortáveis que a política se aplica como pretendem, podem mudar para **Ligar** ou encenar a implementação adicionando grupos específicos e excluindo outros.
+As seguintes etapas ajudarão a criar uma política de acesso condicional para bloquear pedidos de autenticação legado. Esta política é colocada no [modo report-only](howto-conditional-access-insights-reporting.md) para iniciar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores estão confortáveis que a política se aplica como pretendem, podem mudar para **Ligar** ou encenar a implementação adicionando grupos específicos e excluindo outros.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
@@ -48,7 +48,7 @@ As seguintes etapas ajudarão a criar uma política de acesso condicional para b
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 

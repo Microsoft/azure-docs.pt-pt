@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 398cf947f0a2d250c3cd0ed73a75bc3c091e5f7a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561029"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047535"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua para Azure IoT Edge
 
@@ -204,6 +204,15 @@ Criar um novo oleoduto e adicionar uma nova etapa
       * Se utilizar para um único dispositivo, introduza o **ID do dispositivo IoT Edge**.
       * Se estiver a ser implantado em vários dispositivos, especifique a **condição de alvo**do dispositivo . A condição do alvo é um filtro que combina com um conjunto de dispositivos IoT Edge no IoT Hub. Se pretender utilizar tags de dispositivo como condição, tem de atualizar os seus dispositivos correspondentes Tags com o dispositivo IoT Hub twin. Atualize a prioridade de **implementação IoT Edge ID** e **IoT Edge** nas definições avançadas. Para obter mais informações sobre a criação de uma implementação para vários dispositivos, consulte [as implementações automáticas Understand IoT Edge](module-deployment-monitoring.md).
     * Expandir Definições Avançadas, selecionar **ID de implementação IoT Edge,** colocar a variável `$(System.TeamProject)-$(Release.EnvironmentName)` . Isto mapeia o nome do projeto e do lançamento com o seu IoT Edge deployment ID.
+
+>[!NOTE]
+>Se desejar utilizar implementações em **camadas** no seu pipeline, as implementações em camadas ainda não são suportadas nas tarefas Azure IoT Edge em Azure DevOps.
+>
+>No entanto, pode utilizar uma [tarefa Azure CLI em Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para criar a sua implementação como uma implementação em camadas. Para o valor **do Script Inline,** pode utilizar o [comando de criação de borda az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>
+>   ```azurecli-interactive
+>   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
+>   ```
 
 12. **Selecione Guardar** para guardar as alterações no novo oleoduto de lançamento. Volte à vista do gasoduto selecionando **Pipeline** no menu.
 

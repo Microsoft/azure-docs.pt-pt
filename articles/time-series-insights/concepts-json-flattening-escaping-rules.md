@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0cf0ef97cc1e06906a529c577e9c2578e5091ef4
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075672"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050731"
 ---
 # <a name="ingestion-rules"></a>Regras de Ingestão
 ### <a name="json-flattening-escaping-and-array-handling"></a>JSON Flattening, Escaping e Array Handling
@@ -25,17 +25,17 @@ O seu ambiente Azure Time Series Insights Gen2 criará dinamicamente as colunas 
 >
 > * Reveja as regras abaixo antes de selecionar uma [propriedade de ID da Série De Tempo](time-series-insights-update-how-to-id.md) e/ou o seu timetamp de origem de [eventos(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Se o seu ID TS ou o timetamp estiverem dentro de um objeto aninhado ou tiver um ou mais caracteres especiais abaixo, é importante garantir que o nome da propriedade que fornece corresponde ao nome da coluna *após* a aplicação das regras de ingestão. Veja o exemplo [B](concepts-json-flattening-escaping-rules.md#example-b) abaixo.
 
-| Regra | Exemplo JSON |Nome da coluna no armazenamento |
-|---|---|---|
-| O tipo de dados Azure Time Series Insights Gen2 é anexado ao final do seu nome de coluna como "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
-| A [propriedade de timetamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de fonte de evento será guardada em Azure Time Series Insights Gen2 como "timetamp" em armazenamento, e o valor armazenado na UTC. Pode personalizar a propriedade de marca de tempo de fonte de evento para atender às necessidades da sua solução, mas o nome da coluna em armazenamento quente e frio é "timetamp". Outras propriedades JSON de data que não sejam o ponto de tempo de origem do evento serão guardadas com "_datetime" no nome da coluna, conforme mencionado na regra acima.  | ```"ts": "2020-03-19 14:40:38.318"``` | carimbo de data/hora |
-| Nomes de propriedade JSON que incluem os caracteres especiais. [ \ e ' são escapadas usando [' e ']  |  ```"id.wasp": "6A3090FD337DE6B"``` | ['id.vespa']_string |
-| Dentro de [' e '] há escapatória adicional de citações individuais e backslashes. Uma única citação será escrita como \' e um backslash será escrito como\\\ | ```"Foo's Law Value": "17.139999389648"``` | ['Foo's \' Law Value']_double |
-| Os objetos JSON aninhados são achatados com um período como separador. A nidificação até 10 níveis é suportada. |  ```"series": {"value" : 316 }``` | série.value_long |
-| Matrizes de tipos primitivos são armazenados como o tipo Dinâmico |  ```"values": [154, 149, 147]``` | values_dynamic |
+| Regra | Exemplo JSON | [Sintaxe de expressão de série de tempo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome da coluna de propriedade em Parquet
+|---|---|---|---|
+| O tipo de dados Azure Time Series Insights Gen2 é anexado ao final do seu nome de coluna como "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
+| A [propriedade de timetamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de fonte de evento será guardada em Azure Time Series Insights Gen2 como "timetamp" em armazenamento, e o valor armazenado na UTC. Pode personalizar a propriedade de marca de tempo de fonte de evento para atender às necessidades da sua solução, mas o nome da coluna em armazenamento quente e frio é "timetamp". Outras propriedades JSON de data que não sejam o ponto de tempo de origem do evento serão guardadas com "_datetime" no nome da coluna, conforme mencionado na regra acima.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
+| Nomes de propriedade JSON que incluem os caracteres especiais. [ \ e ' são escapadas usando [' e ']  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
+| Dentro de [' e '] há escapatória adicional de citações individuais e backslashes. Uma única citação será escrita como \' e um backslash será escrito como \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
+| Os objetos JSON aninhados são achatados com um período como separador. A nidificação até 10 níveis é suportada. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long`, `$event['series']['value'].Long` ou `$event.series['value'].Long` |  `series.value_long` |
+| Matrizes de tipos primitivos são armazenados como o tipo Dinâmico |  ```"values": [154, 149, 147]``` | Os tipos dinâmicos só podem ser retreivedos através da [API GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | As matrizes que contêm objetos têm dois comportamentos dependendo do conteúdo do objeto: Se a propriedade de TS ID ou timetamp (ies) estiver dentro dos objetos de uma matriz, a matriz será desenrolada de modo a que a carga útil inicial do JSON produza múltiplos eventos. Isto permite-lhe aloisar vários eventos numa estrutura JSON. Quaisquer propriedades de alto nível que sejam pares para a matriz serão guardadas com cada objeto desenrolado. Se o seu(s) TS ID(s) e a sua estampada não *estiverem* dentro da matriz, será guardado inteiro como o tipo Dinâmico. | Veja os exemplos [A,](concepts-json-flattening-escaping-rules.md#example-a) [B](concepts-json-flattening-escaping-rules.md#example-b) e [C](concepts-json-flattening-escaping-rules.md#example-c) abaixo
-| As matrizes que contêm elementos mistos não são achatadas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | values_dynamic |
-| 512 caracteres é o limite de nome de propriedade JSON. Se o nome exceder 512 caracteres, será truncado para 512 e '_<'hashCode'>' é anexado. **Note** que isto também se aplica a nomes de propriedade que foram concatenados a partir de objeto achatado, denotando um caminho de objeto aninhado. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` | data.items.datapoints.values.telemetria<... continuando a 512 chars>_912ec803b2ce49e4a541068d495ab570_double |
+| As matrizes que contêm elementos mistos não são achatadas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Os tipos dinâmicos só podem ser retreivedos através da [API GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| 512 caracteres é o limite de nome de propriedade JSON. Se o nome exceder 512 caracteres, será truncado para 512 e '_<'hashCode'>' é anexado. **Note** que isto também se aplica a nomes de propriedade que foram concatenados a partir de objeto achatado, denotando um caminho de objeto aninhado. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Compreender o duplo comportamento para matrizes
 
@@ -88,7 +88,7 @@ ID série de tempo na raiz do objeto e relógio aninhado<br/>
 <br/>
 A configuração e carga útil acima produzirá três colunas e quatro eventos
 
-| carimbo de data/hora  | id_string | valores.value_double 
+| carimbo de data/hora  | id_string | values.value_double 
 | ---- | ---- | ---- | 
 | `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` | 
 | `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` | 
@@ -97,7 +97,7 @@ A configuração e carga útil acima produzirá três colunas e quatro eventos
 
 ### <a name="example-b"></a>Exemplo B:
 ID de série de tempo composto com uma propriedade aninhada<br/> 
-**ID da Série de Tempo do Ambiente:** `"plantId"` e`"telemetry.tagId"`<br/>
+**ID da Série de Tempo do Ambiente:** `"plantId"` e `"telemetry.tagId"`<br/>
 **Data de tempo de fonte de evento:**`"timestamp"`<br/>
 **Carga JSON:**
 
@@ -146,7 +146,7 @@ ID de série de tempo composto com uma propriedade aninhada<br/>
 <br/>
 A configuração e carga útil acima produzirá quatro colunas e seis eventos
 
-| carimbo de data/hora  | plantId_string | telemetria.tagId_string | telemetria.value_double 
+| carimbo de data/hora  | plantId_string | telemetry.tagId_string | telemetry.value_double 
 | ---- | ---- | ---- | ---- |
 | `2020-01-22T16:38:09Z` | `9336971`| ``100231-A-A6`` |  -31.149018 |
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20.560796 |

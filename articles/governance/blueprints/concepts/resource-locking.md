@@ -1,14 +1,14 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio nas Plantas Azure para proteger os recursos ao atribuir uma planta.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81383597"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051507"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o bloqueio de recursos em Azure Blueprints
 
@@ -28,7 +28,7 @@ Os recursos criados por artefactos numa atribuição de plantas têm quatro esta
 |-|-|-|-|
 |Não tranque|*|Não trancada|Os recursos não estão protegidos pela Azure Blueprints. Este estado também é utilizado para recursos adicionados a um artefacto do grupo **de recursos Read Only** ou Não **Eliminar** fora de uma atribuição de planta.|
 |Só de Leitura|Grupo de recursos|Não é possível editar / Eliminar|O grupo de recursos é lido apenas e as etiquetas no grupo de recursos não podem ser modificadas. Os recursos **não bloqueados** podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
-|Só de Leitura|Grupo de não recursos|Só de Leitura|O recurso não pode ser alterado de forma alguma.|
+|Só de Leitura|Grupo de não recursos|Só de Leitura|O recurso não pode ser alterado de forma alguma. Sem alterações e não pode ser apagado.|
 |Não apagar|*|Não é possível apagar|Os recursos podem ser alterados, mas não podem ser apagados. Os recursos **não bloqueados** podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Estados de bloqueio dominantes
@@ -182,8 +182,8 @@ Embora **os Prncipals excluídos** devam ser explícitos, as entradas **excluíd
 ## <a name="next-steps"></a>Passos seguintes
 
 - Siga o tutorial [de novos recursos.](../tutorials/protect-new-resources.md)
-- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
-- Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
-- Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
+- Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](./parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](./sequencing-order.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 82c203322f1a417fa006c5228d957c178a706b3a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d6995073ba7d283a30f7580456cd61573752f7cc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961018"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051394"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configure o modo de distribuição para o Balançador de Carga Azure
 
@@ -29,10 +29,10 @@ ms.locfileid: "85961018"
 O modo de distribuição predefinido do Balanceador de Carga do Azure é um hash de cinco cadeias. 
 
 A tuple é composta por:
-* **IP de Origem**
+* **IP de origem**
 * **Porta de origem**
-* **Destino IP**
-* **Porto de destino**
+* **IP de destino**
+* **Porta de destino**
 * **Tipo de protocolo**
 
 O haxixe é usado para mapear o tráfego para os servidores disponíveis. O algoritmo só proporciona adesão dentro de uma sessão de transporte. Os pacotes que estão na mesma sessão são direcionados para o mesmo DATAcenter IP atrás do ponto final equilibrado de carga. Quando o cliente inicia uma nova sessão a partir da mesma fonte IP, a porta de origem muda e faz com que o tráfego vá para um ponto final diferente do datacenter.
@@ -199,8 +199,8 @@ x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
 Date: Thu, 16 Oct 2014 22:49:21 GMT
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do balançador interno de carga Azure](load-balancer-internal-overview.md)
-* [Começar com a configuração de um equilibrador de carga virado para a Internet](quickstart-create-standard-load-balancer-powershell.md)
+* [Começar com a configuração de um equilibrador de carga virado para a Internet](quickstart-load-balancer-standard-public-powershell.md)
 * [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

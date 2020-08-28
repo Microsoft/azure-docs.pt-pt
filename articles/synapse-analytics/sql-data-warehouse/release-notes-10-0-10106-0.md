@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9b3f2f8a6a8a1e4f287af45f994c0f0b1d479811
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001013"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047457"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de lançamento do Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 | Melhorias de serviços | Detalhes |
 | --- | --- |
 |**Gestão da Carga de Trabalho – Portal Experience**|Os utilizadores podem configurar e gerir as suas definições de gestão da carga de trabalho através do portal Azure. A capacidade de configurar [grupos de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) e [classificadores de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) com importância é possível.|
-|**Vista melhorada do catálogo de mapeamentos de mesa**|A nova vista do catálogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapas **object_ids** de tabelas de utilizadores permanentes aos seus nomes de mesas físicas. Esta vista oferece um desempenho otimizado ao longo dos [sys.pdw_table_mappings atuais.](/sql/relational-databases/system-catalog-views/sys-pdw-table-mappings-transact-sql?view=sqlallproducts-allversions)|
+|**Vista melhorada do catálogo de mapeamentos de mesa**|A nova vista do catálogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapas **object_ids** de tabelas de utilizadores permanentes aos seus nomes de mesas físicas.|
 
 ## <a name="july-2020"></a>Julho de 2020
 

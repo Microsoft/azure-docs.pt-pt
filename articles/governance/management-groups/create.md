@@ -3,12 +3,12 @@ title: Criar grupos de gestão para organizar recursos - Azure Governance
 description: Saiba como criar grupos de gestão Azure para gerir múltiplos recursos usando o portal, Azure PowerShell e Azure CLI.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0739eafdf4cf41195b189a8496c331ab470bbec0
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 9504679062c9facad60023759b474be1675cb6a8
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056640"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048555"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gestão para a organização e gestão de recursos
 
@@ -70,7 +70,7 @@ New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
 
 ### <a name="create-in-azure-cli"></a>Criar em Azure CLI
 
-Para o Azure CLI, utilize o [grupo de gestão de conta az criar](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) comando para criar um novo grupo de gestão.
+Para o Azure CLI, utilize o [grupo de gestão de conta az criar](/cli/azure/account/management-group#az-account-management-group-create) comando para criar um novo grupo de gestão.
 
 ```azurecli-interactive
 az account management-group create --name Contoso

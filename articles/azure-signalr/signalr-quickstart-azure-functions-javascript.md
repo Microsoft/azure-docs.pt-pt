@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3f1051b81666a036203eb1c810875d837ef9816f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 74f0a1c163380b88986b6866e346a5f044772a0e
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386882"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050561"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Quickstart: Use o JavaScript para criar uma sala de chat com funções Azure e serviço SignalR
 
@@ -32,13 +32,21 @@ O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tem
 > [!NOTE]
 > Este início rápido pode ser executado no macOS, Windows ou Linux.
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsjs)
+
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta do Azure.
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsjs)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurar e executar a aplicação Funções do Azure
 
@@ -71,13 +79,21 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
     ![Criar o Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsjs)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsjs)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, você construiu e executou uma aplicação sem servidor em tempo real no Código VS. Em seguida, saiba mais sobre como implementar as Funções do Azure a partir do VS Code.
 
 > [!div class="nextstepaction"]
 > [Implementar as Funções do Azure com o VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsjs)

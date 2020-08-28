@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf17f4cef43fe4221781deedb130ef587208550
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83993750"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049099"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: Garantir o registo de informações de segurança
 
@@ -45,7 +45,7 @@ A seguinte política aplica-se a todos os utilizadores selecionados, que tentam 
 1. Sob **controlos de acesso**  >  **Grant**.
    1. Selecione **o acesso ao Bloco**.
    1. Em seguida, clique em **Selecionar**.
-1. Defina **Permitir política** como **Ativado**.
+1. Defina **Ativar política** como **Ativado**.
 1. Em seguida, selecione **Guardar**.
 
 No passo 6 desta política, as organizações têm escolhas que podem fazer. A política acima requer o registo de uma localização de rede fidedigna. As organizações podem optar por utilizar todas as condições disponíveis no lugar das **Localizações.** Lembre-se que esta política é uma política de blocos para que tudo o que estiver incluído seja bloqueado e qualquer coisa que não corresponda ao incluso é permitido. 
@@ -63,10 +63,10 @@ Alguns podem optar por utilizar o estado do dispositivo em vez da localização 
 > Se utilizar o estado do dispositivo como condição na sua política, isso poderá ter impacto nos utilizadores convidados no diretório. [O modo apenas de relatório](concept-conditional-access-report-only.md) pode ajudar a determinar o impacto das decisões políticas.
 > Note que o modo apenas de relatório não é aplicável às políticas de CA com âmbito "Ações do Utilizador".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)

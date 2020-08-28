@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253278"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049422"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Informações e relatórios de acesso condicional
 
@@ -36,7 +36,7 @@ As seguintes funções podem aceder a insights e relatórios:
 
 Os utilizadores também precisam de uma das seguintes funções de espaço de trabalho Log Analytics:  
 
-- Contribuidor  
+- Contribuinte  
 - Proprietário 
 
 ### <a name="stream-sign-in-logs-from-azure-ad-to-azure-monitor-logs"></a>Faça streaming de registos de login de Azure AD para registos do Monitor Azure 
@@ -97,6 +97,22 @@ Ver a avaria dos utilizadores ou inscrições para cada uma das condições. Pod
 
 Também pode investigar as entradas de um utilizador específico, procurando insus máximos na parte inferior do painel de instrumentos. A consulta à esquerda mostra os utilizadores mais frequentes. Selecionar um utilizador filtrará a consulta à direita.  
 
+> [!NOTE]
+> Ao descarregar os registos de login, escolha o formato JSON para incluir dados de resultados do relatório do Acesso Condicional.
+
+## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configure uma política de acesso condicional no modo apenas de relatório
+
+Para configurar uma política de acesso condicional no modo apenas de relatório:
+
+1. Inscreva-se no **portal Azure** como administrador de acesso condicional, administrador de segurança ou administrador global.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Selecione uma política existente ou crie uma nova política.
+1. No **modo "Ativar"** o alternância para o modo **apenas de relatório.**
+1. Selecione **Guardar**
+
+> [!TIP]
+> A edição do estado **político de Enable** de uma política existente de **On** to **Report-only** desativa a aplicação de políticas existente. 
+
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Porque é que as consultas estão a falhar devido a um erro de permissões?
@@ -111,6 +127,10 @@ Para aceder ao livro, precisa das permissões adequadas do AD Azure, bem como da
 ![Consultas falhadas de resolução de problemas](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 Para obter mais informações sobre como transmitir registos de login AD AZure para um espaço de trabalho Log Analytics, consulte o artigo [Integre os registos AD do Azure com registos do Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>Porque é que as consultas no livro estão a falhar?
+
+Os clientes notaram que as consultas às vezes falham se os espaços de trabalho errados ou múltiplos estiverem associados ao livro. Para corrigir este problema, clique em **Editar** na parte superior do livro e, em seguida, na engrenagem Definições. Selecione e, em seguida, remova espaços de trabalho que não estejam associados ao livro. Deve haver apenas um espaço de trabalho associado a cada livro.
 
 ### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Porque é que o parâmetro das políticas de acesso condicional está vazio?
 
@@ -132,6 +152,10 @@ Pode guardar as suas seleções de parâmetros no topo do livro, indo ao **Azure
 
 Pode editar e personalizar o livro indo ao **Azure Ative Directory**  >  **Workbooks**  >  **Conditional Access Insights e reportando**. Aqui encontrará o modelo do livro, onde pode editar o livro e guardar uma cópia para o seu espaço de trabalho, incluindo as seleções de parâmetros, nos **meus relatórios** ou **relatórios partilhados.** Para começar a editar as consultas, clique em **Editar** no topo do livro.  
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Modo de relatório de acesso condicional](concept-conditional-access-report-only.md)
+- [Modo de relatório de acesso condicional](concept-conditional-access-report-only.md)
+
+- Para obter mais informações sobre os livros AZURE AD, consulte o artigo, [Como utilizar os livros do Azure Monitor para relatórios do Azure Ative Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+
+- [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)

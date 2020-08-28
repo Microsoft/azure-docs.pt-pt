@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: juliako
-ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604779"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050867"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída do Indexador de Vídeo
 
@@ -27,7 +27,7 @@ Também pode utilizar a API ligando para a API **do Índice de Vídeo Get** e o 
 
 ![Informações](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-Este artigo examina a saída do Indexer de Vídeo (conteúdo JSON). Para obter informações sobre quais as funcionalidades e insights disponíveis para si, consulte [os insights do Video Indexer](video-indexer-overview.md#video-insights).
+Este artigo examina a saída do Indexer de Vídeo (conteúdo JSON). <br/>Para obter informações sobre quais as funcionalidades e insights disponíveis para si, consulte [os insights do Video Indexer](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
 > A expiração de todos os tokens de acesso no Indexante de Vídeo é de uma hora.

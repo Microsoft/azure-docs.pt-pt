@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: b892e4c5078b50bb865a715ddf12aebc1eb05f57
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d1948ae186662c7f60f4d49c19a4d48b424a38f7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799116"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047484"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com dados com o Explorador de Armazenamento do Azure
 
@@ -95,7 +95,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 
 * Clique com o botão direito do rato numa conta do Azure Cosmos DB ou numa base de dados, selecione **Abrir no Portal** e faça a gestão dos recursos no browser no portal do Azure.
 
-     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Abrir no Portal":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Abrir no Portal":::
 
 * Também pode adicionar a conta do Azure Cosmos DB, a base de dados e a coleção ao **Acesso Rápido**.
 * **Procurar a partir daqui** permite procurar por palavra-chave no caminho selecionado.
@@ -106,25 +106,25 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 
 #### <a name="create-a-database"></a>Criar uma base de dados
 
--   Clique com o botão direito do rato na conta do Azure Cosmos DB, selecione **Criar Base de Dados**, introduza o nome da base de dados e prima **Enter** para concluir.
+- Clique com o botão direito do rato na conta do Azure Cosmos DB, selecione **Criar Base de Dados**, introduza o nome da base de dados e prima **Enter** para concluir.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Crie uma base de dados na sua conta Azure Cosmos":::
+  :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Crie uma base de dados na sua conta Azure Cosmos":::
 
 #### <a name="delete-a-database"></a>Eliminar uma base de dados
 
 - Clique com o botão direito na base de dados, selecione **Delete Database**e selecione **Sim** na janela pop-up. O nó da base de dados é eliminado e a conta do Azure Cosmos DB é atualizada automaticamente.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Eliminar a primeira base de dados":::
+  :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Eliminar a primeira base de dados":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Eliminar as segundas bases de dados":::
+  :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Eliminar as segundas bases de dados":::
 
 #### <a name="create-a-collection"></a>Criar uma coleção
 
 1. Clique com o direito na sua base de dados, escolha **Create Collection**e, em seguida, forneça as seguintes informações como **ID de recolha,** **capacidade de armazenamento,** etc. Clique **em OK** para terminar.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Criar primeira coleção na base de dados":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Criar primeira coleção na base de dados":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Criar segunda coleção na base de dados":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Criar segunda coleção na base de dados":::
 
 2. Selecione **Unlimited** para ser capaz de especificar a chave de partição e, em seguida, selecione **OK** para terminar.
 
@@ -146,7 +146,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 
 - Para criar um novo documento, abra **documentos** na janela esquerda, selecione **Novo Documento,** edite o conteúdo no painel direito e, em seguida, selecione **Guardar**. Também pode atualizar um documento existente e, em seguida, selecionar **Guardar**. As alterações podem ser eliminadas ao clicar em **Eliminar**.
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Criar um novo documento":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Criar um novo documento":::
 
 #### <a name="delete-a-document"></a>Eliminar um documento
 
@@ -156,7 +156,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 
 - Edite o filtro do documento introduzindo uma [consulta SQL](how-to-sql-query.md) e, em seguida, selecione **Aplicar**.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Consulta de documentos específicos":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Consulta de documentos específicos":::
 
 ### <a name="graph-management"></a>Gestão de gráficos
 
@@ -165,7 +165,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 1. Para criar um novo vértice, abra o **Gráfico** a partir da janela esquerda, selecione **New Vertex,** edite o conteúdo e, em seguida, selecione **OK**.
 2. Para modificar um vértice existente, selecione o ícone da caneta no painel direito.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modifique o vértice de um gráfico":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modifique o vértice de um gráfico":::
 
 #### <a name="delete-a-graph"></a>Eliminar um gráfico
 
@@ -175,7 +175,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 
 - Edite o filtro de gráfico introduzindo uma [consulta de gremlin](gremlin-support.md) e, em seguida, selecione **Apply Filter**.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Executar uma consulta de gráfico":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Executar uma consulta de gráfico":::
 
 ### <a name="table-management"></a>Gestão de tabelas
 
@@ -184,33 +184,34 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 1. Para criar uma nova tabela, abra **as Entidades** a partir da janela esquerda, selecione **Adicionar,** editar o conteúdo no diálogo **'Adicionar Entidade',** adicionar propriedade clicando no botão **Adicionar Propriedade,** em seguida, selecione **Insira**.
 2. Para modificar uma tabela, **selecione Editar,** modifique o conteúdo e, em seguida, selecione **Update**.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Criar e modificar uma tabela":::
+   :::image type="content" source="./media/storage-explorer/table.png" alt-text="Criar e modificar uma tabela":::
 
 #### <a name="import-and-export-table"></a>Importar e exportar tabela
 
 1. Para importar, **selecione o** botão Importar e escolha uma tabela existente.
 2. Para exportar, selecione **botão Exportação** e escolha um destino.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importar ou exportar um quadro":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importar ou exportar um quadro":::
 
 #### <a name="delete-entities"></a>Eliminar entidades
 
 - Selecione as entidades e selecione o botão **Delete**.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Eliminar uma tabela":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Eliminar uma tabela":::
 
 #### <a name="query-table"></a>Tabela de consulta
 
 - Clique no botão **de consulta,** na condição de consulta de entrada e, em seguida, selecione executar o botão **'Executar'.** Feche o painel de Consulta, ao clicar no botão **Fechar Consulta**.
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Dados de consulta da tabela":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Dados de consulta da tabela":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gerir procedimentos armazenados, acionadores e UDFs
 
 * Para criar um procedimento armazenado, na árvore esquerda, clique à direita **Procedimento armazenado,** escolha **Criar Procedimento Armazenado,** introduza um nome à esquerda, digite os scripts de procedimento armazenado na janela direita e, em seguida, selecione **Criar**.
 * Também pode editar os procedimentos armazenados existentes clicando duas vezes, fazendo a atualização e, em seguida, clicando em **Update** para guardar, ou selecione **Descartar** para cancelar a alteração.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Criar e gerir procedimentos armazenados":::
+  :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Criar e gerir procedimentos armazenados":::
+
 * As operações de **Acionadores** e **UDF** são semelhantes às dos **Procedimentos Armazenados**.
 
 ## <a name="troubleshooting"></a>Resolução de problemas

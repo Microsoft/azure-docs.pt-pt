@@ -1,14 +1,14 @@
 ---
 title: Atualizar uma atribuição existente a partir do portal
 description: Conheça o mecanismo de atualização de uma atribuição de plantas existente a partir do portal em Azure Blueprints.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969469"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051428"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de projeto existente
 
@@ -24,12 +24,11 @@ Quando uma planta é atribuída, a atribuição pode ser atualizada. Existem vá
 
 1. Selecione **as plantas atribuídas** da página à esquerda.
 
-1. Na lista de plantas, clique à esquerda na atribuição do projeto. Em seguida, clique no botão **de atribuição de atualização** OU clique no botão de design e selecione **a atribuição de Atualização**.
+1. Na lista de plantas, selecione a atribuição do projeto. Em seguida, utilize o botão **de atribuição de atualização** OU clique à direita na atribuição de plantas e selecione **a atribuição de Atualização**.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Atualizar uma atribuição de projeto existente" border="false":::
 
-1. A página **de blueprint 'Atribu's** carregará pré-preenchido com todos os valores da atribuição original.
-   Pode alterar a **versão de definição de planta,** o estado **de Lock Assignment** e qualquer um dos parâmetros dinâmicos que existem na definição do projeto. Clique **em Atribuir** quando terminar de fazer alterações.
+1. A página **de planta Atribui** cargas pré-preenchidas com todos os valores da atribuição original. Pode alterar a **versão de definição de planta,** o estado **de Lock Assignment** e qualquer um dos parâmetros dinâmicos que existem na definição do projeto. Selecione **Atribuir** quando terminar a escoação.
 
 1. Na página de detalhes da atribuição atualizada, consulte o novo estado. Neste exemplo, adicionámos **Locking** à missão.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037734"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046855"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud
 
@@ -109,7 +109,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >| jvm.gc.pause.total.count | jvm.gc.pausa (contagem total) | de palavras | Contagem total de GC após o início deste JMV, incluindo Young and Old GC. |
 >| jvm.gc.pause.total.time | jvm.gc.pausa (tempo total) | Milissegundos | Total de tempo de GC consumido após o início deste JMV, incluindo Young and Old GC. |
 
-### <a name="request"></a>Pedido
+### <a name="request"></a>Pedir
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
@@ -130,6 +130,8 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >| tomcat.sessions.ative.current | tomcat.sessions.ative.current | de palavras | Contagem ativa da sessão de Tomcat |
 
 ## <a name="see-also"></a>Ver também
+* [Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) (Introdução ao Explorador de Métricas do Azure)
 
 * [Analisar registos e métricas com definições de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

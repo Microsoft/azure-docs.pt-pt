@@ -7,16 +7,18 @@ ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 09820da3fcebe3614852f36180a29f35505039b8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 163940095c4a3a25123706ca47a7d059897cad20
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496853"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046872"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Quickstart: Lançar uma aplicação Azure Spring Cloud existente utilizando o portal Azure
 
 Este quickstart mostra-lhe como implementar uma aplicação de Cloud spring existente para Azure. O Azure Spring Cloud permite-lhe executar facilmente aplicações de microserviços baseados em Spring Cloud no Azure. 
+
+Antes de executar este exemplo, pode experimentar o [arranque básico](spring-cloud-quickstart.md).
 
 Pode encontrar o código de aplicação da amostra utilizado neste tutorial no nosso [repositório de amostras GitHub.](https://github.com/Azure-Samples/PiggyMetrics) Quando terminar, a aplicação de amostra fornecida estará acessível online e pronta para ser gerida através do portal Azure.
 
@@ -53,11 +55,11 @@ Para concluir este guia de início rápido:
 
 3. Selecione **Azure Spring Cloud** a partir dos resultados.
 
- ![Ícone ASC](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+ ![Início asc](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
 4. Na página Azure Spring Cloud, clique **+ Adicionar**.
 
- ![Ícone ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+ ![ASC adicionar](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Preencha o formulário na página Azure Spring Cloud **Create.**  Considere as seguintes orientações:
     - **Subscrição**: Selecione a subscrição que pretende ser faturada para este recurso.  Certifique-se de que esta subscrição foi adicionada à nossa lista de admissões para Azure Spring Cloud.
@@ -78,7 +80,7 @@ Para concluir este guia de início rápido:
 9. Pode definir **Ativar o rastreio** para *sim* ou *não* de acordo com os seus requisitos.  Se definir **Ativar o rastreio** para sim, selecione também uma visão de aplicação existente ou crie uma nova. Sem a especificação **De Insights de Aplicação** haverá um erro de validação.
 
 
-    ![Rastreio](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
+    ![Vista de rastreio](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
 
 10. Clique em **Rever e criar**.
 
@@ -98,7 +100,7 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
 
 3. Selecione **Aplicar** para guardar as alterações.
 
-    ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
@@ -164,11 +166,11 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Uma vez implantado, apa
 
 3. Selecione **Atribuir Ponto final** para atribuir um ponto final público ao gateway. A implementação pode demorar alguns minutos.
 
-    ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+    ![Ponto final do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
 4. Introduza o ponto final público designado **(URL**com rótulo) no seu navegador para ver a sua aplicação de execução.
 
-    ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
+    ![App de amostra de portal ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)

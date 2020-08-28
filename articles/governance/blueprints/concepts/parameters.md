@@ -1,14 +1,14 @@
 ---
 title: Use parâmetros para criar plantas dinâmicas
 description: Saiba sobre parâmetros estáticos e dinâmicos e como usá-los para criar plantas seguras e dinâmicas.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970642"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051564"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criar plantas dinâmicas através de parâmetros
 
@@ -55,11 +55,11 @@ Um valor de parâmetro definido na definição de uma planta é chamado de **par
 
 1. Selecione **definições** de Planta da página à esquerda.
 
-1. Clique numa planta existente e clique em **Editar a planta** OU clique **+ Crie a planta** e preencha as informações no **separador Básicos.**
+1. Selecione uma planta existente e, em seguida, **selecione Editar a planta** OU selecionar + Criar a **planta** e preencher as informações no **separador Básicos.**
 
-1. Clique em **seguida: Artefactos** OU clique no separador **Artefactos.**
+1. Selecione **Seguinte: Artefactos** OU selecione o **separador Artefactos.**
 
-1. Artefactos adicionados à planta que têm opções de parâmetros exibem **X de parâmetros Y povoados** na coluna **Parâmetros.** Clique na linha de artefactos para editar os parâmetros do artefacto.
+1. Artefactos adicionados à planta que têm opções de parâmetros exibem **X de parâmetros Y povoados** na coluna **Parâmetros.** Selecione a linha de artefactos para editar os parâmetros do artefacto.
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parâmetros de planta em uma definição de planta" border="false":::
 
@@ -172,7 +172,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico.** Este parâme
 
 1. Selecione **definições** de Planta da página à esquerda.
 
-1. Clique com o botão direito na planta que pretende atribuir. Selecione **Atribuir a planta** OU clicar na planta que pretende atribuir e, em seguida, clicar no botão **'Atribuir'.**
+1. Clique com o botão direito na planta que pretende atribuir. Selecione **Designar ou** selecionar a planta deseja atribuir e, em seguida, use o botão **de planta 'Atribuir'.**
 
 1. Na página **de planta 'Atribuir',** encontre a secção **de parâmetros do Artefacto.** Cada artefacto com pelo menos um **parâmetro dinâmico** exibe o artefacto e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir a planta. No exemplo abaixo, _o Nome_ é um **parâmetro dinâmico** que deve ser definido para completar a atribuição do projeto.
 
@@ -231,11 +231,11 @@ A definição **de parâmetros dinâmicos** durante a atribuição é feita intr
   }
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a lista de [funções de planta](../reference/blueprint-functions.md).
-- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
-- Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
-- Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
+- Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](./sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](./resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 3212ba621f02740e9b27c28da854eef70dce64a6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 582ec3e5409e5ada6f98a0c2db77c0bb73eaed18
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006587"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050425"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -200,7 +200,7 @@ Há uma série de cenários comuns em que poderá ser necessário restaurar os V
 **Restaurar vários VMs controladores de domínio em domínio único** | Se outros controladores de domínio no mesmo domínio puderem ser alcançados ao longo da rede, o controlador de domínio pode ser restaurado como qualquer VM. Se for o último controlador de domínio restante no domínio, ou se for realizada uma recuperação numa rede isolada, utilize uma [recuperação florestal](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurar vários domínios numa floresta** | Recomendamos uma [recuperação florestal.](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)
 **Restauro de metal nu** | A grande diferença entre VMs Azure e hipervisores no local é que não há consola VM disponível em Azure. É necessária uma consola para determinados cenários, como a recuperação utilizando uma cópia de segurança do tipo BMR de recuperação de metais nus (BMR). No entanto, a restauração de VM do cofre é um substituto completo para bMR.
-**Restaurar VMs com configurações especiais de rede** | As configurações especiais de rede incluem VMs usando o equilíbrio de carga interna ou externa, usando vários NICS, ou vários endereços IP reservados. Restaura estes VM utilizando a [opção de disco de restauro.](#restore-disks) Esta opção faz uma cópia dos VHDs na conta de armazenamento especificada, podendo então criar um VM com um balançador de carga [interno](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) ou [externo,](../load-balancer/quickstart-create-standard-load-balancer-powershell.md) [múltiplos NICS,](../virtual-machines/windows/multiple-nics.md)ou [vários endereços IP reservados,](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)de acordo com a sua configuração.
+**Restaurar VMs com configurações especiais de rede** | As configurações especiais de rede incluem VMs usando o equilíbrio de carga interna ou externa, usando vários NICS, ou vários endereços IP reservados. Restaura estes VM utilizando a [opção de disco de restauro.](#restore-disks) Esta opção faz uma cópia dos VHDs na conta de armazenamento especificada, podendo então criar um VM com um balançador de carga [interno](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) ou [externo,](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) [múltiplos NICS,](../virtual-machines/windows/multiple-nics.md)ou [vários endereços IP reservados,](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)de acordo com a sua configuração.
 **Grupo de Segurança de Rede (NSG) em NIC/Subnet** | A cópia de segurança Azure VM suporta backup e restaurar informações NSG no nível Vnet, subnet e NIC.
 **VMs de fixação de zona** | Se você apoiar um Azure VM que está preso a uma zona (com Azure Backup), então você pode restaurá-lo na mesma zona onde foi fixado. [Saiba mais](../availability-zones/az-overview.md)
 **Restaurar VM em qualquer conjunto de disponibilidade** | Ao restaurar um VM do portal, não há opção para escolher um conjunto de disponibilidade. Um VM restaurado não tem um conjunto de disponibilidade. Se utilizar a opção de disco de restauro, poderá [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) quando criar um VM a partir do disco utilizando o modelo ou PowerShell fornecido.

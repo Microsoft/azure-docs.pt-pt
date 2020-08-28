@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 53e27e4fafaf4468c9c2f4a1ce24ace3d317dada
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 305a12de05ca934f5f8fd8b86746608d7fa32712
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503264"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046974"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Quickstart: Lançar uma aplicação Java Spring utilizando o Azure CLI
 
-O Azure Spring Cloud permite-lhe executar facilmente uma aplicação de microserviços baseada em Boot de mola no Azure.
+O Azure Spring Cloud permite-lhe executar facilmente uma aplicação de microserviços baseada em Boot de mola no Azure.  Antes de executar este exemplo, pode experimentar o [arranque básico](spring-cloud-quickstart.md).
 
 Este quickstart mostra-lhe como implementar uma aplicação java Spring Cloud existente para Azure. Quando terminar, pode continuar a gerir a aplicação através do CLI Azure ou mudar para o portal Azure.
 
@@ -160,16 +160,16 @@ az spring-cloud app show --name gateway --query properties.url
 ```
 
 3. Navegue para o URL fornecido pelo comando anterior para executar a aplicação PiggyMetrics.
-    ![Screenshot de PiggyMetrics em execução](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+    ![PiggyMetrics correndo](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 Também pode navegar no portal Azure para encontrar o URL. 
 1. Navegue para o serviço
 2. Selecione **Apps**
 3. Selecione **gateway**
 
-    ![Screenshot de PiggyMetrics em execução](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+    ![Navegam porquinhos](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
-4. Encontre o URL na página **de visualização** do gateway ![ Screenshot da PiggyMetrics em execução](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+4. Encontre o URL na página **de visão geral** do gateway  ![ PiggyMetrics navegar 2](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

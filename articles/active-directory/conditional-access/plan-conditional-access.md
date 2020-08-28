@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948900"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049932"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -242,7 +242,7 @@ Pode ser difícil prever o número e os nomes dos utilizadores afetados por inic
 
 [O modo apenas de relatório ](concept-conditional-access-report-only.md) permite que os administradores avaliem o impacto das políticas de CA antes de as permitirem no seu ambiente.
 
-Saiba como [configurar o modo apenas de relatório numa política de CA](howto-conditional-access-report-only.md).
+Saiba como [configurar o modo apenas de relatório numa política de CA](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Plano de perturbação
 

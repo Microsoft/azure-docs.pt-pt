@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Criar uma faísca Apache para o Azure Synapse Analytics'
-description: Este quickstart mostra como usar as ferramentas web para criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics, e executar uma consulta Spark SQL.
+title: 'Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web'
+description: Este quickstart mostra como usar as ferramentas web para criar uma piscina Apache Spark em Azure Synapse Analytics, e executar uma consulta Spark SQL.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: d89033a8d26c5ee71d505b85a4ebbe91b86d3e50
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496252"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049813"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web
 
@@ -98,7 +98,7 @@ A Linguagem De Consulta Estruturada (SQL) é a língua mais comum e amplamente u
    SHOW TABLES
    ```
 
-   Quando utilizar um Caderno com a sua piscina Azure Synapse Apache Spark, obtém uma predefinição `sqlContext` que pode utilizar para executar consultas utilizando o Spark SQL. `%%sql`diz ao caderno para usar a predefinição `sqlContext` para executar a consulta. A consulta recupera as 10 primeiras linhas de uma tabela de sistema que vem com todas as piscinas Azure Synapse Apache Spark por padrão.
+   Quando utilizar um Caderno com a sua piscina Azure Synapse Apache Spark, obtém uma predefinição `sqlContext` que pode utilizar para executar consultas utilizando o Spark SQL. `%%sql` diz ao caderno para usar a predefinição `sqlContext` para executar a consulta. A consulta recupera as 10 primeiras linhas de uma tabela de sistema que vem com todas as piscinas Azure Synapse Apache Spark por padrão.
 
 2. Execute outra consulta para ver os dados no `demo_df`.
 
@@ -131,7 +131,7 @@ A Linguagem De Consulta Estruturada (SQL) é a língua mais comum e amplamente u
 
 11. Cada uma das células que anteriormente executavam tinha a opção de ir ao **History Server** and **Monitor .** Clicar nos links leva-o a diferentes partes da Experiência do Utilizador.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 A Azure Synapse guarda os seus dados no Azure Data Lake Storage. Pode deixar desligar uma instância Spark com segurança quando não estiver a ser utilizada. Você é cobrado para uma piscina Apache Spark Azure Synapse desde que esteja em funcionamento, mesmo quando não está a ser utilizado. 
 
@@ -139,7 +139,7 @@ Uma vez que os encargos para a piscina são muitas vezes mais do que os encargos
 
 Para garantir que a instância Spark seja desligada, termine quaisquer sessões ligadas (cadernos). A piscina fecha quando o **tempo de marcha** lenta especificado na piscina Apache Spark é atingido. Também pode selecionar a **sessão final** a partir da barra de estado na parte inferior do caderno.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você aprendeu a criar uma piscina Apache Spark Azure Synapse e executar uma consulta básica spark SQL.
 

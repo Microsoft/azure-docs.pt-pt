@@ -1,14 +1,14 @@
 ---
 title: Compreenda a ordem de sequência de implantação
 description: Saiba mais sobre a ordem padrão em que os artefactos de planta são implantados durante uma atribuição de planta e como personalizar a ordem de implementação.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8305e5d44caef0f35e5b4beb4b70be9736272fa7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970625"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051479"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreenda a sequência de implantação em Azure Blueprints
 
@@ -44,7 +44,7 @@ Dentro de cada artefacto **de grupo de recursos,** é utilizada a seguinte ordem
 
 Ao compor grandes definições de plantas, pode ser necessário que os recursos sejam criados numa ordem específica. O padrão de uso mais comum deste cenário é quando uma definição de planta inclui vários modelos ARM. A Azure Blueprints lida com este padrão permitindo definir a ordem de sequenciação.
 
-O pedido é realizado definindo um `dependsOn` imóvel no JSON. A definição de planta, para grupos de recursos, e objetos de artefactos suportam esta propriedade. `dependsOn`é uma cadeia de nomes de artefactos que o artefacto particular precisa de ser criado antes de ser criado.
+O pedido é realizado definindo um `dependsOn` imóvel no JSON. A definição de planta, para grupos de recursos, e objetos de artefactos suportam esta propriedade. `dependsOn` é uma cadeia de nomes de artefactos que o artefacto particular precisa de ser criado antes de ser criado.
 
 > [!NOTE]
 > Ao criar objetos de planta, cada recurso de artefacto obtém o seu nome a partir do nome de ficheiro, se utilizar [o PowerShell,](/powershell/module/az.blueprint/new-azblueprintartifact)ou o ponto final URL, se utilizar [a API REST](/rest/api/blueprints/artifacts/createorupdate). _as_ referências do grupo de recursos em artefactos devem corresponder às definidas na definição de planta.
@@ -141,8 +141,8 @@ Um exemplo é um grupo de recursos que depende de uma política de nível de sub
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
-- Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
-- Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
+- Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](./parameters.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](./resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

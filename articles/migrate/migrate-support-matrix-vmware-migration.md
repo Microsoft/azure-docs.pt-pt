@@ -3,12 +3,12 @@ title: Suporte à migração de VMware em Azure Migrate
 description: Saiba mais sobre o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 19252a058fd26da6bddf64ad7af132a12cd1e140
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c9ae6a5c3ed0d38b6abc952458422c7789fef8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869104"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051122"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração VMware
 
@@ -117,6 +117,7 @@ A tabela resume o suporte VMware VM para VMware VMs que pretende migrar usando m
 **Requisitos do Azure** | Para obter as informações mais recentes, reveja a [rede Azure,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover) [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e requisitos [de cálculo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) para recuperação de locais. A Azure Migrate tem requisitos idênticos para a migração de VMware.
 **Serviço de mobilidade** | O agente de serviço de mobilidade deve ser instalado em cada VM que pretende migrar.
 **Bota UEFI** | Suportado.
+**UEFI - Arranque seguro**         | Não apoiado para a migração.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD premium) em Azure.
 **Tamanho do disco** | 2 Disco de SO TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.

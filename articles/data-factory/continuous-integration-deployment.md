@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: f44c3ac51bfc509df0b8f2b82c2d6259bba0aa3c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815815"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047715"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -325,7 +325,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 * A `connectionString` propriedade será parametrizada como um `securestring` valor. Não terá um valor padrão. Terá um nome de parâmetro encurtado que é sufixado com `connectionString` .
 * A propriedade `secretAccessKey` passa a ser um `AzureKeyVaultSecret` (por exemplo, num serviço ligado ao Amazon S3). É automaticamente parametrizado como um cofre de chave Azure e recolhido do cofre de chaves configurado. Também pode parametrizar o cofre da chave em si.
 
-#### <a name="datasets"></a>Conjuntos de Dados
+#### <a name="datasets"></a>Conjuntos de dados
 
 * Embora a personalização específica do tipo esteja disponível para conjuntos de dados, pode fornecer configuração sem ter explicitamente uma \* configuração de nível. No exemplo anterior, todas as propriedades do conjunto de `typeProperties` dados são parametrizadas.
 
@@ -625,6 +625,8 @@ Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver 
 
     - As entidades da fábrica de dados dependem umas das outras. Por exemplo, os gatilhos dependem de oleodutos e os gasodutos dependem de conjuntos de dados e outros oleodutos. A publicação seletiva de um subconjunto de recursos pode levar a comportamentos e erros inesperados.
     - Em raras ocasiões, quando precisar de publicação seletiva, considere usar um hotfix. Para mais informações, consulte [o ambiente de produção da Hotfix.](#hotfix-production-environment)
+
+- A equipa da Azure Data Factory não recomenda a atribuição de controlos RBAC a entidades individuais (oleodutos, conjuntos de dados, etc. ) numa fábrica de dados. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de dados, deve ser capaz de aceder a todos os oleodutos ou conjuntos de dados na fábrica de dados. Se sente que precisa implementar muitas funções de RBAC dentro de uma fábrica de dados, veja a implementação de uma segunda fábrica de dados.
 
 -   Não pode publicar de agências privadas.
 

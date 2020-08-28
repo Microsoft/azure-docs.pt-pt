@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/30/2020
-ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529505"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048181"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para Snowflake utilizando a Azure Data Factory
 
@@ -48,9 +48,9 @@ As seguintes propriedades são suportadas para um serviço ligado a Floco de Nev
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| tipo             | A propriedade do tipo deve ser definida para **Snowflake**.              | Sim      |
-| conexãoStragem | Especifica a informação necessária para se ligar à instância do Floco de Neve. Pode optar por colocar senha ou cadeia de conexão inteira no Cofre da Chave Azure. Consulte os exemplos abaixo da tabela, bem como as credenciais da Loja no artigo [Azure Key Vault,](store-credentials-in-key-vault.md) para obter mais detalhes.<br><br>Algumas configurações típicas:<br>- **Nome da conta:** O [nome completo](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) da sua conta Snowflake (incluindo segmentos adicionais que identificam a região e a plataforma cloud), por exemplo, xy12345.east-us-2.azure.<br/>- **Nome do utilizador:** O nome de login do utilizador para a ligação.<br>- **Senha:** A senha para o utilizador.<br>- **Base de dados:** A base de dados predefinido para utilizar uma vez ligada. Deve ser uma base de dados existente para a qual a função especificada tem privilégios.<br>- **Armazém:** O armazém virtual para usar uma vez ligado. Deve ser um armazém existente para o qual o papel especificado tem privilégios.<br>- **Função:** A função de controlo de acesso predefinido a ser utilizada na sessão de Flocos de Neve. A função especificada deve ser uma função existente que já tenha sido atribuída ao utilizador especificado. O papel de incumprimento é o PÚBLICO. | Sim      |
-| connectVia       | O [tempo de integração](concepts-integration-runtime.md) que é usado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não       |
+| tipo             | A propriedade do tipo deve ser definida para **Snowflake**.              | Yes      |
+| conexãoStragem | Especifica a informação necessária para se ligar à instância do Floco de Neve. Pode optar por colocar senha ou cadeia de conexão inteira no Cofre da Chave Azure. Consulte os exemplos abaixo da tabela, bem como as credenciais da Loja no artigo [Azure Key Vault,](store-credentials-in-key-vault.md) para obter mais detalhes.<br><br>Algumas configurações típicas:<br>- **Nome da conta:** O  [nome completo](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) da sua conta Snowflake (incluindo segmentos adicionais que identificam a região e a plataforma cloud), por exemplo, xy12345.east-us-2.azure.<br/>- **Nome do utilizador:** O nome de login do utilizador para a ligação.<br>- **Senha:** A senha para o utilizador.<br>- **Base de dados:** A base de dados predefinido para utilizar uma vez ligada. Deve ser uma base de dados existente para a qual a função especificada tem privilégios.<br>- **Armazém:** O armazém virtual para usar uma vez ligado. Deve ser um armazém existente para o qual o papel especificado tem privilégios.<br>- **Função:** A função de controlo de acesso predefinido a ser utilizada na sessão de Flocos de Neve. A função especificada deve ser uma função existente que já tenha sido atribuída ao utilizador especificado. O papel de incumprimento é o PÚBLICO. | Yes      |
+| connectVia       | O [tempo de integração](concepts-integration-runtime.md) que é usado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No       |
 
 **Exemplo:**
 
@@ -104,7 +104,7 @@ As seguintes propriedades são suportadas para o conjunto de dados snowflake.
 
 | Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Sim                         |
+| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Yes                         |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia.  |
 | tabela | Nome da mesa/vista. |Não para a fonte, sim para a pia.  |
 
@@ -142,13 +142,13 @@ Para copiar dados de Snowflake, as seguintes propriedades são suportadas na sec
 
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **SnowflakeSource**. | Sim      |
-| consulta          | Especifica a consulta SQL para ler dados de Snowflake.<br>A execução do procedimento armazenado não é suportada. | Não       |
-| exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | Não       |
+| tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **SnowflakeSource**. | Yes      |
+| consulta          | Especifica a consulta SQL para ler dados de Snowflake.<br>A execução do procedimento armazenado não é suportada. | No       |
+| exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | No       |
 | ***Em `exportSettings` :*** |  |  |
-| tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Sim |
-| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: MAX_FILE_SIZE, OVERWRITE. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Não |
-| opções adicionais | Opções adicionais de formato de ficheiro que são fornecidas ao comando COPY como um dicionário de pares de valor-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Não |
+| tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Yes |
+| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: MAX_FILE_SIZE, OVERWRITE. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
+| opções adicionais | Opções adicionais de formato de ficheiro que são fornecidas ao comando COPY como um dicionário de pares de valor-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
 #### <a name="direct-copy-from-snowflake"></a>Cópia direta de Snowflake
 
@@ -160,14 +160,14 @@ Se a sua loja de dados e formato de lavatório satisfaçam os critérios descrit
 
     - Para o formato **Parquet,** o codec de compressão é **Nenhum,** **Snappy,** ou **Lzo.**
     - Para formato **de texto delimitado:**
-        - `rowDelimiter`é **\r\n**, ou qualquer personagem único.
-        - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
-        - `encodingName`é deixado como padrão ou definido para **utf-8**.
-        - `quoteChar`é **citação dupla,** **citação única** ou **corda vazia** (sem carvão de citação).
+        - `rowDelimiter` é **\r\n**, ou qualquer personagem único.
+        - `compression` não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+        - `encodingName` é deixado como padrão ou definido para **utf-8**.
+        - `quoteChar` é **citação dupla,** **citação única,** ou **corda vazia** (sem carvão de citação).
     - Para o formato **JSON,** a cópia direta suporta apenas o caso de que a tabela ou resultado da consulta de snowflake de origem tem apenas uma coluna e o tipo de dados desta coluna é **VARIANT**, **OBJECT**, ou **ARRAY**.
-        - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
-        - `encodingName`é deixado como padrão ou definido para **utf-8**.
-        - `filePattern`na pia de atividade de cópia é deixada como padrão ou definida para **definirOfObjects**.
+        - `compression` não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+        - `encodingName` é deixado como padrão ou definido para **utf-8**.
+        - `filePattern` na pia de atividade de cópia é deixada como padrão ou definida para **definirOfObjects**.
 
 - Na fonte de atividade de cópia, `additionalColumns` não é especificado.
 - O mapeamento da coluna não é especificado.
@@ -273,13 +273,13 @@ Para copiar dados para Snowflake, as seguintes propriedades são suportadas na s
 
 | Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| tipo              | A propriedade tipo da pia de atividade copy, definida para **SnowflakeSink**. | Sim                                           |
-| preCopyScript     | Especifique uma consulta SQL para a atividade copy para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | Não                                            |
-| importaçõesS | Definições avançadas usadas para escrever dados em Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | Não |
+| tipo              | A propriedade tipo da pia de atividade copy, definida para **SnowflakeSink**. | Yes                                           |
+| preCopyScript     | Especifique uma consulta SQL para a atividade copy para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | No                                            |
+| importaçõesS | Definições avançadas usadas para escrever dados em Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | No |
 | ***Em `importSettings` :*** |                                                              |  |
-| tipo | O tipo de comando de importação, definido para **SnowflakeImportCopyCommand**. | Sim |
-| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Não |
-| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Não |
+| tipo | O tipo de comando de importação, definido para **SnowflakeImportCopyCommand**. | Yes |
+| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
+| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 
 #### <a name="direct-copy-to-snowflake"></a>Cópia direta para Snowflake
 
@@ -292,20 +292,20 @@ Se a sua loja de dados de origem e formato satisfaçam os critérios descritos n
     - Para o formato **Parquet,** o codec de compressão é **Nenhum,** ou **Snappy**.
 
     - Para formato **de texto delimitado:**
-        - `rowDelimiter`é **\r\n**, ou qualquer personagem único. Se o delimiter de linha não for "\r\n", `firstRowAsHeader` tem de ser **falso,** e `skipLineCount` não está especificado.
-        - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
-        - `encodingName`é deixado como padrão ou definido para "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859"-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar`é **citação dupla,** **citação única** ou **corda vazia** (sem carvão de citação).
+        - `rowDelimiter` é **\r\n**, ou qualquer personagem único. Se o delimiter de linha não for "\r\n", `firstRowAsHeader` tem de ser **falso,** e `skipLineCount` não está especificado.
+        - `compression` não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+        - `encodingName` é deixado como padrão ou definido para "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859"-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar` é **citação dupla,** **citação única,** ou **corda vazia** (sem carvão de citação).
     - Para o formato **JSON,** a cópia direta suporta apenas o caso de afundar a tabela Snowflake apenas tem uma única coluna e o tipo de dados desta coluna é **VARIANT**, **OBJECT**, ou **ARRAY**.
-        - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
-        - `encodingName`é deixado como padrão ou definido para **utf-8**.
+        - `compression` não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+        - `encodingName` é deixado como padrão ou definido para **utf-8**.
         - O mapeamento da coluna não é especificado.
 
 - Na fonte de atividade copy: 
 
-   -  `additionalColumns`não é especificado.
+   -  `additionalColumns` não é especificado.
    - Se a sua fonte for uma pasta, `recursive` está definida como verdadeira.
-   - `prefix`, `modifiedDateTimeStart` `modifiedDateTimeEnd` não são especificados.
+   - `prefix`, `modifiedDateTimeStart` `modifiedDateTimeEnd` e `enablePartitionDiscovery` não estão especificados.
 
 **Exemplo:**
 

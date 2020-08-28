@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204196"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049388"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>O que é o modo de relatório de acesso condicional?
 
@@ -38,7 +38,7 @@ O modo apenas de relatório é um novo estado de política de acesso condicional
 
 Quando uma política em modo apenas de relatório é avaliada para uma determinada entrada, existem quatro novos valores possíveis de resultados:
 
-| Resultado | Descrição |
+| Resultado | Description |
 | --- | --- |
 | Apenas relatório: Sucesso | Todas as condições de política configuradas, os controlos de subvenções não interativos necessários e os controlos de sessão foram satisfeitos. Por exemplo, um requisito de autenticação de vários fatores é preenchido por uma alegação de MFA já presente no token, ou uma política de dispositivo em conformidade é satisfeita com a realização de uma verificação do dispositivo num dispositivo em conformidade. |
 | Apenas relatório: Falha | Todas as condições políticas configuradas foram satisfeitas, mas nem todos os controlos de subvenção não interativos necessários ou os controlos de sessão foram satisfeitos. Por exemplo, uma política aplica-se a um utilizador em que um controlo de blocos é configurado, ou um dispositivo falha uma política de dispositivo conforme. |
@@ -49,6 +49,6 @@ Quando uma política em modo apenas de relatório é avaliada para uma determina
 
 Os administradores têm a capacidade de criar múltiplas políticas apenas no modo relatório, pelo que é necessário compreender tanto o impacto individual de cada política como o impacto combinado de múltiplas políticas avaliadas em conjunto. O novo manual de acesso condicional permite aos administradores visualizar consultas de Acesso Condicional e monitorizar o impacto de uma política para um determinado intervalo de tempo, conjunto de aplicações e utilizadores. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Configurar o modo apenas de relatório numa política de acesso condicional](howto-conditional-access-report-only.md)
+[Configurar o modo apenas de relatório numa política de acesso condicional](howto-conditional-access-insights-reporting.md)

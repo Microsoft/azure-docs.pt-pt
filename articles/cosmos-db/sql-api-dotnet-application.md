@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 252f38e289f7b40c673d9048119823348a30a546
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015446"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051304"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver uma aplicação web core MVC ASP.NET com a Azure Cosmos DB utilizando .NET SDK
 
@@ -117,36 +117,19 @@ A Azure Cosmos DB usa a JSON para mover e armazenar dados. Pode utilizar o `Json
 
 ### <a name="add-views"></a><a name="add-views"></a>Adicionar vistas
 
-Em seguida, vamos criar as seguintes três vistas.
+Em seguida, vamos adicionar as seguintes vistas.
 
-* Adicionar uma vista de item lista
-* Adicionar uma nova vista de item
-* Adicione uma vista de artigo de edição
+* Uma vista de itens de criação
+* Uma vista de produto de exclusão
+* Uma vista para obter detalhes de um item
+* Uma vista de artigo de edição
+* Uma vista para listar todos os itens
 
-#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>Adicionar uma vista de item lista
+#### <a name="create-item-view"></a><a name="AddNewIndexView"></a>Criar vista de item
 
 1. No **Solution Explorer,** clique com o botão direito da pasta **Vistas** e selecione **Adicionar**  >  **Nova Pasta**. Nomeie a pasta *Item*.
 
 1. Clique com o botão direito na pasta **item** vazio e, em seguida, selecione **Add**  >  **View**.
-
-1. No **Add MVC View,** forneça os seguintes valores:
-
-   * No **ver o nome,** insira *o Índice*.
-   * No **modelo**, selecione **List**.
-   * Na **classe Modelo,** selecione **Item (todo. Modelos)**.
-   * Selecione **Utilize uma página de layout** e *insira ~/Views/Shared/_Layout.cshtml*.
-
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot mostrando a caixa de diálogo Add MVC View":::
-
-1. Depois de adicionar estes valores, **selecione Add** e deixe o Visual Studio criar uma nova vista de modelo.
-
-Uma vez feito, o Visual Studio abre o ficheiro *cshtml* que cria. Pode fechar o ficheiro no Estúdio Visual. Voltaremos mais tarde.
-
-#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>Adicionar uma nova vista de item
-
-Semelhante à forma como criou uma visão para listar itens, criar uma nova visão para criar itens utilizando os seguintes passos:
-
-1. No **Solution Explorer,** clique com o botão direito na pasta **Item** novamente, selecione **Add**  >  **View**.
 
 1. In **Add MVC View,** faça as seguintes alterações:
 
@@ -156,9 +139,44 @@ Semelhante à forma como criou uma visão para listar itens, criar uma nova vis�
    * Selecione **Utilize uma página de layout** e *insira ~/Views/Shared/_Layout.cshtml*.
    * Selecione **Adicionar**.
 
-#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Adicione uma vista de artigo de edição
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot mostrando a caixa de diálogo Add MVC View":::
 
-E, finalmente, adicione uma vista para editar um item com os seguintes passos:
+1. Em seguida, **selecione Add** e deixe o Visual Studio criar uma nova vista de modelo. Substitua o código no ficheiro gerado pelos seguintes conteúdos:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>Eliminar a vista do artigo
+
+1. A partir do **Solution Explorer,** clique com o botão direito na pasta **Item** novamente, selecione **Add**  >  **View**.
+
+1. In **Add MVC View,** faça as seguintes alterações:
+
+   * Na caixa **de nomes Ver,** *escreva Eliminar*.
+   * Na caixa **de modelo,** selecione **Eliminar**.
+   * Na caixa **Classe de modelo**, selecione **Item (todo.Models)**.
+   * Selecione **Utilize uma página de layout** e *insira ~/Views/Shared/_Layout.cshtml*.
+   * Selecione **Adicionar**.
+
+1. Em seguida, **selecione Add** e deixe o Visual Studio criar uma nova vista de modelo. Substitua o código no ficheiro gerado pelos seguintes conteúdos:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>Adicionar uma vista para obter detalhes de um item
+
+1. No **Solution Explorer,** clique com o botão direito na pasta **Item** novamente, selecione **Add**  >  **View**.
+
+1. No **Add MVC View,** forneça os seguintes valores:
+
+   * No **ver o nome,** insira *detalhes*.
+   * No **modelo,** selecione **Detalhes.**
+   * Na **classe Modelo,** selecione **Item (todo. Modelos)**.
+   * Selecione **Utilize uma página de layout** e *insira ~/Views/Shared/_Layout.cshtml*.
+
+1. Em seguida, **selecione Add** e deixe o Visual Studio criar uma nova vista de modelo. Substitua o código no ficheiro gerado pelos seguintes conteúdos:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Adicione uma vista de artigo de edição
 
 1. A partir do **Solution Explorer,** clique com o botão direito na pasta **Item** novamente, selecione **Add**  >  **View**.
 
@@ -170,7 +188,29 @@ E, finalmente, adicione uma vista para editar um item com os seguintes passos:
    * Selecione **Utilize uma página de layout** e *insira ~/Views/Shared/_Layout.cshtml*.
    * Selecione **Adicionar**.
 
-Assim que completar estes passos, feche todos os *documentos cshtml* no Visual Studio à medida que voltar a estas vistas mais tarde.
+1. Em seguida, **selecione Add** e deixe o Visual Studio criar uma nova vista de modelo. Substitua o código no ficheiro gerado pelos seguintes conteúdos:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="add-a-view-to-list-all-the-items"></a><a name="AddEditIndexView"></a>Adicionar uma vista para listar todos os itens
+
+E, finalmente, adicione uma vista para obter todos os itens com os seguintes passos:
+
+1. A partir do **Solution Explorer,** clique com o botão direito na pasta **Item** novamente, selecione **Add**  >  **View**.
+
+1. In **Add MVC View,** faça as seguintes alterações:
+
+   * Na caixa **Nome da vista**, escreva *Índice*.
+   * Na caixa **Modelo**, selecione **Lista**.
+   * Na caixa **Classe de modelo**, selecione **Item (todo.Models)**.
+   * Selecione **Utilize uma página de layout** e *insira ~/Views/Shared/_Layout.cshtml*.
+   * Selecione **Adicionar**.
+
+1. Em seguida, **selecione Add** e deixe o Visual Studio criar uma nova vista de modelo. Substitua o código no ficheiro gerado pelos seguintes conteúdos:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+Assim que completar estes passos, feche todos os *documentos cshtml* no Visual Studio.
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Declarar e inicializar serviços
 

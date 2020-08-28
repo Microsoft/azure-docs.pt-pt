@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835889"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049694"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução Azure-to-Azure Problemas de conectividade da rede VM
 
@@ -80,11 +80,8 @@ Este exemplo mostra como configurar as regras NSG para um VM replicar.
 
      :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
 
-1. Criar regras de saída da porta HTTPS 443 para os IPs de recuperação do local que correspondem à localização do alvo:
-
-   | Localização | Endereço IP de recuperação do site | Endereço IP de monitorização da recuperação do site |
-   | --- | --- | --- |
-   | E.U.A. Central | 40.69.144.231 | 52.165.34.144 |
+1. Semelhante às regras de segurança acima, crie uma regra de segurança HTTPS (443) para "EventHub.CentralUS" no NSG que corresponda à localização do alvo. Isto permite o acesso à monitorização da Recuperação do Local.
+1. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isto permite o acesso ao Serviço de Recuperação de Sítios em qualquer região.
 
 #### <a name="nsg-rules---central-us"></a>Regras NSG - Central US
 
@@ -100,11 +97,8 @@ Por exemplo, estas regras do NSG são necessárias para que a replicação possa
    - **Etiqueta de serviço de destino**: _AzureActiveDirectory_
    - **Gamas portuárias de destino**: _443_
 
-1. Criar regras de saída da porta HTTPS 443 para os IPs de recuperação do local que correspondem à localização da fonte:
-
-   | Localização | Endereço IP de recuperação do site | Endereço IP de monitorização da recuperação do site |
-   | --- | --- | --- |
-   | E.U.A. Leste | 13.82.88.226 | 104.45.147.24 |
+1. Semelhante às regras de segurança acima, crie uma regra de segurança HTTPS (443) para "EventHub.EastUS" no NSG que corresponda à localização da fonte. Isto permite o acesso à monitorização da Recuperação do Local.
+1. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isto permite o acesso ao Serviço de Recuperação de Sítios em qualquer região.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Edição 3: A configuração da recuperação do local falhou (151197)
 
@@ -147,4 +141,4 @@ Para permitir [os URLs necessários](azure-to-azure-about-networking.md#outbound
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Replicar VMs Azure para outra região do Azure](azure-to-azure-how-to-enable-replication.md)
+[Replicar VMs do Azure para outra região do Azure](azure-to-azure-how-to-enable-replication.md)

@@ -1,14 +1,14 @@
 ---
 title: Gerir espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerir eficazmente o Azure Sentinel em recursos de clientes delegados.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511257"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050816"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerir espaços de trabalho do Azure Sentinel em escala
 
@@ -29,7 +29,7 @@ Este modelo centralizado de implantação tem as seguintes vantagens:
 
 - A propriedade dos dados permanece com cada inquilino gerido.
 - Suporta requisitos para armazenar dados dentro dos limites geográficos.
-- Garante o isolamento de dados, uma vez que os dados para vários clientes não são armazenados no mesmo espaço de trabalho. 
+- Garante o isolamento de dados, uma vez que os dados para vários clientes não são armazenados no mesmo espaço de trabalho.
 - Evita a exfiltração de dados dos inquilinos geridos, ajudando a garantir a conformidade com os dados.
 - Os custos relacionados são cobrados a cada inquilino gerido, em vez do inquilino gerente.
 - Os dados de todas as fontes de dados e conectores de dados que estejam integrados com o Azure Sentinel (tais como Registos de Atividade ad AZure, registos do Office 365 ou alertas de Proteção de Ameaças da Microsoft) permanecerão dentro de cada inquilino do cliente.
@@ -71,13 +71,21 @@ Também pode implementar livros diretamente num inquilino individual que gere pa
 
 ## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Executar Log Analytics e consultas de caça em todos os espaços de trabalho do Azure Sentinel
 
-Você pode criar e guardar consultas de Log Analytics para deteção de ameaças centralmente no inquilino gerente, incluindo [consultas de caça](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Estas consultas podem então ser executadas em todos os espaços de trabalho do Azure Sentinel dos seus clientes utilizando o operador da União e a expressão do espaço de trabalho (). Para obter mais informações, consulte [consulta cross-workspace](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Crie e guarde as consultas de Log Analytics para deteção de ameaças centralmente no inquilino gestor, incluindo [consultas de caça](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Estas consultas podem então ser executadas em todos os espaços de trabalho do Azure Sentinel dos seus clientes utilizando o operador da União e a expressão do espaço de trabalho (). Para obter mais informações, consulte [consulta cross-workspace](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Use a automatização para gestão de espaços de trabalho cruzadas
 
 Você pode usar a automatização para gerir vários espaços de trabalho do Azure Sentinel e configurar [consultas de caça,](../../sentinel/hunting.md)playbooks e livros de trabalho. Para obter mais informações, consulte [a gestão do espaço de trabalho transversal utilizando a automação.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation)
 
 Note que algumas capacidades não são [suportadas atualmente em vários espaços de trabalho.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces)
+
+## <a name="manage-security-of-office-365-environments"></a>Gerir a segurança dos ambientes do Office 365
+
+Use o Farol Azure em conjunto com a Azure Sentinel para gerir a segurança do Office 365 ambientes entre os inquilinos. Em primeiro lugar, os conectores de dados fora da caixa [Office 365 devem ser ativados no inquilino gerido](../../sentinel/connect-office-365.md) para que as informações sobre as atividades de utilizador e administração em Exchange and SharePoint (incluindo o OneDrive) possam ser ingeridas num espaço de trabalho do Azure Sentinel dentro do inquilino gerido. Isto inclui detalhes sobre ações como transferências de ficheiros, pedidos de acesso enviados, alterações em eventos de grupo e operações de caixa de correio, juntamente com informações sobre os utilizadores que realizaram as ações. [Os alertas DLP do Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) também são suportados como parte do conector incorporado do Office 365.
+
+Pode ativar o [conector Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md) para transmitir alertas e registos cloud Discovery no Azure Sentinel. Isto permite-lhe ganhar visibilidade em aplicações em nuvem, obter análises sofisticadas para identificar e combater ciberamésulas e controlar como os dados viajam. Os registos de atividade para MCAS podem ser [consumidos utilizando o Formato Comum de Eventos (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+
+Depois de configurar os conectores de dados do Office 365, pode utilizar as capacidades do inquilino Azure Sentinel, como visualizar e analisar os dados em livros, utilizando consultas para criar alertas personalizados e configurar livros de jogadas para responder a ameaças.
 
 ## <a name="next-steps"></a>Passos seguintes
 

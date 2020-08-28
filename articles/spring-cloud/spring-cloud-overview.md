@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 11/4/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a8b6535a6e1f6bf083b4a82b9f2ecacbd222cb27
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: dda95932551cdb28c5f28207c05c8e3e78e753b8
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949767"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050850"
 ---
 # <a name="what-is-azure-spring-cloud"></a>O que é o Azure Spring Cloud?
 
-O Azure Spring Cloud facilita a implementação de aplicações de microserviços baseadas em Boot de Mola para o Azure com alterações de código zero.  A Azure Spring Cloud gere o ciclo de vida das aplicações Da Nuvem de primavera, para que os desenvolvedores possam focar-se no seu código.  A Cloud spring fornece gestão de ciclo de vida utilizando monitorização e diagnósticos abrangentes, gestão de configuração, descoberta de serviços, integração de CI/CD, implementações verde-azuladas e muito mais.
+O Azure Spring Cloud facilita a implementação de aplicações de microserviços baseadas em Boot de Mola para o Azure com alterações de código zero.  A Azure Spring Cloud gere a infraestrutura das aplicações Spring Cloud, para que os desenvolvedores possam focar-se no seu código.  A Cloud spring fornece gestão de ciclo de vida utilizando monitorização e diagnósticos abrangentes, gestão de configuração, descoberta de serviços, integração de CI/CD, implementações verde-azuladas e muito mais.
 
 Como parte do ecossistema Azure, a Azure Spring Cloud permite uma ligação fácil a outros serviços Azure, incluindo armazenamento, bases de dados, monitorização e muito mais.
 
@@ -28,11 +28,9 @@ Esta introdução descreve o servidor de configuração Azure Spring Cloud, como
 
 O Azure Spring Cloud Config Server fornece uma configuração externa num sistema distribuído com suporte ao servidor e ao cliente.  O Azure Spring Cloud Config Server é uma localização central para gerir propriedades de aplicações em todos os ambientes. Para mais informações consulte a [referência do Servidor Config da Nuvem de primavera](https://spring.io/projects/spring-cloud-config.md). 
 
-
-
 ## <a name="enable-bluegreen-deployments"></a>Ativar implantações azuis/verdes
 
-A Azure Spring Cloud suporta implementações azuis/verdes para a libertação e atualização do código para ambientes de produção.  Aproveitar este padrão de gestão de alterações permite que os desenvolvedores implementem funcionalidades e alterações de código com a segurança de um recuo imediato quando necessário.  O Azure permite que os desenvolvedores se concentrem na escrita do código, gerindo vários ambientes de produção e facilitando a atualização ou reversão de alterações de código sem interromper a aplicação.  Para saber mais sobre ambientes de encenação e implantações azuis/verdes, visite este [artigo Como-Para.](spring-cloud-howto-staging-environment.md)
+A Azure Spring Cloud suporta implementações azuis/verdes para a libertação e atualização do código para ambientes de produção.  Este padrão de gestão de alterações permite que os desenvolvedores implementem funcionalidades e alterações de código com a segurança de um recuo imediato quando necessário.  Os desenvolvedores podem concentrar-se em escrever código com vários ambientes de produção para atualizar ou reverter alterações de código sem interromper a aplicação.  Para saber mais sobre ambientes de encenação e implantações azuis/verdes, visite este [artigo Como-Para.](spring-cloud-howto-staging-environment.md)
 
 ## <a name="automate-cicd-pipelines"></a>Automatizar os gasodutos CI/CD
 
@@ -49,9 +47,8 @@ O Azure Spring Cloud permite-lhe escalar facilmente os micro-serviços no seu pa
 As ferramentas de rastreio distribuídas da Spring Cloud permitem aos desenvolvedores depurar e monitorizar as complexas interligações entre microserviços numa aplicação.  Ao integrar [a Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com o Azure's Application [Insights,](../azure-monitor/insights/insights-overview.md)o Azure fornece uma poderosa capacidade de rastreio distribuído diretamente do portal Azure.  Para saber mais, complete este [tutorial.](spring-cloud-tutorial-distributed-tracing.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para começar, complete o quickstart da Cloud spring usando o [Azure CLI,](spring-cloud-quickstart-launch-app-cli.md)o [portal Azure](spring-cloud-quickstart-launch-app-portal.md), ou [Maven](spring-cloud-quickstart-launch-app-maven.md).
-
-Mais amostras estão disponíveis no GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
-
+Para começar, complete o quickstart da Cloud da primavera:
 > [!div class="nextstepaction"]
 > [Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud](spring-cloud-quickstart.md)
+
+Mais amostras estão disponíveis no GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

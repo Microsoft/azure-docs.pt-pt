@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9f0ba36abac045d1deb6b4179fbfb6aa32d4dc9a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f9f03c355e1e619d004c8ec8c1cc2f91932db744
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009775"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046838"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio
 
-Com a capacidade de monitorização incorporada em Azure Spring Cloud, você pode facilmente depurar e monitorizar problemas complexos. A Azure Spring Cloud integra [a Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com os Insights de [Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)da Azure. Esta integração fornece registos, métricas e capacidade de rastreio distribuídos a partir do portal Azure. Vamos acompanhá-lo como usar o Log Streaming, Log Analytics, Metrics e Distributed tracing com aplicações PiggyMetrics implementadas.
+Com a capacidade de monitorização incorporada em Azure Spring Cloud, você pode depurar e monitorizar problemas complexos. A Azure Spring Cloud integra [a Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com os Insights de [Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)da Azure. Esta integração fornece registos, métricas e capacidade de rastreio distribuídos a partir do portal Azure. Os seguintes procedimentos explicam como usar o log streaming, log analytics, métricas e rastreio distribuído com aplicações PiggyMetrics implementadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

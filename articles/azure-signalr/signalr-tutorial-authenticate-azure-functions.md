@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 72f6cee18664f63e36c38499e77f4c0ba7177c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 45dc137141491938367fb57c6955e8e3145f8ff9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386865"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050459"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticação do Azure SignalR Service com as Funções do Azure Functions
 
@@ -38,9 +38,13 @@ Tutorial passo a passo para criar uma sala de chat com autenticação e mensagen
   * [Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions): trabalhe com as Funções do Azure no VS Code
   * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): permite fornecer páginas Web localmente para teste
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
+
 ## <a name="sign-into-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Aceda ao [portal do Azure](https://portal.azure.com/) e inicie sessão com as suas credenciais.
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
 
 ## <a name="create-an-azure-signalr-service-instance"></a>Criar uma instância do Azure SignalR Service
 
@@ -48,7 +52,7 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
 
 1. Clique no botão **Criar um** **+** recurso () para criar um novo recurso Azure.
 
-1. Procure **SignalR Service** e selecione-o. Clique em **Create** (Criar).
+1. Procure **SignalR Service** e selecione-o. Clique em **Criar**.
 
     ![Novo SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
@@ -61,12 +65,13 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
     | Localização | Selecione uma localização perto de si |
     | Escalão de Preço | Gratuito |
 
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 
 1. Depois de implementada a instância, abra-a no portal e localize a sua página de Definições. Altere a definição do modo de serviço para *sem servidor*.
 
     ![Modo de serviço SignalR](media/signalr-concept-azure-functions/signalr-service-mode.png)
-
+    
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
 
 ## <a name="initialize-the-function-app"></a>Inicializar a aplicação de funções
 
@@ -131,7 +136,7 @@ Quando executar e depurar o runtime das Funções do Azure localmente, as defini
 
 1. Guarde o ficheiro.
 
-    
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
 
 ## <a name="create-a-function-to-authenticate-users-to-signalr-service"></a>Criar uma função para autenticar os utilizadores no SignalR Service
 
@@ -146,7 +151,7 @@ Quando a aplicação de chat é aberta pela primeira vez no browser, requer cred
 
 1. Quando lhe for pedido, forneça as seguintes informações.
 
-    | Name | Valor |
+    | Nome | Valor |
     |---|---|
     | Pasta da aplicação de funções | Selecione a pasta de projetos principal |
     | Modelo | Acionador HTTP |
@@ -194,6 +199,8 @@ Quando a aplicação de chat é aberta pela primeira vez no browser, requer cred
     ```
 
     Esta função recebe as informações de ligação do SignalR a partir do enlace de entrada e devolve-as ao cliente no corpo da resposta HTTP. O cliente SignalR utilizará esta informação para se ligar à instância do Serviço SignalR.
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
 
 ## <a name="create-a-function-to-send-chat-messages"></a>Criar uma função para enviar mensagens de chat
 
@@ -276,6 +283,8 @@ A aplicação Web também requer uma API HTTP para enviar mensagens de chat. Vai
 
 1. Guarde o ficheiro.
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
+
 ## <a name="create-and-run-the-chat-client-web-user-interface"></a>Criar e executar a interface de utilizador Web do cliente de chat
 
 A IU da aplicação de chat é uma aplicação de página única simples (SPA) criada com a arquitetura Vue JavaScript. Será alojada separada da aplicação de funções. Localmente, vai executar a interface Web com a extensão Live Server VS Code.
@@ -293,6 +302,8 @@ A IU da aplicação de chat é uma aplicação de página única simples (SPA) c
 1. Com **index.html** aberto, inicie o Live Server ao abrir a paleta de comandos do VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) e selecione **Live Server: Open with Live Server** (Live Server: Abrir com o Live Server). O Live Server irá abrir a aplicação num browser.
 
 1. É aberta a aplicação. Introduza uma mensagem na caixa de chat e prima Enter. Atualize a aplicação para ver novas mensagens. Uma vez que não foi configurada nenhuma autenticação, todas as mensagens serão enviadas como "anónimas".
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Implementar no Azure e ativar a autenticação
 
@@ -316,7 +327,7 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
 
 1. Introduza as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Valor |
     |---|---|
     | Subscrição | Selecione a subscrição que contém a instância do Serviço SignalR |
     | Grupo de recursos | Selecione o mesmo grupo de recursos |
@@ -337,9 +348,9 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
 
 1. Selecione **Ativado** para ativar a funcionalidade do site estático.
 
-1. No **nome do documento índice**, insiraindex.htm*l*.
+1. No **nome do documento índice**, insiraindex.htm* l*.
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 1. Aparece um **ponto final primário.** Reparem neste valor. Será necessário configurar a aplicação de função.
 
@@ -450,7 +461,7 @@ A aplicação Web será alojada através da funcionalidade de sites estáticos d
 
 1. Introduza os seguintes valores:
 
-    | Nome | Valor |
+    | Name | Valor |
     |---|---|
     | Subscrição | Selecione a sua subscrição |
     | Conta de armazenamento | Selecione a conta de armazenamento que criou anteriormente |
@@ -490,13 +501,20 @@ Parabéns! Implementou uma aplicação de chat sem servidor em tempo real!
 
 ![Demonstração](media/signalr-tutorial-authenticate-azure-functions/signalr-serverless-chat.gif)
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados neste tutorial, elimine o grupo de recursos no portal do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar as Funções do Azure com o Azure SignalR Service. Leia mais sobre a criação de aplicações sem servidor em tempo real com enlaces do SignalR Service para as Funções do Azure.
 
 > [!div class="nextstepaction"]
 > [Construir aplicativos em tempo real com funções Azure](signalr-concept-azure-functions.md)
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
+

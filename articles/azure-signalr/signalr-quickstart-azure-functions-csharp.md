@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 79bc96f9ba8347a4dc220dd2424b11e86aa9e95e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 54a4c9374c064073620f2679e7c7511e30c45de6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922026"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050646"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Quickstart: Criar uma sala de chat com funções Azure e serviço SignalR usando C\#
 
@@ -27,13 +27,21 @@ Pode também executar este tutorial na linha de comando (macOS, Windows ou Linux
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qscsharp)
+
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta do Azure.
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qscsharp)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurar e executar a aplicação Funções do Azure
 
@@ -67,10 +75,15 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
         ```bash
         func start
         ```
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qscsharp)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qscsharp)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -78,3 +91,5 @@ Neste quickstart, construíste e executaste uma aplicação sem servidor em temp
 
 > [!div class="nextstepaction"]
 > [Desenvolver as Funções do Azure com o Visual Studio](../azure-functions/functions-develop-vs.md)
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qscsharp)
