@@ -6,17 +6,18 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0909fd95238051a6a50e582cb2543dd3bdd307bf
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6f64c8155724a1306f5074a9164bcf97391dfbf6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067295"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000350"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder aos eventos de autocarro do Azure Service recebidos através da Azure Event Grid utilizando funções Azure e Apps Azure Logic
 Neste tutorial, você aprende a responder aos eventos do Azure Service Bus que são recebidos através da Azure Event Grid utilizando Azure Functions e Azure Logic Apps. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Criar um espaço de nomes do Service Bus
 > * Preparar uma aplicação de amostra para enviar mensagens

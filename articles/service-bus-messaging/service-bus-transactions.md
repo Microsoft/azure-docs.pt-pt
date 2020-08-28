@@ -3,12 +3,13 @@ title: Visão geral do processamento de transações no Azure Service Bus
 description: Este artigo dá-lhe uma visão geral do processamento de transações e o envio através de recurso no Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 90ee3e4f7cd6465d6297406d1d28d4ea34f88ac4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340512"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999959"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações de autocarros de serviço
 
@@ -27,7 +28,7 @@ O Service Bus suporta operações de agrupamento em relação a uma entidade de 
 As operações que podem ser realizadas dentro de um âmbito de transação são as seguintes:
 
 * ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender,](/dotnet/api/microsoft.azure.servicebus.core.messagesender) [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` `SendBatch` ,`SendBatchAsync`
-* **[IntermediárioS:](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** `Complete` , , `CompleteAsync` , , , `Abandon` , , , , , , , `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` ,`RenewLockAsync` 
+* **[IntermediárioS:](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** `Complete` , , `CompleteAsync` , , , `Abandon` , , , , , , , `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
 
 As operações de receção não estão incluídas, pois presume-se que a aplicação adquire mensagens utilizando o modo [ReceberMode.PeekLock,](/dotnet/api/microsoft.azure.servicebus.receivemode) dentro de alguns loops de receção ou com uma chamada [OnMessage,](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e só então abre uma margem de transação para o processamento da mensagem.
 
@@ -90,7 +91,7 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 ## <a name="timeout"></a>Tempo Limite
 Uma transação acaba após 2 minutos. O temporizador de transações começa quando a primeira operação da transação começa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para obter mais informações sobre as filas do Service Bus:
 

@@ -3,13 +3,13 @@ title: Autenticar acesso aos Hubs de Eventos Azure com assinaturas de acesso par
 description: Este artigo mostra-lhe como autenticar o acesso aos recursos do Event Hubs usando assinaturas de acesso partilhado.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5397cd746f33fc82ee63cc7d2a1f396ba704f334
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: bf1f42020237c0907ec7656735adfa46a21370f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423104"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008323"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado (SAS)
 A assinatura de acesso partilhado (SAS) dá-lhe controlo granular sobre o tipo de acesso que concede aos clientes que têm a assinatura de acesso partilhado. Aqui estão alguns dos controlos que pode definir num SAS: 
@@ -44,10 +44,10 @@ Ao utilizar a regra de autorização sendRuleNS, os pedidos do cliente podem env
 ## <a name="generate-a-shared-access-signature-token"></a>Gerar um token de assinatura de acesso partilhado 
 Qualquer cliente que tenha acesso ao nome de uma regra de autorização e uma das suas chaves de assinatura pode gerar um token SAS. O token é gerado através da criação de uma cadeia no seguinte formato:
 
-- `se`– Token expiração instantânea. Inteiro refletindo segundos desde época 00:00:00 UTC em 1 de janeiro de 1970 (época UNIX) quando o token expira
-- `skn`– Nome da regra de autorização, que é o nome-chave SAS.
-- `sr`– URI do recurso a ser acedido.
-- `sig`– Assinatura.
+- `se`  – Token expiração instantânea. Inteiro refletindo segundos desde época 00:00:00 UTC em 1 de janeiro de 1970 (época UNIX) quando o token expira
+- `skn` – Nome da regra de autorização, que é o nome-chave SAS.
+- `sr` – URI do recurso a ser acedido.
+- `sig` – Assinatura.
 
 O fio de assinatura é o hash SHA-256 calculado sobre o recurso URI (âmbito descrito na secção anterior) e a representação de cadeia do instantâneo de expiração do símbolo, separado por CRLF.
 
@@ -218,7 +218,7 @@ Por exemplo, para definir as regras de autorização que se resumem apenas ao en
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autenticação de centros de eventos com SAS 
 Para autenticar aplicações de back-end que consomem a partir dos dados gerados pelos produtores de Event Hubs, a autenticação simbólica do Event Hubs exige que os seus clientes tenham os direitos de **gestão** ou os privilégios de **escuta** atribuídos ao seu espaço de nomes de Eventos ou ao centro de eventos ou ao tópico. Os dados são consumidos a partir de Centros de Eventos usando grupos de consumidores. Enquanto a política SAS lhe dá âmbito granular, este âmbito é definido apenas ao nível da entidade e não ao nível do consumidor. Significa que os privilégios definidos ao nível do espaço de nome ou do nível do centro de eventos ou do nível tópico serão aplicados aos grupos de consumidores dessa entidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Autorizar a utilização de SAS](authenticate-shared-access-signature.md)

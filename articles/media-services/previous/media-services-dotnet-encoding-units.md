@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 49ba9b7a7f7cba883246bbfed055e22a4ea50b04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c9e99bcc1ca8681b9052bb9a25f18ea7e6f070c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052892"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008663"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o .NET SDK
 > [!div class="op_single_selector"]

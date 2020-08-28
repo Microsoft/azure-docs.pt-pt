@@ -16,12 +16,13 @@ ms.date: 07/07/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: f1b1cf72a75349c420e2d789b435e049ab824446
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7807d28da459656938acb399eb8c621e4c292372
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054411"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001574"
 ---
 # <a name="registration-management"></a>Gestão de registos
 

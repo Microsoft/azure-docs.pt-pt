@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f77a5b634b035b7cc1142645d355fe6c3756226b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73605621"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004073"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consulta dados avro usando Azure Data Lake Analytics
 
@@ -20,7 +20,7 @@ Este artigo discute como consultar os dados da Avro para encaminhar eficientemen
 
 O desafio tem sido que quando o Azure IoT Hub encaminha mensagens para o armazenamento Azure Blob, por padrão O IoT Hub escreve o conteúdo em formato Avro, que tem uma propriedade corporal de mensagem e uma propriedade de mensagem. O formato Avro não é utilizado para outros pontos finais. Embora o formato Avro seja ótimo para a preservação de dados e mensagens, é um desafio usá-lo para consultar dados. Em comparação, o formato JSON ou CSV é muito mais fácil para consulta de dados. O IoT Hub suporta agora a escrita de dados para o armazenamento blob em JSON, bem como avro.
 
-Para obter mais informações, consulte [a utilização do Azure Storage como ponto final de encaminhamento](iot-hub-devguide-messages-d2c.md#azure-storage).
+Para obter mais informações, consulte [a utilização do Azure Storage como ponto final de encaminhamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 Para responder às necessidades e formatos não relacionais de big data e superar este desafio, pode utilizar muitos dos padrões de big data para a transformação e dimensionamento de dados. Um dos padrões, "pay per consulta", é o Azure Data Lake Analytics, que é o foco deste artigo. Embora possa executar facilmente a consulta em Hadoop ou outras soluções, o Data Lake Analytics é muitas vezes mais adequado para esta abordagem "pay per questionry".
 
@@ -167,7 +167,7 @@ Nesta secção, consulta os dados da Avro e exporta-os para um ficheiro CSV no a
 
     ![Saída mostrando uma coluna para cada item](./media/iot-hub-query-avro-data/query-avro-data-8.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a consultar os dados da Avro para encaminhar eficientemente mensagens do Azure IoT Hub para os serviços Azure.
 

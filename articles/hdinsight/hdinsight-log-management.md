@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 14634fac5d4501572a54f80f01a37e440d69d09b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075540"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997562"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -67,7 +67,7 @@ Também pode utilizar o PowerShell para visualizar estas informações.  Para ob
 
 * Considere como pode recolher registos do cluster, ou de mais de um cluster, e colecioná-los para fins como auditoria, monitorização, planeamento e alerta. Pode utilizar uma solução personalizada para aceder e descarregar regularmente os ficheiros de registo e combiná-los e analisá-los para fornecer um ecrã de painel de instrumentos. Também pode adicionar capacidades adicionais para alertar para a deteção de segurança ou falha. Pode construir estes utilitários utilizando PowerShell, os HDInsight SDKs ou código que acede ao modelo de implementação clássico do Azure.
 
-* Considere se uma solução ou serviço de monitorização seria um benefício útil. O Microsoft System Center fornece um pacote de [gestão HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Também pode usar ferramentas de terceiros como Apache Chukwa e Ganglia para recolher e centralizar registos. Muitas empresas oferecem serviços para monitorizar soluções de big data baseadas em Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
+* Considere se uma solução ou serviço de monitorização seria um benefício útil. O Microsoft System Center fornece um pacote de [gestão HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). Também pode usar ferramentas de terceiros como Apache Chukwa e Ganglia para recolher e centralizar registos. Muitas empresas oferecem serviços para monitorizar soluções de big data baseadas em Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Passo 2: Gerir versões de serviço de cluster e visualizar registos
 
@@ -173,8 +173,8 @@ Pode utilizar o .NET SDK para Hadoop para examinar os ficheiros de registo gerad
 
 Para controlar o tamanho e o número de ficheiros de registo retidos, detenha as seguintes propriedades do `RollingFileAppender` :
 
-* `maxFileSize`é o tamanho crítico do ficheiro, acima do qual o ficheiro é enrolado. O valor predefinido é de 10 MB.
-* `maxBackupIndex`especifica o número de ficheiros de cópia de segurança a criar, predefinido 1.
+* `maxFileSize` é o tamanho crítico do ficheiro, acima do qual o ficheiro é enrolado. O valor predefinido é de 10 MB.
+* `maxBackupIndex` especifica o número de ficheiros de cópia de segurança a criar, predefinido 1.
 
 ### <a name="other-log-management-techniques"></a>Outras técnicas de gestão de registos
 
@@ -184,7 +184,7 @@ Também pode verificar se a exploração madeireira DEBUG está ativada para um 
 
 Para recolher os registos de todos os nós para uma localização central, pode criar um fluxo de dados, como ingerir todas as entradas de registo em Solr.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Prática de Monitorização e Registo para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
 * [Aceder a registos de aplicações Apache Hadoop YARN em HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)

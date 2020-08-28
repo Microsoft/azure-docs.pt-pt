@@ -11,12 +11,13 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
-ms.openlocfilehash: 7c39b133773cbe35d78e04c4e40de9d62c4eba18
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6a0592af43987e89556aee57ea44e07dc2c00828
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001116"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006793"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Criar um trabalho com múltiplas saídas de transformação
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029098"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999823"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics virtual machine extension for Linux (Extensão de máquina virtual do Log Analytics para Linux)
 
@@ -36,7 +36,7 @@ O Azure Monitor Logs fornece capacidades de monitorização, alerta e alerta de 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Para obter detalhes sobre as distribuições de Linux suportadas, consulte o artigo de visão geral do [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+Para obter detalhes sobre as distribuições apoiadas do Linux, consulte o artigo [dos agentes do Azure Monitor.](../../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 ### <a name="agent-and-vm-extension-version"></a>Versão de extensão de agente e VM
 A tabela seguinte fornece um mapeamento da versão da extensão VM do Log Analytics e do pacote de agente Log Analytics para cada lançamento. Está incluído um link para as notas de lançamento para a versão do pacote do agente Log Analytics. As notas de lançamento incluem detalhes sobre correções de bugs e novas funcionalidades disponíveis para uma determinada versão do agente.  
@@ -104,7 +104,7 @@ O JSON seguinte mostra o esquema para a extensão do Agente Desanal. A extensão
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo |
+| Nome | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
@@ -186,7 +186,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure CLI.
 

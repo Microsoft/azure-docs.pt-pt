@@ -3,12 +3,12 @@ title: Faça backup no SQL Server utilizando o Servidor de Backup Azure
 description: Neste artigo, aprenda a configuração para fazer backup das bases de dados do SQL Server utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: d682e63424ca247161e9784a8a05b91186da54b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: caf3d49c9b921cab97054a97ece271e484a734bd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003649"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005212"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Faça backup no SQL Server para Azure utilizando o Servidor de Backup Azure
 
@@ -60,7 +60,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
 1. Selecione **Novo** para criar um grupo de proteção.
 
     ![Criar um grupo de proteção no Servidor de Backup Azure](./media/backup-azure-backup-sql/protection-group.png)
-1. Na página inicial, reveja as orientações sobre a criação de um grupo de proteção. Em seguida, selecione **Seguinte**.
+1. Na página inicial, reveja as orientações sobre a criação de um grupo de proteção. e selecione **Seguinte**.
 1. Para o tipo de grupo de proteção, selecione **Servidores**.
 
     ![Selecione o tipo de grupo de proteção servers](./media/backup-azure-backup-sql/pg-servers.png)
@@ -88,19 +88,19 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
     Por predefinição, o MABS cria um volume por fonte de dados (base de dados SQL Server). O volume é utilizado para a cópia de reserva inicial. Nesta configuração, o Logical Disk Manager (LDM) limita a proteção MABS a 300 fontes de dados (bases de dados do SQL Server). Para contornar esta limitação, selecione **Co-localizar dados no DPM Storage Pool**. Se utilizar esta opção, o MABS utiliza um único volume para várias fontes de dados. Esta configuração permite que o MABS proteja até 2.000 bases de dados do SQL Server.
 
     Se selecionar **automaticamente o crescimento dos volumes,** então o MABS pode explicar o aumento do volume de backup à medida que os dados de produção crescem. Se não selecionar **automaticamente o crescimento dos volumes,** o MABS limita o armazenamento de backup às fontes de dados do grupo de proteção.
-1. Se for administrador, pode optar por transferir esta cópia de segurança inicial **automaticamente pela rede** e escolher a hora da transferência. Ou opte por transferir **manualmente** a cópia de segurança. Em seguida, selecione **Seguinte**.
+1. Se for administrador, pode optar por transferir esta cópia de segurança inicial **automaticamente pela rede** e escolher a hora da transferência. Ou opte por transferir **manualmente** a cópia de segurança. e selecione **Seguinte**.
 
     ![Escolha um método de criação de réplica no MABS](./media/backup-azure-backup-sql/pg-manual.png)
 
     A cópia de cópia de segurança inicial requer a transferência de toda a fonte de dados (base de dados SQL Server). Os dados de cópia de segurança movem-se do servidor de produção (computador SQL Server) para MABS. Se esta cópia de segurança for grande, então transferir os dados para a rede pode causar congestionamento da largura de banda. Por esta razão, os administradores podem optar por utilizar suportes amovíveis para transferir **manualmente**a cópia de segurança inicial . Ou podem transferir os dados **automaticamente pela rede** num momento especificado.
 
     Após os acabamentos de backup iniciais, as cópias de backup continuam incrementalmente na cópia inicial de backup. As cópias de segurança incrementais tendem a ser pequenas e são facilmente transferidas através da rede.
-1. Escolha quando fazer uma verificação de consistência. Em seguida, selecione **Seguinte**.
+1. Escolha quando fazer uma verificação de consistência. e selecione **Seguinte**.
 
     ![Escolha quando fazer uma verificação de consistência](./media/backup-azure-backup-sql/pg-consistent.png)
 
     O MABS pode verificar a integridade do ponto de reserva. Calcula a parte de verificação do ficheiro de cópia de segurança no servidor de produção (o computador SQL Server neste exemplo) e os dados de backup para esse ficheiro no MABS. Se o cheque encontrar um conflito, então o ficheiro de apoio no MABS é assumido como corrupto. O MABS corrige os dados de back-up enviando os blocos que correspondem ao desfasamento da parte de verificação. Como a verificação de consistência é uma operação intensiva de desempenho, os administradores podem optar por agendar a verificação de consistência ou executá-la automaticamente.
-1. Selecione as fontes de dados para proteger em Azure. Em seguida, selecione **Seguinte**.
+1. Selecione as fontes de dados para proteger em Azure. e selecione **Seguinte**.
 
     ![Selecione fontes de dados para proteger em Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
 1. Se for administrador, pode escolher horários de backup e políticas de retenção que se adequam às políticas da sua organização.
@@ -164,12 +164,12 @@ Para recuperar uma entidade protegida, como uma base de dados SQL Server, a part
 1. Clique com o botão direito no nome da base de dados e selecione **Recuperar.**
 
     ![Recuperar uma base de dados do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. O DPM mostra os detalhes do ponto de recuperação. Selecione **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do SQL Server**. Em seguida, selecione **Seguinte**.
+1. O DPM mostra os detalhes do ponto de recuperação. Selecione **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do SQL Server**. e selecione **Seguinte**.
 
     ![Recuperar uma base de dados para a sua localização original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     Neste exemplo, o DPM permite a recuperação da base de dados para outra instância do SQL Server ou para uma pasta de rede autónoma.
-1. Na página **'Especificar Opções de Recuperação',** pode selecionar as opções de recuperação. Por exemplo, pode escolher **o uso da largura de banda da rede** para acelerar a largura de banda que a recuperação utiliza. Em seguida, selecione **Seguinte**.
+1. Na página **'Especificar Opções de Recuperação',** pode selecionar as opções de recuperação. Por exemplo, pode escolher **o uso da largura de banda da rede** para acelerar a largura de banda que a recuperação utiliza. e selecione **Seguinte**.
 1. Na página **Resumo,** vê a configuração atual de recuperação. Selecione **Recuperar**.
 
     O estado de recuperação mostra a base de dados a ser recuperada. Pode selecionar **Perto** para fechar o assistente e ver o progresso no espaço de trabalho **de monitorização.**

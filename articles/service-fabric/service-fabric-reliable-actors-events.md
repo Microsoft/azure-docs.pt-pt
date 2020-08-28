@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: b17befcd86cd56eb5eb385ddc5196cbfce73003c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f5634a33dccb06437f2e5f095e7880221dba9d6e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260423"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007915"
 ---
 # <a name="actor-events"></a>Eventos de atores
 Os eventos de ator fornecem uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos atores são projetados para comunicação de actor-a-cliente e não devem ser usados para comunicação de actor-ator.

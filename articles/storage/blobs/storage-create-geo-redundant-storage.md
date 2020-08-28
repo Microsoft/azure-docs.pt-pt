@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc, devx-track-python, devx-track-javascript
+ms.custom: mvc, devx-track-python, devx-track-javascript, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 25f4c0244a027a0354809080bf13923e92d295f9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0e437cfb984acb71b27bc60a06929b6755e8a3ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844597"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001473"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construa uma aplicação altamente disponível com armazenamento Blob
 
@@ -78,7 +78,7 @@ Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso d
    | **Localização** | *E.U.A. Leste* | Escolher uma localização. |
    | **Desempenho** | *Standard* | O desempenho padrão é uma boa opção para o cenário de exemplo. |
    | **Tipo de conta** | *StorageV2* | Recomenda-se a utilização de uma conta de armazenamento v2 para fins gerais. Para obter mais informações sobre tipos de contas de armazenamento Azure, consulte [a visão geral da conta de Armazenamento](../common/storage-account-overview.md). |
-   | **Replicação**| *Armazenamento de geo-zonas de acesso à leitura (RA-GZRS)* | A região primária é zona redundante e é replicada para uma região secundária, com acesso lido à região secundária habilitada. |
+   | **Replicação**| *Armazenamento com georredundância de zona com acesso de leitura (RA-GZRS)* | A região primária é zona redundante e é replicada para uma região secundária, com acesso lido à região secundária habilitada. |
    | **Camada de acesso**| *Acesso Frequente* | Utilize o nível quente para obter dados de acesso frequente. |
 
     ![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)

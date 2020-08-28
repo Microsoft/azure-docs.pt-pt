@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 0ab95223d084436d1bf39ba557ec3b01c0b534d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 829ddc0b63031722cdcb572a2833926a7837d05d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503392"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004124"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize o executor a granel .NET library para realizar operações a granel em Azure Cosmos DB
 
@@ -201,6 +202,6 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
   </system.diagnostics>
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre os detalhes do pacote NuGet e as notas de lançamento, consulte os detalhes do [executor a granel SDK](sql-api-sdk-bulk-executor-dot-net.md).

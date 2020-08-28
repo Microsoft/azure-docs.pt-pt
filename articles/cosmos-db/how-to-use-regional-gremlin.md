@@ -7,12 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
-ms.openlocfilehash: 4880fa5bdccdc6416962e2f7e6da395f3db7be44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8f9d46c2f5cce397c2aa6ebbcd38d7fbb5786412
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263600"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997256"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos finais regionais para conta DB de Azure Cosmos
 A base de dados do Azure Cosmos DB Graph é [distribuída globalmente](distribute-data-globally.md) para que as aplicações possam usar vários pontos finais de leitura. As aplicações que precisam de escrever acesso em vários locais devem permitir a capacidade [multi-master.](how-to-multi-master.md)
@@ -108,7 +109,7 @@ foreach (string location in readLocations)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Como gerir o controlo de contas de base de dados](how-to-manage-database-account.md) em Azure Cosmos DB
 * [Alta disponibilidade](high-availability.md) em Azure Cosmos DB
 * [Distribuição global com Azure Cosmos DB - sob o capot](global-dist-under-the-hood.md)

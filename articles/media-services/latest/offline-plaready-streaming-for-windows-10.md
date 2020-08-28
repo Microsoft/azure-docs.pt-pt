@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bec7b37cf45851216f7b392ae1be52d4b1b2d990
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060603"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998497"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming Offline PlayReady para Windows 10 com Media Services v3
 
@@ -60,13 +61,13 @@ Abaixo estão dois conjuntos de ativos de teste, o primeiro usando a entrega de 
 
 #1 de ativos:
 
-* URL de descarregamento progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (AMS):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
+* URL de descarregamento progressivo: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 #2 de ativos:
 
-* URL de descarregamento progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (nas instalações):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
+* URL de descarregamento progressivo: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (nas instalações): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 Para testes de reprodução, utilizamos uma aplicação Universal Windows no Windows 10. Nas [amostras universais do Windows 10,](https://github.com/Microsoft/Windows-universal-samples)existe uma amostra básica do jogador chamada [Amostra de Streaming Adaptativa.](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming) Tudo o que temos de fazer é adicionar o código para que possamos escolher o vídeo descarregado e usá-lo como fonte, em vez de uma fonte de streaming adaptativa. As alterações estão no botão clique no manipulador de eventos:
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836008"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001642"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior de Azure Migrate
 
@@ -85,7 +85,7 @@ Uma máquina só se move para uma fase posterior se passar a anterior. Por exemp
 
 A vista de preparação para o Azure na avaliação mostra o estado de preparação de cada VM.
 
-**Preparação** | **Estado** | **Detalhes**
+**Prontidão** | **Estado** | **Detalhes**
 --- | --- | ---
 Preparado para o Azure | Sem problemas de compatibilidade. A máquina pode ser migrada como está para Azure, e irá arrancar em Azure com suporte Azure completo. | Para as VMs que estão prontas, o Azure Migrate recomenda um tamanho de VM no Azure.
 Condicionalmente preparado para o Azure | A máquina pode arrancar em Azure, mas pode não ter suporte completo do Azure. Por exemplo, uma máquina com uma versão mais antiga do Windows Server que não é suportada no Azure. | Azure Migrate explica as questões de prontidão e fornece medidas de reparação.
@@ -97,13 +97,13 @@ Preparação desconhecida | Azure Migrate não consegue identificar a prontidão
 A prontidão tem em conta uma série de propriedades VM, para identificar se o VM pode funcionar em Azure.
 
 
-**Propriedade** | **Detalhes** | **Preparação**
+**Propriedade** | **Detalhes** | **Prontidão**
 --- | --- | ---
 **Tipo de bota** | BIOS suportado. UEFI não apoiada. | Condicionalmente pronto se o tipo de arranque for UEFI.
 **Núcleos** | Máquinas core <= o número máximo de núcleos (128) suportados para um Azure VM.<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera os núcleos utilizados.<br/>Se um fator de conforto for especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate utiliza os núcleos atribuídos, sem aplicar o fator de conforto. | Pronto se for inferior ou igual a limites.
 **Memória** | O tamanho da memória da máquina <= a memória máxima (3892 GB na série Azure M Standard_M128m &nbsp; <sup>2</sup>) para um Azure VM. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, Azure Migrate considera a memória utilizada.<br/><br/>Se for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a memória atribuída é usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
 **Disco de armazenamento** | O tamanho atribuído de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos ligados à máquina deve ser de 65 ou menos, incluindo o disco SO. | Pronto se dentro dos limites.
-**Rede** | Uma máquina deve ter 32 OU menos NICs ligados a ela. | Pronto se dentro dos limites.
+**Redes** | Uma máquina deve ter 32 OU menos NICs ligados a ela. | Pronto se dentro dos limites.
 
 #### <a name="guest-operating-system"></a>Sistema operativo convidado
 
@@ -114,7 +114,7 @@ Juntamente com as propriedades VM, Azure Migrate também olha para o so convidad
 
 É utilizada a seguinte lógica.
 
-**Sistema Operativo** | **Detalhes** | **Preparação**
+**Sistema Operativo** | **Detalhes** | **Prontidão**
 --- | --- | ---
 Windows Server 2016 e todos os SPs | O Azure oferece todo o apoio. | Preparado para o Azure
 Windows Server 2012 R2 e todos os SPs | O Azure oferece todo o apoio. | Preparado para o Azure
@@ -238,7 +238,7 @@ Para instalar o agente numa máquina Windows:
 4. Nas **opções de configuração do agente**, selecione **Azure Log Analytics**  >  **Next**.
 5. Clique em **Adicionar** para adicionar um novo espaço de trabalho Log Analytics. Cole no iD do espaço de trabalho e na chave que copiou do portal. Clique em **Seguinte**.
 
-Pode instalar o agente a partir da linha de comando ou utilizando um método automatizado, como o Gestor de Configurações. [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sobre a utilização destes métodos para instalar o agente MMA.
+Pode instalar o agente a partir da linha de comando ou utilizando um método automatizado, como o Gestor de Configurações. [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-options) sobre a utilização destes métodos para instalar o agente MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Instale o agente MMA numa máquina Linux
 
@@ -249,7 +249,7 @@ Para instalar o agente numa máquina Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Saiba mais](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) sobre a lista de sistemas operativos Linux suportados pelo MMA.
+[Saiba mais](../azure-monitor/platform/agents-overview.md#supported-operating-systems) sobre a lista de sistemas operativos Linux suportados pelo MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Instale o agente MMA numa máquina monitorizada pelo Gestor de Operações
 

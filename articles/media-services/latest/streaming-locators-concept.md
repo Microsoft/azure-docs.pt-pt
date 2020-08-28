@@ -11,12 +11,13 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: ed58919c47da13a8a0707a344a389126c6feb6c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6b4ba1bf63c1b8ebe6b7e294f416eb528ce444c5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091968"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005790"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -90,7 +91,7 @@ Ver [Filtragem, encomenda, paging de entidades de Serviços de Comunicação](en
 
 Para obter localizadores de streaming com base no nome do Ativo associado, utilize as seguintes operações:
 
-|Linguagem|API|
+|Idioma|API|
 |---|---|
 |REST|[liststreaminglocadores](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams lista de ativos-streaming-localizadores](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|

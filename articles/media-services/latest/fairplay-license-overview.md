@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: 433768ddea6e250c66483ec3da4c7737b3538a1d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 0c2a699a57ce43b4d0b6f02c850dbda8082fbaea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092053"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009734"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Requisitos de licença e configuração do Apple FairPlay 
 

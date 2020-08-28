@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 029c2ffa548c8c99030f630a90eb07ac8ba063a0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497006"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997273"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar tempo para viver em Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Para criar ou ativar o TTL num recipiente ver,
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Habilite o tempo para viver em um recipiente usando SDK
 
-### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -83,7 +83,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-noexpiry"></a>Java SDK
+### <a name="java-sdk"></a><a id="java-enable-noexpiry"></a> Java SDK
 
 # <a name="java-sdk-v4"></a>[Java SDK V4](#tab/javav4)
 
@@ -116,7 +116,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 Para definir a hora de viver num recipiente, é necessário fornecer um número positivo não zero que indique o período de tempo em segundos. Com base no valor TTL configurado, todos os itens no recipiente após a última hora modificada do artigo `_ts` são eliminados.
 
-### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -149,7 +149,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-defaultexpiry"></a>Java SDK
+### <a name="java-sdk"></a><a id="java-enable-defaultexpiry"></a> Java SDK
 
 # <a name="java-sdk-v4"></a>[Java SDK V4](#tab/javav4)
 
@@ -202,7 +202,7 @@ Além de definir um tempo padrão para viver num recipiente, pode definir uma ho
 
 * Se o TTL estiver desativado ao nível do recipiente, o campo TTL no item será ignorado até que a TTL seja reativada no recipiente.
 
-### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal do Azure
+### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal Azure
 
 Utilize os seguintes passos para permitir que o tempo viva num item:
 
@@ -269,7 +269,7 @@ const itemDefinition = {
         };
 ```
 
-### <a name="java-sdk"></a><a id="java-set-ttl-item"></a>Java SDK
+### <a name="java-sdk"></a><a id="java-set-ttl-item"></a> Java SDK
 
 # <a name="java-sdk-v4"></a>[Java SDK V4](#tab/javav4)
 
@@ -350,7 +350,7 @@ SalesOrder salesOrder = new SalesOrder(
 
 Pode redefinir a hora de viver num item executando uma operação de escrita ou atualização no item. A operação de escrita ou atualização definirá `_ts` a hora atual e o TTL para o item expirar recomeçará. Se desejar alterar o TTL de um item, pode atualizar o campo assim que atualizar qualquer outro campo.
 
-### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -382,7 +382,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-modifyitemexpiry"></a>Java SDK
+### <a name="java-sdk"></a><a id="java-enable-modifyitemexpiry"></a> Java SDK
 
 # <a name="java-sdk-v4"></a>[Java SDK V4](#tab/javav4)
 
@@ -424,7 +424,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 Se o tempo de vida tiver sido definido num item e já não quiser que o item expire, então pode obter o item, remover o campo TTL e substituir o item no servidor. Quando o campo TTL é removido do item, o valor TTL predefinido atribuído ao recipiente é aplicado ao item. Deite o valor TTL a -1 para evitar que um item expire e não herdar o valor TTL do recipiente.
 
-### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -457,7 +457,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-itemdefaultexpiry"></a>Java SDK
+### <a name="java-sdk"></a><a id="java-enable-itemdefaultexpiry"></a> Java SDK
 
 # <a name="java-sdk-v4"></a>[Java SDK V4](#tab/javav4)
 
@@ -499,7 +499,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 Para desativar o tempo de vida num recipiente e impedir que o processo de fundo verifique se há itens expirados, a `DefaultTimeToLive` propriedade do recipiente deve ser eliminada. A eliminação desta propriedade é diferente de defini-la para -1. Quando o definir para -1, os novos itens adicionados ao recipiente viverão para sempre, no entanto pode sobrepor este valor em itens específicos no recipiente. Quando retirar a propriedade TTL do recipiente, os itens nunca expirarão, mesmo que existam, eles ultrapassaram explicitamente o valor TTL predefinido anterior.
 
-### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -526,7 +526,7 @@ await client.GetContainer("database", "container").ReplaceContainerAsync(contain
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-disableexpiry"></a>Java SDK
+### <a name="java-sdk"></a><a id="java-enable-disableexpiry"></a> Java SDK
 
 # <a name="java-sdk-v4"></a>[Java SDK V4](#tab/javav4)
 

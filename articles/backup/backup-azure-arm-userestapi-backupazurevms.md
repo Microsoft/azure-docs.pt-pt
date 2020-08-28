@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a configurar, iniciar e gerir operações de 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890336"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006300"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API
 
@@ -29,7 +29,7 @@ Primeiro, o cofre deve ser capaz de identificar o Azure VM. Isto é acionado uti
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-O POST URI `{subscriptionId}` `{vaultName}` tem, `{vaultresourceGroupName}` , `{fabricName}` parâmetros. O `{fabricName}` é "Azure". De acordo com o nosso exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Dado que todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
+O POST URI `{subscriptionId}` `{vaultName}` tem, `{vaultresourceGroupName}` , `{fabricName}` parâmetros. O `{fabricName}` é "Azure". De acordo com o nosso exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01

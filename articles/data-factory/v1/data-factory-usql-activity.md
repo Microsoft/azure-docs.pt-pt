@@ -10,14 +10,15 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 author: nabhishek
 ms.author: abnarain
+ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: c6d3510dfdd02bf2eb07d656c706c44d895c582d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4ae575984badb2b03f72a77aaf580012a1fc002
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74927905"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997137"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -45,10 +46,10 @@ Você cria um serviço **Azure Data Lake Analytics** ligado para ligar um servi�
 
 A tabela a seguir fornece descrições para as propriedades genéricas utilizadas na definição JSON. Pode ainda escolher entre o principal de serviço e a autenticação credencial do utilizador.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tipo** |A propriedade tipo deve ser configurada para: **AzureDataLakeAnalytics**. |Sim |
-| **accountName** |Nome da conta Azure Data Lake Analytics. |Sim |
+| **contaName** |Nome da conta Azure Data Lake Analytics. |Sim |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |Não |
 | **subscriçãoId** |Id de assinatura Azure |Não (Se não for especificada, utiliza-se a subscrição da fábrica de dados). |
 | **resourceGroupName** |Nome do grupo de recursos do Azure |Não (Se não for especificado, é utilizado o grupo de recursos da fábrica de dados). |
@@ -61,7 +62,7 @@ Para utilizar a autenticação principal do serviço, registe uma entidade de ap
 
 Utilize a autenticação principal do serviço especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Especifique a identificação do cliente da aplicação. | Sim |
 | **servicePrincipalKey** | Especifique a chave da aplicação. | Sim |
@@ -89,7 +90,7 @@ Utilize a autenticação principal do serviço especificando as seguintes propri
 ### <a name="user-credential-authentication"></a>Autenticação credencial do utilizador
 Em alternativa, pode utilizar a autenticação credencial do utilizador para data lake analytics especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **autorização** | Clique no botão **Authorize** no Editor de Fábrica de Dados e introduza a sua credencial que atribui o URL de autorização autogerado a esta propriedade. | Sim |
 | **sessionId** | Identificação da Sessão OAuth da Sessão de Autorização da OAuth. Cada ID de sessão é único e só pode ser usado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor de Fábrica de Dados. | Sim |
@@ -205,7 +206,7 @@ O seguinte snippet JSON define um oleoduto com uma Atividade U-SQL do Data Lake 
 
 A tabela seguinte descreve nomes e descrições de propriedades específicas a esta atividade. 
 
-| Propriedade            | Descrição                              | Necessário                                 |
+| Propriedade            | Descrição                              | Obrigatório                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
 | tipo                | A propriedade tipo deve ser definida para **DataLakeAnalyticsU-SQL**. | Sim                                      |
 | linkedServiceName   | Referência ao Azure Data Lake Analytics registado como um serviço ligado na Data Factory | Sim                                      |

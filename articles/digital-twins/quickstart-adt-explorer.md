@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: c3230294fd9d5761433b4507ff054bcaae7a11ad
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 6b0a024dde1c96610a637ec51fd29e4a23dadc53
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959818"
+ms.locfileid: "89008561"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -98,7 +98,7 @@ Se *premir* o botão Sinal na parte superior da janela para configurar o ADT Exp
 Insira as informações importantes que recolheu anteriormente na secção [Pré-Requisitos:](#prerequisites)
 * ID da Aplicação (cliente)
 * ID do Diretório (inquilino)
-* URL ADT, no formato *https:// <instance host name> *
+* URL ADT, no formato *https://{nome do anfitrião de instância}*
 
 >[!NOTE]
 > Pode revisitar/editar estas informações a qualquer momento selecionando o mesmo ícone para puxar novamente a caixa 'Iniciar' Vai manter os valores que passaste.

@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA que est
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fbf50a9b1fa33e86777c25dcbeee9681aa2dda62
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890608"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007592"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Ressarça as bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento georredundante garante que os dados das cópias de segurança são replicados numa região do Azure secundária, que está situada a centenas de quilómetros de distância da região principal. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [conjunto de propriedades de backup do cofre az](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) backup.
+Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento geo-redundante garante que os seus dados de reserva são replicados numa região secundária de Azure que fica a centenas de quilómetros da região primária. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [conjunto de propriedades de backup do cofre az](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) backup.
 
 ```azurecli
 az backup vault backup-properties set \

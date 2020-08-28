@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392136"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008697"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização do desempenho de consulta com o Azure Cosmos DB
 
@@ -182,7 +183,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>Grau Máximo de Paralelismo
-Para consultas, afina-o `MaxDegreeOfParallelism` para identificar as melhores configurações para a sua aplicação, especialmente se efetuar consultas de partição cruzada (sem filtro no valor da chave de partição). `MaxDegreeOfParallelism`controla o número máximo de tarefas paralelas, ou seja, o máximo de divisórias a visitar em paralelo. 
+Para consultas, afina-o `MaxDegreeOfParallelism` para identificar as melhores configurações para a sua aplicação, especialmente se efetuar consultas de partição cruzada (sem filtro no valor da chave de partição). `MaxDegreeOfParallelism`  controla o número máximo de tarefas paralelas, ou seja, o máximo de divisórias a visitar em paralelo. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -237,7 +238,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| Metric | Unidade | Descrição | 
+| Métrica | Unidade | Descrição | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | milissegundos | Tempo de execução de consulta | 
 | `queryCompileTimeInMs` | milissegundos | Tempo de compilação de consultas  | 
@@ -271,7 +272,7 @@ Aqui estão algumas consultas de amostra, e como interpretar algumas das métric
 | `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | A consulta é realizada como uma varredura porque utiliza `LOWER` , e 500 de 2491 documentos recuperados são devolvidos. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para saber mais sobre os operadores de consulta SQL suportados e palavras-chave, consulte [a consulta SQL](sql-query-getting-started.md). 
 * Para saber mais sobre unidades de pedido, consulte [unidades de pedido.](request-units.md)
 * Para conhecer a política de indexação, consulte [a política de indexação](index-policy.md) 

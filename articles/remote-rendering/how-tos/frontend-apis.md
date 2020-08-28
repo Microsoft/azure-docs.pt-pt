@@ -5,16 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: 699344f9343c17d449fa48e05b2c3474b524d695
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891475"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003529"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Utilizar as APIs de Front-end do Azure para autenticação
 
-Nesta secção, descreveremos como utilizar a API C# para autenticação.
+Nesta secção, descreveremos como utilizar a API para autenticação e gestão de sessão.
+
+> [!CAUTION]
+As funções descritas neste capítulo problema REST chama o servidor internamente. No que diz respeito a todas as chamadas REST, o envio demasiado frequente destes comandos fará com que o servidor se ausse e retornará eventualmente. O valor do `SessionGeneralContext.HttpResponseCode` membro neste caso é de 429 ("pedidos a mais"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
+
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo
 

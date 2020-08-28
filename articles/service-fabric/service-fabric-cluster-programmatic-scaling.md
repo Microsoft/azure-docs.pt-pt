@@ -5,12 +5,13 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261116"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005825"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalar um cluster de tecido de serviço programáticamente 
 
@@ -25,9 +26,9 @@ Um dos desafios de escrever um serviço para lidar com o dimensionamento é que 
 Um principiante de serviço pode ser criado com os seguintes passos:
 
 1. Inscreva-se no Azure CLI `az login` ( ) como um utilizador com acesso ao conjunto de escala de máquina virtual
-2. Criar o principal de serviço com`az ad sp create-for-rbac`
+2. Criar o principal de serviço com `az ad sp create-for-rbac`
     1. Tome nota do appId (chamado 'ID do cliente' em outro lugar), nome, senha e inquilino para posterior utilização.
-    2. Também vai precisar do seu ID de subscrição, que pode ser visto com`az account list`
+    2. Também vai precisar do seu ID de subscrição, que pode ser visto com `az account list`
 
 A biblioteca de computação fluente pode iniciar sação usando estas credenciais da seguinte forma (note que os tipos de Azure fluentes fundamentais como `IAzure` estão no pacote [Microsoft.Azure.Management.Fluent):](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)
 
@@ -59,7 +60,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Alternativamente, o tamanho da balança de máquina virtual também pode ser gerido com cmdlets PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)pode recuperar o objeto de escala de máquina virtual. A capacidade atual está disponível através da `.sku.capacity` propriedade. Depois de alterar a capacidade para o valor pretendido, a escala de máquina virtual definida em Azure pode ser atualizada com o [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) comando.
+Alternativamente, o tamanho da balança de máquina virtual também pode ser gerido com cmdlets PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) pode recuperar o objeto de escala de máquina virtual. A capacidade atual está disponível através da `.sku.capacity` propriedade. Depois de alterar a capacidade para o valor pretendido, a escala de máquina virtual definida em Azure pode ser atualizada com o [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) comando.
 
 Como ao adicionar um nó manualmente, adicionar uma instância definida em escala deve ser tudo o que é necessário para iniciar um novo nó de Tecido de Serviço, uma vez que o modelo de conjunto de escala inclui extensões para juntar automaticamente novas instâncias ao cluster de Tecido de Serviço. 
 

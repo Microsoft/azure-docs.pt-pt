@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4616f6c567b0bba13fe04aed56fd5e4ddc293f90
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83873050"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008391"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leia a entrada em qualquer formato utilizando deserializadores personalizados .NET
 
@@ -22,7 +23,7 @@ ms.locfileid: "83873050"
 
 Seguem-se as amostras de código das interfaces que definem o deserializador personalizado e `StreamDeserializer<T>` implementam.
 
-`UserDefinedOperator`é a classe base para todos os operadores de streaming personalizados. Inicializa- `StreamingContext` que fornece um contexto que inclui mecanismo de publicação de diagnósticos para os quais terá de desorbus quaisquer problemas com o seu deserializador.
+`UserDefinedOperator` é a classe base para todos os operadores de streaming personalizados. Inicializa- `StreamingContext` que fornece um contexto que inclui mecanismo de publicação de diagnósticos para os quais terá de desorbus quaisquer problemas com o seu deserializador.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -35,7 +36,7 @@ O seguinte corte de código é a deserialização para os dados de streaming.
 
 Devem ser emitidos erros de salto através `IStreamingDiagnostics` `UserDefinedOperator` do método Initialize do ôm's. Todas as exceções serão tratadas como erros e o desercializador será recriado. Depois de um certo número de erros, o trabalho irá para um estado falhado.
 
-`StreamDeserializer<T>`deserializa um fluxo em objeto do tipo `T` . Devem ser satisfeitas as seguintes condições:
+`StreamDeserializer<T>` deserializa um fluxo em objeto do tipo `T` . Devem ser satisfeitas as seguintes condições:
 
 1. T é uma classe ou uma estrutura.
 1. Todos os campos públicos em T são ou
@@ -45,7 +46,7 @@ Devem ser emitidos erros de salto através `IStreamingDiagnostics` `UserDefinedO
     1. IList `T2` onde T2 segue as mesmas regras.
     1. Não tem nenhum tipo recursivo.
 
-O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`devolve uma coleção de `T` instâncias.
+O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize` devolve uma coleção de `T` instâncias.
 
 ```csharp
     public abstract class StreamDeserializer<T> : UserDefinedOperator
@@ -54,7 +55,7 @@ O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`
     }
 ```
 
-`StreamingContext`fornece um contexto que inclui mecanismo de publicação de diagnósticos para o operador do utilizador.
+`StreamingContext` fornece um contexto que inclui mecanismo de publicação de diagnósticos para o operador do utilizador.
 
 ```csharp
     public abstract class StreamingContext
@@ -63,13 +64,13 @@ O parâmetro `stream` é o fluxo que contém o objeto serializado. `Deserialize`
     }
 ```
 
-`StreamingDiagnostics`são os diagnósticos para operadores definidos pelo utilizador, incluindo funções serializadoras, desserializantes e definidas pelo utilizador.
+`StreamingDiagnostics` são os diagnósticos para operadores definidos pelo utilizador, incluindo funções serializadoras, desserializantes e definidas pelo utilizador.
 
-`WriteError`escreve uma mensagem de erro para registos de recursos e envia o erro para diagnósticos.
+`WriteError` escreve uma mensagem de erro para registos de recursos e envia o erro para diagnósticos.
 
-`briefMessage`é uma breve mensagem de erro. Esta mensagem aparece nos diagnósticos e é utilizada pela equipa de produtos para fins de depuragem. Não inclua informações sensíveis e mantenha a mensagem com menos de 200 caracteres
+`briefMessage` é uma breve mensagem de erro. Esta mensagem aparece nos diagnósticos e é utilizada pela equipa de produtos para fins de depuragem. Não inclua informações sensíveis e mantenha a mensagem com menos de 200 caracteres
 
-`detailedMessage`é uma mensagem de erro detalhada que só é adicionada aos seus registos de recursos no seu armazenamento. Esta mensagem deve ter menos de 2000 caracteres.
+`detailedMessage` é uma mensagem de erro detalhada que só é adicionada aos seus registos de recursos no seu armazenamento. Esta mensagem deve ter menos de 2000 caracteres.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -219,7 +220,7 @@ O seguinte código Javascript é um exemplo do formato de serialização deseria
 }  
 ```
 
-`serializationClassName`deve ser uma classe que implementa `StreamDeserializer<T>` . Isto é descrito na secção seguinte.
+`serializationClassName` deve ser uma classe que implementa `StreamDeserializer<T>` . Isto é descrito na secção seguinte.
 
 ## <a name="region-support"></a>Suporte de região
 
@@ -234,7 +235,7 @@ Esta funcionalidade está disponível nas seguintes regiões:
 
 Pode [solicitar apoio](https://aka.ms/ccodereqregion) para regiões adicionais.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>Quando é que esta funcionalidade estará disponível em todas as regiões do Azure?
 

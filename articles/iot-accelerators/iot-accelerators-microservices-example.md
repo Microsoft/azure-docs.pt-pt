@@ -7,12 +7,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9ff3e12721628e244f247e174af101e71ea91191
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61447646"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998327"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplementar um microsserviço
 
@@ -20,7 +21,7 @@ Este tutorial mostra-lhe como editar um dos [microserviços](https://azure.com/m
 
 A solução de Monitorização Remota utiliza microserviços que são construídos usando imagens de estivadores que são retiradas de um estivador. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 >[!div class="checklist"]
 > * Editar e construir um microserviço na solução de Monitorização Remota

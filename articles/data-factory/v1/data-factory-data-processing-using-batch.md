@@ -11,12 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d0e608e1afae77afd44d7351b7c3f1f269bd8a8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321410"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998089"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala utilizando a Data Factory e o Batch
 > [!NOTE]
@@ -130,7 +131,7 @@ Utiliza [o Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/)
 
    ![Estrutura de pasta e sub-dobragem](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`e `outputfolder` são pastas de alto nível em `mycontainer` . A `inputfolder` pasta tem sub-dobradeiras com carimbos de data (YYYYY-MM-DD-HH).
+   `Inputfolder` e `outputfolder` são pastas de alto nível em `mycontainer` . A `inputfolder` pasta tem sub-dobradeiras com carimbos de data (YYYYY-MM-DD-HH).
 
    Se utilizar o Storage Explorer, no passo seguinte, faça o upload de ficheiros com os seguintes nomes: `inputfolder/2015-11-16-00/file.txt` , e assim por `inputfolder/2015-11-16-01/file.txt` diante. Este passo cria automaticamente as pastas.
 
@@ -792,7 +793,7 @@ Neste passo, cria-se um pipeline com uma atividade, a atividade personalizada qu
    Tenha em atenção os seguintes pontos:
 
    * Apenas uma atividade está no oleoduto, e é do tipo **DotNetActivity.**
-   * **O nome de montagem** é definido como o nome do **DLLMyDotNetActivity.dll**.
+   * **O nome de montagem** é definido como o nome do ** DLLMyDotNetActivity.dll**.
    * **O Ponto de Entrada** está definido para **MyDotNetActivityNS.MyDotNetActivity**. É \<namespace\> basicamente.\<classname\> no seu código.
    * **O PackageLinkedService** está definido para **StorageLinkedService,** que aponta para o armazenamento de bolhas que contém o ficheiro zip de atividade personalizada. Se utilizar diferentes contas de armazenamento para ficheiros de entrada/saída e o ficheiro zip de atividade personalizada, tem de criar outro serviço ligado ao Armazenamento. Este artigo pressupõe que use a mesma conta de armazenamento.
    * **O PackageFile** está definido para **o "personalactivitycontainer/MyDotNetActivity.zip**. Está no \<containerforthezip\> / \<nameofthezip.zip\> formato.
@@ -960,7 +961,7 @@ Pode estender esta amostra para saber mais sobre as funcionalidades data factory
 Depois de processar dados, pode consumi-lo com ferramentas online como o Power BI. Aqui estão links para ajudá-lo a entender o Power BI e como usá-lo em Azure:
 
 * [Explore um conjunto de dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Comece a trabalhar com o Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
+* [Introdução ao Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Atualizar dados em Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure e Power BI: Visão geral básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 

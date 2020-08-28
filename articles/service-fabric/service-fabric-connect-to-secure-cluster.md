@@ -3,12 +3,13 @@ title: Ligue-se de forma segura a um cluster de tecido de serviço Azure
 description: Descreve como autenticar o acesso do cliente a um cluster de Tecidos de Serviço e como garantir a comunicação entre clientes e um cluster.
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 89d3598b283a91645f0db648be81c73dffde8b46
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2ce0325f7aebac92eb1e7deadd6f6875b75b3755
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259242"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008816"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
 

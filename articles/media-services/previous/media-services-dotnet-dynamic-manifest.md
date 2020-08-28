@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: cenkdin
-ms.openlocfilehash: cd1272b6c49d247d58486193fcbc488d566ec1b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5cd1a301e495909d6fc9aef45c8f074d6b1da1bd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043033"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004423"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Criação de Filtros com Serviços de Mídia .NET SDK 
 > [!div class="op_single_selector"]

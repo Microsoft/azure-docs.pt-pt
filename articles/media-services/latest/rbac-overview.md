@@ -11,13 +11,13 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: c75b6e67932cfd26a3374eab3f3efa34ceade577
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 03e6c54ae9931f8f209a5f59150db2801827da06
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504488"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003768"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de Serviços de Mídia
 

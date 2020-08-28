@@ -3,12 +3,13 @@ title: Autenticação de identidade gerida com Diretório Ativo Azure
 description: Este artigo fornece informações sobre a autenticação de uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Event Hubs
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: c74e49eff8233d9918fcdb55e6fa2ad8d7517f6f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079146"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010023"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos Recursos dos Hubs de Eventos
 A Azure Event Hubs suporta a autenticação do Azure Ative Directory (Azure AD) com [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades geridas para recursos Azure podem autorizar o acesso aos recursos do Event Hubs utilizando credenciais AD Azure a partir de aplicações executadas em Azure Virtual Machines (VMs), apps de funções, conjuntos de escala de máquina virtual e outros serviços. Ao utilizar identidades geridas para recursos Azure juntamente com a autenticação Azure AD, pode evitar armazenar credenciais com as suas aplicações que funcionam na nuvem.

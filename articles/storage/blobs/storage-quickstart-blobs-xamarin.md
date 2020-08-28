@@ -7,12 +7,13 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b6dc5ba59aa563da6e7c19e6c821f4a9b697832f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4fa7ebc71f2bbe6abe6956ad36daaf983e011a94
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206536"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001332"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob storage client library v12 com Xamarin
 

@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c709fca3fbddb6fc16699052c5f01d1255c79dd8
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cf27778d1365ef3779a996f37fff09bb7a1efbec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542098"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999806"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -41,7 +41,7 @@ A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect He
 | A inspeção TLS para tráfego de saída é filtrada ou desativada | A etapa de registo do agente ou as operações de upload de dados podem falhar se houver inspeção ou rescisão de TLS para tráfego de saída na camada de rede. Leia mais sobre [como configurar a inspeção TLS](https://technet.microsoft.com/library/ee796230.aspx) |
 | Portas da firewall no servidor onde o agente é executado |O agente requer que as seguintes portas de firewall estejam abertas para que possa comunicar com os pontos finais de serviço do Azure AD Health.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Note que a porta 5671 já não é necessária para a versão mais recente do agente. Upgrade para a versão mais recente para que apenas a porta 443 seja necessária. Leia mais sobre como [ativar as portas da firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Permitir os seguintes Web sites, caso esteja ativada a Segurança Avançada do IE |Se a Segurança Avançada do IE estiver ativada, os Web sites seguintes têm de ser permitidos no servidor no qual o agente vai ser instalado.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.net</li><li>O servidor de federação para a sua organização considerado fidedigno pelo o Azure Active Directory. Por exemplo: https:\//sts.contoso.com</li> Leia mais sobre [como configurar o IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Caso tenha um representante dentro da sua rede, consulte a nota abaixo.|
-| Certifique-se de que o PowerShell v4.0 ou mais recente está instalado | <li>O Windows Server 2008 R2 inclui o PowerShell v2.0, que é insuficiente para o agente. Atualize o PowerShell, conforme explicado abaixo em [Agent installation on Windows Server 2008 R2 Servers (Instalação do agente em Servidores do Windows Server 2008 R2)](#agent-installation-on-windows-server-2008-r2-servers).</li><li>O Windows Server 2012 inclui o PowerShell v3.0, que é insuficiente para o agente.  [Atualize](https://www.microsoft.com/download/details.aspx?id=40855) o Windows Management Framework.</li><li>O Windows Server 2012 R2 e versão posterior incluem uma versão suficientemente recente do PowerShell.</li>|
+| Certifique-se de que o PowerShell v4.0 ou mais recente está instalado | <li>O Windows Server 2008 R2 inclui o PowerShell v2.0, que é insuficiente para o agente. Atualize o PowerShell, conforme explicado abaixo em [Agent installation on Windows Server 2008 R2 Servers (Instalação do agente em Servidores do Windows Server 2008 R2)](#agent-installation-on-windows-server-2008-r2-servers).</li><li>O Windows Server 2012 inclui o PowerShell v3.0, que é insuficiente para o agente.</li><li>O Windows Server 2012 R2 e versão posterior incluem uma versão suficientemente recente do PowerShell.</li>|
 |Desativar FIPS|O FIPS não é suportado por agentes do Azure AD Connect Health.|
 
 
@@ -116,7 +116,6 @@ Passos para servidores do Windows Server 2008 R2:
 3. Antes de instalar o agente do AD Health, instale o Windows PowerShell 4.0 em cada um dos servidores. Para instalar o Windows PowerShell 4.0:
    * Instale o [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) utilizando a seguinte ligação para transferir o instalador offline.
    * Instale o ISE do PowerShell (a partir de Funcionalidades do Windows)
-   * Instale o [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
    * Instale no servidor o Internet Explorer versão 10 ou posterior. (É um requisito do Serviço de Integridade para o autenticar com as suas credenciais de administrador do Azure.)
 4. Para obter mais informações sobre como instalar o Windows PowerShell 4.0 no Windows Server 2008 R2, veja o artigo wiki [aqui](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 

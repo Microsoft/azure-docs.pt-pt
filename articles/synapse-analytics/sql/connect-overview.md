@@ -1,6 +1,6 @@
 ---
-title: Ligue-se ao Synapse SQL
-description: Fique ligado ao Synapse SQL.
+title: Ligue-se ao SQL da Sinapse
+description: Adecte-se ao Sinaapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,34 +9,35 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f09f9a503348efc51fb50c283e7fe856869e0dd5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a9a9b8b9ed3e65ae9b8500017b838dc320ecbaac
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198507"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005025"
 ---
-# <a name="connect-to-synapse-sql"></a>Ligue-se ao Synapse SQL
-Fique ligado à capacidade SYnapse SQL em Azure Synapse Analytics.
+# <a name="connect-to-synapse-sql"></a>Ligue-se ao SQL da Sinapse
+Esteja ligado à capacidade Sinapse SQL em Azure Synapse Analytics.
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas suportadas para sQL a pedido (pré-visualização)
+## <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas suportadas para SQL on-demand (pré-visualização)
 
-[O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) é totalmente suportado a partir da versão 1.18.0. O SSMS é parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
+[O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) está totalmente suportado a partir da versão 1.18.0. O SSMS é parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
 
 > [!NOTE]
-> Se um login AAD tiver uma ligação aberta por mais de 1 hora no momento da execução da consulta, qualquer consulta que dependa de AAD falhará. Isto inclui o armazenamento de consulta usando o pass-through AAD e declarações que interagem com a AAD (como CRIAR FORNECEDOR EXTERNO). Isto afeta todas as ferramentas que mantêm as ligações abertas, como em editor de consulta em SSMS e ADS. As ferramentas que abrem novas ligações para executar uma consulta, como o Estúdio Synapse, não são afetadas.
+> Se um login AAD tiver uma ligação aberta por mais de 1 hora no momento da execução da consulta, qualquer consulta que dependa do AAD falhará. Isto inclui consulta de armazenamento utilizando o transitário AAD e declarações que interagem com a AAD (como CREATE EXTERNAL PROVIDER). Isto afeta todas as ferramentas que mantêm as ligações abertas, como no editor de consultas em SSMS e ADS. As ferramentas que abrem novas ligações para executar uma consulta, como o Synapse Studio, não são afetadas.
 
-> Pode reiniciar o SSMS ou ligar e desligar no ADS para mitigar este problema. 
+> Pode reiniciar sSMS ou ligar e desligar em ADS para mitigar este problema. 
 
 ## <a name="find-your-server-name"></a>Encontrar o nome do servidor
 
 O nome do servidor para piscina SQL no seguinte exemplo é: showdemoweu.sql.azuresynapse.net.
-O nome do servidor para SQL on-demand no seguinte exemplo é: showdemoweu-ondemand.sql.azuresynapse.net.
+O nome do servidor para SQL a pedido no seguinte exemplo é: showdemoweu-ondemand.sql.azuresynapse.net.
 
 Descubra o nome de servidor completamente qualificado:
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
-2. Clique em espaços de **trabalho Synapse**.
+1. Aceda ao [portal do Azure](https://portal.azure.com).
+2. Clique em **espaços de trabalho synapse**.
 3. Clique no espaço de trabalho a que pretende ligar.
 4. Vai para uma visão geral.
 5. Localize o nome do servidor completo.
@@ -47,10 +48,10 @@ Descubra o nome de servidor completamente qualificado:
 
 ## <a name="sql-on-demand"></a>**SQL a pedido**
 
-![Nome de servidor completo SQL a pedido](./media/connect-overview/server-connect-example-sqlod.png)
+![Nome completo do servidor SQL a pedido](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Controladores e cadeias de ligação suportados
-Synapse SQL suporta [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC,](https://msdn.microsoft.com/library/jj730314.aspx) [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)e [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Para encontrar a versão mais recente e documentação, clique num dos controladores anteriores. Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal Azure, clique nas cordas de **ligação** da base de dados Show a partir do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
+O Sinaapse SQL suporta [ADO.NET,](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx) [ODBC,](https://msdn.microsoft.com/library/jj730314.aspx) [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)e [JDBC.](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx) Para encontrar a versão e documentação mais recentes, clique num dos controladores anteriores. Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal Azure, clique nas cadeias de ligação da base de **dados Show** a partir do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
 
 > [!NOTE]
 > Considere definir o tempo limite da ligação como 300 segundos, para permitir que a ligação sobreviva a curtos períodos de indisponibilidade.
@@ -80,7 +81,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 ```
 
 ## <a name="connection-settings"></a>Definições de ligação
-Synapse SQL padroniza algumas configurações durante a ligação e criação de objetos. Estas definições não podem ser substituídas e incluem:
+O SQL de Sinapse normaliza algumas definições durante a ligação e criação de objetos. Estas definições não podem ser substituídas e incluem:
 
 | Definição de base de dados | Valor |
 |:--- |:--- |
@@ -91,7 +92,7 @@ Synapse SQL padroniza algumas configurações durante a ligação e criação de
 
 ## <a name="recommendations"></a>Recomendações
 
-Para executar consultas a pedido da **SQL,** as ferramentas recomendadas são [o Azure Data Studio](get-started-azure-data-studio.md) e o Azure Synapse Studio.
+Para a execução de consultas **a pedido do SQL,** as ferramentas recomendadas são [o Azure Data Studio](get-started-azure-data-studio.md) e o Azure Synapse Studio.
 
-## <a name="next-steps"></a>Próximos passos
-Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para saber mais sobre opções de autenticação, consulte [Autenticação para Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+## <a name="next-steps"></a>Passos seguintes
+Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para saber mais sobre opções de autenticação, consulte [autenticação para Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

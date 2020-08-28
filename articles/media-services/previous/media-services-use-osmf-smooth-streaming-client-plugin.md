@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63b534f67aa5cf39f7549a467be28ec1212897d2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a0a2f5fbc2139a8340ee763efc51c36a01dd24d0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172014"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999587"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Plugin de streaming suave do Microsoft para o Adobe Open Source Media Framework  
 ## <a name="overview"></a>Descrição geral

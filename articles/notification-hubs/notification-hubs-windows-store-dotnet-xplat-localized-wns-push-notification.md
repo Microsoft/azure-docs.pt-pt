@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 58c234df5babc02fdd0e69a9c806043465293ace
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2fc29eeea7969812f0fbef17892893f7a79a048a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030288"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998191"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push localizadas para apps do Windows usando hubs de notificação do Azure
 
@@ -39,7 +39,7 @@ Este tutorial mostra-lhe como enviar notificações localizadas para dispositivo
 
 Quando concluir o tutorial, a aplicação móvel vai permitir-lhe registar-se em categorias nas quais está interessado, bem como especificar um idioma no qual as notificações vão ser recebidas. A aplicação de back-end envia notificações que estão localizadas por idioma e dispositivo.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Atualizar a aplicação do Windows para suportar informações de região
@@ -111,7 +111,7 @@ Para saber mais sobre modelos, consulte [Modelos push](notification-hubs-templat
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
     ```
-3. Na `Notifications` classe, adicione um parâmetro local ao `StoreCategoriesAndSubscribe` e `SubscribeToCategories` métodos.
+3. Na `Notifications` classe, adicione um parâmetro local ao  `StoreCategoriesAndSubscribe` e `SubscribeToCategories` métodos.
 
     ```csharp
     public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)

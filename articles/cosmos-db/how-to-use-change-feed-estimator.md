@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 90ae7951196d424b59d3780469cb7e01519c51f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 442e1c4facce076ce9eeacee772df9381fee6f71
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263583"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997222"
 ---
 # <a name="use-the-change-feed-estimator"></a>Utilize o estimador de alimentos para alterações
 
@@ -58,7 +59,7 @@ Pode enviar esta estimativa para a sua solução de monitorização e usá-la pa
 * [Amostras de utilização no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Amostras adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode agora proceder para saber mais sobre o processador de feed de mudança nos seguintes artigos:
 

@@ -11,25 +11,26 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f159105046231ba5fb4e458cdd70d930a411a920
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b42d720a425b92ec9002f7c2b9797a91f70dafe2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882340"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003032"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicação de uma página: Configuração de código
 
 Saiba como configurar o código para a sua aplicação de uma página única (SPA).
 
-## <a name="msal-libraries-that-support-implicit-flow"></a>Bibliotecas MSAL que suportam fluxo implícito
+## <a name="msal-libraries-for-spas-and-supported-authentication-flows"></a>Bibliotecas MSAL para SPAs e fluxos de autenticação suportados
 
-A plataforma de identidade da Microsoft fornece as seguintes bibliotecas da Microsoft Authentication Library (MSAL) para suportar o fluxo implícito utilizando práticas de segurança recomendadas pela indústria:
+A plataforma de identidade da Microsoft fornece a seguinte Biblioteca de Autenticação do Microsoft para o JavaScript (MSAL.js) para suportar o fluxo de código de fluxo e autorização implícito com o PKCE utilizando práticas de segurança recomendadas pela indústria:
 
-| Biblioteca MSAL | Descrição |
-|--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca JavaScript simples para uso em qualquer aplicação web do lado do cliente que seja construída através de estruturas JavaScript ou SPA, tais como Angular, Vue.js e React.js. |
-| ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | O invólucro do núcleo MSAL.js biblioteca para simplificar o uso em aplicações de uma só página que são construídas através da estrutura angular. |
+| Biblioteca MSAL | Fluxo | Descrição |
+|--------------|------|-------------|
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Fluxo de código de autorização (PKCE) | Biblioteca JavaScript simples para uso em qualquer aplicação web do lado do cliente que seja construída através de estruturas JavaScript ou SPA, tais como Angular, Vue.js e React.js. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Fluxo implícito | Biblioteca JavaScript simples para uso em qualquer aplicação web do lado do cliente que seja construída através de estruturas JavaScript ou SPA, tais como Angular, Vue.js e React.js. |
+| ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Fluxo implícito | O invólucro do núcleo MSAL.js biblioteca para simplificar o uso em aplicações de uma só página que são construídas através da estrutura angular. |
 
 ## <a name="application-code-configuration"></a>Configuração do código de aplicação
 
@@ -41,10 +42,9 @@ Numa biblioteca MSAL, a informação de registo de pedidos é passada como confi
 // Configuration object constructed.
 const config = {
     auth: {
-        clientId: 'your_app_id',
-        redirectUri: "your_app_redirect_uri" //defaults to application start page
+        clientId: 'your_client_id'
     }
-}
+};
 
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
@@ -73,7 +73,7 @@ export class AppModule { }
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Iniciar e terminar sessão](scenario-spa-sign-in.md)

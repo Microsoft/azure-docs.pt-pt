@@ -4,12 +4,12 @@ description: Instalação de resolução de problemas, registo do Azure Backup S
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 70431ee42566d1cbba5ed239b9da55c2ff7a2afe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893022"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999228"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Restauro | **Código de erro**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: Os servidores DPM originais e externos devem estar registados no mesmo cofre | **Causa:** Este problema ocorre quando está a tentar restaurar ficheiros para o servidor alternativo a partir do servidor original utilizando a opção de recuperação de DPM Externo e se o servidor que está a ser recuperado e o servidor original de onde os dados são apoiados não estão associados ao mesmo cofre dos Serviços de Recuperação.<br/> <br/>**Solução alternativa** Para resolver este problema, certifique-se de que tanto o servidor original como o servidor alternativo estão registados no mesmo cofre.|
+| Restauro | **Código de erro**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: Os servidores DPM originais e externos devem estar registados no mesmo cofre | **Causa**: Este problema ocorre quando está a tentar restaurar ficheiros para o servidor alternativo a partir do servidor original utilizando a opção de recuperação de DPM Externo, e se o servidor que está a ser recuperado e o servidor original de onde os dados são apoiados não estão associados ao mesmo cofre dos Serviços de Recuperação.<br/> <br/>**Solução alternativa** Para resolver este problema, certifique-se de que tanto o servidor original como o servidor alternativo estão registados no mesmo cofre.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Empregos de criação de ponto de recuperação online para VMware VM falha
 

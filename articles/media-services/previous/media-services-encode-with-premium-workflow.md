@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ca5de657ad45f53cff0cb01d5fe9cc412baf4533
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 42d1d855f5d9e9acafb1c09116cceb35043f18c9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792292"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002951"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Advanced encoding with Media Encoder Premium Workflow (Codificação avançada com o Media Encoder Premium Workflow)
 > [!NOTE]
@@ -26,7 +27,7 @@ ms.locfileid: "72792292"
 >
 >
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 A Microsoft Azure Media Services está a introduzir o processador de mídia **Media Encoder Premium Workflow.** Este processador oferece capacidades de codificação antecipadas para os seus fluxos de trabalho premium a pedido.
 
 Os seguintes tópicos delineiam detalhes relacionados com **o fluxo de trabalho premium da Media Encoder:**

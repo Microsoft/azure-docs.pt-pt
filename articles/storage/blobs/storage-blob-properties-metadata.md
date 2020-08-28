@@ -8,12 +8,13 @@ ms.date: 08/12/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 29fae4ffb08aba6a45a3879ffe28bf6b90f28a0e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b1501b61e930b7554063356335b967583c0a3ff5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182396"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008442"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gerir propriedades blob e metadados com .NET
 

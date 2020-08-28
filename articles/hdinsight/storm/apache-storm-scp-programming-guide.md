@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: 4445bb5c73ca001813d529a3e65d1ea95e084616
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082459"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000146"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação SCP para Apache Storm em Azure HDInsight
 
@@ -539,9 +539,9 @@ SCP.NET adiciona um método de agrupamento personalizado, e utiliza o conteúdo 
 
 No ficheiro de especificações anteriores:
 
-* `scp-field-group`especifica que o agrupamento é um agrupamento de campo personalizado implementado pela SCP.
-* `:tx`ou `:non-tx` especifica se a topologia é transacional. Precisa desta informação porque o índice inicial é diferente entre as topologias transacionais e não transacionais.
-* `[0,1]`especifica um conjunto de haxixe de iDs de campo que começam com zero.
+* `scp-field-group` especifica que o agrupamento é um agrupamento de campo personalizado implementado pela SCP.
+* `:tx` ou `:non-tx` especifica se a topologia é transacional. Precisa desta informação porque o índice inicial é diferente entre as topologias transacionais e não transacionais.
+* `[0,1]` especifica um conjunto de haxixe de iDs de campo que começam com zero.
 
 ### <a name="hybrid-topology"></a>Topologia híbrida
 
@@ -789,7 +789,7 @@ Esta topologia contém um bico java e um parafuso C#. Utiliza a implementação 
 
 Este exemplo é essencialmente o mesmo que o HelloWorld. A única diferença é que o seu código é compilado como um DLL e a topologia é submetida usando SCPHost.exe. Consulte a secção de modo anfitrião SCP para obter uma explicação mais detalhada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Por exemplo, as topologias da Tempestade Apache criadas com recurso ACP, consulte os seguintes artigos:
 

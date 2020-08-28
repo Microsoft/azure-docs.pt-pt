@@ -4,16 +4,16 @@ description: Neste artigo, você aprenderá a criar e gerir políticas de backup
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 6a045ff1653c58a3a583b6c64941fff26f480861
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4678c6aaa03d511da35d5efee2b1e75d08546781
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826397"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006266"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos Serviços de Recuperação do Azure utilizando a API REST
 
-As medidas para criar uma política de backup para um cofre dos Serviços de Recuperação do Azure estão delineadas no [documento da API de REST](/rest/api/backup/protectionpolicies/createorupdate)política . Utilizemos este documento como referência para criar uma política de backup Azure VM.
+As medidas para criar uma política de backup para um cofre dos Serviços de Recuperação do Azure estão delineadas no [documento da API de REST](/rest/api/backup/protectionpolicies/createorupdate)política . Vamos usar este documento como referência para criar uma política de backup Azure VM.
 
 ## <a name="create-or-update-a-policy"></a>Criar ou atualizar uma política
 
@@ -29,7 +29,7 @@ O `{policyName}` e são fornecidos no `{vaultName}` URI. Informações adicionai
 
 Por exemplo, para criar uma política de backup Azure VM, seguem-se os componentes do organismo de pedido.
 
-|Name  |Necessário  |Tipo  |Descrição  |
+|Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |propriedades     |   Verdadeiro      |  ProtecçãoPolítica:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades ProtectionPolicyResource        |
 |etiquetas     |         | Objeto        |  Etiquetas de recursos       |

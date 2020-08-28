@@ -3,13 +3,13 @@ title: Receba eventos da Azure Event Grid para um ponto final HTTP
 description: Descreve como validar um ponto final HTTP, em seguida, receber e desseializar eventos da Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3e79d292dfcbed9f572c88e913bc76d47e6ee37f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9e89c6920c76914ccab6298b1404b0cae698b532
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415113"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006079"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos para um ponto final HTTP
 
@@ -362,7 +362,7 @@ Finalmente, teste que a sua função pode agora lidar com o seu tipo de evento p
 
 Também pode testar esta funcionalidade ao vivo [enviando um evento personalizado com CURL a partir do Portal](./custom-event-quickstart-portal.md) ou [publicando para um tópico personalizado](./post-to-custom-topic.md) usando qualquer serviço ou aplicação que possa POSTar para um ponto final como o [Carteiro.](https://www.getpostman.com/) Crie um tópico personalizado e uma subscrição de eventos com o set de ponto final como URL de função.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore a [Azure Event Grid Management e publique SDKs](./sdk-overview.md)
 * Saiba como [publicar um tópico personalizado](./post-to-custom-topic.md)

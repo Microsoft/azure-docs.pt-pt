@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 0d91146ecdc1bac606d030841987a85b1336a047
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 694cb2ddde4f923445119c24fa98f532ab6c3471
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590103"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998361"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v2 para SQL API: Baixar e lançar notas
 > [!div class="op_single_selector"]
@@ -27,7 +28,7 @@ ms.locfileid: "88590103"
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
 > * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector de faíscas](sql-api-sdk-java-spark.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)

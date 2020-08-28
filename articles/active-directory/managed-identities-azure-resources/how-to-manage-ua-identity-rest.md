@@ -3,7 +3,7 @@ title: Gerir identidades geridas atribuídas pelo utilizador usando REST - Azure
 description: Instruções passo a passo sobre como criar, listar e eliminar uma identidade gerida atribuída pelo utilizador para fazer chamadas de API REST.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c342359b015085804b127ef8c58aca8a4b13dcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8da142b9ee97d45b5f798e1b7db31228613cd37f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608471"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014294"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador usando chamadas REST API
 
@@ -58,7 +58,7 @@ PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-**Pedido de cabeçalhos**
+**Cabeçalhos do pedido**
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
@@ -67,7 +67,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Corpo de pedido**
 
-|Name  |Descrição  |
+|Nome  |Descrição  |
 |---------|---------|
 |localização     | Necessário. Localização de recursos.        |
 
@@ -108,6 +108,6 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
 |*Autorização*     | Necessário. Definir para um `Bearer` token de acesso válido.        |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como atribuir uma identidade gerida atribuída ao utilizador a um VM/VMSS Azure usando o CURL ver, [Configure identidades geridas para recursos Azure em um VM Azure usando chamadas REST API](qs-configure-rest-vm.md#user-assigned-managed-identity) e [Configurar identidades geridas para recursos Azure numa escala de máquina virtual definida usando chamadas REST API](qs-configure-rest-vmss.md#user-assigned-managed-identity).

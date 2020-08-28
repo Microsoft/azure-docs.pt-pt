@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 101fd5298482f2f92e2a3fa4284d6e3fe94989a1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bfe24ff38446fa0d0ccea96799e6f42b561713bf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923233"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002815"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Upgrade para Azure Cognitive Search .NET SDK versão 10
 

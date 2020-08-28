@@ -3,12 +3,13 @@ title: Documentação de orientação para pedidos limitados
 description: Aprenda a agrupar, cambalear, paginar e consultar em paralelo para evitar que os pedidos sejam estrangulados pelo Azure Resource Graph.
 ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541843"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006011"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Orientação para pedidos acelerados no Gráfico de Recursos Azure
 
@@ -27,8 +28,8 @@ O Azure Resource Graph atribui um número de quota para cada utilizador com base
 
 Em cada resposta de consulta, o Azure Resource Graph adiciona dois cabeçalhos de estrangulamento:
 
-- `x-ms-user-quota-remaining`(int): A restante quota de recursos para o utilizador. Este valor mapeia para a contagem de consultas.
-- `x-ms-user-quota-resets-after`(hh:mm:ss): A duração do tempo até ao reinício do consumo de quota de um utilizador.
+- `x-ms-user-quota-remaining` (int): A restante quota de recursos para o utilizador. Este valor mapeia para a contagem de consultas.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): A duração do tempo até ao reinício do consumo de quota de um utilizador.
 
 Quando um titular de segurança tem acesso a mais de 5000 subscrições dentro do âmbito de [consulta](./query-language.md#query-scope)do arrendatário ou do grupo de gestão, a resposta limita-se às primeiras 5000 assinaturas e o `x-ms-tenant-subscription-limit-hit` cabeçalho é devolvido como `true` .
 

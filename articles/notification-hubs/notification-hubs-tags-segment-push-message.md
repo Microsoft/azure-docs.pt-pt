@@ -16,16 +16,17 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4ff8225522e79e2be40682fb5e4823777dde2aa0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062303"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998308"
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de encaminhamento e etiqueta
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 As expressões de etiquetas permitem-lhe direcionar conjuntos específicos de dispositivos, ou mais especificamente registos, ao enviar uma notificação push através de Centros de Notificação.
 

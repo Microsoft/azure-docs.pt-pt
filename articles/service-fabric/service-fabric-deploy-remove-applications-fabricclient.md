@@ -3,12 +3,13 @@ title: Implantação de tecido de serviço Azure com FabricClient
 description: Utilize as APIs doNcims do Tecido para implantar e remover aplicações em Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75376975"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009306"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementar e remover aplicações usando o FabricClient
 > [!div class="op_single_selector"]
@@ -122,7 +123,7 @@ Consulte [a cadeia de ligação da loja de imagens](service-fabric-image-store-c
 
 ### <a name="deploy-large-application-package"></a>Implementar pacote de aplicações de grande porção
 Emissão: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API times out for a large application package (porção de GB).
-Tente:
+Experimente:
 - Especifique um tempo limite maior para o método [CopyApplicationPackage,](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) com `timeout` parâmetro. Por predefinição, o tempo limite é de 30 minutos.
 - Verifique a ligação da rede entre a sua máquina de origem e o cluster. Se a ligação for lenta, considere utilizar uma máquina com uma melhor ligação de rede.
 Se a máquina cliente estiver noutra região que não o cluster, considere usar uma máquina cliente numa região mais próxima ou igual ao cluster.
@@ -135,7 +136,7 @@ A compressão reduz o tamanho e o número de ficheiros, o que, por sua vez, redu
 
 ### <a name="deploy-application-package-with-many-files"></a>Implementar pacote de aplicações com muitos ficheiros
 Problema: [ProvisionApplicationAssasa](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) vezes para um pacote de aplicações com muitos ficheiros (ordem de milhares).
-Tente:
+Experimente:
 - [Comprima a embalagem](service-fabric-package-apps.md#compress-a-package) antes de copiar para a loja de imagens. A compressão reduz o número de ficheiros.
 - Especifique um tempo limite maior para [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) com `timeout` parâmetro.
 
@@ -320,7 +321,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Atualização da aplicação do Tecido de Serviço](service-fabric-application-upgrade.md)
 
 [Introdução da saúde do tecido de serviço](service-fabric-health-introduction.md)

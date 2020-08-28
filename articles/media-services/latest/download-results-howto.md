@@ -11,12 +11,13 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0a2e4d1ac5cf0945ab75e58bb42d23d10d6c89aa
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b4aa523c6f2fe1e833fa7dfe99cc870bf6014eb7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607251"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009921"
 ---
 # <a name="download-the-results-of-a-job"></a>Descarregue os resultados de um trabalho
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 91ef9d8bf75874f07c6a4a9c5763ff77b97b0180
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78939224"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008969"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com Serviços de Media v2
 
@@ -752,11 +753,11 @@ O exemplo neste tópico mostra um streaming claro. Se quiser fazer streaming pro
 
 Para obter mais informações sobre a proteção de conteúdos, consulte [a encriptação dinâmica AES-128 e o serviço de entrega de chaves](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Use webhooks Azure para monitorizar notificações de emprego dos Media Services](media-services-dotnet-check-job-progress-with-webhooks.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode utilizar um gestor de tráfego para encaminhar pedidos entre os dois centros de dados, e assim falhar em caso de interrupções.
 

@@ -13,14 +13,14 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f02f31e0fc8943682af77ca6f506d15f36e88146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208b900de20a89a9ecc819ef1254c08fcc628f82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668905"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010227"
 ---
-# <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença de uma máquina virtual do SQL no Azure
+# <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença de uma máquina virtual do SQL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
@@ -48,14 +48,14 @@ O tipo de licença do SQL Server pode ser configurado quando o VM é a provision
 
 Alterar o modelo de licenciamento do seu SQL Server VM tem os seguintes requisitos: 
 
-- Uma [assinatura Azure](https://azure.microsoft.com/free/).
+- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registado com o [fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md).
 - [A Garantia de Software](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) é um requisito para utilizar o [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
 ## <a name="vms-already-registered-with-the-resource-provider"></a>VMs já registados com o fornecedor de recursos 
 
-# <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -69,7 +69,7 @@ Pode modificar o modelo de licença diretamente do portal:
 ![Benefício Híbrido Azure no portal](./media/licensing-model-azure-hybrid-benefit-ahb-change/ahb-in-portal.png)
 
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Pode utilizar o Azure CLI para alterar o seu modelo de licença.  
 
@@ -156,7 +156,9 @@ Mudar o modelo de licença é:
 
 ## <a name="known-errors"></a>Erros conhecidos
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>O recurso 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/ \<resource-group> ' under resource group ' não foi \<resource-group> encontrado.
+Reveja os erros conhecidos e as suas resoluções. 
+
+**O recurso 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/ \<resource-group> ' under resource group ' não foi \<resource-group> encontrado.**
 
 Este erro ocorre quando tenta alterar o modelo de licença num SQL Server VM que não foi registado com o fornecedor de recursos SQL VM:
 
@@ -165,7 +167,7 @@ Este erro ocorre quando tenta alterar o modelo de licença num SQL Server VM que
 Terá de registar a sua subscrição junto do fornecedor de recursos e, em seguida, [registar o seu SQL Server VM com o fornecedor de recursos.](sql-vm-resource-provider-register.md) 
 
 
-### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>A máquina virtual \<vmname\> ' ' tem mais de um NIC associado
+**A máquina virtual \<vmname\> ' ' tem mais de um NIC associado**
 
 Este erro ocorre em máquinas virtuais que têm mais de um NIC. Remova um dos NICs antes de alterar o modelo de licenciamento. Embora possa adicionar o NIC de volta ao VM depois de alterar o modelo de licença, as operações no portal Azure, como cópia de segurança automática e remendos, deixarão de ser suportadas. 
 

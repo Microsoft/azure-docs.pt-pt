@@ -4,18 +4,18 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 991a00aca3b32ee743be3cdc2bc6a35de064cb25
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890561"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006147"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
 Este artigo responde a perguntas comuns sobre o backup das bases de dados do SQL Server que funcionam em máquinas virtuais Azure (VMs) e utiliza o serviço [de Backup Azure.](backup-overview.md)
 
-## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Posso utilizar a cópia de segurança do Azure para o IaaS VM, bem como o SQL Server na mesma máquina?
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Posso utilizar o Azure Backup para IaaS VM, bem como o SQL Server na mesma máquina?
 
 Sim, podes ter backup VM e SQL no mesmo VM. Neste caso, desencadeamos internamente cópias de backup completa apenas no VM para não truncar os registos.
 

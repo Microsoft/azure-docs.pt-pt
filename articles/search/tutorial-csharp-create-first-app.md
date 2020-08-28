@@ -8,18 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 4c96dfa078ec12e0681574629276c48af2c1760d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: adcd6aa2c232bf87dc82284acbe2815484660ca7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85261465"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998565"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutorial: Crie a sua primeira app de pesquisa utilizando o .NET SDK
 
 Aprenda a criar uma interface web para consultar e apresentar resultados de pesquisa a partir de um índice usando Azure Cognitive Search. Este tutorial começa com um índice existente e hospedado para que possa focar-se na construção de uma página de pesquisa. O índice contém dados fictícios do hotel. Uma vez que tenha uma página básica, você pode realçá-lo em lições subsequentes para incluir paging, facetas e uma experiência de tipo-futuro.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Configurar um ambiente de desenvolvimento
 > * Estruturas de dados de modelo
@@ -504,7 +505,7 @@ A chamada de Pesquisa Cognitiva Azure está encapsulada no nosso método **RunQu
 
     A chamada assíncronal para a procura **(model.resultList = aguarde _indexClient.Documents. SearchAsync &lt; Hotel &gt; (model.searchText, parâmetros);**) é o que este tutorial e app são todos sobre. A classe **DocumentSearchResult** é interessante, e uma boa ideia (quando a aplicação está em execução) é definir um ponto de rutura aqui, e usar um depurante para examinar o conteúdo do **model.resultList**. Deve descobrir que é intuitivo, fornecendo-lhe os dados que pediu, e pouco mais.
 
-Agora o momento da verdade.
+Agora, é chegado o momento da verdade.
 
 ### <a name="test-the-app"></a>Testar a aplicação
 

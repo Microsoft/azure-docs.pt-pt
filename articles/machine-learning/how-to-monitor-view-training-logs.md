@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 146b9a04b190808848af56612e14a05a617c7109
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554825"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005960"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
@@ -111,8 +111,7 @@ Desembre para uma corrida específica para ver as suas saídas ou registos, ou d
 
 Também pode editar a tabela de listas de execução para selecionar várias execuções e exibir o último, mínimo ou valor máximo registado para as suas execuções. Personalize os seus gráficos para comparar os valores e agregados de métricas registadas em várias corridas.
 
-:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Execute detalhes no estúdio Azure Machine Learning":::
-
+![Execute detalhes no estúdio Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
 
 ### <a name="format-charts-in-the-studio"></a>Gráficos de formato no estúdio
 
@@ -126,7 +125,7 @@ Utilize os seguintes métodos nas APIs de registo para influenciar o estúdio vi
 |Tabela de registo com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linha de duas variáveis|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente estes próximos passos para aprender a usar a Azure Machine Learning:
 

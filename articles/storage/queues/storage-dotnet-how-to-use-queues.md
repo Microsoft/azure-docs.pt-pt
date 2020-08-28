@@ -8,12 +8,13 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 5b8b127391401b956088ddb099d1853700e6f120
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e8dadc999f3bd26671b5a8ee4da26f051a822a26
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871314"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001115"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 

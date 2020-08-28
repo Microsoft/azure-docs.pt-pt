@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
-ms.openlocfilehash: d16082ed9c7a78cfd02afc1e89ec002a5743d675
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cb1c2d8daa74d1224ad07ef7a2fb5a74f4773338
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085757"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000316"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Eventos de processo de Azure Event Hubs com Apache Storm on HDInsight (C#)
 
@@ -123,7 +124,7 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
 
 1. Depois de criado o centro de eventos, veja as definições do **EventHub** no portal Azure e selecione **políticas de acesso partilhado**. **Selecione + Adicionar** para criar as seguintes políticas:
 
-   | Name | Permissões |
+   | Nome | Permissões |
    | --- | --- |
    | escritor |Enviar |
    | leitor |Escutar |
@@ -208,7 +209,7 @@ Para parar as topologias, selecione cada topologia no **Storm Topology Viewer**e
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, você aprendeu a usar o bico e parafuso do Java Event Hubs de uma topologia C# para trabalhar com dados em Azure Event Hubs. Para saber mais sobre a criação de topologias C#, consulte o seguinte:
 

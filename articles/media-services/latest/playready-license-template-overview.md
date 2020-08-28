@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: ba4b8de4b8cf1d1d1b8124185a8006eb7695b21e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 302c938aa3a778f4e1b0ca7884f82943edf43ee6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074504"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998973"
 ---
 # <a name="media-services-v3-with-playready-license-template"></a>Serviços de Mídia v3 com modelo de licença PlayReady 
 

@@ -8,19 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3fb77c147db0883dc1dc61040f916bcec88237c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 3223bf3e2b413940fd99404453b7f958655e6fff
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420622"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998480"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Adicione paging aos resultados da pesquisa usando o .NET SDK
 
 Aprenda a implementar dois sistemas de paging diferentes, o primeiro baseado em números de página e o segundo em scrolling infinito. Ambos os sistemas de paging são amplamente utilizados, e selecionar o certo depende da experiência do utilizador que você gostaria com os resultados. Este tutorial constrói os sistemas de paging no projeto criado no [Tutorial C#: Crie a sua primeira app - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-create-first-app.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Estenda a sua app com paging numerado
 > * Estenda a sua app com scrolling infinito
@@ -597,7 +597,7 @@ Considere os seguintes takeaways deste projeto:
 * O armazenamento temporário persiste por apenas uma chamada, e precisa ser reposto para sobreviver a chamadas adicionais.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A chamada é fundamental para as pesquisas na Internet. Com a paging bem coberta, o próximo passo é melhorar ainda mais a experiência do utilizador, adicionando pesquisas de tipo à frente.
 
