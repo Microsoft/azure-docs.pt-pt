@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Proteger novos recursos com fechaduras'
 description: Neste tutorial, utiliza as opções de bloqueio de recursos Azure Blueprints Leia Apenas e Não Elimine para proteger os recursos recém-implantados.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85969646"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048575"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteja novos recursos com bloqueios de recursos da Azure Blueprints
 
@@ -153,7 +153,7 @@ Após a publicação da definição de planta, pode atribuí-la a uma subscriç�
 
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Nome|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Name|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
      |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A. Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de planta para.|
      |StorageAccount|Modelo do Resource Manager|armazenamentoAccountType (Contagem de armazenamento)|Standard_GRS|O armazém SKU. O valor _predefinido_é Standard_LRS .|
 
@@ -215,7 +215,7 @@ A segurança do grupo de recursos mostra que a atribuição do projeto já não 
 
 Depois de aparecer a notificação do portal **de remoção do portal,** vá para o passo seguinte.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este tutorial, elimine estes recursos:
 

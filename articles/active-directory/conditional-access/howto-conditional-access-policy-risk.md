@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2564e3f246d23028d6c73832a25f37110e7670c8
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948101"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049048"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Acesso Condicional: Acesso condicional baseado no risco de inscrição
 
@@ -66,7 +66,7 @@ Existem dois locais onde esta apólice pode ser atribuída. As organizações de
 
 [Acesso Condicional baseado no risco do utilizador](howto-conditional-access-policy-risk-user.md)
 
-[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 

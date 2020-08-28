@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ab9a9785f2f995a6f8df766603e3fc3b9a894be5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814242"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049876"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros isv do Azure Ative Directory B2C
 
@@ -31,6 +31,7 @@ A nossa rede de parceiros ISV alarga as nossas capacidades de solução para o a
 | :--- | :--- |
 | ![logotipo](./media/partner-gallery/arkose-logo.png) | [A Arkose Labs](./partner-arkose-labs.md) é um fornecedor de soluções de prevenção de fraudes que ajuda as organizações a proteger contra ataques de bots, ataques de aquisição de contas e aberturas fraudulentas de contas.
 | ![logotipo](./media/partner-gallery/experian-logo.png) | [A Experian](./partner-experian.md) é um fornecedor de verificação de identidade e de revisão que realiza avaliações de risco com base em atributos do utilizador para prevenir fraudes.|
+| ![logotipo](./media/partner-gallery/hypr-logo.png) | [O HYPR](./partner-hypr.md) é um verdadeiro fornecedor de autenticação sem palavras-passe, que substitui palavras-passe por encriptações de chaves públicas que eliminam fraude, phishing e reutilização credencial.|
 | ![logotipo](./media/partner-gallery/idology-logo.png) | [A IDology](./partner-idology.md) é um fornecedor de verificação de identidade e de revisão com soluções de verificação de ID, soluções de prevenção de fraudes, soluções de conformidade, entre outras.|
 | ![logotipo](./media/partner-gallery/itsme-logo.png) | [o seu nome](./partner-itsme.md) é uma solução de ID digital compatível com identificação eletrónica, autenticação e fidedignidade (eiDAS) para permitir que os utilizadores assinem de forma segura sem leitores de cartões, palavras-passe, autenticação de dois fatores e múltiplos códigos PIN. |
 | ![logotipo](./media/partner-gallery/jumio-logo.png) | [O Jumio](./partner-jumio.md) é um serviço de verificação de identificação, que permite a verificação automática de ID em tempo real, salvaguardando os dados dos clientes. |

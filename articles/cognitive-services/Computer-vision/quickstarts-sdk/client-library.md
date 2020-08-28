@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 ms.author: pafarley
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 0a0f501f56f7537923f301ed41e4c044cf6ec71c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc5b0d05dc1e9e7c09781dba63c2031c72da73ff
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936878"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050285"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Quickstart: Use a biblioteca de clientes Da Visão de Computador
 
@@ -26,7 +26,7 @@ Começa com a biblioteca de clientes da Visão De Computador. Siga estes passos 
 Utilize a biblioteca do cliente da Visão De Computador para:
 
 * Analise uma imagem para tags, descrição de texto, rostos, conteúdo adulto, e muito mais.
-* Reconhecer texto impresso e manuscrito com a API de leitura de lote.
+* Leia texto impresso e manuscrito com a API de Leitura.
 
 ::: zone pivot="programming-language-csharp"
 

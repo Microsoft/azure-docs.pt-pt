@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma planta no portal'
 description: Neste arranque rápido, você usa Azure Blueprints para criar, definir e implantar artefactos através do portal Azure.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045217"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051527"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Definir e atribuir uma planta no portal
 
@@ -61,7 +61,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    1. Alterar **tipo** para **incorporado**. Em **Busca,** **insira a etiqueta**.
 
-   1. Clique fora da caixa **Pesquisar** para filtrar os resultados. Selecione **a etiqueta de apêndice e o seu valor predefinido para grupos de recursos.**
+   1. Mude o foco fora da **Procura** para que a filtragem ocorra. Selecione **a etiqueta de apêndice e o seu valor predefinido para grupos de recursos.**
 
    1. **Selecione Adicione** para adicionar este artefacto à planta.
 
@@ -269,7 +269,7 @@ Agora que a planta foi atribuída a uma subscrição, verifique o progresso da i
 
 1. Na página **de atribuição do Blueprint,** valide que todos os artefactos foram implantados com sucesso e que não houve erros durante a implementação. Se ocorrerem [erros, consulte as plantas de resolução de problemas](./troubleshoot/general.md) para obter passos para determinar o que correu mal.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
@@ -291,7 +291,7 @@ Se já não precisar de uma atribuição de planta, remova-a de uma subscrição
 > A eliminação de uma planta neste método também elimina todas as versões publicadas da planta selecionada.
 > Para eliminar uma única versão, abra a planta, selecione o separador **versões Publicado,** selecione a versão que pretende eliminar e, em seguida, **selecione Eliminar Esta Versão**. Além disso, não podes apagar uma planta até teres apagado toda a definição de planta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criaste, atribuiste e removeste uma planta com o portal Azure. Para saber mais sobre a Azure Blueprints, continue para o artigo do ciclo de vida do projeto.
 

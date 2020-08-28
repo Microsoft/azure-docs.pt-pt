@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 82c8b71c154336cf59610d8f0b99e70eccee266f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2ff81c1f1989e28fa48e4307a13433a7b98e915
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688590"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051054"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Atualize uma aplicação IPv4 para IPv6 na rede virtual Azure - PowerShell
 
@@ -36,7 +36,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a v
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que implementou um Balanceador de Carga Standard como descrito no [Quickstart: Criar um Balanceador de Carga Padrão - Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md).
+Este artigo pressupõe que implementou um Balanceador de Carga Standard como descrito no [Quickstart: Criar um Balanceador de Carga Padrão - Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md).
 
 ## <a name="retrieve-the-resource-group"></a>Recuperar o grupo de recursos
 
@@ -156,7 +156,7 @@ Pode ver a rede virtual de pilha dupla IPv6 no portal Azure da seguinte forma:
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
 
@@ -164,6 +164,6 @@ Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup]
 Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, atualizou um Balancer de Carga Standard existente com uma configuração IP frontal IPv4 para uma configuração de pilha dupla (IPv4 e IPv6). Também adicionou configurações IPv6 aos NICs dos VMs na piscina de backend e à Rede Virtual que as acolhe. Para saber mais sobre o suporte do IPv6 nas redes virtuais Azure, veja [o que é o IPv6 para a Rede Virtual Azure?](ipv6-overview.md)

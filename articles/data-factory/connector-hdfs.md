@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 0104f9002a1fb4f6f1d0d31bd6eea50bce1b365b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926812"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050375"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copie os dados do servidor HDFS utilizando a Azure Data Factory
 
@@ -60,12 +60,12 @@ As seguintes propriedades são suportadas para o serviço ligado ao HDFS:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade *tipo* deve ser definida para *Hdfs*. | Sim |
-| url |O URL para o HDFS |Sim |
-| authenticationType | Os valores permitidos são *Anónimos* ou *Windows*. <br><br> Para configurar o ambiente no local, consulte a [autenticação Use Kerberos para a secção de conector HDFS.](#use-kerberos-authentication-for-the-hdfs-connector) |Sim |
+| tipo | A propriedade *tipo* deve ser definida para *Hdfs*. | Yes |
+| url |O URL para o HDFS |Yes |
+| authenticationType | Os valores permitidos são *Anónimos* ou *Windows*. <br><br> Para configurar o ambiente no local, consulte a [autenticação Use Kerberos para a secção de conector HDFS.](#use-kerberos-authentication-for-the-hdfs-connector) |Yes |
 | userName |O nome de utilizador para a autenticação do Windows. Para a autenticação kerberos, especifique.com . ** \<username> @ \<domain> ** |Sim (para autenticação do Windows) |
 | palavra-passe |A palavra-passe para a autenticação do Windows. Marque este campo como um SecureString para armazená-lo de forma segura na sua fábrica de dados, ou [fazer referência a um segredo armazenado num cofre de chaves Azure](store-credentials-in-key-vault.md). |Sim (para autenticação do Windows) |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Para saber mais, consulte a secção [Pré-Requisitos.](#prerequisites) Se o tempo de execução da integração não for especificado, o serviço utiliza o tempo de execução de integração Azure predefinido. |Não |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Para saber mais, consulte a secção [Pré-Requisitos.](#prerequisites) Se o tempo de execução da integração não for especificado, o serviço utiliza o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo: utilização da autenticação anónima**
 
@@ -121,9 +121,9 @@ As seguintes propriedades são suportadas para HDFS `location` em definições n
 
 | Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade *tipo* em baixo `location` no conjunto de dados deve ser definida para *HdfsLocation*. | Sim      |
-| folderPath | O caminho para a pasta. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique o caminho nas definições de origem da atividade. | Não       |
-| fileName   | O nome do ficheiro na pasta especificadaPath. Se pretender utilizar um wildcard para filtrar ficheiros, ignore esta definição e especifique o nome do ficheiro nas definições de origem da atividade. | Não       |
+| tipo       | A propriedade *tipo* em baixo `location` no conjunto de dados deve ser definida para *HdfsLocation*. | Yes      |
+| folderPath | O caminho para a pasta. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique o caminho nas definições de origem da atividade. | No       |
+| fileName   | O nome do ficheiro na pasta especificadaPath. Se pretender utilizar um wildcard para filtrar ficheiros, ignore esta definição e especifique o nome do ficheiro nas definições de origem da atividade. | No       |
 
 **Exemplo:**
 
@@ -163,21 +163,23 @@ As seguintes propriedades são suportadas para HDFS `storeSettings` em definiç�
 
 | Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| tipo                     | A propriedade *tipo* em baixo `storeSettings` deve ser definida para **HdfsReadSettings**. | Sim                                           |
+| tipo                     | A propriedade *tipo* em baixo `storeSettings` deve ser definida para **HdfsReadSettings**. | Yes                                           |
 | ***Localizar os ficheiros para copiar*** |  |  |
 | OPÇÃO 1: caminho estático<br> | Copiar a partir da pasta ou do caminho do ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de uma pasta, especificar ainda `wildcardFileName` como `*` . |  |
-| OPÇÃO 2: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br>Para mais exemplos, consulte [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 2: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob a pasta especificadaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais); use `^` para escapar se o nome da sua pasta real tiver um wildcard ou este personagem de fuga no interior.  Para mais exemplos, consulte [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um conjunto de ficheiros especificado. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar (um ficheiro por linha, com o caminho relativo para o caminho configurado no conjunto de dados).<br/>Quando utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Para mais exemplos, consulte [exemplos da lista de ficheiros.](#file-list-examples) |Não |
+| OPÇÃO 2: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br>Para mais exemplos, consulte [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | No                                            |
+| OPÇÃO 2: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob a pasta especificadaPath/wildcardFolderPath para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais); use `^` para escapar se o nome da sua pasta real tiver um wildcard ou este personagem de fuga no interior.  Para mais exemplos, consulte [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Yes |
+| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um conjunto de ficheiros especificado. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar (um ficheiro por linha, com o caminho relativo para o caminho configurado no conjunto de dados).<br/>Quando utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Para mais exemplos, consulte [exemplos da lista de ficheiros.](#file-list-examples) |No |
 | ***Definições adicionais*** |  | |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando `recursive` é definido como *verdadeiro* e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobragem vazia não é copiada ou criada na pia. <br>Os valores permitidos são *verdadeiros* (padrão) e *falsos.*<br>Esta propriedade não se aplica quando se `fileListPath` configura. |Não |
-| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo *Last Modified*. <br>Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | Não                                            |
-| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | Não                                            |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando `recursive` é definido como *verdadeiro* e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobragem vazia não é copiada ou criada na pia. <br>Os valores permitidos são *verdadeiros* (padrão) e *falsos.*<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
+| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo *Last Modified*. <br>Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | No                                            |
+| permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | Falso                                            |
+| partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | Falso                                            |
+| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No                                            |
 | ***Definições de DistCp*** |  | |
-| distcpSettings | O grupo de propriedades para usar quando você usar HDFS DistCp. | Não |
+| distcpSettings | O grupo de propriedades para usar quando você usar HDFS DistCp. | No |
 | resourceManagerEndpoint | O ponto final do YARN (Mais Um Negociador de Recursos) | Sim, se usar o DistCp |
 | tempScriptPath | Um caminho de pasta que é usado para armazenar o script de comando DistCp temporário. O ficheiro de script é gerado pela Data Factory e será removido após o fim da função Copy. | Sim, se usar o DistCp |
-| distcpOptions | Opções adicionais fornecidas ao comando DistCp. | Não |
+| distcpOptions | Opções adicionais fornecidas ao comando DistCp. | No |
 
 **Exemplo:**
 
@@ -240,7 +242,7 @@ Esta secção descreve o comportamento que resulta da utilização de um caminho
 
 | Estrutura de origem da amostra                                      | Conteúdo em FileListToCopy.txt                             | Configuração da Fábrica de Dados Azure                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| raiz<br/>&nbsp;&nbsp;&nbsp;&nbsp;Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub-página1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Sub-página1/File3.csv<br>Sub-página1/File5.csv | **No conjunto de dados:**<br>- Caminho da pasta:`root/FolderA`<br><br>**Na fonte de atividade copy:**<br>- Caminho da lista de ficheiros:`root/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de ficheiros aponta para um ficheiro de texto na mesma loja de dados que inclui uma lista de ficheiros que pretende copiar (um ficheiro por linha, com o caminho relativo para o caminho configurado no conjunto de dados). |
+| raiz<br/>&nbsp;&nbsp;&nbsp;&nbsp;Pasta<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub-página1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.js<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadados<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Sub-página1/File3.csv<br>Sub-página1/File5.csv | **No conjunto de dados:**<br>- Caminho da pasta: `root/FolderA`<br><br>**Na fonte de atividade copy:**<br>- Caminho da lista de ficheiros: `root/Metadata/FileListToCopy.txt` <br><br>O caminho da lista de ficheiros aponta para um ficheiro de texto na mesma loja de dados que inclui uma lista de ficheiros que pretende copiar (um ficheiro por linha, com o caminho relativo para o caminho configurado no conjunto de dados). |
 
 ## <a name="use-distcp-to-copy-data-from-hdfs"></a>Utilize o DistCp para copiar dados do HDFS
 
@@ -276,7 +278,7 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opção 1: Junte-se a uma máquina de execução de integração auto-hospedada no reino de Kerberos
 
-#### <a name="requirements"></a>Requirements
+#### <a name="requirements"></a>Requisitos
 
 * A máquina de execução de integração auto-hospedada precisa de se juntar ao reino de Kerberos e não pode aderir a nenhum domínio windows.
 
@@ -310,7 +312,7 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 ### <a name="option-2-enable-mutual-trust-between-the-windows-domain-and-the-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: Permitir a confiança mútua entre o domínio Windows e o reino de Kerberos
 
-#### <a name="requirements"></a>Requirements
+#### <a name="requirements"></a>Requisitos
 
 *   A máquina de execução de integração auto-hospedada deve juntar-se a um domínio Windows.
 *   Precisa de permissão para atualizar as definições do controlador de domínio.
@@ -368,7 +370,7 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
     Kadmin> addprinc krbtgt/REALM.COM@AD.COM
     ```
 
-3. No ficheiro de configuração de serviço *hadoop.security.auth_to_local* HDFS, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
+3. No *hadoop.security.auth_to_local* ficheiro de configuração de serviço HDFS, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
 
 **No controlador de domínio:**
 
@@ -439,13 +441,13 @@ Para obter informações sobre as propriedades da atividade da Lookup, consulte 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade *tipo* do conjunto de dados deve ser definida para *FileShare* |Sim |
-| folderPath | O caminho para a pasta. Um filtro wildcard é suportado. Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o nome do seu ficheiro real tiver um wildcard ou este personagem de fuga dentro. <br/><br/>Exemplos: rootfolder/subfolder/, ver mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). |Sim |
-| fileName |  O nome ou filtro wildcard para os ficheiros sob a especificada "folderPath". Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros da pasta. <br/><br/>Para o filtro, os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único carácter).<br/>- Exemplo 1:`"fileName": "*.csv"`<br/>- Exemplo 2:`"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. |Não |
-| modificadoDatetimeStart | Os ficheiros são filtrados com base no atributo *Last Modified*. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> Esteja ciente de que o desempenho geral do movimento de dados será afetado, permitindo esta definição quando pretende aplicar um filtro de ficheiros a um grande número de ficheiros. <br/><br/> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| Não |
-| modificadoDatetimeEnd | Os ficheiros são filtrados com base no atributo *Last Modified*. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> Esteja ciente de que o desempenho geral do movimento de dados será afetado, permitindo esta definição quando pretende aplicar um filtro de ficheiros a um grande número de ficheiros. <br/><br/> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| Não |
+| tipo | A propriedade *tipo* do conjunto de dados deve ser definida para *FileShare* |Yes |
+| folderPath | O caminho para a pasta. Um filtro wildcard é suportado. Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o nome do seu ficheiro real tiver um wildcard ou este personagem de fuga dentro. <br/><br/>Exemplos: rootfolder/subfolder/, ver mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). |Yes |
+| fileName |  O nome ou filtro wildcard para os ficheiros sob a especificada "folderPath". Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros da pasta. <br/><br/>Para o filtro, os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único carácter).<br/>- Exemplo 1: `"fileName": "*.csv"`<br/>- Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. |No |
+| modificadoDatetimeStart | Os ficheiros são filtrados com base no atributo *Last Modified*. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> Esteja ciente de que o desempenho geral do movimento de dados será afetado, permitindo esta definição quando pretende aplicar um filtro de ficheiros a um grande número de ficheiros. <br/><br/> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| No |
+| modificadoDatetimeEnd | Os ficheiros são filtrados com base no atributo *Last Modified*. Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br/><br/> Esteja ciente de que o desempenho geral do movimento de dados será afetado, permitindo esta definição quando pretende aplicar um filtro de ficheiros a um grande número de ficheiros. <br/><br/> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.| No |
 | formato | Se pretender copiar ficheiros como está entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ficheiros com um formato específico, suportam-se os seguintes tipos de formato de ficheiro: *TextFormat,* *JsonFormat,* *AvroFormat,* *OrcFormat,* *ParquetFormat*. Desa um destes valores, o *tipo* de propriedade em formato. Para mais informações, consulte o [formato Text](supported-file-formats-and-compression-codecs-legacy.md#text-format), [formato JSON,](supported-file-formats-and-compression-codecs-legacy.md#json-format) [formato Avro,](supported-file-formats-and-compression-codecs-legacy.md#avro-format) [formato ORC](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e secções [de formato Parquet.](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) |Não (apenas para cenário de cópia binária) |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Para obter mais informações, consulte [formatos de ficheiros suportados e codecs de compressão](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos suportados são: *Gzip,* *Deflate,* *Bzip2*e *ZipDeflate*.<br/>Os níveis suportados são: *Ideal* e *Mais rápido*. |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Para obter mais informações, consulte [formatos de ficheiros suportados e codecs de compressão](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos suportados são: *Gzip,* *Deflate,* *Bzip2*e *ZipDeflate*.<br/>Os níveis suportados são: *Ideal* e *Mais rápido*. |No |
 
 >[!TIP]
 >Para copiar todos os ficheiros numa pasta, especifique apenas **o apêndio.**<br>Para copiar um único ficheiro com um nome especificado, especifique **a pastaPata** com a peça de pasta e **o nome de ficheiro** com o nome do ficheiro.<br>Para copiar um subconjunto de ficheiros numa pasta, especifique **a pastaPata** com a peça de pasta e **o nome de ficheiro** com o filtro wildcard.
@@ -484,13 +486,13 @@ Para obter informações sobre as propriedades da atividade da Lookup, consulte 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade *tipo* da fonte de atividade copy deve ser definida para *HdfsSource*. |Sim |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como *verdadeira* e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não será copiado ou criado na pia.<br/>Os valores permitidos são *verdadeiros* (padrão) e *falsos.* | Não |
-| distcpSettings | O grupo de propriedades quando você está usando HDFS DistCp. | Não |
+| tipo | A propriedade *tipo* da fonte de atividade copy deve ser definida para *HdfsSource*. |Yes |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como *verdadeira* e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não será copiado ou criado na pia.<br/>Os valores permitidos são *verdadeiros* (padrão) e *falsos.* | No |
+| distcpSettings | O grupo de propriedades quando você está usando HDFS DistCp. | No |
 | resourceManagerEndpoint | O ponto final do Gestor de Recursos YARN | Sim, se usar o DistCp |
 | tempScriptPath | Um caminho de pasta que é usado para armazenar o script de comando DistCp temporário. O ficheiro de script é gerado pela Data Factory e será removido após o fim da função Copy. | Sim, se usar o DistCp |
-| distcpOptions | Opções adicionais são fornecidas ao comando DistCp. | Não |
-| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | Não |
+| distcpOptions | Opções adicionais são fornecidas ao comando DistCp. | No |
+| maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No |
 
 **Exemplo: Fonte hdfs na atividade copy usando DistCp**
 

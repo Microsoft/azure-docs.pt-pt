@@ -1,24 +1,26 @@
 ---
 title: 'Quickstart: Reconhecer tinta digital com a API e C do Reconhecimento de Tinta REST #'
 titleSuffix: Azure Cognitive Services
-description: Este quickstart mostra como usar a API do Reconhecimento de Tinta para começar a reconhecer traços de tinta digital.
+description: Este quickstart mostra como usar a API e c# do Reconhecimento de Tinta para começar a reconhecer traços de tinta digital.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25360ec1b5e8cd79c21da426a293c148ac0b1932
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931459"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051598"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Quickstart: Reconhecer tinta digital com a API e C do Reconhecimento de Tinta REST #
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Utilize este quickstart para começar a enviar traços de tinta digital para a API do Reconhecimento de Tinta. Esta aplicação C# envia um pedido de API contendo dados de traçado de tinta com formato JSON, e obtém a resposta.
 

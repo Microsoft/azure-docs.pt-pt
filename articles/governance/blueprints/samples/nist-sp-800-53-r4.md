@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema NIST SP 800-53 R4
 description: Descrição geral do exemplo de esquema NIST SP 800-53 R4. Este exemplo de esquema ajuda os clientes a avaliar controlos NIST SP 800-53 R4 específicos.
-ms.date: 05/14/2020
+ms.date: 08/27/2020
 ms.topic: sample
-ms.openlocfilehash: 20ea6e81746a07db85a00a0881744340b2a24d1f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f40451e1e82833aba4f626052e708f2c1136f832
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86042667"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048776"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Amostra de planta NIST SP 800-53 R4
 
@@ -99,7 +99,7 @@ Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribu
 
 A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
+|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Description|
 |-|-|-|-|
 |\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Log Analytics workspace ID que VMs deve ser configurado para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados.|
 |\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|

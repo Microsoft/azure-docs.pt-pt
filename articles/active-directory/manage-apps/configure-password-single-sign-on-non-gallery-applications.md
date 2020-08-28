@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640553"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049065"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Configurar o sign-on único baseado em palavra-passe
 
@@ -52,6 +52,9 @@ A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e a configura
 ## <a name="basic-configuration"></a>Configuração básica
 
 Na [série quickstart](view-applications-portal.md), aprendeu a adicionar uma app ao seu inquilino, o que permite ao Azure AD saber que está a ser usado como Fornecedor de Identidade (IdP) para a aplicação. Algumas aplicações já estão pré-configuradas e aparecem na galeria AZure AD. Outras aplicações não estão na galeria e você tem que criar uma app genérica e configugá-la manualmente. Dependendo da aplicação, a opção SSO baseada em palavra-passe pode não estar disponível. Se não vir a lista de opções baseada em Palavra-Passe na página de s registação única da aplicação, então não está disponível.
+
+> [!IMPORTANT]
+> A extensão do navegador My Apps é necessária para SSO baseado em palavras-passe. Para saber mais, consulte [a implementação do Plano a Minhas Aplicações.](access-panel-deployment-plan.md)
 
 A página de configuração para SSO baseado em palavra-passe é simples. Inclui apenas o URL da página de inscrição que a aplicação utiliza. Esta cadeia deve ser a página que inclui o campo de entrada do nome de utilizador.
 

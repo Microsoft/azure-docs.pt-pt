@@ -4,14 +4,17 @@ description: Aprenda agora a importar ficheiros de certificados para um serviço
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 949cc642572bfbf6ebe297d3ffba16939561ac8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012726"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050748"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importar um ficheiro de certificado para um contentor em execução no Tecido de Serviço
+
+> [!NOTE]
+> Para os clusters de tecido de serviço em execução em Azure, recomenda-se a utilização de [Aplicação de Tecido de Serviço Identidade Gerida](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) para obter certificados de pedido de dentro de um contentor. A Identidade Gerida dá o isolamento de segredos e certificados ao nível do serviço, e permite que o fornecimento de certificado de pedido faça parte do fluxo de trabalho da aplicação, em vez do fluxo de trabalho da infraestrutura. O mecanismo CertificateRef será depreciado numa futura versão.
 
 Pode assegurar os seus serviços de contentores especificando um certificado. O Service Fabric fornece um mecanismo de serviços dentro de um contentor para aceder a um certificado instalado nos nós num aglomerado Windows ou Linux (versão 5.7 ou superior). O certificado deve ser instalado numa loja de certificados ao abrigo da LocalMachine em todos os nós do cluster. A chave privada correspondente ao certificado deve estar disponível, acessível e - no Windows - exportável. As informações do certificado são fornecidas no manifesto de pedido sob a `ContainerHostPolicies` etiqueta, como mostra o seguinte corte:
 
@@ -30,6 +33,8 @@ Para os clusters Linux, os certificados (PEM) são copiados da loja especificada
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
+
+Por favor, note que tanto o `PEM` ficheiro como o ficheiro contêm o certificado e a chave privada não `PrivateKey` encriptada.
 
 Em alternativa, se já tiver os certificados no formulário exigido e quiser acessá-lo dentro do contentor, pode criar um pacote de dados dentro do seu pacote de aplicações e especificar o seguinte dentro do seu manifesto de aplicação:
 

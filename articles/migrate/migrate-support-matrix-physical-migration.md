@@ -4,12 +4,12 @@ description: Saiba mais sobre o suporte à migração de servidores físicos em 
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770344"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051139"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidores físicos
 
@@ -42,8 +42,9 @@ A tabela resume o suporte para servidores físicos que pretende migrar usando mi
 **Sistema de ficheiros Linux/armazenamento de hóspedes** | Para obter as informações mais recentes, reveja o suporte do [sistema de ficheiros Linux](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) para recuperação do site. A Azure Migrate fornece suporte idêntico ao sistema de ficheiros Linux.
 **Rede/Armazenamento** | Para obter as informações mais recentes, reveja os pré-requisitos de [rede](../site-recovery/vmware-physical-azure-support-matrix.md#network) e [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#storage) para a Recuperação do Local. A Azure Migrate fornece requisitos idênticos de rede/armazenamento.
 **Requisitos do Azure** | Para obter as informações mais recentes, reveja a [rede Azure,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover) [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e requisitos [de cálculo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) para recuperação de locais. Azure Migrate tem requisitos idênticos para a migração de servidores físicos.
-**Serviço de Mobilidade** | O agente de serviço de mobilidade deve ser instalado em cada máquina que pretende migrar.
+**Serviço de mobilidade** | O agente de serviço de mobilidade deve ser instalado em cada máquina que pretende migrar.
 **Bota UEFI** | A máquina migrada em Azure será automaticamente convertida para uma bota BIOS Azure VM. Apenas o servidor que executa o Windows Server 2012 e posteriormente suportado.<br/><br/> O disco de so deve ter até quatro divisórias, e os volumes devem ser formatados com NTFS.
+**UEFI - Arranque seguro**         | Não apoiado para a migração.
 **Disco-alvo** | As máquinas só podem ser migradas para discos geridos (HDD padrão, SSD premium) em Azure.
 **Tamanho do disco** | 2 Disco de SO TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por máquina.
@@ -89,6 +90,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada. Além disso, adicione um endereço IP público para o VM. |  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Migrar](tutorial-migrate-physical-virtual-machines.md) servidores físicos.

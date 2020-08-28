@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/03/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d2cf1a2e2ab9cf2d6e35aa12b5b0f8ddc04ad0e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78301959"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89052463"
 ---
 Pode criar um VNet com o modelo de implementação do Gestor de Recursos e o portal Azure seguindo estes passos. Para obter mais informações sobre redes virtuais, consulte [a visão geral da Rede Virtual.](../articles/virtual-network/virtual-networks-overview.md)
 
@@ -22,7 +22,7 @@ Pode criar um VNet com o modelo de implementação do Gestor de Recursos e o por
 >
 >
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Nos **recursos de pesquisa, serviço e docs (G+/)**, escreva *rede virtual.*
 
    ![Localizar página de recursos de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Localizar página de recursos de rede virtual")
@@ -46,7 +46,6 @@ Pode criar um VNet com o modelo de implementação do Gestor de Recursos e o por
 
    ![Separador de endereços IP](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Separador de endereços IP")  
    - **Espaço de endereço IPv4**: Por predefinição, um espaço de endereço é automaticamente criado. Pode clicar no espaço do endereço para o ajustar para refletir os seus próprios valores. Também pode adicionar espaços de endereços adicionais.
-   - **IPv6**: Se a sua configuração necessitar de espaço de endereço IPv6, selecione a caixa **espacial de endereço Add IPv6** para introduzir essa informação.
    - **Sub-rede**: Se utilizar o espaço de endereço predefinido, uma sub-rede predefinida é criada automaticamente. Se alterar o espaço do endereço, tem de adicionar uma sub-rede. **Selecione + Adicione a sub-rede** para abrir a janela da **sub-rede Add.** Configure as seguintes definições e, em seguida, **selecione Adicionar** para adicionar os valores:
       - **Nome da sub-rede**: Neste exemplo, nomeamos a sub-rede "FrontEnd".
       - **Intervalo de endereços da sub-rede**: O intervalo de endereços para esta sub-rede.

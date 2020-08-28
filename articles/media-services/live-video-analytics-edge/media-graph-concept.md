@@ -3,12 +3,12 @@ title: Conceito de gráfico de mídia - Azure
 description: Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798844"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048432"
 ---
 # <a name="media-graph"></a>Grafo do suporte de dados
 
@@ -37,19 +37,28 @@ Os valores para os parâmetros na topologia são especificados quando cria inst�
 
 ## <a name="media-graph-states"></a>Estados gráficos de mídia  
 
-Um gráfico mediático pode estar num dos seguintes estados:
+O ciclo de vida das topologias de gráficos e das instâncias de gráfico é mostrado no diagrama de estado seguinte.
 
-* Inativo – representa o estado em que um gráfico mediático é configurado, mas não ativo.
-* Ativação – o estado quando um gráfico mediático está a ser instantâneo (isto é, o estado de transição entre inativo e ativo).
-* Ativo – o estado quando um gráfico de mídia está ativo. 
+![Topologia de gráficos e gráfico exemplo ciclo de vida](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  O gráfico de mídia pode estar ativo sem que os dados fluam através dele (por exemplo, a fonte de vídeo de entrada fica offline).
-* Desativar – Este é o estado em que um gráfico mediático está em transição de ativo para inativo.
+Começa-se por [criar uma topologia de gráficos.](direct-methods.md#graphtopologyset) Em seguida, para cada vídeo em direto que pretende processar com esta topologia, [cria-se uma instância de gráfico](direct-methods.md#graphinstanceset). 
 
-O diagrama abaixo ilustra a máquina de estado de gráfico de mídia.
+A instância do gráfico estará no `Inactive` estado (ocioso).
 
-![Máquina de estado de gráfico de mídia](./media/media-graph/media-graph-state-machine.png)
+Quando estiver pronto para enviar o feed de vídeo [activate](direct-methods.md#graphinstanceactivate) ao vivo para a instância do gráfico, ative-o. A instância do gráfico passará brevemente por um estado de `Activating` transição, e se for bem sucedida, entrará num `Active` estado. No `Active` estado, os meios de comunicação serão processados (se a instância do gráfico receber dados de entrada).
+
+> [!NOTE]
+>  Uma instância de gráfico pode ser ativa sem que os dados fluam através dele (por exemplo, a câmara fica offline).
+> A sua subscrição Azure será faturada quando a instância do gráfico estiver no estado ativo.
+
+Pode repetir o processo de criação e ativação de outras instâncias de gráfico para a mesma topologia, se tiver outros feeds de vídeo ao vivo para processar.
+
+Quando terminar de processar o feed de vídeo ao vivo, pode [desativar](direct-methods.md#graphinstancedeactivate) a instância do gráfico. A instância do gráfico passará brevemente por um estado de `Deactivating` transição, lavará todos os dados que tiver e, em seguida, regressará ao `Inactive` estado.
+
+Só pode [apagar](direct-methods.md#graphinstancedelete) uma instância de gráfico quando se encontra no `Inactive` estado.
+
+Depois de todas as instâncias de gráfico que se referem a uma topologia de gráficos específicas terem sido eliminadas, pode [eliminar a topologia do gráfico](direct-methods.md#graphtopologydelete).
+
 
 ## <a name="sources-processors-and-sinks"></a>Fontes, processadores e pias  
 

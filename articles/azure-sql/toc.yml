@@ -941,7 +941,7 @@
               href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
         - name: Conceitos
           items:
-            - name: Continuidade do Negócio
+            - name: Continuidade do negócio
               items:
                 - name: Descrição geral
                   href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
@@ -986,9 +986,11 @@
                 - name: Modelo de licença
                   displayName: 'ahb, ahub, payg, change, modify, update'
                   href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-                - name: Edição
+                - name: Alterar a edição
                   displayName: 'change, modify, update'
                   href: virtual-machines/windows/change-sql-server-edition.md
+                - name: Alterar a versão
+                  href: virtual-machines/windows/change-sql-server-version.md
                 - name: Armazenamento
                   href: virtual-machines/windows/storage-configuration.md
                 - name: Integração do Cofre de Chaves do Azure
@@ -1024,6 +1026,8 @@
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Grupo de disponibilidade Always On
                   items:
+                    - name: Portal do Azure
+                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
                     - name: PowerShell ou CLI do Azure
                       href: virtual-machines/windows/availability-group-az-commandline-configure.md
                     - name: Modelos de Início Rápido do Azure

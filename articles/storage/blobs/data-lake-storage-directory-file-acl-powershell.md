@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e80db84789ab5c8b0f07bc6a76ae99f8db3c8b80
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923879"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051037"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o PowerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -125,6 +125,8 @@ $dir.Owner
 $dir.Properties
 $dir.Properties.Metadata
 ```
+> [!NOTE]
+> Para obter o diretório de raiz do recipiente, omita o `-Path` parâmetro.
 
 ## <a name="rename-or-move-a-directory"></a>Mudar de nome ou mover um diretório
 
@@ -202,7 +204,8 @@ $properties.Group
 $properties.Owner
 ```
 
-Para listar o conteúdo de um recipiente, omita o `-Path` parâmetro do comando.
+> [!NOTE]
+> Para listar o conteúdo do diretório de raiz do recipiente, omita o `-Path` parâmetro.
 
 ## <a name="upload-a-file-to-a-directory"></a>Faça o upload de um ficheiro para um diretório
 
@@ -227,6 +230,9 @@ $file1.Properties
 $file1.Properties.Metadata
 
 ```
+
+> [!NOTE]
+> Para enviar um ficheiro para o diretório de raiz do recipiente, omita o `-Path` parâmetro.
 
 ## <a name="show-file-properties"></a>Mostrar propriedades de arquivo
 

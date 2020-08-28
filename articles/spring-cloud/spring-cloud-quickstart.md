@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9e9973db60f84d2eab63137a3034882bb4ded7f6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e4813f5c8c156fdf381a55ae450cf0ee35cedfa7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951847"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048211"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -169,13 +169,15 @@ Uma vez concluída a implementação, pode aceder à aplicação em `https://<se
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
-1. Utilize o seguinte comando para obter registos em tempo real da App.
+Utilize o seguinte comando para obter registos em tempo real da App.
 
-    ```azurecli
-    az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
-    ```
-    
-    [Registos de ![ ](media/spring-cloud-quickstart-java/streaming-logs.png) streaming ](media/spring-cloud-quickstart-java/streaming-logs.png#lightbox)
+```azurecli
+az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
+
+```
+Os registos aparecem nos resultados:
+
+[Registos de ![ ](media/spring-cloud-quickstart-java/streaming-logs.png) streaming ](media/spring-cloud-quickstart-java/streaming-logs.png#lightbox)
 
 >[!TIP]
 > Use `az spring-cloud app logs -h` para explorar mais parâmetros e funcionalidades de fluxo de log.

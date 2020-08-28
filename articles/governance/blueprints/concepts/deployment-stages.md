@@ -1,14 +1,14 @@
 ---
 title: Fases da implementação de um esquema
 description: Aprenda os passos relacionados com a segurança e artefactos que os serviços da Azure Blueprints passam enquanto criam uma atribuição de projeto.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970659"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049779"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fases da implementação de um esquema
 
@@ -54,10 +54,10 @@ Uma falha de acesso por uma implantação é muitas vezes o resultado do nível 
 
 Uma vez concluídas as implementações, a Azure Blueprints revoga os direitos da identidade gerida **atribuída pelo sistema** a partir da subscrição. Em seguida, o serviço Azure Blueprints revoga os seus direitos da subscrição. A remoção de direitos impede que a Azure Blueprints se torne proprietária permanente de uma subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
-- Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
-- Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](./parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](./sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](./resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

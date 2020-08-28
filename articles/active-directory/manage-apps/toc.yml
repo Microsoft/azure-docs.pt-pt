@@ -246,7 +246,7 @@
               href: application-types.md
             - name: Atribuição a um utilizador inesperado
               href: ways-users-get-assigned-to-applications.md
-        - name: Resolver problemas do painel de acesso
+        - name: Resolver problemas de As Minhas Aplicações
           items:
             - name: Gerir a extensão do browser
               href: manage-access-panel-browser-extension.md
@@ -256,8 +256,6 @@
               href: access-panel-troubleshoot-unexpected-application.md
             - name: Não é possível iniciar sessão
               href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Erro ao instalar a extensão de browser
-              href: access-panel-extension-problem-installing.md
             - name: Erro ao utilizar o acesso personalizado à aplicação
               href: access-panel-troubleshoot-self-service-access.md
         - name: Resolver problemas das aplicações no local

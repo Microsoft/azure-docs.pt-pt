@@ -4,12 +4,12 @@ description: Saiba como ativar e ver os registos do nó mestre kubernetes no Ser
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 76ded781d4eae48db04f54a4f88a80cc700d0ad9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250741"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048283"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -30,12 +30,8 @@ Os registos do Monitor Azure estão ativados e geridos no portal Azure. Para ati
 1. Selecione o seu cluster AKS, como *o myAKSCluster,* e depois opte por adicionar a **definição de diagnóstico**.
 1. Introduza um nome, como *myAKSClusterLogs,* selecione a opção de **Enviar para Registar analíticos**.
 1. Selecione um espaço de trabalho existente ou crie um novo. Se criar um espaço de trabalho, forneça um nome de espaço de trabalho, um grupo de recursos e uma localização.
-1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Os registos comuns incluem o *kube-apiserver,* *o controlador-controlador de kube*e *o kube-scheduler*. Pode ativar registos adicionais, tais como *a auditoria de kube* e *o cluster-autoscaler*. Pode retornar e alterar os registos recolhidos assim que os espaços de trabalho do Log Analytics estiverem ativados.
+1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Para este exemplo, ativar os registos *de auditoria de kube.* Os registos comuns incluem o *kube-apiserver,* *o controlador-controlador de kube*e *o kube-scheduler*. Pode retornar e alterar os registos recolhidos assim que os espaços de trabalho do Log Analytics estiverem ativados.
 1. Quando estiver pronto, **selecione Guardar** para ativar a recolha dos registos selecionados.
-
-A imagem do portal de exemplo a seguir mostra a janela *de definições de Diagnóstico:*
-
-![Ativar o espaço de trabalho do Log Analytics para os registos do Azure Monitor do cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agende uma cápsula de teste no cluster AKS
 
@@ -71,30 +67,25 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Ver registos recolhidos
 
-Pode levar alguns minutos para os registos de diagnóstico estarem ativados e aparecerem no espaço de trabalho do Log Analytics. No portal Azure, selecione o grupo de recursos para o seu espaço de trabalho Log Analytics, como *o myResourceGroup,* e depois escolha o seu recurso de análise de registo, como *myAKSLogs*.
+Pode levar alguns minutos para os registos de diagnóstico serem ativados e aparecer. No portal Azure, navegue para o seu cluster AKS e selecione **Logs** no lado esquerdo. Feche a janela *'Exemplo',* se aparecer.
 
-![Selecione o espaço de trabalho Log Analytics para o seu cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
-No lado esquerdo, escolha **Logs**. Para ver o *kube-apiserver,* insira a seguinte consulta na caixa de texto:
-
-```
-AzureDiagnostics
-| where Category == "kube-apiserver"
-| project log_s
-```
-
-Muitos registos são provavelmente devolvidos para o servidor API. Para examinar a consulta para visualizar os registos sobre o pod NGINX criado no passo anterior, adicione um adicional *onde* a declaração para procurar *pods/nginx* como mostrado na seguinte consulta de exemplo:
+No lado esquerdo, escolha **Logs**. Para ver os registos *de auditoria de kube,* insira a seguinte consulta na caixa de texto:
 
 ```
 AzureDiagnostics
-| where Category == "kube-apiserver"
-| where log_s contains "pods/nginx"
+| where Category == "kube-audit"
 | project log_s
 ```
 
-Os registos específicos da sua cápsula NGINX são apresentados, como mostra o seguinte exemplo de imagem:
+Muitos registos são provavelmente devolvidos. Para examinar a consulta para visualizar os registos sobre o pod NGINX criado no passo anterior, adicione um adicional *onde* a declaração para procurar *nginx* como mostrado na seguinte consulta de exemplo:
 
-![Registar resultados de consulta de análise para a amostra Vagem NGINX](media/view-master-logs/log-analytics-query-results.png)
+```
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
+```
 
 Para visualizar registos adicionais, pode atualizar a consulta do nome *category* para *o gestor de controlador de kube* ou para o *programador de kube,* dependendo dos registos adicionais que ativa. Adicional *onde* as declarações podem ser usadas para refinar os eventos que procura.
 
@@ -104,10 +95,10 @@ Para obter mais informações sobre como consultar e filtrar os seus dados de re
 
 Para ajudar a analisar os dados de registo, os seguintes detalhes da tabela detalham o esquema utilizado para cada evento:
 
-| Nome do campo               | Descrição |
+| Nome do campo               | Description |
 |--------------------------|-------------|
 | *recursosId*             | Recurso azul que produziu o log |
-| *tempo*                   | Timetamp de quando o registo foi carregado |
+| *Hora*                   | Timetamp de quando o registo foi carregado |
 | *categoria*               | Nome do contentor/componente que gera o log |
 | *operaçãoName*          | Sempre *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *propriedades.log*         | Texto completo do registo do componente |

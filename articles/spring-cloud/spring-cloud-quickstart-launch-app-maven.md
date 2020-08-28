@@ -7,16 +7,18 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7496ffcc365a3e9178bcc3293b518ea790e56c78
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 95ae9c596742b075b5d78d22b925b3adf9285a7d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607068"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048062"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Quickstart: Lançar uma aplicação Azure Spring Cloud utilizando o plug-in Maven
 
 Utilizando o plug-in Azure Spring Cloud Maven, pode facilmente criar e atualizar as suas aplicações Azure Spring Cloud. Ao prédefinir uma configuração, pode implementar aplicações para o seu serviço Azure Spring Cloud existente. Neste artigo, utiliza-se uma aplicação de amostra chamada PiggyMetrics para demonstrar esta funcionalidade.
+
+Antes de executar este exemplo, pode experimentar o [arranque básico](spring-cloud-quickstart.md).
 
 Após este arranque rápido, aprenderá a:
 

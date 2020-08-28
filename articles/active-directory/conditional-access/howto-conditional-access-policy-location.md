@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1eae9cc067f8aa10ad49d70dfe0393f4bed6c5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a531692264a768e4f6cb8e6475807789df049d03
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518424"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049151"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acesso Condicional: Bloquear acesso por localização
 
@@ -53,10 +53,10 @@ Mais informações sobre a condição de localização em Acesso Condicional pod
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar a Política de Acesso Condicional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 38db681655a839983ebf38e94ec28eb05ed65d1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 317f6a73812b0e4284564ca9b5593e09e22edf12
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808582"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048742"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configurar as definições de tempo limite de marcha lenta da TCP para o balançador de carga Azure
 
@@ -65,10 +65,10 @@ Para definir o tempo de inatividade para um balanceador de carga, o 'IdleTimeout
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
 $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral do balançador de carga interna](load-balancer-internal-overview.md)
 
-[Começar a configurar um equilibrador de carga virado para a Internet](quickstart-create-standard-load-balancer-powershell.md)
+[Começar a configurar um equilibrador de carga virado para a Internet](quickstart-load-balancer-standard-public-powershell.md)
 
 [Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)

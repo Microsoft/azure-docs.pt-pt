@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381afdbb57e2de41382a10c1912abac980e89cbd
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948475"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049541"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação do legado para Azure AD com acesso condicional   
 
@@ -85,7 +85,7 @@ Antes de bloquear a autenticação do legado no seu diretório, tem de primeiro 
 
 1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Ins**.
 1. Adicione a coluna 'App' cliente se não for mostrada clicando na App do Cliente **das Colunas.**  >  **Client App**
-1. **Adicionar filtros**  >  **A App do Cliente** > selecione todos os protocolos de autenticação do legado. Selecione fora do blox de diálogo de filtragem para aplicar as suas seleções e feche a caixa de diálogo.
+1. **Adicionar filtros**  >  **A App do Cliente** > selecione todos os protocolos de autenticação do legado. Selecione fora da caixa de diálogo de filtragem para aplicar as suas seleções e feche a caixa de diálogo.
 
 A filtragem só lhe mostrará as tentativas de inscrição que foram feitas por protocolos de autenticação de legados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. O campo **de Aplicação do Cliente** no separador **Informações Básicas** indicará qual o protocolo de autenticação legado utilizado.
 
@@ -122,7 +122,7 @@ Pode selecionar todos os controlos de subvenção disponíveis para a condição
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
+- [Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 - Se ainda não está familiarizado com a configuração das políticas de Acesso Condicional, consulte [o MFA para aplicações específicas com acesso condicional do Azure Ative Directory,](../authentication/tutorial-enable-azure-mfa.md) por exemplo.
 - Para obter mais informações sobre suporte de autenticação moderna, consulte [como funciona a autenticação moderna para as aplicações de clientes do Office 2013 e office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
 - [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail usando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

@@ -10,14 +10,21 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Iniciar uma aplicação do Spring Cloud - portal
-      href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Iniciar uma aplicação do Spring Cloud - CLI do Azure
-      href: spring-cloud-quickstart-launch-app-cli.md
-    - name: Iniciar uma aplicação do Spring Cloud - origem
-      href: spring-cloud-launch-from-source.md
-    - name: Iniciar uma aplicação do Spring Cloud - Maven
-      href: spring-cloud-quickstart-launch-app-maven.md
+    - name: Iniciar a sua primeira aplicação
+      href: spring-cloud-quickstart.md
+    - name: Criar e executar Microsserviços
+      expanded: true
+      items:
+        - name: Introdução aos exemplos de aplicação
+          href: spring-cloud-quickstart-sample-app-introduction.md
+        - name: Aprovisionar o serviço Azure Spring Cloud
+          href: spring-cloud-quickstart-provision-service-instance.md
+        - name: Configurar o servidor de configuração
+          href: spring-cloud-quickstart-setup-config-server.md
+        - name: Criar e implementar aplicações
+          href: spring-cloud-quickstart-deploy-apps.md
+        - name: 'Utilizar registos, métricas e rastreio'
+          href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutoriais
   items:
     - name: Dimensionar manualmente uma aplicação

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236612"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047297"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Create a managed image of a generalized VM in Azure (Criar uma imagem gerida de uma VM generalizada no Azure)
 
@@ -26,10 +26,12 @@ Uma imagem gerida suporta até 20 implementações simultâneas. A tentativa de 
 
 A Sysprep remove todas as suas informações pessoais e de segurança e, em seguida, prepara a máquina para ser usada como uma imagem. Para obter informações sobre a Sysprep, consulte a visão geral da [Sysprep.](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
 
-Certifique-se de que as funções do servidor em funcionamento na máquina são suportadas pela Sysprep. Para obter mais informações, consulte [o suporte do Sysprep para funções de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [cenários não suportados](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep requer que os impulsos sejam totalmente desencriptados antes da execução. Se tiver ativado a encriptação no seu VM, desative a encriptação antes de executar o Sysprep.
+Certifique-se de que as funções do servidor em funcionamento na máquina são suportadas pela Sysprep. Para obter mais informações, consulte [o suporte do Sysprep para funções de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [cenários não suportados](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
 > Depois de ter executado o Sysprep num VM, esse VM é considerado *generalizado* e não pode ser reiniciado. O processo de generalizar uma VM não é reversível. Se precisar de manter o funcionamento original do VM, deve criar uma [cópia do VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) e generalizar a sua cópia. 
+>
+>Sysprep requer que os discos sejam totalmente desencriptados. Se tiver ativado a encriptação no seu VM, desative a encriptação antes de executar o Sysprep.
 >
 > Se planeia executar o Sysprep antes de enviar o seu disco rígido virtual (VHD) para Azure pela primeira vez, certifique-se de que [preparou o seu VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 

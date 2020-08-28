@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma consulta partilhada com o Azure CLI'
 description: Neste arranque rápido, siga os passos para ativar a extensão do Gráfico de Recurso para O Azure CLI e crie uma consulta partilhada.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc03339c50316516301901d84d2c5a3ba2ab287d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570108"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050969"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Quickstart: Criar uma consulta partilhada de gráficos de recurso usando O Azure CLI
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Para permitir que o Azure CLI trabalhe com o Azure Resource Graph, a extensão deve ser adicionada. Esta extensão funciona onde quer que a CLI do Azure possa ser utilizada, incluindo [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (autónomo e no portal), a [imagem do Docker da CLI do Azure](https://hub.docker.com/r/microsoft/azure-cli/), ou instalada localmente.
 
-1. Verifique se o último CLI do Azure está instalado (pelo menos **2.8.0**). Se não estiver ainda instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Verifique se o último CLI do Azure está instalado (pelo menos **2.8.0**). Se não estiver ainda instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows).
 
 1. No seu ambiente de eleição Azure CLI, use [a extensão az adicionar](/cli/azure/extension#az-extension-add) para importar a extensão de Gráfico de Recurso com o seguinte comando:
 
@@ -96,7 +96,7 @@ Com a extensão Azure CLI adicionada ao seu ambiente de eleição, é hora de um
 
 Outra forma de encontrar consultas partilhadas do Gráfico de Recurso é através do portal Azure. No portal, utilize a barra de pesquisa para procurar "consultas de gráficos de recurso". Selecione a consulta partilhada. Na página **'Vista Geral',** o separador **'Consulta'** apresenta a consulta guardada. O botão **Editar** abre-o no [Explorador de Gráficos de Recurso.](./first-query-portal.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover a consulta partilhada do Gráfico de Recurso, o grupo de recursos e a extensão do seu ambiente Azure CLI, pode fazê-lo utilizando os seguintes comandos:
 

@@ -3,12 +3,12 @@ title: Azure Migrate eletrodoméstico FAQ
 description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530122"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050680"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Questões comuns
 
@@ -39,10 +39,14 @@ O aparelho pode ser acionado da seguinte forma:
 - Se não quiser utilizar um modelo, ou se estiver no Governo Azure, pode utilizar o aparelho para VMware ou Hyper-V utilizando um script PowerShell.
 - Para servidores físicos, utilize sempre o aparelho utilizando um script.
 
-
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como é que o aparelho se liga ao Azure?
 
-O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute com o olhar público/Microsoft.
+O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute.
+
+- Para utilizar o tráfego de replicação do Azure ExpressRoute para o Azure Migrate, é necessário espreitar a Microsoft ou um espreitamento público existente (o olhar público é depreciado para novas criações de ER).
+- A replicação sobre o Azure ExpressRoute com (apenas) o espreitamento privado ativado não é suportado.
+
+Azure ExpressRoute com a Microsoft a espreitar configurada é o domínio de encaminhamento recomendado para o tráfego de replicação.
 
 ## <a name="does-appliance-analysis-affect-performance"></a>A análise do aparelho afeta o desempenho?
 
@@ -53,7 +57,6 @@ O aparelho Azure Migrate perfis no local máquinas continuamente para medir os d
 Quando utilizar o modelo descarregado para criar o VM do aparelho, pode adicionar componentes (antivírus, por exemplo) ao modelo se deixar em vigor as regras de comunicação e firewall que são necessárias para o aparelho Azure Migrate.
 
 ## <a name="what-network-connectivity-is-required"></a>Que conectividade de rede é necessária?
-
 
 O aparelho precisa de acesso aos URLs Azure. [Reveja](migrate-appliance.md#url-access) a lista de URL.
 
@@ -99,9 +102,11 @@ Estes passos descrevem como o aparelho se conecta ao VMware vCenter Server:
 Não. Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, tem de implantar vários aparelhos. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Um projeto Azure Migrate pode ter vários aparelhos?
+
 Um projeto pode ter vários aparelhos ligados a ele. No entanto, um aparelho só pode ser associado a um projeto. 
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>O aparelho Azure Migrate/aparelho de replicação pode ligar-se ao mesmo vCenter?
+
 Yes. Pode adicionar tanto o aparelho Azure Migrate (utilizado para avaliação e migração de VMware sem agente) como o aparelho de replicação (utilizado para a migração baseada em agentes de VMware VMs) ao mesmo servidor vCenter.
 
 
@@ -139,6 +144,6 @@ Apenas o aparelho e os agentes do aparelho são atualizados através destas atua
 
 Yes. No portal, vá à página **de saúde do Agente** para o Azure Migrate: Avaliação do Servidor ou Azure Migrate: Ferramenta de migração do servidor. Lá, pode verificar o estado de ligação entre a Azure e os agentes de descoberta e avaliação do aparelho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a visão geral do [Azure Migrate](migrate-services-overview.md).

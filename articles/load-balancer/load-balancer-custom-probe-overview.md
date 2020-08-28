@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207547"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051360"
 ---
 # <a name="load-balancer-health-probes"></a>Sondas de estado de funcionamento do Balanceador de Carga
 
@@ -95,7 +95,7 @@ Os protocolos disponíveis dependem do Balanceador de Carga utilizado:
 | **SKU Standard** |    &#9989; |   &#9989; |   &#9989; |
 | **SKU Básico** |   &#9989; |   &#9989; | &#10060; |
 
-### <a name="tcp-probe"></a><a name="tcpprobe"></a>Sonda TCP
+### <a name="tcp-probe"></a><a name="tcpprobe"></a> Sonda TCP
 
 As sondas TCP iniciam uma ligação realizando um aperto de mão TCP aberto de três vias com a porta definida.  As sondas TCP terminam uma ligação com um aperto de mão TCP de quatro vias.
 
@@ -223,7 +223,7 @@ Para além das sondas de saúde Load Balancer, as [seguintes operações utiliza
 - Permite que a comunicação com o servidor virtual DNS forneça resolução de nomes filtrados a clientes que não definem servidores DNS personalizados.  Esta filtragem garante que os clientes só podem resolver os hostnames da sua implantação.
 - Permite ao VM obter um endereço IP dinâmico a partir do serviço DHCP em Azure.
 
-## <a name="design-guidance"></a><a name="design"></a>Orientação de design
+## <a name="design-guidance"></a><a name="design"></a> Orientação de design
 
 As sondas de saúde são usadas para tornar o seu serviço resiliente e permitir a sua escala. Uma configuração errada ou um mau padrão de design podem afetar a disponibilidade e escalabilidade do seu serviço. Reveja todo este documento e considere qual é o impacto para o seu cenário quando esta resposta da sonda é marcada para baixo ou marcada, e como impacta a disponibilidade do seu cenário de aplicação.
 
@@ -263,6 +263,6 @@ O Balancer de Carga Pública Básica expõe o estado da sonda de saúde resumido
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
-- [Começar a criar um balanceador de carga pública em Resource Manager utilizando o PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [Começar a criar um balanceador de carga pública em Resource Manager utilizando o PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [REST API para sondas de saúde](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Solicite novas capacidades de sonda de saúde com [a voz do Utilizador do Balancer de Carga](https://aka.ms/lbuservoice)

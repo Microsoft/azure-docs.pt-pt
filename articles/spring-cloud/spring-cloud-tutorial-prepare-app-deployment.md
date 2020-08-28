@@ -7,16 +7,18 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2ae94da3d9b2dee62bc031c4a32d17b43be00a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1261e36c782068844712908e62a72b77d34ba5af
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021278"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046736"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Prepare uma aplicação java spring para implantação em Azure Spring Cloud
 
 Este tópico mostra como preparar uma aplicação java spring existente para implantação para Azure Spring Cloud. Se configurado corretamente, o Azure Spring Cloud fornece serviços robustos para monitorizar, escalar e atualizar a sua aplicação Java Spring Cloud.
+
+Antes de executar este exemplo, pode experimentar o [arranque básico](spring-cloud-quickstart.md).
 
 Outros exemplos explicam como implementar uma aplicação para Azure Spring Cloud quando o ficheiro POM está configurado. 
 * [App de lançamento usando o portal Azure](spring-cloud-quickstart-launch-app-portal.md)
@@ -39,7 +41,7 @@ A azure Spring Cloud suporta apenas aplicações Spring Boot ou versão Spring B
 Versão Boot de primavera | Versão Cloud de primavera
 ---|---
 2.1 | Greenwich.RELEASE
-2,2 | Hoxton.RELEASE
+2.2 | Hoxton.RELEASE
 2.3 | Hoxton.SR5
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Dependências para a versão 2.1 do Boot de Mola
@@ -127,7 +129,7 @@ A tabela que se segue lista as versões Azure Spring Cloud corretas para a sua a
 Versão Boot de primavera | Versão Cloud de primavera | Versão Azure Spring Cloud
 ---|---|---
 2.1 | Greenwich.RELEASE | 2.1
-2,2 | Hoxton.RELEASE | 2,2
+2.2 | Hoxton.RELEASE | 2.2
 2.3 | Hoxton.SR5 | 2.3
 
 Inclua uma das seguintes dependências no seu ficheiro pom.xml. Selecione a dependência cuja versão Azure Spring Cloud corresponde à sua.

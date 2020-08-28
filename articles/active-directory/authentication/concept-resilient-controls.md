@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716304"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049575"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory
 
@@ -92,7 +92,7 @@ Este conjunto de políticas de exemplo irá conceder aos utilizadores selecionad
 
 ### <a name="contingencies-for-user-lockout"></a>Contingências para o bloqueio do utilizador
 
-Em alternativa, a sua organização também pode criar políticas de contingência. Para criar políticas de contingência, deve definir critérios de troca entre continuidade do negócio, custos operacionais, custos financeiros e riscos de segurança. Por exemplo, pode ativar uma política de contingência apenas para um subconjunto de utilizadores, para um subconjunto de aplicações, para um subconjunto de clientes, ou a partir de um subconjunto de localizações. As políticas de contingência darão aos administradores e utilizadores finais acesso a apps e recursos, durante uma interrupção quando não foi implementado nenhum método de mitigação. A Microsoft recomenda que as políticas de contingência sejam ativadas [apenas](../conditional-access/howto-conditional-access-report-only.md) no modo de relatório quando não estão a ser utilizadas para que os administradores possam monitorizar o impacto potencial das políticas caso precisem de ser ativadas.
+Em alternativa, a sua organização também pode criar políticas de contingência. Para criar políticas de contingência, deve definir critérios de troca entre continuidade do negócio, custos operacionais, custos financeiros e riscos de segurança. Por exemplo, pode ativar uma política de contingência apenas para um subconjunto de utilizadores, para um subconjunto de aplicações, para um subconjunto de clientes, ou a partir de um subconjunto de localizações. As políticas de contingência darão aos administradores e utilizadores finais acesso a apps e recursos, durante uma interrupção quando não foi implementado nenhum método de mitigação. A Microsoft recomenda que as políticas de contingência sejam ativadas [apenas](../conditional-access/howto-conditional-access-insights-reporting.md) no modo de relatório quando não estão a ser utilizadas para que os administradores possam monitorizar o impacto potencial das políticas caso precisem de ser ativadas.
 
  Compreender a sua exposição durante uma interrupção ajuda a reduzir o seu risco e é uma parte crítica do seu processo de planeamento. Para criar o seu plano de contingência, determine primeiro os seguintes requisitos de negócio da sua organização:
 
@@ -282,7 +282,7 @@ Se a sua organização estiver a utilizar políticas antigas de MFA por utilizad
 >[!NOTE]
  > Configurar [IPs fidedignos](./howto-mfa-mfasettings.md) para Azure MFA só está disponível com [licenças Azure AD Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * [Documentação da Autenticação do Azure AD](./howto-mfaserver-iis.md)
 * [Gerir contas administrativas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md)

@@ -1,24 +1,26 @@
 ---
 title: 'Quickstart: Reconhecer tinta digital com a API de Reconhecimento de Tinta e Java'
 titleSuffix: Azure Cognitive Services
-description: Utilize a API do Reconhecimento de Tinta para começar a reconhecer traços de tinta digital neste arranque rápido.
+description: Utilize a API e a Java do Reconhecimento de Tinta para começar a reconhecer traços de tinta digital neste arranque rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: 902d8a592893a70b8a694ab888bb3c22c6c9670a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371554"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051581"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Quickstart: Reconhecer tinta digital com a API de Reconhecimento de Tinta e Java
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Utilize este arranque rápido para começar a utilizar a API do Reconhecimento de Tinta em traços de tinta digital. Esta aplicação Java envia um pedido de API contendo dados de traçado de tinta formatados por JSON, e obtém a resposta.
 

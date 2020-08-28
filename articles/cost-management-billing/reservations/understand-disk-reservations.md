@@ -4,20 +4,21 @@ description: Saiba como o desconto de discos reservados do Azure é aplicado aos
 author: roygara
 ms.author: rogarana
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 3541e3f12a6d0b1beecdd67821d31f71b47f6c68
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: cd89c3ddc3c58de02f1104109ce7f243c4d1e6fd
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509470"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682455"
 ---
 # <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>Compreender como o desconto de reserva é aplicado ao armazenamento de discos do Azure
 
 Depois de comprar a capacidade reservada de discos do Azure, é aplicado automaticamente um desconto de reserva aos recursos dos discos que correspondam aos termos da reserva. O desconto de reserva aplica-se apenas aos SKUs de discos. Os instantâneos dos discos são cobrados às taxas pay as you go.
 
-Para obter mais informações sobre a reserva de discos do Azure, veja [Reduzir custos com a reserva de discos do Azure](../../virtual-machines/linux/disks-reserved-capacity.md). Para obter mais informações sobre os preços de reserva de Discos do Azure, veja [Preços do Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Para obter mais informações sobre a reserva de discos do Azure, veja [Reduzir custos com a reserva de discos do Azure](../../virtual-machines/disks-reserved-capacity.md). Para obter mais informações sobre os preços de reserva de Discos do Azure, veja [Preços do Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="how-the-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
@@ -53,6 +54,5 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Reduzir custos com a Reserva de Discos do Azure (Linux)](../../virtual-machines/linux/disks-reserved-capacity.md)
-- [Reduzir custos com a Reserva de Discos do Azure (Windows)](../../virtual-machines/windows/disks-reserved-capacity.md)
+- [Reduzir custos com a Reserva de Discos do Azure](../../virtual-machines/disks-reserved-capacity.md)
 - [O que são as reservas do Azure?](save-compute-costs-reservations.md)

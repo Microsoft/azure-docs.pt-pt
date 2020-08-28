@@ -1,14 +1,14 @@
 ---
 title: Compreender o ciclo de vida de uma planta
 description: Conheça o ciclo de vida que uma definição de planta passa e detalhes sobre cada etapa, incluindo atualizar e remover atribuições de projeto.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc024c0e6643420d26bdc92e47fabe647c55ae7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864033"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049711"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreenda o ciclo de vida de uma Planta Azure
 
@@ -81,14 +81,14 @@ Elimine uma planta com o [portal Azure](../create-blueprint-portal.md#delete-a-b
 
 Há vários pontos durante o ciclo de vida que uma planta pode ser atribuída a uma subscrição. Quando o modo de uma versão da planta é **publicado**, então essa versão pode ser atribuída a uma subscrição. Este ciclo de vida permite que as versões de uma planta sejam usadas e atribuídas ativamente enquanto uma versão mais recente está a ser desenvolvida.
 
-À medida que as versões das plantas são atribuídas, é importante entender onde são atribuídas e com que parâmetros foram atribuídos. Os parâmetros podem ser estáticos ou dinâmicos. Para saber mais, consulte [parâmetros estáticos e dinâmicos.](parameters.md)
+À medida que as versões das plantas são atribuídas, é importante entender onde são atribuídas e com que parâmetros foram atribuídos. Os parâmetros podem ser estáticos ou dinâmicos. Para saber mais, consulte [parâmetros estáticos e dinâmicos.](./parameters.md)
 
 ### <a name="updating-assignments"></a>Atualização de atribuições
 
 Quando uma planta é atribuída, a atribuição pode ser atualizada. Existem várias razões para atualizar uma atribuição existente, incluindo:
 
-- Adicionar ou remover [o bloqueio de recursos](resource-locking.md)
-- Alterar o valor dos [parâmetros dinâmicos](parameters.md#dynamic-parameters)
+- Adicionar ou remover [o bloqueio de recursos](./resource-locking.md)
+- Alterar o valor dos [parâmetros dinâmicos](./parameters.md#dynamic-parameters)
 - Atualize a atribuição para uma versão **mais recente da** planta
 
 Para saber como, consulte [a atualização das atribuições existentes.](../how-to/update-existing-assignments.md)
@@ -97,17 +97,17 @@ Para saber como, consulte [a atualização das atribuições existentes.](../how
 
 Se o projeto já não for necessário, pode ser não atribuído ao grupo de gestão ou subscrição. Durante a não assinatura da planta, ocorre o seguinte:
 
-- Remoção do bloqueio de [recursos de plantas](resource-locking.md)
+- Remoção do bloqueio de [recursos de plantas](./resource-locking.md)
 - Supressão do objeto de atribuição de plantas
 - (Condicional) Se uma **identidade gerida atribuída pelo sistema** foi usada, também é eliminada
 
 > [!NOTE]
 > Todos os recursos utilizados pela atribuição do projeto permanecem no local, mas já não estão protegidos pela Azure Blueprints.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
-- Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
-- Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](./parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](./sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](./resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).
