@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
-ms.openlocfilehash: c497209e456ff838786edaa19e46ebc5c1858d5f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 92509ff96af0ed2a7d77799edca8447ff6839ab6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938865"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019662"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas dns e conjuntos de recordes usando o .NET SDK
 
@@ -164,6 +165,6 @@ while (page.NextPageLink != null)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Descarregue o [projeto de amostra Azure DNS .NET SDK,](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)que inclui outros exemplos sobre como utilizar o Azure DNS .NET SDK, incluindo exemplos para outros tipos de registos DNS.

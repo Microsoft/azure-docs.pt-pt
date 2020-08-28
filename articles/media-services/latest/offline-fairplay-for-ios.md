@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 0e65bf39db00f1277635d600da87346f19a881a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 43c003d69ff64ea85581b2d4e22c545376acd525
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197173"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010159"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming Offline FairPlay para iOS com Media Services v3
 
@@ -206,6 +207,6 @@ Com a amostra da versão 3 ou da versão 4 do FPS Server SDK, se uma lista de re
 
 Consulte [perguntas frequentes para ajudar na resolução de problemas.](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como pode [proteger com AES-128](protect-with-aes128.md)

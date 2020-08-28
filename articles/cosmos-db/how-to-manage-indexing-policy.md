@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
-ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: de9cdaf1dcc398c5db55de78643a19179f6bfdbc
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 2b1fe86c09349a25c8ebfda38ffc3ec352fdaba3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876483"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019560"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 
@@ -372,7 +372,7 @@ Para criar um recipiente com uma política de indexação personalizada ver, [cr
 
 Para criar um recipiente com uma política de indexação personalizada ver, [crie um recipiente com uma política de índice personalizado usando Powershell](manage-with-powershell.md#create-container-custom-index)
 
-## <a name="use-the-net-sdk"></a><a id="dotnet-sdk"></a>Utilize o .NET SDK
+## <a name="use-the-net-sdk"></a><a id="dotnet-sdk"></a> Utilize o .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -546,7 +546,7 @@ containerResponse.subscribe(result -> {
 
 ## <a name="use-the-nodejs-sdk"></a>Use o Node.js SDK
 
-A `ContainerDefinition` interface deNode.js [SDK](https://www.npmjs.com/package/@azure/cosmos) (ver [este Quickstart](create-sql-api-nodejs.md) sobre a sua utilização) expõe uma `indexingPolicy` propriedade que permite alterar e adicionar ou remover e `indexingMode` `includedPaths` `excludedPaths` .
+A `ContainerDefinition` interface deNode.js [ SDK](https://www.npmjs.com/package/@azure/cosmos) (ver [este Quickstart](create-sql-api-nodejs.md) sobre a sua utilização) expõe uma `indexingPolicy` propriedade que permite alterar e adicionar ou remover e `indexingMode` `includedPaths` `excludedPaths` .
 
 Recupere os detalhes do contentor
 

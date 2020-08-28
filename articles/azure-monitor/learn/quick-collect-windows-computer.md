@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 726caa0c4a7bbd6b8d0c17ffdfade5f9cc3c2a34
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324323"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020376"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Recolher dados de um computador Windows em ambiente híbrido com o Azure Monitor
 
 [O Azure Monitor](../overview.md) pode recolher dados diretamente de si é o seu computador Windows físico ou virtual no seu ambiente num espaço de trabalho do Log Analytics para análise e correlação detalhadas. A instalação do [agente Log Analytics](../platform/log-analytics-agent.md) permite ao Azure Monitor recolher dados de um datacenter ou de outro ambiente em nuvem. Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples. Para obter informações sobre VMs do Azure Windows, consulte [recolher dados sobre máquinas virtuais Azure](./quick-collect-azurevm.md).  
 
-Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](../platform/log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
+Para compreender a configuração suportada, consulte [sistemas operativos suportados](../platform/agents-overview.md#supported-operating-systems) e [configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
  
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

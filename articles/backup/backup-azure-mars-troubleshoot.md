@@ -3,12 +3,12 @@ title: Resolução de problemas do agente reserva da Azure
 description: Neste artigo, aprenda a resolver problemas na instalação e registo do agente Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763512"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019628"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Resolução de problemas do agente Microsoft Azure Recovery Services (MARS)
 

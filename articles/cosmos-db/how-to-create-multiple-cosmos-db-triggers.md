@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 695513bb572f5931ee1f0fa54a330cfa0574fc21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261601"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019985"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar múltiplos gatilhos de funções Azure para Cosmos DB
 
@@ -106,7 +107,7 @@ E para o JavaScript, pode aplicar a configuração no `function.json` ficheiro, 
 > [!NOTE]
 > Monitorize sempre as Unidades de Pedido a provisionadas no seu recipiente de locação partilhada. Cada Gatilho que o partilhe, aumentará o consumo médio de produção, pelo que poderá ter de aumentar a produção a provisionada à medida que aumenta o número de Funções Azure que o utilizam.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a configuração completa para o [gatilho de Funções Azure para Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)
 * Verifique a lista alargada [de amostras](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) para todos os idiomas.

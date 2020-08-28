@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac0bf539cc345f326027f4707b7b50204e2b7850
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 20de83e190a419b95c99c1c1238eb931910feb82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893056"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020291"
 ---
 # <a name="entities"></a>Entidades
 

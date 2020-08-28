@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: a1adf167bb23b3d66f6dcbd07794145f7c817105
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b856381e8d085c6839effd1de6d9867b214d24ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322164"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020393"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Quickstart: Recolher dados de um computador Linux em ambiente híbrido com Azure Monitor
 
 [O Azure Monitor](../overview.md) pode recolher dados diretamente dos seus computadores Linux físicos ou virtuais no seu ambiente num espaço de trabalho do Log Analytics para análise e correlação detalhadas. A instalação do [agente Log Analytics](../platform/log-analytics-agent.md) permite ao Azure Monitor recolher dados de um datacenter ou de outro ambiente em nuvem. Este quickstart mostra-lhe como configurar e recolher dados do seu servidor Linux com alguns passos fáceis. Para obter informações sobre os VMs Azure Linux, consulte [recolher dados sobre máquinas virtuais Azure](./quick-collect-azurevm.md).  
 
-Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](../platform/log-analytics-agent.md#supported-linux-operating-systems) e [configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
+Para compreender a configuração suportada, consulte [sistemas operativos suportados](../platform/agents-overview.md#supported-operating-systems) e [configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
  
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -5,20 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 925759b63d1225c720ad439f15b82632a4921cbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 79ce5125283a234530435891044ead3141665433
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132335"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002781"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar e-mails utilizando apps Azure Logic, Funções Azure e Armazenamento Azure
 
 O Azure Logic Apps ajuda-o a automatizar fluxos de trabalho e a integrar dados nos serviços do Azure, nos serviços Microsoft, noutras aplicações de software como serviço (Saas) e em sistemas no local. Este tutorial mostra como pode criar uma [aplicação lógica](../logic-apps/logic-apps-overview.md) que processa e-mails recebidos e anexos. Esta aplicação lógica analisa o conteúdo do e-mail, guarda o conteúdo para o armazenamento do Azure e envia notificações para rever esse conteúdo.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar o [Armazenamento do Azure](../storage/common/storage-introduction.md) e o Explorador de Armazenamento para verificar e-mails e anexos guardados.
@@ -363,7 +363,7 @@ Agora, teste para verificar se a condição funciona corretamente:
 
 1. Envie um e-mail para si próprio que cumpra estes critérios:
 
-   * O seu email tem o texto especificado no **filtro Subject**do gatilho:`Business Analyst 2 #423501`
+   * O seu email tem o texto especificado no **filtro Subject**do gatilho: `Business Analyst 2 #423501`
 
    * O e-mail tem um anexo. Por agora, crie apenas um ficheiro de texto vazia e anexe-o ao e-mail.
 
@@ -470,11 +470,11 @@ Agora, teste se a sua aplicação lógica processa os e-mails da forma que espec
 
 1. Envie um e-mail para si próprio que cumpra estes critérios:
 
-   * O seu email tem o texto especificado no **filtro Subject**do gatilho:`Business Analyst 2 #423501`
+   * O seu email tem o texto especificado no **filtro Subject**do gatilho: `Business Analyst 2 #423501`
 
    * O e-mail tem, pelo menos, um anexo. Por enquanto, basta criar um ficheiro de texto vazio e anexar esse ficheiro ao seu e-mail.
 
-   * O seu e-mail tem alguns conteúdos de teste no corpo, por exemplo:`Testing my logic app`
+   * O seu e-mail tem alguns conteúdos de teste no corpo, por exemplo: `Testing my logic app`
 
    Se a sua aplicação lógica não for acionada ou executada, apesar de o acionador ter sido bem-sucedido, veja [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md) (Resolver problemas da sua aplicação lógica).
 
@@ -555,7 +555,7 @@ Em seguida, teste se a sua aplicação lógica processa os anexos da forma que e
 
 1. Envie um e-mail para si próprio que cumpra estes critérios:
 
-   * O seu email tem o texto especificado na propriedade do **filtro subjecto** do gatilho:`Business Analyst 2 #423501`
+   * O seu email tem o texto especificado na propriedade do **filtro subjecto** do gatilho: `Business Analyst 2 #423501`
 
    * O seu e-mail tem, pelo menos, dois anexos. Por agora, crie apenas dois ficheiros de texto vazios e anexe-os ao e-mail.
 
@@ -602,7 +602,7 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
    | Definição | Valor | Notas |
    | ------- | ----- | ----- |
    | **Para** | <*destinatário-endereço de e-mail*> | Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
-   | **Assunto**  | ```ASAP - Review applicant for position:```**Sujeito** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. |
+   | **Assunto**  | ```ASAP - Review applicant for position:``` **Assunto** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. |
    | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:```**De** <p>```Application file location:``` **Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
    ||||
 
@@ -621,7 +621,7 @@ Teste a sua aplicação lógica, que é agora semelhante a este exemplo:
 
 1. Envie um e-mail para si próprio que cumpra estes critérios:
 
-   * O seu email tem o texto especificado na propriedade do **filtro subjecto** do gatilho:`Business Analyst 2 #423501`
+   * O seu email tem o texto especificado na propriedade do **filtro subjecto** do gatilho: `Business Analyst 2 #423501`
 
    * O seu email tem um ou mais anexos. Pode reutilizar um ficheiro de texto vazio do teste anterior. Para um cenário realista, anexe um ficheiro de currículo.
 
@@ -682,7 +682,7 @@ Quando já não precisar deste exemplo, elimine o grupo de recursos que contém 
 
 1. Quando o painel de confirmação aparecer, insira o nome do grupo de recursos e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma aplicação lógica que processa e armazena anexos de e-mail através da integração de serviços do Azure, como o Armazenamento do Azure e as Funções do Azure. Agora, saiba mais sobre outros conectores que pode utilizar para criar aplicações lógicas.
 

@@ -3,12 +3,12 @@ title: Matriz de suporte DPM do MABS & System Center
 description: Este artigo resume o suporte de backup do Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup nas instalações e recursos VM Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26d9e3012749298a781cd611866bc6d0a6596979
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 90b79dfa412102b139f2f094fb9ca07a6361cab0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825227"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019577"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Microsoft Azure Backup Server ou System Center DPM
 
@@ -162,12 +162,12 @@ Sem conectividade por mais de 15 dias | Expirado/desprovisionado | Sem cópia de
 
 ## <a name="dpmmabs-storage-support"></a>Suporte de armazenamento DPM/MABS
 
-Os dados que são ressarcidos até DPM/MABS são armazenados no armazenamento de discos locais.
+Os dados que são reservados até DPM/MABS são armazenados no armazenamento de discos locais.
 
 **Armazenamento** | **Detalhes**
 --- | ---
 **MBS** | O armazenamento moderno de backup (MBS) é suportado a partir de DPM 2016/MABS v2 e mais tarde. Não está disponível para MABS v1.
-**Armazenamento MABS em Azure VM** | Os dados são armazenados em discos Azure que são anexados ao DPM/MABS VM, e que são geridos em DPM/MABS. O número de discos que podem ser utilizados para o armazenamento DPM/MABS é limitado pelo tamanho do VM.<br/><br/> A2 VM: 4 discos; A3 VM: 8 discos; A4 VM: 16 discos, com um tamanho máximo de 1 TB para cada disco. Isto determina o total de armazenamento de backup que está disponível.<br/><br/> A quantidade de dados que pode fazer é de que depende do número e do tamanho dos discos anexos.
+**Armazenamento MABS em Azure VM** | Os dados são armazenados em discos Azure que são anexados ao DPM/MABS VM, e que são geridos em DPM/MABS. O número de discos que podem ser utilizados para o armazenamento DPM/MABS é limitado pelo tamanho do VM.<br/><br/> A2 VM: 4 discos; A3 VM: 8 discos; A4 VM: 16 discos, com um tamanho máximo de 1 TB para cada disco. Isto determina o total de armazenamento de reserva disponível.<br/><br/> A quantidade de dados que pode fazer é de que depende do número e do tamanho dos discos anexos.
 **Retenção de dados MABS na Azure VM** | Recomendamos que guarde os dados durante um dia no disco DPM/MABS Azure e faça o back up de DPM/MABS para o cofre para uma retenção mais longa. Desta forma, pode proteger uma maior quantidade de dados descarregando-os para a Azure Backup.
 
 ### <a name="modern-backup-storage-mbs"></a>Armazenamento moderno de backup (MBS)

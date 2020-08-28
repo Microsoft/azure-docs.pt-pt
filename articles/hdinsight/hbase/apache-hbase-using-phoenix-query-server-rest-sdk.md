@@ -6,14 +6,14 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
-ms.openlocfilehash: 93136286dc14a5c7c69fe8c17829eddabddbfacf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4ad6d16e4c6d91b44061d99ffa1c397fb0e0ec28
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080062"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019645"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Consulta Servidor REST SDK
 
@@ -54,7 +54,7 @@ Cada exemplo faz primeiro uma chamada para o `OpenConnectionRequestAsync` métod
 
 ## <a name="connectionsyncrequest-and-its-connectionproperties"></a>ConexõesSSyncRequest e suas ConexõesProperties
 
-Para `ConnectionSyncRequestAsync` ligar, passe num `ConnectionProperties` objeto.
+Para  `ConnectionSyncRequestAsync` ligar, passe num `ConnectionProperties` objeto.
 
 ```csharp
 ConnectionProperties connProperties = new ConnectionProperties
@@ -539,7 +539,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Apache Phoenix no HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Utilizando o Apache HBase REST SDK](apache-hbase-rest-sdk.md)

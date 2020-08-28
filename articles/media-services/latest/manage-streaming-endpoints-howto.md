@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c88a1f36d4e3405b44f36864262b2ab97517933
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: d8b5f79d9c9050eeb7957ddcf28021e3c8b3dd94
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500560"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010652"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerir pontos finais de streaming com os Media Services v3
 
@@ -45,7 +45,7 @@ Comentário:
 POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
 ```
 
-Para obter mais informações, veja: 
+Para obter mais informações, consulte: 
 
 * Inicie uma documentação de referência [streamingEndpoint.](/rest/api/media/streamingendpoints/start)
 * Iniciar um ponto final de streaming é uma operação assíncronea. 
@@ -57,7 +57,7 @@ Para obter mais informações, veja:
  
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Vá à sua conta da Azure Media Services.
-1. No painel esquerdo, selecione **Streaming Endpoints**.
+1. No painel esquerdo, selecione  **Streaming Endpoints**.
 1. Selecione o ponto final de streaming que pretende iniciar e, em seguida, selecione **Start**.
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure

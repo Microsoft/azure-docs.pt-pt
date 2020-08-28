@@ -3,12 +3,12 @@ title: Resolução de problemas Azure ficheiros backup
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 9e8869ed75350fd4063832932f076fb6fd52d4e5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889813"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001744"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
 
@@ -86,7 +86,7 @@ Código de erro: AFSMaxSnapshotReached
 Error Message: Atingiu o limite máximo de instantâneos para esta partilha de ficheiros; poderá tomar mais quando os mais velhos expirarem.
 
 - Este erro pode ocorrer quando cria várias cópias de segurança a pedido para uma partilha de ficheiros.
-- Existe um limite de 200 instantâneos por ação de ficheiro, incluindo os tirados pela Azure Backup. As cópias de segurança (ou instantâneos) agendadas mais antigas são limpas automaticamente. As cópias de segurança a pedido (ou instantâneos) têm de ser eliminadas, caso seja atingido o limite máximo.
+- Há um limite de 200 instantâneos por ação de ficheiro, incluindo os tirados pela Azure Backup. As cópias de segurança (ou instantâneos) agendadas mais antigas são limpas automaticamente. As cópias de segurança a pedido (ou instantâneos) têm de ser eliminadas, caso seja atingido o limite máximo.
 
 Elimine as cópias de segurança a pedido (instantâneos de partilhas de ficheiros do Azure) do portal de Ficheiros do Azure.
 

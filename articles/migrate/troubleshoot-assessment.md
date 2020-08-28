@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e9b9e0b27e46c95ca4c2bc3a5c547259bada5fda
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685413"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020359"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -23,7 +23,7 @@ Este artigo ajuda-o a resolver problemas com avaliação e visualização de dep
 
 Corrigir problemas de prontidão de avaliação da seguinte forma:
 
-**Emissão** | **Correção**
+**Problema** | **Correção**
 --- | ---
 Tipo de bota não suportada | O Azure não suporta VMs com um tipo de bota EFI. Recomendamos que converta o tipo de porta-malas em BIOS antes de fazer uma migração. <br/><br/>Pode utilizar a migração do servidor Azure Migrate para lidar com a migração de tais VMs. Converterá o tipo de arranque do VM para BIOS durante a migração.
 Sistema operativo Windows suportado condicionalmente | O sistema operativo passou a sua data de fim de suporte e precisa de um Acordo de Apoio Personalizado (CSA) para [apoio no Azure](https://aka.ms/WSosstatement). Considere melhorar antes de migrar para Azure.
@@ -164,7 +164,7 @@ Para os VMs Linux, certifique-se de que os comandos de instalação para o MMA e
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-- **Agente MMS**: Reveja os sistemas operativos [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)e [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) suportados.
+- **Agente MMS**: Reveja os sistemas operativos [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) suportados.
 - **Agente de dependência:** os sistemas operativos [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) suportados.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências para > hora

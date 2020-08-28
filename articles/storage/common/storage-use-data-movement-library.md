@@ -10,12 +10,13 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bab78d60e5007d9c3eb61afa7bc63a9b44e47aa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8ec35a651d4d3ef9e0877463329a654bc7491f4c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888036"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001881"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transferir dados com a biblioteca do Movimento de Dados
 
@@ -44,12 +45,12 @@ Este documento demonstra como criar uma aplicação de consola .NET Core que fun
 3. Abra este diretório no Código do Estúdio Visual. Este passo pode ser feito rapidamente através da linha de comando digitando `code .` no Windows.
 4. Instale a [extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) a partir do Mercado do Código do Estúdio Visual. Reiniciar código de estúdio visual.
 5. Neste momento, deve ver duas instruções. Uma delas é a adição de "ativos necessários para construir e depurar". Clique em "sim". Outra solicitação é restaurar as dependências não resolvidas. Clique em "restaurar".
-6. Modificar `launch.json` para usar o terminal externo como `.vscode` consola. Esta definição deve ser lida como`"console": "externalTerminal"`
+6. Modificar `launch.json` para usar o terminal externo como `.vscode` consola. Esta definição deve ser lida como `"console": "externalTerminal"`
 7. O Código do Estúdio Visual permite-lhe depurar aplicações .NET Core. Bata `F5` para executar a sua aplicação e verifique se a sua configuração está a funcionar. Devias ver "Olá Mundo!" impresso na consola.
 
 ## <a name="add-the-data-movement-library-to-your-project"></a>Adicione a biblioteca do Movimento de Dados ao seu projeto
 
-1. Adicione a versão mais recente da biblioteca Movimento de Dados à `dependencies` secção do seu `<project-name>.csproj` ficheiro. No momento da escrita, esta versão seria`"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
+1. Adicione a versão mais recente da biblioteca Movimento de Dados à `dependencies` secção do seu `<project-name>.csproj` ficheiro. No momento da escrita, esta versão seria `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
 2. Um aviso deve ser exibido para restaurar o seu projeto. Clique no botão "restaurar". Também pode restaurar o seu projeto a partir da linha de comando digitando o comando `dotnet restore` na raiz do seu diretório de projeto.
 
 `<project-name>.csproj`Modificar:
@@ -564,7 +565,7 @@ Neste exemplo, definimos o parâmetro booleano `TransferManager.CopyAsync` `fals
 
 A aplicação de movimento de dados está agora completa. [A amostra de código completa está disponível no GitHub.](https://github.com/azure-samples/storage-dotnet-data-movement-library-app)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Documentação de referência do Movimento de Dados de Armazenamento Azure.](https://azure.github.io/azure-storage-net-data-movement)
 

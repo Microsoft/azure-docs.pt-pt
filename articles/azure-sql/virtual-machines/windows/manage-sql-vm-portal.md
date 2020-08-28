@@ -12,31 +12,31 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f502183b8240515ee136ce27d99bd4b5d6277c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669006"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010176"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerir VMs de servidor SQL em Azure utilizando o portal Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-No [portal Azure,](https://portal.azure.com)o recurso **SQL virtual machines** (VMs) é um serviço de gestão independente. Pode usá-lo para visualizar simultaneamente todos os seus VMs do seu SQL Server e modificar as definições dedicadas ao SQL Server: 
+No [portal Azure,](https://portal.azure.com)o recurso [**de máquinas virtuais SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) é um serviço de gestão independente para gerir o SQL Server em VMs Azure. Pode usá-lo para visualizar simultaneamente todos os seus VMs do seu SQL Server e modificar as definições dedicadas ao SQL Server: 
 
 ![Recurso de máquinas virtuais SQL](./media/manage-sql-vm-portal/sql-vm-manage.png)
 
 
 ## <a name="remarks"></a>Observações
 
-- Recomendamos que utilize o recurso **de máquinas virtuais SQL** para visualizar e gerir os seus VMs sql server em Azure. Mas atualmente, o recurso **de máquinas virtuais SQL** não suporta a gestão de VMs de servidor SQL [de suporte final.](sql-server-2008-extend-end-of-support.md) Para gerir as definições para os VMs do seu servidor SQL de ponta de suporte, utilize o separador de configuração do [SQL Server](#access-the-sql-server-configuration-tab) precedido. 
+- Recomendamos que utilize o recurso [**de máquinas virtuais SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) para visualizar e gerir os seus VMs sql server em Azure. Mas atualmente, o recurso **de máquinas virtuais SQL** não suporta a gestão de VMs de servidor SQL [de suporte final.](sql-server-2008-extend-end-of-support.md) Para gerir as definições para os VMs do seu servidor SQL de ponta de suporte, utilize o separador de configuração do [SQL Server](#access-the-sql-server-configuration-tab) precedido. 
 - O recurso **de máquinas virtuais SQL** está disponível apenas para VMs SQL Server que se [registaram com o fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Aceda ao recurso de máquinas virtuais SQL
 Para aceder ao recurso **de máquinas virtuais SQL,** faça o seguinte:
 
-1. Abra o [portal Azure](https://portal.azure.com). 
+1. Abra o [portal do Azure](https://portal.azure.com). 
 1. Selecione **Todos os serviços**. 
 1. Introduza **máquinas virtuais SQL** na caixa de pesquisa.
 1. (Opcional): Selecione a estrela ao lado **de máquinas virtuais SQL** para adicionar esta opção ao menu **Favoritos.** 
@@ -51,7 +51,7 @@ Para aceder ao recurso **de máquinas virtuais SQL,** faça o seguinte:
    A seleção do seu SQL Server VM abre o recurso **de máquinas virtuais SQL:** 
 
 
-   ![Recurso de máquinas virtuais SQL](./media/manage-sql-vm-portal/sql-vm-resource.png)
+   ![Ver o recurso de máquinas virtuais SQL](./media/manage-sql-vm-portal/sql-vm-resource.png)
 
 > [!TIP]
 > O recurso **de máquinas virtuais SQL** destina-se a configurações dedicadas do SQL Server. Selecione o nome do VM na **caixa de máquinas Virtual** para abrir definições específicas do VM, mas não exclusivas do SQL Server. 
@@ -61,7 +61,7 @@ O **separador de configuração do SQL Server** foi depreciado. Neste momento, �
 
 Para aceder ao separador de configuração do **SQL Server** predetado, aceda ao recurso **de máquinas Virtuais.** Utilize os passos seguintes:
 
-1. Abra o [portal Azure](https://portal.azure.com). 
+1. Abra o [portal do Azure](https://portal.azure.com). 
 1. Selecione **Todos os serviços**. 
 1. Introduza **máquinas virtuais** na caixa de pesquisa.
 1. (Opcional): Selecione a estrela ao lado **de máquinas Virtuais** para adicionar esta opção ao menu **Favoritos.** 

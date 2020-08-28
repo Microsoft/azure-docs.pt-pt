@@ -8,12 +8,13 @@ ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f4359db1deda2295a66bcb97cf374d0fe9bc3ef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: da941aa8b616fffeb2e283480c2a1e2f9cf7a093
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74270136"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003121"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registo e diagnósticos em Âncoras Espaciais Azure
 

@@ -7,12 +7,13 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7733859c4ca4de8b580a228d8a73b899f0afa953
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75453945"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001982"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de atribuição personalizadas
 
@@ -558,7 +559,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
 
 A tabela seguinte mostra cenários esperados e os códigos de erro de resultados que poderá receber. Utilize esta tabela para ajudar a resolver problemas de falhas na política de atribuição personalizada com as suas Funções Azure.
 
-| Scenario | Resultado do registo do Serviço de Provisionamento | A provisionar resultados da SDK |
+| Cenário | Resultado do registo do Serviço de Provisionamento | A provisionar resultados da SDK |
 | -------- | --------------------------------------------- | ------------------------ |
 | O webhook devolve 200 OK com 'iotHubHostName' definido para um nome de anfitrião de hub IoT válido | Estado dos resultados: Atribuído  | SDK devolve PROV_DEVICE_RESULT_OK juntamente com informações do hub |
 | O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definido para uma corda vazia ou nulo | Estado do resultado: Falhado<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | SDK regressa PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
@@ -567,7 +568,7 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 | O webhook devolve >de código de erro = 429 | A orquestração do DPS vai voltar a tentar várias vezes. A política de retenção é atualmente:<br><br>&nbsp;&nbsp;- Contagem de repetições: 10<br>&nbsp;&nbsp;- Intervalo inicial: 1s<br>&nbsp;&nbsp;- Incremento: 9s | A SDK ignorará o erro e submeterá outra mensagem de estado de obter no tempo especificado |
 | O webhook devolve qualquer outro código de estado | Estado do resultado: Falhado<br><br>Código de erro: CustomAllocationFailed (400207) | SDK regressa PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar com os recursos criados neste artigo, pode deixá-los. Se não pretender continuar a utilizar os recursos, use os seguintes passos para eliminar todos os recursos criados neste artigo para evitar encargos desnecessários.
 
@@ -587,7 +588,7 @@ Para eliminar o grupo de recursos pelo nome:
 
 4. Ser-lhe-á pedido que confirme a supressão do grupo de recursos. Escreva novamente o nome do seu grupo de recursos para confirmar e, em seguida, selecione **Delete**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
 * Para saber mais Deprovisionamento, veja [Como desprovisionar dispositivos que foram previamente autoprovisionados](how-to-unprovision-devices.md) 

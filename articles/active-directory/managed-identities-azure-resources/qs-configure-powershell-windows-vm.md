@@ -3,7 +3,7 @@ title: Configure identidades geridas num Azure VM usando PowerShell - Azure AD
 description: Instruções passo a passo para configurar identidades geridas para recursos Azure num Azure VM utilizando o PowerShell.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/19/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474e6c96be810192d3c4e1ada1ab2e0391a5d4f9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 3bbdfaea30ab9aa221a0e70eb32e8d040a0fed54
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606490"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019180"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configure identidades geridas para recursos Azure em um Azure VM usando PowerShell
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 085a186ffd98220257ad912ede93f43d339707f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6c0abeedb1253c2561f2d435aa3fe5a428418a50
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052936"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019475"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalização de predefinições padrão media Encoder  
 
@@ -32,7 +33,7 @@ Este artigo mostra-lhe como personalizar uma predefinição tomando o [Bitrate M
 > [!NOTE]
 > As predefinições personalizadas descritas neste artigo não podem ser utilizadas nas transformações [dos Media Services V3](../latest/index.yml) ou nos comandos CLI. Consulte a [orientação de migração de V2 a V3](../latest/migrate-from-v2-to-v3.md) para mais detalhes.
 
-## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a>Personalizar uma predefinição MES
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personalizar uma predefinição MES
 
 ### <a name="original-preset"></a>Predefinição original
 

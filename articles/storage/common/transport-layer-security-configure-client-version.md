@@ -10,12 +10,13 @@ ms.date: 07/08/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: d4bead0ad73bd1315ce114c08320c6673ab0f42d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 37b8c79df5b208feea185292fa09c323b64fa27d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185160"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001812"
 ---
 # <a name="configure-transport-layer-security-tls-for-a-client-application"></a>Configure a Segurança da Camada de Transporte (TLS) para uma aplicação ao cliente
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e05c7a8388b662731c04ac4098d6eecb1d89fe4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2419ea0db7c5653e7ff4f41b6aae842c5a37c80a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060163"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019339"
 ---
 # <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>Configure uma política de autorização chave de conteúdo utilizando os Serviços de Comunicação Social .NET SDK
 

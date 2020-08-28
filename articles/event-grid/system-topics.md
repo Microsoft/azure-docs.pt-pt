@@ -2,13 +2,13 @@
 title: Tópicos do sistema na Grelha de Eventos Azure
 description: Descreve tópicos do sistema na Grelha de Eventos Azure.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/27/2020
+ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119927"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019101"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na Grelha de Eventos Azure
 Um tópico de sistema em Event Grid representa um ou mais eventos publicados pelos serviços da Azure, tais como Azure Storage e Azure Event Hubs. Por exemplo, um tópico do sistema pode representar **todos os eventos blob** ou apenas eventos **blob criados** e **blob eliminados** publicados para uma **conta de armazenamento específica**. Neste exemplo, quando uma bolha é carregada para a conta de armazenamento, o serviço Azure Storage publica um evento **criado blob** para o tópico do sistema em Event Grid, que depois encaminha o evento para [os subscritores](event-handlers.md) do tópico que recebem e processam o evento. 
@@ -22,15 +22,15 @@ Aqui está a lista atual de serviços Azure que suportam a criação de tópicos
 - [Configuração da Aplicação Azure](event-schema-app-configuration.md)
 - [Serviço de Aplicações do Azure](event-schema-app-service.md)
 - [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
-- [Registo de Contentores do Azure](event-schema-container-registry.md)
-- [Azure Event Hubs](event-schema-event-hubs.md)
-- [Azure IoT Hub](event-schema-iot-hub.md)
+- [Azure Container Registry](event-schema-container-registry.md)
+- [Hubs de Eventos do Azure](event-schema-event-hubs.md)
+- [Hub IoT do Azure](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Serviços de Multimédia do Azure](event-schema-media-services.md)
 - [Grupos de recursos do Azure](event-schema-resource-groups.md)
-- [Service Bus do Azure](event-schema-service-bus.md)
+- [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Subscrições do Azure](event-schema-subscriptions.md)
 
@@ -57,9 +57,9 @@ A criação de tópicos do sistema falha se tiver configurado políticas Azure d
 ## <a name="location-and-resource-group-for-a-system-topic"></a>Localização e grupo de recursos para um tópico de sistema
 Para fontes de eventos Azure que se encontram numa região/localização específica, o tópico do sistema é criado no mesmo local que a fonte do evento Azure. Por exemplo, se criar uma subscrição de eventos para um armazenamento de blob Azure no Leste dos EUA, o tópico do sistema é criado no Leste dos EUA. Para fontes globais de eventos Azure, como subscrições Azure, grupos de recursos ou Azure Maps, a Grade de Eventos cria o tópico do sistema na localização **global.** 
 
-Em geral, o tópico do sistema é criado no mesmo grupo de recursos em que a fonte de eventos Azure está. Para subscrições de eventos criadas no âmbito de subscrição do Azure, o tópico do sistema é criado sob o grupo de recursos **Default-EventGrid**. Se o grupo de recursos não existir, a Azure Event Grid cria-o antes de criar o tópico do sistema. 
+Em geral, o tópico do sistema é criado no mesmo grupo de recursos em que a fonte de eventos Azure está. Para subscrições de eventos criadas no âmbito de subscrição do Azure, o tópico do sistema é criado no grupo de recursos **Default-EventGrid** na região **oeste dos EUA 2.** Se o grupo de recursos não existir, a Azure Event Grid cria-o antes de criar o tópico do sistema. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
 - [Criar, visualizar e gerir tópicos do sistema utilizando o portal Azure](create-view-manage-system-topics.md).

@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 533990ef0ea88be7f1f06021d7aa398e89f6390b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f4f69904954286f15d2fda13ddd26ee64c81776f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060332"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019390"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilize o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services com .NET 
 
@@ -64,7 +65,7 @@ O exemplo de código nesta secção faz o seguinte:
 > [!NOTE]
 > A forma recomendada de monitorizar o estado de um trabalho é ouvindo mensagens de notificação, como mostra o seguinte exemplo:
 >
-> Em alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State.**  Uma mensagem de notificação sobre a conclusão de um trabalho pode chegar antes que o estado no **IJob** esteja definido para **terminado**. A propriedade **IJob.State** reflete o estado exato com um ligeiro atraso.
+> Em alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State.**  Uma mensagem de notificação sobre a conclusão de um trabalho pode chegar antes que o estado no **IJob** esteja definido para **terminado**. A propriedade **IJob.State**  reflete o estado exato com um ligeiro atraso.
 >
 >
 

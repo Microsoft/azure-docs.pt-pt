@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7e8b670a084e80fcd7f48dcb6e97a943c90bdf0e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4c9de26d9a83319eee62cf6d30cf2c83f66446fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893039"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020257"
 ---
 # <a name="materials"></a>Materiais
 

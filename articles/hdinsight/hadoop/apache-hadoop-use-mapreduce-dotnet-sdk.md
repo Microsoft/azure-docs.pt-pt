@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: c165663e19037bd2ebac410adb6b6d05fcc162e6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3de7101eb998d0f9b3b57afba6d19595738cbb63
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076356"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020410"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar tarefas MapReduce com o SDK .NET do HDInsight
 
@@ -167,9 +167,9 @@ Para voltar a gerir o trabalho, tem de alterar o nome da pasta de saída de trab
 
 Quando o trabalho termina com sucesso, a aplicação imprime o conteúdo do ficheiro de saída `part-r-00000` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu várias formas de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
+Neste artigo, aprendeu várias formas de criar um cluster HDInsight. Para saber mais, leia os artigos seguintes:
 
 * Para submeter um trabalho de Colmeia, consulte [consultas de Hive Run Apache utilizando HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md).
 * Para criar clusters HDInsight, consulte [criar clusters Apache Hadoop baseados em Linux em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).

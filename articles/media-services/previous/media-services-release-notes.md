@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5348b4cfb1961bdada7c32f3c437cdb2819ef6d0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4ac0b0e0a9c372aebc51af1840491d0f53f9f8f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833033"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010322"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
 
@@ -90,7 +91,7 @@ Agora pode utilizar os Serviços de Mídia para gerar sprites de miniatura Web V
 
 Com a mais recente versão do serviço, existem pequenas alterações de formatação nas mensagens de erro devolvidas pelo serviço quando um Trabalho falha, no que diz respeito à forma como é dividido em duas ou mais linhas.
 
-## <a name="may-2018"></a>Maio de 2018 
+## <a name="may-2018"></a>May 2018 
 
 A partir de 12 de maio de 2018, os canais ao vivo deixarão de suportar o protocolo de transmissão rtp/MPEG-2. Por favor, migrar de PROTOCOLOs de ingestão RTP/MPEG-2 para RTMP ou MP4 (Smooth Streaming).
 
@@ -214,7 +215,7 @@ As unidades reservadas de codificação Básica, Standard e Premium foram renome
 ### <a name="azure-sdk-for-php"></a>Azure SDK for PHP (Azure SDK para PHP)
 A equipa da Azure SDK publicou um novo lançamento do pacote [Azure SDK para PHP](https://github.com/Azure/azure-sdk-for-php) que contém atualizações e novas funcionalidades para os Media Services. Em particular, o Media Services SDK para PHP suporta agora as mais recentes funcionalidades [de proteção de conteúdos.](media-services-content-protection-overview.md) Estas funcionalidades são encriptação dinâmica com AES e DRM (PlayReady e Widevine) com e sem restrições simbólicas. Também suporta unidades de [codificação](media-services-dotnet-encoding-units.md)de escala.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * As [seguintes amostras](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) de código ajudam-no a começar rapidamente:
   * **vodworkflow_aes.php**: Este ficheiro PHP mostra como utilizar a encriptação dinâmica AES-128 e o serviço de entrega de chaves. Baseia-se na amostra .NET explicada na [encriptação dinâmica Use AES-128 e no serviço de entrega de chaves](media-services-protect-with-aes128.md).
@@ -253,7 +254,7 @@ Pode utilizar o [SDK .NET dos Serviços de Multimédia](https://www.nuget.org/pa
 Para mais informações, consulte [este blog.](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)
 
 ## <a name="august-2015-release"></a><a id="august_changes_15"></a>Lançamento de agosto de 2015
-* O Media Services SDK para a versão Java 0.8.0 e novas amostras estão agora disponíveis. Para obter mais informações, veja:
+* O Media Services SDK para a versão Java 0.8.0 e novas amostras estão agora disponíveis. Para obter mais informações, consulte:
     
 * O Azure Media Player foi atualizado com suporte de fluxo multi-áudio. Para mais informações, consulte [este post de blog.](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
@@ -371,7 +372,7 @@ Os metadados REST dos Serviços de Comunicação Social são agora a versão 2.7
 
 O SDK dos Serviços de Comunicação Social para .NET é agora a versão 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Alterações interruptivas
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Quebra de mudanças
 * A origem foi renomeada para [StreamingEndpoint.]
 * Foi feita uma alteração no comportamento predefinido quando utiliza o portal Azure para codificar e publicar ficheiros MP4.
 

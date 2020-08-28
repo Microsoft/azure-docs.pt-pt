@@ -5,13 +5,13 @@ author: dkkapur
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
-ms.custom: mvc
-ms.openlocfilehash: f06387ea317029f5648ab0884cea80262e8640a2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 4c812ab4f6c8908e3cabcf2d3afcc63959073ed4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245012"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020114"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric com o Application Insights
 

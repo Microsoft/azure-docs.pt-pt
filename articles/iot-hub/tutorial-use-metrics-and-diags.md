@@ -11,12 +11,13 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-azurecli
-ms.openlocfilehash: b31fc9df5451665b79a41172286a0cc471b681fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+- devx-track-csharp
+ms.openlocfilehash: b24d9e1cbbcf875d7b4bde3981b28d8999ba8d47
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501002"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019135"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e utilizar métricas e registos de diagnóstico com um hub IoT
 
@@ -364,7 +365,7 @@ Clique **em Baixar** para descarregá-lo e abri-lo. Vê os registos do dispositi
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 
 Para remover todos os recursos que criou neste tutorial, elimine o grupo de recursos. Esta ação também elimina todos os recursos contidos no grupo. Neste caso, remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos. Se tiver fixado métricas no painel de instrumentos, terá de removê-las manualmente clicando nos três pontos no canto superior direito de cada um e selecionando **Remover**.
 

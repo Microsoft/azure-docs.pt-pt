@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7469d60095026c8a016fc1ecaa1a4f92361800f3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084012"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019384"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Quickstart: A bordo das suas máquinas virtuais Azure Stack para o Centro de Segurança
 Depois de embarcar na subscrição do Azure, pode ativar o Security Center para proteger as suas máquinas virtuais em funcionamento no Azure Stack adicionando a extensão virtual da máquina virtual **Azure Monitor, Update and Configuration Management** do mercado Azure Stack.
@@ -72,7 +72,7 @@ Tem agora de adicionar a extensão virtual da máquina virtual **Azure Monitor, 
 7. Quando terminar de fornecer as definições de configuração necessárias, clique em **OK**.
 8. Uma vez concluída a instalação de extensão, o seu estado mostrará como **Provisioning Succeeded**. Pode levar até uma hora para a máquina virtual aparecer no portal do Centro de Segurança.
 
-Para obter mais informações sobre a instalação e configuração do agente para o Windows, consulte [os computadores Connect Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Para obter mais informações sobre a instalação e configuração do agente para o Windows, consulte [os computadores Connect Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Para a resolução de problemas do Linux sobre problemas de agentes, consulte o Agente Linux do [Log Analytics de Troubleshoot Azure Log.](../azure-monitor/platform/agent-linux-troubleshoot.md)
 
@@ -86,7 +86,7 @@ Estão representados dois tipos de ícone no painel **Computação**:
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure VM (Azure Stack VMs vai mostrar neste grupo)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não é necessário, pode remover a extensão da máquina virtual através do portal Azure Stack.
 
 Para remover a extensão:

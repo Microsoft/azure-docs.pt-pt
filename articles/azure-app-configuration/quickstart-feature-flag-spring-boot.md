@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121906"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019747"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação De Boot de primavera
 
@@ -54,7 +54,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
 ## <a name="add-feature-management"></a>Adicionar gestão de recursos
 
-1. Depois de extrair os ficheiros do seu sistema local, a sua aplicação Boot Spring está pronta para edição. Localize *pom.xml* no diretório de raiz da sua aplicação.
+1. Depois de extrair os ficheiros do seu sistema local, a sua aplicação Boot Spring está pronta para edição. Localize  *pom.xml* no diretório de raiz da sua aplicação.
 
 1. Abra o ficheiro *pom.xml* num editor de texto e adicione o seguinte à lista `<dependencies>` de:
 
@@ -97,7 +97,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
     ```
 
 > [!Note]
-> Existe uma Biblioteca de Gestão de Recursos não web que não tem uma dependência da web de mola. Consulte a [documentação](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) do GitHub para obter diferenças.
+> Existe uma Biblioteca de Gestão de Recursos não web que não tem uma dependência da web de mola. Consulte a [documentação](https://github.com/microsoft/spring-cloud-azure) do GitHub para obter diferenças.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
 
@@ -107,7 +107,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-1. No portal de Configuração de Aplicações para a sua loja config, selecione `Access keys` a partir da barra lateral. Selecione o separador Teclas Apenas para leitura. Copiar o valor da cadeia de ligação primária.
+1. No portal de Configuração de Aplicações para a sua loja config, selecione `Access keys` a partir da barra lateral. Selecione o separador 'Leitura's só para leitura. Copie o valor da cadeia de ligação primária.
 
 1. Adicione a cadeia de ligação primária como uma variável ambiental usando o nome variável `APP_CONFIGURATION_CONNECTION_STRING` .
 

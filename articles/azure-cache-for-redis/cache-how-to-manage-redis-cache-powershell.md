@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: c51e67dcc3536a3083179451743b1c97cf618dae
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 327505dfbaf5f6f35b065f4f3941053c5114aa33
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004869"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019220"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerir a cache Azure para Redis com Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Para especificar a subscrição, executar o seguinte comando. No exemplo seguint
 
 Antes de poder utilizar o Windows PowerShell com o Azure Resource Manager, precisa do seguinte:
 
-* Windows PowerShell, Versão 3.0 ou 4.0. Para encontrar a versão do Windows PowerShell, `$PSVersionTable` escreva: e verifique o valor de `PSVersion` 3.0 ou 4.0. Para instalar uma versão compatível, consulte [o Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) ou o Windows Management Framework [4.0](https://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, Versão 3.0 ou 4.0. Para encontrar a versão do Windows PowerShell, `$PSVersionTable` escreva: e verifique o valor de `PSVersion` 3.0 ou 4.0. Para instalar uma versão compatível, consulte [o Quadro de Gestão do Windows 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
 
 Para obter ajuda detalhada para qualquer cmdlet que você vê neste tutorial, use o cmdlet Get-Help.
 
@@ -151,7 +151,7 @@ A tabela seguinte contém propriedades e descrições para parâmetros comumente
 | EnableNonSslPort |Indica se a porta não-SSL está ativada. |Falso |
 | MaxMemoryPolicy |Este parâmetro foi depreciado - use redisConfiguration em vez disso. | |
 | StaticIP |Ao hospedar o seu cache num VNET, especifica um endereço IP único na sub-rede para a cache. Se não for fornecido, um é escolhido para si a partir da sub-rede. | |
-| Subrede |Ao hospedar o seu cache num VNET, especifica o nome da sub-rede em que deve colocar a cache. | |
+| Sub-rede |Ao hospedar o seu cache num VNET, especifica o nome da sub-rede em que deve colocar a cache. | |
 | VirtualNetwork |Ao hospedar a sua cache num VNET, especifica o ID de recurso do VNET no qual deve implantar a cache. | |
 | Teclas |Especifica qual a chave de acesso para regenerar ao renovar as teclas de acesso. Valores válidos são: Primário, Secundário | |
 
@@ -358,7 +358,7 @@ O comando seguinte atualiza a política maxmemory para a Cache Azure para Redis 
 <a name="scale"></a>
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>Para escalar uma Cache Azure para Redis
-`Set-AzRedisCache`pode ser usado para escalar uma Cache Azure para a instância Redis quando o `Size` , ou propriedades são `Sku` `ShardCount` modificados. 
+`Set-AzRedisCache` pode ser usado para escalar uma Cache Azure para a instância Redis quando o `Size` , ou propriedades são `Sku` `ShardCount` modificados. 
 
 > [!NOTE]
 > A escala de uma cache utilizando o PowerShell está sujeita aos mesmos limites e diretrizes que a escalonamento de uma cache a partir do portal Azure. Pode escalar para um nível de preços diferente com as seguintes restrições.

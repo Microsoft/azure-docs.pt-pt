@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
+ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: b6a60536bae6fbedf01eda7aa340e90ced58e004
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe3401354d4853b875cdd001d5074ebdf0d3377b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281603"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019543"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de e para data lake storage Gen1 usando data factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -69,7 +70,7 @@ As secções seguintes fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um serviço ligado do tipo **AzureDataLakeStore** para ligar os dados da Data Lake Store à sua fábrica de dados. A tabela seguinte descreve elementos JSON específicos dos serviços ligados à Data Lake Store. Pode escolher entre o principal serviço e a autenticação credencial do utilizador.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **tipo** | A propriedade tipo deve ser definida para **AzureDataLakeStore**. | Sim |
 | **dataLakeStoreUri** | Informação sobre a conta da Azure Data Lake Store. Esta informação requer um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/` . | Sim |
@@ -90,7 +91,7 @@ Para utilizar a autenticação principal do serviço, registe uma entidade de ap
 
 Utilize a autenticação principal do serviço especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Especifique a identificação do cliente da aplicação. | Sim |
 | **servicePrincipalKey** | Especifique a chave da aplicação. | Sim |
@@ -117,7 +118,7 @@ Utilize a autenticação principal do serviço especificando as seguintes propri
 ### <a name="user-credential-authentication"></a>Autenticação credencial do utilizador
 Em alternativa, pode utilizar a autenticação credencial do utilizador para copiar a partir ou para a Data Lake Store, especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **autorização** | Clique no botão **Authorize** no Editor de Fábrica de Dados e introduza a sua credencial que atribui o URL de autorização autogerado a esta propriedade. | Sim |
 | **sessionId** | Identificação da Sessão OAuth da Sessão de Autorização da OAuth. Cada ID de sessão é único e só pode ser usado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor de Fábrica de Dados. | Sim |
@@ -236,7 +237,7 @@ Para especificar um conjunto de dados para representar dados de entrada numa Dat
 
 A secção **typeProperties** para um conjunto de dados do tipo **AzureDataLakeStore** contém as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **folderPath** |Caminho para o recipiente e pasta na Data Lake Store. |Sim |
 | **fileName** |Nome do ficheiro na Azure Data Lake Store. A **propriedade fileName** é opcional e sensível a casos. <br/><br/>Se especificar **o nome de ficheiro,** a atividade (incluindo copy) funciona no ficheiro específico.<br/><br/>Quando **o data de ficheiro** não é especificado, a Cópia inclui todos os ficheiros na **pastaPa no** conjunto de dados de entrada.<br/><br/>Quando **o nome de ficheiro** não é especificado para um conjunto de dados de saída e **preservarAequia** não é especificado na pia de atividade, o nome do ficheiro gerado está no formato `Data._Guid_.txt` . Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
@@ -280,13 +281,13 @@ As propriedades disponíveis na secção **de tipoProperties** de uma atividade 
 
 **A AzureDataLakeStoreSource** suporta a seguinte propriedade na secção **typeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | **recursivo** |Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. |Verdadeiro (valor predefinido), Falso |Não |
 
 **A AzureDataLakeStoreSink** suporta as seguintes propriedades na secção **typeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | **copyOportundo** |Especifica o comportamento da cópia. |<b>Preservar A Outra:</b>Preserva a hierarquia dos ficheiros na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro alvo para a pasta alvo.<br/><br/><b>FlattenHierarchy</b>: Todos os ficheiros da pasta de origem são criados no primeiro nível da pasta alvo. Os ficheiros-alvo são criados com nomes autogerados.<br/><br/><b>MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro ou do blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, o nome do ficheiro é autogerado. |Não |
 
