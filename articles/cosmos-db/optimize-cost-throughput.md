@@ -6,12 +6,13 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e1359fd2a59b49f10bb3b2daa4bcbadae921e188
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610732"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012454"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado no Azure Cosmos DB
 
@@ -55,7 +56,7 @@ Como mostrado na tabela seguinte, dependendo da escolha da API, você pode provi
 
 |API|Para **produção partilhada,** configurar |Para **produção dedicada,** configurar |
 |----|----|----|
-|SQL API|Base de Dados|Contentor|
+|API SQL|Base de Dados|Contentor|
 |API do Azure Cosmos DB para MongoDB|Base de Dados|Coleção|
 |API de Cassandra|Espaço-chave|Tabela|
 |API do Gremlin|Conta de base de dados|Graph|
@@ -173,7 +174,7 @@ Os seguintes passos ajudam-no a tornar as suas soluções altamente escaláveis 
 
 10. Com a capacidade reservada da Azure Cosmos, você pode obter descontos significativos até 65% durante três anos. O modelo de capacidade reservada da Azure Cosmos DB é um compromisso inicial sobre as unidades de pedidos necessárias ao longo do tempo. Os descontos são hierárquicos de modo a que quanto mais unidades de pedido utilizar durante um período mais longo, mais o seu desconto será. Estes descontos são aplicados imediatamente. Quaisquer RUs utilizados acima dos seus valores provisões são cobrados com base no custo de capacidade não reservado. Consulte [a capacidade reservada da Cosmos DB)](cosmos-db-reserved-capacity.md)para mais detalhes. Considere a capacidade reservada de compra para reduzir ainda mais os seus custos de produção provisões.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode proceder para saber mais sobre a otimização de custos na Azure Cosmos DB com os seguintes artigos:
 

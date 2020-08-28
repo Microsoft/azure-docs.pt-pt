@@ -3,12 +3,13 @@ title: Controlo de acesso a autocarros da Azure Service com assinaturas de acess
 description: Visão geral do controlo de acesso do Service Bus utilizando a visão geral do Shared Access Signatures, detalhes sobre a autorização da SAS com a Azure Service Bus.
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066190"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012080"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso compartilhado
 
@@ -67,9 +68,9 @@ Qualquer cliente que tenha acesso ao nome de uma regra de autorização e uma da
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`**- Token expiração instantânea. Inteiro refletindo segundos desde a época `00:00:00 UTC` em 1 de janeiro de 1970 (época UNIX) quando o token expira.
-* **`skn`**- Nome da regra de autorização.
-* **`sr`**- URI do recurso a ser acedido.
+* **`se`** - Token expiração instantânea. Inteiro refletindo segundos desde a época `00:00:00 UTC` em 1 de janeiro de 1970 (época UNIX) quando o token expira.
+* **`skn`** - Nome da regra de autorização.
+* **`sr`** - URI do recurso a ser acedido.
 * **`sig`** A assinatura.
 
 O `signature-string` hash SHA-256 é calculado sobre o recurso URI **(âmbito** descrito na secção anterior) e a representação de cadeia do instantâneo de expiração do símbolo, separado por LF.

@@ -4,12 +4,12 @@ description: Faça backup e restaure bases de dados SQL em VMs Azure usando Azur
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 1fe3af3b2a12cf6fdfc0e71d36d36046858c50af
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b355aaa465132e86c636c68552f3d650b51b08f1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892427"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004991"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer o back up e restaurar as bases de dados SQL em VMs Azure com PowerShell
 
@@ -321,7 +321,7 @@ ItemName                       StartTime                      EndTime
 SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32 PM
 ```
 
-A saída acima indica que pode restabelecer qualquer ponto no tempo entre a hora de início e o fim. Os tempos estão na UTC. Construa qualquer ponto no tempo em PowerShell que esteja dentro do intervalo acima indicado.
+A saída acima indica que pode restabelecer qualquer ponto no tempo entre a hora de início e o fim. Os tempos estão na UTC. Construa qualquer ponto no tempo no PowerShell que esteja dentro do alcance acima indicado.
 
 > [!NOTE]
 > Quando um ponto de registo selecionado para restauro, não precisa de especificar o ponto de partida, isto é, a cópia de segurança completa a partir da qual o DB é restaurado. O serviço de Backup Azure cuidará de todo o plano de recuperação, isto é, que cópia de segurança completa escolher, que backups de registo a aplicar, e assim por diante.
@@ -582,7 +582,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 É importante notar que o Azure Backup apenas rastreia os trabalhos despoletadores de trabalhos na cópia de segurança do SQL. As cópias de segurança programadas (incluindo cópias de segurança de registo) não são visíveis no portal ou no PowerShell. No entanto, se algum trabalho programado falhar, um [alerta de backup](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) é gerado e mostrado no portal. [Utilize o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) para rastrear todos os trabalhos programados e outras informações relevantes.
 
-Os utilizadores podem rastrear operações ativas/utilizadores desencadeadas com o JobID que é devolvido na [produção](#on-demand-backup) de trabalhos assíncronos, como cópia de segurança. Utilize [o cmdlet Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) PowerShell para acompanhar o trabalho e os seus detalhes.
+Os utilizadores podem rastrear operações ativas/utilizadores desencadeadas com o JobID que é devolvido na [produção](#on-demand-backup) de trabalhos assíncronos, como backup. Utilize [o cmdlet Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) PowerShell para acompanhar o trabalho e os seus detalhes.
 
 ```powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

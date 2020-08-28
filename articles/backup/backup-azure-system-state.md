@@ -3,12 +3,12 @@ title: Apoiar o estado do sistema Windows para o Azure
 description: Saiba como fazer o back up do estado do sistema dos computadores windows server para o Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b3e4e5451d40d7b0e600875b73e4810d5818d168
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824467"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013440"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Apoiar o estado do sistema Windows para o Azure
 
@@ -90,7 +90,7 @@ Agora que criaste um cofre, configura-o para apoiar o Windows System State.
 
     ![as credenciais do cofre terminaram de ser transferidas](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
-   > As credenciais do cofre devem ser guardadas apenas para um local que seja local para o Servidor do Windows no qual pretende utilizar o agente.
+   > As credenciais do cofre devem ser guardadas apenas para um local local para o Servidor do Windows no qual pretende utilizar o agente.
    >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]

@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f34a98ccbe069a5cb9e2c26a88e486b27f016fe1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9410f06298bd40fe6e0bf8f3fca1be4b87f793ed
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540024"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004498"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de Segurança: Gestão de Configuração / Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicação Web** | <ul><li>[Implementar a Política de Segurança de Conteúdos (CSP) e desativar o javascript inline](#csp-js)</li><li>[Ativar o filtro XSS do navegador](#xss-filter)</li><li>[ASP.NET aplicações devem desativar o rastreio e a depuração antes da implementação](#trace-deploy)</li><li>[Aceda a javascripts de terceiros apenas a partir de fontes fidedignas](#js-trusted)</li><li>[Certifique-se de que as páginas de ASP.NET autenticadas incorporam defesas de reparação ou de tomada de cliques](#ui-defenses)</li><li>[Certifique-se de que apenas as origens fidedignas são permitidas se o CORS estiver ativado em ASP.NET Aplicações Web](#cors-aspnet)</li><li>[Ativar atributo ValideRequest em páginas ASP.NET](#validate-aspnet)</li><li>[Use as versões mais recentes das bibliotecas JavaScript](#local-js)</li><li>[Desativar o cheiro automático de MIME](#mime-sniff)</li><li>[Remova os cabeçalhos padrão do servidor nos Web Sites do Windows Azure para evitar a recolha de impressões digitais](#standard-finger)</li></ul> |
-| **Base de Dados** | <ul><li>[Configure uma firewall do Windows para acesso ao motor de base de dados](#firewall-db)</li></ul> |
+| **Base de dados** | <ul><li>[Configure uma firewall do Windows para acesso ao motor de base de dados](#firewall-db)</li></ul> |
 | **API Web** | <ul><li>[Certifique-se de que só são permitidas origens fidedignas se o CORS estiver ativado na ASP.NET Web API](#cors-api)</li><li>[Criptografe secções dos ficheiros de configuração da Web API que contenham dados sensíveis](#config-sensitive)</li></ul> |
 | **Dispositivo IoT** | <ul><li>[Certifique-se de que todas as interfaces de administração são protegidas com credenciais fortes](#admin-strong)</li><li>[Certifique-se de que o código desconhecido não pode ser executado em dispositivos](#unknown-exe)</li><li>[Encripte o SO e divisórias adicionais do Dispositivo IoT com bit-locker](#partition-iot)</li><li>[Certifique-se de que apenas os serviços/funcionalidades mínimos estão habilitados nos dispositivos](#min-enable)</li></ul> |
 | **Gateway de campo IoT** | <ul><li>[Encripte o SO e divisórias adicionais de IoT Field Gateway com bit-locker](#field-bit-locker)</li><li>[Certifique-se de que as credenciais de login predefinidos do gateway de campo são alteradas durante a instalação](#default-change)</li></ul> |
@@ -42,7 +42,7 @@ ms.locfileid: "87540024"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Uma Introdução à Política de Segurança de Conteúdos,](https://www.html5rocks.com/en/tutorials/security/content-security-policy/) [Referência da Política de Segurança de Conteúdos,](https://content-security-policy.com/) [Funcionalidades de Segurança,](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) [Introdução à política de segurança de conteúdos,](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) [Posso utilizar a CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
@@ -74,18 +74,18 @@ Example: var str="alert(1)"; eval(str);
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Filtro de proteção XSS](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
-| **Passos** | <p>A configuração do cabeçalho de resposta X-XSS-Protection controla o filtro de script do site cruzado do navegador. Este cabeçalho de resposta pode ter os seguintes valores:</p><ul><li>`0:`Isto irá desativar o filtro</li><li>`1: Filter enabled`Se for detetado um ataque de scripts cross-site, a fim de parar o ataque, o navegador irá sanitizar a página</li><li>`1: mode=block : Filter enabled`. Em vez de higienizar a página, quando um ataque XSS é detetado, o navegador impedirá a renderização da página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. O navegador irá sanitizar a página e denunciar a violação.</li></ul><p>Esta é uma função de Crómio utilizando relatórios de violação de CSP para enviar detalhes para um URI à sua escolha. As últimas 2 opções são consideradas valores seguros.</p>|
+| **Passos** | <p>A configuração do cabeçalho de resposta X-XSS-Protection controla o filtro de script do site cruzado do navegador. Este cabeçalho de resposta pode ter os seguintes valores:</p><ul><li>`0:` Isto irá desativar o filtro</li><li>`1: Filter enabled` Se for detetado um ataque de scripts cross-site, a fim de parar o ataque, o navegador irá sanitizar a página</li><li>`1: mode=block : Filter enabled`. Em vez de higienizar a página, quando um ataque XSS é detetado, o navegador impedirá a renderização da página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. O navegador irá sanitizar a página e denunciar a violação.</li></ul><p>Esta é uma função de Crómio utilizando relatórios de violação de CSP para enviar detalhes para um URI à sua escolha. As últimas 2 opções são consideradas valores seguros.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET aplicações devem desativar o rastreio e a depuração antes da implementação
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [ASP.NET Debugging Overview](https://msdn.microsoft.com/library/ms227556.aspx), [ASP.NET Traceing Overview](https://msdn.microsoft.com/library/bb386420.aspx), [Como: Ativar o rastreio para uma aplicação ASP.NET](https://msdn.microsoft.com/library/0x5wc973.aspx), [Como: Permitir depurar para aplicações ASP.NET](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
@@ -96,7 +96,7 @@ Example: var str="alert(1)"; eval(str);
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -107,7 +107,7 @@ Example: var str="alert(1)"; eval(str);
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE Internals - Combate ao click-jacking com opções de quadro-quadro X](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
@@ -142,7 +142,7 @@ Web.config código para sites que só devem ser enquadrados por páginas no mesm
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Formulários Web, MVC5 |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -173,7 +173,7 @@ Por favor, note que é fundamental garantir que a lista de origens no atributo "
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Formulários Web, MVC5 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Solicitar validação - Prevenção de ataques de scripts](https://www.asp.net/whitepapers/request-validation) |
@@ -199,7 +199,7 @@ Por favor, note que a função de validação de pedido não é suportada e não
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -210,7 +210,7 @@ Por favor, note que a função de validação de pedido não é suportada e não
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [IE8 Security Part V: Proteção Integral,](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) [Tipo MIME](https://en.wikipedia.org/wiki/Mime_type) |
@@ -275,7 +275,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | EnvironmentType - Azure |
 | **Referências**              | [Remoção de cabeçalhos de servidor padrão nos Web Sites do Windows Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/) |
@@ -286,7 +286,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | N/A, VERSÃO SQL - V12 |
 | **Referências**              | [Como configurar uma firewall de base de dados Azure SQL](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurar uma firewall do Windows para acesso ao motor de base de dados](https://msdn.microsoft.com/library/ms175043) |
@@ -297,7 +297,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC 5 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Habilitação de pedidos de origem cruzada em ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - CORS Support in ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
@@ -393,7 +393,7 @@ public class ResourcesController : ApiController
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC 6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Habilitação de pedidos de origem cruzada (CORS) em ASP.NET Core 1.0](https://docs.asp.net/en/latest/security/cors.html) |
@@ -507,7 +507,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Ativar encriptação de dispositivo secure boot e bit-locker no Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) |
@@ -518,7 +518,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -562,7 +562,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de nuvem IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Escolha gateway - Azure IoT Hub |
 | **Referências**              | [Visão geral da gestão de dispositivos IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [Como atualizar o Firmware do Dispositivo](../../iot-hub/tutorial-firmware-update.md) |
@@ -595,7 +595,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Suporte CORS para os Serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx) |
@@ -606,7 +606,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .Net Framework 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com) |
@@ -629,7 +629,7 @@ Segue-se uma configuração de exemplo com estrangulamento ativado:
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .Net Framework 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com) |

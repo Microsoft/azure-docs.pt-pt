@@ -10,12 +10,13 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e1eb105671883d88d8fe34b9741d402d311556a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82859019"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013066"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Use geo-redundância para projetar aplicações altamente disponíveis
 

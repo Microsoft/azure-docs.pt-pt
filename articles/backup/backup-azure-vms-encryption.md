@@ -3,12 +3,12 @@ title: Fazer o back up e restaurar vMs Azure encriptados
 description: Descreve como fazer backup e restaurar VMs Azure encriptados com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611301"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014919"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer o back up e restaurar máquinas virtuais Azure encriptadas
 
@@ -32,8 +32,8 @@ O Azure Backup pode fazer backup e restaurar VMs Azure usando ADE com e sem a ap
 
 **Tipo de disco da VM** | **ADE (BEK/dm-cripta)** | **ADE e KEK**
 --- | --- | ---
-**Não gerido** | Yes | Yes
-**Gerido**  | Yes | Yes
+**Não gerido** | Sim | Sim
+**Gerido**  | Sim | Sim
 
 - Saiba mais sobre [ADE,](../security/fundamentals/azure-disk-encryption-vms-vmss.md) [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Leia as [FAQ](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para encriptação do disco Azure VM.
@@ -41,7 +41,7 @@ O Azure Backup pode fazer backup e restaurar VMs Azure usando ADE com e sem a ap
 ### <a name="limitations"></a>Limitações
 
 - Pode fazer o back up e restaurar VMs encriptados dentro da mesma subscrição e região.
-- O Azure Backup suporta VMs encriptados utilizando chaves autónomas. Qualquer chave que faça parte de um certificado usado para encriptar um VM não é suportada atualmente.
+- O Azure Backup suporta VMs encriptados utilizando chaves autónomas. Qualquer chave que faça parte de um certificado usado para encriptar um VM não é suportado atualmente.
 - Pode fazer backup e restaurar VMs encriptados dentro da mesma subscrição e região que o cofre de backup dos Serviços de Recuperação.
 - Os VMs encriptados não podem ser recuperados ao nível do ficheiro/pasta. É necessário recuperar todo o VM para restaurar ficheiros e pastas.
 - Ao restaurar um VM, não é possível utilizar a opção [VM de substituição existente](backup-azure-arm-restore-vms.md#restore-options) para VMs encriptados. Esta opção só é suportada para discos geridos não encriptados.
@@ -129,7 +129,7 @@ Para definir permissões:
     - As permissões necessárias são preenchidas para **permissões chave** e **permissões secretas.**
     - Se o seu VM estiver encriptado apenas com **BEK,** remova a seleção para **permissões chave,** uma vez que só necessita de permissões para segredos.
 
-    ![Seleção de backup azure](./media/backup-azure-vms-encryption/select-backup-template.png)
+    ![Seleção de backup Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
 
 1. Selecione **Adicionar**. **O Serviço de Gestão de Cópias** de Segurança é adicionado às **políticas de Acesso.**
 

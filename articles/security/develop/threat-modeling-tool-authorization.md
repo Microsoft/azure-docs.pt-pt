@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07e33279452b8296688c358c9ffdab1bfb2e1321
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 77964eed6960a79920f359a03c65102ad949a210
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543967"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004668"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: Autorização / Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança da máquina** | <ul><li>[Certifique-se de que os ACLs adequados estão configurados para restringir o acesso não autorizado aos dados do dispositivo](#acl-restricted-access)</li><li>[Certifique-se de que o conteúdo de aplicação sensível específico do utilizador é armazenado no diretório de perfil do utilizador](#sensitive-directory)</li><li>[Certifique-se de que as aplicações implementadas são executadas com menos privilégios](#deployed-privileges)</li></ul> |
 | **Aplicação Web** | <ul><li>[Impor a ordem de passo sequencial ao processar fluxos de lógica de negócio](#sequential-logic)</li><li>[Implementar mecanismo de limitação de taxas para evitar a enumeração](#rate-enumeration)</li><li>[Certifique-se de que a devida autorização está em vigor e o princípio dos privilégios menos adequados é seguido](#principle-least-privilege)</li><li>[As decisões de autorização de acesso à lógica do negócio e ao acesso aos recursos não devem basear-se em parâmetros de pedido de entrada](#logic-request-parameters)</li><li>[Certifique-se de que o conteúdo e os recursos não são enumeradores ou acessíveis através de uma navegação forçada](#enumerable-browsing)</li></ul> |
-| **Base de Dados** | <ul><li>[Certifique-se de que as contas menos privilegiadas são usadas para se ligar ao servidor Base de Dados](#privileged-server)</li><li>[Implementar RLS de Segurança de Nível de Linha para impedir que os inquilinos acedam aos dados uns dos outros](#rls-tenants)</li><li>[Função Sysadmin só deve ter utilizadores válidos necessários](#sysadmin-users)</li></ul> |
+| **Base de dados** | <ul><li>[Certifique-se de que as contas menos privilegiadas são usadas para se ligar ao servidor Base de Dados](#privileged-server)</li><li>[Implementar RLS de Segurança de Nível de Linha para impedir que os inquilinos acedam aos dados uns dos outros](#rls-tenants)</li><li>[Função Sysadmin só deve ter utilizadores válidos necessários](#sysadmin-users)</li></ul> |
 | **Gateway de nuvem IoT** | <ul><li>[Conecte-se ao Cloud Gateway usando fichas menos privilegiadas](#cloud-least-privileged)</li></ul> |
 | **Hub de Eventos do Azure** | <ul><li>[Utilize uma chave SAS apenas de envio para gerar fichas de dispositivo](#sendonly-sas)</li><li>[Não utilize fichas de acesso que ofereçam acesso direto ao Centro de Eventos](#access-tokens-hub)</li><li>[Ligue ao Centro de Eventos usando chaves SAS que tenham as permissões mínimas necessárias](#sas-minimum-permissions)</li></ul> |
 | **Documento Azure DB** | <ul><li>[Use fichas de recursos para ligar à Azure Cosmos DB sempre que possível](#resource-docdb)</li></ul> |
@@ -80,7 +81,7 @@ ms.locfileid: "87543967"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -91,7 +92,7 @@ ms.locfileid: "87543967"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -102,7 +103,7 @@ ms.locfileid: "87543967"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -113,7 +114,7 @@ ms.locfileid: "87543967"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -132,7 +133,7 @@ Agora, um possível intruso não pode adulterar e alterar a operação da aplica
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -143,7 +144,7 @@ Agora, um possível intruso não pode adulterar e alterar a operação da aplica
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [SqL permissões hierarquia,](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine) [sql securables](https://docs.microsoft.com/sql/relational-databases/security/securables) |
@@ -154,7 +155,7 @@ Agora, um possível intruso não pode adulterar e alterar a operação da aplica
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Sql Azure, OnPrem |
 | **Atributos**              | Versão SQL - V12, VERSÃO SQL - MsSQL2016 |
 | **Referências**              | [Segurança de nível de linha sql (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
@@ -167,7 +168,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [SqL permissões hierarquia,](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine) [sql securables](https://docs.microsoft.com/sql/relational-databases/security/securables) |
@@ -189,7 +190,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Visão geral do modelo de autenticação e segurança do Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -200,7 +201,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Visão geral do modelo de autenticação e segurança do Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -211,7 +212,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Visão geral do modelo de autenticação e segurança do Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -222,7 +223,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Documento Azure DB | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -233,7 +234,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Fronteira da Confiança Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
@@ -255,7 +256,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -266,7 +267,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Portal crm dinâmico | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -277,7 +278,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | StorageType - Tabela |
 | **Referências**              | [Como delegar o acesso a objetos na sua conta de armazenamento Azure usando SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
@@ -288,7 +289,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Como garantir a sua conta de armazenamento com Controlo de Acesso Baseado em Fun (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
@@ -299,7 +300,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente Móvel | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -310,7 +311,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Quadro genérico e LÍQUIDO 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
@@ -347,7 +348,7 @@ O `<behaviorExtensions/>` elemento do ficheiro de configuração WCF abaixo inst
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Quadro genérico e LÍQUIDO 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
@@ -395,7 +396,7 @@ return result;
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérico, MVC5 |
 | **Atributos**              | N/A, Fornecedor de Identidade - ADFS, Fornecedor de Identidade - Azure AD |
 | **Referências**              | [Autenticação e Autorização em ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
@@ -446,7 +447,7 @@ public class CustomController : ApiController
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -457,7 +458,7 @@ public class CustomController : ApiController
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |

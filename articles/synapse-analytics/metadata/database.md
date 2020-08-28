@@ -9,12 +9,13 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 409311594cc26680217948e2394420fdaea29024
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385539"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015378"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de dados partilhada Azure Synapse Analytics
 
@@ -73,7 +74,7 @@ SELECT * FROM sys.databases;
 
 Verifique se `mytestdb` está incluído nos resultados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre os metadados partilhados da Azure Synapse Analytics](overview.md)
 - [Saiba mais sobre as tabelas de metadados partilhados da Azure Synapse Analytics](table.md)

@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 255f0b5f0066c0a437daba85121edb2f99ba590d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826859"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022399"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -109,7 +109,7 @@ Use este separador para ganhar visibilidade em potenciais oportunidades de otimi
 
 ###### <a name="inactive-resources"></a>Recursos Inativos
 
-Utilizando esta vista, pode identificar os itens de backup que não tiveram uma cópia de segurança bem sucedida durante um período significativo de tempo. Isto pode significar que a máquina subjacente que está a ser apoiada já não existe (e por isso está a resultar em cópias de segurança falhadas), ou há algum problema com a máquina que está a impedir que as cópias de segurança sejam tomadas de forma fiável.
+Utilizando esta vista, pode identificar os itens de backup que não tiveram uma cópia de segurança bem sucedida durante um período significativo de tempo. Isto pode significar que a máquina subjacente que está a ser apoiada já não existe (e assim está a resultar em cópias de segurança falhadas), ou há algum problema com a máquina que está a impedir que os backups sejam tomados de forma fiável.
 
 Para visualizar recursos inativos, navegue no **separador Otimize** e selecione o azulejo **Recursos Inativos.** Selecione este azulejo apresenta uma grelha que contém detalhes de todos os recursos inativos que existem no âmbito selecionado. Por predefinição, a grelha mostra itens que não têm um ponto de recuperação nos últimos sete dias. Para encontrar recursos inativos para um intervalo de tempo diferente, pode ajustar o filtro **de intervalo** de tempo na parte superior do separador.
 

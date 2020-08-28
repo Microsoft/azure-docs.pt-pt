@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 65662af2bad5475b024366a2ff550ff30e6c0e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892342"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014664"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -28,10 +28,10 @@ Esta secção cobre a falha de funcionamento de backup da máquina Virtual Azure
 * Verifique se o VM tem conectividade com a Internet.
   * Certifique-se de que outro serviço de reserva não esteja a funcionar.
 * A partir de `Services.msc` , certifique-se de que o serviço **de Agente Convidado Do Windows Azure** está **a funcionar**. Se faltar o serviço **de Agente Convidado Windows Azure,** instale-o a partir de [VMs Azure de back up num cofre dos Serviços de Recuperação](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* O **registo do Evento** pode apresentar falhas de backup que são de outros produtos de backup, por exemplo, cópia de segurança do Windows Server, e não são devidos a cópia de segurança do Azure. Utilize os seguintes passos para determinar se o problema é com a Azure Backup:
-  * Se houver um erro com uma **entrada Cópia de Segurança** na fonte ou mensagem do evento, verifique se as cópias de segurança do Azure IaaS VM foram bem sucedidas e se foi criado um Ponto de Restauro com o tipo de instantâneo pretendido.
+* O **registo do Evento** pode apresentar falhas de backup que são de outros produtos de backup, por exemplo, cópia de segurança do Windows Server, e não são devidos a Azure Backup. Utilize os seguintes passos para determinar se o problema é com a Azure Backup:
+  * Se houver um erro com a entrada **Cópia de Segurança** na fonte ou mensagem do evento, verifique se as cópias de segurança do Azure IaaS VM foram bem sucedidas e se foi criado um Ponto de Restauro com o tipo de instantâneo pretendido.
   * Se o Azure Backup estiver a funcionar, então o problema é provável que esteja com outra solução de backup.
-  * Aqui está um exemplo de um erro do espectador de eventos 517 onde a cópia de segurança do Azure estava a funcionar bem, mas o "Windows Server Backup" estava a falhar:<br>
+  * Aqui está um exemplo de um erro do Espectador de Eventos 517 onde o Azure Backup estava a funcionar bem, mas o "Windows Server Backup" estava a falhar:<br>
     ![Falha na cópia de segurança do servidor do Windows](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Se o Azure Backup estiver a falhar, procure o código de erro correspondente na secção Erros de backup VM comuns neste artigo.
 

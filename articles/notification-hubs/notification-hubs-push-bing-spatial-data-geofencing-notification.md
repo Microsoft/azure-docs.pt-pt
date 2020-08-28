@@ -13,17 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 5888eeea98a80eeacb97e625d199a3b1912d1943
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116935"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015140"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações push baseadas em localização com centros de notificação e dados espaciais de Bing
 
@@ -39,7 +39,7 @@ Neste tutorial, siga os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura Azure**. Se não tiver uma subscrição do Azure, [crie uma conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Assinatura Azure**. Se não tiver uma subscrição do Azure,  [crie uma conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) ou posterior ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)).
 * Versão mais recente do [Azure SDK](https://azure.microsoft.com/downloads/).
 * [Conta do Dev Center do Bing Maps](https://www.bingmapsportal.com/) (pode criar uma gratuitamente e associá-la à conta Microsoft).

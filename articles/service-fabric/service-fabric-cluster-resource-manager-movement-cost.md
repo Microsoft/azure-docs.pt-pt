@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0fdcfb02851d56ed996ae4bf32671ab545782733
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75563348"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005348"
 ---
 # <a name="service-movement-cost"></a>Custo de movimento do serviço
 Um fator que o Service Fabric Cluster Resource Manager considera ao tentar determinar que alterações fazer a um cluster é o custo dessas alterações. A noção de "custo" é trocada contra quanto o cluster pode ser melhorado. O custo é contabilizado na mudança de serviços para equilibrar, desfragmentação e outros requisitos. O objetivo é cumprir os requisitos da forma menos disruptiva ou dispendiosa.
@@ -118,7 +119,7 @@ através ClusterConfig.jspara implantações autónomas ou Template.jspara aglom
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Service Fabric Cluster Resource Manger utiliza métricas para gerir o consumo e a capacidade no cluster. Para saber mais sobre métricas e como configurá-las, consulte [gerir o consumo de recursos e carregar em Tecido de Serviço com métricas.](service-fabric-cluster-resource-manager-metrics.md)
 - Para saber como o Cluster Resource Manager gere e equilibra a carga no cluster, confira [Balanceing your Service Fabric cluster](service-fabric-cluster-resource-manager-balancing.md).
 

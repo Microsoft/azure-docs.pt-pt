@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661559"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013009"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -165,6 +165,30 @@ A API chama para recuperar os modelos todos os objetos de `ModelData` retorno. `
 A `RetrieveModelWithDependencies` chamada devolve não só o modelo solicitado, mas também todos os modelos de que o modelo solicitado depende.
 
 Os modelos não são necessariamente devolvidos no formulário de documento em que foram carregados. A Azure Digital Twins apenas garante que o formulário de devolução será semântica equivalente. 
+
+### <a name="update-models"></a>Atualizar modelos
+
+Uma vez que um modelo é carregado para o seu exemplo, toda a interface do modelo é imutável. Isto significa que não existe uma "edição" tradicional dos modelos.
+
+Em vez disso, se pretender fazer alterações a um modelo em Azure Digital Twins, como alterar o `DisplayName` ou , a forma de o fazer é carregar uma versão mais `Description` **recente** do mesmo modelo. Isto irá sobrepor-se ao modelo original.
+
+Para isso, comece com o DTDL do modelo original. Atualize os campos que quiser alterar.
+
+Em seguida, marque isto como uma versão mais recente do modelo atualizando o `id` campo do modelo. A última secção do ID do modelo, depois `;` do, representa o número do modelo. Para indicar que esta é agora uma versão mais atualizada deste modelo, incremente o número no final do `id` valor para qualquer número maior do que o número de versão atual.
+
+Por exemplo, se o seu ID do seu modelo anterior fosse assim:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+versão 2 deste modelo pode ser assim:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+Em seguida, faça o upload da nova versão do modelo para o seu exemplo. Irá ocupar o lugar da versão antiga, e os novos gémeos que criar usando este modelo irão utilizar a versão atualizada.
 
 ### <a name="remove-models"></a>Remover modelos
 

@@ -3,12 +3,12 @@ title: Visão geral das funcionalidades de segurança
 description: Saiba mais sobre as capacidades de segurança no Azure Backup que o ajudam a proteger os seus dados de backup e a satisfazer as necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890472"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012556"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
 
@@ -36,7 +36,7 @@ Com a Azure Backup, que inclui cópia de segurança virtual da máquina e SQL e 
 
 A cópia de segurança dos VMs Azure requer o movimento de dados do disco da sua máquina virtual para o cofre dos Serviços de Recuperação. No entanto, toda a comunicação e transferência de dados necessárias ocorre apenas na rede de espinha dorsal Azure sem precisar de aceder à sua rede virtual. Portanto, a cópia de segurança dos VMs Azure colocados dentro de redes seguras não requer que você permita o acesso a quaisquer IPs ou FQDNs.
 
-## <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup do Azure
+## <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
 Agora pode utilizar [o Private Endpoints](../private-link/private-endpoint-overview.md) para fazer o back up de segurança dos seus dados de servidores dentro de uma rede virtual até ao cofre dos Serviços de Recuperação. O ponto final privado utiliza um IP do espaço de endereço VNET para o seu cofre, por isso não precisa de expor as suas redes virtuais a quaisquer IPs públicos. Os pontos finais privados podem ser utilizados para fazer o backup e restaurar as bases de dados SQL e SAP HANA que funcionam dentro dos seus VMs Azure. Também pode ser usado para os seus servidores no local usando o agente MARS.
 
@@ -70,7 +70,7 @@ O serviço Azure Backup utiliza o agente Microsoft Azure Recovery Services (MARS
 
 * Os dados de cópia de segurança eliminados são retidos por mais 14 dias a contar da data de eliminação. Isto garante a recuperabilidade dos dados dentro de um determinado período de tempo, por isso não há perda de dados mesmo que um ataque aconteça. Além disso, um maior número de pontos mínimos de recuperação são mantidos para proteger contra dados corruptos. [Saiba mais sobre a recuperação de dados de backup eliminados.](./backup-azure-security-feature.md#recover-deleted-backup-data)
 
-* Para os dados com cópia de segurança utilizando o agente Microsoft Azure Recovery Services (MARS), é utilizada uma palavra-passe para garantir que os dados são encriptados antes do upload para a Azure Backup e desencriptados apenas após o download do Azure Backup. Os detalhes da palavra-passe só estão disponíveis para o utilizador que criou a palavra-passe e o agente que está configurado com ele. Nada é transmitido ou partilhado com o serviço. Isto garante a segurança completa dos seus dados, uma vez que quaisquer dados expostos inadvertidamente (como um ataque homem-no-meio na rede) são inutilizáveis sem a palavra-passe, e a palavra-passe não é enviada na rede.
+* Para os dados com cópia de segurança utilizando o agente Microsoft Azure Recovery Services (MARS), é utilizada uma palavra-passe para garantir que os dados são encriptados antes do upload para a Azure Backup e desencriptados apenas após o download do Azure Backup. Os detalhes da palavra-passe só estão disponíveis para o utilizador que criou a palavra-passe e o agente que está configurado com ele. Nada é transmitido ou partilhado com o serviço. Isto garante a segurança completa dos seus dados, uma vez que todos os dados expostos inadvertidamente (como um ataque homem-no-meio na rede) são inutilizáveis sem a palavra-passe, e a palavra-passe não é enviada pela rede.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Cumprimento dos requisitos de segurança normalizados
 

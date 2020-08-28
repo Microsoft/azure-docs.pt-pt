@@ -5,12 +5,13 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 5695e8d03f782527cd3a9a2667f3513046d7e76c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256310"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012658"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de saúde personalizados do Service Fabric
 A Azure Service Fabric introduz um [modelo de saúde](service-fabric-health-introduction.md) projetado para sinalizar condições de cluster e aplicação pouco saudáveis em entidades específicas. O modelo de saúde utiliza **repórteres de saúde** (componentes do sistema e cães de guarda). O objetivo é um diagnóstico e reparação fáceis e rápidos. Os escritores de serviços precisam pensar frontalmente sobre a saúde. Qualquer condição que possa ter impacto na saúde deve ser reportada, especialmente se puder ajudar a sinalizar problemas próximos da raiz. A informação de saúde pode economizar tempo e esforço na depuragem e investigação. A utilidade é especialmente clara uma vez que o serviço está em funcionamento em escala na nuvem (privada ou Azure).

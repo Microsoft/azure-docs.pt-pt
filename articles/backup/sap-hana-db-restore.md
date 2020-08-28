@@ -3,12 +3,12 @@ title: Restaurar as bases de dados SAP HANA em VMs Azure
 description: Neste artigo, descubra como restaurar as bases de dados SAP HANA que estão a funcionar nas Máquinas Virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763291"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006317"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurar as bases de dados SAP HANA em VMs Azure
 
@@ -138,7 +138,7 @@ Para restaurar os dados de cópia de segurança como ficheiros em vez de uma bas
 
     * Ficheiros de backup de bases de dados
     * Arquivos de catálogo
-    * Ficheiros de metadados JSON (para cada ficheiro de backup que está envolvido)
+    * Ficheiros de metadados JSON (para cada ficheiro de backup envolvido)
 
     Normalmente, um caminho de partilha de rede, ou caminho de uma partilha de ficheiros Azure montado quando especificado como o caminho de destino, permite um acesso mais fácil a estes ficheiros por outras máquinas na mesma rede ou com a mesma partilha de ficheiros Azure montada neles.
 

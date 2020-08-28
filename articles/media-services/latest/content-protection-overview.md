@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: e21aba7b06e6c692337344477bfb52e7f7acb27c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023267"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012200"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteja o seu conteúdo com encriptação dinâmica dos Media Services
 
@@ -242,14 +242,14 @@ Por exemplo:
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`tem um valor da chave solicitada. Pode usar `AlternativeMediaId` se quiser mapear o pedido a uma entidade do seu lado. Por exemplo, `AlternativeMediaId` pode ser usado para ajudá-lo a procurar permissões.
+`ContentKeyId` tem um valor da chave solicitada. Pode usar `AlternativeMediaId` se quiser mapear o pedido a uma entidade do seu lado. Por exemplo, `AlternativeMediaId` pode ser usado para ajudá-lo a procurar permissões.
 
 Para exemplos REST que usam URLs de aquisição de licença/chave personalizados, consulte [Políticas de Streaming - Criar](/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="troubleshoot"></a>Resolução de Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 Se tiver o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, certifique-se de que especifica a política de streaming apropriada.
 

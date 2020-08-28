@@ -3,12 +3,13 @@ title: Recuperação de desastres para tópicos personalizados na Grelha de Even
 description: Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa região.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461685"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004549"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos
 A recuperação de desastres centra-se na recuperação de uma grave perda de funcionalidade de aplicação. Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa determinada região.
@@ -69,7 +70,7 @@ Primeiro, crie dois tópicos de Grade de Eventos. Estes tópicos funcionarão co
 
    * Dê à subscrição do evento um nome lógico e adicione "primário" como um sufixo para facilitar a sua rastreação.
    * Selecione o gancho web do tipo ponto final.
-   * Desaponte o ponto final para o URL do seu recetor de eventos, que deve parecer algo como:`https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Desaponte o ponto final para o URL do seu recetor de eventos, que deve parecer algo como: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
      ![Assinatura do evento principal da grelha de evento](./media/custom-disaster-recovery/create-primary-es.png)
 

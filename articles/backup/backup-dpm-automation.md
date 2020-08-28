@@ -3,12 +3,12 @@ title: Use powerShell para apoiar cargas de trabalho de DPM
 description: Saiba como implementar e gerir o Azure Backup para o Gestor de Proteção de Dados (DPM) utilizando o PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 91fd8559b1561ae83967c7fc74a2390ce2460c95
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 7b4e63e94599b1445a7244018e00999df8365cd3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892325"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014681"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 
@@ -185,7 +185,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="networking"></a>Redes
 
-Se a conectividade da máquina DPM com o serviço de Backup Azure na internet for através de um servidor proxy, então as definições do servidor proxy devem ser fornecidas para cópias de segurança bem sucedidas. Isto é feito utilizando o ```-ProxyServer``` ```-ProxyPort``` e, ```-ProxyUsername``` e os ```ProxyPassword``` parâmetros com o [conjunto-DPMCloudSubscriptionSettingSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) Neste exemplo, não existe um servidor proxy, por isso estamos a limpar explicitamente qualquer informação relacionada com procuração.
+Se a conectividade da máquina DPM com o serviço de Backup Azure na internet for através de um servidor proxy, então as definições do servidor proxy devem ser fornecidas para cópias de segurança bem sucedidas. Isto é feito utilizando o ```-ProxyServer``` ```-ProxyPort``` e, ```-ProxyUsername``` e os ```ProxyPassword``` parâmetros com o [conjunto-DPMCloudSubscriptionSettingSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) Neste exemplo, não há nenhum servidor proxy, por isso estamos a limpar explicitamente qualquer informação relacionada com procuração.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy

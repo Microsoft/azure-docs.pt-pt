@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645638"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012794"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Acesso, salvamento e remoção do estado de Atores Fiáveis
 [Os Atores fiáveis](service-fabric-reliable-actors-introduction.md) são objetos de linha única que podem encapsular a lógica e o estado e manter o estado de forma fiável. Cada instância de ator tem o seu próprio [gestor estatal](service-fabric-reliable-actors-state-management.md): uma estrutura de dados semelhante a um dicionário que armazena de forma fiável os pares chave/valor. O gerente do Estado é um invólucro em torno de um fornecedor estatal. Pode usá-lo para armazenar dados independentemente da definição de [persistência.](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication)
@@ -315,7 +316,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O estado que está armazenado em Reliable Actors deve ser serializado antes de ser escrito em disco e replicado para alta disponibilidade. Saiba mais sobre [a serialização do tipo ator.](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 

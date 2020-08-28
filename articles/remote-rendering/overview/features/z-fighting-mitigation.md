@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 017bda3f29f70448504650965a0f19bbaf5852bd
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892716"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013185"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de combate Z
 

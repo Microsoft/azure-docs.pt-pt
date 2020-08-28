@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 6c040c909225deb92594853ad18814a6e8e94b57
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f2a871e409761116182f67eb877f3727038fe0dc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892835"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013644"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2cec55b7c9450070d2e692fae50eff9ea880c54e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519767"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013746"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
 Depois de embarcar nas suas subscrições Azure, pode ativar o Security Center para recursos que correm fora de Azure, por exemplo, no local ou noutras nuvens, fornecendo o agente Log Analytics.
@@ -33,7 +33,7 @@ Deve estar no nível de preços padrão do Security Center antes de iniciar este
 
 ## <a name="add-new-windows-computer"></a>Adicionar novo computador Windows
 
-1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - A visão geral** abre.
 
    ![Descrição geral do Centro de Segurança][2]
@@ -74,7 +74,7 @@ Agora tem de instalar o ficheiro transferido no computador de destino.
 
 Quando concluído, o **agente Log Analytics** aparece no Painel de **Controlo**. Pode rever a configuração e confirmar que o agente está ligado.
 
-Para obter mais informações sobre como instalar e configurar o agente, veja [Ligar computadores Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Para obter mais informações sobre como instalar e configurar o agente, veja [Ligar computadores Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Agora, pode monitorizar as VMs do Azure e os computadores não pertencentes ao Azure num único local. Em **Computação**, tem uma descrição geral de todas as VMs e computadores, juntamente com recomendações. Cada coluna representa um conjunto de recomendações. A cor representa o estado de segurança atual da VM ou do computador para essa recomendação. O Centro de Segurança também apresenta quaisquer deteções destes computadores nos alertas de Segurança.
 
@@ -86,7 +86,7 @@ Estão representados dois tipos de ícone no painel **Computação**:
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) VM do Azure
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não for necessário, pode remover o agente do computador Windows.
 
 Para remover o agente:
@@ -95,7 +95,7 @@ Para remover o agente:
 2. Abra **Programas e Funcionalidades**.
 3. Em **Programas e Funcionalidades**, selecione **o agente Log Analytics** e clique em **Desinstalar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, ateou o agente Log Analytics num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]

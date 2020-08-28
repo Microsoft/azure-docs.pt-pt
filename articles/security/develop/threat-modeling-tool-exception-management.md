@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 05e9e627afecfc95e03eae39eed1183857df8b4b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539939"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004464"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gestão de Exceções / Mitigações 
 | Produto/Serviço | Artigo |
@@ -34,7 +35,7 @@ ms.locfileid: "87539939"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Quadro genérico e LÍQUIDO 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
@@ -58,7 +59,7 @@ Desativar a informação de depuração no serviço. Isto pode ser conseguido re
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Quadro genérico e LÍQUIDO 3 |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
@@ -69,11 +70,11 @@ Desativar a informação de depuração no serviço. Isto pode ser conseguido re
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | MVC 5, MVC 6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Exceção Manuseamento em API web ASP.NET,](https://www.asp.net/web-api/overview/error-handling/exception-handling) [validação de modelos em ASP.NET API Web](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Passos** | Por padrão, a maioria das exceções não conseguidas na ASP.NET Web API são traduzidas numa resposta HTTP com código de estado`500, Internal Server Error`|
+| **Passos** | Por padrão, a maioria das exceções não conseguidas na ASP.NET Web API são traduzidas numa resposta HTTP com código de estado `500, Internal Server Error`|
 
 ### <a name="example"></a>Exemplo
 Para controlar o código de estado devolvido pela API, `HttpResponseException` pode ser utilizado como indicado abaixo: 
@@ -187,7 +188,7 @@ Consulte os links na secção de referências para obter mais detalhes sobre o m
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -198,7 +199,7 @@ Consulte os links na secção de referências para obter mais detalhes sobre o m
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Caixa de Diálogo Editar Definições de Páginas de Erro .NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
@@ -220,7 +221,7 @@ Consulte os links na secção de referências para obter mais detalhes sobre o m
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Falhar de forma segura](https://owasp.org/www-community/Fail_securely) |

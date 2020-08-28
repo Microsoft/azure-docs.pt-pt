@@ -3,12 +3,13 @@ title: Gerir segredos de aplicação de tecido de serviço Azure
 description: Saiba como garantir valores secretos numa aplicação de Tecido de Serviço (plataforma-agnóstico).
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: af82a55d41c48eebcbcbd1581ec5096a89c49bea
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a11869c3b606ed9e74ce4f598109139fa1bb4164
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248123"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012828"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerir segredos encriptados em aplicações de Tecido de Serviço
 Este guia acompanha-o através dos passos de gestão de segredos numa aplicação de Tecido de Serviço. Os segredos podem ser qualquer informação sensível, como cadeias de ligação de armazenamento, palavras-passe ou outros valores que não devem ser tratados em texto simples.

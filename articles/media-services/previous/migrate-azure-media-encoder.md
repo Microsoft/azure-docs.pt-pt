@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: f8fe1b13db6473e80f0d7cdc638b775a0c8062c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 353024513885651cbc791548d8b91def3de65d90
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513506"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013474"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrar do Azure Media Encoder para Media Encoder Standard
 
@@ -64,7 +65,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Cenários avançados 
 
-Se tivesse criado a sua própria predefinição de codificação para a AME utilizando o seu esquema, existe um [esquema equivalente para o Media Encoder Standard](media-services-mes-schema.md). Se tiver dúvidas sobre como mapear as definições mais antigas para o novo codificar, por favor contacte-nos através demailto:amshelp@microsoft.com  
+Se tivesse criado a sua própria predefinição de codificação para a AME utilizando o seu esquema, existe um [esquema equivalente para o Media Encoder Standard](media-services-mes-schema.md). Se tiver dúvidas sobre como mapear as definições mais antigas para o novo codificar, por favor contacte-nos através de mailto:amshelp@microsoft.com  
 ## <a name="known-differences"></a>Diferenças conhecidas 
 
 A Media Encoder Standard é mais robusta, fiável, tem melhor desempenho e produz uma melhor qualidade do que o codificadores AME. Além disso: 
@@ -72,7 +73,7 @@ A Media Encoder Standard é mais robusta, fiável, tem melhor desempenho e produ
 * A Media Encoder Standard produz ficheiros de saída com uma convenção de nomeação diferente da AME.
 * A Media Encoder Standard produz artefactos como ficheiros que contêm [metadados](media-services-input-metadata-schema.md) de ficheiros de entrada e [metadados de ficheiros de saída](media-services-output-metadata-schema.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Componentes legados](legacy-components.md)
 * [Página de preços](https://azure.microsoft.com/pricing/details/media-services/#encoding)

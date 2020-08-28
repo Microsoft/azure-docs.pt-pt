@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4025ace5c2609783a8d0f09b99d60537addb6f08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e5ccb87a215d6d29d1545fc99a052795ef3f9556
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060109"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005773"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com .NET 
 

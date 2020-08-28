@@ -8,12 +8,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fe143b1c172c5d89a7dba33731a378df988b4a47
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75429163"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014613"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um hub IoT utilizando o fornecedor de recursos REST API (.NET)
 
@@ -170,7 +171,7 @@ Agora pode completar a aplicação ligando para o método **CreateIoTHub** antes
 > [!NOTE]
 > Esta aplicação de exemplo adiciona um Hub IoT Standard S1 para o qual está faturado. Quando terminar, pode eliminar o hub IoT através do [portal Azure](https://portal.azure.com/) ou utilizando o cmdlet **Remove-AzResource** PowerShell quando terminar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que implementou um hub IoT utilizando o fornecedor de recursos REST API, talvez queira explorar mais:
 

@@ -7,12 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b4e7d8c5c518e4ba4a2a9116898be2bba7df0b06
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80632936"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022450"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT do dispositivo e módulos duplos, tarefas e encaminhamento de mensagens
 
@@ -478,7 +479,7 @@ Nas condições de rotas, suportam-se as seguintes funções de verificação e 
 
 | Função | Descrição |
 | -------- | ----------- |
-| AS_NUMBER | Converte a cadeia de entrada num número. `noop`se a entrada for um número; `Undefined`se a corda não representar um número.|
+| AS_NUMBER | Converte a cadeia de entrada num número. `noop` se a entrada for um número; `Undefined` se a corda não representar um número.|
 | IS_ARRAY | Devolve um valor Boolean que indica se o tipo de expressão especificada é uma matriz. |
 | IS_BOOL | Devolve um valor Boolean que indica se o tipo de expressão especificada é um Boolean. |
 | IS_DEFINED | Devolve um Boolean indicando se a propriedade foi atribuída um valor. Isto só é suportado quando o valor é um tipo primitivo. Os tipos primitivos incluem cordas, booleanos, numéricos, ou `null` . DataTime, os tipos de objetos e as matrizes não são suportados. |
@@ -502,6 +503,6 @@ Nas condições de rotas, suportam-se as seguintes funções de corda:
 | ENDS_WITH(x, y) | Devolve um Boolean indicando se a primeira expressão de corda termina com a segunda. |
 | CONTÉM (x,y) | Devolve um Boolean indicando se a primeira expressão de corda contém a segunda. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como executar consultas nas suas apps utilizando [SDKs Azure IoT](iot-hub-devguide-sdks.md).

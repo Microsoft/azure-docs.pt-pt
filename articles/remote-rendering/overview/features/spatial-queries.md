@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 64350ca7213ce13e5d80daf43e74995d14db4061
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9b378fe3f01e6ef1d54a89341bbac3a26b9d6b33
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892733"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013151"
 ---
 # <a name="spatial-queries"></a>Consultas espaciais
 

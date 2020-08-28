@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-javascript
-ms.openlocfilehash: afc49e959061bcd2327f1c3a4f988c9ed6e5ce11
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5f418384d4ec1272600df2488dc71d2102d6a24d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414025"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011808"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Widgets do Indexer de Vídeo incorporados nas suas apps
 
@@ -34,10 +34,10 @@ Um widget Cognitive Insights inclui todas as informações visuais que foram ext
 |---|---|---|
 |`widgets` | Cadeias separadas por vírgulas | Permite-lhe controlar as ideias que pretende dar.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` torna apenas as pessoas e palavras-chave uI insights.<br/>Opções disponíveis: pessoas, animaçõesCharacters,palavras-chave, rótulos, sentimentos, emoções, tópicos, quadros-chave, transcrição, ocr, altifalantes, cenas e nomes.|
 |`controls`|Cadeias separadas por vírgulas|Permite-lhe controlar os controlos que pretende renderizar.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` torna apenas a opção de pesquisa e o botão de descarregamento.<br/>Opções disponíveis: pesquisa, download, predefinição, idioma.|
-|`language`|Um código de linguagem curta (nome da língua)|Controla a linguagem dos insights.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>ou`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
+|`language`|Um código de linguagem curta (nome da língua)|Controla a linguagem dos insights.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>ou `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Um código de linguagem curta | Controla a linguagem da UI. O valor predefinido é `en`. <br/>Exemplo: `locale=de`.|
 |`tab` | O separador selecionado por defeito | Controla o **separador Insights** que é renderizado por defeito. <br/>Exemplo: `tab=timeline` torna as informações com o **separador Timeline** selecionado.|
-|`location` ||O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial`é o valor padrão para o `location` parâmetro.| 
+|`location` ||O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial` é o valor padrão para o `location` parâmetro.| 
 
 ### <a name="player-widget"></a>Widget Player
 
@@ -51,7 +51,7 @@ Pode utilizar o widget do Jogador para transmitir o vídeo utilizando uma taxa d
 |`type`| | Ativa uma pele do leitor de áudio (a parte de vídeo é removida).<br/> Exemplo: `type=audio`. |
 |`autoplay` | Um valor booleano | Indica se o leitor deve começar a reproduzir o vídeo quando carregado. O valor predefinido é `true`.<br/> Exemplo: `autoplay=false`. |
 |`language`/`locale` | Um código de linguagem | Controla a linguagem do jogador. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`.|
-|`location` ||O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial`é o valor padrão para o `location` parâmetro.| 
+|`location` ||O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial` é o valor padrão para o `location` parâmetro.| 
 
 ### <a name="editor-widget"></a>Widget editor
 
@@ -59,10 +59,10 @@ Você pode usar o widget editor para criar novos projetos e gerir as insights de
 
 |Nome|Definição|Descrição|
 |---|---|---|
-|`accessToken`<sup>*</sup> | Cadeia | Fornece acesso a vídeos que estão apenas na conta que é usada para incorporar o widget.<br> O widget editor requer o `accessToken` parâmetro. |
+|`accessToken`<sup>*</sup> | String | Fornece acesso a vídeos que estão apenas na conta que é usada para incorporar o widget.<br> O widget editor requer o `accessToken` parâmetro. |
 |`language` | Um código de linguagem | Controla a linguagem do jogador. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`. |
 |`locale` | Um código de linguagem curta | Controla a linguagem dos insights. O valor predefinido é `en`.<br/>Exemplo: `language=de`. |
-|`location` ||O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial`é o valor padrão para o `location` parâmetro.| 
+|`location` ||O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial` é o valor padrão para o `location` parâmetro.| 
 
 <sup>*</sup>O proprietário deve ter `accessToken` cuidado.
 
@@ -70,7 +70,7 @@ Você pode usar o widget editor para criar novos projetos e gerir as insights de
 
 Esta secção discute a incorporação de conteúdo público e privado em apps.
 
-O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial`é o valor padrão para o `location` parâmetro. Por exemplo: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial` é o valor padrão para o `location` parâmetro. Por exemplo: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > A partilha de um link para o widget **Player** ou **Insights** incluirá o token de acesso e concederá as permissões apenas de leitura na sua conta.
@@ -102,6 +102,17 @@ Para fornecer capacidades de edição de insights no seu widget incorporado, tem
 O widget Cognitive Insights pode interagir com um vídeo na sua aplicação. Esta secção mostra-lhe como alcançar esta interação.
 
 ![Índice de vídeo widget de insights cognitivos](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+
+### <a name="flow-overview"></a>Visão geral do fluxo
+
+Quando edita as transcrições, ocorre o seguinte fluxo:
+
+1. Edita a transcrição na linha do tempo.
+1. O Video Indexer recebe estas atualizações e guarda-as nas [edições de transcrição](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) no modelo de idioma.
+1. As legendas são atualizadas:
+
+    * Se estiver a utilizar o widget do leitor do Video Indexer - é automaticamente atualizado.
+    * Se estiver a utilizar um leitor externo - obtém um novo utilizador de ficheiros de legendas, a chamada **de legendas de vídeo.**
 
 ### <a name="cross-origin-communications"></a>Comunicações com várias origens
 
@@ -293,7 +304,7 @@ Consulte o [repo de amostras](https://github.com/Azure-Samples/media-services-vi
 | `url-generator`                   | Gera widgets personalizados incorporados URL com base em opções especificadas pelo utilizador.             |
 | `html5-player`                    | Incorporar VI Insights com um leitor de vídeo HTML5 padrão.                           |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como visualizar e editar insights do Indexer de Vídeo, consulte [visualizar e editar insights do Indexer de Vídeo](video-indexer-view-edit.md).
 

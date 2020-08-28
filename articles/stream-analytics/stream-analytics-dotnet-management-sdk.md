@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: de152a636d8751616744887a521b2f94bbd386a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 5776c741bb69d345f191e5673fe388328d0fe7bb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077757"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015599"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gestão .NET SDK: Criar e executar trabalhos de análise utilizando a API AZure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise utilizando a API stream Analytics para .NET utilizando a Management .NET SDK. Crie um projeto, crie fontes de entrada e saída, transformações e iniciar e parar empregos. Para os seus trabalhos de análise, pode transmitir dados a partir do armazenamento blob ou de um centro de eventos.
@@ -288,7 +288,7 @@ O método **Delete** eliminará o trabalho, bem como os sub-recursos subjacentes
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
-Aprendeu o básico de usar um .NET SDK para criar e executar trabalhos de análise. Para saber mais, consulte os seguintes artigos:
+Aprendeu o básico de usar um .NET SDK para criar e executar trabalhos de análise. Para saber mais, leia os artigos seguintes:
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

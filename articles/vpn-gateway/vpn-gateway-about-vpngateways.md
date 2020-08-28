@@ -1,25 +1,24 @@
 ---
 title: Sobre Azure VPN Gateway
-description: Saiba o que é um Gateway VPN e como usar um Gateway VPN para ligar às redes virtuais IPsec IKE Site-to-Site, VNet-to-Vnet e Point-to-Site VPN.
+description: Saiba o que é um Gateway VPN e como usar um Gateway VPN para ligar às redes virtuais IPsec IKE Site-to-Site, VNet-to-VNet e Point-to-Site VPN.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: c7fbea977904145aa2e8851f45a4b70f9ce0c560
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: contperfq1
+ms.openlocfilehash: 23d8d28a03217b1359462332da736f852cfaf8ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855616"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015395"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
 
 Um gateway de VPN é um tipo específico de gateway de rede virtual utilizado para enviar tráfego encriptado entre uma rede virtual do Azure e uma localização no local através da Internet pública. Também pode utilizar um gateway de VPN para enviar tráfego encriptado entre as redes virtuais do Azure através da rede da Microsoft. Cada rede virtual pode ter apenas um gateway de VPN. No entanto, pode criar várias ligações para o mesmo gateway de VPN. Quando cria várias ligações para o mesmo gateway de VPN, todos os túneis de VPN partilham a largura de banda do gateway disponível.
-
-Os gateways VPN podem ser implantados em Zonas de Disponibilidade Azure. Isto traz resiliência, escalabilidade e uma maior disponibilidade para os gateways de redes virtuais. Implementar gateways nas Zonas de Disponibilidade do Azure separa física e logicamente os gateways numa região, enquanto protege a sua conectividade de rede no local para o Azure contra falhas ao nível das zonas. ver [Sobre as portas de rede virtuais redundantes de zona em Zonas de Disponibilidade Azure](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>O que é um gateway de rede virtual?
 
@@ -33,9 +32,15 @@ A criação de um gateway de rede virtual pode demorar até 45 minutos a conclui
 
 Uma ligação de gateway de VPN depende de vários recursos que estão configurados com definições específicas. A maior parte dos recursos pode ser configurada em separado, embora alguns recursos tenham de ser configurados numa determinada ordem.
 
-### <a name="design-connection-topology-diagrams"></a><a name="diagrams"></a>Design: Diagramas de topologia de conexão
+### <a name="design"></a><a name="diagrams"></a>Design
 
-É importante saber que existem configurações diferentes disponíveis para as ligações de gateway VPN. Deve determinar qual das configurações se adequa melhor às suas necessidades. Por exemplo, as ligações Ponto-a-Local, Site-a-Site e conexões ExpressRoute/Site-to-Site têm diferentes requisitos de instruções e configuração. Para obter informações sobre diagramas de topologia de design e conexão, consulte [Design](design.md).
+É importante saber que existem configurações diferentes disponíveis para as ligações de gateway VPN. Deve determinar qual das configurações se adequa melhor às suas necessidades. Por exemplo, as ligações Ponto-a-Local, Site-a-Site e conexões ExpressRoute/Site-to-Site têm diferentes requisitos de instruções e configuração. Para obter informações sobre design e para visualizar os diagramas de topologia de ligação, consulte [Design](design.md).
+
+### <a name="planning-table"></a><a name="planningtable"></a>Tabela de planeamento
+
+A tabela seguinte pode ajudá-lo a decidir a melhor opção de conectividade para a sua solução.
+
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ### <a name="settings"></a><a name="settings"></a>Definições
 
@@ -44,12 +49,6 @@ As definições que escolheu para cada recurso são essenciais para a criação 
 ### <a name="deployment-tools"></a><a name="tools"></a>Ferramentas de implementação
 
 Pode começar por criar e configurar recursos utilizando uma ferramenta de configuração, como o portal do Azure. Mais tarde, pode decidir mudar para outra ferramenta, como o PowerShell, para configurar recursos adicionais ou modificar os recursos existentes, quando aplicável. Atualmente, não pode configurar todos os recursos e definições de recursos no portal do Azure. As instruções nos artigos para cada topologia de ligação especificam quando uma ferramenta de configuração especifica é necessária.
-
-### <a name="planning-table"></a><a name="planningtable"></a>Tabela de planeamento
-
-A tabela seguinte pode ajudá-lo a decidir a melhor opção de conectividade para a sua solução.
-
-[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de Gateway
 
@@ -62,6 +61,10 @@ Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que 
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
+## <a name="availability-zones"></a><a name="availability"></a>Zonas de Disponibilidade
+
+Os gateways VPN podem ser implantados em Zonas de Disponibilidade Azure. Isto traz resiliência, escalabilidade e uma maior disponibilidade para os gateways de redes virtuais. Implementar gateways nas Zonas de Disponibilidade do Azure separa física e logicamente os gateways numa região, enquanto protege a sua conectividade de rede no local para o Azure contra falhas ao nível das zonas. ver [Sobre as portas de rede virtuais redundantes de zona em Zonas de Disponibilidade Azure](about-zone-redundant-vnet-gateways.md).
+
 ## <a name="pricing"></a><a name="pricing"></a>Preços
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
@@ -72,7 +75,7 @@ Para obter mais informações sobre os SKUs de gateway para o Gateway de VPN, ve
 
 Para perguntas mais frequentes sobre o Gateway de Aplicação, veja as [FAQ do Gateway de VPN](vpn-gateway-vpn-faq.md).
 
-## <a name="whats-new"></a><a name="new"></a>O que há de novo?
+## <a name="whats-new"></a><a name="new"></a>Novidades
 
 Subscreva o feed RSS e veja as últimas atualizações da funcionalidade VPN Gateway na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=VPN%20Gateway)
 

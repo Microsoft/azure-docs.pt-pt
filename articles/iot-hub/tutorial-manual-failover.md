@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69a0795b9c299b5113c39ce2c4556573f730e4b7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252577"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013950"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Executar failover manual para um hub IoT
 
@@ -31,13 +31,15 @@ Neste tutorial, vai realizar as seguintes tarefas:
 > * Executar uma reativação pós-falha para devolver as operações do hub IoT à localização primária. 
 > * Confirmar que o hub está a ser executado corretamente na localização correta.
 
+Para obter mais informações sobre o failover manual e o failover iniciado pela Microsoft com o IoT Hub, consulte [a recuperação de desastres na região de Cross](iot-hub-ha-dr.md#cross-region-dr).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 1. Inicie sessão no [portal Azure](https://portal.azure.com). 
 
@@ -83,7 +85,7 @@ Tenha em atenção que existe um limite de duas ativações pós-falha e duas re
 
    O período de tempo que a ativação pós-falha manual demora é proporcional ao número de dispositivos que estão registados n o seu hub. Por exemplo, se tiver 100 000 dispositivos, pode demorar 15 minutos, mas se tiver cinco milhões de dispositivos, pode demorar uma hora ou mais.
 
-   ![Captura de ecrã que mostra o painel Ativação Pós-falha Manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![Screenshot mostrando painel de confirmação de failover manual](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
    Enquanto o processo de failover manual está em curso, um banner parece dizer-lhe que um failover manual está em andamento. 
 

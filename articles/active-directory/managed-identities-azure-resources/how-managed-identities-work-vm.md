@@ -3,7 +3,7 @@ title: Como identidades geridas para recursos Azure trabalham com máquinas virt
 description: Descrição das identidades geridas para os recursos Azure funcionam com máquinas virtuais Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/11/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b61fd2f9bc36743754a43b05629a798f0305d4e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb5355d4c83961d87ad4b880f6b3758b212e74dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609214"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014354"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Como identidades geridas para recursos Azure funcionam com máquinas virtuais Azure
 
@@ -57,7 +57,7 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
 
 4. Quando a VM tiver uma identidade, utilize as informações do principal de serviço para lhe conceder acesso aos recursos do Azure. Para chamar o Azure Resource Manager, utilize o controlo de acesso baseado em funções (RBAC) no Azure AD para atribuir a função adequada ao principal de serviço da VM. Para chamar o Key Vault, conceda ao seu código acesso ao segredo ou à chave específica no Key Vault.
 
-5. O seu código que está em execução no VM pode solicitar um token a partir do ponto final do serviço de metadados Azure Instance, acessível apenas a partir do VM:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. O seu código que está em execução no VM pode solicitar um token a partir do ponto final do serviço de metadados Azure Instance, acessível apenas a partir do VM: `http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Para autenticar no Azure Resource Manager, utilize `resource=https://management.azure.com/`.
     - O parâmetro de versão da API especifica a versão do IMDS; utilize api-version=2018-02-01 ou superior.
 
@@ -78,7 +78,7 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
    > [!Note]
    > Também pode concluir este passo antes do passo 3.
 
-5. O seu código que está em execução no VM pode solicitar um token a partir do ponto final de identidade do Serviço de Metadados de Instância Azure, acessível apenas a partir do VM:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. O seu código que está em execução no VM pode solicitar um token a partir do ponto final de identidade do Serviço de Metadados de Instância Azure, acessível apenas a partir do VM: `http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Para autenticar no Azure Resource Manager, utilize `resource=https://management.azure.com/`.
     - O parâmetro de ID de cliente especifica a identidade para a qual o token é pedido. Este valor é necessário para eliminar ambiguidades se uma única VM tiver mais de uma identidade atribuída pelo utilizador.
     - O parâmetro da versão da API especifica a versão do Azure Instance Metadata Service. Utilize `api-version=2018-02-01` ou superior.

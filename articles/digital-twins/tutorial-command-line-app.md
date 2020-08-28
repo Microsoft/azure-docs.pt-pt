@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0fc79cab5868ec7d676c956581407dce308d80ad
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891504"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022518"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
@@ -21,9 +21,10 @@ Este tutorial introduz uma aplicação de amostra que implementa uma aplicação
 Você pode usar esta amostra para executar ações essenciais da Azure Digital Twins, como carregar modelos, criar e modificar gémeos e criar relacionamentos. Você também pode olhar para o código da amostra para aprender sobre as APIs das Gémeas Digitais Azure, e praticar implementar os seus próprios comandos modificando o projeto da amostra como quiser.
 
 Neste tutorial, vai...
-1. Configurar um exemplo de Gémeos Digitais Azure
-2. Configure a app de linha de comando da amostra para interagir com a instância
-3. Utilize a app de linha de comando para explorar as Gémeas Digitais Azure, incluindo **modelos,** **gémeos digitais,** **relacionamentos**e **consultas**
+> [!div class="checklist"]
+> * Configurar um exemplo de Gémeos Digitais Azure
+> * Configure a app de linha de comando da amostra para interagir com a instância
+> * Utilize a app de linha de comando para explorar as Gémeas Digitais Azure, incluindo **modelos,** **gémeos digitais,** **relacionamentos**e **consultas**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 

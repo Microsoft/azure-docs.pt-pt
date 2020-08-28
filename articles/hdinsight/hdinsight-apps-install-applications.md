@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: fd0d425f00e001071f5c9021068ca2f038371a36
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: e0d1f9ad99e1b64560321312a22f61f5a2ef3dea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212827"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016041"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações Apache Hadoop de terceiros no Azure HDInsight
 
@@ -26,10 +26,10 @@ A lista que se segue mostra as aplicações publicadas:
 |Aplicação |Tipo de agrupamento ou tipo de agrupamento | Descrição |
 |---|---|---|
 |[Plataforma de Inteligência AtScale](https://azuremarketplace.microsoft.com/marketplace/apps/atscaleinc.atscale) |Hadoop |O AtScale transforma o seu cluster HDInsight num servidor OLAP de escala, permitindo-lhe consultar milhares de milhões de linhas de dados interativamente utilizando as ferramentas BI que já conhece, possui e ama – do Microsoft Excel, Power BI, Tableau Software para qlikView. |
-|[CDAP para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |O HBase |O CDAP é a primeira plataforma de integração unificada para big data que acelera o tempo para valorizar o Hadoop e permite que a TI forneça dados de autosserviço. Fonte aberta e extensível, o CDAP elimina barreiras à inovação. Requisitos: 4 Nós regionais, min D3 v2. |
+|[CDAP para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |O CDAP é a primeira plataforma de integração unificada para big data que acelera o tempo para valorizar o Hadoop e permite que a TI forneça dados de autosserviço. Fonte aberta e extensível, o CDAP elimina barreiras à inovação. Requisitos: 4 Nós regionais, min D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |A plataforma escalável de self-service da Datameer para preparar, explorar e reger os seus dados para análise acelera a transformação de dados complexos de multisource em informações valiosas prontas para o negócio, fornecendo insights mais rápidos e inteligentes à escala da empresa. |
 |[Dataiku DSS em HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop |Dataiku DSS numa plataforma de ciência de dados da empresa que permite que cientistas de dados e analistas de dados colaborem para projetar e executar novos produtos e serviços de dados de forma mais eficiente, transformando dados brutos em previsões impactantes. |
-|[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |Manter os dados consistentes num ambiente distribuído é um enorme desafio de operações de dados. A WANdisco Fusion, uma plataforma de software de classe empresarial, resolve este problema permitindo uma consistência de dados não estruturada em qualquer ambiente. |
+|[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.wandisco-liveanalytics) |Hadoop, Spark,HBase,Storm,Kafka |Manter os dados consistentes num ambiente distribuído é um enorme desafio de operações de dados. A WANdisco Fusion, uma plataforma de software de classe empresarial, resolve este problema permitindo uma consistência de dados não estruturada em qualquer ambiente. |
 |[H2O SparklingWater para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |A H2O Sparkling Water suporta os seguintes algoritmos distribuídos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection, Autoencoders. |
 |[Striim para integração de dados em tempo real para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop,HBase,Tempestade,Faísca, Kafka |Striim (pronuncia-se "stream") é uma plataforma de integração de dados de streaming + plataforma de inteligência, permitindo a ingestão contínua, o processamento e a análise de fluxos de dados diferentes. |
 |[Jumbune Enterprise-Accelerating BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop |A um nível elevado, Jumbune ajuda as empresas por 1. Acelerando tez, MapReduce & desempenho de trabalho baseado em motor Spark Hive, Java, Scala. 2. Monitorização proativa do cluster Hadoop, 3. Estabelecer gestão da Qualidade de Dados no sistema de ficheiros distribuídos. |

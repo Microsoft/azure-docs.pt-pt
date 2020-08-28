@@ -3,12 +3,13 @@ title: 'Quickstart: A sua primeira consulta .NET Core'
 description: Neste arranque rápido, siga os passos para ativar os pacotes De NuGet de Gráfico de Recurso para .NET Core e executar a sua primeira consulta.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: b452329148f607b6a71c366c51745906247a43a1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0470f100b6323f760bc48af70e8a6c11b94dfb3c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802735"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005875"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando .NET Core
 
@@ -97,9 +98,9 @@ Com a aplicação de consola .NET Core construída e publicada, é hora de exper
 
 Em cada chamada `argQuery` para, existem variáveis que são usadas que você precisa substituir por seus próprios valores:
 
-- `{tenantId}`- Substitua-o pela sua ID do seu inquilino
-- `{clientId}`- Substitua pelo ID do cliente do seu principal de serviço
-- `{clientSecret}`- Substitua pelo segredo do cliente do seu diretor de serviço
+- `{tenantId}` - Substitua-o pela sua ID do seu inquilino
+- `{clientId}` - Substitua pelo ID do cliente do seu principal de serviço
+- `{clientSecret}` - Substitua pelo segredo do cliente do seu diretor de serviço
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
 1. Altere os diretórios para o `{run-folder}` que definiu com o `dotnet publish` comando anterior.
@@ -130,7 +131,7 @@ Em cada chamada `argQuery` para, existem variáveis que são usadas que você pr
 
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover a aplicação da consola .NET Core e as embalagens instaladas, pode fazê-lo eliminando a pasta do `argQuery` projeto.
 

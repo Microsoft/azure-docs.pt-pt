@@ -5,12 +5,13 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: 8633a5018e6faeaca842a3ecffb4c4921358e191
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e8b5e5944d58e9bf3291b3870027257b2c87ad24
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257354"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012675"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Comunicações seguras baseadas em WCF para um serviço
 A segurança é um dos aspetos mais importantes da comunicação. O quadro de aplicações Reliable Services fornece algumas pilhas de comunicação pré-construídas e ferramentas que você pode usar para melhorar a segurança. Este artigo fala sobre como melhorar a segurança quando se está a usar o remoing de serviço.

@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: c2ee5df9f0b09e30212f61e804e24086874f07f5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3727c41c991b83bc3869279cbb0535a6185ff04d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256276"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015735"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Começar com atores fiáveis
 > [!div class="op_single_selector"]
@@ -41,7 +42,7 @@ O projeto criado mostra a seguinte estrutura:
 
 A solução contém três projetos:
 
-* **O projeto de aplicação (MyApplication)**. Este projeto embala todos os serviços em conjunto para implantação. Contém os *scriptsApplicationManifest.xml* e PowerShell para gerir a aplicação.
+* **O projeto de aplicação (MyApplication)**. Este projeto embala todos os serviços em conjunto para implantação. Contém os * scriptsApplicationManifest.xml* e PowerShell para gerir a aplicação.
 
 * **O projeto de interface (HelloWorld.Interfaces)**. Este projeto contém a definição de interface para o ator. As interfaces dos atores podem ser definidas em qualquer projeto com qualquer nome.  A interface define o contrato de ator que é partilhado pela implementação do ator e pelos clientes que chamam o ator.  Como os projetos de clientes podem depender disso, normalmente faz sentido defini-lo numa assembléia que é separada da implementação do ator.
 
