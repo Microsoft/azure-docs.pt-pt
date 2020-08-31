@@ -234,13 +234,23 @@
       href: custom-disaster-recovery.md
     - name: Controlar operações REST assíncronas
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Mover
+      items:
+        - name: Mover tópicos do sistema entre regiões
+          href: move-system-topics-across-regions.md
+        - name: Mover tópicos personalizados entre regiões
+          href: move-custom-topics-across-regions.md
+        - name: Mover domínios entre regiões
+          href: move-domains-across-regions.md
+        - name: Mover espaços de nomes de parceiro entre regiões
+          href: move-partner-namespaces-across-regions.md
     - name: Proteger
       items:
         - name: Configurar pontos finais privados
           href: configure-private-endpoints.md
         - name: Configurar firewall do IP
           href: configure-firewall.md
-        - name: Proteger o Webhook com o AAD
+        - name: Proteger o Webhook com o Azure Active Directory
           href: secure-webhook-delivery.md
         - name: Entrega de eventos com identidade gerida
           href: managed-service-identity.md

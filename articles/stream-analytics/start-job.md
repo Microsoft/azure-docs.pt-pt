@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/03/2019
-ms.openlocfilehash: 0c03eb9d30d204cbfb7fcd8971dd84f2ba5a7737
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bce1f00603d9304fc544fb92d4cc5f1a429504ed
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039182"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069005"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Como iniciar um trabalho do Azure Stream Analytics
 
@@ -32,7 +33,7 @@ O primeiro evento de saída possível teria um calendário igual ou superior ao 
 
 Navegue para o seu trabalho no portal Azure e selecione **Iniciar** na página de visão geral. Selecione uma **hora de início de saída de trabalho** e, em seguida, selecione **Iniciar**.
 
-Escolha uma das opções para **a hora de início de saída do Trabalho**. As opções são *Agora*, *Personalizado*, e, se o trabalho foi previamente executado, *Quando foi a última paragem*. Veja acima para mais informações sobre estas opções.
+Escolha uma das opções para **a hora de início de saída do Trabalho**. As opções são *Agora*, *Personalizado*, e, se o trabalho foi previamente executado,  *Quando foi a última paragem*. Veja acima para mais informações sobre estas opções.
 
 ## <a name="visual-studio"></a>Visual Studio
 
@@ -56,7 +57,7 @@ Existem três opções para **OutputStartMode**: *JobStartTime,* *CustomTime*e *
 
 Para obter mais informações sobre o `Start-AzStreamAnalyitcsJob` cmdlet, consulte a [referência Start-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 * [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)

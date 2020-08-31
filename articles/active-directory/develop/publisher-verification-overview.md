@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120784"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068478"
 ---
 # <a name="publisher-verification-preview"></a>Verificação do publicador (pré-visualização)
 
@@ -38,17 +38,17 @@ A verificação do editor proporciona os seguintes benefícios:
 - **Melhor avaliação de risco**- As deteções da Microsoft para pedidos de consentimento "arriscados" incluirão a verificação do editor como um sinal. 
 
 ## <a name="requirements"></a>Requisitos
-Existem alguns pré-requisitos para a verificação de editores, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. São: 
+Existem alguns pré-requisitos para a verificação de editores, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. A saber: 
 
 -  Um ID MPN para uma conta válida [da Microsoft Partner Network](https://partner.microsoft.com/membership) que tenha concluído o processo de [verificação.](/partner-center/verification-responses) Esta conta MPN deve ser a [conta global partner (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) para a sua organização. 
 
--  Um inquilino AZure AD com um [domínio personalizado](../fundamentals/add-custom-domain.md)verificado pelo DNS. O domínio personalizado deve corresponder ao domínio do endereço de e-mail utilizado durante a verificação no passo anterior. 
+-  Uma aplicação registada num inquilino AZure AD, com um [Domínio editor](howto-configure-publisher-domain.md) configurado.
 
--  Uma aplicação registada num inquilino AZure AD, com um [Domínio editor](howto-configure-publisher-domain.md) configurado usando o mesmo domínio que anteriormente utilizado. 
+-  O domínio do endereço de e-mail utilizado durante a verificação da conta MPN deve corresponder ao domínio do editor configurado na aplicação ou um [domínio personalizado](../fundamentals/add-custom-domain.md) verificado pelo DNS adicionado ao inquilino AD Azure. 
 
 -  O utilizador que efetua a verificação deve ser autorizado a efetuar alterações tanto no registo da aplicação no AZure AD como na conta MPN no Partner Center. 
 
-    -  No Azure AD este utilizador deve ser o Proprietário da app ou ter uma das [seguintes funções](../users-groups-roles/directory-assign-admin-roles.md): Administrador de Aplicação, Cloud Application Admin, Global Admin. 
+    -  Em Azure AD este utilizador deve ser membro de uma das [seguintes funções](../users-groups-roles/directory-assign-admin-roles.md): Administrador de Aplicação, Cloud Application Admin ou Global Admin. 
 
     -  No Partner Center este utilizador deve ter as seguintes [funções](/partner-center/permissions-overview): MPN Admin, Accounts Admin ou um Administrador Global (este é um papel partilhado dominado em Azure AD).
     

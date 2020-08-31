@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar uma Firewall Azure com Zonas de Disponibilidade - Modelo de Gestor de Recursos'
-description: Implemente a Firewall Azure utilizando um modelo. A rede virtual tem um VNet com três sub-redes. Duas máquinas virtuais do Windows Server estão implantadas; uma caixa de salto e um servidor.
+description: Neste arranque rápido, você implanta Azure Firewall usando um modelo. A rede virtual tem um VNet com três sub-redes. Duas máquinas virtuais do Windows Server estão implantadas; uma caixa de salto e um servidor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 104e2e9f6593d95caf77c0796f8b9465eebcfcee
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705134"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071725"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Quickstart: Implementar firewall Azure com Zonas de Disponibilidade - modelo ARM
 
@@ -78,7 +78,7 @@ Explore os recursos que foram criados com a firewall.
 
 Para saber mais sobre a sintaxe JSON e propriedades para uma firewall num modelo, consulte [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar, pode remover o grupo de recursos, firewall e todos os recursos relacionados executando o `Remove-AzResourceGroup` comando PowerShell. Para remover um grupo de recursos chamado *MyResourceGroup,* corra:
 

@@ -10,12 +10,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d5e06d0a6f7693ca9cc69f05f6b2318d6b60b5e3
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66473798"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070807"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell Reference
 
@@ -310,7 +311,7 @@ Accept wildcard characters: False
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
 Se o utilizador não estiver a utilizar os serviços DNS fornecidos pelo Site AD /Logon DC, então podem querer saltar a porta de verificação 53.
-O utilizador deve ainda ser capaz de resolver _.ldap._tcp.\<forestfqdn\>
+O utilizador ainda deve ser capaz de resolver _.ldap._tcp.\<forestfqdn\>
 para que a configuração do Conector ative Directory tenha sucesso.
 
 ```yml

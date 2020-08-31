@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049252"
+ms.locfileid: "89068631"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Autenticação do legado do bloco
 
@@ -37,7 +37,7 @@ As seguintes etapas ajudarão a criar uma política de acesso condicional para b
 1. Em **aplicativos ou ações cloud**, selecione **Todas as aplicações cloud**.
    1. Selecione **Concluído**.
 1. Em **Condições**  >  **As aplicações do Cliente**, definir **Configurar** para **Sim**.
-   1. Verifique apenas as caixas **Exchange ActiveSync clientes** e **outros clientes.**
+   1. Verifique apenas as caixas **Exchange ActiveSync clientes** e **outros clientes.** Para implementar a política de Acesso Condicional Do Exchange ActiveSync em Azure, o utilizador também deve ser um Administrador Global.
    1. Selecione **Concluído**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione **Acesso ao Bloco**.
    1. Selecione **Selecionar**.

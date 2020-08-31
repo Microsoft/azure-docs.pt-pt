@@ -11,14 +11,14 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78190925"
 ---
-Num projeto de biblioteca de classe C#, as encadernações são definidas como atributos vinculativos no método da função. O ficheiro *função.json* exigido pelas Funções é então gerado automaticamente com base nestes atributos.
+Num projeto de biblioteca de classes C', as ligações são definidas como atributos de ligação no método de função. A *function.jsno* ficheiro exigido por Funções é então gerada automaticamente com base nestes atributos.
 
-Abra o ficheiro *HttpExample.cs* projeto e adicione `Run` o seguinte parâmetro à definição de método:
+Abra o ficheiro *HttpExample.cs* do projeto e adicione o seguinte parâmetro à definição do `Run` método:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-O `msg` parâmetro é `ICollector<T>` um tipo, que representa uma coleção de mensagens que são escritas para uma ligação de saída quando a função completa. Neste caso, a saída é `outqueue`uma fila de armazenamento chamada . A cadeia de ligação para `StorageAccountAttribute`a conta de armazenamento é definida pelo . Este atributo indica a definição que contém a cadeia de ligação da conta de armazenamento e pode ser aplicada ao nível de classe, método ou parâmetro. Neste caso, pode omitir `StorageAccountAttribute` porque já está a usar a conta de armazenamento predefinida.
+O `msg` parâmetro é um `ICollector<T>` tipo, que representa uma coleção de mensagens que são escritas para uma ligação de saída quando a função termina. Neste caso, a saída é uma fila de armazenamento chamada `outqueue` . O fio de ligação da conta de armazenamento é definido pela `StorageAccountAttribute` . Este atributo indica a definição que contém a cadeia de ligação da conta de armazenamento e pode ser aplicada ao nível da classe, método ou parâmetro. Neste caso, pode omitir `StorageAccountAttribute` porque já está a utilizar a conta de armazenamento predefinida.
 
-A definição do método executar deve agora parecer a seguinte:  
+A definição do método Run deve agora parecer-se com o seguinte:  
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18":::

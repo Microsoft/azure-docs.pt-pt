@@ -13,10 +13,10 @@ ms.locfileid: "80673354"
 ---
 ## <a name="add-an-output-binding-definition-to-the-function"></a>Adicione uma definição de ligação de saída à função
 
-Embora uma função possa ter apenas um gatilho, pode ter várias ligações de entrada e saída, que permitem ligar-se a outros serviços e recursos Azure sem escrever código de integração personalizado. 
+Embora uma função possa ter apenas um gatilho, pode ter múltiplas ligações de entrada e saída, que permitem ligar-se a outros serviços e recursos Azure sem escrever código de integração personalizado. 
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-Declara estas encadernações no ficheiro *função.json* na pasta de funções. Desde o quickstart anterior, o ficheiro *function.json* na pasta `bindings` *HttpExample* contém duas ligações na coleção:  
+Declara estas encadernações no *function.jsarquivado* na sua pasta de funções. A partir do início rápido anterior, o seu *function.jsficheiro na* pasta *HttpExample* contém duas encadernações na `bindings` coleção:  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -32,33 +32,33 @@ Declara estas encadernações no ficheiro *função.json* na pasta de funções.
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript, programming-language-powershell, programming-language-typescript"  
-Cada encadernação tem pelo menos um tipo, uma direção e um nome. No exemplo acima, a primeira `httpTrigger` ligação `in`é de tipo com a direção . Para `in` a `name` direção, especifica o nome de um parâmetro de entrada enviado para a função quando invocado pelo gatilho.  
+Cada encadernação tem pelo menos um tipo, uma direção e um nome. No exemplo acima, a primeira ligação é de tipo `httpTrigger` com a direção `in` . Para a `in` direção, `name` especifica o nome de um parâmetro de entrada que é enviado para a função quando invocado pelo gatilho.  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-A segunda ligação da `res`coleção chama-se . Esta `http` ligação é`out`uma ligação de saída ( ) que é usada para escrever a resposta HTTP. 
+A segunda encadernação da coleção é `res` nomeada. Esta `http` ligação é uma ligação de saída `out` () que é usada para escrever a resposta HTTP. 
 
-Para escrever a uma fila de armazenamento `out` azure `queue` a partir `msg`desta função, adicione uma ligação de tipo com o nome, como indicado no código abaixo:
+Para escrever para uma fila de armazenamento Azure a partir desta função, adicione uma `out` ligação do tipo `queue` com o nome , como mostrado no código `msg` abaixo:
 
 :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"  
-A segunda ligação na `http` coleção `out`é de tipo `name` com `$return` a direção, caso em que o especial indica que esta ligação utiliza o valor de retorno da função em vez de fornecer um parâmetro de entrada.
+A segunda ligação na coleção é de tipo `http` com a `out` direção, caso em que o especial indica que esta `name` `$return` ligação utiliza o valor de retorno da função em vez de fornecer um parâmetro de entrada.
 
-Para escrever a uma fila de armazenamento `out` azure `queue` a partir `msg`desta função, adicione uma ligação de tipo com o nome, como indicado no código abaixo:
+Para escrever para uma fila de armazenamento Azure a partir desta função, adicione uma `out` ligação do tipo `queue` com o nome , como mostrado no código `msg` abaixo:
 
 :::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"  
-A segunda ligação da `res`coleção chama-se . Esta `http` ligação é`out`uma ligação de saída ( ) que é usada para escrever a resposta HTTP. 
+A segunda encadernação da coleção é `res` nomeada. Esta `http` ligação é uma ligação de saída `out` () que é usada para escrever a resposta HTTP. 
 
-Para escrever a uma fila de armazenamento `out` azure `queue` a partir `msg`desta função, adicione uma ligação de tipo com o nome, como indicado no código abaixo:
+Para escrever para uma fila de armazenamento Azure a partir desta função, adicione uma `out` ligação do tipo `queue` com o nome , como mostrado no código `msg` abaixo:
 
 :::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-Neste caso, `msg` é dada à função como um argumento de saída. Para `queue` um tipo, deve também especificar o `queueName` nome da fila e fornecer o *nome* da ligação De `connection`armazenamento Azure (a partir de *local.settings.json*) em . 
+Neste caso, `msg` é dado à função como argumento de saída. Para um `queue` tipo, deve também especificar o nome da fila `queueName` e fornecer o *nome* da ligação Azure Storage (a partir de *local.settings.jsem*) em `connection` . 
 ::: zone-end  

@@ -13,8 +13,8 @@ ms.locfileid: "80673315"
 ---
 ## <a name="update-the-tests"></a>Atualizar os testes
 
-Como o arquétipo também cria um conjunto de testes, `msg` é necessário `run` atualizar estes testes para lidar com o novo parâmetro na assinatura do método.  
+Como o arquétipo também cria um conjunto de testes, é necessário atualizar estes testes para lidar com o novo `msg` parâmetro na assinatura do `run` método.  
 
-Navegue na localização do seu código de teste sob _o sRC/teste/java,_ abra o `//Invoke` ficheiro do projeto *Function.java* e substitua a linha de código sob o seguinte código.
+Navegue na localização do seu código de teste sob _src/test/java,_ abra o ficheiro do projeto *Function.java* e substitua a linha de código `//Invoke` pelo seguinte código.
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/test/java/com/function/FunctionTest.java" range="48-50":::

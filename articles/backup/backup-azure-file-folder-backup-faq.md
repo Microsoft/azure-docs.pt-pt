@@ -3,12 +3,12 @@ title: Agente dos Serviços de Recuperação da Microsoft Azure (MARS) – FAQ
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: ca2753e4d6da7e2e3079f234a3facac27fd5f098
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874627"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144469"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Perguntas frequentes - Agente da Microsoft Azure Recovery Services (MARS)
 
@@ -51,11 +51,11 @@ Não é possível fazer recuar os seguintes tipos de unidades e volumes:
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Posso usar o agente MARS para fazer o back-up ficheiros e pastas num VM Azure?  
 
-Sim. O Azure Backup fornece uma cópia de segurança ao nível VM para VMs Azure utilizando a extensão VM para o agente Azure VM. Se pretender fazer o back up ficheiros e pastas no sistema operativo Windows do hóspede no VM, pode instalar o agente MARS para o fazer.
+Yes. O Azure Backup fornece uma cópia de segurança ao nível VM para VMs Azure utilizando a extensão VM para o agente Azure VM. Se pretender fazer o back up ficheiros e pastas no sistema operativo Windows do hóspede no VM, pode instalar o agente MARS para o fazer.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Posso usar o agente MARS para fazer o back-up ficheiros e pastas no armazenamento temporário para o Azure VM?
 
-Sim. Instale o agente MARS e ressalte ficheiros e pastas no sistema operativo Windows do hóspede para armazenamento temporário.
+Yes. Instale o agente MARS e ressalte ficheiros e pastas no sistema operativo Windows do hóspede para armazenamento temporário.
 
 * Os trabalhos de reserva falham quando os dados de armazenamento temporários são eliminados.
 * Se os dados de armazenamento temporário forem eliminados, só poderá restaurar o armazenamento não volátil.
@@ -66,7 +66,7 @@ Os dados de cópia de segurança são enviados para o centro de dados do cofre n
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>O agente MARS suporta a deduplica do Windows Server 2012?
 
-Sim. O agente MARS converte os dados desduplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para a cópia de segurança, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
+Yes. O agente MARS converte os dados desduplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para a cópia de segurança, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
 
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Preciso de permissões de administrador para instalar e configurar o agente MARS?
 
@@ -109,7 +109,7 @@ O tamanho da pasta de cache determina a quantidade de dados que está a fazer.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de risco é válida e acessível?
 
-1. Por defeito, a pasta de risco está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+1. Por defeito, a pasta de risco está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Certifique-se de que o caminho da sua localização da pasta de risco coincide com os valores das entradas das chaves de registo apresentadas abaixo:
 
     | Caminho do registo | Chave do Registo | Valor |
@@ -123,7 +123,7 @@ O tamanho da pasta de cache determina a quantidade de dados que está a fazer.
 
     ```Net stop obengine```
 2. Se tiver uma cópia de segurança do Estado do Sistema configurada, abra a Gestão do Disco e desmonte o disco(s) com nomes no formato `"CBSSBVol_<ID>"` .
-3. Por predefinição, a pasta de risco está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+3. Por predefinição, a pasta de risco está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copie toda a `\Scratch` pasta para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo é copiado, não movido.
 5. Atualize as seguintes entradas de registo com o caminho da pasta de risco recém-movida.
 
@@ -199,7 +199,7 @@ Se tiver a mesma palavra-passe (que forneceu durante o registo) da máquina orig
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Os meus trabalhos de apoio têm falhado ou não estão a funcionar há muito tempo. Já passei do período de retenção. Ainda posso restaurar?
 
-Como medida de segurança, o Azure Backup preservará o último ponto de recuperação, mesmo que já tenha passado do período de retenção. Uma vez retomados os backups e os novos pontos de recuperação ficam disponíveis, o ponto de recuperação mais antigo será removido de acordo com a retenção especificada.
+Como medida de segurança, o Azure Backup preservará o mais recente ponto de recuperação, mesmo que já tenha passado do período de retenção. Uma vez retomados os backups e os novos pontos de recuperação ficam disponíveis, o ponto de recuperação mais antigo será removido de acordo com a retenção especificada.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontece se eu cancelar um trabalho de restauro?
 

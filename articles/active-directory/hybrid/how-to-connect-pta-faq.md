@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358298"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071436"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação pass-through do Azure Ative Directory: Perguntas frequentes
 
@@ -41,7 +41,7 @@ Não. A autenticação pass-through só está disponível no caso mundial do Azu
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com autenticação pass-through?
 
-Sim. Todas as capacidades de Acesso Condicional, incluindo a autenticação multi-factor Azure, funcionam com a autenticação pass-through.
+Yes. Todas as capacidades de Acesso Condicional, incluindo a autenticação multi-factor Azure, funcionam com a autenticação pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>O Substituto autenticação suporta "ID alternativo" como nome de utilizador, em vez de "userPrincipalName"?
 Sim, o sing-in utilizando um valor não UPN, como um e-mail alternativo, é suportado tanto para a autenticação pass-through (PTA) como para a sincronização de haxixe de palavra-passe (PHS). Para mais informações sobre [o ID de Login Alternativo.](../authentication/howto-authentication-use-email-signin.md)
@@ -56,7 +56,7 @@ Quando utilizar o Azure AD Connect para mudar o método de entrada de palavras-p
 
 ## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Posso instalar um conector [proxy de aplicação AD AZure](../manage-apps/application-proxy.md) no mesmo servidor que um Agente de Autenticação Pass-through?
 
-Sim. As versões remarcadas do Agente de Autenticação Pass-through, versão 1.5.193.0 ou posterior, suportam esta configuração.
+Yes. As versões remarcadas do Agente de Autenticação Pass-through, versão 1.5.193.0 ou posterior, suportam esta configuração.
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Que versões do Azure AD Connect e do Agente de Autenticação Pass-through precisa?
 
@@ -82,7 +82,7 @@ Se não tiver configurado a gravação de palavra-passe para um utilizador espec
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Os Agentes de Autenticação Pass-through podem comunicar através de um servidor de procuração web de saída?
 
-Sim. Se o Web Proxy Auto-Discovery (WPAD) estiver ativado no seu ambiente no local, os Agentes de Autenticação tentam automaticamente localizar e utilizar um servidor de procuração web na rede.
+Yes. Se o Web Proxy Auto-Discovery (WPAD) estiver ativado no seu ambiente no local, os Agentes de Autenticação tentam automaticamente localizar e utilizar um servidor de procuração web na rede.
 
 Se não tiver WPAD no seu ambiente, pode adicionar informações de procuração (como mostrado abaixo) para permitir que um Agente de Autenticação Pass-through comunique com a Azure AD:
 - Configure informações de procuração no Internet Explorer antes de instalar o Agente de Autenticação Pass-through no servidor. Isto permitir-lhe-á completar a instalação do Agente de Autenticação, mas continuará a aparecer como **Inativo** no portal Admin.
@@ -113,7 +113,7 @@ A comunicação entre cada Agente de Autenticação Pass-through e Azure AD é a
 
 Enquanto um Agente de Autenticação Pass-through estiver em funcionamento, permanece ativo e lida continuamente com os pedidos de inscrição do utilizador. Se pretender desinstalar um Agente de Autenticação, aceda a programas e programas de > > de controlo do Painel de Controlo e funcionalidades de > e **desinstale** tanto o Agente de **Autenticação AD AD do Microsoft Azure** como os programas **do Microsoft Azure AD Connect Agent Updater.**
 
-Se verificar a lâmina de autenticação pass-through no centro de administração do [Diretório Ativo Azure](https://aad.portal.azure.com) após completar o passo anterior, verá o Agente de Autenticação a mostrar-se **inativo**. Isto é _esperado._ O Agente de Autenticação é automaticamente retirado da lista após alguns dias.
+Se verificar a lâmina de autenticação pass-through no centro de administração do [Diretório Ativo Azure](https://aad.portal.azure.com) após completar o passo anterior, verá o Agente de Autenticação a mostrar-se **inativo**. Isto é _esperado._ O Agente de Autenticação é automaticamente retirado da lista após 10 dias.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Já uso AD FS para entrar no Azure AD. Como posso trocá-lo por autenticação pass-through?
 
@@ -121,7 +121,7 @@ Se estiver a migrar de FS AD (ou outras tecnologias da federação) para a Auten
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Posso usar a autenticação pass-through num ambiente multi-forest Ative Directory?
 
-Sim. Ambientes multi-florestais são apoiados se existirem fundos florestais (bidirecionais) entre as suas florestas de Diretório Ativo e se o encaminhamento de sufixo de nome estiver corretamente configurado.
+Yes. Ambientes multi-florestais são apoiados se existirem fundos florestais (bidirecionais) entre as suas florestas de Diretório Ativo e se o encaminhamento de sufixo de nome estiver corretamente configurado.
 
 ## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>A autenticação pass-through fornece o equilíbrio de carga entre vários agentes de autenticação?
 
@@ -174,7 +174,7 @@ Os inquilinos criados após 15 de junho de 2015 têm o comportamento padrão de 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários que são apoiados e quais não são.
 - [Início rápido](how-to-connect-pta-quick-start.md): Levante-se e corra na Autenticação Pass-through Azure.
 - [Migrar de AD FS para Autenticação Pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.

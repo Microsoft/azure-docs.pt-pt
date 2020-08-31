@@ -10,12 +10,12 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 08/21/2020
-  ms.openlocfilehash: 059e3feb4f81d3cf93e1d9045b1eb4164fd72433
-  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+  ms.openlocfilehash: 6dec6bb451e7a330138c9a2a65f2a7dec7202a6a
+  ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "89019713"
+  ms.lasthandoff: 08/28/2020
+  ms.locfileid: "89051326"
 highlightedContent:
   items:
   - title: Servidores preparados para o Azure Arc (pré-visualização)
@@ -26,7 +26,7 @@ highlightedContent:
     url: ./kubernetes/overview.md
   - title: Sobre o Azure Arc
     itemType: overview
-    url: arc-overview.md
+    url: overview.md
 productDirectory:
   title: Serviços preparados para o Azure Arc
   summary: Veja como executar serviços em qualquer local.

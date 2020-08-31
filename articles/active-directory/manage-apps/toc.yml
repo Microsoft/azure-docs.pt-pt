@@ -212,16 +212,10 @@
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: Erro de consentimento do utilizador
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problemas ao iniciar sessão no portal personalizado
-              href: application-sign-in-other-problem-deeplink.md
-            - name: Problemas ao iniciar sessão no painel de acesso
+            - name: Problemas ao iniciar sessão em As Minhas Aplicações
               href: application-sign-in-other-problem-access-panel.md
             - name: Erro na página de início de sessão da aplicação
               href: application-sign-in-problem-application-error.md
-            - name: Problema de início de sessão único com palavra-passe – aplicação que não está na galeria
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: Problema de início de sessão único com palavra-passe – aplicação da galeria
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Problema ao iniciar sessão numa aplicação da Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
             - name: Problema de início de sessão único federado – aplicação que não está na galeria
@@ -232,14 +226,12 @@
               href: application-sign-in-problem-custom-dev.md
         - name: Resolver problemas de início de sessão único
           items:
+            - name: Resolver problemas de início de sessão único baseado em palavra-passe
+              href: troubleshoot-password-based-sso.md
             - name: Problemas comuns da configuração do federado – aplicações da galeria
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: Problemas comuns da configuração do federado – aplicações que não estão na galeria
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: Problemas comuns da configuração da palavra-passe – aplicações da galeria
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: Problemas comuns da configuração da palavra-passe – aplicações que não estão na galeria
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Resolver problemas de lista e atribuição de aplicações
           items:
             - name: Gerir a lista de aplicações do seu inquilino
@@ -248,16 +240,10 @@
               href: ways-users-get-assigned-to-applications.md
         - name: Resolver problemas de As Minhas Aplicações
           items:
-            - name: Gerir a extensão do browser
-              href: manage-access-panel-browser-extension.md
             - name: A aplicação não aparece
               href: access-panel-troubleshoot-application-not-appearing.md
             - name: Aparece uma aplicação inesperada
               href: access-panel-troubleshoot-unexpected-application.md
-            - name: Não é possível iniciar sessão
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Erro ao utilizar o acesso personalizado à aplicação
-              href: access-panel-troubleshoot-self-service-access.md
         - name: Resolver problemas das aplicações no local
           items:
             - name: Resolução de problemas de proxy da aplicação

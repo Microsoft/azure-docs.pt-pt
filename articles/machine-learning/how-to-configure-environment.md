@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a6e603ad5698e7a6a57799def8a0f2de28e0cada
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652643"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144894"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configure um ambiente de desenvolvimento para a aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ A tabela a seguir mostra cada ambiente de desenvolvimento abrangido por este art
 
 | Ambiente | Vantagens | Desvantagens |
 | --- | --- | --- |
-| [Exemplo de computação de aprendizagem automática de Azure baseada em nuvem (pré-visualização)](#compute-instance) | A maneira mais fácil de começar. Todo o SDK já está instalado no seu espaço de trabalho VM, e os tutoriais de cadernos estão pré-clonados e prontos para funcionar. | Falta de controlo sobre o seu ambiente de desenvolvimento e dependências. Custo adicional incorrido para o Linux VM (VM pode ser interrompido quando não está a ser utilizado para evitar encargos). Consulte [os detalhes dos preços.](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) |
+| [Exemplo de computação de aprendizagem automática de Azure baseada em nuvem](#compute-instance) | A maneira mais fácil de começar. Todo o SDK já está instalado no seu espaço de trabalho VM, e os tutoriais de cadernos estão pré-clonados e prontos para funcionar. | Falta de controlo sobre o seu ambiente de desenvolvimento e dependências. Custo adicional incorrido para o Linux VM (VM pode ser interrompido quando não está a ser utilizado para evitar encargos). Consulte [os detalhes dos preços.](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) |
 | [Ambiente local](#local) | Controlo total do seu ambiente de desenvolvimento e dependências. Corra com qualquer ferramenta de construção, ambiente ou IDE à sua escolha. | Demora mais tempo a começar. Devem ser instalados pacotes SDK necessários e um ambiente também deve ser instalado se ainda não tiver um. |
 | [Azure Databricks](#aml-databricks) | Ideal para executar fluxos de trabalho intensivos de aprendizagem de máquinas em larga escala na plataforma escalável Apache Spark. | Exagero para aprendizagem automática experimental, ou experiências e fluxos de trabalho em menor escala. Custo adicional incorrido para a Azure Databricks. Consulte [os detalhes dos preços.](https://azure.microsoft.com/pricing/details/databricks/) |
 | [A Máquina Virtual da Ciência de Dados (DSVM)](#dsvm) | Semelhante à instância computacional baseada na nuvem (Python e o SDK estão pré-instalados), mas com mais ferramentas populares de ciência de dados e machine learning pré-instaladas. Fácil de escalar e combinar com outras ferramentas personalizadas e fluxos de trabalho. | Uma experiência de início mais lenta em comparação com a instância computacional baseada na nuvem. |
@@ -55,7 +55,7 @@ Para instalar o ambiente SDK para o seu [computador local,](#local) [o servidor 
 
 ## <a name="your-own-cloud-based-compute-instance"></a><a id="compute-instance"></a>O seu próprio caso de computação baseada em nuvem
 
-O Azure Machine Learning [compute instance (preview)](concept-compute-instance.md) é uma estação de trabalho segura e baseada na nuvem Azure que fornece aos cientistas de dados um servidor de cadernos Jupyter, JupyterLab, e um ambiente ML totalmente preparado.
+O caso de [aprendizagem](concept-compute-instance.md) automática Azure é uma estação de trabalho segura e baseada na nuvem Azure que fornece aos cientistas de dados um servidor de cadernos Jupyter, JupyterLab, e um ambiente ML totalmente preparado.
 
 Não há nada para instalar ou configurar para um caso de computação.  Crie um a qualquer momento a partir do seu espaço de trabalho Azure Machine Learning. Forneça apenas um nome e especifique um tipo Azure VM. Experimente agora com este [Tutorial: Ambiente de configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md)
 
@@ -156,7 +156,7 @@ Quando estiver a utilizar um computador local (que também pode ser uma máquina
 
     Este exemplo cria um ambiente usando python 3.7.7, mas quaisquer subversões específicas podem ser escolhidas. A compatibilidade da SDK pode não ser garantida com determinadas versões principais (3.5+ é recomendado), e é aconselhável experimentar uma versão/subversão diferente no seu ambiente Anaconda se encontrar erros. Levará vários minutos para criar o ambiente enquanto componentes e pacotes são descarregados.
 
-1. Execute os seguintes comandos no seu novo ambiente para permitir os núcleos IPython específicos do ambiente. Isto garantirá o comportamento esperado de importação de núcleo e pacote ao trabalhar com cadernos Jupyter em ambientes Anaconda:
+1. Execute os seguintes comandos no seu novo ambiente para permitir núcleos I Python específicos do ambiente. Isto garantirá o comportamento esperado de importação de núcleo e pacote ao trabalhar com cadernos Jupyter em ambientes Anaconda:
 
     ```bash
     conda install notebook ipykernel
@@ -306,10 +306,10 @@ Uma vez que o cluster esteja em funcionamento, [crie uma biblioteca](https://doc
    |&nbsp;Extras de pacote &nbsp; SDK|Origem|&nbsp;Nome PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para databricks| Upload Python Egg ou PyPI | azureml-sdk[databricks]|
-   |Para databricks -com...<br> capacidades ML automatizadas| Upload Python Egg ou PyPI | azureml-sdk[automl]|
+   |Para databricks -com...<br> capacidades ML automatizadas| Upload Python Egg ou PyPI | `azureml-sdk[automl]`|
 
    > [!Warning]
-   > Não podem ser instalados outros extras SDK. Escolha apenas uma das opções anteriores [databricks] ou [automl].
+   > Não podem ser instalados outros extras SDK. Escolha apenas uma das opções anteriores [ `databricks` ou `automl` [].
 
    * Não selecione **Fixe automaticamente a todos os clusters**.
    * **Selecione Fixe** ao lado do nome do seu cluster.

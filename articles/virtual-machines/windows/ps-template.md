@@ -7,16 +7,20 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d0d3e6836e2f87c503ac5154a54aeb0dd1c0e26
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ddd8166dd29d2210fecdd72d5be446df47a6c5df
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266304"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072303"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual do Windows a partir de um modelo do Resource Manager
 
 Aprenda a criar uma máquina virtual do Windows utilizando um modelo de Gestor de Recursos Azure e Azure PowerShell a partir da concha da Cloud Azure. O modelo utilizado neste artigo implementa uma única máquina virtual que executa o Windows Server numa nova rede virtual com uma única sub-rede. Para criar uma máquina virtual Linux, consulte [Como criar uma máquina virtual Linux com modelos Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
+
+Uma alternativa é implementar o modelo a partir do portal Azure. Para abrir o modelo no portal, selecione o botão **Implementar para Azul.**
+
+[![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -64,7 +68,7 @@ Seguem-se alguns recursos adicionais:
 
 O último comando PowerShell do script anterior mostra o nome da máquina virtual. Para ligar à máquina virtual, consulte [como ligar e iniciar sôm numa máquina virtual Azure que executa o Windows](./connect-logon.md).
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se houver problemas com a implementação, poderá dar uma olhada nos [erros comuns de implementação do Azure com o Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 - Aprenda a criar e gerir uma máquina virtual em [Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
