@@ -11,14 +11,14 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79486039"
 ---
-As entradas no mapa do `deploymentconfig.json` documento aos parâmetros [do AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades do documento JSON e os parâmetros para o método:
+As entradas no mapa do `deploymentconfig.json` documento aos parâmetros para [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades do documento JSON e os parâmetros para o método:
 
 | Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
 | `computeType` | ND | O destino de computação. Para a ACI, o valor deve `ACI` ser. |
 | `containerResourceRequirements` | ND | Contentor para a CPU e entidades de memória. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a atribuir. Predefinições,`0.1` |
-| &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a atribuir a este serviço web. Predefinição,`0.5` |
+| &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a atribuir. Predefinições, `0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a atribuir a este serviço web. Predefinição, `0.5` |
 | `location` | `location` | A região de Azure para implantar este Webservice para. Se não for especificado, a localização do espaço de trabalho será utilizada. Mais detalhes sobre as regiões disponíveis podem ser consultados aqui: [Regiões ACI](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
 | `authEnabled` | `auth_enabled` | Se permitir auth para este Webservice. Incumprimentos a Falsos |
 | `sslEnabled` | `ssl_enabled` | Se habilita o SSL para este Webservice. Incumprimentos ao Falso. |

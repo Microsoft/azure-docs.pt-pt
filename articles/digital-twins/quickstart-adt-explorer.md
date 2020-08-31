@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 6b0a024dde1c96610a637ec51fd29e4a23dadc53
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bbb1378419c68db07be5ca14ca6834810f2fc9f5
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008561"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055469"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -26,6 +26,10 @@ O quickstart contém os seguintes passos principais:
 1. Carre faça upload de modelos pré-construídos e dados gráficos para construir o cenário da amostra
 1. Explore o gráfico de cenário que é criado
 1. Fazer alterações no gráfico
+
+O gráfico de amostra com que vai trabalhar representa um edifício com dois pisos e duas salas. O gráfico será assim:
+
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados.":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

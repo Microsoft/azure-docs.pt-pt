@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: e1a4a366b3e4fa045df69683d6e72b157ccf0a1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ffb739affac68898f6ed5ff1d972d3fd4a70df2f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003632"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055265"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos partilhados Azure (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Implemente um disco SSD Premium gerido com a função de disco partilhado ativad
 Adicione um disco compartilhado Azure fazendo o seguinte: 
 
 
-1. Guarde o seguinte script à medida *queSharedDiskConfig.jsem*: 
+1. Guarde o seguinte script à medida * queSharedDiskConfig.jsem*: 
 
    ```JSON
    { 
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [balanceador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 e o Windows Server 2019, pode antes visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
+Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [balanceador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 e o Windows Server 2016 (ou mais tarde) pode visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
 
 ## <a name="limitations"></a>Limitações
 

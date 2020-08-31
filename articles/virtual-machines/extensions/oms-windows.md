@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 19d94c7ec08dbf2556ae72da2f0e5645fb228569
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 501681a17603fb21e073b04e48d23f1b566f8128
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020512"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067693"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics virtual machine extension for Windows (Extensão de máquina virtual do Log Analytics para Windows)
 
@@ -36,6 +36,7 @@ A tabela seguinte fornece um mapeamento da versão da extensão VM do Windows Lo
 
 | Versão do pacote de agente do Windows do Log Analytics | Versão de extensão do Windows VM do Log Analytics | Data de Lançamento | Notas de Versão |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18038 | 1.0.18040.2 | Agosto de 2020   | <ul><li>Resolve um problema no Arco Azure</li></ul> |
 | 10.20.18038 | 1.0.18038 | Abril de 2020   | <ul><li>Permite a conectividade sobre o Link Privado utilizando âmbitos de ligação privados do Monitor Azure</li><li>Adiciona estrangulamento de ingestão para evitar um súbito e acidental afluxo na ingestão para um espaço de trabalho</li><li>Adiciona apoio a nuvens e regiões adicionais do Governo de Azure</li><li>Resolve um inseto onde HealthService.exe se despenhou</li></ul> |
 | 10.20.18029 | 1.0.18029 | Março de 2020   | <ul><li>Adiciona suporte de assinatura de código SHA-2</li><li>Melhora a instalação e gestão da extensão VM</li><li>Resolve um bug em Azure Arc para integração de servidores</li><li>Adiciona uma ferramenta incorporada de resolução de problemas para suporte ao cliente</li><li>Acrescenta apoio a regiões adicionais do Governo de Azure</li> |
 | 10.20.18018 | 1.0.18018 | Outubro de 2019 | <ul><li> Pequenas correções de insetos e melhorias na estabilização </li></ul> |
@@ -183,7 +184,7 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o módulo Azure PowerShell.
 

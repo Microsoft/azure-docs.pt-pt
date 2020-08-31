@@ -7,13 +7,14 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/27/2020
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 manager: philmea
-ms.openlocfilehash: 7638b44dc3e727e2530e656541272ddad292d1fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77327689911a0fc36df14f69ef4d48e5cb120375
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002493"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067761"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gerir o IoT Central a partir do Azure PowerShell
 
@@ -70,7 +71,7 @@ O script cria primeiro um grupo de recursos na região leste dos EUA para a apli
 |------------------|------------|
 |ResourceGroupName |O grupo de recursos que contém a aplicação. Este grupo de recursos já deve existir na sua subscrição. |
 |Localização |Por predefinição, este cmdlet utiliza a localização do grupo de recursos. Atualmente, você pode criar uma aplicação IoT Central nas geografias da **Austrália**, **Ásia Pacífico,** **Europa,** **Estados Unidos,** **Reino Unido**e **Japão.** |
-|Name              |O nome da aplicação no portal Azure. |
+|Nome              |O nome da aplicação no portal Azure. |
 |Subdomínio         |O subdomínio na URL da aplicação. No exemplo, o URL de aplicação é `https://mysubdomain.azureiotcentral.com` . |
 |Sku               |Atualmente, pode utilizar **ST1** ou **ST2**. Consulte [os preços da Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modelo          | O modelo de aplicação a utilizar. Para mais informações, consulte a tabela a seguir. |

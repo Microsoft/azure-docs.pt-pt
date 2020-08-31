@@ -11,7 +11,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78191101"
 ---
-Adicione o código `msg` que utiliza `context.bindings` o objeto de ligação de saída para criar uma mensagem de fila. Adicione este código `context.res` antes da declaração.
+Adicione código que utiliza o `msg` objeto de ligação de saída `context.bindings` para criar uma mensagem de fila. Adicione este código antes da `context.res` declaração.
 
 :::code language="javascript" range="7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
 

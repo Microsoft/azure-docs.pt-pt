@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 37a619fe3279d1cb03763b14c3dfc9e315d850b9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 441e53123512a9611f9568edccfd40a3e17c981f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685651"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055435"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Quickstart: Criar uma conta de Automação utilizando o modelo ARM
 
@@ -60,7 +60,7 @@ A tabela que se segue lista a versão API para os recursos utilizados neste exem
 |:---|:---|:---|
 | [Área de trabalho](/azure/templates/microsoft.operationalinsights/workspaces) | áreas de trabalho | Antevisão 2020-03-01 |
 | [Conta de automação](/azure/templates/microsoft.automation/automationaccounts) | automatização | Antevisão 2020-01-13 |
-| [Serviços ligados ao espaço de trabalho](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | worksapces | Antevisão 2020-03-01 |
+| [Serviços ligados ao espaço de trabalho](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | áreas de trabalho | Antevisão 2020-03-01 |
 
 ### <a name="before-you-use-the-template"></a>Antes de usar o modelo
 
@@ -104,7 +104,7 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. No portal Azure, abra a conta Automation que acaba de criar. 
 
@@ -116,7 +116,7 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
     ![Conta de automação ligada ao espaço de trabalho Log Analytics](./media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar deles, desvincular a conta Desvinculação do espaço de trabalho Do Log Analytics e, em seguida, eliminar a conta de Automação e espaço de trabalho.
 

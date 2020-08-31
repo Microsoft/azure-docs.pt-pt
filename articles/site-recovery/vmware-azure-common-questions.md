@@ -3,12 +3,12 @@ title: Questões comuns sobre recuperação de desastres VMware com recuperaçã
 description: Obtenha respostas a perguntas comuns sobre a recuperação de desastres de VMware VMs para Azure utilizando a Recuperação do Site Azure.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086154"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054976"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
 
@@ -114,7 +114,7 @@ A Recuperação do Site replica VMware VMs e servidores físicos para discos ger
 
 Não. A partir de março de 2019, no portal Azure, só é possível replicar os discos geridos pelo Azure.
 
-A replicação de novos VMs numa conta de armazenamento só está disponível utilizando o PowerShell ou a REST API (versão 2018-01-10 ou 2016-08-10).
+A replicação de novos VMs numa conta de armazenamento só está disponível utilizando o PowerShell[(az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) ou a API REST (versão 2018-01-10 ou 2016-08-10). [Aprenda](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) a configurar a replicação utilizando os comandos PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Quais são os benefícios de replicar discos geridos?
 

@@ -11,7 +11,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79485920"
 ---
-As entradas no mapa do `deploymentconfig.json` documento aos parâmetros [do AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades do documento JSON e os parâmetros para o método:
+As entradas no mapa do `deploymentconfig.json` documento aos parâmetros para [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades do documento JSON e os parâmetros para o método:
 
 | Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
@@ -27,8 +27,8 @@ As entradas no mapa do `deploymentconfig.json` documento aos parâmetros [do Aks
 | `authEnabled` | `auth_enabled` | Se deve ou não permitir a autenticação da chave para o serviço web. Ambos `tokenAuthEnabled` e não podem `authEnabled` `True` ser. Predefinição, `True` . |
 | `tokenAuthEnabled` | `token_auth_enabled` | Quer permita ou não a autenticação simbólica para o serviço web. Ambos `tokenAuthEnabled` e não podem `authEnabled` `True` ser. Predefinição, `False` . |
 | `containerResourceRequirements` | ND | Contentor para a CPU e entidades de memória. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a atribuir a este serviço web. Predefinições,`0.1` |
-| &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a atribuir a este serviço web. Predefinição,`0.5` |
+| &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a atribuir a este serviço web. Predefinições, `0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a atribuir a este serviço web. Predefinição, `0.5` |
 | `appInsightsEnabled` | `enable_app_insights` | Se ativar o registo de Insights de Aplicação para o serviço web. Predefinição, `False` . |
 | `scoringTimeoutMs` | `scoring_timeout_ms` | Um tempo limite para impor chamadas para o serviço web. Predefinição, `60000` . |
 | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Os pedidos simultâneos máximos por nó para este serviço web. Predefinição, `1` . |

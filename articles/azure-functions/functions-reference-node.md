@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3e5431481cba0d2d806d60ba5d7a291d1b2b69
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810121"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055333"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -47,7 +47,7 @@ FunctionsProject
  | - extensions.csproj
 ```
 
-Na origem do projeto, há umahost.jspartilhada [no](functions-host-json.md) ficheiro que pode ser usada para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio ficheiro de código (.js) e ficheiro de configuração de ligação (function.jsligado). O nome do `function.json` diretório dos pais é sempre o nome da sua função.
+Na origem do projeto, há umahost.jspartilhada [ no](functions-host-json.md) ficheiro que pode ser usada para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio ficheiro de código (.js) e ficheiro de configuração de ligação (function.jsligado). O nome do `function.json` diretório dos pais é sempre o nome da sua função.
 
 As extensões de ligação exigidas na [versão 2.x](functions-versions.md) do tempo de execução das Funções são definidas no `extensions.csproj` ficheiro, com os ficheiros reais da biblioteca na `bin` pasta. Ao desenvolver-se localmente, deve [registar extensões vinculativas](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal Azure, este registo é feito para si.
 
@@ -107,13 +107,13 @@ No JavaScript, [as ligações](functions-triggers-bindings.md) são configuradas
 
 ### <a name="inputs"></a>Entradas
 A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do gatilho e a outra é a entrada adicional. O gatilho e outras ligações de entrada (encadernações `direction === "in"` de) podem ser lidos por uma função de três maneiras:
- - **_[Recomendado]_ Como parâmetros passados para a sua função.** São passados para a função na mesma ordem em que são definidos em *function.jsem*. A `name` propriedade definida emfunction.js*não* precisa de corresponder ao nome do seu parâmetro, embora deva.
+ - **_[Recomendado]_ Como parâmetros passados para a sua função.** São passados para a função na mesma ordem em que são definidos em *function.jsem*. A `name` propriedade definida emfunction.js* não* precisa de corresponder ao nome do seu parâmetro, embora deva.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como membros do [`context.bindings`](#contextbindings-property) objeto.** Cada membro é nomeado pela `name` propriedade definida emfunction.js*em*.
+ - **Como membros do [`context.bindings`](#contextbindings-property) objeto.** Cada membro é nomeado pela `name` propriedade definida emfunction.js* em*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -183,15 +183,38 @@ Para definir o tipo de dados para uma ligação de entrada, utilize o `dataType`
 As opções para `dataType` são: `binary` `stream` `string` e.
 
 ## <a name="context-object"></a>objeto de contexto
-O tempo de execução utiliza um `context` objeto para transmitir dados de e para a sua função e para permitir que comunique com o tempo de funcionamento. O objeto de contexto pode ser utilizado para ler e definir dados a partir de encadernações, registos de escrita e utilização da chamada quando a `context.done` sua função exportada é sincronizada.
 
-O `context` objeto é sempre o primeiro parâmetro para uma função. Deve ser incluído porque tem métodos importantes como `context.done` e `context.log` . Pode nomear o objeto o que quiser (por exemplo, `ctx` `c` ou).
+O tempo de execução utiliza um `context` objeto para transmitir dados de e para a sua função e o tempo de execução. Usado para ler e definir dados de encadernações e para escrever para registos, o `context` objeto é sempre o primeiro parâmetro passado para uma função.
+
+Para funções com código sincronizado, o objeto de contexto inclui a `done` chamada de chamada a que chama quando a função é feita de processamento. Explicitamente chamar `done` é desnecessário ao escrever código assíncrona; o retorno é chamado `done` implicitamente.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(ctx) {
-    // function logic goes here :)
-    ctx.done();
+module.exports = (context) => {
+
+    // function logic goes here
+
+    context.log("The function has executed.");
+
+    context.done();
+};
+```
+
+O contexto passado para a sua função expõe uma `executionContext` propriedade, que é um objeto com as seguintes propriedades:
+
+| Nome da propriedade  | Tipo  | Descrição |
+|---------|---------|---------|
+| `invocationId` | String | Fornece um identificador único para a invocação de funções específicas. |
+| `functionName` | String | Fornece o nome da função de execução |
+| `functionDirectory` | String | Fornece o diretório de aplicações de funções. |
+
+O exemplo que se segue mostra como devolver o `invocationId` .
+
+```javascript
+module.exports = (context, req) => {
+    context.res = {
+        body: context.executionContext.invocationId
+    };
+    context.done();
 };
 ```
 
@@ -201,7 +224,7 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Devolve um objeto nomeado que é usado para ler ou atribuir dados de ligação. Os dados de entrada e de ligação do gatilho podem ser acedidos através da leitura de propriedades em `context.bindings` . Os dados vinculativos da saída podem ser atribuídos adicionando dados a`context.bindings`
+Devolve um objeto nomeado que é usado para ler ou atribuir dados de ligação. Os dados de entrada e de ligação do gatilho podem ser acedidos através da leitura de propriedades em `context.bindings` . Os dados vinculativos da saída podem ser atribuídos adicionando dados a `context.bindings`
 
 Por exemplo, as seguintes definições vinculativas no seu function.jsem permitir-lhe aceder ao conteúdo de uma fila `context.bindings.myInput` e atribuir saídas a uma fila utilizando `context.bindings.myOutput` .
 
@@ -395,7 +418,7 @@ Quando trabalha com os detonadores HTTP, pode aceder aos objetos de pedido e res
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Apenas resposta]_ `context.res.send(body?: any)`Chamando.** Uma resposta HTTP é criada com a entrada `body` como o corpo de resposta. `context.done()`é implicitamente chamado.
++ **_[Apenas resposta]_ `context.res.send(body?: any)`Chamando.** Uma resposta HTTP é criada com a entrada `body` como o corpo de resposta. `context.done()` é implicitamente chamado.
 
 + **_[Apenas resposta]_ `context.done()`Chamando.** Um tipo especial de ligação HTTP devolve a resposta que é passada ao `context.done()` método. A seguinte ligação de saída HTTP define um `$return` parâmetro de saída:
 
@@ -500,7 +523,7 @@ As `function.json` propriedades e podem ser `scriptFile` `entryPoint` usadas par
 
 Por predefinição, uma função JavaScript é executada a partir de `index.js` , um ficheiro que partilha o mesmo directório-mãe que o correspondente `function.json` .
 
-`scriptFile`pode ser usado para obter uma estrutura de pasta que se pareça com o seguinte exemplo:
+`scriptFile` pode ser usado para obter uma estrutura de pasta que se pareça com o seguinte exemplo:
 
 ```
 FunctionApp
@@ -647,7 +670,7 @@ Ao desenvolver funções Azure no modelo de hospedagem sem servidor, o frio come
 
 Quando utilizar um cliente específico de serviço numa aplicação Azure Functions, não crie um novo cliente com cada invocação de funções. Em vez disso, crie um único cliente estático no âmbito global. Para obter mais informações, consulte [a gestão de ligações em Funções Azure](manage-connections.md).
 
-### <a name="use-async-and-await"></a>Uso `async` e`await`
+### <a name="use-async-and-await"></a>Uso `async` e `await`
 
 Ao escrever Funções Azure em JavaScript, deve escrever código utilizando as `async` `await` palavras-chave e as palavras-chave. Escrever códigos usando `async` e em vez de `await` callbacks ou `.then` com `.catch` Promessas ajuda a evitar dois problemas comuns:
  - Lançar exceções sem escoadas que [colidam com o processo Node.js,](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)podendo afetar a execução de outras funções.

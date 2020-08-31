@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 4c448b8ed50863457da69db3f74b959f04e26ec1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131859"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055316"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Serviço de fala: as novidades nos docs
 
@@ -48,9 +48,6 @@ Se quiser aprender sobre as atualizações do serviço de fala, SDK de fala, dis
 * [Quickstart: Ambiente de desenvolvimento de configuração](quickstarts/setup-platform.md) - Adicionou instruções javaScript à documentação.
 * [Quickstart: Sintetizar a fala num ficheiro áudio](quickstarts/text-to-speech-audio-file.md) - Adicione instruções javaScript à documentação.
 * [Quickstart: Sintetizar o discurso a um altifalante](quickstarts/text-to-speech.md) - Adicionar instruções javaScript à documentação.
-* [Quickstart: Traduzir discurso-a-discurso](quickstarts/translate-speech-to-speech.md) - Adicionar instruções javaScript à documentação.
-* [Quickstart: Traduzir a fala para vários idiomas](quickstarts/translate-speech-to-text-multiple-languages.md) - Adicionar instruções javaScript à documentação.
-* [Quickstart: Traduzir palavra-a-texto](quickstarts/translate-speech-to-text.md) - Adicionar instruções javaScript à documentação.
 * [O que é uma palavra-chave?](custom-keyword-overview.md) - Atualizado começar conteúdo e links.
 * [Especifique a linguagem de origem para a fala-a-texto](how-to-specify-source-language.md) - Acrescente instruções javaScript e Objective-C à documentação.
 
@@ -77,7 +74,7 @@ Esta tabela é atualizada mensalmente e apenas reflete as questões abertas em m
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|15 alegria|Os recipientes de serviço de fala em execução falham|2020-05-13|Aberta|Problema|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|Exemplo para arquivo de pronúncia|2020-05-11|Aberta|Problema|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|A amostra de Java está errada.|2020-05-10|Aberta|Problema|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Não consigo pronunciar pontuação|2020-05-08|Fechada|Problema|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Não consigo obter pronúncia Score|2020-05-08|Fechada|Problema|
 |[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Modelo de arquivo YAML|2020-05-07|Fechada|Problema|
 |[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C# O Código da Amostra não leva o utilizador a falar.|2020-05-06|Fechada|Problema|
 |[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Upgrade TTS de v1.3 para v1.4|2020-05-05|Fechada|Pedido de puxar|

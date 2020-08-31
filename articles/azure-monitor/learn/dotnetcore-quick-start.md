@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: c9787a88cba051dcfaa58a188bf43fb03cafe70a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a12fe837bfd9606d07c7be71851880d2cebb9d61
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325173"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055486"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
@@ -55,7 +55,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
    | **Grupo de Recursos**     | myResourceGroup      | Nome para o novo grupo de recursos para hospedar dados app Insights. Pode criar um novo grupo de recursos ou utilizar um existente. |
    | **Localização** | E.U.A. Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
-2. Clique em **Create** (Criar).
+2. Clique em **Criar**.
 
 
 
@@ -104,7 +104,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos relacionados. Para fazê-lo siga os passos abaixo.
 
 > [!NOTE]
-> Se utilizar um grupo de recursos existente, as instruções abaixo não funcionarão e terá de eliminar apenas o recurso Individual Application Insights. Tenha em mente que sempre que eliminar um grupo de recursos todos os recursos que são membros desse grupo serão eliminados.
+> Se utilizar um grupo de recursos existente, as instruções abaixo não funcionarão e terá de eliminar apenas o recurso Individual Application Insights. Tenha em mente que sempre que eliminar um grupo de recursos todos os recursos subjacentes que são membros desse grupo serão eliminados.
 
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.

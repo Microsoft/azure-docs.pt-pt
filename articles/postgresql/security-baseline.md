@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 475933bcc9219808087671d49778cc3696d8c815
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 46aae2acb1f35eb22259e1e648fb869c23f26c9c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500798"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067676"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linha de base de segurança Azure para base de dados Azure para servidor único pós-gresQL
 
@@ -34,11 +34,11 @@ Em alternativa, poderá utilizar pontos finais de serviço de rede virtual para 
 
 Também pode proteger a sua Base de Dados Azure para servidor PostgreSQL com regras de firewall. A firewall do servidor impede todo o acesso ao servidor de base de dados até especificar quais os computadores que têm permissão. Para configurar a firewall, crie as regras de firewall que especificam intervalos de endereços IP aceitáveis. Pode criar regras de firewall ao nível do servidor.
 
-Como configurar o Link Privado para a Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
+Como configurar o Link Privado para a Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
 
-Como criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-manage-vnet-using-portal
+Como criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-manage-vnet-using-portal
 
-Como configurar a Base de Dados Azure para as regras de firewall postgreSQL:https://docs.microsoft.com/azure/postgresql/howto-manage-firewall-using-portal
+Como configurar a Base de Dados Azure para as regras de firewall postgreSQL: https://docs.microsoft.com/azure/postgresql/howto-manage-firewall-using-portal
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -48,11 +48,11 @@ Como configurar a Base de Dados Azure para as regras de firewall postgreSQL:http
 
 **Orientação**: Quando a sua base de dados Azure para a instância PostgreSQL estiver protegida a um ponto final privado, pode implantar máquinas virtuais na mesma rede virtual. Pode utilizar um grupo de segurança de rede (NSG) para reduzir o risco de exfiltração de dados. Ativar os registos de fluxo NSG e enviar registos para uma conta de armazenamento para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho do Log Analytics e utilizar o Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens do Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender padrões de fluxo de tráfego e identificar configurações erradas da rede.
 
-Como configurar o Link Privado para a Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
+Como configurar o Link Privado para a Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
 
-Como ativar os registos de fluxo NSG:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Como ativar os registos de fluxo NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Como Ativar e utilizar a Análise de Tráfego:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Como Ativar e utilizar a Análise de Tráfego: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -72,9 +72,9 @@ Como Ativar e utilizar a Análise de Tráfego:https://docs.microsoft.com/azure/n
 
 Ativar a Norma de Proteção DDoS nas redes virtuais associadas à sua Base de Dados Azure para instâncias postgreSQL para proteger contra ataques de DDoS. Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados.
 
-Como configurar a Proteção Avançada de Ameaças para a Base de Dados de Azure para postgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Como configurar a Proteção Avançada de Ameaças para a Base de Dados de Azure para postgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-Como configurar a proteção DDoS:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Como configurar a proteção DDoS: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -84,9 +84,9 @@ Como configurar a proteção DDoS:https://docs.microsoft.com/azure/virtual-netwo
 
 **Orientação**: Quando a sua base de dados Azure para a instância PostgreSQL estiver protegida a um ponto final privado, pode implantar máquinas virtuais na mesma rede virtual. Em seguida, pode configurar um grupo de segurança de rede (NSG) para reduzir o risco de exfiltração de dados. Ativar os registos de fluxo NSG e enviar registos para uma conta de armazenamento para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho do Log Analytics e utilizar o Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens do Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender padrões de fluxo de tráfego e identificar configurações erradas da rede.
 
-Como ativar os registos de fluxo NSG:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Como ativar os registos de fluxo NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Como Ativar e utilizar a Análise de Tráfego:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Como Ativar e utilizar a Análise de Tráfego: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -96,7 +96,7 @@ Como Ativar e utilizar a Análise de Tráfego:https://docs.microsoft.com/azure/n
 
 **Orientação**: Utilize proteção de ameaças avançadas para base de dados de azure para postgreSQL. A Advanced Threat Protection deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados.
 
-Como configurar a Proteção Avançada de Ameaças para a Base de Dados de Azure para postgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Como configurar a Proteção Avançada de Ameaças para a Base de Dados de Azure para postgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -116,9 +116,9 @@ Como configurar a Proteção Avançada de Ameaças para a Base de Dados de Azure
 
 Nota: A Azure Database for PostgreSQL utiliza a etiqueta de serviço "Microsoft.Sql".
 
-Para mais informações sobre a utilização de etiquetas de serviço:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Para mais informações sobre a utilização de etiquetas de serviço: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
-Compreender a utilização da etiqueta de serviço para a Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet#terminology-and-description
+Compreender a utilização da etiqueta de serviço para a Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet#terminology-and-description
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -132,11 +132,11 @@ Compreender a utilização da etiqueta de serviço para a Base de Dados Azure pa
 
 - A ligação TLS da Aplicação deve ser ativada para servidores de base de dados PostgreSQL
 
-Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Amostras da Política Azure para networking:https://docs.microsoft.com/azure/governance/policy/samples/
+Amostras da Política Azure para networking: https://docs.microsoft.com/azure/governance/policy/samples/
 
-Como criar uma Planta Azure:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+Como criar uma Planta Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -150,7 +150,7 @@ Utilize qualquer uma das definições de Política Azure incorporadas relacionad
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar ações em recursos baseados nas suas etiquetas.
 
-Como criar e utilizar tags:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -160,9 +160,9 @@ Como criar e utilizar tags:https://docs.microsoft.com/azure/azure-resource-manag
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com a sua Base de Dados Azure para instâncias postgreSQL. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-Como visualizar e recuperar eventos de Registo de Atividades Azure:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+Como visualizar e recuperar eventos de Registo de Atividades Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-Como criar alertas no Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Como criar alertas no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -185,11 +185,11 @@ Como criar alertas no Azure Monitor:https://docs.microsoft.com/azure/azure-monit
 
 **Orientação**: Ative as definições de diagnóstico e registos de servidores e ingere registos para agregar dados de segurança gerados pela sua Base de Dados Azure para instâncias PostgreSQL. Dentro do Azure Monitor, utilize o Log Analytics Workspace(s) para consultar e realizar análises, e utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo. Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-Como configurar e aceder a Registos de Servidor para Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
+Como configurar e aceder a Registos de Servidor para Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
-Como configurar e aceder aos registos de auditoria da Azure Database para postgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-audit
+Como configurar e aceder aos registos de auditoria da Azure Database para postgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-audit
 
-Como embarcar Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -199,11 +199,11 @@ Como embarcar Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstar
 
 **Orientação**: Ative as definições de diagnóstico na sua Base de Dados Azure para instâncias postgreSQL para acesso a registos de auditoria, segurança e recursos. Certifique-se de que ativa especificamente o registo de Auditoria PostgreSQL. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, marcação de tempo, endereços de origem, endereços de destino e outros elementos úteis. Pode também ativar as Definições de Diagnóstico do Registo de Atividade do Azure e enviar os registos para o mesmo espaço de trabalho ou conta de armazenamento do Log Analytics.
 
-Como configurar e aceder a Registos de Servidor para Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
+Como configurar e aceder a Registos de Servidor para Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
-Como configurar e aceder aos registos de auditoria da Azure Database para postgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-audit
+Como configurar e aceder aos registos de auditoria da Azure Database para postgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-audit
 
-Como configurar definições de diagnóstico para o registo de atividades azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Como configurar definições de diagnóstico para o registo de atividades azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -222,9 +222,9 @@ Como configurar definições de diagnóstico para o registo de atividades azure:
 
 **Orientação**: No âmbito do Monitor Azure, para o espaço de trabalho do Log Analytics que está a ser utilizado para manter a sua Base de Dados Azure para registos PostgreSQL, desagreda o período de retenção de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-Como definir parâmetros de retenção de registos para os espaços de trabalho do Log Analytics:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Como definir parâmetros de retenção de registos para os espaços de trabalho do Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-Armazenar registos de recursos numa conta de armazenamento Azure:https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
+Armazenar registos de recursos numa conta de armazenamento Azure: https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -234,11 +234,11 @@ Armazenar registos de recursos numa conta de armazenamento Azure:https://docs.mi
 
 **Orientação**: Analise e monitorize registos da sua Base de Dados Azure para instâncias postgreSQL para comportamento anómalo. Utilize o Azure Monitor's Log Analytics para rever registos e efetuar consultas nos dados de registo. Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-Como embarcar Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Para mais informações sobre o Log Analytics:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Para mais informações sobre o Log Analytics: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Como realizar consultas personalizadas no Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+Como realizar consultas personalizadas no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -250,15 +250,15 @@ Como realizar consultas personalizadas no Azure Monitor:https://docs.microsoft.c
 
 Além disso, pode ativar registos de servidores e definições de diagnóstico para PostgreSQL e enviar registos para um espaço de trabalho de Pós-Análise. A bordo do seu Log Analytics Workspace para Azure Sentinel, uma vez que fornece uma solução de resposta automatizada de orquestração de segurança (SOAR). Isto permite criar playbooks (soluções automatizadas) e ser usados para remediar problemas de segurança.
 
-Como permitir a Proteção Avançada de Ameaças para Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Como permitir a Proteção Avançada de Ameaças para Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-Como configurar e aceder a Registos de Servidor para Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
+Como configurar e aceder a Registos de Servidor para Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
-Como configurar e aceder aos registos de auditoria da Azure Database para postgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-audit
+Como configurar e aceder aos registos de auditoria da Azure Database para postgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-audit
 
-Como configurar definições de diagnóstico para o registo de atividades azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Como configurar definições de diagnóstico para o registo de atividades azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
-Como embarcar Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -298,11 +298,11 @@ Como embarcar Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstar
 
 A Azure Database for PostgreSQL não suporta o controlo de acesso baseado em funções incorporado, mas pode criar funções personalizadas baseadas em operações específicas de fornecedores de recursos.
 
-Compreenda as funções personalizadas para a subscrição do Azure:https://docs.microsoft.com/azure/role-based-access-control/custom-roles 
+Compreenda as funções personalizadas para a subscrição do Azure: https://docs.microsoft.com/azure/role-based-access-control/custom-roles 
 
-Compreender a base de dados Azure para operações de fornecedor de recursos postgresQL:https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql 
+Compreender a base de dados Azure para operações de fornecedor de recursos postgresQL: https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql 
 
-Compreender a gestão de acessos para a Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-security#access-management
+Compreender a gestão de acessos para a Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-security#access-management
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -314,9 +314,9 @@ Compreender a gestão de acessos para a Base de Dados Azure para PostgreSQL:http
 
 Após a criação da Base de Dados Azure para o próprio recurso PostgreSQL, o Azure força a criação de um utilizador administrativo com uma palavra-passe forte. No entanto, uma vez criada a instância PostgreSQL, poderá utilizar a primeira conta de administração do servidor que criou para criar utilizadores adicionais e conceder acesso administrativo aos mesmos. Ao criar estas contas, certifique-se de que configura uma senha diferente e forte para cada conta.
 
-Como criar contas adicionais para a Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-create-users
+Como criar contas adicionais para a Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-create-users
 
-Como atualizar a palavra-passe de administrador:https://docs.microsoft.com/azure/postgresql/howto-create-manage-server-portal#update-admin-password
+Como atualizar a palavra-passe de administrador: https://docs.microsoft.com/azure/postgresql/howto-create-manage-server-portal#update-admin-password
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -326,9 +326,9 @@ Como atualizar a palavra-passe de administrador:https://docs.microsoft.com/azure
 
 **Orientação**: Crie procedimentos operacionais padrão em torno da utilização de contas administrativas dedicadas que tenham acesso à sua Base de Dados Azure para instâncias PostgreSQL. Utilize a identidade do Centro de Segurança Azure e a gestão de acessos para monitorizar o número de contas administrativas. 
 
-Compreenda a identidade e o acesso do Centro de Segurança Azure:https://docs.microsoft.com/azure/security-center/security-center-identity-access 
+Compreenda a identidade e o acesso do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-identity-access 
 
-Entenda como criar utilizadores administrativos na Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account
+Entenda como criar utilizadores administrativos na Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account
 
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
@@ -341,11 +341,11 @@ Entenda como criar utilizadores administrativos na Base de Dados Azure para Post
 
 Separadamente, o acesso do avião de controlo para PostgreSQL está disponível através da REST API e suporta sSO. Para autenticar, desacorda o cabeçalho de Autorização para os seus pedidos num Token Web JSON que obtenha do Azure Ative Directory.
 
-Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
+Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
 
-Compreenda a Base de Dados Azure para a API pós-SQL REST:https://docs.microsoft.com/rest/api/postgresql/
+Compreenda a Base de Dados Azure para a API pós-SQL REST: https://docs.microsoft.com/rest/api/postgresql/
 
-Compreender SSO com Azure AD:https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Compreender SSO com Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -355,11 +355,11 @@ Compreender SSO com Azure AD:https://docs.microsoft.com/azure/active-directory/m
 
 **Orientação**: Ativar a autenticação multi-factor do Diretório Ativo Azure (MFA) e seguir as recomendações do Azure Security Center Identity and Access Management. Ao utilizar fichas AD Azure para iniciar sessão na sua base de dados, isto permite-lhe requerer autenticação multi-factor para iniciar sessão de base de dados.
 
-Como permitir o MFA em Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Como permitir o MFA em Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
+Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
 
-Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -369,9 +369,9 @@ Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure:ht
 
 **Orientação**: Utilize estações de trabalho de acesso privilegiada (PAWs) com autenticação multi-factor (MFA) configuradas para iniciar sessão e configurar recursos Azure.
 
-Saiba mais sobre estações de acesso privilegiadas:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Saiba mais sobre estações de acesso privilegiadas: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
-Como permitir o MFA em Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Como permitir o MFA em Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -385,11 +385,11 @@ Além disso, pode utilizar o Azure Ative Directory (AD) Privileged Identity Mana
 
 Utilize deteções de risco Azure AD para visualizar alertas e relatórios sobre o comportamento do utilizador de risco.
 
-Como configurar a Proteção Avançada de Ameaças para Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Como configurar a Proteção Avançada de Ameaças para Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-Como implementar a Gestão de Identidade Privilegiada (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Como implementar a Gestão de Identidade Privilegiada (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Compreenda as deteções de risco da AD Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Compreenda as deteções de risco da AD Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -399,7 +399,7 @@ Compreenda as deteções de risco da AD Azure:https://docs.microsoft.com/azure/a
 
 **Orientação**: Utilize locais nomeados de acesso condicional para permitir o acesso do portal e do Gestor de Recursos Azure a partir de apenas agrupamentos lógicos específicos de intervalos de endereços IP ou países/regiões.
 
-Como configurar localizações nomeadas em Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Como configurar localizações nomeadas em Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -413,7 +413,7 @@ Para iniciar sessão na Base de Dados Azure para PostgreSQL, recomenda-se a util
 
 As credenciais AD do AZure também podem ser utilizadas para a administração a nível do plano de gestão (por exemplo, o portal Azure) para controlar as contas de administração postgresQL.
 
-Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
+Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -423,11 +423,11 @@ Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para Po
 
 **Orientação**: Reveja os registos do Azure Ative Directory para ajudar a descobrir contas velhas que podem incluir as que têm Base de Dados Azure para funções administrativas postgreSQL. Além disso, utilize a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais que possam ser usadas para aceder à Base de Dados Azure para PostgreSQL e atribuições de funções. O acesso ao utilizador deve ser revisto regularmente, como a cada 90 dias, para garantir que apenas os Utilizadores certos tenham acesso continuado.
 
-Compreenda a ad azure reportando:https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Compreenda a ad azure reportando: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-Como utilizar comentários sobre o acesso à identidade do Azure:https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+Como utilizar comentários sobre o acesso à identidade do Azure: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-Reveja os utilizadores postgreSQL e as funções atribuídas:https://www.postgresql.org/docs/current/database-roles.html
+Reveja os utilizadores postgreSQL e as funções atribuídas: https://www.postgresql.org/docs/current/database-roles.html
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -437,11 +437,11 @@ Reveja os utilizadores postgreSQL e as funções atribuídas:https://www.postgre
 
 **Orientação**: Ativar as definições de diagnóstico da Base de Dados de Azure para o PostgreSQL e o Azure Ative Directory, enviando todos os registos para um espaço de trabalho log analytics. Configure os alertas desejados (tais como tentativas de autenticação falhada) no Log Analytics.
 
-Como configurar e aceder a Registos de Servidor para Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
+Como configurar e aceder a Registos de Servidor para Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
-Como configurar e aceder aos registos de auditoria da Azure Database para postgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-audit
+Como configurar e aceder aos registos de auditoria da Azure Database para postgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-audit
 
-Como integrar os Registos de Atividade do Azure no Monitor Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Como integrar os Registos de Atividade do Azure no Monitor Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -455,13 +455,13 @@ Utilize as funcionalidades de Proteção de Identidade do Azure Ative Directory 
 
 Você também pode ingerir troncos em Azure Sentinel para mais investigação.
 
-Como configurar a Proteção Avançada de Ameaças para Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Como configurar a Proteção Avançada de Ameaças para Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-Visão geral da Proteção de Identidade AZure AD:https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection
+Visão geral da Proteção de Identidade AZure AD: https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection
 
-Como ver a Azure AD a iniciar súmis arriscados:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Como ver a Azure AD a iniciar súmis arriscados: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
-Como embarcar Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -471,7 +471,7 @@ Como embarcar Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstar
 
 **Orientação**: Atualmente não disponível; O Lockbox do cliente ainda não está suportado para a Base de Dados Azure para PostgreSQL.
 
-Lista de serviços suportados pelo Customer Lockbox:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista de serviços suportados pelo Customer Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -485,7 +485,7 @@ Lista de serviços suportados pelo Customer Lockbox:https://docs.microsoft.com/a
 
 **Orientação**: Utilize etiquetas para ajudar a rastrear a Base de Dados Azure para instâncias postgreSQL ou recursos relacionados que armazenam ou processam informações sensíveis.
 
-Como criar e utilizar tags:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -495,15 +495,15 @@ Como criar e utilizar tags:https://docs.microsoft.com/azure/azure-resource-manag
 
 **Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. Utilize uma combinação de regras private link, endpoints de serviço e/ou firewall para isolar e limitar o acesso à rede à sua Base de Dados Azure para instâncias PostgreSQL.
 
-Como criar subscrições adicionais do Azure:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Como criar subscrições adicionais do Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Como criar Grupos de Gestão:https://docs.microsoft.com/azure/governance/management-groups/create
+Como criar Grupos de Gestão: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Como configurar o Link Privado para a Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
+Como configurar o Link Privado para a Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
 
-Como criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-manage-vnet-using-portal
+Como criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-manage-vnet-using-portal
 
-Como configurar a Base de Dados Azure para as regras de firewall postgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules
+Como configurar a Base de Dados Azure para as regras de firewall postgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
@@ -515,9 +515,9 @@ Como configurar a Base de Dados Azure para as regras de firewall postgreSQL:http
 
 A Microsoft gere a infraestrutura subjacente à Base de Dados Azure para PostgreSQL e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-Como mitigar a exfiltração de dados para a Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link
+Como mitigar a exfiltração de dados para a Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link
 
-Compreender a proteção de dados do cliente em Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -529,7 +529,7 @@ Compreender a proteção de dados do cliente em Azure:https://docs.microsoft.com
 
 Atualmente, a versão TLS suportada para Azure Database for PostgreSQL são TLS 1.0, TLS 1.1, TLS 1.2.
 
-Como configurar a encriptação em trânsito para a Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security
+Como configurar a encriptação em trânsito para a Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -541,7 +541,7 @@ Como configurar a encriptação em trânsito para a Base de Dados Azure para Pos
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-Compreender a proteção de dados do cliente em Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -549,11 +549,11 @@ Compreender a proteção de dados do cliente em Azure:https://docs.microsoft.com
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso à Base de Dados Azure para o plano de controlo PostgreSQL (por exemplo, portal Azure). Para o acesso a um plano de dados (dentro da própria base de dados), utilize consultas SQL para criar utilizadores e configurar permissões do utilizador. O RBAC não afeta as permissões do utilizador dentro da base de dados.
+**Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso à Base de Dados Azure para o plano de controlo PostgreSQL (por exemplo, portal Azure). Para o acesso a um plano de dados (dentro da própria base de dados), utilize consultas SQL para criar utilizadores e configurar permissões do utilizador. O Azure RBAC não afeta as permissões do utilizador dentro da base de dados.
 
-Como configurar o RBAC em Azure:https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Como configurar o Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-Como configurar o acesso do utilizador com o SQL para a Base de Dados de Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-create-users
+Como configurar o acesso do utilizador com o SQL para a Base de Dados de Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-create-users
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -565,7 +565,7 @@ Como configurar o acesso do utilizador com o SQL para a Base de Dados de Azure p
 
 A Microsoft gere a infraestrutura subjacente à Base de Dados Azure para PostgreSQL e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-Compreender a proteção de dados do cliente em Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -579,7 +579,7 @@ A encriptação de dados com teclas geridas pelo cliente (CMK) para Azure Databa
 
 AskAzureDBforPostgreSQL@service.microsoft.com.
 
-Compreenda a encriptação em repouso para a Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-security
+Compreenda a encriptação em repouso para a Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-security
 
 Compreenda a encriptação em repouso para a Base de Dados Azure para PostgreSQL utilizando chaves geridas pelo cliente:https://docs.microsoft.com/azure/postgresql/concepts-data-encryption-postgresql
 
@@ -592,7 +592,7 @@ Compreenda a encriptação em repouso para a Base de Dados Azure para PostgreSQL
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações nas instâncias de produção da Base de Dados Azure para PostgreSQL e outros recursos críticos ou relacionados.
 
-Como criar alertas para eventos de Registo de Atividades Azure:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Como criar alertas para eventos de Registo de Atividades Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -606,7 +606,7 @@ Como criar alertas para eventos de Registo de Atividades Azure:https://docs.micr
 
 **Orientação**: Atualmente não disponível; O Azure Security Center ainda não suporta a avaliação de vulnerabilidade para a Base de Dados Azure para PostgreSQL.
 
-Cobertura de recursos para os serviços Azure PaaS no Azure Security Center:https://docs.microsoft.com/azure/security-center/features-paas
+Cobertura de recursos para os serviços Azure PaaS no Azure Security Center: https://docs.microsoft.com/azure/security-center/features-paas
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -652,11 +652,11 @@ Cobertura de recursos para os serviços Azure PaaS no Azure Security Center:http
 
 **Orientação**: Utilize o Azure Resource Graph para consultar e descobrir todos os recursos (incluindo a Base de Dados Azure para instâncias PostgreSQL) dentro da sua subscrição(s). Certifique-se de que tem permissões (de leitura) adequadas no seu inquilino e é capaz de enumerar todas as subscrições da Azure, bem como recursos dentro das suas subscrições.
 
-Como criar consultas com gráfico de recursos Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com gráfico de recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Como ver as suas Subscrições Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Como ver as suas Subscrições Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Compreenda Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control/overview
+Compreenda Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -666,7 +666,7 @@ Compreenda Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control
 
 **Orientação**: Aplicar etiquetas na Base de Dados Azure para instâncias postgreSQL e outros recursos relacionados que dão metadados para organizá-los logicamente numa taxonomia.
 
-Como criar e utilizar tags:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -676,11 +676,11 @@ Como criar e utilizar tags:https://docs.microsoft.com/azure/azure-resource-manag
 
 **Orientação**: Utilize a marcação, grupos de gestão e assinaturas separadas, se for caso disso, para organizar e rastrear a Base de Dados Azure para instâncias postgreSQL e recursos conexos. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição em tempo útil.
 
-Como criar subscrições adicionais do Azure:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Como criar subscrições adicionais do Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Como criar Grupos de Gestão:https://docs.microsoft.com/azure/governance/management-groups/create
+Como criar Grupos de Gestão: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Como criar e utilizar tags:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -704,9 +704,9 @@ Como criar e utilizar tags:https://docs.microsoft.com/azure/azure-resource-manag
 
 Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da(s) subscrição.
 
-Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como criar consultas com O Gráfico Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -744,9 +744,9 @@ Como criar consultas com O Gráfico Azure:https://docs.microsoft.com/azure/gover
 
 - Tipos de recursos permitidos
 
-Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como negar um tipo específico de recurso com a Política Azure:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -764,7 +764,7 @@ Como negar um tipo específico de recurso com a Política Azure:https://docs.mic
 
 **Orientação**: Utilize o Acesso Condicional Azure para limitar a capacidade dos utilizadores de interagirem com o Azure Resource Manager, configurando o "Acesso ao Bloco" para a app "Microsoft Azure Management". Isto pode impedir a criação e alterações de recursos num ambiente de alta segurança, como casos de Azure Database for PostgreSQL contendo informações confidenciais.
 
-Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -798,9 +798,9 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recurso
 
 - As ligações de registo devem ser ativadas para servidores de base de dados PostgreSQL
 
-Como visualizar pseudónimos disponíveis da Política Azure:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como visualizar pseudónimos disponíveis da Política Azure: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -818,9 +818,9 @@ Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/go
 
 **Orientação**: Use a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Compreenda os efeitos da política do Azure:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Compreenda os efeitos da política do Azure: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -838,9 +838,9 @@ Compreenda os efeitos da política do Azure:https://docs.microsoft.com/azure/gov
 
 **Orientação**: Se utilizar definições personalizadas da Política Azure para a sua Base de Dados Azure para instâncias postgreSQL e recursos relacionados, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
 
-Como armazenar código em Azure DevOps:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Como armazenar código em Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentação Azure Repos:https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Documentação Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -858,7 +858,7 @@ Documentação Azure Repos:https://docs.microsoft.com/azure/devops/repos/index?v
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.DBforPostgreSQL" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Além disso, desenvolva um processo e um oleoduto para gerir exceções políticas.
 
-Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -876,7 +876,7 @@ Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/go
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.DBforPostgreSQL" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Utilize a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente configurações para a sua Base de Dados Azure para instâncias postgreSQL e recursos relacionados.
 
-Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -894,11 +894,11 @@ Como configurar e gerir a Política de Azure:https://docs.microsoft.com/azure/go
 
 **Orientação**: Para máquinas virtuais Azure ou aplicações web em execução no Azure App Service sendo usado para aceder à sua Base de Dados Azure para instâncias postgreSQL, utilize a Identidade de Serviço Gerido em conjunto com o Azure Key Vault para simplificar e proteger a Base de Dados Azure para gestão secreta pós-SQL. Certifique-se de que o cofre da chave é excluído suave.
 
-Como integrar-se com identidades geridas aZure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Como integrar-se com identidades geridas aZure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um Cofre chave:https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Como criar um Cofre chave: https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Como fornecer a autenticação do Cofre-Chave com uma identidade gerida:https://docs.microsoft.com/azure/key-vault/managed-identity
+Como fornecer a autenticação do Cofre-Chave com uma identidade gerida: https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -912,9 +912,9 @@ Para máquinas virtuais Azure ou aplicações web em execução no Azure App Ser
 
 Utilize identidades geridas para fornecer serviços Azure com uma identidade gerida automaticamente no Azure Ative Directory (AD). Identidades geridas permite-lhe autenticar qualquer serviço que suporte a autenticação AZURE AD, incluindo o Key Vault, sem quaisquer credenciais no seu código.
 
-Como configurar identidades geridas:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Como configurar identidades geridas: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-Como integrar-se com identidades geridas aZure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Como integrar-se com identidades geridas aZure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -924,7 +924,7 @@ Como integrar-se com identidades geridas aZure:https://docs.microsoft.com/azure/
 
 **Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
 
-Como configurar o Scanner Credencial:https://secdevtools.azurewebsites.net/helpcredscan.html
+Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -973,9 +973,9 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 **Orientação**: A base de dados Azure para PostgreSQL requer cópias de segurança dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (4 servidores de armazenamento máximo de TB) ou cópias de segurança instantâneas (até 16 servidores de armazenamento máximo de TB). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
 
-Como fazer backup de um servidor na Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
+Como fazer backup de um servidor na Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
 
-Compreenda a base de dados Azure para a configuração inicial pós-SQL:https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal
+Compreenda a base de dados Azure para a configuração inicial pós-SQL: https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -987,9 +987,9 @@ Compreenda a base de dados Azure para a configuração inicial pós-SQL:https://
 
 Se utilizar o Cofre de Chaves Azure para armazenar credenciais para a sua Base de Dados Azure para instâncias PostgreSQL, certifique-se de cópias de segurança automáticas regulares das suas chaves.
 
-Como fazer backup de um servidor na Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
+Como fazer backup de um servidor na Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
 
-Como apoiar chaves do cofre chave:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+Como apoiar chaves do cofre chave: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -1003,7 +1003,7 @@ O tempo estimado de recuperação depende de vários fatores, incluindo os taman
 
 Teste periodicamente a restauração da sua Base de Dados Azure para instâncias postgreSQL.
 
-Como fazer backup de um servidor na Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
+Como fazer backup de um servidor na Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1013,7 +1013,7 @@ Como fazer backup de um servidor na Base de Dados Azure para PostgreSQL:https://
 
 **Orientação**: A base de dados de Azure para PostgreSQL requer cópias de segurança completas, diferenciais e de registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
 
-Compreenda a cópia de segurança e a restauração na Base de Dados Azure para PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-backup
+Compreenda a cópia de segurança e a restauração na Base de Dados Azure para PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-backup
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1027,13 +1027,13 @@ Compreenda a cópia de segurança e a restauração na Base de Dados Azure para 
 
 **Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
 
-Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure:https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-Orientação para a construção do seu próprio processo de resposta a incidentes de segurança:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Orientação para a construção do seu próprio processo de resposta a incidentes de segurança: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Anatomia de um incidente do Microsoft Security Response Center:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Anatomia de um incidente do Microsoft Security Response Center: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes:https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1053,7 +1053,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
 
-Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for IT Plans and Capabilities:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1063,7 +1063,7 @@ Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for
 
 **Orientação**: As informações de contacto com incidentes de segurança serão utilizadas pela Microsoft para o contactar se o Microsoft Security Response Center (MSRC) descobrir que os dados do cliente foram acedidos por uma parte ilegal ou não autorizada.  Reveja os incidentes após o facto de garantir que as questões sejam resolvidas.
 
-Como definir o Contacto de Segurança do Centro de Segurança Azure:https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Como definir o Contacto de Segurança do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1073,9 +1073,9 @@ Como definir o Contacto de Segurança do Centro de Segurança Azure:https://docs
 
 **Orientação**: Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a função exportação contínua. A Exportação Contínua permite-lhe exportar alertas e recomendações manualmente ou de forma contínua e contínua. Pode utilizar o conector de dados do Azure Security Center para transmitir os alertas Sentinel.
 
-Como configurar a exportação contínua:https://docs.microsoft.com/azure/security-center/continuous-export
+Como configurar a exportação contínua: https://docs.microsoft.com/azure/security-center/continuous-export
 
-Como transmitir alertas para Azure Sentinel:https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+Como transmitir alertas para Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1085,7 +1085,7 @@ Como transmitir alertas para Azure Sentinel:https://docs.microsoft.com/azure/sen
 
 **Orientação**: Utilize a função de automatização do fluxo de trabalho no Centro de Segurança Azure para desencadear automaticamente respostas através de "Aplicações Lógicas" em alertas e recomendações de segurança.
 
-Como configurar a automatização do fluxo de trabalho e as aplicações lógicas:https://docs.microsoft.com/azure/security-center/workflow-automation
+Como configurar a automatização do fluxo de trabalho e as aplicações lógicas: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1097,9 +1097,9 @@ Como configurar a automatização do fluxo de trabalho e as aplicações lógica
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todos os resultados críticos de segurança no prazo de 60 dias
 
-**Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft:https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Pode encontrar mais informações sobre a estratégia e execução da Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridas pela Microsoft em nuvem, aqui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Pode encontrar mais informações sobre a estratégia e execução da Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridas pela Microsoft em nuvem, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

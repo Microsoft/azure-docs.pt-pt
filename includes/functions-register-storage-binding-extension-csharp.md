@@ -9,7 +9,7 @@ ms.locfileid: "78201949"
 ::: zone pivot="programming-language-csharp"  
 ## <a name="register-binding-extensions"></a>Registar as extensões de enlace
 
-Com exceção dos gatilhos HTTP e temporizador, as encadernações são implementadas como pacotes de extensão. Execute o seguinte comando de pacote de [dotnet](/dotnet/core/tools/dotnet-add-package) na janela terminal para adicionar o pacote de extensão de armazenamento ao seu projeto.
+Com exceção dos gatilhos HTTP e timer, as ligações são implementadas como pacotes de extensão. Executar o seguinte [comando de pacote de dotnet](/dotnet/core/tools/dotnet-add-package) na janela Terminal para adicionar o pacote de extensão de Armazenamento ao seu projeto.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4

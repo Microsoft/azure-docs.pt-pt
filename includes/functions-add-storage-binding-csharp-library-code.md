@@ -11,7 +11,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78190926"
 ---
-Adicione o código `msg` que utiliza o objeto de ligação de saída para criar uma mensagem de fila. Adicione este código antes da devolução do método.
+Adicione código que utiliza o `msg` objeto de ligação de saída para criar uma mensagem de fila. Adicione este código antes do método voltar.
 
 :::code language="csharp" range="28-32" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" :::
 

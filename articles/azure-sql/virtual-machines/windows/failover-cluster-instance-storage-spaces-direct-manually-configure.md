@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: fb253845330a139b04fa79090a27a135f67cab46
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5f2fa1f33fe57b0d96ad3d6faa334b98d21c5f4a
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954792"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055180"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Criar um FCI com espaços de armazenamento direto (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -233,7 +233,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [balanceador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 e o Windows Server 2019, pode antes visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
+Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [equilibrador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 e o Windows Server 2016 (ou mais tarde), pode visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
 
 ## <a name="limitations"></a>Limitações
 
@@ -241,7 +241,7 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 - Os discos que tenham sido anexados como discos formatados NTFS só podem ser utilizados com espaços de armazenamento diretos apenas se a opção de elegibilidade do disco não for verificada ou limpa quando o armazenamento for adicionado ao cluster. 
 - Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-vm-resource-provider-register.md#management-modes)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, configugue a conectividade com o seu FCI com um [nome de rede virtual e um equilibrador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou nome de rede distribuído [(DNN)](hadr-distributed-network-name-dnn-configure.md). 
 

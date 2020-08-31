@@ -11,11 +11,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83125855"
 ---
-1. No Visual Studio Code, prima F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Open in portal` .
+1. No Código do Estúdio Visual, prima F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Open in portal` .
 
-1. Escolha a sua aplicação de função e prima Enter. A página da aplicação de funções abre no portal Azure.
+1. Escolha a sua aplicação de função e prima Enter. A página de aplicação de função abre no portal Azure.
 
-1. No separador **Visão Geral,** selecione o link nomeado ao lado do **grupo Recurso**.
+1. No **separador Visão Geral,** selecione o link nomeado ao lado **do grupo De recursos**.
 
    :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Selecione o grupo de recursos a eliminar na página da aplicação de função.":::
 

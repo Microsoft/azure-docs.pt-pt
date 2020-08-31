@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 069e0f2d14dafe0de208ac69d2d652361a11ee34
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d924c019d5ee231f3c9d66a56c4d98857bc89abc
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012437"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055554"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -58,9 +58,9 @@ Cada documento SSML é criado com elementos SSML (ou tags). Estes elementos são
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `version` | Indica a versão da especificação SSML utilizada para interpretar a marcação do documento. A versão atual é 1.0. | Obrigatório |
-| `xml:lang` | Especifica a linguagem do documento raiz. O valor pode conter um código linguístico de duas letras (por exemplo), `en` ou o código linguístico e o país/região de maiúsculas (por exemplo, `en-US` ). | Obrigatório |
-| `xmlns` | Especifica o URI ao documento que define o vocabulário de marcação (os tipos de elementos e os nomes de atributos) do documento SSML. O URI atual http://www.w3.org/2001/10/synthesis é. | Obrigatório |
+| `version` | Indica a versão da especificação SSML utilizada para interpretar a marcação do documento. A versão atual é 1.0. | Necessário |
+| `xml:lang` | Especifica a linguagem do documento raiz. O valor pode conter um código linguístico de duas letras (por exemplo), `en` ou o código linguístico e o país/região de maiúsculas (por exemplo, `en-US` ). | Necessário |
+| `xmlns` | Especifica o URI ao documento que define o vocabulário de marcação (os tipos de elementos e os nomes de atributos) do documento SSML. O URI atual http://www.w3.org/2001/10/synthesis é. | Necessário |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Escolha uma voz para texto-a-discurso
 
@@ -78,7 +78,7 @@ O `voice` elemento é necessário. É utilizado para especificar a voz que é us
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Obrigatório |
+| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Necessário |
 
 **Exemplo**
 
@@ -101,7 +101,7 @@ Dentro do `speak` elemento, pode especificar várias vozes para a saída texto-a
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Obrigatório |
+| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Necessário |
 
 > [!IMPORTANT]
 > Várias vozes são incompatíveis com a função de limite da palavra. A função de limite da palavra precisa de ser desativada para utilizar várias vozes.
@@ -112,7 +112,7 @@ Dependendo da linguagem SDK do discurso, você definirá `"SpeechServiceResponse
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Para obter mais informações, veja <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```csharp
 speechConfig.SetProperty(
@@ -121,7 +121,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Para obter mais informações, veja <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```cpp
 speechConfig->SetProperty(
@@ -130,7 +130,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Para obter mais informações, veja <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 speechConfig.setProperty(
@@ -139,7 +139,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Para obter mais informações, veja <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -148,7 +148,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Para obter mais informações, veja <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -157,7 +157,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Para obter mais informações, veja <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -165,7 +165,7 @@ Para mais informações, consulte. <a href="https://docs.microsoft.com/objective
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Para mais informações, consulte. <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Para obter mais informações, veja <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -238,7 +238,8 @@ Utilize esta tabela para determinar quais os estilos de fala suportados por cada
 |                         | `style="angry"`           | Expressa um tom irritado e irritado, com tom mais baixo, maior intensidade e maior energia vocal. O orador está em estado de irado, desagradado e ofendido.       |
 |                         | `style="fearful"`         | Expressa um tom assustado e nervoso, com tom mais alto, energia vocal mais alta e taxa mais rápida. O orador está num estado de tensão e inquietação.                          |
 |                         | `style="disgruntled"`     | Expressa um tom desdenhoso e queixoso. O discurso desta emoção mostra descontentamento e desprezo.              |
-|                         | `style="serious"`         | Expressa um tom rigoroso e comandado. O orador soa frequentemente mais duro e muito menos relaxado com cadência firme.          | |                         | `style="affectionate"`    | Expressa um tom caloroso e afetuoso, com maior tom e energia vocal. O orador está em estado de chamar a atenção do ouvinte. A "personalidade" do orador é muitas vezes cativante na natureza.          |     
+|                         | `style="serious"`         | Expressa um tom rigoroso e comandado. O orador soa frequentemente mais duro e muito menos relaxado com cadência firme.          |
+|                         | `style="affectionate"`    | Expressa um tom caloroso e afetuoso, com maior tom e energia vocal. O orador está em estado de chamar a atenção do ouvinte. A "personalidade" do orador é muitas vezes cativante na natureza.          |     
 |                         | `style="gentle"`          | Expressa um tom suave, educado e agradável, com menor tom e energia vocal         |   
 |                         | `style="lyrical"`         | Expressa emoções de forma melódica e sentimental         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  | 
@@ -602,7 +603,7 @@ As alterações de tom podem ser aplicadas às vozes padrão ao nível da palavr
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Obrigatório |
+| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Necessário |
 | `format` | Fornece informações adicionais sobre a formatação precisa do texto do elemento para tipos de conteúdo que podem ter formatos ambíguos. SSML define formatos para tipos de conteúdo que os utilizam (ver tabela abaixo). | Opcional |
 | `detail` | Indica o nível de detalhe a ser falado. Por exemplo, este atributo pode solicitar que o motor de síntese da fala pronuncie marcas de pontuação. Não existem valores padrão definidos para `detail` . | Opcional |
 

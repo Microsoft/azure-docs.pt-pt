@@ -8,12 +8,13 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: c0ad9ae885a458da5df8975d5d13018fd92bbdaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: aed079c467139ac5819951c5895ba753ee38ae2d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710784"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067744"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associar a subscrição do peer ASN à Azure utilizando o PowerShell
 
@@ -100,7 +101,7 @@ Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ## <a name="delete-peerasn"></a>Eliminar PeerAsn
 A eliminação de um PeerASN não é atualmente apoiada. Se precisar de eliminar o PeerASN, contacte [a Microsoft a espreitar](mailto:peering@microsoft.com).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar um peering Direto](howto-direct-powershell.md)
 * [Converter um peering Direto legado para o recurso do Azure](howto-legacy-direct-powershell.md)

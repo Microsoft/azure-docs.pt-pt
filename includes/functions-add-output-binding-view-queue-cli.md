@@ -11,11 +11,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673370"
 ---
-Pode ver a fila no [portal Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) ou no [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Pode também ver a fila no Azure CLI, conforme descrito nos seguintes passos:
+Pode ver a fila no [portal Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) ou no  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Também pode ver a fila no CLI Azure, conforme descrito nos seguintes passos:
 
-1. Abra o ficheiro *local.definição.json* do projeto de função e copie o valor da cadeia de ligação. Numa janela de terminais ou comando, execute `AZURE_STORAGE_CONNECTION_STRING`o seguinte comando para criar `<MY_CONNECTION_STRING>`uma variável ambiental chamada, colando a sua cadeia de ligação específica no lugar de . (Esta variável ambiental significa que não precisa de fornecer a `--connection-string` cadeia de ligação a cada comando subsequente usando o argumento.)
+1. Abra alocal.setting.jsdo projeto de função * no* ficheiro e copie o valor da cadeia de ligação. Numa janela de terminal ou comando, executar o seguinte comando para criar uma variável ambiental `AZURE_STORAGE_CONNECTION_STRING` chamada, colando a sua cadeia de ligação específica no lugar de  `<MY_CONNECTION_STRING>` . (Esta variável ambiental significa que não precisa de fornecer a cadeia de ligação a cada comando subsequente utilizando o `--connection-string` argumento.)
 
-    # <a name="bash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[festa](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
@@ -35,15 +35,15 @@ Pode ver a fila no [portal Azure](../articles/storage/queues/storage-quickstart-
     
     ---
     
-1. (Opcional) Utilize [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) o comando para visualizar as filas de armazenamento na sua conta. A saída deste comando deve `outqueue`incluir uma fila chamada , que foi criada quando a função escreveu a sua primeira mensagem para aquela fila.
+1. (Opcional) Utilize o [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) comando para visualizar as filas de armazenamento na sua conta. A saída deste comando deve incluir uma fila chamada `outqueue` , que foi criada quando a função escreveu a sua primeira mensagem para essa fila.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. Utilize [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) o comando para ler a mensagem desta fila, que deve ser o primeiro nome utilizado ao testar a função anteriormente. O comando lê e remove a primeira mensagem da fila. 
+1. Utilize o [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) comando para ler a mensagem desta fila, que deve ser o primeiro nome que usou ao testar a função anteriormente. O comando lê e remove a primeira mensagem da fila. 
 
-    # <a name="bash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[festa](#tab/bash)
     
     ```bash
     echo `echo $(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
@@ -61,8 +61,8 @@ Pode ver a fila no [portal Azure](../articles/storage/queues/storage-quickstart-
     az storage message get --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
     ```
 
-    Este script utiliza o certutil para descodificar a coleção de mensagens codificada base64 a partir de um ficheiro temporário local. Se não houver saída, `> NUL` tente remover do guião para parar de suprimir a saída certutil, caso haja um erro. 
+    Este script utiliza certutil para descodificar a recolha de mensagens codificadas base64 a partir de um ficheiro temporário local. Se não houver saída, tente remover `> NUL` do script para parar de suprimir a saída de certutil, no caso de haver um erro. 
     
     ---
     
-    Como o corpo da mensagem está armazenado na [base64 codificada,](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding)a mensagem deve ser descodificada antes de ser apresentada. Depois de `az storage message get`executar, a mensagem é removida da fila. Se houvesse apenas `outqueue`uma mensagem, não recuperará uma mensagem quando executar este comando uma segunda vez e, em vez disso, obter um erro.
+    Como o corpo da mensagem está armazenado [na base64 codificado,](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding)a mensagem deve ser descodificado antes de ser exibida. Depois de `az storage message get` executar, a mensagem é removida da fila. Se houvesse apenas uma `outqueue` mensagem, não recuperará uma mensagem quando executar este comando uma segunda vez e, em vez disso, terá um erro.

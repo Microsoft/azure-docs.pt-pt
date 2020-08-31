@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6beda409f03938f471f089bceebaa97c6d02ae7e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496224"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055571"
 ---
 # <a name="use-file-metadata-in-queries"></a>Use metadados de ficheiros em consultas
 
-O serviço de consulta on-demand SQL pode abordar vários ficheiros e pastas conforme descrito nas pastas de consulta e no artigo [de vários ficheiros.](query-folders-multiple-csv-files.md) Neste artigo, aprende a utilizar informações de metadados sobre ficheiros e nomes de pastas nas consultas.
+O SQL on-demand pode abordar vários ficheiros e pastas conforme descrito nas pastas De consulta e no artigo [de vários ficheiros.](query-folders-multiple-csv-files.md) Neste artigo, aprende a utilizar informações de metadados sobre ficheiros e nomes de pastas nas consultas.
 
 Por vezes, poderá ser necessário saber qual o ficheiro ou fonte de pasta que se relaciona com uma linha específica no conjunto de resultados.
 

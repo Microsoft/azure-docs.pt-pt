@@ -6,12 +6,12 @@ ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 154558a2aa679dddad395225088ea891ecea8ebc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 744e62f8a2207cff400a96069fc6ea82866f6e2d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654281"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055690"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Atualização de imagem do nó de Azure Kubernetes (AKS)
 
@@ -20,6 +20,10 @@ A AKS suporta a atualização das imagens num nó para que esteja atualizado com
 Se estiver interessado em saber mais sobre as imagens mais recentes fornecidas pela AKS, consulte as notas de lançamento da [AKS](https://github.com/Azure/AKS/releases) para mais detalhes.
 
 Para obter informações sobre a atualização da versão Kubernetes para o seu cluster, consulte [atualizar um cluster AKS][upgrade-cluster].
+
+## <a name="limitations"></a>Limitações
+
+* O cluster AKS deve utilizar conjuntos de balança de máquinas virtuais para os nós.
 
 ## <a name="install-the-aks-cli-extension"></a>Instale a extensão AKS CLI
 

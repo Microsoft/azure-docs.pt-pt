@@ -11,7 +11,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78191088"
 ---
-Adicione o código `Push-OutputBinding` que utiliza o cmdlet `msg` para escrever texto à fila utilizando a ligação de saída. Adicione este código antes de definir `if` o estado OK na declaração.
+Adicione código que utiliza o `Push-OutputBinding` cmdlet para escrever texto na fila utilizando a `msg` ligação de saída. Adicione este código antes de definir o estado OK na `if` declaração.
 
 :::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1":::
 

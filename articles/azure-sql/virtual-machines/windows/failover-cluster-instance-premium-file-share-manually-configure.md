@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: befab4dfb8d414743b70c535d041112bd9ccb700
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: cbc6b2af98905a09324a58c92cafca0075d8a01d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964166"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055146"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com uma partilha de ficheiros premium (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Antes de completar as instruções deste artigo, já deve ter:
 
 ## <a name="mount-premium-file-share"></a>Monte partilha de arquivo premium
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). e ir para a sua conta de armazenamento.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). e ir para a sua conta de armazenamento.
 1. Vá a **''' Arquivar ações** em **serviço de ficheiros**e, em seguida, selecione a partilha de ficheiros premium que pretende utilizar para o seu armazenamento SQL.
 1. Selecione **Connect** para aumentar a cadeia de ligação para a sua partilha de ficheiros.
 1. Na lista de drop-down, selecione a letra de unidade que pretende utilizar e, em seguida, copie ambos os blocos de código para o Bloco de Notas.
@@ -204,7 +204,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [balanceador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 e o Windows Server 2019, pode antes visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
+Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [equilibrador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 e o Windows Server 2016 (ou mais tarde), pode visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
 
 ## <a name="limitations"></a>Limitações
 
@@ -212,7 +212,7 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 - O Filestream não é suportado por um cluster de failover com uma partilha de ficheiros premium. Para utilizar o fluxo de ficheiros, desloque o seu cluster utilizando os discos partilhados [Desrmessórios Diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md) ou [Azure.](failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-vm-resource-provider-register.md#management-modes) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, configugue a conectividade com o seu FCI com um [nome de rede virtual e um equilibrador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou nome de rede distribuído [(DNN)](hadr-distributed-network-name-dnn-configure.md). 
 

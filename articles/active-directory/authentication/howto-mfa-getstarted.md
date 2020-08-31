@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: da9a0fe30721a2f55db2c4771f54716868f9972f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717035"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055078"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planeie uma implementação de autenticação multi-factor Azure
 
@@ -110,7 +110,7 @@ Recomendamos que as organizações utilizem o Acesso Condicional para definir a 
 Os administradores podem escolher os [métodos de autenticação](../authentication/concept-authentication-methods.md) que pretendem disponibilizar para os utilizadores. É importante permitir mais do que um único método de autenticação para que os utilizadores tenham um método de backup disponível no caso do seu método principal estar indisponível. Estão disponíveis os seguintes métodos para os administradores permitirem:
 
 > [!TIP]
-> A Microsoft recomenda a utilização da aplicação móvel como o método principal para a autenticação multi-factor Azure para a melhor segurança e experiência do utilizador.
+> A Microsoft recomenda a utilização do Microsoft Authenticator (aplicação móvel) como o método principal para a autenticação multi-factor Azure para uma experiência de utilizador mais segura e melhorada. A aplicação Microsoft Authenticator também [cumpre](https://azure.microsoft.com/resources/microsoft-nist/) os níveis de garantia do Instituto Nacional de Normas e Tecnologia. 
 
 ### <a name="notification-through-mobile-app"></a>Notificação através de aplicação móvel
 

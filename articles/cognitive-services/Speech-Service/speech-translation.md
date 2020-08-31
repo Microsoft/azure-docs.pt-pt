@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/27/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934502"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055537"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de voz?
 
@@ -30,25 +30,14 @@ Hoje em dia, a Microsoft utiliza o NMT para tradução para os idiomas mais popu
 
 ## <a name="core-features"></a>Características do núcleo
 
-Aqui estão as funcionalidades disponíveis através das APIs de Discurso SDK e REST:
+* Tradução de voz para texto com resultados de reconhecimento.
+* Tradução fala-a-fala.
+* Suporte para tradução para várias línguas-alvo.
+* Resultados provisórios de reconhecimento e tradução.
 
-| Caso de utilização | SDK | REST |
-|----------|-----|------|
-| Tradução de voz para texto com resultados de reconhecimento. | Sim | Não |
-| Tradução fala-a-fala. | Sim | Não |
-| Resultados provisórios de reconhecimento e tradução. | Sim | Não |
+## <a name="get-started"></a>Introdução 
 
-## <a name="get-started-with-speech-translation"></a>Começar com a tradução da fala
-
-Oferecemos quickstarts projetados para que você execute código em menos de 10 minutos. Esta tabela inclui uma lista de quickstarts de tradução da fala organizada pela linguagem.
-
-| Início Rápido | Plataforma | Referência da API |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Procurar](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/javaref) |
+Veja o [início rápido](get-started-speech-translation.md) para começar com a tradução da fala. O serviço de tradução de voz está disponível através do [Speech SDK](speech-sdk.md) e do [Speech CLI](spx-overview.md).
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -72,5 +61,6 @@ Se as suas aplicações, ferramentas ou produtos estiverem a utilizar a [API do 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Complete o [quickstart](get-started-speech-translation.md) de tradução da fala
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](get-started.md)
 * [Obtenha o Discurso SDK](speech-sdk.md)

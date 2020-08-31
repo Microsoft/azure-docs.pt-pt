@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5334a1196ac8044c56e615cf8894b44646b48fb4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88615116"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067710"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de Consulta em Gémeos Digitais Azure 
 
@@ -20,7 +20,9 @@ A Azure Digital Twins **Query Unit (QU)** é uma unidade de computação a pedid
 
 Retira os recursos do sistema como CPU, IOPS e memória que são necessários para realizar operações de consulta suportadas pela Azure Digital Twins, permitindo-lhe acompanhar o uso em Unidades de Consulta.
 
-A complexidade da consulta afeta quantas QUs são consumidas para executar essa consulta. 
+A quantidade de Unidades de Consulta consumidas para executar uma consulta é afetada por...
+* a complexidade da consulta 
+* o tamanho do conjunto de resultados (de modo que uma consulta que devolva 10 resultados consumirá mais QUs do que uma consulta de complexidade semelhante que devolve apenas um resultado)
 
 Este artigo explica como compreender as Unidades de Consulta e acompanhar o consumo da Unidade de Consulta.
 

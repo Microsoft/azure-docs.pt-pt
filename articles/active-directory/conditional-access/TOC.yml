@@ -4,7 +4,7 @@
   items:
     - name: O que é o Acesso Condicional?
       href: overview.md
-- name: Guias de Início Rápido
+- name: Guias de Introdução
   items:
     - name: Exigir que os termos de utilização sejam aceites
       href: require-tou.md
@@ -33,8 +33,6 @@
           href: concept-conditional-access-grant.md
         - name: Sessão
           href: concept-conditional-access-session.md
-    - name: Informações e relatórios
-      href: howto-conditional-access-insights-reporting.md
     - name: Modo só de relatório
       href: concept-conditional-access-report-only.md
     - name: Dependências do serviço
@@ -78,6 +76,8 @@
           href: howto-conditional-access-policy-block-access.md
     - name: Bloquear a autenticação legada
       href: block-legacy-authentication.md
+    - name: Configurar o modo só de relatório
+      href: howto-conditional-access-insights-reporting.md
     - name: Exigir aplicações aprovados do cliente
       href: app-based-conditional-access.md
     - name: Pedir uma política de proteção de aplicações
@@ -88,12 +88,8 @@
       href: untrusted-networks.md
     - name: Pedir os termos de utilização
       href: terms-of-use.md
-    - name: Configurar o modo só de relatório
-      href: howto-conditional-access-report-only.md
     - name: Frequência de início de sessão e controlos de persistência do browser
       href: howto-conditional-access-session-lifetime.md
-    - name: Migrar políticas clássicas
-      href: policy-migration-mfa.md
     - name: Resolução de problemas
       items:
         - name: Resolver problemas de início de sessão
@@ -102,6 +98,8 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: FAQ
           href: faqs.md
+    - name: Migrar políticas clássicas
+      href: policy-migration-mfa.md
 - name: Referência
   items:
     - name: Graph APIs Beta

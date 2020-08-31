@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/28/2020
+ms.openlocfilehash: 68fa972d45ab0db6e5274142f550c2bd829e7917
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245575"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055588"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -257,7 +257,7 @@ Ao executar operações OLTP, utilize `<fog-name>.zone_id.database.windows.net` 
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Usando o ouvinte apenas para ligar à instância secundária
 
-Se tiver uma carga de trabalho apenas de leitura logicamente isolada que seja tolerante a determinadas condições de dados, pode utilizar a base de dados secundária na aplicação. Para ligar diretamente ao secundário geo-replicado, utilize `server.secondary.zone_id.database.windows.net` como URL do servidor e a ligação é feita diretamente ao secundário geo-replicado.
+Se tiver uma carga de trabalho apenas de leitura logicamente isolada que seja tolerante a determinadas condições de dados, pode utilizar a base de dados secundária na aplicação. Para ligar diretamente ao secundário geo-replicado, utilize `<fog-name>.zone_id.secondary.database.windows.net` como URL do servidor e a ligação é feita diretamente ao secundário geo-replicado.
 
 > [!NOTE]
 > Em certos níveis de serviço, a BASE de Dados SQL suporta a utilização de [réplicas apenas de leitura](read-scale-out.md) para carregar cargas de trabalho de consulta apenas de leitura de equilíbrio utilizando a capacidade de uma réplica apenas de leitura e utilizando o `ApplicationIntent=ReadOnly` parâmetro na cadeia de ligação. Quando tiver configurado um secundário geo-replicado, pode utilizar esta capacidade para ligar a uma réplica apenas de leitura no local primário ou na localização geo-replicada.
