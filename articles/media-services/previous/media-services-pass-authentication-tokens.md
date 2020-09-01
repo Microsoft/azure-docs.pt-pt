@@ -16,14 +16,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a15afcba26c8c8dcc8b023e57d05b04dfa5e3e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 498e6d9e38468b126dbe10e0d0f59f54f1816ff0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016721"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261047"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam fichas para o serviço de entrega chave Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Os clientes perguntam frequentemente como um jogador pode passar fichas para o serviço de entrega chave Azure Media Services para verificação para que o jogador possa obter a chave. Os Media Services suportam os formatos web token simples (SWT) e JSON Web Token (JWT). A autenticação token é aplicada a qualquer tipo de chave, independentemente de utilizar encriptação comum ou encriptação padrão de encriptação avançada (AES) no sistema.
 
  Dependendo do jogador e da plataforma que visa, pode passar o token com o seu jogador das seguintes formas:

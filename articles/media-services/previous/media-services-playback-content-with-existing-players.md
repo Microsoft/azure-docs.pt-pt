@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd09b734f1ac5ac3c98b6c0c717a48de19b0106f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81686929"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261075"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproduzir o conteúdo com os leitores existentes
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 A Azure Media Services suporta muitos formatos de streaming populares, tais como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para os jogadores existentes que pode usar para testar os seus streams.
 
 ### <a name="the-azure-portal-media-services-content-player"></a>O leitor de conteúdos do portal Azure Media Services

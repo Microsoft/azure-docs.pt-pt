@@ -3,7 +3,7 @@ title: Visão geral da comunidade Azure Media Services v3
 description: Esta página comunitária do Azure Media Services discute diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/22/2020
-ms.author: juliako
-ms.openlocfilehash: 9c47488915997f054487d8343c7c3c032135dcdb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 5c54c3702dabf254e50068aadeac0992e3a20cb2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833084"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262469"
 ---
-# <a name="azure-media-services-v3-community"></a>Comunidade Azure Media Services v3  
+# <a name="azure-media-services-v3-community"></a>Comunidade Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]  
 
 Esta página comunitária do Azure Media Services discute diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 

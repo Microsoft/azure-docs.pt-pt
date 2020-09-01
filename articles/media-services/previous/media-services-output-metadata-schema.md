@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: e53aad83e79f236bf9a0bb3029e332cad211471a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: cd81ef78ecc5ef9cea71adb387597681460d50c8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058100"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261330"
 ---
 # <a name="output-metadata"></a>Metadados de saída
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Descrição geral
 Um trabalho de codificação está associado a um ativo de entrada (ou ativos) no qual pretende executar algumas tarefas de codificação. Por exemplo, codificar um ficheiro MP4 para conjuntos de bitrate adaptativos H.264 MP4; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, é produzido um ativo de saída.  O ativo de saída contém vídeo, áudio, miniaturas, etc. O ativo de saída também contém um ficheiro com metadados sobre o ativo de saída. O nome do ficheiro XML dos metadados tem o seguinte formato: &lt; source_file_name &gt;_manifest.xml (por exemplo, BigBuckBunny_manifest.xml).  
 
@@ -33,68 +36,68 @@ Este artigo discute os elementos e tipos do esquema XML no qual se baseia a saí
 
 Pode encontrar o código de esquema completo e o exemplo XML no final deste artigo.  
 
-## <a name="assetfiles-root-element"></a><a name="AssetFiles"></a>Elemento raiz do AssetFiles
+## <a name="assetfiles-root-element"></a><a name="AssetFiles"></a> Elemento raiz do AssetFiles
 Cobrança de entradas do AssetFile para o trabalho de codificação.  
 
 ### <a name="child-elements"></a>Elementos infantis
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **Ficheiro de Ativos**<br/><br/> minOccurs="0" maxOccurs="1" |Um elemento AssetFile que faz parte da coleção AssetFiles. |
 
-## <a name="assetfile-element"></a><a name="AssetFile"></a>Elemento AssetFile
+## <a name="assetfile-element"></a><a name="AssetFile"></a> Elemento AssetFile
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="attributes"></a>Atributos
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **Nome**<br/><br/> Necessário |**xs:cadeia** |O nome do ficheiro de ativos da comunicação social. |
 | **Tamanho**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:longo** |Tamanho do ficheiro de ativos em bytes. |
 | **Duration**<br/><br/> Necessário |**xs:duração** |O conteúdo reproduz a duração. |
 
 ### <a name="child-elements"></a>Elementos infantis
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **Origens** |Recolha de ficheiros de meios de entrada/fonte, que foram processados para produzir este AssetFile. Para mais informações, consulte o elemento Fonte. |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas num formato de recipiente apropriado. Para mais informações, consulte o elemento VideoTracks. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercaladas num formato de recipiente apropriado. Esta é a coleção de todas aquelas faixas de áudio. Para obter mais informações, consulte o elemento AudioTracks. |
 
-## <a name="sources-element"></a><a name="Sources"></a>Elemento de fontes
+## <a name="sources-element"></a><a name="Sources"></a> Elemento de fontes
 Recolha de ficheiros de meios de entrada/fonte, que foram processados para produzir este AssetFile.  
 
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="child-elements"></a>Elementos infantis
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **Origem**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Um ficheiro de entrada/fonte utilizado ao gerar este ativo. Para mais informações, consulte o elemento Fonte. |
 
-## <a name="source-element"></a><a name="Source"></a>Elemento de origem
+## <a name="source-element"></a><a name="Source"></a> Elemento de origem
 Um ficheiro de entrada/fonte utilizado ao gerar este ativo.  
 
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="attributes"></a>Atributos
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **Nome**<br/><br/> Necessário |**xs:cadeia** |Nome do ficheiro de origem de entrada. |
 
-## <a name="videotracks-element"></a><a name="VideoTracks"></a>Elemento VideoTracks
+## <a name="videotracks-element"></a><a name="VideoTracks"></a> Elemento VideoTracks
 Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas num formato de recipiente apropriado. O elemento **VideoTracks** representa uma coleção de todas as faixas de vídeo.  
 
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="child-elements"></a>Elementos infantis
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Uma faixa de vídeo específica no ActivoFile. Para mais informações, consulte o elemento VideoTrack. |
 
-## <a name="videotrack-element"></a><a name="VideoTrack"></a>Elemento VideoTrack
+## <a name="videotrack-element"></a><a name="VideoTrack"></a> Elemento VideoTrack
 Uma faixa de vídeo específica no ActivoFile.  
 
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="attributes"></a>Atributos
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **ID**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Índice baseado em zero desta pista de vídeo. **Nota:**  Este **Id** não é necessariamente o TrackID usado num ficheiro MP4. |
 | **FourCC**<br/><br/> Necessário |**xs:cadeia** |Código de vídeo Código QuatroCC. |
@@ -110,44 +113,44 @@ Pode encontrar um [exemplo XML de exemplo XML.](#xml)
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Bitrate médio-alvo para esta pista de vídeo, conforme solicitado através da predefinição codificante, em quilobits por segundo. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Taxa média de max GOP para esta faixa de vídeo, em quilobits por segundo. |
 
-## <a name="audiotracks-element"></a><a name="AudioTracks"></a>Elemento AudioTracks
+## <a name="audiotracks-element"></a><a name="AudioTracks"></a> Elemento AudioTracks
 Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercaladas num formato de recipiente apropriado. O elemento **AudioTracks** representa uma coleção de todas aquelas faixas de áudio.  
 
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="child-elements"></a>Elementos infantis
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Uma faixa áudio específica no ActivoFile principal. Para obter mais informações, consulte o elemento AudioTrack. |
 
-## <a name="audiotrack-element"></a><a name="AudioTrack"></a>Elemento AudioTrack
+## <a name="audiotrack-element"></a><a name="AudioTrack"></a> Elemento AudioTrack
 Uma faixa áudio específica no ActivoFile principal.  
 
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="attributes"></a>Atributos
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **ID**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Índice baseado em zero desta faixa de áudio. **Nota:**  Este não é necessariamente o TrackID usado num ficheiro MP4. |
 | **Codec** |**xs:cadeia** |Cadeia de codec de faixa de áudio. |
 | **EncoderVersão** |**xs:cadeia** |Cadeia de versão de codificação opcional, necessária para OAC3. |
-| **Canais**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Número de canais de áudio. |
+| **Channels** (Canais)<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Número de canais de áudio. |
 | **AmostragemRate**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Taxa de amostragem de áudio em amostras/seg ou Hz. |
 | **Bitrate**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Taxa média de bits de áudio em bits por segundo, calculada a partir do AssetFile. Conta apenas a carga de fluxo elementar, e não inclui a sobrecarga da embalagem. |
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Bits por amostra para o tipo de formato wFormatTag. |
 
 ### <a name="child-elements"></a>Elementos infantis
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **LoudnessMeteringParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parâmetros de resultado de medição de ruído alto. Para obter mais informações, consulte o elemento LoudnessMeteringResultParameters. |
 
-## <a name="loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters"></a>Elemento LoudnessMeteringResultParameters
+## <a name="loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters"></a> Elemento LoudnessMeteringResultParameters
 Parâmetros de resultado de medição de ruído alto.  
 
 Pode encontrar um [exemplo XML de exemplo XML.](#xml)  
 
 ### <a name="attributes"></a>Atributos
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:cadeia** |Versão do kit de desenvolvimento de medidores de alto nível do **dolby** profissional. |
 | **DiálogoNormalização**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Necessário |**xs:int** |DiálogoNormalização gerada através do DPLM, necessária quando o LoudnessMetering é definido |
@@ -511,7 +514,7 @@ Pode encontrar um [exemplo XML de exemplo XML.](#xml)
 
 
 
-## <a name="xml-example"></a><a name="xml"></a>Exemplo XML
+## <a name="xml-example"></a><a name="xml"></a> Exemplo XML
 
 O seguinte XML é um exemplo do ficheiro de metadados de saída.  
 
@@ -603,7 +606,7 @@ O seguinte XML é um exemplo do ficheiro de metadados de saída.
 </AssetFiles>  
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários

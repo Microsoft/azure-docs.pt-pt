@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cda22c63a70c5121e6a6972c66bdc0a4bb5158fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d47311385848f96a12a50c1dcf8b8284869c71d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089469"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260361"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Quotas e Planos de Serviço para Azure Spring Cloud
 
@@ -27,9 +27,6 @@ Memória | 2 GB por instância de serviço | 8 GB por instância de serviço
 Instâncias de serviço Azure Spring Cloud por região por subscrição | 10 | 10
 Total de instâncias de aplicativos por instância de serviço Azure Spring Cloud | 25 | 500
 Volumes persistentes | 1 GB/app x 10 apps | 50 GB/app x 10 apps
-
-
-Durante o período de pré-visualização, a Azure Spring Cloud oferece apenas um nível de serviço. Quando atingir um limite, receberá um erro de 400 que diz: "A quota excede o limite de subscrição da *sua subscrição* na *região onde o seu serviço Azure Spring Cloud é criado.*
 
 ## <a name="next-steps"></a>Passos seguintes
 

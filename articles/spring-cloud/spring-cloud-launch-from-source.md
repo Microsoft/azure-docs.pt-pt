@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: da1fa8306630fe84efeb208883fb9ed3979be491
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1aadccde8ed0c4e8257482ccca3c9992cc961d11
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504590"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260514"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Quickstart: Lance a sua aplicação Cloud primavera a partir do código fonte
 
@@ -30,9 +30,6 @@ Após este arranque rápido, aprenderá a:
 > * Atribua o ponto final público para a sua aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
->[!Note]
-> Azure Spring Cloud é atualmente oferecido como uma pré-visualização pública. As ofertas de pré-visualização públicas permitem que os clientes experimentem novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização do público não se destinam ao uso da produção.  Para mais informações sobre o suporte durante as pré-visualizações, por favor reveja as nossas [PERGUNTAS Frequentes](https://azure.microsoft.com/support/faq/) ou preencha um [pedido de Apoio](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
 
 Antes de começar, certifique-se de que a sua subscrição Azure tem as dependências necessárias:
 

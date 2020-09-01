@@ -3,7 +3,7 @@ title: Definição de filtros nos Serviços de Media Azure
 description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. Os Media Services criam manifestos dinâmicos para alcançar este streaming seletivo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/23/2019
-ms.author: juliako
-ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8cc3bc176798efda46f03c80fe9cce2edd7daf6b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023233"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262639"
 ---
 # <a name="filters"></a>Filtros
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ao entregar o seu conteúdo aos clientes (eventos de Streaming ao Vivo ou Vídeo a Pedido) o seu cliente poderá necessitar de mais flexibilidade do que o descrito no ficheiro manifesto do ativo padrão. A Azure Media Services oferece [Manifestos Dinâmicos baseados](filters-dynamic-manifest-overview.md) em filtros pré-definidos. 
 

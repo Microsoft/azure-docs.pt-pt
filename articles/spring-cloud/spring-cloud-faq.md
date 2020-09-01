@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 73c0eeb718bb6ede8215ed3a87e246185a248ffd
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: fcd9f0759ae885199347cc23d93e8f1c00251387
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054993"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260531"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
 
@@ -40,10 +40,10 @@ Leste dos EUA, Oeste dos EUA 2, Europa Ocidental e Sudeste Asiático.
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Quais são as limitações conhecidas de Azure Spring Cloud?
 
-Durante o lançamento de pré-visualização, a Azure Spring Cloud tem as seguintes limitações conhecidas:
-
+Azure Spring Cloud tem as seguintes limitações conhecidas:
+    
 * `spring.application.name` será ultrapassado pelo nome de aplicação que é usado para criar cada aplicação.
-* `server.port` incumprimentos das portas 80/443. Se for aplicado qualquer outro valor, será ultrapassado para 80/443.
+* `server.port` incumprimentos para a porta 1025. Se for aplicado qualquer outro valor, será ultrapassado até 1025.
 * Os modelos do portal Azure e do Gestor de Recursos Azure não suportam o upload de pacotes de aplicações. Só é possível carregar pacotes de aplicações através do Azure CLI.
 
 ### <a name="what-pricing-tiers-are-available"></a>Que níveis de preços estão disponíveis? 

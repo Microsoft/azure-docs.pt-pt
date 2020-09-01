@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 67b6d77afc431e7e79cd1d4c7ad4d50c0e9eecab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e2a2d6f96d4e9c789dd13ae377e219bd943ae24
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086256"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261875"
 ---
 # <a name="h264-single-bitrate-4k"></a>H264 Taxa de Bits Única 4K
-`Media Encoder Standard`define um conjunto de predefinições codificantes que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o seu ficheiro de mídia. Ou, pode criar as suas próprias predefinições baseadas em JSON ou XML (utilizando codificação UTF-8 ou UTF-16. Passaria então a predefinição personalizada para o codificar. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificadores, consulte [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+`Media Encoder Standard` define um conjunto de predefinições codificantes que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o seu ficheiro de mídia. Ou, pode criar as suas próprias predefinições baseadas em JSON ou XML (utilizando codificação UTF-8 ou UTF-16. Passaria então a predefinição personalizada para o codificar. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificadores, consulte [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Este tópico mostra a `H264 Single Bitrate 4K` predefinição no formato XML e JSON.  
   

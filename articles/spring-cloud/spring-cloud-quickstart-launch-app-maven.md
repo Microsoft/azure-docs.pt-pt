@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 95ae9c596742b075b5d78d22b925b3adf9285a7d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4982396d6f95b7baa9c948a05fbbe2e8db5d9e77
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048062"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260599"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Quickstart: Lançar uma aplicação Azure Spring Cloud utilizando o plug-in Maven
 
@@ -28,10 +28,6 @@ Após este arranque rápido, aprenderá a:
 > * Clone e construa aplicação de microserviços localmente
 > * Implementar cada microserviço
 > * Atribua um ponto final público para a sua aplicação
-
->[!Note]
-> Azure Spring Cloud é atualmente oferecido como uma pré-visualização pública. As ofertas de pré-visualização públicas permitem que os clientes experimentem novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização do público não se destinam ao uso da produção.  Para mais informações sobre o suporte durante as pré-visualizações, por favor reveja as nossas [PERGUNTAS Frequentes](https://azure.microsoft.com/support/faq/) ou preencha um [pedido de Apoio](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
-
 
 >[!TIP]
 > Azure Cloud Shell é uma concha interativa gratuita que pode usar para executar os comandos neste artigo. Tem ferramentas Azure comuns pré-instaladas, incluindo as versões mais recentes do Git, o Java Development Kit (JDK), Maven e o Azure CLI. Se você está inscrito na sua subscrição Azure, lance [Azure Cloud Shell](https://shell.azure.com). Para mais informações, consulte [a visão geral da Azure Cloud Shell](../cloud-shell/overview.md).

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa0514834d1619bbbae4501fe6b1af16d7964ff7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038448"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261480"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Predefinições de amostra para Media Encoder Standard (MES)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 **A Media Encoder Standard** define um conjunto de predefinições pré-definidas de codificação do sistema que pode utilizar ao criar trabalhos de codificação. Recomenda-se a utilização da predefinição "Adaptive Streaming" se pretender codificar um vídeo para streaming com serviços de media. Quando especificar esta predefinição, a Media Encoder Standard [gerará automaticamente uma escada de bitrate](media-services-autogen-bitrate-ladder-with-mes.md). 
 

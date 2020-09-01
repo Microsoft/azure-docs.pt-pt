@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22a79f75fa795226e45e54947f410db4c2a57a7c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3988bbb46782f6dbc703823135f5bda4e2539bd8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020665"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262265"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas com o Media Encoder Standard com .NET 
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas com o Media Encoder Standard com .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Pode utilizar o Media Encoder Standard para gerar uma ou mais miniaturas a partir do seu vídeo de entrada em formatos [JPEG,](https://en.wikipedia.org/wiki/JPEG) [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics)ou ficheiro de imagem [BMP.](https://en.wikipedia.org/wiki/BMP_file_format) Pode submeter Tarefas que produzam apenas imagens, ou pode combinar a geração de miniaturas com a codificação. Este artigo fornece algumas amostras de predefinições de miniatura XML e JSON para tais cenários. No final do artigo, existe um código de [amostra](#code_sample) que mostra como utilizar os Serviços de Mídia .NET SDK para realizar a tarefa de codificação.
 

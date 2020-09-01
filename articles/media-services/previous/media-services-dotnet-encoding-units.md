@@ -16,14 +16,17 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9e99bcc1ca8681b9052bb9a25f18ea7e6f070c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f9293b735d6a752bca30e862a09943bf21583048
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008663"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262415"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o .NET SDK
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)

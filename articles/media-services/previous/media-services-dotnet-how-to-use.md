@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 706e4762fa81ad4f290ded89387fc3ea9ab5bb1c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8eb45397b1941b9a6955066c22d6d9d00eeef4c3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020580"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262098"
 ---
-# <a name="media-services-development-with-net"></a>Desenvolvimento de Serviços de Mídia com .NET 
+# <a name="media-services-development-with-net"></a>Desenvolvimento de Serviços de Mídia com .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)

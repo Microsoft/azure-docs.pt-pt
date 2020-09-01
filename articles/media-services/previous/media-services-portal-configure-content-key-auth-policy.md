@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2be430fc032acd94f851072f80d14a43638c8863
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0218c24637b9b49972e93b8dd53e5970c9ab89d5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084590"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260905"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configure uma política de autorização chave de conteúdo
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Descrição geral
@@ -33,7 +36,7 @@ Este artigo mostra como usar o portal Azure para configurar a política de autor
 
 Quando um jogador solicita um fluxo que está programado para ser encriptado dinamicamente, os Media Services utilizam a chave configurada para encriptar dinamicamente o seu conteúdo utilizando encriptação AES ou DRM. Para desencriptar a transmissão em fluxo, o leitor solicita a chave ao serviço de entrega de chaves. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
-Se pretender ter várias teclas de conteúdo ou quiser especificar um URL de serviço de entrega de chave/licença que não seja o serviço de entrega de chaves dos Serviços de Comunicação Social, utilize os Serviços de Comunicação Social .NET SDK ou REST APIs. Para obter mais informações, veja:
+Se pretender ter várias teclas de conteúdo ou quiser especificar um URL de serviço de entrega de chave/licença que não seja o serviço de entrega de chaves dos Serviços de Comunicação Social, utilize os Serviços de Comunicação Social .NET SDK ou REST APIs. Para obter mais informações, consulte:
 
 * [Configure uma política de autorização chave de conteúdo utilizando os Serviços de Comunicação Social .NET SDK](media-services-dotnet-configure-content-key-auth-policy.md)
 * [Configure uma política de autorização chave de conteúdo utilizando a API dos Serviços de Mídia](media-services-rest-configure-content-key-auth-policy.md)

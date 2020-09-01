@@ -1,18 +1,18 @@
 ---
 title: Início Rápido - Implementar a sua primeira aplicação do Azure Spring Cloud
-description: Neste quickstart, implementamos uma aplicação spring cloud olá para a Nuvem de primavera Azure.
+description: Neste arranque rápido, implementamos uma aplicação Cloud spring para a Nuvem de primavera Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6a7a489367aa7348a3449a72de6889476e5d38db
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 245516e0a54865d3a6097c4bb566b850cb738ad6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177604"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260555"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -37,7 +37,7 @@ Para concluir este guia de início rápido:
 * (Opcional) [Instale a versão Azure CLI 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e a extensão Azure Spring Cloud com comando: `az extension add --name spring-cloud`
 * (Opcional) [Instale o Azure Toolkit para IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [inscreva-se](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
-## <a name="generate-a-spring-cloud-hello-project"></a>Gere um projeto de olá Cloud Spring Cloud
+## <a name="generate-a-spring-cloud-project"></a>Gere um projeto de Nuvem de primavera
 
 Comece com [o Initializr de primavera](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) para gerar um projeto de amostra com dependências recomendadas para Azure Spring Cloud. A imagem a seguir mostra o Initializr criado para este projeto de amostra.
 ```url
@@ -125,7 +125,7 @@ O procedimento a seguir constrói e implementa a aplicação utilizando o Azure 
 
 O procedimento a seguir utiliza o plug-in IntelliJ para a Azure Spring Cloud para implementar a aplicação da amostra no IntelliJ IDEA.  
 
-### <a name="import-hello-project"></a>Projeto importe olá
+### <a name="import-project"></a>Importar projeto
 
 1. Abra o diálogo IntelliJ **Welcome** e selecione **Import Project** para abrir o assistente de importação.
 1. Selecione `hellospring` a pasta.

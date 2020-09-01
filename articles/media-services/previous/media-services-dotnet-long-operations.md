@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4365796a9d7f7b72687db19573c09ccfdf9ea8de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 44cecbd8d2cdc95e342d7aaf2b33f6cc0192e182
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020534"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262038"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de streaming ao vivo com serviços de media Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Descrição geral
 

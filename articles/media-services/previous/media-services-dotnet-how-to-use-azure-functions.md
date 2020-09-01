@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b9b234f0d701ae2ef269b53c3b3c0276ca31f7f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020614"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262126"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver funções de Azure com serviços de mídia
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artigo mostra-lhe como começar a criar Funções Azure que utilizam os Media Services. A Função Azure definida neste artigo monitoriza um recipiente de conta de armazenamento nomeado **entrada** para novos ficheiros MP4. Uma vez que um ficheiro é deixado no recipiente de armazenamento, o gatilho blob executa a função. Para rever as funções de Azure, consulte [a visão geral](../../azure-functions/functions-overview.md) e outros tópicos na secção **funções Azure.**
 

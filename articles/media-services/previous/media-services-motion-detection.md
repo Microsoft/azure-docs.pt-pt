@@ -15,14 +15,16 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17b325ab15f55a8fc02729c6f5ed0cb0330ecca2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5e9a978cd96da47e91434c7146eb3e258d77d8ee
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016840"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261347"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detetar movimentos com Azure Media Analytics
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > O processador **de mídia Azure Media Motion Detetor** será retirado. Para a data da aposentadoria, consulte o tema dos [componentes do legado.](legacy-components.md)
@@ -46,7 +48,7 @@ Ao criar uma tarefa com **o Azure Media Motion Detetor,** tem de especificar uma
 ### <a name="parameters"></a>Parâmetros
 Pode utilizar os seguintes parâmetros:
 
-| Nome | Opções | Descrição | Predefinição |
+| Name | Opções | Descrição | Predefinição |
 | --- | --- | --- | --- |
 | sensibilidadeLevel |Corda:'baixo', 'médio', 'alto' |Define o nível de sensibilidade em que os movimentos são relatados. Ajuste isto para ajustar o número de falsos positivos. |'meio' |
 | frameSamplingValue |Inteiro positivo |Define a frequência em que o algoritmo funciona. 1 é igual a cada quadro, 2 significa cada segundo quadro, e assim por diante. |1 |

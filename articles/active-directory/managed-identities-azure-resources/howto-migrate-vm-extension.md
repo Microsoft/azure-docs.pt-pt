@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 67e7f8890923dec2dca369b6a57399232c0198cc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5b298767f9814f76dd606bab29bd0b245dad6937
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018381"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260191"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de usar a extensão de identidades geridas pela máquina virtual e começar a usar o Serviço de Metadados de Instância Azure
 
@@ -35,7 +35,7 @@ Devido a várias limitações delineadas na secção seguinte, a extensão de VM
 
 ### <a name="provision-the-extension"></a>Disposição da extensão 
 
-Quando configurar uma máquina virtual ou uma balança de máquina virtual definida para ter uma identidade gerida, pode optar opcionalmente por providenciar as identidades geridas para a extensão VM dos recursos Azure utilizando o `-Type` parâmetro no cmdlet [Set-AzVMExtension.](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) Pode passar `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux` ou, dependendo do tipo de máquina virtual, e nomeá-la usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto final simbólico da OAuth para a aquisição de fichas:
+Quando configurar uma máquina virtual ou uma balança de máquina virtual definida para ter uma identidade gerida, pode optar opcionalmente por providenciar as identidades geridas para a extensão VM dos recursos Azure utilizando o `-Type` parâmetro no cmdlet [Set-AzVMExtension.](/powershell/module/az.compute/set-azvmextension) Pode passar `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux` ou, dependendo do tipo de máquina virtual, e nomeá-la usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto final simbólico da OAuth para a aquisição de fichas:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -96,7 +96,7 @@ Para obter a extensão de conjunto de escala de máquina virtual com o modelo de
 O provisionamento da extensão da máquina virtual pode falhar devido a falhas de procura de DNS. Se isto acontecer, reinicie a máquina virtual e tente novamente. 
 
 ### <a name="remove-the-extension"></a>Remover a extensão 
-Para remover a extensão, utilize `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` altere (dependendo do tipo de máquina virtual) com [extensão az vm eliminar](https://docs.microsoft.com/cli/azure/vm/), ou [extensão az vmss eliminar](https://docs.microsoft.com/cli/azure/vmss) para conjuntos de balança de máquina virtual usando Azure CLI, ou para `Remove-AzVMExtension` Powershell:
+Para remover a extensão, utilize `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` altere (dependendo do tipo de máquina virtual) com [extensão az vm eliminar](/cli/azure/vm/), ou [extensão az vmss eliminar](/cli/azure/vmss) para conjuntos de balança de máquina virtual usando Azure CLI, ou para `Remove-AzVMExtension` Powershell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -196,7 +196,7 @@ Existem várias limitações importantes para a utilização da extensão da má
 
 ## <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-O [Azure Instance Medata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) é um ponto final do REST que fornece informações sobre o funcionamento de casos de máquinas virtuais que podem ser usados para gerir e configurar as suas máquinas virtuais. O ponto final está disponível num conhecido endereço IP não roteível `169.254.169.254` ( ) que só pode ser acedido a partir da máquina virtual.
+O [Azure Instance Medata Service (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) é um ponto final do REST que fornece informações sobre o funcionamento de casos de máquinas virtuais que podem ser usados para gerir e configurar as suas máquinas virtuais. O ponto final está disponível num conhecido endereço IP não roteível `169.254.169.254` ( ) que só pode ser acedido a partir da máquina virtual.
 
 Existem várias vantagens em usar O Azure IMDS para solicitar fichas. 
 
@@ -212,4 +212,4 @@ Por estas razões, o serviço Azure IMDS será a forma defacto de solicitar toke
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Como utilizar identidades geridas para recursos Azure numa máquina virtual Azure para adquirir um token de acesso](how-to-use-vm-token.md)
-* [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* [Azure Instance Metadata Service](../../virtual-machines/windows/instance-metadata-service.md)

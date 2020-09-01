@@ -16,14 +16,16 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ead605462eeb92b31181ce9bba3100df521b471b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90b4680c725f3b5b7fcb6b988e52410c572b2cfa
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004428"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262413"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com Media Encoder Standard usando .NET  
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com Media Encoder Standard usando .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 Os postos de trabalho na codificação são uma das operações de processamento mais comuns nos Serviços de Comunicação Social. Cria-se trabalhos de codificação para converter ficheiros de meios de comunicação de uma codificação para outra. Ao codificar, pode utilizar o Media Services incorporado Media Encoder. Também pode utilizar um codificader fornecido por um parceiro de Serviços de Comunicação Social; os codificadores de terceiros estão disponíveis através do Azure Marketplace. 
 
