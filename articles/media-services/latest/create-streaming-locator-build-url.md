@@ -3,23 +3,25 @@ title: Crie um localizador de streaming e construa URLs - Azure Media Services
 description: Este artigo demonstra como criar um localizador de streaming e construir URLs.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/04/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9eae2b0d8b5bebc027dd46afd17a37b8a19b422
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c00729e236cb314f47df8f622db2e19438af61ab
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012165"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267909"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de transmissão e compilar URLs
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 No Azure Media Services, para construir um URL de streaming, é necessário primeiro criar um [Localizador de Streaming.](streaming-locators-concept.md) Em seguida, concatena o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **Ponto Final de Streaming** *predefinido* estará num estado parado, pelo que precisa de ligar para **iniciar** o streaming.
 

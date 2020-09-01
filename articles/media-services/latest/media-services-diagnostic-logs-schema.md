@@ -3,7 +3,7 @@ title: Esquemas de registos de registos de registos Azure Media Services - Azure
 description: Este artigo demonstra os esquemas de registos de registos de registos da Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2019
-ms.author: juliako
-ms.openlocfilehash: 2bc688a61235a31c3d6b6e88cbb90c0d14cca179
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 6f09a0ab88273aa10bb5f3cb55f89d014897df12
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092019"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268456"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas dos registos de diagnósticos
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [O Azure Monitor](../../azure-monitor/overview.md) permite-lhe monitorizar métricas e registos de diagnóstico que o ajudam a compreender como as suas aplicações estão a funcionar. Pode monitorizar os registos de diagnóstico dos Serviços de Comunicação Social e criar alertas e notificações para as métricas e registos recolhidos. Você pode enviar registos para [Azure Storage,](https://azure.microsoft.com/services/storage/)transmiti-los para [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), e exportá-los para [Log Analytics](https://azure.microsoft.com/services/log-analytics/), ou usar serviços de terceiros.
 

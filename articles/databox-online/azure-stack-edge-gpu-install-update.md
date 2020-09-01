@@ -1,22 +1,23 @@
 ---
 title: Instalar atualização no dispositivo GPU Azure Stack Edge / Microsoft Docs
-description: Descreve como aplicar atualizações usando o portal Azure e web UI local para dispositivo GPU Azure Stack Edge
+description: Descreve como aplicar atualizações usando o portal Azure e web UI local para o dispositivo GPU Azure Stack Edge e o cluster Kubernetes no dispositivo
 services: databox
 author: alkohli
 ms.service: databox
-ms.topic: article
-ms.date: 06/12/2020
+ms.subservice: edge
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e973e41493b8e84f31a82d5379a01a0e851a48d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085431"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268249"
 ---
 # <a name="update-your-azure-stack-edge-with-gpu"></a>Atualize o seu Azure Stack Edge com GPU 
 
-Este artigo descreve os passos necessários para instalar a atualização no seu Azure Stack Edge com GPU através da UI web local e através do portal Azure. Aplica as atualizações de software ou os hotfixes para manter o dispositivo Azure Stack Edge atualizado. 
+Este artigo descreve os passos necessários para instalar a atualização no seu Azure Stack Edge com GPU através da UI web local e através do portal Azure. Aplica as atualizações de software ou hotfixes para manter o dispositivo Azure Stack Edge e o cluaster Kubernetes associado no dispositivo atualizado. 
 
 > [!IMPORTANT]
 > - A atualização **de 2008** corresponde à versão de software **2.1.1328.1904** no seu dispositivo. Para obter informações sobre esta atualização, aceda às [notas de lançamento](azure-stack-edge-gpu-2008-release-notes.md).

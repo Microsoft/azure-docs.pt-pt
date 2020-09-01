@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: cli,portal
-ms.openlocfilehash: fadb290d1bd1126c3bfc0cd76d6e6b862d1396e3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8924b77cddc9efc4d2b1b8451df38de77b37c09c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556368"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267365"
 ---
-# <a name="find-your-azure-subscription"></a>Encontre a sua subscrição Azure
+# <a name="find-your-azure-subscription"></a>Encontrar a sua subscrição do Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

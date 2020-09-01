@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274090"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268541"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 
@@ -37,7 +37,7 @@ Este artigo responde a algumas perguntas que os administradores de TI podem ter 
 > [!NOTE]
 > Este artigo aplica-se ao navegador baseado em HTML do Microsoft Edge Legacy lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Chromium microsoft Edge lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dados da aplicação**: As aplicações universais do Windows podem escrever dados de definições para uma pasta de roaming, e quaisquer dados escritos nesta pasta serão automaticamente sincronizados. Cabe ao programador de aplicações individual conceber uma app para tirar partido desta capacidade. Para obter mais informações sobre como desenvolver uma aplicação Universal Windows que utiliza roaming, consulte a [API de armazenamento de dados de aplicações](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [blog de desenvolvimento de roaming de aplicativos do Windows 8.](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/)
+**Dados da aplicação**: As aplicações universais do Windows podem escrever dados de definições para uma pasta de roaming, e quaisquer dados escritos nesta pasta serão automaticamente sincronizados. Cabe ao programador de aplicações individual conceber uma app para tirar partido desta capacidade. Para obter mais informações sobre como desenvolver uma aplicação Universal Windows que utiliza roaming, consulte a [API de armazenamento de dados de aplicações](/windows/uwp/design/app-settings/store-and-retrieve-app-data) e o [blog de desenvolvimento de roaming de aplicativos do Windows 8.](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/)
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Que conta é utilizada para sincronização de definições?
 
@@ -86,9 +86,9 @@ Quando várias contas AD da Azure de diferentes inquilinos da AD Azure estiverem
 Roaming só funciona para aplicações Universal Windows. Existem duas opções disponíveis para permitir o roaming numa aplicação de ambiente de trabalho do Windows existente:
 
 * A [Ponte desktop](https://aka.ms/desktopbridge) ajuda-o a trazer as suas aplicações de ambiente de trabalho windows existentes para a Plataforma Universal windows. A partir daqui, serão necessárias alterações mínimas de código para tirar partido dos dados da aplicação AD do Azure. O Desktop Bridge fornece às suas aplicações uma identidade de aplicação, que é necessária para permitir o roaming de dados de aplicações para aplicações de ambiente de trabalho existentes.
-* [A Virtualização da Experiência do Utilizador (UE-V) ajuda-o](https://technet.microsoft.com/library/dn458947.aspx) a criar um modelo de definições personalizadas para aplicações de ambiente de trabalho do Windows existentes e a ativar o roaming para aplicações Win32. Esta opção não requer que o desenvolvedor de aplicações altere o código da aplicação. A UE-V está limitada ao roaming ativo do Ative Directory para clientes que tenham adquirido o Microsoft Desktop Optimization Pack.
+* [A Virtualização da Experiência do Utilizador (UE-V) ajuda-o](/previous-versions//dn458947(v=vs.85)) a criar um modelo de definições personalizadas para aplicações de ambiente de trabalho do Windows existentes e a ativar o roaming para aplicações Win32. Esta opção não requer que o desenvolvedor de aplicações altere o código da aplicação. A UE-V está limitada ao roaming ativo do Ative Directory para clientes que tenham adquirido o Microsoft Desktop Optimization Pack.
 
-Os administradores podem configurar UE-V para alterar os dados das aplicações de ambiente de trabalho do Windows, alterando o roaming das definições do Windows OS e os dados das aplicações universais através das [políticas do grupo UE-V,](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)incluindo:
+Os administradores podem configurar UE-V para alterar os dados das aplicações de ambiente de trabalho do Windows, alterando o roaming das definições do Windows OS e os dados das aplicações universais através das [políticas do grupo UE-V,](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)incluindo:
 
 * Política de grupo de configurações roam Windows
 * Não sincronize a política do grupo Windows Apps

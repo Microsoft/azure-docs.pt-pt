@@ -10,23 +10,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5882b79232e858bbc8ad7e0da94ad4b04f5165ca
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5988a3ca2d44df161a27144d7bfb47ecab1e236e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422985"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267314"
 ---
 # <a name="how-to-use-the-shaka-player-with-azure-media-services"></a>Como usar o jogador Shaka com a Azure Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Descrição geral
 
 Shaka Player é uma biblioteca JavaScript de código aberto para meios adaptativos. Reproduz formatos de mídia adaptativo (como DASH e HLS) num browser, sem usar plugins ou Flash. Em vez disso, o Jogador Shaka utiliza as extensões de origem de mídia abertas e extensões de mídia encriptadas.
 
-Recomendamos a utilização [deMux.js,](https://github.com/videojs/mux.js/) pois, sem ele, o jogador Shaka apoiaria o formato HLS CMAF, mas não o HLS TS.
+Recomendamos a utilização [ deMux.js, ](https://github.com/videojs/mux.js/) pois, sem ele, o jogador Shaka apoiaria o formato HLS CMAF, mas não o HLS TS.
 
 A documentação oficial pode ser encontrada na [documentação do jogador shaka](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html).
 
@@ -146,7 +148,7 @@ player.configure('drm.advanced.com\\.apple\\.fps\\.1_0.serverCertificate', new U
 
 Para obter mais informações, consulte [a documentação de proteção drm do jogador Shaka](https://shaka-player-demo.appspot.com/docs/api/tutorial-drm-config.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use o Azure Media Player](../azure-media-player/azure-media-player-overview.md)
 * [Quickstart: Encriptar conteúdo](encrypt-content-quickstart.md)

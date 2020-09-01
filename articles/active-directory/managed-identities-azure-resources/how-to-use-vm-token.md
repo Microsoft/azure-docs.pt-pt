@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0bcf6d99511f744b321a7a47913b44dc376143f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016143"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266294"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para adquirir um token de acesso 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Obtenha um token usando a biblioteca Microsoft.Azure.Services.AppAuthentication para .NET
 
-Para aplicações e funções .NET, a forma mais simples de trabalhar com identidades geridas para recursos Azure é através do pacote Microsoft.Azure.Services.AppAuthentication. Esta biblioteca também lhe permitirá testar o seu código localmente na sua máquina de desenvolvimento, utilizando a sua conta de utilizador a partir do Visual Studio, do [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)ou da Autenticação Integrada do Diretório Ativo. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte a [referência Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication). Esta secção mostra-lhe como começar com a biblioteca no seu código.
+Para aplicações e funções .NET, a forma mais simples de trabalhar com identidades geridas para recursos Azure é através do pacote Microsoft.Azure.Services.AppAuthentication. Esta biblioteca também lhe permitirá testar o seu código localmente na sua máquina de desenvolvimento, utilizando a sua conta de utilizador a partir do Visual Studio, do [Azure CLI](/cli/azure?view=azure-cli-latest)ou da Autenticação Integrada do Diretório Ativo. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte a [referência Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md). Esta secção mostra-lhe como começar com a biblioteca no seu código.
 
 1. Adicione referências aos pacotes [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet à sua aplicação.
 
@@ -141,7 +141,7 @@ Para aplicações e funções .NET, a forma mais simples de trabalhar com identi
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Para saber mais sobre o Microsoft.Azure.Services.AppAuthentication e as operações que expõe, consulte a [referência Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) e o [Serviço de Aplicações e KeyVault com identidades geridas para recursos Azure .AMOSTRA NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Para saber mais sobre o Microsoft.Azure.Services.AppAuthentication e as operações que expõe, consulte a [referência Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md) e o [Serviço de Aplicações e KeyVault com identidades geridas para recursos Azure .AMOSTRA NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Obtenha um token usando C #
 
@@ -381,7 +381,7 @@ Esta secção documenta as possíveis respostas de erro. Um estado de "200 OK" �
 |           | access_denied | O proprietário de recursos ou servidor de autorização negou o pedido. |  |
 |           | unsupported_response_type | O servidor de autorização não suporta obter um token de acesso utilizando este método. |  |
 |           | invalid_scope | O âmbito solicitado é inválido, desconhecido ou mal formado. |  |
-| Erro interno do servidor 500 | desconhecido | Falhou em recuperar o símbolo do diretório Ativo. Para mais detalhes, consulte os registos *\<file path\>* | Verifique se as identidades geridas para os recursos Azure foram ativadas no VM. Consulte [identidades geridas para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração VM.<br><br>Verifique também se o seu pedido HTTP GET URI está formatado corretamente, particularmente o recurso URI especificado na cadeia de consulta. Consulte o "pedido de amostra" na secção REST anterior, por exemplo, ou [os serviços Azure que suportam a autenticação AZure AD](services-support-msi.md) para uma lista de serviços e respetivos IDs de recursos.
+| Erro interno do servidor 500 | desconhecido | Falhou em recuperar o símbolo do diretório Ativo. Para mais detalhes, consulte os registos *\<file path\>* | Verifique se as identidades geridas para os recursos Azure foram ativadas no VM. Consulte [identidades geridas para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração VM.<br><br>Verifique também se o seu pedido HTTP GET URI está formatado corretamente, particularmente o recurso URI especificado na cadeia de consulta. Consulte o "pedido de amostra" na secção REST anterior, por exemplo, ou [os serviços Azure que suportam a autenticação AZure AD](./services-support-managed-identities.md) para uma lista de serviços e respetivos IDs de recursos.
 
 ## <a name="retry-guidance"></a>Orientação de retíria 
 
@@ -397,17 +397,9 @@ Para reefaça, recomendamos a seguinte estratégia:
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recursos para serviços Azure
 
-Consulte [os serviços Azure que suportam a autenticação Azure AD](services-support-msi.md) para uma lista de recursos que suportam a Azure AD e foram testados com identidades geridas para recursos Azure, e respetivas identidades de recursos.
+Consulte [os serviços Azure que suportam a autenticação Azure AD](./services-support-managed-identities.md) para uma lista de recursos que suportam a Azure AD e foram testados com identidades geridas para recursos Azure, e respetivas identidades de recursos.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para permitir identidades geridas para recursos Azure num Azure VM, consulte [identidades geridas configure para recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md).
-
-
-
-
-
-
-
-

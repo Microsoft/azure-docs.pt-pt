@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2dff01841a97de4a7683f1bf4a0dbb3125b5dbd8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a0343c607a342c3438d68627b97c71cdf05199b2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019424"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267790"
 ---
-# <a name="publish-media-services-content-using-net"></a>Publicar conteúdo dos Serviços de Comunicação Social através de .NET  
+# <a name="publish-media-services-content-using-net"></a>Publicar conteúdo dos Serviços de Comunicação Social através de .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)

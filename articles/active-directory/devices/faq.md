@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689049"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266787"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Ative Directory gestão de dispositivos FAQ
 
@@ -62,7 +62,7 @@ Apenas os seguintes dispositivos estão listados em **dispositivos USER:**
 - O utilizador desativa o dispositivo a partir do portal My Apps. 
 - Um administrador (ou utilizador) elimina ou desativa o dispositivo no portal Azure ou através da utilização do PowerShell
 - A AD Híbrida AD unô-se apenas: Um administrador remove os dispositivos OU fora do âmbito de sincronização, resultando na eliminação dos dispositivos do Azure AD
-- Atualização Azure AD liga-se à versão 1.4.xx.x. [Compreender o Azure AD Connect 1.4.xx.x e o desaparecimento do dispositivo](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Atualização Azure AD liga-se à versão 1.4.xx.x. [Compreender o Azure AD Connect 1.4.xx.x e o desaparecimento do dispositivo](../hybrid/reference-connect-device-disappearance.md).
 
 
 Veja abaixo como estas ações podem ser retificadas.
@@ -312,7 +312,7 @@ As alterações da UPN são suportadas com a atualização do Windows 10 2004. O
 **A:** Tome os seguintes passos:
 
 1.    [Criar uma política de conformidade](/intune/compliance-policy-create-mac-os)
-1.    [Defina uma política de acesso condicional para dispositivos macOS](../active-directory-conditional-access-azure-portal.md) 
+1.    [Defina uma política de acesso condicional para dispositivos macOS](../conditional-access/overview.md) 
 
 **Observações:**
 
@@ -320,7 +320,7 @@ As alterações da UPN são suportadas com a atualização do Windows 10 2004. O
 - Durante a primeira tentativa de acesso, os seus utilizadores são solicitados a inscrever o dispositivo utilizando o portal da empresa.
 
 ---
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os dispositivos registados Azure AD](concept-azure-ad-register.md)
 - Saiba mais sobre [dispositivos aderidos a Azure AD](concept-azure-ad-join.md)

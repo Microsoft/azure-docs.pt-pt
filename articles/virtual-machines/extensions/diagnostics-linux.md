@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: c03105326b6d189b3c6fde72ff959211b3009517
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6bf82e85bfe36466010ce1cc8914bbd1221fe51a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837045"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267858"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Using Linux Diagnostic Extension to monitor metrics and logs (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
 
@@ -128,7 +128,7 @@ $publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 # If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
 # Generate a SAS token for the agent to use to authenticate with the storage account
-$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
 
 # Build the protected settings (storage account SAS token)
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
@@ -173,7 +173,7 @@ Este conjunto de informações de configuração contém informações sensívei
 }
 ```
 
-Nome | Valor
+Name | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento em que os dados são escritos pela extensão.
 armazenamentoAccountEndPoint | (opcional) O ponto final identificando a nuvem em que a conta de armazenamento existe. Se esta definição estiver ausente, o LAD desrescume da nuvem pública Azure, `https://core.windows.net` . Para utilizar uma conta de armazenamento na Alemanha Azure, no Governo Azure ou na Azure China, decidiu esse valor em conformidade.
@@ -233,8 +233,8 @@ A versão 3.0 da Extensão de Diagnóstico Linux suporta dois tipos de pia: Even
 
 A entrada "sasURL" contém o URL completo, incluindo o token SAS, para o Centro de Eventos para o qual os dados devem ser publicados. Lad requer um SAS nomeando uma política que permite a reclamação enviar. Um exemplo:
 
-* Criar um espaço de nomes de Centros de Eventos chamado`contosohub`
-* Criar um Centro de Eventos no espaço de nomes chamado`syslogmsgs`
+* Criar um espaço de nomes de Centros de Eventos chamado `contosohub`
+* Criar um Centro de Eventos no espaço de nomes chamado `syslogmsgs`
 * Criar uma política de acesso compartilhado no Centro de Eventos nomeado `writer` que permite a reclamação Enviar
 
 Se criou um SAS bom até à meia-noite utc em 1 de janeiro de 2018, o valor sasURL pode ser:
@@ -367,9 +367,9 @@ displayName | O rótulo (na língua especificada pela definição local associad
 
 O contraSpecifier é um identificador arbitrário. Os consumidores de métricas, como o recurso de gráfico e alerta do portal Azure, utilizam o contraSpecifier como a "chave" que identifica uma métrica ou um caso de uma métrica. Para `builtin` métricas, recomendamos que utilize valores contraSpecifier que comecem por `/builtin/` . Se estiver a recolher uma instância específica de uma métrica, recomendamos que anexe o identificador da instância ao valor do contadorSes. Alguns exemplos:
 
-* `/builtin/Processor/PercentIdleTime`- Tempo inativo mediado em todos os vCPUs
-* `/builtin/Disk/FreeSpace(/mnt)`- Espaço gratuito para o sistema de ficheiros /mnt
-* `/builtin/Disk/FreeSpace`- Espaço livre mediado em todos os sistemas de ficheiros montados
+* `/builtin/Processor/PercentIdleTime` - Tempo inativo mediado em todos os vCPUs
+* `/builtin/Disk/FreeSpace(/mnt)` - Espaço gratuito para o sistema de ficheiros /mnt
+* `/builtin/Disk/FreeSpace` - Espaço livre mediado em todos os sistemas de ficheiros montados
 
 Nem o LAD nem o portal Azure esperam que o valor do contraSpecifier corresponda a qualquer padrão. Seja consistente na forma como constrói valores de contraspecifier.
 
@@ -757,7 +757,7 @@ Os dados enviados para as pias JsonBlob são armazenados em bolhas na conta de a
 Além disso, pode utilizar estas ferramentas de UI para aceder aos dados no Azure Storage:
 
 * Explorador visual do servidor do estúdio.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Explorador de Armazenamento do Azure").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure").
 
 Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e recipientes de armazenamento Azure gerados a partir de uma extensão LAD 3.0 corretamente configurada num VM de teste. A imagem não corresponde exatamente à [configuração lad 3.0](#an-example-lad-30-configuration)da amostra .
 

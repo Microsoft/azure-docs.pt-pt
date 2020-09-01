@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 87c96ef6487895d3230541f0ae5fe15c5a645368
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3f354655a612d4085b0a0de45ae1a6e5ee097ade
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085294"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266668"
 ---
-# <a name="azure-stack-edge-technical-specifications-and-compliance"></a>Especificações técnicas e conformidade da Azure Stack Edge
+# <a name="technical-specifications-and-compliance-for-azure-stack-edge-with-gpu"></a>Especificações técnicas e conformidade para Azure Stack Edge com GPU 
 
 Os componentes de hardware do seu Azure Stack Edge com uma Unidade de Processamento de Gráficos a bordo (GPU) aderem às especificações técnicas e padrões regulamentares descritos neste artigo. As especificações técnicas descrevem hardware, unidades de alimentação (PSUs), capacidade de armazenamento, recintos e normas ambientais.
 

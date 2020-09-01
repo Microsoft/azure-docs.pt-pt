@@ -16,12 +16,12 @@ ms.date: 12/01/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 02815003bf5167a73c1e2362d9270deb867c84b7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999415"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266328"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para o sign-in 
 
@@ -34,7 +34,7 @@ Este artigo fornece exemplos de scripts PowerShell e CLI para iniciar sing-in us
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Se pretender utilizar os exemplos Azure PowerShell ou Azure CLI neste artigo, certifique-se de instalar a versão mais recente da [Azure PowerShell](/powershell/azure/install-az-ps) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se pretender utilizar os exemplos Azure PowerShell ou Azure CLI neste artigo, certifique-se de instalar a versão mais recente da [Azure PowerShell](/powershell/azure/install-az-ps) ou [Azure CLI](/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - Todo o script de amostra deste artigo pressupõe que o cliente da linha de comando está a funcionar num VM com identidades geridas para recursos Azure ativados. Utilize a função VM "Connect" no portal Azure, para ligar remotamente ao seu VM. Para obter detalhes sobre como permitir identidades geridas para recursos Azure num VM, consulte [identidades geridas configure para recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (utilizando PowerShell, CLI, um modelo ou um Azure SDK). 
@@ -100,9 +100,3 @@ Se algum deles estiver incorreto, poderá ter de recolocar as identidades gerida
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para permitir identidades geridas para recursos Azure num Azure VM, consulte [identidades geridas configure para recursos Azure em um Azure VM usando PowerShell](qs-configure-powershell-windows-vm.md), ou [Configure identidades geridas para recursos Azure em um VM Azure usando Azure CLI](qs-configure-cli-windows-vm.md)
-
-
-
-
-
-

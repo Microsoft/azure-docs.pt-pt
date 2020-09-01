@@ -3,23 +3,25 @@ title: Transformação personalizada encode usando Media Services v3 Azure CLI M
 description: Este tópico mostra como usar o Azure Media Services v3 para codificar uma transformação personalizada usando O Azure CLI.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/14/2019
-ms.author: juliako
-ms.openlocfilehash: 4ea328cc21d849367d36342ed1b0953a7eb26c77
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: f7b1f7a858c465629e075bcdb6d32bec29863f0a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503893"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267892"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Como codificar com uma transformação personalizada - Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ao codificar com o Azure Media Services, pode começar rapidamente com uma das predefinições recomendadas, com base nas melhores práticas da indústria, como demonstra o quickstart dos [ficheiros streaming.](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) Também pode construir uma predefinição personalizada para direcionar o seu cenário específico ou requisitos do dispositivo.
 
@@ -140,6 +142,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Para que os Serviços de Comunicação Social apliquem a Transformação ao vídeo ou áudio especificado, é necessário submeter um Job ao abrigo dessa Transformação. Para um exemplo completo que mostre como submeter um trabalho sob uma transformação, consulte [Quickstart: Stream video files - Azure CLI](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [CLI do Azure](/cli/azure/ams)

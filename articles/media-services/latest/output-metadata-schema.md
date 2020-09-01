@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services produção metadados esquema de metadados / Microsoft Docs
 description: Este artigo apresenta uma visão geral do esquema de metadados de saída da Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 79bf6c50c1b0b1c8454999cbefa8c933a73eae8e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080929"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267212"
 ---
 # <a name="output-metadata"></a>Metadados de saída
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Um trabalho de codificação está associado a um ativo de entrada (ou ativos) no qual pretende executar algumas tarefas de codificação. Por exemplo, codificar um ficheiro MP4 para conjuntos de bitrate adaptativos H.264 MP4; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, é produzido um ativo de saída.  O ativo de saída contém vídeo, áudio, miniaturas e outros ficheiros. O ativo de saída também contém um ficheiro com metadados sobre o ativo de saída. O nome do ficheiro JSON dos metadados tem o seguinte formato: `<source_file_name>_manifest.json` (por exemplo, `BigBuckBunny_manifest.json` ). Deve procurar qualquer *_metadata.jse consultar a cadeia de ficheiros no interior para encontrar o nome de ficheiro de origem (sem truncação).
 
@@ -54,7 +56,7 @@ Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas
 | **Perfil** |Perfil H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Profile": "High"` |
 | **Nível** |Nível H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Level": "3.2"`|
 | **Width**<br />Necessário |Largura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Altura**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **Height**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Necessário|Numerador de aspeto de visualização de vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominador**<br />Necessário |Denominador de rácio de aspeto do visualização de vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **Taxa de fotogramas**<br />Necessário |Taxa de fotogramas de vídeo medida em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|

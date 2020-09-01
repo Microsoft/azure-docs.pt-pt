@@ -3,7 +3,7 @@ title: Migrar do Azure Media Services v2 para v3
 description: Este artigo descreve alterações que foram introduzidas no Azure Media Services v3 e mostra diferenças entre duas versões.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -13,16 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
-ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: be0c12eacae9bb13a475de4634746e9d38d35e43
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448381"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267569"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de Mídia v2 vs. v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo descreve alterações que foram introduzidas no Azure Media Services v3 e mostra diferenças entre duas versões.
 
@@ -93,15 +95,15 @@ A tabela seguinte mostra como as propriedades do [Ativo](/rest/api/media/assets/
 
 |v3 propriedades|v2 propriedades|
 |---|---|
-|`id`- (único) o percurso completo do Gestor de Recursos Azure, ver exemplos em [Ativo](/rest/api/media/assets/createorupdate)||
-|`name`- (único) ver [convenções de nomeação](media-services-apis-overview.md#naming-conventions) ||
+|`id` - (único) o percurso completo do Gestor de Recursos Azure, ver exemplos em [Ativo](/rest/api/media/assets/createorupdate)||
+|`name` - (único) ver [convenções de nomeação](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
-|`assetId`|`Id`- (único) o valor começa com o `nb:cid:UUID:` prefixo.|
+|`assetId`|`Id` - (único) o valor começa com o `nb:cid:UUID:` prefixo.|
 |`created`|`Created`|
 |`description`|`Name`|
 |`lastModified`|`LastModified`|
 |`storageAccountName`|`StorageAccountName`|
-|`storageEncryptionFormat`| `Options`(opções de criação)|
+|`storageEncryptionFormat`| `Options` (opções de criação)|
 |`type`||
 
 ### <a name="storage-side-encryption"></a>Encriptação lateral do armazenamento

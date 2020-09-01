@@ -3,23 +3,25 @@ title: Controlo de acesso baseado em funções para contas de Media Services - A
 description: Este artigo discute o controlo de acesso baseado em funções (RBAC) para contas Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/23/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 03e6c54ae9931f8f209a5f59150db2801827da06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a29280815a1c9cf3d578f0d304bc679bf234c185
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003768"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267127"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de Serviços de Mídia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Atualmente, a Azure Media Services não define quaisquer funções personalizadas específicas do serviço. Para ter acesso total à conta dos Serviços de Comunicação Social, os clientes podem utilizar as funções incorporadas de **Proprietário** ou **Colaborador.** A principal diferença entre estas funções é: o **Proprietário** pode controlar quem tem acesso a um recurso e o **Contribuinte** não pode. A função **de Leitor** incorporado também pode ser utilizada, mas o utilizador ou aplicação só terá lido o acesso às APIs dos Serviços de Comunicação Social. 
 

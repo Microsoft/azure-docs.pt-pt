@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services v3 com o modelo de licença do Microsoft PlayReady
 description: Este tópico dá uma visão geral de um modelo de licença PlayReady que é usado para configurar licenças PlayReady.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 302c938aa3a778f4e1b0ca7884f82943edf43ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b4131ff0cb2169660b231cdf136f52c3f26a02dc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998973"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267161"
 ---
-# <a name="media-services-v3-with-playready-license-template"></a>Serviços de Mídia v3 com modelo de licença PlayReady 
+# <a name="media-services-v3-with-playready-license-template"></a>Serviços de Mídia v3 com modelo de licença PlayReady
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O Azure Media Services permite-lhe encriptar os seus conteúdos com **o Microsoft PlayReady**. Os Media Services também fornecem um serviço para a entrega de licenças PlayReady. Pode utilizar APIs de Serviços de Mídia para configurar licenças PlayReady. Quando um jogador tenta reproduzir o seu conteúdo protegido pela PlayReady, é enviado um pedido ao serviço de entrega de licenças para obter uma licença. Se o serviço de licença aprovar o pedido, emite a licença que é enviada ao cliente e é usada para desencriptar e reproduzir o conteúdo especificado.
 

@@ -3,23 +3,25 @@ title: Faixas de áudio descritivas de sinal com Azure Media Services v3 Microso
 description: Siga os passos deste tutorial para fazer o upload de um ficheiro, codificar o vídeo, adicionar faixas de áudio descritivas e transmitir o seu conteúdo com o Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.date: 09/25/2019
-ms.author: juliako
-ms.openlocfilehash: cce2dfe943519f39fbe0660338babf782fee4336
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1a8986dcba9dc64eb77d8bc8c6e77704fa212abb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006657"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267433"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Faixas de áudio descritivas de sinal
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Pode adicionar uma faixa de narração ao seu vídeo para ajudar os clientes com deficiência visual a seguirem a gravação de vídeo ouvindo a narração. Nos Serviços de Comunicação social v3, sinaliza faixas de áudio descritivas anotando a faixa áudio no ficheiro manifesto.
 

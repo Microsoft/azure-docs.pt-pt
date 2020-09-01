@@ -1,16 +1,16 @@
 ---
 title: 'Quickstart: Obtenha resposta da base de conhecimento - REST, Node.js - QnA Maker'
-description: Este quickstart baseado em Node.js REST acompanha-o através de obter uma resposta de uma base de conhecimento, programáticamente.
+description: Este Node.js quickstart baseado em REST o acompanha através de obter uma resposta de uma base de conhecimento, programáticamente.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 3003f37789634c13c2213b708f7ae963c97da873
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: aa5a6395b537daa750a2e9b97bde4df320193c1e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342787"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268062"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Quickstart: Obtenha respostas para uma pergunta de uma base de conhecimento com Node.js
 
@@ -27,7 +27,7 @@ Este quickstart acompanha-o programáticamente recebendo uma resposta de uma bas
 
     As definições da página de publicação incluem o valor da rota POST, o valor do anfitrião e o valor endpointKey.
 
-    ![Publish settings (Definições de publicação)](../media/qnamaker-quickstart-get-answer/publish-settings.png)
+    ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
 ## <a name="create-a-nodejs-file"></a>Criar um ficheiro Node.js
 
@@ -37,33 +37,23 @@ Abra o VSCode e crie um novo ficheiro chamado `get-answer.js` .
 
 No topo do ficheiro, adicione as `get-answer.js` dependências necessárias ao projeto:
 
-[!code-nodejs[Add the required dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=1-4 "Add the required dependencies")]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="dependencies":::
 
 ## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
 
 Em seguida, adicione as constantes necessárias para aceder ao QnA Maker. Estes valores estão na página **publicar** depois de publicar a base de conhecimentos.
 
-[!code-nodejs[Add the required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=6-22 "Add the required constants")]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="constants":::
 
 ## <a name="add-a-post-request-to-send-question-and-get-an-answer"></a>Adicione um pedido de CORREIO para enviar a pergunta e obter uma resposta
 
 O seguinte código faz um pedido HTTPS à API do Fabricante QNA para enviar a pergunta para a base de conhecimento e recebe a resposta:
 
-[!code-nodejs[Add a POST request to send question to knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=24-49 "Add a POST request to send question to knowledge base")]
-
-O `Authorization` valor do cabeçalho inclui a `EndpointKey` corda.
-
-## <a name="install-the-dependencies"></a>Instalar as dependências
-
-Instalar as dependências da linha de comando:
-
-```bash
-npm install request request-promise
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="query":::
 
 ## <a name="run-the-program"></a>Execute o programa
 
-Executar o programa a partir da linha de comando. Enviará automaticamente o pedido para a API do Criador QnA, e depois imprimirá na janela da consola.
+Execute o programa a partir da linha de comandos. Enviará automaticamente o pedido para a API do Criador QnA, e depois imprimirá na janela da consola.
 
 Executar o ficheiro:
 
@@ -77,7 +67,7 @@ Saiba mais sobre o [pedido](../how-to/metadata-generateanswer-usage.md#generatea
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

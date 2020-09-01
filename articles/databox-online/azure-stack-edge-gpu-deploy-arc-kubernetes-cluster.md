@@ -1,6 +1,6 @@
 ---
-title: Ativar o Arco Azure em Kubernetes no dispositivo Azure Stack Edge Microsoft Docs
-description: Descreve como ativar o Azure Arc num cluster Kubernetes existente no seu dispositivo Azure Stack Edge.
+title: Ativar o Arco Azure em Kubernetes no dispositivo GPU Azure Stack Edge Microsoft Docs
+description: Descreve como ativar o Azure Arc num cluster Kubernetes existente no seu dispositivo GPU Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 03bf2a01ad4c1d5d017d881bf171806fa33e8799
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086110"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268198"
 ---
-# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-device"></a>Ativar o Azure Arc no cluster Kubernetes no seu dispositivo Azure Stack Edge
+# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Ativar o Azure Arc no cluster Kubernetes no seu dispositivo GPU Azure Stack Edge
 
 Este artigo mostra-lhe como ativar o Azure Arc num cluster Kubernetes existente no seu dispositivo Azure Stack Edge. 
 
@@ -132,7 +132,7 @@ Também pode registar fornecedores de recursos através do `az cli` . Para obter
     Para obter mais informações sobre como criar o principal de serviço e executar a atribuição de funções, consulte os passos na [Create a azure Arc-enabled onboarding Service Principal](https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal).
 
 
-## <a name="enable-arc-on-kubernetes-cluster"></a>Ativar o Arco no cluster Kubernetes
+## <a name="enable-arc-on-kubernetes-cluster"></a>Ativar o Arc no cluster do Kubernetes
 
 Siga estes passos para configurar o cluster Kubernetes para a gestão do Arco Azure:
 

@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 627eca1f9a775f12fc9d504629c2a3abbcc919a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b7ea61a1f09a9340661f333e452f70c5ad8cf877
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084505"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266651"
 ---
-# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Manage streaming endpoints with the Azure portal (Gerir os pontos finais de transmissão em fluxo com o portal do Azure) 
+# <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Manage streaming endpoints with the Azure portal (Gerir os pontos finais de transmissão em fluxo com o portal do Azure)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artigo mostra como usar o portal Azure para gerir os pontos finais de streaming. 
 

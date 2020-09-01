@@ -3,23 +3,25 @@ title: Obtenha uma chave de assinatura de uma política utilizando a Azure Media
 description: Este tópico mostra como obter uma chave de assinatura da política existente usando Os Serviços de Mídia v3 .NET SDK.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/15/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2dea262fadb61adc9e219b76f9ac048c11e650d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d98f008e77fd56a369d298e26165ca29007c8128
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80065966"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267351"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obter uma chave de assinatura da política existente
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Um dos principais princípios de design da API v3 é tornar a API mais segura. V3 APIs não devolvem segredos ou credenciais em operações **Get** ou **List.** Consulte aqui a explicação detalhada: Para mais informações, consulte as [contas da RBAC e dos Serviços de Comunicação Social](rbac-overview.md)
 

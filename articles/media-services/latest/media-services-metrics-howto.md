@@ -3,7 +3,7 @@ title: Ver métricas com monitor Azure
 description: Este artigo mostra como monitorizar métricas com as tabelas do portal Azure e Azure CLI.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 154e5b5d9639203810e9d16dec4e2907fe5ee80a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc532df51b4bbe2e7da1b47dfcc8d2e05e42f796
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504301"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267592"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorizar as métricas dos Serviços de Multimédia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [O Azure Monitor](../../azure-monitor/overview.md) permite-lhe monitorizar métricas e registos de diagnóstico que o ajudam a compreender como as suas aplicações estão a funcionar. Para uma descrição detalhada desta funcionalidade e para ver por que razão pretende utilizar as métricas e registos de diagnóstico do Azure Media Services, consulte [as métricas dos Serviços de Mídia do Monitor e os registos de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
@@ -30,7 +32,7 @@ O Azure Monitor fornece várias formas de interagir com as métricas, incluindo 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Criar uma conta dos Media Services](./create-account-howto.md)
-- Rever [métricas de Serviços de Mídia monitor e registos de diagnóstico](media-services-metrics-diagnostic-logs.md)
+- Rever  [métricas de Serviços de Mídia monitor e registos de diagnóstico](media-services-metrics-diagnostic-logs.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Ver métricas no portal Azure
 
@@ -68,7 +70,7 @@ az monitor metrics list --resource \
 
 Para obter outras métricas, substitua "Egress" pelo nome métrico que lhe interessa.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Métricas do Monitor Azure](../../azure-monitor/platform/data-platform.md)
 * [Criar, visualizar e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).

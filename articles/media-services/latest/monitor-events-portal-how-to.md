@@ -3,7 +3,7 @@ title: Monitor Azure Media Services eventos com Grade de Eventos com portal
 description: Este artigo mostra como subscrever a Event Grid para monitorizar os eventos da Azure Media Services.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -13,16 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 602ff0a29f3fd8717e581b6ac15d493e3ad475f7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 26e6e56d7c14cfa0ab54776003ae4489bb254094
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542400"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265852"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Create and monitor Media Services events with Event Grid using the Azure portal (Criar e monitorizar eventos de Serviços de Multimédia com o Event Grid com o portal do Azure)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O Azure Event Grid é um serviço de eventos para a cloud. Este serviço utiliza [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de eventos para assinantes. Os eventos dos Serviços de Comunicação Social contêm toda a informação necessária para responder às alterações nos seus dados. Pode identificar um evento de Media Services porque a propriedade eventType começa com "Microsoft.Media.". Para mais informações, consulte [os esquemas de eventos dos Media Services.](media-services-event-schemas.md)
 
@@ -32,7 +34,7 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-* Tenha uma subscrição ativa do Azure.
+* Ter uma subscrição ativa do Azure.
 * Crie uma nova conta dos Serviços de Multimédia do Azure, conforme descrito [neste início rápido](./create-account-howto.md).
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem

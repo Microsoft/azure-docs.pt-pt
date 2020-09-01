@@ -3,22 +3,24 @@ title: Azure Media Services v3 notas de lançamento / Microsoft Docs
 description: Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe as últimas atualizações sobre o Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2e637392328c7a09fb23adeca61a352707f05e0e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072140"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267512"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando este URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` no seu leitor de feed RSS.
 
@@ -270,31 +272,31 @@ O módulo CLI 2.0 já está disponível para [Azure Media Services v3 GA](/cli/a
 
 #### <a name="asset-commands"></a>Comandos de ativos
 
-- ```--storage-account```e ```--container``` argumentos adicionados.
+- ```--storage-account``` e ```--container``` argumentos adicionados.
 - Valores predefinidos para o tempo de validade (Agora+23h) e permissões (Ler) no ```az ams asset get-sas-url``` comando adicionados.
 
 #### <a name="job-commands"></a>Comandos de emprego
 
-- ```--correlation-data```e ```--label``` argumentos adicionados
-- ```--output-asset-names```renomeado para ```--output-assets``` . Agora aceita uma lista de ativos separados pelo espaço no formato 'assetName=label'. Um ativo sem etiqueta pode ser enviado assim: 'assetName='.
+- ```--correlation-data``` e ```--label``` argumentos adicionados
+- ```--output-asset-names``` renomeado para ```--output-assets``` . Agora aceita uma lista de ativos separados pelo espaço no formato 'assetName=label'. Um ativo sem etiqueta pode ser enviado assim: 'assetName='.
 
 #### <a name="streaming-locator-commands"></a>Comandos de localização de streaming
 
-- ```az ams streaming locator```comando de base substituído por ```az ams streaming-locator``` .
-- ```--streaming-locator-id```e ```--alternative-media-id support``` argumentos adicionados.
-- ```--content-keys argument```argumento atualizado.
-- ```--content-policy-name```renomeado para ```--content-key-policy-name``` .
+- ```az ams streaming locator``` comando de base substituído por ```az ams streaming-locator``` .
+- ```--streaming-locator-id``` e ```--alternative-media-id support``` argumentos adicionados.
+- ```--content-keys argument``` argumento atualizado.
+- ```--content-policy-name``` renomeado para ```--content-key-policy-name``` .
 
 #### <a name="streaming-policy-commands"></a>Comandos de Política de Streaming
 
-- ```az ams streaming policy```comando de base substituído por ```az ams streaming-policy``` .
+- ```az ams streaming policy``` comando de base substituído por ```az ams streaming-policy``` .
 - Suporte de parâmetros de encriptação ```az ams streaming-policy create``` adicionados.
 
 #### <a name="transform-commands"></a>Transformar comandos
 
-- ```--preset-names```argumento substituído por ```--preset``` . Agora só pode definir 1 saída/predefinição de cada vez (para adicionar mais tem de ```az ams transform output add``` correr). Além disso, pode definir StandardEncoderPreset personalizado passando o caminho para o seu JSON personalizado.
-- ```az ams transform output remove```pode ser realizado passando o índice de saída para remover.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argumentos adicionados ```az ams transform create``` e ```az ams transform output add``` comandos.
+- ```--preset-names``` argumento substituído por ```--preset``` . Agora só pode definir 1 saída/predefinição de cada vez (para adicionar mais tem de ```az ams transform output add``` correr). Além disso, pode definir StandardEncoderPreset personalizado passando o caminho para o seu JSON personalizado.
+- ```az ams transform output remove``` pode ser realizado passando o índice de saída para remover.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` argumentos adicionados ```az ams transform create``` e ```az ams transform output add``` comandos.
 
 ## <a name="october-2018---ga"></a>Outubro 2018 - GA
 
@@ -396,6 +398,6 @@ Consulte o artigo da [comunidade Azure Media Services](media-services-community.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral](media-services-overview.md)
+- [Descrição Geral](media-services-overview.md)
 - [Atualizações de documentação v3 dos Serviços de Comunicação Social](docs-release-notes.md)
 - [Media Services v2 notas de lançamento](../previous/media-services-release-notes.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896c1909c8cc920e53fc2f43fbc4dbca41ad7db4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bd49c60a23a0ad58f0907d3c1d7c38178ac08c97
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014239"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266362"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade gerida atribuída pelo utilizador utilizando o Gestor de Recursos Azure
 
@@ -44,12 +44,12 @@ Tal como acontece com o portal Estruição e scripts Azure, os modelos do Azure 
 
 - Utilizando um [modelo personalizado do Azure Marketplace,](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)que permite criar um modelo de raiz, ou baseá-lo num modelo comum ou [de arranque rápido](https://azure.microsoft.com/documentation/templates/)existente.
 - Derivado de um grupo de recursos existente, exportando um modelo a partir da [implantação original,](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)ou do [estado atual da implantação](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Utilizando um editor JSON local [(como o VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)e, em seguida, fazer upload e implantação utilizando o PowerShell ou o CLI.
+- Utilizando um editor JSON local [(como o VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)e, em seguida, fazer upload e implantação utilizando o PowerShell ou o CLI.
 - Utilizando o projeto Visual Studio [Azure Resource Group](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) para criar e implementar um modelo. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador 
 
-Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 Para criar uma identidade gerida atribuída ao utilizador, utilize o seguinte modelo. Substitua o `<USER ASSIGNED IDENTITY NAME>` valor pelos seus próprios valores:
 
@@ -88,4 +88,3 @@ Para criar uma identidade gerida atribuída ao utilizador, utilize o seguinte mo
 Para obter informações sobre como atribuir uma identidade gerida atribuída ao utilizador a um VM Azure usando um modelo de Gestor de Recursos Azure ver, [Configure identidades geridas para recursos Azure em um VM Azure usando um modelo](qs-configure-template-windows-vm.md).
 
 
- 

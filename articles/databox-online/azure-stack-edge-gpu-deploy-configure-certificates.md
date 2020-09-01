@@ -1,6 +1,6 @@
 ---
 title: Tutorial para configurar certificados para dispositivo Azure Stack Edge com GPU no portal Azure Microsoft Docs
-description: Tutorial para implantar Azure Stack Edge instrui-o a configurar certificados no seu dispositivo físico.
+description: Tutorial para implantar Azure Stack Edge com GPU instrui-o a configurar certificados no seu dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1f8e0464eb7f513149dd1cfa2ec5dcdc0f193417
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 80a857f80fd2c164637e591fbab43123659cd2f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181226"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268181"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-with-gpu"></a>Tutorial: Configure certificados para o seu Azure Stack Edge com GPU
 

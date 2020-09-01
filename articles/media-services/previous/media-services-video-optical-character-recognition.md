@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 44d4e5b6d3e96d2bafa9a7e22f36c6544eaff151
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4f89215525232f9722cd95cc4dd85a4bd19118de
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999551"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269000"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Use a Azure Media Analytics para converter conteúdo de texto em ficheiros de vídeo em texto digital  
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Use a Azure Media Analytics para converter conteúdo de texto em ficheiros de vídeo em texto digital 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
 > O processador de mídia **Azure Media OCR** será retirado. Para a data da aposentadoria, consulte o tema dos [componentes do legado.](legacy-components.md)
@@ -50,7 +52,7 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com **o Azure Med
 | Nome do atributo | Descrição |
 | --- | --- |
 |Saída Avançada| Se definir o AdvancedOutput como verdadeiro, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se não quiser ver estes detalhes, coloque a bandeira em falso. O valor predefinido é false. Para mais informações, consulte [este blog.](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)|
-| Idioma |(opcional) descreve a linguagem do texto para a qual procurar. Um dos seguintes: AutoDetect (padrão), Árabe, Chinês Simplificado, Chinês Tradicional, Português, Português, Holandês, Inglês, Finlandês, Francês, Alemão, Grego, Húngaro, Italiano, Japonês, Coreano, Norueguês, Polaco, Português, Romeno, Russo, SérvioCyrillic, Sérvio, Sérvio, Eslovaco, Espanhol, Sueco, Turco. |
+| Linguagem |(opcional) descreve a linguagem do texto para a qual procurar. Um dos seguintes: AutoDetect (padrão), Árabe, Chinês Simplificado, Chinês Tradicional, Português, Português, Holandês, Inglês, Finlandês, Francês, Alemão, Grego, Húngaro, Italiano, Japonês, Coreano, Norueguês, Polaco, Português, Romeno, Russo, SérvioCyrillic, Sérvio, Sérvio, Eslovaco, Espanhol, Sueco, Turco. |
 | TextOrientation |(opcional) descreve a orientação do texto para o qual procurar.  "Esquerda" significa que o topo de todas as letras são apontados para a esquerda.  O texto predefinido (como o que pode ser encontrado num livro) pode ser chamado de "Up" orientado para o texto.  Um dos seguintes: AutoDetect (padrão), Up, Right, Down, Left. |
 | TimeInterval |(opcional) descreve a taxa de amostragem.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH:mm:ss. SSS (padrão 00:00:00.500)<br/>Formato XML – W3C XSD duração primitiva (PT0.5 padrão) |
 | Deteção de Regiões |(opcional) Uma matriz de objetos detecteRegion especificando regiões dentro da moldura de vídeo para detetar texto.<br/>Um objeto detectRegion é feito dos seguintes quatro valores inteiros:<br/>Esquerda – pixels da margem esquerda<br/>Top – pixels da margem superior<br/>Largura – largura da região em pixels<br/>Altura – altura da região em pixels |

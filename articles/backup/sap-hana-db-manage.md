@@ -3,12 +3,12 @@ title: Gerir bases de dados SAP HANA em VMs Azure
 description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 6de1144237366806bb06c28a0777f62d69004e8b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40761415042cc619893ab3a712a763d4fb046e38
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006570"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267484"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
@@ -65,6 +65,8 @@ Os backups são executados de acordo com o calendário de apólices. Pode execut
 2. Em **Itens de Cópia de Segurança**, selecione o VM que executa a base de dados SAP HANA e, em seguida, clique em Backup **agora**.
 3. In **Backup Now,** escolha o tipo de cópia de segurança que pretende realizar. Em seguida, clique em **OK**. Esta cópia de segurança será mantida de acordo com a política associada a este item de backup.
 4. Monitorize as notificações do portal. Pode monitorizar o progresso do trabalho no painel de segurança do cofre > **trabalhos de reserva**  >  **em curso**. Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
+
+Por padrão, a retenção de backups a pedido é de 45 dias.
 
 ### <a name="hana-native-client-integration"></a>Integração de clientes nativos HANA
 

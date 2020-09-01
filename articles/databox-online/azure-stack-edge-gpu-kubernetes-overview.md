@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: b85586a431a20102035e253537fc45c8a8a54796
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: be7e01644d7d1f232c50b1efbadf100671a262fe
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085402"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268113"
 ---
-# <a name="kubernetes-on-your-azure-stack-edge-device"></a>Kubernetes no seu dispositivo Azure Stack Edge
+# <a name="kubernetes-on-your-azure-stack-edge-gpu-device"></a>Kubernetes no seu dispositivo GPU Azure Stack Edge
 
 Kubernetes é uma plataforma popular de código aberto para orquestrar aplicações contentorizadas. Este artigo fornece uma visão geral de Kubernetes e, em seguida, descreve como Kubernetes funciona no seu dispositivo Azure Stack Edge. 
 
@@ -57,7 +57,7 @@ Para suportar cargas de trabalho de aplicação, pode montar volumes de armazena
 
 Para obter mais informações, consulte opções de fornecimento de armazenamento para aplicações no [armazenamento de Kubernetes para o seu dispositivo Azure Stack Edge](azure-stack-edge-gpu-kubernetes-storage.md).
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 A rede Kubernetes permite-lhe configurar a comunicação dentro da sua rede Kubernetes, incluindo a rede contentor-a-contentor, a rede pod-to-pod, a rede pod-to-service e a rede Internet-to-service. Para obter mais informações, consulte o modelo de networking em [rede Kubernetes para o seu dispositivo Azure Stack Edge](azure-stack-edge-gpu-kubernetes-networking.md).
 

@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f22d2022ae095ea7178859b1c036f78e39c10152
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5ad40feacdccc847ed66caed3d586db2490b0b50
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019458"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266532"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Como: Entregar um ativo através do download  
+# <a name="how-to-deliver-an-asset-by-download"></a>Como: Entregar um ativo através do download
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Este artigo discute opções de entrega de ativos de media enviados para os Media Services. Pode entregar conteúdos de Serviços de Mídia em inúmeros cenários de aplicação. Depois de codificar, descarregue os meios de comunicação gerados ou aceda-os utilizando um localizador de streaming. Para melhorar o desempenho e a escalabilidade, também pode fornecer conteúdo utilizando uma Rede de Entrega de Conteúdos (CDN).
 
 Este exemplo mostra como transferir os ativos de mídia dos Media Services para o seu computador local. O código questiona os postos de trabalho associados à conta dos Serviços de Comunicação social por ID de trabalho e acede à sua coleção **OutputMediaAssets** (que é o conjunto de um ou mais ativos de media de saída que resulta da execução de um emprego). Este exemplo mostra como descarregar os ativos de produção de media de um trabalho, mas você pode aplicar a mesma abordagem para descarregar outros ativos.

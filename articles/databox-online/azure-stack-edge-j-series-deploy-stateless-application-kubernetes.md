@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: f2bd0b8c222b9f9643d53da33619af438c121a2f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145965"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268864"
 ---
-# <a name="run-and-manage-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Executar e gerir uma aplicação apátrida Kubernetes no seu dispositivo Azure Stack Edge
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Implemente uma aplicação apátrida Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge
 
 Este artigo descreve como implementar uma aplicação apátrida usando comandos kubectl num cluster Kubernetes existente. Este artigo também o acompanha através do processo de criação e configuração de cápsulas na sua aplicação apátrida.
 

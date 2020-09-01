@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8da142b9ee97d45b5f798e1b7db31228613cd37f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f04eb0eb3741a388b375cf7d8c6455bfd4a17b39
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014294"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266345"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador usando chamadas REST API
 
@@ -34,8 +34,8 @@ Neste artigo, aprende-se a criar, listar e eliminar uma identidade gerida atribu
 
 - Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Se estiver a utilizar o Windows, instale o [Subsistema Windows para o Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilize o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal Azure.
-- Se utilizar o [Subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SISTEMA de distribuição Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale a consola local Azure CLI](/cli/azure/install-azure-cli).
+- Se estiver a utilizar o Windows, instale o [Subsistema Windows para o Linux](/windows/wsl/about) ou utilize o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal Azure.
+- Se utilizar o [Subsistema Windows para Linux](/windows/wsl/about) ou um [SISTEMA de distribuição Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale a consola local Azure CLI](/cli/azure/install-azure-cli).
 - Se estiver a utilizar a consola local Azure CLI, inscreva-se no Azure utilizando `az login` uma conta associada à subscrição Azure que gostaria de implementar ou recuperar informações de identidade geridas pelo utilizador.
 - Recupere um token de acesso ao Bearer utilizando `az account get-access-token` para executar as seguintes operações de identidade geridas pelo utilizador.
 
@@ -43,7 +43,7 @@ Neste artigo, aprende-se a criar, listar e eliminar uma identidade gerida atribu
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador 
 
-Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -73,7 +73,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista de identidades geridas atribuídas pelo utilizador
 
-Para listar/ler uma identidade gerida atribuída pelo utilizador, a sua conta precisa da atribuição de funções de [Colaborador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou De Identidade [Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para listar/ler uma identidade gerida atribuída pelo utilizador, a sua conta precisa da atribuição de funções de [Colaborador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) ou De Identidade [Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -90,7 +90,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar uma identidade gerida atribuída pelo utilizador
 
-Para eliminar uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para eliminar uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 > [!NOTE]
 > A eliminação de uma identidade gerida atribuída pelo utilizador não removerá a referência de qualquer recurso a que tenha sido atribuído. Para remover uma identidade gerida atribuída pelo utilizador a partir de um VM utilizando o CURL consulte [Remover uma identidade atribuída ao utilizador de um VM Azure](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555022"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268232"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planeie a sua Azure AD aderir à implementação
 
@@ -26,7 +26,7 @@ Este artigo fornece-lhe as informações necessárias para planear a implementa�
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que está familiarizado com a [Introdução à gestão de dispositivos no Azure Ative Directory](../device-management-introduction.md).
+Este artigo pressupõe que está familiarizado com a [Introdução à gestão de dispositivos no Azure Ative Directory](./overview.md).
 
 ## <a name="plan-your-implementation"></a>Planeie a sua implementação
 
@@ -58,7 +58,7 @@ A Azure AD junta-se a obras com ambientes geridos e federados.
 
 ### <a name="managed-environment"></a>Ambiente gerido
 
-Um ambiente gerido pode ser implementado através de [Password Hash Sync](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ou [de passar por autenticação](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) com único sinal sem emenda.
+Um ambiente gerido pode ser implementado através de [Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) ou [de passar por autenticação](../hybrid/how-to-connect-pta-quick-start.md) com único sinal sem emenda.
 
 Estes cenários não requerem que configures um servidor da federação para autenticação.
 
@@ -69,7 +69,7 @@ Um ambiente federado deve ter um fornecedor de identidade que apoie os protocolo
 - **WS-Fed:** Este protocolo é necessário para aderir a um dispositivo ao Azure AD.
 - **WS-Trust:** Este protocolo é necessário para iniciar seduca num dispositivo azure AD.
 
-Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais da WS-Trust:`/adfs/services/trust/2005/usernamemixed`
+Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais da WS-Trust: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
@@ -90,7 +90,7 @@ Não é possível utilizar cartões inteligentes ou autenticação baseada em ce
 
 Se criar utilizadores no seu:
 
-- **No local, Ative Directory,** é necessário sincronizá-los para Azure AD utilizando [o Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **No local, Ative Directory,** é necessário sincronizá-los para Azure AD utilizando [o Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
 - **Azure AD**, não é necessária uma configuração adicional.
 
 As UPNs no local que são diferentes das UPNs AD Azure não são suportadas em dispositivos aderidos Azure AD. Se os seus utilizadores utilizarem uma UPN no local, deverá planear mudar para a utilização da sua UPN primária em Azure AD.
@@ -162,7 +162,7 @@ Se utilizar O FS AD, consulte [Verificar e gerir um único sinal de s-on com AD 
 
 Os utilizadores obtêm SSO de dispositivos aderidos a Azure AD se o dispositivo tiver acesso a um controlador de domínio. 
 
-**Recomendação:** Implementar [o proxy da App AD Azure](/azure/active-directory/manage-apps/application-proxy) para permitir um acesso seguro a estas aplicações.
+**Recomendação:** Implementar [o proxy da App AD Azure](../manage-apps/application-proxy.md) para permitir um acesso seguro a estas aplicações.
 
 ### <a name="on-premises-network-shares"></a>Ações de rede no local
 
@@ -190,7 +190,7 @@ A partir da atualização do Windows 10 2004, os utilizadores podem utilizar um 
 
 Pode providenciar a ad AD Azure usando as seguintes abordagens:
 
-- **Self-service in OOBE/Settings** - No modo de self-service, os utilizadores passam pelo processo de ad Azure, quer durante o Windows out of Box Experience (OOBE) quer a partir de Definições do Windows. Para mais informações, consulte [Junte o seu dispositivo de trabalho à rede da sua organização.](/azure/active-directory/user-help/user-help-join-device-on-network) 
+- **Self-service in OOBE/Settings** - No modo de self-service, os utilizadores passam pelo processo de ad Azure, quer durante o Windows out of Box Experience (OOBE) quer a partir de Definições do Windows. Para mais informações, consulte [Junte o seu dispositivo de trabalho à rede da sua organização.](../user-help/user-help-join-device-on-network.md) 
 - **Windows Autopilot** - Windows Autopilot permite pré-configuração de dispositivos para uma experiência mais suave no OOBE para executar uma junta AD Azure. Para mais informações, consulte a [visão geral do Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Inscrição a granel** - A inscrição a granel permite que um administrador impulsionado Azure AD se junte usando uma ferramenta de provisionamento a granel para configurar dispositivos. Para obter mais informações, consulte [a inscrição em massa para dispositivos Windows](/intune/windows-bulk-enroll).
  
@@ -201,7 +201,7 @@ Aqui está uma comparação destas três abordagens
 | Requerem interação do utilizador para configurar | Sim | Sim | Não |
 | Exigir esforço de TI | Não | Sim | Sim |
 | Fluxos aplicáveis | Definições de & OOBE | Apenas OOBE | Apenas OOBE |
-| Direitos de administração local para o utilizador primário | Sim, por defeito. | Configurável | Não |
+| Direitos de administrador local para o utilizador primário | Sim, por defeito. | Configurável | Não |
 | Requera suporte ao OEM do dispositivo | Não | Sim | Não |
 | Versões suportadas | 1511+ | 1709+ | 1703+ |
  
@@ -220,17 +220,17 @@ Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e
 
 O portal Azure permite-lhe controlar a implementação de dispositivos aderidos a Azure AD na sua organização. Para configurar as definições relacionadas, na **página do Diretório Ativo Azure,** selecione `Devices > Device settings` .
 
-### <a name="users-may-join-devices-to-azure-ad"></a>Os utilizadores podem aderir a dispositivos ao Azure AD
+### <a name="users-may-join-devices-to-azure-ad"></a>Os utilizadores podem associar dispositivos ao Azure AD
 
 Desconfie esta opção para **Todos** ou **Selecionados** com base no âmbito da sua implementação e em quem pretende permitir configurar um dispositivo azure AD. 
 
-![Os utilizadores podem aderir a dispositivos ao Azure AD](./media/azureadjoin-plan/01.png)
+![Os utilizadores podem associar dispositivos ao Azure AD](./media/azureadjoin-plan/01.png)
 
-### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Administradores locais adicionais em Azure AD aderiram a dispositivos
+### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Administradores locais adicionais nos dispositivos associados do Azure AD
 
 Escolha **Selecionado** e selecione os utilizadores que pretende adicionar ao grupo de administradores locais em todos os dispositivos aderidos a Azure AD. 
 
-![Administradores locais adicionais em Azure AD aderiram a dispositivos](./media/azureadjoin-plan/02.png)
+![Administradores locais adicionais nos dispositivos associados do Azure AD](./media/azureadjoin-plan/02.png)
 
 ### <a name="require-multi-factor-auth-to-join-devices"></a>Requerem que a Auth multi-factor se junte a dispositivos
 
@@ -252,18 +252,18 @@ Antes de configurar as suas definições de mobilidade, poderá ter de adicionar
 
 Selecione o seu fornecedor DEM para configurar as definições relacionadas. 
 
-### <a name="mdm-user-scope"></a>Âmbito do utilizador DO MDM
+### <a name="mdm-user-scope"></a>Âmbito do utilizador MDM
 
 Selecione **Some** ou **All** com base no âmbito da sua implementação. 
 
-![Âmbito do utilizador DO MDM](./media/azureadjoin-plan/05.png)
+![Âmbito do utilizador MDM](./media/azureadjoin-plan/05.png)
 
 Com base no seu âmbito, um dos seguintes acontece: 
 
 - **O utilizador está no âmbito do MDM**: Se tiver uma subscrição Azure AD Premium, a inscrição de MDM é automatizada juntamente com a ad Azure. Todos os utilizadores com âmbito de aplicação devem ter uma licença adequada para o seu MDM. Se a inscrição no MDM falhar neste cenário, a adada Azure também será revertida.
 - **O utilizador não está no âmbito do MDM**: Se os utilizadores não estiverem no âmbito do MDM, a Azure AD junta-se a conclusões sem qualquer inscrição de MDM. Isto resulta num dispositivo não gerido.
 
-### <a name="mdm-urls"></a>MDM URLs
+### <a name="mdm-urls"></a>URLs MDM
 
 Existem três URLs que estão relacionados com a sua configuração de MDM:
 
@@ -275,7 +275,7 @@ Existem três URLs que estão relacionados com a sua configuração de MDM:
 
 Cada URL tem um valor predefinido. Se estes campos estiverem vazios, contacte o seu fornecedor de MDM para mais informações.
 
-### <a name="mam-settings"></a>Definições de MAM
+### <a name="mam-settings"></a>Definições MAM
 
 O MAM não se aplica à aderimento da Azure AD. 
 
@@ -293,11 +293,11 @@ Se tiver um fornecedor DEM configurado para os seus dispositivos aderentes Azure
 
 Pode utilizar esta implementação para [exigir dispositivos geridos para acesso a aplicações na nuvem com acesso condicional.](../conditional-access/require-managed-devices.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Junte-se a um novo dispositivo Windows 10 com Azure AD durante uma primeira execução](azuread-joined-devices-frx.md) 
->  [Junte-se ao seu dispositivo de trabalho na rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network)
+>  [Junte-se ao seu dispositivo de trabalho na rede da sua organização](../user-help/user-help-join-device-on-network.md)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

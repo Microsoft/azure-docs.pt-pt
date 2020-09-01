@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d30949327f3025c06d4c98670494809c486631a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 395d2239970e7efbf6973d6262df0e049306584b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022212"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266702"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utilize o Moderador de Conteúdo de Mídia Azure para detetar possíveis conteúdos adultos e picantes 
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utilize o Moderador de Conteúdo de Mídia Azure para detetar possíveis conteúdos adultos e picantes
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > O processador de mídia **Azure Media Content Moderador** será retirado. Para a data da aposentadoria, consulte o tema dos [componentes do legado.](legacy-components.md)

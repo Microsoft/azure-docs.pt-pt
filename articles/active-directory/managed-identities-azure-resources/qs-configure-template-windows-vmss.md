@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3745b55a8e5705b11b090cc1241472a3cf4cbade
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 30185733a89ecf078bd2077cdcb51d6817f889d2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021056"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266753"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades geridas para recursos Azure em uma escala de máquina virtual Azure usando um modelo
 
@@ -41,9 +41,9 @@ Neste artigo, aprende a executar as seguintes identidades geridas para operaçõ
     > [!NOTE]
     > Não são necessárias atribuições adicionais de diretório ad AD.
 
-    - [Contribuinte de máquinas virtuais](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover sistema e/ou identidade gerida atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
-    - [Papel de Contribuinte de Identidade Gerido](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
-    - [Função de Operador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerida atribuída pelo utilizador de e para um conjunto de escala de máquina virtual.
+    - [Contribuinte de máquinas virtuais](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover sistema e/ou identidade gerida atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
+    - [Papel de Contribuinte de Identidade Gerido](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
+    - [Função de Operador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para atribuir e remover uma identidade gerida atribuída pelo utilizador de e para um conjunto de escala de máquina virtual.
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
@@ -51,7 +51,7 @@ Tal como acontece com o portal Estruição e scripts [Azure,](../../azure-resour
 
    - Utilizando um [modelo personalizado do Azure Marketplace,](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)que permite criar um modelo de raiz, ou baseá-lo num modelo comum ou [de arranque rápido](https://azure.microsoft.com/documentation/templates/)existente.
    - Derivado de um grupo de recursos existente, exportando um modelo a partir da [implantação original,](../../azure-resource-manager/templates/export-template-portal.md)ou do [estado atual da implantação](../../azure-resource-manager/templates/export-template-portal.md).
-   - Utilizando um editor JSON local [(como o VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)e, em seguida, fazer upload e implantação utilizando o PowerShell ou o CLI.
+   - Utilizando um editor JSON local [(como o VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)e, em seguida, fazer upload e implantação utilizando o PowerShell ou o CLI.
    - Utilizando o projeto Visual Studio [Azure Resource Group](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) para criar e implementar um modelo.  
 
 Independentemente da opção escolhida, a sintaxe do modelo é a mesma durante a implementação inicial e a redistribuição. Permitir identidades geridas para recursos Azure num VM novo ou existente é feito da mesma forma. Além disso, por padrão, o Azure Resource Manager faz uma [atualização incremental](../../azure-resource-manager/templates/deployment-modes.md) às implementações.

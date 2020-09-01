@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b40bc8521755fae08e851e5b324979d5798e3dcd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042868"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269034"
 ---
 # <a name="encoding-error-codes"></a>Encoding error codes (Códigos de erro de codificação)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 A tabela que se segue lista os códigos de erro que podem ser devolvidos no caso de ter sido encontrado um erro durante a execução da tarefa de codificação.  Para obter detalhes de erro no seu código .NET, utilize a classe [ErrorDetails.](/previous-versions/azure/jj126075(v=azure.100)) Para obter detalhes de erro no seu código REST, utilize a API [ErrorDetail](/rest/api/media/operations/errordetail) REST.
 

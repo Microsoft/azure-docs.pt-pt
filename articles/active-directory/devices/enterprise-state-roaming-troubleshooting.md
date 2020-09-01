@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604544"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267246"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas das configurações do roaming do estado da empresa no Diretório Ativo do Azure
 
@@ -108,7 +108,7 @@ Certifique-se de que o cliente windows 10 v1511 tem a Atualização Cumulativa d
 
 ### <a name="theme-is-not-syncing-as-well-as-data-protected-with-windows-information-protection"></a>O tema não é sincronização, assim como dados protegidos com a Proteção de Informação do Windows 
 
-Para evitar fugas de dados, os dados protegidos com [a Proteção de Informações](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) do Windows não sincronizarão através do Roaming do Estado da Empresa para dispositivos que utilizem a Atualização de Aniversário do Windows 10.
+Para evitar fugas de dados, os dados protegidos com [a Proteção de Informações](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) do Windows não sincronizarão através do Roaming do Estado da Empresa para dispositivos que utilizem a Atualização de Aniversário do Windows 10.
 
 **Ação recomendada**  
 Nenhum. Futuras atualizações para o Windows podem resolver este problema.
@@ -159,8 +159,8 @@ Se o utilizador tiver uma UPN de caixa mista (por exemplo, Nome do Utilizador em
 O utilizador terá de se juntar e voltar a juntar o dispositivo à nuvem. Para isso, inicie sessão como utilizador do Administrador Local e desacose o dispositivo indo para o Sistema **de Definições**  >  **System**  >  **Sobre** e selecione "Gerir ou desligar do trabalho ou da escola". Limpe os ficheiros abaixo e, em seguida, Azure AD Junte o dispositivo novamente no Sistema **de Definições**  >  **System**  >  **Sobre** e selecione "Connect to Work or School". Continue a juntar o dispositivo ao Azure Ative Directory e complete o fluxo.
 
 Na etapa de limpeza, limpe os seguintes ficheiros:
-- Configurações.dat in`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Todos os ficheiros sob a pasta`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- Configurações.dat in `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Todos os ficheiros sob a pasta `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 
@@ -180,6 +180,6 @@ No Visualizador de Eventos sob os registos AAD/Operacional, este erro pode ser v
 **Ação recomendada**  
 Prossiga com os passos listados [KB3196528](https://support.microsoft.com/kb/3196528).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral, consulte [a visão geral do roaming do estado da empresa.](enterprise-state-roaming-overview.md)

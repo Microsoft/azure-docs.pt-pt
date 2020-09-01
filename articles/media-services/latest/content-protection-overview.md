@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Saiba mais sobre a proteção de conteúdos com encriptação dinâmica, protocolos de streaming e tipos de encriptação em Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e21aba7b06e6c692337344477bfb52e7f7acb27c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 81ec96d244c36c0328134b415465d632ef6c1dd5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012200"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267926"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteja o seu conteúdo com encriptação dinâmica dos Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Utilize a Azure Media Services para ajudar a proteger os seus meios de comunicação a partir do momento em que deixa o computador durante todo o processo de armazenamento, processamento e entrega. Com os Media Services, pode fornecer o seu conteúdo ao vivo e a pedido encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. Se o conteúdo for encriptado com uma chave clara AES e for enviado por HTTPS, não é claro até chegar ao cliente. 
 

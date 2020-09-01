@@ -3,7 +3,7 @@ title: Stream de ficheiros de vídeo com a Azure Media Services - Node.js Micros
 description: Siga os passos deste tutorial para criar uma nova conta Azure Media Services, codificar um ficheiro e transmiti-lo ao Azure Media Player.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: serviços de multimédia do azure, transmitir
@@ -11,16 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc, devx-track-javascript
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: 1c96c538826de696de531aff79ce601bc01a239d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 901287a82ece873a572d7773dd53f80e1e8af716
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414076"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267399"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Node.js
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este tutorial mostra-lhe como é fácil codificar e começar a transmitir vídeos numa grande variedade de navegadores e dispositivos que utilizam o Azure Media Services. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
 
@@ -99,11 +101,11 @@ Execute o seguinte comando CLI:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Códigos de erro de trabalho](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conceitos de Serviços de Mídia](concepts-overview.md)

@@ -3,7 +3,7 @@ title: Use o CLI para escalar unidades reservadas de mídia - Azure / Microsoft 
 description: Este tópico mostra como usar o CLI para escalar o processamento de mídia com a Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e681b1f82086480541d08ae9f8ef9e5cf07b4df
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053213"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268473"
 ---
 # <a name="scaling-media-processing"></a>Scaling media processing (Dimensionar o processamento de multimédia)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os Serviços de Multimédia do Azure permitem-lhe dimensionar o processamento de multimédia na sua conta através da gestão de Unidades Reservadas de Multimédia (MRUs). As MRUs determinam a rapidez com que as suas tarefas de processamento de meios são processadas. Pode escolher entre os seguintes tipos de unidade reservada: **S1,** **S2**ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. 
 

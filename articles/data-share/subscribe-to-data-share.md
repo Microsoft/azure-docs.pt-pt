@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258636"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268898"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando a Azure Data Share  
 
@@ -38,7 +38,7 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 * Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuinte. 
 * Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função Proprietário.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Receba dados numa fonte baseada em SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Receber dados num alvo baseado em SQL:
 
 * Permissão para escrever para bases de dados no servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuinte. 
 * Permissão para a identidade gerida do recurso de partilha de dados para aceder à Base de Dados Azure SQL ou ao Armazém de Dados Azure SQL. Isto pode ser feito através dos seguintes passos: 
@@ -78,7 +78,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
    Para abrir diretamente o convite do portal Azure, procure convites de **partilha de dados** no portal Azure. Isto leva-o à lista de convites da Partilha de Dados.
 
-   ![Convites](./media/invitations.png "Lista de convites") 
+   ![Lista de Convites](./media/invitations.png "Lista de convites") 
 
 1. Selecione a partilha que gostaria de ver. 
 
@@ -104,7 +104,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 ## <a name="configure-received-share"></a>Configure recebeu parte
 Siga os passos abaixo para configurar onde pretende receber dados.
 
-1. Selecione **datasets.** Verifique a caixa ao lado do conjunto de dados a que pretende atribuir um destino. Selecione **+ Map para o alvo** para escolher uma loja de dados alvo. 
+1. Selecione **datasets** separador. Verifique a caixa ao lado do conjunto de dados para o qual pretende atribuir um destino. Selecione **+ Map para o alvo** para escolher uma loja de dados alvo. 
 
    ![Mapa para alvo](./media/dataset-map-target.png "Mapa para alvo") 
 
@@ -114,7 +114,7 @@ Siga os passos abaixo para configurar onde pretende receber dados.
 
    ![Conta de armazenamento alvo](./media/dataset-map-target-sql.png "Armazenamento de destino") 
 
-1. Para a partilha baseada em instantâneos, se o fornecedor de dados criou um calendário instantâneo para fornecer uma atualização regular aos dados, também pode ativar o horário de instantâneo selecionando o separador **'Agenda snapshot'.** Consulte a caixa ao lado do calendário de instantâneos e selecione **+ Enable**.
+1. Para a partilha baseada em instantâneos, se o fornecedor de dados criou um calendário instantâneo para fornecer uma atualização regular aos dados, também pode ativar o horário de instantâneo selecionando o separador **'Agenda snapshot'.** Verifique a caixa ao lado do horário de instantâneo e selecione **+ Ativar**.
 
    ![Ativar o horário do instantâneo](./media/enable-snapshot-schedule.png "Ativar o horário do instantâneo")
 

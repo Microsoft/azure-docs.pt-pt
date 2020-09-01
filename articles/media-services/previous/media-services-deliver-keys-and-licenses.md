@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0710d41dd44872be550917cbac036d72d052c333
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 88d21c7ee092f8d4971770699bdcade4bf40039d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019441"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267807"
 ---
-# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilize serviços de mídia para entregar licenças DE DRM ou chaves AES 
+# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilize serviços de mídia para entregar licenças DE DRM ou chaves AES
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)

@@ -1,5 +1,5 @@
 ---
-title: Upload media
+title: Carregar multimédia
 titleSuffix: Azure Media Services
 description: Saiba como carregar os meios de comunicação para streaming ou codificação.
 services: media-services
@@ -10,16 +10,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a046a3caba9a0909d873356bda8d1fa6cf1f9860
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 334eebe9680ba0e381bf82ac2e474a47a3b8875e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719262"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267297"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Upload mídia para streaming ou codificação
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Nos Serviços de Comunicação Social, faça o upload dos seus ficheiros digitais (media) para um recipiente de bolhas associado a um ativo. A entidade [Asset](/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros). Uma vez que os ficheiros são enviados para o recipiente do ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
 

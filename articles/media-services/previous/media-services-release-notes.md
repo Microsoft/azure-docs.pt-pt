@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4ac0b0e0a9c372aebc51af1840491d0f53f9f8f9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010322"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268660"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Estas notas de lançamento para a Azure Media Services resumem as alterações das versões anteriores e dos problemas conhecidos.
 
@@ -91,7 +93,7 @@ Agora pode utilizar os Serviços de Mídia para gerar sprites de miniatura Web V
 
 Com a mais recente versão do serviço, existem pequenas alterações de formatação nas mensagens de erro devolvidas pelo serviço quando um Trabalho falha, no que diz respeito à forma como é dividido em duas ou mais linhas.
 
-## <a name="may-2018"></a>May 2018 
+## <a name="may-2018"></a>Maio de 2018 
 
 A partir de 12 de maio de 2018, os canais ao vivo deixarão de suportar o protocolo de transmissão rtp/MPEG-2. Por favor, migrar de PROTOCOLOs de ingestão RTP/MPEG-2 para RTMP ou MP4 (Smooth Streaming).
 
@@ -372,7 +374,7 @@ Os metadados REST dos Serviços de Comunicação Social são agora a versão 2.7
 
 O SDK dos Serviços de Comunicação Social para .NET é agora a versão 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Quebra de mudanças
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Alterações interruptivas
 * A origem foi renomeada para [StreamingEndpoint.]
 * Foi feita uma alteração no comportamento predefinido quando utiliza o portal Azure para codificar e publicar ficheiros MP4.
 

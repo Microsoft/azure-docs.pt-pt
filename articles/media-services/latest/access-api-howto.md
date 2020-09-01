@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9528efb0ce7dd9df57db21ccdcf19e54a969d2e4
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654842"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265886"
 ---
-# <a name="get-credentials-to-access-media-services-api"></a>Obtenha credenciais para aceder à API dos Serviços de Mídia  
+# <a name="get-credentials-to-access-media-services-api"></a>Obtenha credenciais para aceder à API dos Serviços de Mídia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Quando utiliza a autenticação Azure AD para aceder à API dos Serviços Azure Media, tem duas opções de autenticação:
 

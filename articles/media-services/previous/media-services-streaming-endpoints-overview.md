@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: dbd460b584789aa7d40de9ba6430ff6202c3764b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052526"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265920"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos finais do streaming  
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
@@ -39,9 +41,9 @@ Este tópico dá uma visão geral das principais funcionalidades que são fornec
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Para o ponto final predefinido:`{AccountName}.streaming.mediaservices.windows.net`
+Para o ponto final predefinido: `{AccountName}.streaming.mediaservices.windows.net`
 
-Para quaisquer pontos finais adicionais:`{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
+Para quaisquer pontos finais adicionais: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Tipos e versões de streaming
 
@@ -77,10 +79,10 @@ Se a sua **versão "1.0"** streaming endpoint tiver >=1 unidades de streaming pr
 
 |Tipo|StreamingEndpointVersion|Unidades de escala|CDN|Faturação|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Clássico|1,0|0|ND|Gratuito|
-|Ponto final de streaming padrão (pré-visualização)|2,0|0|Yes|Pago|
-|Unidades de streaming premium|1,0|>0|Yes|Pago|
-|Unidades de streaming premium|2,0|>0|Yes|Pago|
+|Clássico|1.0|0|ND|Gratuito|
+|Ponto final de streaming padrão (pré-visualização)|2.0|0|Sim|Pago|
+|Unidades de streaming premium|1.0|>0|Sim|Pago|
+|Unidades de streaming premium|2.0|>0|Sim|Pago|
 
 ### <a name="features"></a>Funcionalidades
 

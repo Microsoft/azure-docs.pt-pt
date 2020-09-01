@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: ce2fbe8c706870250973974c7a73a3964dedd04a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831894"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266906"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido dos subsistemas DRM 
+# <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido dos subsistemas DRM
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este tópico discute o design híbrido dos subsistemas DRM utilizando os Azure Media Services.
 
@@ -107,25 +109,25 @@ Nas amostras, a proteção PlayReady funciona tanto para o DASH como para o stre
 
 ### <a name="sample-1"></a>Exemplo 1
 
-* URL de origem (base):`https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest` 
-* PlayReady LA_URL (DASH & suave):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
-* LA_URL de averbar (DASH):`https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4` 
-* FairPlay LA_URL (HLS):`https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8` 
+* URL de origem (base): `https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest` 
+* PlayReady LA_URL (DASH & suave): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
+* LA_URL de averbar (DASH): `https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4` 
+* FairPlay LA_URL (HLS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8` 
 
 ### <a name="sample-2"></a>Exemplo 2
 
-* URL de origem (base):https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL (DASH & suave):`http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
+* URL de origem (base): https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* PlayReady LA_URL (DASH & suave): `http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
 
 ### <a name="sample-3"></a>Exemplo 3
 
-* URL de origem:https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (DASH & suave):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
+* URL de origem: https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL (DASH & suave): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
 
 ### <a name="sample-4"></a>Exemplo 4
 
-* URL de origem:https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (DASH & suave):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx` 
+* URL de origem: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL (DASH & suave): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx` 
 
 ## <a name="additional-notes"></a>Notas adicionais
 

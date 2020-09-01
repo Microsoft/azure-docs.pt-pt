@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c4203e820946509290f3bbbe6d6309646903883
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b24b745a53b632ce32cda37058363bf974d400b3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085115"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268267"
 ---
 # <a name="certificate-requirements"></a>Requisitos de certificados
 

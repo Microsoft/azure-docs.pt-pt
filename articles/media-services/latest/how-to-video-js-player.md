@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 39c790ea3c7799c59d4b49e3ce3284fb96b8b254
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2730c6ce523e618110cd29b13ba2f37115e2cbd0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422968"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267688"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Como utilizar o jogador Video.js com a Azure Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Descrição geral
 
@@ -73,10 +75,10 @@ O código de amostra deste artigo está disponível em [amostras Azure-Samples/m
 
 Executar o `addRemoteTextTrack` método e substituir:
 
-- `subtitleKind`com qualquer um `"captions"` `"subtitles"` , , `"descriptions"` ou`"metadata"`  
-- `caption`com o caminho do ficheiro .vtt (o ficheiro VTT precisa estar no mesmo hospedeiro para evitar erros cors)
-- `subtitleLang`com o código BCP 47 para idioma, por exemplo, `"eng"` para inglês ou `"es"` espanhol
-- `subtitleLabel`com o seu nome de exibição desejado da legenda
+- `subtitleKind` com qualquer um `"captions"` `"subtitles"` , , `"descriptions"` ou `"metadata"`  
+- `caption` com o caminho do ficheiro .vtt (o ficheiro VTT precisa estar no mesmo hospedeiro para evitar erros cors)
+- `subtitleLang` com o código BCP 47 para idioma, por exemplo, `"eng"` para inglês ou `"es"` espanhol
+- `subtitleLabel` com o seu nome de exibição desejado da legenda
 
 ```javascript
 videojs.players.video.addRemoteTextTrack({
@@ -159,7 +161,7 @@ emeHeaders: {'Authorization': "Bearer=" + "YOUR TOKEN"},
 keySystems: {...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use o Azure Media Player](../azure-media-player/azure-media-player-overview.md)  
 - [Quickstart: Encriptar conteúdo](encrypt-content-quickstart.md)

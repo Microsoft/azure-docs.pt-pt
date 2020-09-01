@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011876"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268830"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -167,7 +167,7 @@ Se o parâmetro `videoUrl` não for especificado, o Video Indexer espera que tra
 
 O seguinte fragmento de código C# demonstra a utilização de todas as APIs do Video Indexer em conjunto.
 
-#### <a name="instructions-for-running-this-code-sample"></a>Instruções para executar esta amostra de código
+**Instruções para executar a seguinte amostra de código**
 
 Depois de copiar este código na sua plataforma de desenvolvimento, terá de fornecer dois parâmetros: chave de autenticação de API Management e URL de vídeo.
 

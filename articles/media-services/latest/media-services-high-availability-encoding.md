@@ -11,16 +11,18 @@ ms.subservice: ''
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 07/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dca351133394e27a1d795dc9f5f958f730bbf42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b20668ea08186f42eed89f82fb1ae8d85cf090d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092087"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267705"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Alta Disponibilidade com Serviços de Mídia e Vídeo a Pedido (VOD)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="high-availability-for-vod"></a>Alta disponibilidade para VOD
 

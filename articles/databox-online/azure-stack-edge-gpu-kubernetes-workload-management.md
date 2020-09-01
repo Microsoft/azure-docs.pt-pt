@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182059"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268040"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Gestão da carga de trabalho da Kubernetes no seu dispositivo Azure Stack Edge
 
@@ -47,11 +47,11 @@ Há três formas primárias de implantar as suas cargas de trabalho. Cada uma de
 
 ![Implantação da carga de trabalho de Kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Implantação local**: Isto é através de uma ferramenta de acesso à linha de comando, tal como `kubectl` permite-lhe implantar o K8 `yamls` . Liga-se ao cluster K8 no seu Azure Stack Edge que cria utilizando o `kubeconfig` ficheiro. Para mais informações, aceda a [um cluster Kubernetes via kubectl.](azure-stack-edge-gpu-create-kubernetes-cluster.md)
+- **Implementação local**: Isto é através de uma ferramenta de acesso à linha de comando, tal como `kubectl` permite-lhe implantar Kubernetes `yamls` . Liga-se ao cluster Kubernetes no seu Azure Stack Edge que cria utilizando o `kubeconfig` ficheiro. Para mais informações, aceda a [um cluster Kubernetes via kubectl.](azure-stack-edge-gpu-create-kubernetes-cluster.md)
 
-- **Implementação IoT Edge**: Isto é através do IoT Edge, que se conecta ao Azure IoT Hub. Ligue-se ao cluster K8 no seu dispositivo Azure Stack Edge através do `iotedge` espaço de nomes. Os agentes IoT Edge implantados neste espaço de nome são responsáveis pela conectividade com o Azure. Aplica a `IoT Edge deployment.json` configuração utilizando Azure DevOps CI/CD. A gestão namespace e IoT Edge é feita através do operador de nuvem.
+- **Implementação IoT Edge**: Isto é através do IoT Edge, que se conecta ao Azure IoT Hub. Liga-se ao cluster Kubernetes no seu dispositivo Azure Stack Edge através do `iotedge` espaço de nomes. Os agentes IoT Edge implantados neste espaço de nome são responsáveis pela conectividade com o Azure. Aplica a `IoT Edge deployment.json` configuração utilizando Azure DevOps CI/CD. A gestão namespace e IoT Edge é feita através do operador de nuvem.
 
-- **Implantação Azure/Arc**: Azure Arc é uma ferramenta de gestão híbrida que lhe permitirá implementar aplicações nos seus clusters K8. Ligue o cluster K8 ao seu dispositivo Azure Stack Edge através do `azure-arc namespace` . Os agentes são implantados neste espaço de nome que são responsáveis pela conectividade com o Azure. Aplica-se a configuração de implementação utilizando a gestão de configuração baseada em GitOps. O Azure Arc também lhe permitirá utilizar o Azure Monitor para que os recipientes vejam e monitorizem os seus aglomerados. Para mais informações, vá ao [Que é o Azure-Arc habilitado a Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+- **Implantação Azure/Arc**: Azure Arc é uma ferramenta de gestão híbrida que lhe permitirá implementar aplicações nos seus clusters Kubernetes. Ligue o cluster Kubernetes ao seu dispositivo Azure Stack Edge através do `azure-arc namespace` . Os agentes são implantados neste espaço de nome que são responsáveis pela conectividade com o Azure. Aplica-se a configuração de implementação utilizando a gestão de configuração baseada em GitOps. O Azure Arc também lhe permitirá utilizar o Azure Monitor para que os recipientes vejam e monitorizem os seus aglomerados. Para mais informações, vá ao [Que é o Azure-Arc habilitado a Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
 
 ## <a name="choose-the-deployment-type"></a>Escolha o tipo de implementação
 

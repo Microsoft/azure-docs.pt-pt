@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9861b257ee487824db26288925a786a9a6aeee34
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1211245786bbb734e0338be1b79030f5f9552793
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014222"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266379"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador utilizando a Azure PowerShell
 
@@ -45,7 +45,7 @@ Neste artigo, aprende-se a criar, listar e eliminar uma identidade gerida atribu
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
-Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 Para criar uma identidade gerida atribuída ao utilizador, utilize o `New-AzUserAssignedIdentity` comando. O `ResourceGroupName` parâmetro especifica o grupo de recursos onde criar a identidade gerida atribuída pelo utilizador, e o parâmetro especifica o `-Name` seu nome. Substitua os `<RESOURCE GROUP>` valores e `<USER ASSIGNED IDENTITY NAME>` parâmetros pelos seus próprios valores:
 
@@ -56,7 +56,7 @@ New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGN
 ```
 ## <a name="list-user-assigned-managed-identities"></a>Lista de identidades geridas atribuídas pelo utilizador
 
-Para listar/ler uma identidade gerida atribuída pelo utilizador, a sua conta precisa da atribuição de funções de [Colaborador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou De Identidade [Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para listar/ler uma identidade gerida atribuída pelo utilizador, a sua conta precisa da atribuição de funções de [Colaborador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) ou De Identidade [Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 Para listar identidades geridas atribuídas pelo utilizador, utilize o comando [Get-AzUserAssigned].  O `-ResourceGroupName` parâmetro especifica o grupo de recursos onde foi criada a identidade gerida atribuída pelo utilizador. Substitua-a `<RESOURCE GROUP>` pelo seu próprio valor:
 
@@ -69,7 +69,7 @@ Na resposta, as identidades geridas atribuídas pelo utilizador têm `"Microsoft
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar uma identidade gerida atribuída pelo utilizador
 
-Para eliminar uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para eliminar uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 Para eliminar uma identidade gerida atribuída pelo utilizador, utilize o `Remove-AzUserAssignedIdentity` comando.  O `-ResourceGroupName` parâmetro especifica o grupo de recursos onde foi criada a identidade atribuída ao utilizador e o parâmetro especifica o `-Name` seu nome. Substitua os `<RESOURCE GROUP>` valores e os `<USER ASSIGNED IDENTITY NAME>` parâmetros pelos seus próprios valores:
 

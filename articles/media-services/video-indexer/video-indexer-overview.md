@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/12/2020
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4d629351ae7b6154b332a1b1f99374de1187518
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744609"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267875"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Multimédia do Azure?
 
 O Video Indexer (VI) é a solução Azure Media Services AI e parte da marca Azure Cognitive Services. O Video Indexer fornece a capacidade de extrair insights profundos (sem necessidade de análise de dados ou habilidades de codificação) utilizando modelos de aprendizagem automática baseados em múltiplos canais (voz, vocal, visual). Pode personalizar e treinar os modelos. O serviço permite uma pesquisa profunda, reduz os custos operacionais, permite novas oportunidades de rentabilização e cria novas experiências de utilização em grandes arquivos de vídeos (com baixas barreiras de entrada).
 
 Para começar a extrair insights com o Video Indexer, é necessário criar uma conta e carregar vídeos. Ao fazer o upload dos seus vídeos para o Video Indexer, analisa tanto os visuais como o áudio, executando diferentes modelos de IA. À medida que o Video Indexer analisa o seu vídeo, as insights que são extraídas pelos modelos de IA.
+
+Quando cria uma conta de Indexer de Vídeo e a liga aos Serviços de Media, os ficheiros de mídia e metadados são armazenados na conta de armazenamento Azure associada a essa conta de Serviços de Mídia. Para obter mais informações, consulte [Criar uma conta de Indexer de Vídeo ligada ao Azure](connect-to-azure.md).
 
 O diagrama seguinte é uma ilustração e não uma explicação técnica de como o Indexer de Vídeo funciona no backend.
 
@@ -70,9 +72,9 @@ A lista a seguir mostra as informações que pode obter dos seus vídeos utiliza
 
 ### <a name="audio-insights"></a>Insights áudio
 
-* **Transcrição áudio**: Converte o discurso em texto em 12 línguas e permite extensões. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês mandarim, japonês, árabe, russo, português, hindi e coreano.
-* **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês mandarim, japonês, russo e português. Se a língua não pode ser identificada com confiança, o Video Indexer assume que a língua falada é inglês. Para mais informações, consulte [o modelo de identificação linguística.](language-identification-model.md)
-* **Identificação e transcrição de fala multi-linguístico (pré-visualização):** Identifica automaticamente a língua falada em diferentes segmentos a partir do áudio. Envia cada segmento do ficheiro mediático para ser transcrito e, em seguida, combina a transcrição de volta a uma transcrição unificada. Para obter mais informações, consulte [identificar e transcrever automaticamente o conteúdo multi-linguístico.](multi-language-identification-transcription.md)
+* **Transcrição áudio**: Converte o discurso em texto em 12 línguas e permite extensões. São suportados os seguintes idiomas: alemão, árabe, chinês mandarim, coreano, espanhol, francês, hindu, inglês, italiano, japonês, português e russo.
+* **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. São suportados os seguintes idiomas: alemão, chinês mandarim, espanhol, francês, inglês, italiano, japonês, português e russo. Se não conseguir identificar o idioma com confiança, o Video Indexer assumirá que o idioma falado é o inglês. Para obter mais informações, veja [Modelo de identificação de idioma](language-identification-model.md).
+* **Identificação e transcrição de fala multi-linguístico (pré-visualização):** Identifica automaticamente a língua falada em diferentes segmentos a partir do áudio. Envia cada segmento do ficheiro multimédia para ser transcrito e, em seguida, combina a transcrição de volta numa transcrição unificada. Para obter mais informações, veja [Identificar e transcrever automaticamente conteúdo de vários idiomas](multi-language-identification-transcription.md).
 * **Closed captioning** (Legendas): cria legendas em três formatos: VTT, TTML e SRT.
 * **Processamento de dois canais**: Auto deteta transcrição separada e funde-se numa única linha temporal.
 * **Redução do ruído**: Limpa as gravações áudio ou ruidosas (com base nos filtros Skype).
@@ -112,7 +114,7 @@ Pode aceder às capacidades do Indexador de Vídeo de três formas:
 
 Se estiver a utilizar o website, os insights são adicionados como metadados e são visíveis no portal. Se estiver a utilizar APIs, os insights estão disponíveis como um ficheiro JSON.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Está pronto para começar a utilizar o Video Indexer. Para obter mais informações, veja os seguintes artigos:
 

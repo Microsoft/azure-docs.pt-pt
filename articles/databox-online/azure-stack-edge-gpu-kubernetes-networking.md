@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 8394ddbc4247eb992532fb11d06d8f5432edd1c7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4eab89710e031ead0a3758afd2367e60d26f395b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085419"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268130"
 ---
-# <a name="kubernetes-networking-in-your-azure-stack-edge-device"></a>Rede Kubernetes no seu dispositivo Azure Stack Edge
+# <a name="kubernetes-networking-in-your-azure-stack-edge-gpu-device"></a>Rede Kubernetes no seu dispositivo GPU Azure Stack Edge
 
 No seu dispositivo Azure Stack Edge, é criado um cluster Kubernetes quando configura o papel de computação. Uma vez criado o cluster Kubernetes, as aplicações contentorizadas podem ser implantadas no cluster Kubernetes em Pods. Existem formas distintas de que o networking é usado para os Pods no seu cluster Kubernetes. 
 

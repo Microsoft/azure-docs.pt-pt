@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09d0e53840c2bf7a0d67c7c7fb0b224f9f77c587
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042808"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268310"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo deixarão de suportar o protocolo de transmissão rtp/MPEG-2. Por favor, migrar de PROTOCOLOs de ingestão RTP/MPEG-2 para RTMP ou MP4 (Smooth Streaming).
@@ -73,7 +75,7 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | A iniciar |A iniciar |Não (estado transitório) |
 | Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |SIM |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |No |
+| Parada |Parada |Não |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Desligação automática para canais não reutilizados
 A partir de 25 de janeiro de 2016, os Media Services lançaram uma atualização que para automaticamente um Canal (com codificação ao vivo ativada) depois de ter estado a funcionar num estado não reutilizado durante um longo período. Isto aplica-se a Canais que não têm Programas ativos, e que não receberam um feed de contribuição por um longo período de tempo.
@@ -313,9 +315,9 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | Estado do canal | Indicadores de UI do Portal | Cobrado? |
 | --- | --- | --- |
 | A iniciar |A iniciar |Não (estado transitório) |
-| Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |Yes |
+| Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |Sim |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |No |
+| Parada |Parada |Não |
 
 > [!NOTE]
 > Atualmente, a média de início do Canal é de cerca de 2 minutos, mas às vezes pode demorar até 20 minutos. Os resets do canal podem demorar até 5 minutos.

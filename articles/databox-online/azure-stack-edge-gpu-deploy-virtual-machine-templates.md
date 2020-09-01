@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 330186b12efcc31e9f99d7c4bdbff3e081311c23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085491"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268164"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-device-via-templates"></a>Implemente VMs no seu dispositivo Azure Stack Edge através de modelos
+# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge através de modelos
 
 Este tutorial descreve como criar e gerir um VM no seu dispositivo Azure Stack Edge usando modelos. Estes modelos são ficheiros JavaScript Object Notation (JSON) que definem a infraestrutura e configuração para o seu VM. Nestes modelos, você especifica os recursos a implementar e as propriedades para esses recursos.
 

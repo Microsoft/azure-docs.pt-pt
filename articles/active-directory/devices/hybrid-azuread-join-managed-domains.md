@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f30202b08328854296b45e0279fc51b25b0a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 56b0685dee518399ae8328ddac18f03e82918a38
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428461"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268422"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
@@ -68,14 +68,14 @@ A adesão híbrida AD AD requer que os dispositivos tenham acesso aos seguintes 
 - `https://enterpriseregistration.windows.net`
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
-- `https://autologon.microsoftazuread-sso.com`(Se utilizar ou pretender utilizar SSO sem costura)
+- `https://autologon.microsoftazuread-sso.com` (Se utilizar ou pretender utilizar SSO sem costura)
 
 > [!WARNING]
 > Se a sua organização utilizar servidores proxy que intercetam tráfego SSL para cenários como prevenção de perda de dados ou restrições de inquilinos AZure AD, certifique-se de que o tráfego para https://device.login.microsoftonline.com ' ' é excluído do break-and-inspect TLS. A não exclusão https://device.login.microsoftonline.com pode causar interferência na autenticação do certificado do cliente, causando problemas com o registo do dispositivo e o acesso condicional baseado no dispositivo.
 
-Se a sua organização necessitar de acesso à internet através de um proxy de saída, pode utilizar [a implementação da Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para ativar os computadores do Windows 10 para o registo de dispositivos com Azure AD. Para resolver problemas que configuram e gerem o WPAD, consulte [a resolução de problemas de Deteção Automática](/previous-versions/tn-archive/cc302643(v=technet.10)). Nos dispositivos Windows 10 antes da atualização de 1709, o WPAD é a única opção disponível para configurar um proxy para trabalhar com a ad AD Híbrida Azure. 
+Se a sua organização necessitar de acesso à internet através de um proxy de saída, pode utilizar [a implementação da Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) para ativar os computadores do Windows 10 para o registo de dispositivos com Azure AD. Para resolver problemas que configuram e gerem o WPAD, consulte [a resolução de problemas de Deteção Automática](/previous-versions/tn-archive/cc302643(v=technet.10)). Nos dispositivos Windows 10 antes da atualização de 1709, o WPAD é a única opção disponível para configurar um proxy para trabalhar com a ad AD Híbrida Azure. 
 
-Se não utilizar o WPAD, pode configurar as definições de procuração winHTTP no seu computador a partir do Windows 10 1709. Para obter mais informações, consulte [as Definições de Procuração winHTTP implementadas pela GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Se não utilizar o WPAD, pode configurar as definições de procuração winHTTP no seu computador a partir do Windows 10 1709. Para obter mais informações, consulte [as Definições de Procuração winHTTP implementadas pela GPO](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > Se configurar as definições de procuração no seu computador utilizando as definições winHTTP, quaisquer computadores que não possam ligar-se ao proxy configurado não conseguirão ligar-se à internet.
@@ -174,7 +174,7 @@ Aqui estão 3 formas de localizar e verificar o estado do dispositivo:
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
 1. Aceda à página dos dispositivos utilizando um [link direto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Informações sobre como localizar um dispositivo podem ser encontradas em [Como gerir as identidades do dispositivo utilizando o portal Azure](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Informações sobre como localizar um dispositivo podem ser encontradas em [Como gerir as identidades do dispositivo utilizando o portal Azure](./device-management-azure-portal.md).
 3. Se a coluna **Registada** **disser Pendente,** então a Hybrid Azure AD Join não está concluída.
 4. Se a coluna **Registada** contiver uma **data/hora,** então a Hybrid Azure AD Join foi concluída.
 
@@ -224,11 +224,11 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Se sentir problemas em completar a ad AD híbrida para dispositivos Windows unidos pelo domínio, consulte:
 
-- [Dispositivos de resolução de problemas utilizando comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Dispositivos de resolução de problemas utilizando comando dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Resolver problemas de dispositivos associados ao Azure Active Directory híbrido](troubleshoot-hybrid-join-windows-current.md)
 - [O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para aprender a gerir as identidades dos dispositivos utilizando o portal Azure.
 > [!div class="nextstepaction"]

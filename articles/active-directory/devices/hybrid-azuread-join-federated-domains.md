@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cf30324371043d8b702d3e22ec3ecd98e114ba6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 3a37353615e35cd75c126c268de71d10077a9071
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428580"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268439"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
 
@@ -32,7 +32,7 @@ Um ambiente federado deve ter um fornecedor de identidade que apoie os seguintes
 
 - **WIAORMULTIAUTHN reivindicação:** Esta alegação é necessária para fazer a junção híbrida Azure AD para dispositivos de nível baixo do Windows.
 - **Protocolo WS-Trust:** Este protocolo é necessário para autenticar dispositivos híbridos Azure AD atuais do Windows com Azure AD.
-  Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais da WS-Trust:`/adfs/services/trust/2005/windowstransport`
+  Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais da WS-Trust: `/adfs/services/trust/2005/windowstransport`
    `/adfs/services/trust/13/windowstransport`
    `/adfs/services/trust/2005/usernamemixed`
    `/adfs/services/trust/13/usernamemixed`
@@ -79,7 +79,7 @@ A adesão híbrida AD AD requer que os dispositivos tenham acesso aos seguintes 
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - Serviço de Token de Segurança (STS) da sua organização (Para domínios federados)
-- `https://autologon.microsoftazuread-sso.com`(Se utilizar ou pretender utilizar SSO sem costura)
+- `https://autologon.microsoftazuread-sso.com` (Se utilizar ou pretender utilizar SSO sem costura)
 
 > [!WARNING]
 > Se a sua organização utilizar servidores proxy que intercetam tráfego SSL para cenários como prevenção de perda de dados ou restrições de inquilinos AZure AD, certifique-se de que o tráfego para https://device.login.microsoftonline.com ' ' é excluído do break-and-inspect TLS. A não exclusão https://device.login.microsoftonline.com pode causar interferência na autenticação do certificado do cliente, causando problemas com o registo do dispositivo e o acesso condicional baseado no dispositivo.
@@ -88,7 +88,7 @@ Começando pelo Windows 10 1803, se o híbrido instantâneo Azure AD se unir par
 
 Se a sua organização necessitar de acesso à internet através de um proxy de saída, a Microsoft recomenda [a implementação da Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir o registo de computadores do Windows 10 com Azure AD. Se encontrar problemas que configuram e gerem o WPAD, consulte [a deteção automática de Resolução de Problemas](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
-Se não utilizar o WPAD e quiser configurar as definições de procuração no seu computador, pode fazê-lo a partir do Windows 10 1709. Para obter mais informações, consulte [as definições de Configure WinHTTP utilizando um objeto de política de grupo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Se não utilizar o WPAD e quiser configurar as definições de procuração no seu computador, pode fazê-lo a partir do Windows 10 1709. Para obter mais informações, consulte [as definições de Configure WinHTTP utilizando um objeto de política de grupo (GPO)](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > Se configurar as definições de procuração no seu computador utilizando as definições winHTTP, quaisquer computadores que não possam ligar-se ao proxy configurado não conseguirão ligar-se à internet.
@@ -167,7 +167,7 @@ Para completar com sucesso a ad AD híbrida híbrida dos seus dispositivos de n�
 
 - `https://device.login.microsoftonline.com`
 - STS da sua organização (Para domínios federados)
-- `https://autologon.microsoftazuread-sso.com`(para SSO sem costura)
+- `https://autologon.microsoftazuread-sso.com` (para SSO sem costura)
 
 Também deve **ativar Permitir atualizações à barra de estado através** do script na zona intranet local do utilizador.
 
@@ -193,7 +193,7 @@ Aqui estão 3 formas de localizar e verificar o estado do dispositivo:
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
 1. Aceda à página dos dispositivos utilizando um [link direto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Informações sobre como localizar um dispositivo podem ser encontradas em [Como gerir as identidades do dispositivo utilizando o portal Azure](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Informações sobre como localizar um dispositivo podem ser encontradas em [Como gerir as identidades do dispositivo utilizando o portal Azure](./device-management-azure-portal.md).
 3. Se a coluna **Registada** **disser Pendente,** então a Hybrid Azure AD Join não está concluída. Em ambientes federados, isto só pode acontecer se não se registar e a ligação AAD estiver configurada para sincronizar os dispositivos.
 4. Se a coluna **Registada** contiver uma **data/hora,** então a Hybrid Azure AD Join foi concluída.
 
@@ -243,7 +243,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Se sentir problemas com a conclusão da azure híbrida ad para dispositivos Windows ligados ao domínio, consulte:
 
-- [Dispositivos de resolução de problemas utilizando comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Dispositivos de resolução de problemas utilizando comando dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Híbrido Azure AD de resolução de problemas junta-se aos dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
 - [Híbrido Azure AD de resolução de problemas junta-se a dispositivos de nível de downlevel do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 

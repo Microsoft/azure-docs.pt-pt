@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 4bfa523c6a42c8848f30ceb88770d3ce3fb03fae
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b94b09fcb3bfff2eeacabaaa49eb5e4c751ec79d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342719"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267756"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o Go
 
@@ -41,7 +41,7 @@ Abra o VSCode e crie um novo ficheiro chamado `publish-kb.go` .
 
 Na parte superior do `publish-kb.go`, adicione as seguintes linhas para adicionar as dependências necessárias ao projeto:
 
-[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=3-7 "Add the required dependencies")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/publish-kb.go" id="dependencies":::
 
 ## <a name="create-the-main-function"></a>Criar a função principal
 
@@ -55,20 +55,11 @@ func main() {
 }
 ```
 
-## <a name="add-required-constants"></a>Adicionar constantes necessárias
-
-Dentro do **principal**
-
-
- função, adicione as constantes necessárias para aceder ao QnA Maker. Substitua os valores pelos seus.
-
-[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=16-20 "Add the required constants")]
-
 ## <a name="add-post-request-to-publish-kb"></a>Adicionar pedido POST para publicar KB
 
-Após as constantes necessárias, adicione o seguinte código, que faz um pedido HTTPS à API do Fabricante QnA para publicar uma base de conhecimento e recebe a resposta:
+Adicione o seguinte código, que faz um pedido HTTPS à API do Fabricante QnA para publicar uma base de conhecimento e recebe a resposta:
 
-[!code-go[Add a POST request to publish KB](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to publish KB")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/publish-kb.go" id="main":::
 
 A chamada à API devolve um estado 204 para uma publicação com êxito, sem qualquer conteúdo no corpo da resposta. O código adiciona conteúdo para respostas 204.
 
@@ -90,7 +81,7 @@ Introduza o seguinte comando numa linha de comandos para executar o programa. En
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Após a publicação da base de conhecimento, precisa do URL do [ponto final para gerar uma resposta.](./get-answer-from-knowledge-base-go.md)
 

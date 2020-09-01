@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3af0715377e6beadd8d686613f1d1199421314dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 18d38d3ab8cbbfb1f409b368cddc1df854baa8e0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005195"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266889"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configurar identidades geridas para recursos Azure num VM Azure usando modelos
 
@@ -41,7 +41,7 @@ Tal como acontece com o portal Estruição e scripts [Azure,](../../azure-resour
 
    - Utilizando um [modelo personalizado do Azure Marketplace,](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)que permite criar um modelo de raiz, ou baseá-lo num modelo comum ou [de arranque rápido](https://azure.microsoft.com/documentation/templates/)existente.
    - Derivado de um grupo de recursos existente, exportando um modelo a partir da [implantação original,](../../azure-resource-manager/templates/export-template-portal.md)ou do [estado atual da implantação](../../azure-resource-manager/templates/export-template-portal.md).
-   - Utilizando um editor JSON local [(como o VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)e, em seguida, fazer upload e implantação utilizando o PowerShell ou o CLI.
+   - Utilizando um editor JSON local [(como o VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)e, em seguida, fazer upload e implantação utilizando o PowerShell ou o CLI.
    - Utilizando o projeto Visual Studio [Azure Resource Group](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) para criar e implementar um modelo.  
 
 Independentemente da opção escolhida, a sintaxe do modelo é a mesma durante a implementação inicial e a redistribuição. Permitir um sistema ou identidade gerida atribuída pelo utilizador num VM novo ou existente é feito da mesma forma. Além disso, por padrão, o Azure Resource Manager faz uma [atualização incremental](../../azure-resource-manager/templates/deployment-modes.md) às implementações.
@@ -52,7 +52,7 @@ Nesta secção, irá ativar e desativar uma identidade gerida atribuída pelo si
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Permitir a identidade gerida atribuída pelo sistema durante a criação de um VM Azure ou num VM existente
 
-Para ativar a identidade gerida atribuída pelo sistema num VM, a sua conta necessita da atribuição de função [de Contribuinte de Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
+Para ativar a identidade gerida atribuída pelo sistema num VM, a sua conta necessita da atribuição de função [de Contribuinte de Máquina Virtual.](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
 1. Quer faça seduca localmente ou através do portal Azure, utilize uma conta associada à subscrição Azure que contenha o VM.
 
@@ -107,7 +107,7 @@ Para ativar a identidade gerida atribuída pelo sistema num VM, a sua conta nece
 
 Depois de ter ativado a identidade gerida atribuída pelo sistema no seu VM, talvez queira conceder-lhe um papel como o acesso do **Reader** ao grupo de recursos em que foi criado.
 
-Para atribuir uma função à identidade atribuída ao sistema do seu VM, a sua conta necessita da atribuição de função de Administrador de Acesso ao [Utilizador.](/azure/role-based-access-control/built-in-roles#user-access-administrator)
+Para atribuir uma função à identidade atribuída ao sistema do seu VM, a sua conta necessita da atribuição de função de Administrador de Acesso ao [Utilizador.](../../role-based-access-control/built-in-roles.md#user-access-administrator)
 
 1. Quer faça seduca localmente ou através do portal Azure, utilize uma conta associada à subscrição Azure que contenha o VM.
 
@@ -151,7 +151,7 @@ Para atribuir uma função à identidade atribuída ao sistema do seu VM, a sua 
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Desative uma identidade gerida atribuída pelo sistema a partir de um VM Azure
 
-Para remover a identidade gerida atribuída pelo sistema a partir de um VM, a sua conta precisa da atribuição de função [de Contribuinte de Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
+Para remover a identidade gerida atribuída pelo sistema a partir de um VM, a sua conta precisa da atribuição de função [de Contribuinte de Máquina Virtual.](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)  Não são necessárias atribuições adicionais de diretórios Azure AD.
 
 1. Quer faça seduca localmente ou através do portal Azure, utilize uma conta associada à subscrição Azure que contenha o VM.
 
@@ -188,7 +188,7 @@ Nesta secção, atribua uma identidade gerida atribuída ao utilizador a um VM A
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Atribuir uma identidade gerida atribuída ao utilizador a um VM Azure
 
-Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta necessita das atribuições de funções [de Colaborador de Máquinas Virtuais](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e Operador de Identidade [Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Não são necessárias atribuições adicionais de diretórios Azure AD.
+Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta necessita das atribuições de funções [de Colaborador de Máquinas Virtuais](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e Operador de Identidade [Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-operator) Não são necessárias atribuições adicionais de diretórios Azure AD.
 
 1. Sob o `resources` elemento, adicione a seguinte entrada para atribuir uma identidade gerida atribuída ao seu VM.  Certifique-se de que substitui `<USERASSIGNEDIDENTITY>` pelo nome da identidade gerida atribuída ao utilizador que criou.
 
@@ -312,7 +312,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remover uma identidade gerida atribuída pelo utilizador de um VM Azure
 
-Para remover uma identidade atribuída ao utilizador de um VM, a sua conta necessita da atribuição de função [de Contribuinte de Máquina Virtual.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) Não são necessárias atribuições adicionais de diretórios Azure AD.
+Para remover uma identidade atribuída ao utilizador de um VM, a sua conta necessita da atribuição de função [de Contribuinte de Máquina Virtual.](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) Não são necessárias atribuições adicionais de diretórios Azure AD.
 
 1. Quer faça seduca localmente ou através do portal Azure, utilize uma conta associada à subscrição Azure que contenha o VM.
 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: a033297d0cac044cf39d5765ab30317f3b90b67c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 4d7453ba34a7bc1dd26d0201f604c9028974c1a2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146084"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268932"
 ---
-# <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge"></a>Tutorial: Transferir dados através de ações com a Azure Stack Edge
+# <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-gpu"></a>Tutorial: Dados de transferência através de ações com a Azure Stack Edge GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 

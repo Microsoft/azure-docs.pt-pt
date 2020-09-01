@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab9672984bca42fc855476bf5b97ff5610ba6081
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014205"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266392"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure
 
@@ -35,7 +35,7 @@ Neste artigo, aprende-se a criar, listar, excluir ou atribuir uma função a uma
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
-Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição do Azure para criar a identidade gerida atribuída ao utilizador.
 2. Na caixa de pesquisa, *digite Identidades Geridas,* e em **Serviços,** clique em **Identidades Geridas**.
@@ -50,7 +50,7 @@ Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista de identidades geridas atribuídas pelo utilizador
 
-Para listar/ler uma identidade gerida atribuída pelo utilizador, a sua conta precisa da atribuição de funções de [Colaborador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou De Identidade [Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para listar/ler uma identidade gerida atribuída pelo utilizador, a sua conta precisa da atribuição de funções de [Colaborador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) ou De Identidade [Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição do Azure para listar as identidades geridas atribuídas pelo utilizador.
 2. Na caixa de pesquisa, *digite Identidades Geridas,* e em Serviços, clique em **Identidades Geridas**.
@@ -60,9 +60,9 @@ Para listar/ler uma identidade gerida atribuída pelo utilizador, a sua conta pr
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar uma identidade gerida atribuída pelo utilizador
 
-Para eliminar uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Para eliminar uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição [de função de Contribuinte de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)
 
-A eliminação da identidade atribuída pelo utilizador não a retira do VM nem do recurso a que foi atribuído.  Para remover a identidade atribuída ao utilizador de um VM ver, [Remova uma identidade gerida atribuída pelo utilizador de um VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
+A eliminação da identidade atribuída pelo utilizador não a retira do VM nem do recurso a que foi atribuído.  Para remover a identidade atribuída ao utilizador de um VM ver, [Remova uma identidade gerida atribuída pelo utilizador de um VM](./qs-configure-portal-windows-vm.md#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição do Azure para eliminar uma identidade gerida atribuída pelo utilizador.
 2. Selecione a identidade gerida atribuída pelo utilizador e clique em **Eliminar**.
@@ -72,7 +72,7 @@ A eliminação da identidade atribuída pelo utilizador não a retira do VM nem 
 
 ## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função a uma identidade gerida atribuída pelo utilizador 
 
-Para atribuir uma função a uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição de função de Administrador de Acesso ao [Utilizador.](/azure/role-based-access-control/built-in-roles#user-access-administrator)
+Para atribuir uma função a uma identidade gerida atribuída pelo utilizador, a sua conta necessita da atribuição de função de Administrador de Acesso ao [Utilizador.](../../role-based-access-control/built-in-roles.md#user-access-administrator)
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição do Azure para listar as identidades geridas atribuídas pelo utilizador.
 2. Na caixa de pesquisa, *digite Identidades Geridas,* e em Serviços, clique em **Identidades Geridas**.
@@ -86,4 +86,4 @@ Para atribuir uma função a uma identidade gerida atribuída pelo utilizador, a
    - **Atribuir acesso a**  - o recurso para atribuir a identidade gerida atribuída pelo utilizador
    - **Selecione** - o membro para atribuir acesso
    
-   ![IAM de identidade gerida atribuída pelo utilizador](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  
+   ![IAM de identidade gerida atribuída pelo utilizador](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)

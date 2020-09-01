@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Aprenda a criar filtros utilizando o Dynamic Packager para filtrar e transmitir seletivamente os seus manifestos.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
-ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 4a2464cbb47291f35cd4d7e20b555356e3e9aa8b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705207"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266464"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrar os seus manifestos usando o Dynamic Packager
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Quando está a fornecer conteúdo de streaming de bitrate adaptativo aos dispositivos, por vezes é necessário publicar várias versões de um manifesto para direcionar capacidades específicas do dispositivo ou largura de banda de rede disponível. O [Dynamic Packager](dynamic-packaging-overview.md) permite especificar filtros que podem filtrar códigos específicos, resoluções, bitrates e combinações de faixas de áudio no voo. Esta filtragem elimina a necessidade de criar várias cópias. Basta publicar um novo URL com um conjunto específico de filtros configurados para os seus dispositivos-alvo (iOS, Android, SmartTV ou navegadores) e as capacidades de rede (cenários de largura de banda alta, móveis ou de baixa largura de banda). Neste caso, os clientes podem manipular o streaming do seu conteúdo através da cadeia de consulta (especificando filtros de ativos disponíveis [ou filtros de conta)](filters-concept.md)e usar filtros para transmitir secções específicas de um fluxo.
 
@@ -148,7 +150,7 @@ Para mais informações, consulte [este post de blog.](https://azure.microsoft.c
     - Para determinar as propriedades das faixas num ativo, [obtenha e examine o ficheiro manifesto.](#get-and-examine-manifest-files)
     - A fórmula para definir as propriedades do carimbo de tempo do filtro do ativo é: <br/>startTimestamp = &lt; tempo de início no manifesto tempo de início do filtro esperado em &gt;  +   &lt; segundos &gt; * escala de tempo
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes artigos mostram como criar filtros programáticamente:  
 

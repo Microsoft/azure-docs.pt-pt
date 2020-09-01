@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d05e73bc9aa51bf20121790de94b1b6d0e26615
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61229055"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268575"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite de miniatura  
+# <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite de miniatura
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Pode utilizar o Media Encoder Standard para gerar um sprite de miniatura, que é um ficheiro JPEG que contém múltiplas miniaturas de resolução pequenas cosidas numa única (grande) imagem, juntamente com um ficheiro VTT. Este ficheiro VTT especifica o intervalo de tempo no vídeo de entrada que cada miniatura representa, juntamente com o tamanho e coordenadas dessa miniatura dentro do grande ficheiro JPEG. Os jogadores de vídeo usam o ficheiro VTT e a imagem sprite para mostrar uma barra de busca 'visual', proporcionando ao espectador feedback visual ao esfregar para trás e para a frente ao longo da linha de tempo do vídeo.
 

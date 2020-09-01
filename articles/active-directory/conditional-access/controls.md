@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948305"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266583"
 ---
 # <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)
 
 Os controlos personalizados são uma capacidade de pré-visualização do Diretório Ativo Azure. Ao utilizar controlos personalizados, os seus utilizadores são redirecionados para um serviço compatível para satisfazer os requisitos de autenticação fora do Diretório Ativo Azure. Para satisfazer este controlo, o navegador de um utilizador é redirecionado para o serviço externo, executa qualquer autenticação necessária e é depois redirecionado de volta para o Diretório Ativo Azure. O Azure Ative Directory verifica a resposta e, se o utilizador foi autenticado ou validado com sucesso, o utilizador continua no fluxo de Acesso Condicional.
 
 > [!NOTE]
-> Para obter mais informações sobre as alterações que estamos a planear para a capacidade de Controlo Personalizado, consulte a [nova atualização de](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls)fevereiro de 2020.
+> Para obter mais informações sobre as alterações que estamos a planear para a capacidade de Controlo Personalizado, consulte o Arquivo de fevereiro de 2020 [para as novidades.](../fundamentals/whats-new-archive.md#upcoming-changes-to-custom-controls)
 
 ## <a name="creating-custom-controls"></a>Criação de controlos personalizados
 

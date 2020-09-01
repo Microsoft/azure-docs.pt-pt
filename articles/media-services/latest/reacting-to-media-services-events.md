@@ -3,22 +3,24 @@ title: Reagindo aos eventos da Azure Media Services Microsoft Docs
 description: Este artigo descreve como usar a Azure Event Grid para subscrever eventos de Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/08/2019
-ms.author: juliako
-ms.openlocfilehash: e24bacb0ea7ab406442022915872fc77e9cc1a5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: d2dffc90d78d5d173e25232010171a5c0109e028
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74887889"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267515"
 ---
 # <a name="handling-event-grid-events"></a>A processar eventos do Event Grid
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os eventos de Media Services permitem que as aplicações reajam a diferentes eventos (por exemplo, o evento de mudança de estado de trabalho) usando arquiteturas modernas sem servidor. Fá-lo sem a necessidade de um código complicado ou de serviços de sondagens dispendiosos e ineficientes. Em vez disso, os eventos são empurrados através [da Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para manipuladores de eventos como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou mesmo para o seu próprio Webhook, e você só paga pelo que você usa. Para obter informações sobre preços, consulte [os preços da Grade de Eventos.](https://azure.microsoft.com/pricing/details/event-grid/)
 
@@ -42,7 +44,7 @@ As aplicações que lidam com eventos de Serviços de Mídia devem seguir alguma
 > [!NOTE]
 > Os eventos estão sujeitos ao Acordo de Nível de Serviço de Grelha de [Eventos (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se pretender obter notificações de eventos utilizando APIs, consulte exemplos sobre como consumir eventos, com [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) ou [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorizar eventos - portal](monitor-events-portal-how-to.md)
 * [Monitorizar eventos - CLI](job-state-events-cli-how-to.md)

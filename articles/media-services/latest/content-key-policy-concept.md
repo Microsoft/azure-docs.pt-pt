@@ -3,23 +3,25 @@ title: Políticas-chave de conteúdo nos Serviços de Comunicação Social - Azu
 description: Este artigo dá uma explicação sobre quais são as Políticas Chave de Conteúdo e como são usadas pela Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/26/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 49226ba703e8ade963b368616102db035b3c07ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6d907e987cb57836997cab43e9bfa9e919bf67d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092070"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268293"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Com os Media Services, pode fornecer o seu conteúdo ao vivo e a pedido encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. 
 

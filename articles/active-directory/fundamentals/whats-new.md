@@ -1,6 +1,6 @@
 ---
 title: Novidades Notas de lançamento - Azure Ative Directory / Microsoft Docs
-description: Saiba quais as novidades com o Azure Ative Directory, como as últimas notas de lançamento, problemas conhecidos, correções de bugs, funcionalidades preprecadas e próximas alterações.
+description: Saiba quais as novidades com o Azure Ative Directory; como as últimas notas de lançamento, problemas conhecidos, correções de bugs, funcionalidades precadas e alterações futuras.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/31/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6694043f083de30f3bca10051fc7012ef1471c37
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2d8ce5f7ec59df16b71a1fbaf51950ee4c31872a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798822"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268949"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -35,10 +35,194 @@ A Azure AD recebe melhorias continuadamente. Para se manter atualizado com os de
 - Funcionalidade preterida
 - Planos para alterações
 
-Esta página é atualizada mensalmente, por isso revisite-a regularmente. Se procura itens com mais de seis meses, pode encontrá-los no Arquivo para o [que há de novo no Azure Ative Directory.](whats-new-archive.md)
+Esta página é atualizada mensalmente, por isso revisite-a regularmente. Se procura itens com mais de seis meses, pode encontrá-los no [Archive for What's new in Azure Ative Directory](whats-new-archive.md).
 
 ---
 
+## <a name="august-2020"></a>Agosto de 2020 
+ 
+### <a name="updates-to-azure-multi-factor-authentication-server-firewall-requirements"></a>Atualizações para requisitos de firewall do Servidor de Autenticação Multi-Factor Azure
+
+**Tipo:** Plano de mudança  
+**Categoria de serviço:** MFA  
+**Capacidade do produto:** Proteção & de Segurança de Identidade
+ 
+A partir de 1 de outubro de 2020, os requisitos de firewall do Azure MFA Server exigirão gamas IP adicionais.
+
+Se tiver regras de firewall de saída na sua organização, atualize as regras para que os seus servidores MFA possam comunicar com todas as gamas IP necessárias. As gamas IP estão documentadas nos [requisitos de firewall do Servidor de Autenticação Multi-Factor Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements).
+
+---
+
+### <a name="upcoming-changes-to-user-experience-in-identity-secure-score"></a>Próximas alterações à experiência do utilizador na Identity Secure Score
+
+**Tipo:** Plano de mudança  
+**Categoria de serviço:** Capacidade **de Proteção de Identidade: Proteção** & de Segurança de Identidade
+
+Estamos a atualizar o portal Identity Secure Score para alinhar com as alterações introduzidas na [nova versão](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-new?view=o365-worldwide)do Microsoft Secure Score . 
+
+A versão de pré-visualização com as alterações estará disponível no início de setembro. As alterações na versão de pré-visualização incluem:
+- "Identity Secure Score" renomeado para "Secure Score for Identity" para alinhamento da marca com o Microsoft Secure Score
+- Pontos normalizados para escala padrão e reportados em percentagens em vez de pontos
+
+Nesta pré-visualização, os clientes podem alternar entre a experiência existente e a nova experiência. Esta pré-estreia vai durar até ao final de novembro de 2020. Após a pré-visualização, os clientes serão automaticamente direcionados para a nova experiência UX.
+
+---
+
+### <a name="new-restricted-guest-access-permissions-in-azure-ad---public-preview"></a>Novas permissões restritas de acesso a hóspedes em Azure AD - Visualização pública
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Controlo de Acessos   
+**Capacidade do produto:** Gestão de Utilizadores
+
+Atualizámos permissões de nível de diretório para utilizadores convidados. Estas permissões permitem que os administradores exijam restrições e controlos adicionais no acesso externo do utilizador do hóspede. Os administradores podem agora adicionar restrições adicionais para o acesso dos hóspedes externos ao perfil do utilizador e dos grupos e à informação de adesão. Com esta funcionalidade de pré-visualização pública, os clientes podem gerir o acesso externo ao utilizador em escala, obstaculando os membros do grupo, incluindo restringir os utilizadores convidados de verem os membros do grupo(s) em que se encontram.
+
+Para saber mais, consulte [permissões de acesso restritos ao hóspede](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-restrict-guest-permissions) e [permissões por defeito dos utilizadores.](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
+ 
+---
+
+### <a name="general-availability-of-delta-queries-for-service-principals"></a>Disponibilidade geral de consultas delta para os principais serviços
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** MS Graph  
+**Capacidade do produto:** Experiência de Desenvolvedor
+ 
+A Microsoft Graph Delta Query suporta agora o tipo de recurso em v1.0:
+- Principal de Serviço
+
+Agora os clientes podem acompanhar as alterações a esses recursos de forma eficiente e fornecem a melhor solução para sincronizar alterações a esses recursos com uma loja de dados local. Para aprender a configurar estes recursos numa consulta, consulte [utilizar a consulta delta para acompanhar as alterações nos dados do Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview).
+ 
+---
+
+### <a name="general-availability-of-delta-queries-for-oauth2permissiongrant"></a>Disponibilidade geral de consultas delta para oAuth2PermissionGrant
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** MS Graph  
+**Capacidade do produto:** Experiência de Desenvolvedor
+
+A Microsoft Graph Delta Query suporta agora o tipo de recurso em v1.0:
+- OAuth2PermissionGrant
+
+Os clientes podem agora acompanhar as alterações a esses recursos de forma eficiente e fornecem a melhor solução para sincronizar alterações a esses recursos com uma loja de dados local. Para aprender a configurar estes recursos numa consulta, consulte [utilizar a consulta delta para acompanhar as alterações nos dados do Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---august-2020"></a>Novas Aplicações Federadas disponíveis na galeria AZure AD Application - agosto de 2020
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Aplicativos da Empresa  
+**Capacidade do produto:** Integração de Terceiros
+
+Em agosto de 2020 adicionámos 26 novas aplicações na nossa galeria app com o apoio da Federação:
+
+[Backup365](https://portal.backup365.io/login), [Soapbox](https://app.soapboxhq.com/create?step=auth&provider=azure-ad2-oauth2), [Alma SIS](https://almau.getalma.com/), [Enlyft Dynamics 365 Connector,](http://enlyft.com/) [Serraview Space Usetion Software Solutions](https://docs.microsoft.com/azure/active-directory/saas-apps/serraview-space-utilization-software-solutions-tutorial), [Uniq,](https://web.uniq.app/) [Visivelmente,](https://docs.microsoft.com/azure/active-directory/saas-apps/visibly-tutorial) [Zylo](https://docs.microsoft.com/azure/active-directory/saas-apps/zylo-tutorial), [Edmentum - Courseware Assessments Exact Path,](https://auth.edmentum.com/elf/login) [CyberLAB,](https://cyberlab.evolvesecurity.com/#/welcome) [Altamira HRM,](https://docs.microsoft.com/azure/active-directory/saas-apps/altamira-hrm-tutorial) [WireWheel,](https://docs.microsoft.com/azure/active-directory/saas-apps/wirewheel-tutorial) [Zix Compliance and Capture](https://sminstall.zixcorp.com/teams/teams.php?install_request=true&tenant_id=common), [Greenlight Enterprise Business Controls Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/greenlight-enterprise-business-controls-platform-tutorial), [Genetec Clearance](https://www.clearance.network/), [iSAMS](https://docs.microsoft.com/azure/active-directory/saas-apps/isams-tutorial), [VeraSMART](https://docs.microsoft.com/azure/active-directory/saas-apps/verasmart-tutorial), [Amiko,](https://amiko.web.rivero.app/) [Twingate,](https://auth.twingate.com/signup) [Funnel Leasing,](https://nestiolistings.com/sso/oidc/azure/authorize/) [Scalefusion,](https://scalefusion.com/users/sign_in/) [Bpanda](https://goto.bpanda.com/login), [Vivun Calendar](https://app.vivun.com/dashboard/calendar/connect)Control Connect, [RStudio Server Pro,](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-server-pro-tutorial) [FortiGate SSL VPN](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial), [Wandera End User](https://www.wandera.com/)
+
+Também pode encontrar a documentação de todas as aplicações a partir daqui https://aka.ms/AppsTutorial
+
+Para listar a sua aplicação na galeria de aplicações Azure AD, leia os detalhes aqui https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="resource-forests-now-available-for-azure-ad-ds"></a>Florestas de Recursos já disponíveis para Azure AD DS 
+
+**Tipo:** Nova **categoria de serviço de recurso:** Azure AD Domain Services   
+**Capacidade do produto:** Serviços de domínio Azure Ad
+ 
+A capacidade das florestas de recursos nos Serviços de Domínio Ad Azure está agora disponível em geral. Agora pode ativar a autorização sem sincronização de hash de palavra-passe para utilizar os Serviços de Domínio Azure AD, incluindo a autorização do cartão inteligente. Para saber mais, consulte [replica sets conceitos e funcionalidades para Azure Ative Directory Domain Services (pré-visualização)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets).
+ 
+---
+
+### <a name="regional-replica-support-for-azure-ad-ds-managed-domains-now-available"></a>Suporte regional de réplica para domínios geridos Azure AD já disponível
+
+**Tipo:** Nova funcionalidade   
+**Categoria de serviço:** Serviços de domínio Azure Ad  
+**Capacidade do produto:** Serviços de domínio Azure Ad
+ 
+Você pode expandir um domínio gerido para ter mais de um conjunto de réplicas por inquilino AZure AD. Os conjuntos de réplicas podem ser adicionados a qualquer rede virtual esprevada em qualquer região do Azure que suporte serviços de domínio AD Azure. Conjuntos de réplicas adicionais em diferentes regiões de Azure proporcionam recuperação geográfica de desastres para aplicações antigas se uma região de Azure ficar offline. Para saber mais, consulte [replica sets conceitos e funcionalidades para Azure Ative Directory Domain Services (pré-visualização)](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets).
+
+---
+
+### <a name="general-availability-of-azure-ad-my-sign-ins"></a>Disponibilidade Geral de AD AD AD Meus Ins
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Autenticações (Logins)  
+**Capacidade do produto:** Experiências de utilizador final
+ 
+Azure AD My Sign-Ins é uma nova funcionalidade que permite aos utilizadores da empresa rever o seu histórico de inscrições para verificar em qualquer atividade incomum. Além disso, esta funcionalidade permite que os utilizadores finais reportem "This was not me" ou "This was me" em atividades suspeitas. Para saber mais sobre a utilização desta funcionalidade, consulte [a Visualização e pesque a sua recente atividade de início de sposição na página My's Ins](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-sign-ins-page#confirm-unusual-activity).
+ 
+---
+
+### <a name="sap-successfactors-hr-driven-user-provisioning-to-azure-ad-is-now-generally-available"></a>SAP SuccessFactors HR o fornecimento de utilizadores impulsionados a Azure AD está agora geralmente disponível
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Provisionamento de Aplicativos  
+**Capacidade do produto:** Gestão do ciclo de vida da identidade
+ 
+Pode agora integrar os SAP SuccessFactors como fonte de identidade autoritária com a Azure AD e automatizar o ciclo de vida de identidade de ponta a ponta usando eventos de RH como novas contratações e rescisões para impulsionar o provisionamento e desprovisionamento de contas em Azure AD. 
+
+Para saber mais sobre como configurar o fornecimento de utilizadores do SAP SuccessFactors ao Azure AD, consulte o tutorial [Configure SAP SuccessFactors para o provisionamento de utilizadores do Ative Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial).
+ 
+---
+
+### <a name="custom-open-id-connect-ms-graph-api-support-for-azure-ad-b2c"></a>Suporte personalizado de ID Connect MS API para Azure AD B2C
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** B2C - Gestão da Identidade do Consumidor  
+**Capacidade do produto:** B2B/B2C
+ 
+Anteriormente, os fornecedores de ID Connect Open Personalizado só podiam ser adicionados ou geridos através do portal Azure. Agora os clientes Azure AD B2C podem adicionar e geri-los através da versão beta do Microsoft Graph APIs também. Para aprender a configurar este recurso com APIs, consulte [o tipo de recurso IdentityProvider](https://docs.microsoft.com/graph/api/resources/identityprovider?view=graph-rest-beta).
+ 
+---
+
+### <a name="assign-azure-ad-built-in-roles-to-cloud-groups"></a>Atribua funções incorporadas a Azure a grupos de nuvem
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Funções de AD AZure  
+**Capacidade do produto:** Controlo de Acessos
+
+Agora pode atribuir funções incorporadas a Azure a grupos de nuvem com esta nova funcionalidade. Por exemplo, pode atribuir a função de Administrador SharePoint a Contoso_SharePoint_Admins grupo. Também pode usar o PIM para fazer do grupo um membro elegível do papel, em vez de conceder acesso permanente. Para aprender a configurar esta funcionalidade, consulte [Use grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
+ 
+---
+
+### <a name="insights-business-leader-built-in-role-now-available"></a>Insights Business Leader papel incorporado agora disponível
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Funções de AD AZure  
+**Capacidade do produto:** Controlo de Acessos
+ 
+Os utilizadores na função Insights Business Leader podem aceder a um conjunto de dashboards e insights através da [aplicação M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Isto inclui acesso total a todos os dashboards e apresenta insights e funcionalidade de exploração de dados. No entanto, os utilizadores nesta função não têm acesso às definições de configuração do produto, que é da responsabilidade do administrador do Insights. Para saber mais sobre este papel, consulte [permissões de função de administrador no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-business-leader)
+ 
+---
+
+### <a name="insights-administrator-built-in-role-now-available"></a>Papel incorporado do Administrador de Insights já disponível
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Funções de AD AZure  
+**Capacidade do produto:** Controlo de Acessos
+ 
+Os utilizadores na função de Administrador de Insights podem aceder a todo o conjunto de capacidades administrativas na [aplicação M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Um utilizador nesta função pode ler informações de diretórios, monitorizar a saúde do serviço, bilhetes de suporte de ficheiros e aceder aos aspetos de definição do administrador do Insights. Para saber mais sobre este papel, consulte [permissões de função de administrador no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#insights-administrator)
+ 
+--- 
+
+### <a name="application-admin-and-cloud-application-admin-can-manage-extension-properties-of-applications"></a>Administração de aplicações e administração de aplicações em nuvem pode gerir propriedades de extensão de aplicações
+
+**Tipo:** Alteração de recurso  
+**Categoria de serviço:** Funções de AD AZure  
+**Capacidade do produto:** Controlo de Acessos
+ 
+Anteriormente, apenas o Administrador Global poderia gerir a [propriedade de extensão](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http). Estamos agora a ativar esta capacidade para o Administrador de Aplicações e Administrador de Aplicação cloud também.
+ 
+---
+
+### <a name="mim-2016-sp2-hotfix-462630-and-connectors-1113010"></a>MIM 2016 SP2 hotfix 4.6.263.0 e conectores 1.1.1301.0
+
+**Tipo:** Alteração de recurso  
+**Categoria de serviço:** Gestor de Identidade da Microsoft  
+**Capacidade do produto:** Gestão do ciclo de vida da identidade
+
+Um [pacote de rollup hotfix (build 4.6.263.0)](https://support.microsoft.com/help/4576473/hotfix-rollup-package-build-4-6-263-0-is-available-for-microsoft-ident) está disponível para o Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2). Este pacote rollup contém atualizações para os componentes MIM CM, Mim Synchronization Manager e PAM. Além disso, os conectores genéricos MIM constroem 1.1.1301.0 inclui atualizações para o conector Graph.
+
+---
+ 
 ## <a name="july-2020"></a>Julho de 2020
 
 ### <a name="as-an-it-admin-i-want-to-target-client-apps-using-conditional-access"></a>Como administrador de TI, quero direcionar as aplicações dos clientes usando o Acesso Condicional
@@ -47,7 +231,7 @@ Esta página é atualizada mensalmente, por isso revisite-a regularmente. Se pro
 **Categoria de serviço:** Acesso Condicional  
 **Capacidade do produto:** Proteção & de Segurança de Identidade
  
-Com a libertação da AG da condição de aplicações do cliente no Acesso Condicional, as novas políticas passarão a ser aplicadas por padrão a todas as aplicações do cliente, incluindo clientes de autenticação antiga. As políticas existentes permanecerão inalteradas, mas o *alternância Sim/Não* será removido das políticas existentes para ver facilmente a que aplicações de clientes são aplicadas pela política. 
+Com a libertação da AG das aplicações do cliente condicionada no Acesso Condicional, as novas políticas serão agora aplicadas por padrão a todas as aplicações do cliente. Isto inclui clientes de autenticação legado. As políticas existentes permanecerão inalteradas, mas o *alternância Sim/Não* será removido das políticas existentes para ver facilmente a que aplicações de clientes são aplicadas pela política. 
 
 Ao criar uma nova política, certifique-se de excluir os utilizadores e contas de serviço que ainda utilizam a autenticação antiga; Se não o fizeres, eles vão estar bloqueados. [Saiba mais](https://aka.ms/caclientapps).
  
@@ -165,11 +349,11 @@ Para obter mais informações sobre os fluxos dos utilizadores, consulte as [ver
  
 Em julho de 2020 adicionámos 55 novas aplicações na nossa galeria app com o apoio da Federação:
 
-[Palmas](http://www.rmit.com.ar/)Palmas , [Appreiz](https://microsoftteams.appreiz.com/), [Inextor Vault](https://inexto.com/inexto-suite/inextor), [Beekast](https://my.beekast.com/), [Templafy OpenID Connect,](https://app.templafy.com/) [Rececionista PeterConnects,](https://msteams.peterconnects.com/) [AlohaCloud,](https://appfusions.alohacloud.com/auth) [Control Tower,](https://bpm.tnxcorp.com/sso/microsoft) [Cocoom,](https://start.cocoom.com/) [COINS Construction Cloud,](https://sso.coinsconstructioncloud.com/#login/) [Medxnote MT,](https://task.teamsmain.medx.im/authorization) [Reflekt,](https://reflekt.konsolute.com/login) [Rever,](https://app.reverscore.net/access) [MyCompanyArchive,](https://login.mycompanyarchive.com/) [GRem sines,](https://app.greminders.com/o365-oauth) [Titanfile](https://docs.microsoft.com/azure/active-directory/saas-apps/titanfile-tutorial), [Wootric](https://docs.microsoft.com/azure/active-directory/saas-apps/wootric-tutorial), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US), [OpenText Directory Services](https://docs.microsoft.com/azure/active-directory/saas-apps/opentext-directory-services-tutorial), [Datasite](https://docs.microsoft.com/azure/active-directory/saas-apps/datasite-tutorial), [BlogIn](https://docs.microsoft.com/azure/active-directory/saas-apps/blogin-tutorial), [IntSights](https://docs.microsoft.com/azure/active-directory/saas-apps/intsights-tutorial), [kpifire,](https://docs.microsoft.com/azure/active-directory/saas-apps/kpifire-tutorial) [Textline](https://docs.microsoft.com/azure/active-directory/saas-apps/textline-tutorial), [Cloud Academy - SSO,](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-academy-sso-tutorial) [Community Spark,](https://docs.microsoft.com/azure/active-directory/saas-apps/community-spark-tutorial) [Chatwork,](https://docs.microsoft.com/azure/active-directory/saas-apps/chatwork-tutorial) [CloudSign](https://docs.microsoft.com/azure/active-directory/saas-apps/cloudsign-tutorial), [C3M Cloud Control,](https://docs.microsoft.com/azure/active-directory/saas-apps/c3m-cloud-control-tutorial) [SmartHR](https://smarthr.jp/), [NumlyEngage™](https://docs.microsoft.com/azure/active-directory/saas-apps/numlyengage-tutorial), [Michigan Data Hub Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/michigan-data-hub-single-sign-on-tutorial), [Egress](https://docs.microsoft.com/azure/active-directory/saas-apps/egress-tutorial), [SendSafe,](https://docs.microsoft.com/azure/active-directory/saas-apps/sendsafely-tutorial) [Eletive,](https://app.eletive.com/) [Right-Hand Cybersecurity ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [Verme](https://docs.microsoft.com/azure/active-directory/saas-apps/verme-tutorial), [Lenses.io](https://docs.microsoft.com/azure/active-directory/saas-apps/lensesio-tutorial), [Momenta](https://docs.microsoft.com/azure/active-directory/saas-apps/momenta-tutorial), [Uprise](https://app.uprise.co/sign-in), [Q,](https://q.moduleq.com/login) [CloudCords](https://docs.microsoft.com/azure/active-directory/saas-apps/cloudcords-tutorial), [TellMe Bot](https://tellme365liteweb.azurewebsites.net/), [Inspire](https://app.inspiresoftware.com/), [Maverics Identity Orchestrator SAML Connector,](https://www.strata.io/identity-fabric/) [Smartschool (Sistema de Gestão Escolar)](https://smart-schoolapp.com/frmLoginForm), [Zepto - Cronometragem Inteligente,](https://user.zepto-ai.com/signin) [Studi.ly,](https://studi.ly/) [Trackplan,](http://www.trackplanfm.com/) [Skedda,](https://docs.microsoft.com/azure/active-directory/saas-apps/skedda-tutorial) [WhosOnLocation,](https://docs.microsoft.com/azure/active-directory/saas-apps/whos-on-location-tutorial) [Coggle,](https://docs.microsoft.com/azure/active-directory/saas-apps/coggle-tutorial) [Kemp LoadMaster,](https://kemptechnologies.com/cloud-load-balancer/) [BrowserStack Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/browserstack-single-sign-on-tutorial)
+[Palmas](http://www.rmit.com.ar/)Palmas , [Appreiz](https://microsoftteams.appreiz.com/), [Inextor Vault](https://inexto.com/inexto-suite/inextor), [Beekast](https://my.beekast.com/), [Templafy OpenID Connect,](https://app.templafy.com/) [Rececionista PeterConnects,](https://msteams.peterconnects.com/) [AlohaCloud,](https://appfusions.alohacloud.com/auth) [Control Tower,](https://bpm.tnxcorp.com/sso/microsoft) [Cocoom,](https://start.cocoom.com/) [COINS Construction Cloud,](https://sso.coinsconstructioncloud.com/#login/) [Medxnote MT,](https://task.teamsmain.medx.im/authorization) [Reflekt,](https://reflekt.konsolute.com/login) [Rever,](https://app.reverscore.net/access) [MyCompanyArchive,](https://login.mycompanyarchive.com/) [GRem sines,](https://app.greminders.com/o365-oauth) [Titanfile](https://docs.microsoft.com/azure/active-directory/saas-apps/titanfile-tutorial), [Wootric](https://docs.microsoft.com/azure/active-directory/saas-apps/wootric-tutorial), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US),  [OpenText Directory Services](https://docs.microsoft.com/azure/active-directory/saas-apps/opentext-directory-services-tutorial), [Datasite](https://docs.microsoft.com/azure/active-directory/saas-apps/datasite-tutorial), [BlogIn](https://docs.microsoft.com/azure/active-directory/saas-apps/blogin-tutorial), [IntSights](https://docs.microsoft.com/azure/active-directory/saas-apps/intsights-tutorial), [kpifire,](https://docs.microsoft.com/azure/active-directory/saas-apps/kpifire-tutorial) [Textline](https://docs.microsoft.com/azure/active-directory/saas-apps/textline-tutorial), [Cloud Academy - SSO,](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-academy-sso-tutorial) [Community Spark,](https://docs.microsoft.com/azure/active-directory/saas-apps/community-spark-tutorial) [Chatwork,](https://docs.microsoft.com/azure/active-directory/saas-apps/chatwork-tutorial) [CloudSign](https://docs.microsoft.com/azure/active-directory/saas-apps/cloudsign-tutorial), [C3M Cloud Control,](https://docs.microsoft.com/azure/active-directory/saas-apps/c3m-cloud-control-tutorial) [SmartHR](https://smarthr.jp/), [NumlyEngage™](https://docs.microsoft.com/azure/active-directory/saas-apps/numlyengage-tutorial), [Michigan Data Hub Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/michigan-data-hub-single-sign-on-tutorial), [Egress](https://docs.microsoft.com/azure/active-directory/saas-apps/egress-tutorial), [SendSafe,](https://docs.microsoft.com/azure/active-directory/saas-apps/sendsafely-tutorial) [Eletive,](https://app.eletive.com/) [Right-Hand Cybersecurity ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [Verme](https://docs.microsoft.com/azure/active-directory/saas-apps/verme-tutorial), [Lenses.io](https://docs.microsoft.com/azure/active-directory/saas-apps/lensesio-tutorial), [Momenta](https://docs.microsoft.com/azure/active-directory/saas-apps/momenta-tutorial), [Uprise](https://app.uprise.co/sign-in), [Q,](https://q.moduleq.com/login) [CloudCords](https://docs.microsoft.com/azure/active-directory/saas-apps/cloudcords-tutorial), [TellMe Bot](https://tellme365liteweb.azurewebsites.net/), [Inspire](https://app.inspiresoftware.com/), [Maverics Identity Orchestrator SAML Connector,](https://www.strata.io/identity-fabric/) [Smartschool (Sistema de Gestão Escolar)](https://smart-schoolapp.com/frmLoginForm), [Zepto - Cronometragem Inteligente,](https://user.zepto-ai.com/signin) [Studi.ly,](https://studi.ly/) [Trackplan,](http://www.trackplanfm.com/) [Skedda,](https://docs.microsoft.com/azure/active-directory/saas-apps/skedda-tutorial) [WhosOnLocation,](https://docs.microsoft.com/azure/active-directory/saas-apps/whos-on-location-tutorial) [Coggle,](https://docs.microsoft.com/azure/active-directory/saas-apps/coggle-tutorial) [Kemp LoadMaster,](https://kemptechnologies.com/cloud-load-balancer/) [BrowserStack Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/browserstack-single-sign-on-tutorial)
 
-Também pode encontrar a documentação de todas as aplicações a partir daquihttps://aka.ms/AppsTutorial
+Também pode encontrar a documentação de todas as aplicações a partir daqui https://aka.ms/AppsTutorial
 
-Para listar a sua aplicação na galeria de aplicações Azure AD, leia os detalhes aquihttps://aka.ms/AzureADAppRequest
+Para listar a sua aplicação na galeria de aplicações Azure AD, leia os detalhes aqui https://aka.ms/AzureADAppRequest
 
 ---
 
@@ -188,7 +372,7 @@ Para obter mais informações sobre como proteger melhor a sua organização uti
 ### <a name="view-role-assignments-across-all-scopes-and-ability-to-download-them-to-a-csv-file"></a>Ver atribuições de funções em todos os âmbitos e capacidade de descarregá-las para um ficheiro csv
 
 **Tipo:** Alteração de recurso  
-**Categoria de serviço:** RBAC  
+**Categoria de serviço:** Funções de AD AZure  
 **Capacidade do produto:** Controlo de Acessos
  
 Agora pode ver atribuições de funções em todos os âmbitos para um papel no separador "Papéis e administradores" no portal AD AZure. Também pode descarregar essas atribuições de funções para cada papel num ficheiro CSV. Para obter orientações sobre a visualização e adição de atribuições de funções, consulte [Ver e atribuir funções de administrador no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
@@ -836,7 +1020,7 @@ Para obter mais informações, consulte [os métodos de autenticação AZure AD 
 
 **Tipo:** Nova funcionalidade
 
-**Categoria de serviço:** RBAC
+**Categoria de serviço:** Funções de AD AZure
 
 **Capacidade do produto:** Controlo de Acessos
 
@@ -856,7 +1040,7 @@ Para mais informações, consulte [a gestão de unidades administrativas no Dire
 
 **Tipo:** Nova funcionalidade
 
-**Categoria de serviço:** RBAC
+**Categoria de serviço:** Funções de AD AZure
 
 **Capacidade do produto:** Controlo de Acessos
 
@@ -870,7 +1054,7 @@ Para mais informações, consulte [a gestão de unidades administrativas no Dire
 
 **Tipo:** Nova funcionalidade
 
-**Categoria de serviço:** RBAC
+**Categoria de serviço:** Funções de AD AZure
 
 **Capacidade do produto:** Controlo de Acessos
 
@@ -882,7 +1066,7 @@ Os utilizadores desta função podem permitir, configurar e gerir serviços e co
 
 **Tipo:** Nova funcionalidade
 
-**Categoria de serviço:** RBAC
+**Categoria de serviço:** Funções de AD AZure
 
 **Capacidade do produto:** Controlo de Acessos
 
@@ -1174,116 +1358,3 @@ A partir de agora, os clientes que tenham inquilinos gratuitos podem aceder aos 
 Para proporcionar uma forma mais flexível de os clientes criarem grupos de diretório que melhor satisfaçam as suas necessidades, substituímos a opção grupos de **diretório** das configurações gerais dos **grupos**  >  **General** no portal Azure por um link para [a documentação dinâmica do grupo.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) Melhorámos a nossa documentação para incluir mais instruções para que os administradores possam criar grupos de todos os utilizadores que incluam ou excluam os utilizadores convidados.
 
 ---
-
-## <a name="february-2020"></a>Fevereiro de 2020
-
-### <a name="upcoming-changes-to-custom-controls"></a>Próximas alterações aos controlos personalizados
-
-**Tipo:** Plano de mudança  
-**Categoria de serviço:** MFA  
-**Capacidade do produto:** Proteção & de Segurança de Identidade
- 
-Estamos a planear substituir a pré-visualização dos controlos personalizados atuais por uma abordagem que permite que as capacidades de autenticação fornecidas pelos parceiros funcionem perfeitamente com o administrador do Azure Ative Directory e experiências finais do utilizador. Hoje, as soluções parceiras da MFA enfrentam as seguintes limitações: só funcionam depois de uma palavra-passe ter sido inserida; não servem como MFA para autenticação de escalões noutros cenários-chave; e não se integram com funções de administração de utilizador final ou de gestão de credenciais administrativas. A nova implementação permitirá que os fatores de autenticação fornecidos pelos parceiros trabalhem em conjunto com fatores integrados para cenários-chave, incluindo registo, utilização, reclamações de MFA, aumento da autenticação, reporte e registo. 
-
-Os controlos personalizados continuarão a ser suportados na pré-visualização, juntamente com o novo design até atingir a disponibilidade geral. Nessa altura, daremos tempo aos clientes para migrarem para o novo design. Devido às limitações da abordagem atual, não vamos embarcar novos fornecedores até que o novo design esteja disponível. Estamos a trabalhar em estreita colaboração com clientes e fornecedores e comunicaremos a cronologia à medida que nos aproximamos. [Saiba mais](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
-
----
-
-### <a name="identity-secure-score---mfa-improvement-action-updates"></a>Identity Secure Score - Atualizações de ação de melhoria do MFA
-
-**Tipo:** Plano de mudança  
-**Categoria de serviço:** MFA  
-**Capacidade do produto:** Proteção & de Segurança de Identidade
- 
-Para refletir a necessidade de as empresas garantirem a segurança mais alta ao mesmo tempo que aplicam políticas que funcionam com o seu negócio, o Microsoft Secure Score está a remover três ações de melhoria centradas na autenticação de vários fatores (MFA) e a adicionar duas.
-
-Serão eliminadas as seguintes ações de melhoria:
-
-- Registar todos os utilizadores para MFA
-- Pedir MFA para todos os utilizadores
-- Exigir MFA para funções privilegiadas da Azure AD
-
-Serão adicionadas as seguintes ações de melhoria:
-
-- Certifique-se de que todos os utilizadores podem completar MFA para acesso seguro
-- Exigir MFA para funções administrativas
-
-Estas novas ações de melhoria exigirão registar os seus utilizadores ou administradores para MFA em todo o seu diretório e estabelecer o conjunto certo de políticas que se adequam às suas necessidades organizacionais. O objetivo principal é ter flexibilidade, garantindo ao mesmo tempo que todos os seus utilizadores e administradores podem autenticar com múltiplos fatores ou pedidos de verificação de identidade baseados no risco. Isto pode assumir a forma de definir padrão de segurança que permite à Microsoft decidir quando desafiar os utilizadores para MFA, ou ter várias políticas que aplicam decisões de âmbito. Como parte destas atualizações de ação de melhoria, as políticas de proteção de base deixarão de ser incluídas nos cálculos de pontuação. [Leia mais sobre o que está a chegar no Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
-
----
-
-### <a name="azure-ad-domain-services-sku-selection"></a>Seleção SKU de Serviços de Domínio Azure
-
-**Tipo:** Nova funcionalidade  
-**Categoria de serviço:** Serviços de domínio Azure Ad  
-**Capacidade do produto:** Serviços de domínio Azure Ad
- 
-Ouvimos feedback de que os clientes da Azure AD Domain Services querem mais flexibilidade na seleção dos níveis de desempenho para as suas instâncias. A partir de 1 de fevereiro de 2020, mudamos de um modelo dinâmico (onde a Azure AD determina o nível de desempenho e preços baseado na contagem de objetos) para um modelo de autosseleção. Agora os clientes podem escolher um nível de desempenho que corresponda ao seu ambiente. Esta alteração permite-nos também ativar novos cenários como As Florestas de Recursos e funcionalidades Premium como backups diários. A contagem de objetos é agora ilimitada para todos os SKUs, mas continuaremos a oferecer sugestões de contagem de objetos para cada nível.
-
-**Não é necessária qualquer ação imediata do cliente.** Para os clientes existentes, o nível dinâmico que estava em uso a 1 de fevereiro de 2020, determina o novo nível de incumprimento. Não existe um impacto de preços ou desempenho como resultado desta alteração. Para a frente, os clientes da Azure AD DS terão de avaliar os requisitos de desempenho à medida que o seu tamanho de diretório e as suas características de carga de trabalho mudarem. A troca entre os níveis de serviço continuará a ser uma operação sem tempo de inatividade, e deixaremos de transferir automaticamente os clientes para novos níveis com base no crescimento do seu diretório. Além disso, não haverá aumentos de preços, e novos preços irão alinhar-se com o nosso modelo de faturação atual. Para obter mais informações, consulte a [documentação Azure AD DS SKUs](https://docs.microsoft.com/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) e a [página de preços dos Serviços de Domínio AZure AD](https://azure.microsoft.com/pricing/details/active-directory-ds/).
-
----
- 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2020"></a>Novas Aplicações Federadas disponíveis na galeria Azure AD App - fevereiro de 2020
-
-**Tipo:** Nova funcionalidade  
-**Categoria de serviço:** Aplicativos da Empresa  
-**Capacidade do produto:** Integração de Terceiros
- 
-Em fevereiro de 2020, adicionámos estas 31 novas aplicações com apoio da Federação à galeria de aplicações: 
-
-[Plataforma de Patentes IamIP](https://docs.microsoft.com/azure/active-directory/saas-apps/iamip-patent-platform-tutorial), [Experience Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/experience-cloud-tutorial), [NS1 SSO For Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/ns1-sso-azure-tutorial), [Barracuda Email Security Service](https://ess.barracudanetworks.com/sso/azure), [ABa Reporting](https://myaba.co.uk/client-access/signin/auth/msad), Em caso de crise - Portal [On-line,](https://docs.microsoft.com/azure/active-directory/saas-apps/in-case-of-crisis-online-portal-tutorial) [BIC Cloud Design,](https://docs.microsoft.com/azure/active-directory/saas-apps/bic-cloud-design-tutorial) [Apicultor Azure AD Data Connector,](https://docs.microsoft.com/azure/active-directory/saas-apps/beekeeper-azure-ad-data-connector-tutorial) [Korn Ferry Assessments,](https://www.kornferry.com/solutions/kf-digital/kf-assess) [Verkada Command,](https://docs.microsoft.com/azure/active-directory/saas-apps/verkada-command-tutorial) [Splashtop,](https://docs.microsoft.com/azure/active-directory/saas-apps/splashtop-tutorial) [Syxsense,](https://docs.microsoft.com/azure/active-directory/saas-apps/syxsense-tutorial) [EAB Navigate,](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-tutorial) [Nova Relíquia (Lançamento Limitado)](https://docs.microsoft.com/azure/active-directory/saas-apps/new-relic-limited-release-tutorial), [Thulium](https://admin.thulium.com/login/instance), [Gestor de Bilhetes,](https://docs.microsoft.com/azure/active-directory/saas-apps/ticketmanager-tutorial)Escolha [de Modelos para Equipas,](https://links.officeatwork.com/templatechooser-download-teams) [Beesy,](https://www.beesy.me/index.php/site/login) [Sistema de Suporte de Saúde,](https://docs.microsoft.com/azure/active-directory/saas-apps/health-support-system-tutorial) [MURAL,](https://app.mural.co/signup) [Colmeia,](https://docs.microsoft.com/azure/active-directory/saas-apps/hive-tutorial) [LavaDo,](https://appsource.microsoft.com/product/web-apps/lavaloon.lavado_standard?tab=Overview) [Wakelet,](https://wakelet.com/login) [Firmex VDR,](https://docs.microsoft.com/azure/active-directory/saas-apps/firmex-vdr-tutorial) [ThingLink para Professores e Escolas,](https://www.thinglink.com/) [Coda,](https://docs.microsoft.com/azure/active-directory/saas-apps/coda-tutorial) [NearpodApp,](https://nearpod.com/signup/?oc=Microsoft&utm_campaign=Microsoft&utm_medium=site&utm_source=product) [WEDO,](https://docs.microsoft.com/azure/active-directory/saas-apps/wedo-tutorial) [InvitePeople,](https://invitepeople.com/login) [Reprints Desk - Artigo Galaxy,](https://docs.microsoft.com/azure/active-directory/saas-apps/reprints-desk-article-galaxy-tutorial) [TeamViewer](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-tutorial)
-
- 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
-
----
- 
-### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---february-2020"></a>Novos conectores de provisionamento na Galeria de Aplicações AD Azure - fevereiro de 2020
-
-**Tipo:** Nova funcionalidade  
-**Categoria de serviço:** Aplicativos da Empresa  
-**Capacidade do produto:** Integração de Terceiros
- 
-Pode agora automatizar a criação, atualização e eliminação de contas de utilizador para estas novas aplicações integradas:
-
-- [Mixpanel](https://docs.microsoft.com/azure/active-directory/saas-apps/mixpanel-provisioning-tutorial)
-- [TeamViewer](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-provisioning-tutorial)
-- [Azure Databricks](https://docs.microsoft.com/azure/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial)
-- [PureCloud da Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-provisioning-tutorial)
-- [Zapier](https://docs.microsoft.com/azure/active-directory/saas-apps/zapier-provisioning-tutorial)
-
-Para obter mais informações sobre como proteger melhor a sua organização utilizando o fornecimento automatizado de conta de utilizador, consulte [automatizar o fornecimento de utilizadores para aplicações SaaS com Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-
----
- 
-### <a name="azure-ad-support-for-fido2-security-keys-in-hybrid-environments"></a>Suporte AZURE AD para chaves de segurança FIDO2 em ambientes híbridos
-
-**Tipo:** Nova funcionalidade  
-**Categoria de serviço:** Autenticações (Logins)  
-**Capacidade do produto:** Autenticação do Utilizador
- 
-Estamos a anunciar a pré-visualização pública do suporte da AD Azure para chaves de segurança FIDO2 em ambientes híbridos. Os utilizadores podem agora utilizar as chaves de segurança FIDO2 para iniciar súbs nos seus dispositivos Híbrido Azure AD e obter um sinal de saúde sem emenda nos seus locais e recursos na nuvem. O suporte aos ambientes Híbridos tem sido a característica mais requisitada dos nossos clientes sem palavras-passe desde que inicialmente lançámos a pré-visualização pública para suporte FIDO2 em dispositivos aderidos a Azure AD. A autenticação sem palavras-passe utilizando tecnologias avançadas como a biometria e a criptografia de chaves públicas/privadas proporcionam comodidade e facilidade de utilização enquanto estão seguros. Com esta pré-visualização pública, você pode agora usar a autenticação moderna como chaves de segurança FIDO2 para aceder aos recursos tradicionais do Ative Directory. Para mais informações, aceda [ao SSO para obter recursos no local.](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises) 
-
-Para começar, visite [as chaves de segurança FIDO2 para o seu inquilino](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key) para obter instruções passo a passo. 
-
----
- 
-### <a name="the-new-my-account-experience-is-now-generally-available"></a>A nova experiência My Account está agora geralmente disponível
-
-**Tipo:** Alteração de recurso  
-**Categoria de serviço:** O meu perfil/conta  
-**Capacidade do produto:** Experiências de utilizador final
- 
-A Minha Conta, o balcão único para todas as necessidades de gestão de conta de utilizador final, está agora geralmente disponível! Os utilizadores finais podem aceder a este novo site via URL, ou no cabeçalho da nova experiência My Apps. Saiba mais sobre todas as capacidades de self-service que a nova experiência oferece no [My Account Portal Overview](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
-
----
- 
-### <a name="my-account-site-url-updating-to-myaccountmicrosoftcom"></a>URL do site da minha conta atualizando para myaccount.microsoft.com
-
-**Tipo:** Alteração de recurso  
-**Categoria de serviço:** O meu perfil/conta  
-**Capacidade do produto:** Experiências de utilizador final
- 
-A nova experiência do utilizador final my Account irá atualizar o seu URL para `https://myaccount.microsoft.com` o próximo mês. Encontre mais informações sobre a experiência e todas as capacidades de self-service da conta que oferece aos utilizadores finais no [portal My Account.](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview)
-

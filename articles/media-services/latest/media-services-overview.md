@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Uma visão geral de alto nível do Azure Media Services v3 com links para quickstarts, tutoriais e amostras de código.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -14,17 +14,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000963"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267620"
 ---
 # <a name="azure-media-services-v3-overview"></a>Descrição geral dos Serviços de Multimédia do Azure v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lhe permite criar soluções que possibilitam a transmissão em vídeo com qualidade de transmissão, melhorar a acessibilidade e distribuição, analisar conteúdo e muito mais. Quer seja um desenvolvedor de aplicações, um call center, uma agência governamental ou uma empresa de entretenimento, a Media Services ajuda-o a criar aplicações que oferecem experiências mediáticas de excelente qualidade para grandes audiências nos dispositivos móveis e navegadores mais populares da atualidade.
 
@@ -68,7 +70,7 @@ Aprenda a codificar e embalar conteúdos, transmita vídeos a pedido, transmita 
 
 Comece a desenvolver-se com [os SDKs clientes Azure Media Services v3.](media-services-apis-overview.md#sdks)
 
-### <a name="quickstarts"></a>Inícios rápidos  
+### <a name="quickstarts"></a>Guias de Início Rápido  
 
 Os quickstarts mostram instruções fundamentais do dia 1 para novos clientes experimentarem rapidamente os Media Services.
 
@@ -90,7 +92,7 @@ Os tutoriais mostram procedimentos baseados em cenários para algumas das princi
 
 Utilize [este navegador de amostras](/samples/browse/?products=azure-media-services) para navegar em amostras de código do Azure Media Services.
 
-### <a name="how-to-guides"></a>Manuais de instruções
+### <a name="how-to-guides"></a>Guias de procedimentos
 
 Os guias de como fazer contêm amostras de código que demonstram como completar uma tarefa. Nesta secção, encontrará muitos exemplos. Aqui estão alguns deles:
 

@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 88a528e8e7f8713a766c715faaea9bb0f29f046e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 57574b66ddb20e592a5979a4b827347f7c8e09af
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085371"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268096"
 ---
-# <a name="kubernetes-storage-management-on-your-azure-stack-edge-device"></a>Gestão de armazenamento kubernetes no seu dispositivo Azure Stack Edge
+# <a name="kubernetes-storage-management-on-your-azure-stack-edge-gpu-device"></a>Gestão de armazenamento kubernetes no seu dispositivo GPU Azure Stack Edge
 
 No seu dispositivo Azure Stack Edge, é criado um cluster Kubernetes quando configura o papel de computação. Uma vez criado o cluster Kubernetes, as aplicações contentorizadas podem ser implantadas no cluster Kubernetes em casulos. Existem formas distintas de fornecer armazenamento a cápsulas no seu cluster Kubernetes. 
 

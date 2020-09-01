@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f244a8bee9f5fe7222fb80793f200b92852d6aac
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 09a66f45fe3e20bedf5ff99ee924ac267b4fd869
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021804"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266804"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando chamadas REST API
 
@@ -42,11 +42,11 @@ Neste artigo, utilizando o CURL para fazer chamadas para o ponto final do Azure 
     > [!NOTE]
     > Não são necessárias atribuições adicionais de diretório ad AD.
 
-    - [Contribuinte de máquinas virtuais](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover sistema e/ou identidade gerida atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
-    - [Papel de Contribuinte de Identidade Gerido](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
-    - [Função de Operador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade atribuída ao utilizador de e para um conjunto de escala de máquina virtual.
-- Se estiver a utilizar o Windows, instale o [Subsistema Windows para o Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilize o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal Azure.
-- [Instale a consola local Azure CLI,](/cli/azure/install-azure-cli)se utilizar o [Subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SISTEMA de distribuição Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+    - [Contribuinte de máquinas virtuais](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover sistema e/ou identidade gerida atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
+    - [Papel de Contribuinte de Identidade Gerido](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
+    - [Função de Operador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para atribuir e remover uma identidade atribuída ao utilizador de e para um conjunto de escala de máquina virtual.
+- Se estiver a utilizar o Windows, instale o [Subsistema Windows para o Linux](/windows/wsl/about) ou utilize o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal Azure.
+- [Instale a consola local Azure CLI,](/cli/azure/install-azure-cli)se utilizar o [Subsistema Windows para Linux](/windows/wsl/about) ou um [SISTEMA de distribuição Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Se estiver a utilizar a consola local Azure CLI, inscreva-se no Azure utilizando `az login` uma conta associada à subscrição Azure que gostaria de gerir o sistema ou identidades geridas atribuídas pelo utilizador.
 
 

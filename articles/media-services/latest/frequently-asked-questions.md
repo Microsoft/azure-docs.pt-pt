@@ -3,22 +3,24 @@ title: Azure Media Services v3 frequentemente fez perguntas. Microsoft Docs
 description: Este artigo dá respostas a perguntas frequentes sobre a Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/07/2020
-ms.author: juliako
-ms.openlocfilehash: 70499ad354e2fafaac99fe46c1838a0be2813943
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011690"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268490"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo dá respostas a perguntas frequentes sobre a Azure Media Services v3.
 
@@ -119,7 +121,7 @@ A abordagem correta é utilizar o Serviço Secure Token. Em STS, dependendo do p
 
 Utilize APIs de Serviços de Media Azure para configurar a licença/entrega de chaves e encriptar os seus ativos (como mostrado [nesta amostra).](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [Visão geral da proteção de conteúdos](content-protection-overview.md)
 - [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)

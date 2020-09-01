@@ -3,7 +3,7 @@ title: Transmita ficheiros de vídeo com a Azure Media Services e o Azure CLI
 description: Siga os passos deste tutorial para criar uma nova conta Azure Media Services, codificar um ficheiro e transmiti-lo ao Azure Media Player.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: serviços de multimédia do azure, transmitir
@@ -11,16 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: 5a90e1fdc50a6e2b1544a06f587362bf43b80369
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8c8db31ae51e1fb80ae9baad6a5d6329cd963bab
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504454"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267416"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este tutorial mostra como codificar e transmitir facilmente vídeos numa variedade de navegadores e dispositivos utilizando o Azure Media Services e o Azure CLI. Pode especificar o conteúdo de entrada utilizando URLs HTTPS ou SAS ou caminhos para ficheiros no armazenamento Azure Blob.
 
@@ -340,7 +342,7 @@ Eis um exemplo:
 >[!NOTE]
 >O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não deve ser utilizado num ambiente de produção.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisar de nenhum dos recursos do seu grupo de recursos, incluindo os Serviços de Media e contas de armazenamento que criou para este tutorial, elimine o grupo de recursos.
 

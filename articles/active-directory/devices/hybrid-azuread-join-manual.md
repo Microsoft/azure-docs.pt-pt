@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6c062b907f1e8a8e0541db0d69c6e24901f3145f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428373"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268558"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -39,7 +39,7 @@ Se tiver um ambiente do Active Directory no local e quiser associar os seus disp
 
 Este tutorial pressupõe que esteja familiarizado com:
 
-* [Introduction to device management in Azure Active Directory](../device-management-introduction.md) (Introdução à gestão de dispositivos no Azure Active Directory)
+* [Introduction to device management in Azure Active Directory](./overview.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 * [Planeie o seu Azure Ative Directory híbrido junte-se à implementação](hybrid-azuread-join-plan.md)
 * [Controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
 
@@ -94,7 +94,7 @@ Utilize a tabela abaixo para obter uma descrição geral dos passos necessários
 
 Os seus dispositivos utilizam um objeto de ligação de serviço (SCP) durante o registo para descobrir informações sobre o inquilino da Azure AD. No seu exemplo de Ative Directory no local, o objeto SCP para os dispositivos híbridos Azure AD devem existir na divisão de contexto de configuração da floresta do computador. Só existe um contexto de nomenclatura de configuração por floresta. Numa configuração multi-forest Ative Directory, o ponto de ligação de serviço deve existir em todas as florestas que contenham computadores ligados ao domínio.
 
-Pode utilizar o cmdlet [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) para obter o contexto de nomenclatura da configuração da sua floresta.  
+Pode utilizar o cmdlet [**Get-ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)) para obter o contexto de nomenclatura da configuração da sua floresta.  
 
 Para uma floresta com o nome de domínio do Active Directory *fabrikam.com*, o contexto de nomenclatura da configuração é:
 
@@ -167,7 +167,7 @@ Para controladores de domínio que executam as versões do Windows Server 2008 o
 
 No guião anterior, `$verifiedDomain = "contoso.com"` é um espaço reservado. Substitua-o por um dos seus nomes de domínio verificados no Azure AD. Tem que ser dono do domínio antes de poder usá-lo.
 
-Para obter mais informações sobre os nomes de domínio verificados, consulte [adicionar um nome de domínio personalizado ao Azure Ative Directory](../active-directory-domains-add-azure-portal.md).
+Para obter mais informações sobre os nomes de domínio verificados, consulte [adicionar um nome de domínio personalizado ao Azure Ative Directory](../fundamentals/add-custom-domain.md).
 
 Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
 
@@ -326,7 +326,7 @@ A `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` reclamaçã
 
 Na reivindicação anterior, `<verified-domain-name>` é um espaço reservado. Substitua-o por um dos seus nomes de domínio verificados no Azure AD. Por exemplo, usar `Value = "http://contoso.com/adfs/services/trust/"` .
 
-Para obter mais informações sobre os nomes de domínio verificados, consulte [adicionar um nome de domínio personalizado ao Azure Ative Directory](../active-directory-domains-add-azure-portal.md).  
+Para obter mais informações sobre os nomes de domínio verificados, consulte [adicionar um nome de domínio personalizado ao Azure Ative Directory](../fundamentals/add-custom-domain.md).  
 
 Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
 
@@ -614,11 +614,11 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Se sentir problemas em completar a ad AD híbrida para dispositivos Windows unidos pelo domínio, consulte:
 
-- [Dispositivos de resolução de problemas utilizando comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Dispositivos de resolução de problemas utilizando comando dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Resolver problemas de dispositivos associados ao Azure Active Directory híbrido](troubleshoot-hybrid-join-windows-current.md)
 - [O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introduction to device management in Azure Active Directory](overview.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 
