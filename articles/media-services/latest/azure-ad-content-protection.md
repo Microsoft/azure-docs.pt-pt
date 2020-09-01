@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/1/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ad50b29dbda7c09c9312ebb4a01ebc5da568f3da
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 006e312e67f5f4014248c44a799c2dde826801c2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422101"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258848"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Com este tutorial e a amostra de jogador fornecida, pode configurar um subsistema de proteção de conteúdos de mídia de ponta a ponta nos serviços Azure Media Services (AMS) e Azure Ative Directy (AAD) para transmitir conteúdo sonoro com todos os formatos DE DRM/AES-128 suportados pela AMS, protocolos de streaming, formatos codec e container. A amostra é genérica o suficiente para acesso seguro a qualquer API REST protegida pela OAuth 2 através do Fluxo de Código de Autorização com Chave de Prova para Troca de Código (PKCE). (O serviço de entrega de licenças Azure Media Services é apenas um deles.) Também funciona para a Microsoft Graph API ou qualquer API de REST desenvolvido sob medida, protegido com OAuth 2 Authorization Code Flow. Este é o documento de companhia do código de [amostra.](https://github.com/Azure-Samples/media-services-content-protection-azure-ad)
 
@@ -64,7 +66,7 @@ São utilizadas as versões e conceitos mais recentes da tecnologia. Recomenda-s
 * Uma instalação de Node.js. Faça o download Node.js [https://nodejs.org](https://nodejs.org) aqui. A NPM vem com a instalação.
 * Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 * Uma conta Azure Media Services (AMS).
-* @azure/msal-browserv2.0, um dos membros da [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) SDK família para diferentes plataformas de clientes
+* @azure/msal-browser v2.0, um dos membros da [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) SDK família para diferentes plataformas de clientes
 * A versão mais recente do [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(incluído na amostra.)
 * Credenciais FPS da Apple se quiser incluir FairPlay DRM e o certificado de aplicação alojado com CORS que é acessível através do JavaScript do lado do cliente.
 
@@ -106,7 +108,7 @@ Leia [Design de um sistema de proteção de conteúdos multi-DRM com controlo de
 A aplicação para jogadores é uma aplicação de página única (SPA), desenvolvida no Código do Estúdio Visual utilizando:
 
 * Node.js com ES 6 JavaScript
-* @azure/msal-browser2.0 beta
+* @azure/msal-browser 2.0 beta
 * Azure Media Player SDK
 * Fluxo OAu 2 contra pontos finais Azure AD v2 (Microsoft Identity Platform)
 
@@ -159,7 +161,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
 1. Selecione **Manifesto** no menu. A vista manifesto aparecerá.
 1. Alterar o valor do `accessTokenAcceptedVersion` para *2* (sem cotações).
 1. Alterar o valor do `groupMembershipClaims` *"SecurityGroup"* (com cotações).
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 1. Selecione **Expor uma API** do menu. Aparecerá a vista De âmbito adicionar. (O Azure fornece um ID URI de aplicação, mas se quiser alterá-lo, pode editar no campo ID URI da aplicação.)
 1. Clique **em Guardar e continuar.** A vista vai mudar. Para cada uma das definições na coluna Definição na tabela abaixo, introduza o valor na coluna Valor e, em seguida, clique em **Adicionar âmbito**.
 
@@ -207,7 +209,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
     > [!NOTE]
     > Neste momento, ainda não tem o URL para a sua aplicação de jogador.  Se estiver a executar a aplicação a partir do seu webserver local, pode usar apenas o par de valor local. Assim que implementar a aplicação do jogador, pode adicionar a entrada aqui com o URL implantado.  Se se esquecer de o fazer, verá uma mensagem de erro no sinal AZure AD.
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 1. Finalmente para verificar se a sua configuração está correta, selecione **Autenticação**.  Aparecerá a vista de autenticação. A sua aplicação ao cliente será listada como uma App de Página Única (SPA), o URI de redirecionamento será listado, e o tipo de subvenção será O Fluxo de Código de Autorização com PKCE.
 
 ### <a name="set-up-the-media-services-account-content-key-policy-and-streaming-policies"></a>Criar a política-chave de conteúdos de conta dos Media Services e as políticas de streaming
@@ -261,7 +263,7 @@ Tem duas opções para configurar a aplicação do jogador:
 
 ### <a name="option-1"></a>Opção 1
 
-1. Inicie o Visual Studio Code.
+1. Iniciar o Visual Studio Code.
 1. Para abrir o projeto, clique em Ficheiros -> Open Folder -> navegue e selecione a pasta-mãe do *package.jsno* ficheiro.
 1. Abra o ficheiro JavaScript *público/javascript/constants.js*.
 1. Substitua `OAUTH2_CONST.CLIENT_ID` pela `client_id` aplicação do seu cliente registado no inquilino da AAD.  Pode encontrar a `client_id` secção Geral da aplicação registada no portal Azure. Nota: é a identificação do cliente, não a identificação do objeto.
@@ -377,7 +379,7 @@ A sua solução de amostra pode ser configurada num inquilino da Microsoft com s
 > [!WARNING]
 > Se não vai continuar a utilizar esta aplicação, elimine os recursos que criou enquanto segue este tutorial. Caso contrário, serás cobrado por eles.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Quickstart: Encriptar conteúdo](encrypt-content-quickstart.md)

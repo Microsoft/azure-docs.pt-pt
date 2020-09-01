@@ -107,12 +107,12 @@
           href: update-regulatory-compliance-packages.md
     - name: Analisar as VMs quanto a vulnerabilidades
       items:
-        - name: Descrição geral da análise de vulnerabilidades
-          href: security-center-vulnerability-assessment-recommendations.md
-        - name: Detetor de vulnerabilidades integrado para VMs
-          href: built-in-vulnerability-assessment.md
-        - name: Utilização de detetores externos
-          href: partner-vulnerability-assessment.md
+        - name: Implementar o detetor de vulnerabilidades integrado nas suas VMs
+          href: deploy-vulnerability-assessment-vm.md
+        - name: Implementar uma solução de vulnerabilidade BYOL nas suas VMs
+          href: deploy-vulnerability-assessment-byol-vm.md
+        - name: Analisar e remediar vulnerabilidades nas suas VMs
+          href: remediate-vulnerability-findings-vm.md
     - name: Configurar a proteção contra ameaças e processar alertas
       items:
         - name: Gerir alertas de segurança

@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Este artigo explica sobre a codificação de vídeo e áudio com a Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: a54f86081774ffb9ac2fe23a72c8ba83e3d6845c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2e4db27f268d0d49696fd2a7dacc200942fa4477
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053334"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258984"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificação de vídeo e áudio com Serviços de Media
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O termo codificação nos Serviços de Media aplica-se ao processo de conversão de ficheiros que contenham vídeo e/ou áudio digital de um formato padrão para outro, com o objetivo de (a) reduzir o tamanho dos ficheiros, e/ou (b) produzir um formato compatível com uma ampla gama de dispositivos e aplicações. Este processo também é referido como compressão de vídeo, ou transcoding. Veja a [compressão de dados](https://en.wikipedia.org/wiki/Data_compression) e o [Que É Codificação e Transcoding?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx)
 

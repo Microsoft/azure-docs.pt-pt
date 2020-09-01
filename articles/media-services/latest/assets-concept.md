@@ -10,17 +10,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 27082499263af6eedd7d9d628b7b1746a9177672
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 3507d3f0ac978c6f7c2f5fc29fc563eaba79d98a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606842"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258865"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Ativos em Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Na Azure Media Services, um [Ativo](/rest/api/media/assets) é um conceito central. É onde você insere meios de comunicação (por exemplo, através de upload ou live ingest), meios de saída (a partir de uma saída de trabalho) e publicação de meios de streaming (para streaming). 
 

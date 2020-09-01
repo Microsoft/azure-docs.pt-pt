@@ -4,7 +4,7 @@
   items:
     - name: Acerca das Máquinas Virtuais
       href: overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   items:
     - name: Criar VM - Portal
       href: quick-create-portal.md
@@ -657,6 +657,8 @@
           href: instance-metadata-service.md
         - name: Ativar a virtualização aninhada
           href: nested-virtualization.md
+        - name: Aplicação de patches automática de convidado da VM (pré-visualização)
+          href: automatic-vm-guest-patching.md
     - name: Manutenção da plataforma
       items:
         - name: Notificações de manutenção

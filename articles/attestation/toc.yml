@@ -1,0 +1,48 @@
+- name: Microsoft Azure Attestation (pré-visualização)
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: Acerca do Microsoft Azure Attestation
+      href: overview.md
+- name: Guias de Início Rápido
+  items:
+    - name: Modelo ARM
+      href: quickstart-template.md
+    - name: PowerShell
+      href: quickstart-powershell.md
+- name: Tutoriais
+  items:
+    - name: Criar e assinar uma política de atestado
+      href: author-sign-policy.md
+    - name: Exemplos de código de atestado SGX
+      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+- name: Exemplos
+  items:
+    - name: Política de atestado
+      href: policy-examples.md
+    - name: Certificado de signatário de política
+      href: policy-signer-examples.md
+- name: Conceitos
+  items:
+    - name: Conceitos básicos
+      href: basic-concepts.md
+    - name: Afirmações da política de atestado
+      items:
+        - name: Gramática da regra de afirmação
+          href: claim-rule-grammar.md
+        - name: Conjuntos de afirmações
+          href: claim-sets.md
+    - name: Fluxo de trabalho
+      href: workflow.md
+- name: Referências
+  items:
+    - name: FAQ
+      href: faq.md
+    - name: REST
+      href: /rest/api/attestation/
+    - name: Azure PowerShell
+      href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    - name: Biblioteca DCAP do Azure para Windows
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
+    - name: Biblioteca DCAP do Azure para Linux
+      href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'

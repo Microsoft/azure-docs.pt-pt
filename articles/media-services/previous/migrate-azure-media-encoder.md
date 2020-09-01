@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 353024513885651cbc791548d8b91def3de65d90
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 32eab0f729280ad25f45853e05ea982b60a6d9f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013474"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259341"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrar do Azure Media Encoder para Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artigo discute os passos para migrar do legado processador de mídia Azure Media Encoder (AME) (que está a ser retirado) para o processador de media Media Encoder Standard. Para as datas de aposentadoria, consulte este tema [dos componentes do legado.](legacy-components.md)
 

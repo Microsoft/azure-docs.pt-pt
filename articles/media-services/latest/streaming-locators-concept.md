@@ -3,21 +3,21 @@ title: Localizadores de streaming nos Serviços Azure Media Microsoft Docs
 description: Este artigo dá uma explicação sobre o que são os Localizadores de Streaming e como são usados pela Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b4ba1bf63c1b8ebe6b7e294f416eb528ce444c5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fe448ea5a4d9610ff82beb7cfa1071d2e8249dfd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005790"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257624"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -91,7 +91,7 @@ Ver [Filtragem, encomenda, paging de entidades de Serviços de Comunicação](en
 
 Para obter localizadores de streaming com base no nome do Ativo associado, utilize as seguintes operações:
 
-|Idioma|API|
+|Linguagem|API|
 |---|---|
 |REST|[liststreaminglocadores](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams lista de ativos-streaming-localizadores](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|

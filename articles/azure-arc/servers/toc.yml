@@ -4,6 +4,8 @@
   items:
     - name: Acerca dos servidores preparados para o Azure Arc
       href: overview.md
+    - name: Novidades do agente Connected Machine
+      href: agent-release-notes.md
 - name: Guias de Início Rápido
   items:
     - name: Ativar o agente de servidores compatível com o Arc

@@ -34,7 +34,7 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: Núcleo de ASP.NET
+        - name: ASP.NET Core
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
@@ -273,7 +273,9 @@
               href: msal-net-adfs-support.md
             - name: Migrar para MSAL.NET
               href: msal-net-migration.md
-            - name: Migrar aplicações Xamarin com mediadores para o MSAL.NET
+            - name: Migrar a aplicação Xamarin Android através do mediador para MSAL.NET
+              href: msal-net-migration-android-broker.md
+            - name: Migrar a aplicação Xamarin iOS através do mediador para MSAL.NET
               href: msal-net-migration-ios-broker.md
             - name: Considerações sobre browsers
               href: msal-net-web-browsers.md

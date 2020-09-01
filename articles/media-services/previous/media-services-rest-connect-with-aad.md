@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: be7ac4073bb332a7595dcf211feb7087d0734854
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 958bfa605e0195b5f4fde2c0ff53a8ce567f50a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082737"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257148"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utilizar a autenticação do Azure AD para aceder à API de Serviços de Multimédia com REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
@@ -168,7 +170,7 @@ Esta secção mostra como aceder à API **de Ativos** utilizando **o Carteiro**.
 
 1. **Carteiro aberto.**
 2. Selecione **OBTER**.
-3. Colar o ponto final da API REST (por exemplo,https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Colar o ponto final da API REST (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selecione o **separador Autorização.** 
 5. Selecione **o token do portador**.
 6. Cole o símbolo que foi criado na secção anterior.

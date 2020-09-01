@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Partilhe fora do seu org - Azure Data Share'
 description: Tutorial - Partilhar dados com clientes e parceiros usando a Azure Data Share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: d78e9c11ef0c70730fedc0ea9ef4b5a61f7d29c6
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.date: 08/28/2020
+ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072167"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259069"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Partilhar dados usando a Azure Data Share  
 
@@ -60,14 +60,14 @@ Neste tutorial, irá aprender a:
     1. Clique **no** alternador para permitir o acesso aos Serviços Azure.
     1. Clique **em +Adicionar IP ao cliente** e clique em **Guardar.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama de IP. 
 
-### <a name="share-from-azure-data-explorer"></a>Partilhar do Azure Data Explorer
+### <a name="share-from-azure-data-explorer"></a>Partilhar a partir do Azure Data Explorer
 * Um cluster Azure Data Explorer com bases de dados que pretende partilhar.
 * Permissão para escrever ao cluster Azure Data Explorer, que está presente no *Microsoft.Kusto/clusters/write*. Esta permissão existe na função de Contribuinte.
 * Permissão para adicionar atribuição de funções ao cluster Azure Data Explorer, que está presente na *Microsoft.Authorization/role assignments/write*. Esta permissão existe na função Proprietário.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Criar uma conta de partilha de dados
 
@@ -86,14 +86,14 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
     | Subscrição | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para a sua conta de partilha de dados.|
     | Grupo de recursos | *grupo de recursos de teste* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Localização | *E.U.A. Leste 2* | Selecione uma região para a sua conta de partilha de dados.
-    | Nome | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
+    | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
 
 1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
 
 1. Quando a implementação estiver concluída, selecione **Ir para o recurso**.
 
-## <a name="create-a-data-share"></a>Criar uma partilha de dados
+## <a name="create-a-share"></a>Criar uma parte
 
 1. Navegue para a sua página de visão geral da partilha de dados.
 
@@ -103,15 +103,15 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Selecione **Criar**.   
 
-1. Preencha os detalhes da sua Partilha de Dados. Especifique um nome, tipo de partilha, descrição do conteúdo da partilha e termos de utilização (opcional). 
+1. Preencha os detalhes da sua parte. Especifique um nome, tipo de partilha, descrição do conteúdo da partilha e termos de utilização (opcional). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Insira detalhes de partilha") 
 
 1. **Selecione Continuar**.
 
-1. Para adicionar conjuntos de dados à sua Partilha de Dados, selecione **Adicionar Conjuntos de Dados**. 
+1. Para adicionar Conjuntos de Dados à sua parte, selecione **Adicionar Conjuntos de Dados**. 
 
-    ![Conjuntos de dados](./media/datasets.png "Conjuntos de dados")
+    ![Adicione conjuntos de dados à sua parte](./media/datasets.png "Conjuntos de dados")
 
 1. Selecione o tipo de conjunto de dados que gostaria de adicionar. Verá uma lista diferente de tipos de conjuntos de dados dependendo do tipo de partilha (instantâneo ou no local) que selecionou no passo anterior. Se partilhar de uma Base de Dados Azure SQL ou do Armazém de Dados Azure SQL, será solicitado para algumas credenciais SQL. Autenticar utilizando o utilizador que criou como parte dos pré-requisitos.
 

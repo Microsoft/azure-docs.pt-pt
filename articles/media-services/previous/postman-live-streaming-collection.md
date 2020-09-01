@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 69b5e8721b320e799fbdfb31ff83f2e78e513b40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 13a82aaa31734e98377d9f68c59c25c83a5d5f8a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047506"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259137"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção de carteiro com operações de Live Streaming 
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção de carteiro com operações de Live Streaming
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este artigo contém uma definição da coleção **Do Carteiro** que contém pedidos HTTP agrupados que chamam **Live Streaming** Azure Media Services REST APIs. Para obter informações sobre como configurar **o Carteiro** para que possa ser usado para ligar para as APIs dos Serviços de Media, consulte [o Carteiro configurar para serviços de mídia REST API chama](media-rest-apis-with-postman.md) tutorial.
 

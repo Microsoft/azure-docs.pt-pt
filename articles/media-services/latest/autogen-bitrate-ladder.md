@@ -3,7 +3,7 @@ title: Encode vídeos com Standard Encoder em Media Services - Azure / Microsoft
 description: Este tópico mostra como usar o Standard Encoder in Media Services para codificar um vídeo de entrada com uma escada de bitrate gerada automaticamente, com base na resolução de entrada e bitrate.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,19 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c5fb04597ec274eaf2b4a4e7a5e2b96f1816f1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60733322"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258831"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificar com uma escada de bitrate gerada automaticamente
 
-## <a name="overview"></a>Descrição Geral
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+## <a name="overview"></a>Descrição geral
 
 Este artigo explica como usar o Standard Encoder in Media Services para codificar um vídeo de entrada numa escada de bitrate gerada automaticamente (pares de resolução de bitrate) com base na resolução de entrada e bitrate. Esta definição de codificação incorporada, ou predefinida, nunca excederá a resolução de entrada e o bitrate. Por exemplo, se a entrada for de 720p a 3 Mbps, a produção permanece 720p na melhor das hipóteses, e começará com taxas inferiores a 3 Mbps.
 
@@ -40,7 +42,7 @@ Esta secção mostra três exemplos das camadas de vídeo de saída produzidas p
 ### <a name="example-1"></a>Exemplo 1
 Fonte com altura "1080" e framerate "29.970" produz 6 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate (kbps)|
+|Camada|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -52,7 +54,7 @@ Fonte com altura "1080" e framerate "29.970" produz 6 camadas de vídeo:
 ### <a name="example-2"></a>Exemplo 2
 Fonte com altura "720" e framerate "23.970" produz 5 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate (kbps)|
+|Camada|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -63,7 +65,7 @@ Fonte com altura "720" e framerate "23.970" produz 5 camadas de vídeo:
 ### <a name="example-3"></a>Exemplo 3
 Fonte com altura "360" e framerate "29.970" produz 3 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate (kbps)|
+|Camada|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

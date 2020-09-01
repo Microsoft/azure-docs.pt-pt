@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482588"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258440"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Ative Directory B2C
 
@@ -119,7 +119,7 @@ O cabeçalho do token contém informações sobre a chave e o método de encript
 }
 ```
 
-O valor da alegação **da ALG** é o algoritmo que foi usado para assinar o token. O valor da alegação do **miúdo** é a chave pública que foi usada para assinar o símbolo. A qualquer momento, a Azure AD B2C pode assinar um token usando qualquer um de um conjunto de pares de chaves público-privado. Azure AD B2C roda periodicamente o possível conjunto de teclas. A sua aplicação deve ser escrita para lidar automaticamente com essas alterações de teclas. Uma frequência razoável para verificar se há atualizações nas chaves públicas utilizadas pelo Azure AD B2C a cada 24 horas.
+O valor da alegação **da ALG** é o algoritmo que foi usado para assinar o token. O valor da alegação do **miúdo** é a chave pública que foi usada para assinar o símbolo. A qualquer momento, a Azure AD B2C pode assinar um token usando qualquer um de um conjunto de pares de chaves público-privado. Azure AD B2C roda periodicamente o possível conjunto de teclas. A sua aplicação deve ser escrita para lidar automaticamente com essas alterações de teclas. Uma frequência razoável para verificar se há atualizações nas chaves públicas utilizadas pelo Azure AD B2C a cada 24 horas. Para lidar com alterações inesperadas das chaves, a sua aplicação deve ser escrita para recuperar as chaves públicas se receber um valor **inesperado para crianças.**
 
 Azure AD B2C tem um ponto final de ligação de metadados OpenID. Utilizando este ponto final, as aplicações podem solicitar informações sobre o Azure AD B2C no tempo de execução. Esta informação inclui pontos finais, conteúdo simbólico e chaves de assinatura simbólicas. O seu inquilino Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias informações úteis. Os metadados contêm **jwks_uri,** que dá a localização do conjunto de chaves públicas que são usadas para assinar fichas. Essa localização é fornecida aqui, mas o melhor é obter a localização dinamicamente usando o documento de metadados e analisando **jwks_uri:**
 

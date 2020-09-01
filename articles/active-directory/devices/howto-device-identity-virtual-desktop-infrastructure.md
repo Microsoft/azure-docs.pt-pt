@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604399"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259358"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
 
@@ -48,16 +48,16 @@ Antes de configurar as identidades do dispositivo em Azure AD para o seu ambient
 
 | Tipo de identidade do dispositivo | Infraestrutura de identidade | Dispositivos Windows | Versão da plataforma VDI | Suportado |
 | --- | --- | --- | --- | --- |
-| associado ao Azure AD Híbrido | Federado<sup>3</sup> | Windows current e Windows down-level | Persistente | Yes |
+| associado ao Azure AD Híbrido | Federado<sup>3</sup> | Windows current e Windows down-level | Persistente | Sim |
 |   |   | Corrente do Windows | Não Persistente | Sim<sup>5</sup> |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
-|   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Yes |
-|   |   | Corrente do Windows | Não Persistente | No |
+|   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Sim |
+|   |   | Corrente do Windows | Não Persistente | Não |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
-| Azure AD associado | Federados | Corrente do Windows | Persistente | No |
-|   |   |   | Não Persistente | No |
-|   | Gerido | Corrente do Windows | Persistente | No |
-|   |   |   | Não Persistente | No |
+| Azure AD associado | Federados | Corrente do Windows | Persistente | Não |
+|   |   |   | Não Persistente | Não |
+|   | Gerido | Corrente do Windows | Persistente | Não |
+|   |   |   | Não Persistente | Não |
 | Azure AD registado | Federado/Gerido | Windows corrente/Windows para baixo nível | Persistente/Não Persistente | Não Aplicável |
 
 <sup>1</sup> Os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 e o Windows Server 2019.
@@ -68,7 +68,7 @@ Antes de configurar as identidades do dispositivo em Azure AD para o seu ambient
 
 <sup>4</sup> Um ambiente de infraestrutura de identidade **gerido** representa um ambiente com Azure AD como o fornecedor de identidade implantado com [sincronização de haxixe de palavra-passe (PHS)](../hybrid/whatis-phs.md) ou [autenticação pass-through (PTA)](../hybrid/how-to-connect-pta.md) com [um único sinal sem costura.](../hybrid/how-to-connect-sso.md)
 
-<sup>5</sup> **O suporte à não persistência para a corrente do Windows** requer consideração adicional, tal como documentado abaixo na secção de orientação.
+<sup>5</sup> **O suporte à não persistência para a corrente do Windows** requer consideração adicional, tal como documentado abaixo na secção de orientação. Este cenário requer o Windows 10 1803, o Windows Server 2019 ou o Windows Server (canal semi-anual) a partir da versão 1803
 
 <sup>6</sup> **O suporte à não persistência do Windows para o nível de baixo** requer consideração adicional, tal como documentado abaixo na secção de orientação.
 
