@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "66474013"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279028"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial: Integrar uma única floresta de AD usando sincronização de haxixe de palavra-passe (PHS)
 
@@ -29,8 +29,8 @@ O seguinte tutorial irá acompanhá-lo através da criação de um ambiente de i
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Seguem-se os pré-requisitos necessários para completar este tutorial
-- Um computador com [Hiper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Sugere-se que o faça num [computador Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou Windows [Server 2016.](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
-- Um [adaptador de rede externo](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique com a internet.
+- Um computador com [Hiper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Sugere-se que o faça num [computador Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) ou Windows [Server 2016.](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
+- Um [adaptador de rede externo](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique com a internet.
 - Uma [subscrição do Azure](https://azure.microsoft.com/free)
 - Uma cópia do Windows Server 2016
 

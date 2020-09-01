@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 200cc996acddecbfc1424ff24295d1373cdb3c23
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3a68c3719ea742a5c02f8be167fc1989ae4683c0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226663"
+ms.locfileid: "89279198"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federa um único ambiente florestal de AD para a nuvem
 
@@ -29,9 +29,9 @@ O seguinte tutorial irá acompanhá-lo através da criação de um ambiente de i
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Seguem-se os pré-requisitos necessários para completar este tutorial
-- Um computador com [Hiper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Sugere-se que o faça num [computador Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou Windows [Server 2016.](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
+- Um computador com [Hiper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Sugere-se que o faça num [computador Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) ou Windows [Server 2016.](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
 - Uma [subscrição do Azure](https://azure.microsoft.com/free)
-- - Um [adaptador de rede externo](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique com a internet.
+- - Um [adaptador de rede externo](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique com a internet.
 - Uma cópia do Windows Server 2016
 - Um [domínio personalizado](../../active-directory/fundamentals/add-custom-domain.md) que pode ser verificado
 
@@ -292,4 +292,3 @@ Você agora criou com sucesso um ambiente de identidade híbrida que você pode 
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições personalizadas](how-to-connect-install-custom.md)
 - [Azure AD Connect e federação](how-to-connect-fed-whatis.md)
-

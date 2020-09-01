@@ -1,6 +1,6 @@
 ---
-title: O que é a federação com a AD Azure? | Microsoft Docs
-description: Descreve a federação com a AD Azure.
+title: O que é a federação com a Azure AD? | Microsoft Docs
+description: Descreve a federação com Azure AD.
 services: active-directory
 author: billmath
 manager: daveba
@@ -13,18 +13,18 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7a5b186ebc98babe1baacc9f56f39dc8fbc093
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb1c3bc9f89db3f4b694803a63293a5537d4b98b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80049380"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278757"
 ---
-# <a name="what-is-federation-with-azure-ad"></a>O que é a federação com a AD Azure?
+# <a name="what-is-federation-with-azure-ad"></a>O que é a federação com a Azure AD?
 
-A Federação é uma coleção de domínios que estabeleceram confiança. O nível de confiança pode variar, mas normalmente inclui a autenticação e quase sempre inclui autorização. Uma federação típica pode incluir uma série de organizações que estabeleceram confiança no acesso partilhado a um conjunto de recursos.
+A Federação é uma coleção de domínios que estabeleceram confiança. O nível de confiança pode variar, mas normalmente inclui a autenticação e quase sempre inclui autorização. Uma federação típica pode incluir uma série de organizações que estabeleceram confiança para o acesso partilhado a um conjunto de recursos.
 
-Você pode federar seu ambiente no local com Azure AD e usar esta federação para autenticação e autorização.  Este método de início de sessão garante que toda a autenticação do utilizador ocorre no local.  Este método permite que os administradores implementem níveis mais rigorosos de controlo de acesso. A Federação com FS e PingFederate está disponível.
+Você pode federar o seu ambiente no local com Azure AD e usar esta federação para autenticação e autorização.  Este método de início de sômtenção garante que toda a autenticação do utilizador ocorre no local.  Este método permite que os administradores implementem níveis mais rigorosos de controlo de acesso. Federação com FS AD e PingFederate está disponível.
 
 ![Identidade federada](./media/whatis-hybrid-identity/federated-identity.png)
 
@@ -35,10 +35,10 @@ Você pode federar seu ambiente no local com Azure AD e usar esta federação pa
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [O que é a identidade híbrida?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
+- [O que é a identidade híbrida?](./whatis-hybrid-identity.md)
 - [O que são o Azure AD Connect e o Connect Health?](whatis-azure-ad-connect.md)
 - [O que é a sincronização de hash de palavra-passe?](whatis-phs.md)
 - [O que é a federação?](whatis-fed.md)
-- [O que é um sinal único?](how-to-connect-sso.md)
+- [O que é um único sinal?](how-to-connect-sso.md)
 - [Como funciona a federação](how-to-connect-fed-whatis.md)
 - [Federação com o PingFederate](how-to-connect-install-custom.md#configuring-federation-with-pingfederate)
