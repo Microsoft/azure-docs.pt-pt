@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f9adf6ce4559234eec74c92f09aa752eb1f9ab51
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386067"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177334"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de faturação para Azure Ative Directory B2C
 
@@ -84,7 +85,7 @@ Uma subscrição ligada a um inquilino Azure AD B2C pode ser usada para a fatura
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* [Subscrição do Azure](https://azure.microsoft.com/free/)
+* [Assinatura Azure](https://azure.microsoft.com/free/)
 * [Inquilino Azure AD B2C](tutorial-create-tenant.md) que pretende ligar a uma subscrição
   * Deve ser um administrador de inquilinos.
   * O inquilino não deve estar ainda ligado a uma assinatura
@@ -132,12 +133,25 @@ A gestão do Azure AD B2C utilizando o controlo de acesso baseado em funções n
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Alterar a subscrição de faturação de inquilinoS Azure AD B2C
 
-Os inquilinos Azure AD B2C podem ser transferidos para outra subscrição se as assinaturas de origem e destino existirem dentro do mesmo inquilino do Azure Ative Directory.
+### <a name="move-using-azure-resource-manager"></a>Mova-se usando o Gestor de Recursos Azure
+
+Os inquilinos Azure AD B2C podem ser transferidos para outra subscrição usando o Azure Resource Manager se as assinaturas de origem e destino existirem dentro do mesmo inquilino do Azure Ative Directory.
 
 Para aprender a mover recursos Azure como o seu inquilino Azure AD B2C para outra subscrição, consulte [mover recursos para novo grupo de recursos ou subscrição.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 Antes de iniciar a mudança, certifique-se de ler todo o artigo para entender completamente as limitações e requisitos para tal movimento. Além das instruções para a movimentação de recursos, inclui informações críticas como uma lista de verificação pré-movimento e como validar a operação de movimento.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="move-by-un-linking-and-re-linking"></a>Mover-se desligando e reconligando
+
+Se as subscrições de origem e destino estiverem associadas a diferentes inquilinos do Azure Ative Directory, não é possível realizar a mudança através do Azure Resource Manager, como explicado acima. No entanto, ainda pode obter o mesmo resultado final desligando o inquilino Azure AD B2C da subscrição de origem e recon ligando-o novamente à subscrição de destino. Este método é seguro porque o único objeto que você apaga é o *link de faturação*, não o inquilino Azure AD B2C em si. Nenhum dos utilizadores, apps, fluxos de utilizadores, etc. será afetado.
+
+1. No próprio diretório Ad B2C Ad AD, [convide um utilizador convidado](user-overview.md#guest-user) do destino Azure AD inquilino (aquele a que a subscrição do destino Azure está ligada) e garanta que este utilizador tem o papel **de administrador global** no Azure AD B2C.
+1. Navegue para o *recurso Azure* representando Azure AD B2C na sua assinatura Azure fonte, conforme explicado na secção de recursos de [inquilinoS Azure AD B2C](#manage-your-azure-ad-b2c-tenant-resources) acima. Não mude para o inquilino Azure AD B2C.
+1. Clique no botão **Eliminar** na página **'Vista Geral'.** Isto *não* elimina os utilizadores ou aplicações do inquilino Azure AD B2C. Apenas remove o link de faturação da subscrição de origem.
+1. Inscreva-se no portal Azure com a conta de utilizador que foi adicionada como administrador em Azure AD B2C no passo 1. Em seguida, navegue para a subscrição de destino Azure, que está ligada ao destino Azure Ative Directory inquilino. 
+1. Restabelecer o link de faturação na subscrição do destino seguindo o procedimento [de ligação](#create-the-link) acima.
+1. O seu recurso Azure AD B2C mudou-se agora para a subscrição de destino Azure (ligada ao diretório ativo Azure) e será faturado através desta subscrição em curso.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter as informações mais recentes sobre preços, consulte os preços do [Azure Ative Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).

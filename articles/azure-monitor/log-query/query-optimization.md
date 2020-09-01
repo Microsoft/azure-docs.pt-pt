@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565728"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177748"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 O Azure Monitor Logs utiliza [o Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si, e otimiza-os para a sua carga de trabalho de análise de registo. Quando você faz uma consulta, é otimizado, e encaminhado para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto os Registos monitores Azure como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas ofereçam um impulso significativo, são em alguns casos onde você pode melhorar dramaticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -52,6 +52,8 @@ Estão disponíveis os seguintes indicadores de desempenho de consulta para cada
 
 ## <a name="total-cpu"></a>Total CPU
 O CPU de computação real que foi investido para processar esta consulta em todos os nós de processamento de consulta. Uma vez que a maioria das consultas são executadas em um grande número de nós, este será geralmente muito maior do que a duração que a consulta realmente levou a executar. 
+
+A consulta que utiliza mais de 100 segundos de CPU é considerada uma consulta que consome recursos excessivos. A consulta que utiliza mais de 1.000 segundos de CPU é considerada uma consulta abusiva e pode ser estrangulada.
 
 O tempo de processamento de consultas é gasto em:
 - Recuperação de dados – a recuperação de dados antigos consumirá mais tempo do que a recuperação de dados recentes.
@@ -177,6 +179,8 @@ SecurityEvent
 
 Um fator crítico no processamento da consulta é o volume de dados que é digitalizado e utilizado para o processamento de consultas. O Azure Data Explorer utiliza otimizações agressivas que reduzem drasticamente o volume de dados em comparação com outras plataformas de dados. Ainda assim, existem fatores críticos na consulta que podem impactar o volume de dados que é usado.
 
+A consulta que processa mais de 2.000KB de dados é considerada uma consulta que consome recursos excessivos. A consulta que está a processar mais de 20.000KB de dados é considerada uma consulta abusiva e pode ser estrangulada.
+
 Nos Registos do Monitor Azure, a coluna **TimeGenerated** é utilizada como forma de indexar os dados. Restringir os valores **timeGenerated** para um intervalo o mais estreito possível fará uma melhoria significativa no desempenho da consulta, limitando significativamente a quantidade de dados que tem de ser processado.
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Evitar o uso desnecessário de operadores de pesquisa e sindicato
@@ -300,6 +304,8 @@ SecurityEvent
 
 Todos os registos em Registos monitores Azure são divididos de acordo com a coluna **TimeGenerated.** O número de divisórias acedidas está diretamente relacionado com o período de tempo. Reduzir o intervalo de tempo é a forma mais eficiente de assegurar uma rápida execução de consultas.
 
+Consulta com tempo de mais de 15 dias é considerada uma consulta que consome recursos excessivos. Consulta com tempo de mais de 90 dias é considerada uma consulta abusiva e pode ser estrangulada.
+
 O intervalo de tempo pode ser definido utilizando o seletor de intervalo de tempo no ecrã Log Analytics, conforme descrito no [âmbito de consulta de Log e intervalo de tempo no Azure Monitor Log Analytics](scope.md#time-range). Este é o método recomendado, uma vez que o intervalo de tempo selecionado é passado para o backend utilizando os metadados de consulta. 
 
 Um método alternativo é incluir explicitamente uma condição [em](/azure/kusto/query/whereoperator) que a condição do **TempoGerado** na consulta. Deve utilizar este método pois assegura que o tempo é fixado, mesmo quando a consulta é utilizada a partir de uma interface diferente.
@@ -389,6 +395,9 @@ Existem vários casos em que o sistema não pode fornecer uma medição precisa 
 ## <a name="age-of-processed-data"></a>Idade dos dados processados
 O Azure Data Explorer utiliza vários níveis de armazenamento: em memória, discos SSD locais e Blobs Azure muito mais lentos. Quanto mais recentes os dados, maior é a possibilidade de ser armazenado num nível mais performante com menor latência, reduzindo a duração da consulta e CPU. Além dos dados em si, o sistema também tem uma cache para metadados. Quanto mais velhos os dados, menos hipóteses os seus metadados estarão em cache.
 
+A consulta de que processa dados com mais de 14 dias é considerada uma consulta que consome recursos excessivos.
+
+
 Embora algumas consultas exijam o uso de dados antigos, há casos em que dados antigos são usados por engano. Isto acontece quando as consultas são executadas sem fornecer intervalo de tempo nos seus meta-dados e nem todas as referências de tabela incluem filtro na coluna **TimeGenerated.** Nestes casos, o sistema irá digitalizar todos os dados que são armazenados nessa tabela. Quando a retenção de dados é longa, pode abranger intervalos de longo tempo e, portanto, dados tão antigos quanto o período de retenção de dados.
 
 Tais casos podem ser, por exemplo:
@@ -408,6 +417,8 @@ Existem várias situações em que uma única consulta pode ser executada em dif
 A execução de consultas entre regiões requer que o sistema serialize e transfira no backend grandes pedaços de dados intermédios que são geralmente muito maiores do que os resultados finais da consulta. Também limita a capacidade do sistema de realizar otimizações, heurísticas e caches de utilização.
 Se não houver uma verdadeira razão para digitalizar todas estas regiões, deve ajustar o âmbito de aplicação para abranger menos regiões. Se o âmbito de recursos for minimizado, mas ainda assim muitas regiões forem utilizadas, isso poderá acontecer devido a uma má configuração. Por exemplo, os registos de auditoria e as definições de diagnóstico são enviados para diferentes espaços de trabalho em diferentes regiões ou existem múltiplas configurações de diagnóstico. 
 
+A consulta que abrange mais de 3 regiões é considerada uma consulta que consome recursos excessivos. A consulta que abrange mais de 6 regiões é considerada uma consulta abusiva e pode ser estrangulada.
+
 > [!IMPORTANT]
 > Quando uma consulta é efetuada em várias regiões, a CPU e as medições de dados não serão precisas e representarão a medição apenas numa das regiões.
 
@@ -420,6 +431,8 @@ A utilização de múltiplos espaços de trabalho pode resultar de:
 - Quando uma consulta de âmbito de recursos está a recolher dados e os dados são armazenados em vários espaços de trabalho.
  
 A execução transversal e transversal de consultas requer que o sistema serialize e transfira no backend grandes pedaços de dados intermédios que são geralmente muito maiores do que os resultados finais da consulta. Também limita a capacidade do sistema de realizar otimizações, heurísticas e caches usando.
+
+A consulta que abrange mais de 5 espaços de trabalho é considerada uma consulta que consome recursos excessivos. As consultas não podem ir até mais de 100 espaços de trabalho.
 
 > [!IMPORTANT]
 > Em alguns cenários multi-workspace, o CPU e as medições de dados não serão precisos e representarão a medição apenas para poucos dos espaços de trabalho.

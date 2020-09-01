@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Implemente a sua primeira aplicação Azure Spring Cloud
+title: Início Rápido - Implementar a sua primeira aplicação do Azure Spring Cloud
 description: Neste quickstart, implementamos uma aplicação spring cloud olá para a Nuvem de primavera Azure.
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 067195cfef35863a7bcc314a55b4bf1ff8a3ccd7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 6a7a489367aa7348a3449a72de6889476e5d38db
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146982"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177604"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -46,17 +46,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
 
   ![Página inicializr](media/spring-cloud-quickstart-java/initializr-page.png)
 
-1. Clique **em Gerar** quando todas as dependências estiverem definidas. Faça o download e desembale o pacote e, em seguida, adicione a seguinte dependência ao ficheiro de `pom.xml` aplicação.
-
-    ```xml
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-    ```
-
-1. Crie um controlador web para uma simples aplicação web adicionando `src/main/java/com/example/hellospring/HelloController.java` o seguinte:
+1. Clique **em Gerar** quando todas as dependências estiverem definidas. Faça o download e desembale o pacote e, em seguida, crie um controlador web para uma simples aplicação web adicionando `src/main/java/com/example/hellospring/HelloController.java` o seguinte:
 
     ```java
     package com.example.hellospring;

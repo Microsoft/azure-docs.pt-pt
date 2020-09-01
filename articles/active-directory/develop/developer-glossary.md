@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 298c5b96951ed616b324535cf3fe2585180789a1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117248"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178829"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de desenvolvimento de plataforma de identidade da Microsoft
 
@@ -164,7 +164,7 @@ Tal como [os âmbitos,](#scopes)as funções fornecem uma forma de um [servidor 
 
 As funções são cordas definidas por recursos (por exemplo" "Aprovador de Despesas", "Read-only", "Diretório.ReadWrite.All"), geridas no [portal Azure][AZURE-portal] através do manifesto de [aplicação](#application-manifest)do recurso, e armazenadas na [propriedade appRoles][Graph-Sp-Resource]do recurso. O portal Azure também é utilizado para atribuir utilizadores a funções de "utilizador" e configurar [permissões de aplicação](#permissions) do cliente para aceder a uma função de "aplicação".
 
-Para uma discussão detalhada das funções de aplicação expostas pela Microsoft Graph API, consulte [os Âmbitos de Permisse da API do gráfico][Graph-Perm-Scopes]. Para obter um exemplo de implementação passo a passo, consulte [Gerir o acesso utilizando o RBAC e o portal Azure][AAD-RBAC].
+Para uma discussão detalhada das funções de aplicação expostas pela Microsoft Graph API, consulte [os Âmbitos de Permisse da API do gráfico][Graph-Perm-Scopes]. Para obter um exemplo de implementação passo a passo, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure][AAD-RBAC].
 
 ## <a name="scopes"></a>âmbitos
 

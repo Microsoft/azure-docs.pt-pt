@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: cebc2c3d364cdb93c4b528c186dcef79c58ac6ea
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d7ac2777ffd500082bd0b8a9700d53bffd9d6931
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167016"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177317"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -141,7 +141,7 @@ As novas capacidades desta versão de pré-visualização pública incluem:
 
 As aplicações que são instaladas em máquinas virtuais podem muitas vezes ter vulnerabilidades que podem levar a uma violação da máquina virtual. Estamos anunciando que o nível padrão do Centro de Segurança inclui avaliação de vulnerabilidade incorporada para máquinas virtuais sem qualquer taxa adicional. A avaliação de vulnerabilidade, alimentada pela Qualys na pré-visualização pública, permitirá analisar continuamente todas as aplicações instaladas numa máquina virtual para encontrar aplicações vulneráveis e apresentar as conclusões na experiência do portal do Security Center. O Security Center cuida de todas as operações de implantação para que não seja necessário trabalho extra do utilizador. Para o futuro, estamos a planear fornecer opções de avaliação de vulnerabilidades para apoiar as necessidades de negócio únicas dos nossos clientes.
 
-[Saiba mais sobre avaliações de vulnerabilidade para as suas Máquinas Virtuais Azure.](security-center-vulnerability-assessment-recommendations.md)
+[Saiba mais sobre avaliações de vulnerabilidade para as suas Máquinas Virtuais Azure.](deploy-vulnerability-assessment-vm.md)
 
 
 ### <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Segurança avançada de dados para servidores SQL em Azure Virtual Machines (pré-visualização)

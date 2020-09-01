@@ -3,12 +3,12 @@ title: Restaurar o Estado do Sistema num Servidor windows
 description: Explicação passo a passo para restaurar o Estado do Sistema do Servidor do Windows a partir de uma cópia de segurança no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892546"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178591"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para o Servidor do Windows
 
@@ -46,7 +46,7 @@ Os passos seguintes explicam como reverter a configuração do Windows Server pa
 
     ![Volume e Data](./media/backup-azure-restore-system-state/select-date.png)
 
-6. Depois de ter escolhido o ponto de recuperação para restaurar, selecione **Next**.
+6. Depois de escolher o ponto de recuperação para restaurar, selecione **Next**.
 
     A Azure Backup monta o ponto de recuperação local, e usa-o como um volume de recuperação.
 
@@ -94,7 +94,7 @@ A terminologia utilizada nestes passos inclui:
 
     ![Pesquisar itens](./media/backup-azure-restore-system-state/select-date.png)
 
-9. Depois de ter escolhido o ponto de recuperação para restaurar, selecione **Next**.
+9. Depois de escolher o ponto de recuperação para restaurar, selecione **Next**.
 
 10. No painel **de modo de recuperação do estado do sistema Select,** especifique o destino onde deseja que os ficheiros do Estado do Sistema sejam recuperados e, em seguida, selecione **Next**.
 
@@ -112,7 +112,7 @@ A terminologia utilizada nestes passos inclui:
 
 ## <a name="apply-restored-system-state-on-a-windows-server"></a>Apply restored System State on a Windows Server (Aplicar o Estado do Sistema restaurado num servidor do Windows Server)
 
-Assim que tiver recuperado o Estado do Sistema como ficheiros que utilizam o Agente de Serviços de Recuperação do Azure, utilize o utilitário backup do Windows Server para aplicar o Estado do Sistema recuperado ao Windows Server. O utilitário de backup do Windows Server já está disponível no servidor. Os seguintes passos explicam como aplicar o Estado do Sistema recuperado.
+Assim que tiver recuperado o Estado do Sistema como ficheiros que utilizam o Agente de Serviços de Recuperação do Azure, utilize o utilitário de backup do Windows Server para aplicar o Estado do Sistema recuperado ao Windows Server. O utilitário de backup do Windows Server já está disponível no servidor. Os seguintes passos explicam como aplicar o Estado do Sistema recuperado.
 
 1. Abra o encaixe de backup do Servidor do Windows. Se não souber onde o encaixe foi instalado, procure no computador ou servidor para obter **cópia de segurança do Servidor do Windows**.
 

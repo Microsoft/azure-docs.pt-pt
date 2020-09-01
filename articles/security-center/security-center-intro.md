@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: bb75405a1cd1e282023936673aa73be25556e0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c42009f5e02180dc5e4c5e3e4b43f00277d7bf58
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529357"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177904"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -63,39 +63,36 @@ O Centro de Segurança Azure permite-lhe reforçar a sua postura de segurança. 
 
 É uma segurança básica para saber e certificar-se de que as suas cargas de trabalho estão seguras, e começa por ter políticas de segurança personalizadas em vigor. Como todas as políticas do Centro de Segurança são construídas em cima dos controlos da Política Azure, você está recebendo toda a gama e flexibilidade de uma **solução política de classe mundial.** No Security Center, pode definir as suas políticas para executar em grupos de gestão, através de subscrições, e até mesmo para um inquilino inteiro.
 
-![Dashboard Centro de Segurança](media/security-center-intro/sc-dashboard.png)
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Página de gestão de políticas":::
 
 O Security Center ajuda-o a **identificar subscrições de TI shadow.** Ao olhar para as subscrições rotuladas **não abrangidas** pelo seu dashboard, pode saber imediatamente quando há subscrições recém-criadas e certificar-se de que estão cobertas pelas suas políticas e protegidas pelo Azure Security Center.
 
-![Painel de política do Centro de Segurança](media/security-center-intro/sc-policy-dashboard.png)
-
-As capacidades avançadas de monitorização no Centro de Segurança também permitem **acompanhar e gerir a conformidade e a governação ao longo do tempo.** O **cumprimento geral** fornece-lhe uma medida de quanto as suas subscrições estão em conformidade com as políticas associadas à sua carga de trabalho. 
-
-![Política do Centro de Segurança ao longo do tempo](media/security-center-intro/sc-policy-time.png)
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Painel de política do Centro de Segurança":::
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
 O Security Center descobre continuamente novos recursos que estão a ser implementados através das suas cargas de trabalho e avalia se estão configurados de acordo com as melhores práticas de segurança, se não, estão sinalizados e obtém uma lista prioritária de recomendações para o que precisa de corrigir para proteger as suas máquinas.
 
+Para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral, o Security Center agrupe as recomendações em controlos de segurança e adiciona um valor **de pontuação seguro** a cada controlo. Isto é crucial para que você **priorize o seu trabalho de segurança**.
+
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Pontuação segura do Centro de Segurança":::
+
+### <a name="network-map"></a>Mapa de rede
+
 Uma das ferramentas mais poderosas que o Security Center fornece para monitorizar continuamente o estado de segurança da sua rede é o **mapa da Rede.** O mapa permite-lhe ver a topologia das suas cargas de trabalho, para que possa ver se cada nó está devidamente configurado. Pode ver como os seus nós estão ligados, o que o ajuda a bloquear ligações indesejadas que podem potencialmente facilitar o rastejar por um intruso ao longo da sua rede.
 
-![Mapa da rede do Centro de Segurança](media/security-center-intro/sc-net-map.png)
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa da rede do Centro de Segurança":::
 
-O Centro de Segurança facilita a mitigação dos seus alertas de segurança, adicionando uma **Pontuação Segura**. As Pontuações Seguras estão agora associadas a cada recomendação que recebe para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral. Isto é crucial para que você **priorize o seu trabalho de segurança**.
-
-![Pontuação segura do Centro de Segurança](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimizar e melhorar a segurança configurando os controlos recomendados
 
 O coração do valor do Centro de Segurança Azure está nas suas recomendações. As recomendações são adaptadas às preocupações de segurança encontradas nas suas cargas de trabalho, e o Security Center faz o trabalho de administração de segurança para si, não só encontrando as suas vulnerabilidades, mas fornecendo-lhe instruções específicas sobre como se livrar delas.
 
-![Recomendações do Centro de Segurança](media/security-center-intro/sc-recommendations.png)
-
 Desta forma, o Security Center permite-lhe não só definir políticas de segurança, mas aplicar padrões de configuração seguros em todos os seus recursos.
 
 As recomendações ajudam-no a reduzir a superfície de ataque em cada um dos seus recursos. Isto inclui máquinas virtuais Azure, servidores não-Azure e serviços Azure PaaS, como contas DE SQL e Armazenamento e muito mais - onde cada tipo de recurso é avaliado de forma diferente e tem os seus próprios padrões.
 
-![Exemplo de recomendação do Centro de Segurança](media/security-center-intro/sc-recommendation-example.png)
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemplo de recomendação do Centro de Segurança":::
 
 ## <a name="protect-against-threats"></a>Proteger contra ameaças
 
@@ -103,9 +100,7 @@ A proteção contra ameaças do Security Center permite-lhe detetar e prevenir a
 
 A proteção contra ameaças do Security Center inclui análises de cadeia de morte de fusão, que correlaciona automaticamente alertas no seu ambiente com base na análise da cadeia de morte cibernética, para ajudá-lo a entender melhor a história completa de uma campanha de ataque, onde começou e que tipo de impacto teve nos seus recursos.
 
-
-
-![Recomendação de ataque do Centro de Segurança](media/security-center-intro/sc-attack-recommendation.png)
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de segurança":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integração com o Microsoft Defender Proteção avançada de ameaças
 
@@ -120,8 +115,6 @@ O Centro de Segurança ajuda-o a detetar ameaças nos serviços da Azure PaaS. P
 ### <a name="block-brute-force-attacks"></a>Bloquear ataques de força bruta
 
 O Centro de Segurança ajuda-o a limitar a exposição a ataques de força bruta. Ao reduzir o acesso às portas de máquinas virtuais, utilizando o acesso VM just-in-time, pode endurecer a sua rede evitando o acesso desnecessário. Pode definir políticas de acesso seguras em portas selecionadas, apenas para utilizadores autorizados, intervalos de endereços IP de origem permitidas ou endereços IP, e por um período limitado de tempo.
-
-![Força bruta do Centro de Segurança](media/security-center-intro/sc-brute-force.png)
 
 ### <a name="protect-data-services"></a>Proteger serviços de dados
 
@@ -143,7 +136,7 @@ O Security Center proporciona uma integração nativa perfeita com os recursos A
 
 Extensa recolha de registos - os registos do Windows e do Linux são todos alavancados no motor de análise de segurança e utilizados para criar recomendações e alertas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 

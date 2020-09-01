@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7ff746b85142714c129c04e7f8a3d20ac4b6cb53
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fd68c33e4425d717837923b90119d42569a1f003
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020172"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178525"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -285,7 +285,7 @@ No Linux, o SISTEMA do computador utilizado para restaurar ficheiros deve suport
 | openSUSE | 42.2 e superior |
 
 > [!NOTE]
-> Encontrámos alguns problemas na execução do script de recuperação de ficheiros em máquinas com SLES 12 SP4 OS e estamos a investigar com a equipa SLES.
+> Encontrámos alguns problemas na execução do guião de recuperação de ficheiros em máquinas com SLES 12 SP4 OS e estamos a investigar com a equipa SLES.
 > Atualmente, a execução do script de recuperação de ficheiros está a funcionar em máquinas com versões SLES 12 SP2 e SP3 OS.
 >
 

@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 65662af2bad5475b024366a2ff550ff30e6c0e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014664"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178016"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -103,18 +103,60 @@ A operação de backup falhou devido a um problema com a aplicação **do Sistem
 Código de erro: ExtensãoFailedVssWriterInBadState <br/>
 Error message: Snapshot operation failed because VSS writers were in a bad state.
 
-Reinicie os escritores vss que estão em mau estado. A partir de um pedido de comando elevado, corra ```vssadmin list writers``` . A produção contém todos os escritores vss e o seu estado. Para cada escritor vss com um estado que não é **[1] Estável**, para reiniciar o escritor VSS, executar os seguintes comandos a partir de uma pronta de comando elevada:
+Este erro ocorre porque os escritores do VSS estavam em mau estado. As extensões de Backup Azure interagem com os ESCRITORES VSS para tirar fotos dos discos. Para resolver este problema, siga estes passos:
 
-* ```net stop serviceName```
-* ```net start serviceName```
+Reinicie os escritores vss que estão em mau estado.
+- A partir de um pedido de comando elevado, corra ```vssadmin list writers``` .
+- A produção contém todos os escritores vss e o seu estado. Para cada escritor vss com um estado que não é **[1] Estável,** reinicie o serviço do respetivo escritor VSS. 
+- Para reiniciar o serviço, executar os seguintes comandos a partir de uma solicitação de comando elevada:
 
-Outro procedimento que pode ajudar é executar o seguinte comando a partir de uma elevada solicitação de comando (como administrador).
+ ```net stop serviceName``` <br>
+ ```net start serviceName```
+
+> [!NOTE]
+> Reiniciar alguns serviços pode ter impacto no seu ambiente de produção. Certifique-se de que o processo de aprovação é seguido e que o serviço é reiniciado no tempo de inatividade programado.
+ 
+   
+Se reiniciar os escritores do VSS não resolveu o problema e a questão ainda persistir devido a um intervalo, então:
+- Executar o seguinte comando a partir de um pedido de comando elevado (como administrador) para evitar que os fios sejam criados para instantâneos de bolhas.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-A adição desta chave de registo fará com que os fios não sejam criados para as imagens blob e evitem o intervalo.
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensãoFailedVssServiceInBadState - A operação Snapshot falhou devido ao serviço VSS (Volume Shadow Copy) em mau estado
+
+Código de erro: ExtensãoFailedVssServiceInBadState <br/>
+Error message: A operação snapshot falhou devido ao serviço VSS (Volume Shadow Copy) em mau estado.
+
+Este erro ocorre porque o serviço VSS estava em mau estado. As extensões de Backup Azure interagem com o serviço VSS para tirar fotos dos discos. Para resolver este problema, siga estes passos:
+
+Reinicie o serviço VSS (Volume Shadow Copy).
+- Navegue para Services.msc e reinicie o serviço 'Volume Shadow Copy'.<br>
+(ou)<br>
+- Executar os seguintes comandos a partir de uma solicitação de comando elevada:
+
+ ```net stop VSS``` <br>
+ ```net start VSS```
+
+ 
+Se o problema persistir, reinicie o VM no tempo de paragem programado.
+
+### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable - Criação VM falhou uma vez que o tamanho VM selecionado não está disponível
+
+Código de erro: Mensagem de erro Do UtilizadorErrorSkuNotAvailable Error: A criação de VM falhou, uma vez que o tamanho VM selecionado não está disponível. 
+ 
+Este erro ocorre porque o tamanho VM selecionado durante a operação de restauro é um tamanho não suportado. <br>
+
+Para resolver este problema, utilize a opção [de restaurar os discos](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante a operação de restauro. Utilize estes discos para criar um VM a partir da lista de [tamanhos VM suportados disponíveis utilizando](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) [cmdlets Powershell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+
+### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported - VM criação falhou devido ao pedido de compra do Market Place não estar presente
+
+Código de erro: UtilizadorErrorMarketPlaceVMNotSupported Error message: A criação de VM falhou devido ao pedido de compra do Market Place não estar presente. 
+ 
+O Azure Backup suporta a cópia de segurança e a restauração de VMs que estão disponíveis no Azure Marketplace. Este erro ocorre quando está a tentar restaurar um VM (com uma definição específica de Plan/Publisher) que já não está disponível no Azure Marketplace, [Saiba mais aqui](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+- Para resolver este problema, utilize a opção [de restauro](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) dos discos durante a operação de restauro e, em seguida, utilize cmdlets [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) ou [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) para criar o VM com as informações mais recentes do mercado correspondentes ao VM.
+- Se o editor não tiver nenhuma informação do Marketplace, pode utilizar os discos de dados para recuperar os seus dados e pode anexá-los a um VM existente.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensãoConfigParsingFailure - Falha na análise do config para a extensão de backup
 
@@ -336,7 +378,7 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 * **Se mais de quatro VMs partilharem o mesmo serviço de nuvem, espalhe os VMs através de várias políticas de backup**. Escalonar os tempos de reserva, por isso não mais do que quatro backups VM começam ao mesmo tempo. Tente separar os tempos ini por uma hora nas apólices.
 * **O VM funciona com cpu alto ou memória**. Se a máquina virtual funciona com alta memória ou utilização de CPU, mais de 90%, a sua tarefa instantânea é a sua tarefa de instantâneo estão na fila e atrasadas. Eventualmente, acaba por ser assim. Se este problema acontecer, tente um backup a pedido.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se precisar de um IP estático privado, configurá-lo através do portal Azure ou PowerShell. Certifique-se de que a opção DHCP dentro do VM está ativada.
 Obtenha mais informações sobre como configurar um IP estático através do PowerShell:

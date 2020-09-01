@@ -3,12 +3,12 @@ title: Restaurar ficheiros no Windows Server utilizando o Agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure num servidor Windows ou num computador Windows com o Agente microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 59e212b31d79c0d9a75369e542fee5e86f29653a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018914"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178562"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar ficheiros no Windows Server utilizando o Agente MARS
 

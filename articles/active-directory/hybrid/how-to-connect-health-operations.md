@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e72e3cb3ccc6273a9b698475c5e5aa0bb87b8b7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bdcf5ded2f2cf49048b70dedb11f25e67766e938
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828800"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177623"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Ative Directory Connect Health operações
 Este tópico descreve as várias operações que pode realizar utilizando o Azure Ative Directory (Azure AD) Connect Health.
@@ -103,8 +103,8 @@ Quando estiver a apagar uma instância de serviço, esteja ciente do seguinte:
    <br><br>
 
 [//]: # (Início da secção RBAC)
-## <a name="manage-access-with-role-based-access-control"></a>Gerir o acesso com o Controlo de Acesso Baseado em Funções
-[O controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) para a Azure AD Connect Health proporciona acesso a utilizadores e grupos que não os administradores globais. O RBAC atribui funções aos utilizadores e grupos pretendidos e fornece um mecanismo para limitar os administradores globais dentro do seu diretório.
+## <a name="manage-access-with-azure-rbac"></a>Gerir o acesso com o Azure RBAC
+[O controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) para a Azure AD Connect Health proporciona acesso a utilizadores e grupos que não os administradores globais. O Azure RBAC atribui funções aos utilizadores e grupos pretendidos e fornece um mecanismo para limitar os administradores globais dentro do seu diretório.
 
 ### <a name="roles"></a>Funções
 A Azure AD Connect Health suporta as seguintes funções incorporadas:
@@ -135,12 +135,12 @@ Para permitir o acesso do utilizador a *todos os casos* de serviço dentro da Az
    ![Screenshot da barra lateral de recursos Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Selecione **Adicionar**.
 3. No **painel de funções Select,** selecione uma função (por exemplo, **Proprietário).**<br>
-   ![Screenshot da janela de utilizadores RBAC de ligação de saúde Azure AD](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Screenshot do menu de configuração Azure AD Connect Health e Azure RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Digite o nome ou identificador do utilizador ou grupo visado. Pode selecionar um ou mais utilizadores ou grupos ao mesmo tempo. Clique em **Selecionar**.
-   ![Screenshot da janela de utilizadores RBAC de ligação de saúde Azure AD](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot da lista de funções Azure AD Connect Health e Azure RBAC](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Selecione **OK**.<br>
 6. Após a atribuição da função estar concluída, os utilizadores e grupos aparecem na lista.<br>
-   ![Screenshot da janela de utilizadores do RBAC Azure AD Connect Health, com novos utilizadores em destaque](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![Screenshot do Azure AD Connect Health e Azure RBAC e novos utilizadores em destaque](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 Agora os utilizadores e grupos listados têm acesso, de acordo com as suas funções atribuídas.
 
@@ -153,7 +153,7 @@ Agora os utilizadores e grupos listados têm acesso, de acordo com as suas funç
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Passo 3: Partilhar a localização da lâmina com utilizadores ou grupos
 1. Depois de atribuir permissões, um utilizador pode aceder ao Azure AD Connect Health indo [aqui](https://aka.ms/aadconnecthealth).
 2. Na lâmina, o utilizador pode fixar a lâmina, ou diferentes partes da sua, ao painel de instrumentos. Basta clicar no **ícone pin para painel de instrumentos.**<br>
-   ![Screenshot de Azure AD Connect Health RBAC pin blade, com ícone pino em destaque](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![Screenshot de Azure AD Connect Health e Azure RBAC pin blade, com ícone pino em destaque](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Um utilizador com a função Reader atribuída não é capaz de obter a extensão Azure AD Connect Health do Azure Marketplace. O utilizador não pode efetuar a operação necessária para o fazer. O utilizador ainda pode chegar à lâmina indo para o link anterior. Para utilização posterior, o utilizador pode fixar a lâmina no painel de instrumentos.
@@ -161,8 +161,8 @@ Agora os utilizadores e grupos listados têm acesso, de acordo com as suas funç
 >
 
 ### <a name="remove-users-or-groups"></a>Remover utilizadores ou grupos
-Pode remover um utilizador ou um grupo adicionado ao Azure AD Connect Health RBAC. Basta clicar no utilizador ou grupo e selecionar **Remover**.<br>
-![Screenshot da janela de utilizadores RBAC de conexão Azure AD, com Remove em destaque](./media/how-to-connect-health-operations/RBAC_remove.png)
+Pode remover um utilizador ou um grupo adicionado à Azure AD Connect Health e ao Azure RBAC. Basta clicar no utilizador ou grupo e selecionar **Remover**.<br>
+![Screenshot de Azure AD Connect Health e Azure RBAC com Remove em destaque](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (Fim da secção RBAC)
 

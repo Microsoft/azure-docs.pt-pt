@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar e configurar cofres dos Serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7f7b024c30706f3823d500729b428bebdabf25ec
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 81c6fd47ccea2ea17a20535df04931727c23be6f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014801"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177198"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos Serviços de Recuperação
 
@@ -57,7 +57,7 @@ Para este processo, existem implicações nos preços, uma vez que está no nív
 >- A funcionalidade Cross Region Restore (CRR) está agora pré-visualizada em todas as regiões públicas do Azure.
 >- CRR é uma função de opt-in de nível de abóbada para qualquer cofre GRS (desligado por defeito).
 >- Depois de optar, pode levar até 48 horas para que os itens de reserva estejam disponíveis em regiões secundárias.
->- Atualmente, a CRR é suportada apenas para o Tipo de Gestão de Backup - ARM Azure VM (o clássico Azure VM não será suportado).  Quando os tipos de gestão adicionais suportam o CRR, então serão **automaticamente** matriculados.
+>- Atualmente, a CRR é suportada apenas para o Tipo de Gestão de Backup - ARM Azure VM (o clássico Azure VM não será suportado).  Quando tipos de gestão adicionais suportam CRR, então eles serão **automaticamente** matriculados.
 >- O Cross Region Restore não pode ser revertido para GRS ou LRS uma vez que a proteção é iniciada pela primeira vez.
 
 ### <a name="configure-cross-region-restore"></a>Conigure Região Cruzada Restaurar

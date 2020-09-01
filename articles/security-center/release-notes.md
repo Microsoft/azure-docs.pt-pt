@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723967"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177249"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -159,11 +159,11 @@ Ao implementar uma solução de avaliação de vulnerabilidades, o Security Cent
 
 A partir desta atualização, a verificação foi removida e agora pode implementar ferramentas de avaliação de vulnerabilidades para máquinas 'personalizadas' Windows e Linux. As imagens personalizadas são aquelas que modificou a partir das predefinições do mercado.
 
-Embora agora possa implementar a extensão integrada de avaliação de vulnerabilidade (alimentada por Qualys) em muitas mais máquinas, o suporte só está disponível se estiver a utilizar um sistema operativo listado na [Implementação do scanner de vulnerabilidade incorporada qualys.](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner)
+Embora agora possa implementar a extensão integrada de avaliação de vulnerabilidade (alimentada por Qualys) em muitas mais máquinas, o suporte só está disponível se estiver a utilizar um SISTEMA listado no [Deploy o scanner integrado de vulnerabilidade para VMs de nível padrão](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms)
 
-Saiba mais sobre o [scanner de vulnerabilidade integrado para máquinas virtuais (apenas tier standard)](built-in-vulnerability-assessment.md).
+Saiba mais sobre o [scanner de vulnerabilidade integrado para máquinas virtuais (apenas tier standard)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Saiba mais sobre a utilização da sua própria solução de avaliação de vulnerabilidade licenciada em particular a partir de Qualys ou Rapid7 na [implementação de uma solução de digitalização de vulnerabilidade de parceiros.](partner-vulnerability-assessment.md)
+Saiba mais sobre a utilização da sua própria solução de avaliação de vulnerabilidade licenciada em particular a partir de Qualys ou Rapid7 na [implementação de uma solução de digitalização de vulnerabilidade de parceiros.](deploy-vulnerability-assessment-vm.md)
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Proteção contra ameaças para o Azure Storage expandido para incluir ficheiros Azure e Azure Data Lake Storage Gen2 (pré-visualização)
@@ -236,7 +236,7 @@ A funcionalidade de controlos de aplicações adaptativas recebeu duas atualiza�
 
     * Usando um wildcard no final de um caminho para permitir todos os executáveis dentro desta pasta e sub-pastas
 
-    * Utilizar um wildcard no meio de um caminho para permitir um nome executável conhecido com um nome de pasta em mudança (por exemplo, pastas pessoais de utilizador com nomes de pastas geradas automaticamente, executáveis, etc.
+    * Utilizar um wildcard no meio de um caminho para permitir um nome executável conhecido com um nome de pasta em mudança (por exemplo, pastas pessoais de utilizador com nomes de pastas geradas automaticamente, executáveis, etc.).
 
 
 [Saiba mais sobre controlos de aplicações adaptativos.](security-center-adaptive-application.md)
@@ -415,7 +415,7 @@ Para implementar a solução, utilize a nova recomendação de segurança:
 
 "Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys)"
 
-Saiba mais sobre [a avaliação integrada de vulnerabilidade do Security Center para máquinas virtuais.](built-in-vulnerability-assessment.md)
+Saiba mais sobre [a avaliação integrada de vulnerabilidade do Security Center para máquinas virtuais.](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)
 
 
 

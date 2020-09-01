@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 63d3bd0ec321dbcba8e50aed68b972a2e1987bfc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5d9bf672aae3cf55ae7cf22aa1437f01ced99901
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068747"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178812"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Use a Azure PowerShell para criar um principal de serviço com um certificado
 
@@ -43,7 +43,7 @@ Para completar este artigo, você deve ter permissões suficientes tanto na sua 
 A forma mais fácil de verificar se a sua conta tem permissões adequadas é utilizar o portal. Veja [Permissões obrigatórias](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="assign-the-application-to-a-role"></a>Atribuir a candidatura a uma função
-Para aceder aos recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função que oferece as permissões certas para o pedido. Para conhecer as funções disponíveis, consulte [o RBAC: Construído em Papéis.](../../role-based-access-control/built-in-roles.md)
+Para aceder aos recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida qual a função que oferece as permissões certas para o pedido. Para conhecer os papéis disponíveis, consulte as [funções integradas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação à função *Reader* para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha. Para permitir que a aplicação execute ações como reiniciar, iniciar e parar instâncias, selecione a *função Contribuinte.*
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8126f6314044fc2ee816e9150e9595719d63eff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee28addd5f6ac0faaf03d29d712c4e750ed6e293
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009207"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177487"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de identidade gerido a um recurso utilizando o portal Azure
 
@@ -33,7 +33,7 @@ Depois de configurar um recurso Azure com uma identidade gerida, pode dar acesso
 - Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Utilize o RBAC para atribuir um acesso de identidade gerido a outro recurso
+## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Use o Azure RBAC para atribuir um acesso de identidade gerido a outro recurso
 
 Depois de ter ativado a identidade gerida num recurso Azure, como um conjunto de escala de máquina virtual [Azure VM](qs-configure-portal-windows-vm.md) ou [Azure:](qs-configure-portal-windows-vmss.md)
 

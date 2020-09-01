@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799371"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177096"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Debug PowerShell Azure Funções localmente
 
@@ -65,6 +65,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ## <a name="set-the-attach-point"></a>Definir o ponto de fixação
 
 Para depurar qualquer função PowerShell, a função tem de parar para que o depurar seja fixado. O `Wait-Debugger` cmdlet para a execução e espera pelo depurado.
+
+>[!NOTE]
+>Ao utilizar o PowerShell 7, não precisa de adicionar a `Wait-Debugger` chamada no seu código.
 
 Tudo o que precisa fazer é adicionar uma chamada ao `Wait-Debugger` cmdlet logo acima da `if` declaração, da seguinte forma:
 

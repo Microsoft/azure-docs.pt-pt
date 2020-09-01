@@ -3,12 +3,12 @@ title: Backup offline com caixa de dados Azure para DPM e MABS
 description: Pode utilizar a Caixa de Dados Azure para semear dados de backup iniciais offline a partir de DPM e MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 5a8fbf3869794b6a5ef78e78177f130e4e009795
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017605"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177691"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
 
@@ -149,7 +149,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
           - Azure.Storage       *4.6.1*<br>
      >  - O pedido AD Azure está registado como *AzureOfflineBackup_ \<object GUID of the user> *.
 
-13. Selecione a ordem de caixa de dados correta para a qual desempacotou, ligou e desbloqueou o disco da Caixa de Dados. Selecione **Seguinte**.
+13. Selecione a encomenda correta da caixa de dados para a qual desempacotou, ligou e desbloqueou o disco da Caixa de Dados. Selecione **Seguinte**.
 
     ![Selecione a caixa de dados](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 

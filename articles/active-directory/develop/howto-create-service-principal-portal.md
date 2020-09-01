@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117231"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178948"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
@@ -87,7 +87,7 @@ Criou o seu azure AD e o seu diretor de serviço.
 
 ## <a name="assign-a-role-to-the-application"></a>Atribuir uma função à aplicação
 
-Para aceder aos recursos na sua subscrição, tem de atribuir uma função à aplicação. Decida qual a função que oferece as permissões certas para o pedido. Para conhecer as funções disponíveis, consulte [o RBAC: Construído em Papéis.](../../role-based-access-control/built-in-roles.md)
+Para aceder aos recursos na sua subscrição, tem de atribuir uma função à aplicação. Decida qual a função que oferece as permissões certas para o pedido. Para conhecer os papéis disponíveis, consulte as [funções integradas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação à função *Reader* para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha.
 
@@ -163,7 +163,7 @@ Para fazer o upload do certificado:
 
 Depois de registar o certificado com a sua candidatura no portal de registo de candidaturas, é necessário ativar o código de candidatura do cliente para utilizar o certificado.
 
-### <a name="create-a-new-application-secret"></a>Criar um novo segredo de aplicação
+### <a name="create-a-new-application-secret"></a>Criar um novo segredo da aplicação
 
 Se optar por não utilizar um certificado, pode criar um novo segredo de aplicação.
 

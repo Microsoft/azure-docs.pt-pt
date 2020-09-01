@@ -1,24 +1,24 @@
 ---
-title: Quickstart:Criar um perfil para HA de aplicações - Azure CLI - Azure Traffic Manager
+title: 'Quickstart: Criar um perfil para HA de aplicações - Azure CLI - Azure Traffic Manager'
 description: Este artigo de arranque rápido descreve como criar um perfil de Gestor de Tráfego para construir uma aplicação web altamente disponível.
 services: traffic-manager
-author: rohinkoul
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: rohink
+ms.date: 08/26/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1de651d5321fa3a0dea4da33c5d41839e67ad9dc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 429d107a68c8631983bf791108f5091f31a480c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491192"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178087"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Quickstart: Criar um perfil de Gestor de Tráfego para uma aplicação web altamente disponível usando o Azure CLI
 
@@ -112,12 +112,12 @@ az webapp create \
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 Adicione as duas Aplicações Web como pontos finais do Traffic Manager utilizando [o ponto final do gestor de tráfego da rede Az para](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) o perfil do Gestor de Tráfego da seguinte forma:
 
-- Determine o id da Web App e adicione a Web App localizada na região *de East US* Azure como o principal ponto final para encaminhar todo o tráfego do utilizador. 
-- Determine o id da Web App e adicione a Web App localizada na região do Azure da *Europa Ocidental* como o ponto final de failover. 
+- Determine o ID da Aplicação Web e adicione a Web App localizada na região *de East US* Azure como o principal ponto final para encaminhar todo o tráfego do utilizador. 
+- Determine o ID da Aplicação Web e adicione a Aplicação Web localizada na região do Azure da *Europa Ocidental* como o ponto final de failover. 
 
 Quando o ponto final principal não está disponível, o tráfego liga-se automaticamente para o ponto final de saída.
 
-No exemplo seguinte, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicações criados para cada região na secção anterior, substitua **<appspname_eastus>** e **<appspname_westeurope>** pelo nome utilizado para criar os planos do Serviço de Aplicações na secção anterior e substitua **<profile_name>** pelo nome de perfil utilizado na secção anterior. 
+No exemplo seguinte, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicações criados para cada região na secção anterior. Em seguida, substitua **<profile_name>** pelo nome de perfil utilizado na secção anterior. 
 
 **Ponto final leste dos EUA**
 
@@ -130,7 +130,7 @@ az webapp show \
 
 ```
 
-Tome nota do id exibido na saída e use no seguinte comando para adicionar o ponto final:
+Tome nota do ID exibido na saída e use no seguinte comando para adicionar o ponto final:
 
 ```azurecli-interactive
 
@@ -155,7 +155,7 @@ az webapp show \
 
 ```
 
-Tome nota do id exibido na saída e use no seguinte comando para adicionar o ponto final:
+Tome nota do ID exibido na saída e use no seguinte comando para adicionar o ponto final:
 
 ```azurecli-interactive
 
@@ -174,7 +174,7 @@ az network traffic-manager endpoint create \
 
 Nesta secção, você verificará o nome de domínio do seu perfil de Gestor de Tráfego. Também configurará o ponto final principal para não estar disponível. Finalmente, pode ver que a aplicação web ainda está disponível. É porque o Gerente de Tráfego envia o tráfego para o ponto final de falha.
 
-No exemplo seguinte, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicações criados para cada região na secção anterior, substitua **<appspname_eastus>** e **<appspname_westeurope>** pelo nome utilizado para criar os planos do Serviço de Aplicações na secção anterior e substitua **<profile_name>** pelo nome de perfil utilizado na secção anterior.
+No exemplo seguinte, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicações criados para cada região na secção anterior. Em seguida, substitua **<profile_name>** pelo nome de perfil utilizado na secção anterior.
 
 ### <a name="determine-the-dns-name"></a>Determinar o nome DNS
 

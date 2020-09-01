@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 994fe7e711210d9eb676b41cb70ff695c6456006
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e487d5b22a15ff87a107cf3e02fb0755f96078c1
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145387"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178659"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configure identidades geridas para recursos Azure em um Azure VM usando Azure CLI
 
@@ -111,11 +111,8 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 ## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
-Nesta secção, você aprenderá a adicionar e remover uma identidade gerida atribuída ao utilizador de um Azure VM usando Azure CLI.
-
-      > [!NOTE]
-      > If you create your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity to assign it to your VM.
-      >i.e. --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
+Nesta secção, você aprenderá a adicionar e remover uma identidade gerida atribuída ao utilizador de um Azure VM usando Azure CLI. Se criar a sua identidade gerida atribuída pelo utilizador num RG diferente do seu VM. Terá de usar o URL da sua identidade gerida para atribuí-lo ao seu VM.
+i.e. --identidades "/subscrições/ <SUBID> /grupos de recursos/ <RESROURCEGROUP> /fornecedores/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Atribuir uma identidade gerida atribuída ao utilizador durante a criação de um VM Azure
 

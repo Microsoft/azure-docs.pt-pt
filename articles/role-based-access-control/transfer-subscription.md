@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055656"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177283"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente (Preview)
 
@@ -29,14 +29,14 @@ As organizações podem ter várias assinaturas Azure. Cada subscrição está a
 Este artigo descreve os passos básicos que pode seguir para transferir uma subscrição para um diretório AD Azure diferente e recriar alguns dos recursos após a transferência.
 
 > [!NOTE]
-> Para as subscrições do Azure CSP, a alteração do diretório AD Azure para a subscrição não é suportada.
+> Para as subscrições Azure Cloud Service Providers (CSP), a alteração do diretório AZure AD para a subscrição não é suportada.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Transferir uma subscrição do Azure para um diretório AD Azure diferente é um processo complexo que deve ser cuidadosamente planeado e executado. Muitos serviços da Azure exigem que os princípios de segurança (identidades) operem normalmente ou mesmo gerem outros recursos da Azure. Este artigo tenta cobrir a maioria dos serviços da Azure que dependem fortemente dos princípios de segurança, mas não é abrangente.
 
 > [!IMPORTANT]
-> Em alguns cenários, a transferência de uma subscrição pode requerer tempo de inatividade para concluir o processo. É necessário um planeamento cuidadoso para avaliar se será necessário tempo de inatividade para a sua migração.
+> Em alguns cenários, a transferência de uma subscrição pode requerer tempo de inatividade para concluir o processo. É necessário um planeamento cuidadoso para avaliar se será necessário tempo de inatividade para a sua transferência.
 
 O diagrama que se segue mostra os passos básicos que deve seguir quando transfere uma subscrição para um diretório diferente.
 
@@ -69,23 +69,23 @@ Vários recursos Azure têm uma dependência de uma subscrição ou de um diret�
 
 | Serviço ou recurso | Impactado | Recuperável | Foi atingido? | O que pode fazer |
 | --------- | --------- | --------- | --------- | --------- |
-| Atribuições de funções | Sim | Sim | [Listar atribuições de função](#save-all-role-assignments) | Todas as atribuições de funções são permanentemente eliminadas. Deve mapear utilizadores, grupos e princípios de serviço para objetos correspondentes no diretório alvo. Tens de recriar as atribuições de papéis. |
-| Funções personalizadas | Sim | Sim | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são permanentemente eliminadas. Deve recriar as funções personalizadas e quaisquer atribuições de papéis. |
-| Identidades geridas atribuídas pelo sistema | Sim | Sim | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve desativar e reativar as identidades geridas. Tens de recriar as atribuições de papéis. |
-| Identidades geridas atribuídas pelo utilizador | Sim | Sim | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve eliminar, recriar e anexar as identidades geridas ao recurso apropriado. Tens de recriar as atribuições de papéis. |
-| Azure Key Vault | Sim | Sim | [Políticas de acesso ao cofre de chaves de lista](#list-other-known-resources) | Tem de atualizar a identificação do inquilino associada aos cofres das chaves. Tem de remover e adicionar novas políticas de acesso. |
-| Bases de dados Azure SQL com integração de autenticação AD AZure habilitados | Sim | Não | [Consulte as bases de dados do Azure SQL com a autenticação AZure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
-| Azure Storage e Azure Data Lake Storage Gen2 | Sim | Sim |  | Tens de recriar quaisquer ACLs. |
-| Azure Data Lake Storage Gen1 | Sim | Sim |  | Tens de recriar quaisquer ACLs. |
-| Ficheiros do Azure | Sim | Sim |  | Tens de recriar quaisquer ACLs. |
-| Azure File Sync | Sim | Sim |  |  |
-| Managed Disks do Azure | Sim | N/D |  |  |
-| Serviços de Contentores Azure para Kubernetes | Sim | Sim |  |  |
-| Azure Active Directory Domain Services | Sim | Não |  |  |
-| Registos de aplicações | Sim | Sim |  |  |
+| Atribuições de funções | Yes | Yes | [Listar atribuições de função](#save-all-role-assignments) | Todas as atribuições de funções são permanentemente eliminadas. Deve mapear utilizadores, grupos e princípios de serviço para objetos correspondentes no diretório alvo. Tens de recriar as atribuições de papéis. |
+| Funções personalizadas | Yes | Yes | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são permanentemente eliminadas. Deve recriar as funções personalizadas e quaisquer atribuições de papéis. |
+| Identidades geridas atribuídas pelo sistema | Yes | Yes | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve desativar e reativar as identidades geridas. Tens de recriar as atribuições de papéis. |
+| Identidades geridas atribuídas pelo utilizador | Yes | Yes | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve eliminar, recriar e anexar as identidades geridas ao recurso apropriado. Tens de recriar as atribuições de papéis. |
+| Azure Key Vault | Yes | Yes | [Políticas de acesso ao cofre de chaves de lista](#list-key-vaults) | Tem de atualizar a identificação do inquilino associada aos cofres das chaves. Tem de remover e adicionar novas políticas de acesso. |
+| Bases de dados Azure SQL com integração de autenticação AD AZure habilitados | Sim | No | [Consulte as bases de dados do Azure SQL com a autenticação AZure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Azure Storage e Azure Data Lake Storage Gen2 | Yes | Yes |  | Tens de recriar quaisquer ACLs. |
+| Azure Data Lake Storage Gen1 | Sim | Yes |  | Tens de recriar quaisquer ACLs. |
+| Ficheiros do Azure | Yes | Yes |  | Tens de recriar quaisquer ACLs. |
+| Azure File Sync | Yes | Yes |  |  |
+| Managed Disks do Azure | Yes | N/D |  |  |
+| Serviços de Contentores Azure para Kubernetes | Yes | Yes |  |  |
+| Azure Active Directory Domain Services | Sim | No |  |  |
+| Registos de aplicações | Yes | Yes |  |  |
 
-> [!IMPORTANT]
-> Se utilizar a encriptação em repouso para um recurso como uma conta de armazenamento ou uma base de dados SQL e o recurso tiver uma dependência de um cofre chave que *não* está na subscrição que está a ser transferida, poderá obter um erro irrecuperável. Nesta situação, utilize um cofre de chave diferente ou desative temporariamente as chaves geridas pelo cliente para evitar um erro irrecuperável.
+> [!WARNING]
+> Se estiver a usar encriptação em repouso para um recurso, como uma conta de armazenamento ou uma base de dados SQL, que tenha uma dependência de um cofre chave que **não** esteja na mesma subscrição que está a ser transferida, pode levar a um cenário irrecuperável. Se tiver esta situação, deve tomar medidas para utilizar um cofre de chave diferente ou desativar temporariamente as chaves geridas pelo cliente para evitar este cenário irrecuperável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -221,8 +221,8 @@ As identidades geridas não são atualizadas quando uma subscrição é transfer
 
 Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azure Ative Directory predefinido para a subscrição em que é criado. Todas as entradas de política de acesso também estão associadas a este ID de inquilino. Para obter mais informações, consulte [movendo um Cofre de Chaves Azure para outra subscrição](../key-vault/general/move-subscription.md).
 
-> [!IMPORTANT]
-> Se utilizar a encriptação em repouso para um recurso como uma conta de armazenamento ou uma base de dados SQL e o recurso tiver uma dependência de um cofre chave que *não* está na subscrição que está a ser transferida, poderá obter um erro irrecuperável. Nesta situação, utilize um cofre de chave diferente ou desative temporariamente as chaves geridas pelo cliente para evitar um erro irrecuperável.
+> [!WARNING]
+> Se estiver a usar encriptação em repouso para um recurso, como uma conta de armazenamento ou uma base de dados SQL, que tenha uma dependência de um cofre chave que **não** esteja na mesma subscrição que está a ser transferida, pode levar a um cenário irrecuperável. Se tiver esta situação, deve tomar medidas para utilizar um cofre de chave diferente ou desativar temporariamente as chaves geridas pelo cliente para evitar este cenário irrecuperável.
 
 - Se tiver um cofre chave, use [o show az keyvault](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) para listar as políticas de acesso. Para obter mais informações, consulte [a autenticação do Cofre de Chaves com uma política de controlo de acesso.](../key-vault/key-vault-group-permissions-for-apps.md)
 
@@ -232,7 +232,7 @@ Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azur
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Lista de bases de dados Azure SQL com autenticação AD Azure
 
-- Utilize [a lista de ad-admin do servidor az sql](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e a extensão de gráfico [az](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para ver se está a utilizar bases de dados Azure SQL com autenticação AD AZure. Para mais informações, consulte [Configure e gerencie a autenticação do Azure Ative Directory com SQL](../azure-sql/database/authentication-aad-configure.md).
+- Utilize [a lista de ad-admin do servidor az sql](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e a extensão de gráfico [az](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) para ver se está a utilizar bases de dados Azure SQL com integração de autenticação AD AD ativada. Para mais informações, consulte [Configure e gerencie a autenticação do Azure Ative Directory com SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -262,16 +262,21 @@ Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azur
     --subscriptions $subscriptionId --output table
     ```
 
-## <a name="step-2-transfer-billing-ownership"></a>Passo 2: Propriedade de faturação de transferência
+## <a name="step-2-transfer-the-subscription"></a>Passo 2: Transferir a subscrição
 
-Neste passo, você transfere a propriedade de faturação da subscrição do diretório de origem para o diretório alvo.
+Neste passo, transfere a subscrição do diretório de origem para o diretório alvo. Os passos serão diferentes dependendo se você também quer transferir a propriedade da faturação.
 
 > [!WARNING]
-> Quando transfere a propriedade da faturação da subscrição, todas as atribuições de funções no diretório de origem são **permanentemente** eliminadas e não podem ser restauradas. Não pode voltar depois de transferir a propriedade da subscrição. Certifique-se de que completa os passos anteriores antes de realizar este passo.
+> Ao transferir a subscrição, todas as atribuições de funções no diretório de origem são **permanentemente** eliminadas e não podem ser restauradas. Não pode voltar uma vez que transfere a subscrição. Certifique-se de que completa os passos anteriores antes de realizar este passo.
 
-1. Siga os passos na [propriedade de faturação de transferência de uma subscrição Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md). Para transferir a subscrição para um diretório AD Azure diferente, você deve verificar a caixa de verificação do **inquilino Azure AD subscrição.**
+1. Determine se também pretende transferir a propriedade da faturação.
 
-1. Assim que terminar a transferência de propriedade, volte a este artigo para recriar os recursos no diretório alvo.
+1. Transfira a subscrição para um diretório diferente.
+
+    - Se quiser manter a propriedade de faturação atual, siga os passos no [Associado ou adicione uma subscrição Azure ao seu inquilino Azure Ative Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - Se também pretender transferir a propriedade da faturação, siga os passos na [propriedade de faturação de transferência de uma subscrição do Azure para outra conta.](../cost-management-billing/manage/billing-subscription-transfer.md) Para transferir a subscrição para um diretório diferente, você deve verificar a caixa de verificação do **inquilino Azure Ad subscrição.**
+
+1. Assim que terminar a transferência da subscrição, volte a este artigo para recriar os recursos no directório-alvo.
 
 ## <a name="step-3-re-create-resources"></a>Passo 3: Recriar recursos
 
