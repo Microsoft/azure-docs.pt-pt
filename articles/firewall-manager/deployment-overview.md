@@ -4,15 +4,15 @@ description: Conheça as etapas de implantação de alto nível necessárias par
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 08/10/2020
+ms.topic: conceptual
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 8cca982e291d5d4caf7856e0d807515511c41dc8
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ceb6e84b31067f7289b9e003a4fb273ce717de33
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055042"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079103"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Visão geral da implementação do Azure Firewall Manager
 

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 57e0d356ce6bedfd5e6a9bf1e576ec154e8d5802
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 98f22544efbfe2870ea4397a7f38a2a510ad6e7d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082324"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079528"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Criar uma máquina virtual com o PowerShell
 

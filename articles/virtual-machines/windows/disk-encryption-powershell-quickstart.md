@@ -7,23 +7,24 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 6f564a9a4f13136bbe7e28a3600ca71892c82439
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a50b62a7c6064672dfbf7d609b6053d7be6fdb77
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82081596"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079494"
 ---
-# <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>Quickstart: Criar e encriptar uma máquina virtual do Windows em Azure com powerShell
+# <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>Quickstart: Criar e encriptar uma máquina virtual do Windows em Azure com o PowerShell
 
-O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este quickstart mostra-lhe como usar o módulo PowerShell Azure para criar uma máquina virtual do Windows (VM), criar um Cofre chave para o armazenamento de chaves de encriptação e encriptar o VM. 
+O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este quickstart mostra-lhe como usar o módulo Azure PowerShell para criar uma máquina virtual Windows (VM), criar um Cofre-Chave para o armazenamento de chaves de encriptação e encriptar o VM. 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos:
+Criar um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos:
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -41,12 +42,12 @@ New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image 
 
 Irá demorar alguns minutos até a VM ser implementada. 
 
-## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Criar um Cofre chave configurado para chaves de encriptação
+## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Criar um Cofre de Chaves configurado para chaves de encriptação
 
-A encriptação do disco Azure armazena a sua chave de encriptação num Cofre de Chaves Azure. Crie um cofre chave com [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). Para ativar o Cofre de Chaves para armazenar chaves de encriptação, utilize o parâmetro -EnabledForDiskEncryption.
+A encriptação do disco Azure armazena a sua chave de encriptação num Cofre de Chaves Azure. Crie um [cofre-chave com New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). Para ativar o Cofre de Chaves para armazenar chaves de encriptação, utilize o parâmetro de encriptação -EnablediskEncryption.
 
 > [!Important]
-> Cada cofre de chaves deve ter um nome único. O exemplo seguinte cria um Cofre chave chamado *myKV,* mas deve nomear o seu algo diferente.
+> Cada Cofre-Chave deve ter um nome único. O exemplo a seguir cria um Key Vault chamado *myKV,* mas deve nomear o seu algo diferente.
 
 ```powershell
 New-AzKeyvault -name MyKV -ResourceGroupName myResourceGroup -Location EastUS -EnabledForDiskEncryption
@@ -54,9 +55,9 @@ New-AzKeyvault -name MyKV -ResourceGroupName myResourceGroup -Location EastUS -E
 
 ## <a name="encrypt-the-virtual-machine"></a>Criptografe a máquina virtual
 
-Criptografie o seu VM com [set-AzVmDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension). 
+Criptografe o seu VM com [Set-AzVmDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension). 
 
-Set-AzVmDiskEncryptionExtension requer alguns valores do seu objeto Key Vault. Você pode obter estes valores passando o nome único do seu cofre chave para [Get-AzKeyvault](/powershell/module/az.keyvault/get-azkeyvault).
+Set-AzVmDiskEncryptionExtension requer alguns valores do seu objeto Key Vault. Pode obter estes valores passando o nome único do seu cofre chave para [Get-AzKeyvault](/powershell/module/az.keyvault/get-azkeyvault).
 
 ```powershell
 $KeyVault = Get-AzKeyVault -VaultName MyKV -ResourceGroupName MyResourceGroup
@@ -72,7 +73,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK
 ```
 
-Pode verificar o processo de encriptação executando [o Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/Get-AzVMDiskEncryptionStatus).
+Pode verificar o processo de encriptação executando [o Get-AzVmDiskEncrypationStatus](/powershell/module/az.compute/Get-AzVMDiskEncryptionStatus).
 
 ```powershell
 Get-AzVmDiskEncryptionStatus -VMName MyVM -ResourceGroupName MyResourceGroup
@@ -87,9 +88,9 @@ OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncry
 ProgressMessage            : Provisioning succeeded
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM, e todos os recursos relacionados:
+Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados:
 
 ```powershell
 Remove-AzResourceGroup -Name "myResourceGroup"
@@ -97,7 +98,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou uma máquina virtual, criou um Cofre chave que estava habilitado para chaves de encriptação e encriptava o VM.  Avance para o artigo seguinte para saber mais sobre os pré-requisitos do Azure Disk Encryption para VMs de IaaS.
+Neste quickstart, criou uma máquina virtual, criou um Key Vault que permitia chaves de encriptação e encriptava o VM.  Avance para o artigo seguinte para saber mais sobre os pré-requisitos do Azure Disk Encryption para VMs de IaaS.
 
 > [!div class="nextstepaction"]
-> [Visão geral da encriptação do disco azure](disk-encryption-overview.md)
+> [Visão geral da encriptação do disco Azure](disk-encryption-overview.md)

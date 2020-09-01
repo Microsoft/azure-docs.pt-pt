@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
-ms.custom: akjosh
-ms.openlocfilehash: 10f0cb1f6f3b5ee25538a588fadda75a2aeb6079
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: akjosh, devx-track-azurepowershell
+ms.openlocfilehash: 34a786c133d38e40cfa614ddceed53a6cf52b617
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088925"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078933"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais a partir de uma imagem de VM personalizada com o PowerShell
 Este script cria um conjunto de dimensionamento de máquinas virtuais que utiliza uma imagem de VM personalizada como origem para as instâncias de VMs.

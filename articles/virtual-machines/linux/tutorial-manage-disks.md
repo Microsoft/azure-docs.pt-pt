@@ -9,12 +9,12 @@ ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 4806fa51be859bd1bdc2a2abd5410f8aa8f4a32b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 948a4ae8c329d69e404ef8d0f609748b955b0ecc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757678"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078854"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
@@ -157,7 +157,7 @@ sudo -i blkid
 A saída apresenta o UUID da unidade, `/dev/sdc1` neste caso.
 
 ```bash
-/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="xfs"
 ```
 
 > [!NOTE]
@@ -172,7 +172,7 @@ sudo nano /etc/fstab
 Adicione uma linha semelhante à seguinte ao ficheiro */etc/fstab,* substituindo o valor UUID pelo seu próprio.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  xfs    defaults,nofail   1  2
 ```
 
 Quando terminar de editar o ficheiro, use `Ctrl+O` para escrever o ficheiro e sair do `Ctrl+X` editor.

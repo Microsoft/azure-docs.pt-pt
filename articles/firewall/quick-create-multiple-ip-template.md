@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar uma Firewall Azure com vários endereços IP públicos - Modelo de Gestor de Recursos'
-description: Saiba como usar um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma Firewall Azure com vários endereços IP públicos.
+description: Neste arranque rápido, você aprende a usar um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma Firewall Azure com vários endereços IP públicos.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/14/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 41190cd52e29b187182589f93e9d494d05943cf8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 282ce16c926c61008d0ebd70106b161425a15c9e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705440"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079086"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Quickstart: Criar uma Firewall Azure com vários endereços IP públicos - modelo ARM
 
@@ -73,7 +73,7 @@ No portal Azure, reveja os recursos mobilizados. Observe os endereços IP públi
 
 Utilize ligação de ambiente de trabalho remoto para ligar aos endereços IP públicos da firewall. As ligações bem sucedidas demonstram as regras DE NA de firewall que permitem a ligação aos servidores backend.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a firewall, elimine o grupo de recursos. Isto remove a firewall e todos os recursos relacionados.
 

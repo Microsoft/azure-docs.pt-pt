@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7dc0913ab206c6b9152d7d6155642c28b430d6f2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2e3b6845b66978b4892303549dabca4034a870b2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836331"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079647"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança Azure para Apps Lógicas
 
@@ -182,7 +182,7 @@ Os registos de diagnóstico em Aplicações Lógicas devem ser ativados
 
 A Norma de Proteção DDoS deve ser ativada
 
-Também pode utilizar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlo de acesso baseado em funções (RBAC) e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
+Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlo de acesso baseado em funções Azure (Azure RBAC) e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
 
 * [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -641,7 +641,7 @@ A Microsoft gere a infraestrutura subjacente às Apps Azure Logic e implementou 
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
 **Orientação**: Só é possível permitir que utilizadores ou grupos específicos executem tarefas específicas, tais como gerir, editar e visualizar aplicações lógicas. Para controlar as suas permissões, utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para que possa atribuir funções personalizadas ou incorporadas aos membros da sua subscrição Azure:
 - Logic App Contributor: Permite-lhe gerir aplicações lógicas, mas não pode alterar o acesso às mesmos.
@@ -877,7 +877,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Os recursos relacionados com as suas Aplicações Lógicas que são necessárias para operações comerciais, mas que podem incorrer em maior risco para a organização, devem ser isolados dentro da sua própria máquina virtual e/ou rede virtual e suficientemente protegidos com um Azure Firewall ou Grupo de Segurança de Rede.
 
-As Aplicações Lógicas que são necessárias para operações comerciais, mas que podem incorrer em maior risco para a organização, devem ser isoladas sempre que possível através de grupos de recursos separados com permissões específicas e limites de RBAC.
+As Aplicações Lógicas que são necessárias para operações comerciais, mas que podem incorrer em maior risco para a organização, devem ser isoladas sempre que possível através de grupos de recursos separados com permissões específicas e limites rbac azure.
 
 * [Como criar uma rede virtual](../virtual-network/quick-create-portal.md)
 
@@ -885,7 +885,7 @@ As Aplicações Lógicas que são necessárias para operações comerciais, mas 
 
 * [Como criar Grupos de Gestão](../governance/management-groups/create.md)
 
-* [Como garantir o acesso a Apps Lógicas via RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Como garantir o acesso a Apps Lógicas via Azure RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitorização do Centro de Segurança Azure**: N/A
 

@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: cf2a6a96517d1c3d63989bc511957019f078cd42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 86b15b0059c2e3466ef65daeb53780798b3882d0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090880"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079256"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Encriptação do Reconhecimento de Formulários de Dados em repouso
 

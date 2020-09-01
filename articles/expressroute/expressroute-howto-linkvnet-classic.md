@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a289284fa27055c76e1e0594e3b0655e746159b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b89d944b4106a8fc3f5d4119c30af1ab2039af2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737092"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079715"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligue uma rede virtual a um circuito ExpressRoute utilizando o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -201,6 +202,6 @@ Executar este comando na subscrição recentemente ligada para a rede virtual:
 New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)

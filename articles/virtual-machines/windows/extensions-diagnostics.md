@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b657231cb6b896479766654e5bd989468d9b73e7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: c981214c69653b3a4a687a861cb348f3587def7c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501155"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078763"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensão de diagnóstico Azure para VMs windows
 
@@ -54,7 +54,7 @@ az vm extension set \
   --settings public-settings.json 
 ```
 
-## <a name="powershell-deployment"></a>Implantação powerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 
 O `Set-AzVMDiagnosticsExtension` comando pode ser utilizado para adicionar a extensão Azure Diagnostics a uma máquina virtual existente. Consulte também [o PowerShell para ativar o Azure Diagnostics numa máquina virtual que executa o Windows](../extensions/diagnostics-windows.md).
 
@@ -73,7 +73,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure CLI.
 

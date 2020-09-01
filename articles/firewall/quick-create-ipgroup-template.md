@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar um Azure Firewall e grupos IP - Modelo de gestor de recursos'
-description: Saiba como usar um modelo de Gestor de Recursos Azure (modelo ARM) para criar um Azure Firewall e grupos IP.
+description: Neste arranque rápido, você aprende a usar um modelo de Gestor de Recursos Azure (modelo ARM) para criar um Azure Firewall e grupos IP.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/06/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 97d1c14a61e98f98e45e25668841cee1ad9ce0d1
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705474"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079137"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Quickstart: Criar um Azure Firewall e grupos IP - modelo ARM
 
@@ -80,7 +80,7 @@ No portal Azure, reveja os recursos implantados, especialmente as regras de fire
 
 Para saber mais sobre a sintaxe JSON e propriedades para uma firewall em um modelo, consulte [a referência do modelo Microsoft.Network azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a firewall, elimine o grupo de recursos. Isto remove a firewall e todos os recursos relacionados.
 

@@ -1,20 +1,20 @@
 ---
 title: Encriptação do serviço facial de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Encriptação do serviço facial de dados em repouso.
+description: A Microsoft oferece chaves de encriptação geridas pela Microsoft e também permite gerir as suas subscrições de Serviços Cognitivos com as suas próprias chaves, chamadas teclas geridas pelo cliente (CMK). Este artigo cobre a encriptação de dados em repouso para face, e como ativar e gerir a CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 33495dd5b092cb51b3421e7204f3b529077d63b3
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: eab90fc2cb30ae8e9f1c19bdbefc6fbc88c32f76
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309038"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079273"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>Encriptação do serviço facial de dados em repouso
 
@@ -24,15 +24,6 @@ O serviço Face encripta automaticamente os seus dados quando os persiste na nuv
 
 > [!IMPORTANT]
 > As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente](https://aka.ms/cogsvc-cmk)do Serviço Facial . Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização de CMK com o serviço Face, terá de criar um novo recurso Face e selecionar o E0 como O Nível de Preços. Uma vez criado o seu recurso Face com o nível de preços E0, pode utilizar o Cofre da Chave Azure para configurar a sua identidade gerida.
-
-## <a name="regional-availability"></a>Disponibilidade regional
-
-As chaves geridas pelo cliente estão atualmente disponíveis nestas regiões:
-
-* E.U.A. Centro-Sul
-* E.U.A.Oeste 2
-* E.U.A. Leste
-* US Gov - Virginia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

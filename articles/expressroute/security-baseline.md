@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f84c73f3fbefddd2972f077826fe1e2a8738ad5a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079037"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079154"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de segurança Azure para ExpressRoute
 
@@ -240,13 +240,13 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Mantenha um inventário das contas de utilizador que tenham acesso administrativo ao plano de controlo (por exemplo, portal Azure) dos seus recursos Azure ExpressRoute.
 
-Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory.
+Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (Azure RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory.
 
 Além disso, os parceiros que utilizam a API do Gestor de Recursos do Parceiro ExpressRoute podem aplicar o Controlo de Acesso Baseado em Função ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
 
-* [Compreender o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Compreender Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Alavancagem RBAC na API do Gestor de Recursos parceiros ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Alavancagem Azure RBAC na API do Gestor de Recursos parceiros ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -437,7 +437,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 * [Como configurar o Site IPSEC sobre o ExpressRoute](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)
 
-Como configurar o Site IPSEC sobre o ExpressRoute:https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+Como configurar o Site IPSEC sobre o ExpressRoute: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -453,17 +453,17 @@ Como configurar o Site IPSEC sobre o ExpressRoute:https://docs.microsoft.com/azu
 
 **Responsabilidade**: Não aplicável
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos.
+**Orientação**: Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções Azure (Azure RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos.
 
 O Azure ExpressRoute também tem funções de proprietário de circuitos e de utilizador de circuitos. Os utilizadores de circuitos são proprietários de gateways de rede virtuais que não estão dentro da mesma subscrição que o circuito ExpressRoute. O proprietário do circuito tem o poder de modificar e revogar autorizações a qualquer momento. A revogação de uma autorização resulta na suprição de todas as ligações de ligação da subscrição cujo acesso foi revogado. Os utilizadores de circuitos podem resgatar autorizações (uma autorização por rede virtual).
 
 Além disso, os parceiros que utilizam a API do Gestor de Recursos do Parceiro ExpressRoute podem aplicar o Controlo de Acesso Baseado em Função ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
 
-* [Compreender o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Compreender Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Alavancagem RBAC na API do Gestor de Recursos parceiros ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Alavancagem Azure RBAC na API do Gestor de Recursos parceiros ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 * [Compreender os papéis da administração no ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
 

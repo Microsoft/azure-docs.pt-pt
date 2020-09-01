@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: 90cda1e8d48e6c7f9e925d6d1b9e11b5d2514e93
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: avverma, devx-track-azurepowershell
+ms.openlocfilehash: e7a4ddaf74df6e04c1597b9c106cd458ddebac55
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080527"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079596"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar uma aplicação em conjuntos de dimensionamento de máquinas virtuais
 
@@ -35,7 +35,7 @@ A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure.
 
 - [CLI do Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Modelo Azure Resource Manager](tutorial-install-apps-template.md)
+- [Modelo de gestor de recursos Azure](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instale uma aplicação num Windows VM com PowerShell DSC
@@ -43,8 +43,8 @@ A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure.
 
 A extensão DSC PowerShell permite personalizar instâncias VM numa escala definida com PowerShell. O seguinte exemplo:
 
-- Instrui as instâncias VM para descarregar um pacote DSC do GitHub -*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
-- Define a extensão para executar um script de instalação -`configure-http.ps1`
+- Instrui as instâncias VM para descarregar um pacote DSC do GitHub - *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Define a extensão para executar um script de instalação - `configure-http.ps1`
 - Obtém informações sobre um conjunto de escala com [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
 - Aplica a extensão aos casos de VM com [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
 

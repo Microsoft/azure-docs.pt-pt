@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: windows
 ms.date: 11/30/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: c5bcc1f2de379eb9a8a49a2259533bcea33328d1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: b3853ddc71d1a9be26b2492764a9b341446e0eeb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265199"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078746"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implementar uma aplicação de elevada disponibilidade no Windows com o Azure PowerShell
 Um conjunto de escala de máquina virtual permite-lhe implantar e gerir um conjunto de máquinas virtuais idênticas e auto-caling. Pode escalar manualmente o número de VMs na balança. Também pode definir regras para a autoescalação com base na utilização de recursos como CPU, procura de memória ou tráfego de rede. Neste tutorial, você implanta uma escala de máquina virtual definida em Azure e aprende a:

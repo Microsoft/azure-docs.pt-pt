@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013009"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079781"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -170,9 +170,9 @@ Os modelos não são necessariamente devolvidos no formulário de documento em q
 
 Uma vez que um modelo é carregado para o seu exemplo, toda a interface do modelo é imutável. Isto significa que não existe uma "edição" tradicional dos modelos.
 
-Em vez disso, se pretender fazer alterações a um modelo em Azure Digital Twins, como alterar o `DisplayName` ou , a forma de o fazer é carregar uma versão mais `Description` **recente** do mesmo modelo. Isto irá sobrepor-se ao modelo original.
+Em vez disso, se quiser fazer alterações a um modelo em Azure Digital Twins, a forma de o fazer é carregar uma **versão mais recente** do mesmo modelo. Durante a pré-visualização, o avanço de uma versão modelo só lhe permitirá remover campos, não adicionar novos campos (para adicionar novos campos, deve apenas [criar um novo modelo).](#create-models)
 
-Para isso, comece com o DTDL do modelo original. Atualize os campos que quiser alterar.
+Para criar uma nova versão de um modelo existente, comece pelo DTDL do modelo original. Atualize os campos que gostaria de alterar.
 
 Em seguida, marque isto como uma versão mais recente do modelo atualizando o `id` campo do modelo. A última secção do ID do modelo, depois `;` do, representa o número do modelo. Para indicar que esta é agora uma versão mais atualizada deste modelo, incremente o número no final do `id` valor para qualquer número maior do que o número de versão atual.
 

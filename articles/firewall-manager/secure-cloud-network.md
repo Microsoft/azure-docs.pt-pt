@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420826"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079120"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Proteja o seu hub virtual usando o Azure Firewall Manager
 
@@ -32,6 +32,10 @@ Neste tutorial, ficará a saber como:
 > * Implementar os servidores
 > * Crie uma política de firewall e proteja o seu hub
 > * Testar a firewall
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Criar um hub e falar arquitetura
 
@@ -158,7 +162,7 @@ Utilize as informações na tabela seguinte para configurar outra máquina virtu
 |Definição  |Valor  |
 |---------|---------|
 |Rede virtual|**Porta-voz 02**|
-|Subrede|**Carga de trabalho 02-SN**|
+|Sub-rede|**Carga de trabalho 02-SN**|
 
 Depois de os servidores serem implantados, selecione um recurso de servidor e **note** o endereço IP privado para cada servidor.
 
@@ -271,7 +275,11 @@ Agora teste a regra da rede.
 Então agora verificou que a regra da rede de firewall está a funcionar:
 * Pode ligar um ambiente de trabalho remoto a um servidor localizado noutra rede virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando terminar de testar os seus recursos de firewall, elimine o grupo de recursos **fw-manager** para eliminar todos os recursos relacionados com firewall.
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça os parceiros de segurança de confiança](trusted-security-partners.md)

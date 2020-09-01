@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6bb59db4c1b31033b1e116742dedc94621b1c60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80117225"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89094199"
 ---
 Definições de configuração para [funções duradouras](../articles/azure-functions/durable-functions-overview.md).
 
@@ -59,6 +59,7 @@ Definições de configuração para [funções duradouras](../articles/azure-fun
       "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
       "trackingStoreNamePrefix": "DurableTask",
+      "useLegacyPartitionManagement": true,
       "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
@@ -83,9 +84,10 @@ Definições de configuração para [funções duradouras](../articles/azure-fun
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
     "extendedSessionIdleTimeoutInSeconds": 30,
+    "useAppLease": true,
     "useGracefulShutdown": false
   }
-  }
+ }
 }
 
 ```
@@ -104,7 +106,7 @@ Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas e
 |maxConcurrentOrchestratorFunctions |10X o número de processadores na máquina atual|O número máximo de funções orquestradoras que podem ser processadas simultaneamente numa única instância de anfitrião.|
 |maxQueuePollingInterval|30 segundos|O intervalo máximo de votação de fila de controlo e de trabalho no formato *hh:mm:ss.* Valores mais elevados podem resultar em atrasos de processamento de mensagens mais elevados. Valores mais baixos podem resultar em custos de armazenamento mais elevados devido ao aumento das transações de armazenamento.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|O nome da definição da aplicação que tem a cadeia de conexão Azure Storage utilizada para gerir os recursos de Armazenamento Azure subjacentes.|
-|trackingStoreConnectionStringName||O nome de uma cadeia de ligação a utilizar para as tabelas História e Instâncias. Se não for especificada, a `azureStorageConnectionStringName` ligação é utilizada.|
+|trackingStoreConnectionStringName||O nome de uma cadeia de ligação a utilizar para as tabelas História e Instâncias. Se não for especificada, utiliza-se a `connectionStringName` ligação (Durável `azureStorageConnectionStringName` 2.x) ou (Durável 1.x).|
 |trackingStoreNamePrefix||O prefixo a utilizar para as tabelas História e Instâncias quando `trackingStoreConnectionStringName` especificado. Se não for definido, o valor prefixo prefixo prefixo prefixo padrão será `DurableTask` . Se `trackingStoreConnectionStringName` não for especificado, as tabelas História e Instâncias utilizarão o `hubName` valor como seu prefixo, e qualquer definição para `trackingStoreNamePrefix` será ignorada.|
 |traceInputsAndOutputs |false|Um valor que indica se deve rastrear as entradas e saídas das chamadas de funções. O comportamento predefinido ao rastrear eventos de execução de funções é incluir o número de bytes nas entradas serializadas e saídas para chamadas de função. Este comportamento fornece informações mínimas sobre como são as entradas e saídas sem inchar os registos ou expor inadvertidamente informações sensíveis. A definição desta propriedade para verdadeira causa a função padrão de registo de todo o conteúdo das entradas e saídas de funções.|
 |logReplayEvents|false|Um valor que indica se deve escrever eventos de repetição de orquestração para Application Insights.|
@@ -113,6 +115,8 @@ Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas e
 |eventGridPublishRetryCount|0|O número de vezes para voltar a tentar se a publicação no Tópico de Grelha de Eventos falhar.|
 |eventGridPublishRetryInterval|5 minutos|A Grade de Eventos publica o intervalo de repetição no formato *hh:mm:ss.*|
 |eventGridPublishEventTypes||Uma lista de tipos de eventos para publicar na Grade de Eventos. Se não for especificado, todos os tipos de eventos serão publicados. Os valores permitidos `Started` incluem, , , . `Completed` `Failed` `Terminated` .|
+|useAppLease|true|Quando definido para `true` , as aplicações exigirão adquirir um aluguer de blob ao nível de aplicações antes de processar mensagens do centro de tarefas. Para mais informações, consulte a [documentação de recuperação de desastres e geo-distribuição.](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) Disponível a partir de v2.3.0.
+|useLegacyPartitionManagement|true|Quando `false` definido, utiliza um algoritmo de gestão de partição que reduz a possibilidade de duplicar a execução da função ao escalonar.  Disponível a partir de v2.3.0. O padrão será alterado para `false` uma futura versão.|
 |useGracefulShutdown|false|(Pré-visualização) Ativar graciosamente desligar para reduzir as chances de paralisações do hospedeiro falhando execuções de função no processo.|
 
 Muitas destas configurações são para otimizar o desempenho. Para mais informações, consulte [Performance e escala.](../articles/azure-functions/durable-functions-perf-and-scale.md)

@@ -10,20 +10,20 @@ ms.subservice: sql-dw
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f502c93b4df6db83756f3fe9853ac598b40074ef
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
+ms.openlocfilehash: 9adc994ef9ac3f43f593da010b35ada4a83e424e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212705"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078967"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Pausa e retomar o cálculo na piscina Synapse SQL com Azure PowerShell
 
 Pode utilizar o Azure PowerShell para fazer uma pausa e retomar os recursos de cálculo do Pool Synapse SQL (data warehouse).
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,7 +55,7 @@ Localize o nome da base de dados, o nome do servidor e o grupo de recursos para 
 
 Siga estes passos para encontrar informações de localização para a sua piscina SQL:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página esquerda do portal Azure.
 1. Selecione **mySampleDataWarehouse** a partir da página **Azure Synapse Analytics (anteriormente SQL DW).** A piscina SQL abre.
 
@@ -113,7 +113,7 @@ Para verificar o estado da sua piscina SQL, utilize o cmdlet [Get-AzSqlDatabaseA
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Está a ser cobrado por unidades de armazém de dados e os dados armazenaram a sua piscina SQL. Estes recursos de computação e armazenamento são faturados em separado.
 
@@ -124,7 +124,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e clique na sua piscina SQL.
 
-    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Para interromper a computação, clique no botão **Pausar**. Quando a piscina SQL é pausada, vê-se um botão **Iniciar.**  Para retomar a computação, clique em **Iniciar**.
 

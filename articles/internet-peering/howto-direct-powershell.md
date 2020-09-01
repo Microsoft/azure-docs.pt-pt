@@ -8,12 +8,13 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 076332ac61359bc793615c2f7c9ea0e22c667bcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: be4bab10d369fcefe626bbe890acfff7fc7004b0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700302"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079069"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Criar ou modificar um espreitamento direto utilizando o PowerShell
 
@@ -48,7 +49,7 @@ Se preferir, pode completar este guia utilizando o [portal](howto-direct-portal.
 ## <a name="deprovision-a-direct-peering"></a><a name="delete"></a>Desprovisionar um olhar direto
 [!INCLUDE [peering-direct-delete](./includes/delete.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar o persto cambial utilizando o PowerShell](howto-exchange-powershell.md)
 * [Converter um legado Exchange olhando para um recurso Azure usando PowerShell](howto-legacy-exchange-powershell.md)

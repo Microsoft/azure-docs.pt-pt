@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/19/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 9186cb9e8a603330d8fac6003b4b27bffbc29688
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8dce26f6cfa13744c75625ea0240487f1d4f2278
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050286"
+ms.locfileid: "89094331"
 ---
 <a name="HOLTop"></a>
 
@@ -78,13 +78,13 @@ Em seguida, adicione uma definição de classe para **ComputerVisionQuickstarts*
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
 
-Este quickstart usa o gestor de dependência gradle. Pode encontrar a biblioteca do cliente e informações para outros gestores de dependência no [Repositório Central de Maven.](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/)
+Este quickstart usa o gestor de dependência gradle. Pode encontrar a biblioteca do cliente e informações para outros gestores de dependência no [Repositório Central de Maven.](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision)
 
 No ficheiro *build.gradle.kts* do seu projeto, inclua a biblioteca de clientes da Visão De Computador como uma dependência.
 
 ```kotlin
 dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
 }
 ```
 

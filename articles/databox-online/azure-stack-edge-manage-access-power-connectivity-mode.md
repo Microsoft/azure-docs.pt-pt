@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e46d1a923eec5244bf77c201ff0b3189699c9ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339727"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079800"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Gerir o modo de acesso, potência e conectividade para o seu Azure Stack Edge
 
@@ -95,7 +95,7 @@ Para o dispositivo Azure Stack Edge, `Microsoft.DataBoxEdge` deve ser registado.
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Para obter mais informações sobre como registar um fornecedor de recursos, consulte [Resolver os erros do registo do fornecedor de recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors)
+Para obter mais informações sobre como registar um fornecedor de recursos, consulte [Resolver os erros do registo do fornecedor de recursos.](../azure-resource-manager/templates/error-register-resource-provider.md)
 
 ## <a name="manage-connectivity-mode"></a>Gerir o modo de conectividade
 
@@ -120,7 +120,7 @@ Para alterar o modo dispositivo, siga estes passos:
  
 ## <a name="manage-power"></a>Gerir o poder
 
-Pode desligar ou reiniciar o seu dispositivo físico utilizando a UI web local. Recomendamos que, antes de reiniciar, desative as ações no servidor de dados e, em seguida, no dispositivo. Esta ação minimiza qualquer possibilidade de corrupção de dados.
+Pode encerrar ou reiniciar o dispositivo físico com a IU da Web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no servidor de dados e, em seguida, no dispositivo. Esta ação minimiza qualquer possibilidade de danos em dados.
 
 1. Na uI web local, vá para as **definições de Manutenção > Energia**.
 2. Selecione **Desligar** ou **Reiniciar** dependendo do que pretende fazer.
@@ -132,6 +132,6 @@ Pode desligar ou reiniciar o seu dispositivo físico utilizando a UI web local. 
 > [!NOTE]
 > Se desligar o dispositivo físico, terá de carregar no botão de alimentação do dispositivo para o ligar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [gerir as ações.](azure-stack-edge-manage-shares.md)

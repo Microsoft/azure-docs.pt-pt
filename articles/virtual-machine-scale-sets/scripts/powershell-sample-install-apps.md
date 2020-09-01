@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: powershell
 ms.date: 06/25/2020
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: aff871562c366836906d5125b0cd675a51f9a20c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: ea4dbf06bd1c129131d57748986e22feca80d808
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087072"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079613"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Instalar aplicações num conjunto de dimensionamento de máquinas virtuais com o PowerShell
 Este script cria um conjunto de dimensionamento de máquinas virtuais em Windows Server 2016 e utiliza a Extensão de Script Personalizado para instalar uma aplicação Web básica. Após executar o script, pode aceder à aplicação Web através de um browser.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 65c3e3df9fe62614eff15585373360ebcaa158cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fa4e91a087c7dcfce247cacc2dff83458bc87f64
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543334"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079987"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>Tutorial: Integrar Sansan com diretório ativo Azure
 
@@ -37,7 +37,9 @@ Para começar, precisa dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. Sansan apoia **a SP** iniciou a SSO.
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
+* Sansan apoia **a SP** iniciou a SSO.
+* Uma vez configurado Sansan, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-sansan-from-the-gallery"></a>Adicionando Sansan da galeria
 
@@ -50,20 +52,20 @@ Para configurar a integração de Sansan em Azure AD, você precisa adicionar Sa
 1. Na secção Add da secção **da galeria,** **digite Sansan** na caixa de pesquisa.
 1. Selecione **Sansan** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
 Configure e teste Azure AD SSO com Sansan usando um utilizador de teste chamado **Britta Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Sansan.
 
 Para configurar e testar a Azure AD SSO com Sansan, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure Sansan](#configure-sansan)** para configurar as definições SSO no lado da aplicação.
-3. **[Crie um utilizador de teste AZure AD](#create-an-azure-ad-test-user)** para testar o Azure AD com Britta Simon.
-4. **[Atribua ao utilizador de teste AZure AD](#assign-the-azure-ad-test-user)** para permitir que a Britta Simon utilize um único sinal de Ad AD.
-5. Crie o utilizador de **[teste sansan](#create-sansan-test-user)** para ter uma contraparte de Britta Simon em Sansan que está ligada à representação AZure AD do utilizador.
-6. **[Teste SSO](#test-sso)** para verificar se a configuração funciona.
+   * **[Crie um utilizador de teste AZure AD](#create-an-azure-ad-test-user)** para testar o Azure AD com Britta Simon.
+   * **[Atribua ao utilizador de teste AZure AD](#assign-the-azure-ad-test-user)** para permitir que a Britta Simon utilize um único sinal de Ad AD.
+1. **[Configure Sansan](#configure-sansan)** para configurar as definições SSO no lado da aplicação.
+   * Crie o utilizador de **[teste sansan](#create-sansan-test-user)** para ter uma contraparte de Britta Simon em Sansan que está ligada à representação AZure AD do utilizador.
+1. **[Teste SSO](#test-sso)** para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
@@ -75,18 +77,22 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na página **de Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    1. Na caixa de texto **URL de entrada de sinais,** digite qualquer um dos URL utilizando o seguinte padrão:
-    
-    | Ambiente | URL |
-    |:--- |:--- |
-    | Web pc |`https://ap.sansan.com/v/saml2/<company name>/acs` |
-    | Aplicativo Nativo Móvel |`https://internal.api.sansan.com/saml2/<company name>/acs` |
-    | Configurações do navegador móvel |`https://ap.sansan.com/s/saml2/<company name>/acs` |
+    1. Na caixa de texto **URL de entrada de inscrição,** digite o URL: `https://ap.sansan.com/`
 
-    2. Na caixa de texto **Identifier (Entity ID),** pode configurar vários valores de identificador e selecionar qualquer um deles de acordo com os ambientes.
+   1. Na caixa de texto **identifier (Entity ID),** digite o URL:  
+   `https://ap.sansan.com/saml2/<company name>`
+
+   1. Na caixa de texto **URL de resposta,** digite qualquer um dos URLs utilizando o seguinte padrão:
+
+    
+       | Ambiente | URL |
+      |:--- |:--- |
+      | PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
+      | Aplicativo para smartphone |`https://internal.api.sansan.com/<company name>/acs` |
+      | Smartphone Web |`https://ap.sansan.com/s/saml2/<company name>/acs` |
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte a [equipa de apoio ao Cliente Sansan](https://www.sansan.com/form/contact) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Verifique os valores reais nas definições de **administração sansan**.
 
 1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -95,10 +101,6 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Na secção **Configurar Sansan,** copie os URL(s) apropriados com base no seu requisito.
 
    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
-### <a name="configure-sansan"></a>Configure Sansan
-
-Para configurar um único sign-on no lado **sansan,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipe de [suporte do Cliente Sansan.](https://www.sansan.com/form/contact) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -130,14 +132,20 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
+## <a name="configure-sansan"></a>Configure Sansan
+
+Para executar as **definições de Sign-On únicas** no lado **sansan,** siga os passos abaixo de acordo com o seu requisito.
+
+   * [Versão japonesa.](https://jp-help.sansan.com/hc/ja/articles/900001551383 )
+
+   * [Versão inglesa.](https://jp-help.sansan.com/hc/en-us/articles/900001551383 )
+
+
 ### <a name="create-sansan-test-user"></a>Criar utilizador de teste sansan
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Sansan. A aplicação Sansan necessita que o utilizador seja a provisionado na aplicação antes de efetuar SSO.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Sansan. Para obter mais informações sobre como criar um utilizador, consulte [estes](https://jp-help.sansan.com/hc/en-us/articles/206508997-Adding-users) passos.
 
-> [!NOTE]
-> Se necessitar de criar um utilizador manualmente ou um lote de utilizadores, tem de contactar a equipa de suporte da [Sansan](https://www.sansan.com/form/contact).
-
-### <a name="test-sso"></a>Teste SSO
+## <a name="test-sso"></a>Teste SSO
 
 Ao selecionar o azulejo sansan no Painel de Acesso, deverá ser automaticamente inscrito no Sansan para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 

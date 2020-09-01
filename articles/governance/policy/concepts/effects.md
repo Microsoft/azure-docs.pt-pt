@@ -3,12 +3,12 @@ title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958767"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079664"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -488,7 +488,7 @@ As seguintes operações são suportadas pela Modificação:
 - Adicione ou substitua o valor do tipo de identidade gerido `identity.type` () de máquinas virtuais e conjuntos de balanças de máquinas virtuais.
 - Adicione ou substitua os valores de certos pseudónimos (pré-visualização).
   - Utilizar o comando `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
-    em Azure PowerShell para obter uma lista de pseudónimos que podem ser usados com Modificação.
+    em Azure PowerShell **4.6.0** ou superior para obter uma lista de pseudónimos que podem ser usados com Modificação.
 
 > [!IMPORTANT]
 > Se estiver a gerir tags, é aconselhável utilizar modificar em vez de apêndice, pois o Modificar fornece tipos de operação adicionais e a capacidade de remediar os recursos existentes. No entanto, o Apêndice é recomendado se não for capaz de criar uma identidade gerida ou modificar ainda não suporta o pseudónimo para a propriedade de recursos.

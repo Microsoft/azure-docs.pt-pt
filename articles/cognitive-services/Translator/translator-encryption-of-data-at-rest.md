@@ -1,20 +1,20 @@
 ---
 title: Encriptação do tradutor de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Encriptação de tradução de dados em repouso.
+description: A Microsoft permite-lhe gerir as suas subscrições de Serviços Cognitivos com as suas próprias chaves, chamadas teclas geridas pelo cliente (CMK). Este artigo cobre a encriptação de dados em repouso para tradutor, e como ativar e gerir a CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310840"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079205"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Encriptação do tradutor de dados em repouso
 
@@ -22,11 +22,11 @@ O tradutor encripta automaticamente os seus dados, que faz o upload para constru
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a encriptação dos Serviços Cognitivos
 
-Os dados são encriptados e desencriptados utilizando encriptação AES de [140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) em conformidade com o [FIPS.](https://en.wikipedia.org/wiki/FIPS_140-2) A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os seus dados são seguros por padrão e não precisa de modificar o seu código ou aplicações para tirar partido da encriptação.
+Os dados são encriptados e desencriptados utilizando encriptação AES de [140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) em conformidade com o [FIPS.](https://en.wikipedia.org/wiki/FIPS_140-2) A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os dados estão protegidos por predefinição e não precisa de modificar o código ou as aplicações para tirar partido da encriptação.
 
 ## <a name="about-encryption-key-management"></a>Sobre a gestão de chaves de encriptação
 
-Por predefinição, a sua subscrição utiliza chaves de encriptação geridas pela Microsoft. Se estiver a utilizar um nível de preços que suporta teclas geridas pelo Cliente, pode ver as definições de encriptação do seu recurso na secção de **Encriptação** do [portal Azure](https://portal.azure.com), como mostra a imagem seguinte.
+Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Se estiver a utilizar um nível de preços que suporta teclas geridas pelo Cliente, pode ver as definições de encriptação do seu recurso na secção de **Encriptação** do [portal Azure](https://portal.azure.com), como mostra a imagem seguinte.
 
 ![Ver definições de encriptação](../media/cognitive-services-encryption/encryptionblade.png)
 
@@ -34,7 +34,7 @@ Para subscrições que suportam apenas as chaves de encriptação geridas pela M
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com o Azure Key Vault
 
-Existe também uma opção para gerir a sua subscrição com as suas próprias chaves. As teclas geridas pelo cliente (CMK), também conhecidas como Bring your own key (BYOK), oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
+Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Existe também a opção de gerir a sua subscrição com as suas próprias chaves chamadas chaves geridas pelo cliente (CMK). A CMK oferece uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados. Se a CMK estiver configurada para a sua subscrição, é fornecida uma dupla encriptação, que oferece uma segunda camada de proteção, permitindo ao mesmo tempo controlar a chave de encriptação através do seu Cofre de Chave Azure.
 
 > [!IMPORTANT]
 > As chaves geridas pelo cliente estão disponíveis para todos os níveis de preços para o serviço Tradutor. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente do Tradutor,](https://aka.ms/cogsvc-cmk) levará aproximadamente 3-5 dias úteis para ouvir o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização da CMK com o serviço Tradutor, terá de criar um novo recurso Tradutor. Uma vez criado o seu recurso Tradutor, pode utilizar o Cofre da Chave Azure para configurar a sua identidade gerida.
@@ -44,8 +44,6 @@ Siga estes passos para permitir chaves geridas pelo cliente para o Tradutor:
 1. Crie o seu novo Tradutor regional ou recurso de Serviços Cognitivos regionais. Isto não funcionará com um recurso global.
 2. Identidade Gerida Ativada no portal Azure e adicione as informações chave geridas pelo cliente.
 3. Crie um novo espaço de trabalho no Custom Tradutor e associe esta informação de subscrição.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Ativar chaves geridas pelo cliente
 

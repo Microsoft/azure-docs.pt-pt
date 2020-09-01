@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: A Compreensão linguística (LUIS) oferece a capacidade de aumentar a quota de pedido de ponto final para além da quota de uma única chave. Isto é feito criando mais chaves para o LUIS e adicionando-as à aplicação LUIS na página **Publicar** na secção **Recursos e Chaves.**
 author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-javascript, devx-track-azurepowershell
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: f509d5f6f6e794adeee67fe632518a89882c945c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 96d844d52fa554b7f9a467ae59d8ed4ccd2f6ee2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407919"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079885"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilize o Gestor de Tráfego do Microsoft Azure para gerir a quota de ponto final através das teclas
 A Compreensão linguística (LUIS) oferece a capacidade de aumentar a quota de pedido de ponto final para além da quota de uma única chave. Isto é feito criando mais chaves para o LUIS e adicionando-as à aplicação LUIS na página **Publicar** na secção **Recursos e Chaves.**
@@ -371,7 +371,7 @@ Ativar [os registos de diagnóstico](../../traffic-manager/traffic-manager-diagn
 ## <a name="clean-up"></a>Limpeza
 Remova as duas chaves de ponto final LUIS, os três perfis do Gestor de Tráfego, e o grupo de recursos que continha estes cinco recursos. Isto é feito a partir do portal Azure. Apaga-se os cinco recursos da lista de recursos. Em seguida, apague o grupo de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja as opções [de middleware](https://docs.microsoft.com/azure/bot-service/bot-builder-create-middleware?view=azure-bot-service-4.0&tabs=csaddmiddleware%2Ccsetagoverwrite%2Ccsmiddlewareshortcircuit%2Ccsfallback%2Ccsactivityhandler) no BotFramework v4 para entender como este código de gestão de tráfego pode ser adicionado a um botFramework.
 

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b609fd81c9f1013d2308dccd8ed22fb82aac149
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 900273ec48c71e6f88d28bccff6f1e2abd412c1d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503349"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079579"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao processador da extensão Desired State Configuration do Azure
 
@@ -201,7 +201,7 @@ O portal recolhe a seguinte entrada:
 
 ## <a name="logs"></a>Registos
 
-Os registos para a extensão são armazenados no seguinte local:`C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
+Os registos para a extensão são armazenados no seguinte local: `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 
 ## <a name="next-steps"></a>Passos seguintes
 

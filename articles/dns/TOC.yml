@@ -33,6 +33,8 @@
           href: dns-delegate-domain-azure-dns.md
         - name: Criar registos DNS personalizados para uma aplicação web
           href: dns-web-sites-custom-domain.md
+        - name: Criar uma nova zona DNS subordinada
+          href: tutorial-public-dns-zones-child.md
         - name: Registos de alias para o Gestor de Tráfego
           href: tutorial-alias-tm.md
         - name: Registos de alias para Endereços IP Públicos

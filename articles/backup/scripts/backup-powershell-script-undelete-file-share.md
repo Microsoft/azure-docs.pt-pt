@@ -3,12 +3,13 @@ title: PowerShell Script - Desdelete uma partilha de ficheiros eliminada
 description: Aprenda a usar um script Azure PowerShell para desempacoar uma partilha de ficheiros acidentalmente eliminada.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 99cd980e13b3b9b9a7a450520218c76ccf26fd69
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007637"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079868"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script PowerShell para desembrulhá-lo de uma partilha de ficheiro acidentalmente eliminada
 
@@ -177,7 +178,7 @@ O exemplo a seguir não desdeleta a parte de ações *de ficheiro1* presente na 
    .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1
 ```
 
-A saída deve mostrar a mensagem`Completed:Restore File Share`
+A saída deve mostrar a mensagem `Completed:Restore File Share`
 
 #### <a name="scenario-2"></a>Cenário 2
 
@@ -185,7 +186,7 @@ Existem várias versões apagadas com o mesmo nome que o ficheiro que está a te
 
 O exemplo a seguir desativa uma versão da partilha de ações de *ficheiro1*
 
-##### <a name="step-1"></a>Passo 1
+##### <a name="step-1"></a>Passo 1
 
 Execute o script da seguinte forma, fornecendo o nome da partilha de ficheiros.
 

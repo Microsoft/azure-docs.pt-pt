@@ -4,7 +4,7 @@
   items:
     - name: Acerca do AKS
       href: intro-kubernetes.md
-- name: Guias de Início Rápido
+- name: Guias de Introdução
   expanded: true
   items:
     - name: Criar um cluster do AKS
@@ -129,6 +129,8 @@
       href: security-hardened-vm-host-image.md
     - name: Descrição geral do Diagnóstico do Azure Kubernetes Service
       href: concepts-diagnostics.md
+    - name: Engenharia de software sustentável
+      href: concepts-sustainable-software-engineering.md
 - name: Guias de procedimentos
   items:
     - name: Operações de cluster
