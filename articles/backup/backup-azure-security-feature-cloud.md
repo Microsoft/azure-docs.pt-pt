@@ -3,12 +3,12 @@ title: Excluir suave para cópia de segurança do Azure
 description: Aprenda a usar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: a23d9d1e2ceeb767784490ba65542a5e91b6785b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 76928b98bdb21ffa79fce8435bfe4dda92e0c72d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004923"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179968"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Excluir suave para cópia de segurança do Azure
 
@@ -97,7 +97,7 @@ Siga estes passos.
 
 ### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
-Se os itens foram eliminados antes de serem desativadas, então estarão num estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e, em seguida, executada novamente.
+Se os itens foram eliminados antes de serem desativadas, estarão num estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e, em seguida, executada novamente.
 
 Identifique os itens que estão em estado de apagação suave.
 
@@ -134,7 +134,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="using-rest-api"></a>Com a API REST
 
-Se os itens foram eliminados antes de serem desativadas, então estarão num estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e, em seguida, executada novamente.
+Se os itens foram eliminados antes de serem desativadas, estarão num estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e, em seguida, executada novamente.
 
 1. Em primeiro lugar, desfaça as operações de eliminação com os passos [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion)mencionados.
 2. Em seguida, desative a funcionalidade de eliminação suave utilizando a API REST utilizando os passos [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)mencionados .

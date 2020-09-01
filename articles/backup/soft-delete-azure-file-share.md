@@ -4,12 +4,12 @@ description: Aprenda a eliminar suavemente pode proteger as suas Azure File Shar
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282709"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179917"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Eliminar acidentalmente a proteção para ações de ficheiros Azure usando o Backup Azure
 
@@ -53,7 +53,7 @@ Se tiver pelo menos uma parte de ficheiro protegida numa conta de armazenamento,
 >Deve executar o passo 2 antes que o próximo trabalho de reserva programado seja contra a parte de ficheiros protegidos na sua conta de armazenamento. Porque sempre que o trabalho de backup funciona, ele re-permite a eliminação suave para todas as ações de ficheiros na conta de armazenamento.
 
 >[!WARNING]
->Depois de desativar a eliminação suave no passo 2, qualquer operação de eliminação realizada contra as ações do ficheiro é uma operação de eliminação permanente. Isto significa que se eliminar acidentalmente a partilha de ficheiros com ressarcimento depois de desativar a eliminação suave, perderá todas as suas fotos e não conseguirá recuperar os seus dados.
+>Depois de desativar a eliminação suave no passo 2, qualquer operação de eliminação realizada contra as ações do ficheiro é uma operação de eliminação permanente. Por isso, se eliminar acidentalmente a partilha de ficheiros com ressarcimento depois de desativar a eliminação suave, perderá todas as suas fotos e não conseguirá recuperar os seus dados.
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>No contexto da definição de exclusão suave de uma partilha de ficheiros, que alterações faz o Azure Backup quando não registo uma conta de armazenamento?
 

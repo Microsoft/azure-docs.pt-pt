@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d48483697970333c542f140567ca6a6d3fcf7d2
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359097"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179152"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnose and remediate duplicated attribute sync errors (Diagnosticar e resolver erros de sincronização de atributos duplicados)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Dando um passo mais longe para destacar erros de sincronização, o Azure Ative Directory (Azure AD) Connect Health introduz a remediação do autosserviço. Resolve os problemas duplicados atribuem erros de sincronização de atributos e corrige objetos órfãos do Azure AD.
 A funcionalidade de diagnóstico tem estes benefícios:
 - Fornece um procedimento de diagnóstico que reduz os erros de sincronização de atributos duplicados. E dá correções específicas.
@@ -58,7 +58,7 @@ A função de diagnóstico suporta objetos do utilizador com os seguintes atribu
 | OnPremiseSecurityIdentifier |  AtributoValueMustBeUnique |
 
 >[!IMPORTANT]
-> Para aceder a esta funcionalidade, é necessária a permissão global de **administração** ou permissão **do Contribuinte** a partir das definições do RBAC.
+> Para aceder a esta funcionalidade, é necessária a permissão global de **administração,** ou permissão do **Contribuinte** da Azure RBAC.
 >
 
 Siga os passos do portal Azure para reduzir os detalhes do erro de sincronização e fornecer soluções mais específicas:
@@ -148,7 +148,7 @@ O utilizador baseado em nuvem em Azure AD não deve ter âncora de origem. Neste
 
 
 **Q.** Que permissão precisa um utilizador para aplicar a correção?  
-**A.** **A Global Admin**, ou **Colaborador** a partir das definições do RBAC, tem permissão para aceder ao processo de diagnóstico e resolução de problemas.
+**A.** **A Global Admin**, ou **Colaboradora** da Azure RBAC, tem permissão para aceder ao processo de diagnóstico e resolução de problemas.
 
 
 **Q.** Tenho de configurar o Azure AD Connect ou atualizar o agente Azure AD Connect Health para esta funcionalidade?  

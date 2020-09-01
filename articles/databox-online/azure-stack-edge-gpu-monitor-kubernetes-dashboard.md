@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 9224888a38c86e35df9ad516c761fd7012824c15
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085282"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180682"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Utilize o painel Kubernetes para monitorizar o seu dispositivo GPU Azure Stack Edge
 
@@ -26,6 +26,7 @@ Neste artigo, vai aprender a:
 > [!div class="checklist"]
 >
 > * Aceda ao dashboard Kubernetes no seu dispositivo
+> * Download `aseuser` config
 > * Ver módulos implantados no seu dispositivo
 > * Obtenha endereço IP para aplicações implementadas no seu dispositivo
 > * Ver registos de contentores para módulos implantados no seu dispositivo
@@ -33,13 +34,13 @@ Neste artigo, vai aprender a:
 
 ## <a name="about-kubernetes-dashboard"></a>Sobre o Painel de Kubernetes
 
-O Kubernetes Dashboard é uma interface de utilizador baseada na Web que pode utilizar para resolver problemas nas suas aplicações contentorizadas. Kubernetes Dashboard é uma alternativa baseada na UI para a linha de comando Kubernetes. `kubectl` 
+O Kubernetes Dashboard é uma interface de utilizador baseada na Web que pode utilizar para resolver problemas nas suas aplicações contentorizadas. Kubernetes Dashboard é uma alternativa baseada na UI para a linha de comando Kubernetes. `kubectl` Para mais informações, consulte [o Painel de Instrumentos de Kubernetes.](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 
-No seu dispositivo Azure Stack Edge, pode utilizar o Painel DeResísta Kubernetes no modo apenas de leitura para obter uma visão geral das aplicações em execução no seu dispositivo Azure Stack Edge, visualizar o estado dos recursos do cluster Kubernetes e ver quaisquer erros que tenham ocorrido no dispositivo.
+No seu dispositivo Azure Stack Edge, pode utilizar o Painel DeResísta Kubernetes no modo *apenas de leitura* para obter uma visão geral das aplicações em execução no seu dispositivo Azure Stack Edge, visualizar o estado dos recursos do cluster Kubernetes e ver quaisquer erros que tenham ocorrido no dispositivo.
 
 ## <a name="access-dashboard"></a>Painel de acesso
 
-O Painel kubernetes é apenas de leitura e funciona no nó mestre Kubernetes na porta 31000. Siga estes passos para aceder ao painel de instrumentos: 
+O Painel kubernetes é *apenas de leitura* e funciona no nó mestre Kubernetes na porta 31000. Siga estes passos para aceder ao painel de instrumentos: 
 
 1. Na UI local do seu dispositivo, vá ao **Dispositivo** e, em seguida, vá para **os pontos finais do Dispositivo**. Selecione o URL do painel de instrumentos Kubernetes para abrir o painel de instrumentos num browser.
 

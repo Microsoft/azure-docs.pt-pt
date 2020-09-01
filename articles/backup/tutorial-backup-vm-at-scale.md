@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a criar um cofre dos Serviços de Recupera�
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6556731ed18bd591e930ed89264cd62893fe9ac6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022059"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180580"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -114,7 +114,7 @@ Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é conf
 
 ## <a name="initial-backup"></a>Cópia de segurança inicial
 
-Permitiu fazer backup para os cofres dos Serviços de Recuperação, mas ainda não foi criado um reforço inicial. É uma recuperação de desastres as melhores práticas para desencadear a primeira cópia de segurança, para que os seus dados estão protegidos.
+Ativaste o backup para os cofres dos Serviços de Recuperação, mas ainda não foi criado um reforço inicial. É uma recuperação de desastres as melhores práticas para desencadear a primeira cópia de segurança, para que os seus dados estão protegidos.
 
 Para executar um trabalho de cópia de segurança a pedido:
 

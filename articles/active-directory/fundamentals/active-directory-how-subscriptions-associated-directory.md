@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: cbc1286b6c434d1c7a110c75dd5085de2043012d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825026"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179101"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -44,15 +44,16 @@ Antes de poder associar ou adicionar a sua subscrição, faça as seguintes tare
 
 - Reveja a seguinte lista de alterações que ocorrerão após associar ou adicionar a sua subscrição e como poderá ser afetado:
 
-  - Os utilizadores que tenham sido atribuídos funções usando o RBAC perderão o seu acesso
+  - Os utilizadores que tenham sido atribuídos funções usando o Azure RBAC perderão o seu acesso
   - Administrador de Serviço e Coadministradores perderão acesso
   - Se tiveres cofres chave, eles ficarão inacessíveis e terás de os arranjar depois da associação.
   - Se tiver identidades geridas para recursos como Máquinas Virtuais ou Aplicações Lógicas, deve ree capacitá-las ou recriá-las após a associação
   - Se tiver um Azure Stack registado, terá de re-registrá-lo após associação
+  - Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD (Pré-visualização)](../../role-based-access-control/transfer-subscription.md).
 
 - Inscreva-se usando uma conta que:
 
-  - Tem uma atribuição de função [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a subscrição. Para obter informações sobre como atribuir a função de Proprietário, consulte Gerir o [acesso aos recursos do Azure utilizando o RBAC e o portal Azure.](../../role-based-access-control/role-assignments-portal.md)
+  - Tem uma atribuição de função [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a subscrição. Para obter informações sobre como atribuir a função proprietário, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
   - Existe tanto no diretório atual como no novo diretório. O diretório atual está associado à subscrição. Vai associar o novo diretório à assinatura. Para obter mais informações sobre o acesso a outro diretório, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](../b2b/add-users-administrator.md).
 
 - Certifique-se de que não está a utilizar uma subscrição dos Fornecedores de Serviços em Nuvem (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), uma subscrição da Microsoft Internal (MS-AZR-0015P), ou uma subscrição da Microsoft Imagine (MS-AZR-0144P).
@@ -90,6 +91,8 @@ Depois de associar uma subscrição a um diretório diferente, poderá ter de fa
 - Se utilizou identidades geridas atribuídas pelo sistema para recursos, deve ree capacitar estas identidades. Se utilizar identidades geridas atribuídas pelo utilizador, deve recriar estas identidades. Após a re-habilitação ou recriação das Identidades Geridas, deve restabelecer as permissões atribuídas a essas identidades. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)
 
 - Se registou uma Stack Azure usando esta subscrição, deve voltar a registar-se. Para mais informações, consulte [o Register Azure Stack com Azure](/azure-stack/operator/azure-stack-registration).
+
+- Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD (Pré-visualização)](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

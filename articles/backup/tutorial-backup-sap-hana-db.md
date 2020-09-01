@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 063cd04ecfc67d5f0f761bb0159ab80dcff40030
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 08221bddf9eac77217be23d972cd434b36d3c607
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958818"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180546"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -152,10 +152,10 @@ Para criar um cofre dos Serviços de Recuperação:
    ![Criar cofre dos Serviços de Recuperação](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
    * **Nome**: O nome é usado para identificar o cofre dos Serviços de Recuperação e deve ser exclusivo da assinatura Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hífenes. Para este tutorial, usamos o nome **SAPHanaVault.**
-   * **Assinatura**: Escolha a subscrição para utilizar. Se for membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de qual subscrição utilizar, utilize a subscrição padrão (sugerida). Só existem múltiplas escolhas se o seu trabalho ou conta escolar estiver associado a mais de uma subscrição do Azure. Aqui, usamos a assinatura de assinatura de **laboratório de solução SAP HANA.**
+   * **Assinatura**: Escolha a subscrição para utilizar. Se for membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de qual subscrição utilizar, utilize a subscrição padrão (sugerida). Só existem múltiplas escolhas se o seu trabalho ou conta escolar estiver associado a mais de uma subscrição do Azure. Aqui, usamos a assinatura de assinatura de laboratório de **solução SAP HANA.**
    * **Grupo de recursos**: Utilize um grupo de recursos existente ou crie um novo. Aqui, usamos **SAPHANADemo.**<br>
    Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente**e, em seguida, selecione um recurso da caixa de listas drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome. Para obter informações completas sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
-   * **Localização**: Selecione a região geográfica para o cofre. O cofre deve estar na mesma região que a Máquina Virtual que funciona SAP HANA. Usamos **o Leste DOS 2.**
+   * **Localização**: Selecione a região geográfica para o cofre. O cofre deve estar na mesma região que a Máquina Virtual que funciona SAP HANA. Usamos o **East US 2.**
 
 5. Selecione **Review + Criar**.
 
@@ -221,7 +221,7 @@ Especificar as definições de política da seguinte forma:
    * As gamas de retenção mensais e anual comportam-se de forma semelhante.
 4. No menu **de política de cópia de segurança completa,** clique em **OK** para aceitar as definições.
 5. Em seguida, selecione **Backup diferencial** para adicionar uma política diferencial.
-6. Na **política de backup diferencial,** selecione **Ativar** para abrir os controlos de frequência e retenção. Permitimos um backup diferencial todos os **domingos** às **2:00**da manhã, que é mantido por **30 dias**.
+6. Na **política de backup diferencial,** selecione **Ativar** para abrir os controlos de frequência e retenção. Permitimos um backup diferencial todos os **domingos** às **2:00**da manhã, que é mantido por **30 dias.**
 
    ![Política de backup diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
@@ -243,7 +243,7 @@ Especificar as definições de política da seguinte forma:
 9. Clique **em OK** para guardar a política e volte ao menu de política de **backup** principal.
 10. Depois de terminar de definir a política de backup, clique em **OK**.
 
-Já configura com sucesso cópias de segurança para a sua base de dados SAP HANA.
+Agora, configura com sucesso, backup(s) para a sua base de dados SAP HANA.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

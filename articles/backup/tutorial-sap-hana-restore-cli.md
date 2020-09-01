@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a restaurar as bases de dados SAP HANA que 
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3887b8e7333b6c581887fcfde7e1bd99200e72ef
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d0a6cec234c367ceb1c6032e99d64d6ca5bc4805
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007269"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180274"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Restaurar as bases de dados SAP HANA num Azure VM usando Azure CLI
 
@@ -113,7 +113,7 @@ A resposta à consulta acima será um objeto config de recuperação que se pare
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-Agora, para restaurar a base de dados executar o az restaurar o cmdlet [de restauração-azurewl.](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) Para utilizar este comando, introduziremos a saída json acima guardada para um ficheiro chamado *recoveryconfig.jsem*.
+Agora, para restaurar a base de dados executar o az restaurar o cmdlet [de restauração-azurewl.](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) Para usar este comando, vamos introduzir a saída json acima que é guardada para um ficheiro chamado *recoveryconfig.jsem*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -154,7 +154,7 @@ A resposta à consulta acima será um objeto config de recuperação que parece 
 {"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-Agora, para restaurar a base de dados executar o az restaurar o cmdlet [de restauração-azurewl.](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) Para utilizar este comando, introduziremos a saída json acima guardada para um ficheiro chamado *recoveryconfig.jsem*.
+Agora, para restaurar a base de dados executar o az restaurar o cmdlet [de restauração-azurewl.](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) Para usar este comando, vamos introduzir a saída json acima que é guardada para um ficheiro chamado *recoveryconfig.jsem*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \

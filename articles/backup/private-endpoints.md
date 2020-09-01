@@ -3,12 +3,12 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8e9fe46bf3f7528b3a6a08a7c8d90ea6f9117cdd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017673"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179237"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
@@ -239,7 +239,7 @@ Isto requer que você faça entradas para cada FQDN no seu ponto final privado n
 Uma vez aprovados os pontos finais privados criados para o cofre no seu VNet, pode começar a ui-los para executar as suas cópias de segurança e restauros.
 
 >[!IMPORTANT]
->Certifique-se de que preencheu todas as etapas acima mencionadas no documento com sucesso antes de prosseguir. Para recapitular, deve ter completado os passos na seguinte lista de verificação:
+>Certifique-se de que completou todos os passos acima mencionados no documento com sucesso antes de prosseguir. Para recapitular, deve ter completado os passos na seguinte lista de verificação:
 >
 >1. Criou um cofre (novo) serviços de recuperação
 >1. Permitiu que o cofre usasse o sistema atribuído Identidade Gerida

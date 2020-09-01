@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos Serviços de Recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 0b06b12c2bb989e4c0fc4e04440fc5f452df2da3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827125"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181515"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -17,7 +17,7 @@ Este artigo explica como mover um cofre de Serviços de Recuperação configurad
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-O movimento de recursos para o cofre dos Serviços de Recuperação é suportado na Austrália Leste, Austrália Sudeste, Canadá Central, Canadá Leste, Ásia Do Sudeste, Ásia Oriental, Eua Central, Eua Central, Leste dos EUA 2, Central Sul dos EUA, Centro-Oeste dos EUA, West Central EUA 2, West US 2, West US 2, Índia Central, Índia Central, Índia Central, Índia Do Sul, Japão Oriental, Japão Ocidental, Coreia Central, Coreia do Sul, Europa do Norte , Europa Ocidental, África do Sul Norte, África do Sul Oeste, Reino Unido Sul e Reino Unido Oeste.
+O movimento de recursos para o cofre dos Serviços de Recuperação é suportado na Austrália Leste, Austrália Sudeste, Canadá Central, Canadá Leste, Ásia Sudeste, Ásia Oriental, Eua Central, Eua Central Do Norte, Leste dos EUA 2, Central Sul dos EUA, Centro Ocidental DOS EUA 2, West US 2, West US 2, Brasil Sul, Índia Central, Índia Central, Japão Oriental, Japão Ocidental, Coreia Do Sul, Coreia do Sul , Europa do Norte, Europa Ocidental, África do Sul Norte, África do Sul Oeste, Reino Unido Sul e Reino Unido Ocidental.
 
 ## <a name="unsupported-regions"></a>Regiões não suportadas
 

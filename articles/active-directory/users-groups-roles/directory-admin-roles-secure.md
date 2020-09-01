@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd189db10b599c0bc6bd5a3dbae2b1bc21b53b0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 033752eed30e898f5306154f73a9ca6741c1f81c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795920"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179577"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -310,11 +310,11 @@ O [Centro de Segurança Azure:](../../security-center/security-center-intro.md)
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Coumente as suas contas privilegiadas dentro de Máquinas Virtuais hospedadas
 
-Normalmente não precisa de dar aos utilizadores permissões ilimitadas a todas as suas subscrições ou recursos Azure. Utilize funções de administração Azure AD para conceder apenas o acesso que os seus utilizadores precisam para fazer o seu trabalho. Pode utilizar as funções de administrador AD da Azure para permitir que um administrador gere apenas VMs numa subscrição, enquanto outro pode gerir bases de dados SQL dentro da mesma subscrição. Para obter mais informações, consulte [Começar com o Controlo de Acesso Baseado em Fun no portal Azure.](../../role-based-access-control/overview.md)
+Normalmente não precisa de dar aos utilizadores permissões ilimitadas a todas as suas subscrições ou recursos Azure. Utilize funções de administração Azure AD para conceder apenas o acesso que os seus utilizadores precisam para fazer o seu trabalho. Pode utilizar as funções de administrador AD da Azure para permitir que um administrador gere apenas VMs numa subscrição, enquanto outro pode gerir bases de dados SQL dentro da mesma subscrição. Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções do Azure.](../../role-based-access-control/overview.md)
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implementar pim para funções de administrador ad Azure
 
-Use gestão de identidade privilegiada com funções de administrador da Ad Azure para gerir, controlar e monitorizar o acesso aos recursos da Azure. A utilização de PIM protege reduzindo o tempo de exposição dos privilégios e aumentando a sua visibilidade para a sua utilização através de relatórios e alertas. Para mais informações, consulte [gerir o acesso do RBAC aos recursos da Azure com Gestão de Identidade Privilegiada.](../../role-based-access-control/best-practices.md)
+Use gestão de identidade privilegiada com funções de administrador da Ad Azure para gerir, controlar e monitorizar o acesso aos recursos da Azure. A utilização de PIM protege reduzindo o tempo de exposição dos privilégios e aumentando a sua visibilidade para a sua utilização através de relatórios e alertas. Para mais informações, consulte [o que é Azure AD Gestão de Identidade Privilegiada.](../privileged-identity-management/pim-configure.md)
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Utilize integrações de registos Azure para enviar registos Azure relevantes para os seus sistemas SIEM
 

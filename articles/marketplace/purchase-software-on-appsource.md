@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: e3faad025a794b0ae9905fa73b090b55799f3279
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5c5f690fd5fefbd67180ea04d5ca1d269676f7b7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103043"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180818"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como adquirir software no Microsoft AppSource
 
@@ -63,6 +63,6 @@ Depois de receber o pedido, pode levar vários segundos para ser confirmado. Rec
 
 Para produtos empresariais, [contacte aqui.](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [documentação do Mercado Comercial](partner-center-portal/commercial-marketplace-overview.md) para obter mais informações.

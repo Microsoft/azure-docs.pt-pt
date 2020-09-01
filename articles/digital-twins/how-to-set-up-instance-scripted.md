@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588000"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181379"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -55,7 +55,7 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
     * Por exemplo: um nome *de grupo de recursos.* Pode utilizar um grupo de recursos existente ou introduzir um novo nome para criar.
     * Por exemplo: um *nome* para o seu exemplo de Azure Digital Twins. O nome do novo caso deve ser único na região para a sua subscrição (o que significa que se a sua subscrição tiver outra instância Azure Digital Twins na região que já está a usar o nome que escolher, será solicitado que escolha um nome diferente).
     * Para o registo da aplicação: um *nome de exposição de aplicações AZure AD* para associar ao registo. Este registo de aplicações é onde configura permissões de acesso às [APIs das Gémeas Digitais Azure.](how-to-use-apis-sdks.md) Posteriormente, a aplicação do cliente irá autenticar-se contra o registo da aplicação e, consequentemente, será-lhe concedidas as permissões de acesso configuradas às APIs.
-    * Para o registo da aplicação: um *URL de resposta a aplicação Azure AD* para a aplicação AZure AD. Pode `http://localhost` usar.
+    * Para o registo da aplicação: um *URL de resposta a aplicação Azure AD* para a aplicação AZure AD. Utilize `http://localhost`. O script irá configurar um URI *de cliente público/nativo (mobile & desktop)* para o mesmo.
 
 O script criará uma instância Azure Digital Twins, atribuirá ao seu utilizador Azure o papel *de Azure Digital Twins Owner (Preview)* no caso, e configurará um registo de aplicações AD AZure para a aplicação do seu cliente para usar.
 

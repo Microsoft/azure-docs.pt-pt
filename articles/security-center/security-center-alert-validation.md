@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cf732b92c1a208dd4c312ae442969ef958a021b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf73b3949b0a0dc1e76ebdebb191af0a33ce22ff
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791185"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180478"
 ---
-# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alertas (ficheiro de teste EICAR) no Centro de Segurança Azure
+# <a name="alert-validation-in-azure-security-center"></a>Validação de alerta no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
@@ -31,14 +31,14 @@ Para mais informações, consulte [alertas de segurança no Centro de Segurança
 
 * [Windows](#validate-windows)
 * [Linux](#validate-linux)
-* [Utilizar o Kubernetes](#validate-kubernetes)
+* [Kubernetes](#validate-kubernetes)
 
-## <a name="validate-alerts-on-windows-vms"></a>Validar alertas em VMs do Windows<a name="validate-windows"></a>
+## <a name="validate-alerts-on-windows-vms"></a>Validar alertas em VMs do Windows <a name="validate-windows"></a>
 
 Depois de instalado o agente do Centro de Segurança no seu computador, siga estes passos a partir do computador onde pretende ser o recurso atacado do alerta:
 
 1. Copie um executável (por exemplo **calc.exe) **para o ambiente de trabalho do computador, ou outro diretório da sua conveniência, e rebatize-o como **ASC_AlertTest_662jfi039N.exe**.
-1. Abra o pedido de comando e execute este ficheiro com um argumento (apenas um nome de argumento falso), tais como:```ASC_AlertTest_662jfi039N.exe -foo```
+1. Abra o pedido de comando e execute este ficheiro com um argumento (apenas um nome de argumento falso), tais como: ```ASC_AlertTest_662jfi039N.exe -foo```
 1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Deve aparecer um alerta.
 
 > [!NOTE]
@@ -46,7 +46,7 @@ Depois de instalado o agente do Centro de Segurança no seu computador, siga est
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## <a name="validate-alerts-on-linux-vms"></a>Validar alertas em VMs Linux<a name="validate-linux"></a>
+## <a name="validate-alerts-on-linux-vms"></a>Validar alertas em VMs Linux <a name="validate-linux"></a>
 
 Depois de instalado o agente do Centro de Segurança no seu computador, siga estes passos a partir do computador onde pretende ser o recurso atacado do alerta:
 1. Copie um executável para um local conveniente e rebatize-o para **./asc_alerttest_662jfi039n,** por exemplo:
@@ -60,7 +60,7 @@ Depois de instalado o agente do Centro de Segurança no seu computador, siga est
 1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Deve aparecer um alerta.
 
 
-## <a name="validate-alerts-on-kubernetes"></a>Validar alertas sobre Kubernetes<a name="validate-kubernetes"></a>
+## <a name="validate-alerts-on-kubernetes"></a>Validar alertas sobre Kubernetes <a name="validate-kubernetes"></a>
 
 Se estiver a utilizar a funcionalidade de pré-visualização do Security Center de integração do Serviço Azure Kubernetes, execute o seguinte comando kubectl para testar que os seus alertas estão a funcionar:
 
@@ -68,7 +68,7 @@ Se estiver a utilizar a funcionalidade de pré-visualização do Security Center
 
 Para obter mais informações sobre a integração do Serviço Azure Kubernetes e do Centro de Segurança Azure, consulte [este artigo.](azure-kubernetes-service-integration.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo apresentou-lhe o processo de validação de alertas. Agora que está familiarizado com a validação, experimente os seguintes artigos:
 
 * [Validação da deteção de ameaças de cofre de chave Azure no Centro de Segurança Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)

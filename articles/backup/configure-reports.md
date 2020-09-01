@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 255f0b5f0066c0a437daba85121edb2f99ba590d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0ede2c8507032811eda26cfcb4d90f18578f3700
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022399"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180291"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -175,7 +175,7 @@ Os widgets do relatório Backup são alimentados por consultas kusto, que funcio
 
 - A aplicação anterior do modelo Power BI para reporte, que originou dados de uma conta de armazenamento Azure, encontra-se num caminho de depreciação. Recomendamos que comece a enviar dados de diagnóstico de abóbada para registar análises para visualizar relatórios.
 
-- Além disso, o [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em um caminho de depreciação. Isto significa que se tiver escrito quaisquer consultas personalizadas ou automatizações com base no esquema V1, é aconselhável atualizar estas consultas para utilizar o esquema V2 atualmente suportado.
+- Além disso, o [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em um caminho de depreciação. Isto significa que se tiver escrito quaisquer consultas personalizadas ou automatizações com base no esquema V1, é aconselhável atualizar estas consultas para usar o esquema V2 atualmente suportado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

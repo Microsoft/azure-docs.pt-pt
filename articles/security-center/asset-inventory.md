@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 7fab15ae4e9e58af58a4490beb2d512379976d1c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88264009"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181108"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore e gere os seus recursos com ferramentas de inventário e gestão de ativos
 
@@ -40,7 +40,7 @@ As possibilidades de gestão de ativos para esta ferramenta são substanciais e 
 |Estado de libertação:|Pré-visualizar|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|Todos os utilizadores|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -102,6 +102,9 @@ Utilizando a [Língua de Consulta de Kusto (KQL),](https://docs.microsoft.com/az
 1. Para utilizar as **conclusões** de Segurança contêm filtro, introduza texto gratuito a partir do ID, verificação de segurança ou nome CVE de uma vulnerabilidade que encontra para filtrar para os recursos afetados:
 
     ![Filtro "Conclusões de segurança contêm" filtro](./media/asset-inventory/security-findings-contain-elements.png)
+
+    > [!TIP]
+    > As **conclusões de Segurança contêm** e os **filtros Tags** apenas aceitam um único valor. Para filtrar por mais de um, utilize **filtros Adicionar**.
 
 1. Para utilizar o filtro **de nível de preços,** selecione uma ou mais opções (Grátis, Parciais ou Standard):
 

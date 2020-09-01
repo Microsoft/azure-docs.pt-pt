@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: cdc5f56d4500581b36f366663dc3db915070ee2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649850"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181753"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandir discos rígidos virtuais num Linux VM com o Azure CLI
 
@@ -71,7 +71,7 @@ Para utilizar um disco expandido, expanda a partição subjacente e o sistema de
 1. SSH para o seu VM com as credenciais apropriadas. Pode ver o endereço IP público do seu VM com [a az vm show](/cli/azure/vm#az-vm-show):
 
     ```azurecli
-    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
+    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --output tsv
     ```
 
 1. Expandir a partição subjacente e o sistema de ficheiros.

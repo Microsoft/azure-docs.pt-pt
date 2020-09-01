@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225389"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181447"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquinas virtuais 
 
@@ -84,7 +84,7 @@ Se estiver a tentar instalar o Visual Studio ou qualquer produto licenciado pelo
 
 Para obter mais informações sobre a seleção de uma base aprovada, consulte [Criar os seus ativos técnicos da máquina virtual Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>A execução do caso de teste do kit de ferramenta falhou
+## <a name="tool-kit-test-case-execution-failed"></a>A execução do caso de teste do kit de ferramenta falhou 
 
 O conjunto de ferramentas de certificação da Microsoft pode ajudá-lo a executar casos de teste e verificar se o seu VHD ou imagem é compatível com o ambiente Azure.
 
@@ -113,7 +113,7 @@ A tabela que se segue enumera erros comuns que são encontrados durante a execu�
  
 |Cenário|Caso de teste|Erro|Solução|
 |---|---|---|---|
-|1|Caso de teste de versão linux agente|A versão mínima do agente Linux é 2.241 ou mais tarde. Esta exigência é obrigatória desde 1 de maio de 2020.|A imagem deve ser atualizada com a versão requerida para [apresentar o pedido](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|1|Caso de teste de versão linux agente|A versão mínima do agente Linux é 2.2.41 ou mais tarde. Esta exigência é obrigatória desde 1 de maio de 2020.|Por favor, atualize a versão do agente Linux e deverá ser 2.241 ou mais tarde. Para mais informações, pode visitar a [página de atualização da versão do Agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Caso de teste de história de bash|Verá um erro se o tamanho do histórico de bash na sua imagem submetida for superior a 1 quilobyte (KB). O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente sensível não seja capturada no seu ficheiro histórico de bash.|Para resolver este problema, monte o VHD em qualquer outro VM de trabalho e faça quaisquer alterações que pretenda (por exemplo, eliminar os ficheiros *históricos .bash)* para reduzir o tamanho para menos ou igual a 1 KB.|
 |3|Caso de teste do parâmetro do núcleo necessário|Receberá este erro quando o valor para **a consola** não estiver definido para **ttyS0**. Verifique executando o seguinte comando:<br>`cat /proc/cmdline`|Descreva o valor da **consola** para **o ttyS0**e reenvia o pedido.|
 |4|Caso de teste de intervalo clientealive|Se o resultado do toolkit lhe der um resultado falhado para este caso de teste, existe um valor inadequado para **o ClientAliveInterval**.|Descreva o valor para **ClientAliveInterval** para menos ou igual a 235 e, em seguida, reenvia o pedido.|
@@ -363,9 +363,10 @@ Os editores devem contactar o suporte no [Marketplace Publisher Support](https:/
    4.    Versão – A versão da oferta VM para a qual é pedida exceção
    5.   Tipo de exceção (Testes, VM bloqueados, modelos personalizados
    6.   Razão de pedido – Razão para esta exceção e informação sobre testes a isentar 
-   7.   Anexo - Anexar quaisquer documentos de prova de importância. Para VMs bloqueados, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como acessório. A não anexação do relatório para VMs bloqueados e o modelo ARM personalizado para modelos personalizados resultará em negação de pedido
+   7. Linha do tempo - Data até à qual esta exceção foi solicitada 
+   8.   Anexo - Anexar quaisquer documentos de prova de importância. Para VMs bloqueados, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como acessório. A não anexação do relatório para VMs bloqueados e o modelo ARM personalizado para modelos personalizados resultará em negação de pedido
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dúvidas ou feedback para melhorar, contacte [o Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).

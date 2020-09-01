@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: fcaac4c1efe6507d4f69acd897e456400b1f61f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1f8e0464eb7f513149dd1cfa2ec5dcdc0f193417
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088123"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181226"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-with-gpu"></a>Tutorial: Configure certificados para o seu Azure Stack Edge com GPU
 
 Este tutorial descreve como pode configurar certificados para o seu dispositivo Azure Stack Edge com uma GPU a bordo utilizando a UI web local.
 
-O tempo necessário para este passo pode variar dependendo da opção específica que escolher na forma como o fluxo de certificado é estabelecido no seu ambiente. 
+O tempo necessário para este passo pode variar dependendo da opção específica que escolher e da forma como o fluxo de certificado é estabelecido no seu ambiente.
 
 Neste tutorial, ficará a saber mais sobre:
 
@@ -36,8 +36,8 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge com GPU, cer
 * Instalou o dispositivo físico conforme detalhado na [Instalação Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
 * Se pretender trazer os seus próprios certificados:
     - Deve ter os seus certificados prontos no formato apropriado, incluindo o certificado de cadeia de assinatura.
-    - Se o seu dispositivo for implantado no Azure Government ou no Azure Government Secret ou na Azure Government top secret cloud e não for implantado na nuvem pública do Azure, é necessário um certificado de cadeia de assinatura antes de poder ativar o seu dispositivo. 
-    Para mais informações sobre o certificado, aceda a [Certificados de Gestão](azure-stack-edge-j-series-manage-certificates.md).
+<!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
+    For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 
 ## <a name="configure-certificates-for-device"></a>Certificados de configuração para dispositivo
@@ -55,9 +55,9 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge com GPU, cer
 
     - Se alterar o nome do dispositivo ou o domínio DNS e, em seguida, para ativar com sucesso o seu dispositivo, pode escolher uma das seguintes opções: 
     
-        - Gere todos os certificados do dispositivo. **Os certificados do dispositivo só devem ser utilizados para testes e não utilizados com cargas de trabalho de produção.** Para obter mais informações, aceda aos [certificados do dispositivo Generate no seu Azure Stack Edge](#generate-device-certificates).
+        - **Gere todos os certificados do dispositivo.** Os certificados do dispositivo só devem ser utilizados para testes e não utilizados com cargas de trabalho de produção.** Para obter mais informações, vá a [Gerar certificados de dispositivo no seu Azure Stack Edge](#generate-device-certificates).
 
-        - Traga os seus próprios certificados. Pode trazer os seus próprios certificados de ponto final assinados e as respetivas cadeias de assinatura. Primeiro adicione a cadeia de assinaturas e, em seguida, carre fique com os certificados de ponto final. **Recomendamos que traga sempre os seus próprios certificados para cargas de trabalho de produção.** Para mais informações, vá [buscar os seus próprios certificados no seu dispositivo Azure Stack Edge](#bring-your-own-certificates).
+        - **Traga os seus próprios certificados.** Pode trazer os seus próprios certificados de ponto final assinados e as respetivas cadeias de assinatura. Primeiro adicione a cadeia de assinaturas e, em seguida, carre fique com os certificados de ponto final. **Recomendamos que traga sempre os seus próprios certificados para cargas de trabalho de produção.** Para mais informações, vá [buscar os seus próprios certificados no seu dispositivo Azure Stack Edge](#bring-your-own-certificates).
     
         - Pode trazer alguns dos seus próprios certificados e gerar alguns certificados de dispositivo. A opção **gerar certificados** só regenerará os certificados do dispositivo.
 

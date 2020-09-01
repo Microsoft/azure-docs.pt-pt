@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/03/2020
-ms.openlocfilehash: 49cfc4899379698cab78a5e22fcffacb60636052
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/18/2020
+ms.openlocfilehash: b2a356f8ee6c8e3d11548a3c7c17a868e4c057c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223640"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179186"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -36,7 +36,7 @@ Para utilizar um conjunto de dados inline, selecione o formato pretendido no sel
 
 ![Conjunto de dados inline](media/data-flow/inline-selector.png "Conjunto de dados inline")
 
-##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>Tipos de pias suportados
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Tipos de pias suportados
 
 Mapeamento do Fluxo de Dados segue uma abordagem de extrato, carga, transformação (ELT) e trabalha com conjuntos de dados de *encenação* que estão todos em Azure. Atualmente, os seguintes conjuntos de dados podem ser utilizados numa transformação de fonte:
 
@@ -48,8 +48,9 @@ Mapeamento do Fluxo de Dados segue uma abordagem de extrato, carga, transformaç
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure CosmosDB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-As definições específicas destes conectores estão localizadas no separador **Definições.** 
+As definições específicas destes conectores estão localizadas no **separador Definições.** Os exemplos de scripts de fluxo de informação e de fluxo de dados nestas definições estão localizados na documentação do conector. 
 
 O Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para escrever dados para as outras fontes do seu fluxo de dados, utilize a Atividade de Cópia para carregar esses dados a partir de um lavatório suportado.
 

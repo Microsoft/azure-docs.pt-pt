@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c119b56d33908dbc0e53d588f3ac4ea155c8de
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: d88873dafd5a3ffac3f0135d877ff407427ffd6f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799100"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179866"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre O Diretório Ativo Azure
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [What is Azure Active Directory? (O que 
 **R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se não tiver uma subscrição paga do Office 365 ou da AD Azure, terá de ativar uma [conta Azure](https://azure.microsoft.com/free/
 ) gratuita ou uma subscrição paga.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Como as subscrições do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
@@ -51,7 +51,7 @@ Os serviços pagos do Azure AD, como o Enterprise Mobility + Security complement
 
 **A:** Por predefinição, a pessoa que se inscreve para uma subscrição Azure é atribuída a função proprietário para recursos Azure. Um Proprietário pode usar uma conta Microsoft ou uma conta de trabalho ou escola a partir do diretório a que a subscrição do Azure está associada.  Esta função está autorizada a gerir serviços no portal do Azure.
 
-Se outros precisarem de iniciar sessão e aceder aos serviços utilizando a mesma subscrição, pode [atribuir-lhes](../../role-based-access-control/built-in-roles.md)a função incorporada adequada . Para obter informações adicionais, consulte [Gerir o acesso através do RBAC e do portal Azure.](../../role-based-access-control/role-assignments-portal.md)
+Se outros precisarem de iniciar sessão e aceder aos serviços utilizando a mesma subscrição, pode [atribuir-lhes](../../role-based-access-control/built-in-roles.md)a função incorporada adequada . Para obter informações adicionais, consulte [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Por padrão, a pessoa que se inscreve para uma subscrição Azure é atribuída a função de Administrador Global para o diretório. O Administrador Global tem acesso a todas as funcionalidades do diretório AZure. A Azure AD tem um conjunto diferente de funções de administrador para gerir as características relacionadas com o diretório e identidade. Estes administradores terão acesso a várias funcionalidades no portal Azure. A função do administrador determina o que podem fazer, como criar ou editar utilizadores, atribuir funções administrativas a outros, redefinir palavras-passe do utilizador, gerir licenças de utilizador ou gerir domínios.  Para obter informações adicionais sobre os administradores de diretórios Adu da Azure e as suas funções, consulte [atribuir um utilizador às funções de administrador em Azure Ative Directory](active-directory-users-assign-role-azure-portal.md) e atribuir [funções de administrador em Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
@@ -160,7 +160,7 @@ Para obter a lista completa das aplicações previamente integradas, consulte [A
 
 **R:** Com o Azure AD Premium, pode adicionar e configurar qualquer aplicação que desejar. Dependendo das capacidades da sua aplicação e das suas preferências, pode configurar sSO e provisões automatizadas.  
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](../app-provisioning/use-scim-to-provision-users-and-groups.md)
@@ -182,7 +182,7 @@ Para obter mais informações, consulte [experiências do utilizador final para 
 
 **R:** O Azure AD suporta vários protocolos normalizados para a autenticação e autorização, tais como SAML 2.0, OpenID Connect, OAuth 2.0 e WS-Federation. O Azure AD também suporta cofres de palavras-passe e as capacidades de início de sessão automatizado para aplicações que apenas suportam autenticação baseada em formulários.  
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md)
 * [Protocolos de autenticação de diretório ativo](https://msdn.microsoft.com/library/azure/dn151124.aspx)

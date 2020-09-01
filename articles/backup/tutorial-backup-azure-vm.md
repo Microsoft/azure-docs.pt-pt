@@ -4,12 +4,12 @@ description: Este tutorial detalha o backup de vários VMs Azure para um cofre d
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 8d798b594fe28ad6a1a3924406493841ab661ca7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075682"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181736"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer cópias de segurança de VMs do Azure com o PowerShell
 
@@ -27,7 +27,7 @@ Neste tutorial, ficará a saber como:
 > * Desempate um trabalho de backup a pedido para as máquinas virtuais protegidas Antes de poder fazer backup (ou proteger) uma máquina virtual, tem de completar os [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o seu ambiente para proteger os seus VMs.
 
 > [!IMPORTANT]
-> Este tutorial parte do princípio de que já criou um grupo de recursos e uma máquina virtual do Azure.
+> Este tutorial pressupõe que já criou um grupo de recursos e uma máquina virtual Azure.
 
 ## <a name="sign-in-and-register"></a>Inscreva-se e registe-se
 

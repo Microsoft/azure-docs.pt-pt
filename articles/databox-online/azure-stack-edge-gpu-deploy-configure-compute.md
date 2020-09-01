@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 9fd940ec5cfb3eac9d0072c8554ca6bd295a50ec
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8ba460168edc03b1cb491d69010acd03f4a84ae3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088087"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181603"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Tutorial: Configurar computação no dispositivo GPU Azure Stack Edge
 
@@ -59,7 +59,7 @@ Para configurar o cálculo no seu Azure Stack Edge, irá criar um recurso IoT Hu
     |Campo  |Valor  |
     |---------|---------|
     |Hub IoT     | Escolha entre **Novo** ou **Já.** <br> Por padrão, um nível Standard (S1) é usado para criar um recurso IoT. Para utilizar um recurso IoT de nível livre, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
+    |Name     |Insira um nome para o seu recurso IoT Hub.         |
 
     ![Começar com o computo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
@@ -80,7 +80,7 @@ Pode levar 20 a 30 minutos para configurar o cálculo, uma vez que nos bastidore
 
 Depois de configurar com sucesso o computação no portal Azure, existe um cluster Kubernetes e um utilizador padrão associado ao espaço de nome IoT (um espaço de nome do sistema controlado por Azure Stack Edge). 
 
-## <a name="get-kubernetes-api-endpoint"></a>Obtenha o ponto final da API de Kubernetes
+## <a name="get-kubernetes-endpoints"></a>Obter pontos finais de Kubernetes
 
 Para configurar um cliente para aceder ao cluster Kubernetes, você precisará do ponto final de Kubernetes. Siga estes passos para obter o ponto final da API da Kubernetes a partir da UI local do seu dispositivo Azure Stack Edge.
 
@@ -91,13 +91,21 @@ Para configurar um cliente para aceder ao cluster Kubernetes, você precisará d
 
 3. Salve a corda do ponto final. Você usará isto mais tarde ao configurar um cliente para aceder ao cluster Kubernetes via kubectl.
 
-4. Enquanto estiver na UI web local, selecione **definições avançadas** e descarregue um ficheiro config. 
+4. Enquanto estiver na internet local, pode:
 
-    ![Página do dispositivo na UI local](./media/azure-stack-edge-j-series-create-kubernetes-cluster/advanced-config-1.png)
+    - Vá à API de Kubernetes, selecione **definições avançadas** e descarregue um ficheiro de configuração avançado para Kubernetes. 
 
-    Se lhe for fornecida uma chave da Microsoft (os utilizadores selecionados podem tê-lo), então pode utilizar este ficheiro config.
+        ![Página do dispositivo no UI local 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-    ![Página do dispositivo na UI local](./media/azure-stack-edge-j-series-create-kubernetes-cluster/advanced-config-2.png)
+        Se lhe for fornecida uma chave da Microsoft (os utilizadores selecionados podem tê-lo), então pode utilizar este ficheiro config.
+
+        ![Página do dispositivo no UI local 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
+
+    - Também pode ir ao ponto final **do painel de instrumentos de Kubernetes** e descarregar um `aseuser` ficheiro config. 
+    
+        ![Página do dispositivo no UI local 3](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
+
+        O `aseuser` ficheiro config permite-lhe depurar quaisquer problemas relacionados com o `iotedge` espaço de nome no seu cluster Kubernetes. Para mais informações, consulte [os problemas de Debug Kubernetes.](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge) 
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -106,7 +114,7 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Configure computação
-> * Obtenha o ponto final da API de Kubernetes
+> * Obter pontos finais de Kubernetes
 
 
 Para aprender a administrar o seu dispositivo Azure Stack Edge, consulte:

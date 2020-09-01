@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6d95cb938a341b94a32989e82c42d37956c0a80
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792535"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179849"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Lidar com documentos EDIFACT com segmentos UNH2.5 em Azure Logic Apps
 
@@ -57,12 +57,10 @@ Para codificar a mensagem de entrada, configurar o esquema no acordo EDIFACT env
 
 1. Configurar o esquema nas definições de envio do acordo EDIFACT.
 
-1. Selecione o acordo EDIFACT e clique em **Editar como JSON**.  Adicione o valor unH2.5 nos esquemas do Acordo de **EnvioReferências**
-
 1. Selecione o acordo EDIFACT e **selecione Editar como JSON**. Adicione o valor UNH2.5 à secção do Acordo de `schemaReferences` Envio:
 
    ![Adicione UNH2.5 para enviar acordo](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [acordos de conta de integração](../logic-apps/logic-apps-enterprise-integration-agreements.md)

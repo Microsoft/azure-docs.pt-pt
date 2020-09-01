@@ -3,12 +3,12 @@ title: Configurar configurações de diagnóstico de abóbada em escala
 description: Configurar definições de diagnóstico de log analytics para todos os cofres num determinado âmbito utilizando a Política Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 751ce0233fb232ef5d276c88a8c2429a2975b2f9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892240"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179985"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurar configurações de diagnóstico de abóbada em escala
 
@@ -78,7 +78,7 @@ Além disso, se um utilizador tiver um cofre com apenas um subconjunto dos seis 
 >
 > Se um cofre tiver uma definição de diagnóstico existente com um **subconjunto de** categorias específicas de recursos habilitadas, configuradas para enviar dados para um determinado espaço de trabalho de LA, diga 'Workspace X', então a tarefa de remediação falhará (apenas para esse cofre) se o espaço de trabalho la de destino fornecido na atribuição de Política for o **mesmo** 'Workspace X'.
 >
->Isto porque, se os eventos ativados por duas configurações de diagnóstico diferentes no mesmo recurso **se sobrepõem** de alguma forma, então as definições não podem ter o mesmo espaço de trabalho de LA que o destino. Terá de resolver manualmente esta falha, navegando até ao cofre relevante e configurando uma definição de diagnóstico com um espaço de trabalho de LA diferente como destino.
+>Isto porque, se os eventos ativados por duas configurações de diagnóstico diferentes no mesmo recurso **se sobrepõem** de alguma forma, então as definições não podem ter o mesmo espaço de trabalho de LA que o destino. Você terá que resolver manualmente esta falha, navegando para o cofre relevante e configurando um ajuste de diagnóstico com um espaço de trabalho de LA diferente como o destino.
 >
 > Note que a tarefa de remediação **não** falhará se a definição de diagnóstico existente como apenas AzureBackupReport ativada com o Workspace X como destino, uma vez que neste caso, não haverá sobreposição entre os eventos ativados pela configuração existente e os eventos habilitados pela configuração criada pela tarefa de remediação.
 

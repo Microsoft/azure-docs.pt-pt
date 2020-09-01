@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
-ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 08/31/2020
+ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589508"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181770"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
 
@@ -36,6 +36,15 @@ Pode considerar a execução de um [failover manual](../database/high-availabili
 > Garantir que as suas aplicações são resistentes antes de serem implementadas para a produção ajudará a mitigar o risco de falhas de aplicação na produção e contribuirá para a disponibilidade de aplicações para os seus clientes.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Iniciar falha manual em SqL Managed Instance
+
+### <a name="rbac-permissions-required"></a>Permissões DO RBAC necessárias
+
+O utilizador que iniciar uma falha terá de ter uma das seguintes funções do RBAC:
+
+- Função do Proprietário de Assinatura, ou
+- Papel de contribuinte de instância gerida, ou
+- Função personalizada com a seguinte permissão:
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### <a name="using-powershell"></a>Com o PowerShell
 

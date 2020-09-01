@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: fd50e649257ba8849f49cd3aae85e3228b9eb94c
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 50706e1b525a3e3a39701ef2135d44c02c35077e
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612219"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181141"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Encadernações de armazenamento de mesa Azure para funções Azure
 
@@ -94,7 +94,7 @@ public class TableStorage
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable` não é suportado no [tempo de execução funções v2](functions-versions.md). Uma alternativa é utilizar um `CloudTable` parâmetro de método para ler a tabela utilizando o Azure Storage SDK. Aqui está um exemplo de uma função que consulta uma tabela de registo de funções Azure:
+`IQueryable` só é suportado no [tempo de execução funções v1](functions-versions.md). Uma alternativa é utilizar um `CloudTable` parâmetro de método para ler a tabela utilizando o Azure Storage SDK. Aqui está um exemplo de uma função que consulta uma tabela de registo de funções Azure:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -555,7 +555,7 @@ Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)ut
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Table` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
@@ -611,7 +611,7 @@ O atributo [TableInput](/java/api/com.microsoft.azure.functions.annotation.table
 
 ---
 
-## <a name="output"></a>Resultado
+## <a name="output"></a>Saída
 
 Utilize uma ligação de saída de armazenamento da tabela Azure para escrever entidades a uma tabela numa conta de Armazenamento Azure.
 
@@ -942,7 +942,7 @@ Veja o [exemplo para mais detalhes.](#output)
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Table` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `table` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
 |**direção** | n/a | Deve ser definido para `out` . Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |

@@ -9,17 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2018
+ms.date: 08/28/2020
 ms.author: rogardle
-ms.openlocfilehash: ca40fcb6a2e483e656058835f187dc50bf7bc9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb4403747a3681abd6023cdb9b5e62fd50af12c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074061"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179645"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar uma Base de Dados Oráculo num VM Azure
 
@@ -82,7 +82,7 @@ ssh azureuser@<publicIpAddress>
 
 O software Oracle já está instalado na imagem marketplace. Crie uma base de dados de amostras da seguinte forma. 
 
-1.  Mude para o super-alimentador *oráculo* e, em seguida, inicialize o ouvinte para registar:
+1.  Mude para o utilizador *oráculo* e, em seguida, inicie o ouvinte Oráculo:
 
     ```bash
     $ sudo -su oracle
@@ -116,8 +116,13 @@ O software Oracle já está instalado na imagem marketplace. Crie uma base de da
     The listener supports no services
     The command completed successfully
     ```
+2. Criar um diretório de dados para os ficheiros de dados da Oracle
 
-2.  Criar a base de dados:
+    ```bash
+        mkdir /u01/app/oracle/oradata
+    ```
+
+3.  Criar a base de dados:
 
     ```bash
     dbca -silent \
@@ -136,28 +141,58 @@ O software Oracle já está instalado na imagem marketplace. Crie uma base de da
            -databaseType MULTIPURPOSE \
            -automaticMemoryManagement false \
            -storageType FS \
+           -datafileDestination "/u01/app/oracle/oradata/"
            -ignorePreReqs
     ```
 
     Leva alguns minutos para criar a base de dados.
 
-3. Definir variáveis Oráculo
+    Verá uma saída semelhante à seguinte:
 
-Antes de se ligar, é necessário definir duas variáveis ambientais: *ORACLE_HOME* e *ORACLE_SID*.
+    ```output
+        Copying database files
+        1% complete
+        2% complete
+        8% complete
+        13% complete
+        19% complete
+        27% complete
+        Creating and starting Oracle instance
+        29% complete
+        32% complete
+        33% complete
+        34% complete
+        38% complete
+        42% complete
+        43% complete
+        45% complete
+        Completing Database Creation
+        48% complete
+        51% complete
+        53% complete
+        62% complete
+        70% complete
+        72% complete
+        Creating Pluggable Databases
+        78% complete
+        100% complete
+        Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+    ```
 
-```bash
-ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-ORACLE_SID=cdb1; export ORACLE_SID
-```
+4. Definir variáveis Oráculo
 
-Também pode adicionar variáveis ORACLE_HOME e ORACLE_SID ao ficheiro .bashrc. Isto salvaria as variáveis ambientais para futuras insusagens. Confirme as seguintes declarações adicionadas ao ficheiro utilizando o `~/.bashrc` editor da sua escolha.
+    Antes de se ligar, é necessário definir duas variáveis ambientais: *ORACLE_HOME* e *ORACLE_SID*.
 
-```bash
-# Add ORACLE_HOME. 
-export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
-# Add ORACLE_SID. 
-export ORACLE_SID=cdb1 
-```
+    ```bash
+        ORACLE_SID=cdb1; export ORACLE_SID
+    ```
+
+    Também pode adicionar variáveis ORACLE_HOME e ORACLE_SID ao ficheiro .bashrc. Isto pouparia as variáveis ambientais para futuras inscrições. Confirme as seguintes declarações adicionadas ao ficheiro utilizando o `~/.bashrc` editor à sua escolha.
+
+    ```bash
+    # Add ORACLE_SID. 
+    export ORACLE_SID=cdb1 
+    ```
 
 ## <a name="oracle-em-express-connectivity"></a>Conectividade Oracle EM Express
 
@@ -315,7 +350,7 @@ Pode iniciar sessão utilizando a conta **SYS** e verificar como caixa de verifi
 
 ![Screenshot da página de login do Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Uma vez terminada a exploração da sua primeira base de dados Oracle em Azure e o VM já não é necessário, pode utilizar o comando de eliminação do [grupo AZ](/cli/azure/group) para remover o grupo de recursos, VM e todos os recursos relacionados.
 

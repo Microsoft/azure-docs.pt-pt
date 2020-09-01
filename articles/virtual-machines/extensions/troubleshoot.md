@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 2fa87e860d0f5f5117840b9e230e383cdd6aae7c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ad3197f20428ec751b4e3520af72dc5f8eb9ad28
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187562"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180360"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Falhas de extensão Azure Windows VM de resolução de problemas
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -63,6 +63,7 @@ Extensions:  {
 ```
 
 ## <a name="troubleshooting-extension-failures"></a>Falhas na extensão de resolução de problemas
+
 ### <a name="rerun-the-extension-on-the-vm"></a>Reencauma a extensão no VM
 Se estiver a executar scripts no VM utilizando a Extensão de Script Personalizado, pode por vezes encontrar um erro em que o VM foi criado com sucesso, mas o script falhou. Nestas condições, a forma recomendada de recuperar deste erro é remover a extensão e voltar a repetir o modelo.
 Nota: No futuro, esta funcionalidade seria melhorada para remover a necessidade de desinstalar a extensão.
@@ -74,3 +75,28 @@ Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomS
 
 Uma vez removida a extensão, o modelo pode ser re-executado para executar os scripts no VM.
 
+### <a name="trigger-a-new-goalstate-to-the-vm"></a>Desencadear um novo GoalState para o VM
+Pode notar que uma extensão não foi executada, ou que não está a ser executada devido a um "Gerador de Certificados CRP do Windows Azure" (esse certificado é utilizado para garantir o transporte das definições protegidas da extensão).
+Este certificado será automaticamente reingerido reiniciando o Windows Guest Agent a partir do interior da Máquina Virtual:
+- Abra o Gestor de Tarefas
+- Vá ao separador Detalhes
+- Localizar o processo de WindowsAzureGuestAgent.exe
+- Clique à direita e selecione "End Task". O processo será automaticamente reiniciado
+
+
+Também pode desencadear um novo GoalState para o VM, executando uma "atualização vazia":
+
+Azure PowerShell:
+
+```azurepowershell
+$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
+Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+```
+
+Azure CLI:
+
+```azurecli
+az vm update -g <rgname> -n <vmname>
+```
+
+Se uma "atualização vazia" não funcionar, pode adicionar um novo Disco de Dados vazio ao VM do Portal de Gestão Azure e, em seguida, removê-lo mais tarde uma vez que o certificado tenha sido adicionado de volta.

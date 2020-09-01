@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005017"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180342"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
 As organizações podem agora utilizar a autenticação do Azure Ative Directory (AD) para as suas máquinas virtuais Azure (VMs) que executam a **edição do Datacenter 2019 do Windows Server 2019** ou **do Windows 10 1809** e posteriormente. A utilização do Azure AD para autenticar em VMs proporciona-lhe uma forma de controlar e impor políticas centralmente. Ferramentas como o controlo de acesso baseado em funções Azure (Azure RBAC) e acesso condicional Ad Ad Azure permitem-lhe controlar quem pode aceder a um VM. Este artigo mostra-lhe como criar e configurar um VM Windows Server 2019 para utilizar a autenticação AD AZure.
 
 > [!NOTE]
-> O Azure AD in for Azure Windows VMs é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O Azure AD in for Azure Windows VMs é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte  [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar sessão no Windows VMs em Azure, incluindo:
 
@@ -32,14 +32,14 @@ Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar se
 - Já não têm de gerir as contas de administradores locais.
 - O Azure RBAC permite-lhe conceder o acesso adequado aos VMs com base na necessidade e removê-lo quando já não for necessário.
 - Antes de permitir o acesso a um VM, o Acesso Condicionado Azure AD pode impor requisitos adicionais tais como: 
-   - Multi-factor authentication
+   - Autenticação multifator
    - Verificação de risco de entrada
 - Automatize e dimensione Azure AD junte-se a VMs Azure Windows que fazem parte das suas implementações VDI.
 
 > [!NOTE]
 > Assim que ativar esta capacidade, os seus VMs windows em Azure serão aderidos ao Azure AD. Não pode junção a outros domínios, como AD ou AD DS Azure. Se precisar de o fazer, terá de desligar o VM do seu inquilino AZure AD desinstalando a extensão.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiões de Azure apoiadas e distribuição do Windows
 
@@ -274,7 +274,7 @@ Este código de saída traduz-se em DSREG_E_MSI_TENANTID_UNAVAILABLE porque a ex
 
    - RDP para o VM como administrador local e verificar o ponto final devolve o ID do inquilino válido executando este comando a partir de uma linha de comando elevada no VM:
       
-      - curl -H Metadados:verdadeirohttp://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - curl -H Metadados:verdadeiro http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
 
 1. O administrador VM tenta instalar a extensão AADLoginForWindows, mas um sistema atribuído identidade gerida não ativou primeiro o VM. Navegue até à lâmina de identidade do VM. A partir do separador Designado sistema, verifique se o Estado é alternado para On.
 
@@ -329,7 +329,7 @@ Se vir a seguinte mensagem de erro quando iniciar uma ligação remota de ambien
 
 ![A sua conta está configurada para evitar que utilize este dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verifique se configura [as políticas de RBAC](../../virtual-machines/linux/login-using-aad.md) para o VM que concede ao utilizador o Login do Administrador de Máquina Virtual ou a função de Login do Utilizador de Máquina Virtual:
+Verifique se [configuraram as políticas de RBAC do Azure](../../virtual-machines/linux/login-using-aad.md) para o VM que concede ao utilizador o Login do Administrador de Máquina Virtual ou a função de Login do Utilizador de Máquina Virtual:
  
 #### <a name="unauthorized-client"></a>Cliente não autorizado
 

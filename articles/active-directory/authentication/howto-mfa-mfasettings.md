@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027704"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179408"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
@@ -123,7 +123,7 @@ Os tokens de hardware OATH TOTP normalmente vêm com uma chave secreta, ou semen
 
 As fichas de hardware do OATH TOTP programáveis que podem ser ressequidas também podem ser configuradas com Azure AD no fluxo de configuração do token do software.
 
-As fichas de hardware da OATH são suportadas como parte de uma pré-visualização pública. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+As fichas de hardware da OATH são suportadas como parte de uma pré-visualização pública. Para obter mais informações sobre pré-visualizações, consulte  [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Upload de fichas de OATH para a lâmina de fichas de OATH do MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -195,7 +195,7 @@ Os seguintes scripts de amostra podem ser usados para criar as suas próprias me
 
 | Nome da mensagem | Script |
 | --- | --- |
-| Sucesso da autenticação | O seu sinal foi verificado com sucesso. Até logo. |
+| Sucesso da autenticação | O seu s-in foi verificado com sucesso. Até logo. |
 | Pedido de extensão | Obrigado por utilizar o sistema de verificação de insusição da Microsoft. Por favor, pressione a chave da libra para continuar. |
 | Confirmação de fraude | Foi apresentado um alerta de fraude. Para desbloquear a sua conta, contacte o balcão de apoio de TI da sua empresa. |
 | Saudação por fraude (Standard) | Obrigado por utilizar o sistema de verificação de insusição da Microsoft. Por favor, pressione a chave da libra para terminar a sua verificação. Caso não tenha iniciado esta verificação, alguém poderá estar a tentar aceder à sua conta. Por favor, pressione zero libra para apresentar um alerta de fraude. Isto irá notificar a equipa de TI da sua empresa e bloquear novas tentativas de verificação. |
@@ -242,12 +242,9 @@ A funcionalidade _IPs Fidedigna_ da Autenticação Multi-Factor Azure contorna a
 
 Se a sua organização implementar a extensão NPS para fornecer MFA a aplicações no local, note que o endereço IP de origem sempre parecerá ser o servidor NPS que a tentativa de autenticação flui através.
 
-| Tipo de inquilino Azure AD | Opções de recurso IP fidedignas |
-|:--- |:--- |
-| Gerido |**Gama específica de endereços IP**: Os administradores especificam uma gama de endereços IP que podem contornar a verificação em duas etapas para os utilizadores que se inscrevam na intranet da empresa. Um máximo de 50 gamas IP fidedignas podem ser configuradas.|
-| Federados |**Todos os Utilizadores Federados**: Todos os utilizadores federados que inserem sedudas a partir de dentro da organização podem contornar a verificação em duas etapas. Os utilizadores contornam a verificação utilizando uma alegação emitida pelos Serviços da Federação de Diretórios Ativos (AD FS).<br/>**Gama específica de endereços IP**: Os administradores especificam uma gama de endereços IP que podem contornar a verificação em duas etapas para os utilizadores que se inscrevam na intranet da empresa. |
+| Tipo de inquilino Azure AD / Opções de recurso IP confiáveis [ [:--- ]:--- [ dois passos ] Gerido / **Gama específica de endereços IP**: Os administradores especificam uma gama de endereços IP que podem contornar a autenticação de vários fatores para os utilizadores que se inscrevam na intranet da empresa. Um máximo de 50 gamas ip fidedignas podem ser configuradas./ | Federado **Todos os Utilizadores Federados**: Todos os utilizadores federados que inserem súmis a partir do interior da organização podem contornar a autenticação de vários fatores. Os utilizadores contornam a verificação utilizando uma alegação emitida pelos Serviços da Federação de Diretórios Ativos (AD FS).<br/>**Gama específica de endereços IP**: Os administradores especificam uma gama de endereços IP que podem contornar a autenticação de vários fatores para os utilizadores que se inscrevam na intranet da empresa. |
 
-O bypass IP fidedigno funciona apenas a partir do interior da intranet da empresa. Se selecionar a opção **Todos os Utilizadores Federados** e um utilizador entrar na intranet da empresa, o utilizador tem de autenticar utilizando a verificação em duas etapas. O processo é o mesmo mesmo se o utilizador apresentar uma reclamação de FS AD.
+O bypass IP fidedigno funciona apenas a partir do interior da intranet da empresa. Se selecionar a opção **Todos os Utilizadores Federados** e um utilizador entrar na intranet da empresa, o utilizador tem de autenticar utilizando a autenticação multi-factor. O processo é o mesmo mesmo se o utilizador apresentar uma reclamação de FS AD.
 
 ### <a name="end-user-experience-inside-of-corpnet"></a>Experiência de utilizador final dentro da corpnet
 
@@ -278,14 +275,14 @@ Para permitir iPs fidedignos utilizando políticas de acesso condicional, comple
 1. Selecione **Configurar IPs fidedignos MFA**.
 1. Na página **Definições de Serviço,** em **IPs Fidedignos,** escolha entre qualquer uma das duas opções seguintes:
 
-   * **Para pedidos de utilizadores federados originários da minha intranet**: Para escolher esta opção, selecione a caixa de verificação. Todos os utilizadores federados que entram na rede corporativa contornam a verificação em duas etapas utilizando uma alegação emitida pela AD FS. Certifique-se de que a AD FS tem uma regra para adicionar a alegação intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra em AD FS:
+   * **Para pedidos de utilizadores federados originários da minha intranet**: Para escolher esta opção, selecione a caixa de verificação. Todos os utilizadores federados que inserem súmido da rede corporativa contornam a autenticação de vários fatores utilizando uma reivindicação emitida pela AD FS. Certifique-se de que a AD FS tem uma regra para adicionar a alegação intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra em AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Para pedidos de um leque específico de IPs públicos**: Para escolher esta opção, insira os endereços IP na caixa de texto utilizando a notação CIDR.
       * Para endereços IP que estão na gama xxx.xxx.xxx.1 através de xxx.xxx.xxx.xxx.254, utilize a notação como **xxx.xxx.xxx.0/24**.
       * Para um único endereço IP, utilize a notação como **xxx.xxx.xxx.xxx/32**.
-      * Introduza até 50 intervalos de endereço IP. Os utilizadores que insinuem estes endereços IP contornam a verificação em duas etapas.
+      * Introduza até 50 intervalos de endereço IP. Os utilizadores que iniciarem sação a partir destes endereços IP contornam a autenticação de vários fatores.
 
 1. Selecione **Guardar**.
 
@@ -298,20 +295,20 @@ Se não quiser utilizar políticas de Acesso Condicional para ativar IPs fidedig
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
 1. Na página **Definições de Serviço,** em **IPs Fidedignos,** escolha uma (ou ambas) das duas opções seguintes:
 
-   * **Para pedidos de utilizadores federados na minha intranet**: Para escolher esta opção, selecione a caixa de verificação. Todos os utilizadores federados que entram na rede corporativa contornam a verificação em duas etapas utilizando uma alegação emitida pela AD FS. Certifique-se de que a AD FS tem uma regra para adicionar a alegação intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra em AD FS:
+   * **Para pedidos de utilizadores federados na minha intranet**: Para escolher esta opção, selecione a caixa de verificação. Todos os utilizadores federados que inserem súmido da rede corporativa contornam a autenticação de vários fatores utilizando uma reivindicação emitida pela AD FS. Certifique-se de que a AD FS tem uma regra para adicionar a alegação intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra em AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Para pedidos a partir de um intervalo especificado de sub-redes de endereços IP**: Para escolher esta opção, insira os endereços IP na caixa de texto utilizando a notação CIDR.
       * Para endereços IP que estão na gama xxx.xxx.xxx.1 através de xxx.xxx.xxx.xxx.254, utilize a notação como **xxx.xxx.xxx.0/24**.
       * Para um único endereço IP, utilize a notação como **xxx.xxx.xxx.xxx/32**.
-      * Introduza até 50 intervalos de endereço IP. Os utilizadores que insinuem estes endereços IP contornam a verificação em duas etapas.
+      * Introduza até 50 intervalos de endereço IP. Os utilizadores que iniciarem sação a partir destes endereços IP contornam a autenticação de vários fatores.
 
 1. Selecione **Guardar**.
 
 ## <a name="verification-methods"></a>Métodos de verificação
 
-Pode escolher os métodos de verificação disponíveis para os seus utilizadores no portal de definições de serviço. Quando os seus utilizadores inscrevem as suas contas para a Autenticação Multi-Factor Azure, eles escolhem o seu método de verificação preferido a partir das opções que ativou. Orientação para o processo de inscrição do utilizador é fornecida na [Configuração da minha conta para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-first-time.md).
+Pode escolher os métodos de verificação disponíveis para os seus utilizadores no portal de definições de serviço. Quando os seus utilizadores inscrevem as suas contas para a Autenticação Multi-Factor Azure, eles escolhem o seu método de verificação preferido a partir das opções que ativou. Orientação para o processo de inscrição do utilizador é fornecida na [Configuração da minha conta para a autenticação de vários fatores.](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 Estão disponíveis os seguintes métodos de verificação:
 
@@ -332,29 +329,29 @@ Para permitir ou desativar os métodos de verificação, complete as seguintes e
 1. Selecione **Multi-Factor Authentication**.
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
 1. Na página **Definições de Serviço,** nas **opções de verificação,** selecione/desescolte os métodos a fornecer aos seus utilizadores.
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 ## <a name="remember-multi-factor-authentication"></a>Lembre-se da autenticação multi-factor
 
-A funcionalidade _de autenticação multi-factor de ressoem_ que permite que os utilizadores possam contornar as verificações subsequentes durante um determinado número de dias, depois de terem assinado com sucesso um dispositivo utilizando a Autenticação Multi-Factor. A funcionalidade melhora a usabilidade minimizando o número de vezes que um utilizador tem de realizar MFA no mesmo dispositivo.
+A funcionalidade _de autenticação multi-factor de ressoem_ que permite que os utilizadores possam contornar as verificações subsequentes durante um determinado número de dias, depois de terem assinado com sucesso um dispositivo utilizando a Autenticação Multi-Factor. Para aumentar a usabilidade e minimizar o número de vezes que um utilizador tem de efetuar MFA no mesmo dispositivo, selecione uma duração igual ou superior a 90 dias.
 
 > [!IMPORTANT]
 > Se uma conta ou dispositivo estiver comprometido, lembrar a Autenticação Multi-Factor para dispositivos fidedignos pode afetar a segurança. Se uma conta corporativa ficar comprometida ou um dispositivo de confiança for perdido ou roubado, deverá [revogar as Sessões de MFA](howto-mfa-userdevicesettings.md).
 >
-> A ação de restauro revoga o estatuto de confiança de todos os dispositivos, e o utilizador é obrigado a efetuar novamente a verificação em duas etapas. Também pode instruir os seus utilizadores a restaurar a autenticação multi-factor nos seus próprios dispositivos, tal como indicado na [Gestão das suas definições para verificação em duas etapas.](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)
+> A ação de restauro revoga o estado de confiança de todos os dispositivos, e o utilizador é obrigado a efetuar novamente a autenticação de vários fatores. Também pode instruir os seus utilizadores a restaurar a Autenticação Multi-Factor nos seus próprios dispositivos, tal como indicado na [Gestão das suas definições para autenticação multi-factor](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Como funciona a funcionalidade
 
 A função de autenticação multi-factor de ressalsse que define um cookie persistente no navegador quando um utilizador seleciona a opção **X days** no início da súm. O utilizador não é solicitado novamente para autenticação multi-factor a partir desse mesmo navegador até que o cookie expire. Se o utilizador abrir um navegador diferente no mesmo dispositivo ou limpar os seus cookies, é solicitado novamente para verificar.
 
-A opção **'Não' peça novamente por X days** não é mostrada em aplicações não-navegadores, independentemente de a app suportar a autenticação moderna. Estas aplicações usam _fichas de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, a Azure AD verifica se a última verificação em duas etapas ocorreu dentro do número especificado de dias.
+A opção **'Não' peça novamente por X days** não é mostrada em aplicações não-navegadores, independentemente de a app suportar a autenticação moderna. Estas aplicações usam _fichas de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, a Azure AD verifica se a última autenticação multi-factor ocorreu dentro do número especificado de dias.
 
-A funcionalidade reduz o número de autenticações em aplicações web, que normalmente solicitam sempre. A funcionalidade aumenta o número de autenticações para clientes de autenticação moderna que normalmente solicitam a cada 90 dias. Pode também aumentar o número de autenticações quando combinadas com as políticas de Acesso Condicional.
+A funcionalidade reduz o número de autenticações em aplicações web, que normalmente solicitam sempre. A funcionalidade pode aumentar o número de autenticações para clientes de autenticação moderna que normalmente solicitam a cada 90 dias, se for configurada uma duração mais baixa. Pode também aumentar o número de autenticações quando combinadas com as políticas de Acesso Condicional.
 
 > [!IMPORTANT]
-> A funcionalidade **de autenticação multi-factor de resso para o remember** não é compatível com a funcionalidade **"Manter-me assinado em** funcionalidade de AD FS", quando os utilizadores efetuam a verificação em duas etapas para AD FS através do Azure Multi-Factor Authentication Server ou uma solução de autenticação multi-factor de terceiros.
+> A funcionalidade **de autenticação multi-factor de resso para o remember** não é compatível com a funcionalidade **"Manter-me assinado em** funcionalidade de AD FS", quando os utilizadores realizam a autenticação multi-factor para AD FS através do Azure Multi-Factor Authentication Server ou uma solução de autenticação multi-factor de terceiros.
 >
-> Se os seus utilizadores selecionarem **manter-me informado no** AD FS e também marcar o seu dispositivo como confiável para a Autenticação Multi-Factor, o utilizador não é verificado automaticamente após o fim do número de dias de autenticação de **vários fatores.** O Azure AD solicita uma nova verificação em duas etapas, mas a AD FS devolve um token com a reivindicação e data originais de autenticação multi-factor, em vez de realizar novamente a verificação em duas etapas. **Esta reação desencadeia um ciclo de verificação entre a Azure AD e a AD FS.**
+> Se os seus utilizadores selecionarem **manter-me informado no** AD FS e também marcar o seu dispositivo como confiável para a Autenticação Multi-Factor, o utilizador não é verificado automaticamente após o fim do número de dias de autenticação de **vários fatores.** O Azure AD solicita uma autenticação nova de vários fatores, mas a AD FS devolve um token com a reivindicação e data originais de autenticação multi-factor, em vez de realizar novamente a autenticação de vários fatores. **Esta reação desencadeia um ciclo de verificação entre a Azure AD e a AD FS.**
 >
 > A funcionalidade **de autenticação multi-factor de resso para o remember** não é compatível com os utilizadores B2B e não será visível para os utilizadores B2B ao iniciar sessão nos inquilinos convidados.
 >
@@ -366,8 +363,8 @@ Para permitir e configurar a opção de os utilizadores se lembrarem do seu esta
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, escolha **Utilizadores**.
 1. Selecione **Multi-Factor Authentication**.
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
-1. Na página **'Definições de Serviço',** **gerencie a autenticação multi-factores**, selecione o **Permitir que os utilizadores se lembrem da autenticação de vários fatores nos dispositivos em que confiam na** opção.
-1. Desafie o número de dias para permitir que dispositivos fidedignos contornem a verificação em duas etapas. O padrão é de 14 dias.
+1. Na página **'Definições de Serviço',** sob **a autenticação de vários fatores**, selecione o **Permitir que os utilizadores se lembrem da autenticação de vários fatores nos dispositivos em que confiam na** opção.
+1. Desafie o número de dias para permitir que dispositivos fidedignos contornem a autenticação de vários fatores. Para uma experiência de utilização ótima, prolongue a duração para *90* ou mais dias.
 1. Selecione **Guardar**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marque um dispositivo como confiável

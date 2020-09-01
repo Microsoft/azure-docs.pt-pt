@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 673bd211f3271eceacb18e7fabfcc6ace2ded42c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 36d331de3a93e04932c4bce4d14704b33f69fab6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088059"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181549"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Tutorial: Rede de configuração para Azure Stack Edge com GPU
 
@@ -84,7 +84,7 @@ Siga estes passos para configurar a rede para o seu dispositivo.
      >[!NOTE]
      >
      > * Recomendamos que não altere o endereço IP local da interface de rede de estática para DCHP, a menos que tenha outro endereço IP para ligar ao dispositivo. Se utilizar uma interface de rede e mudar para DHCP, não haverá forma de determinar o endereço DHCP. Se pretender alterar para um endereço DHCP, aguarde até que o dispositivo tenha sido ativado com o serviço e, em seguida, altere. Em seguida, pode visualizar os IPs de todos os adaptadores nas propriedades do **Dispositivo** no portal Azure para o seu serviço.
-     > * Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge, recomendamos que desementa da web como **Nenhum**. A NTLM não é suportada.
+
 
     Depois de configurar e aplicar as definições de rede, volte para **começar**.
 
@@ -120,7 +120,11 @@ Siga estes passos para permitir a computação e configurar a rede de computaç�
 
 Esta é uma configuração opcional.
 
-1. Vá à página Get start na UI web local do seu dispositivo.
+> [!IMPORTANT]
+> * Se ativar o módulo IoT Edge no seu dispositivo Azure Stack Edge, recomendamos que desementa da web como **Nenhum**. A NTLM não é suportada.
+>* Os ficheiros Proxy-auto config (PAC) não são suportados. Um ficheiro PAC define como os navegadores web e outros agentes do utilizador podem escolher automaticamente o servidor proxy apropriado (método de acesso) para obter um determinado URL. Os proxies que tentam intercetar e ler todo o tráfego (em seguida, re-assinar tudo com a sua própria certificação) não são compatíveis uma vez que o certificado de procuração não é confiável. Os proxies tipicamente transparentes funcionam bem com o Azure Stack Edge. Os proxies web não transparentes não são suportados.
+
+1. Vá à página **Get start** na UI web local do seu dispositivo.
 2. No azulejo **da Rede,** configurar as definições do servidor de procuração web. Embora a configuração de procuração web seja opcional, se utilizar um representante web, pode configugá-la apenas nesta página.
 
    ![Página local de UI "Web proxy settings"](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-1.png)

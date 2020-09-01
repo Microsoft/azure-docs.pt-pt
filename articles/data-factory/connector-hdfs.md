@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 0104f9002a1fb4f6f1d0d31bd6eea50bce1b365b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 562acfe1ae96f7f88b72945846bcb49c0cc1f216
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050375"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179543"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copie os dados do servidor HDFS utilizando a Azure Data Factory
 
@@ -172,8 +172,8 @@ As seguintes propriedades são suportadas para HDFS `storeSettings` em definiç�
 | ***Definições adicionais*** |  | |
 | recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando `recursive` é definido como *verdadeiro* e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobragem vazia não é copiada ou criada na pia. <br>Os valores permitidos são *verdadeiros* (padrão) e *falsos.*<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
 | modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo *Last Modified*. <br>Os ficheiros são selecionados se o seu último tempo modificado estiver dentro do alcance de `modifiedDatetimeStart` `modifiedDatetimeEnd` . O tempo é aplicado ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributos de ficheiro é aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem um valor de data, mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é superior ou igual ao valor da data são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de data, mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data são selecionados.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | No                                            |
-| permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | Falso                                            |
-| partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | Falso                                            |
+| permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | No                                            |
+| partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | No                                            |
 | maxConcurrentConnections | O número de ligações que podem ligar-se ao armazém simultaneamente. Especifique um valor apenas quando pretende limitar a ligação simultânea à loja de dados. | No                                            |
 | ***Definições de DistCp*** |  | |
 | distcpSettings | O grupo de propriedades para usar quando você usar HDFS DistCp. | No |

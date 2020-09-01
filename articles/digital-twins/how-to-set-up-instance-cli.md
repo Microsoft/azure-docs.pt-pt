@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 17e39a7b94384827af19b2362d478456cde8f167
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078517"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181464"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação Azure Digital Twins (CLI)
 
@@ -108,7 +108,7 @@ No seu diretório de trabalho, crie um novo ficheiro e introduza o seguinte cort
 }]
 ``` 
 
-Guarde este ficheiro à medida _**quemanifest.jsligado**_.
+Guarde este ficheiro à medida _** quemanifest.jsligado**_.
 
 > [!NOTE] 
 > Existem alguns locais onde uma corda "amigável", legível pelo homem `https://digitaltwins.azure.net` pode ser usada para o ID de recurso Azure Digital Twins em vez do GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` . Por exemplo, muitos exemplos ao longo desta documentação definem a autenticação com a biblioteca MSAL, e a corda amigável pode ser usada para isso. No entanto, durante este passo de criação do registo da aplicação, é necessário o formulário GUID do ID tal como é mostrado acima. 
@@ -118,7 +118,7 @@ Em seguida, vais enviar este ficheiro para a Cloud Shell. Na sua janela Cloud Sh
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção Upload":::
 Navegue até ao *manifest.jsem* que acabou de criar e bater "Open".
 
-Em seguida, executar o seguinte comando para criar um registo de aplicações (substituindo os espaços reservados, se necessário):
+Em seguida, executar o seguinte comando para criar um registo de aplicações, com um *cliente público/nativo (mobile & desktop)* resposta URL de `http://localhost` . Substitua os espaços reservados conforme necessário:
 
 ```azurecli
 az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
@@ -132,7 +132,7 @@ Aqui está um excerto da saída deste comando, mostrando informações sobre o r
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Em primeiro lugar, verifique se as definições do seu *manifest.js* carregado estavam corretamente definidas no registo. Para isso, selecione *Manifesto* da barra de menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure os campos a partir do *seumanifest.jsem* `requiredResourceAccess` :
+Em primeiro lugar, verifique se as definições do seu *manifest.js* carregado estavam corretamente definidas no registo. Para isso, selecione *Manifesto* da barra de menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure os campos a partir do * seumanifest.jsem* `requiredResourceAccess` :
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 

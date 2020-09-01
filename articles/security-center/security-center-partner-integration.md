@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519269"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180852"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -35,10 +35,7 @@ Atualmente, as soluções de segurança integradas incluem a avaliação de vuln
 > [!NOTE]
 > O Security Center não instala o agente Log Analytics em aparelhos virtuais parceiros porque a maioria dos fornecedores de segurança proíbe agentes externos de funcionamento nos seus aparelhos.
 
-Para saber mais sobre a integração de ferramentas de digitalização de vulnerabilidades da Qualys, incluindo um scanner incorporado disponível para clientes de nível padrão, consulte: 
-
-- [Scanner integrado de vulnerabilidade para máquinas virtuais.](built-in-vulnerability-assessment.md)
-- [Implementação de uma solução de digitalização de vulnerabilidade de parceiros](partner-vulnerability-assessment.md).
+Para saber mais sobre a integração de ferramentas de digitalização de vulnerabilidades da Qualys, incluindo um scanner incorporado disponível para clientes de nível padrão, consulte [avaliações de vulnerabilidade para as suas Máquinas Virtuais Azure.](deploy-vulnerability-assessment-vm.md)
 
 O Security Center também oferece uma análise de vulnerabilidade para o seu:
 
@@ -104,7 +101,7 @@ A secção **Adicionar origens de dados** inclui outras origens de dados dispon�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a integrar soluções de parceiros no Centro de Segurança. Para obter informações relacionadas, consulte os seguintes artigos:
 

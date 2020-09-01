@@ -3,12 +3,12 @@ title: Sobre a Azure file share backup
 description: Saiba como apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892257"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180019"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a Azure file share backup
 
@@ -50,7 +50,13 @@ A azure file share backup é uma solução de backup baseada em nuvem nativa que
 
 ## <a name="backup-costs"></a>Custos de backup
 
-Atualmente será cobrado apenas por instantâneos, uma vez que a cópia de segurança da partilha de ficheiros Azure é uma solução baseada em instantâneos. Os custos de armazenamento incorridos para instantâneos são faturados juntamente com o uso de ficheiros Azure de acordo com os detalhes de preços [mencionados aqui](https://azure.microsoft.com/pricing/details/storage/files/).
+Existem dois custos associados à solução de backup de partilha de ficheiros Azure:
+
+1. **Custo de armazenamento instantâneo**: Os encargos de armazenamento incorridos para instantâneos são faturados juntamente com a utilização dos Ficheiros Azure de acordo com os detalhes de preços [mencionados aqui](https://azure.microsoft.com/pricing/details/storage/files/) 
+
+2. **Taxa de Instância Protegida** "A partir de 1 de setembro de 2020, os clientes serão cobrados uma taxa de instância protegida de acordo com os detalhes de preços [aqui mencionados](https://azure.microsoft.com/en-in/pricing/details/backup/) . A taxa de instância protegida depende do tamanho total das ações de ficheiros protegidas numa conta de armazenamento.
+
+Para obter estimativas detalhadas para o backup de ações de ficheiros Azure, você pode baixar o estimador de preços de [Azure Backup](https://aka.ms/AzureBackupCostEstimates)detalhado .  
 
 ## <a name="next-steps"></a>Passos seguintes
 

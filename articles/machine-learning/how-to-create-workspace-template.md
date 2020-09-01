@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: b1c257c206c58f62c1ea82eb3b04ff5830cfbd8d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 674baaaec4e11c5e4e750ccd14bbe5762dcbc09a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071657"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181074"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -272,7 +272,7 @@ Ao definir o valor do `vnetOption` parâmetro para qualquer um `new` `existing` 
 Se os seus recursos associados não estiverem por trás de uma rede virtual, pode definir o parâmetro **PrivateEndpointType** para `AutoAproval` ou para `ManualApproval` implantar o espaço de trabalho por trás de um ponto final privado. Isto pode ser feito tanto para espaços de trabalho novos como existentes. Ao atualizar um espaço de trabalho existente, preencha os parâmetros do modelo com as informações do espaço de trabalho existente.
 
 > [!IMPORTANT]
-> A utilização do Azure Private Link para criar um ponto final privado para o espaço de trabalho Azure Machine Learning está atualmente em pré-visualização pública. Esta funcionalidade está disponível apenas nas regiões **leste** e **norte-americanas do Oeste 2.** Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A utilização do Azure Private Link para criar um ponto final privado para o espaço de trabalho Azure Machine Learning está atualmente em pré-visualização pública. Esta funcionalidade só está disponível nas regiões **norte-americanas do Oriente,** **Centro Sul dos EUA**e EUA West **2.** Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 

@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4183ed7343434b575015e94afb4111b3d14c5e3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b51eb7e59e32985363d83c3d515fa7f54babac1f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071555"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179459"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -32,10 +32,10 @@ Este documento descreve a instalação e a configuração dos Agentes do Azure A
 
 A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect Health.
 
-| Requisito | Descrição |
+| Requisito | Description |
 | --- | --- |
 | Azure AD Premium |O Azure AD Connect Health é uma funcionalidade do Azure AD Premium e requer o Azure AD Premium. <br /><br />Para mais informações, consulte [Começar com Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) <br />Para iniciar uma versão de avaliação gratuita de 30 dias, veja [Iniciar uma versão de avaliação.](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Tem de ser um administrador global do seu Azure AD para começar a utilizar o Azure AD Connect Health |Por predefinição, apenas os administradores globais podem instalar e configurar os agentes de estado de funcionamento para iniciar, aceder ao portal e executar operações no Azure AD Connect Health. Para obter mais informações, veja [Administrar o diretório do Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> Utilizando o controlo de acesso baseado em funções Azure (Azure RBAC) pode permitir o acesso ao Azure AD Connect Health a outros utilizadores da sua organização. Para obter mais informações, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC) para Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Importante:** a conta utilizada ao instalar os agentes tem de ser uma conta escolar ou profissional. Não pode ser uma conta Microsoft. Para mais informações, consulte [Inscrever-se no Azure como organização](../fundamentals/sign-up-organization.md) |
+| Tem de ser um administrador global do seu Azure AD para começar a utilizar o Azure AD Connect Health |Por predefinição, apenas os administradores globais podem instalar e configurar os agentes de estado de funcionamento para iniciar, aceder ao portal e executar operações no Azure AD Connect Health. Para obter mais informações, veja [Administrar o diretório do Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> Utilizando o controlo de acesso baseado em funções Azure (Azure RBAC) pode permitir o acesso ao Azure AD Connect Health a outros utilizadores da sua organização. Para obter mais informações, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC) para Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-azure-rbac) <br /><br />**Importante:** a conta utilizada ao instalar os agentes tem de ser uma conta escolar ou profissional. Não pode ser uma conta Microsoft. Para mais informações, consulte [Inscrever-se no Azure como organização](../fundamentals/sign-up-organization.md) |
 | O Agente do Azure AD Connect Health é instalado em cada servidor de destino | O Azure AD Connect Health exige que os Agentes de Estado de Funcionamento sejam instalados e configurados em servidores de destino para receber os dados e oferecer as funcionalidades Monitorização e Análise. <br /><br />Por exemplo, para obter dados da sua infraestrutura do AD FS, o agente tem de estar instalado nos servidores do AD FS e nos servidores Proxy de Aplicações Web. Do mesmo modo, para obter os dados na sua infraestrutura local do AD DS, o agente tem de ser instalado nos controladores de domínio. <br /><br /> |
 | Conectividade de saída para os pontos finais de serviço do Azure | Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída for bloqueada com Firewalls, certifique-se de que os pontos finais seguintes são adicionados à lista de permissões. Veja [Pontos finais de conectividade de saída](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Conectividade de saída com base em Endereços IP | Para filtragem baseada em endereço IP nas firewalls, consulte [Azure IP Ranges (Intervalos IP do Azure IP)](https://www.microsoft.com/download/details.aspx?id=41653).|
@@ -82,15 +82,15 @@ A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect He
 Antes da instalação, certifique-se de que o nome de anfitrião do servidor do AD FS é exclusivo e não está presente no serviço do AD FS.
 Para iniciar a instalação do agente, faça duplo clique no ficheiro .exe que transferiu. No primeiro ecrã, clique em Instalar.
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/install1.png)
+![Azure AD Connect Health AD FS iniciar instalação](./media/how-to-connect-health-agent-install/install1.png)
 
 Uma vez concluída a instalação, clique em Configurar Agora.
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/install2.png)
+![Azure AD Connect Health AD FS acabamento de instalação](./media/how-to-connect-health-agent-install/install2.png)
 
 Esta ação inicia uma janela do PowerShell para iniciar o processo de registo do agente. Quando lhe for pedido, inicie sessão com uma conta do Azure AD que tenha acesso para efetuar o registo do agente. Por predefinição, a conta de Administrador Global possui acesso.
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/install3.png)
+![Azure AD Connect Health AD FS configure sinal em](./media/how-to-connect-health-agent-install/install3.png)
 
 Depois de iniciar sessão, o PowerShell prosseguirá. Uma vez concluído, pode fechá-lo e a configuração estará concluída.
 
@@ -98,7 +98,7 @@ Neste momento, os serviços de agente devem ser iniciados automaticamente, permi
 
 Se não tiver cumprido todos os pré-requisitos que foram descritos nas secções anteriores, são apresentados avisos na janela do PowerShell. Antes de instalar o agente, certifique-se de que concluiu os [requisitos](how-to-connect-health-agent-install.md#requirements). A captura de ecrã seguinte mostra um exemplo destes erros.
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/install4.png)
+![Azure AD Connect Health AD FS configurar script](./media/how-to-connect-health-agent-install/install4.png)
 
 Para verificar se o agente foi instalado, procure os serviços seguintes no servidor. Se concluiu a configuração, já devem estar a ser executados. Caso contrário, são parados até que a configuração esteja concluída.
 
@@ -106,7 +106,7 @@ Para verificar se o agente foi instalado, procure os serviços seguintes no serv
 * Serviço de Informações do Azure AD Connect Health AD FS
 * Serviço de Monitorização do Azure AD Connect Health AD FS
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
+![Azure AD Connect Health AD FS serviços](./media/how-to-connect-health-agent-install/install5.png)
 
 ### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Instalação do agente em servidores do Windows Server 2008 R2
 
@@ -231,21 +231,21 @@ Quando lhe for pedida a autenticação, deve utilizar a mesma conta de administr
 
 Para iniciar a instalação do agente, faça duplo clique no ficheiro .exe que transferiu. No primeiro ecrã, clique em Instalar.
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
+![Azure AD Connect Health agent para o início da instalação AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
 
 Uma vez concluída a instalação, clique em Configurar Agora.
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
+![Azure AD Connect Health agente para acabamento de instalação AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
 
 É iniciada uma linha de comandos, seguida de alguns comandos do PowerShell, que executam Register-AzureADConnectHealthADDSAgent. Quando lhe for pedido para iniciar sessão no Azure, continue e inicie-a.
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
+![Azure AD Connect Health agent para sinal de configuração AD DS em](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
 
 Depois de iniciar sessão, o PowerShell prosseguirá. Uma vez concluído, pode fechá-lo e a configuração estará concluída.
 
 Nesta altura, os serviços deverão ser iniciados automaticamente, permitindo ao agente monitorizar e recolher dados. Se não tiver cumprido todos os pré-requisitos que foram descritos nas secções anteriores, são apresentados avisos na janela do PowerShell. Antes de instalar o agente, certifique-se de que concluiu os [requisitos](how-to-connect-health-agent-install.md#requirements). A captura de ecrã seguinte mostra um exemplo destes erros.
 
-![Verificar o Azure AD Connect Health para o AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
+![Azure AD Connect Health agent para a AD DS configurar script](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
 
 Para verificar se o agente foi instalado, procure os serviços seguintes no controlador de domínio.
 
@@ -254,12 +254,12 @@ Para verificar se o agente foi instalado, procure os serviços seguintes no cont
 
 Se concluiu a configuração, estes serviços já devem estar a ser executados. Caso contrário, são parados até que a configuração esteja concluída.
 
-![Verificar o Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
+![Azure AD Connect Health agente para serviços de DS AD](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
 ### <a name="quick-agent-installation-in-multiple-servers"></a>Instalação de agente rápido em vários servidores
 
 1. Crie uma conta de utilizador em Azure AD com uma senha.
-2. Atribua a função **de Proprietário** para esta conta AAD local em Azure AD Connect Health através do portal. Siga os passos [aqui.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) Atribua o papel a todas as instâncias de serviço. 
+2. Atribua a função **de Proprietário** para esta conta AAD local em Azure AD Connect Health através do portal. Siga os passos [aqui.](how-to-connect-health-operations.md#manage-access-with-azure-rbac) Atribua o papel a todas as instâncias de serviço. 
 3. Descarregue o ficheiro .exe MSI no controlador de domínio local para instalação.
 4. Executar o seguinte script para a inscrição. Substitua os parâmetros pela nova conta de utilizador criada e a sua palavra-passe. 
 
@@ -295,7 +295,7 @@ Depois de instalar o agente adequado setup.exe, pode efetuar o passo de registo 
 Estes comandos aceitam "Credencial" como um parâmetro para concluir o registo de forma não interativa ou num computador de Núcleo de Servidor.
 * A Credencial pode ser capturada numa variável do PowerShell que é transmitida como um parâmetro.
 * Pode fornecer qualquer Azure AD Identity que tenha acesso de registo dos agentes e NÃO tenha o MFA ativado.
-* Por predefinição, os Administradores Globais têm acesso para efetuar o registo do agente. Também pode permitir que as outras identidades menos privilegiadas efetuem este passo. Leia mais sobre [o controlo de acesso baseado em funções Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control).
+* Por predefinição, os Administradores Globais têm acesso para efetuar o registo do agente. Também pode permitir que as outras identidades menos privilegiadas efetuem este passo. Leia mais sobre [o controlo de acesso baseado em funções Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac).
 
 ```powershell
     $cred = Get-Credential

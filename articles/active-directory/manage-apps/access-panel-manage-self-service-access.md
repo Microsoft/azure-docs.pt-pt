@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: c789a5fdd2aed7a904dc71065340b3c921ac9abb
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146611"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181719"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso a aplicações self-service
 
@@ -28,7 +28,7 @@ Para aprender a utilizar as Minhas Apps numa perspetiva de utilizador final, con
 
 Através desta funcionalidade, pode:
 
--   Deixe que os utilizadores auto-descubram as aplicações do Painel de Acesso à [Aplicação](https://myapps.microsoft.com/) sem incomodar o grupo de TI.
+-   Deixe que os utilizadores auto-descubram aplicações das [Minhas Apps](https://myapps.microsoft.com/) sem incomodar o grupo de TI.
 -   Adicione esses utilizadores a um grupo pré-configurado para que possa ver quem solicitou acesso, remover o acesso e gerir as funções que lhes foram atribuídas.
 -   Opcionalmente, permitir que alguém aprove pedidos de acesso a aplicações para que o grupo de TI não tenha de o fazer.
 -   Configurar opcionalmente até 10 indivíduos que possam aprovar o acesso a esta aplicação.
@@ -57,14 +57,14 @@ Para permitir o acesso de aplicações self-service a uma aplicação, siga os p
 13. **Opcional:** **Para aplicações que expõem funções**, se pretender atribuir utilizadores aprovados por autosserviço a uma função, selecione o seletor ao lado da **função a que os utilizadores devem ser atribuídos nesta aplicação?**
 14. **Selecione** o botão Guardar na parte superior para terminar.
 
-Assim que concluir a configuração da aplicação self-service, os utilizadores podem navegar para o seu Painel de Acesso à [Aplicação](https://myapps.microsoft.com/) e selecionar o botão **+Adicionar** para encontrar as aplicações às quais ativou o acesso ao self-service. Os aprovadores empresariais também vêem uma notificação no seu [Painel de Acesso a Aplicações](https://myapps.microsoft.com/). Pode ativar um e-mail notificando-os quando um utilizador tiver solicitado acesso a uma aplicação que exija a sua aprovação. 
+Assim que concluir a configuração da aplicação self-service, os utilizadores podem navegar para as [Minhas Apps](https://myapps.microsoft.com/) e selecionar o botão **+Adicionar** para encontrar as aplicações às quais ativou o acesso ao self-service. Os aprovadores de negócios também vêem uma notificação na sua página [My Apps.](https://myapps.microsoft.com/) Pode ativar um e-mail notificando-os quando um utilizador tiver solicitado acesso a uma aplicação que exija a sua aprovação. 
 
 Estas aprovações suportam apenas fluxos de trabalho de homologação únicas, o que significa que se especificar vários aprovadores, qualquer aprovante pode aprovar o acesso à aplicação.
 
 ## <a name="things-to-check-if-self-service-isnt-working"></a>Coisas para verificar se o self-service não está funcionando
 -   Certifique-se de que o utilizador ou grupo foi habilitado a solicitar o acesso à aplicação de autosserviço.
--   Certifique-se de que o utilizador está a visitar o local correto para o acesso à aplicação de autosserviço. os utilizadores podem navegar para o seu Painel de Acesso à [Aplicação](https://myapps.microsoft.com/) e selecionar o botão **+Adicionar** para encontrar as aplicações às quais permitiu o acesso ao self-service.
--   Se o acesso à aplicação de autosserviço foi recentemente configurado, tente entrar e sair novamente no Painel de Acesso do utilizador após alguns minutos para ver se as alterações de acesso ao autosserviço apareceram.
+-   Certifique-se de que o utilizador está a visitar o local correto para o acesso à aplicação de autosserviço. os utilizadores podem navegar para a sua página [My Apps](https://myapps.microsoft.com/) e selecionar o botão **+Adicionar** para encontrar as aplicações às quais permitiu o acesso ao self-service.
+-   Se o acesso à aplicação de self-service foi recentemente configurado, tente entrar e sair novamente nas My Apps do utilizador após alguns minutos para ver se as alterações de acesso ao autosserviço apareceram.
 
 ## <a name="next-steps"></a>Passos seguintes
 [Configurar o Azure Active Directory para gestão de grupo personalizada](../users-groups-roles/groups-self-service-management.md)

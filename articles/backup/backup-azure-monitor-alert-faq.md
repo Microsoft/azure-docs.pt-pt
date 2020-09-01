@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o Alerta 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000724"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181498"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitorização de backup Azure - FAQ
 
@@ -19,7 +19,7 @@ Este artigo responde a perguntas comuns sobre monitorização e reporte de backu
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Como posso verificar se os dados de reporte começaram a fluir para um espaço de trabalho log analytics (LA) ?
 
-Navegue para o espaço de trabalho de LA que configurado, navegue para o item do menu **Logs** e faça a consulta CoreAzureBackup ! tomar 1. Se vires um registo a ser devolvido, significa que os dados começaram a fluir para o espaço de trabalho. O impulso inicial de dados pode demorar até 24 horas.
+Navegue para o espaço de trabalho de LA que configuraste. Navegue para o item do menu **'Registos'** e faça a `CoreAzureBackup | take 1` consulta. Se vires um registo a ser devolvido, significa que os dados começaram a fluir para o espaço de trabalho. O impulso inicial de dados pode demorar até 24 horas.
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual é a frequência dos dados que empurram para um espaço de trabalho em LA?
 

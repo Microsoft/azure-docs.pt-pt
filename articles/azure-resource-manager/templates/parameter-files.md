@@ -2,13 +2,13 @@
 title: Criar ficheiro de parâmetros
 description: Crie um ficheiro de parâmetros para passar em valores durante a implementação de um modelo de Gestor de Recursos Azure
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.openlocfilehash: ff5fa74f8b4b7f0ce7dfe2164a369cfd5eedb4d9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082941"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179628"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar ficheiro de parâmetro do Gestor de Recursos
 
@@ -184,10 +184,30 @@ O exemplo a seguir mostra os formatos de diferentes tipos de parâmetros.
 
 ## <a name="deploy-template-with-parameter-file"></a>Implementar modelo com arquivo de parâmetros
 
-Veja:
+Para passar um arquivo de parâmetro local com Azure CLI, use @ e o nome do ficheiro parâmetro.
 
-- [Implementar recursos com modelos ARM e Azure CLI](./deploy-cli.md#parameters)
-- [Implementar recursos com modelos ARM e Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+Para obter mais informações, consulte [implementar recursos com modelos ARM e Azure CLI](./deploy-cli.md#parameters).
+
+Para passar um ficheiro de parâmetro local com Azure PowerShell, utilize o `TemplateParameterFile` parâmetro.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+Para obter mais informações, consulte [implementar recursos com modelos ARM e Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+
+> [!NOTE]
+> Não é possível utilizar um ficheiro de parâmetro com a lâmina do modelo personalizada no portal.
 
 ## <a name="file-name"></a>Nome de ficheiro
 
@@ -199,7 +219,7 @@ Para implementar em diferentes ambientes, crie mais de um ficheiro de parâmetro
 
 Pode utilizar parâmetros inline e um ficheiro de parâmetro local na mesma operação de implantação. Por exemplo, pode especificar alguns valores no ficheiro de parâmetro local e adicionar outros valores inline durante a implementação. Se fornecer valores para um parâmetro tanto no arquivo de parâmetro local como em linha, o valor inline tem precedência.
 
-É possível utilizar um ficheiro de parâmetro externo, fornecendo o URI ao ficheiro. Quando o fazes, não podes passar outros valores, quer em linha, quer a partir de um ficheiro local. Todos os parâmetros inline são ignorados. Forneça todos os valores dos parâmetros no ficheiro externo.
+É possível utilizar um ficheiro de parâmetro externo, fornecendo o URI ao ficheiro. Quando se utiliza um ficheiro de parâmetro externo, não é possível passar outros valores, quer em linha, quer a partir de um ficheiro local. Todos os parâmetros inline são ignorados. Forneça todos os valores dos parâmetros no ficheiro externo.
 
 ## <a name="parameter-name-conflicts"></a>Conflitos de nomes de parâmetros
 
