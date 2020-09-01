@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 60c350b10fb3db82af47551591d95e87cacd63a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: contperfq1
+ms.openlocfilehash: 940fb9046a69c28e4f43abb03a4469a2f73d9eb2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065010"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074904"
 ---
 # <a name="network-security-groups"></a>Grupos de segurança de rede
 <a name="network-security-groups"></a>
@@ -27,7 +28,7 @@ Pode utilizar um grupo de segurança da rede Azure para filtrar o tráfego da re
 
 Este artigo descreve propriedades de uma regra de grupo de segurança de rede, [as regras de segurança padrão](#default-security-rules) que são aplicadas, e as propriedades de regra que você pode modificar para criar uma [regra de segurança aumentada](#augmented-security-rules).
 
-## <a name="security-rules"></a><a name="security-rules"></a>Regras de segurança
+## <a name="security-rules"></a><a name="security-rules"></a> Regras de segurança
 
 Os grupos de segurança de rede contêm zero ou tantas regras conforme pretender, dentro dos [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) das subscrições do Azure. Cada regra especifica as propriedades seguintes:
 
@@ -47,7 +48,7 @@ As ligações existentes não podem ser interrompidas quando remover uma regra d
 
 Há limites ao número de regras de segurança que pode criar num grupo de segurança de rede. Para obter mais detalhes, veja [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-### <a name="default-security-rules"></a><a name="default-security-rules"></a>Regras de segurança predefinidos
+### <a name="default-security-rules"></a><a name="default-security-rules"></a> Regras de segurança predefinidos
 
 O Azure cria as seguintes regras predefinidas em cada grupo de segurança de rede que criar:
 
@@ -95,7 +96,7 @@ Nas colunas **Source** (Origem) e **Destination** (Destino), *VirtualNetwork*, *
  
 Não pode remover as regras predefinidas, mas pode criar regras com prioridades superiores para substituí-las.
 
-### <a name="augmented-security-rules"></a><a name="augmented-security-rules"></a>Regras de segurança aumentadas
+### <a name="augmented-security-rules"></a><a name="augmented-security-rules"></a> Regras de segurança aumentadas
 
 As regras de segurança aumentadas simplificam a definição de segurança das redes virtuais, permitindo-lhe definir políticas de segurança de rede maiores e mais complexas com menos regras. Pode combinar várias portas e vários endereços IP explícitos e intervalos numa regra de segurança individual e facilmente compreendida. Utilize as regras aumentadas nos campos de origem, destino e porta das regras. Para simplificar a manutenção da definição de segurança de rede, combine regras de segurança aumentadas com [etiquetas de serviço](service-tags-overview.md) ou [grupos de segurança de aplicações](#application-security-groups). Existem limites para o número de endereços, intervalos e portas que pode especificar numa regra. Para obter mais detalhes, veja [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -105,50 +106,9 @@ Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um d
 
 Para mais informações, consulte [as etiquetas de serviço da Azure.](service-tags-overview.md) Para um exemplo sobre como utilizar a etiqueta de serviço de Armazenamento para restringir o acesso à rede, consulte [restringir o acesso da rede aos recursos paaS](tutorial-restrict-network-access-to-resources.md).
 
-#### <a name="application-security-groups"></a>Grupos de segurança de aplicação
+#### <a name="application-security-groups"></a>Grupos de segurança de aplicações
 
 Os grupos de segurança de aplicações permitem-lhe configurar a segurança de rede como uma extensão natural da estrutura de uma aplicação, possibilitando o agrupamento de máquinas virtuais e a definição de políticas de segurança de rede com base nesses grupos. Pode reutilizar a política de segurança em escala sem a manutenção manual de endereços IP explícitos. Para saber mais, consulte [os grupos de segurança da Aplicação.](application-security-groups.md)
-
-## <a name="how-traffic-is-evaluated"></a>Como o tráfego é avaliado
-
-Pode implementar recursos de vários serviços do Azure numa rede virtual do Azure. Para obter uma lista completa, veja [Services that can be deployed into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (Serviços que podem ser implementados numa rede virtual). Pode associar nenhum ou um grupo de segurança de rede à [sub-rede](virtual-network-manage-subnet.md#change-subnet-settings) e à [interface de rede](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group) de cada rede virtual numa máquina virtual. O mesmo grupo de segurança de rede pode ser associado a tantas sub-redes e interfaces de rede que escolher.
-
-A imagem seguinte ilustra diferentes cenários de implementação dos grupos de segurança de rede para permitir o tráfego de rede de e para a Internet a partir da porta TCP 80:
-
-![NSG-processing](./media/security-groups/nsg-interaction.png)
-
-Veja a imagem anterior, juntamente com o texto seguinte, para compreender de que forma é que o Azure processa as regras de entrada e de saída para os grupos de segurança de rede:
-
-### <a name="inbound-traffic"></a>Tráfego de entrada
-
-Relativamente ao tráfego de entrada, o Azure processa primeiro as regras num grupo de segurança de rede associado a uma sub-rede, se existir alguma, e, depois, as regras num grupo de segurança de rede associado à interface de rede, se existir alguma.
-
-- **VM1**: as regras de segurança em *NSG1* são processadas, uma vez que está associado a *Subnet1* e *VM1* está em *Subnet1*. A menos que tenha criado uma regra que permita a porta de entrada 80, o tráfego é negado pela regra de segurança predefinida [DenyAllInbound](#denyallinbound) e nunca é avaliado por *NSG2*, pois *NSG2* está associado à interface de rede. Se *NSG1* tiver uma regra de segurança que permite a porta 80, o tráfego é processado por *NSG2*. Para permitir a porta 80 na máquina virtual, tanto *NSG1*, como *NSG2*, têm de ter uma regra que permite a porta 80 a partir da Internet.
-- **VM2**: as regras em *NSG1* são processadas, porque *VM2* também está em *Subnet1*. Uma vez que *VM2* não tem um grupo de segurança de rede associado à respetiva interface de rede, recebe todo o tráfego permitido através *NSG1* ou é-lhe negado todo o tráfego negado por *NSG1*. O tráfego é permitido ou negado para todos os recursos na mesma sub-rede se um grupo de segurança de rede estiver associado a uma sub-rede.
-- **VM3**: uma vez que não existe nenhum grupo de segurança de rede associado a *Subnet2*, o tráfego é permitido na sub-rede e processado por *NSG2*, pois *NSG2* está associado à interface de rede anexada a *VM3*.
-- **VM4**: o tráfego é permitido para *VM4,* porque não existe nenhum grupo de segurança de rede associado a *Subnet3* ou à interface de rede na máquina virtual. Todo o tráfego de rede é permitido através de uma sub-rede e de uma interface de rede se não houver nenhum grupo de segurança de rede associado às mesmas.
-
-### <a name="outbound-traffic"></a>Tráfego de saída
-
-Relativamente ao tráfego de saída, o Azure processa primeiro as regras num grupo de segurança de rede associado a uma interface de rede, se existir alguma, e, depois, as regras num grupo de segurança de rede associado à sub-rede, se existir alguma.
-
-- **VM1**: as regras de segurança em *NSG2* são processadas. A menos que crie uma regra de segurança que negue a porta 80 de saída para a Internet, o tráfego é permitido pela regra de segurança predefinida [AllowInternetOutbound](#allowinternetoutbound) em *NSG1* e *NSG2*. Se *NSG2* tiver uma regra de segurança que negue a porta 80, o tráfego é negado e nunca avaliado por *NSG1*. Para negar a porta 80 a partir da máquina virtual, um ou ambos os grupos de segurança de rede têm de ter uma regra que negue a porta 80 para a Internet.
-- **VM2**: todo o tráfego é enviado da interface de rede para a sub-rede, uma vez que a interface de rede anexada a *VM2* não tem um grupo de segurança de rede associado a si. As regras em *NSG1* são processadas.
-- **VM3**: se *NSG2* tiver uma regra de segurança que negue a porta 80, o tráfego é negado. Se *NSG2* tiver uma regra de segurança que permita a porta 80, é permitido tráfego de saída para a Internet na mesma, uma vez que não existe nenhum grupo de segurança de rede associado a *Subnet2*.
-- **VM4**: todo o tráfego de rede é permitido a partir de *VM4,* porque não está associado nenhum grupo de segurança de rede à interface de rede anexada à máquina virtual ou a *Subnet3*.
-
-
-### <a name="intra-subnet-traffic"></a>Tráfego intra-sub-rede
-
-É importante notar que as regras de segurança numa NSG associada a uma sub-rede podem afetar a conectividade entre os VM's dentro dela. Por exemplo, se for adicionada uma regra ao *NSG1* que negue todo o tráfego de entrada e saída, *o VM1* e o *VM2* deixarão de poder comunicar entre si. Outra regra teria de ser acrescentada especificamente para o permitir. 
-
-Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md#view-effective-security-rules) numa interface de rede para ver facilmente as regras agregadas que estão aplicadas à mesma. Também pode utilizar a capacidade [Verificação de fluxo de IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede do Azure para saber se a comunicação é permitida de ou para uma interface de rede. Verificação do fluxo IP indica se uma comunicação é permitida ou negada, e qual regra de segurança de rede permite ou nega o tráfego.
-
-> [!NOTE]
-> Os grupos de segurança da rede estão associados a sub-redes ou a máquinas virtuais e serviços de nuvem implantados no modelo de implementação clássico, e a sub-redes ou interfaces de rede no modelo de implementação do Gestor de Recursos. Para saber mais sobre os modelos de implementação do Azure, veja [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Compreender os modelos de implementação do Azure).
-
-> [!TIP]
-> A menos que tenha uma razão específica para o fazer, recomendamos que associe um grupo de segurança de rede a uma sub-rede, ou a uma interface de rede, mas não a ambas. Uma vez que as regras num grupo de segurança de rede associado a uma sub-rede podem entrar em conflito com as regras num grupo associado a uma interface de rede, poderão ocorrer problemas de comunicação inesperados que exijam resolução.
 
 ## <a name="azure-platform-considerations"></a>Considerações sobre a plataforma do Azure
 
@@ -170,7 +130,8 @@ Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber quais os recursos Azure que podem ser implantados numa rede virtual e ter grupos de segurança de rede associados a eles, consulte a [integração da rede Virtual para serviços Azure](virtual-network-for-azure-services.md)
-* Se nunca tiver criado um grupo de segurança de rede, pode seguir um [tutorial](tutorial-filter-network-traffic.md) rápido para ganhar experiência na criação de um. 
+* Para saber como o tráfego é avaliado com grupos de segurança de rede, veja [como funcionam os grupos de segurança da rede.](network-security-group-how-it-works.md)
+* Se nunca tiver criado um grupo de segurança de rede, pode seguir um [tutorial](tutorial-filter-network-traffic.md) rápido para ganhar experiência na criação de um.
 * Se estiver familiarizado com os grupos de segurança de rede e tiver de geri-los, veja [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede). 
 * Se estiver com problemas de comunicação e precisar de resolver problemas nos grupos de segurança de rede, veja [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md) (Diagnosticar problemas de filtro de tráfego de rede de uma máquina virtual). 
 * Saiba como permitir [que os registos de fluxo de grupos](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de segurança de rede analisem o tráfego de rede de e para recursos que tenham um grupo de segurança de rede associado.

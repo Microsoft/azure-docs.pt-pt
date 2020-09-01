@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d958ddf977d0f6926863fa661b25e76fe031822d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5536d18ed2af83da122f5748912a0544bbbf7b19
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009292"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074834"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Ver o principal de serviço de uma identidade gerida usando o PowerShell
 

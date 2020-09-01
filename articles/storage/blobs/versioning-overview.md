@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056538"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074539"
 ---
 # <a name="blob-versioning-preview"></a>Veragem blob (pré-visualização)
 
@@ -29,6 +29,8 @@ Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob
 
 > [!IMPORTANT]
 > A versão blob não pode ajudá-lo a recuperar da eliminação acidental de uma conta de armazenamento ou de um recipiente. Para evitar a eliminação acidental da conta de armazenamento, configuure um bloqueio **Não-TDelete** no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure, consulte [os recursos do Lock para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-versioning-works"></a>Como funciona a versão blob
 
@@ -163,7 +165,7 @@ Quando tira uma foto de uma bolha em versão, uma nova versão é criada ao mesm
 
 O diagrama que se segue mostra o que acontece quando se tira uma fotografia de uma bolha em versão. No diagrama, as versões blob e as imagens com a versão ID 2 e 3 contêm dados idênticos.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando instantâneos de uma bolha em versão":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando instantâneos de uma bolha em versão ":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autorizar operações em versões blob
 
@@ -320,7 +322,7 @@ No cenário 4, a bolha de base foi completamente atualizada e não contém nenhu
 
 ![Recursos de armazenamento Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Ativar a criação de versões de blobs](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

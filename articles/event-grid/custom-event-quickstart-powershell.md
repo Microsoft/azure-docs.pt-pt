@@ -3,12 +3,13 @@ title: 'Quickstart: Enviar eventos personalizados para o ponto final da web - Gr
 description: 'Quickstart: Use Azure Event Grid e PowerShell para publicar um tópico personalizado e subscreva eventos para esse tópico. Os eventos são tratados por uma aplicação web.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4dbed993b4123045ae6233466cd9ca0565465a1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3bd389ff523fd32e73ac19f1131c8c2784e16db5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115031"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075652"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da Web com PowerShell e Grade de Eventos
 
@@ -149,7 +150,7 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 }]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser continuar a trabalhar com este evento ou com a aplicação de visualizador de eventos, não limpe os recursos criados neste artigo. Caso contrário, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
@@ -157,7 +158,7 @@ Se quiser continuar a trabalhar com este evento ou com a aplicação de visualiz
 Remove-AzResourceGroup -Name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

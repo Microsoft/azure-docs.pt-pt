@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: bb4cc150fab388846b35dc9adebfacf7a56e9bbc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890506"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073510"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Linha de base de segurança Azure para backup
 
@@ -480,11 +480,11 @@ A Microsoft gere a infraestrutura subjacente ao Azure Backup e implementou rigor
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: O controlo de acesso baseado em funções (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
+**Orientação**: O controlo de acesso baseado em funções (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Com o RBAC do Azure, pode fazer a segregação de deveres na sua equipa e conceder aos utilizadores apenas a quantidade de acesso de que precisam para desempenhar as suas funções.
 
 A Azure Backup fornece três funções incorporadas para controlar operações de gestão de backup: Backup Contributor, Backup Operator e Backup Reader. Você pode mapear papéis incorporados backup para várias ações de gestão de backup.
 
-- [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Use o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure](./backup-rbac-rs-vault.md)
 

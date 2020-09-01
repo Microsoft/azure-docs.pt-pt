@@ -5,13 +5,13 @@ tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
-ms.openlocfilehash: 3b0eb74e49cbc2e5e5e0cc84e998796c85b73925
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 8a214deb0cde5ffd6dee6d31377c3c898a363b27
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88960076"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073850"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>Carregar ficheiros para uma aplicação Web com FTP
 

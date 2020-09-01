@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 0fc4fb91653f4a764540df0a7bc0cf0deee30fe6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3fe98160cc10eb3607b8309a9a263d63380dcfb5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080835"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073221"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Crie APIs personalizados que pode chamar a partir de Azure Logic Apps
 
@@ -37,7 +37,7 @@ Você pode hospedar as suas APIs no [Azure App Service](../app-service/overview.
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
 >
-> Para amostras de aplicativos API construídos para aplicações lógicas, visite o repositório ou [blog](https://aka.ms/logicappsblog) [Azure Logic Apps GitHub](https://github.com/logicappsio) .
+> Para amostras de aplicativos API construídos para aplicações lógicas, visite o [repositório Azure Logic Apps GitHub](https://github.com/logicappsio).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como é que as APIs personalizadas diferem dos conectores personalizados?
 
@@ -72,7 +72,7 @@ Para uma ação padrão, pode escrever um método de pedido HTTP na sua API e de
 
 ![Padrão de ação padrão](./media/logic-apps-create-api-app/standard-action.png)
 
-<a name="pattern-overview"></a>Para fazer uma aplicação lógica esperar enquanto a API termina tarefas mais longas, a sua API pode seguir o [padrão de sondagem assíncrono](#async-pattern) ou o [padrão assíncrono de webhook](#webhook-actions) descrito neste tópico. Para uma analogia que o ajuda a visualizar os diferentes comportamentos destes padrões, imagine o processo para encomendar um bolo personalizado de uma padaria. O padrão de sondagens espelha o comportamento em que se liga para a padaria a cada 20 minutos para verificar se o bolo está pronto. O padrão webhook espelha o comportamento em que a padaria pede o seu número de telefone para que eles possam ligar-lhe quando o bolo estiver pronto.
+<a name="pattern-overview"></a> Para fazer uma aplicação lógica esperar enquanto a API termina tarefas mais longas, a sua API pode seguir o [padrão de sondagem assíncrono](#async-pattern) ou o [padrão assíncrono de webhook](#webhook-actions) descrito neste tópico. Para uma analogia que o ajuda a visualizar os diferentes comportamentos destes padrões, imagine o processo para encomendar um bolo personalizado de uma padaria. O padrão de sondagens espelha o comportamento em que se liga para a padaria a cada 20 minutos para verificar se o bolo está pronto. O padrão webhook espelha o comportamento em que a padaria pede o seu número de telefone para que eles possam ligar-lhe quando o bolo estiver pronto.
 
 Para amostras, visite o [repositório De Aplicações Lógicas GitHub.](https://github.com/logicappsio) Além disso, saiba mais sobre [a medição de utilização para ações.](logic-apps-pricing.md)
 
@@ -88,7 +88,7 @@ Aqui está o padrão geral:
 2. Quando o motor fizer pedidos subsequentes para o estado do trabalho, informe o motor quando a sua API terminar a tarefa.
 3. Devolva os dados relevantes ao motor para que o fluxo de trabalho da aplicação lógica possa continuar.
 
-<a name="bakery-polling-action"></a>Agora aplique a analogia da padaria anterior ao padrão de sondagens, e imagine que você chama uma padaria e peça um bolo personalizado para entrega. O processo para fazer o bolo leva tempo, e você não quer esperar ao telefone enquanto a padaria trabalha no bolo. A padaria confirma o seu pedido e tem que ligar a cada 20 minutos para o estado do bolo. Depois de 20 minutos de passagem, ligue para a padaria, mas eles dizem-lhe que o seu bolo não está feito e que deve ligar daqui a 20 minutos. Este processo de ida e volta continua até ligar, e a padaria diz-lhe que o seu pedido está pronto e entrega o seu bolo. 
+<a name="bakery-polling-action"></a> Agora aplique a analogia da padaria anterior ao padrão de sondagens, e imagine que você chama uma padaria e peça um bolo personalizado para entrega. O processo para fazer o bolo leva tempo, e você não quer esperar ao telefone enquanto a padaria trabalha no bolo. A padaria confirma o seu pedido e tem que ligar a cada 20 minutos para o estado do bolo. Depois de 20 minutos de passagem, ligue para a padaria, mas eles dizem-lhe que o seu bolo não está feito e que deve ligar daqui a 20 minutos. Este processo de ida e volta continua até ligar, e a padaria diz-lhe que o seu pedido está pronto e entrega o seu bolo. 
 
 Vamos mapear este padrão de sondagens de volta. A padaria representa a sua API personalizada, enquanto você, o cliente do bolo, representa o motor Logic Apps. Quando o motor liga para a sua API com um pedido, a sua API confirma o pedido e responde com o intervalo de tempo quando o motor pode verificar o estado do trabalho. O motor continua a verificar o estado do trabalho até que a API responda que o trabalho está feito e devolve dados à sua aplicação lógica, que depois continua o fluxo de trabalho. 
 
@@ -123,16 +123,16 @@ Quando a sua API segue este padrão, não tem de fazer nada na definição de fl
 
 Como alternativa, pode utilizar o padrão webhook para tarefas de longa duração e processamento assíncronos. Este padrão tem a aplicação lógica para parar e esperar que uma "chamada" da sua API termine o processamento antes de continuar o fluxo de trabalho. Esta chamada é um HTTP POST que envia uma mensagem para um URL quando um evento acontece. 
 
-<a name="bakery-webhook-action"></a>Agora aplique a analogia da padaria anterior ao padrão webhook, e imagine que você chama uma padaria e peça um bolo personalizado para entrega. O processo para fazer o bolo leva tempo, e você não quer esperar ao telefone enquanto a padaria trabalha no bolo. A padaria confirma o seu pedido, mas desta vez, dê-lhes o seu número de telefone para que possam ligar-lhe quando o bolo estiver pronto. Desta vez, a padaria diz-lhe quando o seu pedido está pronto e entrega o seu bolo.
+<a name="bakery-webhook-action"></a> Agora aplique a analogia da padaria anterior ao padrão webhook, e imagine que você chama uma padaria e peça um bolo personalizado para entrega. O processo para fazer o bolo leva tempo, e você não quer esperar ao telefone enquanto a padaria trabalha no bolo. A padaria confirma o seu pedido, mas desta vez, dê-lhes o seu número de telefone para que possam ligar-lhe quando o bolo estiver pronto. Desta vez, a padaria diz-lhe quando o seu pedido está pronto e entrega o seu bolo.
 
 Quando mapeamos este padrão webhook de volta, a padaria representa a sua API personalizada, enquanto você, o cliente do bolo, representa o motor De Aplicações Lógicas. O motor liga para a sua API com um pedido e inclui um URL de "callback".
 Quando o trabalho está feito, a sua API utiliza o URL para notificar o motor e devolver dados à sua aplicação lógica, que depois continua o fluxo de trabalho. 
 
-Para este padrão, crie dois pontos finais no seu controlador: `subscribe` e`unsubscribe`
+Para este padrão, crie dois pontos finais no seu controlador: `subscribe` e `unsubscribe`
 
-*  `subscribe`ponto final: Quando a execução atinge a ação da sua API no fluxo de trabalho, o motor De Aplicações Lógicas chama o `subscribe` ponto final. Este passo faz com que a aplicação lógica crie um URL de retorno que a sua API armazena e, em seguida, aguarde a chamada da sua API quando o trabalho estiver concluído. A sua API volta a ligar com um HTTP POST para o URL e passa qualquer conteúdo e cabeçalhos devolvidos como entrada para a aplicação lógica.
+*  `subscribe` ponto final: Quando a execução atinge a ação da sua API no fluxo de trabalho, o motor De Aplicações Lógicas chama o `subscribe` ponto final. Este passo faz com que a aplicação lógica crie um URL de retorno que a sua API armazena e, em seguida, aguarde a chamada da sua API quando o trabalho estiver concluído. A sua API volta a ligar com um HTTP POST para o URL e passa qualquer conteúdo e cabeçalhos devolvidos como entrada para a aplicação lógica.
 
-* `unsubscribe`ponto final: Se a aplicação lógica for cancelada, o motor De Aplicações Lógicas chama o `unsubscribe` ponto final. A sua API pode então desagregá-lo no URL de retorno e parar quaisquer processos conforme necessário.
+* `unsubscribe` ponto final: Se a aplicação lógica for cancelada, o motor De Aplicações Lógicas chama o `unsubscribe` ponto final. A sua API pode então desagregá-lo no URL de retorno e parar quaisquer processos conforme necessário.
 
 ![Padrão de ação webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -173,8 +173,8 @@ Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, 
 
 | O pedido `triggerState` inclui? | Resposta da API | 
 | -------------------------------- | -------------| 
-| No | Volte a colocar um estado HTTP `202 ACCEPTED` mais um `location` cabeçalho com a hora atual e `triggerState` o intervalo a `retry-after` 15 segundos. | 
-| Yes | Verifique se o seu serviço tem ficheiros adicionados após o `DateTime` `triggerState` seguinte. | 
+| Não | Volte a colocar um estado HTTP `202 ACCEPTED` mais um `location` cabeçalho com a hora atual e `triggerState` o intervalo a `retry-after` 15 segundos. | 
+| Sim | Verifique se o seu serviço tem ficheiros adicionados após o `DateTime` `triggerState` seguinte. | 
 ||| 
 
 | Número de ficheiros encontrados | Resposta da API | 
@@ -194,9 +194,9 @@ Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, 
 Um gatilho webhook é um *gatilho* que espera e ouve novos dados ou eventos no seu ponto final de serviço. Se novos dados ou um evento satisfaçam a condição especificada, o gatilho dispara e cria uma instância lógica da aplicação, que então processa os dados como entrada.
 Os gatilhos webhook agem muito como as [ações webhook](#webhook-actions) anteriormente descritas neste tópico, e são configurado com `subscribe` e `unsubscribe` pontos finais. 
 
-* `subscribe`ponto final: Quando adiciona e guarda um gatilho webhook na sua aplicação lógica, o motor Logic Apps chama o `subscribe` ponto final. Este passo faz com que a aplicação lógica crie um URL de retorno que a sua API armazena. Quando há novos dados ou um evento que satisfaça a condição especificada, a sua API volta a ligar com um HTTP POST para o URL. A carga útil do conteúdo e os cabeçalhos passam como entrada para a aplicação lógica.
+* `subscribe` ponto final: Quando adiciona e guarda um gatilho webhook na sua aplicação lógica, o motor Logic Apps chama o `subscribe` ponto final. Este passo faz com que a aplicação lógica crie um URL de retorno que a sua API armazena. Quando há novos dados ou um evento que satisfaça a condição especificada, a sua API volta a ligar com um HTTP POST para o URL. A carga útil do conteúdo e os cabeçalhos passam como entrada para a aplicação lógica.
 
-* `unsubscribe`ponto final: Se o gatilho webhook ou a aplicação lógica inteira for eliminada, o motor De Aplicações Lógicas chama o `unsubscribe` ponto final. A sua API pode então desagregá-lo no URL de retorno e parar quaisquer processos conforme necessário.
+* `unsubscribe` ponto final: Se o gatilho webhook ou a aplicação lógica inteira for eliminada, o motor De Aplicações Lógicas chama o `unsubscribe` ponto final. A sua API pode então desagregá-lo no URL de retorno e parar quaisquer processos conforme necessário.
 
 ![Padrão do gatilho webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

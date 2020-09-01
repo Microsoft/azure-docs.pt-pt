@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: ff7cb3c03edf9b421347815311796896caaffd70
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086607"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075312"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utilizar o Corretor de ID (pré-visualização) para gestão credencial
 
@@ -38,7 +38,7 @@ O ID Broker permite-lhe iniciar sedutação nos clusters ESP utilizando a Autent
 
 Para criar um cluster ESP com corretor de ID habilitado, tome os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Siga os passos básicos de criação para um cluster ESP. Para obter mais informações, consulte [Criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Selecione **Ative HdInsight ID Broker**.
 
@@ -98,15 +98,23 @@ Depois de o ID Broker estar ativado, ainda vai precisar de um hash de palavra-pa
 
 A autenticação SSH requer que o haxixe esteja disponível em Azure AD DS. Se quiser usar o SSH apenas para cenários administrativos, pode criar uma conta apenas na nuvem e usá-la para SSH no cluster. Outros utilizadores ainda podem utilizar ferramentas Ambari ou HDInsight (como o plug-in IntelliJ) sem ter o hash de senha disponível em Azure AD DS.
 
+Para resolver problemas de autenticação, consulte este [guia.](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues)
+
 ## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clientes que usam OAuth para ligar ao gateway HDInsight com a configuração do Corretor de ID
 
 Na configuração do corretor de ID, as aplicações personalizadas e os clientes que se conectam ao gateway podem ser atualizados para adquirir primeiro o token OAuth necessário. Pode seguir os passos deste [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) para adquirir o token com as seguintes informações:
 
-*   OAu uri recurso uri:`https://hib.azurehdinsight.net` 
+*   OAu uri recurso uri: `https://hib.azurehdinsight.net` 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Permissão: (nome: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
-## <a name="next-steps"></a>Próximos passos
+Depois de aquípar o token OAuth, pode usá-lo no cabeçalho de autorização para o pedido HTTP para o gateway de cluster (por <clustername> exemplo, -int.azurehdinsight.net). Por exemplo, um comando de caracóis de amostra para livy API pode ser assim:
+    
+```bash
+curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+``` 
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configure um cluster HDInsight com pacote de segurança empresarial utilizando os serviços de domínio do diretório ativo Azure](apache-domain-joined-configure-using-azure-adds.md)
 * [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

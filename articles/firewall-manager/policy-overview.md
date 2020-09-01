@@ -4,15 +4,15 @@ description: Saiba mais sobre as políticas do Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 06/30/2020
+ms.topic: conceptual
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34134f2c790851d34db7b5327aa76350d54d137d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521654"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075468"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Visão geral da política do Azure Firewall Manager
 
@@ -60,6 +60,6 @@ O Azure Firewall apoia as regras e políticas tradicionais. O quadro que se segu
 
 As políticas são faturadas com base em associações de firewall. Uma política com zero ou uma associação de firewall é gratuita. Uma política com várias associações de firewall é cobrada a uma taxa fixa. Para obter mais informações, consulte o Preço do Gestor de Firewall da [Azure.](https://azure.microsoft.com/pricing/details/firewall-manager/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a implementar uma Firewall Azure, consulte [Tutorial: Fixe a sua rede de nuvem com o Azure Firewall Manager utilizando o portal Azure](secure-cloud-network.md).

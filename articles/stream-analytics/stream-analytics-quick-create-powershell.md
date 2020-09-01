@@ -1,34 +1,34 @@
 ---
-title: Quickstart - Criar um trabalho de Stream Analytics usando o Azure PowerShell
-description: Este quickstart demonstra como usar o módulo Azure PowerShell para implementar e executar um trabalho de Azure Stream Analytics.
+title: Quickstart - Crie um trabalho stream analytics usando Azure PowerShell
+description: Este quickstart demonstra como usar o módulo Azure PowerShell para implementar e executar um trabalho Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: a12f74e1b96cd305ec7b7a89f8ad77725122ac75
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 997d74b1afc59e72b2c3fe7a7d47166d5efb8715
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724586"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072983"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Quickstart: Criar um trabalho de Stream Analytics usando o Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Quickstart: Criar um trabalho stream analytics usando Azure PowerShell
 
 O módulo Azure PowerShell é utilizado para criar e gerir recursos Azure utilizando cmdlets ou scripts PowerShell. Este início rápido disponibiliza detalhes através do módulo do Azure PowerShell para implementar e executar uma tarefa do Azure Stream Analytics.
 
-O trabalho de exemplo lê dados de streaming de um dispositivo IoT Hub. Os dados de entrada são gerados por um simulador online Raspberry Pi. Em seguida, o trabalho stream analytics transforma os dados usando o idioma de consulta Stream Analytics para filtrar mensagens com uma temperatura superior a 27°. Finalmente, escreve os eventos de saída resultantes num ficheiro em armazenamento de bolhas.
+O trabalho de exemplo lê dados de streaming de um dispositivo IoT Hub. Os dados de entrada são gerados por um simulador online Raspberry Pi. Em seguida, o trabalho Stream Analytics transforma os dados usando a linguagem de consulta Stream Analytics para filtrar mensagens com uma temperatura superior a 27°. Finalmente, escreve os eventos de saída resultantes num ficheiro no armazenamento de bolhas.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
 
 * Este arranque rápido requer o módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada no computador local. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell).
 
-* Algumas ações do IoT Hub não são suportadas pelo Azure PowerShell e devem ser concluídas utilizando a versão 2.0.70 do Azure CLI ou posterior e a extensão IoT para o Azure CLI. [Instale o AZURI CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e utilize `az extension add --name azure-iot` para instalar a extensão IoT.
+* Algumas ações do IoT Hub não são apoiadas pela Azure PowerShell e devem ser concluídas utilizando a versão 2.0.70 do Azure CLI ou posterior e a extensão IoT para Azure CLI. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e `az extension add --name azure-iot` utilize-o para instalar a extensão IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -40,7 +40,7 @@ Inscreva-se na sua subscrição Azure com o `Connect-AzAccount` comando e insira
 Connect-AzAccount
 ```
 
-Se tiver mais de uma subscrição, selecione a subscrição que gostaria de utilizar para este arranque rápido executando os seguintes cmdlets. Certifique-se de que substitui `<your subscription name>` pelo nome da sua subscrição:
+Se tiver mais de uma subscrição, selecione a subscrição que pretende utilizar para este arranque rápido executando os seguintes cmdlets. Certifique-se de que substitui `<your subscription name>` pelo nome da sua subscrição:
 
 ```powershell
 # List all available subscriptions.
@@ -52,7 +52,7 @@ Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubsc
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos Azure com [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Criar um grupo de recursos Azure com [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
@@ -66,11 +66,11 @@ New-AzResourceGroup `
 
 Antes de definir o trabalho do Stream Analytics, prepare os dados configurados como entrada do mesmo.
 
-O seguinte bloco de código SLI Azure faz muitos comandos para preparar os dados de entrada exigidos pelo trabalho. Reveja as secções para compreender o código.
+O bloco de código Azure CLI seguinte faz muitos comandos para preparar os dados de entrada exigidos pelo trabalho. Reveja as secções para compreender o código.
 
-1. Na janela PowerShell, execute o comando [de login az](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) para iniciar sessão na sua conta Azure.
+1. Na sua janela PowerShell, execute o comando [de login az](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) para iniciar sessão na sua conta Azure.
 
-    Quando iniciar sessão com sucesso, o Azure CLI devolve uma lista das suas subscrições. Copie a subscrição que está a utilizar para este arranque rápido e execute o comando de conjunto de [contas az](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) para selecionar essa subscrição. Escolha a mesma subscrição selecionada na secção anterior com a PowerShell. Certifique-se de substituir `<your subscription name>` pelo nome da sua subscrição.
+    Quando iniciar sedições com sucesso, o Azure CLI devolve uma lista das suas subscrições. Copie a subscrição que está a usar para este arranque rápido e execute o comando [conjunto de conta az](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) para selecionar essa subscrição. Escolha a mesma subscrição selecionada na secção anterior com o PowerShell. Certifique-se de que substitui `<your subscription name>` pelo nome da sua subscrição.
 
     ```azurecli
     az login
@@ -78,25 +78,25 @@ O seguinte bloco de código SLI Azure faz muitos comandos para preparar os dados
     az account set --subscription "<your subscription>"
     ```
 
-2. Criar um Hub IoT usando o [hub az iot criar](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) comando. Este exemplo cria um Hub IoT chamado **MyASAIoTHub**. Como os nomes do IoT Hub são únicos, tens de inventar o teu próprio nome IoT Hub. Detete o SKU para F1 para utilizar o nível gratuito se estiver disponível com a sua subscrição. Caso contrário, escolha o próximo nível mais baixo.
+2. Crie um Hub IoT utilizando o [hub az iot criar](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) comando. Este exemplo cria um hub IoT chamado **MyASAIoTHub**. Como os nomes do IoT Hub são únicos, tens de inventar o teu próprio nome IoT Hub. Desa estama o SKU para F1 para utilizar o nível livre se estiver disponível com a sua subscrição. Caso contrário, escolha o próximo nível mais baixo.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    Uma vez criado o hub IoT, obtenha a cadeia de ligação IoT Hub utilizando o comando de cadeia de conexão de [eixo az iot.](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest) Copie toda a cadeia de ligação e guarde-a para quando adicionar o IoT Hub como entrada para o seu trabalho stream analytics.
+    Uma vez criado o hub IoT, obtenha a cadeia de ligação IoT Hub utilizando o comando [az iot hub show-connection-string.](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest) Copie toda a cadeia de ligação e guarde-a para quando adicionar o Hub IoT como entrada no seu trabalho stream Analytics.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Adicione um dispositivo ao IoT Hub utilizando o comando de criação de identidade de [dispositivo az iothub.](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) Este exemplo cria um dispositivo chamado **MyASAIoTDevice**.
+3. Adicione um dispositivo ao IoT Hub utilizando o comando [de criação de identidade de dispositivo az iothub.](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) Este exemplo cria um dispositivo chamado **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. Obtenha a cadeia de ligação do dispositivo utilizando o comando de cadeia de ligação de dispositivo-ligação de eixo [az iot.](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) Copie toda a cadeia de ligação e guarde-a para quando criar o simulador Raspberry Pi.
+4. Obtenha a cadeia de ligação do dispositivo utilizando o comando [az iot hub-identidade de programa-ligação de ligação.](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) Copie toda a cadeia de ligação e guarde-a para quando criar o simulador Raspberry Pi.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
@@ -110,15 +110,15 @@ O seguinte bloco de código SLI Azure faz muitos comandos para preparar os dados
 
 ## <a name="create-blob-storage"></a>Criar armazenamento de bolhas
 
-O seguinte bloco de código Sonéris PowerShell utiliza comandos para criar armazenamento de bolhas que é usado para a saída de trabalho. Reveja as secções para compreender o código.
+O bloco de código Azure PowerShell que se segue utiliza comandos para criar armazenamento de bolhas que é usado para a saída de trabalho. Reveja as secções para compreender o código.
 
-1. Crie uma conta de armazenamento padrão para fins gerais utilizando o [cmdlet New-AzStorageAccount.](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount)  Este exemplo cria uma conta de armazenamento chamada **myasaquickstartstorage** com armazenamento localmente redundante (LRS) e encriptação blob (ativada por padrão).
+1. Crie uma conta de armazenamento de uso de [new-AzStorageAccount.](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount)  Este exemplo cria uma conta de armazenamento chamada **myasaquickstartstorage** com armazenamento localmente redundante (LRS) e encriptação blob (ativada por padrão).
 
 2. Obtenha o contexto da conta de armazenamento `$storageAccount.Context` que define a conta de armazenamento a ser utilizada. Ao trabalhar com contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais.
 
-3. Crie um recipiente de armazenamento utilizando o [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer).
+3. Criar um recipiente de armazenamento utilizando [o New-AzStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer).
 
-4. Copie a chave de armazenamento que é saída pelo código e guarde essa chave para criar a saída do trabalho de streaming mais tarde.
+4. Copie a chave de armazenamento que é outputada pelo código e guarde essa chave para criar a saída do trabalho de streaming mais tarde.
 
     ```powershell
     $storageAccountName = "myasaquickstartstorage"
@@ -146,7 +146,7 @@ O seguinte bloco de código Sonéris PowerShell utiliza comandos para criar arma
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-Crie um trabalho de Stream Analytics com [o cmdlet New-AzStreamAnalyticsJob.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) Este cmdlet tem o nome de trabalho, nome do grupo de recursos e definição de trabalho como parâmetros. O nome do trabalho pode ser qualquer nome amigável que o identifique. Pode ter caracteres alfanuméricos, hífenes, e sublinha apenas e deve ter entre 3 e 63 caracteres de comprimento. A definição de trabalho é um ficheiro JSON que contém as propriedades necessárias para criar um trabalho. No computador local, crie um ficheiro denominado `JobDefinition.json` e adicione os seguintes dados JSON:
+Crie um trabalho stream analytics com [o cmdlet New-AzStreamAnalyticsJob.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) Este cmdlet tem o nome de trabalho, nome do grupo de recursos e definição de trabalho como parâmetros. O nome do trabalho pode ser qualquer nome amigável que o identifique. Pode ter caracteres alfanuméricos, hífens e sublinha apenas e deve ter entre 3 e 63 caracteres de comprimento. A definição de trabalho é um ficheiro JSON que contém as propriedades necessárias para criar um trabalho. No computador local, crie um ficheiro denominado `JobDefinition.json` e adicione os seguintes dados JSON:
 
 ```json
 {
@@ -162,7 +162,7 @@ Crie um trabalho de Stream Analytics com [o cmdlet New-AzStreamAnalyticsJob.](ht
 }
 ```
 
-Em seguida, execute o cmdlet `New-AzStreamAnalyticsJob`. Substitua o valor da `jobDefinitionFile` variável pelo caminho onde armazenou o ficheiro JSON de definição de trabalho.
+Em seguida, execute o cmdlet `New-AzStreamAnalyticsJob`. Substitua o valor da `jobDefinitionFile` variável pelo caminho onde guardou o ficheiro JSON de definição de trabalho.
 
 ```powershell
 $jobName = "MyStreamingJob"
@@ -176,9 +176,9 @@ New-AzStreamAnalyticsJob `
 
 ## <a name="configure-input-to-the-job"></a>Configurar a entrada da tarefa
 
-Adicione uma entrada ao seu trabalho utilizando o cmdlet [New-AzStreamAnalyticsInputput.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput) Este cmdlet utiliza o nome da tarefa, o nome da entrada da tarefa, o nome do grupo de recursos e a definição de entrada da tarefa como parâmetros. A definição da entrada do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa entrada. Neste exemplo, você vai criar um armazenamento de bolhas como uma entrada.
+Adicione uma entrada ao seu trabalho utilizando o [cmdlet New-AzStreamAnalyticsInput.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput) Este cmdlet utiliza o nome da tarefa, o nome da entrada da tarefa, o nome do grupo de recursos e a definição de entrada da tarefa como parâmetros. A definição da entrada do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa entrada. Neste exemplo, irá criar um armazenamento de bolhas como entrada.
 
-No computador local, crie um ficheiro denominado `JobInputDefinition.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que substitui o valor `accesspolicykey` pela parte da cadeia de `SharedAccessKey` ligação IoT Hub que guardou numa secção anterior.
+No computador local, crie um ficheiro denominado `JobInputDefinition.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que substitui o valor pela `accesspolicykey` parte da cadeia de `SharedAccessKey` ligação IoT Hub que guardou numa secção anterior.
 
 ```json
 {
@@ -209,7 +209,7 @@ No computador local, crie um ficheiro denominado `JobInputDefinition.json` e adi
 }
 ```
 
-Em seguida, executar o `New-AzStreamAnalyticsInput` cmdlet, certifique-se de substituir o valor da `jobDefinitionFile` variável pelo caminho onde armazenou o ficheiro JSON de definição de entrada de trabalho.
+Em seguida, executar o `New-AzStreamAnalyticsInput` cmdlet, certifique-se de substituir o valor da `jobDefinitionFile` variável pelo caminho onde guardou o ficheiro JSON de definição de entrada de trabalho.
 
 ```powershell
 $jobInputName = "IoTHubInput"
@@ -223,7 +223,7 @@ New-AzStreamAnalyticsInput `
 
 ## <a name="configure-output-to-the-job"></a>Configurar a saída da tarefa
 
-Adicione uma saída ao seu trabalho utilizando o cmdlet [New-AzStreamAnalyticsOutput.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput) Este cmdlet utiliza o nome da tarefa, o nome da saída da tarefa, o nome do grupo de recursos e a definição de saída da tarefa como parâmetros. A definição da saída do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa saída. Este exemplo utiliza o armazenamento de blobs como saída.
+Adicione uma saída ao seu trabalho utilizando o [cmdlet New-AzStreamAnalyticsOutput.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput) Este cmdlet utiliza o nome da tarefa, o nome da saída da tarefa, o nome do grupo de recursos e a definição de saída da tarefa como parâmetros. A definição da saída do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa saída. Este exemplo utiliza o armazenamento de blobs como saída.
 
 No computador local, crie um ficheiro denominado `JobOutputDefinition.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que substitui o valor de `accountKey` pela chave de acesso da conta de armazenamento, que é o valor armazenado em $storageAccountKey.
 
@@ -272,7 +272,7 @@ New-AzStreamAnalyticsOutput `
 
 ## <a name="define-the-transformation-query"></a>Definir a consulta de transformação
 
-Adicione uma transformação ao usar o [cmdlet New-AzStreamAnalyticsTransformation.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation) Este cmdlet utiliza o nome da tarefa, o nome da transformação da tarefa, o nome do grupo de recursos e a definição de transformação da tarefa como parâmetros. No computador local, crie um ficheiro denominado `JobTransformationDefinition.json` e adicione os seguintes dados JSON ao mesmo. O ficheiro JSON contém um parâmetro de consulta que define a consulta de transformação:
+Adicione uma transformação ao seu trabalho utilizando o [cmdlet New-AzStreamAnalyticsTransformation.](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation) Este cmdlet utiliza o nome da tarefa, o nome da transformação da tarefa, o nome do grupo de recursos e a definição de transformação da tarefa como parâmetros. No computador local, crie um ficheiro denominado `JobTransformationDefinition.json` e adicione os seguintes dados JSON ao mesmo. O ficheiro JSON contém um parâmetro de consulta que define a consulta de transformação:
 
 ```json
 {
@@ -286,7 +286,7 @@ Adicione uma transformação ao usar o [cmdlet New-AzStreamAnalyticsTransformati
 }
 ```
 
-Execute novamente o cmdlet `New-AzStreamAnalyticsTransformation`. Certifique-se de substituir o valor da `jobTransformationDefinitionFile` variável pelo caminho onde armazenou o ficheiro JSON de transformação de emprego.
+Execute novamente o cmdlet `New-AzStreamAnalyticsTransformation`. Certifique-se de substituir o valor da `jobTransformationDefinitionFile` variável pelo caminho onde guardou o ficheiro JSON de definição de transformação de emprego.
 
 ```powershell
 $jobTransformationName = "MyJobTransformation"
@@ -300,17 +300,17 @@ New-AzStreamAnalyticsTransformation `
 
 ## <a name="run-the-iot-simulator"></a>Executar o simulador IoT
 
-1. Abra o [Simulador Online Raspberry Pi Azure IoT](https://azure-samples.github.io/raspberry-pi-web-simulator/).
+1. Abra o [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/).
 
-2. Substitua o espaço reservado na Linha 15 por toda a cadeia de ligação do Dispositivo Hub Azure IoT que guardou numa secção anterior.
+2. Substitua o espaço reservado na Linha 15 por toda a cadeia de ligação Azure IoT Hub Device que guardou numa secção anterior.
 
-3. Clique em **Executar**. A saída deve mostrar os dados do sensor e as mensagens que estão a ser enviadas para o seu Hub IoT.
+3. Clique em **Run** (Executar). A saída deve mostrar os dados do sensor e as mensagens que estão a ser enviadas para o seu Hub IoT.
 
     ![Simulador Online do Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 
-Inicie o trabalho utilizando o [cmdlet Start-AzStreamAnalyticsJobJob.](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) Este cmdlet utiliza o nome da tarefa, o nome do grupo de recursos, o modo de início da saída e a hora de início como parâmetros. `OutputStartMode` aceita os valores `JobStartTime``CustomTime` ou `LastOutputEventTime`. Para obter mais informações sobre ao que cada um destes valores se refere, veja a secção [parameters](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) (parâmetros) na documentação do PowerShell.
+Inicie o trabalho utilizando o [cmdlet Start-AzStreamAnalyticsJob.](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) Este cmdlet utiliza o nome da tarefa, o nome do grupo de recursos, o modo de início da saída e a hora de início como parâmetros. `OutputStartMode` aceita os valores `JobStartTime``CustomTime` ou `LastOutputEventTime`. Para obter mais informações sobre ao que cada um destes valores se refere, veja a secção [parameters](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) (parâmetros) na documentação do PowerShell.
 
 Depois de executar o cmdlet seguinte, devolve `True` como a saída, se o trabalho for iniciado. No contentor de armazenamento, é criada uma pasta de saída com os dados transformados.
 
@@ -321,16 +321,16 @@ Start-AzStreamAnalyticsJob `
   -OutputStartMode 'JobStartTime'
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar o trabalho no futuro, pode ignorar a eliminação e parar o trabalho por agora. Se não vai continuar a usar este trabalho, elimine todos os recursos criados por este quickstart executando o seguinte cmdlet:
+Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar o trabalho no futuro, pode ignorar a eliminação e parar o trabalho por agora. Se não continuar a utilizar este trabalho, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
 
 ```powershell
 Remove-AzResourceGroup `
   -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou uma tarefa simples do Stream Analytics com o PowerShell. Também pode implementar tarefas do Stream Analytics com o [portal do Azure](stream-analytics-quick-create-portal.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 

@@ -7,12 +7,13 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 2fd6a42d9624d7a95e66b88e004e1f5203a738a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: df8a7fde9114f03521f0e57e072f81a867efcf39
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336623"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075261"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos de ônibus de serviço usando modelos de gestor de recursos Azure
 
@@ -245,7 +246,7 @@ Parameters        :
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Já viu o fluxo básico de trabalho e comandos para a implementação de um modelo de Gestor de Recursos Azure. Para obter informações mais detalhadas, visite os seguintes links:
 
 * [Visão geral do Gestor de Recursos Azure][Azure Resource Manager overview]

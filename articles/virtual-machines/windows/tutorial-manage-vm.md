@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: b89b3e2cf799e1aa182f7005d92e2c91ce4b76ce
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 65116f979131590a66ff2f08896e7a89ae075303
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263083"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074156"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerir VMs do Windows com o Azure PowerShell
 

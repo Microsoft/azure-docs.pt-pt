@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 68b5aa21f861009dd78f48428fa0ffdc5b5ae3a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: 45bace9ac174b353bb4662a27e800c0de4eada4b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124875"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072728"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerir uma balança de máquina virtual definida com Azure PowerShell
 
@@ -105,5 +105,5 @@ Remove-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Outras tarefas comuns para conjuntos de escala incluem como [implementar uma aplicação,](virtual-machine-scale-sets-deploy-app.md)e [atualizar instâncias VM](virtual-machine-scale-sets-upgrade-scale-set.md). Também pode utilizar o Azure PowerShell para [configurar regras de escala automática](virtual-machine-scale-sets-autoscale-overview.md).

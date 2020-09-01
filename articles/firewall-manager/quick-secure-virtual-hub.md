@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Secure virtual hub usando Azure Firewall Manager - Modelo de Gestor de Recursos'
-description: Saiba como proteger o seu hub virtual utilizando o Azure Firewall Manager.
+description: Neste arranque rápido, aprende-se a proteger o seu hub virtual utilizando o Azure Firewall Manager.
 services: firewall-manager
 author: vhorne
-ms.service: firewall
+ms.service: firewall-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: bfa957d8fb0eeb8020472026e18c41dc6e65fdc3
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 050dfa737ad04127f8c72158fbecb2e8e70e05c1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705763"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075346"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Quickstart: Fixe o seu hub virtual usando o Azure Firewall Manager - modelo ARM
 
@@ -90,7 +90,7 @@ Então agora verificaste que as regras da firewall estão a funcionar:
 
 - Pode navegar para o único FQDN permitido, mas não para quaisquer outros.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a firewall, elimine o grupo de recursos. Isto remove a firewall e todos os recursos relacionados.
 

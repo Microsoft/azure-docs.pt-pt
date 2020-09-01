@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b9514bea1f9c34f0ed36bf530a7129b6fea46c4f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 2840e82508ee4f4046aec8f23c00a5c275bf5b67
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501972"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074462"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauro pontual para bolhas de bloco (pré-visualização)
 
@@ -166,5 +166,5 @@ Para fazer perguntas sobre a pré-visualização de restauro pontual ou para for
 
 - [Ativar e gerir o restauro pontual para as bolhas de bloco (pré-visualização)](point-in-time-restore-manage.md)
 - [Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)](storage-blob-change-feed.md)
-- [Ativar a eliminação suave para bolhas](soft-delete-enable.md)
+- [Ativar a eliminação recuperável para blobs](soft-delete-enable.md)
 - [Ativar e gerir a versão blob](versioning-enable.md)

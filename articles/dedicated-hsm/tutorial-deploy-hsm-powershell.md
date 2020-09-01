@@ -8,17 +8,17 @@ manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: 93333f2f0a2ef4aaf44884aa30afaa959459aaad
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: fc67012dff5931fb86452ea95c2ea074a426953c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257432"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075681"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantação de HSMs numa rede virtual existente utilizando o PowerShell
 
@@ -261,6 +261,6 @@ Após completar os passos no tutorial, os recursos dedicados do HSM são a provi
 
 * [Elevada Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
-* [Rede](networking.md)
+* [Redes](networking.md)
 * [Monitorização](monitoring.md)
 * [Suportabilidade](supportability.md)

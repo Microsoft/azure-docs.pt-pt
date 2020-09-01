@@ -8,12 +8,13 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 865263d22d6f92dec74ef2820e80481e1a308804
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b1bf8fbfb6d2c141a2b18c3599631f6383883908
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494558"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074428"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -61,7 +62,7 @@ Há duas formas de adicionar uma política através do portal Azure.
 
 #### <a name="azure-portal-list-view"></a>Vista do portal Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. No portal Azure, procure e selecione a sua conta de armazenamento. 
 
@@ -82,7 +83,7 @@ Há duas formas de adicionar uma política através do portal Azure.
 9. **Selecione Adicionar** para adicionar a nova política.
 
 #### <a name="azure-portal-code-view"></a>Vista de código do portal Azure
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. No portal Azure, procure e selecione a sua conta de armazenamento.
 
@@ -303,7 +304,7 @@ A gestão do ciclo de vida suporta o tiering e a eliminação de bolhas e a elim
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Blobs de suporte atualmente em nível quente         | Não suportado |
 | tierToArchive | Bolhas de suporte atualmente em nível quente ou fresco | Não suportado |
-| eliminação        | Suportado                                   | Suportado     |
+| delete        | Suportado                                   | Suportado     |
 
 >[!NOTE]
 >Se definir mais do que uma ação na mesma bolha, a gestão do ciclo de vida aplica a ação menos dispendiosa à bolha. Por exemplo, a ação `delete` é mais barata do que a `tierToArchive` ação. A ação `tierToArchive` é mais barata do que a `tierToCool` ação.

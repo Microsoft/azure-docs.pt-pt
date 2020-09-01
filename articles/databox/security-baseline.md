@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1961aa3ee21d5b04108b3107731560d747a2c963
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497329"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075567"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Linha de segurança Azure para Azure Data Box
 
@@ -216,11 +216,11 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: Mantenha um inventário das contas de utilizador que tenham acesso administrativo à sua Caixa de Dados Azure. Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (RBAC). As funções são aplicadas a utilizadores, grupos, princípios de serviço e identidades geridas no Ative Directory.Pode controlar quem pode aceder à sua encomenda quando a encomenda é criada pela primeira vez. Configurar funções Azure em vários âmbitos para controlar o acesso à ordem Caixa de Dados. Uma função Azure determina o tipo de acesso – ler- escrever, ler, ler para um subconjunto de operações.
+**Orientação**: Mantenha um inventário das contas de utilizador que tenham acesso administrativo à sua Caixa de Dados Azure. Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (Azure RBAC). As funções são aplicadas a utilizadores, grupos, princípios de serviço e identidades geridas no Ative Directory.Pode controlar quem pode aceder à sua encomenda quando a encomenda é criada pela primeira vez. Configurar funções Azure em vários âmbitos para controlar o acesso à ordem Caixa de Dados. Uma função Azure determina o tipo de acesso – ler- escrever, ler, ler para um subconjunto de operações.
 
 * [Compreender papéis personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Como configurar o RBAC para livros](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Como configurar o Azure RBAC para livros](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Entenda como configurar o controlo de acesso na ordem](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
 
@@ -427,7 +427,7 @@ Durante o upload de dados para o Azure, o aparelho data box e o serviço utiliza
 
 **Responsabilidade**: Não aplicável
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
 **Orientação**: Certifique-se de que tem acesso ao proprietário ou colaborador à subscrição para criar uma encomenda de Caixa de Dados. Também pode definir funções de Leitor de Caixa de Dados e Contribuinte de Caixa de Dados ao nível do recurso.
 

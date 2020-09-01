@@ -10,12 +10,12 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001064"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074411"
 ---
 # <a name="enable-and-manage-blob-versioning-preview"></a>Ativar e gerir a versão blob (pré-visualização)
 
@@ -24,6 +24,8 @@ Pode permitir que a versão de armazenamento Blob (pré-visualização) mantenha
 Este artigo mostra como ativar ou desativar a versão blob para a conta de armazenamento utilizando o portal Azure ou um modelo de Gestor de Recursos Azure.
 
 Tem de se registar para a pré-visualização antes de ativar a versão blob. Para saber mais sobre a versão blob, incluindo como se registar para a pré-visualização, consulte [a versão Blob (pré-visualização)](versioning-overview.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>Ativar a criação de versões de blobs
 
