@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180087"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269680"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -27,7 +27,7 @@ Utilizando o Azure Ative Directory (Azure AD), pode designar administradores lim
 
 ## <a name="limit-use-of-global-administrator"></a>Limitar a utilização do administrador global
 
-Os utilizadores que estão atribuídos à função de administrador global podem ler e modificar todas as configurações administrativas da sua organização AZure AD. Por padrão, a pessoa que se inscreve para uma subscrição Azure é atribuída ao papel de administrador global para a organização Azure AD. Apenas administradores globais e administradores de funções privilegiadas podem delegar funções de administrador. Para reduzir o risco para o seu negócio, recomendamos que atribua este papel ao menor número possível de pessoas na sua organização.
+Os utilizadores que estão atribuídos à função de administrador global podem ler e modificar todas as configurações administrativas da sua organização AZure AD. Por padrão, quando um utilizador se inscreve para um serviço de cloud da Microsoft, é criado um inquilino AZure AD e o utilizador é nomeado membro do papel de Administrador Global. Quando adiciona uma subscrição a um inquilino existente, não está atribuído ao papel de Administrador Global. Apenas administradores globais e administradores de funções privilegiadas podem delegar funções de administrador. Para reduzir o risco para o seu negócio, recomendamos que atribua este papel ao menor número possível de pessoas na sua organização.
 
 Como uma boa prática, recomendamos que atribua este papel a menos de cinco pessoas na sua organização. Se tiver mais de cinco administradores atribuídos ao papel de Administrador Global na sua organização, eis algumas formas de reduzir o seu uso.
 

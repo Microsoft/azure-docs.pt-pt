@@ -3,7 +3,7 @@ title: Utilize o CLI para criar filtros com a Azure Media Services Microsoft Doc
 description: Este artigo mostra como usar o CLI para criar filtros com a Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2385171a501d00f91c58f3fde9b487505ec21c60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 024136ab6f660ecc5b6c5c7c0ecae62c83238659
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023216"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269544"
 ---
-# <a name="creating-filters-with-cli"></a>Criar filtros com CLI 
+# <a name="creating-filters-with-cli"></a>Criar filtros com CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo a pedido), o seu cliente poderá necessitar de mais flexibilidade do que o descrito no ficheiro manifesto do ativo padrão. O Azure Media Services permite-lhe definir filtros de conta e filtros de ativos para o seu conteúdo. 
 

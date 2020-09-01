@@ -16,12 +16,12 @@ ms.date: 12/22/2017
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715502ebb899c0a3341a14cfe335d6eaabe112dc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c27480f29a29f4805f8a9cafcfd388cb0638519e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014868"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269323"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: utilizar uma identidade gerida atribuída pelo utilizador da VM de Linux para aceder ao Azure Resource Manager
 
@@ -29,7 +29,7 @@ ms.locfileid: "89014868"
 
 Este tutorial explica como criar um identidade gerida atribuída pelo utilizador, atribuí-la a uma Máquina Virtual do Linux (VM do Linux) e, em seguida, utilizar essa identidade para aceder à API do Azure Resource Manager. As identidades geridas para recursos do Azure são geridas automaticamente pelo Azure. Permitem a autenticação em serviços que suportam a autenticação do Azure AD, sem ter de incorporar as credenciais no código. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma identidade gerida atribuída pelo utilizador
@@ -43,7 +43,7 @@ Neste tutorial, vai aprender a:
 
 - [Inscreva-se no portal Azure](https://portal.azure.com)
 
-- [Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
+- [Criar uma máquina virtual do Linux](../../virtual-machines/linux/quick-create-portal.md)
 
 - Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -122,11 +122,11 @@ A resposta contém detalhes da atribuição de função criada, semelhante ao se
 
 No resto do tutorial, iremos trabalhar a partir da VM que criámos anteriormente.
 
-Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](/windows/wsl/about). 
 
 1. Inscreva-se no [portal](https://portal.azure.com)Azure .
 2. No portal, navegue para **Máquinas Virtuais**, vá para a máquina virtual do Linux e, na **Descrição Geral**, clique em **Ligar**. Copie a cadeia de ligação para ligar à sua VM.
-3. Ligue à VM com o cliente SSH que escolher. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+3. Ligue à VM com o cliente SSH que escolher. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](/windows/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 4. Na janela de terminal, com o CURL, faça um pedido ao ponto final do Instance Metadata Service (IMDS) do Azure para obter um token de acesso para o Azure Resource Manager.  
 
    O pedido CURL para adquirir um token de acesso é mostrado no exemplo seguinte.Certifique-se de que substitui `<CLIENT ID>` pela propriedade `clientId` devolvida pelo comando `az identity create` em [Criar uma identidade gerida atribuída pelo utilizador](#create-a-user-assigned-managed-identity): 
@@ -179,5 +179,4 @@ Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o W
 Este tutorial explica como criar um identidade gerida atribuída pelo utilizador e anexá-la a uma máquina virtual do Linux para aceder à API do Azure Resource Manager.  Para saber mais sobre o Azure Resource Manager, veja:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

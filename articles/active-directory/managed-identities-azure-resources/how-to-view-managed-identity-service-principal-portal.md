@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52cd1f061f91daae7e3c663084647bf98db44cb4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c88f3cdc880888162301ace5c896161f669d2ede
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009241"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269204"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Ver o principal de serviço de uma identidade gerida no portal Azure
 
@@ -35,7 +35,7 @@ Neste artigo, você aprende a ver o principal de serviço de uma identidade geri
 
 - Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md)
 - Se ainda não tem uma conta Azure, [inscreva-se numa conta gratuita.](https://azure.microsoft.com/free/)
-- Ativar a identidade atribuída ao sistema numa máquina ou [aplicação](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) [virtual.](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+- Ativar a identidade atribuída ao sistema numa máquina ou [aplicação](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity) [virtual.](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 ## <a name="view-the-service-principal"></a>Ver o principal de serviço
 
@@ -49,5 +49,4 @@ Este procedimento demonstra como ver o principal de serviço de um VM com a iden
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Identidades geridas para os recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview)
-
+[Identidades geridas para os recursos do Azure](./overview.md)

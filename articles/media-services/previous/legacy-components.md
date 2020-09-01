@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: juliako
-ms.openlocfilehash: d8d961ab58e900a6d619ec64297c783abdb7b6ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c3e50fd64c113aafd2d70cc76c7f789e080ad23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091696"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269527"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componentes legados da Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Ao longo do tempo, tem havido melhorias e melhorias constantes nos componentes do Media Service. Como resultado, alguns componentes do legado foram retirados. Pode encontrar as instruções sobre como migrar a sua aplicação do componente legado para um componente atual nos seguintes artigos.
  

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55c22a58ea76c268c40894c0ea64d43312b1ba27
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564861"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269102"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um Vídeo de Transmissão em fluxo Adaptivo MPEG-DASH numa Aplicação HTML5 com DASH.js  
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um Vídeo de Transmissão em fluxo Adaptivo MPEG-DASH numa Aplicação HTML5 com DASH.js
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 ## <a name="overview"></a>Descrição geral
 MPEG-DASH é um padrão ISO para o streaming adaptativo de conteúdos de vídeo, que oferece benefícios significativos para os desenvolvedores que querem fornecer uma saída de streaming de vídeo adaptativa de alta qualidade. Com o MPEG-DASH, o fluxo de vídeo ajusta-se automaticamente a uma definição mais baixa quando a rede fica congestionada. Isto reduz a probabilidade de o espectador ver um vídeo "pausado" enquanto o jogador descarrega os próximos segundos para jogar (isto é, reduz a probabilidade de tampão). À medida que o congestionamento da rede diminui, o leitor de vídeo, por sua vez, regressará a um fluxo de maior qualidade. Esta capacidade de adaptação da largura de banda necessária também resulta numa hora de início mais rápida para o vídeo. Isto significa que os primeiros segundos podem ser jogados num segmento de qualidade inferior para descarregar rapidamente e, em seguida, chegar a uma qualidade mais alta uma vez que o conteúdo suficiente tenha sido tamponado.

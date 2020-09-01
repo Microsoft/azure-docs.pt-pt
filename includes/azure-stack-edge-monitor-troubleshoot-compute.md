@@ -2,16 +2,51 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 350d41980e3128a8747a673ebea82afbe4fab49b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ccb6127e624ace9e719ffd23324b3a1b971f72
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313221"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89272138"
 ---
-Num dispositivo Azure Stack Edge que tem a função de computação configurada, um subconjunto de comandos docker está disponível para monitorizar ou resolver problemas. Para ver uma lista de comandos disponíveis, [ligue-se à interface PowerShell](#connect-to-the-powershell-interface) e utilize a `dkrdbe` função.
+Num dispositivo Azure Stack Edge que tem a função de computação configurada, pode resolver problemas ou monitorizar o dispositivo utilizando dois conjuntos diferentes de comandos.
+
+- Usando `iotedge` comandos. Estes comandos estão disponíveis para operações básicas para o seu dispositivo.
+- Usando `dkrdbe` comandos. Estes comandos estão disponíveis para um vasto conjunto de operações para o seu dispositivo.
+
+Para executar qualquer um dos comandos acima, é necessário ligar à [interface PowerShell](#connect-to-the-powershell-interface).
+
+### <a name="use-iotedge-commands"></a>Use `iotedge` comandos
+
+Para ver uma lista de comandos disponíveis, [ligue-se à interface PowerShell](#connect-to-the-powershell-interface) e utilize a `iotedge` função.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                                                                                                 Usage: iotedge COMMAND
+
+Commands:
+   check
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+A tabela a seguir tem uma breve descrição dos comandos disponíveis `iotedge` para:
+
+|command  |Descrição |
+|---------|---------|
+|`check`     | Realizar verificações automatizadas para problemas comuns de configuração e conectividade       |
+|`list`     | Listar módulos         |
+|`logs`     | Pegue os troncos de um módulo        |
+|`restart`     | Parar e reiniciar um módulo         |
+
+
+### <a name="use-dkrdbe-commands"></a>Use `dkrdbe` comandos
+
+Para ver uma lista de comandos disponíveis, [ligue-se à interface PowerShell](#connect-to-the-powershell-interface) e utilize a `dkrdbe` função.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -39,7 +74,7 @@ A tabela a seguir tem uma breve descrição dos comandos disponíveis `dkrdbe` p
 
 |command  |Descrição |
 |---------|---------|
-|`image`     | Gerir imagens. Para remover imagens não utilizadas, utilize:`dkrdbe image prune -a -f`       |
+|`image`     | Gerir imagens. Para remover imagens não utilizadas, utilize: `dkrdbe image prune -a -f`       |
 |`images`     | Listar imagens         |
 |`inspect`     | Devolva informações de baixo nível em objetos Docker         |
 |`login`     | Inscreva-se num registo do Docker         |
@@ -89,14 +124,14 @@ Para obter a lista de todos os recipientes (incluindo os que são pausados), exe
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
 CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
 [10.100.10.10]: PS>
 ```
 
-Se houve um erro na criação da imagem do recipiente ou ao puxar a imagem, corra `logs edgeAgent` .  `EdgeAgent`é o recipiente de tempo de execução IoT Edge responsável pelo provisionamento de outros contentores.
+Se houve um erro na criação da imagem do recipiente ou ao puxar a imagem, corra `logs edgeAgent` .  `EdgeAgent` é o recipiente de tempo de execução IoT Edge responsável pelo provisionamento de outros contentores.
 
 Porque `logs edgeAgent` despeja todos os registos, uma boa maneira de ver os erros recentes é usar a opção. `--tail 20`
 
@@ -127,10 +162,10 @@ Para obter registos para um recipiente específico, primeiro liste o recipiente 
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
     CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
 3. Tome nota da identificação do recipiente para o recipiente para o que necessita dos registos.

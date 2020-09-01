@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 55d9d9191dc62d7397c5de944985d5653eff4e13
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057471"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269833"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Advanced Media Encoder Premium Workflow tutorials (Tutoriais avançados do Media Encoder Premium Workflow)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Descrição geral
 Este documento contém imagens que mostram como personalizar fluxos de trabalho com **o Workflow Designer.** Pode encontrar [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples)os ficheiros de fluxo de trabalho reais.  
 
@@ -462,7 +465,7 @@ Diferente dos nossos vídeos MP4, o componente JPG Encoder produz mais do que um
 
 *Apresentando o escritor de arquivos JPG de pesquisa de cena*
 
-Configure a propriedade Do Caminho da Pasta de Saída com a expressão:`${ROOT_outputWriteDirectory}`
+Configure a propriedade Do Caminho da Pasta de Saída com a expressão: `${ROOT_outputWriteDirectory}`
 
 e a propriedade Filename Prefix com:
 

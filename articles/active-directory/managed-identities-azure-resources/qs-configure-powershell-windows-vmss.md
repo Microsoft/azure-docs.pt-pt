@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d3142547babb780de7a442667fd3472a4ffdc0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 70296dce5b9dcac738c17a4f2388a7eb37abd66f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021549"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269340"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurar identidades geridas para recursos Azure em conjuntos de escala de máquinas virtuais usando PowerShell
 
@@ -43,9 +43,9 @@ Neste artigo, utilizando o PowerShell, aprende-se a executar as identidades geri
     > [!NOTE]
     > Não são necessárias atribuições adicionais de diretório ad AD.
 
-    - [O Contribuinte De Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover a identidade gerida gerida e/ou atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
-    - [Papel de Contribuinte de Identidade Gerido](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
-    - [Função de Operador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade gerida atribuída pelo utilizador de e para um conjunto de escala de máquina virtual.
+    - [O Contribuinte De Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover a identidade gerida gerida e/ou atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
+    - [Papel de Contribuinte de Identidade Gerido](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
+    - [Função de Operador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para atribuir e remover uma identidade gerida atribuída pelo utilizador de e para um conjunto de escala de máquina virtual.
 - Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não o fez. 
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerida atribuída pelo sistema
@@ -150,21 +150,4 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
 - Para a criação completa de Azure VM Quickstarts, consulte:
   
   - [Criar máquinas virtuais do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Criar máquinas virtuais do Linux com o PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - [Criar máquinas virtuais do Linux com o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)

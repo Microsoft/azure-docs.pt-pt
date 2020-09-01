@@ -10,16 +10,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: af9f1f745f58e9d51ff7c5755d24b819ed9443f7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147591"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269731"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformidade regulamentar dos Serviços de Mídia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os Serviços de Comunicação Social cumprem os exigentes requisitos do Programa Federal de Gestão de & de Risco (FedRAMP) dos EUA e do Departamento de Defesa dos EUA, desde os níveis de impacto da informação 2 a 5. Ao implementar serviços protegidos, incluindo o Governo de Azure, o Gabinete 365 do Governo dos EUA e a Dynamics 365, as agências federais e de defesa podem usar uma rica variedade de serviços compatíveis.
 

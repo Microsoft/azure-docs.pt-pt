@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5fe1bf294c34afc2f7e0e0aa911dc05597ab9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252785"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269561"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementar uma estação de trabalho segura e gerida pelo Azure
 
@@ -29,7 +29,7 @@ Selecione um perfil antes de implementar a solução. Pode utilizar vários perf
 > [!NOTE]
 > Aplique qualquer um dos perfis necessários pelas suas necessidades. Pode passar para outro perfil atribuindo-o no Microsoft Intune.
 
-| Perfil | Baixa | Melhorada | Alta | Especializada | Protegido | Isolado |
+| Perfil | Baixa | Melhorada | Alto | Especializada | Protegido | Isolado |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Utilizador em Azure AD | Sim | Sim | Sim | Sim | Sim | Sim |
 | Gerido por intune | Sim | Sim | Sim | Sim | Sim | Sim |
@@ -84,7 +84,7 @@ A partir do portal Azure, navegue até a **Azure Ative Directory**  >  **Groups*
    * **Nome do grupo** - Utilizadores seguros da estação de trabalho
    * **Tipo de adesão** - Atribuído
 
-1. Adicione o seu utilizador de administrador de estação de trabalho seguro:`secure-ws-admin@identityitpro.com`
+1. Adicione o seu utilizador de administrador de estação de trabalho seguro: `secure-ws-admin@identityitpro.com`
 1. Pode adicionar quaisquer outros utilizadores que estejam a gerir estações de trabalho seguras.
 1. Selecione **Criar**.
 1. Para o grupo de dispositivos de estação de trabalho, insira:
@@ -101,21 +101,21 @@ A partir do portal Azure, navegue até a **Azure Ative Directory**  >  **Groups*
 
 Configure a definição dos seus dispositivos no Ative Directory para permitir que o seu grupo de segurança administrativa se junte a dispositivos ao seu domínio. Para configurar esta definição a partir do portal Azure:
 
-1. Aceda às definições do dispositivo de dispositivos **de diretório ativo Azure**  >  **Devices**  >  **Device settings**.
+1. Aceda a **Azure Active Directory** > **Dispositivos** > **Definições do dispositivo**.
 1. Escolha **Selecionados** em **Utilizadores podem juntar dispositivos ao Azure AD**e, em seguida, selecionar o grupo "Utilizadores de estação de trabalho seguros".
 
 #### <a name="removal-of-local-admin-rights"></a>Remoção dos direitos de administração locais
 
 Este método requer que os utilizadores dos postos de trabalho VIP, DevOps e de nível seguro não tenham direitos de administrador nas suas máquinas. Para configurar esta definição a partir do portal Azure:
 
-1. Aceda às definições do dispositivo de dispositivos **de diretório ativo Azure**  >  **Devices**  >  **Device settings**.
+1. Aceda a **Azure Active Directory** > **Dispositivos** > **Definições do dispositivo**.
 1. Selecione **Nenhum** sob **administradores locais adicionais em dispositivos ligados a Azure AD**.
 
 #### <a name="require-multi-factor-authentication-to-join-devices"></a>Requerem autenticação multi-factor para aderir a dispositivos
 
 Para reforçar ainda mais o processo de junção de dispositivos à Azure AD:
 
-1. Aceda às definições do dispositivo de dispositivos **de diretório ativo Azure**  >  **Devices**  >  **Device settings**.
+1. Aceda a **Azure Active Directory** > **Dispositivos** > **Definições do dispositivo**.
 1. Selecione **Sim** em **Exigir que o Multi-Factor Auth se junte a dispositivos**.
 1. Selecione **Guardar**.
 
@@ -238,7 +238,7 @@ Para completar com sucesso o endurecimento da solução, descarregue e execute o
 | Conformidade Especializada* | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
 | Protegido | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
 
-\*Specialized Compliance é um script que aplica a configuração especializada fornecida na Base de Segurança NCSC Windows10.
+\* Specialized Compliance é um script que aplica a configuração especializada fornecida na Base de Segurança NCSC Windows10.
 
 Após a execução do script com sucesso, pode fazer atualizações para perfis e políticas no Intune. Os scripts para perfis Melhorados e Seguros criam políticas e perfis para si, mas tem de atribuir a política ao seu grupo **de dispositivos Secure Workstations.**
 
@@ -393,7 +393,7 @@ A monitorização do Sentinel requer que sejam configurados conectores para as s
    * **Grupo de Recursos** - selecione o ** Criar novo** > Secure Workstation RG > **Ok**
    * **Localização** - Selecione a localização que é geograficamente mais adequada para a sua implantação
    * **Nível de Preço** - Selecione **Por GB (2018)**
-1. Selecione **Ok**.
+1. Selecione **OK**.
 
 Em seguida, ligaremos fontes de dados de estações de trabalho seguras disponíveis à monitorização.
 
@@ -449,18 +449,18 @@ O registo de aplicações estará disponível no espaço de trabalho selecionado
 
 ## <a name="monitoring"></a>Monitorização
 
-* Saiba como [detetar ameaças com Azure Sentinel](/azure/sentinel/tutorial-detect-threats)
-* [Investigue incidentes com Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
-* [Configurar respostas automáticas de ameaças em Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+* Saiba como [detetar ameaças com Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md)
+* [Investigue incidentes com Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+* [Configurar respostas automáticas de ameaças em Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 * Entenda como rever a sua [Pontuação de Exposição](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
 * Recomendação [de segurança de revisão](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
 * Gerir [remediações de](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) segurança
 * Gerir a [deteção e resposta do ponto final](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 * Monitorize perfis com [monitorização do perfil Intune.](/intune/device-profile-monitor)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o Microsoft Intune.](/intune/index)
 * Compreenda [o anúncio do Azure.](../index.yml)
 * Trabalhar com [a Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
-* Descubra [Azure Sentinel](/azure/sentinel/)
+* Descubra [Azure Sentinel](../../sentinel/index.yml)

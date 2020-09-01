@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 7dd81afb3189055c194b8a94b4bcbdf48f85d6f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658546"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269646"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Quickstart: Partilhar dados usando a Azure Data Share no portal Azure
 
@@ -47,7 +47,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Quando a implementação estiver concluída, selecione **Ir para o recurso**.
 
-## <a name="create-a-data-share"></a>Criar uma partilha de dados
+## <a name="create-a-share"></a>Criar uma partilha
 
 1. Navegue para a sua página de visão geral da partilha de dados.
 
@@ -57,15 +57,15 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Selecione **Criar**.
 
-1. Preencha os detalhes da sua Partilha de Dados. Especifique um nome, tipo de partilha, descrição do conteúdo da partilha e termos de utilização (opcional). 
+1. Preencha os detalhes da sua parte. Especifique um nome, tipo de partilha, descrição do conteúdo da partilha e termos de utilização (opcional). 
 
    ![EnterShareDetails](./media/enter-share-details.png "Insira detalhes de partilha") 
 
 1. **Selecione Continuar**.
 
-1. Para adicionar conjuntos de dados à sua Partilha de Dados, selecione **Adicionar Conjuntos de Dados**. 
+1. Para adicionar Conjuntos de Dados à sua parte, selecione **Adicionar Conjuntos de Dados**. 
 
-   ![Conjuntos de dados](./media/datasets.png "Conjuntos de dados")
+   ![Adicione conjuntos de dados à sua parte](./media/datasets.png "Conjuntos de dados")
 
 1. Selecione o tipo de conjunto de dados que gostaria de adicionar. Verá uma lista diferente de tipos de conjuntos de dados dependendo do tipo de partilha (instantâneo ou no local) que selecionou no passo anterior. Se partilhar de uma Base de Dados Azure SQL ou do Armazém de Dados Azure SQL, será solicitado para algumas credenciais SQL. Autenticar utilizando o utilizador que criou como parte dos pré-requisitos.
 
@@ -93,7 +93,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 A sua Azure Data Share foi agora criada e o destinatário da sua Partilha de Dados está agora pronto para aceitar o seu convite.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o recurso já não for necessário, vá à página de Visão Geral do **Conjunto de Partilha de Dados** e selecione **Eliminar** para o remover.
 

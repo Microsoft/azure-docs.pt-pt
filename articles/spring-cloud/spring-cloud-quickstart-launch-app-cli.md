@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 305a12de05ca934f5f8fd8b86746608d7fa32712
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 55cfd02a72362b390dcf5068c91582a48509e398
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046974"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269612"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Quickstart: Lançar uma aplicação Java Spring utilizando o Azure CLI
 
@@ -30,9 +30,6 @@ Após este arranque rápido, aprenderá a:
 > * Atribua o ponto final público para a sua aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
->[!Note]
-> Azure Spring Cloud é atualmente oferecido como uma pré-visualização pública. As ofertas de pré-visualização públicas permitem que os clientes experimentem novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização do público não se destinam ao uso da produção.  Para mais informações sobre o suporte durante as pré-visualizações, por favor reveja as nossas [PERGUNTAS Frequentes](https://azure.microsoft.com/support/faq/) ou preencha um [pedido de Apoio](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
 
 >[!TIP]
 > O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo.  Tem ferramentas Azure comuns pré-instaladas, incluindo as versões mais recentes de Git, JDK, Maven e o Azure CLI. Se tiver iniciado sessão na sua subscrição Azure, lance a sua [Azure Cloud Shell](https://shell.azure.com) a partir de shell.azure.com.  Você pode saber mais sobre Azure Cloud Shell [lendo a nossa documentação](../cloud-shell/overview.md)

@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services v3 input metadados esquema
 description: Este artigo apresenta uma visão geral do esquema de metadados de entrada Azure Media Services v3.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2020
-ms.author: juliako
-ms.openlocfilehash: 40e61061878c8aec6bad353bfd0c5f2f4178ce14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095597"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269153"
 ---
-# <a name="input-metadata"></a>Metadados de entrada 
+# <a name="input-metadata"></a>Metadados de entrada
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Um trabalho de codificação está associado a um ativo de entrada (ou ativos) no qual pretende executar algumas tarefas de codificação.  Após a conclusão de uma tarefa, é produzido um ativo de saída. O ativo de saída contém vídeo, áudio, miniaturas, manifesto e outros ficheiros. 
 
@@ -41,7 +43,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 > 
 > 
 
-| Name  | Descrição |
+| Nome  | Descrição |
 | --- | --- | 
 | **VideoTracks**|Cada ficheiro de ativo físico pode conter faixas de vídeos zero ou mais intercaladas num formato de recipiente apropriado. Para mais informações, consulte [VideoTracks](#videotracks). |
 | **AudioTracks**|Cada ficheiro de ativo físico pode conter zero ou mais faixas de áudio intercaladas num formato de recipiente apropriado. Para mais informações, consulte [AudioTracks](#audiotracks) |
@@ -49,7 +51,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ### <a name="other-child-elements"></a>Outros elementos infantis
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **Nome**<br />Necessário |Nome do ficheiro do ativo. <br /><br />Exemplo: `"Name": "Ignite-short.mp4"` |
 | **Uri**<br />Necessário |O URL onde o ativo de entrada está localizado. Para identificar o ativo de entrada a que pertence o ativo de saída, utilize o `Uri` campo em vez de ID.|
@@ -63,7 +65,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Name |  | Descrição |
+| Nome |  | Descrição |
 | --- | --- |
 | **FourCC**<br />Necessário |Código de vídeo Código FourCC que é reportado por ffmpeg.<br /><br />Exemplo: `"FourCC": "avc1"` |
 | **Perfil** |Perfil da pista de vídeo. <br /><br />Exemplo: `"Profile": "Main"`|
@@ -90,11 +92,11 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="audiotracks"></a>AudioTracks
 
-| Name  | Descrição |
+| Nome  | Descrição |
 | --- | --- | 
 | **SampleFormat** |Formato de amostra. <br /><br />Exemplo: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |Disposição do canal. <br /><br />Exemplo: `"ChannelLayout": "stereo"`|
-| **Canais**<br />Necessário |Número (0 ou mais) de canais de áudio. <br /><br />Exemplo: `"Channels": 2`|
+| **Channels** (Canais)<br />Necessário |Número (0 ou mais) de canais de áudio. <br /><br />Exemplo: `"Channels": 2`|
 | **AmostragemRate**<br />Necessário |Taxa de amostragem de áudio em amostras/seg ou Hz. <br /><br />Exemplo: `"SamplingRate": 48000`|
 | **Bitrate** |Taxa média de bits de áudio em bits por segundo, calculada a partir do ficheiro do ativo. Apenas a carga útil elementar é contada, e a sobrecarga da embalagem não está incluída nesta contagem. <br /><br />Exemplo: `"Bitrate": 192080`|
 | **Metadados** |Cordas genéricas/valor que podem ser usadas para conter uma variedade de informações.  <br />Veja o exemplo completo no final do artigo. |
@@ -108,7 +110,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="metadata"></a>Metadados
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **chave**<br />Necessário |A chave no par chave/valor. |
 | **valor**<br /> Necessário |O valor no par chave/valor. |
@@ -238,6 +240,6 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Metadados de saída](output-metadata-schema.md)

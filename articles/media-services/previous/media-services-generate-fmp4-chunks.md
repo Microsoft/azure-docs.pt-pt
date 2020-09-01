@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 291de9c28909a415d28a3bab3c033653f62b4df4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a247ef24104d9ecb9c827896d2bbfda8c50b9958
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009105"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269408"
 ---
-#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Criar uma tarefa de codificação que gere pedaços de fMP4
+# <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Criar uma tarefa de codificação que gere pedaços de fMP4
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Descrição geral
 

@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 3899fdb84e2263ea78aa70669a5fde88088b6fc5
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: f9d9b995f8e78ec91bd26c31dde16b97188f0371
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342821"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269187"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Quickstart: Obtenha respostas para uma pergunta de uma base de conhecimento com Go
 
@@ -27,7 +27,7 @@ Este quickstart acompanha-o programáticamente recebendo uma resposta de uma bas
 
     As definições da página de publicação incluem o valor da rota POST, o valor do anfitrião e o valor endpointKey.
 
-    ![Publish settings (Definições de publicação)](../media/qnamaker-quickstart-get-answer/publish-settings.png)
+    ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
 ## <a name="create-a-go-file"></a>Criar um ficheiro Go
 
@@ -45,19 +45,13 @@ func main() {
 
 Acima da `main` função, no topo do ficheiro, adicione as `get-answer.go` dependências necessárias ao projeto:
 
-[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=3-9 "Add the required dependencies")]
-
-## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
-
-No topo da `main` função, adicione as constantes necessárias para aceder ao QnA Maker. Estes valores estão na página **publicar** depois de publicar a base de conhecimentos.
-
-[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=17-33 "Add the required constants")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/query-kb.go" id="dependencies":::
 
 ## <a name="add-a-post-request-to-send-question-and-get-answer"></a>Adicione um pedido de CORREIO para enviar a pergunta e obter resposta
 
 O seguinte código faz um pedido HTTPS à API do Fabricante QNA para enviar a pergunta para a base de conhecimento e recebe a resposta:
 
-[!code-go[Add a POST request to send question to knowledge base](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to send question to knowledge base")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/query-kb.go" id="main":::
 
 O `Authorization` valor do cabeçalho inclui a `EndpointKey` corda.
 
@@ -84,7 +78,7 @@ Construa e execute o programa a partir da linha de comando. Enviará automaticam
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services v3 com visão geral do modelo de licença widevine
 description: Este tópico dá uma visão geral de um modelo de licença widevine que é usado para configurar licenças widevine.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 173fa5a598a929ff77ce573cc429ed9488a5bd9b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f5a1140510bbfa09c807021212884836af43a861
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018778"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269255"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Serviços de Mídia v3 com visão geral do modelo de licença widevine
 
@@ -63,7 +63,7 @@ Um pedido de licença Widevine é formatado como uma mensagem JSON.
 
 ## <a name="json-message"></a>Mensagem JSON
 
-| Nome | Valor | Descrição |
+| Name | Valor | Descrição |
 | --- | --- | --- |
 | payload |Cadeia codificada base64 |O pedido de licença enviado por um cliente. |
 | content_id |Cadeia codificada base64 |O identificador utilizado para obter o ID da chave e a chave de conteúdo para cada content_key_specs.track_type. |
@@ -81,7 +81,7 @@ Se existir uma política pré-existente, não há necessidade de especificar nen
 
 Cada content_key_specs valor deve ser especificado para todas as faixas, independentemente da opção use_policy_overrides_exclusively. 
 
-| Nome | Valor | Descrição |
+| Name | Valor | Descrição |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Um nome do tipo de faixa. Se content_key_specs for especificado no pedido de licença, certifique-se de especificar explicitamente todos os tipos de faixas. Se não o fizer, resulta em não voltar a jogar depois de 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez do cliente para a reprodução. <br/> - É necessária uma criptografia de caixa branca baseada em software. <br/> - São necessárias criptografia de software e um descodificador obfuscado. <br/> - As operações de material-chave e criptografia devem ser efetuadas num ambiente de execução fidedigno apoiado por hardware. <br/> - A criptografia e a descodão dos conteúdos devem ser efetuadas num ambiente de execução fidedigno apoiado por hardware.  <br/> - A criptografia, a descodão e todo o manuseamento dos meios de comunicação (comprimidos e descomprimidos) devem ser manuseados num ambiente de execução fidedigno apoiado por hardware. |
@@ -90,7 +90,7 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 | content_key_specs.key_id |Binário de cordas codificado base64, 16 bytes |Identificador único para a chave. |
 
 ## <a name="policy-overrides"></a>A política sobrepõe-se
-| Nome | Valor | Descrição |
+| Name | Valor | Descrição |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booleano, verdadeiro ou falso |Indica que a reprodução do conteúdo é permitida. A predefinição é falso. |
 | policy_overrides&#46;can_persist |Booleano, verdadeiro ou falso |Indica que a licença pode ser persistido para armazenamento nãovolásimo para uso offline. A predefinição é falso. |
@@ -105,7 +105,7 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 | policy_overrides&#46;renew_with_usage |Booleano, verdadeiro ou falso |Indica que a licença é enviada para renovação quando a utilização começa. Este campo só é usado se can_renew for verdade. |
 
 ## <a name="session-initialization"></a>Inicialização da sessão
-| Nome | Valor | Descrição |
+| Name | Valor | Descrição |
 | --- | --- | --- |
 | provider_session_token |Cadeia codificada base64 |Esta sessão é repercutido na licença e existe em renovações subsequentes. O token da sessão não persiste além das sessões. |
 | provider_client_token |Cadeia codificada base64 |Ficha do cliente para enviar de volta a resposta da licença. Se o pedido de licença contiver um símbolo de cliente, este valor é ignorado. O símbolo do cliente persiste para além das sessões de licença. |

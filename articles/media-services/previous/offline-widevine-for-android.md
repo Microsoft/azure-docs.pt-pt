@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065501"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269595"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android  
+# <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
 > * [Versão 3](../latest/offline-widevine-for-android.md)
@@ -71,7 +73,7 @@ Ao configurar a proteção widevine de um ativo em Serviços de Mídia, precisa 
 
 Para ativar o modo **offline** para licenças widevine, é necessário configurar [o modelo de licença Widevine](media-services-widevine-license-template-overview.md). No **objeto policy_overrides,** dedije a propriedade **can_persist** a **verdade** (o padrão é falso). 
 
-A amostra de código que se segue utiliza .NET para ativar o modo **offline** para licenças Widevine. O código baseia-se na encriptação comum dinâmica [de utilização do PlayReady e/ou da Widevine Dynamic Com](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) a amostra .NET. 
+A amostra de código que se segue utiliza .NET para ativar o modo **offline** para licenças Widevine. O código baseia-se na encriptação comum dinâmica [ de utilização do PlayReady e/ou da Widevine Dynamic Com](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) a amostra .NET. 
 
 ```
 private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl)
@@ -131,7 +133,7 @@ Os desenvolvedores devem fazer referência ao [Guia de Desenvolvimento do ExoPla
 
 Para alguns dispositivos Android mais antigos, deve definir valores para as seguintes propriedades **policy_overrides** (definidas no [modelo de licença Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**e **license_duration_seconds**. Em alternativa, pode defini-los a zero, o que significa duração infinita/ilimitada.  
 
-Os valores devem ser definidos para evitar que um inseto inteiro transborde. Para mais explicações sobre o assunto, consulte https://github.com/google/ExoPlayer/issues/3150 https://github.com/google/ExoPlayer/issues/3112 e. <br/>Se não definir explicitamente os valores para **PlaybackDurationRemaining** e **LicenseDurationRemaining** será atribuído, (por exemplo, 9223372036854775807, que é o valor máximo positivo para um número inteiro de 64 bits). Como resultado, a licença Widevine aparece caducada e, portanto, a desencriptação não vai acontecer. 
+Os valores devem ser definidos para evitar que um inseto inteiro transborde. Para mais explicações sobre o assunto, consulte https://github.com/google/ExoPlayer/issues/3150 https://github.com/google/ExoPlayer/issues/3112 e. <br/>Se não definir explicitamente os valores para  **PlaybackDurationRemaining** e **LicenseDurationRemaining** será atribuído, (por exemplo, 9223372036854775807, que é o valor máximo positivo para um número inteiro de 64 bits). Como resultado, a licença Widevine aparece caducada e, portanto, a desencriptação não vai acontecer. 
 
 Este problema não ocorre no Android 5.0 Lollipop ou mais tarde, uma vez que o Android 5.0 é a primeira versão Android, que foi projetada para suportar totalmente arMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) e plataformas de 64 bits, enquanto o Android 4.4 KitKat foi originalmente projetado para suportar plataformas ARMv7 e 32 bits como em outras versões Android mais antigas.
 
@@ -157,13 +159,13 @@ Se atualizar o seu navegador Chrome móvel para v62 (ou superior) num telefone A
 
 A aplicação PWA de código aberto acima é da autoria em Node.js. Se pretender hospedar a sua própria versão num servidor Ubuntu, lembre-se dos seguintes problemas comuns encontrados que podem impedir a reprodução:
 
-1. Problema CORS: O vídeo da amostra na aplicação da amostra está hospedado em https://storage.googleapis.com/biograf-video-files/videos/ . A Google criou o CORS para todas as suas amostras de teste hospedadas no balde de armazenamento do Google Cloud. São servidos com cabeçalhos CORS, especificando explicitamente a entrada CORS: `https://biograf-155113.appspot.com` (o domínio em que o Google hospeda a sua amostra) impedindo o acesso por qualquer outro sites. Se tentar, verá o seguinte erro HTTP:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+1. Problema CORS: O vídeo da amostra na aplicação da amostra está hospedado em https://storage.googleapis.com/biograf-video-files/videos/ . A Google criou o CORS para todas as suas amostras de teste hospedadas no balde de armazenamento do Google Cloud. São servidos com cabeçalhos CORS, especificando explicitamente a entrada CORS: `https://biograf-155113.appspot.com` (o domínio em que o Google hospeda a sua amostra) impedindo o acesso por qualquer outro sites. Se tentar, verá o seguinte erro HTTP: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Emissão de certificado: A partir do Chrome v 58, a EME for Widevine requer HTTPS. Por isso, é necessário hospedar a aplicação da amostra em HTTPS com um certificado X509. Um certificado de ensaio habitual não funciona devido aos seguintes requisitos: É necessário obter um certificado que cumpra os seguintes requisitos mínimos:
     - Chrome e Firefox exigem que a definição de Nome Alternativo san-subject exista no certificado
     - O certificado deve ter confiado em AC e um certificado de desenvolvimento auto-assinado não funciona
     - O certificado deve ter um CN correspondente ao nome DNS do servidor web ou gateway
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="question"></a>Pergunta
 

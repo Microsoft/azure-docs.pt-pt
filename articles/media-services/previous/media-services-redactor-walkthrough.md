@@ -15,16 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df35b48a4da05d068760f0b04394ea53d788000e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69997682"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269697"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redact enfrenta com Azure Media Analytics walkthrough
 
-## <a name="overview"></a>Descrição Geral
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+## <a name="overview"></a>Descrição geral
 
 **O Azure Media Redator** é um processador de media [Azure Media Analytics](media-services-analytics-overview.md) (MP) que oferece uma redação facial escalável na nuvem. A redação facial permite-lhe modificar o seu vídeo de modo a desfocar rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação facial em cenários de segurança pública e media de notícias. Alguns minutos de imagens que contêm múltiplas faces podem demorar horas a redigir manualmente, mas com este serviço o processo de redação facial requer apenas alguns passos simples. Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 

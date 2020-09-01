@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6bcaadc8dd61899aff860ad246e30170c99ec0f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b6f843678d64bddd276f6123a432699efc89ad9
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463757"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269289"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gerir a velocidade e simultaneidade da codificação  
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gerir a velocidade e simultaneidade da codificação
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 Este artigo apresenta uma breve visão geral de como pode gerir a velocidade e a concordância dos seus trabalhos/tarefas de codificação.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Nos Serviços de Comunicação Social, um **Tipo de Unidade Reservada** determina a rapidez com que as suas tarefas de processamento de meios de comunicação são processadas. Pode escolher entre os seguintes tipos de unidade reservada: **S1,** **S2**ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. O tópico [das unidades de codificação de escala](media-services-scale-media-processing-overview.md) mostra uma tabela que o ajuda a tomar uma decisão na escolha entre diferentes velocidades de codificação.
 

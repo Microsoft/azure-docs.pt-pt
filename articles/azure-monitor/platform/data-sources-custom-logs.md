@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112005"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269493"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
 
@@ -85,7 +85,7 @@ A tabela seguinte fornece exemplos de padrões válidos para especificar diferen
 2. Digite o caminho e clique no **+** botão.
 3. Repita o processo para quaisquer caminhos adicionais.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4. Fornecer um nome e descrição para o log
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4: Fornecer um nome e descrição para o log
 O nome que especificar será utilizado para o tipo de registo, conforme descrito acima.  Terminará sempre com _CL para distingui-lo como um registo personalizado.
 
 1. Digite um nome para o diário de bordo.  O sufixo ** \_ CL** é fornecido automaticamente.
@@ -158,7 +158,7 @@ Usamos uma simples consulta de *MyApp_CL* para devolver todos os registos do reg
 
 
 ## <a name="alternatives-to-custom-logs"></a>Alternativas aos registos personalizados
-Embora os registos personalizados sejam úteis se os seus dados se enquadrarem nos critérios listados, mas existem casos como o seguinte em que precisa de outra estratégia:
+Embora os registos personalizados sejam úteis se os seus dados se enquadrarem nos critérios acima indicados, existem casos como o seguinte em que precisa de outra estratégia:
 
 - Os dados não se enquadram na estrutura necessária, como ter a hora de pontuação num formato diferente.
 - O ficheiro de registo não adere a requisitos como codificação de ficheiros ou estrutura de pasta não suportada.
@@ -169,6 +169,6 @@ Nos casos em que os seus dados não possam ser recolhidos com registos personali
 - Utilize um script personalizado ou outro método para escrever dados para [Eventos do Windows](data-sources-windows-events.md) ou [Syslog](data-sources-syslog.md) que são recolhidos pelo Azure Monitor. 
 - Envie os dados diretamente para o Azure Monitor utilizando [a API do Colecionador de Dados HTTP](data-collector-api.md). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Consulte [os dados de texto parse no Azure Monitor](../log-query/parse-text.md) para obter métodos para analisar cada entrada de registo importado em várias propriedades.
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.

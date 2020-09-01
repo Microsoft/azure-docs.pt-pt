@@ -3,22 +3,24 @@ title: Gerir contas V3 da Azure Media Services Microsoft Docs
 description: Para começar a gerir, encriptar, codificar, analisar e transmitir conteúdos de mídia em Azure, é necessário criar uma conta de Media Services. Este artigo explica como gerir as contas V3 da Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
-ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 91e64ab524121faf6d4e363bfbfdea2d5db01941
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053117"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269663"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Gerir contas V3 da Azure Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Para começar a gerir, encriptar, codificar, analisar e transmitir conteúdos de mídia em Azure, é necessário criar uma conta de Media Services. Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está ligada à sua conta dos Serviços de Multimédia. A conta dos Serviços de Multimédia e todas as contas de armazenamento associadas têm de estar na mesma subscrição do Azure. Para mais informações, consulte [as contas de Armazenamento.](storage-account-concept.md)
 
@@ -37,7 +39,7 @@ Se precisar de mover uma conta de Serviços de Comunicação para uma nova subsc
 > [!IMPORTANT]
 > Não inicie o Streaming Endpoint até que o movimento esteja concluído com sucesso.
 
-### <a name="troubleshoot"></a>Resolução de Problemas 
+### <a name="troubleshoot"></a>Resolução de problemas 
 
 Se uma conta de Serviços de Mídia ou uma conta de Armazenamento Azure associada ficar "desligada" após o movimento do grupo de recursos, tente rodar as teclas de Conta de Armazenamento. Se a rotação das teclas 'Conta de Armazenamento' não resolver o estado "desligado" da conta Serviços de Comunicação, apresente um novo pedido de apoio do menu "Suporte + resolução de problemas" na conta dos Serviços de Comunicação.  
 

@@ -14,14 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7cdacabcc97d37c144b498ea9a05ccc9d6bffc04
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a562e31a26cc6cf7188dd635273bd9fa8c57213
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019866"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269476"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Redact enfrenta a Azure Media Analytics 
+# <a name="redact-faces-with-azure-media-analytics"></a>Redact enfrenta a Azure Media Analytics
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Descrição geral
 **O Azure Media Redator** é um processador de media [Azure Media Analytics](media-services-analytics-overview.md) (MP) que oferece uma redação facial escalável na nuvem. A redação facial permite-lhe modificar o seu vídeo de modo a desfocar rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação facial em cenários de segurança pública e media de notícias. Alguns minutos de imagens que contêm múltiplas faces podem demorar horas a redigir manualmente, mas com este serviço o processo de redação facial requer apenas alguns passos simples. Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
@@ -160,9 +163,9 @@ Pode encontrar amostras dos tipos de borrão abaixo.
 
 ![Alto](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Caixa
+#### <a name="box"></a>Box
 
-![Caixa](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Negra
 
