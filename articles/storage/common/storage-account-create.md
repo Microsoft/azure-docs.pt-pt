@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 636efe27ec82fa870267d2cf69d5cdf990fd509a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501360"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069855"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -76,7 +76,7 @@ Nenhum.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -154,7 +154,7 @@ Para criar uma conta de armazenamento v2 de uso geral com uma opção de replica
 |Armazenamento georredundante (GRS)     |Standard_GRS         |
 |Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
 |Armazenamento com redundância entre zonas (GZRS)    |Standard_GZRS         |
-|Armazenamento de geo-zonas de acesso à leitura (RA-GZRS)    |Standard_RAGZRS         |
+|Armazenamento com georredundância de zona com acesso de leitura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -197,7 +197,7 @@ Para criar uma conta de armazenamento v2 de uso geral com uma opção de replica
 |Armazenamento georredundante (GRS)     |Standard_GRS         |
 |Armazenamento georredundante com acesso de leitura (GRS)     |Standard_RAGRS         |
 |Armazenamento com redundância entre zonas (GZRS)    |Standard_GZRS         |
-|Armazenamento de geo-zonas de acesso à leitura (RA-GZRS)    |Standard_RAGZRS         |
+|Armazenamento com georredundância de zona com acesso de leitura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Modelo](#tab/template)
 

@@ -8,12 +8,13 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 803d2a09fb4114dae36dcb6147139c7b657501f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d3e7cdf11e1e1e033b4e72b9579d8c63b28e6c88
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700132"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071691"
 ---
 # <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Converter um legado Espreitar diretamente para um recurso Azure utilizando o PowerShell
 
@@ -120,6 +121,6 @@ Get-Help Get-AzPeering -detailed
 
 Para obter mais informações, consulte [as PERGUNTAS Frequentes de Observação da Internet.](faqs.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar um espreitamento direto utilizando o PowerShell](howto-direct-powershell.md)

@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 85c6d58d78f095f2f221476a91ecae8da0213963
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928603"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069141"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes ações de ficheiros
 
@@ -35,7 +35,7 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No portal Azure, selecione **Todos os serviços**. 
 1. Na lista de recursos, **insira contas de armazenamento.** À medida que escreve, a lista filtra-se com base na sua entrada. Selecione **Contas de Armazenamento**.
 1. Na janela **'Contas de Armazenamento'** que aparece, selecione **Adicionar**.

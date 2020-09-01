@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611208"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069413"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
 Quando liga a sua rede no local a uma rede virtual Azure para criar uma rede híbrida, a capacidade de controlar o acesso aos recursos da rede Azure é uma parte importante de um plano de segurança global.
 
-Pode utilizar o Azure Firewall para controlar o acesso à rede numa rede híbrida utilizando regras que definem tráfego de rede permitido e negado.
+Pode utilizar o Azure Firewall para controlar o acesso à rede numa rede híbrida ao utilizar regras que definem o tráfego de rede permitido e negado.
 
 Para este artigo, cria três redes virtuais:
 
@@ -31,17 +31,16 @@ Para este artigo, cria três redes virtuais:
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Declarar as variáveis
-> * Crie a rede virtual do hub de firewall
-> * Criar a rede virtual falada
-> * Criar a rede virtual no local
-> * Configurar e implementar a firewall
-> * Criar e ligar os gateways de VPN
-> * Peer the hub e falou redes virtuais
-> * Criar as rotas
-> * Criar as máquinas virtuais
-> * Testar a firewall
+* Declarar as variáveis
+* Crie a rede virtual do hub de firewall
+* Criar a rede virtual falada
+* Criar a rede virtual no local
+* Configurar e implementar a firewall
+* Criar e ligar os gateways de VPN
+* Peer the hub e falou redes virtuais
+* Criar as rotas
+* Criar as máquinas virtuais
+* Testar a firewall
 
 Se pretender utilizar o portal Azure para completar este tutorial, consulte [Tutorial: Implementar e configurar a Azure Firewall numa rede híbrida utilizando o portal Azure](tutorial-hybrid-portal.md).
 
@@ -62,7 +61,7 @@ Existem três requisitos chave para este cenário funcionar corretamente:
 Consulte a secção [Rotas da Criação](#create-the-routes) neste artigo para ver como estas rotas são criadas.
 
 >[!NOTE]
->O Azure Firewall deve ter conectividade direta na Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isto com um UDR de 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta na Internet.
+>O Azure Firewall tem de ter conectividade Internet direta. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isto com um UDR de 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta na Internet.
 >
 >A Azure Firewall pode ser configurada para suportar túneis forçados. Para mais informações, consulte [o Azure Firewall forjando túneis.](forced-tunneling.md)
 
@@ -489,11 +488,11 @@ Set-AzFirewall -AzureFirewall $azfw
 
 Agora execute os testes novamente. Desta vez, devem falhar todos. Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regras alteradas.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos, elimine o grupo de recursos **FW-Hybrid-Test** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode monitorizar os registos do Azure Firewall.
 

@@ -1,19 +1,19 @@
 ---
-title: Filtrar o tráfego de internet de entrada com ADN da Azure Firewall usando o portal
+title: 'Tutorial: Filtrar o tráfego de internet de entrada com ADN da Azure Firewall usando o portal'
 description: Neste tutorial, vai aprender a implementar e configurar a DNAT do Azure Firewall com o portal do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251494"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069277"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de internet de entrada com ADN da Azure Firewall usando o portal Azure
 
@@ -28,12 +28,11 @@ Neste tutorial, ficará a saber como:
 > * Configurar uma regra DNAT
 > * Testar a firewall
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Neste tutorial, vai criar duas VNets em modo peering:
 
-- **VNet-Hub** - a firewall está nesta VNet.
-- **VN-Spoke** - o servidor de carga de trabalho está nesta VNet.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -45,6 +44,11 @@ Neste tutorial, vai criar duas VNets em modo peering:
 6. Selecione **Criar**.
 
 ## <a name="set-up-the-network-environment"></a>Configurar o ambiente de rede
+
+Neste tutorial, vai criar duas VNets em modo peering:
+
+- **VNet-Hub** - a firewall está nesta VNet.
+- **VN-Spoke** - o servidor de carga de trabalho está nesta VNet.
 
 Em primeiro lugar, crie as VNets e, em seguida, configure o peering entre elas.
 

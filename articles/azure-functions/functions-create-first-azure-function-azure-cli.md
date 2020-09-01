@@ -3,14 +3,14 @@ title: Criar uma função no Azure que responda a pedidos HTTP
 description: Aprenda a criar uma função a partir da linha de comando e, em seguida, publique o projeto local para hospedagem sem servidor em Funções Azure.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: d63ae61dbaf969c021b0f1744e716068de88e4f8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 203baa4650c3a0a5aa87971dca87d751a070cd05
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547380"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071351"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função no Azure que responda aos pedidos HTTP
 
@@ -402,7 +402,7 @@ Corra [`curl`](https://curl.haxx.se/) com o URL **invocado,** anexando o parâme
 >   func azure functionapp logstream <APP_NAME> --browser
 >   ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se continuar até ao próximo passo, [adicione uma ligação de saída de fila Azure Storage](functions-add-output-binding-storage-queue-cli.md), mantenha todos os seus recursos no lugar, pois irá basear-se no que já fez.
 

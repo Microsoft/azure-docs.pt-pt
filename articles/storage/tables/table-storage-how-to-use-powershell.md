@@ -7,12 +7,13 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
-ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e643a7ce5ccf4aa5107df1e505d90a0767517350
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80545957"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070416"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Realizar operações de armazenamento de mesa Azure com a Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -138,7 +139,7 @@ Remove-AzStorageTable –Name $tableName –Context $ctx
 Get-AzStorageTable –Context $Ctx | select Name
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se criou um novo grupo de recursos e uma conta de armazenamento no início deste como fazer, pode remover todos os ativos que criou neste exercício removendo o grupo de recursos. Este comando elimina todos os recursos contidos no grupo, bem como o próprio grupo de recursos.
 

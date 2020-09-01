@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536935"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069328"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -48,6 +48,8 @@ Neste tutorial, ficará a saber como:
 
 Se preferir, pode executar este tutorial com o [Azure PowerShell](deploy-ps.md).
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="set-up-the-network"></a>Configurar a rede
@@ -72,7 +74,7 @@ Esta VNet irá conter três sub-redes.
 > [!NOTE]
 > O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 1. Selecione rede virtual **de rede**  >  **Virtual network**.
 2. Em **Subscrição**, selecione a sua subscrição.
 3. Para **o grupo de recursos**, selecione **Test-FW-RG**.
@@ -98,7 +100,7 @@ Esta VNet irá conter três sub-redes.
 
 Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Workload-SN.**
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 2. Selecione **Compute** e, em seguida, selecione **máquina Virtual**.
 3. **Centro de dados do Windows Server 2016** na lista em destaque.
 4. Introduza estes valores para a máquina virtual:
@@ -125,7 +127,7 @@ Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Wor
 
 Implemente a firewall na VNet.
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 2. Digite **firewall** na caixa de pesquisa e prima **Enter**.
 3. Selecione **Firewall** e, em seguida, selecione **Criar**.
 4. Na página **Criar uma firewall**, utilize a seguinte tabela para configurar a firewall:
@@ -134,10 +136,10 @@ Implemente a firewall na VNet.
    |---------|---------|
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**Teste-FW-RG** |
-   |Name     |**Test-FW01**|
+   |Nome     |**Test-FW01**|
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Utilização existente**: **Test-FW-VN**|
-   |Endereço IP público     |**Adicionar novo**<br>**Nome**: **fw-pip**|
+   |Endereço IP público     |**Adicionar novo**<br>**Nome**:  **fw-pip**|
 
 5. Selecione **Rever + criar**.
 6. Reveja o resumo e, em seguida, **selecione Criar** para criar a firewall.
@@ -188,7 +190,7 @@ Esta é a regra da aplicação que permite o acesso de saída a `www.google.com`
 9. Para **o tipo de fonte**, selecione endereço **IP**.
 10. Para **fonte**, tipo **10.0.2.0/24**.
 11. Em **Protocolo:porta**, escreva **http, https**.
-12. Para **O Alvo FQDNS,** tipo**`www.google.com`**
+12. Para **O Alvo FQDNS,** tipo **`www.google.com`**
 13. Selecione **Adicionar**.
 
 O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de infraestrutura que são permitidos por predefinição. Estes FQDNs são específicos da plataforma e não podem ser utilizados para outros fins. Para obter mais informações, veja [FQDNs de Infraestrutura](infrastructure-fqdns.md).
@@ -263,11 +265,11 @@ Então agora verificaste que as regras da firewall estão a funcionar:
 * Pode navegar para o único FQDN permitido, mas não para quaisquer outros.
 * Pode resolver nomes DNS com o servidor DNS externo configurado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos elimine o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

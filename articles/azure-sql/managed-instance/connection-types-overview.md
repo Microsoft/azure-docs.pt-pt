@@ -10,14 +10,15 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 6c6774fb462a21e721b19ae53d1d018d780b28ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85517325"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070722"
 ---
-# <a name="azure-sql-managed-instance-connection-types"></a>Tipos de conexão Azure SQL Managed Instance
+# <a name="azure-sql-managed-instance-connection-types"></a>Tipos de ligação do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo explica como os clientes se ligam à Azure SQL Managed Instance dependendo do tipo de ligação. As amostras de script para alterar os tipos de conexão são fornecidas abaixo, juntamente com considerações relacionadas com a alteração das definições de conectividade padrão.
@@ -69,7 +70,7 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Restaurar uma base de dados para SQL Gestditundo Instância](restore-sample-database-quickstart.md)
 - Saiba como [configurar um ponto final público em SQL Managed Instance](public-endpoint-configure.md)

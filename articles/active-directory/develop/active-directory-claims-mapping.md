@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853364"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068648"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -302,7 +302,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 | Utilizador | streetaddress | Rua |
 | Utilizador | código postal | Código Postal |
 | Utilizador | preferidolanguange | Língua Preferida |
-| Utilizador | onpremisesuserprincipalname | UPN no local |
+| Utilizador | onpremisesuserprincipalname | UPN no local |*
 | Utilizador | nome de mailnickname | Apelido de correio |
 | Utilizador | extensãotribuição1 | Atributo de extensão 1 |
 | Utilizador | extensãotribuiu2 | Atributo de extensão 2 |
@@ -340,6 +340,8 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 
 - O JwtClaimType deve conter o nome da reclamação a emitir em JWTs.
 - O SamlClaimType deve conter o URI da alegação a emitir em fichas SAML.
+
+* **no atributo PremisesUserPrincipalName:** Ao utilizar um ID Alternativo, o utilizador no local atribui o NomePrincipal é sincronizado com o atributo AZure AD no NomePrincipal DoMises. Este atributo só está disponível quando o ID alternativo está configurado, mas também está disponível através da MS Graph Beta: https://graph.microsoft.com/beta/me/ .
 
 > [!NOTE]
 > Os nomes e URIs de reclamações no conjunto de reclamações restrito não podem ser utilizados para os elementos do tipo de reclamação. Para mais informações, consulte a secção "Exceções e restrições" mais tarde neste artigo.

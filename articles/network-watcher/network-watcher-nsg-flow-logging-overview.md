@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084369"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070586"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança da rede
 
@@ -294,7 +294,7 @@ O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existe
 ```
 **Tuple log explicado**
 
-![visão geral dos registos de fluxo](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![tuple de troncos de fluxo](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Cálculo da largura de banda da amostra**
 
@@ -365,7 +365,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Ativar em VNETs/Subnetas críticas**: Os registos de fluxo devem ser ativados em todos os VNETs/subnets críticos da sua subscrição como uma auditoria e as melhores práticas de segurança. 
 
-**Ativar o registo de fluxo NSG em todos os NSGs ligados a um recurso**: A exploração de fluxo em Azure está configurada no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, recomendamos que os registos de fluxo NSG em todos os NSGs apliquem a sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) em Grupos de Segurança de Rede.
+**Ativar o registo de fluxo NSG em todos os NSGs ligados a um recurso**: A exploração de fluxo em Azure está configurada no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, recomendamos que os registos de fluxo NSG em todos os NSGs apliquem a sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em Grupos de Segurança de Rede.
 
 **Fornecimento de armazenamento**: O armazenamento deve ser a provisionado em sintonia com o volume esperado do Registo de Fluxo.
 
@@ -406,8 +406,8 @@ Os dados de registos de fluxo são recolhidos fora da trajetória do tráfego da
 Para utilizar uma conta de Armazenamento por trás de uma firewall, tem de providenciar uma exceção para que os Serviços De Confiança da Microsoft acedam à sua conta de armazenamento:
 
 - Navegue para a conta de armazenamento digitando o nome da conta de armazenamento na pesquisa global no portal ou na [página contas de armazenamento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-- Na secção **DEFINIÇÕES,** selecione **Firewalls e redes virtuais**
-- Em **Permitir o acesso a partir de**redes **selecionadas.** Em seguida, em **exceções,** marque a caixa ao lado de ****Permitir que serviços fidedignos da Microsoft acedam a esta conta de armazenamento****
+- Na secção  **DEFINIÇÕES,**  selecione  **Firewalls e redes virtuais**
+- Em **Permitir o acesso a partir de**redes **selecionadas.** Em seguida, em  **exceções,** marque a caixa ao lado de ****Permitir que serviços fidedignos da Microsoft acedam a esta conta de armazenamento****
 - Se já estiver selecionada, não é preciso alterar nada.
 - Localize o seu NSG alvo na página de visão geral dos [Registos de Fluxo NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) e ative os Registos de Fluxo NSG com a conta de armazenamento acima selecionada.
 

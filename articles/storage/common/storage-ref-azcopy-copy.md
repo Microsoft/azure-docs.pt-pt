@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 883d0afac5623838e9dde068964b36cfe3b44380
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b9d5a9e071cc1b2ac81e8cacea8c974181fbb3b6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281995"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070399"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -254,7 +254,7 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **-de-para** cadeia Opcionalmente especifica a combinação de destino de origem. Por exemplo: `LocalBlob` `BlobLocal` . . . `LocalBlobFS` .
 
-**...ajuda** para a cópia.
+**...ajuda**  para a cópia.
 
 **--incluir-incluir-depois** da cadeia Inclua apenas os ficheiros modificados na ou após a data/hora dada. O valor deve estar no formato ISO8601. Se não for especificado o timezone, presume-se que o valor está no timezone local da máquina que executa a AzCopy. por exemplo, `2020-08-19T15:04:00Z` para uma hora UTC, ou `2020-08-19` para a meia-noite (00:00) no fuso horário local. Tal como no AzCopy 10.5, esta bandeira aplica-se apenas a ficheiros, não a pastas, pelo que as propriedades das pastas não serão copiadas quando utilizarem esta bandeira com `--preserve-smb-info` ou `--preserve-smb-permissions` .
 
@@ -263,6 +263,8 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 **--incluir** a corda do caminho Inclua apenas estes caminhos ao copiar. Esta opção não suporta caracteres wildcard (*). Verifica o prefixo relativo do caminho (Por exemplo: `myFolder;myFolder/subDirName/file.pdf` ).
 
 **-- incluir** a cadeia de padrão Inclua apenas estes ficheiros ao copiar. Esta opção suporta caracteres wildcard (*). Separar ficheiros utilizando um `;` .
+
+**--lista de versões** cadeia Especifica um ficheiro onde cada id de versão está listado numa linha separada. Certifique-se de que a fonte deve apontar para uma única bolha e todos os ids de versão especificados no ficheiro que utilizam esta bandeira devem pertencer apenas à bolha de origem. O AzCopy irá descarregar as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [Baixar as versões anteriores de uma bolha.](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)
 
 **--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo, níveis disponíveis: INFO (todos os pedidos/respostas), ADVERTÊNCIA (respostas lentas), ERRO (apenas pedidos falhados) e NENHUM (sem registos de saída). (predefinição). `INFO` 
 
@@ -302,6 +304,6 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  A predefinição é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [azcopy](storage-ref-azcopy.md)

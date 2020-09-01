@@ -4,15 +4,15 @@ description: Neste artigo, aprende-se a implantar e configurar a Azure Firewall 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 4/10/2019
+ms.date: 08/28/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 50d870590fa6b8351838af9cb91b7be39b8d30db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610664"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071708"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementar e configurar firewall Azure usando Azure PowerShell
 
@@ -35,13 +35,13 @@ Para este artigo, cria-se um VNet único simplificado com três sub-redes para f
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Configurar um ambiente de rede de teste
-> * Implementar uma firewall
-> * Criar uma rota predefinida
-> * Configure uma regra de aplicação para permitir o acesso a www.google.com
-> * Configurar uma regra de rede para permitir o acesso aos servidores DNS externos
-> * Testar a firewall
+
+* Configurar um ambiente de rede de teste
+* Implementar uma firewall
+* Criar uma rota predefinida
+* Configure uma regra de aplicação para permitir o acesso a www.google.com
+* Configurar uma regra de rede para permitir o acesso aos servidores DNS externos
+* Testar a firewall
 
 Se preferir, pode concluir este procedimento utilizando o [portal Azure](tutorial-firewall-deploy-portal.md).
 
@@ -248,7 +248,7 @@ Então agora verificaste que as regras da firewall estão a funcionar:
 * Pode resolver nomes DNS com o servidor DNS externo configurado.
 * Pode navegar para o único FQDN permitido, mas não para quaisquer outros.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode manter os seus recursos de firewall para o próximo tutorial, ou se já não for necessário, eliminar o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com firewall:
 
@@ -256,6 +256,6 @@ Pode manter os seus recursos de firewall para o próximo tutorial, ou se já nã
 Remove-AzResourceGroup -Name Test-FW-RG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

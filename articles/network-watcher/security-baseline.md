@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a4cba847610ab7d6119c04f9e3b1c32a192d6c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f50310b8494b65ff8e9170d333d7c3e70c82ded
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255999"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071521"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Linha de segurança Azure para Observador de Rede
 
@@ -234,9 +234,9 @@ O Observador de Rede deve ser ativado
 
 **Orientação**: Manter um inventário das contas de utilizador que tenham acesso administrativo ao plano de controlo (por exemplo, portal Azure) do Observador de Redes Azure. Para utilizar as capacidades do Network Watcher, a conta com a qual inicia sessão no Azure, deve ser atribuída às funções incorporadas do Proprietário, Contribuinte ou Network, ou atribuída a uma função personalizada que seja atribuída às ações listadas para capacidades específicas do Observador de Redes.
 
-Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory.
+Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (Azure RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory.
 
-* [Compreender o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Compreender Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Permissões de controlo de acesso baseadas em funções necessárias para utilizar as capacidades do Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
@@ -443,15 +443,15 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Responsabilidade**: Não aplicável
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos.
+**Orientação**: Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções Azure (Azure RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos.
 
 Para utilizar as capacidades do Network Watcher, a conta com a qual inicia sessão no Azure, deve ser atribuída às funções incorporadas do Proprietário, Contribuinte ou Network, ou atribuída a uma função personalizada que seja atribuída às ações listadas para capacidades específicas do Observador de Redes.
 
-* [Como configurar o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Como configurar o Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Compreender permissões do RBAC no Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Compreenda as permissões do RBAC do Azure no Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -957,7 +957,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

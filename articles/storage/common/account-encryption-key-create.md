@@ -10,13 +10,13 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: e6ae39fea8c3839208fc366ba0ce8d69799357d2
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056725"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070501"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Crie uma conta que suporte chaves geridas pelo cliente para mesas e filas
 
@@ -217,7 +217,7 @@ O exemplo JSON a seguir cria uma conta de armazenamento v2 para fins gerais que 
 
 Depois de ter criado uma conta que se baseia na chave de encriptação da conta, consulte um dos seguintes artigos para configurar chaves geridas pelo cliente com o Azure Key Vault:
 
-- [Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o portal Azure](storage-encryption-keys-portal.md)
+- [Configurar as chaves geridas pelo cliente com o Azure Key Vault através do portal do Azure](storage-encryption-keys-portal.md)
 - [Configure as chaves geridas pelo cliente com o Cofre de Chaves Azure utilizando o PowerShell](storage-encryption-keys-powershell.md)
 - [Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o Azure CLI](storage-encryption-keys-cli.md)
 
