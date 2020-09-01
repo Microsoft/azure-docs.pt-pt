@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/28/2020
-ms.openlocfilehash: 68fa972d45ab0db6e5274142f550c2bd829e7917
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055588"
+ms.locfileid: "89076519"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,11 +89,11 @@ Para alcançar a continuidade real do negócio, adicionar redundância de base d
 
 - **Ouvinte de leitura de grupo failover**
 
-  Um registo DNS CNAME que aponta para o URL primário atual. É criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho de leitura-escrita reconecte-se transparentemente à base de dados primária quando o primário muda após o failover. Quando o grupo de failover é criado num servidor, o registo DNS CNAME para o URL do ouvinte é formado como `<fog-name>.database.windows.net` . Quando o grupo de failover é criado numa SQL Managed Instance, o registo DNS CNAME para o URL do ouvinte é formado como `<fog-name>.zone_id.database.windows.net` .
+  Um registo DNS CNAME que aponta para o URL primário atual. É criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho de leitura-escrita reconecte-se transparentemente à base de dados primária quando o primário muda após o failover. Quando o grupo de failover é criado num servidor, o registo DNS CNAME para o URL do ouvinte é formado como `<fog-name>.database.windows.net` . Quando o grupo de failover é criado numa SQL Managed Instance, o registo DNS CNAME para o URL do ouvinte é formado como `<fog-name>.<zone_id>.database.windows.net` .
 
 - **Ouvinte de leitura de grupo de failover**
 
-  Formou-se um registo DONS CNAME que aponta para o ouvinte apenas de leitura que aponta para o URL do secundário. É criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho SQL apenas de leitura se conecte transparentemente ao secundário usando as regras de equilíbrio de carga especificadas. Quando o grupo de failover é criado num servidor, o registo DNS CNAME para o URL do ouvinte é formado como `<fog-name>.secondary.database.windows.net` . Quando o grupo de failover é criado numa SQL Managed Instance, o registo DNS CNAME para o URL do ouvinte é formado como `<fog-name>.zone_id.secondary.database.windows.net` .
+  Formou-se um registo DONS CNAME que aponta para o ouvinte apenas de leitura que aponta para o URL do secundário. É criado automaticamente quando o grupo de failover é criado e permite que a carga de trabalho SQL apenas de leitura se conecte transparentemente ao secundário usando as regras de equilíbrio de carga especificadas. Quando o grupo de failover é criado num servidor, o registo DNS CNAME para o URL do ouvinte é formado como `<fog-name>.secondary.database.windows.net` . Quando o grupo de failover é criado numa SQL Managed Instance, o registo DNS CNAME para o URL do ouvinte é formado como `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 - **Política automática de failover**
 
@@ -257,13 +257,13 @@ Ao executar operações OLTP, utilize `<fog-name>.zone_id.database.windows.net` 
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Usando o ouvinte apenas para ligar à instância secundária
 
-Se tiver uma carga de trabalho apenas de leitura logicamente isolada que seja tolerante a determinadas condições de dados, pode utilizar a base de dados secundária na aplicação. Para ligar diretamente ao secundário geo-replicado, utilize `<fog-name>.zone_id.secondary.database.windows.net` como URL do servidor e a ligação é feita diretamente ao secundário geo-replicado.
+Se tiver uma carga de trabalho apenas de leitura logicamente isolada que seja tolerante a determinadas condições de dados, pode utilizar a base de dados secundária na aplicação. Para ligar diretamente ao secundário geo-replicado, utilize `<fog-name>.secondary.<zone_id>.database.windows.net` como URL do servidor e a ligação é feita diretamente ao secundário geo-replicado.
 
 > [!NOTE]
 > Em certos níveis de serviço, a BASE de Dados SQL suporta a utilização de [réplicas apenas de leitura](read-scale-out.md) para carregar cargas de trabalho de consulta apenas de leitura de equilíbrio utilizando a capacidade de uma réplica apenas de leitura e utilizando o `ApplicationIntent=ReadOnly` parâmetro na cadeia de ligação. Quando tiver configurado um secundário geo-replicado, pode utilizar esta capacidade para ligar a uma réplica apenas de leitura no local primário ou na localização geo-replicada.
 >
-> - Para ligar a uma réplica apenas de leitura no local primário, utilize `<fog-name>.zone_id.database.windows.net` .
-> - Para ligar a uma réplica apenas de leitura no local secundário, utilize `<fog-name>.secondary.zone_id.database.windows.net` .
+> - Para ligar a uma réplica apenas de leitura no local primário, utilize `<fog-name>.<zone_id>.database.windows.net` .
+> - Para ligar a uma réplica apenas de leitura no local secundário, utilize `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 ### <a name="preparing-for-performance-degradation"></a>Preparação para a degradação do desempenho
 

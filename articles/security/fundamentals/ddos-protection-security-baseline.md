@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: daff4d1e43f5cc27e52e8bf26f48f30147800ae8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 63c476e7ad8c7bab38ad4adfb6197b845106458c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839889"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077981"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança Azure para Azure DDoS Protection Standard
 
@@ -262,11 +262,11 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
 **Orientação**: Para trabalhar com os planos de proteção DDoS da Azure, a sua conta deve ser atribuída à função de contribuinte de rede ou a uma função personalizada que seja atribuída a ações específicas.
 
-- [Gerir o controlo de acesso baseado em funções na Proteção DDoS Azure](../../virtual-network/manage-ddos-protection.md)
+- [Gerir o controlo de acesso baseado em funções Azure (Azure RBAC) em Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

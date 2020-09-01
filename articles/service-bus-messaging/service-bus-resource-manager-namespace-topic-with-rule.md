@@ -6,13 +6,13 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3a53cadbdf7529a2690594617122e84f355e0e46
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 3f3287dd67f89f678a9875ddce93e2d0d26b2209
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065663"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077629"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Crie um espaço de nome de ônibus de serviço com tópico, subscrição e regra usando um modelo de Gestor de Recursos Azure
 

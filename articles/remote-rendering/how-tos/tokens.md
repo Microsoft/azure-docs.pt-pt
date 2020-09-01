@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7e8e2f3f9dd49693faa26eaaab309fcad58f6f9f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687074"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076162"
 ---
 # <a name="get-service-access-tokens"></a>Obter tokens de acesso ao serviço
 
@@ -42,7 +43,7 @@ Substitua *a contaId* e *contaKey* pelos seus respetivos dados.
 
 | Código de estado | Carga JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 200 | AccessToken: string | Êxito |
+| 200 | AccessToken: string | Success |
 
 | Cabeçalho | Objetivo |
 |--------|:------|
@@ -65,7 +66,7 @@ Write-Output "Token: $($response.AccessToken)"
 
 O script apenas imprime o símbolo à saída, de onde pode copiá-lo & colá-lo. Para um projeto de verdade, você deve automatizar este processo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)
 * [Azure Frontend APIs](../how-tos/frontend-apis.md)

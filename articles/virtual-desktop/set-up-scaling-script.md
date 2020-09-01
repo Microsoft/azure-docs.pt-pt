@@ -6,22 +6,18 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a7ac01d71316fe4ccf44aa422d88dc31b1fd0ca4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009448"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078559"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando Azure Automation
 
 Pode reduzir o custo total de implementação do Ambiente de Trabalho Virtual do Windows escalando as suas máquinas virtuais (VMs). Isto significa desligar e lidar com vMs anfitriões de sessão durante as horas de utilização fora do pico, em seguida, ligá-los novamente e realocar-los durante as horas de ponta.
 
 Neste artigo, você vai aprender sobre a ferramenta de escala construído com a conta Azure Automation e Azure Logic App que escala automaticamente os VMs anfitriões de sessão no seu ambiente de ambiente de trabalho virtual do Windows. Para aprender a utilizar a ferramenta de escala, avance para [pré-requisitos](#prerequisites).
-
-## <a name="report-issues"></a>Comunicar problemas
-
-Os relatórios de emissão da ferramenta de escala estão atualmente a ser manipulados no GitHub em vez do Microsoft Support. Se encontrar algum problema com a ferramenta de escala, obtenha as informações necessárias, conforme descrito na secção [de questões de reporte](#reporting-issues) e abra um problema do GitHub rotulado com "4a-WVD-scaling-logicapps" na [página RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Como funciona a ferramenta de escala
 
@@ -327,3 +323,7 @@ Se decidiu utilizar o Log Analytics, pode visualizar todos os dados de registo n
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## <a name="report-issues"></a>Comunicar problemas
+
+Os relatórios de emissão da ferramenta de escala estão atualmente a ser tratados pelo Microsoft Support. Quando escruisse um relatório de emissão, certifique-se de seguir as instruções em [questões de reporte](#reporting-issues). Se tiver feedback sobre a ferramenta ou quiser solicitar novas funcionalidades, abra uma emissão do GitHub com o rótulo "ferramenta de escala de 4 WVD" na [página RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

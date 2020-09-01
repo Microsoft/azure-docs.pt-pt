@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c48c48ef438f99f3b144c3300cb2415e4d387e7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: a38528e32061f57e3239ef4be26cdd437f4f8746
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586686"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078597"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
 

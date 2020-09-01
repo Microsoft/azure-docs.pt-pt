@@ -14,13 +14,13 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom: ''
-ms.openlocfilehash: e040938cd0bde127d3ae36819b978ad4e56ded4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6ec552ea525abe6a84bb5e34e00ad317cae038bf
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703440"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077862"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conecte redes virtuais com o espreitamento de rede virtual usando o PowerShell
 
@@ -196,7 +196,7 @@ ping 10.0.0.4
 
 Recebes quatro respostas. Desligue as sessões RDP das *myVm1* e *myVm2*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize [o Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que contém.
 
@@ -204,7 +204,7 @@ Quando já não for necessário, utilize [o Remove-AzResourcegroup](/powershell/
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a ligar duas redes na mesma região do Azure, com olhando para a rede virtual. Também pode ligar em modo de peering máquinas virtuais em diferentes [regiões suportadas](virtual-network-manage-peering.md#cross-region) e em [diferentes subscrições do Azure](create-peering-different-subscriptions.md#powershell), bem como criar [designs de rede hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com peering. Para obter mais informações sobre o peering de rede virtual, veja [Descrição geral do peering de rede virtual](virtual-network-peering-overview.md) e [Gerir peerings de rede virtual](virtual-network-manage-peering.md).
 

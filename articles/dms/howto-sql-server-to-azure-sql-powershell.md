@@ -9,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: a092ec3d211ed3fafadd73c37b3e58c353b618d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e83f69b2a46b54f92bbfe35ac96f870edf5cb807
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253414"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078032"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrar uma base de dados do SQL Server para Azure SQL Database usando a Azure PowerShell
 
@@ -63,7 +63,7 @@ O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na regiã
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Criar uma instância do Serviço de Migração de Bases de Dados de Azure
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Criar uma instância do Azure Database Migration Service
 
 Pode criar uma nova instância do Serviço de Migração da Base de Dados Azure utilizando o `New-AzDataMigrationService` cmdlet. Este cmdlet espera os seguintes parâmetros necessários:
 

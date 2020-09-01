@@ -1,20 +1,20 @@
 ---
 title: Encriptação do serviço de compreensão de linguagem de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Encriptação do serviço de compreensão de linguagem de dados em repouso.
+description: A Microsoft oferece chaves de encriptação geridas pela Microsoft e também permite gerir as suas subscrições de Serviços Cognitivos com as suas próprias chaves, chamadas teclas geridas pelo cliente (CMK). Este artigo cobre a encriptação de dados em repouso para a Compreensão da Linguagem (LUIS), e como ativar e gerir a CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052696"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078134"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Encriptação do serviço de compreensão de linguagem de dados em repouso
 
@@ -22,15 +22,15 @@ O serviço de Compreensão de Idiomas encripta automaticamente os seus dados qua
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a encriptação dos Serviços Cognitivos
 
-Os dados são encriptados e desencriptados utilizando encriptação AES de [140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) em conformidade com o [FIPS.](https://en.wikipedia.org/wiki/FIPS_140-2) A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os seus dados são seguros por padrão e não precisa de modificar o seu código ou aplicações para tirar partido da encriptação.
+Os dados são encriptados e desencriptados utilizando encriptação AES de [140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) em conformidade com o [FIPS.](https://en.wikipedia.org/wiki/FIPS_140-2) A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os dados estão protegidos por predefinição e não precisa de modificar o código ou as aplicações para tirar partido da encriptação.
 
 ## <a name="about-encryption-key-management"></a>Sobre a gestão de chaves de encriptação
 
-Por predefinição, a sua subscrição utiliza chaves de encriptação geridas pela Microsoft. Existe também uma opção para gerir a sua subscrição com as suas próprias chaves. As teclas geridas pelo cliente (CMK), oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
+Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Existe também a opção de gerir a sua subscrição com as suas próprias chaves chamadas chaves geridas pelo cliente (CMK). A CMK oferece uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com o Azure Key Vault
 
-Existe também uma opção para gerir a sua subscrição com as suas próprias chaves. As teclas geridas pelo cliente (CMK), também conhecidas como Bring your own key (BYOK), oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
+Existe também uma opção para gerir a sua subscrição com as suas próprias chaves. As teclas geridas pelo cliente (CMK), também conhecidas como Bring your own key (BYOK), oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.
 
 Tem de utilizar o Cofre da Chave Azure para armazenar as suas chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O recurso de Serviços Cognitivos e o cofre-chave devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
@@ -39,10 +39,6 @@ Tem de utilizar o Cofre da Chave Azure para armazenar as suas chaves geridas pel
 Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente do Serviço LUIS](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização de CMK com LUIS, terá de criar um novo recurso de Compreensão linguística a partir do portal Azure e selecionar e0 como O Nível de Preços. O novo SKU funcionará da mesma forma que o F0 SKU que já está disponível, exceto para CMK. Os utilizadores não poderão fazer upgrade do F0 para o novo E0 SKU.
 
 ![Imagem de assinatura LUIS](../media/cognitive-services-encryption/luis-subscription.png)
-
-### <a name="regional-availability"></a>Disponibilidade regional
-
-As chaves geridas pelo cliente estão disponíveis em todas as [regiões de autoria.](luis-reference-regions.md) 
 
 ### <a name="limitations"></a>Limitações
 

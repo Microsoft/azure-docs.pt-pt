@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: e9ea550b9d9579438e18a3ee1d93ab9e9e22cc65
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: d23bc83d9cfd60585a63df0acbfb2b4076cd83f4
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508479"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077329"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Windows no Azure com o PowerShell
 
@@ -90,7 +90,7 @@ Com o IIS instalado e a porta 80 aberta na VM a partir da Internet, utilize um b
 
 ![Site predefinido do IIS](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados:
 
@@ -98,7 +98,7 @@ Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup]
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 

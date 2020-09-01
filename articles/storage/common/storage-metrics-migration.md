@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: a1f977cef614a52853407c0d0665399f1a249c53
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c8eae70b88aa454e5d712b3c5b7930b12d169912
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422067"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078253"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Monitor Azure
 
-O Azure Storage integra agora métricas na plataforma Azure Monitor. Este artigo ajuda-o a fazer a transição.
+No **dia 31 de agosto de 2023** serão retiradas as métricas de Storage Analytics, também referidas como *métricas clássicas.* Se utilizar métricas clássicas, certifique-se de que faz a transição para métricas no Azure Monitor antes dessa data. Este artigo ajuda-o a fazer a transição.
 
 ## <a name="steps-to-complete-the-transition"></a>Passos para completar a transição
 
@@ -63,8 +63,8 @@ Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azur
 
 | Métrica clássica | Métrica em Monitor Azure |
 | ------------------- | ----------------- |
-| `Capacity`            | `BlobCapacity`com a dimensão `BlobType` igual a `BlockBlob` ou`PageBlob` |
-| `ObjectCount`        | `BlobCount`com a dimensão `BlobType` igual a `BlockBlob` ou`PageBlob` |
+| `Capacity`            | `BlobCapacity` com a dimensão `BlobType` igual a `BlockBlob` ou `PageBlob` |
+| `ObjectCount`        | `BlobCount` com a dimensão `BlobType` igual a `BlockBlob` ou `PageBlob` |
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
@@ -74,46 +74,46 @@ Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azur
 
 | Métrica clássica | Métrica em Monitor Azure |
 | ------------------- | ----------------- |
-| `AnonymousAuthorizationError` | Transações com dimensão `ResponseType` igual a `AuthorizationError` e dimensão iguais `Authentication` a`Anonymous` |
-| `AnonymousClientOtherError` | Transações com dimensão `ResponseType` igual a `ClientOtherError` e dimensão iguais `Authentication` a`Anonymous` |
-| `AnonymousClientTimeoutError` | Transações com dimensão `ResponseType` igual a `ClientTimeoutError` e dimensão iguais `Authentication` a`Anonymous` |
-| `AnonymousNetworkError` | Transações com dimensão `ResponseType` igual a `NetworkError` e dimensão iguais `Authentication` a`Anonymous` |
-| `AnonymousServerOtherError` | Transações com dimensão `ResponseType` igual a `ServerOtherError` e dimensão iguais `Authentication` a`Anonymous` |
-| `AnonymousServerTimeoutError` | Transações com dimensão `ResponseType` igual a `ServerTimeoutError` e dimensão iguais `Authentication` a`Anonymous` |
-| `AnonymousSuccess` | Transações com dimensão `ResponseType` igual a `Success` e dimensão iguais `Authentication` a`Anonymous` |
-| `AnonymousThrottlingError` | Transações com dimensão `ResponseType` igual a `ClientThrottlingError` ou `ServerBusyError` dimensão iguais `Authentication` a`Anonymous` |
-| `AuthorizationError` | Transações com dimensão `ResponseType` igual a`AuthorizationError` |
+| `AnonymousAuthorizationError` | Transações com dimensão `ResponseType` igual a `AuthorizationError` e dimensão iguais `Authentication` a `Anonymous` |
+| `AnonymousClientOtherError` | Transações com dimensão `ResponseType` igual a `ClientOtherError` e dimensão iguais `Authentication` a `Anonymous` |
+| `AnonymousClientTimeoutError` | Transações com dimensão `ResponseType` igual a `ClientTimeoutError` e dimensão iguais `Authentication` a `Anonymous` |
+| `AnonymousNetworkError` | Transações com dimensão `ResponseType` igual a `NetworkError` e dimensão iguais `Authentication` a `Anonymous` |
+| `AnonymousServerOtherError` | Transações com dimensão `ResponseType` igual a `ServerOtherError` e dimensão iguais `Authentication` a `Anonymous` |
+| `AnonymousServerTimeoutError` | Transações com dimensão `ResponseType` igual a `ServerTimeoutError` e dimensão iguais `Authentication` a `Anonymous` |
+| `AnonymousSuccess` | Transações com dimensão `ResponseType` igual a `Success` e dimensão iguais `Authentication` a `Anonymous` |
+| `AnonymousThrottlingError` | Transações com dimensão `ResponseType` igual a `ClientThrottlingError` ou `ServerBusyError` dimensão iguais `Authentication` a `Anonymous` |
+| `AuthorizationError` | Transações com dimensão `ResponseType` igual a `AuthorizationError` |
 | `Availability` | `Availability` |
 | `AverageE2ELatency` | `SuccessE2ELatency` |
 | `AverageServerLatency` | `SuccessServerLatency` |
-| `ClientOtherError` | Transações com dimensão `ResponseType` igual a`ClientOtherError` |
-| `ClientTimeoutError` | Transações com dimensão `ResponseType` igual a`ClientTimeoutError` |
-| `NetworkError` | Transações com dimensão `ResponseType` igual a`NetworkError` |
-| `PercentAuthorizationError` | Transações com dimensão `ResponseType` igual a`AuthorizationError` |
-| `PercentClientOtherError` | Transações com dimensão `ResponseType` igual a`ClientOtherError` |
-| `PercentNetworkError` | Transações com dimensão `ResponseType` igual a`NetworkError` |
-| `PercentServerOtherError` | Transações com dimensão `ResponseType` igual a`ServerOtherError` |
-| `PercentSuccess` | Transações com dimensão `ResponseType` igual a`Success` |
-| `PercentThrottlingError` | Transações com dimensão `ResponseType` igual a `ClientThrottlingError` ou`ServerBusyError` |
-| `PercentTimeoutError` | Transações com dimensão `ResponseType` igual `ServerTimeoutError` ou igual `ResponseType` a`ClientTimeoutError` |
-| `SASAuthorizationError` | Transações com dimensão `ResponseType` igual a `AuthorizationError` e dimensão iguais `Authentication` a`SAS` |
-| `SASClientOtherError` | Transações com dimensão `ResponseType` igual a `ClientOtherError` e dimensão iguais `Authentication` a`SAS` |
-| `SASClientTimeoutError` | Transações com dimensão `ResponseType` igual a `ClientTimeoutError` e dimensão iguais `Authentication` a`SAS` |
-| `SASNetworkError` | Transações com dimensão `ResponseType` igual a `NetworkError` e dimensão iguais `Authentication` a`SAS` |
-| `SASServerOtherError` | Transações com dimensão `ResponseType` igual a `ServerOtherError` e dimensão iguais `Authentication` a`SAS` |
-| `SASServerTimeoutError` | Transações com dimensão `ResponseType` igual a `ServerTimeoutError` e dimensão iguais `Authentication` a`SAS` |
-| `SASSuccess` | Transações com dimensão `ResponseType` igual a `Success` e dimensão iguais `Authentication` a`SAS` |
-| `SASThrottlingError` | Transações com dimensão `ResponseType` igual a `ClientThrottlingError` ou `ServerBusyError` dimensão iguais `Authentication` a`SAS` |
-| `ServerOtherError` | Transações com dimensão `ResponseType` igual a`ServerOtherError` |
-| `ServerTimeoutError` | Transações com dimensão `ResponseType` igual a`ServerTimeoutError` |
-| `Success` | Transações com dimensão `ResponseType` igual a`Success` |
-| `ThrottlingError` | `Transactions`com a dimensão `ResponseType` igual a `ClientThrottlingError` ou`ServerBusyError`|
+| `ClientOtherError` | Transações com dimensão `ResponseType` igual a `ClientOtherError` |
+| `ClientTimeoutError` | Transações com dimensão `ResponseType` igual a `ClientTimeoutError` |
+| `NetworkError` | Transações com dimensão `ResponseType` igual a `NetworkError` |
+| `PercentAuthorizationError` | Transações com dimensão `ResponseType` igual a `AuthorizationError` |
+| `PercentClientOtherError` | Transações com dimensão `ResponseType` igual a `ClientOtherError` |
+| `PercentNetworkError` | Transações com dimensão `ResponseType` igual a `NetworkError` |
+| `PercentServerOtherError` | Transações com dimensão `ResponseType` igual a `ServerOtherError` |
+| `PercentSuccess` | Transações com dimensão `ResponseType` igual a `Success` |
+| `PercentThrottlingError` | Transações com dimensão `ResponseType` igual a `ClientThrottlingError` ou `ServerBusyError` |
+| `PercentTimeoutError` | Transações com dimensão `ResponseType` igual `ServerTimeoutError` ou igual `ResponseType` a `ClientTimeoutError` |
+| `SASAuthorizationError` | Transações com dimensão `ResponseType` igual a `AuthorizationError` e dimensão iguais `Authentication` a `SAS` |
+| `SASClientOtherError` | Transações com dimensão `ResponseType` igual a `ClientOtherError` e dimensão iguais `Authentication` a `SAS` |
+| `SASClientTimeoutError` | Transações com dimensão `ResponseType` igual a `ClientTimeoutError` e dimensão iguais `Authentication` a `SAS` |
+| `SASNetworkError` | Transações com dimensão `ResponseType` igual a `NetworkError` e dimensão iguais `Authentication` a `SAS` |
+| `SASServerOtherError` | Transações com dimensão `ResponseType` igual a `ServerOtherError` e dimensão iguais `Authentication` a `SAS` |
+| `SASServerTimeoutError` | Transações com dimensão `ResponseType` igual a `ServerTimeoutError` e dimensão iguais `Authentication` a `SAS` |
+| `SASSuccess` | Transações com dimensão `ResponseType` igual a `Success` e dimensão iguais `Authentication` a `SAS` |
+| `SASThrottlingError` | Transações com dimensão `ResponseType` igual a `ClientThrottlingError` ou `ServerBusyError` dimensão iguais `Authentication` a `SAS` |
+| `ServerOtherError` | Transações com dimensão `ResponseType` igual a `ServerOtherError` |
+| `ServerTimeoutError` | Transações com dimensão `ResponseType` igual a `ServerTimeoutError` |
+| `Success` | Transações com dimensão `ResponseType` igual a `Success` |
+| `ThrottlingError` | `Transactions` com a dimensão `ResponseType` igual a `ClientThrottlingError` ou `ServerBusyError`|
 | `TotalBillableRequests` | `Transactions` |
 | `TotalEgress` | `Egress` |
 | `TotalIngress` | `Ingress` |
 | `TotalRequests` | `Transactions` |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
 * [Métricas de armazenamento no Monitor Azure](./storage-metrics-in-azure-monitor.md)

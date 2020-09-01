@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7f05e4fb0443107370f9182706bd35b45771e0f2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 97be10352d25daf9c60ce41fe1fc9e728513ba94
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210890"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076820"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Linha de base de segurança Azure para Synapse Analytics
 
@@ -138,7 +138,7 @@ Ao utilizar um ponto final de serviço para a sua piscina Azure Synapse SQL, é 
 
 **Orientação**: Defina e implemente configurações de segurança de rede para recursos relacionados com a sua piscina SQL com Azure Policy. Pode utilizar o espaço de nome "Microsoft.Sql" para definir definições de política personalizadas ou utilizar qualquer uma das definições de política incorporadas concebidas para a proteção da base de dados/rede de servidores Azure SQL. Um exemplo de uma política de segurança de rede incorporada aplicável para o servidor Azure SQL Database seria: "O SQL Server deve usar um ponto final de serviço de rede virtual".
 
-Utilize plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de gestão de recursos Azure, controlo de acesso baseado em funções (RBAC) e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
+Utilize plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de gestão de recursos Azure, controlo de acesso baseado em funções Azure (Azure RBAC), e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
 
 * [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -582,7 +582,7 @@ Além disso, pode configurar uma política dinâmica de mascaramento de dados (D
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
 **Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir o acesso às bases de dados Azure SQL na sua piscina Synapse SQL.
 

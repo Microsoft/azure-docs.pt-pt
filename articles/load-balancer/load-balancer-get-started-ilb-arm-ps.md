@@ -8,17 +8,17 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7e962b87b1bd7ef200aa276d8dbecffd5d3fed04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c87903de8ea2525fd0e7672605ce6e279e36021b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090438"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076434"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno com o módulo do Azure PowerShell
 

@@ -1,142 +1,84 @@
 ---
-title: Implementar cache Azure para Redis com gestor de recursos Azure
+title: Implemente cache Azure para Redis usando o modelo de gestor de recursos Azure
 description: Aprenda a usar um modelo de Gestor de Recursos Azure para implementar uma Cache Azure para recurso Redis. Os modelos são fornecidos para cenários comuns.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/23/2017
-ms.openlocfilehash: 2d00a6b7753a61bb2527a56231b2fe054736f1b0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-armqs
+ms.date: 08/18/2020
+ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008581"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078423"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-template"></a>Crie uma cache Azure para Redis usando um modelo
+# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Crie uma cache Azure para Redis usando um modelo de gestor de recursos
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Saiba como criar um modelo de Gestor de Recursos Azure que implementa uma Cache Azure para Redis. A cache pode ser usada com uma conta de armazenamento existente para manter os dados de diagnóstico. Também aprende a definir quais os recursos que são implantados e como definir parâmetros especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Atualmente, as definições de diagnóstico são partilhadas para todos os caches da mesma região para uma subscrição. A atualização de uma cache na região afeta todos os outros caches da região.
 
-Neste tópico, você aprende a criar um modelo de Gestor de Recursos Azure que implementa uma Cache Azure para Redis. A cache pode ser usada com uma conta de armazenamento existente para manter os dados de diagnóstico. Também aprende a definir quais os recursos que são implantados e como definir parâmetros especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Atualmente, as definições de diagnóstico são partilhadas para todos os caches da mesma região para uma subscrição. A atualização de uma cache na região afeta todos os outros caches da região.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
-Para obter mais informações sobre a criação de modelos, consulte [os modelos do Gestor de Recursos Azure.](../azure-resource-manager/templates/template-syntax.md) Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos de cache, consulte os [tipos de recursos Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
-Para o modelo completo, consulte [Azure Cache para o modelo Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+## <a name="prerequisites"></a>Pré-requisitos
 
-> [!NOTE]
-> Os modelos de Gestor de Recursos para o novo [nível Premium](cache-overview.md#service-tiers) estão disponíveis. 
-> 
-> * [Criar uma Cache Premium Azure para Redis com agrupamento](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [Criar Cache Premium Azure para Redis com persistência de dados](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Criar Cache Premium Redis implantado numa Rede Virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
-> 
-> Para verificar os modelos mais recentes, consulte [os Modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/) e procure `Azure Cache for Redis` .
-> 
-> 
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Uma conta de armazenamento**: Para criar uma, consulte [criar uma conta de Armazenamento Azure](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). A conta de armazenamento é utilizada para dados de diagnóstico.
 
-## <a name="what-you-will-deploy"></a>O que vai implementar
-Neste modelo, irá implementar uma Cache Azure para Redis que utiliza uma conta de armazenamento existente para dados de diagnóstico.
+## <a name="review-the-template"></a>Rever o modelo
 
-Para executar automaticamente a implementação, clique no seguinte botão:
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-redis-cache/).
 
-[![Implementar no Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+:::code language="json" source="~/quickstart-templates/101-redis-cache/azuredeploy.json":::
 
-## <a name="parameters"></a>Parâmetros
-Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma secção chamada Parâmetros que contém todos os valores dos parâmetros.
-Deverá definir um parâmetro para esses valores que variam com base no projeto ou no ambiente que está a implementar. Não defina parâmetros para valores que permanecem sempre iguais. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados. 
+Os seguintes recursos são definidos no modelo:
 
-[!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
+* [Microsoft.Cache/Redis](/azure/templates/microsoft.cache/redis)
+* [Microsoft.Insights/diagnósticos](/azure/templates/diagnosticsettings)
 
-### <a name="rediscachelocation"></a>redisCacheLocação
-A localização da Cache Azure para Redis. Para um melhor desempenho, utilize o mesmo local que a aplicação a ser usada com a cache.
+Os modelos de Gestor de Recursos para o novo [nível Premium](cache-overview.md#service-tiers) também estão disponíveis.
 
-```json
-  "redisCacheLocation": {
-    "type": "string"
-  }
+* [Criar uma Cache Premium Azure para Redis com agrupamento](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
+* [Criar Cache Premium Azure para Redis com persistência de dados](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+* [Criar Cache Premium Redis implantado numa Rede Virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+
+Para verificar os modelos mais recentes, consulte [os Modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/) e procure `Azure Cache for Redis` .
+
+## <a name="deploy-the-template"></a>Implementar o modelo
+
+1. Selecione a seguinte imagem para iniciar seduca e abrir o modelo.
+
+    [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+1. Selecione ou introduza os seguintes valores:
+
+    * **Subscrição**: selecione uma subscrição Azure usada para criar a partilha de dados e os outros recursos.
+    * **Grupo de recursos**: selecione **Criar novos** para criar um novo grupo de recursos ou selecionar um grupo de recursos existente.
+    * **Localização**: selecione uma localização para o grupo de recursos. A conta de armazenamento e a cache Redis devem estar na mesma região. Por predefinição, a cache Redis utiliza a mesma localização que o grupo de recursos. Então, especifique o mesmo local que a conta de armazenamento.
+    * **Nome redis Cache**: insira um nome para a cache Redis.
+    * **Conta de Armazenamento de Diagnósticos Existente:** introduza o ID de recurso de uma conta de armazenamento. A sintaxe é **/subscrições/ &lt; SUBSCRIÇÃO ID>/resourceGroups/ &lt; RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/ &lt; STORAGE NAME>**.
+
+    Utilize o valor predefinido para o resto das definições.
+1. selecionar **Concordo com os termos e condições acima indicados,** e com a **aquisição**selecionada .
+
+## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Abra a cache Redis que criou.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
-### <a name="existingdiagnosticsstorageaccountname"></a>DiagnósticosStorageScon
-O nome da conta de armazenamento existente para usar para diagnósticos. 
+## <a name="next-steps"></a>Passos seguintes
 
-```json
-  "existingDiagnosticsStorageAccountName": {
-    "type": "string"
-  }
-```
-
-### <a name="enablenonsslport"></a>enableNonSslPort
-Um valor booleano que indica se permite o acesso através de portas não SSL.
-
-```json
-  "enableNonSslPort": {
-    "type": "bool"
-  }
-```
-
-### <a name="diagnosticsstatus"></a>diagnósticosStatus
-Um valor que indica se os diagnósticos estão ativados. Use ON ou OFF.
-
-```json
-  "diagnosticsStatus": {
-    "type": "string",
-    "defaultValue": "ON",
-    "allowedValues": [
-          "ON",
-          "OFF"
-      ]
-  }
-```
-
-## <a name="resources-to-deploy"></a>Recursos a implementar
-### <a name="azure-cache-for-redis"></a>Cache do Azure para Redis
-Cria a Cache Azure para Redis.
-
-```json
-  {
-    "apiVersion": "2015-08-01",
-    "name": "[parameters('redisCacheName')]",
-    "type": "Microsoft.Cache/Redis",
-    "location": "[parameters('redisCacheLocation')]",
-    "properties": {
-      "enableNonSslPort": "[parameters('enableNonSslPort')]",
-      "sku": {
-        "capacity": "[parameters('redisCacheCapacity')]",
-        "family": "[parameters('redisCacheFamily')]",
-        "name": "[parameters('redisCacheSKU')]"
-      }
-    },
-    "resources": [
-      {
-        "apiVersion": "2017-05-01-preview",
-        "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
-        "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
-        "location": "[parameters('redisCacheLocation')]",
-        "dependsOn": [
-          "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
-        ],
-        "properties": {
-          "status": "[parameters('diagnosticsStatus')]",
-          "storageAccountName": "[parameters('existingDiagnosticsStorageAccountName')]"
-        }
-      }
-    ]
-  }
-```
-
-## <a name="commands-to-run-deployment"></a>Comandos para executar a implementação
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell
-    New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
-```
-
-### <a name="azure-cli"></a>CLI do Azure
-
-```azurecli
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
-```
+Neste tutorial, aprendeu a criar um modelo de Gestor de Recursos Azure que implementa uma Cache Azure para Redis. Para aprender a criar um modelo de Gestor de Recursos Azure que implementa uma App Azure Web com Cache Azure para Redis, consulte [Criar uma Web App plus Azure Cache para Redis usando um modelo](./cache-web-app-arm-with-redis-cache-provision.md).

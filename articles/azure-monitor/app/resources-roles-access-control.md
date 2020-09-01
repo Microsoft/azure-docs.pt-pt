@@ -3,12 +3,13 @@ title: Recursos, funções e controlo de acessos no Azure Application Insights M
 description: Proprietários, colaboradores e leitores das ideias da sua organização.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926506"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076689"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controlo de acessos em Insights de Aplicações
 
@@ -37,7 +38,7 @@ Primeiro, algumas definições:
 * [**Subscrição**](https://portal.azure.com) - Para utilizar Insights de Aplicação ou outros recursos Azure, faça sedutado numa subscrição do Azure. Cada grupo de recursos pertence a uma subscrição da Azure, onde você escolhe o seu pacote de preço e, se é uma subscrição da organização, escolha os membros e suas permissões de acesso.
 * [**Conta Microsoft**][account] - O nome de utilizador e a palavra-passe que utiliza para iniciar singing nas subscrições do Microsoft Azure, XBox Live, Outlook.com e outros serviços da Microsoft.
 
-## <a name="control-access-in-the-resource-group"></a><a name="access"></a>Controlar o acesso no grupo de recursos
+## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Controlar o acesso no grupo de recursos
 
 É importante entender que além do recurso que criou para a sua aplicação, existem também recursos ocultos separados para alertas e testes web. Estão ligados ao mesmo [grupo de recursos](#resource-group) que o seu recurso Application Insights. Você também pode ter colocado outros serviços Azure lá, como sites ou armazenamento.
 

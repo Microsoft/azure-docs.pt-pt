@@ -10,13 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 01718b4f3d539f77f4496a7914b027335cc45618
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 74f4c30f7aa018502f3437fd4a577f8c2a9de491
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503281"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077950"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Iniciar uma falha na conta de armazenamento
 
@@ -114,7 +114,7 @@ Depois de reativar o GRS para a sua conta de armazenamento, a Microsoft começa 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Recuperação de desastres e falha na conta de armazenamento](storage-disaster-recovery-guidance.md)
+- [Recuperação após desastre e ativação pós-falha de contas de armazenamento](storage-disaster-recovery-guidance.md)
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Use geo-redundância para projetar aplicações altamente disponíveis](geo-redundant-design.md)
 - [Tutorial: Construa uma aplicação altamente disponível com armazenamento Blob](../blobs/storage-create-geo-redundant-storage.md)

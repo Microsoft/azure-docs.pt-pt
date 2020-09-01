@@ -12,14 +12,14 @@ ms.author: sawinark
 author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
-ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 901693c512ddfcf5d3c4dafaec71b1606b5dc5f1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926710"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077854"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Executar Pacote do SSIS no Azure Data Factory)
 

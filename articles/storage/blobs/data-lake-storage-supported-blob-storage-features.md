@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 87e0fe7baaf3d83c18b12227e9ecb5bf1d2fb361
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 55a4f06b93aafbd1e94a3bf6573ba39dc25022b5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869461"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077012"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -49,11 +49,13 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 |Eliminação macia do recipiente|Pré-visualizar|Pré-visualizar|[Excluir suave para recipientes (pré-visualização)](soft-delete-container-overview.md)|
 |Blob soft delete|Ainda não suportado|Ainda não suportado|[Eliminação recuperável para blobs](storage-blob-soft-delete.md)|
 |Rio Blobfuse|Pré-visualizar|Ainda não suportado|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
-|Feed de alterações|Ainda não suportado|Ainda não suportado|[Alterar suporte de alimentação no armazenamento Azure Blob](storage-blob-change-feed.md)|
 |Falha na conta|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Recipiente blob ACL|Ainda não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Ainda não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Conjunto de recipiente ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Domínios personalizados|Ainda não suportado|Ainda não suportado|[Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)|
 |Âmbitos de encriptação|Ainda não suportado|Ainda não suportado|[Criar e gerir os âmbitos de encriptação (pré-visualização)](encryption-scope-manage.md)|
+|Feed de alterações|Ainda não suportado|Ainda não suportado|[Alterar suporte de alimentação no armazenamento Azure Blob](storage-blob-change-feed.md)|
+|Replicação de objetos|Ainda não suportado|Ainda não suportado|[Configure a replicação do objeto para as bolhas de bloco (pré-visualização)](object-replication-configure.md)|
+|Versão blob|Ainda não suportado|Ainda não suportado|[Ativar e gerir a versão blob (pré-visualização)](versioning-enable.md)|
 
 <div id="diagnostic-logging"><sup>1</sup> Para contas de armazenamento de blocos premium, os registos de diagnóstico (clássico) não podem ser ativados utilizando o portal Azure. Ative-os utilizando o PowerShell.</div><br>
 

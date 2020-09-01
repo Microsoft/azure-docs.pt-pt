@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: 7ba6a059a35bee0b122659d8fc70466595112fca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: avverma, devx-track-azurepowershell
+ms.openlocfilehash: 8ee124f866a5241620671ff84c24f3713f62efe1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011039"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078474"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -239,7 +239,7 @@ MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6        
 Saia de *while* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e remove uma instância de VM até ser atingida uma contagem mínima de duas instâncias.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive

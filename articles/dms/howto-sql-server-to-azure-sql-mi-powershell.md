@@ -9,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019,fasttrack-edit
+ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: eb8ec09646fa3f3c226edbe957e19d079fd2607c
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 37d61a5c199b59a13b54344f5ffaf69d7b369a1b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147425"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078066"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrar o SqL Server para o SQL Gerenciado Instância com PowerShell & Serviço de Migração de Bases de Dados Azure
 
@@ -71,7 +71,7 @@ O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na regiã
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Criar uma instância do Serviço de Migração de Bases de Dados de Azure
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Criar uma instância do Azure Database Migration Service
 
 Pode criar uma nova instância do Serviço de Migração da Base de Dados Azure utilizando o `New-AzDataMigrationService` cmdlet.
 Este cmdlet espera os seguintes parâmetros necessários:

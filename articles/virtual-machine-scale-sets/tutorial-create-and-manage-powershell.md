@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: a657f8a4fd7b92aeb858b919052ca732bf630ae9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: 1ab52c197ee57351a53919291f1c2e41108396ec
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091339"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078542"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e gerir um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -311,7 +311,7 @@ Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando eliminar um grupo de recursos, todos os recursos nele contidos, como as instâncias de VMs, a rede virtual e os discos, também são eliminados. O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 996793f2851949f7474312a18ccff04e88db2232
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b43635c637f10b6ace8a744ceb3046c4ce3b9bd4
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259158"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078083"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança Azure para instâncias de contentores
 
@@ -97,7 +97,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implementar sistemas de deteção/prevenção de intrusões baseados em rede (IDS/IPS)
 
-**Orientação**: Selecione uma oferta do Azure Marketplace que suporta a funcionalidade IDS/IPS com capacidades de inspeção de carga útil. Se a deteção e/ou prevenção de intrusões baseada na inspeção de carga útil não for um requisito, a Azure Firewall com Threat Intelligence pode ser usada. A filtragem baseada em inteligência Azure Firewall Threat pode alertar e negar tráfego de e para endereços ip maliciosos conhecidos e domínios. Os endereços e domínios IP são obtidos a partir do feed de Inteligência de Ameaça da Microsoft.
+**Orientação**: Selecione uma oferta do Azure Marketplace que suporta a funcionalidade IDS/IPS com capacidades de inspeção de carga útil. Se a deteção e/ou prevenção de intrusões baseada na inspeção de carga útil não for um requisito, a Azure Firewall com Threat Intelligence pode ser usada. A filtragem baseada em inteligência Azure Firewall Threat pode alertar e negar tráfego de e para endereços ip maliciosos conhecidos e domínios. Os domínios e endereços IP são obtidos a partir do feed das Informações sobre Ameaças da Microsoft.
 
 Implemente a solução de firewall à sua escolha em cada um dos limites de rede da sua organização para detetar e/ou negar tráfego malicioso.
 
@@ -155,7 +155,7 @@ Também pode utilizar grupos de segurança de aplicações para ajudar a simplif
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
-**Orientação**: Também pode utilizar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlos de RBAC e políticas, numa única definição de planta. Pode aplicar o projeto a novas subscrições e afinar o controlo e a gestão através da versão. 
+**Orientação**: Você também pode usar plantas Azure para simplificar as implementações de Azure em larga escala por artefactos ambientais chave de embalagem, tais como modelos Azure Resources Manager, controlos RBAC Azure, e políticas, numa única definição de planta. Pode aplicar o projeto a novas subscrições e afinar o controlo e a gestão através da versão. 
 
 * [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -557,9 +557,9 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o Azure AD RBAC para controlar o acesso aos dados e recursos do Azure Container Instances. 
+**Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso aos dados e recursos do Azure Container Instances. 
 
-* [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md)
+* [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
@@ -923,13 +923,13 @@ Utilize uma solução personalizada ou de terceiros para remendar as imagens do 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Armazenar de forma segura imagens do sistema operativo personalizado
 
-**Orientação**: Guarde as imagens dos contentores no Registo do Contentor de Azure e aproveite o RBAC para garantir que apenas os utilizadores autorizados possam aceder às imagens.
+**Orientação**: Guarde as imagens dos contentores no Registo do Contentor de Azure e aproveite o Azure RBAC para garantir que apenas os utilizadores autorizados possam aceder às imagens.
 
-* [Compreender o RBAC em Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Compreender Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Compreender o RBAC para o registo de contentores](../container-registry/container-registry-roles.md)
+* [Compreender O RBAC de Azure para o Registo de Contentores](../container-registry/container-registry-roles.md)
 
-* [Como configurar o RBAC em Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Como configurar o Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável

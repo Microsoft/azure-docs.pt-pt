@@ -6,12 +6,13 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 520022be8ee2054d6c0c89ee3f027de9094ae1af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055253"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078406"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Amostras de PowerShell monitor Azure Monitor
 Este artigo mostra-lhe a amostra de comandos PowerShell para ajudá-lo a aceder às funcionalidades do Azure Monitor.
@@ -96,10 +97,10 @@ O seguinte comando recupera os últimos 1000 eventos do registo de atividades:
 Get-AzLog -MaxRecord 10
 ```
 
-`Get-AzLog`suporta muitos outros parâmetros. Consulte a `Get-AzLog` referência para mais informações.
+`Get-AzLog` suporta muitos outros parâmetros. Consulte a `Get-AzLog` referência para mais informações.
 
 > [!NOTE]
-> `Get-AzLog`só fornece 15 dias de história. A utilização do parâmetro **-MaxRecords** permite-lhe consultar os últimos eventos N, para além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize a amostra REST API ou SDK (amostra C# utilizando o SDK). Se não incluir **o StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir **o EndTime,** então o valor predefinido é a hora atual. Todos os tempos estão na UTC.
+> `Get-AzLog` só fornece 15 dias de história. A utilização do parâmetro **-MaxRecords** permite-lhe consultar os últimos eventos N, para além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize a amostra REST API ou SDK (amostra C# utilizando o SDK). Se não incluir **o StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir **o EndTime,** então o valor predefinido é a hora atual. Todos os tempos estão na UTC.
 > 
 > 
 
@@ -139,18 +140,18 @@ Recupere todas as regras de alerta definidas para um recurso alvo. Por exemplo, 
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule`suporta outros parâmetros. Consulte [o Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) para obter mais informações.
+`Get-AzAlertRule` suporta outros parâmetros. Consulte [o Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) para obter mais informações.
 
 ## <a name="create-metric-alerts"></a>Criar alertas de métricas
 Pode utilizar o `Add-AlertRule` cmdlet para criar, atualizar ou desativar uma regra de alerta.
 
-Pode criar propriedades de e-mail e webhook usando `New-AzAlertRuleEmail` `New-AzAlertRuleWebhook` e, respectivamente. Na regra de alerta, atribuir estes imóveis como ações à propriedade **de Ações** da Regra de Alerta.
+Pode criar propriedades de e-mail e webhook usando  `New-AzAlertRuleEmail` `New-AzAlertRuleWebhook` e, respectivamente. Na regra de alerta, atribuir estes imóveis como ações à propriedade **de Ações** da Regra de Alerta.
 
 A tabela seguinte descreve os parâmetros e valores utilizados para criar um alerta utilizando uma métrica.
 
 | parameter | valor |
 | --- | --- |
-| Name |simpletestdiskwrite |
+| Nome |simpletestdiskwrite |
 | Localização desta regra de alerta |E.U.A. Leste |
 | ResourceGroup |montest |
 | TargetResourceId |/subscrições/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

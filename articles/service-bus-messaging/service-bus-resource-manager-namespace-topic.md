@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3c24ae4e5ef7586bee3c1a95af70e5cd289cfad7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 57db06d5d17793d87500e3fedd5fc9c682ce34eb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065187"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077556"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Quickstart: Criar um espaço de nomes de ônibus de serviço com tópico e subscrição usando um modelo de Gestor de Recursos Azure
 

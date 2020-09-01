@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 68d2b864b0e825756fbcd8e43fee3d6289c77c36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7210d414c06f154395b9128be6ed10175ad1e838
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512858"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077063"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos finais de rede do Azure File Sync
 A Azure Files e Azure File Sync fornecem dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
@@ -622,5 +623,5 @@ az resource update \
 ---
 
 ## <a name="see-also"></a>Ver também
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
-- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

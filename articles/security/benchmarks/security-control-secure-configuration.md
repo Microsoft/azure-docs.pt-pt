@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e3d43239dabe75bc2b25319945c2c6b08d726d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac538d71f854643cb59390447be360bc541142ac
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193110"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077233"
 ---
 # <a name="security-control-secure-configuration"></a>Controlo de Segurança: Configuração Segura
 
@@ -110,13 +110,13 @@ Utilize devOps Azure para armazenar e gerir de forma segura o seu código como p
 |--|--|--|
 | 7.6 | 5.3 | Cliente |
 
-Se utilizar imagens personalizadas, utilize o controlo de acesso baseado em funções (RBAC) para garantir que apenas os utilizadores autorizados possam aceder às imagens. Utilizando uma Galeria de Imagens Partilhadas, pode partilhar as suas imagens com diferentes utilizadores, diretores de serviço ou grupos de AD dentro da sua organização.  Para imagens de contentores, guarde-as no Registo do Contentor de Azure e aproveite o RBAC para garantir que apenas os utilizadores autorizados possam aceder às imagens.  
+Se utilizar imagens personalizadas, utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para garantir que apenas os utilizadores autorizados possam aceder às imagens. Utilizando uma Galeria de Imagens Partilhadas, pode partilhar as suas imagens com diferentes utilizadores, diretores de serviço ou grupos de AD dentro da sua organização.  Para imagens de contentores, guarde-as no Registo do Contentor Azure e aproveite o Azure RBAC para garantir que apenas os utilizadores autorizados possam aceder às imagens.  
 
-- [Compreender o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Compreender Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-- [Compreender o RBAC para o registo de contentores](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- [Compreender O RBAC de Azure para o Registo de Contentores](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-- [Como configurar o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Como configurar o Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 - [Visão geral da Galeria de Imagens Partilhada](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
 
@@ -199,4 +199,4 @@ Implementar o Scanner credencial para identificar credenciais dentro do código.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja o próximo Controlo de Segurança: [Defesa de Malware](security-control-malware-defense.md)
+- Veja o próximo Controlo de Segurança:  [Defesa de Malware](security-control-malware-defense.md)

@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 9964a10b85d9f388a4498766c6e81ee52498aa37
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566068"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076179"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configure a replicação do objeto para as bolhas de bloco (pré-visualização)
 
@@ -24,6 +24,8 @@ A replicação de objetos (pré-visualização) assíncroneamente copia blobs de
 Ao configurar a replicação de objetos, cria uma política de replicação que especifica a conta de armazenamento de origem e a conta de destino. Uma política de replicação inclui uma ou mais regras que especificam um contentor de origem e um contentor de destino e indicam quais as bolhas de bloqueio no recipiente de origem que serão replicadas.
 
 Este artigo descreve como configurar a replicação de objetos para a sua conta de armazenamento utilizando o portal Azure, PowerShell ou Azure CLI. Também pode utilizar uma das bibliotecas de clientes do fornecedor de recursos Azure Storage para configurar a replicação de objetos.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-a-replication-policy-and-rules"></a>Criar uma política de replicação e regras
 

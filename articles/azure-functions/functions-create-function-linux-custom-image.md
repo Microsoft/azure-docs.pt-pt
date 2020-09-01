@@ -3,14 +3,14 @@ title: Criar funções Azure no Linux utilizando uma imagem personalizada
 description: Saiba como criar Funções do Azure em execução numa imagem personalizada do Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: efe1706f2ea97c3eadab8deade7e13123af17752
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: e5b7211ffc72c4752008f36ebb266373c919025b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225670"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076026"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
@@ -513,7 +513,7 @@ Num browser, utilize o mesmo URL de antes para invocar a sua função. O navegad
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser continuar a trabalhar com a Azure Function utilizando os recursos que criou neste tutorial, pode deixar todos esses recursos no lugar. Como criou um Plano Premium para Funções Azure, incorrerá num ou dois USD por dia em custos contínuos.
 
@@ -523,7 +523,7 @@ Para evitar custos contínuos, elimine o `AzureFunctionsContainer-rg` grupo de r
 az group delete --name AzureFunctionsContainer-rg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Funções de monitorização](functions-monitoring.md)
 + [Opções de escala e hospedagem](functions-scale.md)

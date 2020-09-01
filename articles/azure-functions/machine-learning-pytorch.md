@@ -5,13 +5,13 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
-ms.custom: devx-track-python
-ms.openlocfilehash: ebedb7f205553f91e38e3976a02b0912cbee1fb0
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: dd8de1b56927e158a181df952ce0dbeed140d6b7
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852434"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078661"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Tutorial: Implementar um modelo de classificação de imagem pré-treinado para funções Azure com PyTorch
 
@@ -109,7 +109,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     > [!TIP]
     > Como um projeto de função está ligado a um tempo de execução específico, todas as funções do projeto devem ser escritas com a mesma língua.
 
-1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new`criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração denominado *function.jsem*.
+1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new` criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração denominado *function.jsem*.
 
     ```
     func new --name classify --template "HTTP trigger"

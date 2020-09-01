@@ -15,12 +15,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: fa0778887a1063b01ce3356dc660cfee260b1702
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b04ad7d9252bd97d3fa1a236a4150ffac3d8af65
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073888"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077828"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Exemplo de script de filtragem de tráfego de rede VM de entrada e saída
 

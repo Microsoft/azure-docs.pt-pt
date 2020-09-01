@@ -6,12 +6,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 085eedf3a3ce09689a5a7b7d4c69d1aade42ffb3
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 178f990e46801cd51e9feb88bbd20181842e4400
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185451"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077692"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Use a Azure PowerShell para criar um espaço de nome de ônibus de serviço e uma fila
 Este quickstart mostra-lhe como criar um espaço de nomes de Service Bus e uma fila usando o Azure PowerShell. Também mostra como obter credenciais de autorização que uma aplicação do cliente pode usar para enviar/receber mensagens de/para a fila. 
@@ -27,7 +28,7 @@ Neste arranque rápido, você usa Azure Cloud Shell que você pode lançar após
 
 
 ## <a name="provision-resources"></a>Recursos de aprovisionamento
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Lançar Azure Cloud Shell selecionando o ícone mostrado na seguinte imagem: 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Lançar Cloud Shell":::
@@ -39,7 +40,7 @@ Neste arranque rápido, você usa Azure Cloud Shell que você pode lançar após
     ```azurepowershell-interactive
     New-AzResourceGroup –Name ContosoRG –Location eastus
     ```
-5. Executar o seguinte comando para criar um espaço de nome de mensagens de ônibus de serviço. Neste exemplo, `ContosoRG` é o grupo de recursos que criou no passo anterior. `ContosoSBusNS`é o nome do espaço de nomes do Service Bus criado nesse grupo de recursos. 
+5. Executar o seguinte comando para criar um espaço de nome de mensagens de ônibus de serviço. Neste exemplo, `ContosoRG` é o grupo de recursos que criou no passo anterior. `ContosoSBusNS` é o nome do espaço de nomes do Service Bus criado nesse grupo de recursos. 
 
     ```azurepowershell-interactive
     New-AzServiceBusNamespace -ResourceGroupName ContosoRG -Name ContosoSBusNS -Location eastus

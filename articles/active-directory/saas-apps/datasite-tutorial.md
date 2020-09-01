@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4608e8b818fcb75d91d7daf5278ba1dd30c9d667
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 36a90dee086a0ada705a0c067f3ad9d717542d52
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555908"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077539"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datasite"></a>Tutorial: Azure Ative Directory integração única (SSO) com datasite
 
@@ -42,6 +42,9 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 * Datasite suporta **SSO** iniciado SP
 
 * Uma vez configurado o Datasite, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
 ## <a name="adding-datasite-from-the-gallery"></a>Adicionar Datasite da galeria
 
@@ -80,10 +83,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://auth.<ENVIRONMENT>.com/sp/ACS.saml2`
-
-    > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente datasite](mailto:service@datasite.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://auth.datasite.com/sp/ACS.saml2`
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 

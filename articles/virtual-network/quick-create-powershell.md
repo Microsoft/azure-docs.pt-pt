@@ -14,12 +14,13 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: f469256841bf81f5e35ebf9c4a0fe322b513153d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 93e459df96d444e71f4b6a15668f80e9d77db5fd
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056980"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077896"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Início Rápido :criar uma rede virtual com o PowerShell
 
@@ -210,7 +211,7 @@ mstsc /v:<publicIpAddress>
 
 1. Feche a ligação de ambiente de trabalho remoto à *myVm2*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar com a rede virtual e os VMs, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que tem:
 

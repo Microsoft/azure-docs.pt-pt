@@ -1,20 +1,20 @@
 ---
 title: Encriptação personalizada da Visão de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Encriptação personalizada da Visão de dados em repouso.
+description: A Microsoft oferece chaves de encriptação geridas pela Microsoft e também permite gerir as suas subscrições de Serviços Cognitivos com as suas próprias chaves, chamadas teclas geridas pelo cliente (CMK). Este artigo cobre a encriptação de dados em repouso para a Visão Personalizada e como ativar e gerir a CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 85cf251db69d33f02e928eaea6a848f20ae7d923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310296"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077760"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Encriptação personalizada da Visão de dados em repouso
 
@@ -30,7 +30,7 @@ O Azure Custom Vision encripta automaticamente os seus dados quando os persistia
 As chaves geridas pelo cliente estão atualmente disponíveis nestas regiões:
 
 * E.U.A. Centro-Sul
-* E.U.A.Oeste 2
+* E.U.A. Oeste 2
 * E.U.A. Leste
 * US Gov - Virginia
 

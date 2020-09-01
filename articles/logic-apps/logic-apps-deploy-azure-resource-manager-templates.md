@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 81fad94dc02bd57f839d7ab8653bec7074e41800
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855591"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076345"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementar modelos do Azure Resource Manager para o Azure Logic Apps
 
@@ -23,7 +23,7 @@ Depois de criar um modelo de Gestor de Recursos Azure para a sua aplicação ló
 * [Azure PowerShell](#powershell)
 * [CLI do Azure](#cli)
 * [API REST do Azure Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
-* [Azure DevOps](#azure-pipelines)
+* [DevOps do Azure](#azure-pipelines)
 
 <a name="portal"></a>
 

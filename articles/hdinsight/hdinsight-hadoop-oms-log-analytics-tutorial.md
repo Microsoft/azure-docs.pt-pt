@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli
+ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 531bbf40df4636ae62203d639deeeb9468c7bfe0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9781369e862c74afe5a8a94cafafff7ef35e68e1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498196"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078355"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Use Azure Monitor logs to monitor HDInsight clusters (Utilizar registos do Azure Monitor para monitorizar clusters do HDInsight)
 
@@ -153,10 +153,10 @@ O monitor Azure suporta a recolha e análise de métricas de desempenho para os 
 
 Auditoria de cluster de suporte HDInsight com registos Azure Monitor, importando os seguintes tipos de registos:
 
-* `log_gateway_audit_CL`- esta tabela fornece registos de auditoria a partir de nós de gateway de cluster que mostram tentativas de login bem sucedidas e falhadas.
-* `log_auth_CL`- esta tabela fornece registos SSH com tentativas de login bem sucedidas e falhadas.
-* `log_ambari_audit_CL`- esta tabela fornece registos de auditoria de Ambari.
-* `log_ranger_audti_CL`- esta tabela fornece registos de auditoria da Apache Ranger em aglomerados ESP.
+* `log_gateway_audit_CL` - esta tabela fornece registos de auditoria a partir de nós de gateway de cluster que mostram tentativas de login bem sucedidas e falhadas.
+* `log_auth_CL` - esta tabela fornece registos SSH com tentativas de login bem sucedidas e falhadas.
+* `log_ambari_audit_CL` - esta tabela fornece registos de auditoria de Ambari.
+* `log_ranger_audti_CL` - esta tabela fornece registos de auditoria da Apache Ranger em aglomerados ESP.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,13 +3,13 @@ title: Quickstart - Criar registo - PowerShell
 description: Aprenda rapidamente a criar um registo privado de Docker no Registo de Contentores Azure com PowerShell
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ed0790f79ef4a83f42519ce6f89ee36f54558f4b
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.custom: seodec18, mvc, devx-track-azurepowershell
+ms.openlocfilehash: 91d4209ccf558bf7c8038d8a753ec038428bc484
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752171"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076468"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Quickstart: Criar um registo de contentores privados utilizando a Azure PowerShell
 
@@ -73,7 +73,7 @@ O comando devolve `Login Succeeded` depois de estar concluído.
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Assim que terminar de trabalhar com os recursos que criou neste arranque rápido, utilize o comando [Remove-AzResourceGroup][Remove-AzResourceGroup] para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas:
 

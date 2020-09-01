@@ -4,7 +4,7 @@
   items:
     - name: Acerca da Cache do Azure para Redis
       href: cache-overview.md
-- name: Guias de Início Rápido
+- name: Guias de Introdução
   expanded: true
   items:
     - name: Criar uma cache
@@ -94,9 +94,11 @@
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Implementação e Gestão através da CLI do Azure
           href: cli-samples.md
-        - name: Aprovisionar uma Cache do Azure para Redis
+        - name: Criar Cache de Redis - Modelo do ARM
+          displayName: Resource Manager
           href: cache-redis-cache-arm-provision.md
-        - name: Aprovisionar uma aplicação Web com a Cache do Azure para Redis
+        - name: Criar uma Aplicação Web com a Cache de Redis - Modelo do ARM
+          displayName: Resource Manager
           href: cache-web-app-arm-with-redis-cache-provision.md
     - name: Gerir
       items:

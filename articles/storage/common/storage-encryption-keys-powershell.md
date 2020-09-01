@@ -10,12 +10,13 @@ ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1c928056ec0e7b101d991c8d8c8db3bd659251ba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2beaae3fd6aaae719ac84ef86d7dd7877c94f757
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799133"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076128"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configure as chaves geridas pelo cliente com o Cofre de Chaves Azure utilizando o PowerShell
 

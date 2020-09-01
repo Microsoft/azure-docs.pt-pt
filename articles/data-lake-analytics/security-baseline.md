@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 383e135cad867ed8f345b39a6cace6fbbca8bfa0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005134"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076383"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Linha de segurança Azure para Data Lake Analytics
 
@@ -334,7 +334,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Utilizar o Diretório Ativo Azure
 
-**Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. A Azure AD fornece controlo de acesso baseado em funções (RBAC) para controlo de grãos finos sobre o acesso de um cliente aos recursos de Data Lake Analytics.
+**Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. O controlo de acesso baseado em funções (Azure RBAC) proporciona um controlo fino sobre o acesso de um cliente aos recursos de Data Lake Analytics.
 
 * [Como criar e configurar uma instância AD Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -404,7 +404,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 
-**Orientação**: Implementar o isolamento utilizando assinaturas separadas, grupos de gestão para domínios de segurança individuais, tais como ambiente, sensibilidade aos dados. Pode restringir o seu Data Lake Analytics para controlar o nível de acesso aos recursos do Data Lake Analytics que as suas aplicações e ambientes empresariais exigem. Quando as regras de firewall são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes podem aceder aos seus recursos data lake analytics. Você pode controlar o acesso ao Azure Data Lake Analytics via Azure AD RBAC.
+**Orientação**: Implementar o isolamento utilizando assinaturas separadas, grupos de gestão para domínios de segurança individuais, tais como ambiente, sensibilidade aos dados. Pode restringir o seu Data Lake Analytics para controlar o nível de acesso aos recursos do Data Lake Analytics que as suas aplicações e ambientes empresariais exigem. Quando as regras de firewall são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes podem aceder aos seus recursos data lake analytics. Você pode controlar o acesso ao Azure Data Lake Analytics via Azure RBAC.
 
 * [Como criar subscrições adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -456,11 +456,11 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o controlo de acesso baseado em funções (RBAC) para controlar a forma como os utilizadores interagem com o serviço.
+**Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar a forma como os utilizadores interagem com o serviço.
 
-* [Gerir o Controlo de Acesso Baseado em Funções](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Gerir a Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 

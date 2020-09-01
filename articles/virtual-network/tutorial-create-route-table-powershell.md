@@ -16,13 +16,13 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom: ''
-ms.openlocfilehash: b08a5e63bc78b5b86b1802e7c8f334bad43167fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c94c7709a8066b31a6ac1ebc54180d41a303f44a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688369"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078236"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Tráfego de rede de rotas com uma tabela de rotas usando PowerShell
 
@@ -321,7 +321,7 @@ Pode ver que o tráfego é encaminhado diretamente da VM *myVmPrivate* para a VM
 
 Feche a sessão de ambiente de trabalho remoto para a VM *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize [o Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que contém.
 
@@ -329,7 +329,7 @@ Quando já não for necessário, utilize [o Remove-AzResourcegroup](/powershell/
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou uma tabela de rotas e associou-a a uma sub-rede. Criou um simples aparelho virtual de rede que encaminhou o tráfego de uma sub-rede pública para uma sub-rede privada. Implementar uma variedade de aparelhos virtuais de rede pré-configurados que desempenham funções de rede como firewall e otimização WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
 

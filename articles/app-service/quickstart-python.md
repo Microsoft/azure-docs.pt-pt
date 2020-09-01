@@ -4,12 +4,12 @@ description: Começa com o Azure App Service implementando a sua primeira aplica
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: 5463b23a4c19681515197f7d0cf880235ef6c0f2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3bfe927b2c9dc16de8712f6c1793e850df92c201
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121549"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078457"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python no Azure App Service em Linux
 
@@ -158,6 +158,7 @@ az webapp up --sku F1 -n <app-name>
 - Substitua `<app_name>` por um nome único em todo o Azure *(caracteres válidos `a-z` `0-9` são, e `-` *. Um bom padrão é usar uma combinação do nome da sua empresa e um identificador de aplicativos.
 - O `--sku F1` argumento cria a aplicação web no nível de preços gratuitos. Omita este argumento para usar um nível premium mais rápido, que incorre num custo de hora a hora.
 - Pode opcionalmente incluir o argumento `-l <location-name>` onde `<location_name>` está uma região do Azure como **central,** **eastasia,** **westeurope,** **koreasouth,** **brazilsouth**, **centralindia**, e assim por diante. Pode recuperar uma lista de regiões admissíveis para a sua conta Azure, executando o [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) comando.
+- Se vir o erro, "Não consegui detetar automaticamente a pilha de tempo de execução da sua aplicação", certifique-se de que está a executar o comando na pasta *python-docs-hello-world* que contém o ficheiro *requirements.txt.* (Ver [problemas de deteção automática de problemas com webapp az](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
 O comando pode demorar alguns minutos a ser concluído. Durante a execução, fornece mensagens sobre a criação do grupo de recursos, o plano de Serviço de Aplicações e a aplicação de hospedagem, configurando o registo e, em seguida, executando a implementação zip. Em seguida, dá a mensagem: "Pode lançar a app em http:// &lt; nome de app &gt; .azurewebsites.net", que é o URL da aplicação no Azure.
 

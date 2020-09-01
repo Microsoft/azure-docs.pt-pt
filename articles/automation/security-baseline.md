@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6e5c7bbc850a71cd71d8f826c6a975f552374b7a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562689"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077726"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de segurança Azure para Automação
 
@@ -146,7 +146,7 @@ Se estiver a utilizar os Trabalhadores de Runbook Híbridos alojados em máquina
 
 **Orientação**: Definir e implementar configurações de segurança padrão para os recursos de rede utilizados pela Azure Automation com Azure Policy.
 
-Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlos e políticas de RBAC, numa única definição de planta. Pode aplicar o projeto a novas subscrições e afinar o controlo e a gestão através da versão.
+Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlos e políticas do Azure, e políticas, numa única definição de planta. Pode aplicar o projeto a novas subscrições e afinar o controlo e a gestão através da versão.
 
 * [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -570,11 +570,11 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o Azure AD RBAC para controlar o acesso aos recursos da Azure Automation utilizando as definições de funções incorporadas, atribua acesso aos utilizadores que acedam aos seus recursos de automação seguindo um modelo de acesso menos privilegiado ou "justo". Ao utilizar os Trabalhadores De Runbook Híbridos, aproveite as identidades geridas para que essas máquinas virtuais evitem a utilização de princípios de serviço, quando utilizar tanto o multi-inquilino como os Trabalhadores de Runbook Híbridos certifique-se de aplicar permissões DE RBAC adequadamente telescópios sobre a identidade dos trabalhadores do runbook.
+**Orientação**: Utilize o controlo de acesso baseado em funções (Azure RBAC) para controlar o acesso aos recursos da Azure Automation utilizando as definições de funções incorporadas, atribua acesso aos utilizadores que acedam aos seus recursos de automação seguindo um modelo de acesso menos privilegiado ou "justo". Ao utilizar os Trabalhadores De Runbook Híbridos, aproveite as identidades geridas para que essas máquinas virtuais evitem a utilização de princípios de serviço, quando utilizar tanto o multi-inquilino como os Trabalhadores de Runbook Híbridos certifique-se de aplicar permissões Azure RBAC adequadamente scopeed sobre a identidade dos trabalhadores do runbook.
 
-* [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md)
+* [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 * [Permissões de runbook para um trabalhador de runbook híbrido](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
@@ -968,9 +968,9 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 Ao utilizar a funcionalidade Hybrid Runbook Worker, certifique-se de que está a limitar adequadamente o acesso à imagem personalizada do SO localizada na sua conta de armazenamento para que apenas os utilizadores autorizados possam aceder à imagem.
 
-* [Compreender o RBAC em Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Compreender Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Como configurar o RBAC em Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Como configurar o Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1288,7 +1288,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1cdb49f6865afa4101468dc35b4e416d999b63f5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d79b647d216fe28241e5891def574ab598304828
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285225"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078225"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -73,7 +73,6 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/d
     blob1
     blob2
 ```
-
 Remova um único ficheiro de uma conta blob storage que tenha um espaço hierárquico (incluir/excluir não suportado):
 
 ```azcopy
@@ -96,13 +95,15 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--força-se-ler-apenas**   Ao eliminar um ficheiro ou pasta Azure Files, force a eliminação a funcionar mesmo que o objeto existente tenha o seu conjunto de atributos apenas de leitura.
 
-**...ajuda** para remover.
+**...ajuda**   para remover.
 
 **--incluir** a corda do caminho Inclua apenas estes caminhos ao remover. Esta opção não suporta caracteres wildcard (*). Verifica o prefixo relativo do caminho. Por exemplo: `myFolder;myFolder/subDirName/file.pdf`
 
 **-- incluir** a cadeia de padrão Inclua apenas ficheiros onde o nome corresponde à lista de padrões. Por * `.jpg` exemplo:* `.pdf` ;`exactName`
 
-**--lista de ficheiros** a cadeia Define a localização de um ficheiro, que contém a lista de ficheiros e diretórios a serem eliminados. Os caminhos relativos devem ser delimitados por quebras de linha, e os caminhos NÃO devem ser codificados por URL.
+**--lista de ficheiros** a cadeia Define a localização de um ficheiro, que contém a lista de ficheiros e diretórios a serem eliminados. Os caminhos relativos devem ser delimitados por quebras de linha, e os caminhos NÃO devem ser codificados por URL. 
+
+**--lista de versões** cadeia Especifica um ficheiro onde cada id de versão está listado numa linha separada. Certifique-se de que a fonte deve apontar para uma única bolha e todos os ids de versão especificados no ficheiro que utilizam esta bandeira devem pertencer apenas à bolha de origem. Os ids de versão especificados da bolha dada serão eliminados do Azure Storage. 
 
 **--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo. Os níveis disponíveis incluem: `INFO` (todos os pedidos/respostas), `WARNING` (respostas lentas), `ERROR` (apenas pedidos falhados) e `NONE` (sem registos de saída). (predefinição) `INFO` (predefinição) `INFO`
 
@@ -116,6 +117,6 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [azcopy](storage-ref-azcopy.md)
