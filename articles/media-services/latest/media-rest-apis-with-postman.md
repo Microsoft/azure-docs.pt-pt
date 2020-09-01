@@ -3,7 +3,7 @@ title: Configure Carteiro para Azure Media Services v3 REST API calls
 description: Este artigo mostra-lhe como configurar o Carteiro para que possa ser usado para chamar APIs de REST da Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2019
-ms.author: juliako
-ms.openlocfilehash: e35a5fe2243c3a9880359900c63f74c6dc90e586
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1232c47040a5577731121ee0bb17eb264240e765
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654366"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264883"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configure Carteiro para Serviços de Mídia v3 REST Chamadas API
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo mostra-lhe como configurar **o Carteiro** para que possa ser usado para chamar APIs de REST da Azure Media Services (AMS). O artigo mostra como importar ambiente e recolha de ficheiros para **o Carteiro.** A coleção contém definições agrupadas de pedidos HTTP que chamam Azure Media Services (AMS) REST APIs. O ficheiro de ambiente contém variáveis que são utilizadas pela coleção.
 

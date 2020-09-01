@@ -3,23 +3,25 @@ title: Predefinição para codificação consciente do conteúdo - Azure Media S
 description: Este artigo discute a codificação de conteúdos na Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c29909d70b0fd55e4b680c79928cdc5d05b494fa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 853381dbccea5374806fbeadb1d29632f0525fdb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003733"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265614"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utilize a predefinição de codificação consciente do conteúdo para encontrar o valor bitrate ideal para uma determinada resolução
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Para preparar o conteúdo para a entrega através do [streaming de bitrate adaptativo,](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)o vídeo precisa de ser codificado a várias taxas de bit (de alto a baixo). Isto garante uma degradação graciosa da qualidade, uma vez que o bitrate é reduzido assim como a resolução do vídeo. Esta codificação de bit-rate múltipla faz uso de uma chamada escada codificadora – uma tabela de resoluções e bitrates, ver as [predefinições codificadoras dos](/rest/api/media/transforms/createorupdate#encodernamedpreset)Media Services.
 

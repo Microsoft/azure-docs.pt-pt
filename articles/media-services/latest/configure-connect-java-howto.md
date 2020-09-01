@@ -3,7 +3,7 @@ title: Ligue-se ao Azure Media Services v3 API - Java
 description: Este artigo descreve como ligar ao Azure Media Services v3 API com Java.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 08/31/2020
 ms.custom: devx-track-java
-ms.author: juliako
-ms.openlocfilehash: 098e1db7470124dc7c15b3ee65d6ab9cb3fadabd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.author: inhenkel
+ms.openlocfilehash: dc667a46d9802332d0f8c8dc673b28a9aeab96ea
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319835"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265631"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ligue-se aos Serviços de Mídia v3 API - Java
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 Java SDK usando o sinal principal de serviço no método.
 
@@ -59,7 +61,7 @@ Quando executar o comando, os `pom.xml` `App.java` ficheiros , e outros são cri
 ## <a name="add-dependencies"></a>Adicionar dependências
 
 1. No Código do Estúdio Visual, abra a pasta onde está o seu projeto
-1. Encontrar e abrir o`pom.xml`
+1. Encontrar e abrir o `pom.xml`
 1. Adicione as dependências necessárias
 
     ```xml
@@ -120,7 +122,7 @@ Quando executar o comando, os `pom.xml` `App.java` ficheiros , e outros são cri
    ```
 1. Execute a aplicação.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Conceitos de Serviços de Mídia](concepts-overview.md)
 - [SDK Java](https://aka.ms/ams-v3-java-sdk)

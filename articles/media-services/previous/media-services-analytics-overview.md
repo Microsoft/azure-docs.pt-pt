@@ -16,14 +16,16 @@ ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 45a23f55f87f086e4f5be8058a68ada1513f8975
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 79665531e5faa9766c62b87a002efafdea2f3221
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021005"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264730"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics na plataforma Media Services 
+# <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics na plataforma Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="retirement-plans"></a>Planos de reforma
 

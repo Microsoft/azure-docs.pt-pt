@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a1a506e7e4c4a90ed39f4371b48e47b632918c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021510"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264645"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como construir uma aplicação de loja de Windows de streaming suave  
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como construir uma aplicação de loja de Windows de streaming suave
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 O SDK do Cliente de Streaming Suave para o Windows 8 permite aos desenvolvedores construir aplicações windows Store que podem jogar a pedido e viver conteúdo smooth streaming. Além da reprodução básica de conteúdos de Streaming Suave, o SDK também fornece funcionalidades ricas como a proteção Microsoft PlayReady, restrição de nível de qualidade, DVR ao vivo, comutação de streaming de áudio, audição de atualizações de estado (como alterações de nível de qualidade) e eventos de erro, e assim por diante. Para obter mais informações sobre as funcionalidades suportadas, consulte as [notas de lançamento](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Para obter mais informações, consulte [o Quadro do Jogador para o Windows 8](https://playerframework.codeplex.com/). 
 

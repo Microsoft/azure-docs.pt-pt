@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85f6f59c94f8167b700208036c16cc4c948376e8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019832"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263080"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows, para aceder ao Azure Cosmos DB
 
@@ -84,7 +84,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 Esta secção mostra como ligar para o Azure Resource Manager utilizando um token de acesso para a identidade gerida atribuída pelo sistema Windows VM. No resto do tutorial, iremos trabalhar a partir da VM que criámos anteriormente. 
 
-Tem de instalar a versão mais recente do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu Windows VM.
+Tem de instalar a versão mais recente do [Azure CLI](/cli/azure/install-azure-cli) no seu Windows VM.
 
 
 
@@ -204,6 +204,4 @@ Este comando da CLI devolve os detalhes da coleção:
 Neste tutorial, aprendeu a utilizar uma identidade atribuída ao sistema da VM do Windows para aceder ao Cosmos DB.  Para saber mais sobre o Cosmos DB, veja:
 
 > [!div class="nextstepaction"]
->[Visão geral do Azure Cosmos DB](/azure/cosmos-db/introduction)
-
-
+>[Visão geral do Azure Cosmos DB](../../cosmos-db/introduction.md)

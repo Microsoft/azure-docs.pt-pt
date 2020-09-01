@@ -7,19 +7,16 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 07e7b8db3bf7e1131ec8892a69223eaf4505e8de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 10f3856a7c0c0a98ab8b23e20342d745b1966b9b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037751"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263200"
 ---
 # <a name="az-spring-cloud"></a>az nuvem de primavera
 
 ## <a name="manage-azure-spring-cloud-using-the-azure-cli"></a>Gerir a nuvem de primavera Azure usando o Azure CLI
-
->[!Note]
-> A azure Spring Cloud está atualmente em pré-visualização.  Estes comandos podem ser alterados ou removidos numa futura libertação.
 
 | az nuvem de primavera | Comandos |
 |------|------:|
@@ -93,11 +90,11 @@ az spring-cloud create  --name -n
 | Parâmetros Obrigatórios | Descrição |
 | --- | :--- |
 | --nome -n | Nome para este exemplo de Azure Spring Cloud. |
-| --grupo de recursos -g | Especifica o grupo de recursos para esta aplicação.  Configure o grupo predefinido usando`az configure --defaults group=<name>` |
+| --grupo de recursos -g | Especifica o grupo de recursos para esta aplicação.  Configure o grupo predefinido usando `az configure --defaults group=<name>` |
 
 | Parâmetros Opcionais | Descrição |
 | --- | :--- |
-| --localização -l | Especifica a localização do servidor para esta aplicação.  Encontre locais válidos usando`az account list-locations` |
+| --localização -l | Especifica a localização do servidor para esta aplicação.  Encontre locais válidos usando `az account list-locations` |
 | -- sem espera | Não durante muito tempo as operações de longo prazo estão concluídas.
 
 ### <a name="examples"></a>Exemplos
@@ -254,7 +251,7 @@ az spring cloud app deploy  --name -n
 | --env | Variáveis de ambiente separadas pelo espaço no formato 'chave[=valor]». |
 | --contagem de instâncias | Número de casos. |
 | --jar-caminho | Se fornecido, desloque o jarro de um caminho dado. Caso contrário, insera a pasta atual como alcatrão. |
-| --jvm-opções | Uma corda contendo opções JVM.  Utilize '=' em vez de ' ' para evitar erros de análise de conchas. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --jvm-opções | Uma corda contendo opções JVM.  Utilize '=' em vez de ' ' para evitar erros de análise de conchas. Por exemplo,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | --memória | Número de GB de memória por exemplo. |
 | -- sem espera | Não espere que as operações de longo prazo terminem. |
 | --versão do tempo de execução | Versão runtime do idioma utilizado na aplicação.  Valores permitidos: `Java_11` `Java_8` . . . |
@@ -504,7 +501,7 @@ az spring-cloud app update --name -n
 | --ativar o armazenamento persistente | O Boolean.  Se for verdade, monte um disco de 50GB com o caminho predefinido. |
 | --env | Variáveis de ambiente separadas pelo espaço no formato 'chave[=valor]». |
 | --é público | O Boolean.  Se for verdade, atribua um domínio público à aplicação. |
-| --jvm-opções | Uma corda contendo opções JVM.  Utilize '=' em vez de ' ' para evitar erros de análise de conchas. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --jvm-opções | Uma corda contendo opções JVM.  Utilize '=' em vez de ' ' para evitar erros de análise de conchas. Por exemplo,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | -- sem espera | Não espere que as operações de longo prazo terminem. |
 | --versão do tempo de execução | Versão runtime do idioma utilizado na aplicação.  Valores permitidos: `Java_11` `Java_8` . . . |
 
@@ -739,7 +736,7 @@ Para implementar código ou atualizar as definições para uma implementação, 
 | --env | Variáveis de ambiente separadas pelo espaço no formato 'chave[=valor]». |
 | --contagem de instâncias | Número de casos. Predefinição: 1. |
 | --jar-caminho | Se for fornecido, desloque o jarro.  Caso contrário, insera a pasta atual como alcatrão. |
-| --jvm-opções | Uma corda contendo opções JVM.  Utilize '=' em vez de ' ' para evitar erros de análise de conchas. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --jvm-opções | Uma corda contendo opções JVM.  Utilize '=' em vez de ' ' para evitar erros de análise de conchas. Por exemplo,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | --memória | Número de GB de memória por exemplo. |
 | -- sem espera | Não espere que as operações de longo prazo terminem. |
 | --versão do tempo de execução | Versão runtime do idioma utilizado na aplicação.  Valores permitidos: `Java_11` `Java_8` . . . |

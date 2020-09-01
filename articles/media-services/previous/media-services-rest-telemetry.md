@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9409b340e8c1bd06b689acb849a9f47d24ed0391
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7fec4a958e730c485c998d1f0591b8e4d61df050
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170773"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264203"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurar telemetria Azure Media Services com REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Este tópico descreve os passos gerais que pode tomar ao configurar a telemetria Azure Media Services (AMS) utilizando a API REST. 
 

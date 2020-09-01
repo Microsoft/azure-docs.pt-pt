@@ -3,7 +3,7 @@ title: Azure Media Services LiveEvent tipos Microsoft Docs
 description: Na Azure Media Services, um evento ao vivo pode ser definido para uma *codificação* de passagem ou *ao vivo.* Este artigo mostra uma tabela detalhada que compara tipos de Eventos Ao Vivo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
-ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 41df31cde95ae7ed1d05dac572718622067194c9
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090064"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265257"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de eventos ao vivo
 
-No Azure Media Services, um [Evento Ao Vivo](/rest/api/media/liveevents) pode ser definido para um passe *através* (um codificadora ao vivo no local envia um fluxo bitrate múltiplo) ou *codificação ao vivo* (um codificante ao vivo no local envia um único fluxo de bitrate). 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+No Azure Media Services, um  [Evento Ao Vivo](/rest/api/media/liveevents) pode ser definido para um passe *através* (um codificadora ao vivo no local envia um fluxo bitrate múltiplo) ou *codificação ao vivo* (um codificante ao vivo no local envia um único fluxo de bitrate). 
 
 Estes artigos comparam características dos tipos de eventos ao vivo.
 
@@ -36,13 +38,13 @@ A tabela a seguir compara as características dos tipos de Eventos Ao Vivo. Os t
 
 | Funcionalidade | Evento ao vivo de passagem | Standard ou Premium1080p Live Event |
 | --- | --- | --- |
-| A entrada bitrate única é codificada em vários bitrates na nuvem |No |Yes |
+| A entrada bitrate única é codificada em vários bitrates na nuvem |Não |Sim |
 | Resolução máxima em vídeo para feed de contribuição |4K (4096x2160 a 60 fotogramas/seg) |1080p (1920x1088 a 30 fotogramas/seg)|
 | Camadas máximas recomendadas no feed de contribuição|Até 12|Um áudio|
 | Camadas máximas na saída| O mesmo que a entrada|Até 6 (ver predefinições do sistema abaixo)|
 | Largura de banda agregada máxima dos alimentos para a contribuição|60 Mbps|N/D|
 | Bitrate máximo para uma única camada na contribuição |20 Mbps|20 Mbps|
-| Suporte para múltiplas faixas de áudio de idioma|Yes|No|
+| Suporte para múltiplas faixas de áudio de idioma|Sim|Não|
 | Codecs de vídeo de entrada suportados |H.264/AVC e H.265/HEVC|H.264/AVC|
 | Codecs de vídeo de saída suportados|O mesmo que a entrada|H.264/AVC|
 | Profundidade, entrada e saída de bit de vídeo suportados|Até 10 bits incluindo HDR 10/HLG|8-bit|
@@ -58,10 +60,10 @@ A tabela a seguir compara as características dos tipos de Eventos Ao Vivo. Os t
 | Suporte para inserção de ardósias|Não|Não|
 | Suporte para sinalização de anúncios via API| Não|Não|
 | Suporte para sinalização de anúncios através de mensagens scte-35 em banda|Sim|Sim|
-| Capacidade de recuperar de breves bancas no feed de contribuições|Yes|Parcial|
-| Suporte para GOPs de entrada não uniforme|Yes|Não – a entrada deve ter duração fixa do GOP|
-| Suporte para entrada de taxa de fotogramas variáveis|Yes|Não – a entrada deve ser fixa. Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o feed de contribuição não pode baixar a taxa de fotogramas (por exemplo, para 15 fotogramas/segundo).|
-| Desligação automática do Live Event quando o feed de entrada é perdido|No|Depois de 12 horas, se não houver liveOutput em execução|
+| Capacidade de recuperar de breves bancas no feed de contribuições|Sim|Parcial|
+| Suporte para GOPs de entrada não uniforme|Sim|Não – a entrada deve ter duração fixa do GOP|
+| Suporte para entrada de taxa de fotogramas variáveis|Sim|Não – a entrada deve ser fixa. Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o feed de contribuição não pode baixar a taxa de fotogramas (por exemplo, para 15 fotogramas/segundo).|
+| Desligação automática do Live Event quando o feed de entrada é perdido|Não|Depois de 12 horas, se não houver liveOutput em execução|
 
 ## <a name="system-presets"></a>Predefinições do sistema
 

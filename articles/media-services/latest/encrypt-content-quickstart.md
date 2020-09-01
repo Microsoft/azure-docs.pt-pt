@@ -2,15 +2,17 @@
 title: Criptografe conteúdo com o portal Azure
 description: Este quickstart mostra-lhe como configurar encriptação para o seu conteúdo usando a Azure Media Services no portal Azure.
 ms.topic: quickstart
-ms.date: 06/08/2020
-ms.openlocfilehash: 6ff3c14039f9199053d3d43c6ce4488c2692b336
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.date: 08/31/2020
+ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988979"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263642"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Quickstart: Use o portal para encriptar conteúdo
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Utilize a Azure Media Services para ajudar a proteger os seus meios de comunicação a partir do momento em que deixa o computador durante todo o processo de armazenamento, processamento e entrega. Com os Media Services, pode fornecer o seu conteúdo ao vivo e a pedido encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou qualquer um dos três principais sistemas de gestão de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Media Services também fornecem um serviço para a entrega de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) a clientes autorizados. 
  
@@ -19,7 +21,7 @@ Para especificar opções de encriptação (se houver) no seu stream, utilize um
 > [!NOTE]
 > A política-chave de conteúdo não é necessária para um streaming claro ou para o download.
 
-Quando um stream é solicitado por um jogador, os Media Services utilizam a chave especificada para encriptar dinamicamente o seu conteúdo utilizando a chave clara AES ou encriptação DRM. Para desencriptar o fluxo, o leitor solicita a chave do serviço de entrega de chaves media ou do serviço de entrega chave especificado. Para decidir se o utilizador está autorizado a obter a chave, o serviço avalia a **política de chave de conteúdo** que especificou para a chave.
+Quando um stream é solicitado por um jogador, os Media Services utilizam a chave especificada para encriptar dinamicamente o seu conteúdo utilizando a chave clara AES ou encriptação DRM. Para desencriptar o fluxo, o leitor solicita a chave do serviço de entrega de chaves media ou do serviço de entrega chave especificado. Para decidir se o utilizador está autorizado a obter a chave, o serviço avalia a  **política de chave de conteúdo** que especificou para a chave.
 
 Este quickstart mostra-lhe como criar uma política de chave de conteúdo onde especifica qual a encriptação que deve ser aplicada ao seu ativo quando é transmitida. O quickstart também mostra como definir a encriptação configurada no seu ativo.
 

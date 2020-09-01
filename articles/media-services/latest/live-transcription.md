@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 698aa849a82e7c9f9a630ca7040f9d449b3765b3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765017"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264968"
 ---
 # <a name="live-transcription-preview"></a>Transcrição ao vivo (pré-visualização)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O Azure Media Service fornece vídeo, áudio e texto em diferentes protocolos. Quando publica o seu live stream utilizando MPEG-DASH ou HLS/CMAF, em seguida, juntamente com vídeo e áudio, o nosso serviço entrega o texto transcrito em TTML compatível com IMSC1.1. A entrega é embalada em fragmentos MPEG-4 Parte 30 (ISO/IEC 14496-30). Se utilizar a entrega via HLS/TS, o texto é entregue como VTT em pedaços.
 
@@ -33,13 +35,13 @@ Este artigo descreve como permitir a transcrição ao vivo ao transmitir um Even
 
 A transcrição ao vivo está disponível nas seguintes regiões:
 
-- Ásia Sudeste
+- Sudeste Asiático
 - Europa Ocidental
 - Europa do Norte
 - E.U.A. Leste
 - E.U.A. Central
 - E.U.A. Centro-Sul
-- E.U.A.Oeste 2
+- E.U.A. Oeste 2
 - Sul do Brasil
 
 Esta é a lista de idiomas disponíveis que podem ser transcritas, use o código de idioma na API.
@@ -135,7 +137,7 @@ Para ligar transcrições ao vivo ou atualizar o idioma de transcrição, remend
 
 Esta é a chamada para ligar transcrições ao vivo.
 
-PATCH:```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+PATCH: ```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
 
 ```
 {
@@ -199,6 +201,6 @@ Para pré-visualização, são conhecidos os seguintes problemas com transcriç�
 - As aplicações precisam de utilizar as APIs de pré-visualização, descritas na [Especificação Do OpenAPI dos Serviços de Mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
 - A proteção da gestão de direitos digitais (DRM) não se aplica à faixa de texto, apenas a encriptação do envelope AES é possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral dos Serviços de Mídia](media-services-overview.md)

@@ -3,7 +3,7 @@ title: LiveEvent afirma e faturação na Azure Media Services / Microsoft Docs
 description: Este tópico dá uma visão geral dos estados do Azure Media Services LiveEvent e da faturação.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/24/2019
-ms.author: juliako
-ms.openlocfilehash: dd63152776e0268b8f9e3e0ce116fea897cdf4e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 37098b8268d5a451935c925114fb762c574fa55c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000878"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265311"
 ---
 # <a name="live-event-states-and-billing"></a>Estados do Evento Ao Vivo e faturação
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Na Azure Media Services, um Evento Ao Vivo começa a faturar assim que o seu estado transita para **o Running.** Será cobrado mesmo que não haja vídeo a fluir através do serviço. Para impedir que o Evento Ao Vivo faça a faturação, tem de parar o Evento Ao Vivo. A transcrição ao vivo é cobrada da mesma forma que o Evento Ao Vivo.
 

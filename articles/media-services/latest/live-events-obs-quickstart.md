@@ -6,15 +6,17 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 04/16/2020
-ms.openlocfilehash: 671609fc1db7325823e8ac40b2b8153682596588
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 08/31/2020
+ms.openlocfilehash: 04b0ef0d6a480270b1f0a3546319b2608d638677
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147822"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265512"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Criar um live stream Azure Media Services com OBS
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este quickstart irá ajudá-lo a criar um live stream da Azure Media Services utilizando o portal Azure e o Open Broadcasting Studio (OBS). Assume que tem uma subscrição da Azure e criou uma conta de Serviços de Comunicação Social.
 
@@ -203,7 +205,7 @@ A saída que criou está agora disponível para streaming a pedido, desde que o 
 1. Selecione **Update Player**.
 1. Selecione o ícone **Reproduzir** no vídeo para ver o ativo a pedido.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 > [!IMPORTANT]
 > Parem os serviços! Depois de completar os passos neste quickstart, não se esqueça de parar o evento ao vivo e o ponto final de streaming, ou será cobrado pelo tempo que continuarem a correr. Para parar o evento ao vivo, consulte o procedimento [stop the broadcast,](#stop-the-broadcast) passos 2 e 3.
@@ -217,7 +219,7 @@ Para parar o ponto final de streaming:
 > [!TIP]
 > Se não quiser manter os ativos deste evento, certifique-se de eliminá-los para que não seja cobrado para armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Eventos ao vivo e saídas ao vivo nos Serviços de Media](./live-events-outputs-concept.md)

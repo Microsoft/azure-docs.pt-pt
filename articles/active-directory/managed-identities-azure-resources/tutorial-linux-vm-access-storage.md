@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 074d518d3c0f45c7377d2c146bffbd60dee2498a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9b61d3ed21d053fc7166b47c94a9ec61e355d199
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009190"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263166"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure 
 
@@ -44,7 +44,7 @@ Este tutorial mostra-lhe como utilizar uma identidade gerida atribuída pelo sis
 Para executar os exemplos de script da CLI neste tutorial, tem duas opções:
 
 - Utilizar o [Azure Cloud Shell](~/articles/cloud-shell/overview.md) do portal do Azure ou através do botão **Experimentar**, localizado no canto superior direito de cada bloco de código.
-- [Instalar a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior), se preferir utilizar uma consola CLI local.
+- [Instalar a versão mais recente da CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 ou posterior), se preferir utilizar uma consola CLI local.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
@@ -95,7 +95,7 @@ Pode utilizar a identidade gerida da VM para obter os dados no blob de armazenam
 
 O Armazenamento do Azure suporta nativamente a autenticação do Azure AD, para que possa aceitar diretamente tokens de acesso obtidos com uma Identidade Gerida. Isto faz parte da integração do Armazenamento do Azure no Azure AD e é diferente de fornecer as credenciais na cadeia de ligação.
 
-Para concluir os passos seguintes, precisa de trabalhar a partir da VM que criou anteriormente e é necessário um cliente SSH para ligar à mesma. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+Para concluir os passos seguintes, precisa de trabalhar a partir da VM que criou anteriormente e é necessário um cliente SSH para ligar à mesma. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](/windows/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. No portal do Azure, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Linux e, em seguida, na página **Descrição Geral**, clique em **Ligar**. Copie a cadeia de ligação para ligar à sua VM.
 2. Clique em **Ligar** para ligar à VM com o cliente SSH que escolheu. 
@@ -121,4 +121,4 @@ Para concluir os passos seguintes, precisa de trabalhar a partir da VM que criou
 Neste tutorial, aprendeu a ativar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure.  Para saber mais sobre o Armazenamento do Azure, veja:
 
 > [!div class="nextstepaction"]
-> [Armazenamento do Azure](/azure/storage/common/storage-introduction)
+> [Armazenamento do Azure](../../storage/common/storage-introduction.md)

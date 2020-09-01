@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Este artigo descreve como usar a mudança de tempo e as saídas ao vivo para gravar Live Streams e criar reprodução a pedido.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2020
-ms.author: juliako
-ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: f188d959bf702a2907fe34805b41fa62cae7ee40
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000997"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265393"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Utilize a mudança de tempo e as saídas ao vivo para criar reprodução de vídeo a pedido
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 No Azure Media Services, um objeto [live output](/rest/api/media/liveoutputs) é como um gravador de vídeo digital que irá capturar e gravar o seu live stream num ativo na sua conta de Media Services. O conteúdo registado é persistido no contentor definido pelo recurso [Ativo](/rest/api/media/assets) (o contentor está na conta Azure Storage anexada à sua conta). A Saída Ao Vivo também permite controlar algumas propriedades do live stream de saída, como a quantidade de fluxo que é mantida na gravação de arquivo (por exemplo, a capacidade do DVR em nuvem) ou quando os espectadores podem começar a ver o live stream. O arquivo no disco é uma "janela" de arquivo circular que contém apenas a quantidade de conteúdo especificado no **arquivoWindowLength** propriedade da Saída Ao Vivo. O conteúdo que cai fora desta janela é automaticamente descartado do recipiente de armazenamento e não é recuperável. O valor de comprimento de arquivoWindowLength representa uma duração de períodos ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR. O valor pode ser definido de um mínimo de um minuto para um máximo de 25 horas.
 
@@ -45,7 +47,7 @@ Mesmo depois de parar e apagar o evento, os utilizadores podem transmitir o seu 
 
 Se tiver publicado o ativo da sua Saída Ao Vivo utilizando um localizador de streaming, o Live Event (até ao comprimento da janela DVR) continuará a ser visível até ao termo ou supressão do localizador de streaming, o que vier primeiro.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [Visão geral do streaming ao vivo](live-streaming-overview.md)
 - [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

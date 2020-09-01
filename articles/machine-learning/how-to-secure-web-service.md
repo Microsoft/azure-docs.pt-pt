@@ -11,14 +11,14 @@ author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3e10841852b8a89b344d3bfd9311db8abe15642a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0afb7906e102e4f0fb49245949b08618da1693ec
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319546"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265682"
 ---
-# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utilize o TLS para garantir um serviço web através do Azure Machine Learning
+# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este artigo mostra-lhe como garantir um serviço web que é implementado através do Azure Machine Learning.
@@ -28,7 +28,7 @@ Utiliza [HTTPS](https://en.wikipedia.org/wiki/HTTPS) para restringir o acesso ao
 > [!TIP]
 > O Azure Machine Learning SDK utiliza o termo "SSL" para propriedades relacionadas com comunicações seguras. Isto não significa que o seu serviço web não use *TLS*. SSL é apenas um termo mais comumente reconhecido.
 >
-> Especificamente, os serviços web implementados através do Azure Machine Learning suportam apenas a versão 1.2 do TLS.
+> Especificamente, os serviços web implementados através do Azure Machine Learning suportam apenas a versão 1.1 do TLS
 
 TLS e SSL ambos dependem de *certificados digitais,* que ajudam na encriptação e verificação de identidade. Para obter mais informações sobre como funcionam os certificados digitais, consulte o tema Wikipedia [Infraestruturas-chave públicas.](https://en.wikipedia.org/wiki/Public_key_infrastructure)
 
@@ -71,7 +71,7 @@ Quando solicita um certificado, deve fornecer o FQDN do endereço que pretende u
 > [!WARNING]
 > Utilize certificados *auto-assinados* apenas para desenvolvimento. Não os uses em ambientes de produção. Os certificados auto-assinados podem causar problemas nas aplicações do seu cliente. Para mais informações, consulte a documentação das bibliotecas de rede que a sua aplicação do cliente utiliza.
 
-## <a name="enable-tls-and-deploy"></a><a id="enable"></a>Ativar TLS e implementar
+## <a name="enable-tls-and-deploy"></a><a id="enable"></a> Ativar TLS e implementar
 
 Para implementar (ou redistribuir) o serviço com TLS ativado, desacorra o parâmetro *ssl_enabled* para "Verdadeiro" onde quer que seja aplicável. Desave o parâmetro *ssl_certificate* ao valor do ficheiro do *certificado.* Desave o *ssl_key* ao valor do ficheiro *da chave.*
 
@@ -82,8 +82,8 @@ Para implementar (ou redistribuir) o serviço com TLS ativado, desacorra o parâ
 
 Quando se implanta em AKS, pode criar um novo cluster AKS ou anexar um existente. Para obter mais informações sobre a criação ou anexação de um cluster, consulte [Implementar um modelo num cluster de Serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
   
--  Se criar um novo cluster, utilize **[aKsCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)**.
-- Se anexar um cluster existente, utilize **[aksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Ambos devolvem um objeto de configuração que tem um método **enable_ssl.**
+-  Se criar um novo cluster, utilize **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)**.
+- Se ligar um cluster existente, utilize **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Ambos devolvem um objeto de configuração que tem um método **enable_ssl.**
 
 O **método enable_ssl** pode usar um certificado fornecido pela Microsoft ou um certificado que você compra.
 

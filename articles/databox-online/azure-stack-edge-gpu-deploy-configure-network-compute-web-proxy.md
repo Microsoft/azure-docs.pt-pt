@@ -1,6 +1,6 @@
 ---
 title: Tutorial para configurar definições de rede para dispositivo Azure Stack Edge com GPU no portal Azure Microsoft Docs
-description: Tutorial para implementar Azure Stack Edge instrui-o a configurar a rede, a rede de cálculo e as definições de procuração web para o seu dispositivo físico.
+description: Tutorial para implementar Azure Stack Edge GPU instrui-o a configurar a rede, a rede de cálculo e as definições de procuração web para o seu dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 36d331de3a93e04932c4bce4d14704b33f69fab6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6e7dbc2b96a53d220554e07228a5e30857d12d9c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181549"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262981"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Tutorial: Rede de configuração para Azure Stack Edge com GPU
 

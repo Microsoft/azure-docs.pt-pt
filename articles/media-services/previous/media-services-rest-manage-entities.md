@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0e79469aa0e405a0096d483ae290d10415fe74f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95124f101b1f14a70dabedd7d44077c5c1b6e99c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000062"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264271"
 ---
-# <a name="managing-media-services-entities-with-rest"></a>Entidades de Gestão de Serviços de Mídia com REST  
+# <a name="managing-media-services-entities-with-rest"></a>Entidades de Gestão de Serviços de Mídia com REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)

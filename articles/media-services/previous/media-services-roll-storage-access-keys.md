@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: d0a449a84bebcc0a296bde51234b0ceb128b2d23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c68bedb37722fb6a8b7ad9dccdeaaaa4fab9d020
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000130"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264135"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento 
+# <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Quando cria uma nova conta Azure Media Services (AMS), é-lhe também pedido que selecione uma conta de Armazenamento Azure que seja utilizada para armazenar o seu conteúdo de mídia. Pode adicionar mais de uma conta de armazenamento à sua conta de Media Services. Este artigo mostra como rodar as chaves de armazenamento. Também mostra como adicionar contas de armazenamento a uma conta de media. 
 

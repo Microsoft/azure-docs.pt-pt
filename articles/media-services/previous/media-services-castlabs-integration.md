@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b54b2adb21419de61d2309752987f6e4a48e41
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74969145"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264492"
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do castLabs para entregar licenças de Widevine para Serviços de Multimédia do Azure 
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do castLabs para entregar licenças de Widevine para Serviços de Multimédia do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
@@ -33,7 +36,7 @@ ms.locfileid: "74969145"
 
 Este artigo descreve como pode utilizar a Azure Media Services (AMS) para entregar um stream que é dinamicamente encriptado pela AMS com DRMs PlayReady e Widevine. A licença PlayReady provém do servidor de licenças PlayReady dos Media Services e a licença Widevine é entregue pelo servidor de licença **castLabs.**
 
-Para reproduzir o conteúdo de streaming protegido pelo CENC (PlayReady e/ou Widevine), pode utilizar [o Azure Media Player](https://aka.ms/azuremediaplayer). Consulte [o documento da AMP](https://amp.azure.net/libs/amp/latest/docs/) para mais detalhes.
+Para reproduzir o conteúdo de streaming protegido pelo CENC (PlayReady e/ou Widevine), pode utilizar  [o Azure Media Player](https://aka.ms/azuremediaplayer). Consulte [o documento da AMP](https://amp.azure.net/libs/amp/latest/docs/) para mais detalhes.
 
 O diagrama seguinte demonstra uma arquitetura de integração de Azure Media Services de alto nível e castLabs.
 
@@ -68,7 +71,7 @@ A tabela seguinte descreve o símbolo JWT na AMS.
 
 A tabela seguinte descreve o símbolo JWT em castLabs. 
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | optData |Uma corda JSON contendo informações sobre si. |
 | crt |Uma cadeia JSON contendo informações sobre o ativo, as suas informações de licença e direitos de reprodução. |
@@ -92,7 +95,7 @@ Para utilizar a aplicação da consola:
 4. Utilize um AssetId para nomear o ativo no sistema castLabs (Linha 44 no ficheiro Program.cs).
    
    Tem de definir o AssetId para **os castLabs;** tem de ser uma corda alfanumérica única.
-5. Execute o programa.
+5. Executar o programa.
 
 Para utilizar a Aplicação Web (STS):
 
