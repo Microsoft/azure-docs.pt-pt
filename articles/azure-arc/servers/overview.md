@@ -1,20 +1,20 @@
 ---
 title: Visão geral ativada do Azure Arc (pré-visualização)
-description: Saiba como utilizar os servidores Azure Arc (pré-visualização) para gerir máquinas que estão hospedadas fora do Azure como se fosse um recurso Azure.
+description: Saiba como utilizar os servidores (pré-visualização) do Azure Arc para gerir servidores alojados fora do Azure como um recurso Azure.
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: dfc4d8e046cef5af7c3eaf0d31ce2d6120dfc8f2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: c368307df911f5143541bb5337eb76a208416909
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211330"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228092"
 ---
 # <a name="what-is-azure-arc-enabled-servers-preview"></a>O que é os servidores ativados do Azure Arc (pré-visualização)?
 
-Os servidores ativados (pré-visualização) do Azure Arc permitem-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa ou noutro fornecedor de nuvem, à semelhança da forma como gere as máquinas virtuais nativas do Azure. Quando uma máquina híbrida está ligada ao Azure, torna-se uma máquina conectada e é tratada como um recurso em Azure. Cada máquina conectada tem um ID de recurso, é gerida como parte de um grupo de recursos dentro de uma subscrição, e beneficia de construções padrão do Azure, tais como Azure Policy e aplicação de tags.
+Os servidores ativados (pré-visualização) do Azure Arc permitem-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure, na sua rede corporativa ou noutro fornecedor de nuvem, semelhante à forma como gere as máquinas virtuais nativas do Azure. Quando uma máquina híbrida está ligada ao Azure, torna-se uma máquina conectada e é tratada como um recurso em Azure. Cada máquina conectada tem um ID de recurso, é gerida como parte de um grupo de recursos dentro de uma subscrição, e beneficia de construções padrão do Azure, tais como Azure Policy e aplicação de tags.
 
 Para entregar esta experiência com as suas máquinas híbridas hospedadas fora de Azure, o agente Azure Connected Machine precisa de ser instalado em cada máquina que planeia ligar ao Azure. Este agente não fornece qualquer outra funcionalidade, e não substitui o agente Azure [Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando pretende monitorizar proactivamente o SISTEMA e as cargas de trabalho em funcionamento na máquina, geri-lo utilizando livros de automação ou soluções como a Update Management, ou utilizar outros serviços Azure como o [Azure Security Center.](../../security-center/security-center-intro.md)
 
@@ -51,4 +51,4 @@ O agente 'Máquina Conectada' envia uma mensagem de batimento cardíaco regular 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Antes de avaliar ou ativar os servidores (pré-visualização) do Arc através de várias máquinas híbridas, reveja o artigo de visão geral do [agente da Máquina Conectada](agent-overview.md) para entender o que é necessário, detalhes técnicos sobre o agente e métodos de implementação.
+Antes de avaliar ou ativar os servidores (pré-visualização) do Arc através de várias máquinas híbridas, [reveja](agent-overview.md) a visão geral do agente da Máquina Conectada para compreender os requisitos, detalhes técnicos sobre o agente e métodos de implementação.

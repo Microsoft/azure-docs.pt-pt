@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c3b1216d5ced766a77bb1fb63e41eaedb8220d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ccdfa99a36635e72fc97820ec6b852e36a50ec2
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608981"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229791"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integre os registos do Azure Ative Directory com a SumoLogic utilizando o Azure Monitor
 
@@ -31,18 +31,18 @@ Neste artigo, aprende-se a integrar os registos do Azure Ative Directory (Azure 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar esta funcionalidade, precisa de:
-* Um centro de eventos Azure que contém registos de atividade azure AD. Saiba como [transmitir os seus registos de atividade para um centro de eventos.](quickstart-azure-monitor-stream-logs-to-event-hub.md) 
+* Um centro de eventos Azure que contém registos de atividade azure AD. Saiba como [transmitir os seus registos de atividade para um centro de eventos.](./tutorial-azure-monitor-stream-logs-to-event-hub.md) 
 * Uma assinatura única de inscrição na SumoLogic.
 
 ## <a name="steps-to-integrate-azure-ad-logs-with-sumologic"></a>Passos para integrar os registos AD do Azure com a SumoLogic 
 
-1. Em primeiro lugar, [transmita os registos AD do Azure para um centro de eventos Azure](quickstart-azure-monitor-stream-logs-to-event-hub.md).
+1. Em primeiro lugar, [transmita os registos AD do Azure para um centro de eventos Azure](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 2. Configure a sua instância SumoLogic para [recolher registos para o Azure Ative Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
 3. [Instale a aplicação Azure AD SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) para utilizar os dashboards pré-configurados que fornecem uma análise em tempo real do seu ambiente.
 
    ![Dashboard](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Interpretar esquema de registos de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md) (Interpretar o esquema dos registos de início de sessão no Azure Monitor)

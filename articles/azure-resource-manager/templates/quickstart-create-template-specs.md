@@ -2,15 +2,15 @@
 title: Criar e implementar especificações de modelo
 description: Aprenda a criar uma especificação de modelo a partir do modelo ARM. Em seguida, implemente a especificação do modelo para um grupo de recursos na sua subscrição.
 author: tfitzmac
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 84422862cfa73c2cbb27411bf0c1a7fb3fab9b35
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 47791455c63852bfc6f8a7e3152fabe18d303ecb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962660"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227734"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
 
@@ -75,7 +75,7 @@ Estas opções são mostradas abaixo.
 1. Em seguida, crie a especificação do modelo nesse grupo de recursos. Você dá ao novo modelo especificar o nome **armazenamentoSpec**.
 
     ```azurecli
-    az template-specs create \
+    az ts create \
       --name storageSpec \
       --version "1.0" \
       --resource-group templateSpecRG \
@@ -253,7 +253,7 @@ Agora pode implementar a especificação do modelo. Implementar a especificaçã
 1. Obtenha o ID de recurso da especificação do modelo.
 
     ```azurecli
-    id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+    id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
     ```
 
     > [!NOTE]

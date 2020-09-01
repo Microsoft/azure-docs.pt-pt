@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: e78044faabfd5ff3dccb1e7ea04149fbef212c01
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843713"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228890"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um oleoduto de ingestão de dados
 
@@ -64,7 +64,7 @@ Por exemplo, o código seria armazenado num repositório de Azure DevOps, GitHub
 Os engenheiros de dados trabalham com o código-fonte do portátil Python localmente num IDE (por exemplo, [Código do Estúdio Visual)](https://code.visualstudio.com)ou diretamente no espaço de trabalho databricks. Uma vez que o código é concluído, eles são fundidos ao repositório seguindo uma política de ramificação.
 
 > [!TIP] 
-> Recomendamos armazenar o código em `.py` ficheiros e não no `.ipynb` formato de caderno Jupyter. Melhora a legibilidade do código e permite controlos automáticos de qualidade de código no processo de CI.
+> Recomendamos armazenar o código em `.py` ficheiros e não no `.ipynb` formato Jupyter Notebook. Melhora a legibilidade do código e permite controlos automáticos de qualidade de código no processo de CI.
 
 ### <a name="azure-data-factory-source-code"></a>Código fonte da fábrica de dados Azure
 
@@ -80,7 +80,7 @@ O objetivo final do processo de Integração Contínua é reunir o trabalho de e
 
 O processo de CI para os Cadernos Python obtém o código do ramo de colaboração (por exemplo, ***dominar*** ou ***desenvolver)*** e realiza as seguintes atividades:
 * Linça de código
-* Teste de unidade
+* Teste de unidades
 * Guardar o código como um artefacto
 
 O seguinte corte de código demonstra a implementação destes passos num oleoduto Azure DevOps ***yaml:***

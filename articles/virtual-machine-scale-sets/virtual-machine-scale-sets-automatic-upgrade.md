@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: f6de05e0ad5e4294b801a8b349663d92db448de6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b5f3305fc5d2595c8b7b08d78ff20edea01c195e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424295"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229842"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Escala de máquina virtual Azure definir atualizações automáticas de imagem de SO
 
@@ -128,7 +128,7 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize `[az vmss update](/cli/azure/vmss#az-vmss-update)` para configurar atualizações automáticas de imagem de SO para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
+Utilize [a atualização az vmss](/cli/azure/vmss#az-vmss-update) para configurar atualizações automáticas de imagem de SO para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -295,5 +295,5 @@ Pode utilizar modelos para implementar uma escala definida com atualizações au
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Azure." /></a>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais exemplos sobre como utilizar upgrades automáticos de SO com conjuntos de escala, reveja o [repo GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

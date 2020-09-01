@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84353dd3c8b803f27073d113d6946152f059d9be
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: efa4b625afb641209d3920c8663ed810ee27e1ad
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873420"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228652"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>O que é a monitorização do Azure Active Directory?
 
@@ -63,7 +63,7 @@ O encaminhamento de registos para um hub de eventos do Azure permite-lhe integra
 
 ## <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para registos do Monitor Azure
 
-[Os registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) são uma solução que consolida dados de monitorização de diferentes fontes e fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar os dados recolhidos. Saiba como [enviar dados para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
+[Os registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) são uma solução que consolida dados de monitorização de diferentes fontes e fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar os dados recolhidos. Saiba como [enviar dados para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
 Também pode instalar as vistas pré-criadas para os registos de atividades do Azure AD para monitorizar cenários comuns que envolvem inícios de sessão e eventos de auditoria. Saiba como [instalar e utilizar vistas de análise de registos para registos de atividades Azure AD](howto-install-use-log-analytics-views.md).
 

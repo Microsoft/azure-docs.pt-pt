@@ -1,21 +1,21 @@
 ---
-title: Introdução ao Firewall de Aplicação Web Azure
+title: O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 titleSuffix: Azure Web Application Firewall
-description: Este artigo fornece uma visão geral da firewall de aplicações web (WAF) no Gateway de aplicações
+description: Este artigo fornece uma visão geral da Firewall de Aplicação Web (WAF) no Gateway de aplicações
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.topic: conceptual
+ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142843"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227003"
 ---
-# <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall de aplicação web Azure no Gateway de aplicações Azure
+# <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 
 O Azure Web Application Firewall (WAF) no Azure Application Gateway fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns. As aplicações web são cada vez mais direcionadas por ataques maliciosos que exploram vulnerabilidades vulgarmente conhecidas. A injeção de SQL e a scripting cross-site estão entre os ataques mais comuns.
 
@@ -98,7 +98,7 @@ Para obter mais informações sobre regras personalizadas, consulte [As Regras P
 
 ### <a name="bot-mitigation-preview"></a>Mitigação do Bot (pré-visualização)
 
-Um conjunto de regras de proteção bot gerido pode ser habilitado para o seu WAF bloquear ou registar pedidos de endereços IP maliciosos conhecidos, juntamente com o conjunto de regras geridos. Os endereços IP são obtidos a partir do feed da Microsoft Threat Intelligence. O Smart Security Graph alimenta a inteligência de ameaça da Microsoft e é usado por vários serviços, incluindo o Azure Security Center.
+Um conjunto de regras de proteção bot gerido pode ser habilitado para o seu WAF bloquear ou registar pedidos de endereços IP maliciosos conhecidos, juntamente com o conjunto de regras geridos. Os endereços IP são obtidos a partir do feed das Informações sobre Ameaças da Microsoft. O Grafo de Segurança Inteligente alimenta as informações sobre ameaças da Microsoft e é utilizado por vários serviços, incluindo o Centro de Segurança do Azure.
 
 > [!NOTE]
 > O conjunto de regras de proteção de bots está atualmente em pré-visualização pública e é fornecido com um acordo de nível de serviço de pré-visualização. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
@@ -158,7 +158,7 @@ O Microsoft Azure Sentinel é uma solução de gestão de eventos de informaçã
 Com o livro de eventos de firewall Azure WAF incorporado, você pode obter uma visão geral dos eventos de segurança no seu WAF. Isto inclui eventos, regras compatíveis e bloqueadas, e tudo o resto que é registado nos registos de firewall. Veja mais na sessão abaixo. 
 
 
-![Sentinel](../media/ag-overview/sentinel.png)
+![Livro de eventos de firewall da Azure WAF](../media/ag-overview/sentinel.png)
 
 #### <a name="logging"></a>Registo
 
@@ -206,10 +206,12 @@ O Gateway WAF de aplicação fornece relatórios detalhados sobre cada ameaça q
 
 Os modelos de preços são diferentes para os WAF_v1 e WAF_v2 SKUs. Consulte a página [de preços do Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) para saber mais. 
 
+## <a name="whats-new"></a>Novidades
+
+Para saber quais as novidades com o Azure Web Application Firewall, consulte as atualizações do [Azure](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Começar por [criar uma política waf](create-waf-policy-ag.md)
 - Saiba mais sobre [as regras geridas pela WAF](application-gateway-crs-rulegroups-rules.md)
 - Saiba mais sobre [As Regras Personalizadas](custom-waf-rules-overview.md)
 - Saiba mais sobre [firewall de aplicação web na porta frontal Azure](../afds/afds-overview.md)
-

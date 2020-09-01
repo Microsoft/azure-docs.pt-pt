@@ -10,12 +10,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2840e82508ee4f4046aec8f23c00a5c275bf5b67
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07a1e81f2fe63ea8d34f362627ad79ab6729f3f0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074462"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229128"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauro pontual para bolhas de bloco (pré-visualização)
 
@@ -56,7 +56,7 @@ A restauração pontual requer que estejam ativadas as seguintes funcionalidades
 
 - [Eliminação recuperável](soft-delete-overview.md)
 - [Alterar feed (pré-visualização)](storage-blob-change-feed.md)
-- [Veragem blob (pré-visualização)](versioning-overview.md)
+- [Versão blob](versioning-overview.md)
 
 Ative estas funcionalidades para a conta de armazenamento antes de permitir a restauração pontual. Certifique-se de que se regista para as pré-visualizações de alterações e versões blob antes de as ativar.
 
@@ -105,7 +105,7 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 # Register for change feed (preview)
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
-# Register for blob versioning (preview)
+# Register for Blob versioning
 Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace

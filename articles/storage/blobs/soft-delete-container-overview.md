@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854544"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228635"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)
 
@@ -25,7 +25,7 @@ Para uma proteção final para os seus dados blob, a Microsoft recomenda que se 
 
 - Eliminar suavemente o recipiente, para proteger contra a eliminação acidental ou a substituição de um recipiente. Para aprender a permitir a eliminação suave do recipiente, consulte [Ativar e gerir a eliminação suave para recipientes](soft-delete-container-enable.md).
 - Blob soft delete, para proteger contra eliminação acidental ou substituição de uma bolha individual. Para aprender a permitir a eliminação suave da bolha, consulte [Soft Delete para bolhas](soft-delete-blob-overview.md).
-- Versão blob (pré-visualização), para manter automaticamente as versões anteriores de uma bolha. Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada. Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob](versioning-enable.md).
+- Versão blob, para manter automaticamente as versões anteriores de uma bolha. Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada. Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob](versioning-enable.md).
 
 > [!WARNING]
 > A eliminação de uma conta de armazenamento não pode ser desfeita. A eliminação suave não protege contra a supressão de uma conta de armazenamento. Para evitar a supressão acidental de uma conta de armazenamento, configuure um bloqueio **Não-TDelete** no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure, consulte [os recursos do Lock para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
@@ -123,4 +123,4 @@ Não existe qualquer carga adicional para permitir a eliminação suave do recip
 
 - [Configure recipiente de exclusão suave](soft-delete-container-enable.md)
 - [Eliminação recuperável para blobs](soft-delete-blob-overview.md)
-- [Veragem blob (pré-visualização)](versioning-overview.md)
+- [Versão blob](versioning-overview.md)

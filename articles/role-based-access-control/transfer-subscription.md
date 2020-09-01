@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177283"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227037"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente (Preview)
 
@@ -42,7 +42,7 @@ O diagrama que se segue mostra os passos básicos que deve seguir quando transfe
 
 1. Preparar para a transferência
 
-1. Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
+1. Transferir a assinatura do Azure para um diretório diferente
 
 1. Recriar recursos no directório-alvo, tais como atribuições de funções, funções personalizadas e identidades geridas
 
@@ -269,7 +269,7 @@ Neste passo, transfere a subscrição do diretório de origem para o diretório 
 > [!WARNING]
 > Ao transferir a subscrição, todas as atribuições de funções no diretório de origem são **permanentemente** eliminadas e não podem ser restauradas. Não pode voltar uma vez que transfere a subscrição. Certifique-se de que completa os passos anteriores antes de realizar este passo.
 
-1. Determine se também pretende transferir a propriedade da faturação.
+1. Determine se também pretende transferir a propriedade da faturação para outra conta.
 
 1. Transfira a subscrição para um diretório diferente.
 

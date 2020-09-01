@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 870027637d9c45d0d5150db12046e454146ff169
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 20b83291dc37c6248761214654f99d3ce214b551
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829636"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229757"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
 
@@ -47,9 +47,9 @@ Com a monitorização AD AZure, pode encaminhar os registos para:
 * um centro de eventos Azure onde pode integrar-se com as suas ferramentas SIEM existentes, como Splunk, Sumologic ou QRadar.
 
 > [!NOTE]
-Recentemente começamos a usar os registos do Azure Monitor em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection) Consulte [as alterações da terminologia do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand) para mais detalhes.
+Recentemente começamos a usar os registos do Azure Monitor em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Azure Monitor.](../../azure-monitor/platform/data-platform.md) Consulte [as alterações da terminologia do Azure Monitor](../../azure-monitor/terminology.md) para mais detalhes.
 
-[Saiba mais sobre as políticas de retenção de relatórios.](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention)
+[Saiba mais sobre as políticas de retenção de relatórios.](./reference-reports-data-retention.md)
 
 ### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licenciamento e pré-requisitos para a informação e monitorização da Azure AD
 
@@ -99,7 +99,7 @@ O reporte e monitorização são usados para satisfazer os requisitos do seu neg
 * É bom ter de atender às necessidades do negócio
 * Não aplicável
 
-|Área |Descrição |
+|Área |Description |
 |-|-|
 |Retenção| **Retenção de registos superiores a 30 dias**. Devido a requisitos legais ou empresariais, é necessário armazenar registos de auditoria e assinar em registos de Azure AD por mais de 30 dias. |
 |Análise| **Os registos têm de ser pesmáveis.** Os registos armazenados devem ser pescêjáveis com ferramentas analíticas. |
@@ -115,25 +115,25 @@ Com a monitorização AZure AD, pode encaminhar os seus registos de atividade az
 
 #### <a name="archive-logs-in-a-storage-account"></a>Registos de arquivo numa conta de armazenamento
 
-Ao encaminhar os registos para uma conta de armazenamento Azure, pode mantê-los por mais tempo do que o período de retenção predefinido descrito nas nossas [políticas de retenção.](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention) Utilize este método se precisar de arquivar os seus registos, mas não precisa de os integrar com um sistema SIEM, e não precisa de consultas e análises em curso. Ainda pode fazer pesquisas a pedido.
+Ao encaminhar os registos para uma conta de armazenamento Azure, pode mantê-los por mais tempo do que o período de retenção predefinido descrito nas nossas [políticas de retenção.](./reference-reports-data-retention.md) Utilize este método se precisar de arquivar os seus registos, mas não precisa de os integrar com um sistema SIEM, e não precisa de consultas e análises em curso. Ainda pode fazer pesquisas a pedido.
 
-Saiba como [encaminhar dados para a sua conta de armazenamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account).
+Saiba como [encaminhar dados para a sua conta de armazenamento](./quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para registos do Monitor Azure
 
-[Os registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) consolidam dados de monitorização de diferentes fontes. Também fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e a utilização de recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar sobre os dados recolhidos. Utilize este método quando não tiver uma solução SIEM existente para a qual pretende enviar os seus dados diretamente, mas queira consultas e análises. Uma vez que os seus dados estão nos registos do Azure Monitor, pode enviá-lo para o centro de eventos e daí para um SIEM, se assim o desejar.
+[Os registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) consolidam dados de monitorização de diferentes fontes. Também fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e a utilização de recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar sobre os dados recolhidos. Utilize este método quando não tiver uma solução SIEM existente para a qual pretende enviar os seus dados diretamente, mas queira consultas e análises. Uma vez que os seus dados estão nos registos do Azure Monitor, pode enviá-lo para o centro de eventos e daí para um SIEM, se assim o desejar.
 
-Saiba como [enviar dados para os registos do Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+Saiba como [enviar dados para os registos do Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md).
 
 Também pode instalar as vistas pré-construídas para registos de atividades Azure AD para monitorizar cenários comuns envolvendo eventos de login e auditoria.
 
-Saiba como [instalar e utilizar vistas de análise de registos para registos de atividades Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views).
+Saiba como [instalar e utilizar vistas de análise de registos para registos de atividades Azure AD](./howto-install-use-log-analytics-views.md).
 
 #### <a name="stream-logs-to-your-azure-event-hub"></a>Faça logins de streaming para o seu centro de eventos Azure
 
 Os registos de encaminhamento para um centro de eventos Azure permitem a integração com ferramentas SIEM de terceiros. Esta integração permite-lhe combinar dados de registo de atividade Azure AD com outros dados geridos pelo seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. 
 
-Saiba como [transmitir registos a um hub de eventos](https://docs.microsoft.com//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Saiba como [transmitir registos a um hub de eventos](//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Plan Operations and Security for Azure AD reporting and monitoring
 
@@ -151,9 +151,9 @@ As seguintes funções podem ler relatórios Azure AD:
 
 * Leitor de Relatórios
 
-Saiba mais sobre [as funções administrativas do Azure Ad](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+Saiba mais sobre [as funções administrativas do Azure Ad](../users-groups-roles/directory-assign-admin-roles.md).
 
-*Aplique sempre o conceito de privilégios mínimos para reduzir o risco de um compromisso de conta.* Considere implementar a [Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) para garantir ainda mais a sua organização.
+*Aplique sempre o conceito de privilégios mínimos para reduzir o risco de um compromisso de conta.* Considere implementar a [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) para garantir ainda mais a sua organização.
 
 ##  
 
@@ -163,27 +163,27 @@ Dependendo das decisões que tomou anteriormente usando a orientação de design
 
 ### <a name="consume-and-archive-azure-ad-logs"></a>Consumir e arquivar registos Azure AD
 
-[Encontrar relatórios de atividade no portal do Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
+[Encontrar relatórios de atividade no portal do Azure](./howto-find-activity-reports.md)
 
-[Arquivo Azure AD registra-se em uma conta de armazenamento Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
+[Arquivo Azure AD registra-se em uma conta de armazenamento Azure](./quickstart-azure-monitor-route-logs-to-storage-account.md)
 
 ### <a name="implement-monitoring-and-analytics"></a>Implementar monitorização e análise
 
-[Enviar registos para O Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+[Enviar registos para O Monitor Azure](./howto-integrate-activity-logs-with-log-analytics.md)
 
-[Instale e utilize as vistas de análise de registo para o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
+[Instale e utilize as vistas de análise de registo para o Azure Ative Directory](./howto-install-use-log-analytics-views.md)
 
-[Analise os registos de atividades da AZure com registos do Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
+[Analise os registos de atividades da AZure com registos do Monitor Azure](./howto-analyze-activity-logs-log-analytics.md)
 
-* [Interpretar esquema de registos de auditoria no Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
+* [Interpretar esquema de registos de auditoria no Azure Monitor](./reference-azure-monitor-audit-log-schema.md)
 
-* [Interpretar sinal no esquema de registos no Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema)
+* [Interpretar sinal no esquema de registos no Azure Monitor](./reference-azure-monitor-sign-ins-log-schema.md)
 
- * [Stream Azure AD registra para um centro de eventos Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
+ * [Stream Azure AD registra para um centro de eventos Azure](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 
-* [Integrate Azure AD logs with Splunk by using Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk) (Utilizar o Azure Monitor para integrar registos do Azure AD no Splunk)
+* [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md) (Utilizar o Azure Monitor para integrar registos do Azure AD no Splunk)
 
-* [Integrate Azure AD logs with Splunk by using Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic) (Utilizar o Azure Monitor para integrar registos do Azure AD no SumoLogic)
+* [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-sumologic.md) (Utilizar o Azure Monitor para integrar registos do Azure AD no SumoLogic)
 
  
 
@@ -191,6 +191,6 @@ Dependendo das decisões que tomou anteriormente usando a orientação de design
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Considere implementar a [Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
+Considere implementar a [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) 
 
-Considere implementar o [controlo de acesso baseado em funções do Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Considere implementar o [controlo de acesso baseado em funções do Azure (Azure RBAC)](../../role-based-access-control/overview.md)

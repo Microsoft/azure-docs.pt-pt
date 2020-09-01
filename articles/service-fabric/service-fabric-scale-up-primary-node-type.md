@@ -4,12 +4,12 @@ description: Aprenda a escalar um cluster de Tecido de Serviço adicionando um n
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: b34f3f77dab6c4dcd8b7653f552c32a669d257c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: a18a40cc9e467b089ea9d6be3d0ca81a21d2c474
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854628"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228720"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>Dimensione um tipo de nó primário de cluster de tecido de serviço adicionando um tipo de nó
 Este artigo descreve como escalar um tipo de nó primário de cluster de tecido de serviço adicionando um tipo adicional de nó ao cluster. Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamada de nó. Os conjuntos de escala de máquinas virtuais são um recurso computacional Azure que utiliza para implementar e gerir uma coleção de máquinas virtuais como conjunto. Todos os tipos de nó definidos num cluster Azure [são configurado como um conjunto de escala separada](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode então ser gerido separadamente.
@@ -31,7 +31,7 @@ Segue-se o processo de atualização do tamanho e sistema operativo VM dos VM do
 ### <a name="deploy-the-initial-service-fabric-cluster"></a>Implementar o cluster de tecido de serviço inicial 
 Se quiser acompanhar a amostra, coloque o cluster inicial com um único nó primário e um conjunto de conjunto de escala [única Fabric - Cluster Inicial](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-1.json). Pode saltar este passo se tiver um cluster de Tecido de Serviço já implantado. 
 
-1. Faça login na sua conta Azure. 
+1. Inicie sessão na sua conta do Azure. 
 ```powershell
 # sign in to your Azure account and select your subscription
 Login-AzAccount -SubscriptionId "<your subscription ID>"
@@ -99,7 +99,7 @@ Pode encontrar um modelo com todos os seguintes passos concluídos aqui: [Tecido
     "[concat('Microsoft.Network/publicIPAddresses/',concat(variables('lbIPName'),'-',variables('vmNodeType1Name')))]"
 ]
 ```
-4. Crie um novo Conjunto de Escala de Máquina Virtual que utilize o novo VM SKU e o OS SKU que gostaria de escalar. 
+4. Crie um novo Conjunto de Balanças de Máquinas Virtuais que utilize os novos SKU VM e OS SKU que gostaria de escalar. 
 
 Nó Tipo Ref 
 ```json
@@ -124,6 +124,134 @@ OS SKU
     "version": "[parameters('vmImageVersion1')]"
 }
 ```
+
+O seguinte corte é um exemplo de um novo recurso virtual de conjunto de escala de máquina que é usado para criar um novo tipo de nó para um cluster de Tecido de Serviço. Você gostaria de garantir que você inclui quaisquer extensões adicionais que são necessárias para a sua carga de trabalho. 
+
+```json
+    {
+      "apiVersion": "[variables('vmssApiVersion')]",
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "name": "[variables('vmNodeType1Name')]",
+      "location": "[variables('computeLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+        "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType1Name')))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+      ],
+      "properties": {
+        "overprovision": "[variables('overProvision')]",
+        "upgradePolicy": {
+          "mode": "Automatic"
+        },
+        "virtualMachineProfile": {
+          "extensionProfile": {
+            "extensions": [
+              {
+                "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType1Name'))]",
+                "properties": {
+                  "type": "ServiceFabricNode",
+                  "autoUpgradeMinorVersion": true,
+                  "protectedSettings": {
+                    "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                    "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                  },
+                  "publisher": "Microsoft.Azure.ServiceFabric",
+                  "settings": {
+                    "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                    "nodeTypeRef": "[variables('vmNodeType1Name')]",
+                    "dataPath": "D:\\SvcFab",
+                    "durabilityLevel": "Bronze",
+                    "enableParallelJobs": true,
+                    "nicPrefixOverride": "[variables('subnet1Prefix')]",
+                    "certificate": {
+                      "thumbprint": "[parameters('certificateThumbprint')]",
+                      "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
+                  "typeHandlerVersion": "1.0"
+                }
+              }
+            ]
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[concat(variables('nicName'), '-1')]",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "name": "[concat(variables('nicName'),'-',1)]",
+                      "properties": {
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[variables('lbPoolID1')]"
+                          }
+                        ],
+                        "loadBalancerInboundNatPools": [
+                          {
+                            "id": "[variables('lbNatPoolID1')]"
+                          }
+                        ],
+                        "subnet": {
+                          "id": "[variables('subnet1Ref')]"
+                        }
+                      }
+                    }
+                  ],
+                  "primary": true
+                }
+              }
+            ]
+          },
+          "osProfile": {
+            "adminPassword": "[parameters('adminPassword')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "computernamePrefix": "[variables('vmNodeType1Name')]",
+            "secrets": [
+              {
+                "sourceVault": {
+                  "id": "[parameters('sourceVaultValue')]"
+                },
+                "vaultCertificates": [
+                  {
+                    "certificateStore": "[parameters('certificateStoreValue')]",
+                    "certificateUrl": "[parameters('certificateUrlValue')]"
+                  }
+                ]
+              }
+            ]
+          },
+          "storageProfile": {
+            "imageReference": {
+              "publisher": "[parameters('vmImagePublisher1')]",
+              "offer": "[parameters('vmImageOffer1')]",
+              "sku": "[parameters('vmImageSku1')]",
+              "version": "[parameters('vmImageVersion1')]"
+            },
+            "osDisk": {
+              "caching": "ReadOnly",
+              "createOption": "FromImage",
+              "managedDisk": {
+                "storageAccountType": "[parameters('storageAccountType')]"
+              }
+            }
+          }
+        }
+      },
+      "sku": {
+        "name": "[parameters('vmNodeType1Size')]",
+        "capacity": "[parameters('nt1InstanceCount')]",
+        "tier": "Standard"
+      },
+      "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+      }
+    },
+
+```
+
 5. Adicione um novo tipo de nó ao cluster, que faz referência ao Conjunto de Escala de Máquina Virtual que foi criado acima. A propriedade **éprimary** neste tipo de nó deve ser definida como verdadeira. 
 ```json
 "name": "[variables('vmNodeType1Name')]",
@@ -339,7 +467,7 @@ Apenas para silver e clusters de durabilidade mais elevados, atualizar o recurso
 ```
 10. Remova todos os outros recursos relacionados com o tipo de nó original do modelo ARM. Consulte [o Tecido de Serviço - Novo Cluster do Tipo de Nó](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) para um modelo com todos estes recursos originais removidos.
 
-11. Implemente o modelo de Gestor de Recursos Azure modificado. ** Este passo vai demorar um pouco, normalmente até duas horas. Esta atualização irá alterar as definições para o InfrastructureService, pelo que é necessário um reinício do nó. Neste caso, oRestart é ignorado. A atualização do parâmetroReplicaSetCheckTimeout especifica o tempo máximo que o Service Fabric espera que uma partição esteja num estado seguro, se não já em estado seguro. Uma vez que as verificações de segurança passam para todas as divisórias num nó, o Tecido de Serviço procede com a atualização desse nó. O valor para a atualização do parâmetroTimeout pode ser reduzido para 6 horas, mas para segurança máxima deve ser usado 12 horas.
+11. Implemente o modelo de Gestor de Recursos Azure modificado. ** Este passo vai demorar um pouco, normalmente até duas horas. Esta atualização alterará as definições para o Serviço de Infraestruturas; portanto, é necessário reiniciar um nó. Neste caso, o ForceRestart é ignorado. A atualização do parâmetroReplicaSetCheckTimeout especifica o tempo máximo que o Service Fabric espera que uma partição esteja num estado seguro, se não já em estado seguro. Uma vez que as verificações de segurança passam para todas as divisórias num nó, o Tecido de Serviço procede com a atualização desse nó. O valor para a atualização do parâmetroTimeout pode ser reduzido para 6 horas, mas para segurança máxima deve ser usado 12 horas.
 Em seguida, valide que o recurso 'Service Fabric' no Portal mostra como pronto. 
 
 ```powershell

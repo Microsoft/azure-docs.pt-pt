@@ -17,14 +17,14 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261028"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229859"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividades da AD AZure no Azure Monitor
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividade do Azure AD no Azure Monitor
 
 Pode encaminhar os registos de atividade do Azure Ative (Azure AD) para vários pontos finais para retenção a longo prazo e insights de dados. Esta funcionalidade permite-lhe:
 
@@ -126,9 +126,9 @@ O quadro seguinte contém custos estimados por mês para um centro de eventos b�
 
 
 
-Para rever os custos relacionados com a gestão dos registos do Monitor Azure, consulte Gerir o [custo controlando o volume de dados e a retenção nos registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Para rever os custos relacionados com a gestão dos registos do Monitor Azure, consulte Gerir o [custo controlando o volume de dados e a retenção nos registos do Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 Esta secção responde às perguntas mais frequentes e inclui discussões sobre problemas conhecidos dos registos do Azure AD no Azure Monitor.
 
@@ -180,13 +180,13 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 
 **P: Que ferramentas SIEM são atualmente suportadas?** 
 
-**R:** **A**: Atualmente, o Monitor Azure é suportado por [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) [ArcSight,](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight)LogRhythm e Logz.io. Para obter mais informações sobre como funcionam os conectores, veja [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) (Transmitir em fluxo dados de monitorização do Azure para um hub de eventos, para consumo por uma ferramenta externa).
+**R:** **A**: Atualmente, o Monitor Azure é suportado por [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) [ArcSight,](./howto-integrate-activity-logs-with-arcsight.md)LogRhythm e Logz.io. Para obter mais informações sobre como funcionam os conectores, veja [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) (Transmitir em fluxo dados de monitorização do Azure para um hub de eventos, para consumo por uma ferramenta externa).
 
 ---
 
 **P: Como posso integrar registos de atividades do Azure AD na minha instância do Splunk?**
 
-**R**: Primeiro, [encaminhe os registos de atividade do Azure AD para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md) e, em seguida, siga os passos para [Integrar registos de atividade com o Splunk](tutorial-integrate-activity-logs-with-splunk.md).
+**R**: Primeiro, [encaminhe os registos de atividade do Azure AD para um hub de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md) e, em seguida, siga os passos para [Integrar registos de atividade com o Splunk](./howto-integrate-activity-logs-with-splunk.md).
 
 ---
 
@@ -198,13 +198,13 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 
 **P: Posso aceder aos dados de um hub de eventos sem utilizar uma ferramenta SIEM externa?** 
 
-**A:** Sim. Pode utilizar a [API dos Hub de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) para aceder aos registos da sua aplicação personalizada. 
+**A:** Sim. Pode utilizar a [API dos Hub de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) para aceder aos registos da sua aplicação personalizada. 
 
 ---
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arquivar registos de atividades numa conta de armazenamento](quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Encaminhar registos de atividades para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Encaminhar registos de atividades para um hub de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integrar registos de atividade com o Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

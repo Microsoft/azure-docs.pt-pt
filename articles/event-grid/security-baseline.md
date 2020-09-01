@@ -6,13 +6,13 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 7c331fcbb013243cbd724d0c9337ce80fa1bedbd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 132a6d9a6f5ca702b13e84402ee9bb71eca57d7c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752757"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229706"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança Azure para a Grade de Eventos
 

@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: eba35d6ffb4cbeb25d64d42adb2429636f1d56ce
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86146832"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228481"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrar uma floresta existente e uma nova floresta num único inquilino do Azure AD
 
@@ -31,12 +31,12 @@ Neste cenário, existe uma floresta existente sincronizada utilizando a sincroni
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração Azure Ative Directory
 
-1. Crie uma conta de administrador global apenas em nuvem no seu inquilino AZure AD. Desta forma, pode gerir a configuração do seu inquilino caso os seus serviços no local falhem ou fiquem indisponíveis. Saiba mais [sobre a adição de uma conta de administrador global apenas na nuvem.](../active-directory-users-create-azure-portal.md) Completar este passo é fundamental para garantir que não fique trancado fora do seu inquilino.
-2. Adicione um ou mais [nomes de domínio personalizados](../active-directory-domains-add-azure-portal.md) ao seu inquilino AZure AD. Os seus utilizadores podem iniciar sôms com um destes nomes de domínio.
+1. Crie uma conta de administrador global apenas em nuvem no seu inquilino AZure AD. Desta forma, pode gerir a configuração do seu inquilino caso os seus serviços no local falhem ou fiquem indisponíveis. Saiba mais [sobre a adição de uma conta de administrador global apenas na nuvem.](../fundamentals/add-users-azure-active-directory.md) Completar este passo é fundamental para garantir que não fique trancado fora do seu inquilino.
+2. Adicione um ou mais [nomes de domínio personalizados](../fundamentals/add-custom-domain.md) ao seu inquilino AZure AD. Os seus utilizadores podem iniciar sôms com um destes nomes de domínio.
 
 ### <a name="in-your-on-premises-environment"></a>No seu ambiente no local
 
-1. Identidade um servidor anfitrião ligado a domínio que executa o Windows Server 2012 R2 ou superior com um mínimo de 4 GB de RAM e .NET 4.7.1+ tempo de execução 
+1. Identifique um servidor anfitrião ligado a domínio que executa o Windows Server 2012 R2 ou superior com um mínimo de 4 GB de RAM e .NET 4.7.1+ tempo de execução 
 
 2. Se houver uma firewall entre os seus servidores e a Azure AD, configure os seguintes itens:
    - Certifique-se de que os agentes podem fazer pedidos *de saída* à Azure AD nas seguintes portas:

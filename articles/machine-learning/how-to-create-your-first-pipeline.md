@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 3c7bb19f93bc5b6d345930eb1928ca620e391bb0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0d917ea686c2003bf46b6fca872ef67fb0363107
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144078"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228924"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
@@ -56,10 +56,8 @@ Criar os recursos necessários para executar um gasoduto ML:
 * Configure um `Dataset` objeto para apontar para dados persistentes que vivem ou estão acessíveis numa datastore. Configure um `PipelineData` objeto para dados temporários passados entre as etapas do gasoduto. 
 
     > [!TIP]
-    > Uma experiência melhorada para a passagem de dados temporários entre etapas de gasoduto está disponível na classe de pré-visualização pública,  `OutputFileDatasetConfig` .  Esta aula é uma funcionalidade de pré-visualização experimental, e pode mudar a qualquer momento.
-    > 
-    >Para obter mais informações sobre funcionalidades experimentais, https://aka.ms/azuremlexperimental consulte.
-    
+    > Uma experiência melhorada para a passagem de dados temporários entre etapas de gasoduto está disponível na classe de pré-visualização pública,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) .  Esta aula é uma funcionalidade de pré-visualização [experimental,](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento.
+
 * Desaponte os [alvos de cálculo](concept-azure-machine-learning-architecture.md#compute-targets) nos quais os seus passos de gasoduto irão funcionar.
 
 ### <a name="set-up-a-datastore"></a>Criar uma data-tore

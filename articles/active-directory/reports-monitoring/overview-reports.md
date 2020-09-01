@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 5c07500ec432d176b2cf74aa95f0a1c943348f9f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481396"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229521"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>O que são os relatórios do Azure Active Directory?
 
@@ -44,9 +44,9 @@ A arquitetura dos relatórios baseia-se em dois pilares principais:
 
 Relatórios de segurança ajudam-no a proteger as identidades da sua organização. Existem dois tipos de relatórios de segurança:
 
-- **Utilizadores sinalizados para risco** - com o [relatório de segurança de utilizadores sinalizados para risco](concept-user-at-risk.md), obtém uma descrição geral das contas de utilizador que possam ter sido comprometidas.
+- **Utilizadores sinalizados para risco** - com o [relatório de segurança de utilizadores sinalizados para risco](../identity-protection/overview-identity-protection.md), obtém uma descrição geral das contas de utilizador que possam ter sido comprometidas.
 
-- **Inícios de sessão de risco** - com o [relatório de segurança de inícios de sessão de risco](concept-risky-sign-ins.md), obtém um indicador para tentativas de início de sessão que possam ter sido realizados por alguém que não seja o legítimo proprietário das contas de utilizador. 
+- **Inícios de sessão de risco** - com o [relatório de segurança de inícios de sessão de risco](../identity-protection/overview-identity-protection.md), obtém um indicador para tentativas de início de sessão que possam ter sido realizados por alguém que não seja o legítimo proprietário das contas de utilizador. 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>De que licença do Azure AD precisa para aceder a um relatório de segurança?  
 
@@ -81,7 +81,7 @@ O [relatório de registos de auditoria](concept-audit-logs.md) disponibiliza-lhe
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>De que licença do Azure AD precisa para aceder aos relatórios de registos de auditoria?  
 
-O relatório de registos de auditoria está disponível para as funcionalidades para as quais tem licenças. Se tiver uma licença para uma funcionalidade específica, também tem acesso às informações de registo de auditoria relativas à mesma. Uma comparação de funcionalidades desaatidada como por [diferentes tipos de licenças](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses) pode ser vista na página de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). Para mais detalhes, consulte [as funcionalidades e capacidades do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad).
+O relatório de registos de auditoria está disponível para as funcionalidades para as quais tem licenças. Se tiver uma licença para uma funcionalidade específica, também tem acesso às informações de registo de auditoria relativas à mesma. Uma comparação de funcionalidades desaatidada como por [diferentes tipos de licenças](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) pode ser vista na página de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). Para mais detalhes, consulte [as funcionalidades e capacidades do Azure Ative Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Relatório de inscrições
 
@@ -101,6 +101,6 @@ Além da interface de utilizador, o Azure AD também lhe fornece [acesso program
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Relatório de inícios de sessão de risco](concept-risky-sign-ins.md)
+- [Relatório de inícios de sessão de risco](../identity-protection/overview-identity-protection.md)
 - [Relatório de registos de auditoria](concept-audit-logs.md)
 - [Relatório de registos de inícios de sessão](concept-sign-ins.md)

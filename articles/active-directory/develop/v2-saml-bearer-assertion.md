@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949359"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227921"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade microsoft e fluxo de afirmação do portador de OAuth 2.0 SAML
 O fluxo de afirmação do portador da OAuth 2.0 SAML permite-lhe solicitar um token de acesso OAuth usando uma afirmação SAML quando um cliente precisa de usar uma relação de confiança existente. A assinatura aplicada à afirmação SAML fornece a autenticação da aplicação autorizada. Uma afirmação SAML é um símbolo de segurança XML emitido por um fornecedor de identidade e consumido por um prestador de serviços. O prestador de serviços conta com o seu conteúdo para identificar o tema da afirmação para fins relacionados com a segurança.
@@ -27,7 +27,7 @@ O fluxo de afirmação do portador de SAML é útil ao recolher dados de APIs do
 
 Para aplicações que fazem o sign-in baseado no navegador interativo para obter uma afirmação SAML e depois querem adicionar acesso a uma API protegida pela OAuth (como o Microsoft Graph), pode fazer um pedido de OAuth para obter um token de acesso para a API. Quando o navegador for redirecionado para Azure AD para autenticar o utilizador, o navegador irá recolher a sessão a partir do sessão de entrada SAML e o utilizador não precisa de introduzir as suas credenciais.
 
-O fluxo de afirmação do portador da OAuth SAML também é suportado para utilizadores autenticados com fornecedores de identidade, tais como Ative Directory Federation Services (ADFS) federados para Azure Ative Directory.  A afirmação SAML obtida a partir da ADFS pode ser utilizada num fluxo OAuth para autenticar o utilizador.
+O fluxo de afirmação do portador da OAuth SAML só é suportado para utilizadores autenticados com fornecedores de identidade, tais como Serviços da Federação de Diretório Ativo (ADFS) federados para o Azure Ative Directory.  A afirmação SAML obtida a partir da ADFS pode ser utilizada num fluxo OAuth para autenticar o utilizador.
 
 ![Fluxo de Oauth](./media/v2-saml-bearer-assertion/1.png)
 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: fd49ddcb59e0d0f3a706f566cf0c011116b1501a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856817"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229230"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters HDInsight com Azure Data Lake Storage Gen1 utilizando o portal Azure
 
@@ -85,18 +85,11 @@ Nesta secção, configura o acesso da Data Lake Storage Gen1 a partir de cluster
 A partir do portal Azure, você pode usar um principal de serviço existente ou criar um novo.
 
 Para criar um diretor de serviço a partir do portal Azure:
-
-1. Selecione **data lake store acesso** a partir da lâmina de armazenamento.
-1. Na lâmina de **acesso Gen1 de armazenamento de data lake,** selecione **Criar novos**.
-1. Selecione **o diretor de serviço**e, em seguida, siga as instruções para criar um principal de serviço.
-1. Faça o download do certificado se decidir usá-lo novamente no futuro. O download do certificado é útil se pretender utilizar o mesmo principal serviço quando criar clusters HDInsight adicionais.
-
-    ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Adicione o principal do serviço ao cluster HDInsight")
-
-1. Selecione **Acesso** à configuração do acesso à pasta.  Consulte [permissões de ficheiros configurantes](#configure-file-permissions).
+1. Consulte [Criar O Título de Serviço e Certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) utilizando o Diretório Ativo Azure.
 
 Para utilizar um principal de serviço existente a partir do portal Azure:
 
+1. O diretor de serviço deve ter permissões do proprietário na conta de Armazenamento. Consulte [as permissões de configuração para que o Diretor de Serviço seja proprietário na conta de armazenamento](#configure-serviceprincipal-permissions)
 1. Selecione **data lake store acesso**.
 1. Na lâmina de **acesso Gen1 de armazenamento de data lake,** selecione **Utilize a lâmina existente**.
 1. Selecione **o diretor de serviço**e, em seguida, selecione um principal de serviço.
@@ -105,6 +98,10 @@ Para utilizar um principal de serviço existente a partir do portal Azure:
     ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Adicione o principal do serviço ao cluster HDInsight")
 
 1. Selecione **Acesso** à configuração do acesso à pasta.  Consulte [permissões de ficheiros configurantes](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Configurar permissões para que o Diretor de Serviço seja proprietário na conta de armazenamento
+1. Na folha de armazenamento do Controlo de Acesso (IAM) clique em Adicionar uma atribuição de função. 
+2. No Add a role assignment blade select Role as 'owner', e selecione o SPN e clique em guardar.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configure permissões de ficheiros
 
@@ -130,7 +127,7 @@ Para atribuir permissão no nível de raiz da conta de armazenamento de dados Da
 
 1. Clique em **Selecionar** na parte inferior da página.
 1. Selecione **Executar** para atribuir permissão.
-1. Selecione **Done** (Concluído).
+1. Selecione **Concluído**.
 
 Para atribuir permissão ao nível da raiz do cluster HDInsight:
 
@@ -140,7 +137,7 @@ Para atribuir permissão ao nível da raiz do cluster HDInsight:
 1. Desa estale as permissões na pasta.  Por predefinição, leiam, escrevam e executem todos.
 1. Clique em **Selecionar** na parte inferior da página.
 1. Selecione **Executar**.
-1. Selecione **Done** (Concluído).
+1. Selecione **Concluído**.
 
 Se estiver a utilizar a Data Lake Storage Gen1 como armazenamento adicional, tem de atribuir permissão apenas às pastas a que pretende aceder a partir do cluster HDInsight. Por exemplo, na imagem abaixo, fornece acesso apenas à pasta **mynewfolder** numa conta Da Gen1 de Armazenamento de Data Lake.
 
@@ -176,9 +173,9 @@ CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.a
 
 Descrições:
 
-* `adl://hdiadlsg1storage.azuredatalakestore.net/`é a raiz da conta Desarrumação de Dados Da Gen1.
-* `/clusters/myhdiadlcluster`é a raiz dos dados do cluster que especificou ao criar o cluster.
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/`é a localização do ficheiro de amostra que usou na consulta.
+* `adl://hdiadlsg1storage.azuredatalakestore.net/` é a raiz da conta Desarrumação de Dados Da Gen1.
+* `/clusters/myhdiadlcluster` é a raiz dos dados do cluster que especificou ao criar o cluster.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` é a localização do ficheiro de amostra que usou na consulta.
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-storage-gen1-account-as-additional-storage"></a>Executar uma consulta de Hive contra dados numa conta da Data Lake Storage Gen1 (como armazenamento adicional)
 
@@ -197,7 +194,7 @@ Você pode usar um cluster Spark para executar trabalhos spark em dados que são
 
 Você pode usar a conta de Data Lake Storage Gen1 para escrever dados de uma topologia storm. Para obter instruções sobre como alcançar este cenário, consulte [Use Azure Data Lake Storage Gen1 com Apache Storm com HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Use data lake storage Gen1 com clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: Criar um cluster HDInsight para utilizar a Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)

@@ -9,12 +9,12 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4bed663b66e6c1a8c537ac9bac17ccdd8a8b152c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71c470bd1bb71b55d6643ac6305a054f1c934948
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004158"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229044"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Definir listas de controlo de acesso (ACLs) recursivamente para Azure Data Lake Storage Gen2
 
@@ -640,7 +640,7 @@ O número máximo de ACLs que pode aplicar a um diretório ou ficheiro é de 32 
 
 ### <a name="provide-feedback-or-report-issues"></a>Fornecer problemas de feedback ou relatório
 
-Pode fornecer o seu feedback ou reportar um problema utilizando qualquer uma destas páginas: [PowerShell](https://github.com/Azure/azure-powershell/issues/new?assignees=&labels=triage&template=az-module-bug-report.md&title=), [.NET,](https://github.com/Azure/azure-sdk-for-net/issues/new?assignees=&labels=&template=bug_report.md&title=) [Python](https://github.com/Azure/azure-sdk-for-python/issues/new?assignees=&labels=&template=bug_report.md&title=)
+Pode fornecer o seu feedback ou reportar um problema em  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
 ## <a name="see-also"></a>Ver também
 

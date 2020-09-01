@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: dc6b8e5d34dc24ce4f84a313738fe3587970a856
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: ea7460b3f997e0432ea0b987849eafccbe57b3b9
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079834"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229179"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Linha de Base de Segurança Azure para registo de contentores Azure
 

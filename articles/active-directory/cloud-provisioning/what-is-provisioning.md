@@ -1,5 +1,5 @@
 ---
-title: O que é o fornecimento de identidade com a Azure AD? | Microsoft Docs
+title: O que é o fornecimento de identidade com Azure AD? | Microsoft Docs
 description: Descreve a visão geral do fornecimento de identidade.
 services: active-directory
 author: billmath
@@ -11,58 +11,58 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76712548"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228244"
 ---
 # <a name="what-is-identity-provisioning"></a>O que é o aprovisionamento de identidades?
 
-Hoje em dia, as empresas e as empresas estão a tornar-se cada vez mais uma mistura de aplicações no local e na nuvem.  Os utilizadores exigem acesso a aplicações tanto no local como na nuvem. É necessário ter uma única identidade nestas várias aplicações (no local e na nuvem).
+Hoje em dia, as empresas e as empresas estão a tornar-se cada vez mais uma mistura de aplicações no local e aplicações em nuvem.  Os utilizadores exigem acesso a aplicações tanto no local como na nuvem. É necessário ter uma única identidade nestas várias aplicações (no local, bem como em nuvem).
 
-O provisionamento é o processo de criação de um objeto com base em determinadas condições, mantendo o objeto atualizado e apagando o objeto quando as condições já não estão satisfeitas. Por exemplo, quando um novo utilizador se junta à sua organização, esse utilizador é introduzido no sistema HR.  Nessa altura, o provisionamento pode criar uma conta de utilizador correspondente na nuvem, no Diretório Ativo, e diferentes aplicações às a que o utilizador precisa de acesso.  Isto permite ao utilizador começar a trabalhar e ter acesso às aplicações e sistemas de que necessitam no primeiro dia. 
+O provisionamento é o processo de criação de um objeto baseado em determinadas condições, mantendo o objeto atualizado e eliminando o objeto quando as condições já não estão reunidas. Por exemplo, quando um novo utilizador se junta à sua organização, esse utilizador é introduzido no sistema de RH.  Nessa altura, o provisionamento pode criar uma conta de utilizador correspondente na nuvem, no Ative Directory, e diferentes aplicações às que o utilizador necessita de acesso.  Isto permite ao utilizador começar a trabalhar e ter acesso às aplicações e sistemas de que necessita no primeiro dia. 
 
-![fornecimento de nuvem](media/what-is-provisioning/cloud1.png)
+![fornecimento de nuvens](media/what-is-provisioning/cloud1.png)
 
-No que diz respeito ao Diretório Ativo Azure, o provisionamento pode ser dividido nos seguintes cenários-chave.  
+No que diz respeito ao Azure Ative Directory, o provisionamento pode ser discriminado nos seguintes cenários-chave.  
 
-- **[Provisionamento orientado por RH](#hr-driven-provisioning)**  
+- **[Provisão orientada para os recursos humanos](#hr-driven-provisioning)**  
 - **[Fornecimento de aplicativos](#app-provisioning)**  
-- **[Fornecimento de diretórios](#directory-provisioning)** 
+- **[Provisionamento de diretórios](#directory-provisioning)** 
 
-## <a name="hr-driven-provisioning"></a>Provisionamento orientado por RH
+## <a name="hr-driven-provisioning"></a>Provisão orientada para os recursos humanos
 
-![fornecimento de nuvem](media/what-is-provisioning/cloud2.png)
+![fornecimento de nuvens](media/what-is-provisioning/cloud2.png)
 
-O fornecimento de RH para a nuvem envolve a criação de objetos (utilizadores, funções, grupos, etc.) com base na informação que está no seu sistema de RH.  
+O fornecimento de RH para a nuvem envolve a criação de objetos (utilizadores, papéis, grupos, etc.) com base na informação que está no seu sistema de RH.  
 
-O cenário mais comum seria que, quando um novo funcionário se junta à sua empresa, eles são inseridos no sistema de RH.  Uma vez que isso ocorre, são provisionados para a nuvem.  Neste caso, Azure AD.  O fornecimento de RH pode abranger os seguintes cenários. 
+O cenário mais comum seria, quando um novo empregado entra na sua empresa, eles são inseridos no sistema de RH.  Uma vez que isso ocorre, eles são a provisionados para a nuvem.  Neste caso, Azure AD.  O fornecimento de RECURSOS pode abranger os seguintes cenários. 
 
-- **Contratação** de novos colaboradores - Quando um novo colaborador é adicionado à cloud HR, uma conta de utilizador é automaticamente criada em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS suportadas pela Azure AD, com redação do endereço de e-mail para cloud HR.
-- **Atributos e atualizações** de perfis dos colaboradores - Quando um registo de empregados é atualizado na cloud HR (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada em Ative Directory, Azure Ative Directory, e opcionalmente office 365 e outras aplicações SaaS suportadas pela Azure AD.
-- **Rescisões** de funcionários - Quando um empregado é rescindido na cloud HR, a sua conta de utilizador é automaticamente desativada em Diretório Ativo, Diretório Ativo Azure e opcionalmente Office 365 e outras aplicações SaaS suportadas pela Azure AD.
-- **Recontratações** de funcionários - Quando um empregado é recontratado na cloud HR, a sua conta antiga pode ser automaticamente reativada ou reaprovisionada (dependendo da sua preferência) para ative directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS apoiadas pela Azure AD.
+- **Contratação de novos colaboradores** - Quando um novo empregado é adicionado à cloud HR, uma conta de utilizador é criada automaticamente em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS suportadas pela Azure AD, com a desativação do endereço de e-mail para Cloud HR.
+- **Atributos e atualizações de perfis do colaborador** - Quando um registo de empregados é atualizado na cloud HR (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada no Ative Directory, Azure Ative Directory e opcionalmente office 365 e outras aplicações SaaS apoiadas pela Azure AD.
+- **Rescisões de funcionários** - Quando um empregado é encerrado na cloud HR, a sua conta de utilizador é automaticamente desativada em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS apoiadas pela Azure AD.
+- **Recontrações de empregados** - Quando um empregado é recontratado em CLOUD HR, a sua conta antiga pode ser automaticamente reativada ou re-a provisionada (dependendo da sua preferência) para o Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS apoiadas pela Azure AD.
 
 
 ## <a name="app-provisioning"></a>Fornecimento de aplicativos
 
-![fornecimento de nuvem](media/what-is-provisioning/cloud3.png)
+![fornecimento de nuvens](media/what-is-provisioning/cloud3.png)
 
-No Azure Ative Directory (Azure AD), o fornecimento de aplicações de prazo refere-se à **[criação](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** automática de identidades e funções de utilizador nas aplicações na nuvem a que os utilizadores precisam de ter acesso. Além de criar identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou funções. Os cenários comuns incluem o fornecimento de um utilizador de AD Azure em aplicações como [Dropbox,](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial) [Salesforce,](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e muito mais.
+No Azure Ative Directory (Azure AD), o termo **[provisionamento de aplicações](../app-provisioning/user-provisioning.md)** refere-se à criação automática de identidades e funções dos utilizadores nas aplicações em nuvem a que os utilizadores precisam de acesso. Além da criação de identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou de funções. Os cenários comuns incluem a disponibilização de um utilizador AZure AD em aplicações como [Dropbox,](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) [Salesforce,](../saas-apps/salesforce-provisioning-tutorial.md) [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e muito mais.
 
-## <a name="directory-provisioning"></a>Fornecimento de diretórios
+## <a name="directory-provisioning"></a>Provisionamento de diretórios
 
-![fornecimento de nuvem](media/what-is-provisioning/cloud4.png)
+![fornecimento de nuvens](media/what-is-provisioning/cloud4.png)
 
-O fornecimento no local envolve o fornecimento de fontes no local (como o Diretório Ativo) à AD Azure.  
+O provisionamento no local envolve o fornecimento de fontes no local (como o Ative Directory) para a Azure AD.  
 
-O cenário mais comum seria, quando um utilizador em Diretório Ativo (AD) é aprovisionado em Azure AD.
+O cenário mais comum seria, quando um utilizador em Ative Directory (AD) é a provisionado em Azure AD.
 
-Isto foi conseguido pelo sincronizado Azure AD Connect, pelo fornecimento de nuvem Azure AD Connect e pelo Microsoft Identity Manager. 
+Isto foi realizado por Azure AD Connect sync, Azure AD Connect cloud provisioning e Microsoft Identity Manager. 
  
 ## <a name="next-steps"></a>Passos seguintes 
 
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)
-- [Instalar o fornecimento de nuvem](how-to-install.md)
+- [Instalar provisão de nuvens](how-to-install.md)

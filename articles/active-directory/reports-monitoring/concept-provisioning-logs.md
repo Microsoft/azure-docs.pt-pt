@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826876"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229876"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -34,8 +34,8 @@ A arquitetura de reporte no Azure Ative Directory (Azure AD) consiste nos seguin
     - **Registos de provisionamento** - Fornecer atividade do sistema sobre utilizadores, grupos e funções que são a provisionadas pelo serviço de fornecimento de Azure AD. 
 
 - **Segurança** 
-    - **Entradas arriscadas** - Um [sinal de risco](concept-risky-sign-ins.md) é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador.
-    - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](concept-user-at-risk.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
+    - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador.
+    - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
 
 Este tópico dá-lhe uma visão geral do relatório de provisionamento.
 
@@ -94,7 +94,7 @@ Pode filtrar os seus dados de atenção. Alguns valores de filtro são dinamicam
 Na vista predefinitiva, pode selecionar os seguintes filtros:
 
 - Identidade
-- Data
+- Date
 - Estado
 - Ação
 
@@ -131,7 +131,7 @@ O filtro **Action** permite filtrar o:
 - Atualizar
 - Eliminar
 - Desativar
-- Outros
+- Outro
 
 Além disso, para os filtros da vista padrão, também pode definir os seguintes filtros:
 
@@ -218,36 +218,34 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 - Atualmente, não existe suporte para análise de registos.
 
-- Quando acede aos registos de provisionamento a partir do contexto de uma aplicação, não filtra automaticamente eventos para a aplicação específica da forma como os registos de auditoria fazem.
+- Pode ver eventos ignorados para utilizadores que não estão no âmbito. Isto é esperado, especialmente quando o âmbito de sincronização é definido para todos os utilizadores e grupos. O nosso serviço irá avaliar todos os objetos do arrendatário, mesmo os que estão fora de alcance. 
 
 ## <a name="error-codes"></a>Códigos de Erro
 
 Utilize a tabela abaixo para entender melhor como resolver os erros que pode encontrar nos registos de provisionamento. Para quaisquer códigos de erro que faltem, forneça feedback utilizando o link na parte inferior desta página. 
 
-|Código de Erro|Descrição|
+|Código de Erro|Description|
 |---|---|
-|Conflito, Conflito de Entrada|Corrija os valores de atributos contraditórios em AD ou na aplicação, ou reveja a configuração do seu atributo correspondente se a conta de utilizador conflituosa for correspondida e assumida. Reveja a seguinte [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para obter mais informações sobre a configuração de atributos correspondentes.|
+|Conflito, Conflito de Entrada|Corrija os valores de atributos contraditórios em AD ou na aplicação, ou reveja a configuração do seu atributo correspondente se a conta de utilizador conflituosa for correspondida e assumida. Reveja a seguinte [documentação](../app-provisioning/customize-application-attributes.md) para obter mais informações sobre a configuração de atributos correspondentes.|
 |TooManyRequests|A aplicação-alvo rejeitou esta tentativa de atualizar o utilizador por estar sobrecarregado e receber demasiados pedidos. Não há nada a fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|
 |InternalServerError |A aplicação-alvo devolveu um erro inesperado. Pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione. Esta tentativa será automaticamente retirada em 40 minutos.|
-|Direitos insuficientes, MétodoNotAllowed, Não Autorizado, Não Autorizado| A Azure AD conseguiu autenticar-se com a aplicação-alvo, mas não estava autorizada a realizar a atualização. Por favor, reveja todas as instruções fornecidas pelo pedido-alvo, bem como o respetivo [tutorial de](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)aplicação.|
+|Direitos insuficientes, MétodoNotAllowed, Não Autorizado, Não Autorizado| A Azure AD conseguiu autenticar-se com a aplicação-alvo, mas não estava autorizada a realizar a atualização. Por favor, reveja todas as instruções fornecidas pelo pedido-alvo, bem como o respetivo [tutorial de](../saas-apps/tutorial-list.md)aplicação.|
 |Entidade Não Processável|O pedido de destino devolveu uma resposta inesperada. A configuração da aplicação-alvo pode não estar correta, ou pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione.|
 |WebExceptionProtocolError |Ocorreu um erro de protocolo HTTP durante a ligação à aplicação-alvo. Não há nada a fazer. Esta tentativa será automaticamente retirada em 40 minutos.|
-|InvalidAnchor|Um utilizador que tenha sido previamente criado ou correspondido pelo serviço de fornecimento já não existe. Verifique se o utilizador existe. Para forçar uma nova correspondência de todos os utilizadores, utilize a API ms graph para reiniciar o [trabalho](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Note que o reatamento irá desencadear um ciclo inicial, que pode levar tempo a ser concluído. Elimina igualmente a cache que o serviço de fornecimento utiliza para funcionar, o que significa que todos os utilizadores e grupos do arrendatário terão de ser novamente avaliados e certos eventos de provisionamento poderão ser eliminados.|
-|Não ÉDopliizado | A aplicação-alvo devolveu uma resposta inesperada. A configuração da aplicação pode não estar correta, ou pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione. Por favor, reveja todas as instruções fornecidas pelo pedido-alvo, bem como o respetivo [tutorial de](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)aplicação. |
-|Aeródromos ObrigatóriasMissing, MissingValues |O utilizador não pôde ser criado porque faltam valores necessários. Corrija os valores de atributos em falta no registo de origem ou reveja a configuração do seu atributo correspondente para garantir que os campos necessários não sejam omitidos. [Saiba mais](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre configurar atributos correspondentes.|
-|SchemaAttributeNotFound |Não foi possível efetuar a operação porque foi especificado um atributo que não existe na aplicação-alvo. Consulte a [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre a personalização do atributo e certifique-se de que a sua configuração está correta.|
+|InvalidAnchor|Um utilizador que tenha sido previamente criado ou correspondido pelo serviço de fornecimento já não existe. Verifique se o utilizador existe. Para forçar uma nova correspondência de todos os utilizadores, utilize a API ms graph para reiniciar o [trabalho](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Note que o reatamento irá desencadear um ciclo inicial, que pode levar tempo a ser concluído. Elimina igualmente a cache que o serviço de fornecimento utiliza para funcionar, o que significa que todos os utilizadores e grupos do arrendatário terão de ser novamente avaliados e certos eventos de provisionamento poderão ser eliminados.|
+|Não ÉDopliizado | A aplicação-alvo devolveu uma resposta inesperada. A configuração da aplicação pode não estar correta, ou pode haver um problema de serviço com a aplicação-alvo que está a impedir que isso funcione. Por favor, reveja todas as instruções fornecidas pelo pedido-alvo, bem como o respetivo [tutorial de](../saas-apps/tutorial-list.md)aplicação. |
+|Aeródromos ObrigatóriasMissing, MissingValues |O utilizador não pôde ser criado porque faltam valores necessários. Corrija os valores de atributos em falta no registo de origem ou reveja a configuração do seu atributo correspondente para garantir que os campos necessários não sejam omitidos. [Saiba mais](../app-provisioning/customize-application-attributes.md) sobre configurar atributos correspondentes.|
+|SchemaAttributeNotFound |Não foi possível efetuar a operação porque foi especificado um atributo que não existe na aplicação-alvo. Consulte a [documentação](../app-provisioning/customize-application-attributes.md) sobre a personalização do atributo e certifique-se de que a sua configuração está correta.|
 |InternalError |Ocorreu um erro de serviço interno no serviço de fornecimento de Azure AD. Não há nada a fazer. Esta tentativa será automaticamente novamente julgada em 40 minutos.|
 |InvalidDomain |A operação não pôde ser realizada devido a um valor de atributo que continha um nome de domínio inválido. Atualize o nome de domínio no utilizador ou adicione-o à lista permitida na aplicação-alvo. |
 |Tempo Limite |A operação não pôde ser concluída porque o pedido-alvo demorou demasiado tempo a responder. Não há nada a fazer. Esta tentativa será automaticamente novamente julgada em 40 minutos.|
 |LicençaLimitExceed|O utilizador não pôde ser criado na aplicação-alvo porque não existem licenças disponíveis para este utilizador. Ou obtém licenças adicionais para a aplicação-alvo, ou revê as suas atribuições de utilizador e atribui a configuração de mapeamento para garantir que os utilizadores corretos são atribuídos com os atributos corretos.|
-|DuplicateTargets  |A operação não pôde ser concluída porque mais de um utilizador na aplicação-alvo foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado da aplicação-alvo ou reconfigure os mapeamentos do seu atributo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
-|DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um utilizador foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado ou reconfigure os mapeamentos do seu atributo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateTargets  |A operação não pôde ser concluída porque mais de um utilizador na aplicação-alvo foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado da aplicação-alvo ou reconfigure os mapeamentos do seu atributo como descrito [aqui](../app-provisioning/customize-application-attributes.md).|
+|DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um utilizador foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado ou reconfigure os mapeamentos do seu atributo como descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando cada utilizador é avaliado, tentamos importar o utilizador do sistema de origem. Este erro ocorre geralmente quando o utilizador que está a ser importado está a perder a propriedade correspondente definida nos mapeamentos do seu atributo. Sem um valor presente no objeto do utilizador para o atributo correspondente, não podemos avaliar alterações de scoping, correspondência ou exportação. Note-se que a presença deste erro não indica que o utilizador esteja no âmbito, uma vez que ainda não avaliámos a verificação para o utilizador.|
 |EntradaSsynchronizationSkipped | O serviço de fornecimento solicitou com sucesso o sistema de origem e identificou o utilizador. Não foram tomadas mais medidas contra o utilizador e foram ignoradas. O salto pode dever-se ao facto de o utilizador estar fora de alcance ou de o utilizador já existir no sistema-alvo sem necessidade de mais alterações.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Verifique o estado do fornecimento do utilizador](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
-* [Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
-
-
+* [Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
+* [Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure](../app-provisioning/application-provisioning-config-problem.md)

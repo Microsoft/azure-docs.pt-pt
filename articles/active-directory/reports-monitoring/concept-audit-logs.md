@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846975"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229927"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -34,8 +34,8 @@ A arquitetura de reporte consiste nos seguintes componentes:
     - **Ins-** O [relatório de inscrições](concept-sign-ins.md) fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador.
     - **Registos de auditoria** - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Exemplos de registos de auditoria incluem alterações feitas a quaisquer recursos dentro do AD Azure, como adicionar ou remover utilizadores, apps, grupos, papéis e políticas.
 - **Segurança** 
-    - **Entradas arriscadas** - Um [sinal de risco](concept-risky-sign-ins.md) é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador. 
-    - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](concept-user-at-risk.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
+    - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador. 
+    - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
 
 Este artigo dá-lhe uma visão geral do relatório de auditoria.
  
@@ -125,7 +125,7 @@ O filtro **Category** permite-lhe selecionar um dos seguintes filtros:
 - KerberosDomain
 - Gestão de Chaves
 - Etiqueta
-- Outros
+- Outro
 - PermissõesGrantPolicy
 - Política
 - Gestão de Recursos
@@ -134,12 +134,12 @@ O filtro **Category** permite-lhe selecionar um dos seguintes filtros:
 
 O filtro **De Atividade** baseia-se na categoria e na seleção do tipo de recurso de atividade que faz. Pode selecionar uma atividade específica que queira ver ou selecionar todas. 
 
-Pode obter a lista de todas as Atividades de Auditoria utilizando a API do gráfico:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Pode obter a lista de todas as Atividades de Auditoria utilizando a API do gráfico: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 O filtro **Status** permite filtrar com base no estado de uma operação de auditoria. O estatuto pode ser um dos seguintes:
 
 - Todos
-- Êxito
+- Success
 - Falha
 
 O filtro **Target** permite-lhe procurar um alvo específico através do início do nome ou nome principal do utilizador (UPN). O nome-alvo e a UPN são sensíveis a casos. 
@@ -210,11 +210,11 @@ Se pretender rever os dados de auditoria relacionados com as suas aplicações, 
 
 ## <a name="office-365-activity-logs"></a>Escritório 365 registos de atividades
 
-Pode visualizar registos de atividade do Office 365 a partir do [centro de administração Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os registos de atividade do AZure AD partilhem muitos dos recursos do diretório, apenas o centro de administração Microsoft 365 fornece uma visão completa dos registos de atividade do Office 365. 
+Pode visualizar registos de atividade do Office 365 a partir do [centro de administração Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os registos de atividade do AZure AD partilhem muitos dos recursos do diretório, apenas o centro de administração Microsoft 365 fornece uma visão completa dos registos de atividade do Office 365. 
 
-Também pode aceder aos registos de atividades do Office 365 programáticamente utilizando as [APIs de Gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Também pode aceder aos registos de atividades do Office 365 programáticamente utilizando as [APIs de Gestão do Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Referência da atividade de auditoria do Azure AD](reference-audit-activities.md)
 - [Azure AD reporta referência de retenção](reference-reports-data-retention.md)

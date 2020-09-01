@@ -3,31 +3,33 @@ title: Esperar e responder aos acontecimentos
 description: Automatizar fluxos de trabalho que desencadeiam, pausam e retomam com base em eventos num ponto final de serviço utilizando apps Azure Logic
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656287"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227904"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho automatizados baseados em eventos utilizando webhooks HTTP em Azure Logic Apps
 
-Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o conector HTTP Webhook incorporado, é possível automatizar fluxos de trabalho que esperam e funcionam com base em eventos específicos que ocorrem num ponto final HTTP ou HTTPS através da construção de aplicações lógicas. Por exemplo, pode criar uma aplicação lógica que monitorize um ponto final de serviço, aguardando um evento específico antes de desencadear o fluxo de trabalho e executar as ações especificadas, em vez de verificar ou *sondar* regularmente esse ponto final.
+Com [as Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o conector HTTP Webhook incorporado, pode criar tarefas automatizadas e fluxos de trabalho que subscrevam um ponto final de serviço, aguardar eventos específicos e correr com base nesses eventos, em vez de verificar ou *sondar* regularmente esse ponto final.
 
-Aqui estão alguns fluxos de trabalho baseados em eventos:
+Aqui estão alguns fluxos de trabalho baseados em webhook:
 
 * Aguarde que um item chegue de um [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) antes de desencadear uma aplicação lógica.
 * Aguarde uma aprovação antes de continuar um fluxo de trabalho.
 
+Este artigo mostra como usar o gatilho Webhook e a ação Webhook para que a sua aplicação lógica possa receber e responder a eventos num ponto final de serviço.
+
 ## <a name="how-do-webhooks-work"></a>Como funcionam os webhooks?
 
-Um gatilho http webhook é baseado em eventos, o que não depende de verificar ou sondar regularmente para novos itens. Quando guarda uma aplicação lógica que começa com um gatilho webhook, ou quando muda a sua aplicação lógica de *desativada* para ativada, o gatilho webhook subscreve um serviço específico ou ponto final, registando um *URL de retorno* com esse serviço ou ponto final. Em seguida, o gatilho aguarda que o serviço ou ponto final ligue para o URL, que começa a executar a aplicação lógica. Semelhante ao [gatilho Request](connectors-native-reqres.md), a aplicação lógica dispara imediatamente quando o evento especificado acontece. O gatilho *não se subscreve* do serviço ou ponto final se remover o gatilho e guardar a sua aplicação lógica, ou quando alterar a sua aplicação lógica de ativação.
+Um gatilho webhook é baseado em eventos, o que não depende de verificar ou sondar regularmente para novos itens. Quando guarda uma aplicação lógica que começa com um gatilho webhook, ou quando muda a sua aplicação lógica de *desativada* para ativada, o gatilho webhook subscreve o ponto final de serviço especificado, registando um *URL de retorno* com esse ponto final. Em seguida, o gatilho aguarda que o ponto final do serviço ligue para o URL, que começa a executar a aplicação lógica. Semelhante ao [gatilho Request](connectors-native-reqres.md), a aplicação lógica dispara imediatamente quando o evento especificado acontece. O webhook desencadeia *subscrições* a partir do ponto final do serviço se remover o gatilho e guardar a sua aplicação lógica, ou quando alterar a sua aplicação lógica de ativação para desativar.
 
-Uma ação http webhook também é baseada em *eventos* e subscreve um serviço específico ou ponto final, registando um *URL de retorno* de chamada com esse serviço ou ponto final. A ação webhook interrompe o fluxo de trabalho da aplicação lógica e aguarda até que o serviço ou ponto final chame o URL antes que a aplicação lógica retome o funcionamento. A aplicação lógica de ação *não subscreve* o serviço ou ponto final nestes casos:
+Uma ação webhook também é baseada em *eventos* e subscreve o ponto final de serviço especificado, registando um *URL de retorno* de chamada com esse ponto final. A ação webhook interrompe o fluxo de trabalho da aplicação lógica e aguarda até que o ponto final de serviço ligue para o URL antes que a aplicação lógica retome o funcionamento. A ação webhook *não é subscrita* do ponto final de serviço nestes casos:
 
 * Quando a ação webhook terminar com sucesso
 * Se a aplicação lógica for cancelada enquanto se aguarda uma resposta
@@ -35,27 +37,16 @@ Uma ação http webhook também é baseada em *eventos* e subscreve um serviço 
 
 Por exemplo, o conector do Office 365 Outlook [**Enviar**](connectors-create-api-office365-outlook.md) por email é um exemplo de ação webhook que segue este padrão. Pode estender este padrão a qualquer serviço utilizando a ação webhook.
 
-> [!NOTE]
-> A Logic Apps aplica a Segurança da Camada de Transporte (TLS) 1.2 ao receber a chamada de volta para o gatilho ou ação do webhook HTTP. Se vir erros de aperto de mão TLS, certifique-se de que utiliza O TLS 1.2. Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-
 Para obter mais informações, veja estes tópicos:
 
-* [HTTP Webhook parâmetros de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Webhooks e subscrições](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Crie APIs personalizados que suportem um webhook](../logic-apps/logic-apps-create-api-app.md)
 
+Para obter informações sobre encriptação, segurança e autorização para chamadas de entrada para a sua aplicação lógica, como [a Transport Layer Security (TLS),](https://en.wikipedia.org/wiki/Transport_Layer_Security)anteriormente conhecida como Secure Sockets Layer (SSL), ou [Azure Ative Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [acesso seguro e dados - Acesso a chamadas de entrada para gatilhos baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * O URL para um ponto final ou API já implementado que suporta o webhook subscrever e cancelar o padrão de subscrição para [webhook triggers em apps lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) ou [ações webhook em apps lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-actions) conforme apropriado
 
@@ -83,12 +74,12 @@ Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e 
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Assinatura - Método** | Sim | O método a utilizar ao subscrever o ponto final do alvo |
-   | **Inscreva-se - URI** | Sim | O URL a utilizar para subscrever o ponto final do alvo |
-   | **Subscrever - Corpo** | Não | Qualquer órgão de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de retorno que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o `@listCallbackUrl()` URL de callback da sua aplicação lógica. |
-   | **Cancelar a subscrição - Método** | Não | O método a utilizar ao cancelar a subscrição do ponto final alvo |
-   | **Cancelar a subscrição - URI** | Não | O URL a utilizar para não subscrever a partir do ponto final alvo |
-   | **Cancelar a subscrição - Corpo** | Não | Um corpo de mensagem opcional para incluir no pedido de não subscrição <p><p>**Nota:** Esta propriedade não suporta a utilização da `listCallbackUrl()` função. No entanto, o gatilho inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e , que o serviço alvo pode usar para identificar `x-ms-workflow-operation-name` exclusivamente o assinante. |
+   | **Assinatura - Método** | Yes | O método a utilizar ao subscrever o ponto final do alvo |
+   | **Inscreva-se - URI** | Yes | O URL a utilizar para subscrever o ponto final do alvo |
+   | **Subscrever - Corpo** | No | Qualquer órgão de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de retorno que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o `@listCallbackUrl()` URL de callback da sua aplicação lógica. |
+   | **Cancelar a subscrição - Método** | No | O método a utilizar ao cancelar a subscrição do ponto final alvo |
+   | **Cancelar a subscrição - URI** | No | O URL a utilizar para não subscrever a partir do ponto final alvo |
+   | **Cancelar a subscrição - Corpo** | No | Um corpo de mensagem opcional para incluir no pedido de não subscrição <p><p>**Nota:** Esta propriedade não suporta a utilização da `listCallbackUrl()` função. No entanto, o gatilho inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e , que o serviço alvo pode usar para identificar `x-ms-workflow-operation-name` exclusivamente o assinante. |
    ||||
 
 1. Para adicionar outras propriedades do gatilho, abra a nova lista **de parâmetros** Adicionar.
@@ -129,12 +120,12 @@ Esta ação incorporada chama o ponto final de subscrição no serviço alvo e r
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Assinatura - Método** | Sim | O método a utilizar ao subscrever o ponto final do alvo |
-   | **Inscreva-se - URI** | Sim | O URL a utilizar para subscrever o ponto final do alvo |
-   | **Subscrever - Corpo** | Não | Qualquer órgão de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de retorno que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o `@listCallbackUrl()` URL de callback da sua aplicação lógica. |
-   | **Cancelar a subscrição - Método** | Não | O método a utilizar ao cancelar a subscrição do ponto final alvo |
-   | **Cancelar a subscrição - URI** | Não | O URL a utilizar para não subscrever a partir do ponto final alvo |
-   | **Cancelar a subscrição - Corpo** | Não | Um corpo de mensagem opcional para incluir no pedido de não subscrição <p><p>**Nota:** Esta propriedade não suporta a utilização da `listCallbackUrl()` função. No entanto, a ação inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e , que o serviço alvo pode usar para identificar `x-ms-workflow-operation-name` exclusivamente o assinante. |
+   | **Assinatura - Método** | Yes | O método a utilizar ao subscrever o ponto final do alvo |
+   | **Inscreva-se - URI** | Yes | O URL a utilizar para subscrever o ponto final do alvo |
+   | **Subscrever - Corpo** | No | Qualquer órgão de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de retorno que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão para recuperar o `@listCallbackUrl()` URL de callback da sua aplicação lógica. |
+   | **Cancelar a subscrição - Método** | No | O método a utilizar ao cancelar a subscrição do ponto final alvo |
+   | **Cancelar a subscrição - URI** | No | O URL a utilizar para não subscrever a partir do ponto final alvo |
+   | **Cancelar a subscrição - Corpo** | No | Um corpo de mensagem opcional para incluir no pedido de não subscrição <p><p>**Nota:** Esta propriedade não suporta a utilização da `listCallbackUrl()` função. No entanto, a ação inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e , que o serviço alvo pode usar para identificar `x-ms-workflow-operation-name` exclusivamente o assinante. |
    ||||
 
 1. Para adicionar outras propriedades de ação, abra a nova lista **de parâmetros Adicionar.**
@@ -147,11 +138,7 @@ Esta ação incorporada chama o ponto final de subscrição no serviço alvo e r
 
    Agora, quando esta ação é executado, a sua aplicação lógica chama o ponto final de subscrição no serviço alvo e regista o URL de retorno de chamadas. A aplicação lógica faz então uma pausa no fluxo de trabalho e aguarda que o serviço-alvo envie um `HTTP POST` pedido para o URL de retorno. Quando este evento acontece, a ação transmite quaisquer dados no pedido junto ao fluxo de trabalho. Se a operação terminar com sucesso, a ação não se subscreve a partir do ponto final, e a sua aplicação lógica continua a executar o fluxo de trabalho restante.
 
-## <a name="connector-reference"></a>Referência do conector
-
-Para obter mais informações sobre os parâmetros de desencadeamento e ação, que são semelhantes entre si, consulte [os parâmetros HTTP Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
-
-### <a name="output-details"></a>Detalhes da saída
+## <a name="trigger-and-action-outputs"></a>Saídas de gatilho e ação
 
 Aqui está mais informações sobre as saídas de um gatilho ou ação http Webhook, que devolve esta informação:
 
@@ -162,7 +149,7 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação http Webh
 | código de estado | int | O código de estado do pedido |
 |||
 
-| Código de estado | Descrição |
+| Código de estado | Description |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Aceite |
@@ -173,6 +160,11 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação http Webh
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="connector-reference"></a>Referência do conector
 
-* Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
+Para obter mais informações sobre os parâmetros de desencadeamento e ação, que são semelhantes entre si, consulte [os parâmetros HTTP Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Acesso seguro e dados - Acesso a chamadas de entrada para gatilhos baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Conectores para as Logic Apps](../connectors/apis-list.md)

@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146424"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229400"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize gasodutos Azure para construir e implementar soluções HPC
 
@@ -29,7 +29,7 @@ Neste exemplo, criaremos um oleoduto de construção e libertação para implant
 Para seguir os passos deste artigo, você precisa de uma organização Azure DevOps e um projeto de equipe.
 
 * [Criar uma Organização Azure DevOps](/azure/devops/organizations/accounts/create-organization)
-* [Criar um projeto em Azure DevOps](/azure/devops/organizations/projects/create-projects)
+* [Criar um projeto em Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### <a name="source-control-for-your-environment"></a>Controlo de fontes para o seu ambiente
 
@@ -325,7 +325,7 @@ Neste exemplo, vamos focar-nos na pasta **de aplicação hpc.** A pasta **de apl
 
     a. [Utilização do Designer Visual.](/azure/devops/pipelines/get-started-designer) Para utilizar isto, clique em "Use o designer visual" na página do **novo pipeline.**
 
-    b. [Utilizando construções YAML](/azure/devops/pipelines/get-started-yamls). Pode criar um novo oleoduto YAML clicando na opção Azure Repos ou GitHub na página do novo pipeline. Em alternativa, pode armazenar o exemplo abaixo no seu controlo de origem e fazer referência a um ficheiro YAML existente clicando no Visual Designer e, em seguida, utilizando o modelo YAML.
+    b. [Utilizando construções YAML](/azure/devops/pipelines/get-started-yaml). Pode criar um novo oleoduto YAML clicando na opção Azure Repos ou GitHub na página do novo pipeline. Em alternativa, pode armazenar o exemplo abaixo no seu controlo de origem e fazer referência a um ficheiro YAML existente clicando no Visual Designer e, em seguida, utilizando o modelo YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to

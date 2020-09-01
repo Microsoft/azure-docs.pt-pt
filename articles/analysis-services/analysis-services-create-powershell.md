@@ -1,19 +1,19 @@
 ---
 title: Quickstart - Criar Serviços de Análise Azure utilizando serviços de análise powerShell Azure / Microsoft Docs
-description: Saiba como criar um servidor do Azure Analysis Services com o PowerShell
+description: Este quickstart descreve como criar um servidor Azure Analysis Services usando PowerShell
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 03/30/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions , devx-track-azurepowershell
-ms.openlocfilehash: a57222346a69d3d92c108da9e57a1d656974b561
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 737649538aaf82352e27aec6220b13ba355a7a82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074827"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229349"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Início Rápido: Criar um servidor - PowerShell
 
@@ -73,6 +73,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure com o PowerShell. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Configurar firewall do servidor - Portal](analysis-services-qs-firewall.md)      
-> [!div class="nextstepaction"]
-> [Tutorial: Adicionar um modelo de exemplo ao servidor](analysis-services-create-sample-model.md)
+> [Início Rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)      

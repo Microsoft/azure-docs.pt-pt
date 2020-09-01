@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4fbfe9222971ccd1d28ceaddc91b137c6106e12
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86146747"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228380"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integre uma única floresta com um único inquilino AZure AD
 
@@ -29,8 +29,8 @@ Você pode usar o ambiente que você cria neste tutorial para testes ou para se 
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração Azure Ative Directory
 
-1. Crie uma conta de administrador global apenas em nuvem no seu inquilino AZure AD. Desta forma, pode gerir a configuração do seu inquilino caso os seus serviços no local falhem ou fiquem indisponíveis. Saiba mais [sobre a adição de uma conta de administrador global apenas na nuvem.](../active-directory-users-create-azure-portal.md) Completar este passo é fundamental para garantir que não fique trancado fora do seu inquilino.
-2. Adicione um ou mais [nomes de domínio personalizados](../active-directory-domains-add-azure-portal.md) ao seu inquilino AZure AD. Os seus utilizadores podem iniciar sôms com um destes nomes de domínio.
+1. Crie uma conta de administrador global apenas em nuvem no seu inquilino AZure AD. Desta forma, pode gerir a configuração do seu inquilino caso os seus serviços no local falhem ou fiquem indisponíveis. Saiba mais [sobre a adição de uma conta de administrador global apenas na nuvem.](../fundamentals/add-users-azure-active-directory.md) Completar este passo é fundamental para garantir que não fique trancado fora do seu inquilino.
+2. Adicione um ou mais [nomes de domínio personalizados](../fundamentals/add-custom-domain.md) ao seu inquilino AZure AD. Os seus utilizadores podem iniciar sôms com um destes nomes de domínio.
 
 ### <a name="in-your-on-premises-environment"></a>No seu ambiente no local
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 08/31/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77ba802d5e337851b3b5141695e5b2f0c6456719
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e28da81400a97216836cfd9eccf0d4859ce0762f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902359"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228227"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory
 
@@ -31,7 +31,7 @@ Para obter mais informações sobre as funções de Ad Azure disponíveis, consu
 Uma forma comum de atribuir funções Azure AD a um utilizador está na página **de funções atribuídas** para um utilizador. Também pode configurar a elegibilidade do utilizador para ser elevado just-in-time para uma função usando Gestão de Identidade Privilegiada (PIM). Para obter mais informações sobre como utilizar a PIM, consulte [Gestão de Identidade Privilegiada.](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)
 
 > [!Note]
-> Se tiver um plano de licença Azure AD Premium P2 e já utilizar o PIM, todas as tarefas de gestão de funções são desempenhadas na [experiência de Gestão de Identidade Privilegiada.](../users-groups-roles/directory-manage-roles-portal.md)
+> Se tiver um plano de licença Azure AD Premium P2 e já utilizar o PIM, todas as tarefas de gestão de funções são desempenhadas na [experiência de Gestão de Identidade Privilegiada.](../users-groups-roles/directory-manage-roles-portal.md) Atualmente, esta funcionalidade limita-se a atribuir apenas uma função de cada vez. Não é possível selecionar várias funções e atribuí-las a um utilizador de uma só vez.
 >
 > ![Funções AD AD geridas em PIM para utilizadores que já usam PIM e têm uma licença Premium P2](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
