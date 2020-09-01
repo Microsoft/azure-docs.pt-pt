@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2b976a9a2b6a39ccfa1dc9f4117801fee54ea6b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 030f2b893cd429bfdb451d24e799689fdb8a3cf8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018574"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255704"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Utilize uma identidade gerida atribuída pelo utilizador num Windows VM para aceder ao Gestor de Recursos Azure
 
@@ -45,9 +45,9 @@ Saiba como:
 
 - [Inscreva-se no portal Azure](https://portal.azure.com)
 
-- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
+- [Criar uma máquina virtual do Windows](../../virtual-machines/windows/quick-create-portal.md)
 
-- Para executar os passos necessários de criação de recursos e gestão de funções neste tutorial, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de função, veja [Utilizar Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos da sua subscrição do Azure](/azure/role-based-access-control/role-assignments-portal).
+- Para executar os passos necessários de criação de recursos e gestão de funções neste tutorial, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de função, veja [Utilizar Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos da sua subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
 - [Instale a versão mais recente do módulo Azure PowerShell](/powershell/azure/install-az-ps). 
 - Execute `Connect-AzAccount` para criar uma ligação com o Azure.
 - Instale a [versão mais recente do PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
@@ -163,4 +163,4 @@ A resposta contém as informações específicas do Grupo de Recursos, semelhant
 Neste tutorial, aprendeu a criar uma identidade atribuída ao utilizador e a anexá-la a uma Máquina Virtual Azure para aceder à API do Gestor de Recursos Azure.  Para saber mais sobre o Azure Resource Manager, veja:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

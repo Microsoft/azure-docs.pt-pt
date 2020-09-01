@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484304"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254496"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e boas práticas para o Azure Ative Directory B2C
 
 As seguintes boas práticas e recomendações abrangem alguns dos aspetos primários da integração do Azure Ative Directory (Azure AD) B2C em ambientes de aplicação existentes ou novos.
 
-## <a name="fundamentals"></a>Noções Básicas
+## <a name="fundamentals"></a>Fundamentos
 
 | Melhores práticas | Descrição |
 |--|--|
@@ -44,6 +44,7 @@ Defina a sua arquitetura de aplicação e serviço, os sistemas atuais de invent
 | Usabilidade vs segurança | A sua solução deve encontrar o equilíbrio certo entre a usabilidade da aplicação e o nível aceitável de risco da sua organização. |
 | Mover dependências no local para a nuvem | Para ajudar a garantir uma solução resiliente, considere mover as dependências de aplicações existentes para a nuvem. |
 | Migrar aplicativos existentes para b2clogin.com | A depreciação de login.microsoftonline.com entrará em vigor para todos os inquilinos da Azure AD B2C em 04 de dezembro de 2020. [Saiba mais](b2clogin.md). |
+| Utilizar proteção de identidade e acesso condicional | Utilize estas capacidades para um controlo significativamente maior sobre autenticações de risco e políticas de acesso. É necessário Azure AD B2C Premium P2. [Saiba mais](conditional-access-identity-protection-overview.md). |
 
 ## <a name="implementation"></a>Implementação
 
@@ -78,7 +79,7 @@ Gerencie o seu ambiente Azure AD B2C.
 |--|--|
 | Criar vários ambientes | Para facilitar as operações e implantação, crie ambientes separados para o desenvolvimento, teste, pré-produção e produção. Crie inquilinos Azure AD B2C para cada um. |
 | Use o controlo de versão para as suas políticas personalizadas | Considere usar GitHub, Azure Repos ou outro sistema de controlo de versão baseado na nuvem para as suas políticas personalizadas Azure AD B2C. |
-| Utilize a Microsoft Graph API para automatizar a gestão dos seus inquilinos B2C | APIs do Gráfico da Microsoft:<br/>Gerir [o Quadro de Experiência de Identidade](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (políticas personalizadas)<br/>[Chaves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Fluxos do Utilizador](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Utilize a Microsoft Graph API para automatizar a gestão dos seus inquilinos B2C | APIs do Gráfico da Microsoft:<br/>Gerir [o Quadro de Experiência de Identidade](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (políticas personalizadas)<br/>[Chaves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Fluxos de Utilizador](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
 | Integre com Azure DevOps | Um [gasoduto CI/CD](deploy-custom-policies-devops.md) facilita o código de movimento entre diferentes ambientes e garante sempre a prontidão da produção.   |
 | Integre-se com o Azure Monitor | [Os eventos de registo de auditoria](view-audit-logs.md) só são mantidos por sete dias. [Integre-se com o Azure Monitor](azure-monitor.md) para reter os registos para uso a longo prazo, ou integrar-se com ferramentas de segurança de terceiros e de gestão de eventos (SIEM) para obter informações sobre o seu ambiente. |
 | Configuração de alerta e monitorização ativa | [Acompanhe o comportamento do utilizador](active-directory-b2c-custom-guide-eventlogger-appins.md) em Azure AD B2C utilizando Insights de Aplicação. |
@@ -92,4 +93,4 @@ Mantenha-se atualizado com o estado do serviço e encontre opções de apoio.
 |--|--|
 | [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Mantenha-se atualizado com as atualizações e anúncios de produtos Azure AD B2C. |
 | [Suporte da Microsoft](support-options.md) | Apresentar um pedido de apoio para problemas técnicos Azure AD B2C. O suporte de gestão de faturação e subscrição é fornecido sem custos. |
-| [Estatuto de Azure](https://status.azure.com/status) | Veja o estado de saúde atual de todos os serviços da Azure. |
+| [Estado do Azure](https://status.azure.com/status) | Veja o estado de saúde atual de todos os serviços da Azure. |

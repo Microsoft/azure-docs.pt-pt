@@ -1,22 +1,22 @@
 ---
 title: Tutorial para transferir dados para conta de armazenamento com GPU Azure Stack Edge Microsoft Docs
-description: Saiba como adicionar e ligar às contas de armazenamento no dispositivo GPU Azure Stack Edge.
+description: Saiba como adicionar e ligar às contas de armazenamento local e edge no dispositivo GPU Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7289498516664228e569d821032eeefeb6c65be4
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 66c09b7fa0eb8fbf709441da5996fb2237b3e284
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146254"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256401"
 ---
-# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge"></a>Tutorial: Transferir dados através de contas de armazenamento com Azure Stack Edge 
+# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-gpu"></a>Tutorial: Transferir dados através de contas de armazenamento com GPU Azure Stack Edge 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 

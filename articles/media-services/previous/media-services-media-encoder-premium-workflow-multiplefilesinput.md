@@ -16,14 +16,17 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70acbb239df3806437127e41510bfebc1358532a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 36a1a198f4bd2279a9d9b8b9700b1ddd038a0900
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015973"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256672"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilização de vários ficheiros de entrada e propriedades de componentes com Codificação Premium
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Descrição geral
 Existem cenários em que poderá necessitar de personalizar propriedades de componentes, especificar o conteúdo XML da Lista de Clipe ou enviar vários ficheiros de entrada quando submeter uma tarefa com o processador de mídia **Media Encoder Premium Workflow.** Alguns exemplos incluem:
 

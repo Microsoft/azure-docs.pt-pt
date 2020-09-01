@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Saiba como transmitir em direto com o Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 06/13/2019
-ms.author: juliako
-ms.openlocfilehash: 610006dc84abc0b8590353e1edd52582dfd6fac6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.author: inhenkel
+ms.openlocfilehash: b2e456474a9d052d9515c8169ce233e9577a5c53
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022008"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256570"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Stream ao vivo com serviços de mídia
 

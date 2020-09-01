@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c9b4e4e33593b8dfaa26b3970c4929e6128bd123
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 438a816ca28b9414557e64591d9ece2dbb173370
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171997"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256876"
 ---
-# <a name="publish-azure-media-services-content-using-rest"></a>Publique o conteúdo da Azure Media Services usando REST 
+# <a name="publish-azure-media-services-content-using-rest"></a>Publique o conteúdo da Azure Media Services usando REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
@@ -203,7 +206,7 @@ public enum LocatorType
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 [Operações de Serviços de Mídia REST Visão geral da API](media-services-rest-how-to-use.md)
 
 [Configure a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)

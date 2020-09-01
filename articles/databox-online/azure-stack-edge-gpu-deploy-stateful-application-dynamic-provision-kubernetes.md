@@ -1,6 +1,6 @@
 ---
-title: Use kubectl para implementar a app stateful da Kubernetes através de uma partilha dinamicamente aprovisionada no dispositivo Azure Stack Edge. Microsoft Docs
-description: Descreve como criar e gerir uma implementação de aplicações stateful Kubernetes através de uma partilha dinamicamente atada usando kubectl num dispositivo Microsoft Azure Stack Edge.
+title: Use kubectl para implementar a app stateful da Kubernetes através de uma partilha dinamicamente aprovisionada no dispositivo GPU Azure Stack Edge/ Microsoft Docs
+description: Descreve como criar e gerir uma implementação de aplicações stateful Kubernetes através de uma partilha dinamicamente atada usando kubectl num dispositivo GPU microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: e83b2b1cb7013b9d72bd2c2de8c7636d5c9d8773
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085707"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254326"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com StorageClass no seu dispositivo Azure Stack Edge
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com StorageClass no seu dispositivo GPU Azure Stack Edge
 
 Este artigo mostra-lhe como implementar uma aplicação stateful de instância única em Kubernetes usando uma StorageClass para armazenamento de provisões dinâmicas e uma implementação. A implementação utiliza `kubectl` comandos num cluster Kubernetes existente e implementa a aplicação MySQL. 
 

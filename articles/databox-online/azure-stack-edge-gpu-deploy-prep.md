@@ -1,6 +1,6 @@
 ---
-title: Tutorial para preparar portal Azure, ambiente do datacenter para implantar Azure Stack Edge Microsoft Docs
-description: O primeiro tutorial sobre a implementação do Azure Stack Edge envolve a preparação do portal Azure.
+title: Tutorial para preparar portal Azure, ambiente do datacenter para implantar GPU de Azure Stack Edge Microsoft Docs
+description: O primeiro tutorial sobre a implementação do GPU Azure Stack Edge envolve a preparação do portal Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 004702d52245893f4746ce8e4b4a2cc36aad6a67
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c02af8983489651d8b5b83d5d3107a534c51f067
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181855"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254683"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-with-gpu"></a>Tutorial: Prepare-se para implantar Azure Stack Edge com GPU 
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Para a implementação do Azure Stack Edge, tem de preparar primeiro o seu ambiente. Uma vez que o ambiente esteja pronto, siga as etapas necessárias e, se necessário, etapas e procedimentos opcionais para implantar totalmente o dispositivo. As instruções de colocação passo a passo indicam quando deve executar cada uma destas etapas necessárias e opcionais.
 
-| Passo | Description |
+| Passo | Descrição |
 | --- | --- |
 | **Preparação** |Estes passos devem ser concluídos em preparação para a próxima implantação. |
 | **[Lista de verificação de configuração de implementação](#deployment-configuration-checklist)** |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |

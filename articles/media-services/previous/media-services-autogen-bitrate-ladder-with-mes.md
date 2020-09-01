@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0309579a674533ebd056c8493b149cc78beef607
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896026"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254080"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Use o Media Encoder Standard para gerar automaticamente uma escada de bitrate  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Use o Media Encoder Standard para gerar automaticamente uma escada de bitrate
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## <a name="overview"></a>Descrição geral
 
@@ -174,7 +176,7 @@ Esta secção mostra três exemplos de camadas de saída produzidas pela MES com
 ### <a name="example-1"></a>Exemplo 1
 Fonte com altura "1080" e framerate "29.970" produz 6 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate(kbps)|
+|Camada|Height|Width|Bitrate(kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +188,7 @@ Fonte com altura "1080" e framerate "29.970" produz 6 camadas de vídeo:
 ### <a name="example-2"></a>Exemplo 2
 Fonte com altura "720" e framerate "23.970" produz 5 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate(kbps)|
+|Camada|Height|Width|Bitrate(kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -197,7 +199,7 @@ Fonte com altura "720" e framerate "23.970" produz 5 camadas de vídeo:
 ### <a name="example-3"></a>Exemplo 3
 Fonte com altura "360" e framerate "29.970" produz 3 camadas de vídeo:
 
-|Camada|Altura|Largura|Bitrate(kbps)|
+|Camada|Height|Width|Bitrate(kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

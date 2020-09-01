@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 883250bbf4bc745c1c2a0e8f442cab4d73c4479b
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 8400f134c7a2b9da32c04e15e42a54f697b9cea6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147172"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254190"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge"></a>Utilize o portal Azure para gerir os utilizadores no seu Azure Stack Edge
 

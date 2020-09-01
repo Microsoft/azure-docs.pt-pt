@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Saiba mais sobre o Streaming Endpoints (Origin), um serviço dinâmico de embalagem e streaming que entrega conteúdo diretamente a uma aplicação de cliente ou a uma Rede de Entrega de Conteúdos (CDN).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.author: inhenkel
+ms.openlocfilehash: aa54bc6b8b0912158a5dcd369b12801d51ca7141
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446212"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256502"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origem) em Azure Media Services
 
@@ -54,7 +54,7 @@ A tabela descreve os tipos:
 |Tipo|Unidades de escala|Descrição|
 |--------|--------|--------|  
 |**Standard**|0|O ponto final de streaming predefinido é um tipo **standard** — pode ser alterado para o tipo Premium `scaleUnits` ajustando-o .|
-|**Premium**|>0|**Premium** Os pontos finais de streaming são adequados para cargas de trabalho avançadas e fornecem capacidade de largura de banda dedicada e escalável. Move-se para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits`fornecer-lhe uma capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium,** cada unidade ativada fornece uma capacidade de largura de banda adicional à aplicação. |
+|**Premium**|>0|**Premium** Os pontos finais de streaming são adequados para cargas de trabalho avançadas e fornecem capacidade de largura de banda dedicada e escalável. Move-se para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornecer-lhe uma capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium,** cada unidade ativada fornece uma capacidade de largura de banda adicional à aplicação. |
 
 > [!NOTE]
 > Para clientes que procuram entregar conteúdo a grandes audiências de internet, recomendamos que você ative a CDN no Streaming Endpoint.
@@ -92,8 +92,8 @@ Esta secção dá detalhes sobre algumas das propriedades do Streaming Endpoint.
 
     Se tiver este erro, o centro de dados não o suporta. Tente outro centro de dados.
 
-- `cdnProfile`: Quando `cdnEnabled` é definido como verdadeiro, também pode passar `cdnProfile` valores. `cdnProfile`é o nome do perfil CDN onde o ponto final do CDN será criado. Pode fornecer um cdnProfile existente ou utilizar um novo. Se o valor for NULO e `cdnEnabled` for verdadeiro, é utilizado o valor predefinido "AzureMediaStreamingPlatformCdnProfile". Se o fornecido `cdnProfile` já existe, um ponto final é criado sob ele. Se o perfil não existir, um novo perfil é automaticamente criado.
-- `cdnProvider`: Quando o CDN está ativado, também pode passar `cdnProvider` valores. `cdnProvider`controlos que o fornecedor será utilizado. Atualmente, três valores são suportados: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for verdadeiro, "StandardVerizon" é usado (é esse o valor padrão).
+- `cdnProfile`: Quando `cdnEnabled` é definido como verdadeiro, também pode passar `cdnProfile` valores. `cdnProfile` é o nome do perfil CDN onde o ponto final do CDN será criado. Pode fornecer um cdnProfile existente ou utilizar um novo. Se o valor for NULO e `cdnEnabled` for verdadeiro, é utilizado o valor predefinido "AzureMediaStreamingPlatformCdnProfile". Se o fornecido `cdnProfile` já existe, um ponto final é criado sob ele. Se o perfil não existir, um novo perfil é automaticamente criado.
+- `cdnProvider`: Quando o CDN está ativado, também pode passar `cdnProvider` valores. `cdnProvider` controlos que o fornecedor será utilizado. Atualmente, três valores são suportados: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for verdadeiro, "StandardVerizon" é usado (é esse o valor padrão).
 - `crossSiteAccessPolicies`: Usado para especificar políticas de acesso a vários clientes. Para obter mais informações, consulte [a especificação do ficheiro de política de domínio transversal](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e a [disponibilização de um serviço através dos limites do domínio](/previous-versions/azure/azure-services/gg185950(v=azure.100)). As definições aplicam-se apenas ao Streaming Suave.
 - `customHostNames`: Usado para configurar um Streaming Endpoint para aceitar o tráfego direcionado para um nome de anfitrião personalizado. Esta propriedade é válida para Pontos Finais Standard e Premium Streaming e pode ser definida quando `cdnEnabled` : falso.
 
@@ -122,7 +122,7 @@ Esta secção dá detalhes sobre algumas das propriedades do Streaming Endpoint.
 
     Atualmente, os Media Services não suportam TLS com domínios personalizados.
 
-- `maxCacheAge`- Substitui o cabeçalho de controlo de cache HTTP de idade máxima padrão definido pelo ponto final de streaming em fragmentos de meios de comunicação e manifestos a pedido. O valor é definido em segundos.
+- `maxCacheAge` - Substitui o cabeçalho de controlo de cache HTTP de idade máxima padrão definido pelo ponto final de streaming em fragmentos de meios de comunicação e manifestos a pedido. O valor é definido em segundos.
 - `resourceState` -
 
     - Parado: o estado inicial de um ponto final de streaming após a criação
@@ -165,7 +165,7 @@ Consulte os seguintes artigos:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Empacotamento dinâmico](dynamic-packaging-overview.md)
 

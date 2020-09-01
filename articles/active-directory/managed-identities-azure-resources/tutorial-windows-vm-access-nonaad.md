@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3690c8558a767b169b993077acddddc22bb86aba
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2890eb2211ac0a105363742a0e900e52a577ed27
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018523"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255830"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Azure Key Vault 
 
@@ -75,7 +75,7 @@ Em seguida, adicione um segredo ao Key Vault para que possa mais tarde obter o s
  
 ## <a name="access-data"></a>Aceder a dados  
 
-Esta secção mostra como obter um token de acesso usando a identidade VM e usá-lo para recuperar o segredo do Cofre de Chaves. Se não tiver o PowerShell 4.3.1 ou posterior instalado, terá de [transferir e instalar a versão mais recente](https://docs.microsoft.com/powershell/azure/).
+Esta secção mostra como obter um token de acesso usando a identidade VM e usá-lo para recuperar o segredo do Cofre de Chaves. Se não tiver o PowerShell 4.3.1 ou posterior instalado, terá de [transferir e instalar a versão mais recente](/powershell/azure/).
 
 Primeiro, utilizamos a identidade gerida atribuída pelo sistema da VM para obter um token de acesso para autenticação no Key Vault:
  
@@ -128,4 +128,4 @@ Depois de recuperar o segredo do Key Vault, pode utilizá-lo para autenticação
 Neste tutorial, aprendeu a utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Azure Key Vault.  Para saber mais sobre o Azure Key Vault, veja:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-overview)
+>[Azure Key Vault](../../key-vault/general/overview.md)

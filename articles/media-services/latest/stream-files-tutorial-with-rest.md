@@ -3,23 +3,25 @@ title: Codificar um ficheiro remoto e transmitir utilizando o Azure Media Servic
 description: Siga os passos deste tutorial para codificar um ficheiro baseado num URL e transmitir o seu conteúdo com a Azure Media Services utilizando o REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2020
-ms.author: juliako
-ms.openlocfilehash: f12771e55ced3b8783b6c7497b83e6b041c66b75
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 350584984bff82c7dc80aff38044d887f981424c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074466"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256760"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Encode a remote file based on URL and stream the video - REST (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O Azure Media Services permite-lhe codificar os seus ficheiros de mídia em formatos que podem ser reproduzidos numa grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md).
 
@@ -36,7 +38,7 @@ Este tutorial mostrar-lhe como:
 > * Configurar o Postman
 > * Enviar pedidos através do Postman
 > * Testar o URL de transmissão em fluxo
-> * Limpar recursos
+> * Limpar os recursos
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -213,7 +215,7 @@ Pode utilizar um EncoderNamedPreset incorporadi ou utilizar as predefinições p
         }
         ```
 
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 
 Uma [Tarefa](/rest/api/media/jobs) é o pedido atual para os Serviços de Multimédia aplicarem a **Transformação** criada a determinado conteúdo de vídeo ou áudio de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização da saída.
 
@@ -384,7 +386,7 @@ Geralmente, deve limpar tudo, exceto objetos que está a planear reutilizar (nor
 
 Para eliminar um recurso, selecione a operação "Eliminar…" sob o recurso que pretende eliminar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.  
 

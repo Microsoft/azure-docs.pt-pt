@@ -1,23 +1,23 @@
 ---
-title: Implementar módulo GPU no seu dispositivo Microsoft Azure Stack Edge Microsoft Docs
+title: Implementar módulo GPU no seu dispositivo GPU Azure Stack Edge/ Microsoft Docs
 description: Descreve como ativar a computação e tornar o seu dispositivo Azure Stack Edge pronto através da UI local.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 68badb1524c869309a0e2d96eaf6c9e490111bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5af86001d46bf194c9b61f325052a4cde0d86d5e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085810"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254564"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-device"></a>Implementar um módulo IoT ativado por GPU no dispositivo Azure Stack Edge
+# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-gpu-device"></a>Implementar um módulo IoT ativado por GPU em dispositivo GPU Azure Stack Edge
 
-Este artigo descreve como implementar um módulo IoT Edge ativado por GPU no seu dispositivo Azure Stack Edge. 
+Este artigo descreve como implementar um módulo IoT Edge ativado por GPU no seu dispositivo GPU Azure Stack Edge. 
 
 Neste artigo, vai aprender a:
   - Prepare o Azure Stack Edge para executar um módulo GPU.

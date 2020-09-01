@@ -4,14 +4,14 @@ description: 'Tutorial: Saiba como usar as ferramentas de migração de dados DB
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 5c9eb2409b67d71882406c21728fbf2429eb16a9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 9992d6f1f9f1d0aad6f451d6a974f4df9f655881
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85118768"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255992"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Utilize a ferramenta de migração de dados para migrar os seus dados para a Azure Cosmos DB
 
@@ -40,6 +40,9 @@ Antes de seguir as instruções deste artigo, certifique-se de que faz os seguin
 * **Aumentar débito:** a duração da migração de dados depende da quantidade de débito que configurou para uma coleção individual ou um conjunto de coleções. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre o aumento da produção no portal Azure, consulte os [níveis](performance-levels.md) de desempenho e [preços](https://azure.microsoft.com/pricing/details/cosmos-db/) em Azure Cosmos DB.
 
 * **Criar recursos do Azure Cosmos DB:** antes de começar a migração de dados, crie previamente todas as suas coleções no portal do Azure. Para migrar para uma conta DB Azure Cosmos que tenha produção de nível de base de dados, forneça uma chave de partição quando criar os recipientes Azure Cosmos.
+
+> [!IMPORTANT]
+> Para se certificar de que a ferramenta de migração de dados utiliza a Segurança da Camada de Transporte (TLS) 1.2 ao ligar-se às suas contas Azure Cosmos, utilize a versão .NET Framework 4.7 ou siga as instruções encontradas [neste artigo](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 
 ## <a name="overview"></a><a id="Overviewl"></a>Descrição geral
 

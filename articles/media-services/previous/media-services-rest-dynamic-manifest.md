@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 9bc351f72f5dac38ebfc1983a7b918d46f5fc8ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a77da9726c6c081ba5129b9b8815c3ac560e3b54
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000317"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256843"
 ---
-# <a name="creating-filters-with-azure-media-services-rest-api"></a>Criar filtros com Azure Media Services REST API 
+# <a name="creating-filters-with-azure-media-services-rest-api"></a>Criar filtros com Azure Media Services REST API
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)

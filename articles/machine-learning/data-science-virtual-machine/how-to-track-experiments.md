@@ -1,7 +1,7 @@
 ---
 title: Modelos de rastreio e implantação de experiências
 titleSuffix: Azure Data Science Virtual Machine
-description: Aprenda a rastrear e registar experiências a partir do DSVM com Azure Machine Learning e/ou MLFlow.
+description: Saiba como rastrear e registar experiências a partir da Máquina Virtual de Ciência de Dados com Azure Machine Learning e/ou MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,14 +9,14 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146900"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254805"
 ---
-# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Track Experiments e implementar modelos em Azure Machine Learning
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Acompanhe experiências e implemente modelos em Azure Machine Learning
 
 Melhore o processo de criação de modelos rastreando as suas experiências e monitorizando as métricas de execução. Neste artigo, aprenda a adicionar código de registo ao seu script de treino utilizando a API [MLflow](https://mlflow.org/) e acompanhe a experiência em Azure Machine Learning.
 
@@ -123,19 +123,19 @@ Deve ver o erro quadrado médio registado (MSE):
 
 ![MSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-Se clicar na execução, verá outros detalhes e também o modelo em conserva nos __resultados+logs__
+Se clicar na execução, verá outros detalhes e também o modelo em conserva nos __registos Outputs+__
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>Implementar modelo em Azure Machine Learning
 
-Nesta secção descrevemos como implementar modelos treinados num DSVM para Azure Machine Learning.
+Nesta secção, delineamos como implementar modelos treinados num DSVM para Azure Machine Learning.
 
 ### <a name="step-1-create-inference-compute"></a>Passo 1: Criar Inferência Compute
 
-No menu à esquerda no [Estúdio AzureML](https://ml.azure.com) clique no __Computação__ e, em seguida, no __separador clusters inferência.__ Em seguida, clique em __+ Novo__ como articulado abaixo:
+No menu à esquerda no [Estúdio AzureML](https://ml.azure.com) clique no __Computação__ e, em seguida, no __separador clusters inferência.__ Em seguida, clique em __+ Novo__ como discutido abaixo:
 
 ![Criar Inferência Compute](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-No painel de __agrupamento de inferência Nova__ preenchem detalhes para:
+No painel de agrupamento de __inferência Nova,__ os detalhes preenchem os detalhes para:
 
 * Nome do cálculo
 * Kubernetes Service - selecione criar novos
@@ -151,7 +151,7 @@ Em seguida, clique em __Criar__.
 
 ### <a name="step-2-deploy-no-code-inference-service"></a>Passo 2: Implementar serviço de inferência sem código
 
-Quando registámos o modelo no nosso código usando `register_model` especificamos a estrutura como sklearn. A Azure Machine Learning não suporta implementações de código para os seguintes quadros:
+Quando registámos o modelo no nosso código `register_model` utilizando, especificámos a estrutura como sklearn. A Azure Machine Learning não suporta implementações de código para os seguintes quadros:
 
 * scikit-learn
 * Formato Tensorflow SaveModel
@@ -165,21 +165,21 @@ Para implementar o modelo de diabetes, vá ao menu à esquerda no [Azure Machine
 
 Em seguida, clique no botão __Implementar__ no painel de detalhes do modelo:
 
-![Implementação](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Implementar](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-Vamos implantar o modelo para o Cluster de Inferências (Serviço Azure Kubernetes) que criamos no passo 1. Preencha os detalhes abaixo, fornecendo um nome para o serviço, e o nome do cluster de computação AKS (criado no passo 1). Recomendamos ainda que aumente a capacidade de reserva do __CPU__ para 1 (a partir de 0.1) e a __capacidade de reserva__ de memória para 1 (a partir de 0.5) - pode fazê-lo clicando em __Advanced__ e preenchendo os detalhes. Em seguida, clique em __Implementar__.
+Vamos implantar o modelo para o Cluster de Inferências (Serviço Azure Kubernetes) que criamos no passo 1. Preencha os detalhes abaixo, fornecendo um nome para o serviço, e o nome do cluster de computação AKS (criado no passo 1). Recomendamos ainda que aumente a capacidade de reserva do __CPU__ para 1 (de 0,1) e a __capacidade de reserva__ de memória para 1 (a partir de 0,5) - pode fazer este aumento clicando em __Advanced__ e preenchendo os detalhes. Em seguida, clique em __Implementar__.
 
 ![implementar detalhes](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
 ### <a name="step-3-consume"></a>Passo 3: Consumir
 
-Quando o modelo tiver sido implementado com sucesso, deverá ver o seguinte (para chegar a esta página clique em Pontos finais a partir do menu da esquerda > clicar no nome do serviço implantado):
+Quando o modelo tiver sido implementado com sucesso, deverá ver o seguinte (para chegar a esta página clique em Endpoints a partir do menu da esquerda > clicar no nome do serviço implantado):
 
 ![Consumir modelo](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-Note-se que o estado de implantação passa da __transição__ para o __saudável__. Além disso, esta secção de detalhes fornece o ponto final REST e URLs Swagger que um desenvolvedor de aplicações pode usar para integrar o seu modelo ML nas suas apps.
+Deve ver que o estado de implantação passa da __transição__ __para__saudável. Além disso, esta secção de detalhes fornece o ponto final REST e URLs Swagger que um desenvolvedor de aplicações pode usar para integrar o seu modelo ML nas suas apps.
 
-Pode testar o ponto final utilizando o [Carteiro,](https://www.postman.com/)em alternativa pode utilizar o AzureML SDK:
+Pode testar o ponto final usando o [Carteiro,](https://www.postman.com/)ou pode utilizar o AzureML SDK:
 
 ```python
 from azureml.core import Webservice
@@ -200,7 +200,7 @@ print(output)
 
 ### <a name="step-4-clean-up"></a>Passo 4: Limpar
 
-Deve eliminar o Inference Compute que criou no Passo 1 para que não incorra em taxas de computação em curso. No menu à esquerda do Azure Machine Learning Studio clique em Compute > Inference Clusters > Selecione o > computacional Delete.
+Elimine o Inference Compute que criou no Passo 1 para que não incorra em taxas de computação em curso. No menu à esquerda do Azure Machine Learning Studio, clique em Compute > Inference Clusters > Selecione o > computacional Delete.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

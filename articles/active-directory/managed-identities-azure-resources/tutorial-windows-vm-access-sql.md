@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05278213e30aa6d31873e93025b5a4f1bc36a5a1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d576fb4f5dea10a2adf0d7488aa422e1397fd6d1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018540"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255754"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder ao SQL do Azure
 
@@ -44,7 +44,7 @@ Este tutorial mostra-lhe como usar uma identidade atribuída ao sistema para uma
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Para conceder o acesso vm a uma base de dados na Base de Dados Azure SQL, pode utilizar um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) existente ou criar um novo. Para criar um novo servidor e base de dados com o portal do Azure, siga este [início rápido do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Também existem inícios rápidos que utilizam a CLI do Azure e o Azure PowerShell na [documentação do SQL do Azure](https://docs.microsoft.com/azure/sql-database/).
+Para conceder o acesso vm a uma base de dados na Base de Dados Azure SQL, pode utilizar um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) existente ou criar um novo. Para criar um novo servidor e base de dados com o portal do Azure, siga este [início rápido do SQL do Azure](../../azure-sql/database/single-database-create-quickstart.md). Também existem inícios rápidos que utilizam a CLI do Azure e o Azure PowerShell na [documentação do SQL do Azure](/azure/sql-database/).
 
 Existem dois passos para conceder acesso da sua VM a uma base de dados:
 
@@ -53,7 +53,7 @@ Existem dois passos para conceder acesso da sua VM a uma base de dados:
 
 ### <a name="enable-azure-ad-authentication"></a>Ativar a autenticação AD do Azure
 
-**Para [configurar a autenticação Azure Ad:](/azure/sql-database/sql-database-aad-authentication-configure)**
+**Para [configurar a autenticação Azure Ad:](../../azure-sql/database/authentication-aad-configure.md)**
 
 1. No portal do Azure, selecione **SQL Servers** no painel de navegação esquerdo.
 2. Clique no SQL Server para ser ativado para autenticação do Azure AD.
@@ -64,10 +64,10 @@ Existem dois passos para conceder acesso da sua VM a uma base de dados:
 
 ### <a name="create-contained-user"></a>Criar utilizador contido
 
-Esta secção mostra como criar um utilizador contido na base de dados que representa a identidade atribuída pelo sistema VM. Para este passo, você precisa do [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Antes de começar, também pode ser útil rever os artigos seguintes para obter informações sobre a integração do Azure AD:
+Esta secção mostra como criar um utilizador contido na base de dados que representa a identidade atribuída pelo sistema VM. Para este passo, você precisa do [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Antes de começar, também pode ser útil rever os artigos seguintes para obter informações sobre a integração do Azure AD:
 
-- [Autenticação Universal com Base de Dados SQL e Azure Synapse Analytics (suporte SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-- [Configurar e gerir a autenticação do Azure Ative Directory com base de dados SQL ou Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Autenticação Universal com Base de Dados SQL e Azure Synapse Analytics (suporte SSMS para MFA)](../../azure-sql/database/authentication-mfa-ssms-overview.md)
+- [Configurar e gerir a autenticação do Azure Ative Directory com base de dados SQL ou Azure Synapse Analytics](../../azure-sql/database/authentication-aad-configure.md)
 
 SQL DB requer nomes exclusivos de exibição de AAD. Com isto, as contas da AAD, tais como utilizadores, grupos e principais de serviços (aplicações) e nomes de VM habilitados para identidade gerida devem ser definidos exclusivamente em AAD no que diz respeito aos seus nomes de exibição. SQL DB verifica o nome de exibição AAD durante a criação de T-SQL de tais utilizadores e, se não for único, o comando não solicita fornecer um nome de exibição AAD único para uma determinada conta.
 
@@ -208,4 +208,4 @@ Examine o valor de `$DataSet.Tables[0]` para ver os resultados da consulta.
 Neste tutorial, aprendeu a usar uma identidade gerida atribuída ao sistema para aceder à Base de Dados Azure SQL. Para saber mais sobre a Base de Dados Azure SQL consulte:
 
 > [!div class="nextstepaction"]
-> [Base de Dados SQL do Azure](/azure/sql-database/sql-database-technical-overview)
+> [Base de Dados SQL do Azure](../../azure-sql/database/sql-database-paas-overview.md)

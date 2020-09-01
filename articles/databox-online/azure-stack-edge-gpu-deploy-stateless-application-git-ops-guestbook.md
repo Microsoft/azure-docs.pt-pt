@@ -1,5 +1,5 @@
 ---
-title: Implementar a aplicação PHP Guestbook no Arc habilitado a Kubernetes no dispositivo Azure Stack Edge Microsoft Docs
+title: Implementar a aplicação PHP Guestbook no Arc habilitada a Kubernetes no dispositivo GPU Azure Stack Edge Microsoft Docs
 description: Descreve como implementar uma aplicação apátrida phP guestbook com Redis usando GitOps em um arco habilitado kubernetes cluster do seu dispositivo Azure Stack Edge.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 46cef291a447a7c243ee9ef66ee64e9c6264ad23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085767"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254224"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge"></a>Implementar uma aplicação apátrida php guestbook com Redis on Arc habilitado cluster Kubernetes em Azure Stack Edge
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Implementar uma aplicação apátrida php guestbook com Redis on Arc habilitado cluster Kubernetes em Azure Stack Edge GPU
 
 Este artigo mostra-lhe como construir e implementar uma aplicação web simples e multi-nível usando Kubernetes e Azure Arc. Este exemplo consiste nos seguintes componentes:
 
