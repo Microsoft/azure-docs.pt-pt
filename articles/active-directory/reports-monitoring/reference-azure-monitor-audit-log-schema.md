@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7a5e2e45cd3d76c0d8af612291ecaf9893b5b5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68987944"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231100"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria AZure AD no Azure Monitor (pré-visualização)
 
@@ -147,7 +147,7 @@ Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no
 
 ## <a name="field-and-property-descriptions"></a>Descrições de campo e de propriedade
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 |------------|-------------|
 | hora       | A data e a hora (UTC). |
 | operationName | O nome da operação. |
@@ -167,7 +167,7 @@ Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no
 
 <br>
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 |---------------|-------------|
 | AuditEventCategoria | O tipo de evento de auditoria. Pode ser *Gestão de Utilizadores,* *Gestão de Aplicações,* ou outro tipo.|
 | Tipo de Identidade | O tipo pode ser *Aplicação* ou *Utilizador.* |
@@ -176,8 +176,8 @@ Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no
 | Nome do recurso alvo | O nome do recurso alvo. Pode ser um nome de aplicação, um nome de papel, um nome principal do utilizador ou um nome principal de serviço. |
 | adicionalsagets | Lista quaisquer propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e os novos valores estão listados no *âmbito das Propriedades Dedada.* | 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md) (Interpretar o esquema dos registos de início de sessão no Azure Monitor)
-* [Registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Registos de diagnóstico do Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Perguntas mais frequentes e problemas conhecidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

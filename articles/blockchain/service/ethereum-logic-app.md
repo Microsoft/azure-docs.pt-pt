@@ -1,23 +1,24 @@
 ---
 title: Use o conector Ethereum Blockchain com apps Azure Logic - Azure Blockchain Service
 description: Utilize o conector Ethereum Blockchain com Azure Logic Apps para desencadear funções de contrato inteligentes e responder a eventos de contrato inteligentes.
-ms.date: 10/14/2019
+ms.date: 08/31/2020
 ms.topic: how-to
-ms.reviewer: chrisseg
-ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: caleteet
+ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077044"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230539"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utilize o conector Ethereum Blockchain com apps Azure Logic
 
-Utilize o [conector Ethereum Blockchain](/connectors/blockchainethereum/) com [a Azure Logic Apps](../../logic-apps/index.yml) para realizar ações de contrato inteligentes e responder a eventos de contrato inteligentes. Por exemplo, digamos que pretende criar um microserviço baseado em REST que retorna a informação de um livro de contabilidade blockchain. Ao utilizar uma aplicação lógica, pode aceitar pedidos HTTP que questionem as informações armazenadas num livro-razão blockchain.
+Utilize o [conector Ethereum Blockchain](/connectors/blockchainethereum/) com [a Azure Logic Apps](../../logic-apps/index.yml) para realizar ações de contrato inteligentes e responder a eventos de contrato inteligentes. Este artigo explica como pode usar o conector Ethereum Blockchain para enviar informações blockchain para outro serviço ou chamar uma função blockchain. Por exemplo, digamos que pretende criar um microserviço baseado em REST que retorna a informação de um livro de contabilidade blockchain. Ao utilizar uma aplicação lógica, pode aceitar pedidos HTTP que questionem as informações armazenadas num livro-razão blockchain.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Preencha o pré-requisito opcional [Quickstart: Use o Código do Estúdio Visual para ligar a uma rede de consórcios do Azure Blockchain Service](connect-vscode.md). O quickstart guia-o embora tenha instalado [o Azure Blockchain Development Kit para o Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e configurando o seu ambiente de desenvolvimento blockchain.
+- Preencha o pré-requisito opcional [Quickstart: Use o Código do Estúdio Visual para ligar a uma rede de consórcios do Azure Blockchain Service](connect-vscode.md). O quickstart guia-o embora tenha instalado [o Azure Blockchain Development Kit para o Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e configurando o seu ambiente de desenvolvimento blockchain.
+- Se é novo em Azure Logic Apps, considere rever os módulos Microsoft Learn [Introdução a Aplicações Lógicas Azure](/learn/modules/intro-to-logic-apps/) e [Ligue uma API a partir de um fluxo de trabalho de Apps Lógicas utilizando um conector personalizado](/learn/modules/logic-apps-and-custom-connectors/).
 
 ## <a name="create-a-logic-app"></a>Criar uma aplicação lógica
 
@@ -33,7 +34,7 @@ O Azure Logic Apps ajuda-o a agendar e automatizar processos de negócio e fluxo
 
 Todas as aplicações lógicas têm de iniciar com um acionador, que é desencadeado quando um evento específico acontece ou quando uma condição específica é cumprida. Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica que inicia e executa o fluxo de trabalho.
 
-O conector Ethereum Blockchain tem um gatilho e várias ações. O gatilho ou ação que usas depende do teu cenário.
+O conector Ethereum Blockchain tem um gatilho e várias ações. O gatilho ou ação que usas depende do teu cenário. Siga a secção deste artigo que melhor corresponda ao seu cenário.
 
 Se o seu fluxo de trabalho:
 
@@ -128,7 +129,7 @@ Por exemplo, os seguintes passos geram uma aplicação lógica de microserviço 
 
     ![Vista de designer com a seleção de Conexões](./media/ethereum-logic-app/microservice-logic-app.png)
 
-1. Agora pode usar a sua aplicação lógica. Para testar o microserviço baseado em REST, emita um pedido HTTP POST para o URL de pedido de aplicação lógica. Copie o conteúdo **do URL HTTP POST** a partir do passo quando um pedido HTTP é **recebido.**
+1. Agora pode usar a sua aplicação lógica. Para testar o microserviço baseado em REST, emita um pedido HTTP POST para o URL de pedido de aplicação lógica. Copie o conteúdo **do URL HTTP POST** do Quando um pedido HTTP é **recebido** passo.
 
     ![Painel de designer de aplicações lógicas com o URL HTTP POST](./media/ethereum-logic-app/post-url.png)
 

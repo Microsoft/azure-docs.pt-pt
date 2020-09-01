@@ -1,18 +1,18 @@
 ---
 title: Tutorial - Adicionar um modelo de amostra- Azure Analysis Services / Microsoft Docs
-description: Nesta aula de tutorial, aprenda a adicionar um modelo de exemplo no Azure Analysis Services.
+description: Neste tutorial, aprenda a adicionar um modelo de amostra nos Serviços de Análise Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b84c2e50ae7f5038cf9cb8a96c0c51d6537c929
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83697518"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230907"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo a partir do portal
 
@@ -24,7 +24,7 @@ Neste tutorial, irá adicionar uma base de dados de modelo tabular do Adventure 
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
@@ -45,14 +45,14 @@ Inicie sessão no [portal](https://portal.azure.com/).
 
 2. Em **Novo modelo**Escolha uma fonte de  >  **dados,** verifique se os **dados da amostra** e, em seguida, clique em **Adicionar**.
 
-    ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![Selecione novo modelo](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
 3. Na **Descrição geral**, certifique-se de que o modelo de exemplo `adventureworks` é adicionado.
 
     ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O modelo de exemplo está a utilizar recursos de memória de cache. Se não estiver a utilizar o seu modelo de exemplo para fins de teste, deve removê-lo do seu servidor.
 

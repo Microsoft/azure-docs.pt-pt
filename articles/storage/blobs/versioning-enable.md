@@ -1,29 +1,27 @@
 ---
-title: Ativar e gerir a versão blob (pré-visualização)
+title: Ativar e gerir a versão blob
 titleSuffix: Azure Storage
-description: Saiba como ativar a versão blob (pré-visualização) no portal Azure ou utilizando um modelo de Gestor de Recursos Azure.
+description: Saiba como ativar a versão blob no portal Azure ou utilizando um modelo de Gestor de Recursos Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1df7afb5a029ff7770a64d6bf698a462c8ab9735
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074411"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230675"
 ---
-# <a name="enable-and-manage-blob-versioning-preview"></a>Ativar e gerir a versão blob (pré-visualização)
+# <a name="enable-and-manage-blob-versioning"></a>Ativar e gerir a versão blob
 
-Pode permitir que a versão de armazenamento Blob (pré-visualização) mantenha automaticamente as versões anteriores de um objeto.  Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada.
+Pode permitir que a versão de armazenamento Blob mantenha automaticamente as versões anteriores de um objeto.  Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada.
 
-Este artigo mostra como ativar ou desativar a versão blob para a conta de armazenamento utilizando o portal Azure ou um modelo de Gestor de Recursos Azure.
-
-Tem de se registar para a pré-visualização antes de ativar a versão blob. Para saber mais sobre a versão blob, incluindo como se registar para a pré-visualização, consulte [a versão Blob (pré-visualização)](versioning-overview.md).
+Este artigo mostra como ativar ou desativar a versão blob para a conta de armazenamento utilizando o portal Azure ou um modelo de Gestor de Recursos Azure. Para saber mais sobre a versão blob, consulte [a versão Blob](versioning-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -75,7 +73,7 @@ Para obter mais informações sobre a implantação de recursos com modelos no p
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modificar uma bolha para desencadear uma nova versão
 
-O exemplo de código que se segue mostra como desencadear a criação de uma nova versão com a biblioteca cliente Azure Storage para .NET, versão [12.5.0-preview.5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) ou posterior. Antes de executar este exemplo, certifique-se de que ativou a versão para a sua conta de armazenamento.
+O exemplo de código que se segue mostra como desencadear a criação de uma nova versão com a biblioteca cliente Azure Storage para .NET, versão [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) ou posterior. Antes de executar este exemplo, certifique-se de que ativou a versão para a sua conta de armazenamento.
 
 O exemplo cria uma bolha de bloco e, em seguida, atualiza os metadados da bolha. A atualização dos metadados da blob desencadeia a criação de uma nova versão. O exemplo recupera a versão inicial e a versão atual, e mostra que apenas a versão atual inclui os metadados.
 
@@ -161,5 +159,5 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Veragem blob (pré-visualização)](versioning-overview.md)
+- [Versão blob](versioning-overview.md)
 - [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](soft-delete-overview.md)

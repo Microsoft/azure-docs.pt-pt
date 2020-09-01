@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a0c68bf11d81925c1b9c3e408434a6f7b1b2694
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f70d1caacfd655c956d4fcc36e3f0d3848d8f0fe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608998"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230573"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integre registos AD AD com registos do Azure Monitor
 
@@ -58,7 +58,7 @@ Para utilizar esta funcionalidade, precisa de:
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [inscrever-se para obter uma avaliação gratuita](https://azure.microsoft.com/free/).
 * Um inquilino do Azure AD.
 * Um utilizador que seja *administrador global* ou *administrador de segurança* do inquilino do Azure AD.
-* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)
+* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](../../azure-monitor/learn/quick-create-workspace.md)
 
 ## <a name="licensing-requirements"></a>Requisitos de licenciamento
 
@@ -84,7 +84,7 @@ A utilização desta funcionalidade requer uma licença Azure AD Premium P1 ou P
 
 7. Após cerca de 15 minutos, verifique se os eventos são transmitidos para o seu espaço de trabalho Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Analise os registos de atividades da AZure com registos do Monitor Azure](howto-analyze-activity-logs-log-analytics.md)
 * [Instale e utilize as vistas de análise de registo para o Azure Ative Directory](howto-install-use-log-analytics-views.md)

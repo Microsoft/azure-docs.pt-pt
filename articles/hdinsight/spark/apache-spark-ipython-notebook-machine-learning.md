@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 0029761f8a1c48ab595dfa5bc2a87fca12d90e3d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 753f45257f820f87f2e4bfb1893f581bee167a4a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873930"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230930"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Construir uma aplicação de aprendizagem automática Apache Spark em Azure HDInsight
 
@@ -41,7 +41,7 @@ A aplicação utiliza a amostra **HVAC.csv** dados que estão disponíveis em to
 
 Esta aplicação utiliza um [oleoduto Spark ML](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) para fazer uma classificação de documento. Os gasodutos ML fornecem um conjunto uniforme de APIs de alto nível construído em cima de DataFrames. Os DataFrames ajudam os utilizadores a criar e afinar oleodutos práticos de aprendizagem de máquinas. No pipeline, o documento é dividido em palavras, estas são convertidas num vetor de numérico de características e, por fim, é criado um modelo de previsão que utiliza os vetores de características e as etiquetas. Faça os seguintes passos para criar a aplicação.
 
-1. Crie um bloco de notas do Jupyter com o kernel de PySpark. Para obter as instruções, veja [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Crie um bloco de notas do Jupyter com o kernel de PySpark. Para obter as instruções, consulte [Criar um ficheiro de caderno Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 1. Importe os tipos necessários para este cenário. Cole o seguinte fragmento numa célula vazia e prima **SHIFT + ENTER**.
 

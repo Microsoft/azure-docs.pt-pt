@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: cd9b015c292d262430d3fd845e06e38866bc6239
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018727"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230386"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -181,7 +181,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
   * Chrome (versão mais recente)
   * Firefox (versão mais recente)
 
-## <a name="set-up-your-environment"></a>Configurar o seu ambiente
+## <a name="set-up-your-environment"></a>Configurar o ambiente
 
 * **Problemas na criação do AmlCompute**: Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
 
@@ -318,6 +318,26 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Aprendizagem automática automatizada
 
+* **A recente atualização das dependências automl para versões mais recentes será quebrar a compiblitidade**: A partir da versão 1.13.0 do SDK, os modelos não serão carregados em SDKs mais antigos devido à incompatibilidade entre as versões mais antigas que fixamos nos nossos pacotes anteriores, e as versões mais recentes que agora fixamos. Verá erros como:
+  * Módulo não encontrado: Ex. `No module named 'sklearn.decomposition._truncated_svd` ,
+  * Erros de importação: Ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
+  * Erros de atributo: Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  Para contornar esta questão, dê um dos dois passos seguintes dependendo da sua versão de treino AutoML SDK:
+  1. Se a sua versão de treino AutoML SDK for superior a 1.13.0, precisa `pandas == 0.25.1` e `sckit-learn==0.22.1` . Se houver uma incompatibilidade da versão, atualize scikit-learn e/ou pandas para corrigir a versão como mostrado abaixo:
+  
+  ```bash
+     pip install --upgrade pandas==0.25.1
+     pip install --upgrade scikit-learn==0.22.1
+  ```
+  
+  2. Se a sua versão de treino AutoML SDK for inferior ou igual a 1.12.0, precisa `pandas == 0.23.4` e `sckit-learn==0.20.3` . Se houver uma incompatibilidade da versão, desclasse scikit-learn e/ou pandas para corrigir a versão como mostrado abaixo:
+  
+  ```bash
+    pip install --upgrade pandas==0.23.4
+    pip install --upgrade scikit-learn==0.20.3
+  ```
+ 
 * **TensorFlow**: A partir da versão 1.5.0 do SDK, a aprendizagem automática de máquinas não instala modelos TensorFlow por predefinição. Para instalar o TensorFlow e utilizá-lo com as suas experiências automatizadas de ML, instale tensorflow==1.12.0 via CondaDependecies. 
  
    ```python

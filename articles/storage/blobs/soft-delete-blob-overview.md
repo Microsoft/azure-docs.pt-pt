@@ -1,5 +1,5 @@
 ---
-title: Excluir suave para bolhas
+title: Eliminação recuperável para blobs
 titleSuffix: Azure Storage
 description: A eliminação suave para blobs protege os seus dados para que possa recuperar mais facilmente os seus dados quando estes são erroneamente modificados ou eliminados por uma aplicação ou por outro utilizador de conta de armazenamento.
 services: storage
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2e390c9d5d2fa7c6551ed661c6c25096732eefd5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057328"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230114"
 ---
-# <a name="soft-delete-for-blobs"></a>Excluir suave para bolhas
+# <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
 
-A eliminação suave das bolhas protege os seus dados de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave para bolhas é ativada para uma conta de armazenamento, bolhas, versões blob (pré-visualização) e instantâneos nessa conta de armazenamento podem ser recuperados após serem eliminados, dentro de um período de retenção que especifique.
+A eliminação suave das bolhas protege os seus dados de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave para bolhas estiver ativada para uma conta de armazenamento, as versões blob, blob e instantâneos nessa conta de armazenamento podem ser recuperadas após a sua eliminação, num período de retenção que especifique.
 
 Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se apague suavemente. Para obter mais informações sobre a ativação da eliminação suave, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-enable.md).
 
@@ -28,7 +28,7 @@ Se houver a possibilidade de os seus dados poderem ser acidentalmente modificado
 
 Quando a eliminação suave para bolhas estiver ativada numa conta de armazenamento, pode recuperar objetos depois de eliminados, dentro do período de retenção de dados especificado. Esta proteção estende-se a quaisquer bolhas (bolhas de bloco, bolhas de apêndio ou bolhas de página) que são apagadas como resultado de um excesso de substituição.
 
-Se os dados de uma bolha ou instantâneo existentes forem eliminados enquanto a eliminação macia de blob estiver ativada, mas a versão blob (pré-visualização) não estiver ativada, então é gerada uma imagem apagada suave para salvar o estado dos dados substituídos. Após o período de retenção especificado ter expirado, o objeto é permanentemente eliminado.
+Se os dados de uma bolha ou instantâneo existentes forem eliminados enquanto a eliminação macia de blob estiver ativada, mas a versão blob não estiver ativada, então é gerada uma imagem suave eliminada para salvar o estado dos dados substituídos. Após o período de retenção especificado ter expirado, o objeto é permanentemente eliminado.
 
 Se a versão blob e a eliminação suave do blob estiverem ativadas na conta de armazenamento, então a eliminação de uma bolha cria uma nova versão em vez de uma imagem depagou-se suavemente. A nova versão não é eliminada suavemente e não é removida quando o período de retenção de eliminação suave expirar. As versões de uma bolha com soft-dele podem ser restauradas dentro do período de retenção, chamando a operação [Undelete Blob.](/rest/api/storageservices/undelete-blob) A bolha pode ser posteriormente restaurada a partir de uma das suas versões, chamando a operação [Copy Blob.](/rest/api/storageservices/copy-blob) Para obter mais informações sobre a utilização da versão blob e eliminar suavemente, consulte [a versão Blob e a eliminação suave](versioning-overview.md#blob-versioning-and-soft-delete).
 
@@ -83,7 +83,7 @@ A eliminação suave não guarda os seus dados em casos de eliminação de conte
 
 Os seguintes detalhes da tabela são comportamentos esperados quando a eliminação suave é ligada:
 
-| Operação REST API | Tipo de recurso | Descrição | Mudança de comportamento |
+| Operação REST API | Tipo de recurso | Description | Mudança de comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Elimina a conta de armazenamento, incluindo todos os recipientes e bolhas que contém.                           | Sem mudanças. Os recipientes e bolhas na conta eliminada não são recuperáveis. |
 | [Eliminar Contentor](/rest/api/storageservices/delete-container) | Contentor | Elimina o recipiente, incluindo todas as bolhas que contém. | Sem mudanças. As bolhas no recipiente apagado não são recuperáveis. |
@@ -163,7 +163,7 @@ Permitir a eliminação suave de dados frequentemente substituídos pode resulta
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Posso utilizar o set Blob Tier API para colocar bolhas de nível com instantâneos suaves apagados?
 
-Sim. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
+Yes. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
 
 ### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>As contas de armazenamento premium têm um limite de instantâneo por bolha de 100. Os instantâneos apagados suaves contam para este limite?
 
@@ -193,5 +193,5 @@ Uma máquina virtual Azure escreve para um disco não gerido usando chamadas par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar a eliminação suave para bolhas](soft-delete-enable.md)
-- [Veragem blob (pré-visualização)](versioning-overview.md)
+- [Ativar a eliminação recuperável para blobs](soft-delete-enable.md)
+- [Versão blob](versioning-overview.md)

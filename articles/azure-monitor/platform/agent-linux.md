@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998939"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230471"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instale o agente Log Analytics nos computadores Linux
 Este artigo fornece detalhes sobre a instalação do agente Log Analytics em computadores Linux utilizando os seguintes métodos:
@@ -51,11 +51,19 @@ Começando com versões lançadas após agosto de 2018, estamos a fazer as segui
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-O python2 executável deve ser aliasado a "python" utilizando o seguinte comando:
+O python2 executável deve ser aliasado a *pitão.* Segue-se um método que pode utilizar para definir este pseudónimo:
 
-```
-alternatives --set python `which python2`
-```
+1. Executar o seguinte comando para remover quaisquer pseudónimos existentes.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Executar o seguinte comando para criar o pseudónimo.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## <a name="supported-linux-hardening"></a>Endurecimento de Linux apoiado
 O Agente OMS tem um suporte limitado de personalização para o Linux. 
@@ -64,7 +72,8 @@ Neste momento, são apoiados:
 - FIPs
 
 Estão previstos, mas ainda não apoiados:
-- CIS -SELINUX
+- CIS
+- SELINUX
 
 Outros métodos de endurecimento e personalização não são suportados nem planeados para o agente OMS.  
 
@@ -72,7 +81,7 @@ Outros métodos de endurecimento e personalização não são suportados nem pla
 
 A tabela seguinte realça as embalagens necessárias para [os distros Linux suportados](#supported-operating-systems) em que o agente será instalado.
 
-|Pacote necessário |Descrição |Versão mínima |
+|Pacote necessário |Description |Versão mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x ou 1.1.x |
@@ -84,7 +93,7 @@ A tabela seguinte realça as embalagens necessárias para [os distros Linux supo
 >[!NOTE]
 >Ou rssyslog ou syslog-ng são necessários para recolher mensagens syslog. O syslog daemon padrão na versão 5 da red hat Enterprise Linux, CentOS e oracle Linux versão (sysklog) não é suportado para a coleção de eventos syslog. Para recolher dados syslog desta versão destas distribuições, o anão de rsyslog deve ser instalado e configurado para substituir o sysklog.
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="network-requirements"></a>Requisitos de rede
 Consulte [a visão geral](log-analytics-agent.md#network-requirements) do agente Log Analytics para os requisitos de rede do agente Linux.
 
 ## <a name="agent-install-package"></a>Pacote de instalação de agente

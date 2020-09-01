@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: f870f90ede4465bf9ebf5c886e1ebb7aa76acaaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8b20a0815ab16a3713d640a25171e440a8330dd1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997902"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230318"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Mover dados para e entre os passos de pipeline de ML (Python)
 
@@ -33,9 +33,8 @@ Este artigo irá mostrar-lhe como:
 - Crie novos `Dataset` objetos a partir do `PipelineData` seu desejo de persistir
 
 > [!TIP]
-> Nas aulas de pré-visualização do gasoduto está disponível uma experiência melhorada para a passagem de dados temporários entre etapas de gasoduto e persistência dos seus dados após a execução do gasoduto nas aulas de pré-visualização  `OutputFileDatasetConfig` públicas, e `OutputTabularDatasetConfig` .  Estas aulas são funcionalidades experimentais de pré-visualização, e podem mudar a qualquer momento.
-> 
->Para obter mais informações sobre funcionalidades experimentais, https://aka.ms/azuremlexperimental consulte.
+> Nas aulas de pré-visualização do gasoduto está disponível uma experiência melhorada para a passagem de dados temporários entre etapas de gasoduto e persistência dos seus dados após a execução do gasoduto nas aulas de pré-visualização  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) públicas, e [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  Estas aulas são funcionalidades [experimentais](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) de pré-visualização, e podem mudar a qualquer momento.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

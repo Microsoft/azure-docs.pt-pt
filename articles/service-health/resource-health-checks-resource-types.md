@@ -3,12 +3,12 @@ title: Tipos de Recursos Suportados através da Azure Resource Health Microsoft 
 description: Tipos de Recursos Suportados através da Saúde dos Recursos Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611947"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230165"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos Azure
 Abaixo está uma lista completa de todos os cheques executados através da saúde de recursos por tipos de recursos.
@@ -22,6 +22,11 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 |Verificações executadas|
 |---|
 |<ul><li>O serviço de gestão Api está a funcionar?</li></ul>|
+
+## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/primavera
+|Verificações executadas|
+|---|
+|<ul><li>A instância da Nuvem de primavera de Azure está disponível?</li></ul>|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batcontas ch/batch
 |Verificações executadas|
@@ -56,12 +61,17 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 ## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
 |Verificações executadas|
 |---|
-|<ul><li>É o anfitrião em funcionamento</li><li>O hardware do anfitrião está degradado?</li><li>O anfitrião está fechado?</li><li>O serviço de hardware do anfitrião curou-se em hardware diferente?</li></ul>|
+|<ul><li>O anfitrião está a funcionar?</li><li>O hardware do anfitrião está degradado?</li><li>O anfitrião está fechado?</li><li>O serviço de hardware do anfitrião curou-se em hardware diferente?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Verificações executadas|
 |---|
 |<ul><li>O servidor que está a montar esta máquina virtual está a funcionar?</li><li>O arranque do hospedeiro OS já foi concluído?</li><li>O recipiente da máquina virtual é a provisionado e alimentado?</li><li>Existe conectividade de rede entre o hospedeiro e a conta de armazenamento?</li><li>O arranque do so convidado terminou?</li><li>Há manutenção planeada?</li><li>O hardware do anfitrião está degradado e prevê-se que falhe em breve?</li></ul>|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+|Verificações executadas|
+|---|
+|<ul><li>O aglomerado está a funcionar?</li><li>Os serviços essenciais estão disponíveis no cluster?</li><li>Todos os nós de agrupamento estão prontos?</li><li>O serviço principal é atual e válido?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/fábricas
 |Verificações executadas|
@@ -124,10 +134,20 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 |---|
 |<ul><li>Os serviços essenciais estão disponíveis no cluster HDInsight?</li><li>O cluster HDInsight pode aceder à chave para a encriptação BYOK em repouso?</li></ul>|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
+|Verificações executadas|
+|---|
+|<ul><li>A Aplicação Central IoT está disponível?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/cofres
 |Verificações executadas|
 |---|
 |<ul><li>Os pedidos de falha no cofre de chaves estão a falhar devido a problemas na plataforma Azure KeyVault?</li><li>Os pedidos para o cofre chave estão a ser estrangulados devido a muitos pedidos feitos pelo cliente?</li></ul>|
+
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/clusters
+|Verificações executadas|
+|---|
+|<ul><li>O cluster está a ter baixas taxas de sucesso de ingestão?</li><li>O aglomerado está a sofrer de alta latência de ingestão?</li><li>O cluster está a sofrer um elevado número de falhas de consulta?</li></ul>|
 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |Verificações executadas|
@@ -164,6 +184,11 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 |---|
 |<ul><li>Os pontos finais de equilíbrio de carga estão disponíveis?</li></ul>|
 
+## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.network/trafficmanagerprofils
+|Verificações executadas|
+|---|
+|<ul><li>Há algum problema com o perfil do Gestor de Tráfego?</li></ul>|
+
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Verificações executadas|
 |---|
@@ -183,11 +208,6 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 |Verificações executadas|
 |---|
 |<ul><li>O recurso de capacidade está a funcionar?</li><li>Todas as cargas de trabalho estão a funcionar?</li></ul>|
-
-## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
-|Verificações executadas|
-|---|
-|<ul><li>O hospedeiro está a funcionar?</li><li>O espaço de trabalho Acolecção é acessível de fora do datacenter?</li><li>O Fornecedor de Recursos Power BI está disponível?</li><li>O Serviço Power BI está disponível na região adequada?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Verificações executadas|

@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c3c597c172c7ec21c2d46e89602abf87d750127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc7bcab04da005fd0d46d18e7b708dcb1c9d58e5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608182"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230522"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integre os registos do Azure Ative Directory com o ArcSight utilizando o Azure Monitor
 
@@ -33,7 +33,7 @@ Neste artigo, aprende a encaminhar os registos Azure AD para o ArcSight utilizan
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar esta funcionalidade, precisa de:
-* Um centro de eventos Azure que contém registos de atividade azure AD. Saiba como [transmitir os seus registos de atividade para um centro de eventos.](quickstart-azure-monitor-stream-logs-to-event-hub.md) 
+* Um centro de eventos Azure que contém registos de atividade azure AD. Saiba como [transmitir os seus registos de atividade para um centro de eventos.](./tutorial-azure-monitor-stream-logs-to-event-hub.md) 
 * Um exemplo configurado de ArcSight Syslog NG Daemon SmartConnector (SmartConnector) ou ArcSight Load Balancer. Se os eventos forem enviados para o Balanceador de Carga ArcSight, são, consequentemente, enviados para o SmartConnector pelo Balancer de Carga.
 
 Faça o download e abra o [guia de configuração para ArcSight SmartConnector para O Centro de Eventos do Monitor Azure](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Este guia contém os passos necessários para instalar e configurar o ArcSight SmartConnector para o Azure Monitor. 
@@ -57,6 +57,6 @@ Faça o download e abra o [guia de configuração para ArcSight SmartConnector p
 
 5. O guia de configuração também explica como personalizar as propriedades do conector em Azure, e como atualizar e desinstalar o conector. Há também uma secção sobre melhorias de desempenho, incluindo o upgrade para um [plano de consumo Azure](https://azure.microsoft.com/pricing/details/functions) e configurar um Balancer de Carga ArcSight se a carga do evento for maior do que um único Syslog NG Daemon SmartConnector pode lidar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Guia de configuração para ArcSight SmartConnector para O Centro de Eventos do Monitor Azure](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 7ddf72fdf49bf8fede369b67b639d13b6230e9f4
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f5f2678078850ad17fa72439df9c963b60ad7a9d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88864770"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89237981"
 ---
 > [!IMPORTANT]
 > * O SDK do Reconhecimento de Formulários tem atualmente como alvo v2.0 do serviço From Recogniser.
@@ -29,19 +29,13 @@ ms.locfileid: "88864770"
 * Uma bolha de armazenamento Azure que contém um conjunto de dados de treino. Consulte [Construir um conjunto de dados de treino para um modelo personalizado](../../build-training-data-set.md) para dicas e opções para reunir o seu conjunto de dados de treino. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **Train** do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451)da amostra .
 * A versão atual do Kit de [Desenvolvimento de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * A [ferramenta de construção Gradle,](https://gradle.org/install/)ou outro gestor de dependência.
+* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
-### <a name="create-a-form-recognizer-azure-resource"></a>Criar um recurso de reconhecimento de formulários Azure
-
-[!INCLUDE [create resource](../create-resource.md)]
-
-### <a name="create-environment-variables"></a>Criar variáveis de ambiente
-
-[!INCLUDE [environment-variables](../environment-variables.md)]
-
 ### <a name="create-a-new-gradle-project"></a>Criar um novo projeto Gradle
-
 
 Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue até ela. 
 
@@ -57,49 +51,88 @@ gradle init --type basic
 
 Quando solicitado para escolher um **DSL,** selecione **Kotlin**.
 
-Crie uma pasta para a sua aplicação de amostra. Do seu diretório de trabalho, executar o seguinte comando:
+Do seu diretório de trabalho, executar o seguinte comando:
 
 ```console
 mkdir -p src/main/java
-```
-
-Navegue para a nova pasta e crie um ficheiro chamado *formrecognizer-quickstart.java*. Abra-o no seu editor preferido ou IDE e adicione as `import` seguintes declarações:
-
-```java
-import Azure.AI.FormRecognizer;
-import Azure.AI.FormRecognizer.Models;
-
-import java.util.concurrent.atomic.AtomicReference;
-import com.azure.core.http.rest.PagedIterable;
-import com.azure.core.util.Context;
-```
-
-No método da `main` aplicação, crie variáveis para o ponto final e chave Azure do seu recurso. Se criou a variável ambiental depois de ter lançado a aplicação, terá de fechar e reabrir o editor, IDE ou concha para aceder à variável. Definirá os métodos mais tarde.
-
-
-```java
-public static void main(String[] args)
-{
-    String key = System.getenv("FORM_RECOGNIZER_KEY");
-    String endpoint = System.getenv("FORM_RECOGNIZER_ENDPOINT");
-}
 ```
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
 
 Este quickstart usa o gestor de dependência gradle. Pode encontrar a biblioteca do cliente e informações para outros gestores de dependência no [Repositório Central de Maven.](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)
 
-No ficheiro *build.gradle.kts* do seu projeto, certifique-se de incluir a biblioteca do cliente como `implementation` declaração. 
+No ficheiro *build.gradle.kts* do seu projeto, certifique-se de incluir a biblioteca do cliente como `implementation` declaração, juntamente com os plugins e configurações necessários.
 
 ```kotlin
+plugins {
+    java
+    application
+}
+application {
+    mainClass.set("FormRecognizer")
+}
+repositories {
+    mavenCentral()
+}
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
 
-<!-- 
-    Object model tbd
--->
+Navegue para a nova pasta **src/main/java** e crie um ficheiro chamado *FormRecognizer.java*. Abra-o no seu editor preferido ou IDE e adicione as `import` seguintes declarações:
+
+```java
+import com.azure.ai.formrecognizer.*;
+import com.azure.ai.formrecognizer.training.*;
+import com.azure.ai.formrecognizer.models.*;
+import com.azure.ai.formrecognizer.training.models.*;
+
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.List;
+import java.util.Map;
+import java.time.LocalDate;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.http.rest.PagedIterable;
+import com.azure.core.util.Context;
+import com.azure.core.util.polling.SyncPoller;
+```
+
+Adicione uma classe e um `main` método e crie variáveis para o ponto final e chave Azure do seu recurso. Se criou a variável ambiental depois de ter lançado a aplicação, terá de fechar e reabrir o editor, IDE ou concha para aceder à variável. Definirá os métodos mais tarde.
+
+
+```java
+public class FormRecognizer {
+    public static void main(String[] args)
+    {
+        String key = "<replace-with-your-form-recognizer-key>";
+        String endpoint = "<replace-with-your-form-recognizer-endpoint>";
+    }
+}
+```
+
+## <a name="object-model"></a>Modelo de objeto 
+
+Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro, `FormRecognizerClient` é usado para consultar o serviço para campos de forma reconhecidos e conteúdos. A segunda é `FormTrainingClient` a utilização para criar e gerir modelos personalizados que pode usar para melhorar o reconhecimento. 
+
+### <a name="formrecognizerclient"></a>FormulárioRecognizerClient
+
+`FormRecognizerClient` Fornece operações para:
+
+- Reconhecendo campos de formulários e conteúdos, utilizando modelos personalizados treinados para reconhecer os seus formulários personalizados.  Estes valores são devolvidos numa coleção de `RecognizedForm` objetos. Veja o exemplo [Analisar formulários personalizados.](#analyze-forms-with-a-custom-model)
+- Reconhecendo o conteúdo da forma, incluindo tabelas, linhas e palavras, sem a necessidade de formar um modelo.  O conteúdo do formulário é devolvido numa coleção de `FormPage` objetos. Ver exemplo [Reconhecer o conteúdo da forma.](#recognize-form-content)
+- Reconhecendo campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado no serviço Form Recogniser.  Estes campos e meta-dados são devolvidos numa coleção de `RecognizedForm` objetos. Ver exemplo [Reconhecer recibos.](#recognize-receipts)
+
+### <a name="formtrainingclient"></a>FormaTrainingClient
+
+`FormTrainingClient` Fornece operações para:
+
+- Treinando modelos personalizados para reconhecer todos os campos e valores encontrados nas suas formas personalizadas.  A `CustomFormModel` é devolvido indicando os tipos de formulário que o modelo reconhecerá, e os campos que extrairá para cada tipo de formulário.
+- Treinando modelos personalizados para reconhecer campos e valores específicos que especifica, rotulando os seus formulários personalizados.  A `CustomFormModel` é devolvido indicando os campos que o modelo irá extrair, bem como a precisão estimada para cada campo.
+- Gestão de modelos criados na sua conta.
+- Copiar um modelo personalizado de um recurso de Reconhecimento de Formulário para outro.
+
+Note que os modelos também podem ser treinados usando uma interface gráfica do utilizador, como a [Ferramenta de Rotulagem do Reconhecimento de Formulários.](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -116,20 +149,29 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 
 Dentro do `Main` método, adicione o seguinte código. Aqui, autenticará dois objetos clientes utilizando as variáveis de subscrição acima definidas. Utilizará um objeto **AzureKeyCredential,** para que, se necessário, possa atualizar a tecla API sem criar novos objetos de cliente.
 
+> [!IMPORTANT]
+> Obtenha a sua chave e ponto final no portal Azure. Se o recurso 'Reconhecimento de Formulários' que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
+>
+> Lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Por exemplo, [cofre de chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+
 ```java
-FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
-    .credential(new AzureKeyCredential("{key}"))
-    .endpoint("{endpoint}")
+    FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
+    .credential(new AzureKeyCredential(key))
+    .endpoint(endpoint)
     .buildClient();
     
-FormTrainingClient trainingClient = recognizerClient.getFormTrainingClient();
+    FormTrainingClient trainingClient = new FormTrainingClientBuilder()
+    .credential(new AzureKeyCredential(key))
+    .endpoint(endpoint)
+    .buildClient();
 ```
 
 ### <a name="call-client-specific-methods"></a>Ligue para métodos específicos do cliente
 
 O próximo bloco de código utiliza os objetos do cliente para chamar métodos para cada uma das principais tarefas no Formulário Reconhecedor SDK. Definirá estes métodos mais tarde.
 
-Também terá de adicionar referências aos URLs para os seus dados de treino e teste. 
+Também terá de adicionar referências aos URLs para os seus dados de treino e teste.
+
 * Para recuperar o URL SAS para os seus dados de treino de modelo personalizados, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e **selecione Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 * Para obter um URL de um formulário para testar, você pode usar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. Ou, pegue o URL de um documento localizado em outro lugar.
 * Utilize o método acima para obter o URL de uma imagem de recibo também.
@@ -151,13 +193,13 @@ Também terá de adicionar referências aos URLs para os seus dados de treino e 
     AnalyzeReceipt(recognizerClient, receiptUrl);
 
     System.out.println("Train Model with training data...");
-    modelId = TrainModel(trainingClient, trainingDataUrl);
+    String modelId = TrainModel(trainingClient, trainingDataUrl);
 
     System.out.println("Analyze PDF form...");
     AnalyzePdfForm(recognizerClient, modelId, formUrl);
 
     System.out.println("Manage models...");
-    ManageModels(trainingClient, trainingDataUrl) ;
+    ManageModels(trainingClient, trainingDataUrl);
 ```
 
 
@@ -172,7 +214,7 @@ private static void GetContent(
     FormRecognizerClient recognizerClient, String invoiceUri)
 {
     String analyzeFilePath = invoiceUri;
-    SyncPoller<OperationResult, List<FormPage>> recognizeContentPoller =
+    SyncPoller<FormRecognizerOperationResult, List<FormPage>> recognizeContentPoller =
         recognizerClient.beginRecognizeContentFromUrl(analyzeFilePath);
     
     List<FormPage> contentResult = recognizeContentPoller.getFinalResult();
@@ -199,6 +241,25 @@ O valor devolvido é uma coleção de objetos **FormPage:** um para cada página
 }
 ```
 
+### <a name="output"></a>Saída
+
+```console
+Get form content...
+----Recognizing content ----
+Has width: 8.500000 and height: 11.000000, measured with unit: inch.
+Table has 2 rows and 6 columns.
+Cell has text Invoice Number.
+Cell has text Invoice Date.
+Cell has text Invoice Due Date.
+Cell has text Charges.
+Cell has text VAT ID.
+Cell has text 458176.
+Cell has text 3/28/2018.
+Cell has text 4/16/2018.
+Cell has text $89,024.34.
+Cell has text ET.
+```
+
 ## <a name="recognize-receipts"></a>Reconhecer recibos
 
 Esta secção demonstra como reconhecer e extrair campos comuns a partir de recibos dos EUA, utilizando um modelo de recibo pré-treinado.
@@ -209,40 +270,40 @@ Para reconhecer os recibos de um URI, utilize o método **startRecognizeReceipts
 private static void AnalyzeReceipt(
     FormRecognizerClient recognizerClient, String receiptUri)
 {
-    SyncPoller<OperationResult, List<RecognizedReceipt>> syncPoller =
-        formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
-    List<RecognizedReceipt> receiptPageResults = syncPoller.getFinalResult();
+    SyncPoller<FormRecognizerOperationResult, List<RecognizedForm>> syncPoller =
+    recognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
+    List<RecognizedForm> receiptPageResults = syncPoller.getFinalResult();
 ```
 
 O próximo bloco de códigos iteração através dos recibos e imprime os seus dados para a consola.
 
 ```java
     for (int i = 0; i < receiptPageResults.size(); i++) {
-        RecognizedReceipt recognizedReceipt = receiptPageResults.get(i);
-        Map<String, FormField> recognizedFields = recognizedReceipt.getRecognizedForm().getFields();
+        RecognizedForm recognizedForm = receiptPageResults.get(i);
+        Map<String, FormField> recognizedFields = recognizedForm.getFields();
         System.out.printf("----------- Recognized Receipt page %d -----------%n", i);
         FormField merchantNameField = recognizedFields.get("MerchantName");
         if (merchantNameField != null) {
-            if (merchantNameField.getFieldValue().getType() == FieldValueType.STRING) {
+            if (FieldValueType.STRING == merchantNameField.getValue().getValueType()) {
+                String merchantName = merchantNameField.getValue().asString();
                 System.out.printf("Merchant Name: %s, confidence: %.2f%n",
-                    merchantNameField.getFieldValue().asString(),
-                    merchantNameField.getConfidence());
+                    merchantName, merchantNameField.getConfidence());
             }
         }
         FormField merchantAddressField = recognizedFields.get("MerchantAddress");
         if (merchantAddressField != null) {
-            if (merchantAddressField.getFieldValue().getType() == FieldValueType.STRING) {
+            if (FieldValueType.STRING == merchantAddressField.getValue().getValueType()) {
+                String merchantAddress = merchantAddressField.getValue().asString();
                 System.out.printf("Merchant Address: %s, confidence: %.2f%n",
-                    merchantAddressField.getFieldValue().asString(),
-                    merchantAddressField.getConfidence());
+                    merchantAddress, merchantAddressField.getConfidence());
             }
         }
         FormField transactionDateField = recognizedFields.get("TransactionDate");
         if (transactionDateField != null) {
-            if (transactionDateField.getFieldValue().getType() == FieldValueType.DATE) {
+            if (FieldValueType.DATE == transactionDateField.getValue().getValueType()) {
+                LocalDate transactionDate = transactionDateField.getValue().asDate();
                 System.out.printf("Transaction Date: %s, confidence: %.2f%n",
-                    transactionDateField.getFieldValue().asDate(),
-                    transactionDateField.getConfidence());
+                    transactionDate, transactionDateField.getConfidence());
             }
         }
 ```
@@ -252,45 +313,62 @@ O próximo bloco de códigos iteração através dos itens individuais detetados
         FormField receiptItemsField = recognizedFields.get("Items");
         if (receiptItemsField != null) {
             System.out.printf("Receipt Items: %n");
-            if (receiptItemsField.getFieldValue().getType() == FieldValueType.LIST) {
-                List<FormField> receiptItems = receiptItemsField.getFieldValue().asList();
-                receiptItems.forEach(receiptItem -> {
-                    if (receiptItem.getFieldValue().getType() == FieldValueType.MAP) {
-                        receiptItem.getFieldValue().asMap().forEach((key, formField) -> {
-                            if (key.equals("Name")) {
-                                if (formField.getFieldValue().getType() == FieldValueType.STRING) {
-                                    System.out.printf("Name: %s, confidence: %.2fs%n",
-                                        formField.getFieldValue().asString(),
-                                        formField.getConfidence());
-                                }
+            if (FieldValueType.LIST == receiptItemsField.getValue().getValueType()) {
+                List<FormField> receiptItems = receiptItemsField.getValue().asList();
+                receiptItems.stream()
+                    .filter(receiptItem -> FieldValueType.MAP == receiptItem.getValue().getValueType())
+                    .map(formField -> formField.getValue().asMap())
+                    .forEach(formFieldMap -> formFieldMap.forEach((key, formField) -> {
+                        if ("Name".equals(key)) {
+                            if (FieldValueType.STRING == formField.getValue().getValueType()) {
+                                String name = formField.getValue().asString();
+                                System.out.printf("Name: %s, confidence: %.2fs%n",
+                                    name, formField.getConfidence());
                             }
-                            if (key.equals("Quantity")) {
-                                if (formField.getFieldValue().getType() == FieldValueType.INTEGER) {
-                                    System.out.printf("Quantity: %d, confidence: %.2f%n",
-                                        formField.getFieldValue().asInteger(), formField.getConfidence());
-                                }
+                        }
+                        if ("Quantity".equals(key)) {
+                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
+                                Float quantity = formField.getValue().asFloat();
+                                System.out.printf("Quantity: %f, confidence: %.2f%n",
+                                    quantity, formField.getConfidence());
                             }
-                            if (key.equals("Price")) {
-                                if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
-                                    System.out.printf("Price: %f, confidence: %.2f%n",
-                                        formField.getFieldValue().asFloat(),
-                                        formField.getConfidence());
-                                }
+                        }
+                        if ("Price".equals(key)) {
+                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
+                                Float price = formField.getValue().asFloat();
+                                System.out.printf("Price: %f, confidence: %.2f%n",
+                                    price, formField.getConfidence());
                             }
-                            if (key.equals("TotalPrice")) {
-                                if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
-                                    System.out.printf("Total Price: %f, confidence: %.2f%n",
-                                        formField.getFieldValue().asFloat(),
-                                        formField.getConfidence());
-                                }
+                        }
+                        if ("TotalPrice".equals(key)) {
+                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
+                                Float totalPrice = formField.getValue().asFloat();
+                                System.out.printf("Total Price: %f, confidence: %.2f%n",
+                                    totalPrice, formField.getConfidence());
                             }
-                        });
-                    }
-                });
+                        }
+                }));
             }
         }
     }
 }
+```
+
+### <a name="output"></a>Saída 
+
+```console
+Analyze receipt...
+----------- Recognized Receipt page 0 -----------
+Merchant Name: Contoso Contoso, confidence: 0.62
+Merchant Address: 123 Main Street Redmond, WA 98052, confidence: 0.99
+Transaction Date: 2020-06-10, confidence: 0.90
+Receipt Items:
+Name: Cappuccino, confidence: 0.96s
+Quantity: null, confidence: 0.957s]
+Total Price: 2.200000, confidence: 0.95
+Name: BACON & EGGS, confidence: 0.94s
+Quantity: null, confidence: 0.927s]
+Total Price: null, confidence: 0.93
 ```
 
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
@@ -308,30 +386,30 @@ O método a seguir treina um modelo num determinado conjunto de documentos e imp
 
 ```java
 private static String TrainModel(
-    FormRecognizerClient trainingClient, String trainingDataUrl)
+    FormTrainingClient trainingClient, String trainingDataUrl)
 {
-    String trainingSetSource = "{unlabeled_training_set_SAS_URL}";
-    SyncPoller<OperationResult, CustomFormModel> trainingPoller =
-        formTrainingClient.beginTraining(trainingSetSource, false);
+    SyncPoller<FormRecognizerOperationResult, CustomFormModel> trainingPoller =
+        trainingClient.beginTraining(trainingDataUrl, false);
     
     CustomFormModel customFormModel = trainingPoller.getFinalResult();
     
     // Model Info
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Model created on: %s%n", customFormModel.getCreatedOn());
-    System.out.printf("Model last updated: %s%n%n", customFormModel.getCompletedOn());
+    System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
+    System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
 ```
 O objeto **CustomFormModel** devolvido contém informações sobre os tipos de formulários que o modelo pode reconhecer e os campos que pode extrair de cada tipo de formulário. O bloco de código que se segue imprime esta informação para a consola.
 
 ```java 
     System.out.println("Recognized Fields:");
-    // looping through the sub-models, which contains the fields they were trained on
+    // looping through the subModels, which contains the fields they were trained on
     // Since the given training documents are unlabeled, we still group them but they do not have a label.
-    customFormModel.getSubmodels().forEach(customFormSubModel -> {
+    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
         // Since the training data is unlabeled, we are unable to return the accuracy of this model
-        customFormSubModel.getFieldMap().forEach((field, customFormModelField) ->
-            System.out.printf("Field: %s Field Label: %s%n",
+        System.out.printf("The subModel has form type %s%n", customFormSubmodel.getFormType());
+        customFormSubmodel.getFields().forEach((field, customFormModelField) ->
+            System.out.printf("The model found field '%s' with label: %s%n",
                 field, customFormModelField.getLabel()));
     });
 ```
@@ -343,42 +421,83 @@ Finalmente, este método devolve o ID único do modelo.
 }
 ```
 
+### <a name="output"></a>Saída
+
+```console
+Train Model with training data...
+Model Id: 20c3544d-97b4-49d9-b39b-dc32d85f1358
+Model Status: ready
+Training started on: 2020-08-31T16:52:09Z
+Training completed on: 2020-08-31T16:52:23Z
+
+Recognized Fields:
+The subModel has form type form-0
+The model found field 'field-0' with label: Address:
+The model found field 'field-1' with label: Charges
+The model found field 'field-2' with label: Invoice Date
+The model found field 'field-3' with label: Invoice Due Date
+The model found field 'field-4' with label: Invoice For:
+The model found field 'field-5' with label: Invoice Number
+The model found field 'field-6' with label: VAT ID
+```
+
 ### <a name="train-a-model-with-labels"></a>Treine um modelo com rótulos
 
 Também pode treinar modelos personalizados rotulando manualmente os documentos de treino. O treino com rótulos leva a um melhor desempenho em alguns cenários. Para treinar com etiquetas, é necessário ter ficheiros de informações especiais de etiquetas* \<filename\> (.pdf.labels.js) no*seu recipiente de armazenamento de bolhas ao lado dos documentos de treino. A [ferramenta de rotulagem da amostra do Reconhecimento de Formulários](../../quickstarts/label-tool.md) fornece uma UI para ajudá-lo a criar estes ficheiros de etiqueta. Uma vez que os tenha, pode chamar o método **startTraining** com o *parâmetro useTrainingLabels* definido para `true` .
 
 ```java
 private static String TrainModelWithLabels(
-    FormRecognizerClient trainingClient, String trainingDataUrl)
+    FormTrainingClient trainingClient, String trainingDataUrl)
 {
     // Train custom model
     String trainingSetSource = trainingDataUrl;
-    SyncPoller<OperationResult, CustomFormModel> trainingPoller = client.beginTraining(trainingSetSource, true);
+    SyncPoller<FormRecognizerOperationResult, CustomFormModel> trainingPoller = trainingClient.beginTraining(trainingSetSource, true);
 
     CustomFormModel customFormModel = trainingPoller.getFinalResult();
 
     // Model Info
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Model created on: %s%n", customFormModel.getRequestedOn());
-    System.out.printf("Model last updated: %s%n%n", customFormModel.getCompletedOn());
+    System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
+    System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
 ```
 
 O **CustomFormModel** devolvido indica os campos que o modelo pode extrair, juntamente com a sua precisão estimada em cada campo. O bloco de código que se segue imprime esta informação para a consola.
 
 ```java
-    // looping through the sub-models, which contains the fields they were trained on
+    // looping through the subModels, which contains the fields they were trained on
     // The labels are based on the ones you gave the training document.
     System.out.println("Recognized Fields:");
     // Since the data is labeled, we are able to return the accuracy of the model
-    customFormModel.getSubmodels().forEach(customFormSubModel -> {
-        System.out.printf("Sub-model accuracy: %.2f%n", customFormSubModel.getAccuracy());
-        customFormSubModel.getFieldMap().forEach((label, customFormModelField) ->
-            System.out.printf("Field: %s Field Name: %s Field Accuracy: %.2f%n",
+    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
+        System.out.printf("The subModel with form type %s has accuracy: %.2f%n",
+            customFormSubmodel.getFormType(), customFormSubmodel.getAccuracy());
+        customFormSubmodel.getFields().forEach((label, customFormModelField) ->
+            System.out.printf("The model found field '%s' to have name: %s with an accuracy: %.2f%n",
                 label, customFormModelField.getName(), customFormModelField.getAccuracy()));
     });
     return customFormModel.getModelId();
 }
+```
+
+### <a name="output"></a>Saída
+
+```console
+Train Model with training data...
+Model Id: 20c3544d-97b4-49d9-b39b-dc32d85f1358
+Model Status: ready
+Training started on: 2020-08-31T16:52:09Z
+Training completed on: 2020-08-31T16:52:23Z
+
+Recognized Fields:
+The subModel has form type form-0
+The model found field 'field-0' with label: Address:
+The model found field 'field-1' with label: Charges
+The model found field 'field-2' with label: Invoice Date
+The model found field 'field-3' with label: Invoice Due Date
+The model found field 'field-4' with label: Invoice For:
+The model found field 'field-5' with label: Invoice Number
+The model found field 'field-6' with label: VAT ID
 ```
 
 ## <a name="analyze-forms-with-a-custom-model"></a>Analisar formas com um modelo personalizado
@@ -395,9 +514,8 @@ Utilizará o método **startRecognizeCustomFormsFromUrl.** O valor devolvido é 
 private static void AnalyzePdfForm(
     FormRecognizerClient formClient, String modelId, String pdfFormUrl)
 {    
-    String modelId = modelId;
-    SyncPoller<OperationResult, List<RecognizedForm>> recognizeFormPoller =
-        client.beginRecognizeCustomFormsFromUrl(pdfFormUrl, modelId);
+    SyncPoller<FormRecognizerOperationResult, List<RecognizedForm>> recognizeFormPoller =
+    formClient.beginRecognizeCustomFormsFromUrl(modelId, pdfFormUrl);
 
     List<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
 ```
@@ -405,26 +523,42 @@ private static void AnalyzePdfForm(
 O código seguinte imprime os resultados da análise para a consola. Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
 
 ```java
-    recognizedForms.forEach(form -> {
-        System.out.println("----------- Recognized Form -----------");
+    for (int i = 0; i < recognizedForms.size(); i++) {
+        final RecognizedForm form = recognizedForms.get(i);
+        System.out.printf("----------- Recognized custom form info for page %d -----------%n", i);
         System.out.printf("Form type: %s%n", form.getFormType());
-        form.getFields().forEach((label, formField) -> {
-            System.out.printf("Field %s has value %s with confidence score of %.2f.%n", label,
-                formField.getFieldValue(),
-                formField.getConfidence());
-        });
-        System.out.print("-----------------------------------");
-    });
+        form.getFields().forEach((label, formField) ->
+            // label data is populated if you are using a model trained with unlabeled data,
+            // since the service needs to make predictions for labels if not explicitly given to it.
+            System.out.printf("Field '%s' has label '%s' with a confidence "
+                + "score of %.2f.%n", label, formField.getLabelData().getText(), formField.getConfidence()));
+    }
 }
 ```
 
-## <a name="manage-your-custom-models"></a>Gerir os seus modelos personalizados
+### <a name="output"></a>Saída
+
+```console
+Analyze PDF form...
+----------- Recognized custom form info for page 0 -----------
+Form type: form-0
+Field 'field-0' has label 'Address:' with a confidence score of 0.91.
+Field 'field-1' has label 'Invoice For:' with a confidence score of 1.00.
+Field 'field-2' has label 'Invoice Number' with a confidence score of 1.00.
+Field 'field-3' has label 'Invoice Date' with a confidence score of 1.00.
+Field 'field-4' has label 'Invoice Due Date' with a confidence score of 1.00.
+Field 'field-5' has label 'Charges' with a confidence score of 1.00.
+Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
+```
+
+
+## <a name="manage-custom-models"></a>Gerir modelos personalizados
 
 Esta secção demonstra como gerir os modelos personalizados armazenados na sua conta. O seguinte código faz todas as tarefas de gestão do modelo num único método, como exemplo. Comece por copiar a assinatura do método abaixo:
 
 ```java
 private static void ManageModels(
-    FormRecognizerClient trainingClient, String trainingFileUrl)
+    FormTrainingClient trainingClient, String trainingFileUrl)
 {
 ```
 
@@ -436,9 +570,15 @@ O bloco de códigos que se segue verifica quantos modelos guardou na sua conta D
     AtomicReference<String> modelId = new AtomicReference<>();
 
     // First, we see how many custom models we have, and what our limit is
-    AccountProperties accountProperties = client.getAccountProperties();
+    AccountProperties accountProperties = trainingClient.getAccountProperties();
     System.out.printf("The account has %s custom models, and we can have at most %s custom models",
         accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
+```
+
+#### <a name="output"></a>Saída 
+
+```console
+The account has 12 custom models, and we can have at most 250 custom models
 ```
 
 ### <a name="list-the-models-currently-stored-in-the-resource-account"></a>Listar os modelos atualmente armazenados na conta de recursos
@@ -447,29 +587,48 @@ O bloco de códigos que se segue lista os modelos atuais na sua conta e imprime 
 
 ```java    
     // Next, we get a paged list of all of our custom models
-    PagedIterable<CustomFormModelInfo> customModels = client.getModelInfos();
+    PagedIterable<CustomFormModelInfo> customModels = trainingClient.listCustomModels();
     System.out.println("We have following models in the account:");
     customModels.forEach(customFormModelInfo -> {
         System.out.printf("Model Id: %s%n", customFormModelInfo.getModelId());
         // get custom model info
         modelId.set(customFormModelInfo.getModelId());
-        CustomFormModel customModel = client.getCustomModel(customFormModelInfo.getModelId());
+        CustomFormModel customModel = trainingClient.getCustomModel(customFormModelInfo.getModelId());
         System.out.printf("Model Id: %s%n", customModel.getModelId());
         System.out.printf("Model Status: %s%n", customModel.getModelStatus());
-        System.out.printf("Created on: %s%n", customModel.getRequestedOn());
-        System.out.printf("Updated on: %s%n", customModel.getCompletedOn());
-        customModel.getSubmodels().forEach(customFormSubModel -> {
-            System.out.printf("Custom Model Form type: %s%n", customFormSubModel.getFormType());
-            System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubModel.getAccuracy());
-            if (customFormSubModel.getFieldMap() != null) {
-                customFormSubModel.getFieldMap().forEach((fieldText, customFormModelField) -> {
+        System.out.printf("Training started on: %s%n", customModel.getTrainingStartedOn());
+        System.out.printf("Training completed on: %s%n", customModel.getTrainingCompletedOn());
+        customModel.getSubmodels().forEach(customFormSubmodel -> {
+            System.out.printf("Custom Model Form type: %s%n", customFormSubmodel.getFormType());
+            System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubmodel.getAccuracy());
+            if (customFormSubmodel.getFields() != null) {
+                customFormSubmodel.getFields().forEach((fieldText, customFormModelField) -> {
                     System.out.printf("Field Text: %s%n", fieldText);
                     System.out.printf("Field Accuracy: %.2f%n", customFormModelField.getAccuracy());
                 });
             }
-
         });
     });
+```
+
+#### <a name="output"></a>Saída 
+
+Esta resposta foi truncada para a legibilidade.
+
+```console
+We have following models in the account:
+Model Id: 0b048b60-86cc-47ec-9782-ad0ffaf7a5ce
+Model Id: 0b048b60-86cc-47ec-9782-ad0ffaf7a5ce
+Model Status: ready
+Training started on: 2020-06-04T18:33:08Z
+Training completed on: 2020-06-04T18:33:10Z
+Custom Model Form type: form-0b048b60-86cc-47ec-9782-ad0ffaf7a5ce
+Custom Model Accuracy: 1.00
+Field Text: invoice date
+Field Accuracy: 1.00
+Field Text: invoice number
+Field Accuracy: 1.00
+...
 ```
 
 ### <a name="delete-a-model-from-the-resource-account"></a>Eliminar um modelo da conta de recursos
@@ -478,15 +637,15 @@ Também pode eliminar um modelo da sua conta fazendo referência ao seu ID.
 
 ```java
     // Delete Custom Model
-    System.out.printf("Deleted model with model Id: %s operation completed with status: %s%n", modelId.get(),
-        client.deleteModelWithResponse(modelId.get(), Context.NONE).getStatusCode());
+    System.out.printf("Deleted model with model Id: %s, operation completed with status: %s%n", modelId.get(),
+    trainingClient.deleteModelWithResponse(modelId.get(), Context.NONE).getStatusCode());
 }
 ```
 
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Pode construir a aplicação com:
+Volte para o seu diretório principal do projeto. Em seguida, construa a aplicação com o seguinte comando:
 
 ```console
 gradle build
@@ -518,6 +677,7 @@ try {
 ```
 
 ### <a name="enable-client-logging"></a>Ativar a sessão de registo de clientes
+
 Os SDKs Azure para Java oferecem uma história de registo consistente para ajudar a resolver erros de aplicação e acelerar a sua resolução. Os registos produzidos captarão o fluxo de uma aplicação antes de chegarem ao estado terminal para ajudar a localizar o problema de raiz. Consulte o [wiki de registo para](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK) obter orientações sobre a ativação do registo.
 
 ## <a name="next-steps"></a>Passos seguintes

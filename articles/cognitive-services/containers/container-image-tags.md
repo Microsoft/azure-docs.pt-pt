@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e0df3de5eadfd2cc5c00c52da5c4942b42a68b2b
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 2a57c5244630c2328320d7d99eed98c892d49897
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722573"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230760"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Etiquetas de imagem de recipientes de serviços cognitivos Azure
 
@@ -120,6 +120,8 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | Etiquetas de imagem            | Notas |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.3.1-amd64-preview` |       | 
+| `2.3.0-amd64-preview` |       |
 | `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
@@ -135,17 +137,138 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | Etiquetas de imagem            | Notas |
 |-----------------------|:------|
 | `latest`              |       |
+| `1.6.0-amd64-preview` |       |
+| `1.5.0-amd64-preview` |       |
+| `1.4.0-amd64-preview` |       |
 | `1.3.0-amd64-preview` |       |
 
 ## <a name="speech-to-text"></a>Conversão de voz em texto
 
 A imagem do recipiente [discurso-texto][sp-stt] pode ser encontrada no registo do `containerpreview.azurecr.io` contentor. Reside dentro do `microsoft` repositório e é `cognitive-services-speech-to-text` nomeado. O nome de imagem do recipiente totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` .
+A versão *do Governo dos Estados Unidos da Virgínia* de imagens fala-a-texto é suportada em v2.4.0, e pode ser encontrada em `containerpreview.azurecr.io/microsoft/fairfax/cognitive-services-speech-to-text` .
 
 Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 
 | Etiquetas de imagem                  | Notas                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Imagem de recipiente com o `en-US` local. |
+| `2.4.0-amd64-ar-ae-preview` | Imagem de recipiente com o `ar-AE` local. |
+| `2.4.0-amd64-ar-eg-preview` | Imagem de recipiente com o `ar-EG` local. |
+| `2.4.0-amd64-ar-kw-preview` | Imagem de recipiente com o `ar-KW` local. |
+| `2.4.0-amd64-ar-qa-preview` | Imagem de recipiente com o `ar-QA` local. |
+| `2.4.0-amd64-ar-sa-preview` | Imagem de recipiente com o `ar-SA` local. |
+| `2.4.0-amd64-ca-es-preview` | Imagem de recipiente com o `ca-ES` local. |
+| `2.4.0-amd64-da-dk-preview` | Imagem de recipiente com o `da-DK` local. |
+| `2.4.0-amd64-de-de-preview` | Imagem de recipiente com o `de-DE` local. |
+| `2.4.0-amd64-en-au-preview` | Imagem de recipiente com o `en-AU` local. |
+| `2.4.0-amd64-en-ca-preview` | Imagem de recipiente com o `en-CA` local. |
+| `2.4.0-amd64-en-gb-preview` | Imagem de recipiente com o `en-GB` local. |
+| `2.4.0-amd64-en-in-preview` | Imagem de recipiente com o `en-IN` local. |
+| `2.4.0-amd64-en-nz-preview` | Imagem de recipiente com o `en-NZ` local. |
+| `2.4.0-amd64-en-us-preview` | Imagem de recipiente com o `en-US` local. |
+| `2.4.0-amd64-es-es-preview` | Imagem de recipiente com o `es-ES` local. |
+| `2.4.0-amd64-es-mx-preview` | Imagem de recipiente com o `es-MX` local. |
+| `2.4.0-amd64-fi-fi-preview` | Imagem de recipiente com o `fi-FI` local. |
+| `2.4.0-amd64-fr-ca-preview` | Imagem de recipiente com o `fr-CA` local. |
+| `2.4.0-amd64-fr-fr-preview` | Imagem de recipiente com o `fr-FR` local. |
+| `2.4.0-amd64-gu-in-preview` | Imagem de recipiente com o `gu-IN` local. |
+| `2.4.0-amd64-hi-in-preview` | Imagem de recipiente com o `hi-IN` local. |
+| `2.4.0-amd64-it-it-preview` | Imagem de recipiente com o `it-IT` local. |
+| `2.4.0-amd64-ja-jp-preview` | Imagem de recipiente com o `ja-JP` local. |
+| `2.4.0-amd64-ko-kr-preview` | Imagem de recipiente com o `ko-KR` local. |
+| `2.4.0-amd64-mr-in-preview` | Imagem de recipiente com o `mr-IN` local. |
+| `2.4.0-amd64-nb-no-preview` | Imagem de recipiente com o `nb-NO` local. |
+| `2.4.0-amd64-nl-nl-preview` | Imagem de recipiente com o `nl-NL` local. |
+| `2.4.0-amd64-pl-pl-preview` | Imagem de recipiente com o `pl-PL` local. |
+| `2.4.0-amd64-pt-br-preview` | Imagem de recipiente com o `pt-BR` local. |
+| `2.4.0-amd64-pt-pt-preview` | Imagem de recipiente com o `pt-PT` local. |
+| `2.4.0-amd64-ru-ru-preview` | Imagem de recipiente com o `ru-RU` local. |
+| `2.4.0-amd64-sv-se-preview` | Imagem de recipiente com o `sv-SE` local. |
+| `2.4.0-amd64-ta-in-preview` | Imagem de recipiente com o `ta-IN` local. |
+| `2.4.0-amd64-te-in-preview` | Imagem de recipiente com o `te-IN` local. |
+| `2.4.0-amd64-th-th-preview` | Imagem de recipiente com o `th-TH` local. |
+| `2.4.0-amd64-tr-tr-preview` | Imagem de recipiente com o `tr-TR` local. |
+| `2.4.0-amd64-zh-cn-preview` | Imagem de recipiente com o `zh-CN` local. |
+| `2.4.0-amd64-zh-hk-preview` | Imagem de recipiente com o `zh-HK` local. |
+| `2.4.0-amd64-zh-tw-preview` | Imagem de recipiente com o `zh-TW` local. |
+| `2.3.1-amd64-ar-ae-preview` | Imagem de recipiente com o `ar-AE` local. |
+| `2.3.1-amd64-ar-eg-preview` | Imagem de recipiente com o `ar-EG` local. |
+| `2.3.1-amd64-ar-kw-preview` | Imagem de recipiente com o `ar-KW` local. |
+| `2.3.1-amd64-ar-qa-preview` | Imagem de recipiente com o `ar-QA` local. |
+| `2.3.1-amd64-ar-sa-preview` | Imagem de recipiente com o `ar-SA` local. |
+| `2.3.1-amd64-ca-es-preview` | Imagem de recipiente com o `ca-ES` local. |
+| `2.3.1-amd64-da-dk-preview` | Imagem de recipiente com o `da-DK` local. |
+| `2.3.1-amd64-de-de-preview` | Imagem de recipiente com o `de-DE` local. |
+| `2.3.1-amd64-en-au-preview` | Imagem de recipiente com o `en-AU` local. |
+| `2.3.1-amd64-en-ca-preview` | Imagem de recipiente com o `en-CA` local. |
+| `2.3.1-amd64-en-gb-preview` | Imagem de recipiente com o `en-GB` local. |
+| `2.3.1-amd64-en-in-preview` | Imagem de recipiente com o `en-IN` local. |
+| `2.3.1-amd64-en-nz-preview` | Imagem de recipiente com o `en-NZ` local. |
+| `2.3.1-amd64-en-us-preview` | Imagem de recipiente com o `en-US` local. |
+| `2.3.1-amd64-es-es-preview` | Imagem de recipiente com o `es-ES` local. |
+| `2.3.1-amd64-es-mx-preview` | Imagem de recipiente com o `es-MX` local. |
+| `2.3.1-amd64-fi-fi-preview` | Imagem de recipiente com o `fi-FI` local. |
+| `2.3.1-amd64-fr-ca-preview` | Imagem de recipiente com o `fr-CA` local. |
+| `2.3.1-amd64-fr-fr-preview` | Imagem de recipiente com o `fr-FR` local. |
+| `2.3.1-amd64-gu-in-preview` | Imagem de recipiente com o `gu-IN` local. |
+| `2.3.1-amd64-hi-in-preview` | Imagem de recipiente com o `hi-IN` local. |
+| `2.3.1-amd64-it-it-preview` | Imagem de recipiente com o `it-IT` local. |
+| `2.3.1-amd64-ja-jp-preview` | Imagem de recipiente com o `ja-JP` local. |
+| `2.3.1-amd64-ko-kr-preview` | Imagem de recipiente com o `ko-KR` local. |
+| `2.3.1-amd64-mr-in-preview` | Imagem de recipiente com o `mr-IN` local. |
+| `2.3.1-amd64-nb-no-preview` | Imagem de recipiente com o `nb-NO` local. |
+| `2.3.1-amd64-nl-nl-preview` | Imagem de recipiente com o `nl-NL` local. |
+| `2.3.1-amd64-pl-pl-preview` | Imagem de recipiente com o `pl-PL` local. |
+| `2.3.1-amd64-pt-br-preview` | Imagem de recipiente com o `pt-BR` local. |
+| `2.3.1-amd64-pt-pt-preview` | Imagem de recipiente com o `pt-PT` local. |
+| `2.3.1-amd64-ru-ru-preview` | Imagem de recipiente com o `ru-RU` local. |
+| `2.3.1-amd64-sv-se-preview` | Imagem de recipiente com o `sv-SE` local. |
+| `2.3.1-amd64-ta-in-preview` | Imagem de recipiente com o `ta-IN` local. |
+| `2.3.1-amd64-te-in-preview` | Imagem de recipiente com o `te-IN` local. |
+| `2.3.1-amd64-th-th-preview` | Imagem de recipiente com o `th-TH` local. |
+| `2.3.1-amd64-tr-tr-preview` | Imagem de recipiente com o `tr-TR` local. |
+| `2.3.1-amd64-zh-cn-preview` | Imagem de recipiente com o `zh-CN` local. |
+| `2.3.1-amd64-zh-hk-preview` | Imagem de recipiente com o `zh-HK` local. |
+| `2.3.1-amd64-zh-tw-preview` | Imagem de recipiente com o `zh-TW` local. |
+| `2.3.0-amd64-ar-ae-preview` | Imagem de recipiente com o `ar-AE` local. |
+| `2.3.0-amd64-ar-eg-preview` | Imagem de recipiente com o `ar-EG` local. |
+| `2.3.0-amd64-ar-kw-preview` | Imagem de recipiente com o `ar-KW` local. |
+| `2.3.0-amd64-ar-qa-preview` | Imagem de recipiente com o `ar-QA` local. |
+| `2.3.0-amd64-ar-sa-preview` | Imagem de recipiente com o `ar-SA` local. |
+| `2.3.0-amd64-ca-es-preview` | Imagem de recipiente com o `ca-ES` local. |
+| `2.3.0-amd64-da-dk-preview` | Imagem de recipiente com o `da-DK` local. |
+| `2.3.0-amd64-de-de-preview` | Imagem de recipiente com o `de-DE` local. |
+| `2.3.0-amd64-en-au-preview` | Imagem de recipiente com o `en-AU` local. |
+| `2.3.0-amd64-en-ca-preview` | Imagem de recipiente com o `en-CA` local. |
+| `2.3.0-amd64-en-gb-preview` | Imagem de recipiente com o `en-GB` local. |
+| `2.3.0-amd64-en-in-preview` | Imagem de recipiente com o `en-IN` local. |
+| `2.3.0-amd64-en-nz-preview` | Imagem de recipiente com o `en-NZ` local. |
+| `2.3.0-amd64-en-us-preview` | Imagem de recipiente com o `en-US` local. |
+| `2.3.0-amd64-es-es-preview` | Imagem de recipiente com o `es-ES` local. |
+| `2.3.0-amd64-es-mx-preview` | Imagem de recipiente com o `es-MX` local. |
+| `2.3.0-amd64-fi-fi-preview` | Imagem de recipiente com o `fi-FI` local. |
+| `2.3.0-amd64-fr-ca-preview` | Imagem de recipiente com o `fr-CA` local. |
+| `2.3.0-amd64-fr-fr-preview` | Imagem de recipiente com o `fr-FR` local. |
+| `2.3.0-amd64-gu-in-preview` | Imagem de recipiente com o `gu-IN` local. |
+| `2.3.0-amd64-hi-in-preview` | Imagem de recipiente com o `hi-IN` local. |
+| `2.3.0-amd64-it-it-preview` | Imagem de recipiente com o `it-IT` local. |
+| `2.3.0-amd64-ja-jp-preview` | Imagem de recipiente com o `ja-JP` local. |
+| `2.3.0-amd64-ko-kr-preview` | Imagem de recipiente com o `ko-KR` local. |
+| `2.3.0-amd64-mr-in-preview` | Imagem de recipiente com o `mr-IN` local. |
+| `2.3.0-amd64-nb-no-preview` | Imagem de recipiente com o `nb-NO` local. |
+| `2.3.0-amd64-nl-nl-preview` | Imagem de recipiente com o `nl-NL` local. |
+| `2.3.0-amd64-pl-pl-preview` | Imagem de recipiente com o `pl-PL` local. |
+| `2.3.0-amd64-pt-br-preview` | Imagem de recipiente com o `pt-BR` local. |
+| `2.3.0-amd64-pt-pt-preview` | Imagem de recipiente com o `pt-PT` local. |
+| `2.3.0-amd64-ru-ru-preview` | Imagem de recipiente com o `ru-RU` local. |
+| `2.3.0-amd64-sv-se-preview` | Imagem de recipiente com o `sv-SE` local. |
+| `2.3.0-amd64-ta-in-preview` | Imagem de recipiente com o `ta-IN` local. |
+| `2.3.0-amd64-te-in-preview` | Imagem de recipiente com o `te-IN` local. |
+| `2.3.0-amd64-th-th-preview` | Imagem de recipiente com o `th-TH` local. |
+| `2.3.0-amd64-tr-tr-preview` | Imagem de recipiente com o `tr-TR` local. |
+| `2.3.0-amd64-zh-cn-preview` | Imagem de recipiente com o `zh-CN` local. |
+| `2.3.0-amd64-zh-hk-preview` | Imagem de recipiente com o `zh-HK` local. |
+| `2.3.0-amd64-zh-tw-preview` | Imagem de recipiente com o `zh-TW` local. |
 | `2.2.0-amd64-ar-ae-preview` | Imagem de recipiente com o `ar-AE` local. |
 | `2.2.0-amd64-ar-eg-preview` | Imagem de recipiente com o `ar-EG` local. |
 | `2.2.0-amd64-ar-kw-preview` | Imagem de recipiente com o `ar-KW` local. |
@@ -467,7 +590,250 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 
 | Etiquetas de imagem                                  | Notas                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
-| `latest`                                    | Imagem de recipiente com o `en-US` local e `en-US-JessaRUS` a voz.        |
+| `latest`                                    | Imagem de recipiente com o `en-US` local e `en-US-AriaRUS` a voz.         |
+| `1.6.0-amd64-ar-eg-hoda-preview`            | Imagem de recipiente com o `ar-EG` local e `ar-EG-Hoda` a voz.            |
+| `1.6.0-amd64-ar-sa-naayf-preview`           | Imagem de recipiente com o `ar-SA` local e `ar-SA-Naayf` a voz.           |
+| `1.6.0-amd64-bg-bg-ivan-preview`            | Imagem de recipiente com o `bg-BG` local e `bg-BG-Ivan` a voz.            |
+| `1.6.0-amd64-ca-es-herenarus-preview`       | Imagem de recipiente com o `ca-ES` local e `ca-ES-HerenaRUS` a voz.       |
+| `1.6.0-amd64-cs-cz-jakub-preview`           | Imagem de recipiente com o `cs-CZ` local e `cs-CZ-Jakub` a voz.           |
+| `1.6.0-amd64-da-dk-hellerus-preview`        | Imagem de recipiente com o `da-DK` local e `da-DK-HelleRUS` a voz.        |
+| `1.6.0-amd64-de-at-michael-preview`         | Imagem de recipiente com o `de-AT` local e `de-AT-Michael` a voz.         |
+| `1.6.0-amd64-de-ch-karsten-preview`         | Imagem de recipiente com o `de-CH` local e `de-CH-Karsten` a voz.         |
+| `1.6.0-amd64-de-de-hedda-preview`           | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
+| `1.6.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
+| `1.6.0-amd64-de-de-stefan-apollo-preview`   | Imagem de recipiente com o `de-DE` local e `de-DE-Stefan-Apollo` a voz.   |
+| `1.6.0-amd64-el-gr-stefanos-preview`        | Imagem de recipiente com o `el-GR` local e `el-GR-Stefanos` a voz.        |
+| `1.6.0-amd64-en-au-catherine-preview`       | Imagem de recipiente com o `en-AU` local e `en-AU-Catherine` a voz.       |
+| `1.6.0-amd64-en-au-hayleyrus-preview`       | Imagem de recipiente com o `en-AU` local e `en-AU-HayleyRUS` a voz.       |
+| `1.6.0-amd64-en-ca-heatherrus-preview`      | Imagem de recipiente com o `en-CA` local e `en-CA-HeatherRUS` a voz.      |
+| `1.6.0-amd64-en-ca-linda-preview`           | Imagem de recipiente com o `en-CA` local e `en-CA-Linda` a voz.           |
+| `1.6.0-amd64-en-gb-george-apollo-preview`   | Imagem de recipiente com o `en-GB` local e `en-GB-George-Apollo` a voz.   |
+| `1.6.0-amd64-en-gb-hazelrus-preview`        | Imagem de recipiente com o `en-GB` local e `en-GB-HazelRUS` a voz.        |
+| `1.6.0-amd64-en-gb-susan-apollo-preview`    | Imagem de recipiente com o `en-GB` local e `en-GB-Susan-Apollo` a voz.    |
+| `1.6.0-amd64-en-ie-sean-preview`            | Imagem de recipiente com o `en-IE` local e `en-IE-Sean` a voz.            |
+| `1.6.0-amd64-en-in-heera-apollo-preview`    | Imagem de recipiente com o `en-IN` local e `en-IN-Heera-Apollo` a voz.    |
+| `1.6.0-amd64-en-in-priyarus-preview`        | Imagem de recipiente com o `en-IN` local e `en-IN-PriyaRUS` a voz.        |
+| `1.6.0-amd64-en-in-ravi-apollo-preview`     | Imagem de recipiente com o `en-IN` local e `en-IN-Ravi-Apollo` a voz.     |
+| `1.6.0-amd64-en-us-benjaminrus-preview`     | Imagem de recipiente com o `en-US` local e `en-US-BenjaminRUS` a voz.     |
+| `1.6.0-amd64-en-us-guy24krus-preview`       | Imagem de recipiente com o `en-US` local e `en-US-Guy24kRUS` a voz.       |
+| `1.6.0-amd64-en-us-aria24krus-preview`      | Imagem de recipiente com o `en-US` local e `en-US-Aria24kRUS` a voz.     |
+| `1.6.0-amd64-en-us-ariarus-preview`         | Imagem de recipiente com o `en-US` local e `en-US-AriaRUS` a voz.        |
+| `1.6.0-amd64-en-us-zirarus-preview`         | Imagem de recipiente com o `en-US` local e `en-US-ZiraRUS` a voz.         |
+| `1.6.0-amd64-es-es-helenarus-preview`       | Imagem de recipiente com o `es-ES` local e `es-ES-HelenaRUS` a voz.       |
+| `1.6.0-amd64-es-es-laura-apollo-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-Laura-Apollo` a voz.    |
+| `1.6.0-amd64-es-es-pablo-apollo-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-Pablo-Apollo` a voz.    |
+| `1.6.0-amd64-es-mx-hildarus-preview`        | Imagem de recipiente com o `es-MX` local e `es-MX-HildaRUS` a voz.        |
+| `1.6.0-amd64-es-mx-raul-apollo-preview`     | Imagem de recipiente com o `es-MX` local e `es-MX-Raul-Apollo` a voz.     |
+| `1.6.0-amd64-fi-fi-heidirus-preview`        | Imagem de recipiente com o `fi-FI` local e `fi-FI-HeidiRUS` a voz.        |
+| `1.6.0-amd64-fr-ca-caroline-preview`        | Imagem de recipiente com o `fr-CA` local e `fr-CA-Caroline` a voz.        |
+| `1.6.0-amd64-fr-ca-harmonierus-preview`     | Imagem de recipiente com o `fr-CA` local e `fr-CA-HarmonieRUS` a voz.     |
+| `1.6.0-amd64-fr-ch-guillaume-preview`       | Imagem de recipiente com o `fr-CH` local e `fr-CH-Guillaume` a voz.       |
+| `1.6.0-amd64-fr-fr-hortenserus-preview`     | Imagem de recipiente com o `fr-FR` local e `fr-FR-HortenseRUS` a voz.     |
+| `1.6.0-amd64-fr-fr-julie-apollo-preview`    | Imagem de recipiente com o `fr-FR` local e `fr-FR-Julie-Apollo` a voz.    |
+| `1.6.0-amd64-fr-fr-paul-apollo-preview`     | Imagem de recipiente com o `fr-FR` local e `fr-FR-Paul-Apollo` a voz.     |
+| `1.6.0-amd64-he-il-asaf-preview`            | Imagem de recipiente com o `he-IL` local e `he-IL-Asaf` a voz.            |
+| `1.6.0-amd64-hi-in-hemant-preview`          | Imagem de recipiente com o `hi-IN` local e `hi-IN-Hemant` a voz.          |
+| `1.6.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana-Apollo` a voz.  |
+| `1.6.0-amd64-hi-in-kalpana-preview`         | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana` a voz.         |
+| `1.6.0-amd64-hr-hr-matej-preview`           | Imagem de recipiente com o `hr-HR` local e `hr-HR-Matej` a voz.           |
+| `1.6.0-amd64-hu-hu-szabolcs-preview`        | Imagem de recipiente com o `hu-HU` local e `hu-HU-Szabolcs` a voz.        |
+| `1.6.0-amd64-id-id-andika-preview`          | Imagem de recipiente com o `id-ID` local e `id-ID-Andika` a voz.          |
+| `1.6.0-amd64-it-it-cosimo-apollo-preview`   | Imagem de recipiente com o `it-IT` local e `it-IT-Cosimo-Apollo` a voz.   |
+| `1.6.0-amd64-it-it-luciarus-preview`        | Imagem de recipiente com o `it-IT` local e `it-IT-LuciaRUS` a voz.        |
+| `1.6.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem de recipiente com o `ja-JP` local e `ja-JP-Ayumi-Apollo` a voz.    |
+| `1.6.0-amd64-ja-jp-harukarus-preview`       | Imagem de recipiente com o `ja-JP` local e `ja-JP-HarukaRUS` a voz.       |
+| `1.6.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem de recipiente com o `ja-JP` local e `ja-JP-Ichiro-Apollo` a voz.   |
+| `1.6.0-amd64-ko-kr-heamirus-preview`        | Imagem de recipiente com o `ko-KR` local e `ko-KR-HeamiRUS` a voz.        |
+| `1.6.0-amd64-ms-my-rizwan-preview`          | Imagem de recipiente com o `ms-MY` local e `ms-MY-Rizwan` a voz.          |
+| `1.6.0-amd64-nb-no-huldarus-preview`        | Imagem de recipiente com o `nb-NO` local e `nb-NO-HuldaRUS` a voz.        |
+| `1.6.0-amd64-nl-nl-hannarus-preview`        | Imagem de recipiente com o `nl-NL` local e `nl-NL-HannaRUS` a voz.        |
+| `1.6.0-amd64-pl-pl-paulinarus-preview`      | Imagem de recipiente com o `pl-PL` local e `pl-PL-PaulinaRUS` a voz.      |
+| `1.6.0-amd64-pt-br-daniel-apollo-preview`   | Imagem de recipiente com o `pt-BR` local e `pt-BR-Daniel-Apollo` a voz.   |
+| `1.6.0-amd64-pt-br-heloisarus-preview`      | Imagem de recipiente com o `pt-BR` local e `pt-BR-HeloisaRUS` a voz.      |
+| `1.6.0-amd64-pt-pt-heliarus-preview`        | Imagem de recipiente com o `pt-PT` local e `pt-PT-HeliaRUS` a voz.        |
+| `1.6.0-amd64-ro-ro-andrei-preview`          | Imagem de recipiente com o `ro-RO` local e `ro-RO-Andrei` a voz.          |
+| `1.6.0-amd64-ru-ru-ekaterinarus-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-EkaterinaRUS` a voz.    |
+| `1.6.0-amd64-ru-ru-irina-apollo-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-Irina-Apollo` a voz.    |
+| `1.6.0-amd64-ru-ru-pavel-apollo-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-Pavel-Apollo` a voz.    |
+| `1.6.0-amd64-sk-sk-filip-preview`           | Imagem de recipiente com o `sk-SK` local e `sk-SK-Filip` a voz.           |
+| `1.6.0-amd64-sl-si-lado-preview`            | Imagem de recipiente com o `sl-SI` local e `sl-SI-Lado` a voz.            |
+| `1.6.0-amd64-sv-se-hedvigrus-preview`       | Imagem de recipiente com o `sv-SE` local e `sv-SE-HedvigRUS` a voz.       |
+| `1.6.0-amd64-ta-in-valluvar-preview`        | Imagem de recipiente com o `ta-IN` local e `ta-IN-Valluvar` a voz.        |
+| `1.6.0-amd64-te-in-chitra-preview`          | Imagem de recipiente com o `te-IN` local e `te-IN-Chitra` a voz.          |
+| `1.6.0-amd64-th-th-pattara-preview`         | Imagem de recipiente com o `th-TH` local e `th-TH-Pattara` a voz.         |
+| `1.6.0-amd64-tr-tr-sedarus-preview`         | Imagem de recipiente com o `tr-TR` local e `tr-TR-SedaRUS` a voz.         |
+| `1.6.0-amd64-vi-vn-an-preview`              | Imagem de recipiente com o `vi-VN` local e `vi-VN-An` a voz.              |
+| `1.6.0-amd64-zh-cn-huihuirus-preview`       | Imagem de recipiente com o `zh-CN` local e `zh-CN-HuihuiRUS` a voz.       |
+| `1.6.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de recipiente com o `zh-CN` local e `zh-CN-Kangkang-Apollo` a voz. |
+| `1.6.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de recipiente com o `zh-CN` local e `zh-CN-Yaoyao-Apollo` a voz.   |
+| `1.6.0-amd64-zh-hk-danny-apollo-preview`    | Imagem de recipiente com o `zh-HK` local e `zh-HK-Danny-Apollo` a voz.    |
+| `1.6.0-amd64-zh-hk-tracy-apollo-preview`    | Imagem de recipiente com o `zh-HK` local e `zh-HK-Tracy-Apollo` a voz.    |
+| `1.6.0-amd64-zh-hk-tracyrus-preview`        | Imagem de recipiente com o `zh-HK` local e `zh-HK-TracyRUS` a voz.        |
+| `1.6.0-amd64-zh-tw-hanhanrus-preview`       | Imagem de recipiente com o `zh-TW` local e `zh-TW-HanHanRUS` a voz.       |
+| `1.6.0-amd64-zh-tw-yating-apollo-preview`   | Imagem de recipiente com o `zh-TW` local e `zh-TW-Yating-Apollo` a voz.   |
+| `1.6.0-amd64-zh-tw-zhiwei-apollo-preview`   | Imagem de recipiente com o `zh-TW` local e `zh-TW-Zhiwei-Apollo` a voz.   |
+| `1.5.0-amd64-ar-eg-hoda-preview`            | Imagem de recipiente com o `ar-EG` local e `ar-EG-Hoda` a voz.            |
+| `1.5.0-amd64-ar-sa-naayf-preview`           | Imagem de recipiente com o `ar-SA` local e `ar-SA-Naayf` a voz.           |
+| `1.5.0-amd64-bg-bg-ivan-preview`            | Imagem de recipiente com o `bg-BG` local e `bg-BG-Ivan` a voz.            |
+| `1.5.0-amd64-ca-es-herenarus-preview`       | Imagem de recipiente com o `ca-ES` local e `ca-ES-HerenaRUS` a voz.       |
+| `1.5.0-amd64-cs-cz-jakub-preview`           | Imagem de recipiente com o `cs-CZ` local e `cs-CZ-Jakub` a voz.           |
+| `1.5.0-amd64-da-dk-hellerus-preview`        | Imagem de recipiente com o `da-DK` local e `da-DK-HelleRUS` a voz.        |
+| `1.5.0-amd64-de-at-michael-preview`         | Imagem de recipiente com o `de-AT` local e `de-AT-Michael` a voz.         |
+| `1.5.0-amd64-de-ch-karsten-preview`         | Imagem de recipiente com o `de-CH` local e `de-CH-Karsten` a voz.         |
+| `1.5.0-amd64-de-de-hedda-preview`           | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
+| `1.5.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
+| `1.5.0-amd64-de-de-stefan-apollo-preview`   | Imagem de recipiente com o `de-DE` local e `de-DE-Stefan-Apollo` a voz.   |
+| `1.5.0-amd64-el-gr-stefanos-preview`        | Imagem de recipiente com o `el-GR` local e `el-GR-Stefanos` a voz.        |
+| `1.5.0-amd64-en-au-catherine-preview`       | Imagem de recipiente com o `en-AU` local e `en-AU-Catherine` a voz.       |
+| `1.5.0-amd64-en-au-hayleyrus-preview`       | Imagem de recipiente com o `en-AU` local e `en-AU-HayleyRUS` a voz.       |
+| `1.5.0-amd64-en-ca-heatherrus-preview`      | Imagem de recipiente com o `en-CA` local e `en-CA-HeatherRUS` a voz.      |
+| `1.5.0-amd64-en-ca-linda-preview`           | Imagem de recipiente com o `en-CA` local e `en-CA-Linda` a voz.           |
+| `1.5.0-amd64-en-gb-george-apollo-preview`   | Imagem de recipiente com o `en-GB` local e `en-GB-George-Apollo` a voz.   |
+| `1.5.0-amd64-en-gb-hazelrus-preview`        | Imagem de recipiente com o `en-GB` local e `en-GB-HazelRUS` a voz.        |
+| `1.5.0-amd64-en-gb-susan-apollo-preview`    | Imagem de recipiente com o `en-GB` local e `en-GB-Susan-Apollo` a voz.    |
+| `1.5.0-amd64-en-ie-sean-preview`            | Imagem de recipiente com o `en-IE` local e `en-IE-Sean` a voz.            |
+| `1.5.0-amd64-en-in-heera-apollo-preview`    | Imagem de recipiente com o `en-IN` local e `en-IN-Heera-Apollo` a voz.    |
+| `1.5.0-amd64-en-in-priyarus-preview`        | Imagem de recipiente com o `en-IN` local e `en-IN-PriyaRUS` a voz.        |
+| `1.5.0-amd64-en-in-ravi-apollo-preview`     | Imagem de recipiente com o `en-IN` local e `en-IN-Ravi-Apollo` a voz.     |
+| `1.5.0-amd64-en-us-benjaminrus-preview`     | Imagem de recipiente com o `en-US` local e `en-US-BenjaminRUS` a voz.     |
+| `1.5.0-amd64-en-us-guy24krus-preview`       | Imagem de recipiente com o `en-US` local e `en-US-Guy24kRUS` a voz.       |
+| `1.5.0-amd64-en-us-aria24krus-preview`      | Imagem de recipiente com o `en-US` local e `en-US-Aria24kRUS` a voz.     |
+| `1.5.0-amd64-en-us-ariarus-preview`         | Imagem de recipiente com o `en-US` local e `en-US-AriaRUS` a voz.        |
+| `1.5.0-amd64-en-us-zirarus-preview`         | Imagem de recipiente com o `en-US` local e `en-US-ZiraRUS` a voz.         |
+| `1.5.0-amd64-es-es-helenarus-preview`       | Imagem de recipiente com o `es-ES` local e `es-ES-HelenaRUS` a voz.       |
+| `1.5.0-amd64-es-es-laura-apollo-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-Laura-Apollo` a voz.    |
+| `1.5.0-amd64-es-es-pablo-apollo-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-Pablo-Apollo` a voz.    |
+| `1.5.0-amd64-es-mx-hildarus-preview`        | Imagem de recipiente com o `es-MX` local e `es-MX-HildaRUS` a voz.        |
+| `1.5.0-amd64-es-mx-raul-apollo-preview`     | Imagem de recipiente com o `es-MX` local e `es-MX-Raul-Apollo` a voz.     |
+| `1.5.0-amd64-fi-fi-heidirus-preview`        | Imagem de recipiente com o `fi-FI` local e `fi-FI-HeidiRUS` a voz.        |
+| `1.5.0-amd64-fr-ca-caroline-preview`        | Imagem de recipiente com o `fr-CA` local e `fr-CA-Caroline` a voz.        |
+| `1.5.0-amd64-fr-ca-harmonierus-preview`     | Imagem de recipiente com o `fr-CA` local e `fr-CA-HarmonieRUS` a voz.     |
+| `1.5.0-amd64-fr-ch-guillaume-preview`       | Imagem de recipiente com o `fr-CH` local e `fr-CH-Guillaume` a voz.       |
+| `1.5.0-amd64-fr-fr-hortenserus-preview`     | Imagem de recipiente com o `fr-FR` local e `fr-FR-HortenseRUS` a voz.     |
+| `1.5.0-amd64-fr-fr-julie-apollo-preview`    | Imagem de recipiente com o `fr-FR` local e `fr-FR-Julie-Apollo` a voz.    |
+| `1.5.0-amd64-fr-fr-paul-apollo-preview`     | Imagem de recipiente com o `fr-FR` local e `fr-FR-Paul-Apollo` a voz.     |
+| `1.5.0-amd64-he-il-asaf-preview`            | Imagem de recipiente com o `he-IL` local e `he-IL-Asaf` a voz.            |
+| `1.5.0-amd64-hi-in-hemant-preview`          | Imagem de recipiente com o `hi-IN` local e `hi-IN-Hemant` a voz.          |
+| `1.5.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana-Apollo` a voz.  |
+| `1.5.0-amd64-hi-in-kalpana-preview`         | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana` a voz.         |
+| `1.5.0-amd64-hr-hr-matej-preview`           | Imagem de recipiente com o `hr-HR` local e `hr-HR-Matej` a voz.           |
+| `1.5.0-amd64-hu-hu-szabolcs-preview`        | Imagem de recipiente com o `hu-HU` local e `hu-HU-Szabolcs` a voz.        |
+| `1.5.0-amd64-id-id-andika-preview`          | Imagem de recipiente com o `id-ID` local e `id-ID-Andika` a voz.          |
+| `1.5.0-amd64-it-it-cosimo-apollo-preview`   | Imagem de recipiente com o `it-IT` local e `it-IT-Cosimo-Apollo` a voz.   |
+| `1.5.0-amd64-it-it-luciarus-preview`        | Imagem de recipiente com o `it-IT` local e `it-IT-LuciaRUS` a voz.        |
+| `1.5.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem de recipiente com o `ja-JP` local e `ja-JP-Ayumi-Apollo` a voz.    |
+| `1.5.0-amd64-ja-jp-harukarus-preview`       | Imagem de recipiente com o `ja-JP` local e `ja-JP-HarukaRUS` a voz.       |
+| `1.5.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem de recipiente com o `ja-JP` local e `ja-JP-Ichiro-Apollo` a voz.   |
+| `1.5.0-amd64-ko-kr-heamirus-preview`        | Imagem de recipiente com o `ko-KR` local e `ko-KR-HeamiRUS` a voz.        |
+| `1.5.0-amd64-ms-my-rizwan-preview`          | Imagem de recipiente com o `ms-MY` local e `ms-MY-Rizwan` a voz.          |
+| `1.5.0-amd64-nb-no-huldarus-preview`        | Imagem de recipiente com o `nb-NO` local e `nb-NO-HuldaRUS` a voz.        |
+| `1.5.0-amd64-nl-nl-hannarus-preview`        | Imagem de recipiente com o `nl-NL` local e `nl-NL-HannaRUS` a voz.        |
+| `1.5.0-amd64-pl-pl-paulinarus-preview`      | Imagem de recipiente com o `pl-PL` local e `pl-PL-PaulinaRUS` a voz.      |
+| `1.5.0-amd64-pt-br-daniel-apollo-preview`   | Imagem de recipiente com o `pt-BR` local e `pt-BR-Daniel-Apollo` a voz.   |
+| `1.5.0-amd64-pt-br-heloisarus-preview`      | Imagem de recipiente com o `pt-BR` local e `pt-BR-HeloisaRUS` a voz.      |
+| `1.5.0-amd64-pt-pt-heliarus-preview`        | Imagem de recipiente com o `pt-PT` local e `pt-PT-HeliaRUS` a voz.        |
+| `1.5.0-amd64-ro-ro-andrei-preview`          | Imagem de recipiente com o `ro-RO` local e `ro-RO-Andrei` a voz.          |
+| `1.5.0-amd64-ru-ru-ekaterinarus-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-EkaterinaRUS` a voz.    |
+| `1.5.0-amd64-ru-ru-irina-apollo-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-Irina-Apollo` a voz.    |
+| `1.5.0-amd64-ru-ru-pavel-apollo-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-Pavel-Apollo` a voz.    |
+| `1.5.0-amd64-sk-sk-filip-preview`           | Imagem de recipiente com o `sk-SK` local e `sk-SK-Filip` a voz.           |
+| `1.5.0-amd64-sl-si-lado-preview`            | Imagem de recipiente com o `sl-SI` local e `sl-SI-Lado` a voz.            |
+| `1.5.0-amd64-sv-se-hedvigrus-preview`       | Imagem de recipiente com o `sv-SE` local e `sv-SE-HedvigRUS` a voz.       |
+| `1.5.0-amd64-ta-in-valluvar-preview`        | Imagem de recipiente com o `ta-IN` local e `ta-IN-Valluvar` a voz.        |
+| `1.5.0-amd64-te-in-chitra-preview`          | Imagem de recipiente com o `te-IN` local e `te-IN-Chitra` a voz.          |
+| `1.5.0-amd64-th-th-pattara-preview`         | Imagem de recipiente com o `th-TH` local e `th-TH-Pattara` a voz.         |
+| `1.5.0-amd64-tr-tr-sedarus-preview`         | Imagem de recipiente com o `tr-TR` local e `tr-TR-SedaRUS` a voz.         |
+| `1.5.0-amd64-vi-vn-an-preview`              | Imagem de recipiente com o `vi-VN` local e `vi-VN-An` a voz.              |
+| `1.5.0-amd64-zh-cn-huihuirus-preview`       | Imagem de recipiente com o `zh-CN` local e `zh-CN-HuihuiRUS` a voz.       |
+| `1.5.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de recipiente com o `zh-CN` local e `zh-CN-Kangkang-Apollo` a voz. |
+| `1.5.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de recipiente com o `zh-CN` local e `zh-CN-Yaoyao-Apollo` a voz.   |
+| `1.5.0-amd64-zh-hk-danny-apollo-preview`    | Imagem de recipiente com o `zh-HK` local e `zh-HK-Danny-Apollo` a voz.    |
+| `1.5.0-amd64-zh-hk-tracy-apollo-preview`    | Imagem de recipiente com o `zh-HK` local e `zh-HK-Tracy-Apollo` a voz.    |
+| `1.5.0-amd64-zh-hk-tracyrus-preview`        | Imagem de recipiente com o `zh-HK` local e `zh-HK-TracyRUS` a voz.        |
+| `1.5.0-amd64-zh-tw-hanhanrus-preview`       | Imagem de recipiente com o `zh-TW` local e `zh-TW-HanHanRUS` a voz.       |
+| `1.5.0-amd64-zh-tw-yating-apollo-preview`   | Imagem de recipiente com o `zh-TW` local e `zh-TW-Yating-Apollo` a voz.   |
+| `1.5.0-amd64-zh-tw-zhiwei-apollo-preview`   | Imagem de recipiente com o `zh-TW` local e `zh-TW-Zhiwei-Apollo` a voz.   |
+| `1.4.0-amd64-ar-eg-hoda-preview`            | Imagem de recipiente com o `ar-EG` local e `ar-EG-Hoda` a voz.            |
+| `1.4.0-amd64-ar-sa-naayf-preview`           | Imagem de recipiente com o `ar-SA` local e `ar-SA-Naayf` a voz.           |
+| `1.4.0-amd64-bg-bg-ivan-preview`            | Imagem de recipiente com o `bg-BG` local e `bg-BG-Ivan` a voz.            |
+| `1.4.0-amd64-ca-es-herenarus-preview`       | Imagem de recipiente com o `ca-ES` local e `ca-ES-HerenaRUS` a voz.       |
+| `1.4.0-amd64-cs-cz-jakub-preview`           | Imagem de recipiente com o `cs-CZ` local e `cs-CZ-Jakub` a voz.           |
+| `1.4.0-amd64-da-dk-hellerus-preview`        | Imagem de recipiente com o `da-DK` local e `da-DK-HelleRUS` a voz.        |
+| `1.4.0-amd64-de-at-michael-preview`         | Imagem de recipiente com o `de-AT` local e `de-AT-Michael` a voz.         |
+| `1.4.0-amd64-de-ch-karsten-preview`         | Imagem de recipiente com o `de-CH` local e `de-CH-Karsten` a voz.         |
+| `1.4.0-amd64-de-de-hedda-preview`           | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
+| `1.4.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
+| `1.4.0-amd64-de-de-stefan-apollo-preview`   | Imagem de recipiente com o `de-DE` local e `de-DE-Stefan-Apollo` a voz.   |
+| `1.4.0-amd64-el-gr-stefanos-preview`        | Imagem de recipiente com o `el-GR` local e `el-GR-Stefanos` a voz.        |
+| `1.4.0-amd64-en-au-catherine-preview`       | Imagem de recipiente com o `en-AU` local e `en-AU-Catherine` a voz.       |
+| `1.4.0-amd64-en-au-hayleyrus-preview`       | Imagem de recipiente com o `en-AU` local e `en-AU-HayleyRUS` a voz.       |
+| `1.4.0-amd64-en-ca-heatherrus-preview`      | Imagem de recipiente com o `en-CA` local e `en-CA-HeatherRUS` a voz.      |
+| `1.4.0-amd64-en-ca-linda-preview`           | Imagem de recipiente com o `en-CA` local e `en-CA-Linda` a voz.           |
+| `1.4.0-amd64-en-gb-george-apollo-preview`   | Imagem de recipiente com o `en-GB` local e `en-GB-George-Apollo` a voz.   |
+| `1.4.0-amd64-en-gb-hazelrus-preview`        | Imagem de recipiente com o `en-GB` local e `en-GB-HazelRUS` a voz.        |
+| `1.4.0-amd64-en-gb-susan-apollo-preview`    | Imagem de recipiente com o `en-GB` local e `en-GB-Susan-Apollo` a voz.    |
+| `1.4.0-amd64-en-ie-sean-preview`            | Imagem de recipiente com o `en-IE` local e `en-IE-Sean` a voz.            |
+| `1.4.0-amd64-en-in-heera-apollo-preview`    | Imagem de recipiente com o `en-IN` local e `en-IN-Heera-Apollo` a voz.    |
+| `1.4.0-amd64-en-in-priyarus-preview`        | Imagem de recipiente com o `en-IN` local e `en-IN-PriyaRUS` a voz.        |
+| `1.4.0-amd64-en-in-ravi-apollo-preview`     | Imagem de recipiente com o `en-IN` local e `en-IN-Ravi-Apollo` a voz.     |
+| `1.4.0-amd64-en-us-benjaminrus-preview`     | Imagem de recipiente com o `en-US` local e `en-US-BenjaminRUS` a voz.     |
+| `1.4.0-amd64-en-us-guy24krus-preview`       | Imagem de recipiente com o `en-US` local e `en-US-Guy24kRUS` a voz.       |
+| `1.4.0-amd64-en-us-aria24krus-preview`      | Imagem de recipiente com o `en-US` local e `en-US-Aria24kRUS` a voz.     |
+| `1.4.0-amd64-en-us-ariarus-preview`         | Imagem de recipiente com o `en-US` local e `en-US-AriaRUS` a voz.        |
+| `1.4.0-amd64-en-us-zirarus-preview`         | Imagem de recipiente com o `en-US` local e `en-US-ZiraRUS` a voz.         |
+| `1.4.0-amd64-es-es-helenarus-preview`       | Imagem de recipiente com o `es-ES` local e `es-ES-HelenaRUS` a voz.       |
+| `1.4.0-amd64-es-es-laura-apollo-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-Laura-Apollo` a voz.    |
+| `1.4.0-amd64-es-es-pablo-apollo-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-Pablo-Apollo` a voz.    |
+| `1.4.0-amd64-es-mx-hildarus-preview`        | Imagem de recipiente com o `es-MX` local e `es-MX-HildaRUS` a voz.        |
+| `1.4.0-amd64-es-mx-raul-apollo-preview`     | Imagem de recipiente com o `es-MX` local e `es-MX-Raul-Apollo` a voz.     |
+| `1.4.0-amd64-fi-fi-heidirus-preview`        | Imagem de recipiente com o `fi-FI` local e `fi-FI-HeidiRUS` a voz.        |
+| `1.4.0-amd64-fr-ca-caroline-preview`        | Imagem de recipiente com o `fr-CA` local e `fr-CA-Caroline` a voz.        |
+| `1.4.0-amd64-fr-ca-harmonierus-preview`     | Imagem de recipiente com o `fr-CA` local e `fr-CA-HarmonieRUS` a voz.     |
+| `1.4.0-amd64-fr-ch-guillaume-preview`       | Imagem de recipiente com o `fr-CH` local e `fr-CH-Guillaume` a voz.       |
+| `1.4.0-amd64-fr-fr-hortenserus-preview`     | Imagem de recipiente com o `fr-FR` local e `fr-FR-HortenseRUS` a voz.     |
+| `1.4.0-amd64-fr-fr-julie-apollo-preview`    | Imagem de recipiente com o `fr-FR` local e `fr-FR-Julie-Apollo` a voz.    |
+| `1.4.0-amd64-fr-fr-paul-apollo-preview`     | Imagem de recipiente com o `fr-FR` local e `fr-FR-Paul-Apollo` a voz.     |
+| `1.4.0-amd64-he-il-asaf-preview`            | Imagem de recipiente com o `he-IL` local e `he-IL-Asaf` a voz.            |
+| `1.4.0-amd64-hi-in-hemant-preview`          | Imagem de recipiente com o `hi-IN` local e `hi-IN-Hemant` a voz.          |
+| `1.4.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana-Apollo` a voz.  |
+| `1.4.0-amd64-hi-in-kalpana-preview`         | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana` a voz.         |
+| `1.4.0-amd64-hr-hr-matej-preview`           | Imagem de recipiente com o `hr-HR` local e `hr-HR-Matej` a voz.           |
+| `1.4.0-amd64-hu-hu-szabolcs-preview`        | Imagem de recipiente com o `hu-HU` local e `hu-HU-Szabolcs` a voz.        |
+| `1.4.0-amd64-id-id-andika-preview`          | Imagem de recipiente com o `id-ID` local e `id-ID-Andika` a voz.          |
+| `1.4.0-amd64-it-it-cosimo-apollo-preview`   | Imagem de recipiente com o `it-IT` local e `it-IT-Cosimo-Apollo` a voz.   |
+| `1.4.0-amd64-it-it-luciarus-preview`        | Imagem de recipiente com o `it-IT` local e `it-IT-LuciaRUS` a voz.        |
+| `1.4.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem de recipiente com o `ja-JP` local e `ja-JP-Ayumi-Apollo` a voz.    |
+| `1.4.0-amd64-ja-jp-harukarus-preview`       | Imagem de recipiente com o `ja-JP` local e `ja-JP-HarukaRUS` a voz.       |
+| `1.4.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem de recipiente com o `ja-JP` local e `ja-JP-Ichiro-Apollo` a voz.   |
+| `1.4.0-amd64-ko-kr-heamirus-preview`        | Imagem de recipiente com o `ko-KR` local e `ko-KR-HeamiRUS` a voz.        |
+| `1.4.0-amd64-ms-my-rizwan-preview`          | Imagem de recipiente com o `ms-MY` local e `ms-MY-Rizwan` a voz.          |
+| `1.4.0-amd64-nb-no-huldarus-preview`        | Imagem de recipiente com o `nb-NO` local e `nb-NO-HuldaRUS` a voz.        |
+| `1.4.0-amd64-nl-nl-hannarus-preview`        | Imagem de recipiente com o `nl-NL` local e `nl-NL-HannaRUS` a voz.        |
+| `1.4.0-amd64-pl-pl-paulinarus-preview`      | Imagem de recipiente com o `pl-PL` local e `pl-PL-PaulinaRUS` a voz.      |
+| `1.4.0-amd64-pt-br-daniel-apollo-preview`   | Imagem de recipiente com o `pt-BR` local e `pt-BR-Daniel-Apollo` a voz.   |
+| `1.4.0-amd64-pt-br-heloisarus-preview`      | Imagem de recipiente com o `pt-BR` local e `pt-BR-HeloisaRUS` a voz.      |
+| `1.4.0-amd64-pt-pt-heliarus-preview`        | Imagem de recipiente com o `pt-PT` local e `pt-PT-HeliaRUS` a voz.        |
+| `1.4.0-amd64-ro-ro-andrei-preview`          | Imagem de recipiente com o `ro-RO` local e `ro-RO-Andrei` a voz.          |
+| `1.4.0-amd64-ru-ru-ekaterinarus-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-EkaterinaRUS` a voz.    |
+| `1.4.0-amd64-ru-ru-irina-apollo-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-Irina-Apollo` a voz.    |
+| `1.4.0-amd64-ru-ru-pavel-apollo-preview`    | Imagem de recipiente com o `ru-RU` local e `ru-RU-Pavel-Apollo` a voz.    |
+| `1.4.0-amd64-sk-sk-filip-preview`           | Imagem de recipiente com o `sk-SK` local e `sk-SK-Filip` a voz.           |
+| `1.4.0-amd64-sl-si-lado-preview`            | Imagem de recipiente com o `sl-SI` local e `sl-SI-Lado` a voz.            |
+| `1.4.0-amd64-sv-se-hedvigrus-preview`       | Imagem de recipiente com o `sv-SE` local e `sv-SE-HedvigRUS` a voz.       |
+| `1.4.0-amd64-ta-in-valluvar-preview`        | Imagem de recipiente com o `ta-IN` local e `ta-IN-Valluvar` a voz.        |
+| `1.4.0-amd64-te-in-chitra-preview`          | Imagem de recipiente com o `te-IN` local e `te-IN-Chitra` a voz.          |
+| `1.4.0-amd64-th-th-pattara-preview`         | Imagem de recipiente com o `th-TH` local e `th-TH-Pattara` a voz.         |
+| `1.4.0-amd64-tr-tr-sedarus-preview`         | Imagem de recipiente com o `tr-TR` local e `tr-TR-SedaRUS` a voz.         |
+| `1.4.0-amd64-vi-vn-an-preview`              | Imagem de recipiente com o `vi-VN` local e `vi-VN-An` a voz.              |
+| `1.4.0-amd64-zh-cn-huihuirus-preview`       | Imagem de recipiente com o `zh-CN` local e `zh-CN-HuihuiRUS` a voz.       |
+| `1.4.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de recipiente com o `zh-CN` local e `zh-CN-Kangkang-Apollo` a voz. |
+| `1.4.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de recipiente com o `zh-CN` local e `zh-CN-Yaoyao-Apollo` a voz.   |
+| `1.4.0-amd64-zh-hk-danny-apollo-preview`    | Imagem de recipiente com o `zh-HK` local e `zh-HK-Danny-Apollo` a voz.    |
+| `1.4.0-amd64-zh-hk-tracy-apollo-preview`    | Imagem de recipiente com o `zh-HK` local e `zh-HK-Tracy-Apollo` a voz.    |
+| `1.4.0-amd64-zh-hk-tracyrus-preview`        | Imagem de recipiente com o `zh-HK` local e `zh-HK-TracyRUS` a voz.        |
+| `1.4.0-amd64-zh-tw-hanhanrus-preview`       | Imagem de recipiente com o `zh-TW` local e `zh-TW-HanHanRUS` a voz.       |
+| `1.4.0-amd64-zh-tw-yating-apollo-preview`   | Imagem de recipiente com o `zh-TW` local e `zh-TW-Yating-Apollo` a voz.   |
+| `1.4.0-amd64-zh-tw-zhiwei-apollo-preview`   | Imagem de recipiente com o `zh-TW` local e `zh-TW-Zhiwei-Apollo` a voz.   |
 | `1.3.0-amd64-ar-eg-hoda-preview`            | Imagem de recipiente com o `ar-EG` local e `ar-EG-Hoda` a voz.            |
 | `1.3.0-amd64-ar-sa-naayf-preview`           | Imagem de recipiente com o `ar-SA` local e `ar-SA-Naayf` a voz.           |
 | `1.3.0-amd64-bg-bg-ivan-preview`            | Imagem de recipiente com o `bg-BG` local e `bg-BG-Ivan` a voz.            |
@@ -477,7 +843,6 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | `1.3.0-amd64-de-at-michael-preview`         | Imagem de recipiente com o `de-AT` local e `de-AT-Michael` a voz.         |
 | `1.3.0-amd64-de-ch-karsten-preview`         | Imagem de recipiente com o `de-CH` local e `de-CH-Karsten` a voz.         |
 | `1.3.0-amd64-de-de-hedda-preview`           | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
-| `1.3.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
 | `1.3.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-HeddaRUS` a voz.        |
 | `1.3.0-amd64-de-de-stefan-apollo-preview`   | Imagem de recipiente com o `de-DE` local e `de-DE-Stefan-Apollo` a voz.   |
 | `1.3.0-amd64-el-gr-stefanos-preview`        | Imagem de recipiente com o `el-GR` local e `el-GR-Stefanos` a voz.        |
@@ -511,8 +876,7 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | `1.3.0-amd64-fr-fr-paul-apollo-preview`     | Imagem de recipiente com o `fr-FR` local e `fr-FR-Paul-Apollo` a voz.     |
 | `1.3.0-amd64-he-il-asaf-preview`            | Imagem de recipiente com o `he-IL` local e `he-IL-Asaf` a voz.            |
 | `1.3.0-amd64-hi-in-hemant-preview`          | Imagem de recipiente com o `hi-IN` local e `hi-IN-Hemant` a voz.          |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana-Apollo` a voz.  |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana` a voz.         |
+| `1.3.0-amd64-hi-in-kalpana-preview`         | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana` a voz.         |
 | `1.3.0-amd64-hi-in-kalpana-preview`         | Imagem de recipiente com o `hi-IN` local e `hi-IN-Kalpana` a voz.         |
 | `1.3.0-amd64-hr-hr-matej-preview`           | Imagem de recipiente com o `hr-HR` local e `hr-HR-Matej` a voz.           |
 | `1.3.0-amd64-hu-hu-szabolcs-preview`        | Imagem de recipiente com o `hu-HU` local e `hu-HU-Szabolcs` a voz.        |
@@ -551,7 +915,7 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | `1.3.0-amd64-zh-tw-hanhanrus-preview`       | Imagem de recipiente com o `zh-TW` local e `zh-TW-HanHanRUS` a voz.       |
 | `1.3.0-amd64-zh-tw-yating-apollo-preview`   | Imagem de recipiente com o `zh-TW` local e `zh-TW-Yating-Apollo` a voz.   |
 | `1.3.0-amd64-zh-tw-zhiwei-apollo-preview`   | Imagem de recipiente com o `zh-TW` local e `zh-TW-Zhiwei-Apollo` a voz.   |
-| `1.2.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
+| `1.2.0-amd64-de-de-hedda-preview`           | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
 | `1.2.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-HeddaRUS` a voz.        |
 | `1.2.0-amd64-de-de-stefan-apollo-preview`   | Imagem de recipiente com o `de-DE` local e `de-DE-Stefan-Apollo` a voz.   |
 | `1.2.0-amd64-en-au-catherine-preview`       | Imagem de recipiente com o `en-AU` local e `en-AU-Catherine` a voz.       |
@@ -589,7 +953,6 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | `1.2.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de recipiente com o `zh-CN` local e `zh-CN-Kangkang-Apollo` a voz. |
 | `1.2.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de recipiente com o `zh-CN` local e `zh-CN-Yaoyao-Apollo` a voz.   |
 | `1.1.0-amd64-de-de-hedda-preview`           | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
-| `1.1.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-Hedda` a voz.           |
 | `1.1.0-amd64-de-de-heddarus-preview`        | Imagem de recipiente com o `de-DE` local e `de-DE-HeddaRUS` a voz.        |
 | `1.1.0-amd64-de-de-stefan-apollo-preview`   | Imagem de recipiente com o `de-DE` local e `de-DE-Stefan-Apollo` a voz.   |
 | `1.1.0-amd64-en-au-catherine-preview`       | Imagem de recipiente com o `en-AU` local e `en-AU-Catherine` a voz.       |

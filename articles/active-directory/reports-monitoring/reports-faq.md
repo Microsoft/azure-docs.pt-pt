@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35aa75fcbd579c3e2c587b370b0926393b4e58c1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 352b4d46e1693580c386f11f7f4d949740f90cc6
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383771"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231049"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes em torno de relatórios do Azure Ative Directory
 
@@ -37,7 +37,7 @@ Este artigo inclui respostas a perguntas frequentes sobre relatórios do Azure A
 
 **P: Atualmente, uso as `https://graph.windows.net/<tenant-name>/reports/` APIs de ponta para extrair relatórios de segurança AZure AD (tipos específicos de deteções, tais como credenciais vazadas ou entradas de endereços IP anónimos) nos nossos sistemas de reporte programáticamente. Para que devo mudar?**
 
-**A:** Pode utilizar a [API de deteção de risco de Proteção de Identidade](../identity-protection/graph-get-started.md)   para aceder a deteções de segurança através do Microsoft Graph. Este novo formato proporciona uma maior flexibilidade na forma como se pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e normaliza as deteções de risco num único tipo para uma integração mais fácil em SIEMs e outras ferramentas de recolha de dados. Como os dados estão num formato diferente, não pode substituir uma nova consulta para as suas consultas antigas. No entanto, [a nova API utiliza](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)o Microsoft Graph , que é o padrão da Microsoft para APIs como O365 ou AD AZure. Assim, o trabalho necessário pode estender os seus investimentos atuais do Microsoft Graph ou ajudá-lo a iniciar a sua transição para esta nova plataforma padrão.
+**A:** Pode utilizar a [API de deteção de risco de Proteção de Identidade](../identity-protection/howto-identity-protection-graph-api.md)   para aceder a deteções de segurança através do Microsoft Graph. Este novo formato proporciona uma maior flexibilidade na forma como se pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e normaliza as deteções de risco num único tipo para uma integração mais fácil em SIEMs e outras ferramentas de recolha de dados. Como os dados estão num formato diferente, não pode substituir uma nova consulta para as suas consultas antigas. No entanto, [a nova API utiliza](/graph/api/resources/identityriskevent?view=graph-rest-beta)o Microsoft Graph , que é o padrão da Microsoft para APIs como O365 ou AD AZure. Assim, o trabalho necessário pode estender os seus investimentos atuais do Microsoft Graph ou ajudá-lo a iniciar a sua transição para esta nova plataforma padrão.
 
 ---
 
@@ -89,7 +89,7 @@ Este artigo inclui respostas a perguntas frequentes sobre relatórios do Azure A
 
 **P: Quais APIs eu uso para obter informações sobre registos de atividade do Office 365?**
 
-**A:** Utilize as [APIs de Gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) para aceder aos registos de atividade do Office 365 através de uma API.
+**A:** Utilize as [APIs de Gestão do Office 365](/office/office-365-management-api/office-365-management-apis-overview) para aceder aos registos de atividade do Office 365 através de uma API.
 
 ---
 
@@ -156,10 +156,10 @@ Este artigo inclui respostas a perguntas frequentes sobre relatórios do Azure A
 * **Não aplicado**: Isto pode ser porque as condições políticas não cumpriram.
 * **Não ativado**: Isto deve-se à política em estado de deficientes. 
     
-**P: O nome da política no relatório de inscrição não corresponde ao nome da política na AC. Porquê?**
+**P: O nome da política no relatório de todos os relatórios de inscrição não corresponde ao nome da política em CA. Porquê?**
 
 **A:** O nome da política no relatório de inscrição baseia-se no nome da política da AC no momento da inscrição. Isto pode ser inconsistente com o nome da política na AC se atualizar o nome da apólice mais tarde, isto é, após a inscrição.
 
 **P: A minha inscrição foi bloqueada devido a uma política de acesso condicional, mas o relatório de atividades de inscrição mostra que o sinal foi bem sucedido. Porquê?**
 
-**A:** Atualmente, o relatório de inscrição pode não apresentar resultados precisos para os cenários Do Exchange ActiveSync quando o Acesso Condicional é aplicado. Pode haver casos em que o resultado do sindudo no relatório mostra uma s indicação bem sucedida, mas o sin-in falhou devido a uma política de acesso condicional. 
+**A:** Atualmente, o relatório de inscrição pode não apresentar resultados precisos para os cenários Do Exchange ActiveSync quando o Acesso Condicional é aplicado. Pode haver casos em que o resultado do sindudo no relatório mostra uma s indicação bem sucedida, mas o sin-in falhou devido a uma política de acesso condicional.

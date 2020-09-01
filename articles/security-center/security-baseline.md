@@ -6,13 +6,13 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 0809c9eb1f64dc6a505ef50e25f973aa041d186d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: f7da9b1779ed2cf46cb29b21215a9415cbaef494
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004483"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231287"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Linha de segurança Azure para o Centro de Segurança
 
@@ -394,7 +394,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 **Orientação**: O Azure Security Center utiliza um espaço de trabalho configurado do Log Analytics para armazenar os dados, alertas e recomendações que gera. Configure uma chave gerida pelo cliente (CMK) para o espaço de trabalho que configuraste para a recolha de dados do Security Center. A CMK permite que todos os dados guardados ou enviados para o espaço de trabalho sejam encriptados com uma chave Azure Key Vault criada e propriedade de si. 
 
-- [Chave gerida pelo cliente Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
+- [Chave gerida pelo cliente do Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -596,7 +596,7 @@ Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro 
 
 **Orientação**: O Azure Security Center utiliza um espaço de trabalho configurado do Log Analytics para armazenar os dados, alertas e recomendações que gera. Configure uma chave gerida pelo cliente (CMK) para o espaço de trabalho que configuraste para a recolha de dados do Security Center. A CMK permite que todos os dados guardados ou enviados para o espaço de trabalho sejam encriptados com uma chave Azure Key Vault criada e propriedade de si. 
 
-- [Chave gerida pelo cliente Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
+- [Chave gerida pelo cliente do Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80891514"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231151"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -35,8 +35,8 @@ A arquitetura de relatórios no Azure AD consiste nos seguintes componentes:
     - [Registos de auditoria](concept-audit-logs.md) - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. 
     
 - **Relatórios de segurança** 
-    - [Inícios de sessão de risco](concept-risky-sign-ins.md) – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. 
-    - [Utilizadores sinalizados para risco](concept-user-at-risk.md) – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. 
+    - [Inícios de sessão de risco](../identity-protection/overview-identity-protection.md) – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. 
+    - [Utilizadores sinalizados para risco](../identity-protection/overview-identity-protection.md) – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. 
 
 Este artigo lista as atividades de auditoria que podem ser registadas nos seus registos de auditoria.
 
@@ -267,8 +267,8 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Chave|Eliminar definições da empresa|
 |Chave|Despromover parceiro|
 |Chave|Diretório eliminado|
-|Outros|Diretório eliminado definitivamente|
-|Outros|Diretório agendado para eliminação|
+|Outro|Diretório eliminado definitivamente|
+|Outro|Diretório agendado para eliminação|
 |Recurso|Promover empresa a parceiro|
 |Recurso|Purgar propriedades de gestão de direitos|
 |Recurso|Remover parceiro da empresa|
@@ -507,11 +507,11 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Diretórios|Elevar|
 |Gestão de Diretórios|Removido|
 |Gestão de Diretórios|Alterações das definições da função|
-|Outros|ScanAlertsNow|
-|Outros|Inscrever-se|
-|Outros|Anular elevação|
-|Outros|UpdateAlertSettings|
-|Outros|UpdateCurrentState|
+|Outro|ScanAlertsNow|
+|Outro|Inscrever-se|
+|Outro|Anular elevação|
+|Outro|UpdateAlertSettings|
+|Outro|UpdateCurrentState|
 |Gestão de Políticas|Revisão de acesso terminada|
 |Gestão de Políticas|Adicionar aprovador para aprovação de pedidos|
 |Gestão de Políticas|Adicionar revisor à revisão de acesso|
@@ -523,8 +523,8 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 
 |Categoria de Auditoria|Atividade|
 |---|---|
-|Outros|Criar aprovação de pedidos|
-|Outros|Eliminar revisão de acesso|
+|Outro|Criar aprovação de pedidos|
+|Outro|Eliminar revisão de acesso|
 |Gestão de Utilizadores|Remover revisor da revisão de acesso|
 |Gestão de Utilizadores|Requerer aplicação do resultado da revisão|
 |Gestão de Utilizadores|Requerer Paragem da Revisão|
@@ -621,7 +621,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Termos de Utilização|Anular publicação dos Termos de Utilização|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [AZure AD reporta uma visão geral](overview-reports.md).
 - [Relatório de registos de auditoria.](concept-audit-logs.md) 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4fe353467a11e9581db76ec495194878414f4dfb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034656"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230692"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
@@ -129,10 +129,10 @@ Uma conta de armazenamento fornece um espaço de nome único em Azure para os se
 
 Por exemplo, se a sua conta de armazenamento para fins gerais for nomeada *conta mystorageac,* então os pontos finais padrão para essa conta são:
 
-- Armazenamento de bolhas:`https://*mystorageaccount*.blob.core.windows.net`
-- Armazenamento de mesa:`https://*mystorageaccount*.table.core.windows.net`
-- Armazenamento de fila:`https://*mystorageaccount*.queue.core.windows.net`
-- Ficheiros Azure:`https://*mystorageaccount*.file.core.windows.net`
+- Armazenamento de bolhas: `https://*mystorageaccount*.blob.core.windows.net`
+- Armazenamento de mesa: `https://*mystorageaccount*.table.core.windows.net`
+- Armazenamento de fila: `https://*mystorageaccount*.queue.core.windows.net`
+- Ficheiros Azure: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
 > As contas de armazenamento de blocos e blob expõem apenas o ponto final do serviço Blob.

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79db3db5a46700f55c1dc759443cae194660372d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 87bb2cc53ce056552e8f44aac4ade96e603a8787
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007646"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230046"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente iOS
 
@@ -36,6 +36,7 @@ Para subscrever um feed:
 2. Introduza o URL de alimentação no campo **URL de alimentação.** O URL de alimentação pode ser um URL ou um endereço de e-mail.
    - Se usar um URL, use o que o seu administrador lhe deu. Normalmente, o URL <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> é.
    - Para utilizar o e-mail, insira o seu endereço de e-mail. Isto diz ao cliente para procurar um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
+   - Para ligar através do portal Gov dos EUA, utilize <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Toque **em seguida**.
 4. Forneça as suas credenciais quando solicitado.
    - Para **o nome de utilizador,** forneça ao utilizador a permissão para aceder aos recursos.

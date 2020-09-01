@@ -94,6 +94,8 @@
       href: configure-automatic-updates.md
     - name: Instalar pacotes de idiomas
       href: language-packs.md
+    - name: Utilizar o Assistente do Azure
+      href: azure-advisor.md
     - name: Resolver as recomendações
       href: azure-advisor-recommendations.md
 - name: Conceitos

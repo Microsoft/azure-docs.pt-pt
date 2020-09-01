@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9dd407ce2727582039089c0abe31b68bfe5d0f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070331"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231185"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps
 
@@ -27,10 +27,16 @@ Para saber mais sobre a utilização do Azure AD como fornecedor de identidade p
 Estas aplicações estão configuradas em nome do utilizador no portal AZure AD. A aplicação deve ser configurada corretamente e atribuída ao utilizador ou a um grupo do qual o utilizador é membro para ver a aplicação nas Minhas Apps. 
 
 O tipo de aplicações que um utilizador pode estar a ver cair nas seguintes categorias:
--   Escritório 365 Candidaturas
+-   Aplicações Microsoft 365 e Office 365
 -   Aplicações da Microsoft e de terceiros configuradas com SSO baseado na federação
 -   Aplicações SSO baseadas em palavras-passe
 -   Aplicações com soluções SSO existentes
+
+Aqui ficam algumas coisas para verificar se uma aplicação está a aparecer ou não.
+- Certifique-se de que a aplicação é adicionada ao AZure AD e certifique-se de que o utilizador está atribuído. Para saber mais, consulte a [Série Quickstart em Gestão de Aplicações.](view-applications-portal.md)
+- Se uma aplicação foi recentemente adicionada, tenha o utilizador a assinar e de volta. 
+- Se a aplicação necessitar de uma licença, como o Office, certifique-se de que o utilizador é atribuído a licença apropriada.
+- O tempo que leva para alterações de licenciamento pode variar dependendo do tamanho e complexidade do grupo.
 
 ## <a name="general-issues-to-check-first"></a>Questões gerais para verificar primeiro
 

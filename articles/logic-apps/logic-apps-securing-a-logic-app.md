@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 883eede5296f3f280bf30c9a459c02a9243f9081
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.date: 08/27/2020
+ms.openlocfilehash: 442b5acf3a6786b9fcaf0a96015a6df31215653c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719534"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231423"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Azure Logic Apps
 
@@ -19,11 +19,11 @@ A Azure Logic Apps conta com [o Azure Storage](../storage/index.yml) para armaze
 
 Para controlar mais o acesso e proteger dados sensíveis em Azure Logic Apps, pode configurar uma segurança adicional nestas áreas:
 
-* [Acesso a gatilhos baseados em pedidos](#secure-triggers)
+* [Acesso a chamadas de entrada para gatilhos baseados em pedidos](#secure-inbound-requests)
 * [Acesso a operações de aplicações lógicas](#secure-operations)
 * [Acesso a executar entradas e saídas de histórico](#secure-run-history)
 * [Acesso às entradas de parâmetros](#secure-action-parameters)
-* [Acesso a serviços e sistemas chamados de aplicações lógicas](#secure-outbound-requests)
+* [Acesso a chamadas de saída para outros serviços e sistemas](#secure-outbound-requests)
 * [Bloquear a criação de ligações para conectores específicos](#block-connections)
 * [Orientação de isolamento para apps lógicas](#isolation-logic-apps)
 * [Linha de base de segurança Azure para apps Azure Logic](../logic-apps/security-baseline.md)
@@ -34,18 +34,29 @@ Para mais informações sobre segurança em Azure, consulte estes tópicos:
 * [Encriptação de dados Azure-at-Rest](../security/fundamentals/encryption-atrest.md)
 * [Referência de Segurança do Azure](../security/benchmarks/overview.md)
 
-<a name="secure-triggers"></a>
+<a name="secure-inbound-requests"></a>
 
-## <a name="access-to-request-based-triggers"></a>Acesso a gatilhos baseados em pedidos
+## <a name="access-for-inbound-calls-to-request-based-triggers"></a>Acesso a chamadas de entrada para gatilhos baseados em pedidos
 
-Se a sua aplicação lógica utilizar um gatilho baseado em pedidos, que recebe chamadas ou pedidos de entrada, como o detonador [Pedido](../connectors/connectors-native-reqres.md) ou [Webhook,](../connectors/connectors-native-webhook.md) pode limitar o acesso para que apenas os clientes autorizados possam ligar para a sua aplicação lógica. Todos os pedidos recebidos por uma aplicação lógica são encriptados e protegidos com o protocolo De Segurança da Camada de Transporte (TLS), anteriormente conhecido como Camada de Tomadas Seguras (SSL).
+As chamadas de entrada que uma aplicação lógica recebe através de um gatilho baseado em pedidos, tais como o gatilho [pedido](../connectors/connectors-native-reqres.md) ou o gatilho [HTTP Webhook,](../connectors/connectors-native-webhook.md) encriptação de suporte e são protegidos com [Segurança da Camada de Transporte (TLS) 1.2 no mínimo](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como Camada de Tomadas Seguras (SSL). A Logic Apps aplica esta versão ao receber uma chamada de entrada para o gatilho do Pedido ou uma chamada de volta para o gatilho ou ação http Webhook. Se tiver erros de aperto de mão TLS, certifique-se de que utiliza O TLS 1.2. Para obter mais informações, consulte [a resolução do problema TLS 1.0](/security/solving-tls1-problem).
 
-Aqui estão as opções que podem ajudá-lo a garantir o acesso a este tipo de gatilho:
+As chamadas de entrada suportam estas suítes de cifra:
 
-* [Gerar assinaturas de acesso partilhado](#sas)
+* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+
+Aqui estão as formas adicionais de limitar o acesso aos gatilhos que recebem chamadas de entrada para a sua aplicação lógica para que apenas os clientes autorizados possam ligar para a sua aplicação lógica:
+
+* [Gerar assinaturas de acesso partilhado (SAS)](#sas)
 * [Ativar a autenticação aberta do Diretório Ativo Azure (Azure AD OAuth)](#enable-oauth)
+* [Exponha a sua app lógica com a Azure API Management](#azure-api-management)
 * [Restringir endereços IP de entrada](#restrict-inbound-ip-addresses)
-* [Adicionar autenticação aberta ao diretório ativo Azure (Azure AD OAuth) ou outra segurança](#add-authentication)
 
 <a name="sas"></a>
 
@@ -57,7 +68,7 @@ Cada ponto final de pedido de uma aplicação lógica tem uma [Assinatura de Ace
 
 Cada URL contém o `sp` `sv` parâmetro , e `sig` consulta, conforme descrito nesta tabela:
 
-| Parâmetro de consulta | Descrição |
+| Parâmetro de consulta | Description |
 |-----------------|-------------|
 | `sp` | Especifica permissões para os métodos HTTP autorizados a utilizar. |
 | `sv` | Especifica a versão SAS para utilizar para gerar a assinatura. |
@@ -108,9 +119,21 @@ No corpo, inclua a `KeyType` propriedade como qualquer um ou `Primary` `Secondar
 
 <a name="enable-oauth"></a>
 
-### <a name="enable-azure-active-directory-oauth"></a>Ativar o Azure Ative Directory OAuth
+### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Ativar a autenticação aberta do Diretório Ativo Azure (Azure AD OAuth)
 
-Se a sua aplicação lógica começar com um [gatilho 'Pedido',](../connectors/connectors-native-reqres.md)pode ativar [a Autenticação Aberta do Diretório Azure](../active-directory/develop/index.yml) Ative (Azure AD OAuth) definindo ou adicionando uma política de autorização para chamadas de entrada no gatilho 'Pedido'. Quando a sua aplicação lógica recebe um pedido de entrada que inclui um token de autenticação, a Azure Logic Apps compara as reclamações do token com as reclamações em cada política de autorização. Se existir uma correspondência entre as reclamações do token e todas as reclamações em pelo menos uma apólice, a autorização é bem sucedida para o pedido de entrada. O token pode ter mais reclamações do que o número especificado pela política de autorização.
+Se a sua aplicação lógica começar com um [gatilho 'Pedido',](../connectors/connectors-native-reqres.md)pode ativar [a Autenticação Aberta do Diretório Azure Ative (Azure AD OAuth)](../active-directory/develop/index.yml) definindo ou adicionando uma política de autorização para chamadas de entrada no gatilho 'Pedido'.
+
+Antes de ativar esta autenticação, reveja estas considerações:
+
+* A chamada de entrada para o gatilho pedido pode usar apenas um esquema de autorização, quer a Azure AD OAuth, utilizando um token de autenticação, que é suportado apenas para o gatilho pedido, ou utilizando um [URL de Assinatura de Acesso Partilhado (SAS)](#sas) Não pode utilizar ambos os esquemas.
+
+  Apesar de usar um esquema não desativa o outro esquema, usar ambos ao mesmo tempo causa um erro porque o serviço não sabe qual o esquema a escolher. Além disso, apenas os sistemas de autorização [do tipo Portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) são suportados para tokens de autenticação OAuth, que são suportados apenas para o gatilho do Pedido. O token de autenticação deve especificar `Bearer-type` no cabeçalho de autorização.
+
+* A sua aplicação lógica está limitada a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [reclamações.](../active-directory/develop/developer-glossary.md#claim) Para obter mais informações, consulte [Limites e configuração para Aplicações Lógicas Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Uma política de autorização deve incluir pelo menos a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth V2) como o ID do emitente Azure AD. Para obter mais informações sobre os tokens de acesso, consulte [os tokens de acesso à plataforma de identidade da Microsoft.](../active-directory/develop/access-tokens.md)
+
+Quando a sua aplicação lógica recebe um pedido de entrada que inclui um token de autenticação OAuth, a Azure Logic Apps compara as reclamações do token com as reclamações em cada política de autorização. Se existir uma correspondência entre as reclamações do token e todas as reclamações em pelo menos uma apólice, a autorização é bem sucedida para o pedido de entrada. O token pode ter mais reclamações do que o número especificado pela política de autorização.
 
 Por exemplo, suponha que a sua aplicação lógica tem uma política de autorização que requer dois tipos de **reclamação, Emitente** e **Público.** Esta amostra descodificada [token](../active-directory/develop/access-tokens.md) de acesso inclui ambos os tipos de reclamação:
 
@@ -154,16 +177,6 @@ Por exemplo, suponha que a sua aplicação lógica tem uma política de autoriza
    "ver": "1.0"
 }
 ```
-
-#### <a name="considerations-for-enabling-azure-oauth"></a>Considerações para permitir a Azure OAuth
-
-Antes de ativar esta autenticação, reveja estas considerações:
-
-* Uma chamada de entrada para a sua aplicação lógica pode usar apenas um esquema de autorização, seja a Azure AD OAuth ou [As Assinaturas de Acesso Partilhado (SAS)](#sas). Usar um esquema não desativa o outro, mas usar ambos ao mesmo tempo causa um erro porque o serviço não sabe qual o esquema a escolher. Apenas os regimes de autorização [do tipo Portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) são suportados para tokens OAuth, que são suportados apenas para o gatilho do Pedido.
-
-* A sua aplicação lógica está limitada a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [reclamações.](../active-directory/develop/developer-glossary.md#claim) Para obter mais informações, consulte [Limites e configuração para Aplicações Lógicas Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* Uma política de autorização deve incluir pelo menos a **reclamação do Emitente,** que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth V2) como o ID do emitente Azure AD. Para obter mais informações sobre os tokens de acesso, consulte [os tokens de acesso à plataforma de identidade da Microsoft.](../active-directory/develop/access-tokens.md)
 
 <a name="define-authorization-policy-portal"></a>
 
@@ -242,6 +255,12 @@ Para ativar o Azure AD OAuth no modelo ARM para a implementação da sua aplica�
 
 Para obter mais informações sobre a `accessControl` secção, consulte [as gamas IP de entrada de restrição no modelo Azure Resource Manager](#restrict-inbound-ip-template) e na referência do modelo de [fluxos de trabalho microsoft.logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
+<a name="azure-api-management"></a>
+
+### <a name="expose-your-logic-app-with-azure-api-management"></a>Exponha a sua app lógica com a Azure API Management
+
+Para adicionar mais [protocolos de autenticação](../active-directory/develop/authentication-vs-authorization.md) à sua aplicação lógica, considere utilizar o serviço [de Gestão API da Azure.](../api-management/api-management-key-concepts.md) Este serviço ajuda-o a expor a sua aplicação lógica como uma API e oferece uma monitorização, segurança, política e documentação rica para qualquer ponto final. A API Management pode expor um ponto final público ou privado para a sua aplicação lógica. Para autorizar o acesso a este ponto final, pode utilizar o Azure AD OAuth, [certificado de cliente](#client-certificate-authentication)ou outras normas de segurança para autorizar o acesso a esse ponto final. Quando a API Management recebe um pedido, o serviço envia o pedido para a sua aplicação lógica, fazendo também as transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas a API Management ligue para a sua aplicação lógica, pode [restringir os endereços IP de entrada da sua aplicação lógica.](#restrict-inbound-ip)
+
 <a name="restrict-inbound-ip"></a>
 
 ### <a name="restrict-inbound-ip-addresses"></a>Restringir endereços IP de entrada
@@ -311,12 +330,6 @@ If you [automate deployment for logic apps by using Resource Manager templates](
    "outputs": {}
 }
 ```
-
-<a name="add-authentication"></a>
-
-### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Adicionar autenticação aberta ao Diretório Ativo Azure ou outra segurança
-
-Para adicionar mais protocolos [de autenticação](../active-directory/develop/authentication-vs-authorization.md) à sua aplicação lógica, considere utilizar o serviço [de Gestão API da Azure.](../api-management/api-management-key-concepts.md) Este serviço ajuda-o a expor a sua aplicação lógica como uma API e oferece uma monitorização, segurança, política e documentação rica para qualquer ponto final. A API Management pode expor um ponto final público ou privado para a sua aplicação lógica. Para autorizar o acesso a este ponto final, pode utilizar [a Azure Ative Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), [o certificado do cliente](#client-certificate-authentication)ou outras normas de segurança para autorizar o acesso a esse ponto final. Quando a API Management recebe um pedido, o serviço envia o pedido para a sua aplicação lógica, fazendo também as transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas a API Management desencadeie a sua aplicação lógica, pode utilizar as definições de gama IP de entrada da sua aplicação lógica.
 
 <a name="secure-operations"></a>
 
@@ -592,7 +605,7 @@ Aqui está mais informações sobre estas `parameters` secções:
 
 Este modelo de exemplo que tem múltiplas definições de parâmetros seguros que usam o `securestring` tipo:
 
-| Nome do parâmetro | Descrição |
+| Nome do parâmetro | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | Um parâmetro de modelo que aceita uma palavra-passe que é depois passada para o parâmetro da definição de fluxo de trabalho `basicAuthPasswordParam` |
 | `TemplateUsernameParam` | Um parâmetro de modelo que aceita um nome de utilizador que é depois passado para o parâmetro da definição de fluxo de trabalho `basicAuthUserNameParam` |
@@ -719,13 +732,21 @@ Este modelo de exemplo que tem múltiplas definições de parâmetros seguros qu
 
 <a name="secure-outbound-requests"></a>
 
-## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Acesso a serviços e sistemas chamados de aplicações lógicas
+## <a name="access-for-outbound-calls-to-other-services-and-systems"></a>Acesso a chamadas de saída para outros serviços e sistemas
 
-Aqui estão algumas formas de ajudar a proteger pontos finais que recebem chamadas ou pedidos da sua aplicação lógica:
+Com base na capacidade do ponto final do destino, as chamadas de saída enviadas pelo [gatilho HTTP ou a ação HTTP](../connectors/connectors-native-http.md), suportam a encriptação e são protegidas com segurança da camada de transporte [(TLS) 1.0, 1.1 ou 1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecida como Camada de Tomadas Seguras (SSL). A Logic Apps negoceia com o ponto final alvo sobre a utilização da versão mais alta possível que é suportada. Por exemplo, se o ponto final do alvo suportar 1.2, o gatilho http ou ação utiliza primeiro o 1.2. Caso contrário, o conector utiliza a próxima versão suportada mais alta.
 
-* Adicione autenticação a pedidos de saída.
+Aqui estão informações sobre certificados auto-assinados TLS/SSL:
 
-  Quando utiliza um gatilho ou ação baseado em HTTP que faz chamadas de saída, por exemplo, HTTP, pode adicionar autenticação ao pedido enviado pela sua aplicação lógica. Por exemplo, pode selecionar estes tipos de autenticação:
+* Para aplicações lógicas no ambiente global e multi-inquilino Azure, o conector HTTP não permite certificados TLS/SSL auto-assinados. Se a sua aplicação lógica fizer uma chamada HTTP para um servidor e apresentar um certificado auto-assinado TLS/SSL, a chamada HTTP falha com um `TrustFailure` erro.
+
+* Para aplicações lógicas num [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)o conector HTTP permite certificados auto-assinados para apertos de mão TLS/SSL. No entanto, primeiro deve [ativar o suporte de certificado auto-assinado](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para um ISE existente ou novo ISE, utilizando a API de Aplicações Lógicas e instalar o certificado público no `TrustedRoot` local.
+
+Aqui estão mais formas de ajudar a proteger pontos finais que lidam com chamadas enviadas a partir da sua aplicação lógica:
+
+* [Adicionar autenticação a pedidos de saída](#add-authentication-outbound).
+
+  Quando utiliza o gatilho HTTP ou ação para enviar chamadas de saída, pode adicionar autenticação ao pedido enviado pela sua aplicação lógica. Por exemplo, pode selecionar estes tipos de autenticação:
 
   * [Autenticação básica](#basic-authentication)
 
@@ -734,8 +755,6 @@ Aqui estão algumas formas de ajudar a proteger pontos finais que recebem chamad
   * [Autenticação ativa do Diretório OAuth](#azure-active-directory-oauth-authentication)
 
   * [Autenticação de identidade gerida](#managed-identity-authentication)
-
-  Para mais informações, consulte [Adicionar autenticação às chamadas de saída](#add-authentication-outbound) mais tarde neste tópico.
 
 * Restringir o acesso a partir de endereços IP de aplicações lógicas.
 
@@ -776,7 +795,7 @@ Aqui estão algumas formas de ajudar a proteger pontos finais que recebem chamad
 
 <a name="add-authentication-outbound"></a>
 
-## <a name="add-authentication-to-outbound-calls"></a>Adicionar autenticação a chamadas de saída
+### <a name="add-authentication-to-outbound-calls"></a>Adicionar autenticação a chamadas de saída
 
 Os pontos finais HTTP e HTTPS suportam vários tipos de autenticação. Em alguns gatilhos e ações que utiliza para o envio de chamadas ou pedidos de saída para estes pontos finais, pode especificar um tipo de autenticação. No Logic App Designer, os gatilhos e ações que suportam a escolha de um tipo de autenticação têm uma propriedade **autenticação.** No entanto, esta propriedade pode nem sempre aparecer por defeito. Nestes casos, no gatilho ou ação, abra a nova lista **de parâmetros** e selecione **Autenticação**.
 
@@ -869,7 +888,7 @@ Para obter mais informações sobre a segurança de serviços utilizando a auten
 
 ### <a name="azure-active-directory-open-authentication"></a>Autenticação aberta do Diretório Ativo Azure
 
-Nos detonadores de pedidos, pode utilizar [a Azure Ative Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth), para autenticar chamadas recebidas depois de [configurar as políticas de autorização AZure AD](#enable-oauth) para a sua aplicação lógica. Para todos os outros gatilhos e ações que forneçam o tipo de autenticação **OAuth do Diretório Ativo** para que possa selecionar, especifique estes valores de propriedade:
+Nos detonadores de pedidos, pode utilizar [a Azure Ative Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml)para autenticar chamadas recebidas depois de [configurar as políticas de autorização AZure AD](#enable-oauth) para a sua aplicação lógica. Para todos os outros gatilhos e ações que forneçam o tipo de autenticação **OAuth do Diretório Ativo** para que possa selecionar, especifique estes valores de propriedade:
 
 | Propriedade (designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|

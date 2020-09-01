@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d7c9713f27643e792ea381e1a2419cbc4b67a99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a881dee50195fe4995c77d793b4f4b75091d20b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82129206"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231117"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interprete o esquema de registos de registos AD AZure no Azure Monitor
 
@@ -148,24 +148,24 @@ Este artigo descreve o esquema de registo de registo de registo Azure Ative (Azu
 | Hora | A data e a hora, na UTC. |
 | ResourceId | Este valor não é mapeado, e você pode ignorar com segurança este campo.  |
 | OperationName | Para os insi's, este valor é sempre *atividade de inscrição.* |
-| OperaçãoVersão | A versão REST API que é solicitada pelo cliente. |
+| OperationVersion | A versão REST API que é solicitada pelo cliente. |
 | Categoria | Para iniciar sposições, este valor é sempre *SignIn*. | 
 | TenantId | O inquilino GUID que está associado com os troncos. |
-| ResultadoType | O resultado da operação de inscrição pode ser *sucesso* ou *fracasso*. | 
+| ResultType | O resultado da operação de inscrição pode ser *sucesso* ou *fracasso*. | 
 | ResultSignature | Contém o código de erro, se houver, para a operação de inscrição. |
-| ResultadoDescrição | Fornece a descrição do erro para a operação de inscrição. |
+| ResultDescription | Fornece a descrição do erro para a operação de inscrição. |
 | riscoDetail | riscoDetail | Fornece a "razão" por trás de um estado específico de um utilizador arriscado, de iniciar sposição ou de uma deteção de riscos. Os valores possíveis são: `none` , , , , , , , , , `adminGeneratedTemporaryPassword` , , . `userPerformedSecuredPasswordChange` `userPerformedSecuredPasswordReset` `adminConfirmedSigninSafe` `aiConfirmedSigninSafe` `userPassedMFADrivenByRiskBasedPolicy` `adminDismissedAllRiskForUser` `adminConfirmedSigninCompromised` `unknownFutureValue` . O valor `none` significa que até ao momento não foi realizada qualquer ação no utilizador ou no pedido de inscrição. <br>**Nota:** Os detalhes desta propriedade requerem uma licença Azure AD Premium P2. Outras licenças devolvem o `hidden` valor. |
-| tipos de risco | tipos de risco | Tipos de deteção de risco associados à inscrição. Os valores possíveis são: `unlikelyTravel` , , , , , , , , , `anonymizedIPAddress` e `maliciousIPAddress` `unfamiliarFeatures` `malwareInfectedIPAddress` `suspiciousIPAddress` `leakedCredentials` `investigationsThreatIntelligence` `generic` `unknownFutureValue` . |
+| tipos de risco | tipos de risco | Tipos de deteção de risco associados à inscrição. Os valores possíveis são: `unlikelyTravel` , , , , , , , , , `anonymizedIPAddress` e `maliciousIPAddress` `unfamiliarFeatures` `malwareInfectedIPAddress` `suspiciousIPAddress` `leakedCredentials` `investigationsThreatIntelligence`  `generic` `unknownFutureValue` . |
 | riscoLevelAggregada | riscoLevel | Nível de risco agregado. Os valores possíveis são: `none` , , , , e `low` `medium` `high` `hidden` `unknownFutureValue` . O valor `hidden` significa que o utilizador ou o insinualado não foi ativado para a Proteção de Identidade Azure AD. **Nota:** Os detalhes desta propriedade só estão disponíveis para clientes Azure AD Premium P2. Todos os outros clientes serão `hidden` devolvidos. |
 | riscoLevelDuringSignIn | riscoLevel | Nível de risco durante a entrada. Os valores possíveis são: `none` , , , , e `low` `medium` `high` `hidden` `unknownFutureValue` . O valor `hidden` significa que o utilizador ou o insinualado não foi ativado para a Proteção de Identidade Azure AD. **Nota:** Os detalhes desta propriedade só estão disponíveis para clientes Azure AD Premium P2. Todos os outros clientes serão `hidden` devolvidos. |
 | Estado de risco | Estado de risco | Relatórios do utilizador arriscado, de iniciar sposição ou de uma deteção de riscos. Os valores possíveis são: `none` , , , , , , , `confirmedSafe` `remediated` `dismissed` `atRisk` `confirmedCompromised` `unknownFutureValue` . |
-| DuraçãoMs |  Este valor não é mapeado, e você pode ignorar com segurança este campo. |
+| DurationMs |  Este valor não é mapeado, e você pode ignorar com segurança este campo. |
 | CallerIpAddress | O endereço IP do cliente que fez o pedido. | 
 | CorrelationId | O GUID opcional que passou pelo cliente. Este valor pode ajudar a correlacionar as operações do lado do cliente com as operações do lado do servidor, e é útil quando está a rastrear registos que abrangem os serviços. |
 | Identidade | A identidade do símbolo que foi apresentado quando fez o pedido. Pode ser uma conta de utilizador, conta do sistema ou principal serviço. |
 | Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo.* |
 | Localização | Fornece a localização da atividade de inscrição. |
-| Propriedades | Lista todas as propriedades associadas a insusitados. Para obter mais informações, consulte [a Referência API do Gráfico da Microsoft](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Este esquema utiliza os mesmos nomes de atributos que o recurso de inscrição, para legibilidade.
+| Propriedades | Lista todas as propriedades associadas a insusitados. Para obter mais informações, consulte [a Referência API do Gráfico da Microsoft](/graph/api/resources/signin?view=graph-rest-beta). Este esquema utiliza os mesmos nomes de atributos que o recurso de inscrição, para legibilidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 

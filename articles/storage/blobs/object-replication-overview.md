@@ -10,12 +10,12 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: edbce017b1090a029d49c9f2f8812e7e65133fcb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 434fe938261c1576a5f0c3c8f08ffa8ed3243a27
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073136"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230726"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objetos para bolhas de bloco (pré-visualização)
 
@@ -106,7 +106,7 @@ Register-AzProviderFeature -FeatureName AllowObjectReplication -ProviderNamespac
 # Register for change feed (preview)
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
-# Register for blob versioning (preview)
+# Register for Blob versioning
 Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace

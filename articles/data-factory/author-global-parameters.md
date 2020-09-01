@@ -7,13 +7,13 @@ ms.workload: data-services
 ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
-ms.date: 08/05/2020
-ms.openlocfilehash: 052f502ed27db9ade0fd2916f91d6922c52a5a98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/31/2020
+ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854355"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230840"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parâmetros globais na Azure Data Factory
 
@@ -41,13 +41,28 @@ Os parâmetros globais podem ser utilizados em qualquer [expressão de gasoduto]
 
 ![Usando parâmetros globais](media/author-global-parameters/expression-global-parameters.png)
 
-## <a name="global-parameters-in-cicd"></a><a name="cicd"></a>Parâmetros globais em CI/CD
+## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> Parâmetros globais em CI/CD
 
-Os parâmetros globais têm um processo ci/CD único em relação a outras entidades na Azure Data Factory. Ao publicar uma fábrica ou exportar um modelo ARM com parâmetros globais, uma pasta chamada *GlobalParameters* é criada com um ficheiro chamado *your-factory-name_GlobalParameters.jsem*. Este ficheiro é um objeto JSON que contém cada tipo de parâmetro e valor global na fábrica publicada.
+Existem duas formas de integrar parâmetros globais na sua solução contínua de integração e implantação:
+
+* Incluir parâmetros globais no modelo ARM
+* Implementar parâmetros globais através de um script PowerShell
+
+Para a maioria dos casos de utilização, recomenda-se incluir parâmetros globais no modelo ARM. Isto integrar-se-á de forma nativa com a solução delineada [no doc CI/CD](continuous-integration-deployment.md). Os parâmetros globais serão adicionados como um parâmetro do modelo ARM por padrão, uma vez que muitas vezes mudam de ambiente para ambiente. Pode ativar a inclusão de parâmetros globais no modelo ARM a partir do centro de gestão.
+
+![Incluir no modelo ARM](media/author-global-parameters/include-arm-template.png)
+
+A adição de parâmetros globais ao modelo ARM adiciona uma definição de nível de fábrica que pode sobrepor-se a outras definições de nível de fábrica, tais como uma chave gerida pelo cliente ou uma configuração de git em outros ambientes. Se tiver estas definições ativadas num ambiente elevado como UAT ou PROD, é melhor implementar parâmetros globais através de um script PowerShell nos passos abaixo realçados.
+
+### <a name="deploying-using-powershell"></a>Implantação utilizando PowerShell
+
+Os passos a seguir descrevem como implementar parâmetros globais através do PowerShell. Isto é útil quando a sua fábrica alvo tem uma definição de nível de fábrica, como a chave gerida pelo cliente.
+
+Ao publicar uma fábrica ou exportar um modelo ARM com parâmetros globais, uma pasta chamada *GlobalParameters* é criada com um ficheiro chamado *your-factory-name_GlobalParameters.jsem*. Este ficheiro é um objeto JSON que contém cada tipo de parâmetro e valor global na fábrica publicada.
 
 ![Publicar parâmetros globais](media/author-global-parameters/global-parameters-adf-publish.png)
 
-Se estiver a implantar para um novo ambiente, como TEST ou PROD, recomenda-se criar uma cópia deste ficheiro de parâmetros globais e substituir os valores específicos do ambiente adequados. Quando publicares o ficheiro de parâmetros globais originais será substituído, mas a cópia para o outro ambiente não será tocada.
+Se estiver a implementar para um novo ambiente, como TEST ou PROD, é recomendado criar uma cópia deste ficheiro de parâmetros globais e substituir os valores específicos do ambiente apropriados. Quando publicares o ficheiro de parâmetros globais originais será substituído, mas a cópia para o outro ambiente não será tocada.
 
 Por exemplo, se tiver uma fábrica chamada 'ADF-DEV' e um parâmetro global de tipo de cadeia chamado 'ambiente' com um valor 'dev', quando publicar um ficheiro nomeado *ADF-DEV_GlobalParameters.jsserá* gerado. Se for implantado numa fábrica de ensaios denominada "ADF_TEST", crie uma cópia do ficheiro JSON (por exemplo, ADF-TEST_GlobalParameters.js) e substitua os valores dos parâmetros pelos valores específicos do ambiente. O parâmetro 'ambiente' pode agora ter um 'teste' de valor. 
 

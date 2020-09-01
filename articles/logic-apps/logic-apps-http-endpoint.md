@@ -1,44 +1,39 @@
 ---
-title: Chamar, acionar ou aninhar aplicações lógicas
-description: Configurar pontos finais HTTPS para chamar, desencadear ou nidificar fluxos de trabalho de aplicações lógicas em Azure Logic Apps
+title: Aplicações lógicas de chamada, gatilho ou ninho utilizando gatilhos de pedido
+description: Configurar pontos finais HTTPS para chamadas, desencadeações ou fluxos de trabalho de aplicações lógicas de nidificação em Azure Logic Apps
 services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078668"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230811"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Aplicações lógicas de chamada, gatilho ou ninho utilizando pontos finais HTTPS em Azure Logic Apps
 
-Para tornar a sua aplicação lógica callable através de um URL para que a sua aplicação lógica possa receber pedidos de entrada de outros serviços, pode desinsutilar um ponto final https sincronizado como um gatilho nessa aplicação lógica. Ao configurar esta capacidade, também pode nidificar a sua aplicação lógica dentro de outras aplicações lógicas, que lhe permitem criar um padrão de pontos finais chamados.
+Para tornar a sua aplicação lógica callable através de um URL e capaz de receber pedidos de entrada de outros serviços, pode desinsutilar um ponto final https sincronizado utilizando um gatilho baseado em pedidos na sua aplicação lógica. Com esta capacidade, pode ligar para a sua aplicação lógica a partir de outras aplicações lógicas e criar um padrão de pontos finais callable. Para configurar um ponto final chamado para o manuseamento de chamadas de entrada, pode utilizar qualquer um destes tipos de gatilho:
 
-Para configurar um ponto final chamado, pode utilizar qualquer um destes tipos de gatilho, que permitem que as aplicações lógicas recebam pedidos de entrada:
-
-* [Pedido](../connectors/connectors-native-reqres.md)
+* [Pedir](../connectors/connectors-native-reqres.md)
 * [Webhook de HTTP](../connectors/connectors-native-webhook.md)
 * Triggers de conector geridos que têm o [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber pedidos HTTPS de entrada
 
-> [!NOTE]
-> Estes exemplos utilizam o gatilho 'Pedido', mas pode utilizar qualquer gatilho baseado em pedidos HTTPS que esteja na lista anterior. Todos os princípios se aplicam de forma idêntica a estes outros tipos de gatilho.
+Este artigo mostra como criar um ponto final chamado na sua aplicação lógica, utilizando o gatilho 'Pedido' e chamando esse ponto final de outra aplicação lógica. Todos os princípios aplicam-se de forma idêntica aos outros tipos de gatilho que pode utilizar para receber pedidos de entrada.
 
-Se é novo em aplicações lógicas, consulte [O que é Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [Quickstart: Crie a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para obter informações sobre encriptação, segurança e autorização para chamadas de entrada para a sua aplicação lógica, como [a Transport Layer Security (TLS),](https://en.wikipedia.org/wiki/Transport_Layer_Security)anteriormente conhecida como Secure Sockets Layer (SSL), ou [Azure Ative Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [acesso seguro e dados - Acesso a chamadas de entrada para gatilhos baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* A aplicação lógica onde pretende utilizar o gatilho para criar o ponto final chamado. Pode começar com uma aplicação lógica em branco ou uma aplicação lógica existente onde pretende substituir o gatilho atual. Este exemplo começa com uma aplicação lógica em branco.
+* A aplicação lógica onde pretende usar o gatilho para criar o ponto final chamado. Pode começar com uma aplicação lógica em branco ou com uma aplicação lógica existente onde pode substituir o gatilho atual. Este exemplo começa com uma aplicação lógica em branco. Se é novo em aplicações lógicas, consulte [O que é Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [Quickstart: Crie a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-callable-endpoint"></a>Criar um ponto final callable
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Crie e abra uma aplicação lógica em branco no Logic App Designer.
-
-   Este exemplo utiliza o gatilho 'Pedido', mas pode utilizar qualquer gatilho que possa receber pedidos HTTPS. Todos os princípios se aplicam a estes gatilhos. Para obter mais informações sobre o gatilho do Pedido, consulte [receber e responder às chamadas HTTPS de entrada utilizando aplicações lógicas Azure](../connectors/connectors-native-reqres.md).
 
 1. Sob a caixa de pesquisa, selecione **Built-in**. Na caixa de pesquisa, introduza `request` como filtro. A partir da lista de gatilhos, selecione **Quando receber um pedido HTTP**.
 
@@ -200,7 +195,7 @@ Quando pretende aceitar valores de parâmetros através do URL do ponto final, t
 
    `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   O navegador devolve uma resposta com este texto:`Postal Code: 123456`
+   O navegador devolve uma resposta com este texto: `Postal Code: 123456`
 
    ![Resposta do envio de pedido para URL de retorno](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
@@ -210,12 +205,12 @@ Quando pretende aceitar valores de parâmetros através do URL do ponto final, t
 
    Este exemplo mostra o URL de retorno com o nome do parâmetro da amostra e valor `postalCode=123456` em diferentes posições dentro do URL:
 
-   * 1ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * 1ª posição: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   * 2ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * 2ª posição: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 > [!NOTE]
-> Se quiser incluir o símbolo de haxixe ou libra **#** () no URI, utilize esta versão codificada:`%25%23`
+> Se quiser incluir o símbolo de haxixe ou libra **#** () no URI, utilize esta versão codificada: `%25%23`
 
 <a name="relative-path"></a>
 
@@ -257,12 +252,12 @@ Quando pretende aceitar valores de parâmetros através do URL do ponto final, t
 
 1. Para testar o seu ponto final callable, copie o URL de retorno atualizado do gatilho 'Pedido', cole o URL noutra janela do navegador, substitua `{postalCode}` no URL com , e prima `123456` Enter.
 
-   O navegador devolve uma resposta com este texto:`Postal Code: 123456`
+   O navegador devolve uma resposta com este texto: `Postal Code: 123456`
 
    ![Resposta do envio de pedido para URL de retorno](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
 > [!NOTE]
-> Se quiser incluir o símbolo de haxixe ou libra **#** () no URI, utilize esta versão codificada:`%25%23`
+> Se quiser incluir o símbolo de haxixe ou libra **#** () no URI, utilize esta versão codificada: `%25%23`
 
 ## <a name="call-logic-app-through-endpoint-url"></a>App lógica de chamada através de URL de ponto final
 
@@ -357,7 +352,7 @@ No corpo de resposta, pode incluir vários cabeçalhos e qualquer tipo de conte�
 
 As respostas têm estas propriedades:
 
-| Propriedade (Exibição) | Propriedade (JSON) | Descrição |
+| Propriedade (Exibição) | Propriedade (JSON) | Description |
 |--------------------|-----------------|-------------|
 | **Código de Estado** | `statusCode` | O código de estado HTTPS a utilizar na resposta ao pedido de entrada. Este código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, não são permitidos códigos de estado 3xx. |
 | **Cabeçalhos** | `headers` | Um ou mais cabeçalhos para incluir na resposta |
@@ -408,3 +403,4 @@ Para ver a definição JSON para a ação Resposta e a definição completa de J
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Receber e responder às chamadas HTTPS recebidas utilizando apps Azure Logic](../connectors/connectors-native-reqres.md)
+* [Acesso seguro e dados em Azure Logic Apps - Acesso - Acesso a chamadas de entrada para gatilhos baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

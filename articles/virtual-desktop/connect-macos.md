@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 649176a363b1a721fede68c5db2a736d5304f485
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f437c43c1e9ad960910e7576db4b3ddf3f6623ec
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007621"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230879"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente macOS
 
@@ -24,7 +24,7 @@ Pode aceder aos recursos do Windows Virtual Desktop a partir dos seus dispositiv
 
 ## <a name="install-the-client"></a>Instalar o cliente
 
-Para começar, [faça o download](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)e   instale o cliente no seu dispositivo macOS.
+Para começar, [faça o download](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) e instale o cliente no seu dispositivo macOS.
 
 ## <a name="subscribe-to-a-feed"></a>Subscreva um feed
 
@@ -36,6 +36,7 @@ Para subscrever um feed:
 2. Insira o URL de alimentação. Isto pode ser um URL ou endereço de e-mail:
    - Se usar um URL, use o que o seu administrador lhe deu. Normalmente, o URL <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> é.
    - Para utilizar o e-mail, insira o seu endereço de e-mail. Isto diz ao cliente para procurar um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
+   - Para ligar através do portal Gov dos EUA, utilize <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Selecione **Adicionar**.
 4. Inscreva-se na sua conta de utilizador quando solicitado.
 

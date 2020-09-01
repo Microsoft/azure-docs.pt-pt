@@ -10,16 +10,16 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cba56e699afed8178f93bceddf6bf32a242ed124
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020852"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230233"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Ative e gere a eliminação suave para bolhas
 
-A blob soft delete protege os seus dados de serem acidental ou erroneamente modificados ou eliminados. Quando a eliminação suave blob é ativada para uma conta de armazenamento, bolhas, versões blob (pré-visualização) e instantâneos nessa conta de armazenamento podem ser recuperados após serem eliminados, dentro de um período de retenção que especifique.
+A blob soft delete protege os seus dados de serem acidental ou erroneamente modificados ou eliminados. Quando a eliminação suave de blob estiver ativada para uma conta de armazenamento, as versões blob, blob e instantâneos nessa conta de armazenamento podem ser recuperadas após a sua eliminação, num período de retenção que especifique.
 
 Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se inscreva com uma eliminação macia. Este artigo mostra como permitir a eliminação suave para bolhas. Para obter mais detalhes sobre a eliminação suave da bolha, consulte [Soft Delete para bolhas](soft-delete-blob-overview.md).
 
@@ -195,4 +195,4 @@ blockBlob.StartCopy(copySource);
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Excluir suave para armazenamento Blob](soft-delete-overview.md)
-- [Veragem blob (pré-visualização)](versioning-overview.md)
+- [Versão blob](versioning-overview.md)

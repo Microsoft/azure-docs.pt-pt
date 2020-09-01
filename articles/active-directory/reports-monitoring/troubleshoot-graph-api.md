@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eec5c5a3d810fdd2d561313e3a355e872fb525c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abc8badf261e631dd6ceb7af9a6a0cb3676ae25d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608097"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231015"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Erros de resolução de problemas no Azure Ative Directory reportando API
 
@@ -50,5 +50,5 @@ Por favor, siga os passos nos [Pré-requisitos para aceder à API de reporte de 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Utilize a referência](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
- API de auditoria [Utilize a referência API do relatório de atividades de inscrição](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Utilize a referência](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+ API de auditoria [Utilize a referência API do relatório de atividades de inscrição](/graph/api/resources/signin?view=graph-rest-beta)

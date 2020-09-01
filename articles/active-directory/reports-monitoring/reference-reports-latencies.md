@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74007709"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231066"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências dos relatórios do Azure Active Directory
 
@@ -54,8 +54,8 @@ Se já tem dados de atividades com a sua licença gratuita, então pode vê-lo i
 
 Existem dois tipos de relatórios de segurança:
 
-- [Inícios de sessão de risco](concept-risky-sign-ins.md) – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. 
-- [Utilizadores sinalizados para risco](concept-user-at-risk.md) – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. 
+- [Inícios de sessão de risco](../identity-protection/overview-identity-protection.md) – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. 
+- [Utilizadores sinalizados para risco](../identity-protection/overview-identity-protection.md) – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. 
 
 A tabela que se segue lista as informações de latência para relatórios de segurança.
 
@@ -80,8 +80,8 @@ A tabela que se segue lista as informações de latência para deteções de ris
 | Inícios de sessão de endereços IP com atividade suspeita |Duas horas |4 horas |8 horas  |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure AD reporta visão geral](overview-reports.md)
 * [Acesso programático aos relatórios AD do Azure](concept-reporting-api.md)
-* [Deteções de risco do Azure Ative Directory](concept-risk-events.md)
+* [Deteções de risco do Azure Ative Directory](../identity-protection/overview-identity-protection.md)

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066666"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230080"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Ative e gere a eliminação suave para recipientes (pré-visualização)
 
@@ -22,7 +22,7 @@ O recipiente de exclusão suave (pré-visualização) protege os seus dados de s
 
 Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se interlige com a eliminação suave do contentor. Este artigo mostra como permitir a eliminação suave para recipientes. Para obter mais detalhes sobre a eliminação suave do recipiente, incluindo como se registar para a pré-visualização, consulte [Soft delete para recipientes (pré-visualização)](soft-delete-container-overview.md).
 
-Para a proteção de dados de ponta a ponta, a Microsoft recomenda que também permita eliminar suavemente para bolhas e versões blob (pré-visualização). Para aprender a permitir também a eliminação suave para bolhas, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-blob-enable.md). Para aprender a permitir a versão blob, consulte [a versão Blob (pré-visualização)](versioning-overview.md).
+Para a proteção de dados de ponta a ponta, a Microsoft recomenda que também ative a eliminação suave para bolhas e versões Blob. Para aprender a permitir também a eliminação suave para bolhas, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-blob-enable.md). Para aprender a permitir a versão blob, consulte [a versão Blob](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Permitir a eliminação suave do recipiente
 
@@ -100,5 +100,5 @@ Pode restaurar um recipiente desausação e o seu conteúdo dentro do período d
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Excluir suave para recipientes (pré-visualização)](soft-delete-container-overview.md)
-- [Excluir suave para bolhas](soft-delete-blob-overview.md)
-- [Veragem blob (pré-visualização)](versioning-overview.md)
+- [Eliminação recuperável para blobs](soft-delete-blob-overview.md)
+- [Versão blob](versioning-overview.md)

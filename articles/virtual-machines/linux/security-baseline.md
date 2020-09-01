@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 97b2189020beffda32cc70dc66f028bec834eee5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 8ac7bec3065299ea62daae11adeeb1363f98d450
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003253"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231202"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais Linux
 
@@ -566,7 +566,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 **Orientação**: Utilizando o controlo de acesso baseado em funções Azure (Azure RBAC), pode segregar os deveres dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores no seu VM de que precisam para desempenhar os seus trabalhos. Em vez de dar permissão ilimitada a todos no VM, só pode permitir certas ações. Pode configurar o controlo de acesso para o VM no portal Azure, utilizando o Azure CLI ou Azure PowerShell.
 
-* [Azure RBAC](../../role-based-access-control/overview.md)
+* [RBAC do Azure](../../role-based-access-control/overview.md)
 
 * [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -588,7 +588,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 * [Encriptação lateral do servidor dos discos geridos pelo Azure](../windows/disk-encryption.md)
 
-* [Encriptação do disco Azure para VMs Linux](./disk-encryption-overview.md)
+* [Azure Disk Encryption para VMs do Linux](./disk-encryption-overview.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

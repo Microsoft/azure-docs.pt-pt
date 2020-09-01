@@ -7,6 +7,8 @@
     - name: Novidades nos Serviços de Multimédia
       displayName: release notes
       href: release-notes.md
+    - name: Conformidade dos Serviços de Multimédia
+      href: concept-compliance.md
 - name: Guias de Início Rápido
   items:
     - name: Configurar o seu ambiente
@@ -45,33 +47,34 @@
           href: encrypt-content-quickstart.md
 - name: Tutoriais
   items:
-    - name: Codificar um ficheiro remoto e transmitir o vídeo
+    - name: .NET
       items:
-        - name: Com o REST
-          displayName: 'encoding, job, transform'
+        - name: Codificar e transmitir em fluxo um ficheiro remoto REST
           href: stream-files-tutorial-with-rest.md
-        - name: Com a CLI
-          href: stream-files-cli-quickstart.md
-        - name: Com o .NET
+        - name: Codificar e transmitir em fluxo um ficheiro remoto .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Com o Node.js
+        - name: Codificar e transmitir em fluxo um ficheiro carregado
+          href: stream-files-tutorial-with-api.md
+        - name: Transmissão em direto
+          href: stream-live-tutorial-with-api.md
+        - name: Analisar o seu vídeo
+          href: analyze-videos-tutorial-with-api.md
+        - name: Encriptar de forma dinâmica com AES-128
+          href: protect-with-aes128.md
+        - name: Encriptar dinamicamente com o DRM
+          href: protect-with-drm.md
+    - name: CLI
+      items:
+        - name: Codificar e transmitir em fluxo um ficheiro remoto CLI
+          href: stream-files-cli-quickstart.md
+    - name: Node.js
+      items:
+        - name: Codificar e transmitir em fluxo um ficheiro remoto Node.js
           href: stream-files-nodejs-quickstart.md
-    - name: Armazenar eventos do AMS no Azure Log Analytics
-      href: tutorial-events-log-analytics.md
-    - name: Codificar o ficheiro carregado e transmitir o vídeo
-      displayName: 'encode, encoding, job, transform'
-      href: stream-files-tutorial-with-api.md
-    - name: Transmissão em direto
-      href: stream-live-tutorial-with-api.md
-      displayName: 'Live Events, Live Outputs, ingest'
-    - name: Analisar o seu vídeo
-      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-      href: analyze-videos-tutorial-with-api.md
-    - name: Encriptar de forma dinâmica com AES-128
-      href: protect-with-aes128.md
-    - name: Encriptar dinamicamente com o DRM
-      displayName: 'PlayReady, Widevine, FairPlay'
-      href: protect-with-drm.md
+    - name: Portal do Azure
+      items:
+        - name: Armazenar eventos do AMS no Azure Log Analytics
+          href: tutorial-events-log-analytics.md
 - name: Amostras
   items:
     - name: Exemplos dos Serviços de Multimédia v3
@@ -378,7 +381,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Ir
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

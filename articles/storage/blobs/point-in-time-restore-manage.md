@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a4c68454807cb26ac62799b598f146680e37c42
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445445"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230182"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Ativar e gerir o restauro pontual para as bolhas de bloco (pré-visualização)
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre a instalação do Azure PowerShell, consulte
 
 Antes de ativar e configurar a restauração pontual, ative os seus pré-requisitos para a conta de armazenamento: eliminação suave, alteração do feed e versão blob. Para obter mais informações sobre a ativação de cada uma destas funcionalidades, consulte estes artigos:
 
-- [Ativar a eliminação suave para bolhas](soft-delete-enable.md)
+- [Ativar a eliminação recuperável para blobs](soft-delete-enable.md)
 - [Ativar e desativar o feed de alteração](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Ativar e gerir a versão blob](versioning-enable.md)
 
@@ -179,9 +179,9 @@ $job | Wait-Job
 ## <a name="known-issues"></a>Problemas conhecidos
 - Para um subconjunto de restauros onde estão presentes bolhas de apêndice, a restauração falhará. Por enquanto, por favor, não efetue restauros se os blobs do apêndice estiverem presentes na conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Restauro pontual para bolhas de bloco (pré-visualização)](point-in-time-restore-overview.md)
 - [Eliminação recuperável](soft-delete-overview.md)
 - [Alterar feed (pré-visualização)](storage-blob-change-feed.md)
-- [Veragem blob (pré-visualização)](versioning-overview.md)
+- [Versão blob](versioning-overview.md)

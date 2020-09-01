@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: b9d91921fc375a1209e8fa8df6e3c6ff56e55be0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: f15686cf07bae4aee41095c970cd8a474724c2ed
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046709"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230981"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizar dados da Azure Time Series Insights em Power BI
 
@@ -52,20 +52,20 @@ Para ligar o ambiente Azure Time Series Insights ao Power BI, siga estes passos:
 
 Para começar:
 
-1. Abra o Azure Time Series Insights Gen2 Explorer e cuide dos seus dados.
+1. Abra o Azure Time Series Insights Explorer e cuide dos seus dados.
 1. Depois de ter criado uma vista com a qual está satisfeito, navegue para o menu de abandono **de ações Mais** e selecione **Connect to Power BI**.
 
-    [![Azure Time Series Insights Gen2 Explorer exportação](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [![Exportação do Azure Time Series Insights Explorer](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Desa parte dos seus parâmetros dentro deste separador:
 
    1. Especifique um prazo relativo para visualizar. Se está satisfeito com a sua visão existente, deixe-o como **o prazo existente.**
-   
-   1. Escolha entre **Eventos Agregados** e **Crus.** 
-   
+
+   1. Escolha entre **Eventos Agregados** e **Crus.**
+
        > [!NOTE]
-       > Pode sempre agregar os seus dados mais tarde no Power BI, mas não pode voltar a dados brutos após a agregação. 
-       
+       > Pode sempre agregar os seus dados mais tarde no Power BI, mas não pode voltar a dados brutos após a agregação.
+
        > [!NOTE]
        > Há um limite de contagem de eventos de 250.000 para dados de nível de Eventos Brutos.
 
@@ -89,7 +89,7 @@ Para começar:
     [![Ligue o Power BI a Azure Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
 
     Em alternativa, navegue no separador **Azure,** selecione **Azure Time Series Insights (Beta)** e, em seguida, **Conecte-se**.
-    
+
 1. Uma caixa de diálogo de mensagens será exibida pedindo permissão para se ligar a recursos de terceiros. Selecione **continuar**.
 
     [![Escolha Criar Consulta Personalizada](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
@@ -112,17 +112,17 @@ Agora que importou os dados para o Power BI, está na hora de construir um relat
 
     [![Selecione a vista de relatório](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
-1.  Na coluna **Visualizações,** selecione o seu visual de escolha. Por exemplo, selecione **gráfico de linha**. Isto irá adicionar um gráfico de linha em branco à sua tela.
+1. Na coluna **Visualizações,** selecione o seu visual de escolha. Por exemplo, selecione **gráfico de linha**. Isto irá adicionar um gráfico de linha em branco à sua tela.
 
-1.  Na lista **Fields,** selecione **_Timestamp** e arraste-o para o campo **eixo** para exibir itens ao longo do eixo X. Certifique-se de que muda para **_Timestamp** para o valor do **eixo** (predefinição é **hierarquia de data).**
+1. Na lista **Fields,** selecione **_Timestamp** e arraste-o para o campo **eixo** para exibir itens ao longo do eixo X. Certifique-se de que muda para **_Timestamp** para o valor do **eixo** (predefinição é **hierarquia de data).**
 
     [![Selecione a vista de relatório](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
-1.  Mais uma vez, na lista **Fields,** selecione **TimeSeriesId** e arraste-o para o campo **Valores** para exibir itens ao longo do eixo Y.
+1. Mais uma vez, na lista **Fields,** selecione **TimeSeriesId** e arraste-o para o campo **Valores** para exibir itens ao longo do eixo Y.
 
     [![Criar um gráfico de linhas](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  Para adicionar outro gráfico à sua tela, selecione qualquer lugar na tela fora da tabela de linha e repita este processo.
+1. Para adicionar outro gráfico à sua tela, selecione qualquer lugar na tela fora da tabela de linha e repita este processo.
 
     [![Criar gráficos adicionais para partilhar](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 

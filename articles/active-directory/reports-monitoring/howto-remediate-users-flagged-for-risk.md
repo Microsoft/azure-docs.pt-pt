@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608930"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231168"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remediar utilizadores sinalizados para risco no portal do Azure Active Directory
 
@@ -40,7 +40,7 @@ A partir dos utilizadores sinalizados para relatório de risco, pode tomar as se
 - Exigir que o utilizador reponha a palavra-passe dele em segurança na próxima vez que iniciar sessão
 - Dispense o risco de utilizador sem tomar qualquer ação de remediação.
 
-Para obter mais informações, consulte [os Utilizadores sinalizados para o relatório de segurança do risco](concept-user-at-risk.md).
+Para obter mais informações, consulte [os Utilizadores sinalizados para o relatório de segurança do risco](../identity-protection/overview-identity-protection.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Subscrição do Azure AD para os clientes do Office 365
 
@@ -89,7 +89,7 @@ Além disso, deve:
 - [Habilitar o pipeline de auditoria](https://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade no seu inquilino. Uma vez concluída, a sua loja de auditoria começa a encher-se de registos de atividades. Neste momento, você também pode aproveitar o [recurso de pesquisa e investigação do Centro de Segurança e Conformidade.](https://aka.ms/sccsearch) 
 - Reveja as permissões de delegado e as regras de reencaminhamento de todas as caixas de correio de correio. Pode utilizar este [script do PowerShell](https://aka.ms/delegateforwardrules) para realizar esta tarefa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Proteção de Identidade do Diretório Ativo Azure](../active-directory-identityprotection.md)
-* [Utilizadores marcados em risco](concept-user-at-risk.md)
+* [Proteção de Identidade do Diretório Ativo Azure](../identity-protection/overview-identity-protection.md)
+* [Utilizadores marcados em risco](../identity-protection/overview-identity-protection.md)

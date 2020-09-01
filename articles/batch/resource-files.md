@@ -3,12 +3,12 @@ title: Criar e utilizar ficheiros de recursos
 description: Saiba como criar ficheiros de recursos batch a partir de várias fontes de entrada. Este artigo abrange alguns métodos comuns sobre como criá-los e colocá-los num VM.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: e1bf7520774a0f4143aadd2298f300b3ac5c75a3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146305"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230947"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e utilizar ficheiros de recursos
 
@@ -99,7 +99,7 @@ Se cada tarefa tem muitos ficheiros exclusivos dessa tarefa, os ficheiros de rec
 
 Se existirem várias centenas de ficheiros de recursos especificados numa tarefa, o Batch pode rejeitar a tarefa como sendo demasiado grande. É melhor manter as suas tarefas pequenas minimizando o número de ficheiros de recursos na própria tarefa.
 
-Se não houver forma de minimizar o número de ficheiros de que a sua tarefa necessita, pode otimizar a tarefa criando um único ficheiro de recursos que faz referência a um recipiente de armazenamento de ficheiros de recursos. Para isso, coloque os seus ficheiros de recursos num recipiente de armazenamento Azure e utilize os [diferentes métodos](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods) de "recipiente" para ficheiros de recursos. Utilize as opções de prefixo blob para especificar as recolhas de ficheiros a serem descarregados para as suas tarefas.
+Se não houver forma de minimizar o número de ficheiros de que a sua tarefa necessita, pode otimizar a tarefa criando um único ficheiro de recursos que faz referência a um recipiente de armazenamento de ficheiros de recursos. Para isso, coloque os seus ficheiros de recursos num recipiente de armazenamento Azure e utilize os [diferentes métodos](/dotnet/api/microsoft.azure.batch.resourcefile#methods) de "recipiente" para ficheiros de recursos. Utilize as opções de prefixo blob para especificar as recolhas de ficheiros a serem descarregados para as suas tarefas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

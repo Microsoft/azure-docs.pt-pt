@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427b488fe6673bef505fccdaa7185d69437bceaf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656537"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231321"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Criar um ambiente de serviço de integração (ISE) utilizando a API de Apps Lógicas REST
 
-Este artigo mostra como criar um ambiente de serviço de [ *integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) através da Logic Apps REST API para cenários onde as suas aplicações lógicas e contas de integração precisam de acesso a uma [rede virtual Azure.](../virtual-network/virtual-networks-overview.md) O ISE é um ambiente dedicado que utiliza o armazenamento dedicado e outros recursos que são mantidos separados do serviço Logic Apps multi-inquilino “global”. Esta separação também reduz qualquer impacto que outros inquilinos do Azure possam ter no desempenho das suas apps. Um ISE também lhe fornece os seus próprios endereços IP estáticos. Estes endereços IP são separados dos endereços IP estáticos que são partilhados pelas aplicações lógicas no serviço público, multi-inquilino.
+Este artigo mostra como criar um ambiente de serviço de [ *integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) através da Logic Apps REST API para cenários onde as suas aplicações lógicas e contas de integração precisam de acesso a uma [rede virtual Azure.](../virtual-network/virtual-networks-overview.md) O ISE é um ambiente dedicado que utiliza o armazenamento dedicado e outros recursos que são mantidos separados do serviço Logic Apps multi-inquilino “global”. Esta separação também reduz qualquer impacto que outros inquilinos do Azure possam ter no desempenho das suas apps. Um ISE também lhe proporciona os seus próprios endereços IP estáticos. Estes endereços IP são separados dos endereços IP estáticos que são partilhados pelas aplicações lógicas no serviço público, multi-inquilino.
 
 Também pode criar um ISE utilizando o modelo de arranque rápido do [Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) da amostra ou utilizando o [portal Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
@@ -58,7 +58,7 @@ No cabeçalho de pedido, inclua estas propriedades:
 
 ## <a name="request-body"></a>Corpo do pedido
 
-Aqui está a sintaxe corporal de pedido, que descreve as propriedades a utilizar quando cria o seu ISE. Para criar um ISE que permita usar um certificado auto-assinado que esteja instalado no `TrustedRoot` local, inclua o `certificates` objeto dentro da secção de definição ise. `properties` Para um ISE existente, pode enviar um pedido PATCH apenas para o `certificates` objeto. Para obter mais informações sobre a utilização de certificados auto-assinados, consulte também [o conector HTTP - Certificados auto-assinados.](../connectors/connectors-native-http.md#self-signed)
+Aqui está a sintaxe corporal de pedido, que descreve as propriedades a utilizar quando cria o seu ISE. Para criar um ISE que permita usar um certificado auto-assinado que esteja instalado no `TrustedRoot` local, inclua o `certificates` objeto dentro da secção de definição ise. `properties` Para um ISE existente, pode enviar um pedido PATCH apenas para o `certificates` objeto. Para obter mais informações sobre a utilização de certificados auto-assinados, consulte [acesso seguro e dados - Acesso a chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ```json
 {
@@ -146,7 +146,7 @@ Este corpo de pedido de exemplo mostra os valores da amostra:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar recursos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Gerir ambientes do serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)

@@ -2,13 +2,13 @@
 title: Mover VMs Azure para novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/31/2020
+ms.openlocfilehash: 3878113f6874c40953bec87518a89519bdc6cb1a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933244"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230964"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
@@ -48,7 +48,7 @@ Se [a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md
 2. Para mover máquinas virtuais configuradas com backup Azure, faça os seguintes passos:
 
    1. Encontre a localização da sua máquina virtual.
-   2. Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
+   2. Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<VM location>_1` . Por exemplo, o nome está no formato de *AzureBackupRG_westus2_1*.
    3. No portal Azure, verifique **os tipos ocultos do Show**.
    4. Encontre o recurso com o tipo **Microsoft.Compute/restorePointCollections** que tenha o padrão de nomeação `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
@@ -59,19 +59,41 @@ Se [a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md
 
 ### <a name="powershell"></a>PowerShell
 
-* Encontre a localização da sua Máquina Virtual.
-* Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
-* Se em PowerShell, use o `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-* Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
+1. Encontre a localização da sua máquina virtual.
+
+1. Encontre um grupo de recursos com o padrão de nomeação - `AzureBackupRG_<VM location>_1` . Por exemplo, o nome pode ser `AzureBackupRG_westus2_1` .
+
+1. Utilize o seguinte comando para obter a recolha do ponto de restauro.
+
+   ```azurepowershell
+   $RestorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+1. Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
+
+   ```azurepowershell
+   Remove-AzResource -ResourceId $RestorePointCollection.ResourceId -Force
+   ```
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-* Encontre a localização da sua Máquina Virtual.
-* Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
-* Se em CLI, usar o `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Encontre o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomeação `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
+1. Encontre a localização da sua máquina virtual.
+
+1. Encontre um grupo de recursos com o padrão de nomeação - `AzureBackupRG_<VM location>_1` . Por exemplo, o nome pode ser `AzureBackupRG_westus2_1` .
+
+1. Utilize o seguinte comando para obter a recolha do ponto de restauro.
+
+   ```azurecli
+   az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections
+   ```
+
+1. Encontre o ID do recurso para o recurso com o padrão de nomeação `AzureBackup_<VM name>_###########`
+
+1. Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
+
+   ```azurecli
+   az resource delete --ids /subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/Microsoft.Compute/restorePointCollections/<name>
+   ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
