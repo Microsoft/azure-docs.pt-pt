@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f7082de204cedd25b3b87b7157376505598712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718089"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226680"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -114,6 +114,8 @@ Uma chave de segurança **DEVE** implementar as seguintes funcionalidades e exte
 | 2 | Pino do cliente | Esta funcionalidade permite-lhe proteger as suas credenciais com um segundo fator e aplica-se a chaves de segurança que não possuem interface de utilizador. |
 | 3 | hmac-secreto | Esta extensão garante que pode iniciar sôm no seu dispositivo quando estiver desligado ou em modo avião. |
 | 4 | Várias contas por RP | Esta funcionalidade garante que pode utilizar a mesma chave de segurança em vários serviços, como a Microsoft Account e o Azure Ative Directory. |
+
+### <a name="fido2-security-key-providers"></a>Principais fornecedores de segurança FIDO2
 
 Os seguintes fornecedores oferecem chaves de segurança FIDO2 de diferentes fatores de forma que são conhecidos por serem compatíveis com a experiência sem palavras-passe. Encorajamo-lo a avaliar as propriedades de segurança destas chaves contactando o fornecedor, bem como a FIDO Alliance.
 

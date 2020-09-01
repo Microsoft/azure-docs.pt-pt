@@ -5,28 +5,32 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286636"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226434"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps
 
-Com [as Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o gatilho ou ação HTTP incorporados, pode criar tarefas automatizadas e fluxos de trabalho que enviam pedidos para pontos finais de serviço em HTTP ou HTTPS. Por exemplo, pode monitorizar o ponto final de serviço do seu website verificando esse ponto final num horário específico. Quando o evento especificado acontece nesse ponto final, como o seu site a descer, o evento desencadeia o fluxo de trabalho da sua aplicação lógica e executa as ações nesse fluxo de trabalho. Se pretender receber e responder às chamadas HTTPS de entrada, utilize a ação [de detonador ou resposta incorporada](../connectors/connectors-native-reqres.md).
+Com [as Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o gatilho ou ação HTTP incorporados, pode criar tarefas e fluxos de trabalho automatizados que podem enviar pedidos de saída para pontos finais em outros serviços e sistemas através de HTTP ou HTTPS. Para receber e responder às chamadas HTTPS de entrada, utilize a ação de [detonador e resposta do pedido](../connectors/connectors-native-reqres.md)incorporado .
+
+Por exemplo, pode monitorizar um ponto final de serviço para o seu website, verificando esse ponto final num horário específico. Quando o evento especificado acontece nesse ponto final, como o seu site a descer, o evento desencadeia o fluxo de trabalho da sua aplicação lógica e executa as ações nesse fluxo de trabalho.
 
 * Para verificar ou *sondar* um ponto final num horário recorrente, [adicione o gatilho HTTP](#http-trigger) como o primeiro passo no seu fluxo de trabalho. Cada vez que o gatilho verifica o ponto final, o gatilho chama ou envia um *pedido* para o ponto final. A resposta do ponto final determina se o fluxo de trabalho da sua aplicação lógica funciona. O gatilho transmite qualquer conteúdo da resposta do ponto final às ações da sua aplicação lógica.
 
 * Para chamar um ponto final de qualquer outro lugar do seu fluxo de trabalho, [adicione a ação HTTP](#http-action). A resposta do ponto final determina como as restantes ações do seu fluxo de trabalho funcionam.
 
-Este artigo mostra como adicionar um gatilho HTTP ou ação ao fluxo de trabalho da sua aplicação lógica.
+Este artigo mostra como utilizar o gatilho HTTP e a ação HTTP para que a sua aplicação lógica possa enviar chamadas de saída para outros serviços e sistemas.
+
+Para obter informações sobre encriptação, segurança e autorização para chamadas de saída da sua aplicação lógica, como [a Transport Layer Security (TLS),](https://en.wikipedia.org/wiki/Transport_Layer_Security)anteriormente conhecida como Secure Sockets Layer (SSL), certificados auto-assinados ou [Autenticação Aberta do Diretório Ativo Azure (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [acesso seguro e dados - Acesso a chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * O URL para o ponto final alvo que você quer chamar
 
@@ -96,21 +100,27 @@ Esta ação incorporada faz uma chamada HTTP para o URL especificado para um pon
 
 1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
-<a name="tls-support"></a>
+## <a name="trigger-and-action-outputs"></a>Saídas de gatilho e ação
 
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+Aqui está mais informações sobre as saídas de um gatilho http ou ação, que devolve esta informação:
 
-Com base na capacidade do ponto final do ponto final, as chamadas de saída suportam a Segurança da Camada de Transporte (TLS), que anteriormente era Secure Sockets Layer (SSL), versões 1.0, 1.1 e 1.2. A Logic Apps negoceia com o ponto final utilizando a versão mais suportada possível.
+| Propriedade | Tipo | Description |
+|----------|------|-------------|
+| `headers` | Objeto JSON | Os cabeçalhos do pedido |
+| `body` | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
+| `status code` | Número inteiro | O código de estado do pedido |
+|||
 
-Por exemplo, se o ponto final suportar 1.2, o conector HTTP utiliza primeiro o 1.2. Caso contrário, o conector utiliza a próxima versão suportada mais alta.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Certificados auto-assinados
-
-* Para aplicações lógicas no ambiente global e multi-inquilino Azure, o conector HTTP não permite certificados TLS/SSL auto-assinados. Se a sua aplicação lógica fizer uma chamada HTTP para um servidor e apresentar um certificado auto-assinado TLS/SSL, a chamada HTTP falha com um `TrustFailure` erro.
-
-* Para aplicações lógicas num [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)o conector HTTP permite certificados auto-assinados para apertos de mão TLS/SSL. No entanto, primeiro deve [ativar o suporte de certificado auto-assinado](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para um ISE existente ou novo ISE, utilizando a API de Aplicações Lógicas e instalar o certificado público no `TrustedRoot` local.
+| Código de estado | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Aceite |
+| 400 | Mau pedido |
+| 401 | Não autorizado |
+| 403 | Proibido |
+| 404 | Não encontrado |
+| 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
+|||
 
 ## <a name="content-with-multipartform-data-type"></a>Conteúdo com tipo multiparte/dados de formulário
 
@@ -231,7 +241,7 @@ Se um gatilho ou ação HTTP incluir estes cabeçalhos, as Aplicações Lógicas
 
 * `Accept-*`
 * `Allow`
-* `Content-*`com estas exceções: `Content-Disposition` `Content-Encoding` , e`Content-Type`
+* `Content-*` com estas exceções: `Content-Disposition` `Content-Encoding` , e `Content-Type`
 * `Cookie`
 * `Expires`
 * `Host`
@@ -249,29 +259,8 @@ Para obter mais informações sobre os parâmetros de desencadeamento e ação, 
 * [Parâmetros de disparo HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### <a name="output-details"></a>Detalhes da saída
-
-Aqui está mais informações sobre as saídas de um gatilho http ou ação, que devolve esta informação:
-
-| Propriedade | Tipo | Descrição |
-|----------|------|-------------|
-| `headers` | Objeto JSON | Os cabeçalhos do pedido |
-| `body` | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
-| `status code` | Integer (Número inteiro) | O código de estado do pedido |
-|||
-
-| Código de estado | Descrição |
-|-------------|-------------|
-| 200 | OK |
-| 202 | Aceite |
-| 400 | Mau pedido |
-| 401 | Não autorizado |
-| 403 | Proibido |
-| 404 | Não encontrado |
-| 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
-|||
-
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
+* [Acesso seguro e dados - Acesso a chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Conectores para as Logic Apps](../connectors/apis-list.md)
 

@@ -4,16 +4,16 @@ description: Saiba como restringir o tráfego web com uma Firewall de Aplicaçã
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50aaf4f2639f48e5536e6eeaba5edbc246b2bba7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: faa46b3ad96e9555a08a662f205a0a130c28bac2
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501070"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225174"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Ativar firewall de aplicação web usando o Azure CLI
 
@@ -21,11 +21,10 @@ Pode restringir o tráfego num gateway de aplicações com uma [Firewall de Apli
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação com a WAF ativada
-> * Criar um conjunto de dimensionamento de máquinas virtuais
-> * Criar uma conta de armazenamento e configurar o diagnóstico
+ * Configurar a rede
+ * Criar um gateway de aplicação com a WAF ativada
+ * Criar um conjunto de dimensionamento de máquinas virtuais
+ * Criar uma conta de armazenamento e configurar o diagnóstico
 
 ![Exemplo de Firewall de aplicação web](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
@@ -183,7 +182,7 @@ az network public-ip show \
 
 ![Testar o URL base no gateway de aplicação](../media/tutorial-restrict-web-traffic-cli/application-gateway-nginxtest.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 

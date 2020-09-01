@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/16/2020
-ms.openlocfilehash: adbe3ceb72d88c2a6441c04d876d92ac2ab85930
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/18/2020
+ms.openlocfilehash: 0f6b1789a5148af37ddd2d0895cec348c27f663a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522776"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182501"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformação de fonte no fluxo de dados de mapeamento 
 
@@ -37,11 +37,11 @@ Para utilizar um conjunto de dados inline, selecione o formato pretendido no sel
 
 ![Conjunto de dados inline](media/data-flow/inline-selector.png "Conjunto de dados inline")
 
-##  <a name="supported-source-types"></a><a name="supported-sources"></a>Tipos de origem suportados
+##  <a name="supported-source-types"></a><a name="supported-sources"></a> Tipos de origem suportados
 
 Mapeamento do Fluxo de Dados segue uma abordagem de extrato, carga, transformação (ELT) e trabalha com conjuntos de dados de *encenação* que estão todos em Azure. Atualmente, os seguintes conjuntos de dados podem ser utilizados numa transformação de fonte:
 
-| Conector | Formatar | Conjunto de dados/inline |
+| Conector | Formato | Conjunto de dados/inline |
 | --------- | ------ | -------------- |
 | [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta (pré-visualização)](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties) <br>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/-<br>✓/-<br>-/✓<br>✓/✓<br/>✓/-<br>✓/-<br>✓/✓ |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties)  | ✓/-<br>✓/-<br>✓/✓<br/>✓/-<br>✓/-<br>✓/✓ |
@@ -49,8 +49,9 @@ Mapeamento do Fluxo de Dados segue uma abordagem de extrato, carga, transformaç
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-As definições específicas destes conectores estão localizadas no separador **opções Source.** Exemplos de scripts de fluxo de dados nestas definições estão localizados na documentação do conector. 
+As definições específicas destes conectores estão localizadas no separador **opções Source.** Os exemplos de scripts de fluxo de informação e de fluxo de dados nestas definições estão localizados na documentação do conector. 
 
 O Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para incluir dados dessas outras fontes no seu fluxo de dados, utilize a Atividade de Cópia para carregar esses dados numa das áreas de preparação suportadas.
 
@@ -115,6 +116,6 @@ Se estiver a ler a partir de uma fonte de Base de Dados Azure SQL, a partição 
 
 Para obter mais informações sobre a otimização dentro do fluxo de dados de mapeamento, consulte o [separador Otimize](concepts-data-flow-overview.md#optimize).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Comece a construir o seu fluxo de dados com uma [transformação de colunas derivadas](data-flow-derived-column.md) e uma [transformação selecionada.](data-flow-select.md)

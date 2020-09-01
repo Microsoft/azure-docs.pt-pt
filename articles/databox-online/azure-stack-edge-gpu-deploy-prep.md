@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1e95f635cfb354487298b340f8f25b15c3ca146a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 004702d52245893f4746ce8e4b4a2cc36aad6a67
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088039"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181855"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>Tutorial: Prepare-se para implantar Azure Stack Edge  
+# <a name="tutorial-prepare-to-deploy-azure-stack-edge-with-gpu"></a>Tutorial: Prepare-se para implantar Azure Stack Edge com GPU 
 
-Este é o primeiro tutorial na série de tutoriais de implementação que são necessários para implantar completamente Azure Stack Edge. Este tutorial descreve como preparar o portal Azure para implementar um recurso Azure Stack Edge.
+Este é o primeiro tutorial na série de tutoriais de implementação que são necessários para implantar completamente Azure Stack Edge com GPU. Este tutorial descreve como preparar o portal Azure para implementar um recurso Azure Stack Edge.
 
 Necessita de privilégios de administrador para concluir o processo de instalação e configuração. A preparação do portal demora menos de 10 minutos.
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Para a implementação do Azure Stack Edge, tem de preparar primeiro o seu ambiente. Uma vez que o ambiente esteja pronto, siga as etapas necessárias e, se necessário, etapas e procedimentos opcionais para implantar totalmente o dispositivo. As instruções de colocação passo a passo indicam quando deve executar cada uma destas etapas necessárias e opcionais.
 
-| Passo | Descrição |
+| Passo | Description |
 | --- | --- |
 | **Preparação** |Estes passos devem ser concluídos em preparação para a próxima implantação. |
 | **[Lista de verificação de configuração de implementação](#deployment-configuration-checklist)** |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |
@@ -46,8 +46,9 @@ Para a implementação do Azure Stack Edge, tem de preparar primeiro o seu ambie
 |**[5. Configurar as definições do dispositivo para Azure Stack Edge](azure-stack-edge-gpu-deploy-set-up-device-update-time.md)** |Atribua um nome do dispositivo e domínio DNS, configuure o servidor de atualização e o tempo do dispositivo. |
 |**[6. Configurar definições de segurança para Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Configure certificados para o seu dispositivo. Utilize certificados gerados pelo dispositivo ou traga os seus próprios certificados.   |
 |**[7. Ativar a borda da pilha de Azure](azure-stack-edge-gpu-deploy-activate.md)** |Utilize a chave de ativação do serviço para ativar o dispositivo. O dispositivo está pronto para configurar ações SMB ou NFS ou ligar via REST. |
-|**[8A. Dados de transferência com ações edge](azure-stack-edge-j-series-deploy-add-shares.md)** |Adicione partilhas e ligue-se a partilhas através de SMB ou NFS. |
-|**[8B. Transferir dados com contas de armazenamento Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Adicione contas de armazenamento e conecte-se ao armazenamento de bolhas através de REST APIs. |
+|**[8. Cálculo de configuração](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure o papel de computação no seu dispositivo. Isto também criará um cluster Kubernetes. |
+|**[9A. Dados de transferência com ações edge](azure-stack-edge-j-series-deploy-add-shares.md)** |Adicione partilhas e ligue-se a partilhas através de SMB ou NFS. |
+|**[9B. Transferir dados com contas de armazenamento Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Adicione contas de armazenamento e conecte-se ao armazenamento de bolhas através de REST APIs. |
 
 
 Pode agora começar a recolher informações sobre a configuração do software para o seu dispositivo Azure Stack Edge.
@@ -104,7 +105,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
 1. Utilize as suas credenciais Microsoft Azure para iniciar súb9 no portal Azure neste URL: [https://portal.azure.com](https://portal.azure.com) .
 
-2. No painel esquerdo, selecione **+ Crie um recurso**. Procure e selecione **Azure Stack Edge / Data Box Gateway**. Selecione **Criar**.
+2. No painel esquerdo, selecione **+ Crie um recurso**. Procure e selecione **Azure Stack Edge / Data Box Gateway**. Selecione **Criar**. Se vir algum problema, vá a [questões de ordem de resolução de problemas](azure-stack-edge-troubleshoot-ordering.md).
 
 3. Escolha a subscrição que pretende utilizar para o dispositivo Azure Stack Edge. Selecione o país para onde pretende enviar este dispositivo físico. Selecione **dispositivos Show**.
 
@@ -118,7 +119,7 @@ Para criar um recurso Azure Stack Edge, tome os seguintes passos no portal Azure
 
     ![Criar um recurso 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
-5. Após a subscrição estar ativada, deverá poder prosseguir com a criação de recursos. Na lâmina **do tipo dispositivo Select,** escolha **Select**. 
+5. Após a subscrição estar ativada, deverá poder prosseguir com a criação de recursos. Na lâmina **do tipo dispositivo Select,** escolha **Select**.
 
     ![Criar um recurso 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
@@ -165,6 +166,8 @@ A criação do recurso demora alguns minutos. Depois de o recurso ser criado e i
 Após a encomenda ser feita, a Microsoft revê a encomenda e contacta-o (via e-mail) com detalhes de envio.
 
 ![Notificação para revisão da encomenda Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+Se encontrar problemas durante o processo de encomenda, consulte [problemas de ordem de resolução de problemas](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Obter a chave de ativação
 

@@ -6,13 +6,13 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 89da86d753f746774737c248ee318c7a377dd7a0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: b027e44a2ee31b0168ec3b6af717df23dd560abd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007102"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225592"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança Azure para conjuntos de escala de máquina virtual
 
@@ -580,7 +580,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 **Orientação**: Utilizando o controlo de acesso baseado em funções Azure (Azure RBAC), pode segregar os deveres dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores na sua máquina virtual (VM) de que precisam para desempenhar os seus trabalhos. Em vez de dar permissão ilimitada a todos no VM, só pode permitir certas ações. Pode configurar o controlo de acesso para o VM no portal Azure, utilizando o Azure CLI ou Azure PowerShell.
 
-* [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Funções incorporadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
 

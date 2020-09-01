@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: c98d6644dba0b3ca51f07f01ec27fee697369f2b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 90f9fcc7bbac3164b4e620674bd64d026c11badb
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088051"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181838"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Tutorial: Conecte-se ao Azure Stack Edge com GPU
 
@@ -45,9 +45,11 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge com GPU, cer
 
     ![Painel posterior de um dispositivo ligado por cabo](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
+    O backplane do dispositivo pode parecer ligeiramente diferente dependendo do modelo exato que recebeu.
+
 
 3. Abra uma janela do navegador e aceda à UI web local do dispositivo em `https://192.168.100.10` .  
-    Esta ação pode demorar alguns minutos depois de ter ligado o dispositivo. 
+    Esta ação pode demorar alguns minutos depois de ter ligado o dispositivo.
 
     Você vê um erro ou um aviso indicando que há um problema com o certificado de segurança do site. 
    

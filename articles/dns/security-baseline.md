@@ -6,13 +6,13 @@ ms.service: dns
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: ea4f3072df7ef6d25736ca3abdeb72abaf2971a0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860965"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225671"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Linha de segurança Azure para Azure DNS
 

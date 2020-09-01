@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79d88d218d04d00def19bdd2aa98f76d2f128de1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ebf91f68e45148d9a609ff671ffa4683bd74c82c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007765"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226119"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente Android
 
@@ -36,6 +36,7 @@ Para subscrever um feed:
 2. Introduza o URL de alimentação no campo **URL de alimentação.** O URL de alimentação pode ser um URL ou um endereço de e-mail.
    - Se utilizar um URL, use o que o seu administrador lhe deu, <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> normalmente.
    - Para utilizar o e-mail, insira o seu endereço de e-mail. O cliente procurará um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
+   - Para ligar através do portal Gov dos EUA, utilize <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Toque **EM SEGUINTE**.
 4. Forneça as suas credenciais quando solicitado.
    - Para **o nome de utilizador,** forneça ao utilizador a permissão para aceder aos recursos.

@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 9a725831efe6b92ba522900fac67b317e42bc959
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718548"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182382"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health frequentemente fez perguntas
 Este artigo inclui respostas a perguntas frequentes (FAQs) sobre O Diretório Ativo Azure (Azure AD) Connect Health. Estas FAQs cobrem questões sobre como usar o serviço, que inclui o modelo de faturação, capacidades, limitações e suporte.
@@ -104,7 +104,7 @@ Por exemplo, no Windows Server 2008 R2, a instalação do Quadro .NET 4.5 requer
 
 **P: A Azure AD Connect Health funciona através de um representante http-through?**
 
-Sim. Para as operações em curso, pode configurar o Agente de Saúde para utilizar um representante HTTP para encaminhar pedidos HTTP de saída.
+Yes. Para as operações em curso, pode configurar o Agente de Saúde para utilizar um representante HTTP para encaminhar pedidos HTTP de saída.
 Leia mais sobre [a configuração http Proxy para agentes de saúde](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
 Se precisar de configurar um representante durante o registo do agente, poderá ter de modificar previamente as definições do seu Proxy do Internet Explorer.
@@ -137,7 +137,7 @@ O agente de saúde pode não se registar devido às seguintes razões possíveis
 
 * O agente não pode comunicar com os pontos finais necessários porque uma firewall está a bloquear o tráfego. Isto é particularmente comum em servidores proxy de aplicações web. Certifique-se de que permitiu a comunicação de saída aos pontos finais e portas necessários. Consulte a [secção de requisitos](how-to-connect-health-agent-install.md#requirements) para mais detalhes.
 * A comunicação de saída é submetida a uma inspeção TLS pela camada de rede. Isto faz com que o certificado que o agente usa seja substituído pelo servidor/entidade de inspeção, e as etapas para completar o registo do agente falham.
-* O utilizador não tem acesso à realização do registo do agente. Os administradores globais têm acesso por defeito. Pode utilizar [o controlo de acesso baseado em funções (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) para delegar o acesso a outros utilizadores.
+* O utilizador não tem acesso à realização do registo do agente. Os administradores globais têm acesso por defeito. Pode utilizar [o controlo de acesso baseado em funções (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) para delegar o acesso a outros utilizadores.
 
 **P: Estou a ser alertado de que "os dados do Serviço de Saúde não estão atualizados." Como é que resolvo o problema?**
 

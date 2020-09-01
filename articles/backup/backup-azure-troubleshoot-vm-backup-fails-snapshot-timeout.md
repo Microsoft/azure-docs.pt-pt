@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções de falhas de Backup Azure relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 1bfd83534bda6397983b0595acc089e901c473d6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021488"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182042"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -65,7 +65,7 @@ O Azure Backup utiliza a Extensão de Instantâneo VM para obter uma cópia de s
 
 - **Certifique-se de que o serviço de escritores VSS está a funcionar**: Siga estes passos Para [resolver problemas com os escritores vss](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Siga as diretrizes de boas práticas**de backup : Reveja as [melhores práticas para permitir o backup do Azure VM](backup-azure-vms-introduction.md#best-practices).
-- **Rever as diretrizes para discos encriptados**: Se estiver a permitir a cópia de segurança para VMs com disco encriptado, certifique-se de que forneceu todas as permissões necessárias. Para saber mais, consulte [Back up e restaure O VM encriptado](backup-azure-vms-encryption.md).
+- **Rever as diretrizes para discos encriptados**: Se estiver a ativar a cópia de segurança para VMs com disco encriptado, certifique-se de que forneceu todas as permissões necessárias. Para saber mais, consulte [Back up e restaure O VM encriptado](backup-azure-vms-encryption.md).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable – o agente da VM não consegue comunicar com o Azure Backup
 

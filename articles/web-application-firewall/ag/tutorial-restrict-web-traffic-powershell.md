@@ -5,15 +5,15 @@ description: Saiba como restringir o tráfego web com uma Firewall de aplicaçã
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: 1e2fb98d83d1246c54ccb37d68d9b4282701677e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74046282"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225191"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Ativar firewall de aplicação web usando Azure PowerShell
 
@@ -21,11 +21,10 @@ Pode restringir o tráfego num gateway de aplicações com uma [Firewall de Apli
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação com a WAF ativada
-> * Criar um conjunto de dimensionamento de máquinas virtuais
-> * Criar uma conta de armazenamento e configurar o diagnóstico
+* Configurar a rede
+* Criar um gateway de aplicação com a WAF ativada
+* Criar um conjunto de dimensionamento de máquinas virtuais
+* Criar uma conta de armazenamento e configurar o diagnóstico
 
 ![Exemplo de firewall de aplicações Web](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
@@ -294,7 +293,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testar o URL base no gateway de aplicação](../media/tutorial-restrict-web-traffic-powershell/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
@@ -302,6 +301,6 @@ Quando já não for necessário, remova o grupo de recursos, o gateway de aplica
 Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Personalizar regras de firewall de aplicações Web](application-gateway-customize-waf-rules-portal.md)

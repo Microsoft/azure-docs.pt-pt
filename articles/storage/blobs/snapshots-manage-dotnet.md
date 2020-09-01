@@ -1,27 +1,27 @@
 ---
 title: Criar e gerir um instantâneo blob em .NET
 titleSuffix: Azure Storage
-description: Aprenda a criar uma imagem apenas de leitura de uma bolha para fazer o back-up dados blob num dado momento.
+description: Aprenda a usar a biblioteca de clientes .NET para criar uma imagem apenas de leitura de uma bolha para fazer o back-up dados blob num dado no tempo.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d50357a648d63984ae70a32e0fdd7260a86d6a6a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fb57e7260a056afe023455149f610ff492c98c12
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020818"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226136"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerir um instantâneo blob em .NET
 
 Uma foto é uma versão só de leitura de uma bolha que é tirada num ponto do tempo. Este artigo mostra como criar e gerir instantâneos blob utilizando a biblioteca de [clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Para obter mais informações sobre as fotos blob no Azure Storage, consulte [Criar e gerir uma imagem de bolha em .NET](snapshots-overview.md).
+Para obter mais informações sobre as fotos blob no Azure Storage, consulte [as fotos blob](snapshots-overview.md).
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -162,5 +162,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Snapshots blob](snapshots-overview.md)
-- [Versões blob (pré-visualização)](versioning-overview.md)
+- [Versões blob](versioning-overview.md)
 - [Eliminação recuperável para blobs](storage-blob-soft-delete.md)

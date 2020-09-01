@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 310fde15a850214aa1741c9cb587c0edcf570a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 703e67b4829413776dc8d98843888fbd67906baa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085383"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182195"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-device"></a>Kubernetes Controlo de Acesso baseado em funções no seu dispositivo Azure Stack Edge
 
@@ -26,9 +26,43 @@ Estes artigos fornecem uma visão geral para o sistema RBAC fornecido pela Kuber
 
 O AMCC da Kubernetes permite atribuir aos utilizadores, ou grupos de utilizadores, permissão para fazer coisas como criar ou modificar recursos, ou ver registos de cargas de trabalho de aplicações. Estas permissões podem ser miradas para um único espaço de nome, ou concedidas em todo o cluster. 
 
-Quando configura o cluster Kubernetes, é criado um único utilizador correspondente a este cluster e é chamado de utilizador de administração de clusters.  Um `kubeconfig` ficheiro está associado ao utilizador de administração de cluster. O `kubeconfig` ficheiro é um ficheiro de texto que contém todas as informações de configuração necessárias para ligar ao cluster para autenticar o utilizador. 
+Quando configura o cluster Kubernetes, é criado um único utilizador correspondente a este cluster e é chamado de utilizador de administração de clusters.  Um `kubeconfig` ficheiro está associado ao utilizador de administração de cluster. O `kubeconfig` ficheiro é um ficheiro de texto que contém todas as informações de configuração necessárias para ligar ao cluster para autenticar o utilizador.
 
-### <a name="namespaces-and-users"></a>Espaços de nome e utilizadores
+## <a name="namespaces-types"></a>Tipos de espaços de nome
+
+Os recursos de Kubernetes, tais como cápsulas e implementações, são logicamente agrupados num espaço de nome. Estes agrupamentos fornecem uma forma de dividir logicamente um cluster Kubernetes e restringir o acesso para criar, ver ou gerir recursos. Os utilizadores só podem interagir com recursos dentro dos espaços de nome atribuídos.
+
+Os espaços de nome destinam-se a ser utilizados em ambientes com muitos utilizadores espalhados por várias equipas ou projetos. Para clusters com alguns a dezenas de utilizadores, você não deve precisar criar ou pensar em espaços de nome. Comece a usar espaços de nome quando precisar das funcionalidades que fornecem.
+
+Para mais informações, consulte [os espaços de nomes de Kubernetes.](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+
+
+O seu dispositivo Azure Stack Edge tem os seguintes espaços de nome:
+
+- **Espaço de nome do sistema** - Este espaço de nome é onde existem recursos fundamentais, tais como funcionalidades de rede como DNS e proxy, ou o dashboard Kubernetes. Normalmente, não se implanta as suas próprias aplicações neste espaço de nome. Use este espaço de nome para depurar quaisquer problemas de cluster Kubernetes. 
+
+    Existem vários espaços de nome do sistema no seu dispositivo e os nomes correspondentes a estes espaços de nome do sistema são reservados. Aqui está uma lista dos espaços reservados para o sistema: 
+    - kube-sistema
+    - metallb-sistema
+    - espaço dbe-nome
+    - predefinição
+    - kubernetes-dashboard
+    - predefinição
+    - kube-node-arrendamento
+    - kube-público
+    - iotedge
+    - azul-arco
+
+    Certifique-se de que não utiliza nomes reservados para espaços com nomes de utilizador que criar. 
+<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
+
+- **Espaço com nomes de utilizador** - Estes são os espaços de nome que pode criar através **de kubectl** para implementar aplicações locais.
+ 
+- **IoT Edge namespace** - Você conecta-se a este `iotedge` espaço de nome para implementar aplicações via IoT Edge.
+
+- **Azure Arc namespace** - Você conecta-se a este `azure-arc` espaço de nome para implementar aplicações através do Arco Azure. 
+
+## <a name="namespaces-and-users"></a>Espaços de nome e utilizadores
 
 No mundo real, é importante dividir o cluster em múltiplos espaços de nome. 
 
@@ -43,7 +77,6 @@ Kubernetes tem o conceito de função e de encadernação de papéis que permite
 - **RoleBindings**: Uma vez definidos os papéis, pode utilizar **RoleBindings** para atribuir funções para um determinado espaço de nome. 
 
 Esta abordagem permite-lhe, logicamente, segregar um único cluster Kubernetes, com os utilizadores apenas capazes de aceder aos recursos da aplicação no seu espaço de nome atribuído. 
-
 
 ## <a name="rbac-on-azure-stack-edge"></a>RBAC em Azure Stack Edge
 
@@ -92,14 +125,6 @@ Ao trabalhar com espaços de nome e utilizadores nos seus dispositivos Azure Sta
 - Não está autorizado a criar espaços com nomes de utilizador com nomes que já estejam a ser utilizados por outros espaços com nomes de utilizador. Por exemplo, se tiver um `test-ns` que criou, não pode criar outro `test-ns` espaço de nome.
 - Não está autorizado a criar utilizadores com nomes já reservados. Por exemplo, `aseuser` é um administrador de cluster reservado e não pode ser usado.
 
-Para obter mais informações sobre os espaços de nomes do Azure Stack Edge, consulte [os tipos namespace](azure-stack-edge-gpu-kubernetes-workload-management.md#namespaces-types).
-
-
-<!--To deploy applications on an Azure Stack Edge device, use the following :
- 
-- First, you will use the PowerShell runspace to create a user, create a namespace, and grant user access to that namespace.
-- Next, you will use the Azure Stack Edge resource in the Azure portal to create persistent volumes using either static or dynamic provisioning for the stateful applications that you will deploy.
-- Finally, you will use the services to expose applications externally and within the Kubernetes cluster.-->
 
 ## <a name="next-steps"></a>Passos seguintes
 

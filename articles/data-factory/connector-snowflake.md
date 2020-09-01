@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de e para Snowflake
-description: Saiba como copiar dados de e para Snowflake utilizando a Azure Data Factory.
+title: Copiar e transformar dados em Floco de Neve
+description: Aprenda a copiar e transformar dados em Snowflake utilizando a Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,30 +11,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048181"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181889"
 ---
-# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para Snowflake utilizando a Azure Data Factory
+# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiar e transformar dados em Snowflake utilizando a Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como utilizar a atividade Copy na Azure Data Factory para copiar dados de e para Snowflake. Para obter mais informações sobre a Data Factory, consulte o [artigo introdutório.](introduction.md)
+Este artigo descreve como usar a atividade copy in Azure Data Factory para copiar dados de e para Snowflake, e usar o Data Flow para transformar dados em Floco de Neve. Para obter mais informações sobre a Data Factory, consulte o [artigo introdutório.](introduction.md)
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector snowflake é suportado para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com uma tabela [de matriz de fonte/pia suportada](copy-activity-overview.md)
+- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
 Para a atividade Copy, este conector Snowflake suporta as seguintes funções:
 
 - Copie dados do Snowflake que utiliza a COPY de Snowflake no comando [[local]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) para obter o melhor desempenho.
-- Copie os dados para Snowflake que tira partido da COPY de Snowflake no comando [[tabela]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) para obter o melhor desempenho. Apoia o Floco de Neve em Azure.
+- Copie os dados para Snowflake que tira partido da COPY de Snowflake no comando [[tabela]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) para obter o melhor desempenho. Apoia o Floco de Neve em Azure. 
+
+Floco de neve como pia não é suportado quando você usa espaço de trabalho Azure Synapse Analytics.
 
 ## <a name="get-started"></a>Introdução
 
@@ -105,8 +108,8 @@ As seguintes propriedades são suportadas para o conjunto de dados snowflake.
 | Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Yes                         |
-| esquema | O nome do esquema. |Não para a fonte, sim para a pia.  |
-| tabela | Nome da mesa/vista. |Não para a fonte, sim para a pia.  |
+| esquema | O nome do esquema. Note que o nome do esquema é sensível a maiíssimos em ADF. |Não para a fonte, sim para a pia.  |
+| tabela | Nome da mesa/vista. Note que o nome da tabela é sensível a maiôs na ADF. |Não para a fonte, sim para a pia.  |
 
 **Exemplo:**
 
@@ -143,7 +146,7 @@ Para copiar dados de Snowflake, as seguintes propriedades são suportadas na sec
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **SnowflakeSource**. | Yes      |
-| consulta          | Especifica a consulta SQL para ler dados de Snowflake.<br>A execução do procedimento armazenado não é suportada. | No       |
+| consulta          | Especifica a consulta SQL para ler dados de Snowflake. Se os nomes do esquema, da tabela e das colunas contiverem uma minúscula, cite o identificador de objetos em consulta, por `select * from "schema"."myTable"` exemplo.<br>A execução do procedimento armazenado não é suportada. | No       |
 | exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | No       |
 | ***Em `exportSettings` :*** |  |  |
 | tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Yes |
@@ -194,7 +197,7 @@ Se a sua loja de dados e formato de lavatório satisfaçam os critérios descrit
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -396,6 +399,83 @@ Para utilizar esta funcionalidade, crie um [serviço ligado ao armazenamento Azu
 ]
 ```
 
+## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
+
+Ao transformar dados no fluxo de dados de mapeamento, você pode ler e escrever para tabelas em Snowflake. Para obter mais informações, consulte a [transformação](data-flow-source.md) da fonte e [a transformação do sumidouro](data-flow-sink.md) nos fluxos de dados de mapeamento. Pode optar por utilizar um conjunto de dados snowflake ou um [conjunto de dados inline](data-flow-source.md#inline-datasets) como fonte e tipo de pia.
+
+### <a name="source-transformation"></a>Transformação de origem
+
+A tabela abaixo lista as propriedades suportadas pela fonte snowflake. Pode editar estas propriedades no separador **Opções Fonte.** O conector utiliza a [transferência de dados interno snowflake](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer).
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabela | Se selecionar tabela como entrada, o fluxo de dados irá recolher todos os dados da tabela especificada no conjunto de dados de Snowflake ou nas opções de origem ao utilizar o conjunto de dados inline. | No | String | *(apenas para conjunto de dados em linha)*<br>tableName<br>schemaName |
+| Consulta | Se selecionar a Consulta como entrada, insira uma consulta para obter dados do Floco de Neve. Esta definição substitui qualquer tabela que tenha escolhido no conjunto de dados.<br>Se os nomes do esquema, da tabela e das colunas contiverem uma minúscula, cite o identificador de objetos em consulta, por `select * from "schema"."myTable"` exemplo. | No | String | consulta |
+
+#### <a name="snowflake-source-script-examples"></a>Exemplos de script de fonte de floco de neve
+
+Quando utiliza o conjunto de dados snowflake como tipo de origem, o script de fluxo de dados associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SnowflakeSource
+```
+
+Se utilizar o conjunto de dados inline, o script de fluxo de dados associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'select * from MYTABLE',
+    store: 'snowflake') ~> SnowflakeSource
+```
+
+### <a name="sink-transformation"></a>Transformação do sumidouro
+
+A tabela abaixo lista as propriedades suportadas pela pia Snowflake. Pode editar estas propriedades no **separador Definições.** Ao utilizar o conjunto de dados inline, verá definições adicionais, que são as mesmas que as propriedades descritas na secção [de propriedades do conjunto de dados.](#dataset-properties) O conector utiliza a [transferência de dados interno snowflake](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer).
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Método de atualização | Especifique quais as operações permitidas no seu destino Snowflake.<br>Para atualizar, intensificar ou apagar linhas, é necessária uma [transformação de linha Alter](data-flow-alter-row.md) para marcar linhas para essas ações. | Yes | `true` ou `false` | deletable <br/>inserível <br/>atualizável <br/>upsertable |
+| Colunas-chave | Para atualizações, atualizações e eliminações, deve ser definida uma coluna ou colunas-chave para determinar qual a linha a alterar. | No | Matriz | keys |
+| Ação de mesa | Determina se deve recriar ou remover todas as linhas da tabela de destino antes de escrever.<br>- **Nenhuma:** nenhuma ação será feita à mesa.<br>- **Recriar:** A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.<br>- **Truncato**: Todas as linhas da mesa-alvo serão removidas. | No | `true` ou `false` | recriar<br/>truncato |
+
+#### <a name="snowflake-sink-script-examples"></a>Exemplos de script de pia de floco de neve
+
+Quando utiliza o conjunto de dados snowflake como tipo de pia, o script de fluxo de dados associado é:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:false,
+    keys:['movieId'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
+
+Se utilizar o conjunto de dados inline, o script de fluxo de dados associado é:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    tableName: 'table',
+    schemaName: 'schema',
+    deletable: true,
+    insertable: true,
+    updateable: true,
+    upsertable: false,
+    store: 'snowflake',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

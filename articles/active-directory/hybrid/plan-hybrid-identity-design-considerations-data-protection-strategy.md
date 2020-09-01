@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bef7de68084ac3084c0b0179a7bbf6b1c9ca951
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109358"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182450"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Defina a estratégia de proteção de dados para a sua solução de identidade híbrida
 Nesta tarefa, definirá a estratégia de proteção de dados para a sua solução de identidade híbrida para satisfazer os requisitos de negócio definidos em:
@@ -121,7 +121,7 @@ Cada interação no diagrama mostrado na Figura X representa um cenário de cont
 
 1. Acesso condicional a aplicações que estão hospedadas no local: Pode utilizar dispositivos registados com políticas de acesso para aplicações configuradas para utilizar O FS AD com o Windows Server 2012 R2.
 
-2. Controlo de Acesso ao portal Azure: O Azure também permite controlar o acesso ao portal utilizando o controlo de acesso baseado em funções (RBAC)). Este método permite à empresa restringir o número de operações que um indivíduo pode fazer no portal Azure. Ao utilizar o RBAC para controlar o acesso ao portal, os Administradores de TI podem delegar o acesso utilizando as seguintes abordagens de gestão de acesso:
+2. Controlo de Acesso ao portal Azure: O Azure também permite controlar o acesso ao portal utilizando o controlo de acesso baseado em funções Azure (Azure RBAC)). Este método permite à empresa restringir o número de operações que um indivíduo pode fazer no portal Azure. Ao utilizar o Azure RBAC para controlar o acesso ao portal, os Administradores de TI podem delegar o acesso utilizando as seguintes abordagens de gestão de acesso:
 
    - Atribuição de funções baseada em grupo: Pode atribuir acesso a grupos AD Azure que podem ser sincronizados a partir do seu Diretório Ativo local. Isto permite-lhe alavancar os investimentos existentes que a sua organização tem feito em ferramentas e processos de gestão de grupos. Também pode utilizar a função de gestão de grupos delegada do Azure AD Premium.
    - Use funções incorporadas no Azure: Pode utilizar três funções — Proprietário, Colaborador e Leitor, para garantir que os utilizadores e grupos têm permissão para fazer apenas as tarefas que precisam para fazer o seu trabalho.

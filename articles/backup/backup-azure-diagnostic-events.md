@@ -3,12 +3,12 @@ title: Use definições de diagnóstico para cofres de serviços de recuperaçã
 description: Este artigo descreve como usar os antigos e novos eventos de diagnóstico para Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: e5f666886dca0959b0f06b799088cadf4593ec39
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826672"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182603"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Use definições de diagnóstico para cofres de serviços de recuperação
 
@@ -102,7 +102,7 @@ Atualmente, continuamos a apoiar o evento AzureBackupReport para retrocompatibil
 
 2. Utilize as [definições de Política Azure incorporadas](./azure-policy-configure-diagnostics.md) no Azure Backup para adicionar uma nova definição de diagnóstico para todos os cofres num âmbito especificado. Esta política adiciona uma nova definição de diagnóstico a cofres que não têm uma definição de diagnóstico ou têm apenas uma definição de diagnóstico legado. Esta política pode ser atribuída a toda uma subscrição ou grupo de recursos de cada vez. Tem de ter acesso ao Proprietário a cada subscrição para a qual a apólice é atribuída.
 
-Pode optar por ter configurações de diagnóstico separadas para o AzureBackupReport e os seis novos eventos até que tenha migrado todas as suas consultas personalizadas para utilizar dados das novas tabelas. A imagem a seguir mostra um exemplo de um cofre que tem duas configurações de diagnóstico. A primeira definição, denominada **Setting1,** envia dados de um evento AzureBackupReport para um espaço de trabalho Log Analytics no modo de diagnóstico Azure. A segunda definição, denominada **Setting2,** envia dados dos seis novos eventos de Backup Azure para um espaço de trabalho Log Analytics no modo específico de recursos.
+Pode optar por ter configurações de diagnóstico separadas para o AzureBackupReport e os seis novos eventos até migrar todas as suas consultas personalizadas para utilizar dados das novas tabelas. A imagem a seguir mostra um exemplo de um cofre que tem duas configurações de diagnóstico. A primeira definição, denominada **Setting1,** envia dados de um evento AzureBackupReport para um espaço de trabalho Log Analytics no modo de diagnóstico Azure. A segunda definição, denominada **Setting2,** envia dados dos seis novos eventos de Backup Azure para um espaço de trabalho Log Analytics no modo específico de recursos.
 
 ![Duas configurações](./media/backup-azure-diagnostics-events/two-settings-example.png)
 

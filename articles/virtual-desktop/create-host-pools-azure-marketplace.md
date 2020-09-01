@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 466180535b3fe7c7d0155c8b19ac287930341ee7
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755488"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226102"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -47,6 +47,8 @@ Se ainda não tiver uma subscrição do Azure, certifique-se de [criar uma conta
 Para começar a criar a sua nova piscina de anfitriões:
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
+   
+   >! [NOTA] Se está a assinar o portal gov dos EUA, vá em [https://portal.azure.us/](https://portal.azure.us/) vez disso.
 
 2. Introduza o **Ambiente de Trabalho Virtual do Windows** na barra de pesquisa e, em seguida, encontre e selecione o Windows Virtual **Desktop** em Serviços.
 
@@ -72,7 +74,7 @@ Para começar a criar a sua nova piscina de anfitriões:
       > [!div class="mx-imgBorder"]
       > ![Uma imagem do menu drop-down do tipo de atribuição. O utilizador selecionou o Automatic.](media/assignment-type-field.png)
 
-9. Se escolher **Pooled, insira**as seguintes informações:
+9.  Se escolher **Pooled, insira**as seguintes informações:
 
      - Para **o limite de sessão Max,** insira o número máximo de utilizadores que pretende equilibrar a carga para um único anfitrião de sessão.
      - Para **o algoritmo de equilíbrio de carga,** escolha a largura primeiro ou a profundidade primeiro, com base no seu padrão de utilização.

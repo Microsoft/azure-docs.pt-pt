@@ -3,12 +3,12 @@ title: Agente dos Serviços de Recuperação da Microsoft Azure (MARS) – FAQ
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: ca2753e4d6da7e2e3079f234a3facac27fd5f098
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144469"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182518"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Perguntas frequentes - Agente da Microsoft Azure Recovery Services (MARS)
 
@@ -122,7 +122,7 @@ O tamanho da pasta de cache determina a quantidade de dados que está a fazer.
 1. Executar este comando num pedido de comando elevado para parar o motor de reserva:
 
     ```Net stop obengine```
-2. Se tiver uma cópia de segurança do Estado do Sistema configurada, abra a Gestão do Disco e desmonte o disco(s) com nomes no formato `"CBSSBVol_<ID>"` .
+2. Se configurar a cópia de segurança do Estado do Sistema, abra a Gestão do Disco e desmonte o disco(s) com nomes no formato `"CBSSBVol_<ID>"` .
 3. Por predefinição, a pasta de risco está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copie toda a `\Scratch` pasta para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo é copiado, não movido.
 5. Atualize as seguintes entradas de registo com o caminho da pasta de risco recém-movida.

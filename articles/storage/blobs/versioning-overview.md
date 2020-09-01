@@ -1,25 +1,25 @@
 ---
-title: Veragem blob (pré-visualização)
+title: Versão blob
 titleSuffix: Azure Storage
-description: A versão de armazenamento de bolhas (pré-visualização) mantém automaticamente as versões anteriores de um objeto e identifica-as com os timetamps. Pode restaurar versões anteriores de uma bolha para recuperar os seus dados se estes forem erroneamente modificados ou eliminados.
+description: A versão de armazenamento de blob mantém automaticamente versões anteriores de um objeto e identifica-as com timetamps. Pode restaurar versões anteriores de uma bolha para recuperar os seus dados se estes forem erroneamente modificados ou eliminados.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 72597d445be41ede47d043d11653df139bc52d0d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074539"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226268"
 ---
-# <a name="blob-versioning-preview"></a>Veragem blob (pré-visualização)
+# <a name="blob-versioning"></a>Versão blob
 
-Pode permitir que a versão de armazenamento Blob (pré-visualização) mantenha automaticamente as versões anteriores de um objeto.  Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada.
+Pode permitir que a versão de armazenamento Blob mantenha automaticamente as versões anteriores de um objeto.  Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada.
 
 A versão blob está ativada na conta de armazenamento e aplica-se a todas as bolhas na conta de armazenamento. Depois de ativar a versão blob para uma conta de armazenamento, o Azure Storage mantém automaticamente versões para cada bolha na conta de armazenamento.
 
@@ -41,6 +41,10 @@ Quando se cria uma bolha com a versão ativada, a nova bolha é a versão atual 
 Quando elimina uma bolha com versão ativada, o Azure Storage cria uma versão que captura o estado da bolha antes de ser eliminada. A versão atual do blob é então eliminada, mas as versões do blob persistem, para que possa ser recriada se necessário. 
 
 As versões blob são imutáveis. Não é possível modificar o conteúdo ou metadados de uma versão blob existente.
+
+A versão blob está disponível para as contas de armazenamento v2, block blob e Blob. As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas.
+
+Versão 2019-10-10 e superior do Azure Storage REST API suporta a versão blob.
 
 ### <a name="version-id"></a>ID da versão
 
@@ -108,7 +112,7 @@ Para automatizar o processo de mover bolhas de bloco para o nível apropriado, u
 
 ## <a name="enable-or-disable-blob-versioning"></a>Ativar ou desativar a versão blob
 
-Para aprender a ativar ou desativar a versão blob, consulte [Ativar ou desativar a versão blob](versioning-enable.md).
+Para aprender a ativar ou desativar a versão blob, consulte [Ativar e gerir a versão blob](versioning-enable.md).
 
 A versão blob incapacitante não apaga bolhas, versões ou instantâneos existentes. Quando desativar a versão blob, quaisquer versões existentes permanecem acessíveis na sua conta de armazenamento. Posteriormente, não são criadas novas versões.
 
@@ -181,7 +185,7 @@ A versão blob foi concebida para proteger os seus dados de eliminação acident
 
 A tabela que se segue mostra quais as ações do RBAC que suportam a eliminação de uma bolha ou uma versão blob.
 
-| Descrição | Operação de serviço blob | Ação de dados da RBAC necessária | Suporte ao papel incorporado da RBAC |
+| Description | Operação de serviço blob | Ação de dados da RBAC necessária | Suporte ao papel incorporado da RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Contribuinte de Dados do Armazenamento de Blobs |
 | Apagar uma versão | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/deleteBlobVersion/action** | Proprietário de dados blob de armazenamento |
@@ -196,134 +200,95 @@ A tabela seguinte mostra a permissão necessária num SAS para eliminar uma vers
 |----------------|----------------|------------------------|
 | Eliminar         | x              | Apague uma versão blob. |
 
-## <a name="about-the-preview"></a>Sobre a pré-visualização
-
-A versão blob está disponível em pré-visualização nas seguintes regiões:
-
-- E.U.A. Leste 2
-- E.U.A. Central
-- Europa do Norte
-- Europa Ocidental
-- França Central
-- Leste do Canadá
-- Canadá Central
-
-> [!IMPORTANT]
-> A pré-visualização da versão blob destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
-
-Versão 2019-10-10 e superior do Azure Storage REST API suporta a versão blob.
-
-### <a name="storage-account-support"></a>Suporte à conta de armazenamento
-
-A versão blob está disponível para os seguintes tipos de contas de armazenamento:
-
-- Contas de armazenamento v2 para fins gerais
-- Contas de armazenamento de blob bloqueada
-- Contas do Blob Storage
-
-Se a sua conta de armazenamento for uma conta V1 para fins gerais, utilize o portal Azure para atualizar para uma conta V2 para fins gerais. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
-
-As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas.
-
-### <a name="register-for-the-preview"></a>Registre-se para a pré-visualização
-
-Para se inscrever na pré-visualização da versão blob, utilize o PowerShell ou o Azure CLI para apresentar um pedido de registo da funcionalidade com a sua subscrição. Após a aprovação do seu pedido, pode ativar a versão blob com quaisquer novas ou existentes contas de armazenamento de blob ou bloco premium.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para se registar no PowerShell, ligue para o comando [Register-AzProviderFeature.](/powershell/module/az.resources/register-azproviderfeature)
-
-```powershell
-# Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-Para se registar no Azure CLI, ligue para o comando [de registo de recurso az.](/cli/azure/feature#az-feature-register)
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Verifique o estado do seu registo
-
-Para verificar o estado do seu registo, utilize o PowerShell ou o Azure CLI.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para verificar o estado do seu registo com o PowerShell, ligue para o comando [Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-Para verificar o estado da sua inscrição com o Azure CLI, ligue para o comando [de recurso az.](/cli/azure/feature#az-feature-show)
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name Versioning
-```
-
----
-
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
 Permitir a versão blob pode resultar em custos adicionais de armazenamento de dados na sua conta. Ao conceber a sua aplicação, é importante estar ciente de como estes encargos podem acumular-se para que possa minimizar os custos.
 
-As versões blob, como as imagens blob, são faturadas ao mesmo ritmo que os dados ativos. Se uma versão partilhar blocos ou páginas com a sua bolha base, então paga apenas por quaisquer blocos ou páginas adicionais que não sejam partilhados entre a versão e a bolha base.
+As versões blob, como as imagens blob, são faturadas ao mesmo ritmo que os dados ativos. A forma como as versões são faturadas depende se definiu explicitamente o nível para a bolha de base ou para qualquer uma das suas versões (ou instantâneos). Para obter mais informações sobre os níveis de blob, consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo](storage-blob-storage-tiers.md).
+
+Se não alterou o nível de uma bolha ou versão, então é cobrado por blocos únicos de dados através dessa bolha, das suas versões e de quaisquer instantâneos que possa ter. Para obter mais informações, consulte [Billing quando o nível de bolha não tiver sido explicitamente definido](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Se mudou o nível de uma bolha ou versão, então é cobrado por todo o objeto, independentemente de a bolha e a versão estarem eventualmente novamente no mesmo nível. Para obter mais informações, consulte [Billing quando o nível de bolhas tiver sido explicitamente definido](#billing-when-the-blob-tier-has-been-explicitly-set).
 
 > [!NOTE]
 > Permitir a versão para dados que são frequentemente substituídos pode resultar num aumento dos encargos de capacidade de armazenamento e no aumento da latência durante as operações de cotação. Para mitigar estas preocupações, guarde frequentemente dados sobreescritos numa conta de armazenamento separada com a versão desativada.
 
-### <a name="important-billing-considerations"></a>Considerações importantes de faturação
+Para obter mais informações sobre detalhes de faturação para fotos blob, consulte [as fotos blob](snapshots-overview.md).
 
-Certifique-se de que considera os seguintes pontos ao permitir a versão blob:
+### <a name="billing-when-the-blob-tier-has-not-been-explicitly-set"></a>Faturação quando o nível blob não foi explicitamente definido
 
-- A sua conta de armazenamento incorre em encargos para blocos ou páginas únicos, quer estejam na bolha ou numa versão anterior da bolha. A sua conta não incorre em custos adicionais para versões associadas a uma bolha até atualizar a bolha em que estão baseadas. Depois de atualizar a bolha, diverge das versões anteriores. Quando isto acontece, é cobrado pelos blocos ou páginas únicos em cada bolha ou versão.
-- Quando se substitui um bloco dentro de uma bolha de bloco, esse bloco é posteriormente carregado como um bloco único. Isto é verdade mesmo que o bloco tenha o mesmo ID do bloco e os mesmos dados que tem na versão. Depois de o bloco ser novamente comprometido, diverge da sua contrapartida em qualquer versão, e será cobrado pelos seus dados. O mesmo se aplica a uma página numa bolha de página que é atualizada com dados idênticos.
-- O armazenamento de bolhas não tem meios para determinar se dois blocos contêm dados idênticos. Cada bloco que é carregado e comprometido é tratado como único, mesmo que tenha os mesmos dados e o mesmo ID do bloco. Como os encargos acumulam-se para blocos únicos, é importante considerar que atualizar uma bolha quando a versão está ativada resultará em blocos exclusivos adicionais e custos adicionais.
-- Quando a versão blob estiver ativada, desenhe as operações de atualização em blobs de blocos para que atualizem o menor número possível de blocos. As operações de escrita que permitem um controlo fino sobre blocos são [Put Block](/rest/api/storageservices/put-block) and Put [Block List](/rest/api/storageservices/put-block-list). A operação [Put Blob,](/rest/api/storageservices/put-blob) por outro lado, substitui todo o conteúdo de uma bolha, pelo que pode levar a custos adicionais.
+Se não tiver definido explicitamente o nível blob para uma bolha de base ou qualquer uma das suas versões, então é cobrado por blocos ou páginas únicos através da bolha, suas versões e quaisquer instantâneos que possa ter. Os dados que são partilhados através de uma bolha e as suas versões são cobrados apenas uma vez. Quando uma bolha é atualizada, os dados numa bolha de base divergem dos dados armazenados nas suas versões, e os dados únicos são carregados por bloco ou página.
 
-### <a name="versioning-billing-scenarios"></a>Cenários de faturação de versão
+Quando se substitui um bloco dentro de uma bolha de bloco, esse bloco é posteriormente carregado como um bloco único. Isto é verdade mesmo que o bloco tenha o mesmo ID do bloco e os mesmos dados que tem na versão anterior. Depois de o bloco ser novamente comprometido, diverge da sua contrapartida na versão anterior, e será cobrado pelos seus dados. O mesmo se aplica a uma página numa bolha de página que é atualizada com dados idênticos.
 
-Os seguintes cenários demonstram como os encargos acumulam-se para uma bolha de bloco e suas versões.
+O armazenamento de bolhas não tem meios para determinar se dois blocos contêm dados idênticos. Cada bloco que é carregado e comprometido é tratado como único, mesmo que tenha os mesmos dados e o mesmo ID do bloco. Como os encargos acumulam-se para blocos únicos, é importante ter em mente que atualizar uma bolha quando a versão está ativada resultará em blocos exclusivos adicionais e custos adicionais.
+
+Quando a versão blob estiver ativada, ligue para as operações de atualização em blobs de blocos para que atualizem o menor número possível de blocos. As operações de escrita que permitem um controlo fino sobre blocos são [Put Block](/rest/api/storageservices/put-block) and Put [Block List](/rest/api/storageservices/put-block-list). A operação [Put Blob,](/rest/api/storageservices/put-blob) por outro lado, substitui todo o conteúdo de uma bolha, pelo que pode levar a custos adicionais.
+
+Os seguintes cenários demonstram como os encargos acumulam-se para uma bolha de bloco e as suas versões quando o nível blob não foi explicitamente definido.
 
 #### <a name="scenario-1"></a>Cenário 1
 
 No cenário 1, a bolha tem uma versão anterior. A bolha não foi atualizada desde que a versão foi criada, pelo que os encargos são incorridos apenas para blocos únicos 1, 2 e 3.
 
-![Recursos de armazenamento Azure](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagrama 1 mostrando faturação para blocos únicos na bolha base e versão anterior](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Cenário 2
 
 No cenário 2, um bloco (bloco 3 no diagrama) na bolha foi atualizado. Apesar de o bloco atualizado conter os mesmos dados e o mesmo ID, não é o mesmo que o bloco 3 na versão anterior. Como resultado, a conta é cobrada por quatro blocos.
 
-![Recursos de armazenamento Azure](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagrama 2 mostrando faturação para blocos únicos na bolha base e versão anterior](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Cenário 3
 
 No cenário 3, a bolha foi atualizada, mas a versão não. O bloco 3 foi substituído pelo bloco 4 na bolha base, mas a versão anterior ainda reflete o bloco 3. Como resultado, a conta é cobrada por quatro blocos.
 
-![Recursos de armazenamento Azure](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagrama 3 mostrando faturação para blocos únicos na bolha base e versão anterior](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Cenário 4
 
-No cenário 4, a bolha de base foi completamente atualizada e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada para todos os oito blocos únicos &mdash; quatro na bolha base, e quatro na versão anterior. Este cenário pode ocorrer se estiver a escrever para uma bolha com a operação Put Blob, porque substitui todo o conteúdo da bolha de base.
+No cenário 4, a bolha de base foi completamente atualizada e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada para todos os oito blocos únicos &mdash; quatro na bolha base, e quatro na versão anterior. Este cenário pode ocorrer se estiver a escrever para uma bolha com a operação [Put Blob,](/rest/api/storageservices/put-blob) porque substitui todo o conteúdo da bolha de base.
 
-![Recursos de armazenamento Azure](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagrama 4 mostrando faturação para blocos únicos na bolha base e versão anterior](./media/versioning-overview/versions-billing-scenario-4.png)
+
+### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Faturação quando o nível blob foi explicitamente definido
+
+Se tiver definido explicitamente o nível blob para uma bolha ou versão (ou instantâneo), então é cobrado o comprimento total do conteúdo do objeto no novo nível, independentemente de partilhar blocos com um objeto no nível original. Também é cobrado o comprimento total do conteúdo da versão mais antiga do nível original. Quaisquer outras versões ou instantâneos anteriores que permaneçam no nível original são cobrados por blocos únicos que possam partilhar, como descrito em [Billing quando o nível blob não foi explicitamente definido](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+#### <a name="moving-a-blob-to-a-new-tier"></a>Mover uma bolha para um novo nível
+
+A tabela seguinte descreve o comportamento de faturação para uma bolha ou versão quando é movido para um novo nível.
+
+| Quando o nível do blob é definido explicitamente em... | Então é cobrado por... |
+|-|-|
+| Uma bolha de base com uma versão anterior | A bolha base no novo nível e a versão mais antiga do nível original, além de quaisquer blocos únicos em outras versões. <sup>1</sup> |
+| Uma bolha de base com uma versão anterior e um instantâneo | A bolha base no novo nível, a versão mais antiga do nível original, e o instantâneo mais antigo no nível original, além de quaisquer blocos únicos em outras versões ou instantâneos<sup>1</sup>. |
+| Uma versão anterior | A versão no novo nível e a bolha base no nível original, além de quaisquer blocos únicos em outras versões. <sup>1</sup> |
+
+<sup>1</sup> Se existirem outras versões ou instantâneos anteriores que não tenham sido retirados do seu nível original, essas versões ou instantâneos são carregados com base no número de blocos únicos que contêm, como descrito em [Billing quando o nível de bolhas não foi explicitamente definido](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Definir explicitamente o nível para uma bolha, versão ou instantâneo não pode ser desfeito. Se mover uma bolha para um novo nível e depois movê-la de volta para o seu nível original, é cobrado o comprimento total do conteúdo do objeto, mesmo que partilhe blocos com outros objetos no nível original.
+
+As operações que definem explicitamente o nível de uma bolha, versão ou instantâneo incluem:
+
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (Definir Camada de Blob)
+- [Coloque blob](/rest/api/storageservices/put-blob) com nível especificado
+- [Colocar lista de blocos](/rest/api/storageservices/put-block-list) com nível especificado
+- [Bolha de cópia](/rest/api/storageservices/copy-blob) com nível especificado
+
+#### <a name="deleting-a-blob-when-soft-delete-is-enabled"></a>Apagar uma bolha quando a eliminação suave está ativada
+
+Quando a eliminação suave do blob estiver ativada, se eliminar ou substituir uma bolha de base que tenha definido explicitamente o seu nível, então quaisquer versões anteriores da bolha de eliminação suave são faturadas em pleno comprimento de conteúdo. Para obter mais informações sobre como a versão blob e o soft delete funcionam em conjunto, consulte [a versão Blob e a eliminação suave](#blob-versioning-and-soft-delete).
+
+A tabela seguinte descreve o comportamento de faturação de uma bolha que é apagada suavemente, dependendo se a versão está ativada ou desativada. Quando a versão está ativada, uma versão é criada quando uma bolha é apagada suavemente. Quando a versão é desativada, a eliminação suave de uma bolha cria um instantâneo de eliminação suave.
+
+| Quando se substitui uma bolha de base com o seu nível explicitamente definido... | Então é cobrado por... |
+|-|-|
+| Se a eliminação suave e a versão macias estão ativadas | Todas as versões existentes com o comprimento total do conteúdo, independentemente do nível. |
+| Se a eliminação suave blob estiver ativada, mas a versão é desativada | Todos os instantâneos de exclusão suave existentes com todo o comprimento do conteúdo, independentemente do nível. |
 
 ## <a name="see-also"></a>Ver também
 
-- [Ativar a criação de versões de blobs](versioning-enable.md)
+- [Ativar e gerir a versão blob](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Excluir suave para bolhas de armazenamento Azure](storage-blob-soft-delete.md)

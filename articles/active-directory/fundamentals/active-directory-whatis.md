@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91e89f274615e75fec818ec9e3ecf785aa6e804f
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 82a5fd5a14091c95bc1783f283c41431082c8980
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262963"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182110"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 
@@ -77,7 +77,7 @@ Depois de escolher a sua licença Azure AD, terá acesso a algumas ou todas as s
 |Identidade híbrida|Utilize o Azure Ative Directory Connect and Connect Health para fornecer uma única identidade de utilizador para autenticação e autorização a todos os recursos, independentemente da localização (nuvem ou no local). Para mais informações, consulte [a documentação de identidade híbrida.](../hybrid/index.yml)|
 |Governação de identidade|Gerencie a identidade da sua organização através de controlos de acesso a colaboradores, parceiros de negócios, fornecedores, serviços e acesso a aplicações. Também pode efetuar comentários de acesso. Para obter mais informações, consulte a [documentação de governação de identidade da Azure AD](../governance/identity-governance-overview.md) e [as avaliações de acesso a Ad da Azure.](../governance/access-reviews-overview.md)|
 |Proteção de identidade|Detetar potenciais vulnerabilidades que afetam as identidades da sua organização, configurar políticas para responder a ações suspeitas e, em seguida, tomar as medidas adequadas para resolvê-las. Para mais informações, consulte [a Azure AD Identity Protection](../identity-protection/index.yml).|
-|Identidades geridas para os recursos do Azure|Fornece aos seus serviços Azure uma identidade gerida automaticamente em Azure AD que pode autenticar qualquer serviço de autenticação suportado pela Azure, incluindo o Key Vault. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)|
+|Identidades geridas dos recursos do Azure|Fornece aos seus serviços Azure uma identidade gerida automaticamente em Azure AD que pode autenticar qualquer serviço de autenticação suportado pela Azure, incluindo o Key Vault. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)|
 |Privileged Identity Management (PIM)|Gerir, controlar e monitorizar o acesso dentro da sua organização. Esta funcionalidade inclui acesso a recursos em AZure AD e Azure, e outros Serviços Microsoft Online, como o Office 365 ou Intune. Para mais informações, consulte [Azure AD Gestão de Identidade Privilegiada.](../privileged-identity-management/index.yml)|
 |Relatórios e monitorização|Obtenha informações sobre os padrões de segurança e utilização no seu ambiente. Para obter mais informações, consulte [os relatórios e monitorização do Azure Ative Directory](../reports-monitoring/index.yml).|
 
@@ -92,7 +92,7 @@ Para melhor entender a Azure AD e a sua documentação, recomendamos a revisão 
 |Conta do Azure AD| Uma identidade criada através do Azure AD ou de outro serviço de cloud da Microsoft, como o Office 365. As identidades são armazenadas em Azure AD e acessíveis às subscrições de serviços em nuvem da sua organização. Esta conta também é por vezes chamada de conta de trabalho ou escola.|
 |Administrador de Conta|Esta função clássica de administrador de subscrição é conceptualmente a proprietária de uma subscrição. Esta função tem acesso ao [Centro de Conta Azure](https://account.azure.com/Subscriptions) e permite-lhe gerir todas as subscrições numa conta. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de Serviços|Esta função clássica de administrador de subscrição permite-lhe gerir todos os recursos da Azure, incluindo o acesso. Esta função tem o acesso equivalente a um utilizador a quem é atribuída a função De proprietário no âmbito de subscrição. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Proprietário|Este papel ajuda-o a gerir todos os recursos da Azure, incluindo o acesso. Esta função baseia-se num novo sistema de autorização chamado controlo de acesso de base de função (RBAC) que fornece uma gestão de acesso de grãos finos aos recursos Azure. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Proprietário|Este papel ajuda-o a gerir todos os recursos da Azure, incluindo o acesso. Esta função baseia-se num novo sistema de autorização chamado Azure role-base access control (Azure RBAC) que fornece uma gestão de acesso de grãos finos aos recursos Azure. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador global do Azure AD|Esta função de administrador é automaticamente atribuída a quem criou o inquilino Azure AD. Os administradores globais podem fazer todas as funções administrativas do Azure AD e quaisquer serviços que federam para a Azure AD, tais como Exchange Online, SharePoint Online e Skype for Business Online. Pode ter vários administradores globais, mas apenas os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos utilizadores. Note que esta função de administrador é chamada de administrador global no portal Azure, mas é chamado administrador da **Empresa** no Microsoft Graph API e Azure AD PowerShell.Para obter mais informações sobre as várias funções de administrador, consulte permissões de [função de administrador no Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Subscrição do Azure| Costumava pagar pelos serviços de nuvem Azure. Pode ter muitas subscrições e estão ligadas a um cartão de crédito.|
 |Inquilino do Azure| Uma instância dedicada e fidedigna do Azure AD que é automaticamente criada quando a sua organização se inscreve para uma subscrição de serviço na nuvem da Microsoft, como Microsoft Azure, Microsoft Intune ou Office 365. Um inquilino do Azure representa uma única organização.|

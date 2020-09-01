@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fff90777c63820b54a1cb37156021c894de19c8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78299334"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226935"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Compreenda o esquema AD AZure
 Um objeto no Azure Ative Directory (Azure AD), como qualquer diretório, é uma construção programática de dados de alto nível que representa coisas como utilizadores, grupos e contactos. Quando cria um novo utilizador ou contacto no Azure AD, está a criar uma nova instância desse objeto. Estes casos podem ser diferenciados com base nas suas propriedades.
@@ -51,7 +51,7 @@ Por exemplo, se tivesse o atributo de correio john.smith@contoso.com " " e preci
 * **ENTRADA** (correio): john.smith@contoso.com "
 * **OUTPUT**: "john.smith"
 
-Para obter mais informações sobre como escrever expressões personalizadas e a sintaxe, consulte [expressões de escrita para mapeamentos de atributos no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Para obter mais informações sobre como escrever expressões personalizadas e a sintaxe, consulte [expressões de escrita para mapeamentos de atributos no Azure Ative Directory](../app-provisioning/functions-for-customizing-application-data.md).
 
 A tabela que se segue lista atributos comuns e como são sincronizados com a Azure AD.
 
@@ -251,7 +251,7 @@ Para ver o esquema e verificar, siga estes passos.
 
    ![Esquema devolvido](media/concept-attributes/schema1.png)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

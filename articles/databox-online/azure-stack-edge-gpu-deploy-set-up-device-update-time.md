@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cfafb47e6d5fcde2858e7329b5b8ef3a0e0b241e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c0581a79bda4ae4e311390f5b2d929073e0833d9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088019"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182025"
 ---
 # <a name="tutorial-configure-device-settings-for-azure-stack-edge-with-gpu"></a>Tutorial: Configurar configurações de dispositivos para Azure Stack Edge com GPU
 
@@ -59,16 +59,17 @@ Siga estes passos para configurar as definições relacionadas com o dispositivo
 
         ![Página local de UI "Dispositivo"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
-        Se tiver alterado o nome do dispositivo e o domínio DNS, os certificados auto-assinados gerados automaticamente no dispositivo não funcionarão. Tem de escolher uma das seguintes opções: 
+        Se tiver alterado o nome do dispositivo e o domínio DNS, os certificados auto-assinados gerados automaticamente no dispositivo não funcionarão. Tem de escolher uma das seguintes opções quando configurar certificados.: 
         
         - Gere e descarregue os certificados do dispositivo. 
         - Traga os seus próprios certificados para o dispositivo, incluindo a cadeia de assinaturas.
+    
 
         ![Página local de UI "Dispositivo"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
 
-    4. Quando o nome do dispositivo e o domínio DNS são alterados, os pontos finais SMB e NFS são criados. 
+    4. Quando o nome do dispositivo e o domínio DNS são alterados, os pontos finais SMB e NFS são criados.  
 
-    4. Depois de aplicadas as definições, volte para **começar**.
+    5. Depois de aplicadas as definições, volte para **começar**.
 
 ## <a name="configure-update"></a>Atualização de configuração
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 21845b51fdd108221d5e1bce50e953b79084d17d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085359"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182059"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Gestão da carga de trabalho da Kubernetes no seu dispositivo Azure Stack Edge
 
@@ -33,40 +33,13 @@ Os dois tipos comuns de carga de trabalho que pode implementar no seu dispositiv
 
     Pode criar uma Implantação de Kubernetes para implementar uma aplicação imponente. 
 
-## <a name="namespaces-types"></a>Tipos de espaços de nome
+## <a name="deployment-flow"></a>Fluxo de implantação
 
-Os recursos de Kubernetes, tais como cápsulas e implementações, são logicamente agrupados num espaço de nome. Estes agrupamentos fornecem uma forma de dividir logicamente um cluster Kubernetes e restringir o acesso para criar, ver ou gerir recursos. Os utilizadores só podem interagir com recursos dentro dos espaços de nome atribuídos.
-
-Os espaços de nome destinam-se a ser utilizados em ambientes com muitos utilizadores espalhados por várias equipas ou projetos. Para clusters com alguns a dezenas de utilizadores, você não deve precisar criar ou pensar em espaços de nome. Comece a usar espaços de nome quando precisar das funcionalidades que fornecem.
-
-Para mais informações, consulte [os espaços de nomes de Kubernetes.](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
-
-
-O seu dispositivo Azure Stack Edge tem os seguintes espaços de nome:
-
-- **Espaço de nome do sistema** - Este espaço de nome é onde existem recursos fundamentais, tais como funcionalidades de rede como DNS e proxy, ou o dashboard Kubernetes. Normalmente, não se implanta as suas próprias aplicações neste espaço de nome. Use este espaço de nome para depurar quaisquer problemas de cluster Kubernetes. 
-
-    Existem vários espaços de nome do sistema no seu dispositivo e os nomes correspondentes a estes espaços de nome do sistema são reservados. Aqui está uma lista dos espaços reservados para o sistema: 
-    - kube-sistema
-    - metallb-sistema
-    - espaço dbe-nome
-    - predefinição
-    - kubernetes-dashboard
-    - predefinição
-    - kube-node-arrendamento
-    - kube-público
-    - iotedge
-    - azul-arco
-
-    Certifique-se de que não utiliza nomes reservados para espaços com nomes de utilizador que criar. 
-<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
-
-- **Espaço com nomes de utilizador** - Estes são os espaços de nome que pode criar através **de kubectl** para implementar aplicações locais.
+Para implementar aplicações num dispositivo Azure Stack Edge, seguirá estes passos: 
  
-- **IoT Edge namespace** - Você conecta-se a este `iotedge` espaço de nome para implementar aplicações via IoT Edge.
-
-- **Azure Arc namespace** - Você conecta-se a este `azure-arc` espaço de nome para implementar aplicações através do Arco Azure.
-
+1. **Acesso de configuração**: Em primeiro lugar, utilizará o espaço de funcionamento PowerShell para criar um utilizador, criar um espaço de nome e conceder o acesso do utilizador a esse espaço de nome.
+2. **Armazenamento de configuração**: Em seguida, utilizará o recurso Azure Stack Edge no portal Azure para criar volumes persistentes utilizando provisão estática ou dinâmica para as aplicações imponentes que irá implementar.
+3. **Configurar a rede**: Por fim, utilizará os serviços para expor aplicações externamente e dentro do cluster Kubernetes.
  
 ## <a name="deployment-types"></a>Tipos de implantação
 
@@ -78,7 +51,7 @@ Há três formas primárias de implantar as suas cargas de trabalho. Cada uma de
 
 - **Implementação IoT Edge**: Isto é através do IoT Edge, que se conecta ao Azure IoT Hub. Ligue-se ao cluster K8 no seu dispositivo Azure Stack Edge através do `iotedge` espaço de nomes. Os agentes IoT Edge implantados neste espaço de nome são responsáveis pela conectividade com o Azure. Aplica a `IoT Edge deployment.json` configuração utilizando Azure DevOps CI/CD. A gestão namespace e IoT Edge é feita através do operador de nuvem.
 
-- **Implantação Azure/Arc**: Azure Arc é uma ferramenta de gestão híbrida que lhe permitirá implementar aplicações nos seus clusters K8. Ligue o cluster K8 ao seu dispositivo Azure Stack Edge através do `azure-arc namespace` .  Os agentes são implantados neste espaço de nome que são responsáveis pela conectividade com o Azure. Aplica-se a configuração de implementação utilizando a gestão de configuração baseada em GitOps. O Azure Arc também lhe permitirá utilizar o Azure Monitor para que os recipientes vejam e monitorizem os seus aglomerados. Para mais informações, vá ao [Que é o Azure-Arc habilitado a Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+- **Implantação Azure/Arc**: Azure Arc é uma ferramenta de gestão híbrida que lhe permitirá implementar aplicações nos seus clusters K8. Ligue o cluster K8 ao seu dispositivo Azure Stack Edge através do `azure-arc namespace` . Os agentes são implantados neste espaço de nome que são responsáveis pela conectividade com o Azure. Aplica-se a configuração de implementação utilizando a gestão de configuração baseada em GitOps. O Azure Arc também lhe permitirá utilizar o Azure Monitor para que os recipientes vejam e monitorizem os seus aglomerados. Para mais informações, vá ao [Que é o Azure-Arc habilitado a Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
 
 ## <a name="choose-the-deployment-type"></a>Escolha o tipo de implementação
 

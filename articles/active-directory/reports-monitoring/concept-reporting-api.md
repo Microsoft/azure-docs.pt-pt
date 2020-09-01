@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dbfca54227895de53b984dcf5c7a1f8c5fbf51d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf2e3f98bd96c09fe741a24a1332443c876e2e61
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83647410"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225915"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Começar com o Diretório Ativo Azure reportando API
 
@@ -32,7 +32,7 @@ Ao utilizar a API do Gráfico da Microsoft para relatórios AD do Azure, pode ob
 
 Este artigo fornece-lhe uma visão geral da API que reporta, incluindo formas de aceder ao mesmo.
 
-Se tiver problemas, veja [como obter apoio para o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
+Se tiver problemas, veja [como obter apoio para o Azure Ative Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,15 +47,15 @@ Para obter instruções detalhadas, consulte os [pré-requisitos para aceder ao 
 
 ## <a name="api-endpoints"></a>Pontos finais da API 
 
-O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para obter mais informações, consulte a [referência da API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) de auditoria e [a referência API de acesso](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn)a sinal .
+O ponto final da Microsoft Graph API para registos de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto final da Microsoft Graph API para iniciar sessão é `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Para obter mais informações, consulte a [referência da API](/graph/api/resources/directoryaudit?view=graph-rest-1.0) de auditoria e [a referência API de acesso](/graph/api/resources/signIn?view=graph-rest-1.0)a sinal .
 
-Além disso, pode utilizar a [API de deteção de risco de Proteção de Identidade](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático a deteções de segurança utilizando o Microsoft Graph. Para obter mais informações, consulte [Começar com a Azure Ative Directory Identity Protection e microsoft Graph](../identity-protection/graph-get-started.md). 
+Além disso, pode utilizar a [API de deteção de risco de Proteção de Identidade](/graph/api/resources/identityriskevent?view=graph-rest-beta) para obter acesso programático a deteções de segurança utilizando o Microsoft Graph. Para obter mais informações, consulte [Começar com a Azure Ative Directory Identity Protection e microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
 ## <a name="apis-with-microsoft-graph-explorer"></a>APIs com Microsoft Graph Explorer
 
 Pode utilizar o explorador de [gráficos](https://developer.microsoft.com/graph/graph-explorer) da Microsoft para verificar o seu sômis e auditar dados de API. Certifique-se de iniciar sposição na sua conta usando ambos os botões de inscrição no UI do Graph Explorer e de definir **AuditLog.Read.All** and **Directory.Read.Todas as** permissões para o seu inquilino, como mostrado.   
 
-![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
+![Explorador de Gráficos](./media/concept-reporting-api/graph-explorer.png)
 
 ![Modificar permissões UI](./media/concept-reporting-api/modify-permissions.png)
 
@@ -65,10 +65,8 @@ Utilize a API de Reporte AZURE com certificados se pretender recuperar dados de 
 
 Para obter instruções detalhadas, consulte [obter dados utilizando a API de reporte da Azure AD reportando com certificados](tutorial-access-api-with-certificates.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * [Pré-requisitos para aceder à API de reporte](howto-configure-prerequisites-for-reporting-api.md) 
  * [Utilizar a API de Relatórios do Azure AD com certificados para obter dados](tutorial-access-api-with-certificates.md)
  * [Erros de resolução de problemas na AZure AD reportando API](troubleshoot-graph-api.md)
-
-

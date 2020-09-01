@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 254732630dcf28b90413a1269a34d3aa388cb06c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997868"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226748"
 ---
 # <a name="supported-data-types"></a>Tipos de dados suportados
 
@@ -23,7 +23,7 @@ A tabela que se segue lista os tipos de dados suportados pela Azure Time Series 
 | Tipo de dados | Descrição | Exemplo | [Sintaxe de expressão de série de tempo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome da coluna de propriedade em Parquet
 |---|---|---|---|---|
 | **bool** | Um tipo de dados com um de dois estados: `true` ou `false` . | `"isQuestionable" : true` | `$event.isQuestionable.Bool` ou `$event['isQuestionable'].Bool` | `isQuestionable_bool`
-| **data** | Representa um instante no tempo, tipicamente expresso como data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) As propriedades da data são sempre armazenadas em formato UTC. As compensações do fuso horário, se for em formatada corretamente, serão aplicadas e, em seguida, as valorizadas armazenadas na UTC. Consulte [esta](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) secção para obter mais informações sobre a propriedade do timetamp do ambiente e as compensações de datas | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Se "eventProcessedLocalTime" for o tempo de origem do evento: `$event.$ts` . Se for outra propriedade JSON: `$event.eventProcessedLocalTime.DateTime` ou `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
+| **datetime** | Representa um instante no tempo, tipicamente expresso como data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) As propriedades da data são sempre armazenadas em formato UTC. As compensações do fuso horário, se for em formatada corretamente, serão aplicadas e, em seguida, as valorizadas armazenadas na UTC. Consulte [esta](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) secção para obter mais informações sobre a propriedade do timetamp do ambiente e as compensações de datas | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Se "eventProcessedLocalTime" for o tempo de origem do evento: `$event.$ts` . Se for outra propriedade JSON: `$event.eventProcessedLocalTime.DateTime` ou `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
 | **duplo** | Um número de 64 bits de precisão dupla  | `"value": 31.0482941` | `$event.value.Double` ou `$event['value'].Double` |  `value_double`
 | **longo** | Um inteiro assinado de 64 bits  | `"value" : 31` | `$event.value.Long` ou `$event['value'].Long` |  `value_long`
 | **cadeia** | Os valores de texto devem consistir em UTF-8 válido. Cordas nulas e vazias são tratadas da mesma forma. |  `"site": "DIM_MLGGG"`| `$event.site.String` ou `$event['site'].String`| `site_string`
@@ -34,9 +34,10 @@ A tabela que se segue lista os tipos de dados suportados pela Azure Time Series 
 
 > [!NOTE]
 > **O** tipo de corda não é anulado:
->   * Uma [expressão de série de tempo (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) expressa numa consulta da Série De [tempo](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) comparando o valor de uma corda vazia **(''** contra **NUL** comportar-se-á da mesma forma: `$event.siteid.String = NULL` é equivalente a `$event.siteid.String = ''` .
->   * A API pode devolver valores **NUOS** mesmo que os eventos originais contenham cordas vazias.
->   * Não tome dependência dos valores **NUOS** nas colunas **de cordas** para fazer comparações ou avaliações, tratá-los da mesma forma que as cordas vazias.
+>
+> * Uma [expressão de série de tempo (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) expressa numa consulta da Série De [tempo](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) comparando o valor de uma corda vazia **(''** contra **NUL** comportar-se-á da mesma forma: `$event.siteid.String = NULL` é equivalente a `$event.siteid.String = ''` .
+> * A API pode devolver valores **NUOS** mesmo que os eventos originais contenham cordas vazias.
+> * Não tome dependência dos valores **NUOS** nas colunas **de cordas** para fazer comparações ou avaliações, tratá-los da mesma forma que as cordas vazias.
 
 ## <a name="sending-mixed-data-types"></a>Envio de tipos de dados mistos
 

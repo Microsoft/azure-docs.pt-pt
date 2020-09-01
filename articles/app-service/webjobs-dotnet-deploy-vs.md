@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959906"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226034"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Desenvolver e implementar WebJobs usando o Visual Studio
 
@@ -184,9 +184,9 @@ Informações de implementação do WebJob:
 
 O tipo de WebJob pode ser *acionado* ou *contínuo:*
 
-- Desencadeado (padrão): Um WebJob desencadeado começa com base num evento de encadernação, num [horário,](#scheduling-a-triggered-webjob)ou quando o ativa manualmente (a pedido). Ele é executado em todos os casos que a aplicação web executa, mas você pode opcionalmente restringir o WebJob a um único exemplo.
+- Desencadeado (padrão): Um WebJob desencadeado começa com base num evento de encadernação, num [horário,](#scheduling-a-triggered-webjob)ou quando o ativa manualmente (a pedido). Funciona num único caso em que a aplicação web funciona.
 
-- Contínuo: Um WebJob [contínuo](#continuous-execution) começa imediatamente quando o WebJob é criado. Este tipo de WebJob é o melhor para trabalhos ilimitados ou de longa duração. Se o trabalho acabar, pode reiniciá-lo.  
+- Contínuo: Um WebJob [contínuo](#continuous-execution) começa imediatamente quando o WebJob é criado. Funciona em todas as instâncias dimensionadas de aplicações web por padrão, mas pode ser configurado para funcionar como uma única instância através *de configurações.job*.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 

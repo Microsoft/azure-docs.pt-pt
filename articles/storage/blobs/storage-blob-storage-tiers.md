@@ -3,17 +3,17 @@ title: Camadas de acesso quentes, frescos e de arquivo para bolhas - Azure Stora
 description: Leia sobre os níveis de acesso quentes, frescos e de arquivo para armazenamento Azure Blob. Reveja as contas de armazenamento que suportam o tiering. Compare as opções de armazenamento de blob de bloco.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009615"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226187"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
 
@@ -156,7 +156,7 @@ Nesta secção, os seguintes cenários são demonstrados utilizando o portal Azu
 
 1. Clique em **Guardar** na parte superior.
 
-![Alterar o nível da conta de armazenamento](media/storage-tiers/account-tier.png)
+![Alterar o nível de conta padrão no portal Azure](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 O seguinte script PowerShell pode ser usado para alterar o nível de conta. A `$rgName` variável deve ser inicializada com o nome do seu grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da sua conta de armazenamento. 
@@ -186,7 +186,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. **Selecione Guarde** na parte inferior.
 
-![Alterar o nível da conta de armazenamento](media/storage-tiers/blob-access-tier.png)
+![Alterar nível blob no portal Azure](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 O seguinte script PowerShell pode ser usado para alterar o nível blob. A `$rgName` variável deve ser inicializada com o nome do seu grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da sua conta de armazenamento. A `$containerName` variável deve ser inicializada com o nome do seu recipiente. A `$blobName` variável deve ser inicializada com o seu nome blob. 
@@ -219,6 +219,8 @@ Todas as contas de armazenamento utilizam um modelo de preços para armazenament
 - **Custos de transferência de dados de georreplicação**: este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
 - **Custos de transferência de dados de saída**: as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
 - **Alteração do nível de acesso**: A alteração do nível de acesso à conta resultará em taxas de alteração de nível de nível para bolhas _inferidas_ de nível de acesso armazenadas na conta que não têm um conjunto de nível explícito. Para obter informações sobre a alteração do nível de acesso para uma única bolha, consulte a [faturação de nível blob](#blob-level-tiering-billing).
+
+    Alterar o nível de acesso para uma bolha quando a versão está ativada, ou se a bolha tiver instantâneos, pode resultar em custos adicionais. Para obter mais informações sobre como é faturado quando a versão blob está ativada e você muda explicitamente o nível de uma bolha, consulte [preços e faturação](versioning-overview.md#pricing-and-billing) na documentação para a versão blob. Para obter mais informações sobre como você é cobrado quando uma bolha tem instantâneos e você muda explicitamente o nível da bolha, consulte [preços e faturação](snapshots-overview.md#pricing-and-billing) na documentação para instantâneos blob.
 
 > [!NOTE]
 > Para obter mais informações sobre preços para blobs de blocos, consulte a página [de preços de armazenamento Azure.](https://azure.microsoft.com/pricing/details/storage/blobs/) Para obter mais informações sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).

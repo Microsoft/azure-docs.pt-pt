@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: ab316d7b101a05dd9b6bba2e11bfe77239619126
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 5c5326310887cd5756ae264a35aafe7e771a7863
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146764"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226799"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -30,7 +30,7 @@ Para a formação de modelos de produção, utilize um [cluster de cálculo Azur
 
 Um caso computacional é uma estação de trabalho totalmente gerida baseada em nuvem otimizada para o seu ambiente de desenvolvimento de aprendizagem automática. Proporciona os seguintes benefícios:
 
-|Principais vantagens|Descrição|
+|Principais vantagens|Description|
 |----|----|
 |Produtividade|Pode construir e implementar modelos utilizando cadernos integrados e as seguintes ferramentas no estúdio Azure Machine Learning:<br/>- Jupyter<br/>- JupyterLab<br/>- RStudio (pré-visualização)<br/>A instância compute está totalmente integrada com o espaço de trabalho e estúdio Azure Machine Learning. Pode partilhar cadernos e dados com outros cientistas de dados no espaço de trabalho. Também pode configurar o desenvolvimento remoto do Código VS utilizando [o SSH](how-to-set-up-vs-code-remote.md) |
 |Gerido & seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computacional fornecem políticas de gestão robustas e configurações seguras de rede, tais como:<br/><br/>- Fornecimento automático a partir de modelos de gestores de recursos ou SDK de aprendizagem automática Azure<br/>- [Controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política SSH para permitir/desativar o acesso ao SSH<br/>TLS 1.2 habilitado |
@@ -80,10 +80,10 @@ Os pacotes Python estão todos instalados no ambiente **Python 3.6 - AzureML.**
 
 ### <a name="installing-packages"></a>Instalar os pacotes
 
-Pode instalar pacotes diretamente num bloco de notas jupyter ou Rstudio:
+Pode instalar pacotes diretamente no Jupyter Notebook ou no RStudio:
 
 * RStudio Utilize o **separador Pacotes** no canto inferior direito ou o **separador Consola** na parte superior esquerda.  
-* Python: Adicione código de instalação e execute numa célula de caderno Jupyter.
+* Python: Adicione código de instalação e execute numa célula Jupyter Notebook.
 
 Ou pode aceder a uma janela terminal de qualquer uma destas formas:
 

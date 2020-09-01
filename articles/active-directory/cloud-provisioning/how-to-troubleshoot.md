@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256871"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226952"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Resolução de problemas de provisão de nuvens
 
@@ -120,7 +120,7 @@ Pode receber uma mensagem de erro quando instalar o agente de provisionamento em
 
 Este problema é normalmente causado pelo facto de o agente não conseguir executar os scripts de registo PowerShell devido às políticas locais de execução do PowerShell.
 
-Para resolver este problema, altere as políticas de execução powerShell no servidor. É necessário que as políticas da Máquina e do Utilizador tenham as políticas *indefinidas* ou *remotas.* Se estiverem definidos como *"Sem Restrições",* verás este erro. Para obter mais informações, consulte [as políticas de execução powerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Para resolver este problema, altere as políticas de execução powerShell no servidor. É necessário que as políticas da Máquina e do Utilizador tenham as políticas *indefinidas* ou *remotas.* Se estiverem definidos como *"Sem Restrições",* verás este erro. Para obter mais informações, consulte [as políticas de execução powerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
 ### <a name="log-files"></a>Ficheiros de registo
 
@@ -195,7 +195,7 @@ Ao selecionar o estado, pode ver informações adicionais sobre a quarentena. Ta
 
   ![Reiniciar o provisionamento](media/how-to-troubleshoot/quarantine3.png)
 
-- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Terá controlo total sobre o que reinicia. Pode optar por limpar:
+- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Terá controlo total sobre o que reinicia. Pode optar por limpar:
   - Caugações, para reiniciar o contador de cauções que se acumula para o estado de quarentena.
   - Quarentena, para remover a aplicação da quarentena.
   - Marcas de água. 
@@ -208,6 +208,3 @@ Ao selecionar o estado, pode ver informações adicionais sobre a quarentena. Ta
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)
-
-
-

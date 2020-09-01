@@ -1,7 +1,7 @@
 ---
 title: Diretrizes de marca de aplicativos ! Rio Azure
 titleSuffix: Microsoft identity platform
-description: Um guia completo de recursos orientados para programadores do Azure Active Directory
+description: Saiba mais sobre as diretrizes de marcação de aplicações para a plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/31/2020
 ms.author: ryanwi
-ms.reviewer: arielgo
+ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: cf72a8863976d8a678fbdfb6d369c0423b59acf2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117299"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226646"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações
 
-Ao desenvolver aplicações com o Azure Active Directory (Azure AD), irá precisar de orientar os seus clientes quando quiserem utilizar a respetiva conta escolar ou profissional (gerida no Azure AD), ou a respetiva conta pessoal para inscrição e início de sessão na sua aplicação.
+Ao desenvolver aplicações com a plataforma de identidade da Microsoft, terá de direcionar os seus clientes quando quiserem utilizar a sua conta de trabalho ou escola (gerida em Azure AD), ou a sua conta pessoal para se inscrever e iniciar sing-in na sua aplicação.
 
 Neste artigo, vai:
 
 - Aprender sobre os dois tipos de contas de utilizador geridas pela Microsoft e como fazer referência a contas do Azure AD na sua aplicação
-- Descubra o que precisa de fazer para adicionar o logótipo da Microsoft para utilizar na sua aplicação
+- Descubra o que precisa de fazer para adicionar o logótipo da Microsoft para utilização na sua aplicação
 - Transfira as imagens **Iniciar sessão** ou **Iniciar sessão com a Microsoft** oficiais para utilizar na sua aplicação
 - Saiba mais sobre os prós e contras da imagem corporativa e da navegação
 
@@ -38,7 +38,7 @@ A Microsoft gere dois tipos de contas de utilizador:
 - **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Estas contas representam a relação entre utilizadores *individuais* e a Microsoft e servem para aceder a dispositivos de consumo e a serviços da Microsoft. Estas contas foram concebidas para utilização pessoal.
 - **Contas escolares ou profissionais.** Estas contas são geridas pela Microsoft em nome de organizações que utilizam o Azure Active Directory. Estas contas servem para iniciar sessão no Office 365 e noutros serviços comerciais da Microsoft.
 
-As contas escolares ou profissionais da Microsoft são, normalmente, atribuídas a utilizadores finais (colaboradores, estudantes, colaboradores do governo) pelas suas organizações (empresa, escola, agência governamental). Estas contas são controladas diretamente na cloud (na plataforma Azure AD) ou sincronizadas com o Azure AD a partir de um diretório no local, como o Windows Server Active Directory. A Microsoft é o *conservador* das contas escolares ou profissionais, mas as contas são detidas e controladas pela organização.
+As contas escolares ou profissionais da Microsoft são, normalmente, atribuídas a utilizadores finais (colaboradores, estudantes, colaboradores do governo) pelas suas organizações (empresa, escola, agência governamental). Estas contas são dominadas diretamente na nuvem (na plataforma AD Azure) ou sincronizadas com Azure AD a partir de um diretório no local, como o Windows Server Ative Directory. A Microsoft é o *conservador* das contas escolares ou profissionais, mas as contas são detidas e controladas pela organização.
 
 ## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Fazer referência a contas do Azure AD na sua aplicação
 

@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690698"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182365"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do utilizador e Azure AD Connect Health 
 
@@ -41,7 +41,7 @@ Servidores com dados ativos **do serviço de saúde não estão atualizados** al
 O Azure AD Connect Health permite-lhe parar a recolha de dados para cada servidor monitorizado individualmente ou para um exemplo de um serviço monitorizado. Por exemplo, pode parar a recolha de dados para servidores individuais da ADFS (Ative Directory Federation Services) que são monitorizados utilizando a Azure AD Connect Health. Também pode parar a recolha de dados para toda a instância ADFS que está a ser monitorizada usando a Azure AD Connect Health. Quando optar por fazê-lo, os servidores correspondentes são eliminados do portal Azure AD Connect Health, após interromper a recolha de dados. 
 
 >[!IMPORTANT]
-> Precisa de privilégios de Administrador Global AD Azure ou do papel de Contribuinte no RBAC para eliminar servidores monitorizados do Azure AD Connect Health.
+> Precisa de privilégios de Administrador Global AD Azure ou do papel de Contribuinte no Azure RBAC para eliminar servidores monitorizados do Azure AD Connect Health.
 >
 > Remover um servidor ou uma instância de serviço do Azure AD Connect Health não é uma ação reversível. 
 
@@ -96,7 +96,7 @@ A recolha de dados em termos de inquilino pode ser retomada no Azure AD Connect 
 5. Siga o [processo de instalação](how-to-connect-health-agent-install.md) para reinstalar o agente nos servidores a monitorizar e os serviços estarão presentes no portal.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Reveja a política de privacidade da Microsoft no Trust Center](https://www.microsoft.com/trustcenter)
 * [Azure AD Connect e Privacidade do Utilizador](reference-connect-user-privacy.md)
 

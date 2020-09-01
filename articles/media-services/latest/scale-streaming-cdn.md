@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Saiba mais sobre o streaming de conteúdos com integração cdn, bem como pré-suficiente e Origin-Assist CDN-Prefetch.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: inhenkel
+ms.openlocfilehash: abf4b8dffc69cfee9332d18e59d0a2852fa7617e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799354"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226153"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Stream de conteúdo com integração de CDN
 
@@ -29,14 +29,19 @@ O conteúdo popular será servido diretamente a partir da cache CDN, desde que o
 
 Também é preciso considerar como o streaming adaptativo funciona. Cada fragmento de vídeo individual é cached como sua própria entidade. Por exemplo, imagine a primeira vez que um determinado vídeo é visto. Se o espectador saltar por aí a ver apenas alguns segundos aqui e ali, apenas os fragmentos de vídeo associados ao que a pessoa viu ficam em cache na CDN. Com o streaming adaptativo, normalmente tem 5 a 7 bitrates diferentes de vídeo. Se uma pessoa está a ver um bitrate e outra está a ver um bitrate diferente, então estão cada um em cache separadamente no CDN. Mesmo que duas pessoas estejam a ver a mesma bitrate, podem estar a transmitir diferentes protocolos. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) é em cache separadamente. Assim, cada bitrate e protocolo são em cache separadamente e apenas os fragmentos de vídeo que foram solicitados estão em cache.
 
-Ao decidir se deve ou não ativar a CDN no [ponto final de streaming](streaming-endpoint-concept.md)dos Media Services, considere o número de espectadores antecipados. A CDN só ajuda se estiver à espera de muitos espectadores para o seu conteúdo. Se a conusquência máxima dos espectadores for inferior a 500, recomenda-se desativar o CDN, uma vez que a CDN escala melhor com concordância.
+Com exceção do ambiente de teste, recomendamos que a CDN seja ativada tanto para os pontos finais de streaming Standard como para Premium. Cada tipo de ponto final de streaming tem um limite de produção suportado diferente.
+É difícil fazer um cálculo preciso para o número máximo de fluxos simultâneos suportados por um ponto final de streaming, uma vez que existem vários fatores a ter em conta. Estas incluem:
+
+- Bitrates máximos utilizados para o streaming
+- Pré-tampão do jogador e comportamento de comutação. Os jogadores tentam rebentar segmentos a partir de uma origem e usam a velocidade de carga para calcular a comutação de bitrate adaptativo. Se um ponto final de streaming se aproximar da saturação, os tempos de resposta podem variar e os jogadores começam a mudar para uma qualidade mais baixa. Como isto está a reduzir a carga nos jogadores do Streaming Endpoint, reduza para uma qualidade mais alta criando gatilhos de comutação indesejados.
+No geral, é seguro estimar os fluxos máximos simultâneos, tomando a produção final máxima de streaming e dividindo-a pela bitrate máxima (assumindo que todos os jogadores usam a bitrate mais alta.) Por exemplo, pode ter um ponto final de streaming Standard que está limitado a 600 Mbps e o bitrate mais alto de 3Mbp. Neste caso, aproximadamente 200 fluxos simultâneos são suportados na bitrate superior. Lembre-se de ter em conta os requisitos de largura de banda áudio também. Embora um fluxo de áudio possa ser transmitido apenas a 128 km/h, o streaming total aumenta rapidamente quando o multiplica pelo número de fluxos simultâneos.
 
 Este tópico discute a integração do [CDN.](#enable-azure-cdn-integration) Também explica a prefetching (caching ativo) e o conceito [de CDN-Prefetch de Assistência de Origem.](#origin-assist-cdn-prefetch)
 
 ## <a name="considerations"></a>Considerações
 
-* O [ponto final de streaming](streaming-endpoint-concept.md) e o URL de streaming permanecem os `hostname` mesmos quer ativem ou não a CDN.
-* Se precisar da capacidade de testar o seu conteúdo com ou sem CDN, crie outro ponto final de streaming que não esteja ativado pela CDN.
+- O [ponto final de streaming](streaming-endpoint-concept.md) e o URL de streaming permanecem os `hostname` mesmos quer ativem ou não a CDN.
+- Se precisar da capacidade de testar o seu conteúdo com ou sem CDN, crie outro ponto final de streaming que não esteja ativado pela CDN.
 
 ## <a name="enable-azure-cdn-integration"></a>Permitir a integração do Azure CDN
 
@@ -148,7 +153,7 @@ A `Origin-Assist CDN-Prefetch` funcionalidade suporta os seguintes protocolos de
 
 * Esta funcionalidade funciona com conteúdo UHD/HEVC?
 
-    Sim.
+    Yes.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 

@@ -17,18 +17,18 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608267"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226969"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Diretório Ativo Azure reportando API
 
-As [APIs de relatórios Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs de linguagens e ferramentas de programação.
+As [APIs de relatórios Azure Active Directory (Azure AD)](./concept-reporting-api.md) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs de linguagens e ferramentas de programação.
 
-A API de reporte utiliza [a OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) para autorizar o acesso às APIs web.
+A API de reporte utiliza [a OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) para autorizar o acesso às APIs web.
 
 Para preparar o seu acesso à API que reporta, precisa:
 
@@ -85,7 +85,7 @@ Para configurar o seu diretório para aceder à API de reporte da Azure, tem de 
 
     b. Para **o tipo de contas suportadas**, selecione Contas **apenas nesta organização**.
 
-    c. No **URL de redirecionamento** selecione **web** textbox, escreva `https://localhost` .
+    c. No **URL de redirecionamento**  selecione **web** textbox, escreva `https://localhost` .
 
     d. Selecione **Registar**. 
 
@@ -200,7 +200,7 @@ Esta secção lista as mensagens de erro comuns que pode encontrar ao aceder a r
 
  Inscreva-se na sua conta utilizando ambos os botões de entrada no UI do Graph Explorer para evitar um erro ao tentar iniciar sação usando o Graph Explorer. 
 
-![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
+![Explorador de Gráficos](./media/troubleshoot-graph-api/graph-explorer.png)
 
 ### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Erro: Falhou em fazer verificação de licença premium a partir do Microsoft Graph 
 
@@ -222,8 +222,8 @@ Aceder a relatórios de inscrição requer uma licença Azure Ative Directory pr
 
 Siga os passos nos [Pré-requisitos para aceder à API de reporte de relatórios Azure Ative](howto-configure-prerequisites-for-reporting-api.md) para garantir que a sua aplicação está a funcionar com o conjunto de permissões adequado. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Obter dados com a API de relatórios do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
-* [Referência de API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Referência de API do relatório de atividade de inscrição](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Referência de API de auditoria](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Referência de API do relatório de atividade de inscrição](/graph/api/resources/signin?view=graph-rest-beta)

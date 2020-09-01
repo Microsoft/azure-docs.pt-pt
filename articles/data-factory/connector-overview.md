@@ -6,25 +6,36 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/31/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 334d5b5113dba17c5abc2b4f2520bde0d16e4c06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a729d470cccd4121523c767ada9077a51361c061
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007453"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181986"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector da Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A Azure Data Factory suporta as seguintes lojas e formatos de dados através de copy, Data Flow, Look-up, Get Metadata e Delete. Clique em cada loja de dados para saber as capacidades suportadas e as configurações correspondentes em detalhes.
+A Azure Data Factory suporta as seguintes lojas e formatos de dados através de copy, Data Flow, Look up, Get Metadata e Delete. Clique em cada loja de dados para saber as capacidades suportadas e as configurações correspondentes em detalhes.
 
 ## <a name="supported-data-stores"></a>Arquivos de dados suportados
 
 [!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+
+## <a name="integrate-with-more-data-stores"></a>Integrar-se com mais lojas de dados
+
+A Azure Data Factory pode alcançar um conjunto mais amplo de lojas de dados do que a lista acima mencionada. Se precisar de mover dados de/para uma loja de dados que não esteja na lista de conector incorporado da Azure Data Factory, aqui ficam algumas opções extensíveis:
+- Para base de dados e armazém de dados, normalmente pode encontrar um controlador ODBC correspondente, com o qual pode utilizar [o conector ODBC genérico.](connector-odbc.md)
+- Para aplicações SaaS:
+    - Se fornecer APIs RESTful, pode utilizar [o conector genérico REST](connector-rest.md).
+    - Se tiver alimentação OData, pode utilizar [o conector OData genérico.](connector-odata.md)
+    - Se fornecer APIs de SABÃO, pode utilizar [o conector HTTP genérico](connector-http.md).
+    - Se tiver controlador ODBC, pode utilizar [o conector ODBC genérico.](connector-odbc.md)
+- Para outros, verifique se pode carregar dados ou expor dados como qualquer loja de dados suportada pela ADF, por exemplo, Azure Blob/File/FTP/SFTP/etc, e depois deixe a ADF recolher a partir daí. Pode invocar mecanismo de carregamento de dados personalizado através da [Função Azure,](control-flow-azure-function-activity.md) [atividade personalizada,](transform-data-using-dotnet-custom-activity.md) [Databricks](transform-data-databricks-notebook.md) / [HDInsight,](transform-data-using-hadoop-hive.md) [atividade web,](control-flow-web-activity.md)etc.
 
 ## <a name="supported-file-formats"></a>Formatos de ficheiro suportados
 

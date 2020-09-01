@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 300a11c36b11230d2bd75534f152a0a5955743ed
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234997"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181799"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -107,7 +107,7 @@ Comece por navegar para o [Azure Ative Directory](https://portal.azure.com/#blad
 No *Registo de uma* página de candidatura que se segue, preencha os valores solicitados:
 * **Nome**: Nome de exposição de pedidos Azure AD para associar ao registo
 * **Tipos de conta suportados**: Selecione *contas apenas neste diretório organizacional (Diretório padrão - Inquilino único)*
-* **Redirecionamento URI**: *URL de resposta a pedido azure AD* para a aplicação AZure AD. Pode `http://localhost` usar.
+* **Redirecionamento URI**: *URL de resposta a pedido azure AD* para a aplicação AZure AD. Adicione um *cliente público/nativo (mobile & desktop)* URI para `http://localhost` .
 
 Quando terminar, acerte no botão *Registar.*
 

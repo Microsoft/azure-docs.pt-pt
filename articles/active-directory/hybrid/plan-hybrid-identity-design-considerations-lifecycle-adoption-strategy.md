@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbbc86b44c95219677b520cc54fbad51be06104a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109321"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182416"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar estratégia híbrida de adoção de ciclo de vida
 Nesta tarefa, definirá a estratégia de gestão de identidade para a sua solução de identidade híbrida para satisfazer os requisitos de negócio definidos nas [tarefas de gestão de identidade híbrida.](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
@@ -36,13 +36,13 @@ O controlo de acesso é uma função crítica de um sistema centralizado de prov
 
 As contas em empresas de TI sofisticadas incluem centenas de parâmetros que definem as autoridades, e estes detalhes podem ser controlados pelo seu sistema de provisionamento. Os novos utilizadores podem ser identificados com os dados que fornece a partir da fonte autoritária. A capacidade de aprovação do pedido de acesso inicia os processos que aprovam (ou rejeitam) o fornecimento de recursos para os mesmos.
 
-| Fase de gestão do ciclo de vida | Nas instalações | Cloud | Híbrido |
+| Fase de gestão do ciclo de vida | No local | Cloud | Híbrido |
 | --- | --- | --- | --- |
 | Gestão e Provisionamento de Contas |Ao utilizar a função de servidor dos Serviços de Domínio do Active Directory® (AD DS), pode criar uma infraestrutura escalável, segura e gerível para a gestão de recursos e utilizadores e fornecer o suporte para as aplicações com diretório ativado como o Microsoft Exchange Server. <br><br> [Você pode providenciar grupos em DS AD através de um gestor de identidade](https://technet.microsoft.com/library/ff686261.aspx) <br>[Pode providenciar utilizadores em DS AD](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Os administradores podem usar o controlo de acesso para gerir o acesso do utilizador a recursos partilhados para fins de segurança. No Ative Directory, o controlo de acesso é administrado ao nível do objeto, definindo diferentes níveis de acesso, ou permissões, a objetos como Controlo Total, Escrita, Leitura ou Sem Acesso. O controlo de acesso no Ative Directory define como diferentes utilizadores podem usar objetos ative directy. Por predefinição, as permissões em objetos no Ative Directory são definidas para a definição mais segura. |Tem de criar uma conta para todos os utilizadores que acedam a um serviço de cloud da Microsoft. Também pode alterar as contas dos utilizadores ou eliminá-las quando já não são necessárias. Por predefinição, os utilizadores não têm permissões de administrador, mas podem atribuí-las opcionalmente. <br><br> Dentro do Azure Ative Directory, uma das principais características é a capacidade de gerir o acesso aos recursos. Estes recursos podem fazer parte do diretório, como no caso de permissões para gerir objetos através de funções no diretório, ou dos recursos externos ao diretório, como aplicações SaaS, serviços do Azure e sites SharePoint ou recursos no local. <br><br> No centro da solução de gestão de acessos da Azure Ative Directory está o grupo de segurança. O proprietário do recurso (ou o administrador do diretório), pode atribuir um grupo para fornecer um determinado direito de acesso aos recursos que possui. Os membros do grupo terão acesso, e o titular do recurso pode delegar o direito de gerir a lista de membros de um grupo para outra pessoa – como um gerente de departamento ou um administrador de helpdesk<br> <br> Os grupos managing na secção AD Azure, fornecem mais informações sobre a gestão do acesso através de grupos. |Alargar as identidades do Diretório Ativo para a nuvem através da sincronização e da federação |
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
-O controlo de acesso baseado em funções (RBAC) utiliza funções e políticas de provisionamento para avaliar, testar e impor os seus processos e regras de negócio para conceder acesso aos utilizadores. Os administradores-chave criam políticas de provisionamento e atribuem os utilizadores a funções e definem conjuntos de direitos aos recursos para estas funções. O RBAC alarga a solução de gestão de identidade para utilizar processos baseados em software e reduzir a interação manual do utilizador no processo de provisionamento.
-O Azure AD RBAC permite à empresa restringir o número de operações que um indivíduo pode fazer uma vez que tenha acesso ao portal Azure. Ao utilizar o RBAC para controlar o acesso ao portal, o acesso de delegado de IT Admins ca através das seguintes abordagens de gestão de acesso:
+O Azure role-based access control (Azure RBAC) usa papéis e políticas de provisionamento para avaliar, testar e impor os seus processos e regras de negócio para conceder acesso aos utilizadores. Os administradores-chave criam políticas de provisionamento e atribuem os utilizadores a funções e definem conjuntos de direitos aos recursos para estas funções. O Azure RBAC alarga a solução de gestão de identidade para utilizar processos baseados em software e reduzir a interação manual do utilizador no processo de provisionamento.
+O Azure RBAC permite à empresa restringir o número de operações que um indivíduo pode fazer uma vez que tenha acesso ao portal Azure. Ao utilizar o Azure RBAC para controlar o acesso ao portal, o IT Admins ca delegado de acesso utilizando as seguintes abordagens de gestão de acesso:
 
 * **Atribuição de funções baseada em grupo**: Pode atribuir acesso a grupos AD Azure que podem ser sincronizados a partir do seu Diretório Ativo local. Isto permite-lhe alavancar os investimentos existentes que a sua organização tem feito em ferramentas e processos de gestão de grupos. Também pode utilizar a função de gestão de grupos delegada do Azure AD Premium.
 * **Alavancagem incorporada em funções no Azure**: Pode utilizar três funções — Proprietário, Colaborador e Leitor, para garantir que os utilizadores e grupos tenham permissão para fazer apenas as tarefas que precisam para fazer o seu trabalho.

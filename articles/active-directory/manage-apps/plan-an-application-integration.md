@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d49c23e5968b0fe1b2d4838978fe1b23931e5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763096"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182331"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrar o Azure Ative Directory com candidaturas a iniciar guia
 
@@ -45,7 +45,7 @@ Antes de integrar as aplicações com a Azure AD, é importante saber onde está
   * Azure AD
   * Dentro de uma base de dados de aplicações separada que possui
   * Em aplicações não divulgadas
-  * Todos os anteriores
+  * Todas as opções acima
 * Que permissões e atribuições de funções têm atualmente os utilizadores individuais? Precisa de rever o acesso deles ou tem a certeza de que o acesso ao utilizador e as atribuições de funções são apropriados agora?
 * Os grupos já estão estabelecidos no seu Ative Directory?
   * Como estão organizados os seus grupos?
@@ -54,7 +54,7 @@ Antes de integrar as aplicações com a Azure AD, é importante saber onde está
 * Precisa de limpar as bases de dados de utilizador/grupo antes de se integrar?  (Esta é uma pergunta muito importante. Lixo, lixo para fora.)
 
 ### <a name="access-management-inventory"></a>Inventário de gestão de acessos
-* Como gere atualmente o acesso dos utilizadores às aplicações? Isto tem de mudar?  Já pensou noutras formas de gerir o acesso, como por exemplo com [o RBAC?](../../role-based-access-control/role-assignments-portal.md)
+* Como gere atualmente o acesso dos utilizadores às aplicações? Isto tem de mudar?  Já pensou noutras formas de gerir o acesso, como por exemplo com [o Azure RBAC?](../../role-based-access-control/role-assignments-portal.md)
 * Quem precisa de acesso a quê?
 
 Talvez não tenhas as respostas para todas estas perguntas, mas não faz mal.  Este guia pode ajudá-lo a responder a algumas dessas perguntas e a tomar algumas decisões informadas.
@@ -90,7 +90,7 @@ Os seguintes artigos descrevem formas de gerir o acesso às aplicações depois 
 * [Atribuir grupos a uma aplicação](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Partilhar contas](../active-directory-sharing-accounts.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações aprofundadas, você pode baixar os planos de implementação do Azure Ative Directory a partir do [GitHub](https://aka.ms/deploymentplans). Para aplicações de galeria, pode descarregar planos de implementação para um único sign-on, Acesso Condicional e fornecimento de utilizadores através do [portal Azure.](https://portal.azure.com) 
 
 Para descarregar um plano de implementação a partir do portal Azure:

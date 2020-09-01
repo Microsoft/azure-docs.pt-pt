@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80b7d5ca67751cf7ece775331cc13cfbac10395b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518327"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182399"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (pré-visualização)
 
@@ -26,12 +26,12 @@ Os contentores de Voz permitem que os clientes criem uma arquitetura de aplicaç
 > [!IMPORTANT]
 > Todos os recipientes de fala são atualmente oferecidos como parte de uma [pré-visualização pública "Gated".](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) Um anúncio será feito quando os contentores de fala progredirem para a Disponibilidade Geral (GA).
 
-| Função | Funcionalidades | Últimas |
+| Função | Funcionalidades | Mais Recente |
 |--|--|--|
-| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.3.1 |
-| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.3.1 |
-| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.5.0 |
-| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.5.0 |
+| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.4.0 |
+| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.4.0 |
+| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.6.0 |
+| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.6.0 |
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
@@ -165,7 +165,7 @@ Todas as tags, com exceção `latest` das marcas, são no seguinte formato e sã
 A seguinte etiqueta é um exemplo do formato:
 
 ```
-2.3.1-amd64-en-us-preview
+2.4.0-amd64-en-us-preview
 ```
 
 Para todos os locais suportados do recipiente **discurso-a-texto,** consulte [as etiquetas de imagem discurso-a-texto](../containers/container-image-tags.md#speech-to-text).
@@ -207,7 +207,7 @@ Todas as tags, com exceção `latest` das marcas, são no seguinte formato e sã
 A seguinte etiqueta é um exemplo do formato:
 
 ```
-1.5.0-amd64-en-us-ariarus-preview
+1.6.0-amd64-en-us-ariarus-preview
 ```
 
 Para todos os locais apoiados e vozes correspondentes do recipiente **texto-a-voz,** consulte [as etiquetas de imagem text-to-speech](../containers/container-image-tags.md#text-to-speech).
@@ -423,6 +423,8 @@ Para obter mais informações sobre a utilização dos protocolos WSS e HTTPS, c
 #### <a name="analyze-sentiment"></a>Analisar sentimento
 
 Se forneceu as suas credenciais de API de Análise de Texto [ao recipiente,](#analyze-sentiment-on-the-speech-to-text-output)pode utilizar o Speech SDK para enviar pedidos de reconhecimento de voz com análise de sentimento. Pode configurar as respostas da API para utilizar um formato *simples* ou *detalhado.*
+> [!NOTE]
+> v1.13 do Serviço de Fala Python SDK tem um problema identificado com a análise do sentimento. Por favor, use v1.12.x ou mais cedo se estiver a usar a análise de sentimento no Serviço de Fala Python SDK.
 
 # <a name="simple-format"></a>[Formato simples](#tab/simple-format)
 

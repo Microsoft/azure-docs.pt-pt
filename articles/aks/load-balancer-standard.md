@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056811"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182127"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga padrão público no serviço Azure Kubernetes (AKS)
 
@@ -267,16 +267,15 @@ Se você espera ter numerosas ligações de curta duração, e nenhuma conexão 
 *saídaIPs* \* 64.000 \> *nodeVMs* \* *desejados Portos De Saída.*
  
 Por exemplo, se tiver 3 *nodeVMs*, e 50.000 *Portos De Saída De Saída desejados,* precisa de ter pelo menos 3 *Blocos de Saída*. Recomenda-se que incorpore capacidade ip adicional de saída para além do que precisa. Além disso, você deve ter em conta o autoescalador do cluster e a possibilidade de atualizações de piscina de nó ao calcular a capacidade ip de saída. Para o autoescalador do cluster, reveja a contagem de nós corrente e a contagem máxima do nó e utilize o valor mais elevado. Para a atualização, contabiliza um VM adicional de nó para cada piscina de nó que permite a atualização.
- 
+
 - Ao configurar *o IdleTimeoutInMinutes* para um valor diferente do padrão de 30 minutos, considere quanto tempo as suas cargas de trabalho precisarão de uma ligação de saída. Considere também o valor de tempo limite padrão para um balanceador de carga *Standard* SKU usado fora de AKS é de 4 minutos. Um valor *IdleTimeoutInMinutes* que reflita com mais precisão a sua carga de trabalho específica da AKS pode ajudar a diminuir a exaustão do SNAT causada pela ligação que já não é utilizada.
 
 > [!WARNING]
 > Alterar os valores para *AlocedOutboundPorts* e *IdleTimeoutInMinutes* pode alterar significativamente o comportamento da regra de saída para o seu balançador de carga e não deve ser feito de ânimo leve, sem compreender as compensações e os padrões de ligação da sua aplicação, consulte [a secção de resolução de problemas do SNAT abaixo][troubleshoot-snat] e reveja as regras de saída do [Balancer de Carga][azure-lb-outbound-rules-overview] e as [ligações de saída em Azure][azure-lb-outbound-connections] antes de atualizar estes valores para entender completamente o impacto das suas alterações.
 
-
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>Restringir o tráfego de entrada a gamas IP específicas
 
-O Grupo de Segurança da Rede (NSG) associado à rede virtual para o balançador de carga, por padrão, tem uma regra que permite todo o tráfego externo de entrada. Pode atualizar esta regra apenas para permitir gamas IP específicas para o tráfego de entrada. O manifesto a seguir utiliza *loadBalancerSourceRanges* para especificar uma nova gama IP para tráfego externo de entrada:
+O manifesto a seguir utiliza *loadBalancerSourceRanges* para especificar uma nova gama IP para tráfego externo de entrada:
 
 ```yaml
 apiVersion: v1
@@ -292,6 +291,9 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+> [!NOTE]
+> A entrada, o tráfego externo flui do equilibrador de carga para a rede virtual para o seu cluster AKS. A rede virtual tem um Grupo de Segurança de Rede (NSG) que permite todo o tráfego de entrada a partir do balançador de carga. Este NSG utiliza uma etiqueta de [serviço][service-tags] do tipo *LoadBalancer* para permitir o tráfego do equilibrador de carga.
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Mantenha o IP do cliente em ligações de entrada
 
@@ -322,7 +324,7 @@ Abaixo está uma lista de anotações suportadas para serviços Kubernetes com `
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nome da etiqueta DNS em IPs públicos   | Especifique o nome da etiqueta DNS para o serviço **público.** Se estiver definido para cadeias vazias, a entrada DNS no IP Público não será utilizada.
 | `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` ou `false`                     | Especifique que o serviço deve ser exposto usando uma regra de segurança Azure que pode ser partilhada com outro serviço, comercializando a especificidade das regras para um aumento do número de serviços que podem ser expostos. Esta anotação baseia-se na funcionalidade Azure [Aumentada Security Rules](../virtual-network/security-overview.md#augmented-security-rules) dos grupos de Segurança da Rede. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nome do grupo de recursos            | Especificar o grupo de recursos de IPs públicos do balanceador de carga que não estão no mesmo grupo de recursos que a infraestrutura de cluster (grupo de recursos de nó).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de etiquetas de serviço permitidas          | Especifique uma lista de etiquetas de [serviço permitidas separadas](../virtual-network/security-overview.md#service-tags) por vírgula.
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de etiquetas de serviço permitidas          | Especifique uma lista de etiquetas de [serviço permitidas separadas][service-tags] por vírgula.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Intervalos de tempo inativos da TCP em minutos          | Especifique a hora, em minutos, para que os intervalos de inatividade da ligação TCP ocorram no balançador de carga. O padrão e o valor mínimo são 4. O valor máximo é de 30. Deve ser um inteiro.
 |`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | `enableTcpReset`Desativar para SLB
 
@@ -340,7 +342,7 @@ Frequentemente, a causa principal da exaustão do SNAT é um anti-padrão para a
 4. Avalie se os [padrões adequados são seguidos.](#design-patterns)
 5. Avaliar se o esgotamento da porta SNAT deve ser atenuado com [endereços IP adicionais de saída + portas de saída adicionais atribuídas](#configure-the-allocated-outbound-ports) .
 
-### <a name="design-patterns"></a>Padrões de design
+### <a name="design-patterns"></a>Padrões de estrutura
 Aproveite sempre que possível a reutilização da ligação e a ligação. Estes padrões evitarão problemas de exaustão de recursos e resultarão em comportamentos previsíveis. Os primitivos para estes padrões podem ser encontrados em muitas bibliotecas e estruturas de desenvolvimento.
 
 - Os pedidos atómicos (um pedido por ligação) geralmente não são uma boa escolha de design. Tal escala de limites anti-padrão, reduz o desempenho e diminui a fiabilidade. Em vez disso, reutilizar as ligações HTTP/S para reduzir o número de ligações e portas SNAT associadas. A escala de aplicação aumentará e o desempenho melhorará devido à redução dos apertos de mão, sobrecarga e custo de operação criptográfico ao utilizar o TLS.
@@ -424,3 +426,4 @@ Saiba mais sobre a utilização do Balançador de Carga Interna para o tráfego 
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
+[service-tags]: ../virtual-network/security-overview.md#service-tags

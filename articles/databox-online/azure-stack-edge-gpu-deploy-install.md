@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 905229cde0d2b3dde7f0f2192860c33fc69e5fb2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 401b7c7a44e2f8009baca96862817b3d14f35c94
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088028"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181821"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Tutorial: Instalar borda de pilha de Azure com GPU
 
@@ -37,7 +37,7 @@ Os pré-requisitos para a instalação de um dispositivo físico da seguinte for
 
 Antes de começar, certifique-se de que:
 
-* Completou todos os passos em [Prepare-se para implantar Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md).
+* Completou todos os passos em [Prepare-se para implantar Azure Stack Edge com GPU](azure-stack-edge-gpu-deploy-prep.md).
     * Criou um recurso Azure Stack Edge para implementar o seu dispositivo.
     * Gerou a chave de ativação para ativar o seu dispositivo com o recurso Azure Stack Edge.
 
@@ -48,11 +48,11 @@ Antes de implementar um dispositivo:
 
 - Certifique-se de que o aparelho assenta em segurança numa superfície de trabalho plana, estável e nivelada.
 - Verifique se o local onde quer configurar o dispositivo tem:
-    - Potência padrão AC de uma fonte independente
+    - Energia padrão ac de uma fonte independente.
 
         -OU-
-    - Uma unidade de distribuição de energia de cremalheira (PDU) com uma alimentação ininterrupta (UPS)
-    - Uma ranhura 1U disponível na prateleira na qual pretende montar o dispositivo
+    - uma unidade de distribuição de energia (PDU) em bastidor com uma fonte de alimentação ininterrupta (UPS).
+    - Uma ranhura 1U disponível na cremalheira na qual pretende montar o dispositivo.
 
 ### <a name="for-the-network-in-the-datacenter"></a>Para a rede no datacenter
 
@@ -75,7 +75,7 @@ Este dispositivo é enviado numa única caixa. Conclua os passos seguintes para 
     - Um conjunto de kit de trilho
     - Um folheto de Informação de Segurança, Ambiente e Regulação
 
-Se não recebeu todos os itens listados aqui, contacte o suporte do Azure Stack Edge. O próximo passo é montar o seu dispositivo.
+Se não recebeu todos os itens listados aqui, contacte o [Microsoft Support](azure-stack-edge-contact-microsoft-support.md). O próximo passo é montar o seu dispositivo.
 
 
 ## <a name="rack-the-device"></a>Montar o dispositivo em bastidor
@@ -166,7 +166,7 @@ Antes de começar a ligar o seu dispositivo, precisa do seguinte:
 - Pelo menos um cabo de rede de 1 GbE RJ-45 para ligar à interface de gestão. Existem duas interfaces de rede de 1 GbE, uma de gestão e uma de dados, no dispositivo.
 - Um cabo de cobre de 25 GbE SFP+ para cada interface de rede de dados a ser configurada. Pelo menos uma interface de rede de dados entre os PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6 tem de ser ligada à Internet (com conectividade com a Azure).  
 - Acesso a duas unidades de distribuição de energia (recomendada).
-- Pelo menos um interruptor de rede de 1 GbE para ligar uma interface de rede de 1 GbE à Internet para obter dados. Se utilizar uma interface de 25/10 GbE para obter dados, necessitará de um interruptor de 25-GbE ou de 10 GbE. 
+- Pelo menos um interruptor de rede de 1 GbE para ligar uma interface de rede de 1 GbE à Internet para obter dados. A UI web local não estará acessível se o interruptor ligado não for pelo menos 1-GbE. Se utilizar uma interface de 25/10 GbE para obter dados, necessitará de um interruptor de 25-GbE ou de 10 GbE. 
 
 > [!NOTE]
 > - Se estiver a ligar apenas uma interface de rede de dados, recomendamos que utilize uma interface de rede de 25/10 GbE, como PORT 3, PORT 4, PORT 5 ou PORT 6 para enviar dados para o Azure. 

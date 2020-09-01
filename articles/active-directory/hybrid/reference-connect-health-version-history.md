@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb5902e3bc8bbed63d7a6e074ece824e16c5609
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: abc0417fc6f97501566f03d7eae0e4274d1dbced
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165163"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182348"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
 A equipa do Azure Ative Directory atualiza regularmente o Azure AD Connect Health com novas funcionalidades e funcionalidades. Este artigo lista as versões e funcionalidades que foram lançadas.  
@@ -225,7 +225,7 @@ Azure AD Connect Health for Sync está integrado com a instalação Azure AD Con
 ## <a name="november-2015"></a>Novembro de 2015
 **Novas funcionalidades:**
 
-* Suporte ao [controlo de acesso baseado em funções Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Suporte ao [controlo de acesso baseado em funções Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac)
 
 **Novas funcionalidades de pré-visualização:**
 

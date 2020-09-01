@@ -3,12 +3,12 @@ title: Use powerShell para apoiar cargas de trabalho de DPM
 description: Saiba como implementar e gerir o Azure Backup para o Gestor de Proteção de Dados (DPM) utilizando o PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 7b4e63e94599b1445a7244018e00999df8365cd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4f0364ef218d346149191e168540eed4827001de
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014681"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182467"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 
@@ -183,7 +183,7 @@ Todas as modificações são feitas neste objeto Local PowerShell ```$setting```
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 Se a conectividade da máquina DPM com o serviço de Backup Azure na internet for através de um servidor proxy, então as definições do servidor proxy devem ser fornecidas para cópias de segurança bem sucedidas. Isto é feito utilizando o ```-ProxyServer``` ```-ProxyPort``` e, ```-ProxyUsername``` e os ```ProxyPassword``` parâmetros com o [conjunto-DPMCloudSubscriptionSettingSetting.](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) Neste exemplo, não há nenhum servidor proxy, por isso estamos a limpar explicitamente qualquer informação relacionada com procuração.
 
@@ -262,7 +262,7 @@ Cada Agente DPM conhece a lista de fontes de dados no servidor em que está inst
 3. Pegue uma lista de todos os recursos de dados no servidor.
 4. Escolha um ou mais fontes de dados e adicione-as ao Grupo de Proteção
 
-A lista de servidores em que o DPM Agent está instalado e está a ser gerido pelo DPM Server é adquirida com o [cmdlet Get-DPMProductionServer.](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) Neste exemplo, filtraremos e configuraremos apenas o PowerShell com o nome *de produção erador01* para cópia de segurança.
+A lista de servidores em que o DPM Agent está instalado e está a ser gerido pelo DPM Server é adquirida com o [cmdlet Get-DPMProductionServer.](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) Neste exemplo, filtraremos e configuraremos apenas o PowerShell com o nome *de produção produção01* para cópia de segurança.
 
 ```powershell
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
@@ -276,7 +276,7 @@ $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name
 Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 ```
 
-Repita este passo quantas vezes for necessário, até que tenha adicionado todas as fontes de dados escolhidas ao grupo de proteção. Também pode começar com apenas uma fonte de dados, e completar o fluxo de trabalho para criar o Grupo de Proteção, e posteriormente adicionar mais fontes de dados ao Grupo de Proteção.
+Repita este passo quantas vezes for necessário, até adicionar todas as fontes de dados escolhidas ao grupo de proteção. Também pode começar com apenas uma fonte de dados, e completar o fluxo de trabalho para criar o Grupo de Proteção, e posteriormente adicionar mais fontes de dados ao Grupo de Proteção.
 
 ### <a name="selecting-the-data-protection-method"></a>Selecionando o método de proteção de dados
 

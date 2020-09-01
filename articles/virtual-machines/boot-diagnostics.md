@@ -7,16 +7,24 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: e2ba5d909a3aa43921f52295d2f7216aac76bc32
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: aca41edeb159a65b27ecbbc27ae568f8bc94cebe
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067091"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181872"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de arranque Azure
 
 O diagnóstico de arranque é uma funcionalidade de depuração para máquinas virtuais Azure (VM) que permite o diagnóstico de falhas de arranque VM. O diagnóstico de arranque permite que um utilizador observe o estado do seu VM à medida que está a ser iniciado através da recolha de informações de registos em série e imagens.
+
+## <a name="boot-diagnostics-storage-account"></a>Conta de Armazenamento de Diagnósticos de Arranque
+Ao criar um VM no portal Azure, o Boot Diagnostics é ativado por padrão. A experiência recomendada para o Boot Diagnostics é utilizar uma conta de armazenamento gerida, uma vez que produz melhorias significativas no desempenho no tempo para criar um VM Azure. Isto porque será utilizada uma conta de armazenamento gerida pelo Azure, removendo o tempo necessário para criar uma nova conta de armazenamento de utilizador para armazenar os dados de diagnóstico de arranque.
+
+Uma experiência alternativa de Diagnóstico de Boot é utilizar uma conta de armazenamento gerida pelo utilizador. Um utilizador pode criar uma nova conta de armazenamento ou utilizar uma já existente.
+
+> [!IMPORTANT]
+> Os clientes da Azure não serão cobrados pelos custos de armazenamento associted com diagnósticos de boot usando uma conta de armazenamento gerida até outubro de 2020.
 
 ## <a name="boot-diagnostics-view"></a>Vista de diagnóstico de arranque
 Localizada na lâmina da máquina virtual, a opção de diagnóstico de arranque encontra-se na secção *de Suporte e Resolução de Problemas* no portal Azure. A seleção de diagnósticos de arranque apresentará uma imagem e informações de registo em série. O registo em série contém mensagens de kernel e a imagem é uma imagem do seu estado atual dos VMs. Baseado em se o VM está a executar Windows ou Linux determina como seria a imagem esperada. Para o Windows, os utilizadores irão ver um fundo de ambiente de trabalho e, para o Linux, os utilizadores irão ver uma solicitação de login.
