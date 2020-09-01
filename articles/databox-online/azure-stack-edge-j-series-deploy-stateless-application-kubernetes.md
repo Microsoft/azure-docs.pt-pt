@@ -1,19 +1,19 @@
 ---
-title: Executar e gerir uma aplicação apátrida kubernetes num dispositivo Microsoft Azure Stack Edge usando kubectl Microsoft Docs
+title: Implementar aplicação apátrida da Kubernetes no dispositivo GPU Azure Stack Edge usando kubectl Microsoft Docs
 description: Descreve como criar e gerir uma aplicação apátrida kubernetes usando kubectl num dispositivo Microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: be93e2806e499e3a9331493c16c8a87195a98600
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2bd0b8c222b9f9643d53da33619af438c121a2f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084942"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145965"
 ---
 # <a name="run-and-manage-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Executar e gerir uma aplicação apátrida Kubernetes no seu dispositivo Azure Stack Edge
 

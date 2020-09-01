@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e5b7211ffc72c4752008f36ebb266373c919025b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f068f91a104c15099809343438cc925fb8856248
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076026"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146866"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
@@ -81,17 +81,19 @@ Numa pasta vazia, execute o seguinte comando para gerar o projeto das Funções 
 
 # <a name="bash"></a>[festa](#tab/bash)
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 # <a name="cmd"></a>[Cmd](#tab/cmd)
 ```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 ---
+
+O `-DjavaVersion` parâmetro indica ao tempo de execução funções qual versão de Java a utilizar. Utilize `-DjavaVersion=11` se quiser que as suas funções funcionem em Java 11, que está em pré-visualização. Quando não `-DjavaVersion` especifica, Maven falha em Java 8. Para mais informações, consulte as [versões Java.](functions-reference-java.md#java-versions)
 
 A Maven pede-lhe valores necessários para terminar a geração do projeto na implantação.   
 Fornecer os seguintes valores quando solicitado:
@@ -106,8 +108,6 @@ Fornecer os seguintes valores quando solicitado:
 Digite `Y` ou prima Enter para confirmar.
 
 A Maven cria os ficheiros do projeto numa nova pasta com o nome de _artifactId_, que neste exemplo é `fabrikam-functions` . 
-
-Para correr em Java 11 em Azure, tem de modificar os valores do ficheiro pom.xml. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions)
 ::: zone-end
 A `--docker` opção gera um `Dockerfile` para o projeto, que define um recipiente personalizado adequado para uso com Funções Azure e o tempo de execução selecionado.
 
@@ -159,14 +159,6 @@ Use **ctrl** - **C** para parar o hospedeiro.
 ## <a name="build-the-container-image-and-test-locally"></a>Construa a imagem do recipiente e teste localmente
 
 (Opcional) Examine o *Dockerfile* na raiz da pasta do projeto. O Dockerfile descreve o ambiente necessário para executar a aplicação de função no Linux.  A lista completa de imagens base suportadas para funções Azure pode ser encontrada na página de imagem base do [Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
-
-::: zone pivot="programming-language-java"  
-Se estiver a correr em Java 11 (pré-visualização), altere o argumento de `JAVA_VERSION` construção no Dockerfile gerado para o seguinte: 
-
-```docker
-ARG JAVA_VERSION=11
-```
-::: zone-end
     
 Na pasta do projeto raiz, executar o [estivador constroem](https://docs.docker.com/engine/reference/commandline/build/) comando, e fornecer um `azurefunctionsimage` nome, e tag, `v1.0.0` . Substitua `<DOCKER_ID>` pelo ID da sua conta do Docker Hub. Este comando cria a imagem do Docker para o contentor.
 
@@ -311,17 +303,17 @@ Com a imagem implantada na aplicação de função no Azure, pode agora invocar 
 
     1. No painel de navegação esquerdo, selecione **Funções**e, em seguida, selecione a função que pretende verificar.
 
-        ![O comando URL da função Get no portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+        ![Escolha a sua função no portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
     1. Selecione **Obter Url de função**.
 
-        ![O comando URL da função Get no portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
+        ![Obtenha o URL de função do portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
     
     1. Na janela pop-up, selecione **predefinição (tecla de função)** e, em seguida, copie o URL para a área de transferência. A chave é a sequência de caracteres que se `?code=` seguem.
 
-        ![O comando URL da função Get no portal Azure](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+        ![Escolha a chave de acesso à função predefinida](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
 
 
     > [!NOTE]  

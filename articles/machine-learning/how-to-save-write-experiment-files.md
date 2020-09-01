@@ -12,19 +12,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319580"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144044"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde guardar e escrever ficheiros para experiências de Aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprende onde guardar ficheiros de entrada e onde escrever ficheiros de saída das suas experiências para evitar erros de limite de armazenamento e experiência de latência.
 
-Ao lançar treinos com um [alvo de computação,](how-to-set-up-training-targets.md)são isolados de ambientes externos. O objetivo deste desenho é garantir a reprodutibilidade e portabilidade da experiência. Se executar o mesmo script duas vezes, no mesmo ou noutro alvo de computação, receberá os mesmos resultados. Com este design, você pode tratar os alvos computacional como recursos computatórios apátridas, cada um não tem nenhuma afinidade com os trabalhos que estão executando depois de terminados.
+Ao lançar treinos com um [alvo de computação,](concept-compute-target.md)são isolados de ambientes externos. O objetivo deste desenho é garantir a reprodutibilidade e portabilidade da experiência. Se executar o mesmo script duas vezes, no mesmo ou noutro alvo de computação, receberá os mesmos resultados. Com este design, você pode tratar os alvos computacional como recursos computatórios apátridas, cada um não tem nenhuma afinidade com os trabalhos que estão executando depois de terminados.
 
 ## <a name="where-to-save-input-files"></a>Onde guardar ficheiros de entrada
 
@@ -79,4 +79,4 @@ Se não necessitar de uma loja de dados, escreva ficheiros para a `./outputs` pa
 
 * Saiba mais sobre [o acesso aos dados das suas datastores.](how-to-access-data.md)
 
-* Saiba mais sobre [como configurar metas de treino.](how-to-set-up-training-targets.md)
+* Saiba mais sobre a criação de alvos de computação com o [Python SDK](how-to-create-attach-compute-sdk.md) ou usar [o estúdio.](how-to-create-attach-compute-studio.md)

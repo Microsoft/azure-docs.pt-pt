@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 2a40c6158b5d29f695360c04a0d4376efd4238f9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 927908fa708e7e687bf82400c10e08fbcccdef19
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288465"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145030"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para geração 2 VMs em Azure
 
@@ -29,7 +29,11 @@ Os VMs de geração 1 são suportados por todos os tamanhos VM em Azure (exceto 
 * [Série B](../sizes-b-series-burstable.md)
 * [Série DCsv2](../dcv2-series.md)
 * [Série DSv2](../dv2-dsv2-series.md) e [série Dsv3](../dv3-dsv3-series.md)
+* [Série Dsv4](../dv4-dsv4-series.md)
+* [Série Ddsv4](../ddv4-ddsv4-series.md)
+* [Série Dasv4](../dav4-dasv4-series.md)
 * [Série Esv3](../ev3-esv3-series.md)
+* [Série Easv4](../eav4-easv4-series.md)
 * [Série Fsv2](../fsv2-series.md)
 * [Série GS](../sizes-previous-gen.md#gs-series)
 * [Série HB](../hb-series.md)
@@ -80,7 +84,7 @@ A Azure não suporta atualmente algumas das funcionalidades que o Hyper-V suport
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Capacidades de geração 1 vs geração 2
 
-| Capacidade | Geração 1 | Geração 2 |
+| Funcionalidade | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
 | Disco de oss > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco/imagem/swap OS personalizados         | :heavy_check_mark: | :heavy_check_mark: |
@@ -104,7 +108,7 @@ Abaixo estão os passos para criar uma VM de geração 2 (Gen2) no portal Azure.
 1. Selecione **Criar um recurso**.
 1. Clique **em Ver tudo** a partir do Mercado Azure à esquerda.
 1. Selecione uma imagem que suporte a Gen2.
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 1. No separador **Avançado,** na secção **de geração VM,** selecione a opção **Gen 2.**
 1. No **separador Basics,** detalhes de Under **Instance,** vá ao **Tamanho** e abra a lâmina **de tamanho VM** Select.
 1. Selecione uma [geração suportada 2 VM](#generation-2-vm-sizes).

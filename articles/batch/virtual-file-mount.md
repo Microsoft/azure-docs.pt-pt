@@ -4,23 +4,23 @@ description: Saiba como montar um sistema de ficheiros virtuais numa piscina de 
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
-ms.openlocfilehash: 6b42d73954bf7ccaedfec15371cc73115c51198a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921635"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145489"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monte um sistema de ficheiros virtual numa piscina de Lote
 
 O Azure Batch suporta agora o armazenamento em nuvem de montagem ou um sistema de ficheiros externos nos nós de computação Windows ou Linux nas piscinas do Batch. Quando um nó computacional se junta a uma piscina, o sistema de ficheiros virtuais é montado e tratado como uma unidade local nesse nó. Pode montar sistemas de ficheiros como ficheiros Azure, armazenamento Azure Blob, Sistema de Ficheiros de Rede (NFS), incluindo uma [cache Avere vFXT,](../avere-vfxt/avere-vfxt-overview.md)ou Sistema Comum de Ficheiros de Internet (CIFS).
 
-Neste artigo, você aprenderá a montar um sistema de ficheiros virtuais em um conjunto de nós computacional usando a Biblioteca de Gestão de [Lotes para .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
+Neste artigo, você aprenderá a montar um sistema de ficheiros virtuais em um conjunto de nós computacional usando a Biblioteca de Gestão de [Lotes para .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
 > A montagem de um sistema de ficheiros virtuais é suportada em piscinas de Lote criadas em ou depois de 2019-08-19. Os lotes criados antes de 2019-08-19 não suportam esta funcionalidade.
 > 
-> As APIs para montagem de sistemas de ficheiros num nó de computação fazem parte da biblioteca [Batch .NET.](/dotnet/api/microsoft.azure.batch?view=azure-dotnet)
+> As APIs para montagem de sistemas de ficheiros num nó de computação fazem parte da biblioteca [Batch .NET.](/dotnet/api/microsoft.azure.batch)
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Benefícios da montagem em uma piscina
 

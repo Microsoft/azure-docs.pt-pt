@@ -3,12 +3,12 @@ title: Gerir e monitorizar os DBs do Servidor SQL num VM Azure
 description: Este artigo descreve como gerir e monitorizar bases de dados do SQL Server que estão a funcionar num VM Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826638"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146526"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
 
@@ -34,7 +34,7 @@ Como os backups de registo ocorrem a cada 15 minutos, monitorizar trabalhos de r
 
 Para monitorizar os alertas de backup da base de dados:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. No painel de abóbada, selecione **Alertas e Eventos**.
 
@@ -55,7 +55,7 @@ Se optar por deixar pontos de recuperação, lembre-se destes detalhes:
 
 - Todos os pontos de recuperação permanecerão intactos para sempre, e todas as poda pararão na proteção stop com os dados de retenção.
 - Será cobrado pela instância protegida e pelo armazenamento consumido. Para mais informações, consulte [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
-- Se eliminar uma fonte de dados sem parar as cópias de segurança, novas cópias de segurança falharão. Os antigos pontos de recuperação expirarão de acordo com a apólice, mas um último ponto de recuperação será sempre mantido até parar as cópias de segurança e apagar os dados.
+- Se eliminar uma fonte de dados sem parar as cópias de segurança, novas cópias de segurança falharão. Os antigos pontos de recuperação caducarão de acordo com a apólice, mas o ponto de recuperação mais recente será sempre mantido até parar as cópias de segurança e apagar os dados.
 
 Para parar a proteção de uma base de dados:
 

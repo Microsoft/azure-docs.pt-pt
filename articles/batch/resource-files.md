@@ -3,12 +3,12 @@ title: Criar e utilizar ficheiros de recursos
 description: Saiba como criar ficheiros de recursos batch a partir de várias fontes de entrada. Este artigo abrange alguns métodos comuns sobre como criá-los e colocá-los num VM.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 481ac8843f871f9f1eaa61e782e273e27715a473
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e1bf7520774a0f4143aadd2298f300b3ac5c75a3
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964027"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146305"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e utilizar ficheiros de recursos
 
@@ -50,7 +50,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > Para acesso ao contentor, tem de ter ambos `Read` e `List` permissões, enquanto que com acesso a bolhas, só precisa de `Read` permissão.
 
-Uma vez configuradas as permissões, crie o token SAS e formate o URL SAS para acesso ao recipiente de armazenamento. Utilizando o URL SAS formatado para o recipiente de armazenamento, gere um ficheiro de recursos com [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet) .
+Uma vez configuradas as permissões, crie o token SAS e formate o URL SAS para acesso ao recipiente de armazenamento. Utilizando o URL SAS formatado para o recipiente de armazenamento, gere um ficheiro de recursos com [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl) .
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -99,9 +99,9 @@ Se cada tarefa tem muitos ficheiros exclusivos dessa tarefa, os ficheiros de rec
 
 Se existirem várias centenas de ficheiros de recursos especificados numa tarefa, o Batch pode rejeitar a tarefa como sendo demasiado grande. É melhor manter as suas tarefas pequenas minimizando o número de ficheiros de recursos na própria tarefa.
 
-Se não houver forma de minimizar o número de ficheiros de que a sua tarefa necessita, pode otimizar a tarefa criando um único ficheiro de recursos que faz referência a um recipiente de armazenamento de ficheiros de recursos. Para isso, coloque os seus ficheiros de recursos num recipiente de armazenamento Azure e utilize os [diferentes métodos](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) de "recipiente" para ficheiros de recursos. Utilize as opções de prefixo blob para especificar as recolhas de ficheiros a serem descarregados para as suas tarefas.
+Se não houver forma de minimizar o número de ficheiros de que a sua tarefa necessita, pode otimizar a tarefa criando um único ficheiro de recursos que faz referência a um recipiente de armazenamento de ficheiros de recursos. Para isso, coloque os seus ficheiros de recursos num recipiente de armazenamento Azure e utilize os [diferentes métodos](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods) de "recipiente" para ficheiros de recursos. Utilize as opções de prefixo blob para especificar as recolhas de ficheiros a serem descarregados para as suas tarefas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os pacotes de aplicações](batch-application-packages.md) como alternativa aos ficheiros de recursos.
 - Para obter mais informações sobre a utilização de recipientes para ficheiros de recursos, consulte [as cargas de trabalho do Contentor](batch-docker-container-workloads.md).

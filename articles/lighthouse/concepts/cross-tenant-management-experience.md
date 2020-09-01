@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ad1c0944076f24363961da21ee347dbd7c0239c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 41e93f2a6a9fb21720dd2348dd611160b05b65c0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163514"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146917"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -35,7 +35,7 @@ Pode executar tarefas de gestão em recursos delegados, quer diretamente no port
 
 O cmdlet Azure PowerShell [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) mostra os `HomeTenantId` atributos e `ManagedByTenantIds` atributos para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence a um inquilino gerido ou ao seu inquilino gerente.
 
-Da mesma forma, os comandos Azure CLI, como [a lista de conta az,](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os `homeTenantId` atributos e `managedByTenants` atributos.
+Da mesma forma, os comandos Azure CLI, como [a lista de conta az,](/cli/azure/account#az-account-list) mostram os `homeTenantId` atributos e `managedByTenants` atributos.
 
 > [!TIP]
 > Se não vir estes valores ao utilizar o Azure CLI, tente limpar o cache correndo `az account clear` seguido por `az login --identity` .

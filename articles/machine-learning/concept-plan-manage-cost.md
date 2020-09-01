@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3173f81f84463cde488dcbf0242f8d65c5b9c9fe
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012693"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144996"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 
@@ -39,7 +39,7 @@ A análise de custos suporta diferentes tipos de contas do Azure. Para ver a lis
 
 Para obter informações sobre a atribuição de acesso aos dados do Azure Cost Management, veja [Atribuir acesso aos dados](../cost-management-billing/costs/assign-access-acm-data.md).
 
-## <a name="estimate-costs"></a>Estimativa de custos
+## <a name="estimate-costs"></a>Cálculo de custos
 
 Utilize a [calculadora de preços Azure](https://azure.microsoft.com/pricing/calculator/) para estimar os custos antes de criar os recursos numa conta Azure Machine Learning. À esquerda, selecione **AI + Machine Learning**e, em seguida, selecione **Azure Machine Learning** para começar.  
 
@@ -69,7 +69,7 @@ Com a mudança constante de dados, é necessário treino e reciclagem de modelos
 
 Os utilizadores do Azure Machine Learning podem utilizar o cluster de cálculo Azure Machine Learning, também chamado AmlCompute. A AmlCompute suporta uma variedade de opções de GPU e CPU. O AmlCompute está hospedado internamente em nome da sua subscrição pela Azure Machine Learning. Fornece a mesma segurança de nível empresarial, conformidade e governação na escala de nuvem Azure IaaS.
 
-Como estas piscinas de computação estão dentro da infraestrutura IaaS da Azure, você pode implantar, escalar e gerir a sua formação com os mesmos requisitos de segurança e conformidade que o resto da sua infraestrutura.  Estas implementações ocorrem na sua subscrição e obedecem às suas regras de governação. Saiba mais sobre [o Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).
+Como estas piscinas de computação estão dentro da infraestrutura IaaS da Azure, você pode implantar, escalar e gerir a sua formação com os mesmos requisitos de segurança e conformidade que o resto da sua infraestrutura.  Estas implementações ocorrem na sua subscrição e obedecem às suas regras de governação. Saiba mais sobre [o cálculo Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Configurar agrupamentos de formação para autoscaling
 
@@ -105,9 +105,9 @@ Em alguns casos, deve configurar as suas corridas de treino para limitar a sua d
 Aqui estão algumas opções que tem:
 * Defina um parâmetro chamado `max_run_duration_seconds` no seu RunConfiguration para controlar a duração máxima que uma corrida pode estender-se ao cálculo que escolher (computação de nuvem local ou remota).
 * Para [afinação de hiperparímetros,](how-to-tune-hyperparameters.md#early-termination)defina uma política de rescisão antecipada de uma política de bandit, uma política de paragem mediana ou uma política de seleção de truncação. Para controlar ainda mais as varreduras de hiperparímetro, utilize parâmetros como `max_total_runs` ou `max_duration_minutes` .
-* Para [aprendizagem automática de máquinas,](how-to-configure-auto-train.md#exit)desateia políticas de rescisão semelhantes utilizando a `enable_early_stopping` bandeira. Utilize também propriedades como `iteration_timeout_minutes` e para controlar a `experiment_timeout_minutes` duração máxima de uma corrida ou para toda a experiência.
+* Para [aprendizagem automática de máquinas,](how-to-configure-auto-train.md#exit)desateia políticas de rescisão semelhantes utilizando a  `enable_early_stopping` bandeira. Utilize também propriedades como `iteration_timeout_minutes` e para controlar a `experiment_timeout_minutes` duração máxima de uma corrida ou para toda a experiência.
 
-## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a>Use VMs de baixa prioridade
+## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Use VMs de baixa prioridade
 
 O Azure permite-lhe utilizar a capacidade excedentária não utilizada como VMs de baixa prioridade em conjuntos de escala de máquinas virtuais, Batch e o serviço machine learning. Estas dotações são preventivas, mas têm um preço reduzido em comparação com os VM dedicados. Em geral, recomendamos a utilização de VMs de baixa prioridade para cargas de trabalho em lote. Deve também utilizá-las quando as interrupções forem recuperáveis através de resubmitamentos (para inferencing de lote) ou através de recomeços (para treinos de aprendizagem profunda com verificação de pontos de verificação).
 
@@ -127,4 +127,4 @@ A azure Machine Learning Compute suporta casos reservados inerentemente. Se comp
 Saiba mais sobre:
 * [Gerir e aumentar as quotas de recursos](how-to-manage-quotas.md)
 * [Gestão de custos com análise de custos.](../cost-management-billing/costs/quick-acm-cost-analysis.md)
-* [Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute).
+* Crie o computo Azure Machine Learning com [ADK](how-to-create-attach-compute-sdk.md#amlcompute) ou em [estúdio.](how-to-create-attach-compute-studio.md#amlcompute)

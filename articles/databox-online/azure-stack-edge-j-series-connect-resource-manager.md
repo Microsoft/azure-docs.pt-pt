@@ -1,19 +1,19 @@
 ---
-title: Ligue ao Gestor de Recursos Azure no seu dispositivo Azure Stack Edge
-description: Descreve como ligar-se ao Gestor de Recursos Azure em execução no seu Azure Stack Edge utilizando a Azure PowerShell.
+title: Ligue ao Gestor de Recursos Azure no seu dispositivo GPU Azure Stack Edge
+description: Descreve como ligar-se ao Gestor de Recursos Azure em execução no GPU Azure Stack Edge utilizando a Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bb8a90a1efa84c637cd70caee131ac6346d84814
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8c7f571489a9e565fac8c23db4c08321be6f551d
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085058"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146203"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-device"></a>Ligue ao Gestor de Recursos Azure no seu dispositivo Azure Stack Edge
 

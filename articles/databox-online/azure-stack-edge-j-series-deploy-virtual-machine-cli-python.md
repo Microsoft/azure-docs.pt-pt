@@ -1,19 +1,19 @@
 ---
-title: Implemente VMs no seu dispositivo Azure Stack Edge via Azure CLI e Python
-description: Descreve como criar e gerir máquinas virtuais (VMs) num dispositivo Azure Stack Edge utilizando O Azure CLI e Python.
+title: Implemente VMs no seu dispositivo Azure Stack Edge GPU via Azure CLI e Python
+description: Descreve como criar e gerir máquinas virtuais (VMs) num dispositivo GPU Azure Stack Edge utilizando O Azure CLI e Python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 898e10f4cc6d1e85a5d44fff41bede885b914a18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 77251148bed76f672adc2fffe2db688b33786022
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088390"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147121"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-using-azure-cli-and-python"></a>Implemente VMs no seu dispositivo Azure Stack Edge usando Azure CLI e Python
 

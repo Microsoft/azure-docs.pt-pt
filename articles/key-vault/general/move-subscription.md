@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782724"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145370"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Cofre chave Azure para outra subscrição
 
@@ -58,8 +58,6 @@ Certifique-se de que vai à página da Política Azure no portal Azure e veja as
 * Um grupo de recursos na nova subscrição.
 
 ## <a name="procedure"></a>Procedimento
-
-Se 
 
 ### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Mover o Cofre-Chave para uma nova subscrição dentro do mesmo inquilino
 

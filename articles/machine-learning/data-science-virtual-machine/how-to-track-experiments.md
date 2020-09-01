@@ -1,7 +1,7 @@
 ---
 title: Modelos de rastreio e implantação de experiências
 titleSuffix: Azure Data Science Virtual Machine
-description: Aprenda a rastrear e registar experiências a partir do DSVM com o Serviço de Aprendizagem da Máquina Azure e/ou MLFlow.
+description: Aprenda a rastrear e registar experiências a partir do DSVM com Azure Machine Learning e/ou MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,14 +9,14 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 687cd6570a9518be6f398a40fcd2d0e10a9634f2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817963"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146900"
 ---
-# <a name="track-experiments-and-deploy-models-in-azureml"></a>Track Experiments and Deploy models in AzureML
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Track Experiments e implementar modelos em Azure Machine Learning
 
 Melhore o processo de criação de modelos rastreando as suas experiências e monitorizando as métricas de execução. Neste artigo, aprenda a adicionar código de registo ao seu script de treino utilizando a API [MLflow](https://mlflow.org/) e acompanhe a experiência em Azure Machine Learning.
 
@@ -165,7 +165,7 @@ Para implementar o modelo de diabetes, vá ao menu à esquerda no [Azure Machine
 
 Em seguida, clique no botão __Implementar__ no painel de detalhes do modelo:
 
-![Implementar](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Implementação](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
 Vamos implantar o modelo para o Cluster de Inferências (Serviço Azure Kubernetes) que criamos no passo 1. Preencha os detalhes abaixo, fornecendo um nome para o serviço, e o nome do cluster de computação AKS (criado no passo 1). Recomendamos ainda que aumente a capacidade de reserva do __CPU__ para 1 (a partir de 0.1) e a __capacidade de reserva__ de memória para 1 (a partir de 0.5) - pode fazê-lo clicando em __Advanced__ e preenchendo os detalhes. Em seguida, clique em __Implementar__.
 

@@ -3,12 +3,12 @@ title: Gerir e monitorizar backups Azure VM
 description: Aprenda a gerir e monitorizar as cópias de segurança Azure VM utilizando o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 707558b8ad28f7a8a17e24e57f97fda064d0f238
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999347"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145438"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
 
@@ -29,7 +29,7 @@ Pode gerir as cópias de segurança utilizando o painel de instrumentos e perfur
 
 Para ver VMs no painel de abóbada:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. No menu à esquerda, selecione **Todos os serviços**.
 
     ![Selecione Todos os serviços](./media/backup-azure-manage-vms/select-all-services.png)
@@ -63,7 +63,7 @@ Para ver VMs no painel de abóbada:
 
 Para modificar uma política de backup existente:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
 2. A partir das políticas de **Backup >,** selecione a política de backup para o tipo **Azure Virtual Machine**.
 3. Selecione **Modificar** e alterar as definições.
 
@@ -71,7 +71,7 @@ Para modificar uma política de backup existente:
 
 Para gerir uma política de backup:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
 2. No **azulejo de itens de reserva,** selecione **Azure Virtual Machine**.
 
     ![Abra o azulejo de itens de reserva](./media/backup-azure-manage-vms/azure-virtual-machine.png)
@@ -121,7 +121,7 @@ Há duas maneiras de parar de proteger um VM:
 * **Parar a proteção e eliminar dados de cópia de segurança**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM e eliminarão todos os pontos de recuperação. Não poderá restaurar o VM nem utilizar a opção *de backup do Resume.*
 
 >[!NOTE]
->Se eliminar uma fonte de dados sem parar as cópias de segurança, novas cópias de segurança falharão. Os antigos pontos de recuperação expirarão de acordo com a apólice, mas um último ponto de recuperação será sempre mantido até parar as cópias de segurança e apagar os dados.
+>Se eliminar uma fonte de dados sem parar as cópias de segurança, novas cópias de segurança falharão. Os antigos pontos de recuperação caducarão de acordo com a apólice, mas o ponto de recuperação mais recente será sempre mantido até parar as cópias de segurança e apagar os dados.
 >
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Parar a proteção e reter dados de backup
@@ -187,8 +187,8 @@ Para proteger os seus dados, o Azure Backup inclui a função de exclusão suave
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Item de backup onde a fonte de dados primários já não existe
 
 * Se os VMs Azure configurados para Azure Backup forem eliminados ou movidos sem proteção, então tanto os trabalhos de backup programados como a pedido (ad-hoc) de backup falharão com o erro UserErrorVmNotFoundV2. O pré-check de backup só será crítico para trabalhos de backup a pedido falhados (não são apresentados empregos programados falhados).
-* Estes itens de backup permanecem ativos no sistema aderente à política de backup e retenção definida pelo utilizador. Os dados de back-up para estes VMs Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o intervalo de retenção definido na política de backup.
-* Recomendamos eliminar os itens de backup em que a fonte de dados primário já não existe para evitar qualquer custo adicional, se o item de cópia de segurança/dados para os recursos de eliminação deixar de ser necessário, uma vez que o último ponto de recuperação é mantido para sempre e o utilizador é cobrado de acordo com o preço de backup aplicável.
+* Estes itens de backup permanecem ativos no sistema aderente à política de backup e retenção definida pelo utilizador. Os dados de back-up para estes VMs Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o ponto de recuperação mais recente) são limpos de acordo com o intervalo de retenção definido na política de backup.
+* Recomendamos eliminar os itens de backup em que a fonte de dados primário já não existe para evitar qualquer custo adicional, se o item de cópia de segurança/dados para os recursos de eliminação deixar de ser necessário, uma vez que o ponto de recuperação mais recente é mantido para sempre e o utilizador é cobrado de acordo com o preço de backup aplicável.
 
 ## <a name="next-steps"></a>Passos seguintes
 

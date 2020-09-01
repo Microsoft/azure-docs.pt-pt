@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 96a3ada98bb41ea007eaaae2a40983d2448b38c2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5f7d547ad549b2747ae41182ee4058b001d9e78a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960831"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146390"
 ---
 # <a name="using-certificates-with-batch"></a>Utilizar certificados com o Batch
 
@@ -37,8 +37,8 @@ Uma vez carregado, o certificado é adicionado a uma lista de certificados, e vo
 
 Agora, quando criar uma piscina de Lote, pode navegar para certificados dentro da piscina e atribuir o certificado que carregou para essa piscina.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Batch tem um certificado API, [certificado de lote AZ criar](/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
+Batch tem um certificado API, [certificado de lote AZ criar](/cli/azure/batch/certificate)
 
 Para obter informações sobre a utilização do Key Vault, consulte [o Cofre de Chaves de acesso Seguro com o Lote](credential-access-key-vault.md).

@@ -1,19 +1,19 @@
 ---
-title: Configure TLS 1.2 em clientes windows que acedam ao dispositivo Azure Stack Edge
-description: Descreve como configurar o TLS 1.2 em clientes windows que acedem ao dispositivo Azure Stack Edge.
+title: Configure TLS 1.2 em clientes windows que acedam ao dispositivo GPU Azure Stack Edge
+description: Descreve como configurar o TLS 1.2 em clientes windows que acedem ao dispositivo GPU Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 552e44e4d3d1b9e237d6ee99d82b946d34fa5e3d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: fdd88a902e812c89270a175aef4bf0de197c6e9b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085070"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146135"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-device"></a>Configure TLS 1.2 em clientes windows que acedam ao dispositivo Azure Stack Edge
 

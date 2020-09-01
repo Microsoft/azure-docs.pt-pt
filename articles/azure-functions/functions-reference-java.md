@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810093"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144928"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de desenvolvedores de Java funções Azure Functions
 
@@ -83,7 +83,7 @@ FunctionsProject
  | - pom.xml
 ```
 
-Pode utilizar umahost.jspartilhada [no](functions-host-json.md) ficheiro para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.java) e ficheiro de configuração de ligação (function.js).
+Pode utilizar umahost.jspartilhada [ no](functions-host-json.md) ficheiro para configurar a aplicação de função. Cada função tem o seu próprio ficheiro de código (.java) e ficheiro de configuração de ligação (function.js).
 
 Pode colocar mais do que uma função num projeto. Evite colocar as suas funções em frascos separados. O `FunctionApp` directório-alvo é o que é implementado na sua aplicação de função em Azure.
 
@@ -144,14 +144,16 @@ A tabela a seguir mostra as versões Java suportadas atuais para cada versão pr
 
 | Versão de funções | Versões java (Windows) | Versões java (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (pré-visualização)<br/>8<sup>\*</sup> | 11 (pré-visualização)<br/>8 |
+| 3.x | 11 (pré-visualização)<br/>8 | 11 (pré-visualização)<br/>8 |
 | 2.x | 8 | n/a |
 
-<sup>\*</sup>Este é o padrão atual do pom.xml gerado pelo arquétipo Maven.
+A menos que especifique uma versão Java para a sua implantação, o arquétipo Maven desresímos de Java 8 durante a implementação para Azure.
 
 ### <a name="specify-the-deployment-version"></a>Especificar a versão de implantação
 
-Atualmente, o arquétipo de Maven gera uma pom.xml que visa Java 8. Os seguintes elementos em pom.xml precisam de ser atualizados para criar uma aplicação de função que executa Java 11.
+Pode controlar a versão de Java visada pelo arquétipo Maven utilizando o `-DjavaVersion` parâmetro. O valor deste parâmetro pode ser éter `8` ou `11` . O suporte de Java 11 está neste momento em pré-visualização. 
+
+O arquétipo maven gera uma pom.xml que visa a versão java especificada. Os seguintes elementos em pom.xml indicam a versão Java a utilizar:
 
 | Elemento |  Valor de Java 8 | Valor de Java 11 | Descrição |
 | ---- | ---- | ---- | --- |
@@ -320,7 +322,7 @@ Para receber um lote de entradas, pode ligar-se a `String[]` `POJO[]` , ou `List
 
 ```
 
-Esta função é ativada sempre que há novos dados no centro de eventos configurado. Como `cardinality` está definido para `MANY` , a função recebe um lote de mensagens do centro de eventos. `EventData`do centro de eventos é convertido `TestEventData` para a execução da função.
+Esta função é ativada sempre que há novos dados no centro de eventos configurado. Como `cardinality` está definido para `MANY` , a função recebe um lote de mensagens do centro de eventos. `EventData` do centro de eventos é convertido `TestEventData` para a execução da função.
 
 ### <a name="output-binding-example"></a>Exemplo vinculativo de saída
 

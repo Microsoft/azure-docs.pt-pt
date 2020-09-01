@@ -3,12 +3,12 @@ title: Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 description: Descreve como apoiar VMs Azure num cofre de Serviços de Recuperação usando o Backup Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826315"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145659"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 
@@ -155,7 +155,7 @@ Concluído | Com falhas | Concluído com aviso
 Com falhas | Com falhas | Com falhas
 
 Agora com esta capacidade, para o mesmo VM, duas cópias de segurança podem ser executadas em paralelo, mas em ambas as fases (instantâneo, dados de transferência para o cofre) apenas uma sub tarefa pode estar em execução. Assim, em cenários em que um trabalho de backup em andamento resultou no backup do dia seguinte para falhar, será evitado com esta funcionalidade de dissociação. Os backups dos dias seguintes podem ter o instantâneo concluído, enquanto **os dados de transferência para o cofre** são ignorados se o trabalho de backup de um dia anterior estiver em estado de progresso.
-O ponto de recuperação incremental criado no cofre irá capturar todo o churn do último ponto de recuperação criado no cofre. Não há impacto de custos no utilizador.
+O ponto de recuperação incremental criado no cofre irá capturar todo o churn do mais recente ponto de recuperação criado no cofre. Não há impacto de custos no utilizador.
 
 ## <a name="optional-steps"></a>Passos opcionais
 

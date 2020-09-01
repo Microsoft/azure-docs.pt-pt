@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b003c3362e2fb22a36985eb29b1a537bbffb28
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994fe7e711210d9eb676b41cb70ff695c6456006
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002407"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145387"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configure identidades geridas para recursos Azure em um Azure VM usando Azure CLI
 
@@ -113,6 +113,10 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 Nesta secção, você aprenderá a adicionar e remover uma identidade gerida atribuída ao utilizador de um Azure VM usando Azure CLI.
 
+      > [!NOTE]
+      > If you create your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity to assign it to your VM.
+      >i.e. --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
+
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Atribuir uma identidade gerida atribuída ao utilizador durante a criação de um VM Azure
 
 Para atribuir uma identidade atribuída ao utilizador a um VM durante a sua criação, a sua conta necessita das atribuições de funções [de Colaborador de Máquinas Virtuais](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e Operador de Identidade [Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Não são necessárias atribuições adicionais de diretórios Azure AD.
@@ -182,7 +186,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    }
    ```
 
-2. Atribua a identidade atribuída ao utilizador para o seu VM utilizando [a designação de identidade az vm](/cli/azure/vm). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. A `<USER ASSIGNED IDENTITY NAME>` propriedade de recursos geridos pelo utilizador atribuído ao `name` utilizador, tal como criado no passo anterior:
+2. Atribua a identidade atribuída ao utilizador para o seu VM utilizando [a designação de identidade az vm](/cli/azure/vm). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. A `<USER ASSIGNED IDENTITY NAME>` propriedade de recursos geridos pelo utilizador atribuído ao `name` utilizador, tal como foi criado no passo anterior. Se criou a sua identidade gerida atribuída ao utilizador num RG diferente do seu VM. Terá de usar o URL da sua identidade gerida.
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

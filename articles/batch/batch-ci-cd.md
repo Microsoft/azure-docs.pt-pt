@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145262"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146424"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize gasodutos Azure para construir e implementar soluções HPC
 
@@ -28,8 +28,8 @@ Neste exemplo, criaremos um oleoduto de construção e libertação para implant
 
 Para seguir os passos deste artigo, você precisa de uma organização Azure DevOps e um projeto de equipe.
 
-* [Criar uma Organização Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Criar um projeto em Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Criar uma Organização Azure DevOps](/azure/devops/organizations/accounts/create-organization)
+* [Criar um projeto em Azure DevOps](/azure/devops/organizations/projects/create-projects)
 
 ### <a name="source-control-for-your-environment"></a>Controlo de fontes para o seu ambiente
 
@@ -48,7 +48,7 @@ A estrutura da base de código utilizada nesta amostra assemelha-se ao seguinte;
 
 Esta secção pressupõe que está familiarizado com o controlo de versão e projetando modelos de Gestor de Recursos. Se não está familiarizado com estes conceitos, consulte as seguintes páginas para obter mais informações.
 
-* [O que é controlo de fontes?](/azure/devops/user-guide/source-control?view=azure-devops)
+* [O que é controlo de fontes?](/azure/devops/user-guide/source-control)
 * [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
@@ -309,7 +309,7 @@ Agora que o código fonte está configurado, podemos começar a primeira constru
 
 ## <a name="continuous-integration"></a>Integração contínua
 
-[A Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), dentro dos Serviços Azure DevOps, ajuda-o a implementar um oleoduto de construção, teste e implantação para as suas aplicações.
+[A Azure Pipelines](/azure/devops/pipelines/get-started/), dentro dos Serviços Azure DevOps, ajuda-o a implementar um oleoduto de construção, teste e implantação para as suas aplicações.
 
 Nesta fase do seu pipeline, os testes são normalmente executados para validar código e construir as peças apropriadas do software. O número e tipos de testes e quaisquer tarefas adicionais que executar dependerão da sua estratégia de construção e libertação mais ampla.
 
@@ -323,9 +323,9 @@ Neste exemplo, vamos focar-nos na pasta **de aplicação hpc.** A pasta **de apl
 
 1. Tem duas opções para criar um pipeline Build:
 
-    a. [Utilização do Designer Visual.](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav) Para utilizar isto, clique em "Use o designer visual" na página do **novo pipeline.**
+    a. [Utilização do Designer Visual.](/azure/devops/pipelines/get-started-designer) Para utilizar isto, clique em "Use o designer visual" na página do **novo pipeline.**
 
-    b. [Utilizando construções YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). Pode criar um novo oleoduto YAML clicando na opção Azure Repos ou GitHub na página do novo pipeline. Em alternativa, pode armazenar o exemplo abaixo no seu controlo de origem e fazer referência a um ficheiro YAML existente clicando no Visual Designer e, em seguida, utilizando o modelo YAML.
+    b. [Utilizando construções YAML](/azure/devops/pipelines/get-started-yamls). Pode criar um novo oleoduto YAML clicando na opção Azure Repos ou GitHub na página do novo pipeline. Em alternativa, pode armazenar o exemplo abaixo no seu controlo de origem e fazer referência a um ficheiro YAML existente clicando no Visual Designer e, em seguida, utilizando o modelo YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,7 +357,7 @@ Neste exemplo, vamos focar-nos na pasta **de aplicação hpc.** A pasta **de apl
     ![Ver saídas ao vivo a partir da sua construção](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Se utilizar uma aplicação do cliente para executar a aplicação do lote HPC, tem de criar uma definição de construção separada para essa aplicação. Pode encontrar uma série de guias na documentação do [Azure Pipelines.](/azure/devops/pipelines/get-started/index?view=azure-devops)
+> Se utilizar uma aplicação do cliente para executar a aplicação do lote HPC, tem de criar uma definição de construção separada para essa aplicação. Pode encontrar uma série de guias na documentação do [Azure Pipelines.](/azure/devops/pipelines/get-started/index)
 
 ## <a name="continuous-deployment"></a>Implementação contínua
 
@@ -450,7 +450,7 @@ Uma prática comum é usar tarefas do Cofre da Chave Azure. Se o Diretor de Serv
     * **Nome do visor:** Criar aplicação na conta Azure Batch
     * **Assinatura Azure:** Selecione a subscrição Azure apropriada
     * **Localização do script**: Script inline
-    * **Roteiro inline**:```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **Roteiro inline**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. O segundo passo é utilizado para carregar pacotes associados à aplicação. No nosso caso, os ficheiros ffmpeg.
 
@@ -458,7 +458,7 @@ Uma prática comum é usar tarefas do Cofre da Chave Azure. Se o Diretor de Serv
     * **Nome do visor:** Pacote de upload para a conta Azure Batch
     * **Assinatura Azure:** Selecione a subscrição Azure apropriada
     * **Localização do script**: Script inline
-    * **Roteiro inline**:```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **Roteiro inline**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > O número de versão do pacote de aplicações está definido como uma variável. Isto é conveniente se a sobreposição de versões anteriores do pacote funcionar para si, e se quiser controlar manualmente o número de versão do pacote empurrado para O Azure Batch.
@@ -476,7 +476,7 @@ Uma vez configurado o ambiente, confirme se os seguintes testes podem ser conclu
 Ligue-se à nova Conta de Lote Azure, utilizando o CLI Azure a partir de um pedido de comando PowerShell.
 
 * Inscreva-se na sua conta Azure `az login` e siga as instruções para autenticar.
-* Agora autentica a conta Lote:`az batch account login -g <resourceGroup> -n <batchAccount>`
+* Agora autentica a conta Lote: `az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>Listar as aplicações disponíveis
 

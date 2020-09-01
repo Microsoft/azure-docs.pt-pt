@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d1402bcc0c46003429e1809e8d09e9662218cd82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 146a257a9b8f31e79283d71ede1e1c5c0355765c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335106"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147801"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -24,16 +24,18 @@ ms.locfileid: "80335106"
 | Número máximo de rotas anunciadas a partir do Azure private olhando do espaço de endereço VNet para uma ligação ExpressRoute |200 |
 | Número máximo de rotas anunciadas para a Microsoft a espreitar com o ExpressRoute Standard |200 |
 | Número máximo de rotas anunciadas para a Microsoft a espreitar com o add-on ExpressRoute Premium |200 |
-| Número máximo de circuitos ExpressRoute ligados à mesma rede virtual no mesmo local de observação |4 |
-| Número máximo de circuitos ExpressRoute ligados à mesma rede virtual em diferentes locais de observação |4 |
+| Número maxinum de circuitos ExpressRoute ligados a uma porta de entrada Standard Performance/ErGw1AZ |4 | 
+| Número maxinum de circuitos ExpressRoute ligados a uma porta de entrada De Alto Desempenho/ErGw2AZ |8 | 
+| Número maxinum de circuitos ExpressRoute ligados a uma porta de entrada Ultra Performance/ErGw3AZ |16 | 
+| Número máximo de circuitos ExpressRoute ligados à mesma rede virtual em diferentes locais de observação (todos skus) |4 |
 | Número de ligações de rede virtuais permitidas por circuito ExpressRoute |Consulte o número de redes virtuais por tabela [de circuito ExpressRoute.](#vnetpercircuit)  |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a>Número de redes virtuais por circuito ExpressRoute
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a> Número de redes virtuais por circuito ExpressRoute
 | **Tamanho do circuito** | **Número de links de rede virtuais para Standard** | **Número de ligações de rede virtuais com add-on Premium** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |
 | 100 Mbps |10 |25 |
-| 200 Mbps |10 |25 |
+| 200 Mbps |10 |25 |
 | 500 Mbps |10 |40 |
 | 1 Gbps |10 |50 |
 | 2 Gbps |10 |60 |

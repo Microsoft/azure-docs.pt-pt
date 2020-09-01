@@ -1,19 +1,19 @@
 ---
-title: Azure Stack Edge gere horários de largura de banda Microsoft Docs
-description: Descreve como usar o portal Azure para gerir os horários de largura de banda no seu Azure Stack Edge.
+title: Azure Stack Edge GPU gere horários de largura de banda Microsoft Docs
+description: Descreve como usar o portal Azure para gerir os horários de largura de banda no GPU do Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c991159ffae59626014e5b727c5fb1d1616581cb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b27c4fb9beb631b40617307cfc5952b7dcb45369
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084949"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147053"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge"></a>Utilize o portal Azure para gerir os horários de largura de banda no seu Azure Stack Edge 
 

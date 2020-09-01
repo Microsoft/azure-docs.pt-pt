@@ -8,22 +8,18 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 00d79f8058d7d478f7fe97ba9677e47098b70e1b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513065"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145931"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Como configurar o encaminhamento do hub virtual
 
 Um hub virtual pode conter vários gateways, tais como um gateway VPN local-para-local, gateway ExpressRoute, gateway ponto-a-local e Azure Firewall. As capacidades de encaminhamento no centro virtual são fornecidas por um router que gere todo o encaminhamento, incluindo o encaminhamento de trânsito, entre os gateways usando o Border Gateway Protocol (BGP). Este router também fornece conectividade de trânsito entre redes virtuais que se conectam a um hub virtual e podem suportar até um rendimento agregado de 50 Gbps. Estas capacidades de encaminhamento aplicam-se aos clientes Standard Virtual WAN.
 
 Para obter mais informações, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
-
-> [!NOTE]
-> Algumas destas capacidades ainda podem estar a ser lançadas. Espera-se que esteja concluído até 17 de agosto.
->
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Criar uma tabela de rotas
 

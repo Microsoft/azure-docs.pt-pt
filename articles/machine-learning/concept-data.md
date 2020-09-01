@@ -1,7 +1,7 @@
 ---
 title: Acesso seguro de dados na nuvem
 titleSuffix: Azure Machine Learning
-description: Saiba como conectar-se de forma segura aos seus dados a partir do Azure Machine Learning e como utilizar conjuntos de dados e datastores para tarefas ML. As lojas de dados podem armazenar dados de um Azure Blob, Azure Data Lake Gen 1 & 2, SQL db, Databricks,...
+description: Saiba como conectar-se de forma segura aos seus dados a partir do Azure Machine Learning e como utilizar conjuntos de dados e datastores para tarefas ML. As lojas de dados podem armazenar dados de um Azure Blob, Azure Data Lake Gen 1 & 2, SQL db e Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 04/24/2020
+ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651799"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146694"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
 O Azure Machine Learning facilita a ligação aos seus dados na nuvem.  Fornece uma camada de abstração sobre o serviço de armazenamento subjacente, para que possa aceder e trabalhar com os seus dados de forma segura sem ter de escrever código específico para o seu tipo de armazenamento. A Azure Machine Learning também fornece as seguintes capacidades de dados:
 
+*    Interoperabilidade com Pandas e Spark DataFrames
 *    Versão e rastreio da linhagem de dados
 *    Rotulagem de dados 
 *    Monitorização de desvios de dados
-*    Interoperabilidade com Pandas e Spark DataFrames
-
+    
 ## <a name="data-workflow"></a>Fluxo de trabalho de dados
 
 Quando estiver pronto para utilizar os dados na sua solução de armazenamento baseada na nuvem, recomendamos o seguinte fluxo de trabalho de entrega de dados. Este fluxo de trabalho pressupõe que você tem uma [conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) e dados em um serviço de armazenamento baseado na nuvem em Azure. 
@@ -67,13 +67,19 @@ Serviços de armazenamento baseados em nuvem suportados em Azure que podem ser r
 
 ## <a name="datasets"></a>Conjuntos de dados
 
-Conjuntos de dados Azure Machine Learning são referências que apontam para os dados do seu serviço de armazenamento. Não são cópias dos seus dados, por isso não há qualquer custo de armazenamento extra e a integridade das suas fontes de dados originais não estão em risco.
+Conjuntos de dados Azure Machine Learning são referências que apontam para os dados do seu serviço de armazenamento. Não são cópias dos seus dados Ao criar um conjunto de dados Azure Machine Learning, cria uma referência à localização da fonte de dados, juntamente com uma cópia dos seus metadados. 
 
- Para interagir com os seus dados no armazenamento, [crie um conjunto de dados](how-to-create-register-datasets.md) para embalar os seus dados num objeto consumível para tarefas de aprendizagem automática. Registe o conjunto de dados no seu espaço de trabalho para o partilhar e reutilizar em diferentes experiências sem complexidades de ingestão de dados.
+Como os conjuntos de dados são avaliados preguiçosamente, e os dados permanecem na sua localização existente,
 
-Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls públicos, [conjuntos de dados Azure Open](https://azure.microsoft.com/services/open-datasets/)ou serviços de armazenamento Azure através de datastores. Para criar um conjunto de dados a partir de um dataframe de pandas de memória, escreva os dados para um ficheiro local, como um parquet, e crie o seu conjunto de dados a partir desse ficheiro.  
+* Não incorre nenhum custo extra de armazenamento.
+* Não se arrisque a alterar involuntariamente as suas fontes de dados originais.
+* Melhorar as velocidades de desempenho do fluxo de trabalho ML.
 
-Apoiamos 2 tipos de conjuntos de dados: 
+Para interagir com os seus dados no armazenamento, [crie um conjunto de dados](how-to-create-register-datasets.md) para embalar os seus dados num objeto consumível para tarefas de aprendizagem automática. Registe o conjunto de dados no seu espaço de trabalho para o partilhar e reutilizar em diferentes experiências sem complexidades de ingestão de dados.
+
+Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls públicos, [conjuntos de dados Azure Open](https://azure.microsoft.com/services/open-datasets/)ou serviços de armazenamento Azure através de datastores. 
+
+Existem 2 tipos de conjuntos de dados: 
 
 + Um [Dataset de ficheiros](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas datastores ou URLs públicos. Se os seus dados já estiverem limpos e prontos a serem utilizados em experiências de treino, pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por FileDatasets para o seu alvo de computação.
 

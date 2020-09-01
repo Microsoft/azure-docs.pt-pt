@@ -82,11 +82,11 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: /cli/azure/managedservices?view=azure-cli-latest
+      href: /cli/azure/managedservices
     - name: Azure PowerShell
-      href: /powershell/module/az.managedservices/?view=azps-2.4.0#managed_services
+      href: /powershell/module/az.managedservices#managed_services
     - name: SDK do Azure para .NET
-      href: /dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
+      href: /dotnet/api/Microsoft.Azure.Management.ManagedServices
     - name: SDK do Azure para .NET (NuGet)
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
     - name: SDK do Azure para Python
@@ -103,5 +103,5 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
+    - name: Comentários sobre o produto
       href: 'https://feedback.azure.com/forums/922753'

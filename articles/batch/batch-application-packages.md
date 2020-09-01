@@ -4,12 +4,12 @@ description: Utilize a funcionalidade de pacotes de aplicação do Azure Batch p
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 8d0ab6227e232728818afbbc58ca6521d9a417df
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d847dd926d157e455a6ef4e0c58c9dd204a1ecc7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922009"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146475"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nóns com pacotes de aplicações batch
 
@@ -334,8 +334,8 @@ Com pacotes de aplicações, pode ajudar os seus clientes a selecionar as aplica
 * A [API de Lote REST][api_rest] também fornece suporte para trabalhar com pacotes de aplicações. Por exemplo, consulte o elemento [Decomprase][rest_add_pool_with_packages] de aplicação [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar as embalagens a instalar utilizando a API REST. Consulte [as Aplicações][rest_applications] para obter informações sobre como obter informações sobre a aplicação utilizando a API do Lote REST.
 * Saiba como gerir programáticamente [as contas e quotas do Azure Batch com a Batch Management .NET](batch-management-dotnet.md). A biblioteca [Batch Management .NET][api_net_mgmt] pode permitir funcionalidades de criação e eliminação de conta para a sua aplicação ou serviço batch.
 
-[api_net]: /dotnet/api/overview/azure/batch/client?view=azure-dotnet
-[api_net_mgmt]: /dotnet/api/overview/azure/batch/management?view=azure-dotnet
+[api_net]: /dotnet/api/overview/azure/batch/client
+[api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_rest]: /rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples

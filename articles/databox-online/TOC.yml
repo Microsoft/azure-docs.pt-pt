@@ -7,7 +7,7 @@
       items:
         - name: O que é o Azure Stack Edge com GPU?
           href: azure-stack-edge-gpu-overview.md
-    - name: Tutorials (Tutoriais)
+    - name: Tutoriais
       items:
         - name: 0 - Obter lista de verificação
           href: azure-stack-edge-gpu-deploy-checklist.md
@@ -151,10 +151,10 @@
               href: azure-stack-edge-monitor.md
             - name: Utilizar o dashboard do Kubernetes
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
-        - name: Resolver Problemas
+        - name: Resolução de problemas
           items:
             - name: Problemas de dispositivo
-              href: azure-stack-edge-troubleshoot.md
+              href: azure-stack-edge-gpu-troubleshoot.md
             - name: Problemas de ordenação
               href: azure-stack-edge-troubleshoot-ordering.md
             - name: Contacte o Suporte da Microsoft

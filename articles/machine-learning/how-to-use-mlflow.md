@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a0241864a5eafe8783aea463197f86ff949ea9ed
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df8a75c2297dc68549b2788a2d78dd2c7f576bc2
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853386"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146849"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Rastrear métricas de modelos e implementar modelos ML com MLflow e Azure Machine Learning (pré-visualização)
 
@@ -105,9 +105,9 @@ with mlflow.start_run():
 
 O MLflow Tracking com Azure Machine Learning permite-lhe armazenar as métricas e artefactos registados a partir do seu remoto funciona no seu espaço de trabalho de Aprendizagem de Máquinas Azure.
 
-As corridas remotas permitem-lhe treinar os seus modelos em computas mais potentes, como máquinas virtuais ativadas pela GPU ou clusters Machine Learning Compute. Consulte [configurar metas de computação para formação de modelos](how-to-set-up-training-targets.md) para aprender sobre diferentes opções de computação.
+As corridas remotas permitem-lhe treinar os seus modelos em computas mais potentes, como máquinas virtuais ativadas pela GPU ou clusters Machine Learning Compute. Consulte [metas de computação para formação de modelos](how-to-set-up-training-targets.md) para aprender sobre diferentes opções de computação.
 
-Configure o seu ambiente de corrida de computação e treino com a [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) classe. Inclua `mlflow` e `azureml-mlflow` pip pacotes na secção do [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) ambiente. Em seguida, construa [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) com o seu cálculo remoto como o alvo do cálculo.
+Configure o seu ambiente de corrida de computação e treino com a [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) classe. Inclua `mlflow` e `azureml-mlflow` pip pacotes na secção do [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) ambiente. Em seguida, construa  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) com o seu cálculo remoto como o alvo do cálculo.
 
 ```Python
 from azureml.core.environment import Environment
@@ -238,7 +238,7 @@ O diagrama seguinte demonstra que com a API de implementação de MLflow pode im
 
 ### <a name="log-your-model"></a>Registar o seu modelo
 
-Antes de poder ser implantado, certifique-se de que o seu modelo está guardado para que possa remá-lo e a sua localização de caminho para a sua implantação. No seu script de treino, deve existir um código semelhante ao seguinte método [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) que guarda o seu modelo para o diretório de saídas especificado. 
+Antes de poder ser implantado, certifique-se de que o seu modelo está guardado para que possa remá-lo e a sua localização de caminho para a sua implantação. No seu script de treino, deve haver um código semelhante ao seguinte método [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) que guarda o seu modelo para o diretório de saídas especificado. 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 

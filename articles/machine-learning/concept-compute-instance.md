@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ab316d7b101a05dd9b6bba2e11bfe77239619126
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651920"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146764"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -24,7 +24,7 @@ As instâncias computacional facilitam o início com o desenvolvimento da Azure 
 
 Use uma instância computacional como o seu ambiente de desenvolvimento totalmente configurado e gerido na nuvem para aprendizagem automática. Também podem ser utilizados como alvo de computação para a formação e inferenidade para fins de desenvolvimento e teste.  
 
-Para a formação de modelos de produção, utilize um [cluster de cálculo Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) com capacidades de escala de vários nós. Para a implementação do modelo de produção, utilize [o cluster de serviçoS Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
+Para a formação de modelos de produção, utilize um [cluster de cálculo Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute) com capacidades de escala de vários nós. Para a implementação do modelo de produção, utilize [o cluster de serviçoS Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>Por que usar uma instância computacional?
 
@@ -138,18 +138,7 @@ Estas ações podem ser controladas pelo RBAC:
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Criar uma instância computacional
 
-No seu espaço de trabalho no estúdio Azure Machine Learning, crie uma nova instância de computação a partir da secção **Compute** ou na secção **Notebooks** quando estiver pronto para executar um dos seus cadernos.
-
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Criar uma nova instância computacional":::
-
-
-|Campo  |Descrição  |
-|---------|---------|
-|Nome da computação     |  <li>O nome é necessário e deve ter entre 3 a 24 caracteres de comprimento.</li><li>Os caracteres válidos são letras maiúsculas e minúsculas, dígitos e o  **-** personagem.</li><li>O nome deve começar com uma carta</li><li>O nome tem de ser único em todos os cálculos existentes dentro de uma região de Azure. Verá um alerta se o nome que escolher não for único</li><li>Se **-**  o caráter é usado, então precisa ser seguido por pelo menos uma letra mais tarde no nome</li>     |
-|Tipo de máquina virtual |  Escolha CPU ou GPU. Este tipo não pode ser alterado após a criação     |
-|Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
-|Ativar/desativar o acesso ao SSH     |   O acesso ao SSH é desativado por predefinição.  O acesso ao SSH não pode ser. mudou após a criação. Certifique-se de que permite o acesso se planeia depurar interativamente com [o vs Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos**, rede **virtual**e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](how-to-enable-virtual-network.md#compute-instance) para vnet .        |
+No seu espaço de trabalho no estúdio Azure Machine Learning, [crie uma nova instância de computação](how-to-create-attach-compute-studio.md#compute-instance) a partir da secção **Compute** ou na secção **Notebooks** quando estiver pronto para executar um dos seus cadernos. 
 
 Também pode criar um caso
 * Diretamente da experiência de [cadernos integrados](tutorial-1st-experiment-sdk-setup.md#azure)
@@ -158,7 +147,7 @@ Também pode criar um caso
 * Com Azure Machine Learning SDK
 * Da [extensão do CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-Os núcleos dedicados por região por quota familiar VM e quotas regionais totais, que se aplica à criação de instâncias computacional. é unificada e partilhada com a quota de cluster de computação de aprendizagem de máquinas Azure. Parar a instância de computação não liberta quota para garantir que poderá reiniciar a instância do cálculo.
+Os núcleos dedicados por região por quota familiar VM e quotas regionais totais, que se aplicam à criação de instâncias computacional, são unificados e partilhados com a quota de cluster de formação de aprendizagem de máquinas de azure. Parar a instância de computação não liberta quota para garantir que poderá reiniciar a instância do cálculo.
 
 ## <a name="compute-target"></a>Destino de computação
 

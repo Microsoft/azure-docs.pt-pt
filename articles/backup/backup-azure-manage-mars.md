@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893073"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145574"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -173,7 +173,7 @@ Uma palavra-passe é usada para encriptar e desencriptar dados enquanto faz o ba
 
 Esta secção discute um cenário em que a sua máquina de origem protegida com o MARS já não está disponível porque foi eliminada, corrompida, infetada com malware/ransomware ou desativada.
 
-Para estas máquinas, o serviço de Backup Azure garante que o último ponto de recuperação não expira (isto é, não é podado) de acordo com as regras de retenção especificadas na política de backup. Portanto, pode restaurar a máquina com segurança.  Considere os seguintes cenários que pode realizar nos dados com ressarte:
+Para estas máquinas, o serviço de Backup Azure garante que o ponto de recuperação mais recente não expira (isto é, não é podado) de acordo com as regras de retenção especificadas na política de backup. Portanto, pode restaurar a máquina com segurança.  Considere os seguintes cenários que pode realizar nos dados com ressarte:
 
 ### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Cenário 1: A máquina de origem não está disponível e já não precisa de reter dados de backup
 

@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c2867fc5d57cf9ad6eb6bf2d90e02c61e320120
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995023"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146662"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Treino distribuído com Azure Machine Learning
 
@@ -48,9 +48,9 @@ No paralelismo modelo, também conhecido como paralelismo de rede, o modelo é s
 
 No paralelismo modelo, os nós dos trabalhadores só precisam de sincronizar os parâmetros partilhados, geralmente uma vez para cada passo de propagação para a frente ou para trás. Além disso, modelos maiores não são uma preocupação, uma vez que cada nó opera numa subsecção do modelo nos mesmos dados de treino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Aprenda a [configurar ambientes de treino](how-to-set-up-training-targets.md) com o Python SDK.
+* Aprenda a [usar alvos de computação para o treino de modelo](how-to-set-up-training-targets.md) com o Python SDK.
 * Para um exemplo técnico, consulte o [cenário de arquitetura de referência.](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning)
 * [Treinar modelos ML com TensorFlow](how-to-train-tensorflow.md).
 * [Treinar modelos ML com PyTorch.](how-to-train-pytorch.md) 

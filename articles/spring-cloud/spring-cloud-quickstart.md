@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: e4813f5c8c156fdf381a55ae450cf0ee35cedfa7
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 067195cfef35863a7bcc314a55b4bf1ff8a3ccd7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048211"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146982"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -147,23 +147,24 @@ Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure e esc
 
 1. Clique com o botão direito no seu projeto no explorador de projetos IntelliJ e selecione **Azure**  ->  **Deploy to Azure Spring Cloud**.
 
-    ![Desdobre-se para Azure 1](media/spring-cloud-quickstart-java/intellij-deploy-azure.png)
+    [![Desdobre-se para Azure 1 ](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png)](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
 
 1. Aceite o nome para aplicação no campo **Nome.** **O nome** refere-se à configuração, não ao nome da aplicação. Os utilizadores normalmente não precisam de alterá-lo.
 1. Na caixa de texto **do Artefacto,** selecione *hellospring-0.0.1-SNAPSHOT.jar*.
 1. Na caixa de texto **de assinatura,** verifique a sua subscrição.
 1. Na caixa de texto **da Nuvem de primavera,** selecione a instância de Azure Spring Cloud que criou no [exemplo de Provision Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. Definir **ponto de final público** para *ativar*.
 1. Na **App:** caixa de texto, selecione **Criar app...**.
 1. Introduza *a primavera de hellospring*e, em seguida, clique **em OK**.
 
-    ![Implementar para Azure OK](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)
+    [![Implementar para Azure OK ](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png#lightbox)
 
 1. Inicie a implementação clicando no botão **Executar** na parte inferior do diálogo da **aplicação Implementar Azure Spring Cloud.** O plug-in executará o comando `mvn package` na `hellospring` aplicação e implantará o frasco gerado pelo `package` comando.
 ---
 
 Uma vez concluída a implementação, pode aceder à aplicação em `https://<service instance name>-hellospring.azuremicroservices.io/` .
 
-  ![Aplicativo de acesso a partir do navegador](media/spring-cloud-quickstart-java/access-app-browser.png)
+  [![Aplicativo de acesso a partir do navegador ](media/spring-cloud-quickstart-java/access-app-browser.png)](media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
 
 ## <a name="streaming-logs-in-real-time"></a>Registos de streaming em tempo real
 
@@ -187,16 +188,13 @@ Os registos aparecem nos resultados:
 1. Selecione **Azure Explorer,** em **seguida, Cloud primavera**.
 1. Clique com o botão direito na aplicação de execução.
 1. Selecione **'Registos** de streaming' da lista de drop-down.
-
-    ![Selecione registos de streaming](media/spring-cloud-intellij-howto/streaming-logs.png)
-
 1. Selecione a instância.
 
-    ![Selecione a instância](media/spring-cloud-intellij-howto/select-instance.png)
+    [![Selecione registos ](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png) de streaming](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png)
 
 1. O registo de streaming será visível na janela de saída.
 
-    ![Saída de registo de streaming](media/spring-cloud-intellij-howto/streaming-log-output.png)
+    [![Saída de registo ](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png) de streaming](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)
 ---
 
 Para funcionalidades avançadas de análise de registos, visite o **separador Registos** no menu do [portal Azure.](https://portal.azure.com/) Os troncos aqui têm uma latência de alguns minutos.

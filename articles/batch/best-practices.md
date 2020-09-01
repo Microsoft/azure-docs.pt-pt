@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191802"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146543"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -29,12 +29,12 @@ Este artigo discute uma coleção de boas práticas para a utilização do servi
     Os nós individuais não estão garantidos para estarem sempre disponíveis. Embora incomuns, falhas de hardware, atualizações do sistema operativo e uma série de outros problemas podem fazer com que os nós individuais estejam offline. Se a sua carga de trabalho do Lote necessitar de progressos determinísticos e garantidos, deverá alocar piscinas com múltiplos nós.
 
 - **Não reutilizá os nomes dos recursos.**
-    Os recursos de lote (empregos, piscinas, etc.) muitas vezes vêm e vão ao longo do tempo. Por exemplo, você pode criar uma piscina na segunda-feira, apagá-la na terça-feira e, em seguida, criar outra piscina na quinta-feira. Cada novo recurso que criar deve receber um nome único que nunca usou antes. Isto pode ser feito utilizando um GUID (como todo o nome de recurso, ou como parte dele) ou incorporando o tempo que o recurso foi criado no nome do recurso. O lote suporta [o DisplayName,](/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet)que pode ser usado para dar a um recurso um nome legível humano, mesmo que o ID de recurso real seja algo que não seja tão amigável para o homem. A utilização de nomes únicos facilita a diferenciação de que recurso particular fez algo em registos e métricas. Também elimina a ambiguidade se tiver de arquivar um caso de suporte para um recurso.
+    Os recursos de lote (empregos, piscinas, etc.) muitas vezes vêm e vão ao longo do tempo. Por exemplo, você pode criar uma piscina na segunda-feira, apagá-la na terça-feira e, em seguida, criar outra piscina na quinta-feira. Cada novo recurso que criar deve receber um nome único que nunca usou antes. Isto pode ser feito utilizando um GUID (como todo o nome de recurso, ou como parte dele) ou incorporando o tempo que o recurso foi criado no nome do recurso. O lote suporta [o DisplayName,](/dotnet/api/microsoft.azure.batch.jobspecification.displayname)que pode ser usado para dar a um recurso um nome legível humano, mesmo que o ID de recurso real seja algo que não seja tão amigável para o homem. A utilização de nomes únicos facilita a diferenciação de que recurso particular fez algo em registos e métricas. Também elimina a ambiguidade se tiver de arquivar um caso de suporte para um recurso.
 
 - **Continuidade durante a manutenção e avaria da piscina.**
     É melhor que os seus empregos usem piscinas dinamicamente. Se os seus trabalhos usarem a mesma piscina para tudo, há a hipótese de os seus empregos não correrem se algo correr mal com a piscina. Isto é especialmente importante para cargas de trabalho sensíveis ao tempo. Para corrigir isto, selecione ou crie uma piscina dinamicamente quando agendar cada trabalho, ou tenha uma maneira de anular o nome da piscina para que possa contornar uma piscina pouco saudável.
 
-- **Continuidade do negócio durante manutenção e falha** na piscina Existem muitas causas possíveis que podem impedir que uma piscina cresça ao tamanho exigido, tais como erros internos, restrições de capacidade, etc. Por esta razão, você deve estar pronto para retarget empregos em uma piscina diferente (possivelmente com um tamanho VM diferente - Batch suporta isso via [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)) se necessário. Evite utilizar um ID estático com a expectativa de que nunca será apagado e nunca mudará.
+- **Continuidade do negócio durante manutenção e falha** na piscina Existem muitas causas possíveis que podem impedir que uma piscina cresça ao tamanho exigido, tais como erros internos, restrições de capacidade, etc. Por esta razão, você deve estar pronto para retarget empregos em uma piscina diferente (possivelmente com um tamanho VM diferente - Batch suporta isso via [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) se necessário. Evite utilizar um ID estático com a expectativa de que nunca será apagado e nunca mudará.
 
 ### <a name="pool-lifetime-and-billing"></a>Vida útil da piscina e faturação
 
@@ -63,7 +63,7 @@ Quando cria um pool Azure Batch utilizando a Configuração da Máquina Virtual,
 
 ### <a name="third-party-images"></a>Imagens de terceiros
 
-As piscinas podem ser criadas usando imagens de terceiros publicadas no Azure Marketplace. Com o modo de subscrição do utilizador As contas de lote, poderá ver o erro "A atribuição falhou devido à verificação de elegibilidade da compra de mercado" ao criar um pool com determinadas imagens de terceiros. Para resolver este erro, aceite os termos definidos pelo editor da imagem. Pode fazê-lo utilizando [Azure Powershell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) ou [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
+As piscinas podem ser criadas usando imagens de terceiros publicadas no Azure Marketplace. Com o modo de subscrição do utilizador As contas de lote, poderá ver o erro "A atribuição falhou devido à verificação de elegibilidade da compra de mercado" ao criar um pool com determinadas imagens de terceiros. Para resolver este erro, aceite os termos definidos pelo editor da imagem. Pode fazê-lo utilizando [a Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) ou [a Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Dependência da região de Azure
 
@@ -83,7 +83,7 @@ Por isso, certifique-se de não conceber uma solução batch que requer milhares
 
 Um trabalho em Lote tem uma vida indefinida até ser apagado do sistema. O seu estado designa se pode aceitar mais tarefas para agendamento ou não.
 
-Um trabalho não se move automaticamente para estado preenchido a menos que seja explicitamente encerrado. Isto pode ser ativado automaticamente através da propriedade [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) ou [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
+Um trabalho não se move automaticamente para estado preenchido a menos que seja explicitamente encerrado. Isto pode ser ativado automaticamente através da propriedade [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete) ou [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
 
 Existe uma [quota de emprego ativo e de agendamento de emprego.](batch-quota-limit.md#resource-quotas) Os postos de trabalho e os horários de trabalho em estado preenchido não contam para esta quota.
 
@@ -99,7 +99,7 @@ O Batch integrou o suporte Azure Storage para carregar dados através [do Output
 
 ### <a name="manage-task-lifetime"></a>Gerir a vida útil da tarefa
 
-Elimine as tarefas quando já não forem necessárias ou desateia uma restrição [de tarefas de retenção.](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) Se um `retentionTime` for definido, o Batch limpa automaticamente o espaço do disco utilizado pela tarefa quando o `retentionTime` expirar.
+Elimine as tarefas quando já não forem necessárias ou desateia uma restrição [de tarefas de retenção.](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime) Se um `retentionTime` for definido, o Batch limpa automaticamente o espaço do disco utilizado pela tarefa quando o `retentionTime` expirar.
 
 Apagar tarefas realiza duas coisas. Garante que não tem uma acumulação de tarefas no trabalho, o que pode dificultar a consulta/encontrar a tarefa que lhe interessa (porque terá de filtrar através das tarefas Concluídas). Também limpa os dados de tarefa correspondentes no nó (fornecido `retentionTime` ainda não foi atingido). Isto ajuda a garantir que os seus nós não se enchem com dados de tarefa e se esgotam o espaço do disco.
 
@@ -113,7 +113,7 @@ O lote suporta tarefas de subscrição excessiva nos nóns (executando mais tare
 
 ### <a name="design-for-retries-and-re-execution"></a>Desenho para recauchutagem e re-execução
 
-As tarefas podem ser automaticamente novamente experimentadas por Batch. Existem dois tipos de retrós em que se encontram as suas recaídas: controladas pelo utilizador e internas. As retrações controladas pelo utilizador são especificadas pelo [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)da tarefa . Quando um programa especificado na tarefa sai com um código de saída não zero, a tarefa é novamente tentada até ao valor do `maxTaskRetryCount` .
+As tarefas podem ser automaticamente novamente experimentadas por Batch. Existem dois tipos de retrós em que se encontram as suas recaídas: controladas pelo utilizador e internas. As retrações controladas pelo utilizador são especificadas pelo [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount)da tarefa . Quando um programa especificado na tarefa sai com um código de saída não zero, a tarefa é novamente tentada até ao valor do `maxTaskRetryCount` .
 
 Embora rara, uma tarefa pode ser novamente julgada internamente devido a falhas no nó de computação, como não ser capaz de atualizar o estado interno ou uma falha no nó enquanto a tarefa está em execução. A tarefa será novamente experimentada no mesmo nó de computação, se possível, até um limite interno antes de desistir da tarefa e adiar a tarefa a ser reagendada por Batch, potencialmente num nó de computação diferente.
 
@@ -192,7 +192,7 @@ Se os seus pedidos receberem respostas HTTP de nível 5xx e houver um cabeçalho
 
 ### <a name="retry-requests-automatically"></a>Redação de pedidos automaticamente
 
-Certifique-se de que os seus clientes de serviço Batch dispõem de políticas de relírimento adequadas para reescamar automaticamente os seus pedidos, mesmo durante o funcionamento normal e não exclusivamente durante quaisquer períodos de manutenção do serviço. Estas políticas de reesão devem abranger um intervalo de, pelo menos, 5 minutos. As capacidades automáticas de retenção são fornecidas com vários SDKs de lote, tais como a [classe .NET RetryPolicyProvider](/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+Certifique-se de que os seus clientes de serviço Batch dispõem de políticas de relírimento adequadas para reescamar automaticamente os seus pedidos, mesmo durante o funcionamento normal e não exclusivamente durante quaisquer períodos de manutenção do serviço. Estas políticas de reesão devem abranger um intervalo de, pelo menos, 5 minutos. As capacidades automáticas de retenção são fornecidas com vários SDKs de lote, tais como a [classe .NET RetryPolicyProvider](/dotnet/api/microsoft.azure.batch.retrypolicyprovider).
 
 ### <a name="static-public-ip-addresses"></a>Endereços IP públicos estáticos
 

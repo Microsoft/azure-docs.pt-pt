@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543406"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144031"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treine e implemente um modelo a partir do CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -300,7 +300,7 @@ O ficheiro runconfig também contém informações usadas para configurar o ambi
 > [!TIP]
 > Embora seja possível criar manualmente um ficheiro runconfig, o deste exemplo foi criado usando o `generate-runconfig.py` ficheiro incluído no repositório. Este ficheiro obtém uma referência ao conjunto de dados registado, cria uma execução config programaticamente, e depois persiste em arquivá-lo.
 
-Para obter mais informações sobre ficheiros de configuração de execução, consulte [Configurar e utilizar alvos de computação para a formação de modelos](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Para obter uma referência completa ao JSON, consulte a [runconfigschema.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Para obter mais informações sobre ficheiros de configuração de execução, consulte [utilize alvos de computação para a formação de modelos](how-to-set-up-training-targets.md#whats-a-run-configuration). Para obter uma referência completa ao JSON, consulte a [runconfigschema.jsem](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Submeta a formação
 
@@ -436,7 +436,7 @@ az ml service run -n myservice -d @testdata.json
 
 A resposta do comando é semelhante a `[ 3 ]` .
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 > [!IMPORTANT]
 > Os recursos que criou podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do Azure Machine Learning.

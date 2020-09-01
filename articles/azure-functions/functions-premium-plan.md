@@ -3,15 +3,15 @@ title: Plano Premium funções Azure
 description: Detalhes e opções de configuração (VNet, sem arranque a frio, duração de execução ilimitada) para o plano Azure Functions Premium.
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506201"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145759"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium funções Azure
 
@@ -36,21 +36,42 @@ Com o plano criado, pode utilizar [a az functionapp criar](/cli/azure/functionap
 
 As seguintes funcionalidades estão disponíveis para funcionar aplicações implementadas num plano Premium.
 
-### <a name="pre-warmed-instances"></a>Casos pré-aquecidos
+### <a name="always-ready-instances"></a>Sempre prontos casos
 
 Se não ocorrerem eventos e execuções hoje no plano De Consumo, a sua aplicação poderá escalar em zero casos. Quando novos eventos chegam, uma nova instância precisa de ser especializada com a sua app em execução.  A especializar novos casos pode demorar algum tempo dependendo da aplicação.  Esta latência adicional na primeira chamada é muitas vezes chamada de arranque frio da aplicação.
 
-No plano Premium, pode ter a sua aplicação pré-aquecida num determinado número de casos, até ao tamanho mínimo do seu plano.  As instâncias pré-aquecidas também permitem pré-escalar uma aplicação antes de uma carga elevada. À medida que a aplicação se escala, ele escala pela primeira vez para os casos pré-aquecidos. Casos adicionais continuam a tamponar e aquecer imediatamente em preparação para a próxima operação à escala. Ao ter um tampão de casos pré-aquecidos, pode efetivamente evitar latências de arranque a frio.  As instâncias pré-aquecidas são uma característica do plano Premium, e você precisa manter pelo menos um exemplo em execução e disponível em todos os momentos o plano está ativo.
+No plano Premium, pode ter a sua aplicação sempre pronta num determinado número de casos.  O número máximo de instâncias sempre prontas é de 20.  Quando os eventos começam a desencadear a aplicação, são encaminhados para as instâncias sempre prontas primeiro.  À medida que a função se torna ativa, casos adicionais serão aquecidos como um tampão.  Este tampão evita o arranque a frio para novas instâncias necessárias durante a escala.  Estes casos tamponados são chamados [de instâncias pré-aquecidas.](#pre-warmed-instances)  Com a combinação das instâncias sempre prontas e um tampão pré-aquecido, a sua aplicação pode efetivamente eliminar o arranque a frio.
 
-Pode configurar o número de casos pré-aquecidos no portal Azure selecionando a sua **App de Função**, indo ao separador **Funcionalidades** da Plataforma e selecionando as opções **Scale out.** Na janela de edição de aplicações de função, as instâncias pré-aquecidas são específicas dessa aplicação, mas as instâncias mínimas e máximas aplicam-se a todo o seu plano.
+> [!NOTE]
+> Todos os planos premium terão, pelo menos, uma instância ativa e faturada em todos os momentos.
+
+Pode configurar o número de instâncias sempre prontas no portal Azure selecionando a sua **App de Função**, indo ao separador **Funcionalidades** da Plataforma e selecionando as opções **De Escala.** Na janela de edição de aplicações de função, as instâncias sempre prontas são específicas dessa aplicação.
 
 ![Regulações de escala elástica](./media/functions-premium-plan/scale-out.png)
 
-Também pode configurar casos pré-aquecidos para uma aplicação com o Azure CLI.
+Também pode configurar sempre instâncias prontas para uma aplicação com o Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
 ```
+
+#### <a name="pre-warmed-instances"></a>Casos pré-aquecidos
+
+Casos pré-aquecidos são o número de casos aquecidos como tampão durante eventos de escala e ativação.  As instâncias pré-aquecidas continuam a tampão até que o limite máximo de escala seja atingido.  A contagem de casos pré-aquecidos predefinidos é 1, e para a maioria dos cenários deve permanecer como 1.  Se uma aplicação tiver um longo aquecimento (como uma imagem personalizada do recipiente), pode desejar aumentar este tampão.  Um caso pré-aquecido só se tornará ativo depois de todas as instâncias ativas terem sido suficientemente utilizadas.
+
+Considere este exemplo de como sempre os casos prontos e os casos pré-aquecidos funcionam em conjunto.  Uma aplicação de função premium tem cinco instâncias sempre prontas configuradas, e o padrão de uma instância pré-escrita.  Quando a aplicação estiver inativa e não houver eventos, a aplicação será aprovisionada e em execução em cinco instâncias.  
+
+Assim que o primeiro gatilho chega, as cinco instâncias sempre prontas tornam-se ativas, e um caso adicional pré-aquecido é atribuído.  A aplicação está agora em execução com seis instâncias aprovisionadas: as cinco instâncias agora ativas sempre prontas, e o sexto tampão pré-aquecido e inativo.  Se a taxa de execuções continuar a aumentar, os cinco casos ativos serão eventualmente utilizados.  Quando a plataforma decidir escalar para além de cinco instâncias, irá escalar para o caso pré-aquecido.  Quando isso acontecer, haverá agora seis instâncias ativas, e uma sétima instância será imediatamente a provisionada e preencherá o tampão pré-aquecido.  Esta sequência de escala e pré-aquecimento continuará até que a contagem máxima de instância para a aplicação seja alcançada.  Nenhuma ocorrência será pré-aquecida ou ativada para além do máximo.
+
+Pode modificar o número de casos pré-aquecidos para uma aplicação utilizando o Azure CLI.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+```
+
+#### <a name="maximum-instances-for-an-app"></a>Ocorrências máximas para uma aplicação
+
+Além da contagem máxima de instância do [plano,](#plan-and-sku-settings)pode configurar um máximo por aplicação.  O máximo da aplicação pode ser configurado usando o limite de escala de [aplicação.](./functions-scale.md#limit-scale-out)
 
 ### <a name="private-network-connectivity"></a>Conectividade da rede privada
 
@@ -68,16 +89,13 @@ Para saber mais sobre como funciona o dimensionamento, consulte [a escala de fun
 
 ### <a name="longer-run-duration"></a>Duração de maior duração
 
-As funções Azure num plano de consumo estão limitadas a 10 minutos para uma única execução.  No plano Premium, a duração de execução é de 30 minutos para evitar execuções em fuga. No entanto, pode [modificar o host.jsna configuração](./functions-host-json.md#functiontimeout) para tornar isto ilimitado para aplicações de plano Premium (60 minutos garantidos).
+As funções Azure num plano de consumo estão limitadas a 10 minutos para uma única execução.  No plano Premium, a duração de execução é de 30 minutos para evitar execuções em fuga. No entanto, pode [modificar o host.jsna configuração](./functions-host-json.md#functiontimeout) para tornar a duração ilimitada das aplicações do plano Premium (60 minutos garantidos).
 
 ## <a name="plan-and-sku-settings"></a>Definições de Plano e SKU
 
-Ao criar o plano, configura duas definições: o número mínimo de casos (ou tamanho do plano) e o limite máximo de explosão.  As instâncias mínimas são reservadas e estão sempre a funcionar.
+Quando cria o plano, existem duas definições de tamanho do plano: o número mínimo de casos (ou tamanho do plano) e o limite máximo de explosão.
 
-> [!IMPORTANT]
-> É cobrado por cada instância atribuída na contagem de instância mínima, independentemente de as funções estarem ou não a executar.
-
-Se a sua aplicação necessitar de casos para além do tamanho do seu plano, pode continuar a escalar até que o número de casos atinja o limite máximo de explosão.  Você é cobrado por casos além do seu tamanho de plano apenas enquanto eles estão correndo e alugados para você.  Faremos o melhor esforço para reduzir a sua app até ao limite máximo definido, enquanto as instâncias de plano mínimo são garantidas para a sua aplicação.
+Se a sua aplicação necessitar de casos para além das instâncias sempre prontas, pode continuar a escalar até que o número de casos atinja o limite máximo de explosão.  Você é cobrado por casos além do seu tamanho de plano apenas enquanto eles estão correndo e alugados para você.  Faremos o melhor esforço para reduzir a sua app até ao limite máximo definido.
 
 Pode configurar o tamanho e os máximos do plano no portal Azure selecionando as opções **Scale out** no plano ou uma aplicação de função implementada nesse plano (em **Funcionalidades da Plataforma).**
 
@@ -85,6 +103,19 @@ Também pode aumentar o limite máximo de explosão a partir do CLI Azure:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+```
+
+O mínimo para cada plano será pelo menos um exemplo.  O número mínimo real de ocorrências será configurado automaticamente para si com base nas instâncias sempre prontas solicitadas pelas aplicações no plano.  Por exemplo, se a aplicação A solicitar cinco instâncias sempre prontas, e a app B solicitar duas instâncias sempre prontas no mesmo plano, o tamanho mínimo do plano será calculado como cinco.  A App A estará em execução em todos os 5, e a aplicação B só estará em execução no dia 2.
+
+> [!IMPORTANT]
+> É cobrado por cada instância atribuída na contagem de instância mínima, independentemente de as funções estarem ou não a executar.
+
+Na maioria das circunstâncias, este mínimo autocalculado deve ser suficiente.  No entanto, a escala para além do mínimo ocorre no melhor esforço.  É possível, embora improvável, que, num determinado intervalo de tempo, se atrase caso não existam casos adicionais.  Ao definir um mínimo superior ao mínimo autocalculado, reserva-se as instâncias antes da escala.
+
+Aumentar o mínimo calculado para um plano pode ser feito usando o Azure CLI.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
 ```
 
 ### <a name="available-instance-skus"></a>SKUs de instância disponível
@@ -104,7 +135,7 @@ Por exemplo, uma aplicação de função JavaScript é limitada pelo limite de m
 
 ## <a name="region-max-scale-out"></a>Escala Max Região Para fora
 
-Abaixo estão os valores de escala máxima atualmente suportados para um único plano em cada região e configuração de SO. Para solicitar um aumento, abra um bilhete de apoio.
+Abaixo estão os valores máximos de escala suportados atualmente para um único plano em cada região e configuração de SO. Para solicitar um aumento, por favor abra um bilhete de apoio.
 
 Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
@@ -139,7 +170,7 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 |E.U.A. Oeste| 100 | 20 |
 |E.U.A. Oeste 2| 100 | 20 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Compreender a escala de funções Azure e opções de hospedagem](functions-scale.md)

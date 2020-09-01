@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 5d8dca091ef5bc039538903f07f46bc5d8ea262f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021583"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145897"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -63,7 +63,7 @@ Pode até utilizar [o MLflow para rastrear métricas e implementar modelos](how-
 
 Comece a treinar na sua máquina local utilizando o Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> ou <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Depois, pode escalar para a nuvem. 
 
-Com [muitos alvos](how-to-set-up-training-targets.md)de computação disponíveis , como o Azure Machine Learning Compute e [o Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), e com serviços avançados de [afinação de hiperparímetros,](how-to-tune-hyperparameters.md)é possível construir melhores modelos mais rapidamente utilizando a potência da nuvem.
+Com [muitos alvos](how-to-create-attach-compute-sdk.md)de computação disponíveis , como o Azure Machine Learning Compute e [o Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), e com serviços avançados de [afinação de hiperparímetros,](how-to-tune-hyperparameters.md)é possível construir melhores modelos mais rapidamente utilizando a potência da nuvem.
 
 Também pode [automatizar o treino e afinação](tutorial-auto-train-models.md) de modelos utilizando o SDK.
 

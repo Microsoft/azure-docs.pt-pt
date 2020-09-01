@@ -1,20 +1,20 @@
 ---
-title: Tutorial para transferir dados para ações com a Azure Stack Edge Microsoft Docs
-description: Saiba como adicionar e ligar-se às ações no dispositivo Azure Stack Edge.
+title: Tutorial para transferir dados para ações com a Azure Stack Edge GPU Microsoft Docs
+description: Saiba como adicionar e conectar-se a ações no dispositivo GPU Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: a6e757b18090e86fe1518946b7f630801823fb0e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a033297d0cac044cf39d5765ab30317f3b90b67c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087931"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146084"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge"></a>Tutorial: Transferir dados através de ações com a Azure Stack Edge
 
