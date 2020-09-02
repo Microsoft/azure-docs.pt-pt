@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f5b03e22fee2bf1bd662c152bf1b5c2f83a4358
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019917"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378020"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
-A melhor forma de autenticar os serviços da Azure é utilizando uma [identidade gerida](../general/managed-identity.md), mas existem alguns cenários em que isso não é uma opção. Nesses casos, são utilizadas chaves de acesso ou segredos. Deve rodar periodicamente as chaves de acesso ou segredos.
+A melhor forma de autenticar os serviços da Azure é utilizando uma [identidade gerida](../general/authentication.md), mas existem alguns cenários em que isso não é uma opção. Nesses casos, são utilizadas chaves de acesso ou segredos. Deve rodar periodicamente as chaves de acesso ou segredos.
 
 Este tutorial mostra como automatizar a rotação periódica de segredos para bases de dados e serviços que utilizam um conjunto de credenciais de autenticação. Especificamente, este tutorial gira as palavras-passe do SQL Server armazenadas no Cofre da Chave Azure utilizando uma função desencadeada pela notificação da Grelha de Eventos Azure:
 
@@ -113,7 +113,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-Para obter informações sobre como criar uma aplicação de função e utilizar identidade gerida para aceder ao Key Vault, consulte [Criar uma aplicação de função a partir do portal Azure](../../azure-functions/functions-create-function-app-portal.md) e [fornecer autenticação key vault com uma identidade gerida.](../general/managed-identity.md)
+Para obter informações sobre como criar uma aplicação de função e utilizar a identidade gerida para aceder ao Key Vault, consulte [Criar uma aplicação de função a partir do portal Azure](/azure/azure-functions/functions-create-function-app-portal), [Como utilizar a identidade gerida para o Serviço de Aplicações e Funções Azure](/azure/app-service/overview-managed-identity), e atribuir uma política de [acesso ao Cofre de Chaves utilizando o portal Azure.](../general/assign-access-policy-portal.md)
 
 ### <a name="rotation-function"></a>Função de rotação
 Implantado na função de passo anterior utiliza um evento para desencadear a rotação de um segredo atualizando o Cofre de Chaves e a base de dados SQL. 

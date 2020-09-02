@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9cc8c1e9406f6b92a445cd52a4ad26e71d83ef5a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 34321ac9baf3d3cb43dace33b574cb582c2d72a0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88264092"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378955"
 ---
 # <a name="client-libraries-for-azure-key-vault"></a>Bibliotecas de clientes para cofre de chaves Azure
 
-As bibliotecas de clientes do Azure Key Vault permitem o acesso programático à funcionalidade Key Vault a partir de uma variedade de idiomas, incluindo .NET, Python, Java e Javascript.
+As bibliotecas de clientes do Azure Key Vault permitem o acesso programático à funcionalidade Key Vault a partir de uma variedade de idiomas, incluindo .NET, Python, Java e JavaScript.
 
 ## <a name="client-libraries-per-language-and-object"></a>Bibliotecas de clientes por idioma e objeto
 
@@ -31,7 +31,7 @@ Cada SDK tem bibliotecas de clientes separadas para segredos, chaves e certifica
 | Java | - [Referência API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.2.0/index.html)<br>- [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets)<br>- [Arranque rápido](../secrets/quick-create-java.md) |- [Referência API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>- [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys) | - [Referência API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>- [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates) |
 | Node.js | - [Referência API](/javascript/api/@azure/keyvault-secrets/?view=azure-node-latest)<br>- [pacote npm](https://www.npmjs.com/package/@azure/keyvault-secrest)<br>- [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault/keyvault-secrets)<br>- [Arranque rápido](../secrets/quick-create-node.md) |- [Referência API](/javascript/api/@azure/keyvault-keys/?view=azure-node-latest)<br>- [pacote npm](https://www.npmjs.com/package/@azure/keyvault-keys)<br>- [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault/keyvault-keys)| - [Referência API](/javascript/api/@azure/keyvault-certificates/?view=azure-node-latest)<br>- [pacote npm](https://www.npmjs.com/package/@azure/keyvault-certificates)<br>- [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault/keyvault-certificates) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o guia de desenvolvedores do [Azure Key Vault](developers-guide.md)
-- Leia mais sobre [identidade gerida para Azure Key Vault](managed-identity.md)
+- Ler mais sobre [autenticação no cofre da Chave](authentication.md)

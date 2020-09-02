@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: c590fea274900f580a5c8415f6b04c2f9108f74f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18ba00b39d8ffd703eb31b95d373e5b89e51c59b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876942"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376830"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Quickstart: Azure Key Vault chaves biblioteca cliente para Python
 
@@ -68,7 +68,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-A forma mais simples de autenticar uma aplicação .NET baseada em nuvem é com uma identidade gerida; ver [Utilizar uma identidade gerida pelo Serviço de Aplicações para aceder ao Cofre da Chave Azure](../general/managed-identity.md) para obter mais detalhes. 
+A forma mais simples de autenticar uma aplicação baseada na nuvem é com uma identidade gerida; consulte [Autenticar para Azure Key Vault](../general/authentication.md) para mais detalhes. 
 
 No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação para desktop, que requer a utilização de um principal de serviço e de uma política de controlo de acessos. O seu diretor de serviço requer um nome único no formato "http:// &lt; meu nome principal de serviço &gt; único".
 
@@ -231,10 +231,10 @@ client.begin_delete_key(keyName).result()
 print(" done.")
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido criaste um cofre chave, armazenaste uma chave e recuperaste essa chave. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
+Neste arranque rápido, criaste um cofre chave, armazenaste uma chave e recuperaste essa chave. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
-- Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
-- Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)
+- [Descrição geral do cofre de chave do Azure](../general/overview.md)
+- [Guia de desenvolvedores do Azure Key Vault](../general/developers-guide.md)
+- [As melhores práticas do Azure Key Vault](../general/best-practices.md)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795903"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376388"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestão de unidades administrativas no Diretório Ativo Azure (pré-visualização)
 
@@ -27,7 +27,7 @@ Este artigo descreve unidades administrativas no Azure Ative Directory (Azure AD
 
 As unidades administrativas permitem-lhe conceder permissões administrativas restritas a um departamento, região ou outro segmento da sua organização que define. Pode utilizar unidades administrativas para delegar permissões a administradores regionais ou para definir a política a nível granular. Por exemplo, um administrador de conta de utilizador poderia atualizar informações de perfil, redefinir palavras-passe e atribuir licenças para utilizadores apenas na sua unidade administrativa.
 
- Por exemplo, delegando a especialistas regionais de apoio, o papel [de Administrador de Helpdesk](directory-assign-admin-roles.md#helpdesk-administrator) restringido à gestão apenas dos utilizadores da região que apoiam.
+Por exemplo, delegando a especialistas regionais de apoio, o papel [de Administrador de Helpdesk](directory-assign-admin-roles.md#helpdesk-administrator) restringido à gestão apenas dos utilizadores da região que apoiam.
 
 ## <a name="deployment-scenario"></a>Cenário de implementação
 
@@ -54,7 +54,7 @@ Nesta versão de pré-visualização, pode gerir unidades administrativas utiliz
 
 As unidades administrativas podem ser usadas para agrupar logicamente os recursos Azure AD. Por exemplo, para uma organização cujo departamento de TI está disperso globalmente, pode fazer sentido criar unidades administrativas que definam essas fronteiras geográficas. Num outro cenário em que uma organização multinacional tem diferentes "sub-organizações", semi-autónomas em operações, cada sub-organização pode ser representada por uma unidade administrativa.
 
-Os critérios sobre os quais são criadas unidades administrativas serão guiados pelos requisitos únicos de uma organização. As Unidades Administrativas são uma forma comum de definir a estrutura em todos os serviços M365. Recomendamos que prepare as suas unidades administrativas com a sua utilização através dos serviços M365 em mente. Pode obter o valor máximo das unidades administrativas quando pode associar recursos comuns através da M365 sob uma unidade administrativa.
+Os critérios sobre os quais são criadas unidades administrativas serão guiados pelos requisitos únicos de uma organização. As Unidades Administrativas são uma forma comum de definir a estrutura em todos os serviços da Microsoft 365. Recomendamos que prepare as suas unidades administrativas com a sua utilização em todos os serviços da Microsoft 365 em mente. Pode obter o valor máximo das unidades administrativas quando pode associar recursos comuns através da Microsoft 365 sob uma unidade administrativa.
 
 Pode esperar que a criação de unidades administrativas na organização passe pelas seguintes fases:
 
@@ -64,7 +64,7 @@ Pode esperar que a criação de unidades administrativas na organização passe 
 
 ## <a name="currently-supported-scenarios"></a>Cenários atualmente apoiados
 
-Os administradores globais ou os administradores de funções privilegiados podem usar o portal AD AZure para criar unidades administrativas, adicionar utilizadores como membros de unidades administrativas e, em seguida, atribuir pessoal de TI a funções de administrador administrativo. Os administradores administrativos podem então utilizar o portal Office 365 para a gestão básica dos utilizadores nas suas unidades administrativas.
+Os administradores globais ou os administradores de funções privilegiados podem usar o portal AD AZure para criar unidades administrativas, adicionar utilizadores como membros de unidades administrativas e, em seguida, atribuir pessoal de TI a funções de administrador administrativo. Os administradores administrativos com âmbito de unidade podem então utilizar o centro de administração Microsoft 365 para uma gestão básica dos utilizadores nas suas unidades administrativas.
 
 Além disso, os grupos podem ser adicionados como membros da unidade administrativa, e um administrador de grupo de administração pode geri-los usando o PowerShell, o Microsoft Graph e o portal AD AD.
 
@@ -99,9 +99,9 @@ gestão administrativa do licenciamento do grupo   |    Suportado  |    Suportad
 >
 > Os administradores com um âmbito de unidade administrativa não conseguem gerir regras dinâmicas de adesão ao grupo.
 
-As unidades administrativas aplicam âmbito apenas às permissões de gestão. Não impedem que membros ou administradores utilizem as suas [permissões de utilizador predefinidas](../fundamentals/users-default-permissions.md) para navegar em outros utilizadores, grupos ou recursos fora da unidade administrativa. No portal do Office 365, os utilizadores fora das unidades administrativas de um administrador de âmbito são filtrados, mas é possível navegar por outros utilizadores no portal AD Azure, PowerShell e outros serviços da Microsoft.
+As unidades administrativas aplicam âmbito apenas às permissões de gestão. Não impedem que membros ou administradores utilizem as suas [permissões de utilizador predefinidas](../fundamentals/users-default-permissions.md) para navegar em outros utilizadores, grupos ou recursos fora da unidade administrativa. No centro de administração microsoft 365, os utilizadores fora das unidades administrativas de um administrador de âmbito são filtrados, mas pode navegar em outros utilizadores no portal AD AD, PowerShell e outros serviços da Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gestão de AUs](roles-admin-units-manage.md)
 - [Gerir utilizadores em AUs](roles-admin-units-add-manage-users.md)
