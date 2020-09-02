@@ -3,190 +3,126 @@ title: Autenticar para cofre de chave Azure
 description: Saiba como autenticar para a Azure Key Vault
 author: ShaneBala-keyvault
 ms.author: sudbalas
-ms.date: 06/08/2020
+ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6336a0d4d8aa9c781befed0470d9a190af5aa9eb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1ef5b2229aadc4be46361a7319351a1f27b28b63
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930864"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378984"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticar para cofre de chave Azure
 
-## <a name="overview"></a>Descrição geral
+O Azure Key Vault permite-lhe armazenar segredos e controlar a sua distribuição num repositório de nuvem centralizado e seguro, o que elimina a necessidade de armazenar credenciais em aplicações. As aplicações só precisam de autenticar com o Key Vault na hora de execução para aceder a esses segredos.
 
-O Azure Key Vault é uma solução de gestão de segredos que permite centralizar o armazenamento de segredos de aplicação e controlar a sua distribuição. O Azure Key Vault elimina a necessidade de armazenar credenciais em aplicações. A sua aplicação pode autenticar-se no cofre de chaves para recuperar as credenciais necessárias. Este documento cobrirá o básico da autenticação para o cofre da chave.
+## <a name="app-identity-and-service-principals"></a>Diretores de identidade e serviço de aplicativos
 
-Este documento irá ajudá-lo a entender como funciona a autenticação do cofre chave. Este documento irá explicar o fluxo de autenticação, mostrar-lhe como conceder acesso ao seu cofre chave, e inclui um tutorial para recuperar um segredo armazenado no cofre de chaves a partir de uma aplicação de pitão de amostra.
+A autenticação com a Key Vault funciona em conjunto com [o Azure Ative Directory (Azure AD),](/azure/active-directory/fundamentals/active-directory-whatis)que é responsável pela autenticação da identidade de qualquer **dado diretor de segurança.**
 
-Este documento abrangerá:
+Um principal de segurança é um objeto que representa um utilizador, grupo, serviço ou aplicação que está solicitando acesso aos recursos Azure. O Azure atribui uma **identificação** única a todos os diretores de segurança.
 
-* Conceitos-chave
-* Registo principal de segurança
-* Compreender o fluxo de autenticação do Cofre chave
-* Conceder um acesso principal de serviço ao Key Vault
-* Tutorial (Python)
+* Um diretor de segurança do **utilizador** identifica um indivíduo que tem um perfil no Diretório Ativo Azure.
 
-## <a name="key-concepts"></a>Conceitos-chave
+* Um diretor de segurança do **grupo** identifica um conjunto de utilizadores criados no Azure Ative Directory. Quaisquer funções ou permissões atribuídas ao grupo são concedidas a todos os utilizadores dentro do grupo.
 
-### <a name="azure-active-directory-concepts"></a>Conceitos de Diretório Ativo Azure
+* Um diretor de **serviço** é um tipo de princípio de segurança que identifica uma aplicação ou serviço, ou seja, um pedaço de código em vez de um utilizador ou grupo. O ID do objeto do principiante de serviço é conhecido como **iD do** seu cliente e age como o seu nome de utilizador. O segredo do cliente do **diretor** do serviço age como a sua senha.
 
-* Azure Ative Directory (AAD) - Azure Ative Directory (Azure AD) é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft, que ajuda os seus colaboradores a iniciar e aceder a recursos
+Para aplicações, existem duas formas de obter um principal de serviço:
 
-* Definição de Função - Uma definição de papel é uma coleção de permissões.  A AAD tem funções padrão (Proprietário, Colaborador ou Leitor) que contêm níveis de permissões para executar operações como ler, escrever e apagar num recurso Azure. As funções também podem ser definições personalizadas criadas pelos utilizadores com permissões granulares específicas.
+* Recomendado: ativar uma **identidade gerida** atribuída pelo sistema para a aplicação.
 
-* Registo de Pedidos - Quando regista uma aplicação AD Azure, são criados dois objetos no seu inquilino AZure AD, um objeto de aplicação e um objeto principal de serviço. Considere o objeto de aplicação como a representação global do seu pedido de uso em todos os inquilinos, e o diretor de serviço como a representação local para uso em um inquilino específico.
+    Com identidade gerida, a Azure gere internamente o principal de serviço da aplicação e autentica automaticamente a aplicação com outros serviços Azure. A identidade gerida está disponível para aplicações implantadas para uma variedade de serviços.
 
-### <a name="security-principal-concepts"></a>Conceitos principais de segurança
+    Para mais informações, consulte a visão geral da [identidade gerida.](/azure/active-directory/managed-identities-azure-resources/overview) Consulte também [os serviços Azure que suportam identidade gerida,](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)que se liga a artigos que descrevem como permitir a identidade gerida para serviços específicos (tais como Serviço de Aplicações, Funções Azure, Máquinas Virtuais, etc.).
 
-* Principal de Segurança - Um principal de segurança é um objeto que representa um utilizador, grupo, diretor de serviço ou identidade gerida que está solicitando acesso aos recursos da Azure.
+* Se não puder utilizar a identidade gerida, em vez **disso, registe** o pedido junto do seu inquilino Azure AD, conforme descrito no [Quickstart: Registe uma aplicação com a plataforma de identidade Azure](/azure/active-directory/develop/quickstart-register-app). O registo também cria um segundo objeto de aplicação que identifica a app em todos os inquilinos.
 
-* Utilizador – Um indivíduo que tem um perfil no Azure Active Directory.
+## <a name="authorize-a-service-principal-to-access-key-vault"></a>Autorizar um diretor de serviço a aceder ao Cofre-Chave
 
-* Grupo – Um conjunto de utilizadores criado no Azure Active Directory. Quando atribui uma função a um grupo, todos os utilizadores nesse grupo têm essa função.
+O Cofre-Chave funciona com dois níveis de autorização distintos:
 
-* Principal de serviço – Uma identidade de segurança utilizada por aplicações ou serviços para aceder a recursos específicos do Azure. Pode considerá-lo como uma identidade de utilizador (nome de utilizador e palavra-passe ou certificado) para uma aplicação.
+- **As políticas** de acesso controlam se um utilizador, grupo ou diretor de serviço está autorizado a aceder a segredos, chaves e certificados *dentro* de um recurso key vault existente (por vezes referido a operações de "data plane"). As políticas de acesso são normalmente concedidas aos utilizadores, grupos e aplicações.
 
-* Identidade Gerida - Uma identidade no Azure Ative Directory que é gerida automaticamente pela Azure.
+    Para atribuir políticas de acesso, consulte os seguintes artigos:
 
-* ID de objeto (ID do cliente) - um identificador único gerado pela Azure AD que está ligado a um principal de serviço durante o seu fornecimento inicial.
+    - [Portal do Azure](assign-access-policy-portal.md)
+    - [CLI do Azure](assign-access-policy-cli.md)
+    - [Azure PowerShell](assign-access-policy-portal.md)
 
-## <a name="security-principal-registration"></a>Registo principal de segurança
+- **As permissões de função** controlam se um utilizador, grupo ou chefe de serviço está autorizado a criar, eliminar e gerir de outra forma um recurso Key Vault (por vezes referido como operações de "avião de gestão"). Estas funções são, na maior parte das vezes, concedidas apenas aos administradores.
+ 
+    Para atribuir e gerir funções, consulte os seguintes artigos:
 
-1. O administrador regista um utilizador ou aplicação (principal serviço) no Diretório Ativo Azure.
+    - [Portal do Azure](/azure/role-based-access-control/role-assignments-portal)
+    - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
+    - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
-2. O administrador cria um Cofre de Chaves Azure e configura políticas de acesso (ACLs).
+    A Key Vault suporta atualmente o papel [de Contribuinte,](/azure/role-based-access-control/built-in-roles#key-vault-contributor) que permite operações de gestão em recursos key vault. Uma série de outras funções estão atualmente em pré-visualização. Também pode criar funções personalizadas, conforme descrito nas [funções personalizadas Azure](/azure/role-based-access-control/custom-roles).
 
-3. (Opcional) O administrador configura a Firewall Azure Key Vault.
-
-![IMAGEM](../media/authentication-1.png)
-
-## <a name="understand-the-key-vault-authentication-flow"></a>Compreender o fluxo de autenticação do Cofre-Chave
-
-1. Um diretor de serviço faz uma chamada para autenticar a AAD isto pode acontecer de várias maneiras:
-    * Um utilizador pode iniciar sessão no portal Azure utilizando um nome de utilizador e senha.
-    * Uma aplicação usa um ID do cliente e apresenta um certificado de cliente secreto ou cliente à AAD
-    * Um recurso Azure, como uma máquina virtual, tem um MSI atribuído e contacta o ponto final do IMDS REST para obter um token de acesso.
-
-2. Se a autenticação para a AAD for bem sucedida, o diretor de serviço receberá um token OAuth.
-3. O diretor de serviço faz uma chamada para o Key Vault.
-4. A azure Key Vault Firewall determina se permite a chamada.
-    * Cenário 1: Key Vault Firewall está desativado, o ponto final público (URI) do cofre chave é acessível a partir da internet pública. A chamada é permitida.
-    * Cenário 2: Caller é um serviço de confiança Azure Key Vault. Certos serviços Azure podem contornar a firewall do cofre de chaves se a opção for selecionada. [Lista de serviços fidedignos de cofre de chaves](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
-    * Cenário 3: O chamador está listado na firewall Azure Key Vault por endereço IP, rede virtual ou ponto final de serviço.
-    * Cenário 4: O chamador pode chegar ao Cofre da Chave Azure sobre uma ligação de ligação privada configurada.
-    * Cenário 5: O chamador não está autorizado e uma resposta proibida é devolvida.
-5. Key Vault faz uma chamada para a AAD para validar o token de acesso do diretor de serviço.
-6. O Key Vault verifica se o diretor do serviço tem permissões de política de acesso suficientes para executar a operação solicitada, neste exemplo, a operação está em segredo.
-7. Key Vault fornece o segredo para o diretor de serviço.
-
-![IMAGEM](../media/authentication-2.png)
-
-## <a name="grant-a-service-principal-access-to-key-vault"></a>Conceder um acesso principal de serviço ao Key Vault
-
-1. Crie um diretor de serviço se ainda não tiver um. [Criar um diretor de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-2. Adicione uma atribuição de funções ao seu principal de serviço nas definições IAM do Cofre de Chaves Azure. Pode adicionar funções pré-atribuídas de Proprietário, Colaborador ou Leitor. Também pode criar funções personalizadas para o seu principal serviço. Deve seguir o principal de menor privilégio e apenas fornecer o acesso mínimo necessário para o seu diretor de serviço. 
-3.  Configure a firewall do cofre da chave. Pode manter a firewall do cofre desativada e permitir o acesso a partir da internet pública (menos segura, mais fácil de configurar). Também pode restringir o acesso a gamas IP específicas, pontos finais de serviço, redes virtuais ou pontos finais privados (mais seguros).
-4.  Adicione uma política de acesso ao seu diretor de serviço, esta é uma lista de operações que o seu diretor de serviço pode executar no cofre de chaves. Deve utilizar o principal de menor privilégio e limitar as operações que o diretor de serviço pode realizar. No entanto, se não fornecer permissões suficientes, o seu chefe de serviço será impedido de ter acesso.
-
-## <a name="tutorial"></a>Tutorial
-
-Neste tutorial você vai aprender a configurar um diretor de serviço para autenticar para o cofre chave e recuperar um segredo. 
-
-### <a name="part-1--create-a-service-principal-in-the-azure-portal"></a>Parte 1: Criar um diretor de serviço no portal Azure
-
-1. Iniciar sessão no portal do Azure
-1. Pesquisa rumo ao Azure Ative Directory
-1. Clique no separador "Registos de Aplicações"
-1. Clique em "+ Novo Registo"
-1. Criar um nome para o diretor de serviço
-1. Selecione Registar-se
-
-Neste momento tem um diretor de serviço registado. Pode vê-lo selecionando "Registos de Aplicações". O seu diretor de serviço será agora designado para um cliente ID GUID, pense nisto como um "nome de utilizador" para o seu diretor de serviço. Agora precisamos de criar uma "palavra-passe" para o seu principal serviço, pode usar um segredo de cliente ou um certificado de cliente. Note que a utilização de um segredo de cliente para autenticação não é segura e deve ser utilizada apenas para fins de teste. Este tutorial irá mostrar-lhe como usar um certificado de cliente.
-
-### <a name="part-2-create-a-client-certificate-for-your-service-principal"></a>Parte 2: Criar um certificado de cliente para o seu principal serviço
-
-1. Criar um certificado
-
-    * Opção 1: Criar um certificado utilizando [o OpenSSL](https://www.openssl.org/) (apenas para efeitos de teste, não utilizar certificados auto-assinados na produção)
-    * Opção 2: Criar um certificado utilizando o cofre de chaves. [Criar um certificado no Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-your-first-key-vault-certificate)
-
-1. Faça o download do certificado no formato PEM/PFX
-1. Faça login no portal Azure e navegue para o Azure Ative Directory
-1. Clique em "Registos de Aplicações"
-1. Selecione o principal de serviço que criou na Parte 1.
-1. Clique no separador "Certificados e Segredos" do seu principal serviço
-1. Faça o upload do certificado utilizando o botão "Certificado de upload"
-
-### <a name="part-3-configure-an-azure-key-vault"></a>Parte 3: Configurar um cofre de chaves Azure
-
-1. Criar uma [ligação](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault) de cofre de chave Azure
-
-2. Configure permissões IAM do Cofre de Chaves
-    1. Navegue até ao cofre da chave
-    1. Selecione o separador "Controlo de Acesso (IAM)"
-    1. Clique em Adicionar Atribuição de Função
-    1. Selecione o papel "Contribuinte" a partir do dropdown
-    1. Insira o nome ou identificação do cliente do principal serviço que criou
-    1. Clique em "Ver Atribuições de Funções" para confirmar que o seu principal de serviço está listado
-
-3. Configure permissões da Política de Acesso ao Cofre de Chaves
-    1. Navegue até ao cofre da chave
-    1. Selecione o separador "Políticas de acesso" em "Definições"
-    1. Selecione o link "+ Adicionar Política de Acesso"
-    1. Sob as permissões de entrega de permissões secretas verifique as permissões "Obter" e "Lista".
-    1. Selecione o seu principal de serviço pelo nome ou identificação do cliente.
-    1. Selecione "Adicionar"
-    1. Selecione "Save"
-
-4. Crie um segredo no seu cofre.
-    1. Navegue até ao cofre da chave
-    1. Clique no separador "Segredos" em Definições
-    1. Clique em "+ Gerar/Importar"
-    1. Criar um nome para o segredo, neste exemplo, vou nomear o "teste" secreto
-    1. Crie um valor para o segredo, neste exemplo, vou definir um valor de "password123"
-
-Agora, quando executar o código a partir da sua máquina local, pode autenticar para o cofre de chaves, obtendo um token de acesso apresentando a identificação do cliente e um caminho para o certificado.
-
-### <a name="part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python"></a>Parte 4: Recuperar o segredo do seu Cofre de Chaves Azure numa aplicação (Python)
-
-Utilize a seguinte amostra de código para testar se a sua aplicação pode recuperar um segredo do cofre de chaves utilizando o principal de serviço que configura. 
-
-```python
-from azure.keyvault.secrets import SecretClient
-from azure.identity import CertificateCredential
+    Para obter informações gerais sobre funções, consulte [o que é o Controlo de Acesso Baseado em Função Azure (RBAC)?](/azure/role-based-access-control/overview)
 
 
-tenant_id = ""                                             ##ENTER AZURE TENANT ID
-vault_url = "https://{VAULT NAME}.vault.azure.net/"        ##ENTER THE URL OF YOUR KEY VAULT
-client_id = ""                                             ##ENTER CLIENT ID OF SERVICE PRINCIPAL
-cert_path = r"C:\Users\{USERNAME}\{PATH}\{CERT_NAME}.pem"  ##ENTER PATH TO CERTIFICATE
+> [!IMPORTANT]
+> Para maior segurança, siga sempre o principal do menor privilégio e conceda apenas as políticas e funções de acesso mais específicas que são necessárias. 
+    
+## <a name="configure-the-key-vault-firewall"></a>Configure a firewall do Cofre de Chaves
 
-def main():
+Por predefinição, o Key Vault permite o acesso aos recursos através de endereços IP públicos. Para uma maior segurança, também pode restringir o acesso a gamas IP específicas, pontos finais de serviço, redes virtuais ou pontos finais privados.
 
-    #AUTHENTICATION TO AAD USING CLIENT ID AND CLIENT CERTIFICATE
-    token = CertificateCredential(tenant_id= tenant_id, client_id=client_id, certificate_path=cert_path)
+Para obter mais informações, consulte [o Access Azure Key Vault atrás de uma firewall](/azure/key-vault/general/access-behind-firewall).
 
-    #AUTHENTICATION TO KEY VAULT PRESENTING AAD TOKEN
-    client = SecretClient(vault_url=vault_url, credential=token)
 
-    #CALL TO KEY VAULT TO GET SECRET
-    secret = client.get_secret('{SECRET_NAME}')            ##ENTER NAME OF SECRET IN KEY VAULT
+## <a name="the-key-vault-authentication-flow"></a>O fluxo de autenticação do Cofre-Chave
 
-    #GET PLAINTEXT OF SECRET
-    print(secret.value)
+1. Um principal pedido de serviço para autenticar com Azure AD, por exemplo:
+    * Um utilizador entra no portal Azure utilizando um nome de utilizador e senha.
+    * Uma aplicação invoca uma API Azure REST, apresentando uma identificação do cliente e um certificado de cliente secreto ou cliente.
+    * Um recurso Azure, como uma máquina virtual com uma identidade gerida, contacta o ponto final do [Serviço de Metadados de Instância Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) PARA obter um token de acesso.
 
-#CALL MAIN()
-if __name__ == "__main__":
-    main()
-```
+1. Se a autenticação com Azure AD for bem sucedida, o diretor de serviço recebe um token OAuth.
 
-![IMAGEM](../media/authentication-3.png)
+1. O diretor de serviço faz uma chamada para a API do Key Vault REST através do ponto final do Cofre de Chaves (URI).
 
+1. Key Vault Firewall verifica os seguintes critérios. Se algum critério for cumprido, a chamada é permitida. Caso contrário, a chamada é bloqueada e uma resposta proibida é devolvida.
+
+    * A firewall está desativada e o ponto final público do Key Vault é acessível a partir da internet pública.
+    * O chamador é um [serviço de confiança do cofre de chaves,](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)permitindo-lhe contornar a firewall.
+    * O chamador está listado na firewall por endereço IP, rede virtual ou ponto final de serviço.
+    * O chamador pode chegar ao Key Vault sobre uma ligação de ligação privada configurada.    
+
+1. Se a firewall permitir a chamada, o Key Vault chama a Azure AD para validar o sinal de acesso do diretor de serviço.
+
+1. O Key Vault verifica se o diretor de serviço tem a política de acesso necessária para a operação solicitada. Caso contrário, o Key Vault devolve uma resposta proibida.
+
+1. Key Vault realiza a operação solicitada e devolve o resultado.
+
+O diagrama seguinte ilustra o processo para uma aplicação chamada API do Cofre chave "Get Secret":
+
+![O fluxo de autenticação do cofre da chave Azure](../media/authentication/authentication-flow.png)
+
+## <a name="code-examples"></a>Exemplos de código
+
+A tabela a seguir liga-se a diferentes artigos que demonstram como trabalhar com o Key Vault no código de aplicação utilizando as bibliotecas Azure SDK para o idioma em questão. Outras interfaces como o Azure CLI e o portal Azure estão incluídas por conveniência.
+
+| Segredos do Cofre Chave | Chaves do cofre chave | Certificados de cofre chave |
+|  --- | --- | --- |
+| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
+| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
+| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
+| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
+| | | |
+| [Portal do Azure](/azure/key-vault/secrets/quick-create-portal) | [Portal do Azure](/azure/key-vault/keys/quick-create-portal) | [Portal do Azure](/azure/key-vault/certificates/quick-create-portal) |
+| [CLI do Azure](/azure/key-vault/secrets/quick-create-cli) | [CLI do Azure](/azure/key-vault/keys/quick-create-cli) | [CLI do Azure](/azure/key-vault/certificates/quick-create-cli) |
+| [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
+| [Modelo ARM](/azure/key-vault/secrets/quick-create-net) | -- | -- |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-1. Saiba como resolver erros de autenticação do cofre de chaves. [Guia de resolução de problemas do cofre chave](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes)
+- [Resolução de problemas da política de acesso ao cofre chave](troubleshooting-access-issues.md)
+- [Códigos de erro da API do Cofre de Chaves](rest-error-codes.md)
+- [Guia do desenvolvedor do Cofre chave](developers-guide.md)
+- [O que é O Controlo de Acesso Baseado em Função (RBAC)?](/azure/role-based-access-control/overview)

@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 0d2ee8fbcb71d8703702f2c72e0bf629563667b9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: bf4864e0c6342cbd4729d5b99479eb2ef1a2c48c
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542200"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378224"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
-A melhor forma de autenticar os serviços da Azure é utilizando uma [identidade gerida](../general/managed-identity.md), mas existem alguns cenários em que isso não é uma opção. Nesses casos, são utilizadas chaves de acesso ou senhas de acesso. As chaves de acesso e as palavras-passe devem ser rodadas com frequência.
+A melhor forma de autenticar os serviços da Azure é utilizando uma [identidade gerida](../general/authentication.md), mas existem alguns cenários em que isso não é uma opção. Nesses casos, são utilizadas chaves de acesso ou senhas de acesso. As chaves de acesso e as palavras-passe devem ser rodadas com frequência.
 
 Este tutorial mostra como automatizar a rotação periódica de segredos para bases de dados e serviços que utilizam dois conjuntos de credenciais de autenticação. Especificamente, este tutorial gira as teclas de conta de armazenamento Azure armazenadas no Cofre da Chave Azure como segredos usando uma função desencadeada pela notificação da Azure Event Grid. :
 
@@ -91,7 +91,7 @@ As funções de rotação da aplicação de função requerem estes componentes 
 1. Selecione **Review+Create**.
 1. Selecione **Criar**
 
-   ![Comentário+Criar](../media/secrets/rotation-dual/dual-rotation-2.png)
+   ![Rever e criar a primeira conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-2.png)
 
 Depois de completar os passos anteriores, terá uma conta de armazenamento, uma fazenda de servidores, uma aplicação de função, insights de aplicações. Deve ver abaixo o ecrã uma vez concluída a ![ implementação: Implementação concluída](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
@@ -136,13 +136,13 @@ Pode mostrar informações secretas usando abaixo o comando:
 ```azurecli
 az keyvault secret show --vault-name akvrotation-kv --name storageKey
 ```
-Note que `CredentialId` é atualizado para alternar e é `keyName` `value` regenerado Secret ![ Show](../media/secrets/rotation-dual/dual-rotation-4.png)
+Note que `CredentialId` é atualizado para alternar e é `keyName` `value` regenerado Saída de ![ az keyvault secret show para a primeira conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Recupere as chaves de acesso para validar o valor
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Lista de Chaves de Acesso](../media/secrets/rotation-dual/dual-rotation-5.png)
+![Saída da lista de chaves de conta de armazenamento AZ para a primeira conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## <a name="add-additional-storage-accounts-for-rotation"></a>Adicionar contas de armazenamento adicionais para rotação
 
@@ -164,7 +164,7 @@ A adição de chaves adicionais de conta de armazenamento para a rotação à fu
 1. Selecione **Review+Create**.
 1. Selecione **Criar**
 
-   ![Comentário+Criar](../media/secrets/rotation-dual/dual-rotation-7.png)
+   ![Rever e criar a segunda conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-7.png)
 
 ### <a name="add-another-storage-account-access-key-to-key-vault"></a>Adicione outra chave de acesso à conta de armazenamento ao Cofre de Chaves
 
@@ -190,13 +190,13 @@ Mostrar informações secretas usando abaixo o comando:
 ```azurecli
 az keyvault secret show --vault-name akvrotation-kv --name storageKey2
 ```
-Note que `CredentialId` é atualizado para alternar e é `keyName` `value` regenerado Secret ![ Show](../media/secrets/rotation-dual/dual-rotation-8.png)
+Note que `CredentialId` é atualizado para alternar e é `keyName` `value` regenerado Saída de ![ az keyvault secret show para a segunda conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Recupere as chaves de acesso para validar o valor
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Lista de Chaves de Acesso](../media/secrets/rotation-dual/dual-rotation-9.png)
+![Saída da lista de chaves de conta de armazenamento AZ para a segunda conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-9.png)
 
 ## <a name="available-key-vault-dual-credential-rotation-functions"></a>Funções de rotação dupla credencial do Cofre da Chave disponível
 

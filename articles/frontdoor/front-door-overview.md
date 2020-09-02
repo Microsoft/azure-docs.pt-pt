@@ -3,21 +3,21 @@ title: Porta frontal Azure ! Microsoft Docs
 description: Este artigo apresenta uma descrição geral do Azure Front Door. Descubra se é a escolha certa para o tráfego de utilizador de equilíbrio de carga para a sua aplicação.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
-ms.author: sharadag
-ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 09/02/2020
+ms.author: duau
+ms.openlocfilehash: 003903a941b0d9ce36f28ce5e4d640e5746a7de3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322297"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378190"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 O Azure Front Door permite-lhe definir, gerir e monitorizar o encaminhamento global para o seu tráfego web, otimizando para o melhor desempenho e rápida falha global para uma elevada disponibilidade. Com a Front Door, pode transformar as suas aplicações globais (multi-regiões) de consumidores e empresas em aplicações modernas robustas e personalizadas de alto desempenho, APIs e conteúdos que atingem um público global com o Azure.
@@ -82,7 +82,11 @@ O protocolo e HTTP/2 ativa a comunicação duplex completa entre back-ends de ap
 
 Para obter informações sobre preços, veja [Preços do Front Door](https://azure.microsoft.com/pricing/details/frontdoor/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="whats-new"></a>Novidades
+
+Subscreva o feed RSS e veja as atualizações mais recentes da funcionalidade Azure Load Balancer na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door)
+
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

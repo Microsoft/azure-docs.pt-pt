@@ -1,16 +1,16 @@
 ---
 title: Visão geral das aplicações geridas
-description: Descreve os conceitos para aplicações geridas pelo Azure, que fornece soluções em nuvem que são fáceis de implantar e operar pelos consumidores.
+description: Descreve os conceitos para aplicações geridas azure, que fornece soluções em nuvem que são fáceis de implementar e operar.
 author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81391568"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377017"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
@@ -19,7 +19,7 @@ As aplicações geridas do Azure permitem-lhe oferecer soluções na cloud que o
 As aplicações geridas são semelhantes aos modelos de soluções no Marketplace, com uma diferença essencial. Numa aplicação gerida, os recursos são implementados num grupo de recursos que é gerido pelo editor da aplicação. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do editor tem acesso ao grupo de recursos. Como editor, tem de especificar o custo do suporte contínuo da solução.
 
 > [!NOTE]
-> Anteriormente, a documentação para fornecedores personalizados Azure foi incluída com a documentação para Aplicações Geridas. A documentação foi movida. Agora, consulte [os Fornecedores Personalizados Azure.](../custom-providers/overview.md)
+> Anteriormente, a documentação para a Azure Custom Providers foi incluída com a documentação para Aplicações Geridas. A documentação foi movida. Agora, consulte [a Azure Custom Providers.](../custom-providers/overview.md)
 
 ## <a name="advantages-of-managed-applications"></a>Vantagens das aplicações geridas
 
@@ -31,7 +31,7 @@ Embora os clientes implementem essas aplicações geridas nas respetivas subscri
 
 Para as equipas de TI, as aplicações geridas permitem-lhe oferecer soluções pré-aprovadas aos utilizadores da organização. Sabe que essas soluções estão em conformidade com os padrões da organização.
 
-As Aplicações Geridas suportam [identidades geridas para os recursos do Azure.](./publish-managed-identity.md)
+As Aplicações Geridas [suportam identidades geridas para recursos Azure](./publish-managed-identity.md).
 
 ## <a name="types-of-managed-applications"></a>Tipos de aplicações geridas
 
@@ -53,7 +53,7 @@ Para obter informações sobre a publicação de aplicações geridas no Marketp
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicações geridas
 
-Tipicamente, os recursos para uma aplicação gerida estão em dois grupos de recursos. O consumidor gere um grupo de recursos e o editor gere o outro. Ao definir a aplicação gerida, o editor especifica os níveis de acesso. A editora pode solicitar uma atribuição de funções permanente, ou [acesso just-in-time](request-just-in-time-access.md) para uma atribuição que esteja limitada a um período de tempo.
+Normalmente, os recursos para uma aplicação gerida estão em dois grupos de recursos. O consumidor gere um grupo de recursos e o editor gere o outro. Ao definir a aplicação gerida, o editor especifica os níveis de acesso. O editor pode solicitar uma atribuição de função permanente, ou [acesso just-in-time](request-just-in-time-access.md) para uma atribuição que esteja limitada a um período de tempo.
 
 A restrição do acesso das [operações de dados](../../role-based-access-control/role-definitions.md) não é atualmente suportada para todos os fornecedores de dados no Azure.
 
@@ -71,15 +71,15 @@ O consumidor tem acesso total ao grupo de recursos e utiliza-o para gerir o cicl
 
 Este grupo de recursos contém todos os recursos de que a aplicação gerida precisa. Por exemplo, este grupo de recursos contém as máquinas virtuais, as contas de armazenamento e as redes virtuais da solução. O consumidor tem acesso limitado a este grupo de recursos porque não gere os recursos individuais da aplicação gerida. O acesso do editor a este grupo de recursos corresponde à função especificada na definição da aplicação gerida. Por exemplo, o editor pode pedir a função Proprietário ou Contribuidor para este grupo de recursos. O acesso é permanente ou limitado a um tempo específico.
 
-Ao publicar a [aplicação gerida no mercado,](publish-marketplace-app.md)a editora pode conceder aos consumidores a capacidade de realizarem ações específicas sobre recursos no grupo de recursos geridos. Por exemplo, a editora pode especificar que os consumidores podem reiniciar máquinas virtuais. Todas as outras ações para além da leitura ainda são negadas.
+Ao publicar a [aplicação gerida no mercado,](publish-marketplace-app.md)a editora pode conceder aos consumidores a capacidade de realizarem ações específicas sobre recursos no grupo de recursos geridos. Por exemplo, o editor pode especificar que os consumidores podem reiniciar máquinas virtuais. Todas as outras ações para além da leitura ainda são negadas. As alterações aos recursos de um grupo de recursos geridos por um consumidor com ações concedidas estão sujeitas às atribuições [da Política Azure](../../governance/policy/overview.md) no âmbito do arrendatário dos consumidores, a incluir o grupo de recursos geridos.
 
 Quando o consumidor elimina a aplicação gerida, o grupo de recursos gerido também é eliminado.
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Pode aplicar uma [Azure Policy](../../governance/policy/overview.md) à sua aplicação gerida. Aplique políticas para garantir que as instâncias implementadas da sua aplicação gerida cumprem os requisitos de dados e segurança. Se a sua aplicação interagir com dados confidenciais, confirme que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com dados do Office 365, aplique uma política para garantir que a encriptação de dados está ativada.
+Pode aplicar uma [Política Azure](../../governance/policy/overview.md) para auditar a sua aplicação gerida. Aplica definições de política para garantir que as instâncias implementadas da sua aplicação gerida satisfaçam os requisitos de dados e segurança. Se a sua aplicação interagir com dados confidenciais, confirme que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com os dados do Office 365, aplique uma definição de política para garantir que a encriptação de dados está ativada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre os benefícios da utilização de aplicações geridas. Aceda ao artigo seguinte para criar uma definição da aplicação gerida.
 
