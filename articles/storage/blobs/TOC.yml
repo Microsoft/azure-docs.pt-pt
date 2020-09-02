@@ -111,9 +111,6 @@
           href: storage-samples-blobs-powershell.md
         - name: CLI do Azure
           href: storage-samples-blobs-cli.md
-        - name: Incorporações do Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Conceitos
       items:
         - name: Contas de armazenamento
@@ -554,6 +551,9 @@
           href: /azure/templates/microsoft.storage/allversions
         - name: Monitorizar dados
           href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Incorporações do Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Recursos
       items:
         - name: Atualizações do Azure
@@ -713,12 +713,8 @@
                   href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procedimento
       items:
-        - name: Criar
-          items:
-            - name: Criar uma conta de armazenamento (v2 para fins gerais)
-              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Criar uma conta de armazenamento (blob de blocos)
-              href: storage-blob-create-account-block-blob.md
+        - name: Criar uma conta de armazenamento
+          href: create-data-lake-storage-account.md
         - name: Migrar
           items:
             - name: Migrar do Data Lake Storage Gen1
@@ -830,6 +826,9 @@
         - name: Modelo do Resource Manager
           displayName: ARM
           href: /azure/templates/microsoft.storage/allversions
+        - name: Incorporações do Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Recursos
       items:
         - name: Problemas conhecidos
