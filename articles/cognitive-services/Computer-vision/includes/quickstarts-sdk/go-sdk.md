@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 40796951fe356fcf950b83c6ac771a0ca98ffd5a
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: d0e677377037203a6a67150d985efb30e09af86e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073363"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321870"
 ---
 <a name="HOLTop"></a>
 
@@ -87,7 +87,7 @@ Em seguida, começará a adicionar código para realizar diferentes operações 
 
 As seguintes classes e interfaces lidam com algumas das principais características do Computer Vision Go SDK.
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 | [BaseCiente](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Esta classe é necessária para todas as funcionalidades de Visão de Computador, como análise de imagem e leitura de texto. Você instantanea-o com as suas informações de subscrição, e você usá-lo para fazer a maioria das operações de imagem.|
 |[ImagemAnalise](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Este tipo contém os resultados de uma chamada de função **AnalyzeImage.** Existem tipos semelhantes para cada uma das funções específicas da categoria.|
@@ -239,17 +239,17 @@ Executar o pedido do seu diretório de candidaturas com o `go run` comando.
 go run sample-app.go
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência API de Visão Computacional (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
-* [O que é a Imagem Digitalizada?](../../Home.md)
+* [O que é a Imagem Digitalizada?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

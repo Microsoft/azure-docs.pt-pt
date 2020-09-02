@@ -207,10 +207,14 @@
           href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
     - name: Gerir com ferramentas de DevOps
       items:
-        - name: Azure DevOps Projects
-          href: how-to-devops-project.md
-        - name: DevOps do Azure
-          href: how-to-ci-cd.md
+        - name: Azure DevOps Starter
+          href: how-to-devops-starter.md
+        - name: Azure DevOps
+          items:
+            - name: YAML
+              href: how-to-continuous-integration-continuous-deployment.md
+            - name: Editor clássico
+              href: how-to-continuous-integration-continuous-deployment-classic.md
     - name: Resolução de problemas
       items:
         - name: Passos de diagnóstico padrão

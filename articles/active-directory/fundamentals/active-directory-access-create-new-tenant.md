@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f658b5670c42ab03770a3082f8eca740f6869dc3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 5d6341aeb6db89d43ef887a3ae50c4439e3867e6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797649"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318612"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Quickstart: Criar um novo inquilino no Azure Ative Directory
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
@@ -65,13 +65,13 @@ Se não continuar a utilizar esta aplicação, pode eliminar o arrendatário uti
 
     ![Página geral, com botão de diretório de delete realçado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para alterar ou adicionar nomes de domínio, veja [Como adicionar um nome de domínio personalizado ao Microsoft Azure Active Directory](add-custom-domain.md)
 
 - Para adicionar utilizadores, veja [Adicionar ou eliminar um novo utilizador](add-users-azure-active-directory.md)
 
 - Para adicionar grupos e membros, veja [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-- Saiba mais sobre [o acesso baseado em funções utilizando a Gestão de Identidade Privilegiada](../../role-based-access-control/pim-azure-resource.md) e o Acesso [Condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerir a aplicação da sua organização e o acesso a recursos.
+- Saiba mais sobre [o acesso baseado em funções utilizando a Gestão de Identidade Privilegiada](../../role-based-access-control/best-practices.md) e o Acesso [Condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerir a aplicação da sua organização e o acesso a recursos.
 
 - Saiba mais sobre o Azure AD, incluindo [informações básicas de licenciamento, terminologia e funcionalidades associadas](active-directory-whatis.md).

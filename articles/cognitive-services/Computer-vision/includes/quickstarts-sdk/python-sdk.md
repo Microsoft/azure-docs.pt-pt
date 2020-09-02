@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c6e94cb4d55fdc8a204af0017eb1a8b37d44f087
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 744ef58b54dc3718c4693ce2aad69024e2d6e2fe
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035835"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321895"
 ---
 <a name="HOLTop"></a>
 
@@ -59,7 +59,7 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 
 As seguintes classes e interfaces lidam com algumas das principais características do Computer Vision Python SDK.
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |[ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| Esta classe lida diretamente com todas as operações de imagem, tais como análise de imagem, deteção de texto e geração de miniaturas.|
 | [ComputadorVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | Esta classe é necessária para todas as funcionalidades de Visão de Computador. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes. Implementa **ComputerVisionClientOperationsMixin.**|
@@ -178,7 +178,7 @@ Execute a aplicação com o `python` comando no seu ficheiro quickstart.
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
@@ -186,7 +186,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a usar a biblioteca de Visão de Computador para Python para fazer tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 
@@ -194,5 +194,5 @@ Neste arranque rápido, aprendeu a usar a biblioteca de Visão de Computador par
 > [!div class="nextstepaction"]
 >[Referência API de Visão Computacional (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [O que é a Imagem Digitalizada?](../../Home.md)
+* [O que é a Imagem Digitalizada?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 985060d1acb9e3bf0babc8303b997ceddfff8f05
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f14bcc1b0576a5ad2f4dbbf30311f613607d3ee5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931952"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322335"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Visão de Computador para gerar metadados de imagem no Armazenamento Azure
 
-Neste tutorial, você vai aprender como integrar o serviço Azure Computer Vision numa aplicação web para gerar metadados para imagens carregadas. Isto é útil para cenários [de gestão de ativos digitais (DAM),](../Home.md#computer-vision-for-digital-asset-management) como se uma empresa quiser gerar rapidamente legendas descritivas ou palavras-chave pescáveis para todas as suas imagens.
+Neste tutorial, você vai aprender como integrar o serviço Azure Computer Vision numa aplicação web para gerar metadados para imagens carregadas. Isto é útil para cenários [de gestão de ativos digitais (DAM),](../overview.md#computer-vision-for-digital-asset-management) como se uma empresa quiser gerar rapidamente legendas descritivas ou palavras-chave pescáveis para todas as suas imagens.
 
 Um guia completo de aplicativos pode ser encontrado no [Azure Storage and Cognitive Services Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) no GitHub, e este tutorial cobre essencialmente o Exercício 5 do laboratório. Pode querer criar a aplicação completa seguindo cada passo, mas se apenas quiser aprender a integrar a Visão de Computador numa aplicação web existente, leia aqui.
 
@@ -144,7 +144,7 @@ Se quiser continuar a trabalhar na sua aplicação web, consulte a secção [eta
 
 Para eliminar o grupo de recursos, abra o separador **Grupos de Recursos** no portal, navegue para o grupo de recursos utilizado para este projeto e clique em Eliminar grupo de **recursos** na parte superior da vista. Ser-lhe-á pedido que escreva o nome do grupo de recursos para confirmar que pretende eliminá-lo, porque uma vez eliminado, um grupo de recursos não pode ser recuperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou o serviço de Visão de Computador do Azure numa aplicação web existente para gerar automaticamente legendas e palavras-chave para imagens blob à medida que são carregadas. Em seguida, consulte o Azure Storage Lab, Exercício 6, para aprender a adicionar funcionalidade de pesquisa à sua aplicação web. Isto tira partido das palavras-chave de pesquisa que o serviço de Visão de Computador gera.
 

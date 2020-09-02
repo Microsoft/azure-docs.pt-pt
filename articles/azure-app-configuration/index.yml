@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 4896271a1ac03fba688bd7159cdd8452f0cc59dc
-  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+  ms.openlocfilehash: 8e9e2c2448f98068495bc300fa2c72bf514d0ba8
+  ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "89021022"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89300090"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
       url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
     - text: Azure App Configuration no Cloud Native Show
       url: https://www.youtube.com/watch?v=DJqmA5PcfzE
-    - text: Filtragem de funcionalidades no Azure Friday
+    - text: Implementação de novas funcionalidades
       url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
   - linkListType: whats-new
     links:

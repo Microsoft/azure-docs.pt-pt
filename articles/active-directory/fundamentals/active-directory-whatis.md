@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82a5fd5a14091c95bc1783f283c41431082c8980
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: db14e4e47cce1822404561d33bd8e0d3f224e037
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182110"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321111"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 
@@ -26,7 +26,7 @@ O Azure Ative Directory (Azure AD) é o serviço de gestão de identidade e aces
 
 - Recursos internos, como aplicações na sua rede corporativa e intranet, juntamente com quaisquer aplicações em nuvem desenvolvidas pela sua própria organização. Para obter mais informações sobre a criação de um inquilino para a sua organização, consulte [Quickstart: Crie um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 
-Para saber a diferença entre Azure AD e Ative Directory Domain Services, consulte [Compare Ative Directory com Azure Ative Directory](active-directory-compare-azure-ad-to-ad.md). Também pode usar os vários cartazes da [Microsoft Cloud for Enterprise Architects Series](https://docs.microsoft.com/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os serviços de identidade nuclear em Azure, Azure AD e Office 365.
+Para saber a diferença entre Azure AD e Ative Directory Domain Services, consulte [Compare Ative Directory com Azure Ative Directory](active-directory-compare-azure-ad-to-ad.md). Também pode usar os vários cartazes da [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os serviços de identidade nuclear em Azure, Azure AD e Office 365.
 
 ## <a name="who-uses-azure-ad"></a>Quem usa a Azure AD?
 
@@ -68,7 +68,7 @@ Depois de escolher a sua licença Azure AD, terá acesso a algumas ou todas as s
 |Gestão de aplicações|Gerencie as suas aplicações de nuvem e no local utilizando aplicações Proxy de aplicação, um único sinal, o portal My Apps (também conhecido como painel de Acesso) e o Software como um Serviço (SaaS). Para obter mais informações, consulte [Como fornecer acesso remoto seguro a aplicações no local](../manage-apps/application-proxy.md) e documentação de Gestão de [Aplicações.](../manage-apps/index.yml)|
 |Autenticação|Gerir o reposição da palavra-passe de autosserviço do Azure Ative Directory, autenticação multi-factor, lista de palavras-passe proibidas personalizadas e bloqueio inteligente. Para mais informações, consulte [a documentação de autenticação AD AD Azure](../authentication/index.yml).|
 |Azure Active Directory para programadores|Construa aplicativos que assinem todas as identidades da Microsoft, obtenha fichas para ligar para o Microsoft Graph, outras APIs da Microsoft ou APIs personalizados. Para obter mais informações, consulte [a plataforma de identidade da Microsoft (Azure Ative Directory para programadores)](../develop/index.yml).|
-|Empresa-Empresa (B2B)|Gerencie os seus utilizadores convidados e parceiros externos, mantendo o controlo sobre os seus próprios dados corporativos. Para mais informações, consulte [a documentação do Azure Ative Directory B2B](../b2b/index.yml).|
+|Empresa-Empresa (B2B)|Gerencie os seus utilizadores convidados e parceiros externos, mantendo o controlo sobre os seus próprios dados corporativos. Para mais informações, consulte [a documentação do Azure Ative Directory B2B](../external-identities/index.yml).|
 |Empresa-Consumidor (B2C)|Personalize e controle como os utilizadores se inscrevem, se inscrevem e gerem os seus perfis ao utilizarem as suas apps. Para mais informações, consulte [a documentação do Azure Ative Directory B2C](../../active-directory-b2c/index.yml).|
 |Acesso Condicional|Gerencie o acesso às suas aplicações na nuvem. Para mais informações, consulte [a documentação de Acesso Condicionado AD Azure.](../conditional-access/index.yml)|
 |Gestão de Dispositivos|Faça a gestão da forma como os seus dispositivos na cloud ou no local acedem aos seus dados empresariais. Para mais informações, consulte [a documentação de Gestão de Dispositivos AD Azure.](../devices/index.yml)|
@@ -77,7 +77,7 @@ Depois de escolher a sua licença Azure AD, terá acesso a algumas ou todas as s
 |Identidade híbrida|Utilize o Azure Ative Directory Connect and Connect Health para fornecer uma única identidade de utilizador para autenticação e autorização a todos os recursos, independentemente da localização (nuvem ou no local). Para mais informações, consulte [a documentação de identidade híbrida.](../hybrid/index.yml)|
 |Governação de identidade|Gerencie a identidade da sua organização através de controlos de acesso a colaboradores, parceiros de negócios, fornecedores, serviços e acesso a aplicações. Também pode efetuar comentários de acesso. Para obter mais informações, consulte a [documentação de governação de identidade da Azure AD](../governance/identity-governance-overview.md) e [as avaliações de acesso a Ad da Azure.](../governance/access-reviews-overview.md)|
 |Proteção de identidade|Detetar potenciais vulnerabilidades que afetam as identidades da sua organização, configurar políticas para responder a ações suspeitas e, em seguida, tomar as medidas adequadas para resolvê-las. Para mais informações, consulte [a Azure AD Identity Protection](../identity-protection/index.yml).|
-|Identidades geridas dos recursos do Azure|Fornece aos seus serviços Azure uma identidade gerida automaticamente em Azure AD que pode autenticar qualquer serviço de autenticação suportado pela Azure, incluindo o Key Vault. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)|
+|Identidades geridas para os recursos do Azure|Fornece aos seus serviços Azure uma identidade gerida automaticamente em Azure AD que pode autenticar qualquer serviço de autenticação suportado pela Azure, incluindo o Key Vault. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)|
 |Privileged Identity Management (PIM)|Gerir, controlar e monitorizar o acesso dentro da sua organização. Esta funcionalidade inclui acesso a recursos em AZure AD e Azure, e outros Serviços Microsoft Online, como o Office 365 ou Intune. Para mais informações, consulte [Azure AD Gestão de Identidade Privilegiada.](../privileged-identity-management/index.yml)|
 |Relatórios e monitorização|Obtenha informações sobre os padrões de segurança e utilização no seu ambiente. Para obter mais informações, consulte [os relatórios e monitorização do Azure Ative Directory](../reports-monitoring/index.yml).|
 
@@ -102,7 +102,7 @@ Para melhor entender a Azure AD e a sua documentação, recomendamos a revisão 
 |Domínio personalizado|Cada novo diretório AD Azure vem com um nome de domínio inicial, domainname.onmicrosoft.com. Além desse nome inicial, também pode adicionar os nomes de domínio da sua organização, que incluem os nomes que usa para fazer negócios e os seus utilizadores usam para aceder aos recursos da sua organização, à lista. Adicionar nomes de domínio personalizados ajuda-o a criar nomes de utilizadores que sejam familiares aos seus utilizadores, tais como alain@contoso.com .|
 |Conta Microsoft (também chamada, MSA)|Contas pessoais que fornecem acesso aos seus produtos e serviços na nuvem orientados para o consumidor, tais como Outlook, OneDrive, Xbox LIVE ou Office 365. A sua conta Microsoft é criada e armazenada no sistema de contas de identidade de consumo da Microsoft que é gerido pela Microsoft.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Inscrever-se no Azure Active Directory Premium](active-directory-get-started-premium.md)
 

@@ -5,12 +5,12 @@ keywords: Azure, inteligência artificial, ai, processamento de linguagem natura
 ms.topic: overview
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 22fe99e1552a9612adfbc455d60852f1591a1a54
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 98d801f6a34feb40d56215f8b6257a68ec628e10
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752144"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320057"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -64,7 +64,7 @@ Desenhe o seu modelo com categorias de intenções de utilizador chamadas **[int
 |`When does your store open?`|HoráriodaLojaeLocalização|abre|
 |`Schedule a meeting at 1pm with Bob in Distribution`|AgendarReunião|13:00, João|
 
-Construa o modelo com as APIs [de autoria,](https://go.microsoft.com/fwlink/?linkid=2092087) ou com o [**portal LUIS,**](https://www.luis.ai)ou ambos. Saiba mais como construir com o [portal](get-started-portal-build-app.md) e as [bibliotecas de clientes SDK.](quickstart-sdk.md)
+Construa o modelo com as APIs [de autoria,](https://go.microsoft.com/fwlink/?linkid=2092087) ou com o [**portal LUIS,**](https://www.luis.ai)ou ambos. Saiba mais como construir com o [portal](get-started-portal-build-app.md) e as [bibliotecas de clientes SDK.](azure-sdk-quickstart.md)
 
 ## <a name="step-2-get-the-query-prediction"></a>Passo 2: Obter a previsão de consulta
 
@@ -126,10 +126,10 @@ A LUIS fornece funcionalidade a partir de Text Analytics como parte dos seus rec
 
 ## <a name="learn-with-the-quickstarts"></a>Aprenda com os Quickstarts
 
-Saiba mais sobre o LUIS com quickstarts práticos utilizando o [portal](get-started-portal-build-app.md) e as [bibliotecas de clientes SDK.](quickstart-sdk.md)
+Saiba mais sobre o LUIS com quickstarts práticos utilizando o [portal](get-started-portal-build-app.md) e as [bibliotecas de clientes SDK.](azure-sdk-quickstart.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Novidades](whats-new.md) com o serviço e documentação
 * [Planeie a sua app](luis-how-plan-your-app.md) com [intenções](luis-concept-intent.md) e [entidades.](luis-concept-entity-types.md)

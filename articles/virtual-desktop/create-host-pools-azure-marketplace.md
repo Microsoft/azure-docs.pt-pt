@@ -3,15 +3,15 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: Como criar um conjunto de anfitriões virtual do Windows desktop utilizando o portal Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 466180535b3fe7c7d0155c8b19ac287930341ee7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226102"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322590"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -131,9 +131,11 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
 7. Escolha que tipo de discos de SO pretende que os seus VMs utilizem: SSD Standard, Premium SSD ou HDD Standard.
 
-8. Em Rede e segurança, selecione a **rede Virtual** e **a Sub-rede** onde pretende colocar as máquinas virtuais que cria. Certifique-se de que a rede virtual pode ligar-se ao controlador de domínio, uma vez que terá de juntar as máquinas virtuais dentro da rede virtual ao domínio. Em seguida, selecione se deseja ou não um IP público para as máquinas virtuais. Recomendamos que selecione **Não,** porque um IP privado é mais seguro.
+8. Em Rede e segurança, selecione a **rede Virtual** e **a Sub-rede** onde pretende colocar as máquinas virtuais que cria. Certifique-se de que a rede virtual pode ligar-se ao controlador de domínio, uma vez que terá de juntar as máquinas virtuais dentro da rede virtual ao domínio. Os servidores DNS da rede virtual selecionada devem ser configurados para utilizar o IP do controlador de domínio.
 
-9. Selecione que tipo de grupo de segurança deseja: **Básico,** **Avançado**ou **Nenhum**.
+9. Em seguida, selecione se deseja um IP público para as máquinas virtuais. Recomendamos que selecione **Não** porque um IP privado é mais seguro.
+
+10. Selecione que tipo de grupo de segurança deseja: **Básico,** **Avançado**ou **Nenhum**.
 
     Se selecionar **Basic,** terá de selecionar se deseja uma porta de entrada aberta. Se selecionar **Sim,** escolha entre a lista de portas padrão para permitir ligações de entrada.
 
@@ -145,11 +147,13 @@ Para configurar a sua máquina virtual dentro do processo de configuração da p
 
     Se escolher **Advanced,** selecione um grupo de segurança de rede existente que já configura.
 
-10. Depois disso, selecione se deseja que as máquinas virtuais sejam unidas a um domínio específico e a uma unidade organizacional. Se escolher **Sim,** especifique o domínio a aderir. Pode opcionalmente adicionar uma unidade organizacional específica onde pretende que as máquinas virtuais estejam. Se escolher **Não,** os VMs serão unidos ao domínio correspondente ao sufixo do **domínio AD unem-se à UPN**.
+11. Depois disso, selecione se deseja que as máquinas virtuais sejam unidas a um domínio específico e a uma unidade organizacional. Se escolher **Sim,** especifique o domínio a aderir. Pode opcionalmente adicionar uma unidade organizacional específica onde pretende que as máquinas virtuais estejam. Se escolher **Não,** os VMs serão unidos ao domínio correspondente ao sufixo do **domínio AD unem-se à UPN**.
 
-11. Na conta de Administrador, insira as credenciais para o administrador de domínio do diretório ativo da rede virtual selecionada.
+  - Ao especificar um OU, certifique-se de que utiliza todo o caminho (Nome Distinto) e sem aspas.
 
-12. Selecione **Seguinte: Workspace >**.
+12. Na conta de Administrador, insira as credenciais para o administrador de domínio do diretório ativo da rede virtual selecionada. Esta conta não pode ter a autenticação multi-factored (MFA) ativada. Ao aderir a um domínio Azure Ative Directory Domain Services (Azure AD DS), a conta deve fazer parte do grupo de administradores AD DC Azure e a palavra-passe da conta deve funcionar em Azure AD DS.
+
+13. Selecione **Seguinte: Workspace >**.
 
 Com isso, estamos prontos para iniciar a próxima fase de configuração do seu pool de anfitriões: registar o seu grupo de aplicações num espaço de trabalho.
 
@@ -185,7 +189,7 @@ Para registar o grupo de aplicações de desktop num espaço de trabalho:
 
 Depois disso, já acabou!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que fez a sua piscina de anfitriões, pode povoá-la com programas RemoteApp. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, dirija-se ao nosso próximo tutorial:
 

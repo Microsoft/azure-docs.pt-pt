@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4d025057cf8992e1dc54a0fd4a07814c7cbb13d3
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 71e6d159a7bb69e5aab28752f5ecf1eacaebd624
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88748789"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321902"
 ---
 <a name="HOLTop"></a>
 
@@ -243,17 +243,17 @@ Execute a aplicação com o `node` comando no seu ficheiro quickstart.
 node index.js
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 >[Referência API de visão computacional (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [O que é a Imagem Digitalizada?](../../Home.md)
+* [O que é a Imagem Digitalizada?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 08/11/2020
-ms.openlocfilehash: 507c91ee4a2c61bba0af9611325bcf01b27fc6d6
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: c1527161948a6312fc0877748b2818b3ccc2143e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289142"
+ms.locfileid: "89322624"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriais de vídeo sobre fluxo de dados de mapeamento
 
@@ -129,7 +129,7 @@ Como as atualizações são constantemente feitas ao produto, algumas funcionali
 
 [Padrão de endereços limpos](https://youtu.be/axEYbuU3lmw)
 
-[Eliminação de duplicados](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Eliminação de duplicados](https://youtu.be/QOi26ETtPTw)
 
 [Arquivos de fusão](http://youtu.be/WbDTBAyYte8)
 

@@ -4,7 +4,7 @@
   items:
     - name: Sobre a Rede Virtual
       href: virtual-networks-overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   items:
     - name: Criar rede virtual - Portal
       href: quick-create-portal.md
@@ -37,9 +37,6 @@
       href: powershell-samples.md
     - name: Modelos do Resource Manager
       href: template-samples.md
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Continuidade do negócio
@@ -226,6 +223,12 @@
               href: ipv6-reserve-public-ip-address-prefix.md
         - name: Endereçamento IP
           items:
+            - name: Criar endereços IP públicos - portal
+              href: create-public-ip-portal.md
+            - name: Criar endereços IP públicos - PowerShell
+              href: create-public-ip-powershell.md
+            - name: Criar endereços IP públicos - CLI do Azure
+              href: create-public-ip-cli.md
             - name: Gerir endereços IP públicos
               href: virtual-network-public-ip-address.md
             - name: Gerir prefixo de IP público
@@ -432,6 +435,9 @@
       href: /azure/templates/microsoft.network/allversions
     - name: Exemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 5925d80f23052324e5512908241ed573c681d835
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 57202752a965ad0405a04b2eba4cdf42070c94bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590256"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319513"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Criar uma aplicação .NET Core com Configuração de Aplicações
 
@@ -44,7 +44,7 @@ Utiliza a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft
 
 1. Crie uma pasta nova para o projeto.
 
-2. Na nova pasta, executar o seguinte comando para criar um novo projeto de aplicação ASP.NET core consola:
+2. Na nova pasta, executar o seguinte comando para criar um novo projeto de aplicação de consola .NET Core:
 
     ```dotnetcli
     dotnet new console
@@ -118,11 +118,11 @@ Utiliza a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft
     dotnet run
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação de consola .NET Core através do fornecedor de Configuração de [Aplicações.](https://go.microsoft.com/fwlink/?linkid=2074664) Para aprender a configurar a sua aplicação .NET Core para atualizar dinamicamente as definições de configuração, continue até ao próximo tutorial.
 

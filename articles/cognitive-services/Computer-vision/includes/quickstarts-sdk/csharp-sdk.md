@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5903d6c58e080b658bbd80a5f774b441d6c91b8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3ec3e44c667d6821c4a6dc0779a760b65de5046e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936877"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321911"
 ---
 <a name="HOLTop"></a>
 
@@ -260,10 +260,10 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 >[Referência API de Visão Computacional (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
-* [O que é a Imagem Digitalizada?](../../Home.md)
+* [O que é a Imagem Digitalizada?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

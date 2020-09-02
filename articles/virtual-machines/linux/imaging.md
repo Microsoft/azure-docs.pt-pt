@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815305"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319547"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens Linux em Azure
 
@@ -46,7 +46,7 @@ O Azure oferece dois tipos principais de imagem, generalizados e especializados.
 
 ### <a name="generalized-images"></a>Imagens generalizadas
 
-Uma imagem generalizada é uma imagem que requer que a configuração seja concluída na primeira bota. Por exemplo, na primeira bota, definiu o nome de anfitrião, o utilizador administrativo e outras configurações específicas de VM. Isto é útil quando se quer que a imagem seja reutilizada várias vezes, e quando pretende passar em parâmetros durante a criação. Se a imagem generalizada contiver o agente Azure, o agente processará os parâmetros e sinalizará de volta para a plataforma que a configuração inicial completou. Este processo chama-se **provisionamento.** 
+Uma imagem generalizada é uma imagem que requer que a configuração seja concluída na primeira bota. Por exemplo, na primeira bota, definiu o nome de anfitrião, o utilizador administrativo e outras configurações específicas de VM. Isto é útil quando se quer que a imagem seja reutilizada várias vezes, e quando pretende passar em parâmetros durante a criação. Se a imagem generalizada contiver o agente Azure, o agente processará os parâmetros e sinalizará de volta para a plataforma que a configuração inicial completou. Este processo chama-se [provisionamento.](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning) 
 
 O provisionamento requer que um provisionador seja incluído na imagem. Há dois provisionadores:
 - [Agente Azure Linux](../extensions/agent-linux.md)
@@ -108,6 +108,6 @@ Se ainda precisar de criar a sua própria imagem, certifique-se de que cumpre os
 - [Ubuntu](create-upload-ubuntu.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como criar uma [Galeria de Imagens Partilhadas.](tutorial-custom-images.md)

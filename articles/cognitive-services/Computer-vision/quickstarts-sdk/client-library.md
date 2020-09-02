@@ -1,27 +1,32 @@
 ---
-title: 'Quickstart: Biblioteca de clientes da Computação Vision Microsoft Docs'
+title: 'Quickstart: Biblioteca de clientes da Visão De Computador'
 titleSuffix: Azure Cognitive Services
-description: Utilize este quickstart para ligar as suas aplicações à API de Visão Computacional dos Serviços Cognitivos Azure.
+description: Aprenda a usar a Azure Computer Vision na sua aplicação através de uma biblioteca de clientes nativos na língua à sua escolha.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 08/31/2020
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom:
+- devx-track-python
+- devx-track-javascript
+- devx-track-csharp
+- cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: bc5b0d05dc1e9e7c09781dba63c2031c72da73ff
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+keywords: visão computacional, serviço de visão computacional
+ms.openlocfilehash: 87ff6a03f45fe61b44712166966a1fe3851ffb41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050285"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321879"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Quickstart: Use a biblioteca de clientes Da Visão de Computador
 
-Começa com a biblioteca de clientes da Visão De Computador. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. A Computer Vision fornece-lhe acesso a algoritmos avançados para processar imagens e devolver informações.
+Começa com a biblioteca de clientes da Visão De Computador. O serviço De Visão De Computador fornece-lhe algoritmos de IA para processar imagens e devolver informações sobre as suas características visuais. Siga estes passos para instalar um pacote na sua aplicação e experimente o código de amostra para tarefas básicas.
 
 Utilize a biblioteca do cliente da Visão De Computador para:
 

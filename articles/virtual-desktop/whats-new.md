@@ -3,16 +3,17 @@ title: Quais as novidades no Windows Virtual Desktop? - Azure
 description: Novas funcionalidades e atualizações de produtos para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/07/2020
+ms.date: 09/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 8663fc3f016fadcd4f4c99acd800cd0ccf8844f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: references_regions
+ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003526"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319819"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -24,6 +25,31 @@ Atualizações de Ambiente de Trabalho Virtual do Windows regularmente. Este art
 - Correções de erros
 
 Este artigo é atualizado mensalmente. Certifique-se de voltar aqui muitas vezes para acompanhar novas atualizações.
+
+## <a name="august-2020"></a>Agosto de 2020
+
+Eis o que mudou em agosto de 2020:
+
+- Melhorámos o desempenho para reduzir a latência da ligação nas seguintes regiões de Azure: 
+
+    - Reino Unido
+    - França
+    - Noruega
+    - Coreia do Sul
+
+   Pode utilizar o [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) para ter uma ideia geral de como estas alterações irão afetar os seus utilizadores.
+
+- O Cliente de Ambiente de Trabalho Remoto da Microsoft Store (v10.2.1522+) já está disponível em geral! Esta versão do Cliente de Ambiente de Trabalho Remoto da Microsoft Store é compatível com o Windows Virtual Desktop. Também introduzimos fluxos de UI atualizados para melhores experiências de utilizador. Esta atualização inclui design fluente, modos claros e escuros, e muitas outras mudanças emocionantes. Também reecrito o cliente para usar o mesmo motor de protocolo remoto de desktop (RDP) subjacente como os clientes iOS, macOS e Android. Isto permite-nos oferecer novas funcionalidades a um ritmo mais rápido em todas as plataformas. [Descarregue o cliente](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab) e tente!
+
+- Corrigimos um problema no cliente Teams Desktop (versão 1.3.00.21759) onde o cliente apenas mostrou o fuso horário UTC no chat, canais e calendário. O cliente atualizado mostra agora o fuso horário da sessão remota.
+
+- O Azure Advisor faz agora parte do Windows Virtual Desktop. Ao aceder ao Windows Virtual Desktop através do portal Azure, pode ver recomendações para otimizar o ambiente de trabalho virtual do Windows. Saiba mais na [Azure Advisor](azure-advisor.md).
+
+- O Azure CLI suporta agora o Windows Virtual Desktop ( `az desktopvirtualization` ) para o ajudar a automatizar as suas implementações de Ambiente de Trabalho Virtual do Windows. Consulte a [verificação de desktop](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) para obter uma lista de comandos de extensão.
+
+- Atualizámos os nossos modelos de implementação para os tornar totalmente compatíveis com as interfaces do Windows Virtual Desktop Azure Resource Manager. Pode encontrar os modelos no [GitHub.](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates)
+
+- O portal Windows Virtual Desktop US Gov está agora em pré-visualização pública. Para saber mais, consulte o [nosso anúncio.](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-available-in-the-azure-government-cloud-in-preview/)
 
 ## <a name="july-2020"></a>Julho de 2020  
 
@@ -105,9 +131,7 @@ Fizemos algumas melhorias nas Equipas microsoft para o Windows Virtual Desktop. 
 
 Para saber mais, consulte a [nossa publicação de blog.](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/)
 
-## <a name="next-steps"></a>Passos seguintes
-
-Saiba mais sobre os planos futuros no [roteiro virtual do Microsoft 365 Windows Desktop.](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop)
+## <a name="client-updates"></a>Atualizações de clientes
 
 Consulte estes artigos para saber mais sobre as atualizações para os nossos clientes para Windows Virtual Desktop e Remote Desktop Services:
 
@@ -116,3 +140,8 @@ Consulte estes artigos para saber mais sobre as atualizações para os nossos cl
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="next-steps"></a>Próximos passos
+
+Saiba mais sobre os planos futuros no [roteiro virtual do Microsoft 365 Windows Desktop.](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop)
+

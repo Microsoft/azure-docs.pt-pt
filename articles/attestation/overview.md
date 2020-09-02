@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: bc6f52ed175e55b283e3c41408c15b818a85d6b7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ad164f8af3e5506ae5ac9121010b99303286dd1f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237436"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320601"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (pré-visualização)
 
@@ -65,10 +65,11 @@ Os clientes da Azure Attestation expressaram a exigência de que a Microsoft est
 
 A azure Attestation é a escolha preferida para atestar tees, uma vez que oferece os seguintes benefícios: 
 
-- Serviço Azure gratuito com elevada disponibilidade
-- Aproveita o Diretório Ativo Azure para autenticar pedidos de clientes. Isto permite ao Azure Attestation realizar atestado com base na identidade e propriedade
-- Apoia políticas que permitem aos proprietários de inquilinos restringir a geração simbólica
-- Oferece proteção dos seus dados durante a sua utilização com implementação num enclave SGX
+- Quadro unificado para atestar múltiplos TEEs, tais como enclaves SGX e enclaves VBS
+- Serviço multi-inquilino que permite configurar fornecedores e políticas de atestado personalizados para restringir a geração de token
+- Oferece fornecedores predefinidos que podem atestar sem configuração dos utilizadores
+- Protege os seus dados durante a utilização com implementação num enclave SGX
+- Serviço altamente disponível que oferecerá Contrato de Nível de Serviço (SLA)
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Apoio à continuidade do negócio e recuperação de desastres (BCDR)
 
@@ -86,7 +87,7 @@ Os aglomerados implantados em duas regiões funcionarão de forma independente e
 - Todas as operações do avião de controlo serão bloqueadas. Os clientes não serão capazes de criar fornecedores de atestados e atualizar políticas na região primária
 - Todas as operações de avião de dados, incluindo atesta, as chamadas continuarão a funcionar na região primária
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Conheça os [conceitos básicos do Azure Attestation](basic-concepts.md)
 - [Como autor e assinar uma política de atestado](author-sign-policy.md)
 - [Configurar a Azure Attestation usando o PowerShell](quickstart-powershell.md)

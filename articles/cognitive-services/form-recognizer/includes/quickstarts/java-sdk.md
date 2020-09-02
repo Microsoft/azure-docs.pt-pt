@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: f5f2678078850ad17fa72439df9c963b60ad7a9d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 30c486ccb7bf3b7d537cd1ed3475a8dadc5b4f6d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237981"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89325889"
 ---
 > [!IMPORTANT]
 > * O SDK do Reconhecimento de Formulários tem atualmente como alvo v2.0 do serviço From Recogniser.
@@ -61,7 +61,7 @@ mkdir -p src/main/java
 
 Este quickstart usa o gestor de dependência gradle. Pode encontrar a biblioteca do cliente e informações para outros gestores de dependência no [Repositório Central de Maven.](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)
 
-No ficheiro *build.gradle.kts* do seu projeto, certifique-se de incluir a biblioteca do cliente como `implementation` declaração, juntamente com os plugins e configurações necessários.
+No ficheiro *build.gradle.kts* do seu projeto, inclua a biblioteca do cliente como `implementation` declaração, juntamente com os plugins e configurações necessários.
 
 ```kotlin
 plugins {
@@ -79,7 +79,7 @@ dependencies {
 }
 ```
 
-Navegue para a nova pasta **src/main/java** e crie um ficheiro chamado *FormRecognizer.java*. Abra-o no seu editor preferido ou IDE e adicione as `import` seguintes declarações:
+Navegue para a nova pasta **src/main/java** e crie um ficheiro chamado *Management.java*. Abra-o no seu editor preferido ou IDE e adicione as `import` seguintes declarações:
 
 ```java
 import com.azure.ai.formrecognizer.*;
@@ -680,7 +680,7 @@ try {
 
 Os SDKs Azure para Java oferecem uma história de registo consistente para ajudar a resolver erros de aplicação e acelerar a sua resolução. Os registos produzidos captarão o fluxo de uma aplicação antes de chegarem ao estado terminal para ajudar a localizar o problema de raiz. Consulte o [wiki de registo para](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK) obter orientações sobre a ativação do registo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você usou a biblioteca cliente Do Reconhecimento de Formulários Java para treinar modelos e analisar formas de diferentes maneiras. Em seguida, aprenda dicas para criar um melhor conjunto de dados de treino e produzir modelos mais precisos.
 

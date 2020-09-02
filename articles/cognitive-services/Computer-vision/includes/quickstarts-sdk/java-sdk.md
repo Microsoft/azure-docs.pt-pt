@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/19/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 8dce26f6cfa13744c75625ea0240487f1d4f2278
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 2b305b1ffc5c72780f903c7798fbce24c630baba
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89094331"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321886"
 ---
 <a name="HOLTop"></a>
 
@@ -267,12 +267,12 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a usar a biblioteca Computer Vision Java para fazer tarefas de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 
 > [!div class="nextstepaction"]
 >[Referência da Visão Computacional (Java)](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
 
-* [O que é a Imagem Digitalizada?](../../Home.md)
+* [O que é a Imagem Digitalizada?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

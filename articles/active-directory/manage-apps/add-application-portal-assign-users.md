@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0e31852b6cf40cec9161c6904ce99798f1ee4996
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9d396c0787798c783b44748dc2461c073334cc7e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303900"
+ms.locfileid: "89322505"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade
 
@@ -38,7 +38,7 @@ Para atribuir os utilizadores a uma aplicação que adicionou ao seu inquilino A
 1. No portal AD Azure, selecione **aplicações Enterprise**. Em seguida, encontre e selecione a aplicação que pretende configurar.
 2. No menu de navegação à esquerda, selecione **Utilizadores e grupos**.
    > [!NOTE]
-   > Se pretender atribuir utilizadores a aplicações da Microsoft, como aplicações do Office 365, algumas destas aplicações utilizam o PowerShell. 
+   > Algumas das aplicações Microsoft 365 e Office 365 requerem a utilização do PowerShell. 
 3. Selecione o botão **de utilizador Adicionar.**
 4. No painel **de atribuição de** adicionar, selecione **Utilizadores e grupos**.
 5. Selecione o utilizador ou grupo que pretende atribuir à aplicação. Também pode começar a digitar o nome do utilizador ou grupo na caixa de pesquisa. Pode escolher vários utilizadores e grupos e as suas seleções aparecerão em **itens selecionados.**
@@ -55,12 +55,14 @@ Para atribuir os utilizadores a uma aplicação que adicionou ao seu inquilino A
     > Se a aplicação não apoiar a seleção de funções, a função de acesso predefinida é atribuída. Neste caso, a aplicação gere o nível de acesso que os utilizadores têm.
 9. No painel **de atribuição de** adicionar, selecione o botão **Atribuir** na parte inferior do painel.
 
+> [!NOTE]
+> Pode desatribuição de utilizadores ou grupos utilizando o mesmo procedimento. Selecione o utilizador ou grupo que pretende não assinar e, em seguida, selecione **Remover**. Algumas das aplicações Microsoft 365 e Office 365 requerem a utilização do PowerShell. 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de terminar com o quickstart, considere apagar a aplicação. Assim pode manter o seu inquilino de teste limpo. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a configurar um único sº de sôs-on para uma aplicação.
 > [!div class="nextstepaction"]

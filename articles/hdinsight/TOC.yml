@@ -949,6 +949,8 @@
           href: ./disk-encryption.md
         - name: Sincronização LDAP no Ranger e Apache Ambari
           href: ./domain-joined/ldap-sync.md
+        - name: Encriptação dupla em circulação
+          href: ./domain-joined/encryption-in-transit.md
     - name: Guias de procedimentos
       items:
         - name: Utilizar o Mediador de ID para a gestão de credenciais
