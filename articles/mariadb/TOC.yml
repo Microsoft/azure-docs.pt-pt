@@ -38,9 +38,6 @@
   items:
     - name: CLI do Azure
       href: sample-scripts-azure-cli.md
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: BD e Servidores
@@ -244,6 +241,9 @@
       href: /azure/templates/microsoft.dbformariadb/allversions
     - name: Procedimentos armazenados de gestão
       href: reference-stored-procedures.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Modelos de implementação

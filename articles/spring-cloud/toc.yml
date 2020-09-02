@@ -5,7 +5,7 @@
   items:
     - name: O que é o Azure Spring Cloud?
       href: spring-cloud-overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Iniciar a sua primeira aplicação
@@ -47,11 +47,6 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Implementar o Azure Spring Cloud na rede virtual
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
-- name: Amostras
-  items:
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Compreender a aplicação e a implementação
@@ -126,3 +121,6 @@
       href: spring-cloud-faq.md
     - name: Referência da API REST
       href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md

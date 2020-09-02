@@ -44,9 +44,6 @@
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: CLI do Azure
       href: cli-samples.md
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Segurança
@@ -268,6 +265,9 @@
           href: batch-task-complete-event.md
         - name: Evento de falha de tarefa
           href: batch-task-fail-event.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Atualizações do Azure

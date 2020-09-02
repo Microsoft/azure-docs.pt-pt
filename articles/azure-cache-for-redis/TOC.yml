@@ -4,7 +4,7 @@
   items:
     - name: Acerca da Cache do Azure para Redis
       href: cache-overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar uma cache
@@ -161,7 +161,8 @@
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.cache/allversions
     - name: Incorporações do Azure Policy
-      href: ./policy-samples.md
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Comandos da redis
       href: 'https://redis.io/commands#'
 - name: Recursos

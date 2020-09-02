@@ -94,8 +94,6 @@
       href: template-samples.md
     - name: Exemplos de código
       href: /samples/browse/?term=Event+Grid
-    - name: Incorporações do Azure Policy
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Terminologia do Event Grid
@@ -296,6 +294,9 @@
           href: /azure/templates/microsoft.eventgrid/topics
     - name: SDKs
       href: sdk-overview.md
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

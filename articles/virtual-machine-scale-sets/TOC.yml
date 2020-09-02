@@ -93,9 +93,6 @@
           href: ./scripts/powershell-single-av-zone-scale-set.md
         - name: Criar um conjunto de dimensionamento com redundância entre zonas
           href: ./scripts/powershell-sample-zone-redundant-scale-set.md
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Azure Resource Manager
@@ -394,6 +391,9 @@
       href: /rest/api/virtualmachinescalesets/
     - name: Modelos do Azure
       href: /azure/templates/microsoft.compute/virtualmachinescalesets
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Mapa do Azure

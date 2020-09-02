@@ -4,7 +4,7 @@
   items:
     - name: Acerca do AKS
       href: intro-kubernetes.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar um cluster do AKS
@@ -40,11 +40,6 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 - Atualizar cluster
       href: tutorial-kubernetes-upgrade-cluster.md
-- name: Amostras
-  items:
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Clusters e cargas de trabalho
@@ -388,6 +383,9 @@
       href: /javascript/api/overview/azure/container-service
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.containerservice/managedclusters
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

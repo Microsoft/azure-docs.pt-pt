@@ -4,12 +4,6 @@
   items:
     - name: Acerca do Kubernetes preparado para o Arc
       href: overview.md
-- name: Amostras
-  items:
-    - name: Incorporações do Azure Policy
-      items:
-        - name: Kubernetes preparado para o Arc
-          href: policy-samples.md
 - name: Guias de procedimentos
   items:
     - name: Ligar ao Azure Arc
@@ -34,3 +28,8 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: Resolução de problemas
       href: Troubleshooting.md
+- name: Referência
+  items:
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md

@@ -10,9 +10,6 @@
     - name: Índice
       displayName: 'template, sample'
       href: ./samples/index.md
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./samples/policy-samples.md
 - name: Conceitos
   items:
     - name: Gestão de recursos delegados do Azure
@@ -95,6 +92,9 @@
       href: /rest/api/managedservices/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./samples/policy-reference.md
 - name: Recursos
   items:
     - name: Perguntas e Respostas da Microsoft para o Azure Lighthouse

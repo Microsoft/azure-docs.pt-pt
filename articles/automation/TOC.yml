@@ -27,11 +27,6 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Criar um runbook de Python
       href: learn/automation-tutorial-runbook-textual-python2.md
-- name: Amostras
-  items:
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Descrição geral da autenticação da conta de Automatização
@@ -325,6 +320,9 @@
       href: /dotnet/api/microsoft.azure.management.automation
     - name: REST
       href: /rest/api/automation
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Vídeo de introdução à Automatização

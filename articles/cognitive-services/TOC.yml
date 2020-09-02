@@ -26,10 +26,6 @@
       href: resource-manager-template.md
     - name: Registo de diagnósticos
       href: diagnostic-logging.md
-- name: Amostras
-  items:
-    - name: Incorporações do Azure Policy
-      href: ./policy-samples.md
 - name: Segurança
   items:
     - name: Segurança dos Serviços Cognitivos
@@ -86,6 +82,11 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: 'Receita: Explorador de Arte'
           href: ./big-data/recipes/art-explorer.md
+- name: Referência
+  items:
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Mapa do Azure

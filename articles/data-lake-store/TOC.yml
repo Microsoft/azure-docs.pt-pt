@@ -22,11 +22,6 @@
       href: data-lake-store-get-started-powershell.md
     - name: Utilizar a CLI do Azure
       href: data-lake-store-get-started-cli-2.0.md
-- name: Amostras
-  items:
-    - name: Incorporações do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Procedimento
   items:
     - name: Carregar e mover dados
@@ -177,6 +172,9 @@
       href: /azure/templates/microsoft.datalakestore/allversions
     - name: CLI do Azure
       href: 'https://docs.microsoft.com/cli/azure/dls'
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: 0c1a007881734feb5e78b91cd835dae7022228df
-  ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+  ms.openlocfilehash: a6348b967e814a49c766388540a594987af2231e
+  ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/21/2020
-  ms.locfileid: "88718803"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89296943"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -29,7 +29,7 @@ landingContent:
     - text: Componentes do Balanceador de Carga
       url: components.md
     - text: Novidades
-      url: whats-new.md
+      url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
     - text: SKUs do Balanceador de Carga
       url: skus.md
 - title: Introdução
