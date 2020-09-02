@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6ac8638efc09efe6d74f634c4042346d738d44ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924202"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290354"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Java usando APIs de REST
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
 Cada pedido enviado ao seu serviço requer uma chave api. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="set-up-your-environment"></a>Configurar o ambiente
+## <a name="set-up-your-environment"></a>Configurar o seu ambiente
 
 Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
@@ -373,7 +373,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 1. Verifique se o seu projeto tem a seguinte estrutura.
 
-    ![Estrutura do diretório do projeto](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![Estrutura de diretório de projeto mais aulas](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java` 
  ![ Execute o objetivo maven: verifique exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)

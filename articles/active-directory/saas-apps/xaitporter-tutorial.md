@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bdea7fc3c295016204a80772bdf367dda7e194fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546309"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integração do Azure Ative Directory com o XaitPorter
 
@@ -112,7 +112,7 @@ Para configurar o Azure AD com o XaitPorter, execute os seguintes passos:
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-6. Forneça o **endereço IP** ou o Url **de Metadados da Federação de Aplicações** à [equipa de suporte smartRecruiters,](https://www.smartrecruiters.com/about-us/contact-us/)para que o XaitPorter possa garantir que o endereço IP é acessível a partir da sua instância XaitPorter configurando a lista branca ao seu lado. 
+6. Forneça o **endereço IP** ou o Url **de Metadados da Federação de Aplicações** à [equipa de suporte smartRecruiters,](https://www.smartrecruiters.com/about-us/contact-us/)para que o XaitPorter possa garantir que o endereço IP seja acessível a partir da sua lista de identificação de instâncias XaitPorter ao seu lado. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configurar XaitPorter single sign-on
 
@@ -213,4 +213,3 @@ Quando clicar no azulejo XaitPorter no Painel de Acesso, deverá ser automaticam
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

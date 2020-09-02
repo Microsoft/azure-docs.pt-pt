@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6d958cd2fa95cd3c3747afc80b47c17f55e4248a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 251dbf6897f7efe56d968122c2ccad7093d39e44
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405539"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300056"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa na Web do Bing
 
@@ -443,7 +443,7 @@ As políticas de segurança do browser, como a Partilha de Recursos Transversais
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a sua chave de subscrição da API de Pesquisa do Bing terá de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer um pedido através de um proxy da CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
+Para fins de programação, pode fazer um pedido através de um proxy da CORS. A resposta deste tipo de proxy tem um `Access-Control-Expose-Headers` cabeçalho que filtra cabeçalhos de resposta e os coloca disponíveis para o JavaScript.
 
 É fácil instalar um proxy da CORS para permitir que a nossa aplicação de exemplo aceda ao cabeçalho do ID de cliente. Execute este comando:
 
@@ -465,7 +465,7 @@ cors-proxy-server
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de exemplo. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP abaixo dos resultados da pesquisa, o cabeçalho `X-MSEdge-ClientID` deverá estar visível. Verifique que é o mesmo para todos os pedidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API de Pesquisa na Web do Bing v7](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

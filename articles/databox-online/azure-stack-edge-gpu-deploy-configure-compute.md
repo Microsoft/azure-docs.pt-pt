@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: a5e0817050f8411dfc7fc64edae21f1b927e4e5c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f4a8786c8d86f43d3433dd51fe7696fd523025a9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262996"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293569"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Tutorial: Configurar computação no dispositivo GPU Azure Stack Edge
 
@@ -58,8 +58,8 @@ Para configurar o cálculo no seu Azure Stack Edge, irá criar um recurso IoT Hu
    
     |Campo  |Valor  |
     |---------|---------|
-    |Hub IoT     | Escolha entre **Novo** ou **Já.** <br> Por padrão, um nível Standard (S1) é usado para criar um recurso IoT. Para utilizar um recurso IoT de nível livre, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Name     |Insira um nome para o seu recurso IoT Hub.         |
+    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por padrão, um nível Standard (S1) é usado para criar um recurso IoT. Para utilizar um recurso IoT de nível livre, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
 
     ![Começar com o computo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
@@ -105,7 +105,7 @@ Para configurar um cliente para aceder ao cluster Kubernetes, você precisará d
     
         ![Página do dispositivo no UI local 3](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
 
-        O `aseuser` ficheiro config permite-lhe depurar quaisquer problemas relacionados com o `iotedge` espaço de nome no seu cluster Kubernetes. Para mais informações, consulte [os problemas de Debug Kubernetes.](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge) 
+        Pode utilizar este ficheiro config para iniciar sedições no painel de instrumentos de Kubernetes ou depurar quaisquer problemas no seu cluster Kubernetes. Para obter mais informações, consulte [o painel access Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#access-dashboard). 
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: edbb3c1b2ed3e696c304f72c7b40fa926cae2c54
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3c660c5e301081ee82a12275b6e9125f0fc781b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021193"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289822"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Escalar uma aplicação em Azure Spring Cloud
 
@@ -27,7 +27,7 @@ Depois de terminar, saberá como escamar alterações manuais rápidas em cada a
 Para seguir estes procedimentos, é necessário:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-* Uma instância de serviço Azure Spring Cloud implantada.  Siga o [quickstart na implementação de uma aplicação através do CLI Azure](spring-cloud-quickstart-launch-app-cli.md) para começar.
+* Uma instância de serviço Azure Spring Cloud implantada.  Siga o [quickstart na implementação de uma aplicação através do CLI Azure](spring-cloud-quickstart.md) para começar.
 * Pelo menos uma aplicação já criada na sua instância de serviço.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Navegue para a página escala no portal Azure
@@ -58,7 +58,7 @@ Certifique-se de **selecionar Guardar** para aplicar as suas definições de esc
 
 ![O serviço Escala no portal Azure](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
-Após alguns segundos, as alterações efetuadas são apresentadas na página **'Vista Geral',** com mais detalhes disponíveis no separador **Instâncias de Aplicação.**
+Após alguns segundos, as alterações efetuadas são apresentadas na página **'Vista Geral',** com mais detalhes disponíveis no separador **Instâncias de Aplicação.** A escala não requer alterações de código ou redistribuição.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Atualizar para o escalão Standard
 Se estiver no nível Básico e limitado por um ou mais [destes limites,](spring-cloud-quotas.md)pode fazer upgrade para o nível Standard. Para isso, aceda ao menu de nível de preços, selecionando primeiro a coluna standard e clicando no botão **Upgrade.**

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: c960a4aeaeea41f23c7f29351b9205c4bbf21454
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: fc803cbe3dd1ec57b6cd286513efe8393a1471e9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177232"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297132"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação Azure Spring Cloud
 
@@ -81,7 +81,7 @@ Esta aplicação terá acesso para obter segredos do Azure Key Vault. Utilize a 
 
 1. Gere um projeto de amostra a partir de start.spring.io com o Azure Key Vault Spring Starter. 
     ```azurecli
-    curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault-secrets -d baseDir=springapp -d bootVersion=2.3.1.RELEASE | tar -xzvf -
+    curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault-secrets -d baseDir=springapp -d bootVersion=2.3.1.RELEASE -d javaVersion=1.8 | tar -xzvf -
     ```
 
 2. Especifique o seu Cofre-Chave na sua aplicação. 

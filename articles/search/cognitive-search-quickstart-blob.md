@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 9bbe06cbdc5ad349995d93d01cc325ed8d7951a0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8fba7245475c9873a3e2d3abeda4806d1376e7ca
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935403"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300039"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Quickstart: Criar uma pesquisa cognitiva Azure no portal Azure
 
@@ -76,7 +76,7 @@ Em seguida, configurar o enriquecimento de IA para invocar OCR, análise de imag
 
 1. Para este arranque rápido, estamos a usar o recurso **Serviços** Cognitivos Gratuitos. Os dados da amostra consistem em 14 ficheiros, pelo que o loteamento gratuito de 20 transações nos Serviços Cognitivos é suficiente para este arranque rápido. 
 
-   ![Anexar Serviços Cognitivos](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Anexar Serviços Cognitivos anexar serviço de base](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 1. Expandir **Adicione enriquecimentos** e faça quatro seleções. 
 
@@ -86,7 +86,7 @@ Em seguida, configurar o enriquecimento de IA para invocar OCR, análise de imag
 
    Escolha competências de reconhecimento de entidades (pessoas, organizações, locais) e competências de análise de imagem.
 
-   ![Anexar Serviços Cognitivos](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Anexar serviços de seleção de Serviços Cognitivos para skillset](media/cognitive-search-quickstart-blob/skillset.png)
 
    Continue para a próxima página.
 

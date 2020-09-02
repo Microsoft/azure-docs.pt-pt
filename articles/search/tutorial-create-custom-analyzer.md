@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: 667ee4b362d62cd4b7bd1b6c5a8ecf762adb0730
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936627"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290315"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -239,7 +239,7 @@ Os analisadores consistem em três componentes:
 
 No diagrama abaixo, pode ver como estes três componentes trabalham em conjunto para tokenizar uma frase:
 
-  ![Diagrama do processo do Analisador](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  ![Diagrama do processo do Analisador para tokenizar uma frase](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
 Estes tokens são então armazenados num índice invertido, o que permite pesquisas rápidas e completas de texto.  Um índice invertido permite a pesquisa por texto completo mapeando todos os termos únicos extraídos durante a análise lexical aos documentos em que ocorrem. Pode ver um exemplo no diagrama abaixo:
 
@@ -251,7 +251,7 @@ Toda a procura se resume a procurar os termos armazenados no índice invertido. 
 1. O índice invertido é então digitalizado para documentos com termos correspondentes.
 1. Finalmente, os documentos recuperados são classificados pelo [algoritmo de semelhança.](index-ranking-similarity.md)
 
-  ![Diagrama do processo do Analisador](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  ![Diagrama do processo do Analisador classificando a semelhança](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 Se os termos de consulta não corresponderem aos termos do seu índice invertido, os resultados não serão devolvidos. Para saber mais sobre como funcionam as consultas, consulte este artigo na pesquisa completa por [texto.](search-lucene-query-architecture.md)
 

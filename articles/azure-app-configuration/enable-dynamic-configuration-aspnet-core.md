@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585021"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300294"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Use configuração dinâmica numa aplicação core ASP.NET
 
@@ -53,13 +53,11 @@ Antes de continuar, termine [Criar uma aplicação Core ASP.NET com a Configura�
 Uma *chave sentinela* é uma chave especial usada para sinalizar quando a configuração foi alterada. A sua aplicação monitoriza a chave sentinela para alterações. Quando uma alteração é detetada, atualiza-se todos os valores de configuração. Esta abordagem reduz o número total de pedidos feitos pela sua app para a Configuração de Aplicações, em comparação com a monitorização de todas as teclas para alterações.
 
 1. No portal Azure, selecione **Configuration Explorer > Criar > valor-chave**.
-
 1. Para **tecla**, introduza *TestApp:Definições:Sentinela*. Para **Valor,** insira 1. Deixe **o rótulo** e o **conteúdo** em branco.
-
 1. Selecione **Aplicar**.
 
-    > [!NOTE]
-    > Se não estiver a usar uma chave sentinela, terá de registar manualmente todas as chaves que pretende ver.
+> [!NOTE]
+> Se não estiver a usar uma chave sentinela, tem de registar manualmente todas as chaves que pretende ver.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar dados da Configuração de Aplicações
 
@@ -162,9 +160,8 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     }
     ```
     ---
-
-    > [!TIP]
-    > Para saber mais sobre o padrão de opções ao ler valores de configuração, consulte [padrões de opções em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > [!Tip]
+    > Para saber mais sobre o padrão de opções ao ler valores de configuração, consulte [Padrões de Opções no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Atualize o `Configure` método, adicionando o `UseAzureAppConfiguration` middleware para permitir que as definições de configuração registadas para atualização sejam atualizadas enquanto a aplicação web core ASP.NET continua a receber pedidos.
 
@@ -316,15 +313,15 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 1. Para construir a aplicação utilizando o .NET Core CLI, executar o seguinte comando na concha de comando:
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. Após a construção concluída com sucesso, executar o seguinte comando para executar a aplicação web localmente:
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. Abra uma janela do navegador e vá para o URL mostrado na `dotnet run` saída.
 
@@ -345,7 +342,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
     ![Lançamento de app quickstart atualizada localmente](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

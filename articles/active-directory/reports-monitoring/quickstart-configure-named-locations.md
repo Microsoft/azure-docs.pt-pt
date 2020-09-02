@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6deda5a9a0a2d2e2caeaac95952b0ad91eb1e03
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 94f4d17596936dd9d0ebbdae3c351cac9ed2a570
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230556"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299869"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Início Rápido: Configurar localizações com nome no Azure Active Directory
 

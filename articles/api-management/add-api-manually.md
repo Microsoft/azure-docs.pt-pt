@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82203272"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295267"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
@@ -45,7 +45,7 @@ Complete o seguinte quickstart: [Criar uma instância de gestão API Azure](get-
 Neste momento, não tem nenhuma operação na API Management que mapear para as operações na sua API de back-end. Se chamar uma operação que está exposta na parte de trás mas não através da Administração da API, obtém-se um **404**.
 
 >[!NOTE] 
-> Por predefinição, quando adiciona uma API, mesmo que esteja ligada a algum serviço de back-end, a APIM não irá expor quaisquer operações até colocá-las na lista de permissões. Para colocar uma operação do seu serviço de back-end numa lista de permissões, crie uma operação de APIM que mapeie para a operação de back-end.
+> Por predefinição, quando adicionar uma API, mesmo que esteja ligada a algum serviço back-end, a APIM não exporá nenhuma operação até que as permita. Para permitir uma operação do seu serviço back-end, crie uma operação APIM que mapeia para a operação back-end.
 
 ## <a name="add-and-test-an-operation"></a>Adicionar e testar uma operação
 

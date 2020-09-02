@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: 60c5431150141a8a2421c80ac4858f85ad41b002
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927107"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292542"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de demonstração no portal (Azure Cognitive Search)
 
@@ -61,7 +61,7 @@ O assistente fornece um layout básico para resultados de pesquisa renderizados 
 
 1. Em Descrição, escolha um campo que forneça detalhes que possam ajudar alguém a decidir se deve clicar nesse documento em particular.
 
-   ![página de origem de dados para dados de amostra](media/search-create-app-portal/configure-results.png)
+   ![configure os resultados para os dados da amostra](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Adicione uma barra lateral
 

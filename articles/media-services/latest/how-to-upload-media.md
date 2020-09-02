@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 334eebe9680ba0e381bf82ac2e474a47a3b8875e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0bdb2c36bc895c9229e4c04e9e0d76aa852bd139
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267297"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297311"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Upload mídia para streaming ou codificação
 

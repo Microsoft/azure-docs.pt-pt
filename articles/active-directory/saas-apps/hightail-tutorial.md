@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b3f279b28bf78114556623865a9f132174c6e41
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550546"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297319"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutorial: Azure Ative Directory integração única (SSO) com Hightail
 
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Hightail espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | -------- |-------- |
     | FirstName | user.givenname |
     | LastName | utilizador.sobrenome |
@@ -109,7 +109,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Antes de configurar o Signo Único na aplicação Hightail, por favor, aliste o seu domínio de e-mail com a equipa Hightail para que todos os utilizadores que estão a utilizar este domínio possam utilizar a funcionalidade Single Sign On.
+> Antes de configurar o Signo Único na aplicação Hightail, por favor adicione o seu domínio de e-mail à lista permitida com a equipa Hightail para que todos os utilizadores que estão a usar este domínio possam utilizar a funcionalidade Single Sign On.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 

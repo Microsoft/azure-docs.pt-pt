@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 08/24/2020
+ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367109"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292984"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança da empresa em Azure HDInsight
 
@@ -59,7 +59,7 @@ Para aceder aos registos de auditoria do Apache Ranger e Ambari e aos registos d
 
 A proteção dos dados é importante para satisfazer os requisitos de segurança organizacional e de conformidade. Além de restringir o acesso a dados de funcionários não autorizados, deve criptografá-lo.
 
-Armazenamento Azure e Data Lake Storage Gen1/Gen2, suportam encriptação transparente do lado do servidor [de dados](../../storage/common/storage-service-encryption.md) em repouso. Os clusters HdInsight seguros funcionarão perfeitamente com a encriptação do lado do servidor dos dados em repouso.
+O HDInsight suporta a encriptação de dados em repouso com as chaves geridas pela plataforma e [geridas pelo cliente.](../disk-encryption.md) A encriptação de dados em trânsito é tratada tanto com tLS como IPSec. Consulte [a Encriptação em trânsito para Azure HDInsight](encryption-in-transit.md) para obter mais informações.
 
 ### <a name="compliance"></a>Conformidade
 
@@ -79,7 +79,7 @@ A tabela a seguir fornece ligações aos recursos para cada tipo de solução de
 |  | Ativar a propriedade ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) nas contas de armazenamento. | Cliente |
 |  | Configure [Firewalls de armazenamento Azure](../../storage/common/storage-network-security.md) e redes virtuais | Cliente |
 |  | Configurar [pontos finais de serviço de rede virtual Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) para Cosmos DB e [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Cliente |
-|  | Certifique-se de que [a encriptação TLS](../../storage/common/storage-security-tls.md) está ativada para os dados em trânsito. | Cliente |
+|  | Certifique-se de que a [funcionalidade de encriptação em trânsito](./encryption-in-transit.md) está ativada para utilizar TLS e IPSec para comunicação intra-cluster. | Cliente |
 |  | Configure [as chaves geridas pelo cliente](../../storage/common/storage-encryption-keys-portal.md) para encriptação de armazenamento Azure | Cliente |
 |  | Controle o acesso aos seus dados através do suporte Azure utilizando [o cofre do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Cliente |
 | Segurança de aplicação e middleware | Integre com AAD-DS e [Autenticação Configure](apache-domain-joined-configure-using-azure-adds.md) | Cliente |

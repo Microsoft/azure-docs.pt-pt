@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121243"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299308"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar um perímetro geográfico com o Azure Maps
 
@@ -56,7 +56,7 @@ Neste tutorial, vamos carregar os dados da GeoJSON que contêm um `FeatureCollec
 
     O parâmetro _geojson_ no caminho URL representa o formato de dados dos dados que estão a ser carregados.
 
-4. Clique no **separador 'Corpo'.** Selecione **cru**e, em seguida, **JSON** como formato de entrada. Copiar e colar os seguintes dados da GeoJSON na área de texto **do Corpo:**
+4. Clique no **separador Corpo.** Selecione **cru**, e, em seguida, **JSON** como o formato de entrada. Copiar e colar os seguintes dados da GeoJSON na área de texto **do Corpo:**
 
    ```JSON
    {
@@ -258,15 +258,15 @@ Siga os passos abaixo para criar uma subscrição de eventos para os eventos de 
 
 5. Repita os passos 1-4 para o ponto final de saída da aplicação lógica que criou na secção anterior. No passo 3, certifique-se de escolher `Geofence Exited` como tipo de evento.
 
-## <a name="use-search-geofence-get-api"></a>Use Geofence De pesquisa Obter API
+## <a name="use-spatial-geofence-get-api"></a>Use Geofence Espacial Obter API
 
-Agora, vamos usar o [Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificações de e-mail ao Gestor de Operações, quando um equipamento entra ou sai das geo-garantias.
+Agora, vamos usar a [Geofence API para](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) enviar notificações de e-mail ao Gestor de Operações, quando um equipamento entra ou sai das geo-garantias.
 
 Cada equipamento tem `deviceId` um. Neste tutorial, vamos seguir um único equipamento, cujo ID único `device_1` é.
 
 Para maior clareza, o diagrama seguinte mostra as cinco localizações do equipamento ao longo do tempo, começando no local *start,* que está algures fora das geo-posições. Para efeitos deste tutorial, a localização *Iniciar* é indefinida, uma vez que não consultaremos o dispositivo naquele local.
 
-Quando consultamos a [API de Geofence de Busca](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) com uma localização do equipamento que indique a entrada ou saída de geofência inicial, a Grelha de Eventos ligará para o ponto final apropriado da App Lógica para enviar uma notificação de e-mail ao Gestor de Operações.
+Quando consultamos a [API de Geofence Espacial](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) com uma localização do equipamento que indique a entrada ou saída de geofência inicial, a Grelha de Eventos ligará para o ponto final apropriado da App Lógica para enviar uma notificação de e-mail ao Gestor de Operações.
 
 Cada uma das seguintes secções faz http GET Pedidos de API de geofencing utilizando as cinco coordenadas de localização diferentes do equipamento.
 

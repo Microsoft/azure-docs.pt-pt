@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d8bc270549f702f9ba277b3514a3332d16b52d8d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5347479d32dc9f4909483dc63891e8057fd7ff86
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267178"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289348"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutorial: Criptografe o vídeo com a AES-128 e use o serviço de entrega de chaves
 

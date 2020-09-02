@@ -3,12 +3,12 @@ title: Controlos de amostras de amostras de INFRAS 1075
 description: Controlo do mapeamento da amostra de planta do IRS 1075. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: b7208a475d35674cc1abb6932a04681a11f7e89b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f19cc11ddde8137305566efb33aa316ea7b71960
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653754"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289006"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do IRS 1075
 
@@ -137,19 +137,19 @@ Esta planta ajuda-o a garantir que os eventos do sistema são registados atribui
 
 ## <a name="9357-cm-7-2-least-functionality--prevent-program-execution"></a>9.3.5.7 CM-7 (2) Menor Funcionalidade Impedir a execução do programa
 
-O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicações que pode bloquear ou impedir que software específico seja funcionando nas suas máquinas virtuais. O controlo da aplicação pode ser executado num modo de execução que proíbe a execução de aplicações não aprovadas. Esta planta atribui uma definição de Política Azure que o ajuda a monitorizar máquinas virtuais onde uma lista de aplicações é recomendada mas ainda não foi configurada.
+O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de filtragem de aplicações que pode bloquear ou impedir que softwares específicos sejam funcionando nas suas máquinas virtuais. O controlo da aplicação pode ser executado num modo de execução que proíbe a execução de aplicações não aprovadas. Esta planta atribui uma definição de Política Azure que o ajuda a monitorizar máquinas virtuais onde uma lista permitida por aplicação é recomendada, mas ainda não foi configurada.
 
 - Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
 
 ## <a name="9357-cm-7-5-least-functionality--authorized-software--whitelisting"></a>9.3.5.7 CM-7 (5) Menor Funcionalidade Software autorizado / Whitelisting
 
-O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicações que pode bloquear ou impedir que software específico seja funcionando nas suas máquinas virtuais. O controlo de aplicações ajuda-o a criar listas de candidaturas aprovadas para as suas máquinas virtuais. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista de aplicações é recomendada mas ainda não foi configurada.
+O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de filtragem de aplicações que pode bloquear ou impedir que softwares específicos sejam funcionando nas suas máquinas virtuais. O controlo de aplicações ajuda-o a criar listas de candidaturas aprovadas para as suas máquinas virtuais. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista permitida por aplicação é recomendada, mas ainda não foi configurada.
 
 - Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
 
 ## <a name="93511-cm-11-user-installed-software"></a>9.3.5.11 CM-11 Software instalado pelo utilizador
 
-O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de whitelisting de aplicações que pode bloquear ou impedir que software específico seja funcionando nas suas máquinas virtuais. O controlo de aplicações pode ajudá-lo a impor e monitorizar o cumprimento das políticas de restrição de software. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista de aplicações é recomendada mas ainda não foi configurada.
+O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de filtragem de aplicações que pode bloquear ou impedir que softwares específicos sejam funcionando nas suas máquinas virtuais. O controlo de aplicações pode ajudá-lo a impor e monitorizar o cumprimento das políticas de restrição de software. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista permitida por aplicação é recomendada, mas ainda não foi configurada.
 
 - Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
 

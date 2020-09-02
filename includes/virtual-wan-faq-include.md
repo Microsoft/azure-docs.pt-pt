@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604689"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303966"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -249,9 +249,12 @@ Quando um circuito ExpressRoute está ligado ao hub virtual, os routers de borda
 
 O comportamento atual é preferir o caminho do circuito ExpressRoute em vez do hub-para-hub para a conectividade VNet-to-VNet. No entanto, isto não é encorajado numa configuração wan virtual. A equipa virtual WAN está a trabalhar numa correção para permitir a preferência pelo hub-to-hub sobre o caminho ExpressRoute. A recomendação é que vários circuitos ExpressRoute (diferentes fornecedores) se conectem a um hub e utilizem a conectividade hub-to-hub fornecida pela Virtual WAN para fluxos de tráfego inter-região.
 
+### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>Os hubs podem ser criados em diferentes grupos de recursos em VIRTUAL WAN?
+Yes. Esta opção está atualmente disponível apenas através do powershell. O portal VIRTUAL WAN determina os hubs no mesmo grupo de recursos que o próprio recurso Virtual WAN.
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Existe suporte para o IPv6 em VIRTUAL WAN?
 
-O IPv6 não é suportado no centro VIRTUAL WAN e nas suas portas de entrada. Se tem um VNet que tem suporte IPv6 e gostaria de ligar o VNet ao WAN Virtual, este cenário não está atualmente suportado.
+O IPv6 não é suportado no centro VIRTUAL WAN e nas suas portas de entrada. Se tem um VNet que tem suporte IPv4 e IPv6 e gostaria de ligar o VNet ao WAN Virtual, este cenário não está atualmente suportado. 
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Qual é a versão API recomendada para ser usada por scripts automatizando várias funcionalidades de WAN Virtual?
 

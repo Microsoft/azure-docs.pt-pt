@@ -12,12 +12,12 @@ author: David-Engel
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: e9a6c769451385f09706731fcb15de4197ecc063
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5248f43e2b0b1e347c6968678b7f05ba7efa9cf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231663"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299597"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use Golang para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ Neste arranque rápido, utilizará a linguagem de programação [Golang](https:/
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, necessita de:
+Para concluir este guia de início rápido, precisa de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada. Pode utilizar um destes quickstarts para criar uma base de dados:
@@ -200,7 +200,8 @@ Obtenha a informação de ligação que precisa para ligar à base de dados. Voc
            return -1, err
        }
 
-       tsql := "INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location); select convert(bigint, SCOPE_IDENTITY());"
+       tsql := "INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location); "
+       tsql += select isNull(SCOPE_IDENTITY(), -1);"
 
        stmt, err := db.Prepare(tsql)
        if err != nil {

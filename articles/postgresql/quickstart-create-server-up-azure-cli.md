@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 662d34d3ed89a7d440a604de4338de334ea0bd11
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496581"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300022"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Quickstart: Use um comando Azure CLI, postgres up (pré-visualização), para criar uma base de dados Azure para PostgreSQL - Servidor Único
 
@@ -75,7 +75,7 @@ admin-password | Sistema gerado | A palavra-passe do utilizador administrador.
 
 Uma vez criado o seu servidor, ele vem com as seguintes definições:
 
-- É criada uma regra de firewall chamada "devbox". O Azure CLI tenta detetar o endereço IP da máquina o `az postgres up` comando é executado e whitelists esse endereço IP.
+- É criada uma regra de firewall chamada "devbox". O CLI Azure tenta detetar o endereço IP da máquina de onde o `az postgres up` comando é executado e permite esse endereço IP.
 - "Permitir o acesso aos serviços Azure" está definido para ON. Esta definição configura a firewall do servidor para aceitar ligações de todos os recursos Azure, incluindo recursos não na sua subscrição.
 - Uma base de dados vazia chamada "sampledb" é criada
 - Um novo utilizador chamado "raiz" com privilégios para "sampledb" é criado

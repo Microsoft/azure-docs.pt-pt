@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 01/31/2020
+ms.date: 09/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8b27a7c2fd03ed0a80f1775465f1f1bbb44f0202
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 680eb8414696109e8cc15d82d8bd5f2c5740f488
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270347"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291879"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 
@@ -26,7 +26,7 @@ A implementação do Azure Bastion é por rede virtual, não por subscrição/co
 
 RDP e SSH são alguns dos meios fundamentais através dos quais pode ligar-se às suas cargas de trabalho em execução em Azure. Expor portas RDP/SSH através da Internet não é desejado e é visto como uma superfície de ameaça significativa. Isto deve-se frequentemente a vulnerabilidades de protocolo. Para conter esta superfície de ameaça, pode implantar anfitriões de bastião (também conhecidos como servidores de salto) no lado público da sua rede de perímetro. Os servidores hospedeiros de bastião são projetados e configurados para resistir a ataques. Os servidores de bastião também fornecem conectividade RDP e SSH às cargas de trabalho que estão atrás do bastião, bem como mais dentro da rede.
 
-![arquitetura](./media/bastion-overview/architecture.png)
+![Arquitetura do Bastião Azure](./media/bastion-overview/architecture.png)
 
 Esta figura mostra a arquitetura de um destacamento de Azure Bastion. Neste diagrama:
 
@@ -46,6 +46,10 @@ As seguintes funcionalidades estão disponíveis:
 * **Sem ações de gestão dos NSGs:** Azure Bastion é um serviço PaaS de plataforma totalmente gerido a partir de Azure que é endurecido internamente para fornecer-lhe conectividade RDP/SSH segura. Não precisa aplicar NSGs na sub-rede Azure Bastion. Como o Azure Bastion se conecta às suas máquinas virtuais em IP privado, pode configurar os seus NSGs para permitir apenas RDP/SSH a partir de Azure Bastion. Isto remove o incómodo de gerir os NSGs cada vez que precisa de se ligar de forma segura às suas máquinas virtuais.
 * **Proteção contra a varredura da porta:** Como não precisa de expor as suas máquinas virtuais à Internet pública, os seus VMs estão protegidos contra a verificação por portas por utilizadores fraudulentos e maliciosos localizados fora da sua rede virtual.
 * **Proteja-se contra explorações de dia zero. Endurecimento em apenas um lugar:** Azure Bastion é um serviço PaaS totalmente gerido pela plataforma. Como está no perímetro da sua rede virtual, não precisa de se preocupar em endurecer cada uma das máquinas virtuais da sua rede virtual. A plataforma Azure protege contra explorações de zero dias mantendo o Bastião Azure endurecido e sempre atualizado para si.
+
+## <a name="whats-new"></a><a name="new"></a>Novidades
+
+Subscreva o feed RSS e veja as últimas atualizações da funcionalidade Azure Bastion na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion)
 
 ## <a name="faq"></a>FAQ
 

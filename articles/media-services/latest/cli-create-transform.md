@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd2efc820bd2f35dee8e27737e7de919e6af2f30
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0e85116aaad1eecbe137ae3e470811b31d1a855f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269782"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295976"
 ---
 # <a name="cli-example-create-a-transform"></a>Exemplo da CLI: Criar uma Transformação
 

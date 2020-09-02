@@ -9,16 +9,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: overview
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 96f08f75d0921fdf88b71c8e8dd2398a6b85ec6d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258474"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300192"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, encomenda e paging de entidades de Serviços de Comunicação Social
 

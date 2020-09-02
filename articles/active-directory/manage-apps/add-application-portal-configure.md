@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641862"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300158"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
@@ -56,14 +56,14 @@ Para editar as propriedades da aplicação:
     
     | Habilitado para os utilizadores fazerem o s.a.? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Comportamento para utilizadores que tenham sido ou não designados para a app. |
     |---|---|---|---|
-    | Yes | Yes | Yes | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
-    | Yes | Sim | No  | As utilizações atribuídas não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
-    | Sim | Não  | Yes | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
-    | Sim | No  | No  | Os utilizadores designados não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
-    | Não  | Yes | Yes | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
-    | Não  | Sim | No  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
-    | No  | Não  | Yes | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
-    | No  | No  | No  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Sim | Sim | Sim | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Sim | Sim | Não  | As utilizações atribuídas não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Sim | Não  | Sim | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
+    | Sim | Não  | Não  | Os utilizadores designados não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
+    | Não  | Sim | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Não  | Sim | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Não  | Não  | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Não  | Não  | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
 
 4. Quando terminar, **selecione Save**.
 
@@ -87,12 +87,12 @@ Para utilizar um logótipo personalizado:
 > Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar com a série quickstart, então considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Avance para o próximo artigo para aprender a configurar um único sº de sôs-on para uma aplicação.
+Avance para o próximo artigo para aprender a atribuir utilizadores à app.
 > [!div class="nextstepaction"]
-> [Configurar o início de sessão único](add-application-portal-setup-sso.md)
+> [Atribuir utilizadores a uma aplicação](add-application-portal-assign-users.md)

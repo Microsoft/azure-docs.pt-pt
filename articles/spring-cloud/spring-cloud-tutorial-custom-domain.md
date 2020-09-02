@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: d6e4b77c6eba976de052295e4a0001924ad90644
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374206"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290332"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapear um domínio personalizado existente para Azure Spring Cloud
 O Serviço de Nome de Domínio (DNS) é uma técnica para armazenar nomes de nó de rede em toda uma rede. Este tutorial mapeia um domínio, como www.contoso.com, usando um registo CNAME. Protege o domínio personalizado com um certificado e mostra como impor a Segurança da Camada de Transporte (TLS), também conhecida como Camada de Tomadas Seguras (SSL). 
@@ -20,7 +20,7 @@ O Serviço de Nome de Domínio (DNS) é uma técnica para armazenar nomes de nó
 Os certificados encriptam o tráfego web. Estes certificados TLS/SSL podem ser armazenados no Cofre da Chave Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Uma aplicação implementada para Azure Spring Cloud (ver [Quickstart: Lançar uma aplicação existente em Azure Spring Cloud utilizando o portal Azure](spring-cloud-quickstart-launch-app-portal.md), ou usar uma aplicação existente).
+* Uma aplicação implementada para Azure Spring Cloud (ver [Quickstart: Lançar uma aplicação existente em Azure Spring Cloud utilizando o portal Azure](spring-cloud-quickstart.md), ou usar uma aplicação existente).
 * Um nome de domínio com acesso ao registo DNS para provedor de domínio, como o GoDaddy.
 * Um certificado privado (isto é, o seu certificado auto-assinado) de um fornecedor de terceiros. O certificado deve coincidir com o domínio.
 * Um exemplo implantado de [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
@@ -35,7 +35,7 @@ Para fazer o upload do seu certificado para o cofre da chave:
 1. No **Criar um** diálogo de certificado ao abrigo **do Método de criação de certificados,** selecione `Import` .
 1. No **Ficheiro de Certificado de Upload,** navegue para a localização do certificado e selecione-o.
 1. Em **Password,** insira a chave privada do seu certificado.
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 
     ![Certificado de importação 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
@@ -143,9 +143,9 @@ az spring-cloud app custom-domain list --app <app name>
 ## <a name="add-ssl-binding"></a>Adicionar ligação SSL
 Na tabela de domínio personalizado, **selecione Adicionar a ligação ssl** como mostrado na figura anterior.  
 1. Selecione o seu **Certificado** ou importe-o.
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
-    ![Adicionar ligação SSL](./media/custom-dns-tutorial/add-ssl-binding.png)
+    ![Adicionar encadernação SSL 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
 Ou, pode utilizar o Azure CLI para **adicionar ligação ssl:**
 ```
@@ -154,14 +154,14 @@ az spring-cloud app custom-domain update --domain-name <domain name> --certifica
 
 Depois de adicionar com sucesso a ligação SSL, o estado de domínio estará seguro: **Saudável**. 
 
-![Adicionar ligação SSL](./media/custom-dns-tutorial/secured-domain-state.png)
+![Adicionar encadernação SSL 2](./media/custom-dns-tutorial/secured-domain-state.png)
 
 ## <a name="enforce-https"></a>Impor HTTPS
 Por predefinição, qualquer pessoa ainda pode aceder à sua aplicação utilizando HTTP, mas pode redirecionar todos os pedidos HTTP PARA a porta HTTPS.
 
 Na sua página de aplicações, na navegação à esquerda, selecione **Domínio Personalizado**. Em seguida, definir **HTTPS Apenas,** para *Verdadeiro*.
 
-![Adicionar ligação SSL](./media/custom-dns-tutorial/enforce-http.png)
+![Adicionar ligação SSL 3](./media/custom-dns-tutorial/enforce-http.png)
 
 Ou, pode usar o CLI Azure para impor HTTPS:
 ```
@@ -170,7 +170,7 @@ az spring-cloud app update -name <app-name> --https-only <true|false> -g <resour
 
 Quando a operação estiver concluída, navegue para qualquer um dos URLs HTTPS que apontam para a sua aplicação. Note que os URLs HTTP não funcionam.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [O que é o Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Importar um certificado](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
 * [Lance a sua App Cloud Spring utilizando o Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
