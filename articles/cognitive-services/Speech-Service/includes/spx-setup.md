@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 27d450f8e48210723570f2fe0b45be4bca89fd56
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068595"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400920"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -22,9 +22,8 @@ O único pré-requisito é uma assinatura do Azure Speech. Consulte o [guia](../
 
 Siga estes passos para instalar o CLI do discurso no Windows:
 
-1. Instalar ou [.Net Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) ou [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Descarregue o [arquivo zip](https://aka.ms/speech/spx-zips.zip)do Speech CLI e, em seguida, extraia-o.
-3. Vá ao diretório de raiz `spx-zips` que extraiu do download e extraa o subdiretor de que necessita ( `spx-net471` para .NET Framework 4.7, ou `spx-netcore-win-x64` para .NET Core 3.0 num CPU x64).
+1. Descarregue o [arquivo zip](https://aka.ms/speech/spx-zips.zip)do Speech CLI e, em seguida, extraia-o.
+2. Vá ao diretório de raiz `spx-zips` que extraiu do download e extraa o subdiretor de que necessita ( `spx-net471` para .NET Framework 4.7, ou `spx-netcore-win-x64` para .NET Core 3.0 num CPU x64).
 
 No pedido de comando, altere o diretório para este local e, em seguida, escreva `spx` para ver ajuda para o CLI do discurso.
 
@@ -53,11 +52,15 @@ Escreva `spx` para ver ajuda para o CLI do discurso.
 
 #### <a name="docker-install"></a>[Instalação Docker](#tab/dockerinstall)
 
+#### <a name="prerequisites"></a>Pré-requisitos
+
+> [!div class="checklist"]
+> * <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop para a sua plataforma <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
 Siga estes passos para instalar o CLI da fala dentro de um recipiente Docker:
 
-1. Instale e execute [o Docker Desktop para a sua plataforma.](https://www.docker.com/get-started)
-1. Num novo comando ou terminal, digite este comando:`docker pull msftspeech/spx`
-1. Digite este comando. Deve consultar informações de ajuda para o Discurso CLI:`docker run -it --rm msftspeech/spx help`
+1. Num novo comando ou terminal, digite este comando:  `docker pull msftspeech/spx`
+2. Digite este comando. Deve consultar informações de ajuda para o Discurso CLI: `docker run -it --rm msftspeech/spx help`
 
 ### <a name="mount-a-directory-in-the-container"></a>Monte um diretório no recipiente
 
