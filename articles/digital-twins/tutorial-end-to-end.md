@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 3da73e376fc77297f77c1ff8c7f444b98e92b412
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290808"
+ms.locfileid: "89401780"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -436,7 +436,7 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 
-Utilizando o Azure Cloud Shell, pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo AZ.](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) Isto remove o grupo de recursos; o exemplo das Gémeas Digitais Azure; o hub IoT e o registo do dispositivo do hub; o tópico da grelha de eventos e as subscrições associadas; e ambas as aplicações Azure Functions, incluindo recursos associados como o armazenamento.
+Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo AZ.](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) Isto remove o grupo de recursos; o exemplo das Gémeas Digitais Azure; o hub IoT e o registo do dispositivo do hub; o tópico da grelha de eventos e as subscrições associadas; e a app Azure Functions, incluindo ambas as funções e recursos associados como o armazenamento.
 
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
@@ -451,9 +451,9 @@ Em seguida, elimine o registo de aplicações AD AZure que criou para a sua apli
 az ad app delete --id <your-application-ID>
 ```
 
-Por fim, elimine a pasta de amostras de projeto que descarregou da sua máquina local.
+Por fim, elimine a pasta de amostras de projeto que descarregou para a sua máquina local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou um cenário de ponta a ponta que mostra as Gémeas Digitais Azure a serem impulsionadas por dados de dispositivos ao vivo.
 

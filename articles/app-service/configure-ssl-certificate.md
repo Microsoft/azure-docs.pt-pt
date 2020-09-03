@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 48ef1344a76444af23fd462175a8087af2724d3e
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: d45852326a7f771b2cf79e20c784e2c441fef0d6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961946"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401491"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -145,8 +145,8 @@ Na página **Key Vault Status,** clique no **Repositório do Cofre de Chaves** p
 | Grupo de recursos | Como recomendação, selecione o mesmo grupo de recursos que o certificado de Serviço de Aplicações. |
 | Localização | Selecione o mesmo local que a sua aplicação App Service. |
 | Escalão de preço | Para obter informações, consulte [os detalhes dos preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Políticas de acesso| Define as aplicações e o acesso permitido aos recursos do cofre. Pode configubá-lo mais tarde, seguindo os passos da [Grant, várias aplicações acedem a um cofre de chaves.](../key-vault/general/group-permissions-for-apps.md) |
-| Acesso virtual à rede | Restringir o acesso ao cofre a certas redes virtuais Azure. Pode configugá-lo mais tarde, seguindo os passos em [Configure Azure Key Vault Firewalls e Redes Virtuais](../key-vault/general/network-security.md) |
+| Políticas de acesso| Define as aplicações e o acesso permitido aos recursos do cofre. Pode configurgê-lo mais tarde, seguindo os passos na [política de acesso a Um Cofre de Chaves](/azure/key-vault/general/assign-access-policy-portal). |
+| Acesso virtual à rede | Restringir o acesso ao cofre a certas redes virtuais Azure. Pode configugá-lo mais tarde, seguindo os passos em [Configure Azure Key Vault Firewalls e Redes Virtuais](/azure/key-vault/general/network-security) |
 
 Assim que tiver selecionado o cofre, feche a página do **Repositório** do Cofre de Chaves. A opção **Passo 1: A** opção de loja deve mostrar uma marca de verificação verde para o sucesso. Mantenha a página aberta para o próximo passo.
 
