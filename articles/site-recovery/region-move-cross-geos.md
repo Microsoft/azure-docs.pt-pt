@@ -1,18 +1,18 @@
 ---
 title: Mover VMs Azure entre governo e regiões públicas com recuperação do local de Azure
 description: Use a recuperação do local de Azure para mover VMs Azure entre o governo de Azure e as regiões públicas.
-author: rajani-janaki-ram
+author: sideeksh
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
-ms.author: rajanaki
+ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 5ca6e7fa6e02ff6c5e49185c2fb02f9bc5a16d9c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927305"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425352"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre regiões públicas e o Azure Government 
 
@@ -42,7 +42,7 @@ Este tutorial mostra-lhe como mover VMs Azure entre o Governo de Azure e as regi
 > [!NOTE]
 > Certifique-se de que compreende a [arquitetura e os componentes](physical-azure-architecture.md) para este cenário. Esta arquitetura será usada para mover VMs Azure, **tratando os VMs como servidores físicos.**
 
-- Reveja os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) de todos os componentes.
+- Reveja os [requisitos de suporte](vmware-physical-secondary-support-matrix.md) para todos os componentes.
 - Certifique-se de que os servidores que pretende replicar cumprem os [requisitos do Azure VM](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare uma conta para a instalação automática do serviço Mobility em cada servidor que pretende replicar.
 
@@ -79,7 +79,7 @@ O serviço Mobility tem de ser instalado em cada servidor que pretende replicar.
 
 - Pode utilizar um domínio ou conta local
 - Para os VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o controlo de acesso ao utilizador remoto na máquina local. Para isso, no registo em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy,** com um valor de 1.
-- Para adicionar a entrada de registo para desativar a definição de um CLI, escreva:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Para adicionar a entrada de registo para desativar a definição de um CLI, escreva:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Para o Linux, a conta deve estar na raiz do servidor Linux de origem.
 
 

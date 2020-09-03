@@ -11,24 +11,22 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5da9e5b38b88a5a148bd3d85664daa523153086b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 206e1bc86404fa41b84647c50482dbe63301c0af
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589457"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425964"
 ---
-# <a name="what-is-the-translator"></a>O que é o Tradutor?
+# <a name="what-is-translator"></a>O que é o Tradutor?
 
-O Tradutor é fácil de integrar nas suas aplicações, websites, ferramentas e soluções. Permite-lhe adicionar experiências multi-idiomas de utilizadores em [mais de 70 idiomas](languages.md), e pode ser usado em qualquer plataforma de hardware com qualquer sistema operativo para tradução de linguagem texto-a-texto.
-
-O Tradutor faz parte da coleção [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) de machine learning e algoritmos de IA na nuvem, e é facilmente consumível nos seus projetos de desenvolvimento.
+O Azure Cognitive Services Tradutor é um serviço de tradução automática baseado na nuvem e faz parte da família [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) de APIs cognitivos para a construção de aplicações inteligentes. O tradutor é fácil de integrar nas suas aplicações, websites, ferramentas e soluções. Permite-lhe adicionar experiências multi-idiomas de utilizadores em [mais de 70 idiomas](languages.md), e pode ser usado em qualquer plataforma de hardware com qualquer sistema operativo para tradução de linguagem texto-a-texto.
 
 ## <a name="about-microsoft-translator"></a>Sobre o Microsoft Translator
 
-O Tradutor é um serviço de tradução automática baseado em nuvem. O serviço principal é o Tradutor, que alimenta uma série de produtos e serviços da Microsoft, e é utilizado por milhares de empresas em todo o mundo nas suas aplicações e fluxos de trabalho, o que permite que os seus conteúdos cheguem a um público global.
+Azure Cognitive Services Tradutor é um serviço de tradução automática baseado na nuvem. O tradutor alimenta uma série de produtos e serviços da Microsoft, e é usado por milhares de empresas em todo o mundo nas suas aplicações e fluxos de trabalho, o que permite que os seus conteúdos cheguem a um público global.
 
-A tradução de fala, alimentada pelo Tradutor, também está disponível através do [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina a funcionalidade da API de Discurso do Tradutor e do Serviço de Discurso Personalizado num serviço unificado e totalmente personalizável.O Serviço de Voz está a substituir a API de Voz do Microsoft Translator, que será desativada a 15 de Outubro de 2019.
+A tradução de fala, alimentada por Tradutor, também está disponível através do [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina a funcionalidade da API de Discurso do Tradutor e do Serviço de Discurso Personalizado num serviço unificado e totalmente personalizável. 
 
 ## <a name="language-support"></a>Suporte de idiomas
 
@@ -46,7 +44,7 @@ Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translato
 
 ## <a name="language-customization"></a>Personalização de idioma
 
-Uma extensão do serviço core Microsoft Tradutor, Custom Tradutor pode ser usado em conjunto com o Tradutor para ajudá-lo a personalizar o sistema de tradução neural e melhorar a tradução para a sua terminologia e estilo específicos.
+Uma extensão do serviço Tradutor, Tradutor Personalizado pode ser usado em conjunto com o Tradutor para ajudá-lo a personalizar o sistema de tradução neural e melhorar a tradução para a sua terminologia e estilo específicos.
 
 Com o Tradutor Personalizado, pode criar sistemas de tradução que suportam a terminologia utilizada na sua própria empresa ou setor. O seu sistema de tradução personalizado irá então integrar-se facilmente nas suas aplicações, fluxos de trabalho e websites existentes, através de vários tipos de dispositivos, através do Tradutor regular, utilizando o parâmetro da categoria.
 

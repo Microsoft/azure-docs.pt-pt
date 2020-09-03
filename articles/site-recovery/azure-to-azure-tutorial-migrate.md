@@ -2,18 +2,18 @@
 title: Mover VMs Azure IaaS para outra região com recuperação do local de Azure
 description: Utilize a Recuperação do Sítio azul para mover os VMs Azure IaaS de uma região de Azure para outra.
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076111"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425930"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -88,7 +88,7 @@ Os passos a seguir mostram como preparar a máquina virtual para o movimento uti
 1. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 1. Crie o grupo de recursos **ContosoRG**.
 1. Selecione uma região do Azure. Para verificar as regiões apoiadas, consulte a disponibilidade geográfica nos [detalhes dos preços de recuperação do local de Azure](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Nos **cofres dos Serviços de Recuperação**, selecione **Overview**  >  **Overview ContosoVMVault**  >  **+Replicate**.
+1. Nos **cofres dos Serviços de Recuperação**, selecione **Visão Geral**  >  **ContosoVMVault**  >  **Itens replicados**  >  **+Replicate .**
 1. Em **Origem**, selecione **Azure**.
 1. Em **Localização de origem**, selecione a região do Azure de origem onde as VMs estão atualmente a ser executadas.
 1. Selecione o modelo de implementação do Resource Manager. Em seguida, selecione a **subscrição Source** e **o grupo de recursos Source**.

@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 65b35c30d796f733e91c71e569634b61f9f7c52b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: afe7396ebdada97b9311d0afe903f40757084586
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959294"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426134"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Quickstart: Conecte uma aplicação de dispositivo IoT Plug e Reprodução de amostras em funcionamento no Linux ou Windows para IoT Hub (C)
 
@@ -86,7 +86,9 @@ Neste arranque rápido, você prepara um ambiente de desenvolvimento que você p
 Abra um pedido de comando no diretório à sua escolha. Execute o seguinte comando para clonar o [repositório Azure IoT C SDKs e Bibliotecas](https://github.com/Azure/azure-iot-sdk-c) GitHub neste local:
 
 ```cmd\bash
-git clone --depth 1 --recurse-submodules https://github.com/Azure/azure-iot-sdk-c.git
+git clone https://github.com/Azure/azure-iot-sdk-c.git
+cd azure-iot-sdk-c
+git submodule update --init
 ```
 
 Espere que esta operação leve vários minutos para ser concluída.
@@ -132,7 +134,8 @@ cd iothub_client/samples/pnp/pnp_simple_thermostat/
 
 ```cmd
 REM Windows
-cd  iothub_client\samples\pnp\pnp_simple_thermostat\Debug\pnp_simple_thermostat.exe
+cd iothub_client\samples\pnp\pnp_simple_thermostat\Debug
+.\pnp_simple_thermostat.exe
 ```
 
 > [!TIP]
