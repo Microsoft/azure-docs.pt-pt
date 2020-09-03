@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723571"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394402"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -48,6 +48,7 @@ O Form Recogniser utiliza a [API do Layout](#layout-api) para aprender os tamanh
 ## <a name="prebuilt-models"></a>Modelos pré-construídos
 
 O Form Recogniser também inclui modelos pré-construídos para tipos de formas únicos.
+
 ### <a name="prebuilt-receipt-model"></a>Modelo de recibo pré-construído
 O modelo de recibo pré-construído é utilizado para a leitura de recibos de venda ingleses da Austrália, Canadá, Grã-Bretanha, Índia e Estados Unidos &mdash; do tipo usado por restaurantes, postos de gasolina, varejo, e assim por diante. Este modelo extrai informações-chave como a hora e a data da transação, informação do comerciante, montantes de impostos, rubricas, totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para reconhecer e devolver todo o texto num recibo. 
 
@@ -74,9 +75,11 @@ Siga um arranque rápido para começar a extrair dados dos seus formulários. Re
     * [Comboio sem etiquetas - cURL](quickstarts/curl-train-extract.md)
     * [Comboio sem etiquetas - Python](quickstarts/python-train-extract.md)
     * [Comboio com etiquetas - Python](quickstarts/python-labeled-data.md)
-  * Extrair dados dos recibos de vendas dos EUA
+  * Extrair dados dos recibos de venda
     * [Dados de recibos de extração - cURL](quickstarts/curl-receipts.md)
     * [Dados de recibos de extração - Python](quickstarts/python-receipts.md)
+  * Extrair dados de cartões de visita
+    * [Extrair dados do cartão de visita - Python](quickstarts/python-business-cards.md)
   * Extrair texto e estrutura de mesa a partir de formas
     * [Dados de layout de extrato - Python](quickstarts/python-layout.md)
 
@@ -90,6 +93,7 @@ Você usará as seguintes APIs para treinar modelos e extrair dados estruturados
 | **Modelo personalizado de comboio**| Treine um novo modelo para analisar os seus formulários utilizando cinco formas do mesmo tipo. Desa ajuste o parâmetro _utilizaçãoLabelFile_ `true` para treinar com dados etiquetados manualmente. |
 | **Analisar Formulário** |Analise um único documento passado como um fluxo para extrair texto, pares de chaves/valor e tabelas do formulário com o seu modelo personalizado.  |
 | **Analisar Recibo** |Analise um único documento de receção para extrair informações chave e outro texto de receção.|
+| **Analisar Cartão de Visita** |Analise um cartão de visita para extrair informações e texto chave.|
 | **Ver layout** |Analise o layout de um formulário para extrair texto e estrutura de mesa.|
 
 Explore a [documentação de referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) REST para saber mais. Se você está familiarizado com uma versão anterior da API, veja o novo artigo [para](./whats-new.md) saber sobre as mudanças recentes.
@@ -113,6 +117,6 @@ Os requisitos de entrada para o modelo de receção são ligeiramente diferentes
 
 Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam o serviço Form Recogniser devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Consulte a [página de Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para saber mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Complete um [quickstart](quickstarts/curl-train-extract.md) para começar com as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).

@@ -3,7 +3,7 @@ title: Adicione cabeçalhos de segurança com o motor de regras - Porta frontal 
 description: Este artigo ensina-lhe como configurar um cabeçalho de segurança através do Motor de Regras na Porta frontal Azure
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/22/2020
-ms.author: mebeatty
-ms.openlocfilehash: 5f07a57e0d41a5e7c546bc89ca7a0b5ac5fce5de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: ad1e8a8a2162ece69af9904d76a394d4bad5de23
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512236"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399145"
 ---
 # <a name="add-security-headers-with-rules-engine"></a>Adicionar Cabeçalhos de Segurança com o Motor de Regras
 

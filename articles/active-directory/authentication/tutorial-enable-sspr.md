@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718854"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399978"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -37,7 +37,8 @@ Neste tutorial, ficará a saber como:
 
 Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino Azure AD em funcionamento com pelo menos um Azure AD Premium P1 ou uma licença de julgamento habilitada.
+* Um inquilino da Azure AD em funcionamento com pelo menos uma licença de AD AD Azure ou licença de julgamento habilitada. No nível Gratuito, o SSPR só funciona para utilizadores em nuvem em Azure AD.
+    * Para tutoriais posteriores nesta série, é necessária uma licença Azure AD Premium P1 ou uma licença de teste para a gravação de password no local.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Uma conta com privilégios *de Administrador Global.*
 * Um utilizador não administrador com uma palavra-passe que conhece, como *testuser.* Você testa a experiência SSPR do utilizador final usando esta conta neste tutorial.
@@ -74,7 +75,7 @@ Quando os utilizadores precisam de desbloquear a sua conta ou redefinir a sua pa
 
 1. Escolha os **Métodos disponíveis para os utilizadores** que a sua organização quer permitir. Para este tutorial, verifique as caixas para ativar os seguintes métodos:
 
-    * *Notificação da aplicação móvel*
+    * *Notificação de aplicativos móveis*
     * *Código da aplicação móvel*
     * *E-mail*
     * *Número de telemóvel*
@@ -127,7 +128,7 @@ Com sSPR ativado e configurado, teste o processo SSPR com um utilizador que faz 
 
 1. Siga os passos de verificação para redefinir a sua palavra-passe. Quando estiver concluído, deverá receber uma notificação por e-mail de que a sua palavra-passe foi reposta.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Num tutorial seguinte nesta série, configurar a gravação da palavra-passe. Esta funcionalidade escreve alterações de palavra-passe de Azure AD SSPR de volta para um ambiente AD no local. Se quiser continuar com esta série tutorial para configurar a gravação de passwords, não desative agora a SSPR.
 
@@ -138,7 +139,7 @@ Se já não pretender utilizar a funcionalidade SSPR que configuraste como parte
 1. A partir da página **Propriedades,** sob a opção *Redefiniu a palavra-passe de serviço de auto-ar,* escolha **Nenhum**.
 1. Para aplicar a alteração SSPR, **selecione Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, ativou o autosserviço do Azure AD para um grupo selecionado de utilizadores. Aprendeu a:
 

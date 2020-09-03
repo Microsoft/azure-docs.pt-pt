@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: d0d1ed2b082abe5930f358a2551a967dd158aa41
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 6e8da9bf4564dbab07bc5f4e9842a631d51ae824
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376592"
+ms.locfileid: "89398669"
 ---
 # <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Quickstart: Azure Key Vault certifica biblioteca de clientes para Python
 
@@ -27,7 +27,7 @@ O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os se
 - Simplificar e automatizar tarefas para certificados TLS/SSL.
 - Utilize OS HSMs validados FIPS 140-2.
 
-[Documentação de](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault)  |  [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-keyvault/)
+[Documentação de](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)  |  [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-keyvault-certificates)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
