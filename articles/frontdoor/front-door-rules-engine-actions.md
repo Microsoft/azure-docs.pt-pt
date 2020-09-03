@@ -3,7 +3,7 @@ title: Azure Front Door Rules Engine actions
 description: Este artigo fornece uma lista das várias ações que pode fazer com o Motor das Regras da Porta Frontal Azure.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 74c0a2617a01e8c24cd93a015b667081250657ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: f5110a7644d3ca33da5755f783f61ac35484ddb1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521501"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399281"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Ações do Motor de Regras do Azure Front Door
 
@@ -35,9 +35,9 @@ Utilize esta ação para modificar os cabeçalhos que estão presentes nos pedid
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | Cadeia
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | Cadeia
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | Cadeia
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | String
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | String
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | String
 
 ## <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
@@ -47,9 +47,9 @@ Utilize esta ação para modificar cabeçalhos que estão presentes nas resposta
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | Cadeia
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | Cadeia
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | Cadeia
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | String
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | String
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | String
 
 ## <a name="route-configuration-overrides"></a>Substituições da configuração de rotas 
 

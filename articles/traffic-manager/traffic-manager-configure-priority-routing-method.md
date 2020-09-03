@@ -3,20 +3,20 @@ title: Tutorial - Configurar encaminhamento de tráfego prioritário com Azure T
 description: Este tutorial explica como configurar o método de encaminhamento de tráfego prioritário no Gestor de Tráfego
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: rohink
-ms.openlocfilehash: 2c541f8318bd7e75de7526e6b7a9e3a32462782d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.author: duau
+ms.openlocfilehash: 404338c3e36216833d39c3551ae2dee0be304d24
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706754"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401015"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configurar método de encaminhamento prioritário de tráfego em Gerente de Tráfego
 
@@ -48,7 +48,7 @@ Um padrão comum para o failover do serviço é enviar o tráfego para um servi�
 
 ![Configurar método de encaminhamento de tráfego prioritário utilizando o Gestor de Tráfego][1]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
 - Saiba mais sobre o [método de encaminhamento de tráfego ponderado](traffic-manager-configure-weighted-routing-method.md).

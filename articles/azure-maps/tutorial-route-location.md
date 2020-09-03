@@ -1,42 +1,46 @@
 ---
-title: 'Tutorial: Encontre caminho para um local / Microsoft Azure Maps'
-description: Aprenda a encontrar uma rota para um ponto de interesse. Veja como definir coordenadas de endereço e consultar o serviço de Rota Azure Maps para as direções ao ponto.
+title: 'Tutorial: Como exibir direções de rota usando o serviço de rota do Microsoft Azure Maps e o controlo do mapa'
+description: Saiba como exibir as direções de rota utilizando o serviço de rota do Microsoft Azure Maps e o controlo do mapa.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/14/2020
+ms.date: 09/01/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0ff604e920ca3e0708fc21a1cadfe61646f4e30b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 992640424f6fdb632327866e132fdbb1c6244492
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037580"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400335"
 ---
-# <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: Rota para um ponto de interesse usando Azure Maps
+# <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Como exibir direções de rota usando o serviço de rota Azure Maps e o controlo do mapa
 
-Este tutorial mostra como utilizar a sua conta do Azure Maps e o SDK do Route Service para encontrar o trajeto para o seu ponto de interesse. Neste tutorial, ficará a saber como:
+Este tutorial mostra-lhe como usar o [serviço AZure](https://docs.microsoft.com/rest/api/maps/route) Maps Route API e [o controlo do mapa](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) para exibir as direções da rota do início ao ponto final. Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
-> * Criar uma nova página Web com a API de Controlo de Mapas
-> * Definir coordenadas de endereços
-> * Consultar o Route Service para obter direções para o ponto de interesse
+> * Crie e exiba o controlo do Mapa numa página web. 
+> * Defina a renderização do visor da rota definindo [camadas de símbolo](map-add-pin.md) e [camadas de linha](map-add-line-layer.md).
+> * Crie e adicione objetos GeoJSON ao Mapa para representar pontos de partida e de fim.
+> * Obtenha direções de rota de início e de ponta utilizando a [API de direções Get Route](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+
+Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html) Uma amostra viva pode ser encontrada [aqui.](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de continuar, siga as instruções na [Criar uma conta,](quick-demo-map-app.md#create-an-azure-maps-account)precisa de uma subscrição com o nível de preços S1. Siga os passos para obter a [chave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
+1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
 
 <a id="getcoordinates"></a>
 
-## <a name="create-a-new-map"></a>Criar um novo mapa
+## <a name="create-and-display-the-map-control"></a>Criar e exibir o controlo do Mapa
 
-Os passos seguintes mostram como criar uma página HTML estática incorporada com a API de Controlo de Mapas.
+Os passos a seguir mostram-lhe como criar e exibir o controlo do Mapa numa página web.
 
 1. No seu computador local, crie um novo ficheiro e dê a este o nome de **MapRoute.html**.
-2. Adicione os seguintes componentes HTML ao ficheiro:
+2. Copiar/colar a seguinte marcação HTML no ficheiro.
 
     ```HTML
     <!DOCTYPE html>
@@ -81,7 +85,7 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
     </html>
     ```
 
-    Repare que o cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript alojados pela biblioteca de Controlo de Mapas do Azure. Observe o evento `onload` no corpo da página, que irá chamar a função `GetMap` quando o corpo da página for carregada. Esta função irá conter o código JavaScript inline para aceder às APIs do Azure Maps. 
+    O cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript alojados pela biblioteca Azure Map Control. O evento do corpo `onload` chama a `GetMap` função. No próximo passo, adicionaremos o código de inicialização do controlo do mapa.
 
 3. Adicione o seguinte código JavaScript à função `GetMap`. Substitua a cadeia `<Your Azure Maps Key>` pela chave primária que copiou da sua conta Maps.
 
@@ -96,17 +100,15 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
    });
    ```
 
-    O ficheiro `atlas.Map` oferece o controlo para um mapa Web visual e interativo, sendo um componente da API do Controlo de Mapas do Azure.
+4. Guarde o ficheiro e abra-o no browser. Um simples é exibido.
 
-4. Guarde o ficheiro e abra-o no browser. Neste momento, tem um mapa básico que pode aprimorar mais.
+     :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
 
-   ![Ver mapa básico](media/tutorial-route-location/basic-map.png)
+## <a name="define-route-display-rendering"></a>Definir renderização de ecrã de rota
 
-## <a name="define-how-the-route-will-be-rendered"></a>Definir como o trajeto será composto
+Neste tutorial, faremos a rota usando uma camada de linha. Os pontos de partida e de fim serão renderizados utilizando uma camada de símbolo. Para obter mais informações sobre a adição de camadas de linha, consulte [Adicione uma camada de linha a um mapa](map-add-line-layer.md). Para saber mais sobre as camadas de símbolos, consulte [Adicione uma camada de símbolo a um mapa.](map-add-pin.md)
 
-Neste tutorial, será composta uma rota simples com um ícone de símbolo para o início e o fim da rota, e uma linha para o caminho da rota.
-
-1. Depois de rubricar o mapa, adicione o seguinte código JavaScript.
+1. Anexar o seguinte código JavaScript na `GetMap` função. Este código implementa o manipulador de eventos do controlo do `ready` mapa. O resto do código neste tutorial será colocado dentro do `ready` manipulador do evento.
 
     ```JavaScript
     //Wait until the map resources are ready.
@@ -138,10 +140,12 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
         }));
     });
     ```
-    
-    No manipulador de eventos de `ready` mapas, é criada uma fonte de dados para armazenar a linha de rota e os pontos de partida e de fim. É criada uma camada de linhas e anexada à origem de dados para definir como será composta a linha de rotas. A linha de rota será renderizada como um belo tom de azul. Terá uma largura de cinco píxeis, juntas de linha arredondadas e tampas. Ao adicionar a camada ao mapa, é passado um segundo parâmetro com o valor `'labels'`, no qual especifica a composição desta camada abaixo das etiquetas do mapa. Isto garante que a linha do trajeto não cobre as etiquetas de viagem. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os pontos de partida e final são renderizados. Neste caso, foram adicionadas expressões para recuperar a imagem do ícone e a informação do rótulo de texto a partir de propriedades em cada objeto de ponto. 
-    
-2. Para este tutorial, defina o ponto de início como Microsoft e o ponto de fim como uma bomba de gasolina em Seattle. No manipulador de eventos de `ready` mapas, adicione o seguinte código.
+
+    No manipulador de eventos do controlo do `ready` mapa, é criada uma fonte de dados para armazenar a rota do início ao ponto final. Para definir como a linha de rota será renderizada, uma camada de linha é criada e anexada à fonte de dados.  Para garantir que a linha de rota não cubra as etiquetas da estrada, passamos um segundo parâmetro com o valor de `'labels'` .
+
+    Em seguida, uma camada de símbolo é criada e anexada à fonte de dados. Esta camada especifica como os pontos de partida e final são renderizados. Neste caso, foram adicionadas expressões para recuperar a imagem do ícone e a informação do rótulo de texto a partir de propriedades em cada objeto de ponto.
+
+2. Estabeleça o ponto de partida como Microsoft, e o ponto final como posto de gasolina em Seattle.  No manipulador de eventos do controlo do `ready` mapa, apeia o seguinte código.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -164,19 +168,19 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
     });
     ```
 
-    Este código cria dois [objetos GeoJSON Point](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos de partida e final da rota e adiciona os pontos à fonte de dados. É adicionada uma propriedade `title` e `icon` a cada ponto. O último bloco define a vista da câmara usando a latitude e longitude dos pontos de partida e de fim, utilizando a propriedade [SetCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa.
+    Este código cria dois [objetos GeoJSON Point](https://en.wikipedia.org/wiki/GeoJSON) para representar pontos de partida e de fim, que são adicionados à fonte de dados. O último bloco de código define a vista da câmara utilizando a latitude e longitude dos pontos de partida e de fim. Para obter mais informações sobre a propriedade do setCamera do controlo do mapa, consulte [setCamera (CameraOptions ] CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) propriedade.
 
-3. Guarde o ficheiro **MapRoute.html** e atualize o browser. Agora o mapa está centrado sobre Seattle, e você pode ver o pino azul marcando o ponto de partida e o pino azul redondo marcando o ponto de chegada.
+3. Guarde **MapRoute.htmi** e refresque o seu navegador. O mapa está agora centrado em Seattle. O pino azul lágrima marca o ponto de partida. O pino azul redondo marca o ponto final.
 
-   ![Ver ponto de partida e fim das rotas no mapa](media/tutorial-route-location/map-pins.png)
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Ver ponto de partida e fim das rotas no mapa":::
 
 <a id="getroute"></a>
 
-## <a name="get-directions"></a>Obter direções
+## <a name="get-route-directions"></a>Obtenha direções de rota
 
-Esta secção mostra como utilizar o serviço de rota Azure Maps API. O serviço de rota API encontra a rota de um dado ponto de partida para um ponto final. Dentro deste serviço, existem APIs para planear rotas *mais rápidas,* *mais curtas,* *eco,* ou *emocionantes* entre dois locais. Este serviço também permite que os utilizadores planeiem rotas no futuro, utilizando a extensa base de dados de tráfego histórico da Azure. Os utilizadores podem ver a previsão das durações da rota em qualquer dia e hora escolhidos. Para obter mais informações, veja [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obter indicações de trajetos). Todas as seguintes funcionalidades devem ser adicionadas **dentro do evento pronto para o mapa** para garantir que carregam depois de os recursos do mapa estarem prontos para serem acedidos.
+Esta secção mostra-lhe como utilizar o serviço AZure Maps Route API para obter direções de um ponto para o outro. Dentro deste serviço, existem outras APIs que lhe permitem planear rotas *mais rápidas,* *mais curtas,* *eco,* ou *emocionantes* entre dois locais. Este serviço também permite que os utilizadores planeiem rotas futuras com base em condições históricas de tráfego. Os utilizadores podem ver a previsão das durações da rota durante qualquer momento. Para mais informações, consulte [a API de direções da Rota.](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
-1. Na função GetMap, adicione o seguinte ao código JavaScript.
+1. Na `GetMap` função, dentro do manipulador de eventos do `ready` controlo, adicione o seguinte ao código JavaScript.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
@@ -191,7 +195,7 @@ Esta secção mostra como utilizar o serviço de rota Azure Maps API. O serviço
 
    `SubscriptionKeyCredential`Cria um para `SubscriptionKeyCredentialPolicy` autenticar pedidos HTTP ao Azure Maps com a chave de subscrição. A `atlas.service.MapsURL.newPipeline()` política toma conta da política e cria uma instância `SubscriptionKeyCredential` [pipeline.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) O `routeURL` representa uma URL para as operações da Rota [dos](https://docs.microsoft.com/rest/api/maps/route) Mapas Azure.
 
-2. Depois de configurar as credenciais e o URL, adicione o seguinte código JavaScript para construir a rota do início ao ponto final. Os `routeURL` pedidos do serviço de rota Azure Maps para calcular as direções da rota. Uma recolha de recursos GeoJSON da resposta é então extraída usando o `geojson.getFeatures()` método e adicionada à fonte de dados.
+2. Depois de configurar as credenciais e o URL, apeia o seguinte código no manipulador de eventos do `ready` comando. Este código constrói a rota do ponto de partida para o ponto final. Solicita `routeURL` a AZure Maps Route service API para calcular as direções da rota. Uma recolha de recursos GeoJSON da resposta é então extraída usando o `geojson.getFeatures()` método e adicionada à fonte de dados.
 
     ```JavaScript
     //Start and end point input to the routeURL
@@ -205,26 +209,15 @@ Esta secção mostra como utilizar o serviço de rota Azure Maps API. O serviço
     });
     ```
 
-3. Guarde o ficheiro **MapRoute.html** e atualize o browser. Para uma ligação com êxito às APIs do Maps, deverá ver um mapa semelhante ao seguinte.
+3. Guarde o ficheiro **MapRoute.html** e atualize o browser. O mapa deve agora mostrar a rota do início ao ponto final.
 
-    ![Route Service e Controlo de Mapas do Azure](./media/tutorial-route-location/map-route.png)
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Serviço de controlo e rota do mapa Azure":::
 
-## <a name="next-steps"></a>Passos seguintes
+    Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html) Uma amostra viva pode ser encontrada [aqui.](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
-Neste tutorial, ficou a saber como:
+## <a name="next-steps"></a>Próximos passos
 
-> [!div class="checklist"]
-> * Criar uma nova página Web com a API de Controlo de Mapas
-> * Definir coordenadas de endereços
-> * Consultar o serviço de trajetos para obter direções para o ponto de interesse
-
-> [!div class="nextstepaction"]
-> [Ver código fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-> [!div class="nextstepaction"]
-> [Ver amostra ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
-
-O tutorial seguinte demonstra como criar uma consulta de trajeto com restrições, como o meio de deslocação ou o tipo de carga, e apresentar vários trajetos no mesmo mapa.
+O próximo tutorial mostra-lhe como criar uma consulta de rota com restrições, como modo de viagem ou tipo de carga. Em seguida, pode apresentar várias rotas no mesmo mapa.
 
 > [!div class="nextstepaction"]
 > [Localizar trajetos para diferentes meios de deslocação](./tutorial-prioritized-routes.md)

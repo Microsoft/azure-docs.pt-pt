@@ -3,7 +3,7 @@ title: 'Tutorial: Configurar o motor das regras - Porta frontal azul'
 description: Este artigo fornece um tutorial sobre como configurar o Motor de Regras tanto no portal Azure como no CLI.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2ab9bc72aa30ddb16d0719827b6d7baeab86c057
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1ff8ca7d7c5972869de4c0d394129c591c7f4a7c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491311"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399077"
 ---
 # <a name="configure-your-rules-engine"></a>Configure o seu motor de regras
 
@@ -91,7 +91,7 @@ az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_ru
 
 Para mais informações, uma lista completa dos comandos do MOTOR de Regras AFD pode ser consultada [aqui.](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest)   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o MOTOR DE Regras DA AFD](front-door-rules-engine.md). 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
