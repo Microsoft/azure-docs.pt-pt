@@ -3,14 +3,14 @@ title: O que é extensão de gráfico de mídia - Azure
 description: O Live Video Analytics on IoT Edge permite-lhe alargar as capacidades de processamento de gráficos de mídia através de um nó de extensão de gráfico.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d7e14a0336da75e1948cf6dc4dbdb51490b70021
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716083"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420834"
 ---
-# <a name="media-graph-extension"></a>Extensão de gráfico de mídia
+# <a name="media-graph-extension"></a>Extensão do grafo de multimédia
 
 O Live Video Analytics on IoT Edge permite-lhe alargar as capacidades de processamento de gráficos de mídia através de um nó de extensão de gráfico. O plugin de extensão analítica pode utilizar técnicas tradicionais de processamento de imagem ou modelos de IA de visão computacional. As extensões de gráfico são ativadas através da inclusão de um nó de processador de extensão num gráfico de mídia. O nó do processador de extensão transmite quadros de vídeo para o ponto final configurado e funciona como interface para a sua extensão. A ligação pode ser feita a um ponto final local ou remoto e pode ser protegida por autenticação e encriptação TLS, se necessário. Além disso, o nó do processador de extensão de gráfico permite a dimensionamento e codificação opcionais dos quadros de vídeo antes de serem submetidos à sua extensão personalizada.
 
@@ -54,8 +54,8 @@ O diagrama abaixo retrata o fluxo de dados de alto nível:
 
 ## <a name="samples"></a>Amostras
 
-Confira algumas das nossas amostras de [caderno Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) para Live Video Analytics. Estes cadernos fornecer-lhe-ão instruções passo a passo sobre:
+Confira algumas das nossas amostras de [caderno Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) para Live Video Analytics. Estes cadernos fornecer-lhe-ão instruções passo a passo para **as extensões de gráficos de mídia** em:
 
 * Como criar uma imagem de contentor Docker de um serviço de extensão
 * Como implantar o serviço de extensão como um recipiente juntamente com o recipiente Live Video Analytics
-* Como utilizar um gráfico de mídia Live Video Analytics com um cliente de extensão e apontá-lo para o ponto final de extensão gRPC
+* Como utilizar um gráfico de mídia Live Video Analytics com um cliente de extensão e apontá-lo para o ponto final da extensão (HTTP/gRPC)

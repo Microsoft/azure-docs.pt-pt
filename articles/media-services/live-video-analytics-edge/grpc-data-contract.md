@@ -3,12 +3,12 @@ title: contrato de dados de extensão gRPC - Azure
 description: Neste artigo, você aprenderá sobre a utilização do protocolo gRPC para enviar mensagens entre o módulo Live Video Analytics e a extensão personalizada de IA ou CV.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 0221d20245a6db69791d8bf13ba9e00de3b96ecc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f2d93fb062ab3d6963177e7ece15df6bfe5b42cb
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691817"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421497"
 ---
 # <a name="grpc-extension-data-contract"></a>contrato de dados de extensão gRPC
 
@@ -21,7 +21,7 @@ gRPC é um moderno quadro RPC de código aberto e de alto desempenho que funcion
 
 Uma sessão gRPC é uma única ligação do cliente gRPC ao servidor gRPC sobre a porta TCP/TLS. 
 
-Numa única sessão: O cliente envia um descritor de stream de mídia seguido de quadros de vídeo para o servidor como uma mensagem [protobuf](https://developers.google.com/protocol-buffers) sobre a sessão de streaming gRPC. O servidor valida o descritor de fluxo, analisa a moldura de vídeo e devolve os resultados da inferência como uma mensagem protobuf.
+Numa única sessão: O cliente envia um descritor de stream de mídia seguido de quadros de vídeo para o servidor como uma mensagem [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) sobre a sessão de streaming gRPC. O servidor valida o descritor de fluxo, analisa a moldura de vídeo e devolve os resultados da inferência como uma mensagem protobuf.
 
 ![contrato de extensão gRPC](./media/data-contracts/grpc.png)
 
@@ -182,6 +182,6 @@ Uma ligação gRPC utilizada para a inferenção pode ser fixada sobre o TLS. Is
 
 As opções de verificação ignoreHostname e IgnoreSignature não são suportadas pelo gRPC, pelo que o certificado do servidor, que o motor de inferenculação apresenta, deve conter um CN que corresponda exatamente ao endereço IP/nome de anfitrião no URL do nó final do nó final do gRPC.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre o Esquema de Metadados de Inferência](inference-metadata-schema.md)

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 03/11/2020
+ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 18c6188e1b13c35a4c28a5f9e7fc863f00798eed
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 9b712c1b2e8ac33ec189542bf6f60929ac59858d
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80616404"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420562"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutorial: Criar e gerir ligações S2S VPN utilizando PowerShell
 
@@ -232,7 +232,7 @@ Se esta configuração fizer parte de um protótipo, teste ou implementação de
 Remove-AzResourceGroup -Name $RG1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar e gerir ligações VPN S2S, como, por exemplo, a:
 

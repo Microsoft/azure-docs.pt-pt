@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c18f48f41a537d66c637959df4fb45331fbda176
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255533"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420494"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge usando Azure CLI e Python
 
@@ -60,13 +60,13 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge util
 
     2. Ativar o cálculo na interface de rede. O Azure Stack Edge cria e gere um interruptor virtual correspondente a essa interface de rede.
 
-    Se decidir utilizar outra interface de rede para calcular, certifique-se de que:
+    <!--If you decide to use another network interface for compute, make sure that you:
 
-    - Elimine todos os VMs que implementou utilizando o Azure Resource Manager.
+    - Delete all the VMs that you have deployed using Azure Resource Manager.
 
-    - Elimine todas as interfaces de rede virtuais e a rede virtual associada a esta interface de rede.
+    - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - Agora pode ativar outra interface de rede para calcular.
+    - You can now enable another network interface for compute.-->
 
 3. Criou e instalou todos os certificados no seu dispositivo Azure Stack Edge e na loja de confiança do seu cliente. Siga o procedimento descrito no [Passo 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
@@ -426,6 +426,6 @@ Um script Python é-lhe fornecido para criar um VM. Dependendo se está inscrito
     ``` 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Comandos Comuns de CLI Az para máquinas virtuais Linux](../virtual-machines/linux/cli-manage.md)

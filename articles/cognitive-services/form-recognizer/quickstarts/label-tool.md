@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377817"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418964"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -225,7 +225,9 @@ Os seguintes tipos de valor e variações são atualmente suportados:
 > [!NOTE]
 > Consulte estas regras para formatação de data:
 > 
-> Os seguintes caracteres podem ser usados como delimiters de data DMY: `, - / . \` . O espaço branco não pode ser usado como um delimiter. Por exemplo:
+> Tem de especificar um formato `dmy` (, `mdy` , , ) para `ymd` a formatação da data para o trabalho.
+>
+> Os seguintes caracteres podem ser usados como delimiters de data: `, - / . \` . O espaço branco não pode ser usado como um delimiter. Por exemplo:
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
@@ -234,11 +236,11 @@ Os seguintes tipos de valor e variações são atualmente suportados:
 > * 1-1-2020
 > * 1-01-20
 >
-> Se uma cadeia de data DMY tiver oito dígitos, olimdimento é opcional:
+> Se uma cadeia de data tem oito dígitos, o delimiter é opcional:
 > * 01012020
 > * 01 01 2020
 >
-> O mês também pode ser escrito como o seu nome completo ou curto. Se o nome for utilizado, os caracteres delimiter são opcionais:
+> O mês também pode ser escrito como o seu nome completo ou curto. Se o nome for utilizado, os caracteres delimiter são opcionais. No entanto, este formato pode ser reconhecido com menos precisão do que outros.
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020

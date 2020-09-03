@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5682d511b20f7b6f4dbfbd7487e39f345b660fa
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262860"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421378"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Tutorial: Instalar borda de pilha de Azure com GPU
 
@@ -221,12 +221,16 @@ Tome os seguintes passos para teleférico para a alimentação e rede.
 4. Ligue os cabos de alimentação às unidades de distribuição de energia (PDUs) em bastidor. Certifique-se de que as duas PSUs utilizam fontes de alimentação separadas.
 5. Pressione o botão de alimentação para ligar o dispositivo.
 6. Ligue a interface de rede de 1 GbE PORT 1 ao computador que é utilizado para configurar o dispositivo físico. O PORT 1 serve como interface de gestão.
+    
+    > [!NOTE]
+    > Se ligar o computador diretamente ao seu dispositivo (sem passar por um interruptor), utilize um cabo de cruzamento ou um adaptador USB Ethernet.
+
 7. Ligue uma ou mais das PORTAS 2, 3, 4, 5 ou 6 à rede/Internet do datacenter.
 
     - Se ligar a PORTA 2, utilize o cabo de rede RJ-45 de 1-GbE.
     - Para as interfaces de rede de 10/25 GbE, utilize os cabos de cobre SFP+.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge, tais como como:
 
@@ -235,7 +239,7 @@ Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge, tais como como:
 > * Montar o dispositivo em bastidor
 > * Ligar o dispositivo
 
-Avance para o próximo tutorial para aprender a ligar, configurar e ativar o seu dispositivo.
+Avance para o próximo tutorial para aprender a ligar-se ao seu dispositivo.
 
 > [!div class="nextstepaction"]
 > [Ligue a borda da pilha de Azure](./azure-stack-edge-gpu-deploy-connect.md)

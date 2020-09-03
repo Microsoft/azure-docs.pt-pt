@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 713f9eeef87cbfe3d8cb3d9717ad703328b54fe3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3b500a7d93d19bcc0cd9c23d64ad079f0abfd353
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262724"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421361"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Tutorial: Conecte-se ao Azure Stack Edge com GPU
 
@@ -41,11 +41,11 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge com GPU, cer
 
 1. Configure o adaptador Ethernet no seu computador para ligar ao dispositivo Azure Stack Edge com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
 
-2. Ligue o computador ao PORTO 1 no seu dispositivo. Utilize a seguinte ilustração para identificar a PORTA 1 no seu dispositivo.
+2. Ligue o computador ao PORTO 1 no seu dispositivo. Se ligar o computador diretamente ao dispositivo (sem um interruptor), utilize um cabo de cruzamento ou um adaptador USB Ethernet. Utilize a seguinte ilustração para identificar a PORTA 1 no seu dispositivo.
 
     ![Painel posterior de um dispositivo ligado por cabo](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    O backplane do dispositivo pode parecer ligeiramente diferente dependendo do modelo exato que recebeu.
+    O backplane do dispositivo pode parecer ligeiramente diferente dependendo do modelo exato que recebeu. Para obter mais informações, consulte [o cabo do seu dispositivo.](azure-stack-edge-gpu-deploy-install.md#cable-the-device)
 
 
 3. Abra uma janela do navegador e aceda à UI web local do dispositivo em `https://192.168.100.10` .  
@@ -68,7 +68,7 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge com GPU, cer
 Está agora na página **geral** do seu dispositivo. O próximo passo é configurar as definições de rede para o seu dispositivo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu sobre:
 

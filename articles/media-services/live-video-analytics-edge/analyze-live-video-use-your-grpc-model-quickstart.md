@@ -4,12 +4,12 @@ description: Neste arranque rápido, aplicará visão computacional para analisa
 ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: ac11ced68ab8463da26b9978a5b0b02c4cd1a402
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 907d402a4b0ef5d5e437322d02431a0ccd2d8da3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691905"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421540"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model"></a>Quickstart: Analise o vídeo ao vivo usando o seu próprio modelo gRPC
 
@@ -56,11 +56,11 @@ Este quickstart mostra-lhe como usar o Live Video Analytics no IoT Edge para ana
 ## <a name="create-and-deploy-the-media-graph"></a>Criar e implementar o gráfico de mídia
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
 ::: zone-end
 
 ## <a name="interpret-results"></a>Interpretar os resultados
@@ -73,10 +73,15 @@ Este quickstart mostra-lhe como usar o Live Video Analytics no IoT Edge para ana
 [!INCLUDE [interpret results](includes/analyze-live-video-your-grpc-model-quickstart/python/interpret-results.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende tentar outros quickstarts, mantenha os recursos que criou. Caso contrário, vá ao portal Azure, vá aos seus grupos de recursos, selecione o grupo de recursos onde executou este quickstart e elimine todos os recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Tente executar diferentes topologias de gráficos de mídia utilizando o protocolo gRPC.
+* Tente executar diferentes topologias de gráficos de mídia utilizando o protocolo gRPC.
+* **Construir e executar extensões de vídeo ao vivo analytics (LVA)**
+<br/>Experimente os nossos cadernos de amostras Jupyter que lhe permitem construir e executar modelos YOLO baseados [em ONNX](http://onnx.ai/) como extensão Live Video Analytics (LVA).
+    * [Modelo yolov3 da amostra](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [Modelo yolov4 da amostra](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
+
