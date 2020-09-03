@@ -15,7 +15,7 @@
     - name: Criar e assinar uma política de atestado
       href: author-sign-policy.md
     - name: Exemplos de código de atestado SGX
-      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+      href: /samples/browse/?expanded=azure&terms=attestation
 - name: Exemplos
   items:
     - name: Política de atestado

@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: O serviço Language Understanding (LUIS) permite que a sua aplicação compreenda o que uma pessoa quer nas suas próprias palavras. O LUIS utiliza a aprendizagem automática para permitir aos programadores criar aplicações que possam receber as entradas de utilizador numa linguagem natural e extrair o significado das mesmas.
-  ms.openlocfilehash: 561f6ee161d2a697b8c143ee49209515f679c77b
-  ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+  ms.openlocfilehash: 6e34c5e39118565e14a40765443583b0b9ed237b
+  ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88236527"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89322488"
 landingContent:
 - title: Acerca do Language Understanding (LUIS)
   linkLists:
@@ -60,9 +60,9 @@ landingContent:
     - text: 'Portal: Criar uma nova aplicação do LUIS'
       url: get-started-portal-build-app.md
     - text: Utilizar o SDK de C#
-      url: quickstart-sdk.md?pivots=programming-language-csharp
+      url: azure-sdk-quickstart.md?pivots=programming-language-csharp
     - text: Utilizar o SDK de Python
-      url: quickstart-sdk.md?pivots=programming-language-python
+      url: azure-sdk-quickstart.md?pivots=programming-language-python
   - linkListType: how-to-guide
     links:
     - text: Criar uma nova aplicação do LUIS
@@ -88,7 +88,7 @@ landingContent:
     - text: 'Portal: Implementar uma aplicação no ponto final de predição'
       url: get-started-portal-deploy-app.md
     - text: Utilizar o SDK
-      url: quickstart-sdk.md
+      url: azure-sdk-quickstart.md
   - linkListType: how-to-guide
     links:
     - text: Atualizar a versão da sua aplicação
@@ -106,7 +106,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK
-      url: quickstart-sdk.md
+      url: azure-sdk-quickstart.md
   - linkListType: quickstart
     links:
     - text: Com C# através de REST

@@ -34,7 +34,7 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: ASP.NET Core
+        - name: Núcleo de ASP.NET
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
@@ -470,13 +470,13 @@
     - name: Aprovisionamento automático de utilizadores (SCIM)
       items:
         - name: O que é o aprovisionamento automático de utilizadores?
-          href: ../app-provisioning/user-provisioning.md
+          href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Desenvolver e integrar um ponto final SCIM
-          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Cenários comuns de aprovisionamento
-          href: ../app-provisioning/scim-graph-scenarios.md
+          href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Automatizar a configuração com o MS Graph
-          href: ../app-provisioning/application-provisioning-configure-api.md
+          href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Artigos de ajuda do portal do Azure
       items:
         - name: Predefinições de duração do token para uma aplicação personalizada

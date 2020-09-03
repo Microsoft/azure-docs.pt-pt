@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: O que é a Imagem Digitalizada?
-      href: Home.md
+      href: overview.md
     - name: Novidades
       href: whats-new.md
 - name: Guias de Início Rápido
