@@ -2,7 +2,7 @@
 title: Tutorial - Configurar o encaminhamento de tráfego geográfico com o Gestor de Tráfego da Azure
 description: Este tutorial explica como configurar o método de encaminhamento de tráfego geográfico usando O Gestor de Tráfego Azure
 services: traffic-manager
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: rohink
-ms.openlocfilehash: 3eb3f354d51833e55f405ed35679f1a5882c057a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: duau
+ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76938798"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401083"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configurar o método de encaminhamento de tráfego geográfico usando o Gestor de Tráfego
 
@@ -57,7 +57,7 @@ O método de encaminhamento de tráfego geográfico permite-lhe direcionar o tr�
 2. Clique em **Descrição geral**.
 3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar. Isto pode ser usado por qualquer cliente (por exemplo, navegando para ele usando um navegador web) para ser encaminhado para o ponto final certo, conforme determinado pelo tipo de encaminhamento.  No caso do encaminhamento geográfico, o Gestor de Tráfego olha para a origem do pedido de entrada e determina a região de onde é originária. Se essa região for mapeada para um ponto final, o tráfego é encaminhado para lá. Se esta região não estiver mapeada para um ponto final, então o Gestor de Tráfego devolve uma resposta de consulta NODATA.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o método de encaminhamento de tráfego geográfico.](traffic-manager-routing-methods.md#geographic)
 - Saiba como testar as [definições do Gestor de Tráfego](traffic-manager-testing-settings.md).

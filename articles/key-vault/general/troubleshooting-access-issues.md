@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 57baeccc9f4644ec055de638254d4613a33ef68d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378649"
+ms.locfileid: "89400437"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Problemas na resolução de problemas da política de acesso ao cofre do Azure
 
@@ -37,13 +37,13 @@ Se estiver a criar uma aplicação on-prem, a fazer desenvolvimento local ou de 
 
 ### <a name="how-can-i-give-the-ad-group-access-to-the-key-vault"></a>Como posso dar ao grupo AD acesso ao cofre das chaves?
 
-Dê permissões ao grupo AD para o seu cofre de chaves utilizando o comando de definição de chave Azure CLI az, ou o cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy. Ver [Atribuir uma política de acesso - CLI](assign-access-policy-cli.md) e atribuir uma política de acesso - [PowerShell](assign-access-policy-powershell.md).
+Dê permissões ao grupo AD para o seu cofre de chaves utilizando o comando Azure `az keyvault set-policy` CLI, ou o cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy. Ver [Atribuir uma política de acesso - CLI](assign-access-policy-cli.md) e atribuir uma política de acesso - [PowerShell](assign-access-policy-powershell.md).
 
 A aplicação também precisa de pelo menos uma função de Gestão de Identidade e Acesso (IAM) atribuída ao cofre-chave. Caso contrário, não poderá iniciar sessão e falhará com direitos insuficientes de acesso à subscrição. Os grupos AD Azure com Identidades Geridas podem necessitar de até oito horas para refrescar tokens e tornar-se eficazes.
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Como posso recolocar o Key Vault com o modelo ARM sem eliminar as políticas de acesso existentes?
 
-Atualmente, a reafectação do Key Vault ARM eliminará qualquer política de acesso no Key Vault e substituirá-a pela política de acesso no modelo ARM. Não existe uma opção incremental para as políticas de acesso ao Cofre chave. Para preservar as políticas de acesso no Key Vault, é necessário ler as políticas de acesso existentes no Key Vault e preencher o modelo ARM com essas políticas para evitar eventuais interrupções de acesso.
+Atualmente, a reafectação do Key Vault elimina qualquer política de acesso no Key Vault e substitui-a pela política de acesso no modelo ARM. Não existe uma opção incremental para as políticas de acesso ao Cofre chave. Para preservar as políticas de acesso no Key Vault, é necessário ler as políticas de acesso existentes no Key Vault e preencher o modelo ARM com essas políticas para evitar eventuais interrupções de acesso.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Etapas recomendadas de resolução de problemas para seguir tipos de erro
 

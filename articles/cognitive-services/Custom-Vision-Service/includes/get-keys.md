@@ -4,18 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: fa13d9bdf73b87597d4eb01830ec2c76538521fe
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 874d76bebdfd3bd0daba1f83cb1f06c093f192ec
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73800045"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89411761"
 ---
 ## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de preparação e de predição
 
-O projeto precisa de um conjunto válido de chaves de subscrição para interagir com o serviço. Pode encontrar os itens no site da [Visão Personalizada.](https://customvision.ai) Inscreva-se na conta associada à conta Azure utilizada para criar os seus recursos de Visão Personalizada. Na página inicial (a página inicial com a opção de adicionar um novo projeto), selecione o ícone de __engrenagem__ na parte superior direita. Encontre os seus recursos de treino e previsão na lista e expanda-os. Aqui pode encontrar a sua chave de treino, chave de previsão e valores de ID de recursos de previsão. Guarde estes valores para um local temporário.
+O projeto necessita de um conjunto válido de chaves de subscrição para interagir com o serviço. Pode encontrar os itens no site da [Visão Personalizada.](https://customvision.ai) Faça sessão com a conta associada à conta Azure que utilizou para criar os seus recursos de Visão Personalizada. Na página inicial (a página com a opção de adicionar um novo projeto), selecione o ícone de __engrenagem__ no canto superior direito. Encontre os seus recursos de treino e previsão na lista e expanda-os. Aqui pode encontrar a sua chave de treino, a chave de previsão e os valores de identificação de recursos de previsão. Guarde estes valores para um local temporário.
+
+> [!NOTE]
+> Se estiver a utilizar uma chave tudo-em-um dos Serviços Cognitivos para aceder à Visão Personalizada, então só verá uma chave no ecrã das definições. Neste caso, usará a mesma chave para operações de treino e previsão.
 
 ![Imagem da IU de chaves](../media/csharp-tutorial/training-prediction-keys.png)
 
-Ou, pode obter estas chaves e ID do [portal Azure](https://www.portal.azure.com) visualizando os seus recursos de Treino e Previsão de Visão Personalizada e navegando para o separador __Keys.__ Aí encontrará a sua chave de treino e a chave de previsão. Navegue para o separador __Propriedades__ do seu recurso De previsão para obter o seu ID de recurso de previsão.
+Ou, pode obter estas chaves e ID a partir do [portal Azure,](https://www.portal.azure.com) visualizando os seus recursos de Treino e Previsão de Visão Personalizada e navegando no separador __Chaves.__ Lá encontrará a chave de treino e a chave de previsão. Navegue no separador __Propriedades__ do seu recurso Prediction para obter o seu ID de recurso de previsão.
 
