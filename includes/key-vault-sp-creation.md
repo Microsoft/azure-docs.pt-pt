@@ -4,14 +4,14 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: d669874040b04af089b4d57333869fe34066720e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6dbdebb1a9fc31e225349cc7fca8366e8b8ed004
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842013"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378559"
 ---
-A forma mais simples de autenticar uma aplicação baseada na nuvem é com uma identidade gerida; ver [Utilizar uma identidade gerida pelo Serviço de Aplicações para aceder ao Cofre da Chave Azure](/azure/key-vault/general/managed-identity) para obter mais detalhes. 
+A forma mais simples de autenticar uma aplicação baseada na nuvem é com uma identidade gerida; consulte [Autenticar para o Cofre de Chaves](/azure/key-vault/general/authentication) para mais detalhes.
 
 No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação para desktop, que requer a utilização de um principal de serviço e de uma política de controlo de acessos. O seu diretor de serviço requer um nome único no formato "http:// &lt; meu nome principal de serviço &gt; único".
 
