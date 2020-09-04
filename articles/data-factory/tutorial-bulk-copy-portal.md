@@ -1,6 +1,6 @@
 ---
 title: Copiar dados a granel usando o portal Azure
-description: Saiba como utilizar o Azure Data Factory e a Atividade de Cópia para copiar dados de um arquivo de dados de origem para um arquivo de dados de destino em massa.
+description: Utilize a Azure Data Factory e copy Activity para copiar dados de uma loja de dados de origem para uma loja de dados de destino a granel.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a047872f519de1873c03998fd1d3a9c273ce9fa1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86081643"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442859"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copie várias tabelas a granel utilizando a Azure Data Factory no portal Azure
 
@@ -45,7 +45,7 @@ Neste cenário, tem uma série de tabelas na Base de Dados Azure SQL que pretend
 ![Fluxo de trabalho](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * O primeiro pipeline procura a lista de tabelas que têm de ser copiadas para os arquivos de dados de sink.  Em alternativa, pode manter uma tabela de metadados que apresenta uma lista de todas as tabelas a copiar para o arquivo de dados de sink. Em seguida, o pipeline aciona outro pipeline, que itera cada tabela na base de dados e executa a operação de cópia de dados.
-* O segundo pipeline executa a cópia real. Aceita a lista de tabelas como um parâmetro. Para cada tabela da lista, copie a tabela específica na Base de Dados Azure SQL para a tabela correspondente no Azure Synapse Analytics (anteriormente SQL DW) utilizando [cópia encenada através do armazenamento Blob e da PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
+* O segundo pipeline executa a cópia real. Aceita a lista de tabelas como um parâmetro. Para cada tabela da lista, copie a tabela específica na Base de Dados Azure SQL para a tabela correspondente no Azure Synapse Analytics (anteriormente SQL DW) utilizando [cópia encenada através do armazenamento Blob e da PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) para melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -62,7 +62,7 @@ Criar uma base de dados na Base de Dados SQL com dados de amostras de Adventure 
 
 **Prepare o sink Azure Synapse Analytics (anteriormente SQL DW)**:
 
-1. Se não tiver um Azure Synapse Analytics (anteriormente SQL DW), consulte o artigo [Criar um Armazém de Dados SQL](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) para etapas para criar um.
+1. Se não tiver um espaço de trabalho Azure Synapse Analytics (anteriormente SQL DW), consulte o artigo [Get start with Azure Synapse Analytics](..\synapse-analytics\get-started.md) para etapas para criar um.
 
 1. Criar esquemas de mesa correspondentes no Azure Synapse Analytics (anteriormente SQL DW). Irá utilizar o Azure Data Factory para migrar/copiar dados num passo mais à frente.
 
@@ -331,7 +331,7 @@ Este gasoduto faz duas ações:
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Mude para o **separador Monitor.** Clique em **Refresh** até ver as duas condutas na solução. Continue a atualizar a lista até ver o estado **Com Êxito**. 
+1. Mude para o **separador Monitor.** Clique **em Refresh** até ver as correções para ambos os oleodutos na sua solução. Continue a atualizar a lista até ver o estado **Com Êxito**. 
 
 1. Para visualizar as operações associadas ao pipeline **GetTableListAndTriggerCopyData,** clique no link de nome do pipeline para o pipeline. Deverá ver duas execuções de atividade para esta execução de pipeline. 
     ![Curso de Pipeline monitor](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 937b836582cfcbf11564aa28b11cd8647afa835c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e5123fbf038205befb207d1ecaf64e27ce42d887
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191113"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440971"
 ---
 # <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
 
@@ -28,11 +28,11 @@ Por exemplo, imagine uma empresa de jogos que recolhe petabytes de registos de j
 
 Para analisar estes registos, a empresa tem de utilizar dados de referência, como informações do cliente, informações do jogo, informações de campanhas de marketing, que se encontram num arquivo de dados no local. A empresa quer utilizar estes dados a partir do arquivo de dados no local e combiná-los com os dados de registos adicionais que tem num arquivo de dados na cloud. 
 
-Para extrair informações, espera processar os dados combinados mediante a utilização de um cluster do Spark na cloud (Azure HDInsight) e, por fim, publicar os dados transformados num armazém de dados na cloud, como o Azure SQL Data Warehouse, para criar facilmente um relatório com base no mesmo. Pretende automatizar este fluxo de trabalho e monitorizá-lo e geri-lo com base numa agenda diária. Também quer executá-lo quando são adicionados ficheiros a um contentor de arquivo de blobs.
+Para extrair insights, espera processar os dados associados utilizando um cluster Spark na nuvem (Azure HDInsight), e publicar os dados transformados num armazém de dados em nuvem, como a Azure Synapse Analytics (ex-SQL Data Warehouse) para facilmente construir um relatório em cima dele. Pretende automatizar este fluxo de trabalho e monitorizá-lo e geri-lo com base numa agenda diária. Também quer executá-lo quando são adicionados ficheiros a um contentor de arquivo de blobs.
 
 O Azure Data Factory é a plataforma que resolve estes cenários de dados. É o *ETL baseado na nuvem e o serviço de integração de dados que lhe permite criar fluxos de trabalho baseados em dados para orquestrar o movimento de dados e transformar dados à escala.* Ao utilizar o Azure Data Factory, pode criar e agendar fluxos de trabalho orientados por dados (denominados pipelines) que podem ingerir dados a partir de arquivos de dados diferentes. Pode construir processos ETL complexos que transformam dados visualmente com fluxos de dados ou utilizando serviços de computação como Azure HDInsight Hadoop, Azure Databricks e Azure SQL Database. 
 
-Além disso, pode publicar os seus dados transformados em lojas de dados, como o Azure SQL Data Warehouse para aplicações de inteligência empresarial (BI) para consumir. Em última análise, através do Azure Data Factory, os dados não processados podem ser organizados em arquivos de dados com significado e em data lakes para uma melhor tomada de decisões empresariais.
+Além disso, pode publicar os seus dados transformados em lojas de dados como a Azure Synapse Analytics para aplicações de inteligência empresarial (BI) para consumir. Em última análise, através do Azure Data Factory, os dados não processados podem ser organizados em arquivos de dados com significado e em data lakes para uma melhor tomada de decisões empresariais.
 
 ![Vista de nível superior do Data Factory](media/data-flow/overview.png)
 
@@ -119,5 +119,5 @@ Aqui estão documentos importantes para explorar:
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
 - [REST](quickstart-create-data-factory-rest-api.md)
-- [Modelo de gestor de recursos Azure](quickstart-create-data-factory-resource-manager-template.md)
+- [Modelo Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
  

@@ -9,12 +9,12 @@ ms.custom: mvc, contperfq1
 ms.date: 08/25/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 914f267edd5a8168fc11af7186e322c306718a4a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 0572613fe33d525ed1a5a42c627de3ce1049a290
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852643"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434049"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -34,7 +34,7 @@ Para saber mais sobre as funcionalidades do Azure Firewall, consulte [as funcion
 
 O Azure Firewall tem os seguintes problemas conhecidos:
 
-|Problema  |Descrição  |Mitigação  |
+|Problema  |Description  |Mitigação  |
 |---------|---------|---------|
 As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem da rede para protocolos não-TCP/UDP não funcionam com o SNAT no seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Estamos a explorar opções para apoiar este cenário num futuro lançamento.|
 |Suporte do PowerShell e CLI em falta para ICMP|A Azure PowerShell e CLI não suportam o ICMP como um protocolo válido nas regras de rede.|Ainda é possível utilizar o ICMP como protocolo através do portal e da API REST. Estamos a trabalhar para adicionar ICMP na PowerShell e na CLI em breve.|
@@ -45,7 +45,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Não é possível remover a primeira configuração ip pública|Cada endereço IP público do Azure Firewall é atribuído a uma *configuração IP*.  A primeira configuração IP é atribuída durante a implementação da firewall, e normalmente também contém uma referência à sub-rede de firewall (a menos que configurada explicitamente de forma diferente através de uma implementação do modelo). Não é possível eliminar esta configuração IP porque desafetaria a firewall. Ainda pode alterar ou remover o endereço IP público associado a esta configuração IP se a firewall tiver pelo menos um outro endereço IP público disponível para usar.|Esta ação é propositada.|
 |As zonas de disponibilidade só podem ser configuradas durante a implantação.|As zonas de disponibilidade só podem ser configuradas durante a implantação. Não é possível configurar zonas de disponibilidade depois de uma firewall ter sido implantada.|Esta ação é propositada.|
 |SNAT em ligações de entrada|Além do DNAT, as ligações através do endereço IP público de firewall (entrada) são SNATed a um dos IPs privados de firewall. Este requisito hoje (também para NVAs ativos/ativos) para garantir o encaminhamento simétrico.|Para preservar a fonte original para HTTP/S, considere a utilização de cabeçalhos [XFF.](https://en.wikipedia.org/wiki/X-Forwarded-For) Por exemplo, utilize um serviço como [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) ou [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) em frente à firewall. Também pode adicionar WAF como parte da Porta frontal Azure e corrente à firewall.
-|Suporte de filtragem SQL FQDN apenas no modo proxy (porta 1433)|Para a base de dados Azure SQL, Azure SQL Data Warehouse e Azure SQL Managed Instance:<br><br>Durante a pré-visualização, a filtragem FQDN SQL é suportada apenas em modo proxy (porta 1433).<br><br>Para Azure SQL IaaS:<br><br>Se estiver a utilizar portas não standard, pode especificar essas portas nas regras de aplicação.|Para o SQL no modo de redireccionamento (o padrão se ligar a partir de Azure), pode, em vez disso, filtrar o acesso utilizando a etiqueta de serviço SQL como parte das regras da rede Azure Firewall.
+|Suporte de filtragem SQL FQDN apenas no modo proxy (porta 1433)|Para a base de dados Azure SQL, Azure Synapse Analytics e Azure SQL Gerenciado Instância:<br><br>Durante a pré-visualização, a filtragem FQDN SQL é suportada apenas em modo proxy (porta 1433).<br><br>Para Azure SQL IaaS:<br><br>Se estiver a utilizar portas não standard, pode especificar essas portas nas regras de aplicação.|Para o SQL no modo de redireccionamento (o padrão se ligar a partir de Azure), pode, em vez disso, filtrar o acesso utilizando a etiqueta de serviço SQL como parte das regras da rede Azure Firewall.
 |Não é permitido tráfego de saída na porta TCP 25| As ligações SMTP de saída que utilizam a porta TCP 25 estão bloqueadas. O Porto 25 é usado principalmente para a entrega de e-mail não autenticado. Este é o comportamento padrão da plataforma para máquinas virtuais. Para obter mais informações, consulte mais [problemas de conectividade SMTP de saída de resolução de problemas em Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). No entanto, ao contrário das máquinas virtuais, não é atualmente possível ativar esta funcionalidade no Azure Firewall. Nota: para permitir que o SMTP autenticado (porta 587) ou SMTP sobre uma porta com outra de 25, certifique-se de que configura uma regra de rede e não uma regra de aplicação, uma vez que a inspeção SMTP não é suportada neste momento.|Siga o método recomendado para enviar e-mail, conforme documentado no artigo de resolução de problemas do SMTP. Ou, exclua a máquina virtual que necessita de acesso SMTP de saída da sua rota padrão para a firewall. Em vez disso, configurar o acesso de saída diretamente para a internet.
 |FTP ativo não é suportado|O FTP ativo é desativado no Azure Firewall para proteger contra ataques de ressalto FTP utilizando o comando FTP PORT.|Em vez disso, pode utilizar FTP passivo. Deve ainda abrir explicitamente as portas TCP 20 e 21 na firewall.
 |Métrica de utilização do porto SNAT mostra 0%|A métrica de utilização da porta Azure Firewall SNAT pode mostrar uma utilização de 0% mesmo quando as portas SNAT são utilizadas. Neste caso, a utilização da métrica como parte da métrica de saúde da firewall proporciona um resultado incorreto.|Esta questão foi corrigida e a produção está prevista para maio de 2020. Em alguns casos, a redistribuição de firewall resolve o problema, mas não é consistente. Como uma solução intermédia, utilize apenas o estado de saúde da firewall para procurar *o estado=degradado*, não para *o status=insalubre*. A exaustão portuária mostrar-se-á *degradada.* *Não é saudável* para uso futuro quando são mais métricas para impactar a saúde da firewall.

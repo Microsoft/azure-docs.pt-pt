@@ -4,12 +4,12 @@ description: Neste tutorial, vai aprender a adicionar um ponto final de HTTPS a 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6b8587982a8cbe496427960495055adbd68a07a7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997290"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441532"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
 
@@ -238,7 +238,7 @@ No Solution Explorer, abra *o VotingWeb/PackageRoot/ServiceManifest.xml*.  Na se
 
 Para executar o PowerShell no ponto **SetupEntryPoint**, pode executar PowerShell.exe num ficheiro de batch que aponte para um ficheiro do PowerShell. Primeiro, adicione o ficheiro de batch ao projeto do serviço.  No Explorador de Soluções, clique com o botão direito do rato em **VotingWeb** e selecione **Add** (Adicionar)->**New Item** (Novo Item) e adicione um ficheiro novo com o nome "Setup.bat".  Edite o ficheiro *Setup.bat* e adicione o seguinte comando:
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 

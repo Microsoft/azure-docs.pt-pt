@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 0c2f840333f066afaa22883fb0f5d67072a5c822
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: d4652ca62a82d14c7e44466161ae9b463818a71f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85504870"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433984"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Criar uma fábrica de dados e oleoduto utilizando .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Create a data factory and pipeline using .NET SDK (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET)
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -56,7 +56,7 @@ A partir das secções em *Como: Utilizar o portal para criar uma aplicação AD
 
 Em seguida, crie uma aplicação de consola C# .NET no Visual Studio:
 
-1. Inicie o **Visual Studio**.
+1. Lançamento **Visual Studio**.
 2. Na janela Iniciar, **selecione Criar uma nova**app de consola de projeto  >  **(.NET Framework)**. É necessária a versão 4.5.2 ou superior do .NET.
 3. Em **nome do Projeto,** insira **ADFv2QuickStart**.
 4. Selecione **Create** (Criar) para criar o projeto.
@@ -318,9 +318,9 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Crie e inicie a aplicação e, em seguida, verifique a execução de pipeline.
 
-A consola imprime o progresso da criação da fábrica de dados, o serviço ligado, os conjuntos de dados, o pipeline e a execução de pipeline. Em seguida, verifica o estado de execução do pipeline. Aguarde até ver a atividade da cópia executar detalhes com o tamanho dos dados de leitura/escrita. Em seguida, utilize ferramentas como [o explorador de armazenamento Azure](https://azure.microsoft.com/features/storage-explorer/) para verificar se a bolha é copiada para "outputBlobPath" a partir de "inputBlobPath" como especificado nas variáveis.
+A consola imprime o progresso da criação da fábrica de dados, o serviço ligado, os conjuntos de dados, o pipeline e a execução de pipeline. Em seguida, verifica o estado de execução do pipeline. Aguarde até ver a atividade da cópia executar detalhes com o tamanho dos dados de leitura/escrita. Em seguida, utilize ferramentas como [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para verificar se a bolha é copiada para "outputBlobPath" a partir de "inputBlobPath" como especificado nas variáveis.
 
-### <a name="sample-output"></a>Resultado da amostra
+### <a name="sample-output"></a>Saída de exemplo
 
 ```json
 Creating data factory SPv2Factory0907...
@@ -436,7 +436,7 @@ O gasoduto cria automaticamente a pasta de saída no recipiente de **bolhas adft
 2. Na lista de pastas, selecione **output**.
 3. Confirme se o ficheiro **emp.txt** foi copiado para a pasta de saída. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para eliminar programáticamente a fábrica de dados, adicione as seguintes linhas de código ao programa: 
 

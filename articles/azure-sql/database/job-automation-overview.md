@@ -11,22 +11,22 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984664"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436787"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão utilizando trabalhos de base de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Você pode criar e agendar trabalhos que podem ser executados periodicamente contra uma ou muitas bases de dados para executar consultas Transact-SQL (T-SQL) e executar tarefas de manutenção.
 
-Pode definir a base de dados-alvo ou grupos de bases de dados onde o trabalho será executado e também definir horários para executar um trabalho.
-Um trabalho trata da tarefa de iniciar sessão na base de dados alvo. Também define, mantém e persiste scripts Transact-SQL para serem executados através de um grupo de bases de dados.
+Pode definir uma base de dados ou grupos de bases de dados de destino onde a tarefa será executada e, além disso, definir horários para executar uma tarefa.
+Uma tarefa processa a tarefa de início de sessão na base de dados de destino. Também pode definir, manter e persistir os scripts Transact-SQL para serem executados num grupo de bases de dados.
 
-Cada trabalho regista o estado de execução e também retrição automática das operações em caso de falha.
+Cada tarefa regista o estado de execução e, além disso, repete as operações automaticamente caso ocorra alguma falha.
 
 ## <a name="when-to-use-automated-jobs"></a>Quando utilizar trabalhos automatizados
 
@@ -44,14 +44,14 @@ Existem vários cenários em que se pode utilizar a automação de emprego:
   - Crie empregos que reproduzam alterações escontes feitas nas suas bases de dados para outras bases de dados ou recolha de atualizações es feitas em bases de dados remotas e aplique alterações na base de dados.
   - Crie empregos que carreguem dados de ou para as suas bases de dados utilizando serviços de integração de servidores SQL (SSIS).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Estão disponíveis as seguintes tecnologias de agendamento de emprego:
 
 - **SQL Agent Jobs** são componentes de agendamento de trabalho sql server clássicos e testados em batalha que estão disponíveis em Azure SQL Managed Instance. Sql Agent Jobs não estão disponíveis na Base de Dados Azure SQL.
 - **Elastic Database Jobs (pré-visualização)** são serviços de Agendamento de Emprego que executam trabalhos personalizados em uma ou muitas bases de dados na Base de Dados Azure SQL.
 
-Vale a pena notar algumas diferenças entre o Agente SQL (disponível no local e como parte do SQL Managed Instance) e o agente de trabalho elástico da base de dados (disponível para bases de dados únicas na Base de Dados Azure SQL e bases de dados no SQL Data Warehouse).
+Vale a pena notar algumas diferenças entre o Agente SQL (disponível no local e como parte do SQL Managed Instance) e o agente de trabalho elástico da base de dados (disponível para bases de dados únicas na Base de Dados Azure SQL e bases de dados em Azure Synapse Analytics).
 
 | |Tarefas Elásticas |Agente SQL |
 |---------|---------|---------|
@@ -210,7 +210,7 @@ Para a pré-visualização atual, é necessária uma base de dados existente na 
 
 A *base de dados job* não precisa literalmente de ser nova, mas deve ser um objetivo de serviço limpo, vazio, S0 ou superior. O objetivo de serviço recomendado da base de *dados job* é S1 ou superior, mas a escolha ideal depende das necessidades de desempenho do seu(s): o número de passos de emprego, o número de alvos de emprego e a frequência com que os empregos são executados. Por exemplo, uma base de dados S0 pode ser suficiente para um agente de trabalho que gere poucos empregos por hora direcionando menos de dez bases de dados, mas gerir um trabalho a cada minuto pode não ser rápido o suficiente com uma base de dados S0, e um nível de serviço mais elevado pode ser melhor.
 
-Se as operações contra a base de dados de trabalho forem mais lentas do que o esperado, [monitorize](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) o desempenho da base de dados e a utilização do recurso na base de dados de trabalho durante períodos de lentidão utilizando o portal Azure ou o [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Se a utilização de um recurso, como CPU, Data IO ou Log Write se aproximar a 100% e se correlacionar com períodos de lentidão, considere aumentar gradualmente a base de dados para objetivos de serviço mais elevados (quer no [modelo DTU,](service-tiers-dtu.md) quer no [modelo vCore)](service-tiers-vcore.md)até que o desempenho da base de dados de emprego seja suficientemente melhorado.
+Se as operações contra a base de dados de trabalho forem mais lentas do que o esperado, [monitorize](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) o desempenho da base de dados e a utilização do recurso na base de dados de trabalho durante períodos de lentidão utilizando o portal Azure ou o [DMV sys.dm_db_resource_stats.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) Se a utilização de um recurso, como CPU, Data IO ou Log Write se aproximar a 100% e se correlacionar com períodos de lentidão, considere aumentar gradualmente a base de dados para objetivos de serviço mais elevados (quer no [modelo DTU,](service-tiers-dtu.md) quer no [modelo vCore)](service-tiers-vcore.md)até que o desempenho da base de dados de emprego seja suficientemente melhorado.
 
 ##### <a name="job-database-permissions"></a>Permissões da base de dados da tarefa
 
@@ -218,7 +218,7 @@ Durante a criação do agente de tarefa, um esquema, tabelas e uma função cham
 
 |Nome da função |permissões de esquema "jobs" |permissões de esquema "jobs_internal" |
 |---------|---------|---------|
-|**jobs_reader** | SELECIONAR | Nenhuma |
+|**jobs_reader** | SELECIONAR | Nenhum |
 
 > [!IMPORTANT]
 > Considere as implicações de segurança antes de conceder acesso à *Base de dados da tarefa* como um administrador da base de dados. Um utilizador mal intencionado com permissões para criar ou editar tarefas podia criar ou editar uma tarefa que utilize uma credencial armazenada para ligar a uma base de dados sob o controlo do utilizador mal intencionado, o que podia permitir que o utilizador mal intencionado determinasse a palavra-passe da credencial.

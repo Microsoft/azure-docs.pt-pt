@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: afb1108bacadd16007e1f53186107ea8458d96e9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205123"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441326"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integração de Controlo de Fontes para piscina SQL
 
 Este tutorial descreve como integrar o seu projeto de base de dados sql server (SSDT) com controlo de origem.  A integração do controlo de fontes é o primeiro passo para construir o seu oleoduto de integração e implantação contínua com o recurso de piscina SQL em Azure Synapse Analytics.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 - Inscreva-se numa [organização da Azure DevOps](https://azure.microsoft.com/services/devops/)
 - Passe pelo tutorial [De Criar e Ligar](create-data-warehouse-portal.md)
@@ -29,31 +29,39 @@ Este tutorial descreve como integrar o seu projeto de base de dados sql server (
 
 ## <a name="set-up-and-connect-to-azure-devops"></a>Configurar e ligar ao Azure DevOps
 
-1. Na sua Azure DevOps Organization, crie um projeto que irá acolher o seu projeto de base de dados SSDT através de um repositório Azure Repo
+1. Na sua Azure DevOps Organization, crie um projeto que irá acolher o seu projeto de base de dados SSDT através de um repositório Azure Repo.
 
    ![Criar Projeto](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Criar Projeto")
 
-2. Abra o Estúdio Visual e ligue-se à sua organização e projeto Azure DevOps a partir do passo 1, selecionando "Gerir Ligações"
+2. Abra o Estúdio Visual e ligue-se à sua organização E projeto Azure DevOps a partir do primeiro passo, selecionando **Gerir a Ligação.**
 
    ![Gerir Ligações](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerir Ligações")
 
-   ![Ligar](./media/sql-data-warehouse-source-control-integration/3-connect.png "Ligar")
+3. Conecte-se ao seu projeto selecionando **Gerir Ligações**e, em seguida, **Ligar a um projeto.**
+ ![Ligação1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Ligar")
 
-3. Clone o seu repositório Azure Repo do seu projeto para a sua máquina local
+
+4. Encontre o projeto que criou no primeiro passo, selecione **Connect**.
+![Ligação2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Ligar")
+
+
+3. Clone o seu repositório Azure DevOps do seu projeto para a sua máquina local.
 
    ![Repo clone](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Repo clone")
 
+Para obter mais informações sobre a ligação de projetos utilizando o Visual Studio, consulte o [Connect para projetos no Team Explorer.](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019) Para obter orientações sobre a clonagem de um repo usando o Visual Studio, reveja o Clone um artigo [de repo de saída do Git.](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio) 
+
 ## <a name="create-and-connect-your-project"></a>Crie e ligue o seu projeto
 
-1. No Visual Studio, crie um novo SQL Server Database Project com um diretório e repositório local de Git no seu **repositório clonado local**
+1. No Visual Studio, crie um novo SQL Server Database Project com um diretório e um repositório local de Git no seu **repositório clonado local.**
 
    ![Criar novo projeto](./media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Criar novo projeto")  
 
-2. Clique com o direito no seu projeto sql vazio e importe o seu armazém de dados para o projeto de base de dados
+2. Clique com o direito no seu projeto sql vazio e importe o seu armazém de dados para o projeto de base de dados.
 
    ![Projeto de Importação](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Projeto de Importação")  
 
-3. No team explorer no Visual Studio, comprometa todas as suas alterações no seu repositório local de Git
+3. No Team Explorer em Visual Studio, comprometa as suas alterações ao seu repositório local de Git.
 
    ![Consolidação](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Consolidação")  
 
@@ -65,19 +73,19 @@ Este tutorial descreve como integrar o seu projeto de base de dados sql server (
 
 ## <a name="validation"></a>Validação
 
-1. Verifique se as alterações foram empurradas para o seu Azure Repo atualizando uma coluna de tabela no seu projeto de base de dados a partir de Ferramentas de Dados do Servidor SQL do Estúdio Visual (SSDT)
+1. Verifique se as alterações foram empurradas para o seu Azure Repo atualizando uma coluna de tabela no seu projeto de base de dados a partir de Ferramentas de Dados do Servidor SQL do Estúdio Visual (SSDT).
 
    ![Validar coluna de atualização](./media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Validar coluna de atualização")
 
-2. Comprometa-se e empurre a mudança do seu repositório local para o seu Azure Repo
+2. Comprometa-se e empurre a mudança do seu repositório local para o seu Azure Repo.
 
    ![Emitir alterações](./media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Emitir alterações")
 
-3. Verifique se a mudança foi empurrada no seu repositório Azure Repository
+3. Verifique se a mudança foi empurrada no seu repositório Azure Repositório.
 
-   ![Verificar](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificar alterações")
+   ![Verificar](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificação das alterações")
 
-4. (**Opcional)** Utilize o Schema Compare e atualize as alterações ao seu armazém de dados-alvo utilizando o SSDT para garantir que as definições de objeto no seu repositório de Azure Repositório e repositório local reflitam o seu armazém de dados
+4. (**Opcional)** Utilize o Schema Compare e atualize as alterações ao seu armazém de dados-alvo utilizando o SSDT para garantir que as definições de objeto no seu repositório de Azure Repositório e repositório local reflitam o seu armazém de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

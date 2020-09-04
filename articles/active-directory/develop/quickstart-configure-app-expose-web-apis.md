@@ -1,146 +1,119 @@
 ---
-title: 'Quickstart: Configurar uma app para expor uma API web Rio Azure'
+title: 'Quickstart: Registe-se e exponha uma API web Rio Azure'
 titleSuffix: Microsoft identity platform
-description: Neste arranque rápido, aprende-se a configurar uma aplicação para expor uma nova permissão/âmbito e papel para disponibilizar a aplicação às aplicações dos clientes.
+description: Neste quickstart, regista uma API web com a plataforma de identidade da Microsoft e configura os seus âmbitos, expondo-o aos clientes para acesso baseado em permissões aos recursos da API.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/05/2020
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 93b0c3392a32a6ff18a285d34fdaede6ceea6528
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830296"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442163"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Quickstart: Configurar uma aplicação para expor uma API web
 
-Pode programar uma API Web e expor [permissões/âmbitos](developer-glossary.md#scopes) e [funções](developer-glossary.md#roles) para a disponibilizar às aplicações cliente. As APIs Web configuradas corretamente são disponibilizadas tal e qual as outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365.
-
-Neste arranque rápido, aprende-se a configurar uma aplicação para expor uma nova margem de manobra para a disponibilizar às aplicações dos clientes.
+Neste quickstart, regista-se uma API web com a plataforma de identidade da Microsoft e expõe-a a aplicações de clientes adicionando um exemplo de âmbito. Ao registar a sua API web e expô-la através de âmbitos, pode fornecer acesso baseado em permissões aos seus recursos a utilizadores autorizados e aplicações de clientes que acedam à sua API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Conclusão do [Quickstart: Registar uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md).
+* Uma conta Azure com uma subscrição ativa - [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Conclusão do [Quickstart: Criar um inquilino](quickstart-create-new-tenant.md)
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Iniciar sessão no portal do Azure e selecionar a aplicação
+## <a name="register-the-web-api"></a>Registar a API web
 
-Antes de poder configurar a aplicação, siga estes passos:
+Para fornecer acesso alargado aos recursos na sua API web, primeiro precisa de registar a API com a plataforma de identidade da Microsoft.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **registos de Aplicações**.
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
-1. Escolha o método que quer utilizar, a IU ou o manifesto de aplicação para expor um novo âmbito:
-    * [Expor um novo âmbito através da IU](#expose-a-new-scope-through-the-ui)
-    * [Expor um novo âmbito ou função através do manifesto de aplicação](#expose-a-new-scope-or-role-through-the-application-manifest)
+1. Execute os passos no Registo uma secção de **aplicação** do [Quickstart: Registe uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md).
+1. Ignore as secções **de configuração de URI** e **Configure** de redirecionamento de redirecionamento. Não precisa de configurar um URI de redirecionamento para uma API web, uma vez que nenhum utilizador é registado interativamente.
+1. Ignore a secção **de credenciais Adicionar** por enquanto. Só se a sua API acessasse a uma API a jusante precisaria das suas próprias credenciais, um cenário não abrangido por este artigo.
 
-## <a name="expose-a-new-scope-through-the-ui"></a>Expor um novo âmbito através da IU
+Com a sua API web registada, está pronta para adicionar os âmbitos que o código da API pode usar para fornecer permissão granular aos consumidores da sua API.
 
-[![Mostra como expor uma API usando a UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+## <a name="add-a-scope"></a>Adicionar um âmbito
 
-Para expor um novo âmbito através da IU:
+O código de uma aplicação de cliente solicita permissão para realizar operações definidas pela sua API web, passando um token de acesso juntamente com os seus pedidos ao recurso protegido (a API web). A sua API web só executa a operação solicitada se o token de acesso que recebe contiver os âmbitos necessários para a operação.
 
-1. A partir da página **Descrição geral** da aplicação, selecione a secção **Expor uma API**.
+Em primeiro lugar, siga estes passos para criar um exemplo de âmbito `Employees.Read.All` chamado:
 
-1. Selecione **Adicionar âmbito**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
+1. Selecione as inscrições da **App Azure Ative Directory**  >  **App registrations**App e, em seguida, selecione o registo da sua aplicação da API.
+1. Selecione **Expor uma API**  >  **Adicione um âmbito**.
 
-1. Se não tiver definido um **URI do ID da aplicação**, verá uma mensagem para introduzir um. Introduza o URI do ID da aplicação ou utilize o fornecido e, em seguida, selecione **Guardar e continuar**.
+    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="Um registo de aplicações expõe um painel de API no portal Azure":::
 
-1. Quando for apresentada a página **Adicionar âmbito**, introduza as informações do âmbito:
+1. É-lhe pedido que estabeleça um **ID URI** de aplicação se ainda não tiver configurado um.
 
-    | Campo | Descrição |
-    |-------|-------------|
-    | **Nome do âmbito** | Introduza um nome significativo para o âmbito.<br><br>Por exemplo, `Employees.Read.All`. |
-    | **Quem pode consentir** | Selecione se o âmbito pode ser permitido por utilizadores ou se é necessário o consentimento do administrador. Selecione **Apenas administradores** para permissões com mais privilégios. |
-    | **Nome a apresentar do consentimento do administrador** | Introduza uma descrição significativa para o âmbito, que os administradores irão ver.<br><br>Por exemplo, `Read-only access to Employee records` |
-    | **Descrição do consentimento do administrador** | Introduza uma descrição significativa para o âmbito, que os administradores irão ver.<br><br>Por exemplo, `Allow the application to have read-only access to all Employee data.` |
+   O ID URI da App funciona como o prefixo para os âmbitos que irá referir no código da sua API, e deve ser globalmente único. Pode utilizar o valor predefinido fornecido, que está na `api://<application-client-id>` forma, ou especificar um URI mais legível como `https://contoso.com/api` .
 
-    Se os utilizadores puderem dar consentimento ao seu âmbito, adicione também valores para os seguintes campos:
+1. Em seguida, especifique os atributos do âmbito no painel de âmbito Adicionar um painel de **âmbito.** Para este walk-through, pode utilizar os valores do exemplo ou especificar os seus próprios valores.
 
-    | Campo | Descrição |
-    |-------|-------------|
-    | **Nome a apresentar do consentimento do utilizador** | Introduza um nome significativo para o âmbito, que os utilizadores irão ver.<br><br>Por exemplo, `Read-only access to your Employee records` |
-    | **Descrição do consentimento do utilizador** | Introduza uma descrição significativa para o âmbito, que os utilizadores irão ver.<br><br>Por exemplo, `Allow the application to have read-only access to your Employee data.` |
+    | Campo | Descrição | Exemplo |
+    |-------|-------------|---------|
+    | **Nome do âmbito** | O nome da sua mira. Uma convenção comum de nomeação de âmbito é `resource.operation.constraint` . | `Employees.Read.All` |
+    | **Quem pode consentir** | Se este âmbito pode ser consentido pelos utilizadores ou se é necessário o consentimento da administração. Selecione **Apenas administradores** para permissões com mais privilégios. | **Administradores e utilizadores** |
+    | **Nome a apresentar do consentimento do administrador** | Uma breve descrição do propósito do âmbito que só os administradores verão. | `Read-only access to Employee records` |
+    | **Descrição do consentimento do administrador** | Uma descrição mais detalhada da autorização concedida pelo âmbito que só os administradores verão. | `Allow the application to have read-only access to all Employee data.` |
+    | **Nome a apresentar do consentimento do utilizador** | Uma breve descrição do propósito do âmbito. Mostrado aos utilizadores apenas se definir **Quem pode consentir com** Administradores e **utilizadores**. | `Read-only access to your Employee records` |
+    | **Descrição do consentimento do utilizador** | Uma descrição mais detalhada da autorização concedida pelo âmbito de aplicação. Mostrado aos utilizadores apenas se definir **Quem pode consentir com** Administradores e **utilizadores**. | `Allow the application to have read-only access to your Employee data.` |
 
-1. Defina o **Estado** e selecione **Adicionar âmbito** quando terminar.
+1. Desa estaca o **Estado** **para ativar**e, em seguida, selecione **adicionar o âmbito**.
 
-1. (Opcional) Para suprimir o pedido de consentimento dos utilizadores da sua app para os âmbitos definidos, pode "pré-autorizar" a aplicação do cliente a aceder à sua API web. Deve pré-autorizar *apenas* as aplicações de cliente em que confia, uma vez que os seus utilizadores não terão a oportunidade de recusar o consentimento.
+1. (Opcional) Para suprimir o pedido de consentimento dos utilizadores da sua app para os âmbitos definidos, pode *pré-autorizar* a aplicação do cliente a aceder à sua API web. Pré-autorizar *apenas* as aplicações de cliente em que confia, uma vez que os seus utilizadores não terão a oportunidade de recusar o consentimento.
     1. Sob **aplicações de cliente autorizadas,** selecione **Adicionar uma aplicação ao cliente**
     1. Introduza o ID de **Aplicação (cliente)** da aplicação do cliente que pretende pré-autorizar. Por exemplo, a de uma aplicação web que já registou anteriormente.
     1. Nos **âmbitos autorizados,** selecione os âmbitos para os quais pretende suprimir o pedido de consentimento e, em seguida, selecione **Adicionar a aplicação**.
 
-    A aplicação do cliente é agora uma aplicação de cliente pré-autorizada (PCA), e os utilizadores não serão solicitados para consentimento ao iniciar sessão.
+    Se seguiu este passo opcional, a aplicação do cliente é agora uma aplicação de cliente pré-autorizada (APC), e os utilizadores não serão solicitados para o seu consentimento ao iniciar a sua assinatura.
 
-1. Siga os passos para [verificar se a API Web está exposta a outras aplicações](#verify-the-web-api-is-exposed-to-other-applications).
+## <a name="add-a-scope-requiring-admin-consent"></a>Adicionar um âmbito que requer consentimento administrativo
 
-## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Expor um novo âmbito ou função através do manifesto de aplicação
+Em seguida, adicione outro exemplo de âmbito nomeado `Employees.Write.All` que apenas os administradores podem consentir. Os âmbitos que requerem consentimento administrativo são normalmente utilizados para fornecer acesso a operações privilegiadas mais elevadas, e muitas vezes por aplicações de clientes que funcionam como serviços de backend ou daemons que não assinam interativamente um utilizador.
 
-O manifesto de aplicação serve como um mecanismo de atualização da entidade de aplicação que define os atributos de um registo de aplicações AD AZure.
+Para adicionar o âmbito de `Employees.Write.All` exemplo, siga os passos na secção [Adicionar um âmbito](#add-a-scope) e especifique estes valores no painel de âmbito Adicionar um **âmbito:**
 
-[![Expor um novo âmbito utilizando a coleção de oauth2Permissions no manifesto](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+| Campo                          | Valor de exemplo                                                      |
+|--------------------------------|--------------------------------------------------------------------|
+| **Nome do âmbito**                 | `Employees.Write.All`                                              |
+| **Quem pode consentir**            | **Apenas administradores**                                                    |
+| **Nome a apresentar do consentimento do administrador** | `Write access to Employee records`                                 |
+| **Descrição do consentimento do administrador**  | `Allow the application to have write access to all Employee data.` |
+| **Nome a apresentar do consentimento do utilizador**  | *Nenhum (deixar vazio)*                                               |
+| **Descrição do consentimento do utilizador**   | *Nenhum (deixar vazio)*                                               |
 
-Para expor um novo âmbito editando o manifesto de aplicação:
+## <a name="verify-the-exposed-scopes"></a>Verifique os âmbitos expostos
 
-1. A partir da página **Descrição geral** da aplicação, selecione a secção **Manifesto**. É aberto um editor de manifesto baseado na Web, que lhe permite **Editar** o manifesto no portal. Opcionalmente, pode selecionar **Transferir**, editar o manifesto localmente e, em seguida, utilizar **Carregar** para o reaplicar à aplicação.
+Se tiver adicionado com sucesso ambos os âmbitos de exemplo descritos nas secções anteriores, eles aparecerão no painel **de API expondo um** painel API do registo de aplicações da API da web, semelhante a esta imagem:
 
-    O exemplo seguinte mostra como expor um novo âmbito denominado `Employees.Read.All` no recurso/API ao adicionar o seguinte elemento JSON à coleção `oauth2Permissions`.
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot do painel De exposição de API mostrando dois âmbitos expostos.":::
 
-    Gere o `id` valor programáticamente ou utilizando uma ferramenta de geração GUID como [o guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
+Como mostrado na imagem, a cadeia completa de um âmbito é a concatenação do **ID URI** de aplicação da sua Web API e o **nome**scope do âmbito .
 
-      ```json
-      {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-      }
-      ```
-
-1. Quando terminar, clique em **Guardar**. A sua API Web está agora configurada para ser utilizada por outras aplicações no seu diretório.
-1. Siga os passos para [verificar se a API Web está exposta a outras aplicações](#verify-the-web-api-is-exposed-to-other-applications).
-
-Para obter mais informações sobre a entidade de aplicação e o seu esquema, consulte a documentação de referência do tipo de recurso do [Microsoft][ms-graph-application] Graph.
-
-Para obter mais informações sobre o manifesto da aplicação, incluindo a sua referência de esquema, consulte [compreender o manifesto da aplicação AD AZure.](reference-app-manifest.md)
-
-## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificar se a API Web está exposta a outras aplicações
-
-1. Volte ao seu inquilino Azure AD, selecione **registos de Aplicações**e, em seguida, encontre e selecione a aplicação do cliente que pretende configurar.
-1. Repita os passos descritos em [Configurar uma aplicação cliente para aceder a APIs Web](quickstart-configure-app-access-web-apis.md).
-1. Quando chegar ao passo para [selecionar uma API,](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)selecione o seu recurso (o registo de aplicações da API na Web).
-    * Se criou o registo de aplicações da API web utilizando o portal Azure, o seu recurso API está listado no separador **My APIs.**
-    * Se permitiu que o Visual Studio criasse o registo de aplicações da API na web durante a criação do projeto, o seu recurso API está listado no **separador APIs que** a minha organização utiliza.
-
-Uma vez selecionado o recurso API web, deverá ver o novo âmbito disponível para pedidos de permissão do cliente.
-
-## <a name="using-the-exposed-scopes"></a>Utilizando os âmbitos expostos
-
-Uma vez que um cliente esteja devidamente configurado com permissões para aceder à sua API web, pode ser emitido um token de acesso OAuth 2.0 pela Azure AD. Quando o cliente liga para a API web, apresenta o token de acesso que tem o âmbito de aplicação ( `scp` ) reclamação definido para as permissões solicitadas no seu registo de inscrição.
-
-Se necessário, pode expor âmbitos adicionais mais tarde. Considere que a API Web poderá expor vários âmbitos associados a diversas funções diferentes. O seu recurso pode controlar o acesso à API Web no runtime ao avaliar a afirmação ou afirmações do âmbito (`scp`) no token de acesso OAuth 2.0 recebido.
-
-Nas suas aplicações, o valor de âmbito completo é uma concatenação do **ID URI** de aplicação da API web (o recurso) e do nome de **âmbito.**
-
-Por exemplo, se o ID URI de aplicação da sua Web for `https://contoso.com/api` e o nome do seu âmbito `Employees.Read.All` for, o âmbito completo é:
+Por exemplo, se o ID URI de aplicação da sua Web for `https://contoso.com/api` e o nome do âmbito `Employees.Read.All` for, o âmbito completo é:
 
 `https://contoso.com/api/Employees.Read.All`
 
+## <a name="using-the-exposed-scopes"></a>Utilizando os âmbitos expostos
+
+No próximo artigo da série, configura o registo de uma aplicação de clientes com acesso à sua API web e os âmbitos definidos seguindo os passos deste artigo.
+
+Uma vez que um registo de aplicações do cliente é autorizado a aceder à sua API web, o cliente pode ser emitido um token de acesso OAuth 2.0 pela plataforma de identidade Microsoft. Quando o cliente liga para a API web, apresenta um token de acesso cujo âmbito de aplicação ( `scp` ) reivindicação está definido para as permissões especificadas no registo de aplicações do cliente.
+
+Se necessário, pode expor âmbitos adicionais mais tarde. Considere que a sua API web pode expor vários âmbitos associados a várias operações. O seu recurso pode controlar o acesso à API web em tempo de execução, avaliando o âmbito `scp` (s) claim(s) no token de acesso OAuth 2.0 que recebe.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que expôs a sua API web configurando os seus âmbitos, configure o registo da sua aplicação cliente com permissão para aceder a esses âmbitos.
+Agora que expôs a sua API web configurando os seus âmbitos, configurar o registo da sua aplicação cliente com permissão para aceder aos âmbitos.
 
 > [!div class="nextstepaction"]
 > [Configurar um registo de aplicações para acesso web api](quickstart-configure-app-access-web-apis.md)

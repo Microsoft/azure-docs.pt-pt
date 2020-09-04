@@ -1,18 +1,18 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ce2ce146b8a8ba06729c5e9428bccb8a60e14c39
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501968"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89449618"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
 
@@ -36,7 +36,7 @@ A funcionalidade Image Gallery partilhada tem vários tipos de recursos:
 | **Fonte de imagem** | Este é um recurso que pode ser usado para criar uma **versão de imagem** numa galeria de imagens. Uma fonte de imagem pode ser um Azure VM existente que é [generalizado ou especializado](#generalized-and-specialized-images), uma imagem gerida, um instantâneo, um VHD ou uma versão de imagem em outra galeria de imagens. |
 | **Galeria de imagens** | Tal como o Azure Marketplace, uma **galeria de imagens** é um repositório para gerir e partilhar imagens, mas você controla quem tem acesso. |
 | **Definição de imagem** | As definições de imagem são criadas dentro de uma galeria e transportam informações sobre a imagem e requisitos para a sua utilização interna. Isto inclui se a imagem é Windows ou Linux, notas de lançamento e requisitos mínimos e máximo de memória. É uma definição de um tipo de imagem. |
-| **Versão de imagem** | Uma **versão de imagem** é o que se usa para criar um VM quando se utiliza uma galeria. Pode ter várias versões de uma imagem necessária para o seu ambiente. Como uma imagem gerida, quando se usa uma **versão de imagem** para criar um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes. |
+| **Versão da imagem** | Uma **versão de imagem** é o que se usa para criar um VM quando se utiliza uma galeria. Pode ter várias versões de uma imagem necessária para o seu ambiente. Como uma imagem gerida, quando se usa uma **versão de imagem** para criar um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes. |
 
 <br>
 
@@ -52,7 +52,7 @@ Existem três parâmetros para cada definição de imagem que são usados em com
 |---|---|---|---|
 |myImage1|Contoso|Finance|Back-end|
 |myImage2|Contoso|Finance|Front-end|
-|myImage3|Teste|Finance|Front-end|
+|myImage3|Testar|Finance|Front-end|
 
 Todos estes três têm conjuntos únicos de valores. O formato é semelhante ao que pode especificar atualmente as imagens de editor, oferta e SKU para [Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) em Azure PowerShell para obter a versão mais recente de uma imagem do Marketplace. Cada definição de imagem precisa de ter um conjunto único destes valores.
 
@@ -83,7 +83,7 @@ Os VM especializados não passaram por um processo para remover informações e 
 
 ## <a name="regional-support"></a>Apoio Regional
 
-Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição adicionada à lista de permitis. Para solicitar que uma subscrição seja adicionada à lista de autorizações, aceda a:https://azure.microsoft.com/global-infrastructure/australia/contact/
+Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição adicionada à lista de permitis. Para solicitar que uma subscrição seja adicionada à lista de autorizações, aceda a: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Limites 
 
@@ -129,8 +129,8 @@ Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são
 
 | Partilhado com o Utilizador     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
-| Definição da Imagem     | Não                   | Sim          | Sim                  |
+| Galeria de Imagens Partilhada | Yes                  | Yes          | Yes                  |
+| Definição da Imagem     | Não                   | Yes          | Yes                  |
 
 Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC.](../articles/role-based-access-control/role-assignments-portal.md)
 
@@ -146,12 +146,12 @@ Não existe qualquer custo extra para a utilização do serviço Image Gallery P
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Descrição
+- Description
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Descrição
+- Description
 - Data de fim de vida
 
 Versão de imagem:
@@ -179,7 +179,7 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 - [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM a partir de uma Versão de Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes 
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 
 * [Como posso listar todos os recursos da Galeria de Imagem Partilhada através de subscrições?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [Posso mover a minha imagem existente para a galeria de imagens partilhada?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
@@ -196,7 +196,7 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 * [Quais são as acusações de utilização da Galeria de Imagens Partilhadas?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Que versão API devo usar para criar a Galeria de Imagem Partilhada e a Definição de Imagem e a Versão de Imagem?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Que versão API devo usar para criar VM compartilhado ou escala de máquina virtual definida fora da versão de imagem?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Posso atualizar o meu Conjunto de Escala de Máquina Virtual criado usando imagem gerida para usar imagens da Galeria de Imagens Partilhadas?]
+* [Posso atualizar o meu Conjunto de Escala de Máquina Virtual criado usando imagem gerida para usar imagens da Galeria de Imagens Partilhadas?] (#can-i-actualização-my-virtual-machine-set-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Como posso listar todos os recursos da Galeria de Imagem Partilhada através de subscrições?
 

@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: 4c64502ac1fa4837d6052fd399fd2c44b6ab4a09
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 59acb2e851be69a9bb928d9b3aae73d8136493e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423886"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440920"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Crie uma aplicação angular com API da Azure Cosmos DB para o MongoDB - Use o Mongoose para ligar à Cosmos DB
 
@@ -104,21 +104,21 @@ Para ligar a sua aplicação ao Azure Cosmos DB, tem de atualizar as definiçõe
 
 1. No portal Azure, obtenha o número da porta, o nome da conta DB Azure Cosmos e os valores-chave principais para a sua conta DB Azure Cosmos.
 
-1. No **ficheiroenvironment.js,** altere o valor para `port` 10255. 
+1. No ** ficheiroenvironment.js, ** altere o valor para `port` 10255. 
 
     ```javascript
     const port = 10255;
     ```
 
-1. No ficheiro **environment.js,** altere o valor da `accountName` conta DB Azure Cosmos que criou na [Parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial. 
+1. No ficheiro **environment.js, ** altere o valor da `accountName` conta DB Azure Cosmos que criou na [Parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial. 
 
 1. Obtenha a chave primária da conta do Azure Cosmos DB ao introduzir o comando da CLI seguinte na janela do terminal: 
 
-    ```azure-cli-interactive
+    ```azurecli-interactive
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
-    \<cosmosdb-name>é o nome da conta DB Azure Cosmos que criou na [Parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial.
+    \<cosmosdb-name> é o nome da conta DB Azure Cosmos que criou na [Parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial.
 
 1. Copie a chave primária para o ficheiro **environment.js** como `key` o valor.
 
@@ -201,7 +201,7 @@ Depois de criar o modelo de herói, precisa de definir um serviço para ler os d
 
 Em seguida, você precisa definir rotas para lidar com os URLs para obter, criar, ler e apagar pedidos. Os métodos de encaminhamento especificam funções de retorno (também chamadas _funções de manipulador)._ Estas funções são chamadas quando a aplicação recebe um pedido para o ponto final especificado e método HTTP. Use os seguintes passos para adicionar o serviço Herói e definir as suas rotas:
 
-1. No Código do Estúdio Visual, no ficheiro **routes.js,** comente a `res.send` função que envia os dados do herói da amostra. Adicione uma linha para chamar a `heroService.getHeroes` função.
+1. No Código do Estúdio Visual, no ficheiro **routes.js, ** comente a `res.send` função que envia os dados do herói da amostra. Adicione uma linha para chamar a `heroService.getHeroes` função.
 
     ```javascript
     router.get('/heroes', (req, res) => {
@@ -212,13 +212,13 @@ Em seguida, você precisa definir rotas para lidar com os URLs para obter, criar
     });
     ```
 
-1. No ficheiro **routes.js,** `require` o serviço de heróis:
+1. No ficheiro **routes.js, ** `require` o serviço de heróis:
 
     ```javascript
     const heroService = require('./hero.service'); 
     ```
 
-1. No ficheiro **hero.service.js,** atualize a `getHeroes` função para tomar os `req` parâmetros e `res` os seguintes:
+1. No ficheiro **hero.service.js, ** atualize a `getHeroes` função para tomar os `req` parâmetros e `res` os seguintes:
 
     ```javascript
     function getHeroes(req, res) {
@@ -246,7 +246,7 @@ Quando já não precisa dos recursos, pode eliminar o grupo de recursos, a conta
  1. Selecione **Eliminar grupo de recursos**.
  1. Confirme o nome do grupo de recursos para eliminar e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Continue a parte 6 do tutorial para adicionar funções de Post, Put e Delete à aplicação:
 

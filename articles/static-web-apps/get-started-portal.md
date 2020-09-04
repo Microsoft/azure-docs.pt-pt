@@ -5,18 +5,18 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: e0b78c5e053c5668fbebd8ebaac91a90aa2b364f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752928"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434801"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Quickstart: Construir a sua primeira aplicação web estática no portal Azure
 
-A Azure Static Web Apps publica um site para um ambiente de produção construindo aplicações a partir de um repositório GitHub. Neste arranque rápido, implementa uma aplicação web para aplicações Web Estáticas Azure usando o portal.
+A Azure Static Web Apps publica um site para um ambiente de produção construindo aplicações a partir de um repositório GitHub. Neste arranque rápido, implementa uma aplicação web para aplicações Web Azure Static utilizando o portal Azure.
 
 Se não tiver uma subscrição do Azure, [crie uma conta de teste gratuita](https://azure.microsoft.com/free).
 
@@ -56,38 +56,39 @@ Depois de assinar com o GitHub, insira a informação do repositório.
 1. Selecione a sua _Organização_ Preferida
 1. Selecione **a minha primeira web-web-static-app** a partir do _repositório_ drop-down
 1. Selecione **mestre** do _ramo_ drop-down
-1. Selecione o **Seguinte: Construa >** botão para editar a configuração de construção
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Próximo botão de construção":::
 
 > [!NOTE]
 > Se não vir nenhum repositório, poderá ter de autorizar aplicações web estáticas Azure no GitHub. Navegue no seu repositório GitHub e vá a **Definições > Aplicações > Aplicações OAuth Autorizadas**, selecione **Azure Static Web Apps**, e, em seguida, selecione **Grant**. Para repositórios de organização, você deve ser um proprietário da organização para conceder as permissões.
 
-1. No separador _'Construir',_ adicione detalhes de configuração específicos à sua estrutura frontal preferida.
+1. Na secção Detalhes de _Construção,_ adicione detalhes de configuração específicos à sua estrutura frontal preferida.
 
     # <a name="no-framework"></a>[Sem Enquadramento](#tab/vanilla-javascript)
 
-    - Limpar o valor predefinido na caixa _de localização_ da App
-    - Limpe o valor padrão da caixa de _localização Api_
-    - Limpe o valor padrão da caixa de _localização_ do artefacto da App
+    1. Selecione **Custom** a partir do dropdown _Build Presets_
+    1. Limpar o valor predefinido na caixa _de localização_ da App
+    1. Limpe o valor padrão da caixa de _localização Api_
+    1. Deixe a caixa _de localização do artefacto_ da App vazia
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    - Limpar o valor predefinido na caixa _de localização_ da App
-    - Limpe o valor padrão da caixa de _localização Api_
-    - Tipo **dist/angular-básico** na caixa de _localização_ do artefacto da App
+    1. Selecione **Angular** a partir do dropdown _Build Presets_
+    1. Mantenha o valor predefinido na caixa _de localização_ da App
+    1. Limpe o valor padrão da caixa de _localização Api_
+    1. Tipo **dist/angular-básico** na caixa de _localização_ do artefacto da App
 
     # <a name="react"></a>[React](#tab/react)
 
-    - Limpar o valor predefinido da caixa _de localização da App_
-    - Limpe o valor padrão da caixa de _localização Api_
-    - Tipo **construir** na caixa de _localização_ do artefacto da App
+    1. Selecione **Reagir** a partir do dropdown _build Presets_
+    1. Mantenha o valor predefinido na caixa _de localização_ da App
+    1. Limpe o valor padrão da caixa de _localização Api_
+    1. Tipo **construir** na caixa de _localização_ do artefacto da App
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    - Limpar o valor predefinido da caixa _de localização da App_
-    - Limpe o valor padrão da caixa de _localização Api_
-    - Tipo **dist** na caixa de _localização_ do artefacto da App
+    1. Selecione **Vue.js** a partir do dropdown _Build Presets_
+    1. Mantenha o valor predefinido na caixa _de localização_ da App
+    1. Limpe o valor padrão da caixa de _localização Api_
+    1. Mantenha o valor predefinido na caixa _de localização_ do artefacto da App
 
     ---
 
@@ -108,7 +109,7 @@ Depois de assinar com o GitHub, insira a informação do repositório.
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps através dos seguintes passos:
 

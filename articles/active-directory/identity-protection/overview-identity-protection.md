@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815186"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437705"
 ---
 # <a name="what-is-identity-protection"></a>O que é o Identity Protection?
 
@@ -47,7 +47,7 @@ No seu [blogue, em outubro de 2018,](https://techcommunity.microsoft.com/t5/Azur
 
 A Proteção de Identidade identifica os riscos nas seguintes classificações:
 
-| Tipo de deteção de risco | Descrição |
+| Tipo de deteção de risco | Description |
 | --- | --- |
 | Viagem atípica | Inscreva-se a partir de uma localização atípica com base nas recentes insusagens do utilizador. |
 | Endereço IP anónimo | Inscreva-se a partir de um endereço IP anónimo (por exemplo: navegador Tor, VPNs anonimizadores). |
@@ -102,17 +102,17 @@ Os administradores de acesso condicional também podem criar políticas que fato
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Funcionalidade | Detalhes | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 Apps |
+| Funcionalidade | Detalhes  | Azure AD Free / Office 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade) | Sim | No | No |
-| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional) | Sim | No | No |
-| Relatórios de segurança | Descrição geral | Sim | No | No |
-| Relatórios de segurança | Utilizadores de risco | Acesso completo | Informação Limitada | Informação Limitada |
-| Relatórios de segurança | Inícios de sessão de risco | Acesso completo | Informação Limitada | Informação Limitada |
-| Relatórios de segurança | Deteções de riscos | Acesso completo | Informação Limitada | No |
-| Notificações | Utilizadores em risco detetados alertas | Sim | No | No |
-| Notificações | Digestão semanal | Sim | No | No |
-| | Política de registo na MFA | Sim | No | Não |
+| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | No | Não |Yes | 
+| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | No |  Não |Yes |
+| Relatórios de segurança | Descrição geral |  No | Não |Yes |
+| Relatórios de segurança | Utilizadores de risco  | Informação Limitada | Informação Limitada | Acesso completo|
+| Relatórios de segurança | Inícios de sessão de risco  | Informação Limitada | Informação Limitada | Acesso completo|
+| Relatórios de segurança | Deteções de riscos   | No | Informação Limitada| Acesso completo|
+| Notificações | Utilizadores em risco detetados alertas  | No | Não |Yes |
+| Notificações | Digestão semanal| No | Não | Yes | 
+| | Política de registo na MFA | No | Não | Sim |
 
 ## <a name="next-steps"></a>Próximos passos
 

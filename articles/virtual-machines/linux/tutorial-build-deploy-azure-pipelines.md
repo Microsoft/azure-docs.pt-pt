@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 60321363a7506d03ebf4aeffebac56305e231eb6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433063"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436226"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implemente a sua aplicação para máquinas virtuais Linux em Azure utilizando serviços Azure DevOps e Pipelines Azure
 
@@ -84,9 +84,9 @@ Siga os passos adicionais descritos abaixo com base na pilha de tempo de execuç
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Para implementar aplicações baseadas em Java Spring Boot e Spring Cloud, crie um Linux VM em Azure utilizando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo, que fornece um tempo de execução totalmente suportado com base em OpenJDK.
-- Para implementar servlets Java no servidor Tomcat, crie um VM Linux com Java 8 utilizando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo Azure e [configuure Tomcat 9.x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Para implementar uma aplicação baseada em Java EE, utilize um modelo Azure para criar um [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou um [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou um [Linux VM +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- Para implementar aplicações baseadas em Java Spring Boot e Spring Cloud, crie um Linux VM em Azure utilizando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) modelo, que fornece um tempo de execução totalmente suportado com base em OpenJDK.
+- Para implementar servlets Java no servidor Tomcat, crie um VM Linux com Java 8 utilizando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) modelo Azure e [configuure Tomcat 9.x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Para implementar uma aplicação baseada em Java EE, utilize um modelo Azure para criar um [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou um [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou um [Linux VM +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) + WildFly/JBoss 14 
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
@@ -225,7 +225,7 @@ Para obter mais orientação, siga os passos na [Build your Node.js app com gole
 
 3. Pode especificar o eithor `runOnce` ou como estratégia de `rolling` implantação. 
 
-   `runOnce`é a estratégia de implantação mais simples em que todos os ganchos do ciclo de vida, nomeadamente `preDeploy` `deploy` , e , são `routeTraffic` `postRouteTraffic` executados uma vez. Então, `on:` `success` ou é `on:` `failure` executado.
+   `runOnce` é a estratégia de implantação mais simples em que todos os ganchos do ciclo de vida, nomeadamente `preDeploy` `deploy` , e , são `routeTraffic` `postRouteTraffic` executados uma vez. Então, `on:` `success` ou é `on:` `failure` executado.
 
    Abaixo está o exemplo YAML snippet `runOnce` para:
    ```YAML
@@ -244,7 +244,7 @@ Para obter mais orientação, siga os passos na [Build your Node.js app com gole
              - script: echo my first deployment
    ```
 
-4. Abaixo está um exemplo do snippet YAML que pode usar para definir uma estratégia de rolamento para máquinas virtuais atualiza até 5 alvos em cada iteração. `maxParallel`determinará o número de alvos que podem ser implantados, paralelamente. A seleção representa um número absoluto ou uma percentagem de metas que devem permanecer disponíveis a qualquer momento, excluindo os objetivos a que estão a ser implementados. Também é usado para determinar as condições de sucesso e insucesso durante a implantação.
+4. Abaixo está um exemplo do snippet YAML que pode usar para definir uma estratégia de rolamento para máquinas virtuais atualiza até 5 alvos em cada iteração. `maxParallel` determinará o número de alvos que podem ser implantados, paralelamente. A seleção representa um número absoluto ou uma percentagem de metas que devem permanecer disponíveis a qualquer momento, excluindo os objetivos a que estão a ser implementados. Também é usado para determinar as condições de sucesso e insucesso durante a implantação.
 
    ```YAML
    jobs: 
@@ -294,7 +294,7 @@ A visão de implantação do ambiente proporciona uma rastreabilidade completa d
   
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Pode proceder à [personalização do oleoduto](/azure/devops/pipelines/customize-pipeline) que acabou de criar.
 - Para saber o que mais pode fazer nos oleodutos YAML, consulte [a referência de esquema YAML](/azure/devops/pipelines/yaml-schema).
 - Para saber mais sobre como implementar uma pilha LAMP (Linux, Apache, MySQL e PHP), avance para o próximo tutorial.

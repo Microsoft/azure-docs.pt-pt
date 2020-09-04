@@ -1,6 +1,6 @@
 ---
 title: Criar uma fábrica de dados Azure utilizando a REST API
-description: Crie uma fábrica de dados do Azure para copiar dados de uma localização no armazenamento de Blobs do Azure para outra localização.
+description: Crie um oleoduto de fábrica de dados Azure para copiar dados de um local no armazenamento de Azure Blob para outro local.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 357026bbe17650464716282608bc316c5d4b055e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 1d1db69215294ac4aa4849bbaa1a886a91f0ba7e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85514874"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439168"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Quickstart: Criar uma fábrica de dados Azure e oleoduto utilizando a API REST
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Quickstart: Create an Azure data factory and pipeline by using the REST API (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline do Azure com a API REST)
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -28,7 +28,7 @@ ms.locfileid: "85514874"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-O Azure Data Factory é um serviço de integração de dados baseado na cloud que lhe permite criar fluxos de trabalho condicionados por dados na cloud para orquestrar e automatizar o movimento e a transformação de dados. Com o Azure Data Factory, poderá criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que são capazes de ingerir dados provenientes de diferentes arquivos de dados, processar/transformar os dados através de serviços de computação, tais como o Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning, e publicar os dados de saída em arquivos de dados como o Azure SQL Data Warehouse para serem consumidos por aplicações de business intelligence (BI).
+O Azure Data Factory é um serviço de integração de dados baseado na cloud que lhe permite criar fluxos de trabalho condicionados por dados na cloud para orquestrar e automatizar o movimento e a transformação de dados. Utilizando a Azure Data Factory, pode criar e agendar fluxos de trabalho baseados em dados (chamados oleodutos) que podem ingerir dados de lojas de dados diferentes, processar/transformar os dados utilizando serviços computativos como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning, e publicar dados de produção em lojas de dados como a Azure Synapse Analytics (ex-SQL Data Warehouse) para a inteligência empresarial (BI) para a inteligência empresarial (BI) para consumo de informações.
 
 Este início rápido descreve como utilizar a API REST para criar uma fábrica de dados do Azure. O pipeline nesta fábrica de dados copia dados de uma localização para outra localização num armazenamento de blobs do Azure.
 
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 * **Assinatura Azure**. Se não tiver uma subscrição, pode criar uma conta de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Conta de Armazenamento Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
-* Crie um **contentor de blobs** no Armazenamento de Blobs, crie uma **pasta** de entrada no contentor e carregue alguns ficheiros para a pasta. Pode utilizar ferramentas como o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ligar ao Armazenamento de Blobs do Azure, criar contentores de blobs, carregar o ficheiro de entrada e verificar o ficheiro de saída.
+* Crie um **contentor de blobs** no Armazenamento de Blobs, crie uma **pasta** de entrada no contentor e carregue alguns ficheiros para a pasta. Pode utilizar ferramentas como [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para ligar ao armazenamento do Azure Blob, criar um recipiente blob, carregar o ficheiro de entrada e verificar o ficheiro de saída.
 * Instalar **a Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps). Este início rápido utiliza o PowerShell para invocar chamadas à API REST.
 * **Crie uma aplicação no Azure Active Directory** ao seguir [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota dos seguintes valores que utiliza em etapas posteriores: **ID de aplicação,** **clienteSecrets**e **ID do inquilino.** Atribua a aplicação à função "**Contribuidor**".
 
@@ -495,7 +495,7 @@ Segue-se o resultado do exemplo:
 
 Utilize o explorador de armazenamento Azure para verificar se o ficheiro é copiado para "outputPath" a partir de "inputPath", conforme especificado ao criar uma execução de pipeline.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Pode limpar os recursos que criou no Guia de Introdução de duas formas. Pode eliminar o [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), que inclui todos os recursos no grupo de recursos. Se quiser manter os outros recursos intactos, elimine apenas a fábrica de dados que criou neste tutorial.
 
 Execute o seguinte comando para eliminar todo o grupo de recursos:

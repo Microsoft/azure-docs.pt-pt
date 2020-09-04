@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Criar uma fábrica de dados Azure usando Python'
-description: Crie uma fábrica de dados do Azure para copiar dados de uma localização no armazenamento de Blobs do Azure para outra localização.
+description: Utilize uma fábrica de dados para copiar dados de um local no armazenamento da Azure Blob para outro local.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,14 +13,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 7fd82e83c97c933173f168b7d79d5b6d6a3243b9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873301"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439117"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Criar uma fábrica de dados e oleoduto usando Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -32,7 +32,7 @@ Neste arranque rápido, cria-se uma fábrica de dados utilizando o Python. O gas
 
 A Azure Data Factory é um serviço de integração de dados baseado na nuvem que permite criar fluxos de trabalho baseados em dados para orquestrar e automatizar movimentos de dados e transformação de dados. Utilizando a Azure Data Factory, pode criar e agendar fluxos de trabalho baseados em dados, chamados oleodutos.
 
-Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos processam ou transformam dados utilizando serviços de computação como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Os oleodutos publicam dados de produção em lojas de dados como o Azure SQL Data Warehouse para aplicações de inteligência empresarial (BI).
+Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos processam ou transformam dados utilizando serviços de computação como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Os oleodutos publicam dados de produção em lojas de dados como a Azure Synapse Analytics (antiga SQL Data Warehouse) para aplicações de inteligência empresarial (BI).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

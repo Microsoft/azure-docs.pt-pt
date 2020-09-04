@@ -13,17 +13,17 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 05/29/2020
-ms.openlocfilehash: 4dbbf8267b4a7a1ea280d16ee787c8ae6cd652c9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ec43ad0c83ea56af935b326a2b13aa3b3dc4fa13
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267363"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441787"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Quickstart: Use o editor de consulta do portal Azure para consultar uma Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-O editor de consulta é uma ferramenta no portal Azure para executar consultas SQL contra a sua base de dados na Base de Dados Azure SQL ou armazém de dados no Azure SQL Data Warehouse. 
+O editor de consulta é uma ferramenta no portal Azure para executar consultas SQL contra a sua base de dados na Base de Dados Azure SQL ou armazém de dados em Azure Synapse Analytics. 
 
 Neste quickstart, você usará o editor de consulta para executar consultas Transact-SQL (T-SQL) com uma base de dados.
 

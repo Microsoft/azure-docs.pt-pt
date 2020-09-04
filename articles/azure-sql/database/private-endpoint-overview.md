@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213364"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442603"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "88213364"
 O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através de um **ponto final privado.** Para obter uma lista de serviços PaaS que suportam a funcionalidade Private Link, aceda à página [de Documentação de Link Privado.](../../private-link/index.yml) Um ponto final privado é um endereço IP privado dentro de um [VNet](../../virtual-network/virtual-networks-overview.md) específico e sub-rede.
 
 > [!IMPORTANT]
-> Este artigo aplica-se tanto à Base de Dados Azure SQL como à Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para simplificar, o termo "base de dados" refere-se a ambas as bases de dados na Base de Dados Azure SQL e na Azure Synapse Analytics. Da mesma forma, quaisquer referências ao 'servidor' referem-se ao [servidor lógico SQL](logical-servers.md) que acolhe a Base de Dados Azure SQL e a Azure Synapse Analytics. Este artigo *não* se aplica a **Azure SQL Managed Instance**.
+> Este artigo aplica-se tanto à Base de Dados Azure SQL como à Azure Synapse Analytics (antiga SQL Data Warehouse). Para simplificar, o termo "base de dados" refere-se a ambas as bases de dados na Base de Dados Azure SQL e na Azure Synapse Analytics. Da mesma forma, quaisquer referências ao 'servidor' referem-se ao [servidor lógico SQL](logical-servers.md) que acolhe a Base de Dados Azure SQL e a Azure Synapse Analytics. Este artigo *não* se aplica a **Azure SQL Managed Instance**.
 
 ## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Prevenção da transferência de dados não autorizada)
 

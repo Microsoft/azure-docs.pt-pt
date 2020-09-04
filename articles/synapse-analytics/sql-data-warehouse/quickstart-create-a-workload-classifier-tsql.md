@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 05173790d8efe05851d39121ecfa15186ccb6d3c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 65a77dfaab0bf99207fd27a35d67a12532056476
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212960"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442944"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Quickstart: Criar um classificador de carga de trabalho utilizando T-SQL
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este quickstart pressupõe que já tem um Armazém de Dados SQL e que tem permissões de BASE DE DADOS DE CONTROLO. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
+Este quickstart pressupõe que já forneceste uma piscina Sinaapse SQL em Azure Synapse Analytics e que tens permissões de BASE DE DADOS DE CONTROLO. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -79,7 +79,7 @@ WITH (WORKLOAD_GROUP = 'xlargerc'
 SELECT * FROM sys.workload_management_workload_classifiers
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO]
@@ -96,7 +96,7 @@ Siga estes passos para limpar os recursos.
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione no seu armazém de dados.
 
-    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Para parar o cálculo, selecione o **botão Pausa.** Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar o cálculo, selecione **Start**.
 
@@ -108,6 +108,6 @@ Siga estes passos para limpar os recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Agora criaste um classificador de carga de trabalho. Faça algumas perguntas como TheCEO para ver como se apresentam. Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para visualizar consultas e a importância atribuída.
+- Agora criaste um classificador de carga de trabalho. Faça algumas perguntas como TheCEO para ver como se apresentam. Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para visualizar as consultas e a importância atribuída.
 - Para obter mais informações sobre a gestão da carga de trabalho Sinaapse SQL, consulte [a Classificação da Importância da Carga de Trabalho](sql-data-warehouse-workload-importance.md) e da Carga de [Trabalho](sql-data-warehouse-workload-classification.md).
 - Consulte os artigos de como configurar a [importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como gerir e monitorizar a [Gestão da Carga de Trabalho.](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

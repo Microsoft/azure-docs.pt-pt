@@ -12,21 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 12d91e43576647b2ffbc1e78d2e059871dbe8a3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a6aa0aa22fce5ba0f763f98fec37f607d0ce8a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033178"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441779"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database e Azure SQL Managed Instance connect and consultaer artigos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 O documento que se segue inclui links para exemplos Azure que mostram como conectar e consultar a Base de Dados Azure SQL e Azure SQL Managed Instance. Para algumas recomendações relacionadas para a Segurança do Nível de Transporte, consulte [considerações de TLS para a conectividade da base de dados.](#tls-considerations-for-database-connectivity)
 
-## <a name="quickstarts"></a>Inícios rápidos
+## <a name="quickstarts"></a>Guias de Início Rápido
 
-| Início Rápido | Descrição |
+| Início Rápido | Description |
 |---|---|
 |[O SQL Server Management Studio](connect-query-ssms.md)|Este quickstart demonstra como utilizar o SSMS para ligar a uma base de dados e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este quickstart demonstra como usar o Azure Data Studio para se conectar a uma base de dados e, em seguida, usar declarações de Transact-SQL (T-SQL) para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
@@ -60,7 +60,7 @@ Os controladores que não são da Microsoft podem não utilizar o TLS por predef
 
 Pode utilizar várias bibliotecas e estruturas para ligar à Base de Dados Azure SQL ou à Azure SQL Managed Instance. Confira os [nossos tutoriais Get iniciou-se](https://aka.ms/sqldev) rapidamente com linguagens de programação como C#, Java, Node.js, PHP e Python. Em seguida, construa uma aplicação utilizando o SQL Server no Linux ou Windows ou Docker no macOS.
 
-A tabela que se segue lista bibliotecas de conectividade ou *controladores* que as aplicações do cliente podem usar a partir de uma variedade de idiomas para se conectar e usar o SQL Server em funcionamento no local ou na nuvem. Pode usá-los em Linux, Windows ou Docker e usá-los para ligar à Base de Dados Azure SQL, Azure SQL Managed Instance e Azure SQL Data Warehouse.
+A tabela que se segue lista bibliotecas de conectividade ou *controladores* que as aplicações do cliente podem usar a partir de uma variedade de idiomas para se conectar e usar o SQL Server em funcionamento no local ou na nuvem. Pode usá-los em Linux, Windows ou Docker e usá-los para ligar à Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 | Linguagem | Plataforma | Recursos adicionais | Download | Introdução |
 | :-- | :-- | :-- | :-- | :-- |

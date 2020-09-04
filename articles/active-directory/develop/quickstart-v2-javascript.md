@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 1e537c6f61a7c461b2a9edb4097fba95f5c66a6f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ed94b44972ffc8c53ce96c0240f11ad44535531b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120529"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434610"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
@@ -151,7 +151,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 Executar o projeto com um servidor web utilizando [Node.js: ](https://nodejs.org/en/download/)
 
 1. Para iniciar o servidor, executar o seguinte comando a partir do diretório do projeto:
-    ```batch
+    ```cmd
     npm install
     npm start
     ```
@@ -179,7 +179,7 @@ A biblioteca MSAL assina nos utilizadores e solicita os tokens que são usados p
 
 Em alternativa, se tiver Node.js instalado, pode descarregar a versão mais recente através do Node.js Package Manager (npm):
 
-```batch
+```cmd
 npm install msal
 ```
 
@@ -204,7 +204,7 @@ O código quickstart também mostra como inicializar a biblioteca MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > |`clientId`     | Identificação de aplicação da aplicação registada no portal Azure.|
 > |`authority`    | (Opcional) O URL de autoridade que suporta tipos de conta, conforme descrito anteriormente na secção de configuração. A autoridade por defeito `https://login.microsoftonline.com/common` é. |
@@ -232,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > | `scopes`   | (Opcional) Contém âmbitos que estão a ser solicitados para o consentimento do utilizador no momento de início de sedu. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ). |
 
@@ -241,7 +241,7 @@ myMSALObj.loginPopup(loginRequest)
 
 ### <a name="request-tokens"></a>Fichas de pedido
 
-A MSAL utiliza três métodos para adquirir fichas: `acquireTokenRedirect` `acquireTokenPopup` , e`acquireTokenSilent`
+A MSAL utiliza três métodos para adquirir fichas: `acquireTokenRedirect` `acquireTokenPopup` , e `acquireTokenSilent`
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
@@ -262,7 +262,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > | `scopes`   | Contém âmbitos a serem solicitados para serem devolvidos no token de acesso para a API. Por exemplo, `[ "mail.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ).|
 
