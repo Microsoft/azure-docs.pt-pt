@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: keferna
   ms.author: keferna
-  ms.date: 04/02/2020
-  ms.openlocfilehash: 9a61e3796fdd228ffee52d8bf7611946c873460a
-  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+  ms.date: 09/02/2020
+  ms.openlocfilehash: 39d0f00bd59663da8ec5529e9a7be185d93e4de0
+  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89378105"
+  ms.lasthandoff: 09/03/2020
+  ms.locfileid: "89421684"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -37,8 +37,6 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Criar uma nova oferta SaaS
-      url: ./create-new-saas-offer.md
     - text: Melhores práticas de marketing
       url: ./gtm-marketing-best-practices.md
     - text: Fornecedores de soluções cloud
@@ -77,12 +75,12 @@ landingContent:
       url: ./partner-center-portal/downloads-dashboard.md
     - text: Dashboard de classificações e críticas
       url: ./partner-center-portal/ratings-reviews.md
-- title: Faça a gestão das suas ofertas
+- title: Criar uma oferta
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Ofertas de SaaS
-      url: create-new-saas-offer.md
+      url: plan-saas-offer.md
     - text: Ofertas de máquinas virtuais
       url: ./marketplace-virtual-machines.md
     - text: Ofertas de aplicações do Azure
