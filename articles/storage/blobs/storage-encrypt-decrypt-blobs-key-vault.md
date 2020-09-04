@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 975952a0a084286bdbc19ce02c1192d076cf3600
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001404"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458387"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial - Criptografe e desencriptar bolhas usando cofre de chave Azure
 
@@ -240,4 +240,4 @@ Para obter mais informações sobre a utilização do Microsoft Azure Storage co
 
 Para obter mais informações sobre a API Blob REST, consulte [a API do Blob Service REST](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Para obter as informações mais recentes sobre o Microsoft Azure Storage, aceda ao [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).
+Para obter as informações mais recentes sobre o Microsoft Azure Storage, aceda ao [Microsoft Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).

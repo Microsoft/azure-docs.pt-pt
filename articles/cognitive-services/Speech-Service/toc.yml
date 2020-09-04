@@ -241,11 +241,8 @@
   items:
     - name: Documentação do reconhecimento de intenção
       href: index-intent-recognition.yml
-    - name: Início Rápido
-      items:
-        - name: 'Reconhecer voz, intenções e entidades'
-          displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
-          href: quickstarts/intent-recognition.md
+    - name: Início rápido do reconhecimento de intenção
+      href: quickstarts/intent-recognition.md
     - name: Guias de procedimentos
       items:
         - name: 'Reconhecer intenções de voz com LUIS, C#'
@@ -466,18 +463,14 @@
           href: custom-keyword-basics.md
 - name: Reconhecimento de Orador
   items:
-    - name: Descrição geral
-      items:
-        - name: O que é o Reconhecimento de Orador?
-          href: speaker-recognition-overview.md
-        - name: Noções básicas de Reconhecimento de Orador
-          href: speaker-recognition-basics.md
+    - name: Descrição geral do Reconhecimento de Orador
+      href: speaker-recognition-overview.md
+    - name: Início rápido do Reconhecimento de Orador
+      href: get-started-speaker-recognition.md
     - name: Referência
       items:
-        - name: APIs REST
-          items:
-            - name: API REST do Reconhecimento de Orador
-              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+        - name: API REST do Reconhecimento de Orador
+          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:
     - name: Documentação do alojamento

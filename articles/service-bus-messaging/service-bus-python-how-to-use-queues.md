@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 55ed71c6947c70ac797656f2f18cf71dd8aaae9d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a09f20b2c392dbf219750a76e9570239227dc865
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852485"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458566"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Quickstart: Use filas de autocarros da Azure Service com Python
 
@@ -81,7 +81,7 @@ Para obter mais informações sobre quotas, consulte [as quotas de Service Bus.]
 O cliente da fila recebe mensagens de uma fila utilizando o `get_receiver` método no objeto **ServiceBusClient.** O exemplo de código a seguir cria um cliente de fila e recebe uma mensagem da `taskqueue` fila. `<connectionstring>`Substitua-o pelo valor da cadeia de ligação primária do Service Bus. 
 
 ```python
-from azure.servicebus import QueueClient, Message
+from azure.servicebus import QueueClient
 
 # Create the QueueClient
 queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")

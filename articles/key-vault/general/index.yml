@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: ada202a8683b64144f2adacc759b9461472e4a31
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: 080cf9d8b7816b28f299396de2fe147fc2f9b27e
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88262573"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378887"
 landingContent:
 - title: Acerca do Azure Key Vault
   linkLists:
@@ -54,14 +54,20 @@ landingContent:
       url: security-recommendations.md
     - text: Linha de base de segurança
       url: security-baseline.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticar para o Key Vault
+      url: authentication.md
+    - text: Atribuir política de acesso (CLI)
+      url: assign-access-policy-CLI.md
+    - text: Atribuir política de acesso (PowerShell)
+      url: assign-access-policy-powershell.md
+    - text: Atribuir política de acesso (Portal)
+      url: assign-access-policy-portal.md
   - linkListType: tutorial
     links:
     - text: Utilizar uma ligação privada
       url: private-link-service.md
-    - text: Utilizar uma identidade gerida
-      url: managed-identity.md
-    - text: Utilizar uma política de acesso
-      url: group-permissions-for-apps.md
 - title: Bibliotecas de cliente
   linkLists:
   - linkListType: reference

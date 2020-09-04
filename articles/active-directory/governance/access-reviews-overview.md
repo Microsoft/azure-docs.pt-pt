@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 5c8f3b9933e09e4c31316037445643e83a2e9c07
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783676"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461005"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
 
@@ -45,7 +45,7 @@ O Azure AD permite-lhe colaborar com utilizadores de dentro da sua organização
 ## <a name="when-should-you-use-access-reviews"></a>Quando deve utilizar comentários de acesso?
 
 - **Demasiados utilizadores em funções privilegiadas:** É uma boa ideia verificar quantos utilizadores têm acesso administrativo, quantos deles são Administradores Globais, e se há algum convidado ou parceiro que não tenha sido removido após ter sido designado para fazer uma tarefa administrativa. Pode retificar os utilizadores de atribuição de funções em [funções de Azure AD,](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) tais como Administradores Globais, ou [funções de recursos Azure,](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como o Administrador de Acesso ao Utilizador na experiência [Azure AD Privileged Identity Management (PIM).](../privileged-identity-management/pim-configure.md)
-- **Quando a automatização não é possível:** Pode criar regras para a adesão dinâmica a grupos de segurança ou grupos do Office 365, mas e se os dados de RH não estiverem no AZure AD ou se os utilizadores ainda precisarem de acesso após deixarem o grupo para treinar a sua substituição? Em seguida, pode criar uma revisão sobre esse grupo para garantir que aqueles que ainda precisam de acesso devem ter acesso continuado.
+- **Quando a automatização não é possível:** Pode criar regras para a adesão dinâmica em grupos de segurança ou Grupos Microsoft 365, mas e se os dados de RH não estiverem no AZure AD ou se os utilizadores ainda precisarem de acesso após deixarem o grupo para treinar a sua substituição? Em seguida, pode criar uma revisão sobre esse grupo para garantir que aqueles que ainda precisam de acesso devem ter acesso continuado.
 - **Quando um grupo é usado para um novo propósito:** Se tiver um grupo que será sincronizado com o AZure AD, ou se planeia ativar a aplicação Salesforce para todos no grupo de equipas de Vendas, seria útil pedir ao dono do grupo que revisse a filiação do grupo antes de o grupo ser utilizado num conteúdo de risco diferente.
 - **Acesso crítico de dados empresariais:** para determinados recursos, pode ser necessário pedir às pessoas fora das TI que assinem regularmente e dêem uma justificação sobre o porquê de precisarem de acesso para fins de auditoria.
 - **Para manter a lista de exceções de uma apólice:** Num mundo ideal, todos os utilizadores seguiriam as políticas de acesso para garantir o acesso aos recursos da sua organização. No entanto, às vezes há casos de negócios que exigem que asse exceções. Como administrador de TI, pode gerir esta tarefa, evitar a supervisão de exceções políticas e fornecer aos auditores a prova de que estas exceções são revistas regularmente.

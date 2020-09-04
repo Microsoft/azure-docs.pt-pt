@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070110"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459544"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Sinapse Gerido pontos finais privados (pré-visualização)
 
@@ -23,7 +23,7 @@ Este artigo explicará os pontos finais privados geridos na Azure Synapse Analyt
 
 Os pontos finais privados geridos são pontos finais privados criados no espaço de trabalho gerido Microsoft Azure Virtual Network estabelecendo uma ligação privada com os recursos Azure. Azure Synapse gere estes pontos finais privados em seu nome.
 
-Azure Synapse suporta ligações privadas. O link privado permite-lhe aceder aos serviços Azure (como a Azure Storage, Azure Cosmos DB e Azure SQL Data Warehouse) e a Azure acolheu serviços de cliente/parceiro da sua Rede Virtual Azure de forma segura.
+Azure Synapse suporta ligações privadas. O link privado permite-lhe aceder aos serviços Azure (como a Azure Storage e a Azure Cosmos DB) e à Azure acolheu serviços de cliente/parceiro da sua Rede Virtual Azure de forma segura.
 
 Quando utiliza uma ligação privada, o tráfego entre a sua Rede Virtual e o espaço de trabalho atravessa inteiramente a rede de espinha dorsal da Microsoft. A Private Link protege contra riscos de exfiltração de dados. Estabelece-se uma ligação privada a um recurso criando um ponto final privado.
 

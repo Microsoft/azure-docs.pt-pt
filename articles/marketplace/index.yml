@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Bem-vindo ao marketplace comercial
-summary: Saiba mais sobre o marketplace comercial, um marketplace de aplicações e serviços online que permite a empresas de todas as dimensões oferecer soluções a clientes de todo o mundo.
+summary: Saiba mais sobre o marketplace comercial, um marketplace online de aplicações e serviços que permite a empresas de todas as dimensões oferecer soluções a clientes de todo o mundo.
 metadata:
   title: Bem-vindo ao marketplace comercial
-  description: Saiba mais sobre o marketplace comercial, um marketplace de aplicações e serviços online que permite a empresas de todas as dimensões oferecer soluções a clientes de todo o mundo.
+  description: Saiba mais sobre o marketplace comercial, um marketplace online de aplicações e serviços que permite a empresas de todas as dimensões oferecer soluções a clientes de todo o mundo.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
   author: keferna
   ms.author: keferna
   ms.date: 04/02/2020
-  ms.openlocfilehash: a79d3de89399e9ed89598c5f08efb756291246ca
-  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+  ms.openlocfilehash: 9a61e3796fdd228ffee52d8bf7611946c873460a
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87287863"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378105"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: Criar uma nova oferta SaaS
-      url: ./partner-center-portal/create-new-saas-offer.md
+      url: ./create-new-saas-offer.md
     - text: Melhores práticas de marketing
       url: ./gtm-marketing-best-practices.md
     - text: Fornecedores de soluções cloud
@@ -82,7 +82,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Ofertas de SaaS
-      url: ./partner-center-portal/create-new-saas-offer.md
+      url: create-new-saas-offer.md
     - text: Ofertas de máquinas virtuais
       url: ./marketplace-virtual-machines.md
     - text: Ofertas de aplicações do Azure

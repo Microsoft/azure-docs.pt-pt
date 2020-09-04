@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 53773d7c616edec067e1ed1778b7ce6b500ee936
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401083"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462620"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configurar o método de encaminhamento de tráfego geográfico usando o Gestor de Tráfego
 
@@ -39,8 +39,7 @@ O método de encaminhamento de tráfego geográfico permite-lhe direcionar o tr�
 
 1. Procure o nome de perfil do Gestor de Tráfego que criou na barra de pesquisa do portal e clique no resultado quando este for mostrado.
 2. Navegue para **Definições**  ->  **Pontos finais** no Gestor de Tráfego.
-3. Clique **em Adicionar** para mostrar o Ponto Final de **Add**.
-3. Clique em **Adicionar** e no **ponto final add** que é apresentado, completo da seguinte forma:
+3. Clique em **Adicionar** e no painel **de ponto final Add** que é apresentado, completo da seguinte forma:
 4. Selecione **Tipo** dependendo do tipo de ponto final que está a adicionar. Para perfis de encaminhamento geográficos utilizados na produção, recomendamos vivamente a utilização de tipos de pontos finais aninhados que contenham um perfil infantil com mais de um ponto final. Para obter mais detalhes, consulte [as PERGUNTAS Frequentes sobre os métodos de encaminhamento de tráfego geográfico.](traffic-manager-FAQs.md)
 5. Indique um **Nome** pelo qual pretende reconhecer este ponto final.
 6. Certos campos nesta página dependem do tipo de ponto final que está a adicionar:
@@ -57,7 +56,7 @@ O método de encaminhamento de tráfego geográfico permite-lhe direcionar o tr�
 2. Clique em **Descrição geral**.
 3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar. Isto pode ser usado por qualquer cliente (por exemplo, navegando para ele usando um navegador web) para ser encaminhado para o ponto final certo, conforme determinado pelo tipo de encaminhamento.  No caso do encaminhamento geográfico, o Gestor de Tráfego olha para a origem do pedido de entrada e determina a região de onde é originária. Se essa região for mapeada para um ponto final, o tráfego é encaminhado para lá. Se esta região não estiver mapeada para um ponto final, então o Gestor de Tráfego devolve uma resposta de consulta NODATA.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o método de encaminhamento de tráfego geográfico.](traffic-manager-routing-methods.md#geographic)
 - Saiba como testar as [definições do Gestor de Tráfego](traffic-manager-testing-settings.md).

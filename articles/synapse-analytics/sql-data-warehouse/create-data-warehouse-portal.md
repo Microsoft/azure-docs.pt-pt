@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c1b640fa5104ceb0f330c9aee9813ed8b3914d33
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166047"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459390"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina Sinapse SQL utilizando o portal Azure
 
@@ -155,7 +155,7 @@ Esta secção utiliza [o SQL Server Management Studio](/sql/ssms/download-sql-se
 
 Não é aconselhável executar grandes consultas enquanto é registado como administrador do servidor, uma vez que utiliza uma [classe de recursos limitada](resource-classes-for-workload-management.md). Em vez disso, configurar [o isolamento da carga de trabalho](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) como ilustrado nos [tutoriais](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
 
-O SQL Data Warehouse utiliza o T-SQL como linguagem de consulta. Para abrir uma janela de consulta e executar algumas consultas de T-SQL, utilize os seguintes passos:
+A Azure Synapse Analytics usa t-SQL como linguagem de consulta. Para abrir uma janela de consulta e executar algumas consultas de T-SQL, utilize os seguintes passos:
 
 1. Selecione à direita **mySampleDataWarehouse** e **selecione Nova Consulta**. É aberta uma nova janela de consulta.
 

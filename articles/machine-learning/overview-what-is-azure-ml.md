@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145897"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462467"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -69,7 +69,7 @@ Também pode [automatizar o treino e afinação](tutorial-auto-train-models.md) 
 
 ## <a name="build-ml-models-in-the-studio"></a>Construa modelos ML no estúdio
 
-[O Azure Machine Learning studio](https://www.ml.azure.com) é um portal web em Azure Machine Learning para opções de baixo código e sem código para formação de modelos, implementação e gestão de ativos. O estúdio integra-se com o Azure Machine Learning SDK para uma experiência perfeita. Para mais informações, consulte [o estúdio Azure Machine Learning.](overview-what-is-machine-learning-studio.md)
+[O Azure Machine Learning studio](https://studio.azureml.net) é um portal web em Azure Machine Learning para opções de baixo código e sem código para formação de modelos, implementação e gestão de ativos. O estúdio integra-se com o Azure Machine Learning SDK para uma experiência perfeita. Para mais informações, consulte [o estúdio Azure Machine Learning.](overview-what-is-machine-learning-studio.md)
 
 + **Azure Machine Learning designer (pré-visualização)**
 
@@ -86,7 +86,7 @@ Também pode [automatizar o treino e afinação](tutorial-auto-train-models.md) 
 
 + **E muito mais...**
 
-  Visite o estúdio Azure Machine Learning na [ml.azure.com.](https://www.ml.azure.com) 
+  Visite o estúdio Azure Machine Learning na [ml.azure.com.](https://studio.azureml.net) 
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Implementar & gestão do ciclo de vida

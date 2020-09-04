@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 086c853b21301074cf35f13db52db1fdb145518c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489576"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461770"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos SQL de Sinapse
 
@@ -52,7 +52,7 @@ O Objetivo de Nível de Serviço (SLO) é a configuração de escalabilidade que
 O Objetivo de Nível de Serviço (SLO) é a configuração de escalabilidade que determina o custo e o nível de desempenho do seu armazém de dados. Os níveis de serviço para o pool Gen2 SQL são medidos em unidades de armazém de dados (DWU), por exemplo DW2000c.
 
 > [!NOTE]
-> Azure SQL Data Warehouse Gen2 adicionou recentemente capacidades de escala adicionais para suportar níveis de computação tão baixos como 100 cDWU. Os armazéns de dados existentes atualmente na Gen1 que requerem os níveis de computação mais baixos podem agora fazer upgrade para a Gen2 nas regiões que estão atualmente disponíveis sem custos adicionais.  Se a sua região ainda não for apoiada, ainda pode fazer upgrade para uma região apoiada. Para mais informações, consulte [Upgrade para a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> A Azure Synapse Analytics Gen2 adicionou recentemente capacidades de escala adicionais para suportar níveis de computação tão baixos como 100 cDWU. Os armazéns de dados existentes atualmente na Gen1 que requerem os níveis de computação mais baixos podem agora fazer upgrade para a Gen2 nas regiões que estão atualmente disponíveis sem custos adicionais.  Se a sua região ainda não for apoiada, ainda pode fazer upgrade para uma região apoiada. Para mais informações, consulte [Upgrade para a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 Em T-SQL, a definição de SERVICE_OBJETIVE determina o nível de serviço e o nível de desempenho da sua piscina SQL.
 
@@ -107,7 +107,7 @@ Para ver a definição atual do DWU:
 
 1. Abra o SQL Server Object Explorer em Estúdio Visual.
 2. Ligue-se à base de dados principal associada ao servidor lógico SQL.
-3. Selecione a partir da vista de gestão dinâmica sys.database_service_objetives. Segue-se um exemplo:
+3. Selecione a partir da sys.database_service_objetives vista de gestão dinâmica. Segue-se um exemplo:
 
 ```sql
 SELECT  db.name [Database]
@@ -140,7 +140,7 @@ Para alterar os DWUs, utilize o [cmdlet PowerShell Set-AzSqlDatabase.](/powershe
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Para mais informações, consulte [os cmdlets PowerShell para o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Para mais informações, consulte [os cmdlets PowerShell para Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 #### <a name="t-sql"></a>T-SQL
 
@@ -172,7 +172,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-Para obter mais exemplos de API REST, consulte [AS DE REPOUSO para O Armazém de Dados SQL](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para obter mais exemplos de API REST, consulte [REST APIs para Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="check-status-of-dwu-changes"></a>Verificar o estado das alterações da DWU
 

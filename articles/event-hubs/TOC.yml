@@ -125,8 +125,12 @@
       maintainContext: true
 - name: Guias de procedimentos
   items:
-    - name: Mover entre regiões
-      href: move-across-regions.md
+    - name: Mover
+      items:
+        - name: Mover um espaço de nomes para outra região
+          href: move-across-regions.md
+        - name: Mover um cluster dedicado para outra região
+          href: move-cluster-across-regions.md
     - name: Adicionar partições dinamicamente
       href: dynamically-add-partitions.md
     - name: Utilizar o Armazenamento de Blobs como arquivo de pontos de verificação no Azure Stack Hub
