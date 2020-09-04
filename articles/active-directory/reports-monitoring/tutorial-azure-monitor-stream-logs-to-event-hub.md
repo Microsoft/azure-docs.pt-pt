@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cf35b2c15c0d85c93e69ef4e3b6c76932cbd75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229383"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469189"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Stream Azure Ative Directory registra-se para um centro de eventos Azure
 
@@ -60,8 +60,8 @@ Para utilizar esta funcionalidade, precisa de:
 7. Selecione **OK** para sair da configuração do hub de eventos.
 
 8. Escolha uma ou ambas as opções abaixo:
-    * Para enviar os registos de auditoria para a conta de armazenamento, selecione a caixa de verificação **AuditLogs**. 
-    * Para enviar os registos de início de sessão para a conta de armazenamento, selecione a caixa de verificação **SignInLogs**.
+    * Para enviar registos de auditoria para o centro de eventos, selecione a caixa de verificação **AuditLogs.** 
+    * Para enviar registos de entrada no centro de eventos, selecione a caixa de verificação **SignInLogs.**
 
 9. Selecione **Guardar** para guardar a definição.
 

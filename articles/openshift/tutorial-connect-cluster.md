@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 8ac25193bacfcce3c3062ccd92fa5cfbb5784572
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 24990087507dee09bc38418f40c72911386e5efb
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421701"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469121"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Ligue-se a um aglomerado Azure Red Hat OpenShift 4
 
@@ -25,7 +25,7 @@ Neste tutorial, parte dois de três, você vai ligar-se a um cluster Azure Red H
 
 Em tutoriais anteriores, foi criado um cluster Azure Red Hat OpenShift. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 - Crie um Azure Red Hat OpenShift 4 Cluster.](tutorial-create-cluster.md)
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
@@ -92,7 +92,7 @@ Faça login no servidor API do cluster OpenShift utilizando o seguinte comando. 
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]
@@ -103,4 +103,3 @@ Nesta parte do tutorial, ficou a saber como:
 Avance para o tutorial seguinte:
 > [!div class="nextstepaction"]
 > [Eliminar um cluster do Azure Red Hat OpenShift](tutorial-delete-cluster.md)
-
