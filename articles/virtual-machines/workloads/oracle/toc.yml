@@ -28,8 +28,6 @@
       href: oracle-reference-architecture.md
     - name: Arquitetar uma base de dados Oracle
       href: oracle-design.md
-    - name: Estratégia de cópia de segurança para base de dados Oracle
-      href: oracle-backup-recovery.md
     - name: Opções de recuperação após desastre da Oracle
       href: oracle-disaster-recovery.md
 - name: Guias de procedimentos

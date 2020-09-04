@@ -5,7 +5,7 @@
     - name: O que é o Azure Policy?
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Guias de Introdução
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Atribuir uma política - Portal
@@ -93,6 +93,9 @@
     - name: Avaliar o impacto de uma nova política
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Políticas recomendadas
+      displayName: 'VMs, virtual machines'
+      href: ./concepts/recommended-policies.md
     - name: Conformidade Regulamentar
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md

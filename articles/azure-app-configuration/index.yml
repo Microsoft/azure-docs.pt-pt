@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 8e9e2c2448f98068495bc300fa2c72bf514d0ba8
-  ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+  ms.openlocfilehash: 598fb9fa8c780219de13af668f0a1c35cba9b40c
+  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89300090"
+  ms.lasthandoff: 09/03/2020
+  ms.locfileid: "89421599"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -126,12 +126,12 @@ landingContent:
     links:
     - text: CLI do Azure
       url: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.appconfiguration/
+    - text: Terraform
+      url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
     - text: Fornecedor de .NET Core
       url: https://go.microsoft.com/fwlink/?linkid=2074664
-    - text: Construtor de .NET Framework
-      url: https://go.microsoft.com/fwlink/?linkid=2074663
-    - text: SDK do Azure para .Net
-      url: https://go.microsoft.com/fwlink/?linkid=2092056
     - text: Fornecedor do Spring Boot
       url: https://github.com/microsoft/spring-cloud-azure/tree/master/
     - text: SDK do Azure para Java
