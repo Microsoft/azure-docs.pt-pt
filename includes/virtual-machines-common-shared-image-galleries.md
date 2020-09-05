@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: ce2ce146b8a8ba06729c5e9428bccb8a60e14c39
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89449618"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494295"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
 
@@ -130,7 +130,7 @@ Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são
 | Partilhado com o Utilizador     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
 | Galeria de Imagens Partilhada | Yes                  | Yes          | Yes                  |
-| Definição da Imagem     | Não                   | Yes          | Yes                  |
+| Definição da Imagem     | No                   | Yes          | Yes                  |
 
 Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC.](../articles/role-based-access-control/role-assignments-portal.md)
 
@@ -146,12 +146,12 @@ Não existe qualquer custo extra para a utilização do serviço Image Gallery P
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Description
+- Descrição
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Description
+- Descrição
 - Data de fim de vida
 
 Versão de imagem:
@@ -196,7 +196,7 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 * [Quais são as acusações de utilização da Galeria de Imagens Partilhadas?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Que versão API devo usar para criar a Galeria de Imagem Partilhada e a Definição de Imagem e a Versão de Imagem?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Que versão API devo usar para criar VM compartilhado ou escala de máquina virtual definida fora da versão de imagem?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Posso atualizar o meu Conjunto de Escala de Máquina Virtual criado usando imagem gerida para usar imagens da Galeria de Imagens Partilhadas?] (#can-i-actualização-my-virtual-machine-set-set-created-using-managed-image-to-use-shared-image-gallery-images)
+* [Posso atualizar o meu Conjunto de Escala de Máquina Virtual criado usando uma imagem gerida para utilizar imagens da Galeria de Imagens Partilhadas?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Como posso listar todos os recursos da Galeria de Imagem Partilhada através de subscrições?
 
