@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259069"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489906"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Partilhar dados usando a Azure Data Share  
 
@@ -40,7 +40,7 @@ Neste tutorial, irá aprender a:
 
 ### <a name="share-from-a-sql-based-source"></a>Partilhar a partir de uma fonte baseada em SQL:
 
-* Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) com tabelas e vistas que pretende partilhar.
+* Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente SQL Data Warehouse) com tabelas e vistas que pretende partilhar.
 * Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuinte.
 * Permissão para que a partilha de dados aceda ao armazém de dados. Isto pode ser feito através dos seguintes passos: 
     1. Coloque-se como o Azure Ative Directory Admin para o servidor SQL.
@@ -86,7 +86,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
     | Subscrição | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para a sua conta de partilha de dados.|
     | Grupo de recursos | *grupo de recursos de teste* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Localização | *E.U.A. Leste 2* | Selecione uma região para a sua conta de partilha de dados.
-    | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
+    | Nome | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
 
 1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
@@ -113,7 +113,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
     ![Adicione conjuntos de dados à sua parte](./media/datasets.png "Conjuntos de dados")
 
-1. Selecione o tipo de conjunto de dados que gostaria de adicionar. Verá uma lista diferente de tipos de conjuntos de dados dependendo do tipo de partilha (instantâneo ou no local) que selecionou no passo anterior. Se partilhar de uma Base de Dados Azure SQL ou do Armazém de Dados Azure SQL, será solicitado para algumas credenciais SQL. Autenticar utilizando o utilizador que criou como parte dos pré-requisitos.
+1. Selecione o tipo de conjunto de dados que gostaria de adicionar. Verá uma lista diferente de tipos de conjuntos de dados dependendo do tipo de partilha (instantâneo ou no local) que selecionou no passo anterior. Se partilhar de uma Base de Dados Azure SQL ou Azure Synapse Analytics, você será solicitado para algumas credenciais SQL. Autenticar utilizando o utilizador que criou como parte dos pré-requisitos.
 
     ![AdicionarDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 

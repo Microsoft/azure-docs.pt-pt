@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585921"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485460"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -36,7 +36,7 @@ Utilize este tutorial para ajudá-lo a começar com o registo do Cofre de Chaves
 > Este artigo fornece instruções da Azure PowerShell para atualizar a sessão de diagnóstico. Também pode atualizar o registo de diagnóstico utilizando o Monitor Azure na secção de **registos** de Diagnóstico do portal Azure. 
 >
 
-Para obter informações gerais sobre o Key Vault, veja [o que é o Cofre da Chave Azure?](overview.md) Para obter informações sobre onde o Cofre-Chave está disponível, consulte [a página de preços](https://azure.microsoft.com/pricing/details/key-vault/).
+Para obter informações gerais sobre o Key Vault, veja [o que é o Cofre da Chave Azure?](overview.md) Para obter informações sobre onde o Cofre-Chave está disponível, consulte [a página de preços](https://azure.microsoft.com/pricing/details/key-vault/). Para obter informações sobre a utilização [do Monitor Azure para o Cofre de Chaves](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -103,7 +103,7 @@ Para ativar o registo do Key Vault, utilizaremos o **cmdlet Set-AzDiagnosticSett
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
-A saída é assim:
+O resultado tem o seguinte aspeto:
 
 ```output
 StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccountContosoKeyVaultLogs
@@ -265,7 +265,7 @@ Os blobs individuais são armazenadas como texto, formatados como um blob JSON. 
 
 A tabela que se segue lista os nomes e descrições do campo:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | **Hora** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |

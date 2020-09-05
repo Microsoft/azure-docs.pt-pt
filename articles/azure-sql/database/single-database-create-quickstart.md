@@ -1,32 +1,28 @@
 ---
 title: Criar uma única base de dados
-description: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure, PowerShell ou o Azure CLI. Consultar a base de dados com o Editor de Consulta no portal Azure.
+description: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure, PowerShell ou o Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: quickstart
-author: sachinpMSFT
-ms.author: ninarn
-ms.reviewer: carlrab, sstein, vanto
-ms.date: 04/19/2020
-ms.openlocfilehash: 6572f2e71b794f9f147278970b3f5f29fceb29d7
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
+ms.date: 09/03/2020
+ms.openlocfilehash: 8747e2f898b9810f50a08830728f1fab9a7f0548
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962694"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488922"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Quickstart: Criar uma base de dados única Azure SQL Database
 
-Neste arranque rápido, você usa o portal Azure, um script PowerShell ou um script Azure CLI para criar uma única base de dados na Base de Dados Azure SQL. Em seguida, consulta a base de **dados** utilizando o editor de consulta no portal Azure.
+Neste arranque rápido, cria-se uma [única base de dados](single-database-overview.md) na Base de Dados Azure SQL utilizando o portal Azure, um script PowerShell ou um script Azure CLI. Em seguida, consulta a base de **dados** utilizando o editor de consulta no portal Azure.
 
-Uma [única base de dados](single-database-overview.md) é a opção mais rápida e simples para a Base de Dados Azure SQL. Gere uma única base de dados dentro de um [servidor](logical-servers.md), que está dentro de um [grupo de recursos Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md) numa região específica de Azure. Neste arranque rápido, cria-se um novo grupo de recursos e servidor para a nova base de dados.
 
-Pode criar uma única base de dados no nível de computação *previsto* ou *sem servidor.* Uma base de dados alocada é pré-atribuída a uma quantidade fixa de recursos computacionais, incluindo CPU e memória, e utiliza um de dois [modelos de compra](purchasing-models.md). Este quickstart cria uma base de dados a provisionada utilizando o modelo de compra [baseado em vCore,](service-tiers-vcore.md) mas também pode escolher um modelo [baseado em DTU.](service-tiers-dtu.md)
-
-O nível de computação sem servidor só está disponível no modelo de compra baseado em vCore, e tem uma gama automática de recursos computacional, incluindo CPU e memória. Para criar uma única base de dados no nível de computação sem servidor, consulte [criar uma base de dados sem servidor](serverless-tier-overview.md#create-a-new-database-in-the-serverless-compute-tier).
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -34,14 +30,234 @@ O nível de computação sem servidor só está disponível no modelo de compra 
 
 ## <a name="create-a-single-database"></a>Criar uma única base de dados
 
-[!INCLUDE [sql-database-create-single-database](../includes/sql-database-create-single-database.md)]
+Este quickstart cria uma única base de dados no [nível de computação sem servidor](serverless-tier-overview.md).
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Para criar uma única base de dados no portal Azure este quickstart começa na página Azure SQL.
+
+1. Navegue na página [de opção De implementação Select SQL.](https://portal.azure.com/#create/Microsoft.AzureSQL)
+1. Nas **bases de dados SQL,** deixe o **tipo de recurso** definido para base de **dados única,** e selecione **Criar**.
+
+   ![Adicionar ao Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
+
+1. No **separador Basics** do formulário Criar base de **dados SQL,** nos **detalhes do Projeto,** selecione a **subscrição**Azure desejada.
+1. Para **o grupo de recursos**, selecione Criar **novo,** insira *no myResourceGroup*e selecione **OK**.
+1. Para **o nome da base de dados** insira *mySampleDatabase*.
+1. Para **o Servidor**, selecione Criar **novo**e preencha o novo formulário **do servidor** com os seguintes valores:
+   - **Nome do servidor**: *Insira o mysqlserver*e adicione alguns caracteres para singularidade. Não podemos fornecer um nome de servidor exato para usar porque os nomes do servidor devem ser globalmente únicos para todos os servidores em Azure, e não apenas únicos dentro de uma subscrição. Então insira algo como mysqlserver12345, e o portal permite-lhe saber se está disponível ou não.
+   - **Início de administração do servidor**: Insira *o azureuser*.
+   - **Senha**: Introduza uma palavra-passe que satisfaça os requisitos e introduza-a novamente no campo **de palavra-passe Confirmar.**
+   - **Localização**: Selecione uma localização da lista de dropdown.
+
+   Selecione **OK**.
+
+1. Sair **Quero utilizar a piscina elástica SQL** definida para o **nº**.
+1. Em **Compute + armazenamento**, selecione **Configure database**.
+1. Este arranque rápido utiliza uma base de dados sem servidor, por isso selecione **Serverless**e, em seguida, **selecione Apply**. 
+
+      ![configure base de dados sem servidor](./media/single-database-create-quickstart/configure-database.png)
+
+1. Selecione **Seguinte: Rede** na parte inferior da página.
+
+   ![Nova base de dados SQL - Separador básico](./media/single-database-create-quickstart/new-sql-database-basics.png)
+
+1. No **separador Rede,** para **o método conectividade,** selecione **Public endpoint**.
+1. Para **as regras de Firewall**, desa um endereço IP do cliente **atual** para **Sim**. Deixar **permitir que os serviços e recursos da Azure acedam a este conjunto de servidores** para o **Nº**.
+1. Selecione **Seguinte: Definições adicionais** na parte inferior da página.
+
+   ![Separador de rede](./media/single-database-create-quickstart/networking.png)
+  
+
+1. No **separador Definições Adicionais,** na secção Fonte de **Dados,** para **utilizar os dados existentes**, selecione **Sample**. Isto cria uma base de dados de amostras AdventureWorksLT para que haja algumas tabelas e dados para consultar e experimentar, em oposição a uma base de dados vazia em branco.
+1. Selecione **Review + criar** na parte inferior da página:
+
+   ![Separador de configurações adicionais](./media/single-database-create-quickstart/additional-settings.png)
+
+1. Na página **'Rever + criar',** depois de rever, selecione **Criar**.
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
+
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com](https://shell.azure.com) . Selecione **Copy** para copiar os blocos de código, cole-o na Cloud Shell e prima **Enter** para executá-lo.
+
+## <a name="set-parameter-values"></a>Definir valores de parâmetros
+
+Os seguintes valores são utilizados em comandos subsequentes para criar a base de dados e os recursos necessários. Os nomes dos servidores precisam de ser globalmente únicos em todo o Azure, pelo que a função $RANDOM é usada para criar o nome do servidor. Substitua os valores 0.0.0.0 no intervalo de endereços IP para corresponder ao ambiente específico.
+
+```azurecli-interactive
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup
+location=eastus
+
+# Set an admin login and password for your database
+adminlogin=azureuser
+password=Azure1234567!
+
+# Set a server name that is unique to Azure DNS (<server_name>.database.windows.net)
+serverName=server-$RANDOM
+
+# Set the ip address range that can access your database
+startip=0.0.0.0
+endip=0.0.0.0
+```
+
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
+
+```azurecli-interactive
+az group create --name $resourceGroupName --location $location
+```
+
+## <a name="create-a-server"></a>Criar um servidor
+
+Crie um servidor com o [servidor az sql criar](/cli/azure/sql/server) comando.
+
+```azurecli-interactive
+az sql server create \
+    --name $serverName \
+    --resource-group $resourceGroupName \
+    --location $location  \
+    --admin-user $adminlogin \
+    --admin-password $password
+```
+
+
+## <a name="configure-a-firewall-rule-for-the-server"></a>Configure uma regra de firewall para o servidor
+
+Crie uma regra de firewall com a [regra de firewall do servidor az sql criar](/cli/azure/sql/server/firewall-rule) comando.
+
+```azurecli-interactive
+az sql server firewall-rule create \
+    --resource-group $resourceGroupName \
+    --server $serverName \
+    -n AllowYourIp \
+    --start-ip-address $startip \
+    --end-ip-address $endip
+```
+
+
+## <a name="create-a-single-database"></a>Criar uma única base de dados
+
+Crie uma base de dados com o [comando az sql db.](/cli/azure/sql/db) O seguinte código cria
+
+
+```azurecli-interactive
+az sql db create \
+    --resource-group $resourceGroupName \
+    --server $serverName \
+    --name mySampleDatabase \
+    --sample-name AdventureWorksLT \
+    --edition GeneralPurpose \
+    --compute-model Serverless \
+    --family Gen5 \
+    --capacity 2
+```
+
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pode criar um grupo de recursos, servidor e base de dados única utilizando o Windows PowerShell.
+
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
+
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com](https://shell.azure.com) . Selecione **Copy** para copiar os blocos de código, cole-o na Cloud Shell e prima **Enter** para executá-lo.
+
+## <a name="set-parameter-values"></a>Definir valores de parâmetros
+
+Os seguintes valores são utilizados em comandos subsequentes para criar a base de dados e os recursos necessários. Os nomes dos servidores precisam de ser globalmente únicos em todo o Azure, pelo que o cmdlet Get-Random é usado para criar o nome do servidor. Substitua os valores 0.0.0.0 no intervalo de endereços IP para corresponder ao ambiente específico.
+
+```azurepowershell-interactive
+   # Set variables for your server and database
+   $resourceGroupName = "myResourceGroup"
+   $location = "eastus"
+   $adminLogin = "azureuser"
+   $password = "Azure1234567!"
+   $serverName = "mysqlserver-$(Get-Random)"
+   $databaseName = "mySampleDatabase"
+
+   # The ip address range that you want to allow to access your server
+   $startIp = "0.0.0.0"
+   $endIp = "0.0.0.0"
+
+   # Show randomized variables
+   Write-host "Resource group name is" $resourceGroupName
+   Write-host "Server name is" $serverName
+```
+
+
+## <a name="create-resource-group"></a>Criar grupo de recursos
+
+Criar um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+
+```azurepowershell-interactive
+   Write-host "Creating resource group..."
+   $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
+   $resourceGroup
+```
+
+
+## <a name="create-a-server"></a>Criar um servidor
+
+Crie um servidor com o [cmdlet New-AzSqlServer.](/powershell/module/az.sql/new-azsqlserver)
+
+```azurepowershell-interactive
+  Write-host "Creating primary server..."
+   $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -Location $location `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+      -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   $server
+```
+
+## <a name="create-a-firewall-rule"></a>Criar uma regra de firewall
+
+Crie uma regra de firewall do servidor com o cmdlet [New-AzSqlServerFirewallRule.](/powershell/module/az.sql/new-azsqlserverfirewallrule)
+
+```azurepowershell-interactive
+   Write-host "Configuring server firewall rule..."
+   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+   $serverFirewallRule
+```
+
+
+## <a name="create-a-single-database"></a>Criar uma única base de dados
+
+Crie uma única base de dados com o cmdlet [New-AzSqlDatabase.](/powershell/module/az.sql/new-azsqldatabase)
+
+```azurepowershell-interactive
+   Write-host "Creating a gen5 2 vCore serverless database..."
+   $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -DatabaseName $databaseName `
+      -Edition GeneralPurpose `
+      -ComputeModel Serverless `
+      -ComputeGeneration Gen5 `
+      -VCore 2 `
+      -MinimumCapacity 2 `
+      -SampleName "AdventureWorksLT"
+   $database
+```
+
+---
+
+
 
 ## <a name="query-the-database"></a>Consultar a base de dados
 
-Uma vez criada a base de dados, pode utilizar o editor de **consulta** incorporado no portal Azure para ligar à base de dados e consultar os dados.
+Uma vez criada a base de dados, pode utilizar o **editor de consulta (pré-visualização)** no portal Azure para ligar à base de dados e consultar dados.
 
 1. No portal, procure e selecione **bases de dados SQL**e, em seguida, selecione a sua base de dados na lista.
-1. Na página **SQL Database** para a sua base de dados, selecione **O editor de consulta (pré-visualização)** no menu esquerdo.
+1. Na página da sua base de dados, selecione **O editor de consulta (pré-visualização)** no menu esquerdo.
 1. Introduza as informações de login do seu servidor e selecione **OK**.
 
    ![Inscreva-se no editor de consulta](./media/single-database-create-quickstart/query-editor-login.png)
@@ -67,7 +283,7 @@ Mantenha o grupo de recursos, servidor e base de dados única para passar aos pr
 
 Quando terminar de utilizar estes recursos, pode eliminar o grupo de recursos que criou, que também eliminará o servidor e a base de dados única dentro do mesmo.
 
-### <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para eliminar **o myResourceGroup** e todos os seus recursos utilizando o portal Azure:
 
@@ -75,12 +291,12 @@ Para eliminar **o myResourceGroup** e todos os seus recursos utilizando o portal
 1. Na página do grupo de recursos, selecione **Eliminar o grupo de recursos**.
 1. Em **'Digite' o nome do grupo de recursos**, insira o *myResourceGroup*e, em seguida, selecione **Delete**.
 
-### <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para eliminar o grupo de recursos e todos os seus recursos, executar o seguinte comando Azure CLI, utilizando o nome do seu grupo de recursos:
 
 ```azurecli-interactive
-az group delete --name <your resource group>
+az group delete --name $resourceGroupName
 ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -88,7 +304,7 @@ az group delete --name <your resource group>
 Para eliminar o grupo de recursos e todos os seus recursos, executar o seguinte cmdlet PowerShell, utilizando o nome do seu grupo de recursos:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name <your resource group>
+Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
 ---

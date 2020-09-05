@@ -7,18 +7,18 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1ef5b2229aadc4be46361a7319351a1f27b28b63
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378984"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481380"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticar para cofre de chave Azure
 
 O Azure Key Vault permite-lhe armazenar segredos e controlar a sua distribuição num repositório de nuvem centralizado e seguro, o que elimina a necessidade de armazenar credenciais em aplicações. As aplicações só precisam de autenticar com o Key Vault na hora de execução para aceder a esses segredos.
 
-## <a name="app-identity-and-service-principals"></a>Diretores de identidade e serviço de aplicativos
+## <a name="app-identity-and-security-principals"></a>Principais de identidade e segurança da app
 
 A autenticação com a Key Vault funciona em conjunto com [o Azure Ative Directory (Azure AD),](/azure/active-directory/fundamentals/active-directory-whatis)que é responsável pela autenticação da identidade de qualquer **dado diretor de segurança.**
 
@@ -40,7 +40,7 @@ Para aplicações, existem duas formas de obter um principal de serviço:
 
 * Se não puder utilizar a identidade gerida, em vez **disso, registe** o pedido junto do seu inquilino Azure AD, conforme descrito no [Quickstart: Registe uma aplicação com a plataforma de identidade Azure](/azure/active-directory/develop/quickstart-register-app). O registo também cria um segundo objeto de aplicação que identifica a app em todos os inquilinos.
 
-## <a name="authorize-a-service-principal-to-access-key-vault"></a>Autorizar um diretor de serviço a aceder ao Cofre-Chave
+## <a name="authorize-a-security-principal-to-access-key-vault"></a>Autorizar um diretor de segurança a aceder ao Cofre-Chave
 
 O Cofre-Chave funciona com dois níveis de autorização distintos:
 

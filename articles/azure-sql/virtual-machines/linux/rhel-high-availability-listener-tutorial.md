@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84343769"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485809"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar um ouvinte de grupo de disponibilidade para o SQL Server em máquinas virtuais RHEL em Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Tutorial [Concluído: Configurar grupos de disponibilidade para SQL Server em m�
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Criar o equilibrador de carga no portal Azure
 
-As seguintes instruções levam-no através dos passos 1 a 4 a partir do Create e configurar o balançador de carga na secção [porta-cargaS do](../windows/availability-group-load-balancer-portal-configure.md#create-and-configure-the-load-balancer-in-the-azure-portal) [equilibrador](../windows/availability-group-load-balancer-portal-configure.md) de carga - artigo do portal Azure.
+As seguintes instruções levam-no através dos passos 1 a 4 a partir do Create e configurar o balançador de carga na secção [porta-cargaS do](../windows/availability-group-load-balancer-portal-configure.md#create--configure-load-balancer) [equilibrador](../windows/availability-group-load-balancer-portal-configure.md) de carga - artigo do portal Azure.
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
@@ -176,7 +176,7 @@ Neste ponto, o grupo de recursos tem um equilibrador de carga que se conecta a t
     sudo pcs constraint list --full
     ```
 
-    Deverá ver o seguinte resultado:
+    Deverá ver o resultado seguinte:
 
     ```output
     Location Constraints:

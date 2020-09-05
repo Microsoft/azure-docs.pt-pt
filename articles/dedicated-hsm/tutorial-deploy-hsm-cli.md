@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e4403252396aab91fa960ed7258d433e27db950a
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 63cdb27663cb1a2d8de1a97a2f352b05ff57a3f4
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258252"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489889"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implantação de HSMs numa rede virtual existente utilizando o CLI
 
@@ -136,7 +136,7 @@ az network vnet create \
 ```
 
 ```azurecli
-az network vnet create \
+az network vnet subnet create \
   --vnet-name myHSM-vnet \
   --resource-group myRG \
   --name hsmsubnet \
@@ -246,8 +246,8 @@ az group deployment delete \
 Após completar os passos no tutorial, são fornecidos recursos dedicados ao HSM e tem uma rede virtual com HSMs necessários e componentes de rede adicionais para permitir a comunicação com o HSM.  Está agora em posição de felicitar esta implantação com mais recursos, conforme exigido pela sua arquitetura de implantação preferida. Para obter mais informações sobre como ajudar a planear a sua implantação, consulte os documentos do Concepts.
 Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. O ficheiro de modelo utilizado neste tutorial pode ser facilmente usado como base para uma implantação de dois HSM, mas precisa de ter os seus parâmetros modificados para satisfazer os seus requisitos.
 
-* [Elevada Disponibilidade](high-availability.md)
+* [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
-* [Rede](networking.md)
+* [Redes](networking.md)
 * [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)

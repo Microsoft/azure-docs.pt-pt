@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para cofre de chaves Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para Azure Key Vault. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: b5ebba2237a702b45c3ac8bbd5169ded9a2fed1e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: fbfb865ebe7f31f09a591de6615447b5dabb6f80
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379232"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483899"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-key-vault"></a>Controlos de conformidade regulamentar da política Azure para cofre de chaves Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "89379232"
 
 [!INCLUDE [azure-policy-compliancecontrols-keyvault](../../includes/policy/standards/byrp/microsoft.keyvault.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

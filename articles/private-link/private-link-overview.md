@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/18/2020
+ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 425290f44fc5f8bc761dc80b72aa2421e5c6d194
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 94d4a035c95b8eb2a567c71ec2172f55881e8099
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460665"
+ms.locfileid: "89488427"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -43,8 +43,11 @@ A Azure Private Link proporciona os seguintes benefícios:
 |Serviços suportados  |Regiões disponíveis | Considerações adicionais | Estado  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Serviços de ligação privada por trás do balanceador de carga padrão Azure | Todas as regiões públicas<br/> Todas as regiões do Governo  | Suportado no Balanceador de Carga Padrão | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Storage do Azure       |  Todas as regiões públicas       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
-| Armazenamento do Azure Data Lake Ger2        |  Todas as regiões públicas      |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+| Armazenamento Azure Blob (incluindo data lake storage gen2)       |  Todas as regiões públicas       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+| Ficheiros do Azure | Todas as regiões públicas      | |   GA <br/> [Saiba mais](/azure/storage/files/storage-files-networking-endpoints)   |
+| Azure File Sync | Todas as regiões públicas      | |   GA <br/> [Saiba mais](/azure/storage/files/storage-sync-files-networking-endpoints)   |
+| Armazenamento de Filas do Azure       |  Todas as regiões públicas       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+| Armazenamento de Tabelas do Azure       |  Todas as regiões públicas       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
 |  Base de Dados SQL do Azure         | Todas as regiões públicas <br/> Todas as regiões do Governo      |  Suportado para a política de [ligação](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) proxy | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (anteriormente SQL Data Warehouse)| Todas as regiões públicas <br/> Todas as regiões do Governo |  Suportado para a política de [ligação](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) proxy |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Todas as regiões públicas<br/> Todas as regiões do Governo | |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
@@ -67,7 +70,6 @@ A Azure Private Link proporciona os seguintes benefícios:
 | Azure IoT Hub | Todas as regiões públicas    |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO SUL DOS EUA      |  | Pré-visualizar   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure File Sync | Todas as regiões públicas      | |   GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
 | Azure Batch | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA, CENTRO-OESTE DOS EUA, FRANÇA CENTRAL, LESTE ASIÁTICO, REINO UNIDO SUL, EUA GOV VIRGINIA, EUA GOV ARIZONA  | | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/batch/private-connectivity) |
 
 Para obter as notificações mais atualizadas, consulte a página de atualizações do [Link Privado Azure](https://azure.microsoft.com/updates/?product=private-link).

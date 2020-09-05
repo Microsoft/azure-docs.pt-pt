@@ -1,15 +1,15 @@
 ---
 title: Lista de definições políticas incorporadas
 description: Listar definições políticas incorporadas para a Política Azure. As categorias incluem Tags, Conformidade Regulamentar, Cofre-Chave, Kubernetes, Configuração de Hóspedes, e muito mais.
-ms.date: 07/10/2020
+ms.date: 09/04/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7982627197a7524093ab56828b24528ebd903c67
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: a664c740649135c7586c77da43eacfd0a73e34a9
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298598"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487936"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas incorporadas da Política Azure
 
@@ -41,7 +41,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 [!INCLUDE [azure-policy-reference-policies-backup](../../../../includes/policy/reference/bycat/policies-backup.md)]
 
@@ -97,7 +97,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-reference-policies-internet-of-things](../../../../includes/policy/reference/bycat/policies-internet-of-things.md)]
 
-## <a name="key-vault"></a>Cofre de Chaves
+## <a name="key-vault"></a>Key Vault
 
 [!INCLUDE [azure-policy-reference-policies-key-vault](../../../../includes/policy/reference/bycat/policies-key-vault.md)]
 
@@ -112,10 +112,6 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 ## <a name="logic-apps"></a>Aplicações Lógicas
 
 [!INCLUDE [azure-policy-reference-policies-logic-apps](../../../../includes/policy/reference/bycat/policies-logic-apps.md)]
-
-## <a name="machine-learning"></a>Machine Learning
-
-[!INCLUDE [azure-policy-reference-policies-machine-learning](../../../../includes/policy/reference/bycat/policies-machine-learning.md)]
 
 ## <a name="managed-application"></a>Aplicação gerida
 

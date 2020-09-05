@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268898"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489923"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando a Azure Data Share  
 
@@ -41,7 +41,7 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 ### <a name="receive-data-into-a-sql-based-target"></a>Receber dados num alvo baseado em SQL:
 
 * Permissão para escrever para bases de dados no servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuinte. 
-* Permissão para a identidade gerida do recurso de partilha de dados para aceder à Base de Dados Azure SQL ou ao Armazém de Dados Azure SQL. Isto pode ser feito através dos seguintes passos: 
+* Permissão para a identidade gerida do recurso de partilha de dados para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics. Isto pode ser feito através dos seguintes passos: 
     1. Coloque-se como o Azure Ative Directory Admin para o servidor SQL.
     1. Ligue-se à Base de Dados/Armazém de Dados Azure SQL utilizando o Azure Ative Directory.
     1. Utilize o Editor de Consulta (pré-visualização) para executar o seguinte script para adicionar a Identidade Gerida de Partilha de Dados como uma "db_datareader, db_datawriter, db_ddladmin". Tem de se ligar utilizando o Ative Directory e não a autenticação do SQL Server. 

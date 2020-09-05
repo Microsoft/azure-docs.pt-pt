@@ -3,16 +3,16 @@ title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os prestadores de serviços entreguem serviços geridos aos seus clientes com maior automatização e eficiência em escala.
 ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: d21d11d1316b177f38b6bce197dec4f2c3d3fac8
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 22bec7ec8944a11ce0cfdf51776f1f193a1aedaa
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660738"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488818"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
-O Farol azul permite a gestão transversal e multi-arrendatária, permitindo uma maior automatização, escalabilidade e uma maior governação entre recursos e inquilinos. Com o Azure Lighthouse, os prestadores de serviços podem fornecer serviços geridos usando ferramentas de gestão abrangentes e robustas incorporadas na plataforma Azure. Esta oferta também pode beneficiar organizações de TI empresariais que gerem recursos em vários inquilinos.
+O Azure Lighthouse permite a gestão multi-inquilino e entre inquilinos, o que garante uma maior automatização, escalabilidade e melhor governação de recursos e inquilinos. Com o Azure Lighthouse, os prestadores de serviços podem fornecer serviços geridos usando ferramentas de gestão abrangentes e robustas incorporadas na plataforma Azure. Esta oferta também pode beneficiar organizações de TI empresariais que gerem recursos em vários inquilinos.
 
 ![Diagrama de visão geral do Farol de Azure](media/azure-lighthouse-overview.jpg)
 
@@ -22,7 +22,7 @@ O Azure Lighthouse ajuda-o a construir e prestar serviços geridos de forma rent
 
 - **Gestão em escala**: As operações de envolvimento do cliente e ciclo de vida para gerir os recursos dos clientes são mais fáceis e escaláveis. As APIs existentes, ferramentas de gestão e fluxos de trabalho podem ser usados com recursos delegados, independentemente das regiões em que estão localizadas.
 - **Maior visibilidade e precisão para os clientes**: Os clientes terão maior visibilidade nas suas ações e controlo preciso sobre o âmbito que delegam para a gestão, incluindo a capacidade de remover completamente o acesso, enquanto o seu IP é preservado.
-- **Ferramenta de plataforma abrangente e unificada**: A nossa experiência de ferramentas aborda cenários chave do prestador de serviços, incluindo vários modelos de licenciamento como EA, CSP e pay-as-you-go. As novas capacidades funcionam com ferramentas e APIs existentes, modelos de licenciamento e programas parceiros como o [programa Cloud Solution Provider (CSP)](/partner-center/csp-overview). O Farol Azure pode ser integrado nos fluxos de trabalho e aplicações existentes, e pode acompanhar o seu impacto nos compromissos com os clientes [ligando o ID do seu parceiro.](../cost-management-billing/manage/link-partner-id.md)
+- **Ferramenta de plataforma abrangente e unificada**: A nossa experiência de ferramentas aborda cenários chave do prestador de serviços, incluindo vários modelos de licenciamento como EA, CSP e pay-as-you-go. As novas capacidades funcionam com ferramentas e APIs existentes, modelos de licenciamento e programas parceiros como o [programa Cloud Solution Provider (CSP)](/partner-center/csp-overview). O Azure Lighthouse pode ser integrado nos seus fluxos de trabalho e aplicações existentes, e pode acompanhar o seu impacto nos compromissos com os clientes e receber o crédito adquirido pelo [parceiro, ligando o seu ID do parceiro.](./how-to/partner-earned-credit.md)
 
 Não existem custos adicionais associados à utilização do Farol Azure para gerir os recursos da Azure. Qualquer cliente ou parceiro Azure pode usar o Farol Azure.
 

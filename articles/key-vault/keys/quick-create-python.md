@@ -3,206 +3,69 @@ title: Quickstart – Biblioteca cliente Azure Key Vault Python – gerencie as 
 description: Aprenda a criar, recuperar e apagar chaves de um cofre de chaves Azure usando a biblioteca do cliente Python
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 3/30/2020
+ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 1352d3fe4a13202a296b79fe82343c50a9e281d1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 44942067756f82c224decc218de17bf7dbc69734
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400420"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482142"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Quickstart: Azure Key Vault chaves biblioteca cliente para Python
 
-Começa com a biblioteca de clientes do Azure Key Vault para python. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
-
-O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Utilize a biblioteca de clientes Key Vault para Python para:
-
-- Aumentar a segurança e o controlo sobre chaves e senhas.
-- Criar e importar chaves de encriptação em minutos.
-- Reduza a latência com a escala de nuvens e a redundância global.
-- Simplificar e automatizar tarefas para certificados TLS/SSL.
-- Utilize OS HSMs validados FIPS 140-2.
+Começa com a biblioteca de clientes do Azure Key Vault para python. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Ao utilizar o Key Vault para armazenar chaves criptográficas, evita armazenar tais chaves no seu código, o que aumenta a segurança da sua aplicação.
 
 [Documentação de](/python/api/overview/azure/keyvault-keys-readme?view=azure-python)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys)  |  [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-keyvault-keys/)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="set-up-your-local-environment"></a>Configurar o seu ambiente local
 
-- Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Python 2.7, 3.5.3, ou mais tarde
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
+[!INCLUDE [Set up your local environment](../../../includes/key-vault-python-qs-setup.md)]
 
-Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) numa janela do terminal Linux.
+7. Instale a biblioteca de chaves key vault:
 
-## <a name="setting-up"></a>Configuração
+    ```terminal
+    pip install azure-keyvault-keys
+    ```
 
-### <a name="install-the-package"></a>Instale o pacote
+## <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e cofre chave
 
-A partir da janela da consola, instale a biblioteca de chaves Azure Key Vault para Python.
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
-```console
-pip install azure-keyvault-keys
-```
+## <a name="give-the-service-principal-access-to-your-key-vault"></a>Dê ao serviço acesso principal ao seu cofre de chaves
 
-Para este arranque rápido, também terá de instalar o pacote azure.identity:
+Executar o seguinte comando [de definição de keyvault az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) para autorizar o seu principal de serviço para eliminar, obter, listar e criar operações nas teclas. 
 
-```console
-pip install azure.identity
-```
-
-### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e cofre chave
-
-Este quickstart usa um cofre de chave Azure pré-criado. Pode criar um cofre-chave seguindo os passos no [quickstart Azure CLI,](quick-create-cli.md) [Azure PowerShell quickstart](quick-create-powershell.md), ou [Azure portal quickstart](quick-create-portal.md). Em alternativa, pode executar os comandos Azure CLI abaixo.
-
-> [!Important]
-> Cada cofre deve ter um nome único. Substitua <o seu nome único de teclado> pelo nome do seu cofre-chave nos seguintes exemplos.
+# <a name="cmd"></a>[cmd](#tab/cmd)
 
 ```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
+az keyvault set-policy --name %KEY_VAULT_NAME% --spn %AZURE_CLIENT_ID% --resource-group KeyVault-PythonQS-rg --key-permissions delete get list create
 ```
 
-### <a name="create-a-service-principal"></a>Criar um principal de serviço
-
-A forma mais simples de autenticar uma aplicação baseada na nuvem é com uma identidade gerida; consulte [Autenticar para Azure Key Vault](../general/authentication.md) para mais detalhes. 
-
-No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação para desktop, que requer a utilização de um principal de serviço e de uma política de controlo de acessos. O seu diretor de serviço requer um nome único no formato "http:// &lt; meu nome principal de serviço &gt; único".
-
-Criar um principal de serviço utilizando o comando Azure CLI [ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
+# <a name="bash"></a>[festa](#tab/bash)
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
+az keyvault set-policy --name $KEY_VAULT_NAME --spn $AZURE_CLIENT_ID --resource-group KeyVault-PythonQS-rg --key-permissions delete get list create
 ```
 
-Esta operação devolverá uma série de pares de chaves/valor. 
+---
 
-```console
-{
-  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
-```
+Este comando baseia-se nas `KEY_VAULT_NAME` `AZURE_CLIENT_ID` variáveis ambientais criadas em etapas anteriores.
 
-Tome nota do clienteId e clienteSecret, pois vamos usá-los no passo [variável ambiental definido](#set-environmental-variables) abaixo.
+Para mais informações, consulte [Atribuir uma política de acesso - CLI](../general/assign-access-policy-cli.md)
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Dê ao serviço acesso principal ao seu cofre de chaves
+## <a name="create-the-sample-code"></a>Criar o código de amostra
 
-Crie uma política de acesso para o seu cofre-chave que concede permissão ao seu principal de serviço, passando o clienteId para o comando [de definição de chave-tevault az.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) Dê ao diretor de serviço obter, listar e criar permissões para chaves.
+A biblioteca de clientes Azure Key Vault para Python permite-lhe gerir chaves criptográficas e ativos relacionados, tais como certificados e segredos. A seguinte amostra de código demonstra como criar um cliente, estabelecer um segredo, recuperar um segredo e apagar um segredo.
 
-```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --key-permissions delete get list create 
-```
-
-#### <a name="set-environmental-variables"></a>Definir variáveis ambientais
-
-O método DefaultAzureCredential na nossa aplicação baseia-se em três variáveis ambientais: `AZURE_CLIENT_ID` `AZURE_CLIENT_SECRET` , e `AZURE_TENANT_ID` . Desaprova estas variáveis para os valores clienteId, clientesSecret e tenantId que notou no [Create um](#create-a-service-principal) passo principal de serviço usando o `export VARNAME=VALUE` formato. (Este método apenas define as variáveis para a sua concha atual e processos criados a partir da concha; para adicionar permanentemente estas variáveis ao seu ambiente, editar o seu `/etc/environment ` ficheiro.) 
-
-Também terá de guardar o nome do cofre como uma variável ambiental chamada `KEY_VAULT_NAME` .
-
-```console
-export AZURE_CLIENT_ID=<your-clientID>
-
-export AZURE_CLIENT_SECRET=<your-clientSecret>
-
-export AZURE_TENANT_ID=<your-tenantId>
-
-export KEY_VAULT_NAME=<your-key-vault-name>
-````
-
-## <a name="object-model"></a>Modelo de objeto
-
-A biblioteca de clientes Azure Key Vault para Python permite-lhe gerir chaves e ativos relacionados, tais como certificados e segredos. As amostras de código abaixo mostrar-lhe-ão como criar um cliente, criar uma chave, recuperar uma chave e apagar uma chave.
-
-## <a name="code-examples"></a>Exemplos de código
-
-### <a name="add-directives"></a>Adicionar diretivas
-
-Adicione as seguintes diretivas ao topo do seu código:
+Crie um ficheiro chamado *kv_keys.py* que contenha este código.
 
 ```python
 import os
 from azure.keyvault.keys import KeyClient
-from azure.identity import DefaultAzureCredential
-```
-
-### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
-
-Autenticar o cofre e criar um cliente-chave depende das variáveis ambientais do [set, as variáveis ambientais](#set-environmental-variables) estão acima. O nome do seu cofre-chave é expandido para o cofre de chaves URI, no formato "https://<o seu nome de cofre-chave>.vault.azure.net".
-
-```python
-credential = DefaultAzureCredential()
-
-client = KeyClient(vault_url=KVUri, credential=credential)
-```
-
-### <a name="save-a-key"></a>Guarde uma chave
-
-Agora que a sua aplicação é autenticada, pode colocar uma chave no seu keyvault 
-
-```python
-rsa_key = client.create_rsa_key(myKey,size=2048)
-```
-
-Pode verificar se a chave foi definida com o comando [de teclado az keyvault:](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-show)
-
-```azurecli
-az keyvault key show --vault-name <your-unique-keyvault-name> --name myKey
-```
-
-### <a name="retrieve-a-key"></a>Recuperar uma chave
-
-Agora pode recuperar a chave previamente criada
-
-```python
-retrieved_key = client.get_key(keyName)
-print(retrieve_key.name)
-
- ```
-
-A sua chave está agora guardada como `retrieved_key` .
-
-### <a name="delete-a-key"></a>Eliminar uma chave
-
-Finalmente, vamos apagar a chave do seu cofre
-
-```python
-client.delete_key(keyName)
-```
-
-Pode verificar se a chave desapareceu com o comando [do teclado az keyvault:](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-show)
-
-```azurecli
-az keyvault key show --vault-name <your-unique-keyvault-name> --name myKey
-```
-
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-Quando já não for necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover o cofre da chave e o grupo de recursos correspondente.
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
-
-## <a name="sample-code"></a>Código de exemplo
-
-```python
-import os
-from azure.keyvault.key import KeyClient
 from azure.identity import DefaultAzureCredential
 
 keyVaultName = os.environ["KEY_VAULT_NAME"]
@@ -211,30 +74,103 @@ KVUri = "https://" + keyVaultName + ".vault.azure.net"
 credential = DefaultAzureCredential()
 client = KeyClient(vault_url=KVUri, credential=credential)
 
-keyName = "myKey"
+keyName = input("Input a name for your key > ")
 
-print("Creating a key in " + keyVaultName + " called '" + keyName  + "` ...")
+print(f"Creating a key in {keyVaultName} called '{keyName}' ...")
 
-rsa_key = client.create_rsa_key(myKey,size=2048)
+rsa_key = client.create_rsa_key(keyName, size=2048)
 
 print(" done.")
 
-print("Retrieving your key from " + keyVaultName + ".")
+print(f"Retrieving your key from {keyVaultName}.")
 
 retrieved_key = client.get_key(keyName)
 
-print("Key with name '{0}' was found'.".format(retrieved_key.name))
-print("Deleting your key from " + keyVaultName + " ...")
+print(f"Key with name '{retrieved_key.name}' was found.")
+print(f"Deleting your key from {keyVaultName} ...")
 
-client.begin_delete_key(keyName).result()
+poller = client.begin_delete_key(keyName)
+deleted_key = poller.result()
 
 print(" done.")
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="run-the-code"></a>Executar o código
 
-Neste arranque rápido, criaste um cofre chave, armazenaste uma chave e recuperaste essa chave. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
+Certifique-se de que o código na secção anterior está num ficheiro denominado *kv_keys.py*. Em seguida, executar o código com o seguinte comando:
+
+```terminal
+python kv_keys.py
+```
+
+- Se encontrar permissões, certifique-se de que executou o [ `az keyvault set-policy` comando](#give-the-service-principal-access-to-your-key-vault).
+- A recorridação do código com o mesmo nome-chave pode produzir o erro, "(Conflito) A chave <name> está atualmente num estado eliminado, mas recuperável." Use um nome chave diferente.
+
+## <a name="code-details"></a>Detalhes do código
+
+### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
+
+No código anterior, o [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) objeto utiliza as variáveis ambientais que criou para o seu principal serviço. Fornece esta credencial sempre que cria um objeto cliente a partir de uma biblioteca Azure, [`KeyClient`](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python) como, juntamente com o URI do recurso com o quais pretende trabalhar através desse cliente:
+
+```python
+credential = DefaultAzureCredential()
+client = KeyClient(vault_url=KVUri, credential=credential)
+```
+
+## <a name="save-a-key"></a>Guarde uma chave
+
+Uma vez obtido o objeto cliente para o cofre de chaves, pode armazenar uma chave usando o método [create_rsa_key:](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-rsa-key-name----kwargs-) 
+
+```python
+rsa_key = client.create_rsa_key(keyName, size=2048)
+```
+
+Também pode utilizar [create_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-key-name--key-type----kwargs-) ou [create_ec_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-ec-key-name----kwargs-).
+
+Chamar um `create` método gera uma chamada para a API Azure REST para o cofre de chaves.
+
+Ao lidar com o pedido, a Azure autentica a identidade do autor da chamada (o principal do serviço) utilizando o objeto de credencial que forneceu ao cliente.
+
+Verifica igualmente se o autor da chamada está autorizado a executar a ação solicitada. Concedeu esta autorização ao diretor de serviço mais cedo usando o [ `az keyvault set-policy` comando.](#give-the-service-principal-access-to-your-key-vault)
+
+## <a name="retrieve-a-key"></a>Recuperar uma chave
+
+Para ler uma chave do Key Vault, utilize o método [get_key:](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#get-key-name--version-none----kwargs-)
+
+```python
+retrieved_key = client.get_key(keyName)
+ ```
+
+Também pode verificar se a chave foi definida com o show de chaves Azure CLI [keyvault](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-show).
+
+### <a name="delete-a-key"></a>Eliminar uma chave
+
+Para eliminar uma chave, utilize o método [begin_delete_key:](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#begin-delete-key-name----kwargs-)
+
+```python
+poller = client.begin_delete_key(keyName)
+deleted_key = poller.result()
+```
+
+O `begin_delete_key` método é assíncrona e devolve um objeto poller. Chamar o método do poller `result` espera pela sua conclusão.
+
+Pode verificar se a chave é eliminada com o [programa de teclas](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-show)Azure CLI .
+
+Uma vez eliminada, uma chave permanece em estado apagado, mas recuperável por um tempo. Se voltar a executar o código, utilize um nome chave diferente.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se também quiser experimentar certificados e [segredos,](../certificates/quick-create-python.md) pode reutilizar o Key Vault criado neste artigo. [secrets](../secrets/quick-create-python.md)
+
+Caso contrário, quando terminar com os recursos criados neste artigo, utilize o seguinte comando para eliminar o grupo de recursos e todos os seus recursos contidos:
+
+```azurecli
+az group delete --resource-group KeyVault-PythonQS-rg
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral do cofre de chave do Azure](../general/overview.md)
 - [Guia de desenvolvedores do Azure Key Vault](../general/developers-guide.md)
 - [As melhores práticas do Azure Key Vault](../general/best-practices.md)
+- [Autenticar com cofre de chaves](../general/authentication.md)

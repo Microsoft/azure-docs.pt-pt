@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para máquinas virtuais Azure
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para máquinas virtuais Azure . Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 36f8fa4c5683ac1a75af622ba04cd0ee2dbbd4d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 531cbf4498ac4348f3f244992b8664df65dc5307
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101944"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485855"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-machines"></a>Controlos de conformidade regulamentar da política Azure para máquinas virtuais Azure 
 

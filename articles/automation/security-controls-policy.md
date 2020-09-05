@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da Política Azure para a Azure Automation
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para a Azure Automation. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: mgoedtel
 ms.author: magoedte
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 81ba2e51be340359866fa8ac50d7e745fc356d8d
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 6a7e12b9d3ccc938547b8cae3f6f6ba75b70d3f7
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352829"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481714"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Controlos de conformidade regulamentar da Política Azure para a Azure Automation
 
@@ -22,7 +22,7 @@ ms.locfileid: "87352829"
 
 [!INCLUDE [azure-policy-compliancecontrols-automation](../../includes/policy/standards/byrp/microsoft.automation.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).
