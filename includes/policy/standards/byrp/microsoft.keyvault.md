@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 5bec718de3f4f4b0ee78bacf9fc41cbedb8e71df
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 84a3f02935b64ccf7a672f19925cc6434d509ece
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379235"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483898"
 ---
 ## <a name="azure-security-benchmark"></a>Referência de Segurança do Azure
 
@@ -18,7 +18,7 @@ O [Azure Security Benchmark](../../../../articles/security/benchmarks/overview.m
 
 Para rever como a Política Azure disponível incorporada para todos os serviços Azure mapear para este padrão de conformidade, consulte [Azure Policy Regulatory Compliance - Azure Security Benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
 
-|Domínio |ID de controlo |Título de Controlo |Política<br /><sub>(Portal Azure)</sub> |Versão política<br /><sub>(GitHub)</sub>  |
+|Domínio |ID de controlo |Título de controlo |Política<br /><sub>(Portal Azure)</sub> |Versão política<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Segurança de Rede |1.1 |Proteja os recursos utilizando grupos de segurança de rede ou firewall Azure na sua Rede Virtual |[O Key Vault deve usar um ponto final de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea4d6841-2173-4317-9747-ff522a45120f) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_KeyVault_Audit.json) |
 |Início de sessão e Monitorização |2.3 |Permitir a exploração de auditoria para recursos Azure |[Os registos de diagnóstico no Cofre de Chaves devem ser ativados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
@@ -30,8 +30,22 @@ Para rever como a Política Azure disponível incorporada para todos os serviço
 Para rever como a Política Azure disponível incorporada para todos os serviços Azure mapear para este padrão de conformidade, consulte [Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.1.0](../../../../articles/governance/policy/samples/cis-azure-1-1-0.md).
 Para obter mais informações sobre esta norma de conformidade, consulte [o CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
-|Domínio |ID de controlo |Título de Controlo |Política<br /><sub>(Portal Azure)</sub> |Versão política<br /><sub>(GitHub)</sub>  |
+|Domínio |ID de controlo |Título de controlo |Política<br /><sub>(Portal Azure)</sub> |Versão política<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Início de sessão e Monitorização |5.1.7 |Certifique-se de que a sessão de registo para Azure KeyVault está 'Activada' |[Os registos de diagnóstico no Cofre de Chaves devem ser ativados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 |Outras Considerações de Segurança |8.4 |Certifique-se de que o cofre da chave é recuperável |[Os objetos do Cofre chave devem ser recuperáveis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
+
+Para rever como a Política Azure disponível incorporada para todos os serviços Azure mapear para esta norma de conformidade, consulte [Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
+Para obter mais informações sobre esta norma de conformidade, consulte [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+
+|Domínio |ID de controlo |Título de controlo |Política<br /><sub>(Portal Azure)</sub> |Versão política<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Segregação em Redes |0805.01m1Organização.12 - 01.m |Os gateways de segurança da organização (por exemplo, firewalls) aplicam políticas de segurança e estão configurados para filtrar o tráfego entre domínios, bloquear o acesso não autorizado, e são usados para manter a segregação entre segmentos internos de rede com fios, sem fios e externos (por exemplo, a Internet) incluindo DMZs e impor políticas de controlo de acesso para cada um dos domínios. |[O Key Vault deve usar um ponto final de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea4d6841-2173-4317-9747-ff522a45120f) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_KeyVault_Audit.json) |
+|Segregação em Redes |0806.01m2Organização.12356 - 01.m |A rede de organizações é segmentada logicamente e fisicamente com um perímetro de segurança definido e um conjunto graduado de controlos, incluindo sub-redes para componentes do sistema acessíveis ao público que são logicamente separados da rede interna, com base em requisitos organizacionais; e o tráfego é controlado com base na funcionalidade necessária e na classificação dos dados/sistemas com base numa avaliação de risco e nos respetivos requisitos de segurança. |[O Key Vault deve usar um ponto final de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea4d6841-2173-4317-9747-ff522a45120f) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_KeyVault_Audit.json) |
+|Segregação em Redes |0894.01m2Organização.7 - 01.m |As redes são separadas de redes de nível de produção ao migrar servidores físicos, aplicações ou dados para servidores virtualizados. |[O Key Vault deve usar um ponto final de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea4d6841-2173-4317-9747-ff522a45120f) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_KeyVault_Audit.json) |
+|Registo de Auditoria |1211.09aa3System.4 - 09.aa |A organização verifica a cada noventa (90) dias por cada extrato de informação coberta registrado que os dados são apagados ou a sua utilização ainda é necessária. |[Os registos de diagnóstico no Cofre de Chaves devem ser ativados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|Controlos de rede |0865.09m2Organização.13 - 09.m |A organização (i) autoriza ligações do sistema de informação a outros sistemas de informação fora da organização através da utilização de acordos de segurança de interconexão ou outro acordo formal; ii documentar cada ligação, as características da interface, os requisitos de segurança e a natureza das informações comunicadas; iii utilize uma política de negação, permitindo, por exceção, permitir ligações do sistema de informação a outros sistemas de informação fora da organização; e (iv) aplica uma regra de negação padrão que deixa cair todo o tráfego através de firewalls ou ferramentas de filtragem de portas nos seus pontos finais (estações de trabalho, servidores, etc.), exceto os serviços e portas que são explicitamente permitidos. |[O Key Vault deve usar um ponto final de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea4d6841-2173-4317-9747-ff522a45120f) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_KeyVault_Audit.json) |
+|Continuidade do negócio e Avaliação de Riscos |1635.12b1Organização.2 - 12.b |Os aspetos de segurança da informação da continuidade do negócio são (i) baseados na identificação de eventos (ou sequência de eventos) que podem causar interrupções nos processos comerciais críticos da organização (por exemplo, falha de equipamentos, erros humanos, roubo, incêndio, atos de catástrofes naturais de terrorismo); ii seguida de uma avaliação dos riscos para determinar a probabilidade e o impacto dessas interrupções, em termos de tempo, escala de danos e período de recuperação; iii Com base nos resultados da avaliação dos riscos, é desenvolvida uma estratégia de continuidade das empresas para identificar a abordagem global da continuidade das empresas; e (iv) uma vez criada esta estratégia, o apoio é fornecido pela administração, e um plano criado e endossado para implementar esta estratégia. |[Os objetos do Cofre chave devem ser recuperáveis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 

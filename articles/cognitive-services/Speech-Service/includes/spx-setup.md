@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 27d450f8e48210723570f2fe0b45be4bca89fd56
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400920"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494298"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,10 +52,8 @@ Escreva `spx` para ver ajuda para o CLI do discurso.
 
 #### <a name="docker-install"></a>[Instalação Docker](#tab/dockerinstall)
 
-#### <a name="prerequisites"></a>Pré-requisitos
-
-> [!div class="checklist"]
-> * <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop para a sua plataforma <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop para <span class="docon docon-navigate-external x-hidden-focus"></span> a sua plataforma</a> deve ser instalado.
 
 Siga estes passos para instalar o CLI da fala dentro de um recipiente Docker:
 

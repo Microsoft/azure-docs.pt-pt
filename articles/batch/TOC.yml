@@ -109,8 +109,6 @@
           href: credential-access-key-vault.md
         - name: Utilizar certificados com o Batch
           href: batch-certificates.md
-    - name: Utilizar pacotes de aplicações
-      href: batch-application-packages.md
     - name: Copiar ficheiros e aplicações para nós de conjunto
       items:
         - name: Copiar aplicações e dados para conjuntos de nós
