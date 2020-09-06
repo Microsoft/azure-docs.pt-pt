@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c18f48f41a537d66c637959df4fb45331fbda176
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420494"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500237"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge usando Azure CLI e Python
 
@@ -342,7 +342,8 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge util
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Tome nota dos `id` `tenantId` valores e valores que correspondem ao ID de subscrição do gestor de recursos Azure e ao ID do Gestor de Recursos Azure, respectivamente, e será utilizado no passo posterior.
+       
    As seguintes variáveis ambientais devem ser definidas como *principais de serviço:*
 
    ```
@@ -352,7 +353,7 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge util
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   O ID do seu Gestor de Recursos Azure, o ID do Gestor de Recursos Azure e o ID de subscrição do Gestor de Recursos Azure são todos codificados e têm os mesmos valores em todos os dispositivos Azure Stack Edge. O segredo do cliente do Azure Resource Manager é a palavra-passe do Gestor de Recursos Azure que definiu.
+   O seu ID do Cliente do Gestor de Recursos Azure está codificado. O ID do inquilino do Azure Resource Manager e o ID de subscrição do Gestor de Recursos Azure estão ambos presentes na saída de `az login` comando que executou anteriormente. O segredo do cliente do Azure Resource Manager é a palavra-passe do Gestor de Recursos Azure que definiu.
 
    Para mais informações, consulte [a palavra-passe do Gestor de Recursos Azure.](azure-stack-edge-j-series-set-azure-resource-manager-password.md)
 
@@ -379,7 +380,7 @@ Um script Python é-lhe fornecido para criar um VM. Dependendo se está inscrito
 
 2. Quando o script é executado, o upload do VHD demora 20 a 30 minutos. Para visualizar o progresso da operação de upload, pode utilizar o Azure Storage Explorer ou o AzCopy.
 
-    Aqui está uma amostra de uma execução bem sucedida do script. O script cria todos os recursos dentro de um grupo de recursos, usa esses recursos para criar um VM e, finalmente, elimina o grupo de recursos, incluindo todos os recursos que criou.
+    Aqui está uma amostra de uma execução bem sucedida do script. O script cria todos os recursos dentro de um grupo de recursos, utiliza esses recursos para criar um VM e, finalmente, elimina o grupo de recursos, incluindo todos os recursos que criou.
 
     
     ```powershell
@@ -426,6 +427,6 @@ Um script Python é-lhe fornecido para criar um VM. Dependendo se está inscrito
     ``` 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Comandos Comuns de CLI Az para máquinas virtuais Linux](../virtual-machines/linux/cli-manage.md)

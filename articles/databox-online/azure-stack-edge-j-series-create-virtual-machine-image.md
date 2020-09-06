@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 83332c3bfa0b2b99d7333fa679fb8d398aecf8bd
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268915"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500288"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Crie imagens VM personalizadas para o seu dispositivo Azure Stack Edge
 
@@ -52,7 +52,22 @@ Faça os seguintes passos para criar uma imagem Linux VM.
 
 1. Crie uma Máquina Virtual do Linux. Para mais informações, vá ao Tutorial: Crie e gere os [VMs Linux com o Azure CLI](../virtual-machines/linux/tutorial-manage-vm.md).
 
-2. [Descarregue o disco DE existente.](../virtual-machines/linux/download-vhd.md)
+1. Desaprovisione a VM. Utilize o agente Azure VM para eliminar ficheiros e dados específicos da máquina. Utilize o `waagent` comando com o parâmetro na sua fonte `-deprovision+user` Linux VM. Para obter mais informações, consulte [compreensão e utilizando o Agente Azure Linux](../virtual-machines/extensions/agent-linux.md).
+
+    1. Ligue-se ao seu Linux VM com um cliente SSH.
+    2. Na janela SSH, insira o seguinte comando:
+       
+        ```bash
+        sudo waagent -deprovision+user
+        ```
+       > [!NOTE]
+       > Só executar este comando num VM que irá capturar como uma imagem. Este comando não garante que a imagem seja limpa de toda a informação sensível ou seja adequada para redistribuição. O `+user` parâmetro também remove a última conta de utilizador a provisionada. Para manter as credenciais de conta de utilizador no VM, utilize apenas `-deprovision` .
+     
+    3. Entre **para** continuar. Pode adicionar o `-force` parâmetro para evitar este passo de confirmação.
+    4. Após o comando estar concluído, entre na **saída** para fechar o cliente SSH.  O VM ainda estará em execução neste momento.
+
+
+1. [Descarregue o disco DE existente.](../virtual-machines/linux/download-vhd.md)
 
 Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure Stack Edge. Pode utilizar as seguintes duas imagens do Azure Marketplace para criar imagens personalizadas do Linux:
 
@@ -61,7 +76,7 @@ Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure S
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |O Ubuntu Server é o Linux mais popular do mundo para ambientes em nuvem.|Canónico|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux é uma das distribuições linux mais populares.     |credativ|
 
-Para obter uma lista completa de imagens do mercado Azure que podem funcionar (atualmente não [testadas), aceda aos itens do Azure Marketplace disponíveis para o Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Para obter uma lista completa de imagens do Azure Marketplace que possam funcionar (atualmente não [testadas), aceda aos itens do Azure Marketplace disponíveis para o Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
 
 
 ## <a name="next-steps"></a>Passos seguintes
