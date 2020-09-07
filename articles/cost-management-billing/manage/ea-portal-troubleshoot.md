@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: d3199eb67e5672cd6f4a6d99219f184e7fbbdf6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687404"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294412"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Resolver problemas de acesso ao Azure EA Portal
 
@@ -32,7 +32,7 @@ Deverá utilizar o Azure EA Portal para conceder acesso aos utilizadores com dif
 - Conta Escolar ou Profissional Entre Inquilinos – para organizações que tenham configurado o Active Directory Domain Services com Federação na Cloud e que terão contas em vários inquilinos.
 - Conta Mista – permite que adicione utilizadores com a Conta Microsoft e/ou com uma Conta Profissional ou Escolar.
 
-A primeira conta escolar ou profissional adicionada à inscrição determina o domínio _predefinido_ ou _mestre_. Para adicionar uma conta escolar ou profissional com outro inquilino, terá de alterar o nível de autenticação na inscrição para autenticação entre inquilinos.
+A primeira conta escolar ou profissional adicionada à inscrição determina o domínio _predefinido_. Para adicionar uma conta escolar ou profissional com outro inquilino, terá de alterar o nível de autenticação na inscrição para autenticação entre inquilinos.
 
 Para atualizar o Nível de Autenticação:
 

@@ -3,17 +3,17 @@ title: Configurar a integração do AWS com o Azure Cost Management
 description: Este artigo acompanha-o através da definição e configuração da integração do relatório de Custos e Utilização do AWS com o Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 639d63df060a680e8c135a9be054ac412d1ca8dd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685005"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266123"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Definir e configurar a integração do relatório de Custos e Utilização do AWS
 
@@ -71,7 +71,6 @@ Utilize o assistente Criar uma Nova Função:
 5. Em **ID de conta**, introduza **432263259397**.
 6. Em **Opções**, selecione **Exigir ID externo (Melhor prática se a função for assumida por terceiros)** .
 7. Em **ID externo**, introduza o ID externo que é um código de acesso partilhado entre a função do AWS e o Azure Cost Management. O mesmo ID externo é também utilizado na página **Novo Conector** do Cost Management. A Microsoft recomenda que utilize uma política de código de acesso forte ao introduzir o ID externo.
-
     > [!NOTE]
     > Não altere a seleção de **Requerer MFA**. Esta opção deve permanecer desmarcada.
 8. Selecione **Seguinte: Permissões**.
@@ -148,23 +147,23 @@ A política JSON deve assemelhar-se ao seguinte exemplo. Substitua _bucketname_ 
 }
 ```
 
-## <a name="set-up-a-new-aws-connector-in-azure"></a>Configurar um novo conector AWS no Azure
+## <a name="set-up-a-new-connector-for-aws-in-azure"></a>Configurar um novo conector para o AWS no Azure
 
 Utilize as seguintes informações para criar um conector AWS e começar a monitorizar os custos do AWS:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Aceda a **Cost Management + Faturação** > **Cost Management**.
-3. Em **Definições**, selecione **Conectores da cloud (Pré-visualização)** .  
-    ![Exemplo a mostrar a definição dos Conectores da cloud (Pré-visualização)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
-4. Selecione **+Adicionar** na parte superior da página para criar um conector.
-5. Na página **Criar um conector AWS** em **Nome a apresentar**, introduza um nome para o conector.  
-    ![Exemplo da página para criar um conector AWS](./media/aws-integration-setup-configure/create-aws-connector01.png)
-6. Opcionalmente, selecione o grupo de gestão predefinido. Armazenará todas as contas associadas detetadas. Poderá ser configurado mais tarde.
-7. Na secção **Faturação**, selecione **Faturar automaticamente 1% aquando da disponibilidade geral** se quiser garantir uma operação contínua quando a pré-visualização expirar. Se selecionar a opção automática, terá de selecionar uma subscrição de faturação.
-8. Para **ARN da função**, introduza o valor que utilizou quando configurou a função no AWS.
-9. Para **ID externo**, introduza o valor que utilizou quando configurou a função no AWS.
-10. Para **Nome de Relatório**, introduza o nome que criou no AWS.
-11. Selecione **Seguinte** e, em seguida, **Criar**.
+3. Em **Definições**, selecione **Conectores para o AWS**.  
+4. Selecione **+Adicionar** na parte superior da página para criar um conector.  
+    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Exemplo a mostrar a definição Conectores para o AWS" :::
+1. Na página **Criar um conector** em **Nome a apresentar**, introduza um nome para o conector.  
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Exemplo da página para criar um conector AWS" :::
+1. Opcionalmente, selecione o grupo de gestão predefinido. Armazenará todas as contas associadas detetadas. Poderá ser configurado mais tarde.
+1. Na secção **Faturação**, selecione **Renovação automática** para **Ativada** se quiser garantir a operação contínua. Se selecionar a opção automática, terá de selecionar uma subscrição de faturação.
+1. Para **ARN da função**, introduza o valor que utilizou quando configurou a função no AWS.
+1. Para **ID externo**, introduza o valor que utilizou quando configurou a função no AWS.
+1. Para **Nome de Relatório**, introduza o nome que criou no AWS.
+1. Selecione **Seguinte** e, em seguida, **Criar**.
 
 A apresentação dos novos âmbitos do AWS, da conta consolidada do AWS, das contas associadas do AWS e dos dados dos custos pode demorar algumas horas.
 
@@ -178,16 +177,19 @@ A atribuição das permissões do conetor aos utilizadores após ocorrer a dete�
 - Confirme que são adicionados novos âmbitos ao seletor de âmbito. Selecione **Atualizar** para ver os dados mais recentes.
 - Na página **Conectores da cloud**, selecione o seu conector e selecione **Ir para a conta de faturação** para atribuir a conta associada a grupos de gestão.
 
-## <a name="manage-cloud-connectors"></a>Gerir os conectores da cloud
+> [!NOTE]
+> Atualmente, os grupos de gestão não são suportados para clientes do Contrato de Cliente Microsoft (MCA). Os clientes do MCA podem criar o conector e ver os respetivos dados do AWS. No entanto, os clientes do MCA não podem ver os custos do Azure e os custos do AWS juntos num grupo de gestão.
 
-Quando seleciona um conector na página **Conectores da cloud**, pode:
+## <a name="manage-aws-connectors"></a>Gerir conectores do AWS
+
+Quando seleciona um conector na página **Conectores para o AWS**, pode:
 
 - Selecionar **Ir para Conta de Faturação** para ver as informações da conta consolidada do AWS.
 - Selecionar **Controlo de Acesso** para gerir a atribuição de funções do conector.
 - Selecione **Editar** para atualizar o conector. Não pode alterar o número de conta do AWS, dado que este aparece no ARN da função. Mas, pode criar um novo conector.
 - Selecionar **Verificar** para executar novamente o teste de verificação para garantir que o Cost Management consegue recolher dados com as definições do conector.
 
-![Exemplo de lista de conectores do AWS criados](./media/aws-integration-setup-configure/list-aws-connectors.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Detalhes do conector do AWS de exemplo" :::
 
 ## <a name="set-up-azure-management-groups"></a>Configurar grupos de gestão do Azure
 
@@ -197,9 +199,9 @@ Se quiser separar os custos, poderá criar um grupo de gestão que possua apenas
 
 ## <a name="set-up-an-aws-consolidated-account"></a>Configurar uma conta consolidada do AWS
 
-A conta consolidada do AWS combina a faturação e o pagamento de várias contas AWS. Também age como uma conta associada do AWS.
+A conta consolidada do AWS combina a faturação e o pagamento de várias contas AWS. Também age como uma conta associada do AWS. Pode ver os detalhes da sua conta consolidada do AWS através da hiperligação na página do conector do AWS. 
 
-![Exemplo que detalha uma conta consolidada do AWS](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Exemplo que detalha uma conta consolidada do AWS" :::
 
 Nesta página, pode:
 
@@ -221,7 +223,7 @@ Nesta página, pode:
 - Selecionar **Atualizar** para atualizar a associação de uma conta associada do AWS com um grupo de gestão.
 - Selecionar **Controlo de Acesso** para definir uma atribuição de funções do âmbito.
 
-![Exemplo da página Conta Associada do AWS](./media/aws-integration-setup-configure/aws-linked-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Exemplo da página Conta Associada do AWS" :::
 
 ### <a name="permissions-for-an-aws-linked-account"></a>Permissões para uma conta associada do AWS
 

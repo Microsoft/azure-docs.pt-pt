@@ -3,18 +3,18 @@ title: Gerir a utilização e os custos do AWS no Azure Cost Management
 description: Este artigo ajuda-o a compreender como utilizar a análise de custos e os orçamentos no Cost Management para gerir os custos e a utilização do AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4d6a961388c9794a7584e8529dac75d068f91ed4
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685022"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266226"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gerir os custos e a utilização do AWS no Azure
 
@@ -36,17 +36,18 @@ As secções seguintes descrevem como utilizar os âmbitos para que veja os dado
 
 ### <a name="view-aws-linked-accounts-under-a-management-group"></a>Ver as contas associadas do AWS num grupo de gestão
 
-A visualização dos custos com o âmbito do grupo de gestão é a única forma de ver os custos agregados provenientes de diferentes subscrições e contas associadas. A utilização de um grupo de gestão permite obter uma vista entre clouds.
+A visualização dos custos com o âmbito do grupo de gestão é a única forma de ver os custos agregados provenientes de diferentes subscrições do Azure e de contas associadas do AWS. A utilização de um grupo de gestão fornece uma vista entre clouds para ver os custos do Azure e do AWS em conjunto.
 
 Na análise de custos, abra o seletor de âmbito e selecione o grupo de gestão que detém as contas associadas do AWS. Veja a seguir uma imagem de exemplo no portal do Azure:
 
-![Exemplo da vista Selecionar âmbito](./media/aws-integration-manage/select-scope01.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Exemplo da vista Selecionar âmbito com contas associadas num grupo de gestão" :::
 
 Veja a seguir um exemplo que mostra o custo do grupo de gestão na análise de custos, agrupado por Fornecedor (Azure e AWS).
 
-![Exemplo a mostrar os custos do Azure e do AWS para um trimestre na análise de custos](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exemplo a mostrar os custos do Azure e do AWS para um trimestre na análise de custos" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+
+> [!NOTE]
+> Atualmente, os grupos de gestão não são suportados para clientes do Contrato de Cliente Microsoft (MCA). Os clientes do MCA podem criar o conector e ver os respetivos dados do AWS. No entanto, os clientes do MCA não podem ver os custos do Azure e os custos do AWS juntos num grupo de gestão.
 
 ### <a name="view-aws-linked-account-costs"></a>Ver os custos de contas associadas do AWS
 
@@ -54,21 +55,17 @@ Para ver os custos de contas associadas do AWS, abra o seletor de âmbito e sele
 
 Veja a seguir um exemplo que mostra a seleção de um âmbito de conta associada do AWS.
 
-![Exemplo da vista Selecionar âmbito](./media/aws-integration-manage/select-scope02.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exemplo da vista Selecionar âmbito que mostra contas associadas do AWS" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Ver os custos da conta consolidada do AWS
 
 Para ver os custos da conta consolidada do AWS, abra o seletor de âmbito e selecione a conta consolidada do AWS. Veja a seguir um exemplo que mostra a seleção de um âmbito de conta consolidada do AWS.
 
-![Exemplo da vista Selecionar âmbito](./media/aws-integration-manage/select-scope03.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exemplo da vista Selecionar âmbito com contas consolidadas" :::
 
 Este âmbito apresenta uma vista agregada de todas as contas associadas do AWS associadas à conta consolidada do AWS. Veja a seguir um exemplo que mostra os custos para uma conta consolidada do AWS, agrupados por nome de serviço.
 
-![Exemplo a mostrar os custos consolidados do AWS na análise de custos](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exemplo a mostrar os custos consolidados do AWS na análise de custos" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensões disponíveis para filtragem e agrupamento
 
@@ -85,11 +82,11 @@ A tabela seguinte descreve as dimensões disponíveis para agrupar e filtrar por
 | Recurso | lineItem/ResourceId | Todos |   |
 | Tipo de recurso | product/instanceType | Todos | Se product/instanceType for nulo, será utilizado lineItem/UsageType. |
 | ResourceGuid | N/D | Todos | GUID do medidor do Azure. |
-| Nome do Serviço | product/ProductName | Todos | Se product/ProductName for nulo, será utilizado lineItem/ProductCode. |
-| Camada de serviços |   |   |   |
+| Nome do serviço | product/ProductName | Todos | Se product/ProductName for nulo, será utilizado lineItem/ProductCode. |
+| Escalão de serviço |   |   |   |
 | ID da subscrição | lineItem/UsageAccountId | Conta consolidada e grupo de gestão |   |
 | Nome da subscrição | N/D | Conta consolidada e grupo de gestão | Os nomes de conta são recolhidos com a API da Organização do AWS. |
-| Etiqueta | resourceTags/\* | Todos | O prefixo _utilizador:_ é removido das etiquetas definidas pelo utilizador para permitir etiquetas entre clouds. O prefixo _aws:_ é deixado intacto. |
+| Etiqueta | resourceTags | Todos | O prefixo _utilizador:_ é removido das etiquetas definidas pelo utilizador para permitir etiquetas entre clouds. O prefixo _aws:_ é deixado intacto. |
 | ID da conta de faturação | bill/PayerAccountId | Grupo de gestão |   |
 | Nome da conta de faturação | N/D | Grupo de gestão | Os nomes de conta são recolhidos com a API da Organização do AWS. |
 | Fornecedor | N/D | Grupo de gestão | AWS ou Azure. |
@@ -98,7 +95,7 @@ A tabela seguinte descreve as dimensões disponíveis para agrupar e filtrar por
 
 Utilize orçamentos para gerir proativamente os custos e impulsionar a responsabilidade na sua organização. Os orçamentos são definidos nos âmbitos da conta consolidada do AWS e das contas associadas do AWS. Veja a seguir um exemplo de orçamentos de uma conta consolidada do AWS apresentada no Cost Management:
 
-![Exemplo a mostrar os orçamentos de uma conta consolidada do AWS](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exemplo a mostrar os orçamentos de uma conta consolidada do AWS" :::
 
 ## <a name="aws-data-collection-process"></a>Processo de recolha de dados do AWS
 
@@ -110,15 +107,15 @@ Após definir o conector do AWS, a recolha de dados e os processos de deteção 
 
 ## <a name="aws-integration-pricing"></a>Preços de integração do AWS
 
-Cada conector do AWS recebe uma avaliação gratuita de 90 dias. Durante a Pré-visualização Pública, não existem custos.
+Cada conector do AWS recebe uma avaliação gratuita de 90 dias.
 
 O preço de tabela é de 1% dos custos mensais do AWS. É-lhe faturado todos os meses com base nos custos faturados no mês anterior.
 
-O acesso às APIs do AWS pode incorrer em custos adicionais.
+O acesso às APIs do AWS pode incorrer em custos adicionais no AWS.
 
 ## <a name="aws-integration-limitations"></a>Limitações da integração do AWS
 
-- O Cost Management não suporta relatórios de custos que contenham vários tipos de moeda. Uma mensagem de erro será apresentada se selecionar um âmbito que tenha várias moedas.
+- Os orçamentos no Cost Management não suportam grupos de gestão com várias moedas. Os grupos de gestão com várias moedas não verão uma avaliação do orçamento. É mostrada uma mensagem de erro se selecionar um grupo de gestão que tenha várias moedas quando criar um orçamento.
 - Os conectores da cloud não suportam o AWS GovCloud (EUA), AWS Gov ou AWS China.
 - O Cost Management mostra apenas os _custos de utilização_ do AWS. Impostos, apoios, reembolsos, RI, créditos ou quaisquer outros tipos de custos ainda não são suportados.
 
@@ -180,6 +177,6 @@ Este erro significa que o Cost Management não consegue localizar o relatório d
 
 Este erro está relacionado com a definição do Relatório de Custos e Utilização, uma vez que são necessárias definições específicas para este relatório. Veja requisitos em [Criar um relatório de Custos e Utilização no AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Se ainda não configurou o ambiente do Azure com grupos de gestão, veja [Configuração inicial dos grupos de gestão](../../governance/management-groups/overview.md#initial-setup-of-management-groups).
+- Se ainda não tiver configurado o seu ambiente do Azure com grupos de gestão, veja [Configuração inicial dos grupos de gestão](../../governance/management-groups/overview.md#initial-setup-of-management-groups).

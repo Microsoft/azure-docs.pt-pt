@@ -36,12 +36,6 @@
       href: concepts-security.md
 - name: Guias de procedimentos
   items:
-    - name: Programar
-      items:
-        - name: Utilizar as APIs e SDKs
-          href: how-to-use-apis-sdks.md
-        - name: Criar SDKs personalizados com AutoRest
-          href: how-to-create-custom-sdks.md
     - name: Implementação
       items:
         - name: Utilizar a CLI do Azure Digital Twins
@@ -78,6 +72,14 @@
           href: how-to-create-azure-function.md
         - name: Consultar o grafo duplo
           href: how-to-query-graph.md
+    - name: Desenvolver aplicações de clientes
+      items:
+        - name: Utilizar as APIs e SDKs
+          href: how-to-use-apis-sdks.md
+        - name: Criar SDKs personalizados com AutoRest
+          href: how-to-create-custom-sdks.md
+        - name: Integrar com o Azure SignalR Service
+          href: how-to-integrate-azure-signalr.md
     - name: Ligar entrada
       items:
         - name: Ingerir telemetria do Hub IoT
@@ -188,6 +190,8 @@
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
         - name: Swaggers Personalizados do Azure Digital Twins
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
+        - name: Amostra de integração com o SignalR
+          href: 'https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/'
     - name: Ferramentas do Azure
       items:
         - name: Azure Cloud Shell

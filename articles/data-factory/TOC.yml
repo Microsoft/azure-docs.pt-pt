@@ -187,7 +187,7 @@
               href: concepts-data-flow-monitoring.md
             - name: Desempenho do fluxo de dados
               href: concepts-data-flow-performance.md
-            - name: Gerir grafo
+            - name: Gerir tela de fluxo de dados
               href: concepts-data-flow-manage-graph.md
             - name: Construtor de expressões
               href: concepts-data-flow-expression-builder.md

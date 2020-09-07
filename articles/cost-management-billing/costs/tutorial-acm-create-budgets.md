@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 739d300faf77564891b2b783a3eb1cca50373015
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718358"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322284"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
 Os orçamentos no Cost Management ajudam-no a planear e a gerar a responsabilidade organizacional. Com os orçamentos, pode contribuir para os serviços do Azure que consome ou subscrever durante um período específico. Ajudam-no a informar os outros sobre os custos para que possam proativamente gerir os custos e para monitorizar o progresso dos custos ao longo do tempo. Quando os limiares orçamentais que criou são excedidos, apenas são acionadas as notificações. Nenhum dos seus recursos é afetado e o consumo não será suspenso. Pode utilizar os orçamentos para comparar e acompanhar as despesas enquanto analisa os custos.
 
-Os dados dos custos e da utilização estão normalmente disponíveis dentro de 20 horas e os orçamentos são avaliados em relação a estes custos a cada 12 a 14 horas. Quando um limiar do orçamento é atingido, são normalmente enviadas notificações por e-mail num prazo de uma hora após a avaliação.
+Os dados dos custos e da utilização estão normalmente disponíveis dentro de 8-24 horas e os orçamentos são avaliados em relação a estes custos a cada 12 a 14 horas. Confirme que se familiariza com as especificidades das [Atualizações de dados dos custos e da utilização](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Quando um limiar do orçamento é atingido, são normalmente enviadas notificações por e-mail num prazo de uma hora após a avaliação.
 
 Os orçamentos são repostos automaticamente no final de um período (mensal, trimestral ou anual) com a mesma quantidade de orçamento quando seleciona uma data de expiração no futuro. Uma vez que os orçamentos são repostos com a mesma quantidade de orçamento, tem de criar orçamentos separados quando os montantes orçamentados diferirem para períodos futuros.
 
@@ -92,7 +92,7 @@ Selecione **Adicionar**.
 
 Na janela **Criar orçamento**, confirme que o âmbito mostrado é o correto. Escolha os filtros que quer adicionar. Os filtros permitem-lhe criar orçamentos para custos específicos, como grupos de recursos numa subscrição ou um serviço como máquinas virtuais. Qualquer filtro que utilize na análise de custos pode também ser aplicado a um orçamento.
 
-Depois de ter identificado o âmbito e os filtros, escreva o nome do orçamento. Em seguida, escolha um período de reposição do orçamento mensal, trimestral ou anual. Este período de reposição determina a janela temporal a ser analisada pelo orçamento. O custo avaliado pelo orçamento começa do zero a cada início de um novo período. Quando cria um orçamento trimestral, este funciona da mesma maneira que um orçamento mensal. A diferença está no facto de o montante do orçamento do trimestre ser equitativamente repartido entre os três meses desse trimestre. O montante de um orçamento anual é equitativamente repartido entre os 12 meses do ano do calendário.
+Depois de ter identificado o âmbito e os filtros, escreva o nome do orçamento. Em seguida, escolha um período de reposição de orçamento (mensal, trimestral ou anual). Este período de reposição determina a janela temporal a ser analisada pelo orçamento. O custo avaliado pelo orçamento começa do zero a cada início de um novo período. Quando cria um orçamento trimestral, este funciona da mesma maneira que um orçamento mensal. A diferença está no facto de o montante do orçamento do trimestre ser equitativamente repartido entre os três meses desse trimestre. O montante de um orçamento anual é equitativamente repartido entre os 12 meses do ano do calendário.
 
 Se tiver uma subscrição Pay As You Go, MSDN ou do Visual Studio, o período de faturação poderá não estar alinhado com o mês do calendário. Para esses tipos de subscrições e grupos de recursos, pode criar um orçamento que esteja alinhado com o seu período de faturação ou com os meses do calendário. Para criar um orçamento alinhado com o período de faturação, selecione um período de reposição: **Mês de faturação**, **Trimestre de faturação** ou **Ano de faturação**. Para criar um orçamento alinhado com o mês do calendário, selecione um período de reposição: **Mensal**, **Trimestral** ou **Anual**.
 
