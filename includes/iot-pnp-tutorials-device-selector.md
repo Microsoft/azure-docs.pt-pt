@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: iot-pnp
 author: dominicbetts
 ms.service: iot-pnp
@@ -8,14 +8,15 @@ ms.topic: include
 ms.date: 07/10/2020
 ms.author: dominicbetts
 ms.custom: include file
-ms.openlocfilehash: 6cb0b722a71d5975769991e1aff557b998027239
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4905d04b140b99adbcb8afe14bba401aa6642a38
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352811"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504082"
 ---
 > [!div class="op_single_selector"]
+> * [C](../articles/iot-pnp/tutorial-multiple-components-c.md)
 > * [Node.js](../articles/iot-pnp/tutorial-multiple-components-node.md)
 > * [Python](../articles/iot-pnp/tutorial-multiple-components-python.md)
 > * [C#](../articles/iot-pnp/tutorial-multiple-components-csharp.md)

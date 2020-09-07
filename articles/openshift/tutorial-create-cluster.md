@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 96954d0ebf56251a66d4b9c8bdcce07153f64068
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469971"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503793"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
 
@@ -35,13 +35,31 @@ Para criar um cluster Azure Red Hat OpenShift, verifique as seguintes permissõe
 |**Administrador de Acesso do Utilizador**|X|X| |
 |**Contribuinte**|X|X|X|
 
-### <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
+### <a name="register-the-resource-providers"></a>Registar os fornecedores de recursos
 
-Em seguida, tem de registar o `Microsoft.RedHatOpenShift` fornecedor de recursos na sua subscrição.
+1. Se tiver várias subscrições do Azure, especifique o ID de subscrição relevante:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Registar o `Microsoft.RedHatOpenShift` fornecedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+    
+1. Registar o `Microsoft.Compute` fornecedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+    
+1. Registar o `Microsoft.Storage` fornecedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obtenha um segredo de puxar o chapéu vermelho (opcional)
 
@@ -197,7 +215,7 @@ az aro create \
 
 Após a execução do `az aro create` comando, normalmente demora cerca de 35 minutos a criar um cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]

@@ -114,6 +114,8 @@
         - name: Controlos de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Proteger recursos do indexador
+          href: search-indexer-securing-resources.md
 - name: Guias de procedimentos
   items:
     - name: Criar índices e construções
@@ -354,6 +356,14 @@
               href: search-security-trimming-for-azure-search.md
             - name: Filtrar identidades do utilizador
               href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Segurança de saída (indexadores)
+          items:
+            - name: Acesso a partir de um intervalo de IP
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: Acesso através de uma exceção de serviço fidedigno
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: Acesso através de pontos finais privados
+              href: search-indexer-howto-access-private.md
     - name: Gerir
       items:
         - name: Portal
@@ -392,14 +402,14 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
-        - name: Pesquisa 2020-06-30
+        - name: API de Pesquisa (Estável)
           href: /rest/api/searchservice
-        - name: Pesquisa 2020-06-30-Preview
+        - name: API de Pesquisa (Pré-visualização)
           href: /rest/api/searchservice/index-preview
-        - name: Gestão 2020-03-13
+        - name: API de Gestão (Estável)
           href: /rest/api/searchmanagement
-        - name: Gestão 2019-10-01-Preview
-          href: /rest/api/searchmanagement/index-2019-10-01-preview
+        - name: API de Gestão (Pré-visualização)
+          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: API de Pesquisa

@@ -3,19 +3,19 @@ title: Início rápido da biblioteca de clientes imersivo Node.js
 titleSuffix: Azure Cognitive Services
 description: Neste quickstart, você constrói uma aplicação web de raiz e adiciona a funcionalidade Imersiva da API do Leitor.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
-ms.author: pasta
+ms.author: nitinme
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 91adff9a8330defb6c2b9f1e915c46886649fed3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbef435bc7cf0bf146009859044bcabe3c0f55ee
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602432"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505412"
 ---
 O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -254,6 +254,6 @@ Ao clicar no botão "Leitor Imersivo", verá o Leitor Imersivo lançado com o co
 
 ![Leitura Avançada](../../media/quickstart-nodejs/2-viewimmersivereader.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../../reference.md)

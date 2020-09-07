@@ -3,19 +3,19 @@ title: Início rápido da biblioteca de clientes Imersivo Reader C#
 titleSuffix: Azure Cognitive Services
 description: Neste quickstart, você constrói uma aplicação web de raiz e adiciona a funcionalidade Imersiva da API do Leitor.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
-ms.author: pasta
+ms.author: nitinme
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: ae0ed771bc00b2541db721af54bf277ff36042f9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f3d694a1e1eb368a97d994ebe9885c279ff44463
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921784"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505411"
 ---
 O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -304,7 +304,7 @@ Ao clicar no botão "Leitor Imersivo", verá o Leitor Imersivo lançado com o co
 
 ![Leitura Avançada](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Veja o [Node.js arranque rápido](../../tutorial-nodejs.md) para ver o que mais pode fazer com a biblioteca de clientes Immersive Reader usando Node.js
 * Veja o [tutorial do Android](../../tutorial-android.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Java ou Kotlin para Android

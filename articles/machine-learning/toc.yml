@@ -312,6 +312,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Preparar com uma imagem personalizada do Docker
+          href: how-to-train-with-custom-image.md
         - name: Preparação de controlo e monitorização
           items:
             - name: 'Comece, monitorize ou cancele execuções'
