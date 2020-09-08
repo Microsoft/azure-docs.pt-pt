@@ -2,13 +2,13 @@
 title: Tutorial - Implantar o cluster vSphere em Azure
 description: Aprenda a implementar um cluster vSphere em Azure usando Azure VMWare Solution
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: 8aeedeeb785f149239f2bf9a4b58a18ec8bfeb77
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/07/2020
+ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
+ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750491"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89512382"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada Azure VMware Solution em Azure
 
@@ -30,14 +30,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
-Para utilizar a Solução Azure VMware, tem primeiro de registar o fornecedor de recursos com a sua subscrição.
-
-```
-azurecli-interactive
-az provider register -n Microsoft.AVS --subscription <your subscription ID>
-```
-
-Para obter formas adicionais de registar o fornecedor de recursos, consulte [os fornecedores e tipos de recursos Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
 ## <a name="create-a-private-cloud"></a>Criar uma Cloud Privada
@@ -46,34 +39,7 @@ Pode criar uma nuvem privada Azure VMware Solution utilizando o [portal Azure](#
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-
-1. **Selecione Criar um novo recurso.** No **tipo de** caixa de texto `Azure VMware Solution` Marketplace, e selecione **Azure VMware Solution** da lista. Na janela **Azure VMware Solution,** selecione **Criar**
-
-1. No separador **Básicos, insira** valores para os campos. A tabela a seguir lista as propriedades dos campos.
-
-   | Campo   | Valor  |
-   | ---| --- |
-   | **Subscrição** | A subscrição que pretende utilizar para a implantação.|
-   | **Grupo de recursos** | O grupo de recursos para os seus recursos em nuvem privada. |
-   | **Localização** | Selecione uma localização, como **a leste de nós.**|
-   | **Nome de recurso** | O nome da sua nuvem privada Azure VMware Solution. |
-   | **SKU** | Selecione o seguinte valor SKU: AV36 |
-   | **Anfitriões** | O número de anfitriões para adicionar ao aglomerado de nuvens privadas. O valor predefinido é 3, que pode ser aumentado ou reduzido após a implementação.  |
-   | **vCenter senha de administração** | Introduza uma senha de administrador de nuvem. |
-   | **Senha do gestor NSX-T** | Introduza uma senha de administrador NSX-T. |
-   | **Bloco de endereços** | Introduza um bloco de endereços IP para a rede CIDR para a nuvem privada, por exemplo, 10.175.0.0/22. |
-
-   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="No separador Básicos, insira valores para os campos." border="true":::
-
-1. Uma vez terminado, selecione **Review + Create**. No ecrã seguinte, verifique as informações inseridas. Se a informação estiver correta, **selecione Criar**.
-
-   > [!NOTE]
-   > Este passo leva cerca de duas horas. 
-
-1. Verifique se a implementação foi bem sucedida. Navegue para o grupo de recursos que criou e selecione a sua nuvem privada.  Verá o estado de **Sucesso** quando a implantação estiver concluída. 
-
-   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verifique se a implementação foi bem sucedida." border="true":::
+[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
 
 ### <a name="azure-cli"></a>CLI do Azure
 
