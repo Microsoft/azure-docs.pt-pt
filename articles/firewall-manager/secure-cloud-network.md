@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/08/2020
 ms.author: victorh
-ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079120"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536008"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Proteja o seu hub virtual usando o Azure Firewall Manager
 
@@ -110,30 +110,6 @@ Agora pode espreitar o centro e falar redes virtuais.
 
 Repita para ligar a rede virtual **Spoke-02:** nome de ligação - **hub-spoke-02**
 
-### <a name="configure-the-hub-and-spoke-routing"></a>Configure o centro e falou de encaminhamento
-
-A partir do portal Azure, abra uma Cloud Shell e corra o seguinte Azure PowerShell para configurar o hub necessário e encaminhamento de fala. As ligações de fala/ramo peered devem definir a propagação a **NENHUMA**. Isto impede qualquer comunicação entre os raios e, em vez disso, encaminha o tráfego para a firewall utilizando a rota predefinida.
-
-```azurepowershell
-$noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
-                  -HubName hub-01 -Name noneRouteTable
-$vnetConns = Get-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-             -ParentResourceName hub-01
-
-$vnetConn = $vnetConns[0]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name `
-   -RoutingConfiguration $vnetConn.RoutingConfiguration
-
-$vnetConn = $vnetConns[1]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name -RoutingConfiguration $vnetConn.RoutingConfiguration
-```
-
 ## <a name="deploy-the-servers"></a>Implementar os servidores
 
 1. No portal Azure, selecione **Criar um recurso**.
@@ -144,7 +120,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
    |---------|---------|
    |Grupo de recursos     |**fw-manager**|
    |Nome da máquina virtual     |**Srv-workload-01**|
-   |Região     |**(EUA) Leste dos EUA)**|
+   |Region     |**(EUA) Leste dos EUA)**|
    |Nome do utilizador do administrador     |escrever um nome de utilizador|
    |Palavra-passe     |escrever uma senha|
 

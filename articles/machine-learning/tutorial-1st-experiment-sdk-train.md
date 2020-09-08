@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: fb380e4b71ba68daf694ab725c41be64f066805e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7052617eb83dbd07c2d6938dcbb7a38ba19f3aad
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854934"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536237"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
 
@@ -56,11 +56,14 @@ Nesta parte do tutorial, você executou o código na amostra tutoriais de cadern
 Importe a `Workspace` classe e carregue as informações de subscrição do ficheiro `config.json` utilizando a função Este procura o ficheiro `from_config().` JSON no diretório atual por predefinição, mas também pode especificar um parâmetro de caminho para apontar para o ficheiro que utiliza `from_config(path="your/file/path")` . Se estiver a executar este caderno num servidor de cadernos em nuvem no seu espaço de trabalho, o ficheiro encontra-se automaticamente no diretório de raiz.
 
 Se o código seguinte pedir a autenticação adicional, basta colar o link num browser e introduzir o token de autenticação. Além disso, se tiver mais de um inquilino ligado ao seu utilizador, terá de adicionar as seguintes linhas:
-```
+
+```python
 from azureml.core.authentication import InteractiveLoginAuthentication
 interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
-Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
 ```
+
+Para obter mais informações sobre a autenticação, consulte [autenticação em Azure Machine Learning](https://aka.ms/aml-notebook-auth)
+
 
 ```python
 from azureml.core import Workspace
