@@ -4,19 +4,19 @@ description: Descreve como avaliar em locais Hiper-V VMs para migração para Az
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: eae7e2d371ed8156debe9ae24cf0744bd6273943
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 57d91f14b8f3a9f58373cbd43561a03a8546fd8f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950277"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514497"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs hiper-V com avaliação do servidor Azure Migrate
 
 Este artigo mostra-lhe como avaliar em locais Hiper-VMs, utilizando a ferramenta [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 
-Este tutorial é o segundo de uma série que demonstra como avaliar e migrar Hiper-VMs para Azure. Neste tutorial, vai aprender a:
+Este tutorial é o segundo de uma série que demonstra como avaliar e migrar Hiper-VMs para Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie um projeto Azure Migrate.
@@ -116,7 +116,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
         **Cenário*** | **Transferência** | **SHA256**
         --- | --- | ---
-        Hiper-V (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  8025f315e41c01ebdb4ffb1de87982ae6cc4ac4cce612612c7e90a44e79b44
+        Hiper-V (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1c4f685296f96f9ee18e1ca63e4a11d9aaaaaa4e6982e069df430d7
 
 
 ### <a name="create-the-appliance-vm"></a>Criar o aparelho VM
@@ -258,7 +258,7 @@ E executar uma avaliação da seguinte forma:
 1. Reveja as [melhores práticas](best-practices-assessment.md) para criar avaliações.
 2. Nos **servidores**  >  **Azure Migrate: Avaliação do servidor,** clique em **Avaliar**.
 
-    ![Avaliar](./media/tutorial-assess-hyper-v/assess.png)
+    ![Avaliação](./media/tutorial-assess-hyper-v/assess.png)
 
 3. Nos **Servidores de Avaliação,** especifique um nome para a avaliação.
 4. Clique em **Ver tudo** para rever as propriedades de avaliação.

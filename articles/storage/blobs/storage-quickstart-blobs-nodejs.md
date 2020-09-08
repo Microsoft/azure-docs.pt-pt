@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8798808741fe5d659ed7afe96f415964296d356f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c4343012c7d0abb7c8b8a22da687dc5ac668dc19
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429134"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514384"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js
 
@@ -97,7 +97,7 @@ Do diretório do projeto:
 
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
-    const uuidv1 = require('uuid/v1');
+    const { v1: uuid} = require('uuid');
 
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');
@@ -305,7 +305,7 @@ Done
 
 Passe pelo código no seu depurador e verifique o seu [portal Azure](https://portal.azure.com) durante todo o processo. Verifique se o contentor está a ser criado. Pode abrir a bolha no interior do recipiente e ver o conteúdo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a carregar, descarregar e listar bolhas usando JavaScript.
 

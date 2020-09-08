@@ -3,12 +3,12 @@ title: Avaliar servidores físicos para migração para Azure com avaliação do
 description: Descreve como avaliar servidores físicos no local para migração para Azure usando a Avaliação do Servidor Azure Migrate.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 21ffc425ff7d04bbb1bc0c3a550133ae5374b1e9
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 25bd5241700d5950eb032a6c932470871e79945f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950107"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514123"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com Azure Migrate:Avaliação do servidor
 
@@ -16,7 +16,7 @@ Este artigo mostra-lhe como avaliar servidores físicos no local, utilizando a f
 
 [A Azure Migrate](migrate-services-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar aplicações, infraestruturas e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas Azure Migrate e ofertas de fornecedores de software independentes de terceiros (ISV).
 
-Este tutorial é o segundo de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, vai aprender a:
+Este tutorial é o segundo de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Crie um projeto Azure Migrate.
 > * Crie um aparelho Azure Migrate que funciona no local para avaliar servidores físicos.
@@ -115,13 +115,13 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
         **Cenário** | **Baixar*** | **Valor de hash**
         --- | --- | ---
-        Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce0fdfac93b5c2777455577bd8a359d598cf3777b24
+        Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa0aaa7c92f480138e1797761163fb
 
     - Para o Governo de Azure:
 
         **Cenário** | **Baixar*** | **Valor de hash**
         --- | --- | ---
-        Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
+        Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe2113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Executar o script do instalador Azure Migrate
 
@@ -235,7 +235,7 @@ E executar uma avaliação da seguinte forma:
 1. Reveja as [melhores práticas](best-practices-assessment.md) para criar avaliações.
 2. No separador **Servidores,** em **Azure Migrate: Telha de Avaliação** do Servidor, clique em **Avaliar**.
 
-    ![Avaliar](./media/tutorial-assess-physical/assess.png)
+    ![Avaliação](./media/tutorial-assess-physical/assess.png)
 
 2. Nos **servidores avaliação, especifique**um nome para a avaliação.
 3. Clique em **Ver tudo** para rever as propriedades de avaliação.

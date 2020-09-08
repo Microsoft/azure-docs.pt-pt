@@ -4,19 +4,19 @@ description: Descreve como avaliar vMware VMware no local para migração para A
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 8c2784e999e751972883b6c9ffba2485bb9fe9e1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: abd8aafebe9cc02b8ee88cce88616389c82af83f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950090"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514106"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Avaliar VMs VMware com Avaliação do Servidor
 
 Este artigo mostra-lhe como avaliar no local máquinas virtuais VMware (VMs), utilizando a ferramenta [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 
-Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMware VMs para Azure. Neste tutorial, vai aprender a:
+Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMware VMs para Azure. Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Crie um projeto Azure Migrate.
 > * Crie um aparelho Azure Migrate que funciona no local para avaliar os VM.
@@ -114,7 +114,7 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar:
     
         **Algoritmo** | **Transferência** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 7dab9445a89b47302994d6de4caddaa092c582c8f3c1fc5b9c4908c7d2f9f77
+        VMware (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba284237bbe533c424dd156baccdcf68b1d87b71a5a4280108c2
 
 
 ### <a name="create-the-appliance-vm"></a>Criar o aparelho VM
