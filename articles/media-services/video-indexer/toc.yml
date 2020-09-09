@@ -102,6 +102,7 @@
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Regiões
+      displayName: location
       href: regions.md
     - name: FAQs
       href: faq.md
