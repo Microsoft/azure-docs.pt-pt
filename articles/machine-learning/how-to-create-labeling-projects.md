@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326467"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612174"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -78,7 +78,7 @@ Para criar um conjunto de dados a partir de dados que já armazenou no armazenam
 
 1. Selecione **Criar um conjunto de**  >  **dados a partir da datastore**.
 1. Atribua um **Nome** ao seu conjunto de dados.
-1. Escolha **o Ficheiro** como o tipo de conjunto de **dados.**  
+1. Escolha **o Ficheiro** como o tipo de conjunto de **dados.**  Apenas os tipos de conjunto de dados de ficheiros são suportados.
 1. Selecione a datastore.
 1. Se os seus dados estiverem numa sub-dobragem dentro do armazenamento do seu blob, escolha **procurar** para selecionar o caminho.
     * Apecimento "/**" ao caminho para incluir todos os ficheiros nas sub-dobradeiras do caminho selecionado.
@@ -262,7 +262,7 @@ O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Mach
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)

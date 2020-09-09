@@ -12,16 +12,16 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b8eec0d95144c012d3034e3f2c7c6e8adc921651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6cc4fdb82e98c30ca33eec58675f2175dfcc2607
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510179"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612783"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial - Configurar a estratégia de implantação rolante para máquinas virtuais Azure Linux
 
-Azure DevOps é um serviço Azure incorporado que automatiza cada parte do processo DevOps para qualquer recurso Azure. Quer a sua aplicação utilize máquinas virtuais, aplicações web, Kubernetes ou qualquer outro recurso, pode implementar a infraestrutura como código (IaaC), integração contínua, testes contínuos, entrega contínua e monitorização contínua com Azure e Azure DevOps.
+Azure DevOps é um serviço Azure incorporado que automatiza cada parte do processo DevOps para qualquer recurso Azure. Quer a sua aplicação utilize máquinas virtuais, aplicações web, Kubernetes ou qualquer outro recurso, pode implementar infraestruturas como código (IaC), integração contínua, testes contínuos, entrega contínua e monitorização contínua com Azure e Azure DevOps.
 
 ![O portal Azure com Azure DevOps selecionados em Serviços](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 

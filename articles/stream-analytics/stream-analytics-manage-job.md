@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a265bc2ed131dc0bb69d89f767ab60225d30ee8e
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83697392"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612046"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analise os dados da chamada telefónica com o Stream Analytics e visualize os resultados no painel Power BI
 
@@ -51,7 +51,7 @@ Utilize os passos seguintes para criar um Hub de Eventos e enviar dados de chama
 
    |**Definição**  |**Valor sugerido** |**Descrição**  |
    |---------|---------|---------|
-   |Nome     | myEventHubsNS        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
+   |Name     | myEventHubsNS        |  Um nome exclusivo para identificar o espaço de nomes do hub de eventos.       |
    |Subscrição     |   \<Your subscription\>      |   Selecione uma subscrição do Azure onde pretende criar o hub de eventos.      |
    |Grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta.       |
    |Localização     |   E.U.A. Oeste 2      |    Localização onde o espaço de nomes do hub de eventos pode ser implementado.     |
@@ -185,7 +185,7 @@ O último passo consiste em definir um sink de saída para a tarefa, onde possa 
 
    ![Configure Stream Analytics saída](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
-4. Quando seleciona **Autorizar**, uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições.
+4. Quando seleciona **Autorizar**, uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições. Para utilizar identidade gerida, consulte [a utilização da identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI](powerbi-output-managed-identity.md).
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Definir uma consulta para analisar os dados de entrada
 
@@ -273,7 +273,7 @@ Quando a aplicação estiver em execução no browser, siga estes passos para in
 
 3. Por fim, cole o **EmbedUrl** no campo de texto correspondente e selecione **Incorporar Dashboard**. Agora, pode ver o mesmo dashboard incorporado numa aplicação Web.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma tarefa simples do Stream Analytics, analisou os dados de entrada e apresentou os resultados num dashboard do Power BI. Para saber mais sobre tarefas do Stream Analytics, avance para o próximo tutorial:
 
