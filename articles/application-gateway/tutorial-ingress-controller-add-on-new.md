@@ -4,15 +4,15 @@ description: Saiba como utilizar o CLI Azure para ativar o addon do Controlador 
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 4634421829cf71c0c5b9476f8ff3d08b9caa7dbd
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 620fe5851f9dbde01b2206595fa79b61f62deb66
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117332"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595925"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Ativar o addon do Controlador de Ingress (pré-visualização) para um novo cluster AKS com uma nova instância de Gateway de aplicações
 
@@ -125,7 +125,7 @@ Verifique se a aplicação de amostra que criou está a ser em execução por:
 
 O Gateway de Aplicação pode demorar um minuto a receber a atualização. Se o Gateway de Aplicação ainda estiver em estado **de Atualização** no portal, deixe-o terminar antes de tentar chegar ao endereço IP. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar deles, remova o grupo de recursos, a instância De Gateway de Aplicação e todos os recursos relacionados:
 
@@ -133,7 +133,7 @@ Quando já não precisar deles, remova o grupo de recursos, a instância De Gate
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Saiba como desativar o add-on da AGIC](./ingress-controller-disable-addon.md)
 * [Saiba quais anotações são apoiadas com a AGIC](./ingress-controller-annotations.md)
 * [Problemas de resolução de problemas com a AGIC](./ingress-controller-troubleshoot.md)

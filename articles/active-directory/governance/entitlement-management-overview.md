@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871212"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594327"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -153,7 +153,7 @@ As licenças Azure AD Premium P2 **não** são necessárias para as seguintes ta
 - Não são necessárias licenças para utilizadores que tenham sido delegadas tarefas administrativas, tais como criador de catálogos, proprietário de catálogos e gestor de pacotes de acesso.
 - Não são necessárias licenças para os hóspedes que **possam** solicitar pacotes de acesso, mas **não** solicitem um pacote de acesso.
 
-Por cada licença Azure AD Premium P2 paga que você compra para os seus utilizadores membros (funcionários), você pode usar Azure AD B2B para convidar até cinco utilizadores convidados. Estes utilizadores convidados também podem utilizar funcionalidades Azure AD Premium P2. Para obter mais informações, consulte [a orientação de licenciamento de colaboração Azure AD B2B](../external-identities/licensing-guidance.md).
+O preço das identidades externas da Azure AD (utilizador convidado) baseia-se nos utilizadores ativos mensais (MAU), que é a contagem de utilizadores únicos com atividade de autenticação dentro de um mês civil. Este modelo substitui o modelo de faturação de rácio de 1:5, que permitiu até cinco utilizadores convidados por cada licença Azure AD Premium no seu inquilino. Quando o seu inquilino estiver ligado a uma subscrição e utilizar funcionalidades de Identidades Externas para colaborar com os utilizadores convidados, será automaticamente faturado utilizando o modelo de faturação baseado na MAU. Para obter mais informações, consulte o modelo de Billing para [identidades externas Azure AD](../external-identities/external-identities-pricing.md).
 
 Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças utilizando o portal Azure Ative Directory](../fundamentals/license-users-groups.md).
 
@@ -166,7 +166,7 @@ Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar 
 | Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a outros 6 utilizadores. Uma das políticas especifica que **todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. 150 funcionários pedem os pacotes de acesso. | 2.000 funcionários que **podem** solicitar os pacotes de acesso | 2.000 |
 | Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a outros 6 utilizadores. Uma das políticas especifica que **todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. Outra política especifica que alguns utilizadores de **Utilizadores do parceiro Contoso** (convidados) podem solicitar os mesmos pacotes de acesso sujeitos a aprovação. Contoso tem 30.000 utilizadores. 150 colaboradores solicitam o acesso aos pacotes de acesso e 10.500 utilizadores da Contoso solicitam acesso. | 2.000 colaboradores + 500 utilizadores convidados de Contoso que excedem o rácio 1:5 (10.500 - (2.000 * 5)) | 2.500 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Crie o seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Cenários comuns](entitlement-management-scenarios.md)

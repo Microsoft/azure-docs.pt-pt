@@ -4,15 +4,15 @@ description: Utilize este tutorial para ativar o Add-On do Controlador de Entrad
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 42952e379b9f68008de23ee3b1717280d8dd6cb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 35d9396ac1f4569002b95549a8752745537621cf
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088126"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595976"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Ativar o addon do controlador de entrada de aplicativos para um cluster AKS existente com um Gateway de aplicação existente através do Azure CLI (Visualização)
 
@@ -142,7 +142,7 @@ kubectl get ingress
 
 Verifique se a aplicação de amostra que criou está a funcionar visitando o endereço IP do Gateway de aplicação que obteve ao executar o comando acima ou consulte `curl` . Pode levar um minuto para o Application Gateway obter a atualização, por isso, se o Gateway de Aplicações ainda estiver num estado de "Atualização" no Portal, deixe-o terminar antes de tentar chegar ao endereço IP. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 
@@ -150,7 +150,7 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroup 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Saiba mais sobre a desativação do addon AGIC](./ingress-controller-disable-addon.md)
 * [Saiba mais sobre quais anotações são apoiadas com a AGIC](./ingress-controller-annotations.md)
 * [Problemas de resolução de problemas com a AGIC](./ingress-controller-troubleshoot.md)

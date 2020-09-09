@@ -4,16 +4,16 @@ description: Conheça os Azure Analysis Services, uma plataforma totalmente geri
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/12/2020
+ms.date: 09/08/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 7878ecd2b1ce223a95c229b93713a875636daa09
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: c6913fee6872d8875e068b2502727c9f42f80401
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164313"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594208"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -79,7 +79,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 
 ### <a name="americas"></a>Américas
 
-|Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
+|Region  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Sul do Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
@@ -87,6 +87,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |E.U.A. Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |E.U.A. Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
 |E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|E.U.A. Centro-Norte     |     S8v2, S9v2    |    1     |
 |E.U.A. Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Central     |    S8v2, S9v2     |    1     |
 |E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -96,9 +97,9 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |E.U.A. Oeste 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
 |E.U.A. Oeste 2    |    S8, S9, S8v2, S9v2  |    1     |
 
-### <a name="europe"></a>Europa
+### <a name="europe"></a>Europe
 
-|Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
+|Region  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Europa do Norte     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Europa do Norte     |    S8v2, S9v2      |    3     |
@@ -108,7 +109,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 
 ### <a name="asia-pacific"></a>Ásia-Pacífico 
 
-|Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
+|Region  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Leste da Austrália     |    S8, S9, S8v2, S9v2    |    1     |
@@ -182,7 +183,7 @@ O Analysis Services utiliza a [autorização baseada em funções](https://docs.
   
 Os utilizadores finais não administrativos que consultam dados têm acesso através das funções de base de dados. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada. As funções de base de dados são definidas pelas permissões (de base de dados) de Administrador, Leitura e Leitura e Processo. As contas de utilizadores e grupos são adicionadas através do SQL Server Management Studio ou PowerShell.
 
-### <a name="row-level-security"></a>Row-level security
+### <a name="row-level-security"></a>Segurança ao Nível da Linha
 
 Os modelos em tabela em todos os modelos de compatibilidade suportam a segurança ao nível da linha. A segurança ao nível da linha é configurada no modelo através de expressões DAX que definem as linhas numa tabela e as linhas nas direções de uma tabela relacionada que um utilizador pode consultar. Os filtros de linhas que utilizem expressões DAX são definidos para as permissões de Leitura e Leitura e Processo. 
 
@@ -259,7 +260,7 @@ As coisas evoluem rapidamente. Obtenha as últimas informações no [blog Power 
 
 O Analysis Services tem uma vibrante comunidade de utilizadores. Junte-se à conversa no [fórum do Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Inscreva-se numa Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   

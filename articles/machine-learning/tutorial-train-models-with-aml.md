@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: f56b289f65bf12c1ad89d046d6bc26acd76249ce
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 00fff79e2f572a6292336d0647d497a8851ef74a
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849784"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595551"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Modelos de classificação de imagem de comboio com dados do MNIST e scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,7 +84,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="connect-to-a-workspace"></a>Ligar-se a um espaço de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. `Workspace.from_config()`lê o ficheiro **config.js** e carrega os detalhes num objeto chamado `ws` :
+Crie um objeto de área de trabalho a partir da área de trabalho existente. `Workspace.from_config()` lê o ficheiro **config.js** e carrega os detalhes num objeto chamado `ws` :
 
 ```python
 # load workspace configuration from the config.json file in the current folder.
@@ -150,7 +150,7 @@ else:
 
 Tem agora os pacotes e os recursos de computação necessários para preparar um modelo na cloud. 
 
-## <a name="explore-data"></a>Explorar dados
+## <a name="explore-data"></a>Explorar os dados
 
 Antes de treinar um modelo, precisa entender os dados que usa para treiná-lo. Nesta secção, vai aprender a:
 
@@ -183,7 +183,7 @@ mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
 
 ### <a name="display-some-sample-images"></a>Apresentar algumas imagens de exemplo
 
-Carregue os ficheiros comprimidos para matrizes `numpy`. Em seguida, utilize `matplotlib` para desenhar 30 imagens aleatórias do conjunto de dados com as respetivas etiquetas acima das mesmas. Este passo requer uma `load_data` função que está incluída num `util.py` ficheiro. Este ficheiro está incluído na pasta de exemplo. Certifique-se de que está na mesma pasta que este caderno. A `load_data` função simplesmente analisa os ficheiros comprimidos em matrizes numpipiárias.
+Carregue os ficheiros comprimidos para matrizes `numpy`. Em seguida, utilize `matplotlib` para desenhar 30 imagens aleatórias do conjunto de dados com as respetivas etiquetas acima das mesmas. Este passo requer uma `load_data` função que está incluída num `utils.py` ficheiro. Este ficheiro está incluído na pasta de exemplo. Certifique-se de que está na mesma pasta que este caderno. A `load_data` função simplesmente analisa os ficheiros comprimidos em matrizes numpipiárias.
 
 ```python
 # make sure utils.py is in the same directory as this code
@@ -423,7 +423,7 @@ No próximo tutorial, você explora este modelo com mais detalhes.
 
 ## <a name="register-model"></a>Registar o modelo
 
-O último passo no guião de treino escreveu o ficheiro `outputs/sklearn_mnist_model.pkl` num diretório nomeado `outputs` no VM do cluster onde o trabalho é executado. `outputs`é um diretório especial na medida em que todos os conteúdos deste diretório são automaticamente enviados para o seu espaço de trabalho. Esses conteúdos aparecem no registo de execução na experimentação, na área de trabalho. Assim, o ficheiro modelo também está disponível no seu espaço de trabalho.
+O último passo no guião de treino escreveu o ficheiro `outputs/sklearn_mnist_model.pkl` num diretório nomeado `outputs` no VM do cluster onde o trabalho é executado. `outputs` é um diretório especial na medida em que todos os conteúdos deste diretório são automaticamente enviados para o seu espaço de trabalho. Esses conteúdos aparecem no registo de execução na experimentação, na área de trabalho. Assim, o ficheiro modelo também está disponível no seu espaço de trabalho.
 
 Pode ver ficheiros associados a essa execução:
 
@@ -451,7 +451,7 @@ Também pode eliminar apenas o cluster Azure Machine Learning Compute. No entant
 compute_target.delete()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial de Aprendizagem automática Azure, utilizou Python para as seguintes tarefas:
 
