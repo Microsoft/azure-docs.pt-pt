@@ -7,14 +7,14 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: e28638e8daec5dcc283d61474d63ec41ec56ae63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102100"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567814"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-tools-for-teaching"></a>Perguntas frequentes sobre ferramentas de azure Dev para o ensino
+# <a name="frequently-asked-questions-about-the-education-hub"></a>Perguntas frequentes sobre o Centro de Educação
 
 Este artigo aborda questões frequentes sobre Azure for Students, Azure for Students Starter e Azure Dev Tools for Teaching.
 
@@ -42,7 +42,7 @@ Pode ver o seu crédito restante no [portal Azure Sponsorships.](https://www.mic
 
 ### <a name="how-do-i-download-the-software-developer-tools"></a>Como faço o download das ferramentas de desenvolvimento de software?
 
-A subscrição do Azure for Students dá-lhe acesso a determinadas ferramentas de desenvolvimento de software. Você deve ter uma subscrição Azure ative atuais para estudantes para aceder e descarregar as ferramentas de desenvolvedor de software. Vá ao [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) para descarregar as ferramentas de desenvolvedor de software utilizando a subscrição do Azure for Students.
+A subscrição do Azure for Students dá-lhe acesso a determinadas ferramentas de desenvolvimento de software. Você deve ter uma subscrição Azure ative atuais para estudantes para aceder e descarregar as ferramentas de desenvolvedor de software. Vá ao  [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) para descarregar as ferramentas de desenvolvedor de software utilizando a subscrição do Azure for Students.
 
 ### <a name="what-is-microsoft-learn"></a>O que é o Microsoft Learn?
 
@@ -103,7 +103,7 @@ Você pode baixar este software no [Education Hub](https://ms.portal.azure.com/#
 
 ### <a name="how-do-i-start-using-my-azure-course-credits"></a>Como começo a usar os meus créditos do curso de Azure?
 
-Pode aceder aos créditos do seu curso Azure criando uma nova subscrição do Microsoft Azure Academic Grant. Selecione o botão **Ativar** no e-mail de aprovação do patrocínio.
+Pode aceder aos créditos do seu curso Azure criando uma nova subscrição do Microsoft Azure Academic Grant. Selecione o botão  **Ativar** no e-mail de aprovação do patrocínio.
 
 Também pode converter uma subscrição existente na Oferta de Patrocínio do Microsoft Azure para aceder aos seus créditos. Os detalhes sobre como converter a sua subscrição estão na próxima pergunta.
 
@@ -152,6 +152,11 @@ Os créditos do curso Azure cobrem apenas o uso a partir do momento em que ativa
 Se olhar para uma subscrição específica na lâmina de Subscrições no seu portal Azure, verá **o Nome da Oferta** como uma das propriedades. O Nome da Oferta dirá **patrocínio da Azure** se estiver ligado aos créditos do seu curso. Se **o Patrocínio Azure** não apresentar, contacte o suporte para convertê-lo.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
+
+### <a name="who-is-eligible-to-purchase-microsoft-azure-dev-tools-for-teaching"></a>Quem é elegível para comprar Ferramentas microsoft Azure Dev para ensinar?
+
+Apenas as instituições académicas que tenham adquirido um acordo de licenciamento de volume (VL) com a Microsoft podem inscrever-se na Azure Dev Tools for Teaching.  Se atualmente é um cliente Dev Tools for Teaching sem um acordo VL, pode continuar a renovar a sua subscrição. Para mais informações sobre acordos de VL para instituições académicas, visite https://aka.ms/ees 
+
 
 ### <a name="what-products-are-included-in-the-azure-dev-tools-for-teaching-subscription"></a>Que produtos estão incluídos na assinatura Azure Dev Tools for Teaching?
 

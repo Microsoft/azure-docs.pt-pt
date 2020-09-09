@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: duau
-ms.openlocfilehash: ab59de49b7cf625220f8a803aab9d2b9a2ae5937
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 16ebfe7ae39d63f455e39c677acc61b31d40bb5a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398772"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569242"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: criar um Front Door para uma aplicação Web global de elevada disponibilidade
 
@@ -85,7 +85,7 @@ Configure a Porta Frontal Azure para direcionar o tráfego do utilizador com bas
 
 1. Em **Frontends/domínios,** selecione **+** para abrir Adicione um **anfitrião frontend**.
 
-1. Para **o nome hospedeiro,** insira um nome de anfitrião globalmente único. Este exemplo utiliza *contoso-frontend*. Selecione **Add** (Adicionar).
+1. Para **o nome hospedeiro,** insira um nome de anfitrião globalmente único. Este exemplo utiliza *contoso-frontend*. Selecione **Adicionar**.
 
    ![Adicione um anfitrião frontal para Azure Front Door](media/quickstart-create-front-door/add-frontend-host-azure-front-door.png)
 
@@ -97,11 +97,11 @@ Em seguida, crie uma piscina de backend que contenha as suas duas aplicações w
 
 1. **Selecione Adicione um backend**. Para **o tipo de anfitrião Backend**, selecione App *Service*.
 
-1. Selecione a sua subscrição e, em seguida, escolha a primeira aplicação web que criou a partir do nome de **anfitrião Backend.** Neste exemplo, a aplicação web era *WebAppContoso-1*. Selecione **Add** (Adicionar).
+1. Selecione a sua subscrição e, em seguida, escolha a primeira aplicação web que criou a partir do nome de **anfitrião Backend.** Neste exemplo, a aplicação web era *WebAppContoso-1*. Selecione **Adicionar**.
 
 1. **Selecione Adicione novamente um backend.** Para **o tipo de anfitrião Backend**, selecione App *Service*.
 
-1. Selecione a sua subscrição, novamente, e escolha a segunda aplicação web que criou a partir do nome de **anfitrião Backend.** Selecione **Add** (Adicionar).
+1. Selecione a sua subscrição, novamente, e escolha a segunda aplicação web que criou a partir do nome de **anfitrião Backend.** Selecione **Adicionar**.
 
    ![Adicione um anfitrião de backend à sua Porta da Frente](media/quickstart-create-front-door/add-backend-host-pool-azure-front-door.png)
 
@@ -160,10 +160,8 @@ Depois de terminar, pode remover todos os itens que criou. A eliminação de um 
 
 Repita o procedimento para os outros dois grupos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para aprender a adicionar um domínio personalizado à sua Porta da Frente.
 > [!div class="nextstepaction"]
 > [Adicionar um domínio personalizado](front-door-custom-domain.md)
-
-Para saber mais sobre o tráfego de encaminhamento, consulte [os métodos de encaminhamento da Porta frontal](front-door-routing-methods.md).

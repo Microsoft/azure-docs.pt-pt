@@ -6,16 +6,22 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 10d4cb8160d0bf9111903b193574e9e820ded221
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0269d870f55f7246529b9d98608e5a325b6cf468
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827746"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569531"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
 Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram significativamente atualizados. Será atualizado na primeira semana de cada mês para incluir atualizações de artigos do mês anterior.
+
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="containers"></a>Contentores
+
+- [Implantação & métricas HPA com monitor Azure para contentores](insights/container-insights-deployment-hpa-metrics.md) - Novo artigo.
 
 ## <a name="july-2020"></a>Julho de 2020
 
@@ -138,7 +144,7 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 - [Recolher registos de recursos Azure no espaço de trabalho Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Criar definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos](platform/diagnostic-settings.md)
 - [Exportar o Registo de Atividades Azure](./platform/activity-log.md#legacy-collection-methods)
-- [Visão geral dos registos da plataforma Azure](platform/platform-logs-overview.md)
+- [Descrição geral dos registos de plataforma Azure](platform/platform-logs-overview.md)
 - [Stream Azure plataforma registra para um centro de eventos](./platform/resource-logs.md#send-to-azure-event-hubs)
 - [Ver eventos de registo de atividades do Azure no Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
@@ -543,7 +549,7 @@ Vários artigos atualizados como parte da reestruturação de conteúdos para re
 - [Crie uma definição de diagnóstico em Azure utilizando o modelo do Gestor de Recursos](platform/diagnostic-settings-template.md)
 - [Criar definição de diagnóstico para recolher registos e métricas em Azure](platform/diagnostic-settings.md)
 - [Exportar o Registo de Atividades Azure](./platform/activity-log.md#legacy-collection-methods)
-- [Visão geral dos registos da plataforma Azure](platform/platform-logs-overview.md)
+- [Descrição geral dos registos de plataforma Azure](platform/platform-logs-overview.md)
 - [Stream Azure monitorizando dados para o centro de eventos](platform/stream-monitoring-data-event-hubs.md)
 - [Stream Azure plataforma registra para um centro de eventos](./platform/resource-logs.md#send-to-azure-event-hubs)
 

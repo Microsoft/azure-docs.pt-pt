@@ -3,12 +3,12 @@ title: O que é extensão de gráfico de mídia - Azure
 description: O Live Video Analytics on IoT Edge permite-lhe alargar as capacidades de processamento de gráficos de mídia através de um nó de extensão de gráfico.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: d7e14a0336da75e1948cf6dc4dbdb51490b70021
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 74929cc51a868d20952f1e25432f5343e4821d08
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420834"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569339"
 ---
 # <a name="media-graph-extension"></a>Extensão do grafo de multimédia
 
@@ -49,8 +49,9 @@ Então, use um nó de processador de extensão gRPC quando:
 As extensões de gráficos de mídia permitem executar modelos de inferência à sua escolha em qualquer tempo de inferência disponível, tais como ONNX, TensorFlow, PyTorch ou outros no seu próprio recipiente de estivadores. A extensão personalizada de inferenculação deve ser implementada ao lado do módulo de borda live video analytics para melhor desempenho e será depois invocada através do processador de extensão HTTP ou do processador de extensão gRPC incluído na sua topologia de gráfico. Além disso, a frequência das chamadas para a sua extensão personalizada pode ser acelerada adicionando opcionalmente um [processador de detetor de movimento](media-graph-concept.md#motion-detection-processor) e um processador de filtro de taxa de [fotogramas](media-graph-concept.md#frame-rate-filter-processor) a montante para o processador de extensão de mídia.
 
 O diagrama abaixo retrata o fluxo de dados de alto nível:
- 
-![Fluxo de dados](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="Serviço de inferência de IA":::
 
 ## <a name="samples"></a>Amostras
 

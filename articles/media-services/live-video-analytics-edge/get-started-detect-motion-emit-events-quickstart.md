@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067708"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568052"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -16,7 +16,8 @@ Este quickstart acompanha-o através dos passos para começar com live video ana
 
 Depois de completar os passos de configuração, poderá executar um vídeo simulado ao vivo através de um gráfico de mídia que detete e reporte qualquer movimento nesse fluxo. O diagrama seguinte representa graficamente o gráfico mediático.
 
-![Análise de vídeo ao vivo baseada na deteção de movimentos](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Análise de vídeo ao vivo baseada na deteção de movimentos":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +32,7 @@ Depois de completar os passos de configuração, poderá executar um vídeo simu
 
 Este tutorial requer os seguintes recursos Azure:
 
-* Hub IoT
+* IoT Hub
 * Conta de armazenamento
 * Conta Azure Media Services
 * Um Linux VM em Azure, com [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado

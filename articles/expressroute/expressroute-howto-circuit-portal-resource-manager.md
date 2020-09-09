@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: duau
-ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e0ba14cd5db47c12435b2de35d0753b402c947ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322146"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566267"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: Criar e modificar um circuito ExpressRoute
 
@@ -75,7 +75,10 @@ Pode criar um circuito ExpressRoute selecionando a opção de criar um novo recu
     > [!IMPORTANT]
     > A Localização De Pares indica a [localização física](expressroute-locations.md) onde está a espreitar com a Microsoft. Isto **não** está ligado à propriedade "Localização", que se refere à geografia onde está localizado o Fornecedor de Recursos da Rede Azure. Embora não estejam relacionados, é uma boa prática escolher um Fornecedor de Recursos de Rede geograficamente próximo da Localização De Pares do circuito.
 
-    * **A SKU** determina se está ativado um padrão ExpressRoute local, ExpressRoute ou um addon premium ExpressRoute. Você pode especificar **Local** para obter local SKU, **Standard** para obter o SKU padrão ou **Premium** para o addon premium.
+    * **A SKU** determina se está ativado um padrão ExpressRoute local, ExpressRoute ou um addon premium ExpressRoute. Você pode especificar **Local** para obter o SKU local, **Standard** para obter o SKU padrão ou **Premium** para o suplemento premium. Note que pode alterar o SKU para ativar o suplemento premium.
+    > [!IMPORTANT]
+    > Não é possível alterar o SKU de **Standard/Premium** para **Local.**
+    
     * **O modelo de faturação** determina o tipo de faturação. Pode especificar **medido** para um plano de dados medido e **ilimitado** para um plano de dados ilimitado. Note que pode alterar o tipo de faturação de **Medido para** **Ilimitado**.
 
     > [!IMPORTANT]
@@ -150,6 +153,10 @@ Pode modificar certas propriedades de um circuito ExpressRoute sem afetar a cone
 Pode executar as seguintes tarefas sem tempo de inatividade:
 
 * Ative ou desative um addon ExpressRoute Premium para o seu circuito ExpressRoute.
+
+> [!IMPORTANT]
+  > A alteração do SKU de **Standard/Premium** para **Local** não é suportada.
+
 * Aumente a largura de banda do seu circuito ExpressRoute, desde que haja capacidade disponível na porta.
 
   > [!IMPORTANT]
@@ -184,7 +191,7 @@ Pode eliminar o seu circuito ExpressRoute selecionando o ícone **Eliminar.**
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Excluir circuito":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar o seu circuito, continue com os seguintes passos:
 

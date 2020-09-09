@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: storage
 author: tamram
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e90e750bf248bdcc8e50c6ddc6e9fa0273660195
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c3438631dca921989309bb8701e113cb5ce3ff2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79136023"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570170"
 ---
-O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados. Dados não estruturados são dados que não aderem a um determinado modelo ou definição de dados, como texto ou dados binários.
+O Armazenamento de blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados. Dados não estruturados são dados que não aderem a um determinado modelo ou definição de dados, como texto ou dados binários.
 
 ## <a name="about-blob-storage"></a>Acerca do Armazenamento de Blobs do Azure
 
@@ -28,23 +28,23 @@ O Armazenamento de blobs foi concebido para:
 * Armazenamento de dados de cópia de segurança e restauro, recuperação após desastre e arquivo.
 * Armazenamento de dados para análise por um serviço no local ou alojado no Azure.
 
-Os utilizadores ou aplicações de clientes podem aceder a objetos no armazenamento Blob via HTTP/HTTPS, de qualquer parte do mundo. Os objetos em armazenamento Blob são acessíveis através da [API, Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) [PowerShell, Azure](https://docs.microsoft.com/powershell/module/azure.storage) [CLI](https://docs.microsoft.com/cli/azure/storage)ou de uma biblioteca de clientes Azure Storage. As bibliotecas de clientes estão disponíveis para diferentes idiomas, incluindo:
+Os utilizadores ou aplicações de clientes podem aceder a objetos no armazenamento blob via HTTP/HTTPS, a partir de qualquer parte do mundo. Os objetos no armazenamento Blob são acessíveis através da [Azure Storage REST API,](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) [Azure PowerShell,](https://docs.microsoft.com/powershell/module/az.storage) [Azure CLI](https://docs.microsoft.com/cli/azure/storage)ou uma biblioteca de clientes do Azure Storage. As bibliotecas de clientes estão disponíveis para diferentes idiomas, incluindo:
 
 * [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Node.js](https://azure.github.io/azure-storage-node) 
+* [Node.js](https://azure.github.io/azure-storage-node)
 * [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
 * [Ir](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)
 * [Ruby](https://azure.github.io/azure-storage-ruby)
 
-## <a name="about-azure-data-lake-storage-gen2"></a>Sobre o Armazenamento do Lago De Dados Azure Gen2
+## <a name="about-azure-data-lake-storage-gen2"></a>Sobre o Azure Data Lake Storage Gen2
 
-O Armazenamento de blobs suporta o Azure Data Lake Storage Gen2, a solução de análise de macrodados empresariais para a cloud da Microsoft. O Azure Data Lake Storage Gen2 oferece um sistema de ficheiros hierárquico, bem como as vantagens do armazenamento blob, incluindo:
+O Armazenamento de blobs suporta o Azure Data Lake Storage Gen2, a solução de análise de macrodados empresariais para a cloud da Microsoft. A Azure Data Lake Storage Gen2 oferece um sistema de ficheiros hierárquicos, bem como as vantagens do armazenamento blob, incluindo:
 
-* Armazenamento a baixo custo e hierárquico
+* Armazenamento de baixo custo e tiered
 * Elevada disponibilidade
 * Consistência forte
 * Capacidades de recuperação de desastres
 
-Para mais informações sobre data Lake Storage Gen2, consulte Introdução ao Armazenamento de [Lagos De dados Azure Gen2](../articles/storage/data-lake-storage/introduction.md).
+Para obter mais informações sobre data lake storage gen2, consulte [Introdução ao Azure Data Lake Storage Gen2](../articles/storage/data-lake-storage/introduction.md).

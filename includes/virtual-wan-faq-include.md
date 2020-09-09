@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303966"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569995"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -83,7 +83,7 @@ Existem duas opções para adicionar servidores DNS para os clientes P2S. O prim
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Para a VPN do utilizador (ponto a local)- quantos clientes são suportados?
 
-Cada gateway P2S do Utilizador tem duas instâncias e cada instância suporta certos utilizadores à medida que a unidade de escala muda. A unidade de escala 1-3 suporta 500 ligações, a unidade de escala 4-6 suporta 1000 ligações, a unidade de escala 7-12 suporta 5000 ligações e a unidade de escala 13-20 suporta até 10.000 ligações. 
+Cada gateway P2S do Utilizador tem duas instâncias e cada instância suporta certos utilizadores à medida que a unidade de escala muda. A unidade de escala 1-3 suporta 500 ligações, a unidade de escala 4-6 suporta 1000 ligações, a unidade de escala 7-12 suporta 5000 ligações e a unidade de escala 13-18 suporta até 10.000 ligações. 
 
 Como exemplo, digamos que o utilizador escolhe uma unidade de escala de 1. Cada unidade de escala implicaria um gateway ativo implantado e cada uma das instâncias (neste caso 2) suportaria até 500 ligações. Uma vez que pode obter 500 ligações * 2 por gateway, não significa que planeie 1000 em vez dos 500 para esta unidade de escala. Podem ser necessários serviços durante os quais a conectividade para os 500 extras pode ser interrompida se ultrapassar a contagem de ligação recomendada. Além disso, certifique-se de planear o tempo de inatividade no caso de decidir escalar para cima ou para baixo na unidade de escala, ou alterar a configuração ponto-a-local no gateway VPN.
 

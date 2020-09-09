@@ -3,12 +3,12 @@ title: Gravação contínua de vídeo para a nuvem e reprodução do tutorial de
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar continuamente o vídeo para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043486"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566806"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo para a nuvem e reprodução da nuvem
 
@@ -46,7 +46,7 @@ Os pré-requisitos para este tutorial são:
 
 No final destes passos, terá recursos Azure relevantes implantados na sua subscrição Azure:
 
-* Azure IoT Hub
+* Hub IoT do Azure
 * Conta de armazenamento do Azure
 * Conta Azure Media Services
 * Linux VM em Azure, com o [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
@@ -61,7 +61,8 @@ Como explicado no artigo de [conceito de gráfico de mídia,](media-graph-concep
  
  Para realizar o CVR, é necessário capturar o vídeo a partir de uma câmara capaz de RTSP e gravá-lo continuamente para um [ativo da Azure Media Services](terminology.md#asset). Este diagrama mostra uma representação gráfica do gráfico mediático.
 
-![Grafo do suporte de dados](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Grafo do suporte de dados":::
 
 Neste tutorial, utilizará um módulo de uma borda construído utilizando o [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) para simular uma câmara RTSP. Dentro do gráfico de mídia, você usará um nó [de fonte RTSP](media-graph-concept.md#rtsp-source) para obter o feed ao vivo e enviar esse vídeo para o [nó da pia do ativo](media-graph-concept.md#asset-sink), que grava o vídeo para um ativo.
 
@@ -130,7 +131,7 @@ Em seguida, navegue na pasta src/cloud-to-device-console-app. Aqui verá o appse
 
 O manifesto de implantação define quais os módulos que são implantados num dispositivo de borda e as definições de configuração desses módulos. Siga estes passos para gerar um manifesto a partir do ficheiro do modelo e, em seguida, desloque-o para o dispositivo de borda.
 
-1. Inicie o Visual Studio Code.
+1. Iniciar o Visual Studio Code.
 1. Desagre a cadeia de ligação IoT Hub selecionando o ícone **Mais ações** ao lado do painel **AZURE IOT HUB** no canto inferior esquerdo. Copie o fio da src/cloud-to-device-console-app/appsettings.jsno ficheiro. 
 
     ![Definir cadeia de conexão IoT Hub](./media/quickstarts/set-iotconnection-string.png)
@@ -145,7 +146,7 @@ O manifesto de implantação define quais os módulos que são implantados num d
     * Vídeo ao vivo analytics no IoT Edge (nome do módulo **lvaEdge)**
     * Simulador RTSP (nome do módulo **rtspsim)**
  
-    ![Hub IoT](./media/continuous-video-recording-tutorial/iot-hub.png)
+    ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## <a name="prepare-to-monitor-the-modules"></a>Preparar para monitorizar os módulos 
 
@@ -157,7 +158,7 @@ Quando utiliza o módulo Live Video Analytics no IoT Edge para gravar o stream d
 
     ![Iniciar monitorização do ponto final do evento incorporado](./media/quickstarts/start-monitoring-iothub-events.png)
 
-## <a name="run-the-program"></a>Executar o programa 
+## <a name="run-the-program"></a>Execute o programa 
 
 1. No Código do Estúdio Visual, aceda a src/cloud-to-device-console-app/operations.js.
 1. Sob o nó **GraphTopologySet,** edite o seguinte:
@@ -352,7 +353,7 @@ Pode examinar o ativo Media Services que foi criado pelo gráfico mediático ini
 1. Localize a sua conta de Serviços de Comunicação social entre os recursos que tem na sua subscrição e abra o painel de conta.
 1. Selecione **Ativos** na lista **de Serviços de Mídia.**
 
-    ![Elementos](./media/continuous-video-recording-tutorial/assets.png)
+    ![Ativos de Serviços de Mídia](./media/continuous-video-recording-tutorial/assets.png)
 1. Encontrará um ativo listado com o nome de amostraAsset-CVRToAMSAsset-Sample-Graph-1. Este é o padrão de nomeação escolhido no seu arquivo de topologia de gráficos.
 1. Selecione o elemento.
 1. Na página de detalhes do ativo, **selecione Criar novo** na caixa de texto URL de **streaming.**
@@ -368,7 +369,7 @@ Pode examinar o ativo Media Services que foi criado pelo gráfico mediático ini
 > [!NOTE]
 > Como a fonte do vídeo era um contentor que simulava uma ração de câmara, as datas do vídeo estão relacionadas com a ativação da instância do gráfico e quando o desativou. Para ver como navegar numa gravação multi-dia e ver partes desse arquivo, consulte a [Reprodução de gravações de vários dias](playback-multi-day-recordings-tutorial.md) tutorial. Nesse tutorial, também pode ver as marcações de tempo no vídeo exibido no ecrã.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende experimentar os outros tutoriais, guarde os recursos que criou. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este tutorial e elimine o grupo de recursos.
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8a8647e7f19b55547bbb7eff6f1f3bc1f5282c89
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3d9e21c317240d27c8b32bd3daec0fcc66013e54
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934548"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565023"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,34 +48,29 @@ var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourSer
 
 ## <a name="initialize-a-recognizer"></a>Inicializar um reconhecimento
 
-Depois de criar um [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) , o próximo passo é inicializar um [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) . Quando rubricar [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) um, terá de passar o seu `speechConfig` . Isto fornece as credenciais que o serviço de fala requer para validar o seu pedido.
-
-Se está a reconhecer a fala usando o microfone padrão do seu dispositivo, eis como [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) deve ser:
+Depois de criar um [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) , o próximo passo é inicializar um [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) . Quando se inicia [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) um, passa-se o seu `speechConfig` . Isto fornece as credenciais que o serviço de fala requer para validar o seu pedido.
 
 ```csharp
 using var recognizer = new SpeechRecognizer(speechConfig);
 ```
 
-Se quiser especificar o dispositivo de entrada de áudio, terá de criar um [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) e fornecer o parâmetro ao `audioConfig` rubricar o seu [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) .
+## <a name="recognize-from-microphone-or-file"></a>Reconhecer a partir do microfone ou arquivo
 
-> [!TIP]
-> [Saiba como obter o ID do dispositivo para o seu dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
+Se quiser especificar o dispositivo de entrada de áudio, tem de criar um [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) e passá-lo como parâmetro ao rubricar o seu [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) .
 
-Primeiro, adicione a seguinte `using` declaração.
+Para reconhecer a fala utilizando o microfone do dispositivo, crie uma `AudioConfig` utilização `FromDefaultMicrophoneInput()` e, em seguida, passe a configuração de áudio ao criar o seu `SpeechRecognizer` objeto.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech.Audio;
-```
 
-Em seguida, poderá fazer referência ao objeto da `AudioConfig` seguinte forma:
-
-```csharp
 using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
 using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
-Se quiser fornecer um ficheiro áudio em vez de utilizar um microfone, ainda terá de fornecer um `audioConfig` . No entanto, quando criar um [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) , em vez de ligar , vai ligar e passar o `FromDefaultMicrophoneInput` `FromWavFileOutput` `filename` parâmetro.
+> [!TIP]
+> [Saiba como obter o ID do dispositivo para o seu dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
 
+Se quiser reconhecer a fala a partir de um ficheiro áudio em vez de um microfone, ainda precisa de criar um `AudioConfig` . No entanto, quando cria o [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) , em vez de ligar - você liga e passa o `FromDefaultMicrophoneInput()` `FromWavFileInput()` `filename` parâmetro.
 
 ```csharp
 using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");

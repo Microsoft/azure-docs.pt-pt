@@ -1,25 +1,25 @@
 ---
-title: 'Quickstart: Teste um modelo usando ficheiros áudio - Speech Studio'
+title: Teste um modelo usando ficheiros de áudio - Speech Studio
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você usará o Speech Studio para testar o reconhecimento da fala num ficheiro áudio.
+description: Neste como fazer, você usa o Speech Studio para testar o reconhecimento da fala num ficheiro áudio.
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391541"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565808"
 ---
-# <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>Quickstart: Teste um modelo usando um ficheiro áudio no Speech Studio
+# <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Teste um modelo usando um arquivo áudio no Speech Studio
 
-Neste arranque rápido, você usa o Speech Studio para converter o discurso de um ficheiro áudio para texto. O Speech Studio permite-lhe testar, comparar, melhorar e implementar modelos de reconhecimento de voz utilizando texto relacionado, áudio com transcrições com rótulo humano e orientação de pronúncia que fornece.
+Neste como fazer, você usa o Speech Studio para converter o discurso de um ficheiro áudio para texto. O Speech Studio permite-lhe testar, comparar, melhorar e implementar modelos de reconhecimento de voz utilizando texto relacionado, áudio com transcrições com rótulo humano e orientação de pronúncia que fornece.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

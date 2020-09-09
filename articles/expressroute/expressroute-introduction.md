@@ -7,15 +7,15 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 26f27297b651da11bf6dd76236709e5bfb77d90e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 40d84a4196a3cc104a29b4b9511bd627f3f8d40e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395405"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566879"
 ---
 # <a name="what-is-azure-expressroute"></a>O que é o Azure ExpressRoute?
-O ExpressRoute permite-lhe expandir as redes no local para a Microsoft Cloud através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure e o Office 365.
+O ExpressRoute permite-lhe expandir as redes no local para a Microsoft Cloud através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, como o Microsoft Azure e o Microsoft 365.
 
 A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta. As ligações do ExpressRoute não passam para a Internet pública. Isto permite que as ligações ExpressRoute ofereçam mais fiabilidade, velocidades mais rápidas, latências consistentes e maior segurança do que as ligações típicas através da Internet. Para obter informações sobre como ligar a sua rede à Microsoft com o ExpressRoute, consulte [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
 
@@ -44,7 +44,7 @@ Cada circuito ExpressRoute consiste em duas ligações a dois routers de borda m
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Conectividade com serviços da Microsoft Cloud
 As ligações ExpressRoute permitem o acesso aos seguintes serviços:
 * Serviços do Microsoft Azure
-* Serviços do Microsoft Office 365
+* Serviços Microsoft 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -116,7 +116,7 @@ Para perguntas mais frequentes sobre o ExpressRoute, veja [FAQ do ExpressRoute](
 
 Subscreva o feed RSS e veja as últimas atualizações da funcionalidade ExpressRoute na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [ExpressRoute connectivity models (Modelos de conectividade do ExpressRoute)](expressroute-connectivity-models.md).
 * Saiba mais sobre ligações ExpressRoute e domínios de encaminhamento. Veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 * Encontre um fornecedor de serviços. Veja [Parceiros e localizações de peering do ExpressRoute ](expressroute-locations.md).

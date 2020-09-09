@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5ab742e7ce2d198a321e15118522e6866bd1d104
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: fced9206bfd7d33ab4d9e911f92f12ec4b2aa99c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405874"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565014"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -20,9 +20,9 @@ Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fal
 
 Antes de poder fazer qualquer coisa, terá de instalar o <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a>de voz para JavaScript . Dependendo da sua plataforma, utilize as seguintes instruções:
 
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js<span 
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navegador Web<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navegador Web <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 Além disso, dependendo do ambiente-alvo, utilize um dos seguintes:
 
@@ -77,27 +77,30 @@ const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourS
 
 ## <a name="initialize-a-recognizer"></a>Inicializar um reconhecimento
 
-Depois de criar um [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) , o próximo passo é inicializar um [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) . Quando rubricar [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) um, terá de passar o seu `speechConfig` . Isto fornece as credenciais que o serviço de fala requer para validar o seu pedido.
-
-Se está a reconhecer a fala usando o microfone padrão do seu dispositivo, eis como [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) deve ser:
+Depois de criar um [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) , o próximo passo é inicializar um [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) . Quando se inicia [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) um, passa-se o seu `speechConfig` . Isto fornece as credenciais que o serviço de fala requer para validar o seu pedido.
 
 ```javascript
 const recognizer = new SpeechRecognizer(speechConfig);
 ```
 
-Se quiser especificar o dispositivo de entrada de áudio, terá de criar um [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) e fornecer o parâmetro ao `audioConfig` rubricar o seu [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) .
+## <a name="recognize-from-microphone-or-file"></a>Reconhecer a partir do microfone ou arquivo
 
-> [!TIP]
-> [Saiba como obter o ID do dispositivo para o seu dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
+Se quiser especificar o dispositivo de entrada de áudio, tem de criar um [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) e passá-lo como parâmetro ao rubricar o seu [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) .
 
-Referenciar o `AudioConfig` objeto da seguinte forma:
+Para reconhecer a fala utilizando o microfone do dispositivo, crie uma `AudioConfig` utilização `fromDefaultMicrophoneInput()` e, em seguida, passe a configuração de áudio ao criar o seu `SpeechRecognizer` objeto.
 
 ```javascript
 const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
-Se quiser fornecer um ficheiro áudio em vez de utilizar um microfone, ainda terá de fornecer um `audioConfig` . No entanto, isto só pode ser feito quando seNode.js**e** quando cria um , em vez de ligar [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) - vai ligar e passar o `fromDefaultMicrophoneInput` `fromWavFileOutput` `filename` parâmetro.
+> [!TIP]
+> [Saiba como obter o ID do dispositivo para o seu dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
+
+Se quiser reconhecer a fala a partir de um ficheiro áudio em vez de utilizar um microfone, ainda precisa de fornecer um `AudioConfig` . No entanto, quando cria o [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) , em vez de ligar - você liga e passa o `fromDefaultMicrophoneInput()` `fromWavFileInput()` `filename` parâmetro.
+
+> [!IMPORTANT]
+> Reconhecer o discurso de um ficheiro *só* é suportado no **Node.js** SDK
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
@@ -126,9 +129,9 @@ recognizer.recognizeOnceAsync(result => {
 
 Terá de escrever um código para lidar com o resultado. Esta amostra [`result.reason`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognitionresult?view=azure-node-latest#reason) avalia:
 
-* Imprime o resultado do reconhecimento:`ResultReason.RecognizedSpeech`
-* Se não houver correspondência de reconhecimento, informe o utilizador:`ResultReason.NoMatch`
-* Se for encontrado um erro, imprima a mensagem de erro:`ResultReason.Canceled`
+* Imprime o resultado do reconhecimento: `ResultReason.RecognizedSpeech`
+* Se não houver correspondência de reconhecimento, informe o utilizador: `ResultReason.NoMatch`
+* Se for encontrado um erro, imprima a mensagem de erro: `ResultReason.Canceled`
 
 ```javascript
 switch (result.reason) {

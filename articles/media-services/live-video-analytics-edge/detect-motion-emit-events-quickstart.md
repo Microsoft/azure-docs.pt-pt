@@ -4,18 +4,18 @@ description: Este quickstart mostra-lhe como usar o Live Video Analytics no IoT 
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 45595e8e6aa53b41d6d8b0d9d11457468dc47013
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4d8b91529eaf5a9ee93cff28153b28b26fb7e685
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691039"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566921"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Quickstart: Detetar movimento e emitir eventos
 
 Este quickstart acompanha-o através dos passos para começar com live video analytics em IoT Edge. Utiliza uma VM do Azure como um dispositivo IoT Edge e a transmissão de vídeo em direto simulada. Depois de completar os passos de configuração, poderá executar um vídeo simulado ao vivo através de um gráfico de mídia que detete e reporte qualquer movimento nesse fluxo. O diagrama seguinte mostra uma representação gráfica desse gráfico mediático.
 
-![Análise de vídeo ao vivo baseada na deteção de movimentos](./media/analyze-live-video/motion-detection.png) 
+![Análise de vídeo ao vivo baseada na deteção de movimentos](./media/analyze-live-video/motion-detection.svg) 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/csharp/header.md)]
@@ -105,7 +105,7 @@ Este quickstart acompanha-o através dos passos para começar com live video ana
 [!INCLUDE [interpret-results](includes/detect-motion-emit-events-quickstart/python/interpret-results.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende experimentar os outros quickstarts, então deve manter os recursos que criou. Caso contrário, no portal Azure, vá aos seus grupos de recursos, selecione o grupo de recursos onde executou este arranque rápido e, em seguida, elimine todos os recursos.
 

@@ -1,41 +1,40 @@
 ---
-title: Quickstart - Desloque o contentor Docker para a instância do contentor - PowerShell
-description: Neste arranque rápido, você usa O Azure PowerShell para implementar rapidamente uma aplicação web contentorizada que funciona em um caso isolado de contentores Azure
+title: Quickstart - Desdobre o recipiente Docker para a instância do contentor - PowerShell
+description: Neste arranque rápido, você usa a Azure PowerShell para implementar rapidamente uma aplicação web contentorizada que funciona em uma instância isolada do recipiente Azure
 services: container-instances
-author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9901b3f18973365dc9ceb8c85ff8587b6c2ea894
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533615"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565587"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Quickstart: Implementar uma instância de contentores em Azure utilizando a Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Quickstart: Implementar uma instância de contentor em Azure utilizando a Azure PowerShell
 
-Utilize instâncias de contentores Azure para executar recipientes Docker sem servidor em Azure com simplicidade e velocidade. Implemente uma aplicação para um contentor a pedido quando não precisar de uma plataforma de orquestração de contentores completa como o Serviço Azure Kubernetes.
+Utilize instâncias de contentores Azure para executar recipientes Docker sem servidor em Azure com simplicidade e velocidade. Implemente uma aplicação para uma instância de contentor a pedido quando não precisar de uma plataforma completa de orquestração de contentores como o Serviço Azure Kubernetes.
 
-Neste arranque rápido, utiliza o Azure PowerShell para implementar um recipiente Windows isolado e disponibilizar a sua aplicação com um nome de domínio totalmente qualificado (FQDN). Alguns segundos depois de executar um único comando de implantação, pode navegar para a aplicação em execução no recipiente:
+Neste arranque rápido, utiliza-se o Azure PowerShell para implantar um contentor Windows isolado e disponibilizar a sua aplicação com um nome de domínio totalmente qualificado (FQDN). Alguns segundos depois de executar um único comando de implantação, pode navegar para a aplicação em execução no recipiente:
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][qs-powershell-01]
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo PowerShell Azure. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 O Azure Container Instances, como todos os recursos do Azure, tem de ser implementados num grupo de recursos. Os grupos de recursos permitem organizar e gerir recursos relacionados do Azure.
 
-Em primeiro lugar, crie um grupo de recursos chamado *myResourceGroup* no local *oriental* com o seguinte comando [New-AzResourceGroup:][New-AzResourceGroup]
+Em primeiro lugar, crie um grupo de recursos chamado *myResourceGroup* na localização *este* com o seguinte comando [New-AzResourceGroup:][New-AzResourceGroup]
 
  ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -43,11 +42,11 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contentores com o Azure PowerShell, forneça um nome de grupo de recursos, nome de instância de contentor e imagem de contentor Docker para o cmdlet [New-AzContainerGroup.][New-AzContainerGroup] Neste arranque rápido, usa-se a imagem pública. `mcr.microsoft.com/windows/servercore/iis:nanoserver` Esta imagem embala os Serviços de Informação da Microsoft Internet (IIS) para executar no Nano Server.
+Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contentor com a Azure PowerShell, forneça um nome de grupo de recursos, nome de instância de contentor e imagem do recipiente Docker para o cmdlet [New-AzContainerGroup.][New-AzContainerGroup] Neste arranque rápido, usa-se a `mcr.microsoft.com/windows/servercore/iis:nanoserver` imagem pública. Esta imagem embala os Serviços de Informação da Internet (IIS) da Microsoft para funcionar em Nano Server.
 
-Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste arranque rápido, você implanta um recipiente com uma etiqueta de nome DNS para que o IIS seja publicamente acessível.
+Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste arranque rápido, você implanta um recipiente com uma etiqueta de nome DNS para que o IIS seja acessível publicamente.
 
-Execute um comando semelhante ao seguinte para iniciar uma instância de contentor. Desempõe um `-DnsNameLabel` valor único dentro da região de Azure onde cria si a instância. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
+Execute um comando semelhante ao seguinte para iniciar uma instância de contentor. Desconfiem de um `-DnsNameLabel` valor único dentro da região de Azure, onde se cria o caso. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
@@ -89,9 +88,9 @@ Quando o estado do contentor `ProvisioningState` passar a **Com êxito**, navegu
 
 ![IIS implementado com o Azure Container Instances visto no browser][qs-powershell-01]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando terminar com o recipiente, retire-o com o cmdlet [remove-AzContainerGroup:][Remove-AzContainerGroup]
+Quando terminar o recipiente, retire-o com o cmdlet [Remove-AzContainerGroup:][Remove-AzContainerGroup]
 
  ```azurepowershell-interactive
 Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer

@@ -1,5 +1,5 @@
 ---
-title: Suporte azure Cosmos DB Gremlin
+title: Apoio Azure Cosmos DB Gremlin
 description: Saiba mais sobre a linguagem Gremlin no Apache TinkerPop. Saiba que funcionalidades e passos estão disponíveis no Azure Cosmos DB
 author: LuisBosquez
 ms.service: cosmos-db
@@ -7,25 +7,25 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 04/23/2020
 ms.author: lbosq
-ms.openlocfilehash: ba3b20f263f37d85389bb11c0674584408a0c223
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 75a796a860acbd4279938b315fafccb9333906bd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82161644"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567270"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráficos do Gremlin do Azure Cosmos DB
-Azure Cosmos DB suporta a linguagem transversal do gráfico [de Apache Tinkerpop,](https://tinkerpop.apache.org) conhecida como [Gremlin.](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps) Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
+Azure Cosmos DB suporta a linguagem transversal gráfica [de Apache Tinkerpop,](https://tinkerpop.apache.org) conhecida como [Gremlin.](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps) Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
 
-Neste artigo, fornecemos uma rápida passagem de Gremlin e enumeramos as características de Gremlin que são apoiadas pela API Gremlin.
+Neste artigo, fornecemos uma rápida passagem de Gremlin e enumeramos as características de Gremlin que são apoiadas pela API de Gremlin.
 
 ## <a name="compatible-client-libraries"></a>Bibliotecas de clientes compatíveis
 
 A seguinte tabela mostra controladores Gremlin populares que pode utilizar com o Azure Cosmos DB:
 
-| Transferência | Origem | Introdução | Versão do conector suportado |
+| Download | Origem | Introdução | Versão do conector suportado |
 | --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Criar Gráficos com .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Criar Gráficos com .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Documentação JavaDoc do Gremlin](https://tinkerpop.apache.org/javadocs/current/full/) | [Criar Gráficos com Java](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Criar Gráficos com Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Criar Gráficos com Python](create-graph-python.md) | 3.2.7 |
@@ -46,7 +46,7 @@ A tabela seguinte indica as funcionalidades do TinkerPop implementadas pelo Azur
 | Funcionalidades de limite | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Suporta a criação, modificação e eliminação de limites |
 | Funcionalidades de propriedades de limites | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criação, modificação e eliminação de propriedades de limites |
 
-## <a name="gremlin-wire-format"></a>Formato de arame gremlin
+## <a name="gremlin-wire-format"></a>Formato de fio Gremlin
 
 A Azure Cosmos DB utiliza o formato JSON ao devolver os resultados das operações da Gremlin. A Azure Cosmos DB suporta atualmente o formato JSON. Por exemplo, o seguinte corte mostra uma representação JSON de um vértice *devolvido ao cliente* da Azure Cosmos DB:
 
@@ -91,18 +91,18 @@ As propriedades utilizadas pelo formato JSON para vértices são descritas abaix
 
 | Propriedade | Descrição | 
 | --- | --- | --- |
-| `id` | O ID do vértice. Deve ser único (em combinação com o valor do `_partition` se aplicável). Se não for fornecido qualquer valor, será automaticamente fornecido com um GUID | 
+| `id` | O ID do vértice. Deve ser único (em combinação com o valor de `_partition` se aplicável). Se não for fornecido qualquer valor, será automaticamente fornecido com um GUID | 
 | `label` | A etiqueta do vértice. Esta propriedade é usada para descrever o tipo de entidade. |
 | `type` | É utilizado para distinguir vértices de documentos que não são gráficos |
 | `properties` | Conjunto de propriedades definidas pelo utilizador associadas ao vértice. Cada propriedade tem múltiplos valores. |
-| `_partition` | A chave de partição do vértice. Utilizado para [a partilha de gráficos](graph-partitioning.md). |
+| `_partition` | A chave de partição do vértice. Utilizado para [a partição de gráficos.](graph-partitioning.md) |
 | `outE` | Esta propriedade contém uma lista de bordas de um vértice. Armazenar a informação de contiguidade com o vértice permite uma execução rápida das transversais. Os limites são agrupados com base nas etiquetas. |
 
 O limite contém a seguinte informação para ajudar com a navegação para outras partes do gráfico.
 
 | Propriedade | Descrição |
 | --- | --- |
-| `id` | O ID do limite. Deve ser único (em combinação com o valor de, `_partition` se aplicável) |
+| `id` | O ID do limite. Deve ser único (em combinação com o valor de `_partition` se aplicável) |
 | `label` | A etiqueta do limite. Esta propriedade é opcional e é utilizada para descrever o tipo de relação. |
 | `inV` | Esta propriedade contém uma lista de vértices para uma borda. Armazenar as informações de contiguidade com o limite permite uma execução rápida das transversais. Os vértices são agrupados com base nas etiquetas. |
 | `properties` | Conjunto de propriedades definidas pelo utilizador associadas ao limite. Cada propriedade tem múltiplos valores. |
@@ -128,7 +128,7 @@ Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter 
 | `count` | Devolve a contagem da transversal | [passo count](https://tinkerpop.apache.org/docs/3.3.2/reference/#count-step) |
 | `dedup` | Devolve os valores com os duplicados removidos | [passo dedup](https://tinkerpop.apache.org/docs/3.3.2/reference/#dedup-step) |
 | `drop` | Ignora os valores (vértice/limite) | [passo drop](https://tinkerpop.apache.org/docs/3.3.2/reference/#drop-step) |
-| `executionProfile` | Cria uma descrição de todas as operações geradas pelo passo Gremlin executado | [execuçãoPasso perfil](graph-execution-profile.md) |
+| `executionProfile` | Cria uma descrição de todas as operações geradas pelo passo gremlin executado | [execuçãoProfile passo](graph-execution-profile.md) |
 | `fold` | Age como uma barreira que calcula a agregação de resultados| [passo fold](https://tinkerpop.apache.org/docs/3.3.2/reference/#fold-step) |
 | `group` | Agrupa os valores com base nas etiquetas especificadas| [passo group](https://tinkerpop.apache.org/docs/3.3.2/reference/#group-step) |
 | `has` | Utilizado para filtrar propriedades, vértices e limites. Suporta variantes `hasLabel`, `hasId`, `hasNot` e `has`. | [passo has](https://tinkerpop.apache.org/docs/3.3.2/reference/#has-step) |
@@ -148,12 +148,12 @@ Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter 
 | `sample` | Utilizado para exemplificar resultados da transversal | [passo sample](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | Utilizado para projetar resultados da transversal |  [passo select](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | Utilizado para agregações que não sejam de bloqueio da transversal | [passo store](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | Função de filtragem de cordas. Esta função é usada como `has()` um predicado para o passo para combinar uma propriedade com o início de uma determinada corda | [Predicados textP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  Função de filtragem de cordas. Esta função é usada como `has()` um predicado para o passo para combinar uma propriedade com o final de uma determinada corda | [Predicados textP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | Função de filtragem de cordas. Esta função é usada como `has()` um predicado para o passo para combinar uma propriedade com o conteúdo de uma determinada corda | [Predicados textP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | Função de filtragem de cordas. Esta função é usada como `has()` um predicado para o passo para combinar com uma propriedade que não começa com uma determinada corda | [Predicados textP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | Função de filtragem de cordas. Esta função é usada como `has()` um predicado para o passo para combinar com uma propriedade que não termina com uma determinada corda | [Predicados textP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | Função de filtragem de cordas. Esta função é usada como `has()` um predicado para o passo para combinar com uma propriedade que não contém uma determinada corda | [Predicados textP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | Função de filtragem de cordas. Esta função é usada como um predicado para o `has()` passo para combinar uma propriedade com o início de uma determinada corda | [Predicados TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  Função de filtragem de cordas. Esta função é usada como um predicado para o `has()` passo para combinar uma propriedade com o final de uma determinada corda | [Predicados TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | Função de filtragem de cordas. Esta função é usada como um predicado para o `has()` passo para combinar uma propriedade com o conteúdo de uma determinada cadeia | [Predicados TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | Função de filtragem de cordas. Esta função é usada como um predicado para o `has()` passo para combinar com uma propriedade que não começa com uma determinada corda | [Predicados TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | Função de filtragem de cordas. Esta função é usada como um predicado para o `has()` passo para combinar com uma propriedade que não termina com uma determinada corda | [Predicados TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | Função de filtragem de cordas. Esta função é usada como um predicado para o `has()` passo para combinar com uma propriedade que não contém uma determinada corda | [Predicados TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | Agrega caminhos de um vértice numa árvore | [passo tree](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Mostra um iterador como um passo| [passo unfold](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Intercala resultados de múltiplas transversais| [passo union](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |
