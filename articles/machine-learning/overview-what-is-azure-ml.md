@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: d5e1e8c0ced03191a530598bf2dca308dc4fab03
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462467"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651037"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -92,7 +92,7 @@ Também pode [automatizar o treino e afinação](tutorial-auto-train-models.md) 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Implementar & gestão do ciclo de vida
 Quando tiver o modelo certo, pode facilmente usá-lo num serviço web, num dispositivo IoT ou na Power BI. Para mais informações, consulte o artigo sobre [como implementar e onde](how-to-deploy-and-where.md).
 
-Em seguida, pode gerir os seus modelos implantados utilizando o [Azure Machine Learning SDK para Python,](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) [o estúdio Azure Machine Learning](https://ml.azure.com)ou o [CLI de aprendizagem automática](reference-azure-machine-learning-cli.md).
+Em seguida, pode gerir os seus modelos implantados utilizando o [Azure Machine Learning SDK para Python,](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) [o estúdio Azure Machine Learning](https://ml.azure.com)ou o [CLI de aprendizagem automática](reference-azure-machine-learning-cli.md).
 
 Estes modelos podem ser consumidos e as previsões de retorno em [tempo real](how-to-consume-web-service.md) ou [assíncrona](how-to-use-parallel-run-step.md) em grandes quantidades de dados.
 
@@ -134,7 +134,7 @@ A Azure Machine Learning oferece duas edições adaptadas às suas necessidades 
 
 Para saber mais sobre estas edições e quais as capacidades que desbloqueiam, leia o [artigo "Azure Machine Learning Editions".](concept-editions.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie a sua primeira experiência com o seu método preferido:
   + [Use cadernos Python para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)

@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651204"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647222"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados utilizando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-compute-target"></a>Criar um alvo de computação
 
-No Azure Machine Learning, *o cálculo* (ou o alvo *do cálculo)* refere-se às máquinas ou clusters que realizam os passos computacionais no seu pipeline de aprendizagem automática. Executar o seguinte código para criar um alvo [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) baseado em CPU.
+No Azure Machine Learning, *o cálculo* (ou o alvo *do cálculo)* refere-se às máquinas ou clusters que realizam os passos computacionais no seu pipeline de aprendizagem automática. Executar o seguinte código para criar um alvo [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) baseado em CPU.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -134,9 +134,9 @@ def_data_store = ws.get_default_datastore()
 
 ### <a name="create-the-data-inputs"></a>Criar as entradas de dados
 
-As entradas para inferência do lote são os dados que pretende dividir para processamento paralelo. Um pipeline de inferência de lote aceita entradas de dados através [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) de .
+As entradas para inferência do lote são os dados que pretende dividir para processamento paralelo. Um pipeline de inferência de lote aceita entradas de dados através [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) de .
 
-`Dataset` é para explorar, transformar e gerir dados em Azure Machine Learning. Existem dois tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) . Neste exemplo, usará `FileDataset` como entradas. `FileDataset` fornece-lhe a capacidade de descarregar ou montar os ficheiros para o seu cálculo. Ao criar um conjunto de dados, cria uma referência à localização da fonte de dados. Se aplicar algumas transformações de subscímia ao conjunto de dados, elas também serão armazenadas no conjunto de dados. Os dados permanecem na sua localização existente, pelo que não é incorrido qualquer custo extra de armazenamento.
+`Dataset` é para explorar, transformar e gerir dados em Azure Machine Learning. Existem dois tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) e [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) . Neste exemplo, usará `FileDataset` como entradas. `FileDataset` fornece-lhe a capacidade de descarregar ou montar os ficheiros para o seu cálculo. Ao criar um conjunto de dados, cria uma referência à localização da fonte de dados. Se aplicar algumas transformações de subscímia ao conjunto de dados, elas também serão armazenadas no conjunto de dados. Os dados permanecem na sua localização existente, pelo que não é incorrido qualquer custo extra de armazenamento.
 
 Para obter mais informações sobre conjuntos de dados de aprendizagem automática Azure, consulte [Criar e aceder conjuntos de dados (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -147,7 +147,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-Para utilizar entradas dinâmicas de dados ao executar o pipeline de inferência do lote, pode definir as entradas `Dataset` como um [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) . Pode especificar o conjunto de dados de entradas sempre que voltar aubscrever um pipeline de inferência de lote.
+Para utilizar entradas dinâmicas de dados ao executar o pipeline de inferência do lote, pode definir as entradas `Dataset` como um [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) . Pode especificar o conjunto de dados de entradas sempre que voltar aubscrever um pipeline de inferência de lote.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
@@ -159,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>Criar a saída
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) os objetos são utilizados para transferir dados intermédios entre etapas de gasoduto. Neste exemplo, usa-se para inferência.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) os objetos são utilizados para transferir dados intermédios entre etapas de gasoduto. Neste exemplo, usa-se para inferência.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -353,7 +353,7 @@ parallelrun_step = ParallelRunStep(
 ```
 ### <a name="create-and-run-the-pipeline"></a>Criar e executar o oleoduto
 
-Agora, corre o oleoduto. Em primeiro lugar, crie um [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) objeto utilizando a referência do seu espaço de trabalho e o passo de pipeline que criou. O `steps` parâmetro é uma variedade de passos. Neste caso, só há um passo para a inferência do lote. Para construir oleodutos que tenham múltiplos passos, coloque os passos em ordem nesta matriz.
+Agora, corre o oleoduto. Em primeiro lugar, crie um [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) objeto utilizando a referência do seu espaço de trabalho e o passo de pipeline que criou. O `steps` parâmetro é uma variedade de passos. Neste caso, só há um passo para a inferência do lote. Para construir oleodutos que tenham múltiplos passos, coloque os passos em ordem nesta matriz.
 
 Em seguida, utilize a `Experiment.submit()` função para submeter o gasoduto para execução.
 
@@ -371,7 +371,7 @@ pipeline_run = experiment.submit(pipeline)
 Um trabalho de inferência de lote pode levar muito tempo para terminar. Este exemplo monitoriza o progresso utilizando um widget Jupyter. Também pode monitorizar o progresso do trabalho utilizando:
 
 * Estúdio de Aprendizagem automática Azure. 
-* Saída da consola a partir do [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) objeto.
+* Saída da consola a partir do [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py&preserve-view=true) objeto.
 
 ```python
 from azureml.widgets import RunDetails
@@ -419,7 +419,7 @@ print("Prediction has ", df.shape[0], " rows")
 df.head(10) 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ver este processo de trabalho de ponta a ponta, experimente o [caderno de inferência](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)do lote . 
 

@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema da Referência de Segurança do A
 description: Descrição geral do exemplo de esquema da Referência de Segurança do Azure. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos.
 ms.date: 06/02/2020
 ms.topic: sample
-ms.openlocfilehash: 780d16cd52ef9ea8b5edd654d6c80b9db593ab6d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84740380"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651901"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Amostra de projeto de benchmark de segurança Azure
 
@@ -18,7 +18,7 @@ O exemplo de esquema da Referência de Segurança do Azure disponibiliza proteç
 
 O [mapeamento de controlo de política Azure](../../policy/samples/azure-security-benchmark.md) fornece detalhes sobre as definições de política incluídas neste projeto e como estas definições de política mapeiam para os **domínios** de conformidade e **controlos** no Benchmark de Segurança Azure. Quando atribuídos a uma arquitetura, os recursos são avaliados pela Azure Policy para o incumprimento das definições políticas atribuídas. Para obter mais informações, veja [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para implantar a amostra de projeto Azure Security Benchmark, devem ser tomadas as seguintes medidas:
 
@@ -37,7 +37,7 @@ Em primeiro lugar, implemente a amostra de planta criando uma nova planta no seu
 
 1. A partir da página **'Iniciar'** à esquerda, selecione o botão **Criar** _uma plantação_.
 
-1. Encontre a amostra de projeto **de benchmark de segurança Azure** em _Outras Amostras_ e selecione clique no nome para selecionar esta amostra.
+1. Encontre a amostra de projeto **Azure Security Benchmark** em _Outras Amostras_ e selecione o nome para selecionar esta amostra.
 
 1. Introduza os _fundamentos_ da amostra da planta:
 
@@ -114,7 +114,7 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 |Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Versão mais recente do Windows Python|Versão python suportada mais recente para Serviços de Aplicações|
 |Auditar recomendações de Benchmark de Segurança Azure e implementar extensões específicas de suporte VM|Atribuição de políticas|Última versão Linux Python|Versão python suportada mais recente para Serviços de Aplicações|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

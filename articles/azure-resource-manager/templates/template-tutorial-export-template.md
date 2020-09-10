@@ -2,16 +2,16 @@
 title: Tutorial - Modelo de exportação do portal Azure
 description: Aprenda a usar um modelo exportado para completar o desenvolvimento do seu modelo.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497159"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650064"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Use modelo exportado a partir do portal Azure
 
@@ -62,7 +62,7 @@ Este modelo funciona bem para implementar contas de armazenamento, mas é melhor
 
    A característica do modelo de exportação toma o estado atual de um recurso e gera um modelo para implementá-lo. Exportar um modelo pode ser uma forma útil de obter rapidamente o JSON que você precisa para implementar um recurso.
 
-1. Copie a definição **Microsoft.Web/serverfarms** e a definição de parâmetro para o seu modelo.
+1. Veja a definição **microsoft.Web/serverfarms** e a definição de parâmetro no modelo exportado. Não precisas de copiar estas secções. Você pode apenas usar este modelo exportado como um exemplo de como você quer adicionar este recurso ao seu modelo.
 
     ![Modelo de exportação de modelo de gestor de recursos modelo exportado](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -73,7 +73,7 @@ Este modelo funciona bem para implementar contas de armazenamento, mas é melhor
 
 O modelo exportado dá-lhe a maior parte do JSON que você precisa, mas você precisa personalizá-lo para o seu modelo. Preste especial atenção às diferenças de parâmetros e variáveis entre o seu modelo e o modelo exportado. Obviamente, o processo de exportação não conhece os parâmetros e variáveis que já definiu no seu modelo.
 
-O exemplo a seguir destaca as adições ao seu modelo. Contém o código exportado mais algumas alterações. Primeiro, muda o nome do parâmetro para corresponder à sua convenção de nomeação. Em segundo lugar, utiliza o seu parâmetro de localização para a localização do plano de serviço de aplicações. Em terceiro lugar, remove o **nome** dentro do objeto **de propriedades** porque este valor é redundante com a propriedade **do nome** ao nível do recurso.
+O exemplo a seguir destaca as adições ao seu modelo. Contém o código exportado mais algumas alterações. Primeiro, muda o nome do parâmetro para corresponder à sua convenção de nomeação. Em segundo lugar, utiliza o seu parâmetro de localização para a localização do plano de serviço de aplicações. Em terceiro lugar, remove algumas das propriedades onde o valor padrão é bom.
 
 Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
@@ -133,7 +133,7 @@ Se estás a parar agora, talvez queiras limpar os recursos que mobilizaste, elim
 3. Selecione o nome do grupo de recursos.
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Você aprendeu a exportar um modelo a partir do portal Azure, e como usar o modelo exportado para o desenvolvimento do seu modelo. Também pode usar os modelos Azure Quickstart para simplificar o desenvolvimento do modelo.
 

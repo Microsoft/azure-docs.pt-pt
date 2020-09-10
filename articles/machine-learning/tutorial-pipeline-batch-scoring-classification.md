@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: 600b19ffac61f8f7c7336f114c6b52c6bc88b5ad
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489515"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646965"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construir um pipeline de aprendizagem automática Azure para pontuação de lotes
 
@@ -142,7 +142,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Os oleodutos de aprendizagem automática não podem ser executados localmente, por isso executá-los em recursos em nuvem ou *alvos de computação remota.* Um alvo de computação remota é um ambiente de computação virtual reutilizável onde você executa experiências e fluxos de trabalho de aprendizagem automática. 
 
-Executar o seguinte código para criar um alvo ativado pela GPU [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) e, em seguida, anexá-lo ao seu espaço de trabalho. Para obter mais informações sobre metas de computação, consulte o [artigo conceptual.](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)
+Executar o seguinte código para criar um alvo ativado pela GPU [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) e, em seguida, anexá-lo ao seu espaço de trabalho. Para obter mais informações sobre metas de computação, consulte o [artigo conceptual.](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)
 
 
 ```python
@@ -305,7 +305,7 @@ Um passo de oleoduto é um objeto que encapsula tudo o que precisa para executar
 * Dados de entrada e saída, e quaisquer parâmetros personalizados
 * Referência a um script ou lógica SDK para executar durante o passo
 
-Várias classes herdam da classe dos [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) pais. Pode escolher aulas para usar quadros ou pilhas específicos para construir um passo. Neste exemplo, você usa a `ParallelRunStep` classe para definir a sua lógica de passo usando um script Python personalizado. Se um argumento para o seu script for uma entrada para o passo ou uma saída do passo, o argumento deve ser definido *tanto* na matriz como `arguments` no *and* `input` `output` parâmetro, respectivamente. 
+Várias classes herdam da classe dos [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py&preserve-view=true) pais. Pode escolher aulas para usar quadros ou pilhas específicos para construir um passo. Neste exemplo, você usa a `ParallelRunStep` classe para definir a sua lógica de passo usando um script Python personalizado. Se um argumento para o seu script for uma entrada para o passo ou uma saída do passo, o argumento deve ser definido *tanto* na matriz como `arguments` no *and* `input` `output` parâmetro, respectivamente. 
 
 Em cenários em que há mais de um passo, uma referência de objeto na `outputs` matriz torna-se disponível como *entrada* para um passo de pipeline subsequente.
 
@@ -329,7 +329,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-Para obter uma lista de todas as classes que pode utilizar para diferentes tipos de passos, consulte o [pacote de passos.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py)
+Para obter uma lista de todas as classes que pode utilizar para diferentes tipos de passos, consulte o [pacote de passos.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)
 
 ## <a name="submit-the-pipeline"></a>Enviar o oleoduto
 
@@ -386,9 +386,9 @@ published_pipeline
 
 Para executar o gasoduto a partir do ponto final REST, precisa de um cabeçalho de autenticação do tipo Portador OAuth2. O exemplo a seguir utiliza a autenticação interativa (para fins de ilustração), mas para a maioria dos cenários de produção que exijam autenticação automatizada ou sem cabeça, utilize a autenticação principal do serviço, conforme [descrito neste artigo.](how-to-setup-authentication.md)
 
-A autenticação principal do serviço envolve a criação de um *Registo de Aplicações* em *Diretório Ativo Azure.* Primeiro, gera um segredo de cliente, e depois concede ao seu serviço *o acesso* ao seu espaço de trabalho de aprendizagem automática. Utilize a [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) classe para gerir o seu fluxo de autenticação. 
+A autenticação principal do serviço envolve a criação de um *Registo de Aplicações* em *Diretório Ativo Azure.* Primeiro, gera um segredo de cliente, e depois concede ao seu serviço *o acesso* ao seu espaço de trabalho de aprendizagem automática. Utilize a [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) classe para gerir o seu fluxo de autenticação. 
 
-Ambos [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) e `ServicePrincipalAuthentication` herdar `AbstractAuthentication` de. Em ambos os casos, utilize a [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) função da mesma forma para ir buscar o cabeçalho:
+Ambos [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) e `ServicePrincipalAuthentication` herdar `AbstractAuthentication` de. Em ambos os casos, utilize a [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#&preserve-view=trueget-authentication-header--) função da mesma forma para ir buscar o cabeçalho:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -445,7 +445,7 @@ Se não planeia utilizar os recursos que criou, elimine-os, para não incorrer e
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e, em seguida, selecionar **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial de gasodutos de aprendizagem automática, fez as seguintes tarefas:
 

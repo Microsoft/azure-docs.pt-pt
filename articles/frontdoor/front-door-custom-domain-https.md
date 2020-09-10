@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2018
+ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bbd45a4190cfa1199568c23cc346b9ccacc20ac5
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399825"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648879"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
@@ -219,7 +219,27 @@ Se ocorrer um erro antes de o pedido ser submetido, será apresentada a seguinte
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
+1. *Quem é o fornecedor do certificado e que tipo de certificado é utilizado?*
+
+    Um certificado dedicado/individual, fornecido pela Digicert, é utilizado para o seu domínio personalizado. 
+
+2. *Utiliza TLS/SSL baseado em IP ou em SNI?*
+
+    A porta frontal Azure utiliza SNI TLS/SSL.
+
+3. *E se não receber o e-mail de verificação do domínio da DigiCert?*
+
+    Se tiver uma entrada CNAME para o seu domínio personalizado que aponte diretamente para o nome de anfitrião do seu ponto final (e não estiver a utilizar o nome de subdomínio afdverify), não receberá um e-mail de verificação do domínio. A validação ocorre automaticamente. Caso contrário, se não tiver uma entrada CNAME e não tiver recebido um e-mail passadas 24 horas, contacte o suporte da Microsoft.
+
+4. *A utilização de um certificado SAN é mais insegura do que um certificado dedicado?*
+    
+    Os certificados SAN seguem as mesmas normas de encriptação e segurança dos certificados dedicados. Todos os certificados TLS/SSL emitidos utilizam SHA-256 para uma segurança reforçada do servidor.
+
+5. *Preciso de um registo Autorização de Autoridade de Certificação junto do meu fornecedor de DNS?*
+
+    Não, atualmente os registos Autorização de Autoridade de Certificação não são necessários. No entanto, se tiver um, o mesmo tem de incluir a DigiCert como AC válida.
 
 ## <a name="clean-up-resources---disable-https"></a>Limpar recursos - desativar HTTPS
 
@@ -247,30 +267,15 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
 | 2 Desaprovisionamento do certificado | Eliminar o certificado |
 | 3 Concluído | Certificado eliminado |
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="next-steps"></a>Passos seguintes
 
-1. *Quem é o fornecedor do certificado e que tipo de certificado é utilizado?*
+Neste tutorial, ficou a saber como:
 
-    Um certificado dedicado/individual, fornecido pela Digicert, é utilizado para o seu domínio personalizado. 
+* Faça o upload de um certificado para o Key Vault.
+* Validar um domínio.
+* Ative HTTPS para o seu domínio personalizado.
 
-2. *Utiliza TLS/SSL baseado em IP ou em SNI?*
+Para aprender a configurar uma política de geo-filtragem para você Porta da Frente, continue para o próximo tutorial.
 
-    A porta frontal Azure utiliza SNI TLS/SSL.
-
-3. *E se não receber o e-mail de verificação do domínio da DigiCert?*
-
-    Se tiver uma entrada CNAME para o seu domínio personalizado que aponte diretamente para o nome de anfitrião do seu ponto final (e não estiver a utilizar o nome de subdomínio afdverify), não receberá um e-mail de verificação do domínio. A validação ocorre automaticamente. Caso contrário, se não tiver uma entrada CNAME e não tiver recebido um e-mail passadas 24 horas, contacte o suporte da Microsoft.
-
-4. *A utilização de um certificado SAN é mais insegura do que um certificado dedicado?*
-    
-    Os certificados SAN seguem as mesmas normas de encriptação e segurança dos certificados dedicados. Todos os certificados TLS/SSL emitidos utilizam SHA-256 para uma segurança reforçada do servidor.
-
-5. *Preciso de um registo Autorização de Autoridade de Certificação junto do meu fornecedor de DNS?*
-
-    Não, atualmente os registos Autorização de Autoridade de Certificação não são necessários. No entanto, se tiver um, o mesmo tem de incluir a DigiCert como AC válida.
-
-
-## <a name="next-steps"></a>Próximos passos
-
-- Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Saiba [como funciona o Front Door](front-door-routing-architecture.md).
+> [!div class="nextstepaction"]
+> [Estabeleça uma política de geo-filtragem](front-door-geo-filtering.md)

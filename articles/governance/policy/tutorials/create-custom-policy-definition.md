@@ -3,12 +3,12 @@ title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você elabora uma definição de política personalizada para a Azure Policy para impor regras de negócio personalizadas sobre os seus recursos Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86044622"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649832"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -73,7 +73,7 @@ Existem várias formas de olhar para um [modelo de Gestor de Recursos](../../../
 A forma mais simples de encontrar propriedades é olhar para um recurso existente do mesmo tipo. Os recursos já configurados com a configuração que pretende impor também fornecem o valor para comparar.
 Veja a página do **modelo de exportação** (em **Definições)** no portal Azure para esse recurso específico.
 
-:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Página do modelo de exportação no recurso existente" border="false":::
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Screenshot da página do modelo de exportação num recurso existente no portal Azure." border="false":::
 
 Fazê-lo para uma conta de armazenamento revela um modelo semelhante a este exemplo:
 
@@ -455,7 +455,7 @@ Com as três partes da política definidas, aqui está a nossa definição compl
 
 A definição completa pode ser usada para criar uma nova política. Portal e cada SDK (Azure CLI, Azure PowerShell e REST API) aceitam a definição de diferentes maneiras, por isso reveja os comandos para cada um validar o uso correto. Em seguida, atribua-o, utilizando o efeito parametrizado, a recursos adequados para gerir a segurança das suas contas de armazenamento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já acabou de trabalhar com recursos deste tutorial, use os seguintes passos para eliminar qualquer uma das atribuições ou definições acima criadas:
 
@@ -476,7 +476,7 @@ Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 > - Determinou o efeito de usar
 > - Compôs a definição de política
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, use a sua definição de política personalizada para criar e atribuir uma política:
 

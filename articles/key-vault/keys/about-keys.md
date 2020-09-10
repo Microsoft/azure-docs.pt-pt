@@ -10,14 +10,14 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 76e9c342f87a3aa1d04a8f4be4065af73e6ba9f2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413728"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651313"
 ---
-# <a name="about-azure-key-vault-keys"></a>Sobre as chaves do cofre da chave Azure
+# <a name="about-azure-key-vault-keys"></a>Acerca das chaves do Azure Key Vault
 
 O Cofre da Chave Azure suporta vários tipos e algoritmos de chave e permite a utilização de Módulos de Segurança de Hardware (HSM) para chaves de alto valor.
 
@@ -175,7 +175,7 @@ As seguintes permissões podem ser concedidas, por base principal de utilizador/
 
 Para obter mais informações sobre o trabalho com as teclas, consulte [as operações key in the Key Vault REST API reference](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Sobre o Key Vault](../general/overview.md)
 - [Acerca de chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)

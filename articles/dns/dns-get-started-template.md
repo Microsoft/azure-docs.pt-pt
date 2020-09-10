@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 4fd87cb17fc222f5014585e8f1e87e3f58a58574
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596148"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647896"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Quickstart: Crie uma zona de DNS Azure e grave usando um modelo ARM
 
@@ -115,7 +115,7 @@ O nome de anfitrião **www<span>.2lwynbseszpam.azurequickstart.</span> org** res
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não precisar dos recursos que criou com o circuito ExpressRoute, elimine o grupo de recursos. Isto remove o circuito ExpressRoute e todos os recursos relacionados.
+Quando já não precisar dos recursos que criou com a zona DNS, elimine o grupo de recursos. Isto remove a zona de DNS e todos os recursos conexos.
 
 Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 

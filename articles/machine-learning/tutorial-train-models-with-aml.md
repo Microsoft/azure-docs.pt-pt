@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 00fff79e2f572a6292336d0647d497a8851ef74a
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 402eaec50d273c4d8d9215f53fa433d0db4332e8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595551"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649918"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Modelos de classificação de imagem de comboio com dados do MNIST e scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Aprende-se a selecionar um modelo e a implantá-lo na [segunda parte deste tutor
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 >[!NOTE]
-> O código deste artigo foi testado com a versão 1.0.83 [do Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+> O código deste artigo foi testado com a versão 1.0.83 [do Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -150,7 +150,7 @@ else:
 
 Tem agora os pacotes e os recursos de computação necessários para preparar um modelo na cloud. 
 
-## <a name="explore-data"></a>Explorar os dados
+## <a name="explore-data"></a>Explorar dados
 
 Antes de treinar um modelo, precisa entender os dados que usa para treiná-lo. Nesta secção, vai aprender a:
 
@@ -386,7 +386,7 @@ Pode verificar o progresso de um trabalho em execução de várias maneiras. Est
 
 ### <a name="jupyter-widget"></a>Widget Jupyter
 
-Assista ao progresso da corrida com um [widget Jupyter.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) Tal como a submissão de corrida, o widget é assíncronos e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho termine:
+Assista ao progresso da corrida com um [widget Jupyter.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) Tal como a submissão de corrida, o widget é assíncronos e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho termine:
 
 ```python
 from azureml.widgets import RunDetails

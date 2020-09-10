@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Mobilizar recursos com definição de política'
-description: Este padrão de Política Azure fornece um exemplo de como implantar recursos com uma definição de política.
+description: Este padrão de Política Azure fornece um exemplo de como implementar recursos com uma definição de política implantadaIfNotExists.
 ms.date: 08/17/2020
 ms.topic: sample
-ms.openlocfilehash: 705c751183a0b71c8628a505f08ef112bca1cbb7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a9eec54954b8963f38b3f19a0d0cabffe1092e5
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545612"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649980"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Padrão de Política Azure: mobilizar recursos
 
@@ -48,7 +48,7 @@ A parte de **implantação** da definição de política tem um bloco **de propr
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja [outros padrões e definições incorporadas.](./index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

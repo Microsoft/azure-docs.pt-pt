@@ -1,6 +1,6 @@
 ---
-title: Com este modelo de gestor de recursos Azure, poderá implementar o Ponto Final Privado para a Web App.
-description: Saiba como usar o modelo ARM para implementar o Ponto Final Privado para a sua Aplicação Web
+title: Use um modelo de Gestor de Recursos Azure para implementar um ponto final privado para uma aplicação web
+description: Aprenda a usar o modelo ARM para implementar um ponto final privado para a sua aplicação web.
 author: ericgre
 ms.assetid: 49e460d0-7759-4ceb-b5a4-f1357e4fde56
 ms.topic: sample
@@ -8,16 +8,16 @@ ms.date: 07/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ff2d59ed569037f34e24a69ffafa0df237a3de34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acf7198477ce0c55f9321fd3f8e57294a60c0961
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535732"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652022"
 ---
-# <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-resource-manager-template"></a>Crie uma aplicação de Serviço de Aplicações e implemente o Private Endpoint usando o modelo de Gestor de Recursos Azure
+# <a name="create-an-app-service-app-and-deploy-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Crie uma aplicação de Serviço de Aplicações e implemente um ponto final privado utilizando um modelo de Gestor de Recursos Azure
 
-Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para criar uma Web App e expô-la com um ponto final privado.
+Neste arranque rápido, você usa um modelo Azure Resource Manager (ARM) para criar uma aplicação web e expô-la com um ponto final privado.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -27,7 +27,7 @@ Precisa de uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.
 
 ## <a name="create-a-private-endpoint"></a>Criar um ponto final privado
 
-Este modelo cria um ponto final privado para uma Aplicação Web Azure.
+Este modelo cria um ponto final privado para uma aplicação web Azure.
 
 ### <a name="review-the-template"></a>Rever o modelo
 
@@ -37,15 +37,12 @@ Este modelo cria um ponto final privado para uma Aplicação Web Azure.
 
 Aqui está como implementar o modelo do Gestor de Recursos Azure para Azure:
 
-1. Para iniciar súm na Azure e abrir o modelo, **selecione Implementar para Azure**. O modelo cria o VNet, a Web App, o Private Endpoint e a zona privada de DNS.
-
-   [Implementar no Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json)
-
+1. Para iniciar súm na Azure e abrir o modelo, selecione este link:  [Implementar para Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json). O modelo cria a rede virtual, a aplicação web, o ponto final privado e a zona privada do DNS.
 2. Selecione ou crie o seu grupo de recursos.
-3. Digite o nome da sua Aplicação Web, Plano de Serviço de Aplicações, Ponto Final Privado.
-5. Leia a declaração de termos e condições. Se concordar, selecione concordo com os termos e condições acima > Compra. A implantação pode demorar vários minutos.
+3. Insira o nome da sua aplicação web, plano de Serviço de Aplicações Azure e ponto final privado.
+5. Leia a declaração sobre os termos e condições. Se concordar, **selecione concordo com os termos e condições acima**  >  **de Compra.** A colocação pode levar vários minutos para terminar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o ponto final privado, elimine o grupo de recursos. Isto remove o ponto final privado e todos os recursos conexos.
 
@@ -57,4 +54,4 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Modelos adicionais de Gestor de Recursos Azure para aplicações web do Azure App Service podem ser encontrados nas [amostras](../samples-resource-manager-templates.md)do modelo ARM .
+- Pode encontrar mais modelos de Gestor de Recursos Azure para aplicações web do Azure App Service nas amostras do [modelo ARM.](../samples-resource-manager-templates.md)

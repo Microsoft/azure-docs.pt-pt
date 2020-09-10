@@ -1,47 +1,53 @@
 ---
-title: O que é a API de Análise de Texto? - Capacidades -
+title: Mineração de texto e análise com a API text Analytics - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Utilize a API text Analytics da Azure Cognitive Services para análise de sentimentos, extração de frases-chave, deteção de linguagem e reconhecimento de entidades.
+description: Saiba mais sobre a mineração de texto com a API text Analytics. Use-o para análise de sentimentos, deteção de linguagem e outras formas de processamento de linguagem natural.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+keywords: mineração de texto, análise de sentimento, análise de texto
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000962"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647467"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
-A API text Analytics é um serviço baseado na nuvem que fornece processamento avançado de linguagem natural sobre texto cru, e inclui quatro funções principais: análise de sentimento, extração de frases-chave, deteção de linguagem e reconhecimento de entidades nomeadas.
+A API text Analytics é um serviço baseado na nuvem que fornece funcionalidades de processamento de linguagem natural (NLP) para a mineração de texto e análise de texto, incluindo: análise de sentimentos, mineração de opinião, extração de frases-chave, deteção de linguagem e reconhecimento de entidades nomeadas.
 
-A API faz parte da [Azure Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/)uma coleção de machine learning e algoritmos de IA na nuvem para os seus projetos de desenvolvimento.
+A API faz parte da [Azure Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/)uma coleção de machine learning e algoritmos de IA na nuvem para os seus projetos de desenvolvimento. Pode utilizar estas funcionalidades com a [API REST,](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)ou com a biblioteca do [cliente.](quickstarts/text-analytics-sdk.md)
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-A análise de texto pode significar coisas diferentes, mas nos Serviços Cognitivos, a API text Analytics fornece quatro tipos de análise como descrito abaixo. Pode utilizar estas funcionalidades com a [API REST,](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)ou com a biblioteca do [cliente.](quickstarts/text-analytics-sdk.md)
+## <a name="sentiment-analysis"></a>Análise de sentimentos
 
-## <a name="sentiment-analysis"></a>Análise de Sentimentos
-Use a análise de [sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que os clientes pensam da sua marca ou tópico, analisando texto em bruto para obter pistas sobre sentimentos positivos ou negativos. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo.<br /> Os modelos de análise são pré-preparados com um corpo extenso de texto e tecnologias de linguagem natural da Microsoft. Para os [idiomas selecionados](text-analytics-supported-languages.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada.
+Use a análise de [sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md) e descubra o que as pessoas pensam da sua marca ou tópico, minerando o texto para obter pistas sobre sentimentos positivos ou negativos. Esta funcionalidade API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, onde 1 é o mais positivo.
 
-## <a name="key-phrase-extraction"></a>Extração de Expressões-Chave
-Extrair automaticamente [frases-chave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rapidamente os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”.
+A partir da pré-visualização v3.1, a mineração de opinião é uma característica da Análise do Sentimento. Também conhecida como Análise de Sentimento baseada em Aspetos no Processamento de Linguagem Natural (NLP), esta funcionalidade fornece mais informações granulares sobre as opiniões relacionadas com aspetos (como os atributos de produtos ou serviços) em texto.
 
-## <a name="language-detection"></a>Deteção de Idioma
-Pode [detetar em que língua o texto de entrada está escrito](how-tos/text-analytics-how-to-language-detection.md) e reportar um código linguístico único para cada documento submetido a pedido numa vasta gama de línguas, variantes, dialetos e algumas línguas regionais/culturais. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação.
+## <a name="key-phrase-extraction"></a>Extração de expressões-chave
 
-## <a name="named-entity-recognition"></a>Reconhecimento de Entidades Nomeadas
-[Identifique e categorize as entidades](how-tos/text-analytics-how-to-entity-linking.md) no seu texto como pessoas, locais, organizações, data/hora, quantidades, percentagens, moedas e muito mais. As entidades conhecidas também são reconhecidas e ligadas a mais informações na Web.
+Utilize a [extração de frases-chave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rapidamente os principais conceitos em texto. Por exemplo, no texto "A comida era deliciosa e havia uma equipa maravilhosa", a Chave Desvaição dos principais pontos de conversa: "comida" e "pessoal maravilhoso".
+
+## <a name="language-detection"></a>Deteção de idioma
+
+A deteção de [idiomas](how-tos/text-analytics-how-to-language-detection.md) pode detetar a linguagem em que um texto de entrada é escrito e reportar um único código linguístico para cada documento submetido a pedido em uma ampla gama de línguas, variantes, dialetos e algumas línguas regionais/culturais. O código linguístico é emparelhado com uma pontuação de confiança.
+
+## <a name="named-entity-recognition"></a>Reconhecimento de entidades nomeadas
+
+O Nome De Reconhecimento de Entidade (NER) pode [identificar e categorizar entidades](how-tos/text-analytics-how-to-entity-linking.md) no seu texto como pessoas, locais, organizações, quantidades, entidades conhecidas também são reconhecidas e ligadas a mais informações na web.
 
 ## <a name="use-containers"></a>Utilizar contentores
 
-[Utilize os recipientes Text Analytics](how-tos/text-analytics-how-to-install-containers.md) para extrair frases-chave, detetar linguagem e analisar o sentimento localmente, instalando recipientes estivadores padronizados mais próximos dos seus dados.
+[Utilize os recipientes Text Analytics](how-tos/text-analytics-how-to-install-containers.md) como solução no local para o texto de mineração e para a utilização da API. Estes recipientes Docker permitem-lhe extrair frases-chave, detetar linguagem e analisar o sentimento mais próximo dos seus dados.
 
 ## <a name="typical-workflow"></a>Fluxo de trabalho típico
 
@@ -88,7 +94,7 @@ Todos os pontos finais da API de Análise de Texto aceitam dados de texto não p
 
 A API de Análise de Texto utiliza a codificação Unicode para representação de texto e cálculos de contagem de carateres. Os pedidos podem ser submetidos em UTF-8 e UTF-16, sem diferenças mensuráveis na contagem de carateres. Os pontos de código Unicode são utilizados como a heurística para o comprimento dos carateres, e são considerados equivalentes para efeitos de limites de dados de análise de texto. Se utilizar [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) para obter a contagem de caracteres, está a usar o mesmo método que usamos para medir o tamanho dos dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Crie um recurso Azure](../cognitive-services-apis-create-account.md) para text Analytics para obter uma chave e ponto final para as suas aplicações.
 

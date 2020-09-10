@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Parâmetros numa definição de política'
-description: Este padrão de Política Azure fornece um exemplo de como usar parâmetros numa definição de política.
+description: Este padrão de Política Azure fornece um exemplo de como usar parâmetros de cadeia e matriz numa definição de política, bem como como parametrizar o efeito.
 ms.date: 08/17/2020
 ms.topic: sample
-ms.openlocfilehash: 6d938cdf2f31d30932d3631e99254b7d833f2941
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545578"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649948"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Padrão de política azul: parâmetros
 
@@ -67,7 +67,7 @@ O parâmetro é então utilizado na **apóliceRule.em seguida,** bloquear para o
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja [outros padrões e definições incorporadas.](./index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

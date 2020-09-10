@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMS AWS para Azure com Azure Migra
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 72579c103102196e641244600ce9add64d6e20a4
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419015"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651842"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -43,12 +43,17 @@ Configurar uma avaliação da seguinte forma:
 1. Siga o [tutorial](./tutorial-prepare-physical.md) para configurar o Azure e prepare os seus VMS AWS para uma avaliação. Tenha em atenção que:
 
     - A Azure Migrate utiliza a autenticação de palavra-passe ao descobrir casos AWS. As instâncias AWS não suportam a autenticação de palavra-passe por padrão. Antes de descobrir a ocorrência, tem de ativar a autenticação de senhas.
-        - Para máquinas Windows, permita a porta WinRM 5986 (HTTPS) e 5985 (HTTP). Isto permite chamadas remotas de WMI. Se configurar o 
+        - Para máquinas Windows, permita a porta WinRM 5985 (HTTP). Isto permite chamadas remotas de WMI.
         - Para máquinas Linux:
             1. Inscreva-se em cada máquina Linux.
             2. Abra o ficheiro sshd_config : vi /etc/ssh/sshd_config
             3. No ficheiro, localizar a linha **passwordAustração** e alterar o valor para **sim**.
             4. Guarde o ficheiro e feche-o. Reinicie o serviço de ssh.
+    - Se estiver a utilizar um utilizador de raiz para descobrir os seus VMs Linux, certifique-se de que o login de raiz é permitido nos VMs.
+        1. Inscreva-se em cada máquina Linux
+        2. Abra o ficheiro sshd_config : vi /etc/ssh/sshd_config
+        3. No ficheiro, localizar a linha **PermitRootLogin** e alterar o valor para **sim**.
+        4. Guarde o ficheiro e feche-o. Reinicie o serviço de ssh.
 
 2. Em seguida, siga este [tutorial](./tutorial-assess-physical.md) para configurar um projeto e aparelho Azure Migrate para descobrir e avaliar os seus VMS AWS.
 
