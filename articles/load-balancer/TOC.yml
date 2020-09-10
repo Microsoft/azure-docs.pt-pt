@@ -81,6 +81,8 @@
       href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Procedimento
   items:
+    - name: Definições do portal
+      href: manage.md
     - name: Conjuntos de dimensionamento de máquinas virtuais
       items:
         - name: Utilizar com um Balanceador de Carga do Azure existente - Portal

@@ -924,8 +924,6 @@
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: Guias de Início Rápido
           items:
-            - name: Criar s VM do SQL
-              items: null
             - name: Portal
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
             - name: PowerShell
