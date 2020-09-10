@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 5e32a6a9817f2a3176e96e39c5e261875e8f4ed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 72eea7c46dd005cd16ae5b8f0022c1174dd28f27
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101799"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667490"
 ---
 # <a name="orchestrate-with-pipelines"></a>Orquestrar com oleodutos
 
@@ -26,7 +26,7 @@ Você pode orquestrar uma grande variedade de tarefas em Azure Synapse.
 
 1. No Estúdio Synapse, vá ao centro **de Orchestrate.**
 1. Selecione **+**  >  **Pipeline** para criar um novo oleoduto.
-1. Vá ao centro **De desenvolvimento** e encontre o caderno que criou anteriormente.
+1. Vá ao centro **De Desenvolvimento** e selecione um dos cadernos que criou anteriormente.
 1. Arraste o caderno para o oleoduto.
 1. No oleoduto, **selecione Adicionar gatilho**  >  **Novo/editar**.
 1. No **Seletor**Trigger , selecione **Novo**e, em seguida, em **recorrência,** desacorda o gatilho a cada 1 hora.

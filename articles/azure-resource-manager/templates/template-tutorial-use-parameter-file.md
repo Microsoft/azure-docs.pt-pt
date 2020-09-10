@@ -2,20 +2,20 @@
 title: Tutorial - use o arquivo de parâmetros para implementar o modelo
 description: Utilize ficheiros de parâmetros que contenham os valores a utilizar para implantar o seu modelo de Gestor de Recursos Azure.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ff3ba6bdf93fd51b3b78fce2bc82404423c427ba
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502805"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667424"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Use ficheiros de parâmetros para implementar o seu modelo ARM
 
-Neste tutorial, aprende-se a usar [ficheiros de parâmetros](parameter-files.md) para armazenar os valores que transmite durante a implementação. Nos tutoriais anteriores, utilizou parâmetros inline com o seu comando de implantação. Esta abordagem funcionou para testar o seu modelo Azure Resource Manager (ARM), mas ao automatizar implementações pode ser mais fácil passar um conjunto de valores para o seu ambiente. Os ficheiros de parâmetros facilitam a embalagem dos valores dos parâmetros para um ambiente específico. Neste tutorial, criará ficheiros de parâmetros para ambientes de desenvolvimento e produção. Leva cerca de **12 minutos** para ser completado.
+Neste tutorial, aprende-se a usar [ficheiros de parâmetros](parameter-files.md) para armazenar os valores que transmite durante a implementação. Nos tutoriais anteriores, utilizou parâmetros inline com o seu comando de implantação. Esta abordagem funcionou para testar o seu modelo de Gestor de Recursos Azure (modelo ARM), mas ao automatizar implementações pode ser mais fácil passar um conjunto de valores para o seu ambiente. Os ficheiros de parâmetros facilitam a embalagem dos valores dos parâmetros para um ambiente específico. Neste tutorial, criará ficheiros de parâmetros para ambientes de desenvolvimento e produção. Leva cerca de **12 minutos** para ser completado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,6 +34,12 @@ Este modelo funciona bem, mas agora você quer gerir facilmente os parâmetros q
 ## <a name="add-parameter-files"></a>Adicionar ficheiros de parâmetros
 
 Os ficheiros de parâmetros são ficheiros JSON com uma estrutura semelhante ao seu modelo. No ficheiro, fornece os valores de parâmetro que pretende transmitir durante a implementação.
+
+Dentro do ficheiro de parâmetros, fornece valores para os parâmetros do seu modelo. O nome de cada parâmetro no seu ficheiro de parâmetro deve corresponder ao nome de um parâmetro no seu modelo. O nome é insensível ao caso, mas para ver facilmente os valores correspondentes recomendamos que corresponda ao invólucro do modelo.
+
+Não tens de fornecer um valor para cada parâmetro. Se um parâmetro não especificado tiver um valor padrão, esse valor é utilizado durante a implantação. Se um parâmetro não tiver um valor padrão e não estiver especificado no ficheiro do parâmetro, é solicitado que forneça um valor durante a implementação.
+
+Não é possível especificar um nome de parâmetro no seu ficheiro de parâmetro que não corresponda a um nome de parâmetro no modelo. Obtém-se um erro quando são fornecidos parâmetros desconhecidos.
 
 No Código VS, crie um novo ficheiro com o seguinte conteúdo. Guarde o ficheiro com o nome **azuredeploy.parameters.dev.jsligado**.
 

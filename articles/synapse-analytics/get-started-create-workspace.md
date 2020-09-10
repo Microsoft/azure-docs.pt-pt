@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 949afc00b12b1238973f832270d57fff3c2db5f9
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255023"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669532"
 ---
 # <a name="create-a-synapse-workspace"></a>Criar uma área de trabalho do Synapse
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá a criar um espaço de trabalho Synapse, uma pis
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
     1. Em **Select Data Lake Storage Gen 2,** clique em Criar **Novo** e nomeie-o **contosolake**.
     1. Em **Select Data Lake Storage Gen 2**, clique no Sistema de **Ficheiros** e nomeie os **utilizadores**.
-1. OPÇÃO 2 Consulte as instruções **da Conta de Armazenamento** na parte inferior deste documento.
+1. OPÇÃO 2 Utilizando uma conta ADLSGEN2 existente. Consulte as instruções **da Conta de Armazenamento ADLSGEN2** na parte inferior deste documento.
 1. O seu espaço de trabalho Azure Synapse utilizará esta conta de armazenamento como a conta de armazenamento "primária" e o recipiente para armazenar dados do espaço de trabalho. O espaço de trabalho armazena dados em tabelas Apache Spark. Armazena registos de aplicações Spark sob uma pasta chamada **/sinapse/workspacename**.
 1. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
 
@@ -94,29 +94,23 @@ Ao contrário dos outros tipos de piscinas, a faturação para o SQL a pedido ba
 * A SQL on demand tem as suas próprias bases de dados SQL a pedido que existem independentemente de qualquer piscina a pedido do SQL.
 * Um espaço de trabalho tem sempre exatamente uma piscina a pedido SQL chamada **SQL on-demand**.
 
-## <a name="prepare-a-storage-account"></a>Preparar uma conta de armazenamento
+## <a name="preparing-a-adlsgen2-storage-account"></a>Preparar uma conta de armazenamento ADLSGEN2
+
+### <a name="perform-the-following-steps-before-you-create-your-workspace"></a>Execute os seguintes passos ANTES de criar o seu espaço de trabalho
 
 1. Abra o [portal do Azure](https://portal.azure.com).
-1. Criar uma nova conta de armazenamento que tenha as seguintes definições:
-
-    |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
-    |---|---|---|---|
-    |Noções básicas|**Nome da conta de armazenamento**| Escolha qualquer nome.| Neste documento, usaremos o nome **contosolake.**|
-    |Noções básicas|**Tipo de conta**| **StorageV2** ||
-    |Noções básicas|**Localização**|Escolha qualquer local.| Recomendamos que o seu espaço de trabalho Azure Synapse Analytics e a conta Azure Data Lake Storage Gen2 estejam na mesma região.|
-    |Avançado|**Data Lake Storage Gen2**|**Ativado**| O Azure Synapse só funciona com contas de armazenamento que tenham esta definição ativada.|
-    |||||
-
-1. Depois de criar a conta de armazenamento, selecione **Access control (IAM)** no painel esquerdo. Em seguida, atribua as seguintes funções ou certifique-se de que já estão atribuídas:
+1. Navegue para a sua conta de armazenamento existente
+1. Selecione **o controlo de acesso (IAM)** no painel esquerdo. 
+1. Atribua as seguintes funções ou certifique-se de que já estão atribuídas:
     * Atribua-se ao papel **de Proprietário.**
     * Atribua-se à função **de Proprietário de Dados blob de armazenamento.**
 1. No painel esquerdo, selecione **Recipientes** e crie um recipiente.
-1. Pode dar ao recipiente qualquer nome. Neste documento, vamos nomear os **utilizadores**do contentor.
+1. Pode dar um nome ao contentor. Neste documento, utilizamos os  **utilizadores**de nomes.
 1. Aceite a definição predefinitiva **do nível de acesso público**e, em seguida, selecione **Criar**.
 
-### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configure o acesso à conta de armazenamento a partir do seu espaço de trabalho
+### <a name="perform-the-following-steps-after-you-create-your-workspace"></a>Execute os seguintes passos DEPOIS de criar o seu espaço de trabalho
 
-As identidades geridas para o seu espaço de trabalho Azure Synapse podem já ter acesso à conta de armazenamento. Siga estes passos para se certificar de que:
+Configure o acesso à conta de armazenamento a partir do seu espaço de trabalho. As identidades geridas para o seu espaço de trabalho Azure Synapse podem já ter acesso à conta de armazenamento. Siga estes passos para se certificar de que:
 
 1. Abra o [portal Azure](https://portal.azure.com) e a conta de armazenamento primária escolhida para o seu espaço de trabalho.
 1. Selecione o controlo de **acesso (IAM)** a partir do painel esquerdo.

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 836e56884659c60c129eba0bb5505eddd9981283
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0d5c758873413e549b31e3ec4cc41791fc8c371
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101865"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667416"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 
@@ -53,7 +53,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     data_path.show(100)
     ```
 
-1. Executar a cela.
+1. Execute a célula.
 1. Clique com o botão direito no ficheiro parquet no interior e, em seguida, selecione **Novo script SQL**  >  **SELECT TOP 100 linhas**. Cria um script SQL como este:
 
     ```sql
@@ -64,7 +64,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-     No roteiro, o **campo anexado ao** campo é definido para **SQL on demand**.
+    Na janela do script, o **campo 'Ligar para'** está definido para **SQL on demand**.
 
 1. Execute o script.
 
