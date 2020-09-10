@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d5e1e8c0ced03191a530598bf2dca308dc4fab03
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 72de3c45d0def7cf4a48884ee49be256179ac0a4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651037"
+ms.locfileid: "89659506"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -115,7 +115,7 @@ A Azure Machine Learning trabalha com outros serviços na plataforma Azure, e ta
 + __Grelha de eventos Azure__. Para mais informações, consulte [os eventos consume Azure Machine Learning](concept-event-grid-integration.md).
 + __Monitor Azure__. Para obter mais informações, consulte [monitorar a Azure Machine Learning](monitor-azure-machine-learning.md).
 + Lojas de dados como __contas de armazenamento Azure,__ __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, e __Azure Open Datasets__. Para obter mais informações, consulte [os dados do Access nos serviços de armazenamento Azure](how-to-access-data.md) e [crie conjuntos de dados com conjuntos de dados Azure Open](how-to-create-register-datasets.md).
-+ __Redes Virtuais Azure__. Para obter mais informações, consulte [a experimentação e a inferência Secure numa rede virtual.](how-to-enable-virtual-network.md)
++ __Redes Virtuais Azure__. Para mais informações, consulte [o isolamento da rede virtual e a visão geral da privacidade.](how-to-network-security-overview.md)
 + __Gasodutos Azure__. Para obter mais informações, consulte [Train e implemente modelos de machine learning](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Troncos de repositório de Git.__ Para mais informações, consulte [a integração de Git.](concept-train-model-git-integration.md)
 + __MLFlow__. Para obter mais informações, consulte [mLflow para rastrear métricas e implementar modelos](how-to-use-mlflow.md) 
@@ -123,7 +123,7 @@ A Azure Machine Learning trabalha com outros serviços na plataforma Azure, e ta
 
 ### <a name="secure-communications"></a>Comunicações seguras
 
-A sua conta de Armazenamento Azure, metas de computação e outros recursos podem ser utilizados de forma segura dentro de uma rede virtual para treinar modelos e realizar inferência. Para obter mais informações, consulte [a experimentação e a inferência Secure numa rede virtual.](how-to-enable-virtual-network.md)
+A sua conta de Armazenamento Azure, metas de computação e outros recursos podem ser utilizados de forma segura dentro de uma rede virtual para treinar modelos e realizar inferência. Para mais informações, consulte [o isolamento da rede virtual e a visão geral da privacidade.](how-to-network-security-overview.md)
 
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Edições básicas & Enterprise
 

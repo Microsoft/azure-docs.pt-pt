@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 304f80dcb2da4ed60bd94e9fb4d71d985da87cc2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496218"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661997"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Quickstart: Começa com o Azure Sentinel
 
@@ -34,7 +34,7 @@ Para visualizar e analisar o que está a acontecer no seu ambiente, em primeiro 
 
 - A barra de ferramentas em toda a parte superior indica-lhe quantos eventos obteve ao longo do período de tempo selecionado, e compara-o com as 24 horas anteriores. A barra de ferramentas diz-lhe destes eventos, os alertas que foram desencadeados (o pequeno número representa mudança nas últimas 24 horas), e depois diz-lhe para esses eventos, quantos estão abertos, em andamento e fechados. Verifique se não há um aumento dramático ou uma queda no número de eventos. Se houver uma queda, pode ser que uma ligação parou de reportar ao Azure Sentinel. Se houver um aumento, algo suspeito pode ter acontecido. Verifique se tem novos alertas.
 
-   ![Funil Azure Sentinel](./media/qs-get-visibility/funnel.png)
+   ![Contadores Azure Sentinel](./media/qs-get-visibility/funnel.png)
 
 O corpo principal da página de visão geral dá uma visão de um olhar sobre o estado de segurança do seu espaço de trabalho:
 
@@ -42,14 +42,14 @@ O corpo principal da página de visão geral dá uma visão de um olhar sobre o 
 
 - **Potenciais eventos maliciosos**: Quando o tráfego é detetado a partir de fontes que são conhecidas por serem maliciosas, o Azure Sentinel alerta-o no mapa. Se vir laranja, é tráfego de entrada: alguém está a tentar aceder à sua organização a partir de um conhecido endereço IP malicioso. Se vir a atividade outbound (vermelha), significa que os dados da sua rede estão a ser transmitidos para fora da sua organização para um endereço IP malicioso conhecido.
 
-   ![Mapa do Azure Sentinel](./media/qs-get-visibility/map.png)
+   ![Mapa de tráfego malicioso](./media/qs-get-visibility/map.png)
 
 
-- **Incidentes recentes**: Para ver os seus incidentes recentes, a sua gravidade e o número de alertas associados ao incidente. Se vires como um pico repentino num tipo específico de alerta, pode significar que há um ataque ativo atualmente em curso. Por exemplo, se tiver um pico repentino de 20 eventos pass-the-hash do Azure ATP, é possível que alguém esteja a tentar atacá-lo.
+- **Incidentes recentes**: Para ver os seus incidentes recentes, a sua gravidade e o número de alertas associados ao incidente. Se vires como um pico repentino num tipo específico de alerta, pode significar que há um ataque ativo atualmente em curso. Por exemplo, se tiver um pico repentino de 20 eventos Pass-the-hash do Microsoft Defender for Identity (ex-Azure ATP), é possível que alguém esteja atualmente a tentar atacá-lo.
 
 - **Anomalias na origem**dos dados : Os analistas de dados da Microsoft criaram modelos que procuram constantemente os dados das suas fontes de dados para anomalias. Se não houver anomalias, nada é mostrado. Se forem detetadas anomalias, deve mergulhar profundamente nelas para ver o que aconteceu. Por exemplo, clique no pico na Atividade Azure. Pode clicar em **Gráfico** para ver quando o pico aconteceu e, em seguida, filtrar as atividades que ocorreram durante esse período de tempo para ver o que causou o pico.
 
-   ![Mapa do Azure Sentinel](./media/qs-get-visibility/anomolies.png)
+   ![Fontes de dados anómalas](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>Use livros embutidos<a name="dashboards"></a>
 
@@ -64,10 +64,10 @@ Os livros incorporados fornecem dados integrados a partir das suas fontes de dad
 
    - Adicione um livro para a sua firewall. Por exemplo, adicione o livro de Palo Alto. O livro analisa o tráfego de firewall, fornecendo-lhe correlações entre os seus dados de firewall e eventos de ameaça, e destaca eventos suspeitos entre entidades. Os livros de trabalho fornecem-lhe informações sobre as tendências do seu tráfego e permitem-lhe aprofundar e filtrar os resultados. 
 
-      ![Painel Pal Alto](./media/qs-get-visibility/palo-alto-week-query.png)
+      ![Painel palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Pode personalizar os livros de trabalho editando o botão de consulta principal ![ ](./media/qs-get-visibility/edit-query-button.png) . Pode clicar no ![ botão ](./media/qs-get-visibility/go-to-la-button.png) para ir ao Log Analytics para [editar a consulta lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar a elipse (...) e **selecionar Personalizar dados de azulejos**, o que lhe permite editar o filtro de tempo principal ou remover os azulejos específicos do livro.
+Pode personalizar os livros de trabalho editando o botão de edição de ![ consulta ](./media/qs-get-visibility/edit-query-button.png) principal. Pode clicar no ![ botão Registar analítico ](./media/qs-get-visibility/go-to-la-button.png) para ir ao Log Analytics para [editar a consulta lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar a elipse (...) e **selecionar Personalizar dados de azulejos**, o que lhe permite editar o filtro de tempo principal ou remover os azulejos específicos do livro.
 
 Para obter mais informações sobre o trabalho com consultas, consulte [Tutorial: Dados visuais em Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 40dd81b9eb7ff2b20abb1bf3ea4337b63fb2a831
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ff7e423063859a6cdc1a4362fb030c0deb75eb32
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447086"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658690"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores utilizando dados importados
 
@@ -120,10 +120,10 @@ A tabela seguinte resume os campos de ficheiros a preencher:
 **Saída de escrita do disco 1** | Não | Dados escritos para disco por segundo, em MB por segundo.
 **Percentagem de utilização do CPU** | Não | Percentagem de CPU usado.
 **Percentagem de utilização da memória** | Não | Percentagem de RAM usado.
-**Total de discos lêem ops** | Não | Operações de leitura de discos por segundo.
-**Os discos totais escrevem ops** | Não | Operações de gravação de discos por segundo.
-**Total de discos lêem produção** | Não | Dados lidos a partir do disco, em MB por segundo.
-**Total de discos escrevem produção** | Não | Dados escritos para o disco, em MB por segundo.
+**Total de discos lêem ops** | Não | Leia as operações por segundo para todos os discos combinados. <br/> Utilize este campo se não for capaz de fornecer dados ao nível do disco. 
+**Os discos totais escrevem ops** | Não | Escreva operações por segundo para todos os discos combinados. <br/> Utilize este campo se não for capaz de fornecer dados ao nível do disco.
+**Total de discos lêem produção** | Não | Dados lidos de todos os discos, em MB por segundo. <br/> Utilize este campo se não for capaz de fornecer dados ao nível do disco. 
+**Total de discos escrevem produção** | Não | Dados escritos a todo o disco, em MB por segundo. <br/> Utilize este campo se não for capaz de fornecer dados ao nível do disco.
 **Rede Em produção** | Não | Dados recebidos pelo servidor, em MB por segundo.
 **Produção de Rede Para Fora** | Não | Dados transmitidos pelo servidor, em MB por segundo.
 **Tipo de firmware** | Não | Firmware do servidor. Os valores podem ser "BIOS" ou "UEFI".
@@ -146,6 +146,11 @@ Por exemplo, para especificar todos os campos para um segundo disco, adicione es
 - Produção de leitura de disco 2
 - Produção de escrita de disco 2
 
+Se não for capaz de fornecer dados de nível de disco, pode fornecer dados de desempenho do disco por servidor utilizando os seguintes campos. Consulte [esta](#add-server-information) secção para mais detalhes em cada campo.
+- Total de discos lêem ops
+- Os discos totais escrevem ops
+- Total de discos lêem produção
+- Total de discos escrevem produção
 
 ## <a name="import-the-server-information"></a>Importar a informação do servidor
 
@@ -200,7 +205,7 @@ Para fazer uma avaliação:
 1. Reveja as [melhores práticas](best-practices-assessment.md) para criar avaliações.
 2. No separador **Servidores,** no **Azure Migrate: Telha de Avaliação** do Servidor, selecione **Avaliar**.
 
-    ![Avaliar](./media/tutorial-assess-physical/assess.png)
+    ![Avaliação](./media/tutorial-assess-physical/assess.png)
 
 3. Nos **servidores avaliação**, especifique o nome de avaliação e selecione o tipo **de avaliação** como *Azure VM* se pretender realizar avaliações Azure VM ou *Azure VMware Solution (AVS)* se pretender realizar avaliações AVS.
 
@@ -424,7 +429,7 @@ Os nomes do sistema operativo fornecidos no CSV devem coincidir ou conter os nom
    :::column-end:::
 :::row-end:::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial:
 

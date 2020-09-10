@@ -17,6 +17,8 @@
           href: dns-getstarted-powershell.md
         - name: Criar uma zona pública - CLI
           href: dns-getstarted-cli.md
+        - name: Criar uma zona pública - Modelo do ARM
+          href: dns-get-started-template.md
     - name: DNS Privado
       items:
         - name: Criar uma zona privada - portal

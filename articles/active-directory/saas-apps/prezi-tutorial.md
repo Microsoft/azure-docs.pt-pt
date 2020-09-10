@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 994d427fb91f04ea0d2002a2c95e12366f4c6420
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553571"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658930"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Tutorial: Azure Ative Directy integração única com Prezi
 
@@ -42,6 +42,9 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 * Prezi apoia SSO iniciado pelo SP e IDP.
 * O Prezi suporta o fornecimento de utilizadores just-in-time.
 * Depois de configurar o Prezi, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. Para obter mais informações, consulte [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security.](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
+
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
 ## <a name="add-prezi-from-the-gallery"></a>Adicione Prezi da galeria
 
@@ -81,7 +84,7 @@ Para ativar o Azure AD SSO no portal Azure:
 
 1. Selecione **Definir URLs adicionais**e faça o seguinte passo se quiser configurar a aplicação no modo iniciado por **SP:**
 
-    Na caixa **URL de inscrição,** introduza o URL `https://prezi.com/login/sso/` .
+    Na caixa **URL de inscrição,** insira o URL: `https://prezi.com/login/sso/` .
 
 1. Selecione **Guardar**.
 

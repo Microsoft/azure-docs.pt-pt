@@ -69,6 +69,8 @@
           href: tokens-overview.md
         - name: Pedir token de acesso
           href: access-tokens.md
+    - name: Chaves da política
+      href: policy-keys-overview.md
     - name: Fluxo e política de utilizador
       items:
         - name: Fluxos do utilizador

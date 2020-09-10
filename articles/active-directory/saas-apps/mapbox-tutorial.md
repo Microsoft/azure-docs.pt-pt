@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: faedec24bc4b962044d55a47345739592e276b61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4111752d949b7ed2b0ea14734e5d795564718611
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554775"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661906"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>Tutorial: Azure Ative Directory integração única (SSO) com Mapbox
 
@@ -41,6 +41,9 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Mapbox suporta SSO iniciado no **IDP**
 * Uma vez configurado mapbox, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
 ## <a name="adding-mapbox-from-the-gallery"></a>Adicionar Mapbox da galeria
 
@@ -136,15 +139,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no separador **Definições**.
 
-    ![Configuração da caixa de mapas](./media/mapbox-tutorial/configure1.png)
+    ![Separador de Definições de Mapbox](./media/mapbox-tutorial/configure1.png)
 
 1. Clique no separador **Segurança** a partir do painel de navegação à esquerda.
 
-    ![Configuração da caixa de mapas](./media/mapbox-tutorial/configure2.png)
+    ![Separador de segurança mapbox](./media/mapbox-tutorial/configure2.png)
 
 1. Clique **em Editar um único sinal de sessão.**
 
-    ![Configuração da caixa de mapas](./media/mapbox-tutorial/configure3.png)
+    ![Mapbox Editar um único sinal](./media/mapbox-tutorial/configure3.png)
 
 1. Desloque-se até ao **passo 3: Configurar o único sinal de saml para a Mapbox** e executar os seguintes passos:
 

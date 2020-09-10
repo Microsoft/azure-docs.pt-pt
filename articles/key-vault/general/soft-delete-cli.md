@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: a86402fec698a299c7f233dcd8c7fde8270dd74d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585666"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662047"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Key Vault com a CLI
 
@@ -33,7 +33,7 @@ Para obter informações específicas de referência do Cofre de Chaves para o C
 
 As operações key Vault são geridas separadamente através de permissões de controlo de acesso baseado em funções (RBAC) da seguinte forma:
 
-| Operação | Description | Permissão do utilizador |
+| Operação | Descrição | Permissão do utilizador |
 |:--|:--|:--|
 |Lista|Listas eliminadas cofres-chave.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura um cofre de chaves apagado.|Microsoft.KeyVault/vaults/write|
@@ -58,7 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Novo cofre-chave
 
-A eliminação suave é automaticamente ativada em todos os cofres-chave por defeito. Até 31 de dezembro de 2020 deixará de ser possível criar um novo cofre-chave sem apagação suave.
+A eliminação suave é automaticamente ativada em todos os cofres-chave por defeito. A partir de 31 de dezembro de 2020, deixará de ser possível criar um novo cofre-chave sem fácil eliminação.
 
 ### <a name="verify-soft-delete-enablement"></a>Verifique o habilitação para eliminar o soft-delete
 

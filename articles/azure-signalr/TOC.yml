@@ -35,6 +35,8 @@
   items:
     - name: Detalhes internos do Serviço SignalR do Azure
       href: signalr-concept-internals.md
+    - name: Modo de serviço
+      href: concept-service-mode.md
     - name: Dimensionar ASP.NET Core SignalR
       href: signalr-concept-scale-aspnet-core.md
     - name: Sem servidor

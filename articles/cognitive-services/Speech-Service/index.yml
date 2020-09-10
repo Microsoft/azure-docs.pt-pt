@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 17cc7914c8e02d3b38e2527e1c0bff3afb885b0b
-  ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+  ms.openlocfilehash: 7b64ef2739b8e6531f7531f9a135b7fb5ffe3467
+  ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89055101"
+  ms.lasthandoff: 09/09/2020
+  ms.locfileid: "89568023"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -37,15 +37,15 @@ conceptualContent:
   items:
   - title: Conversão de voz em texto
     links:
+    - itemType: overview
+      text: Acerca da conversão de voz em texto
+      url: speech-to-text.md
     - itemType: quickstart
-      text: Reconhecer voz a partir de um microfone
-      url: quickstarts/speech-to-text-from-microphone.md
-    - itemType: quickstart
-      text: Reconhecer a voz a partir de um ficheiro de áudio
-      url: quickstarts/speech-to-text-from-file.md
+      text: Introdução à conversão de voz em texto
+      url: get-started-speech-to-text.md
     - itemType: how-to-guide
-      text: Noções básicas do reconhecimento de voz
-      url: speech-to-text-basics.md
+      text: Melhorar a precisão com Discurso Personalizado
+      url: how-to-custom-speech.md
     footerLink:
       text: Mais
       url: index-speech-to-text.yml

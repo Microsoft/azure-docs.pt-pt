@@ -1,14 +1,14 @@
 ---
 title: Visão geral da gestão do Azure - Azure Governance
 description: Panorâmica das áreas de gestão das aplicações e recursos da Azure com ligações aos conteúdos em ferramentas de gestão Azure.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041919"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662124"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Quais são as áreas de Gestão Azure?
 
@@ -18,7 +18,9 @@ Gestão refere-se aos processos e tarefas necessários para manter as suas aplic
 
 O diagrama seguinte ilustra as diferentes áreas de gestão necessárias para manter qualquer aplicação ou recurso. Estas diferentes áreas podem ser consideradas como um ciclo de vida. Cada área é necessária em sucessão contínua ao longo do tempo de vida de um recurso. Este ciclo de vida de recursos começa com a implantação inicial, através de uma operação contínua e, finalmente, quando se aposentado.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Disciplinas de Gestão em Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagrama das disciplinas de Gestão em Azure." border="false":::
+   Diagrama que mostra os elementos migratórios, seguros, protegidos, monitores, configures e reger elementos da roda de serviços que apoiam a Gestão e Governação em Azure. A Secure tem a gestão de segurança e a proteção contra ameaças como sub-itens. Protect tem backup e recuperação de desastres como sub-itens. O Monitor tem a monitorização de aplicações, infra e rede, e log Analytics e Diagnósticos como sub-itens. A Configuração tem Configuração, Gestão de Atualização, Automação e Scripting como sub-itens. E o Govern tem a gestão de políticas e a gestão de custos como sub-itens.
+:::image-end:::
 
 Nenhum serviço Azure preenche completamente os requisitos de uma determinada área de gestão. Em vez disso, cada um é realizado por vários serviços que trabalham em conjunto. Alguns serviços, como o Application Insights, fornecem funcionalidades de monitorização direcionadas para aplicações web. Outros, como registos do Azure Monitor, dados de gestão de lojas para outros serviços. Esta funcionalidade permite analisar dados de diferentes tipos recolhidos por diferentes serviços.
 
@@ -48,7 +50,7 @@ Gerencie a segurança dos seus recursos e dados. Um programa de segurança envol
 
 Proteção refere-se a manter as suas aplicações e dados disponíveis, mesmo com falhas que estão fora do seu controlo. A proteção no Azure é fornecida por dois serviços. O [Azure Backup](../backup/backup-overview.md) garante a cópia de segurança e a recuperação dos seus dados, seja na cloud ou no local. [A Azure Site Recovery](../site-recovery/site-recovery-overview.md) proporciona continuidade de negócios e recuperação imediata durante um desastre.
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrate
 
 Migração refere-se à transição das cargas de trabalho atualmente em execução no local para a cloud do Azure.
 [Azure Migrate](../migrate/migrate-services-overview.md) é um serviço que o ajuda a avaliar a adequação da migração de máquinas virtuais no local para Azure. A Azure Site Recovery migra máquinas virtuais [a partir do local](../site-recovery/migrate-tutorial-on-premises-azure.md) ou dos [Serviços Web da Amazon.](../site-recovery/migrate-tutorial-aws-azure.md) [A Azure Database Migration](../dms/dms-overview.md) ajuda-o na migração de fontes de dados para plataformas de Dados Azure.

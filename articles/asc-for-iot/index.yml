@@ -10,13 +10,13 @@ metadata:
   ms.collection: M365-security-compliance
   author: mlottner
   ms.author: mlottner
-  ms.date: 07/15/2020
-  ms.openlocfilehash: 6047b647641033af415be86d8534bda9c857b608
-  ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+  ms.date: 09/07/2020
+  ms.openlocfilehash: ee088a43fdd328a01b8682f015e498c728cba8d9
+  ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88067312"
+  ms.lasthandoff: 09/08/2020
+  ms.locfileid: "89514344"
 landingContent:
 - title: Acerca do Centro de Segurança do Azure para IoT
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     links:
     - text: O que é o Centro de Segurança do Azure para IoT?
       url: overview.md
-    - text: Solução de segurança Azure RTOS
+    - text: Módulo de Segurança para Azure RTOS
       url: iot-security-azure-rtos.md
     - text: Planear a sua solução
       url: service-prerequisites.md
@@ -44,6 +44,8 @@ landingContent:
       url: getting-started.md
     - text: IoT Hub
       url: iot-hub-integration.md
+    - text: Introdução ao Módulo de Segurança de IoT do Azure - RTOS
+      url: concept-rtos-security-module.md
     - text: Agentes de segurança
       url: security-agents.md
 - title: Configurar a sua solução
@@ -52,8 +54,10 @@ landingContent:
     links:
     - text: Ativar o Centro de Segurança do Azure para IoT no Hub IoT
       url: quickstart-onboard-iot-hub.md
-    - text: Configurar a sua solução
+    - text: Configurar a solução de segurança de IoT
       url: quickstart-configure-your-solution.md
+    - text: Configurar o Módulo de Segurança para Azure RTOS
+      url: quickstart-azure-rtos-security-module.md
     - text: Criar um módulo duplo do Centro de Segurança do Azure para IoT
       url: quickstart-create-security-twin.md
     - text: Criar alertas de segurança personalizados
@@ -64,6 +68,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Personalizar o Módulo de Segurança para Azure RTOS
+      url: how-to-azure-rtos-security-module.md
     - text: Escolher um agente
       url: how-to-deploy-agent.md
     - text: Implementar um agente de segurança baseado em C# do Centro de Segurança do Azure para IoT para o Windows

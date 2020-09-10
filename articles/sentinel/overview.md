@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: ebc9756afc43648f2b44ca317abe3373807f4efa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1bd61341683148cfc6431d7ca4b1f9293e19e760
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564623"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662025"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -43,9 +43,9 @@ Com base na gama completa de serviços Azure existentes, o Azure Sentinel incorp
 
 ## <a name="connect-to-all-your-data"></a>Conecte-se a todos os seus dados
 
-Para embarcar a Azure Sentinel, primeiro tem de [se ligar às suas fontes de segurança.](connect-data-sources.md) O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e fornecendo integração em tempo real, incluindo soluções microsoft Threat Protection, e 365 fontes da Microsoft, incluindo Office 365, Azure AD, Azure ATP e Microsoft Cloud App Security, e muito mais. Além disso, existem conectores incorporados no ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o formato de evento comum, Syslog ou REST-API para ligar as suas fontes de dados ao Azure Sentinel também.  
+Para embarcar a Azure Sentinel, primeiro tem de [se ligar às suas fontes de segurança.](connect-data-sources.md) O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e fornecendo integração em tempo real, incluindo soluções Microsoft 365 Defender (anteriormente Microsoft Threat Protection) e 365 fontes da Microsoft, incluindo Office 365, Azure AD, Microsoft Defender for Identity (anteriormente Azure ATP), e Microsoft Cloud App Security, entre outras. Além disso, existem conectores incorporados no ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o formato de evento comum, Syslog ou REST-API para ligar as suas fontes de dados ao Azure Sentinel também.  
 
-![Colecionadores de dados](./media/collect-data/collect-data-page.png)
+![Recoletores de dados](./media/collect-data/collect-data-page.png)
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -68,7 +68,7 @@ Automatize as suas tarefas comuns e [simplifique a orquestração de segurança 
 
 Por exemplo, se utilizar o sistema de bilhética ServiceNow, pode utilizar as ferramentas fornecidas para utilizar as Aplicações Lógicas Azure para automatizar os seus fluxos de trabalho e abrir um bilhete no ServiceNow sempre que for detetado um determinado evento.
 
-![Playbooks](./media/tutorial-respond-threats-playbook/logic-app.png)
+![Manuais de procedimentos](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
 ## <a name="investigation"></a>Investigação
@@ -82,15 +82,15 @@ Atualmente em pré-visualização, as ferramentas [de investigação profunda](t
 
 Utilize [as poderosas ferramentas de busca e consulta de caça](hunting.md)do Azure Sentinel, baseadas na estrutura do MITRE, que lhe permitem caçar proativamente ameaças de segurança através das fontes de dados da sua organização, antes de um alerta ser desencadeado. Depois de descobrir que consulta de caça fornece informações de alto valor sobre possíveis ataques, também pode criar regras de deteção personalizadas com base na sua consulta, e emergir essas informações como alertas para os seus socorristas de incidentes de segurança. Enquanto caça, você pode criar marcadores para eventos interessantes, permitindo-lhe voltar para eles mais tarde, partilhá-los com outros, e agrupar com outros eventos correlacionados para criar um incidente convincente para a investigação.
 
-![Investigação](./media/overview/hunting.png)
+![Visão geral da característica de caça](./media/overview/hunting.png)
 
 ## <a name="community"></a>Comunidade
 
 A comunidade Azure Sentinel é um poderoso recurso para deteção e automação de ameaças. Os nossos analistas de segurança da Microsoft criam constantemente e adicionam novos livros de trabalho, playbooks, consultas de caça e muito mais, publicando-os na comunidade para que possas usar no teu ambiente. Você pode baixar conteúdo de amostras da comunidade privada GitHub [repositório](https://aka.ms/asicommunity) para criar livros de trabalho personalizados, consultas de caça, cadernos e livros de reprodução para Azure Sentinel. 
 
-![Comunidade](./media/overview/community.png)
+![Explore a comunidade de utilizadores](./media/overview/community.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

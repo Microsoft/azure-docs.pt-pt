@@ -114,6 +114,8 @@
           href: understand/mca-overview.md
         - name: Contas de faturação do Contrato de Parceiro da Microsoft
           href: understand/mpa-overview.md
+        - name: Transferir subscrições entre parceiros (Pré-visualização)
+          href: manage/azure-plan-subscription-transfer-partners.md
 - name: Guias de procedimentos
   items:
     - name: Configurar o Cost Management + Faturação

@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f85430aea183cca977e3cb648cb43779f25c61a0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228244"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657838"
 ---
 # <a name="what-is-identity-provisioning"></a>O que é o aprovisionamento de identidades?
 
@@ -40,10 +40,10 @@ O fornecimento de RH para a nuvem envolve a criação de objetos (utilizadores, 
 
 O cenário mais comum seria, quando um novo empregado entra na sua empresa, eles são inseridos no sistema de RH.  Uma vez que isso ocorre, eles são a provisionados para a nuvem.  Neste caso, Azure AD.  O fornecimento de RECURSOS pode abranger os seguintes cenários. 
 
-- **Contratação de novos colaboradores** - Quando um novo empregado é adicionado à cloud HR, uma conta de utilizador é criada automaticamente em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS suportadas pela Azure AD, com a desativação do endereço de e-mail para Cloud HR.
-- **Atributos e atualizações de perfis do colaborador** - Quando um registo de empregados é atualizado na cloud HR (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada no Ative Directory, Azure Ative Directory e opcionalmente office 365 e outras aplicações SaaS apoiadas pela Azure AD.
+- **Contratação de novos colaboradores** - Quando um novo empregado é adicionado à cloud HR, uma conta de utilizador é criada automaticamente em Ative Directory, Azure Ative Directory, e opcionalmente Microsoft 365 e outras aplicações SaaS suportadas pela Azure AD, com a desativação do endereço de e-mail para Cloud HR.
+- **Atributos e atualizações de perfis do colaborador** - Quando um registo de empregados é atualizado na cloud HR (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada no Ative Directory, no Azure Ative Directory e opcionalmente no Microsoft 365 e noutras aplicações SaaS suportadas pela Azure AD.
 - **Rescisões de funcionários** - Quando um empregado é encerrado na cloud HR, a sua conta de utilizador é automaticamente desativada em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS apoiadas pela Azure AD.
-- **Recontrações de empregados** - Quando um empregado é recontratado em CLOUD HR, a sua conta antiga pode ser automaticamente reativada ou re-a provisionada (dependendo da sua preferência) para o Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e outras aplicações SaaS apoiadas pela Azure AD.
+- **Recontrações de empregados** - Quando um empregado é recontratado na cloud HR, a sua conta antiga pode ser automaticamente reativada ou re-a provisionada (dependendo da sua preferência) para o Ative Directory, Azure Ative Directory e opcionalmente Microsoft 365 e outras aplicações SaaS apoiadas pela Azure AD.
 
 
 ## <a name="app-provisioning"></a>Fornecimento de aplicativos
@@ -62,7 +62,7 @@ O cenário mais comum seria, quando um utilizador em Ative Directory (AD) é a p
 
 Isto foi realizado por Azure AD Connect sync, Azure AD Connect cloud provisioning e Microsoft Identity Manager. 
  
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)
 - [Instalar provisão de nuvens](how-to-install.md)

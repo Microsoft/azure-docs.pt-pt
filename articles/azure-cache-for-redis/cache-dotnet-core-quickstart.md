@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: bc045eba331c861801dceef7f00db42e851f8bb2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211366"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662370"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Quickstart: Use Azure Cache para Redis com uma aplicação .NET Core
 
@@ -23,7 +23,6 @@ Neste quickstart, incorpora o Azure Cache para Redis numa aplicação .NET Core 
 
 - Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [SDK .NET Core](https://dotnet.microsoft.com/download)
-- [.NET Framework 4 ou superior](https://www.microsoft.com/net/download/dotnet-framework-runtime), o que é exigido pelo cliente StackEdchange.Redis.
 
 ## <a name="create-a-cache"></a>Criar uma cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -308,7 +307,7 @@ Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesm
 
 <a name="next-steps"></a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a usar a Cache Azure para Redis a partir de uma aplicação .NET Core. Continue até ao próximo quickstart para usar Azure Cache para Redis com uma aplicação web ASP.NET.
 

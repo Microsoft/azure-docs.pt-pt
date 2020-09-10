@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 67016d930e2cc40ccf38e89c8dfc7700db7d3109
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d249005e77328460a0e7152e0a3ff125857534b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536738"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659475"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datava-enterprise-service-platform"></a>Tutorial: Azure Ative Directy integração única (SSO) com a Plataforma de Serviço Empresarial Datava
 
@@ -35,16 +35,16 @@ Para começar, precisa dos seguintes itens:
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 * A assinatura ativada pela Plataforma de Serviços Empresariais Datava (SSO).
 
-> [!NOTE]
-> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
-
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Plataforma de Serviço Empresarial Datava suporta **SSO** iniciado sp
 * A Plataforma de Serviço Empresarial Datava suporta o fornecimento de utilizadores **just in time**
-* Assim que configurar a Plataforma de Serviços Empresariais Datava, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurada a Plataforma de Serviços Empresariais Datava, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
 ## <a name="adding-datava-enterprise-service-platform-from-the-gallery"></a>Adicionar a Plataforma de Serviço Empresarial Datava da galeria
 
@@ -57,7 +57,7 @@ Para configurar a integração da Plataforma de Serviços Empresariais Datava em
 1. Na secção Adicionar a partir da secção **de galeria,** **escreva a Plataforma de Serviço Empresarial Datava** na caixa de pesquisa.
 1. Selecione a Plataforma de **Serviço da Empresa Datava** a partir do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-datava-enterprise-service-platform"></a>Configurar e testar a Azure AD um único sinal para a Plataforma de Serviço Empresarial Datava
+## <a name="configure-and-test-azure-ad-sso-for-datava-enterprise-service-platform"></a>Configurar e testar Azure AD SSO para a Plataforma de Serviços Empresariais Datava
 
 Configure e teste Azure AD SSO com a Datava Enterprise Service Platform usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado na Plataforma de Serviços empresariais Datava.
 
@@ -84,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://go.datava.com/<TENANT_NAME>`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL: `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`
+    b. Na caixa de texto **URL de resposta,** digite o URL: `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte ao cliente da Plataforma de Serviços Empresariais Datava](mailto:support@datava.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -148,5 +148,3 @@ Quando clicar no azulejo da Plataforma de Serviço Empresarial Datava no Painel 
 - [Experimente a Plataforma de Serviço Empresarial Datava com Azure AD](https://aad.portal.azure.com/)
 
 - [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger a Plataforma de Serviços Empresariais Datava com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -11,20 +11,20 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 87a65cd42ad58a06488499aaf8651e206c35b5f2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646965"
+ms.locfileid: "89657056"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construir um pipeline de aprendizagem automática Azure para pontuação de lotes
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste tutorial avançado, você aprende a construir um oleoduto em Azure Machine Learning para executar um trabalho de pontuação de lote. Os oleodutos de aprendizagem automática otimizam o seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que possa focar-se na aprendizagem automática em vez de infraestrutura e automação. Depois de construir e publicar um oleoduto, configura um ponto final REST que pode utilizar para acionar o pipeline a partir de qualquer biblioteca HTTP em qualquer plataforma. 
+Neste tutorial avançado, você aprende a construir um [pipeline Azure Machine Learning](concept-ml-pipelines.md) para executar um trabalho de pontuação de lote. Os oleodutos de aprendizagem automática otimizam o seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que possa focar-se na aprendizagem automática em vez de infraestrutura e automação. Depois de construir e publicar um oleoduto, configura um ponto final REST que pode utilizar para acionar o pipeline a partir de qualquer biblioteca HTTP em qualquer plataforma. 
 
-O exemplo utiliza um modelo de rede neural convolucional [inception-V3 pré-treinado](https://arxiv.org/abs/1512.00567) implementado em Tensorflow para classificar imagens não identificadas. [Saiba mais sobre os oleodutos de aprendizagem automática.](concept-ml-pipelines.md)
+O exemplo utiliza um modelo de rede neural convolucional [inception-V3 pré-treinado](https://arxiv.org/abs/1512.00567) implementado em Tensorflow para classificar imagens não identificadas. 
 
 Neste tutorial, vai concluir as seguintes tarefas:
 

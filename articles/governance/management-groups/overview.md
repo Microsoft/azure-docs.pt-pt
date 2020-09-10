@@ -3,12 +3,12 @@ title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d259f44b8424afa9fcfc94b3f1812a0485ab2993
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920165"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659239"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gestão Azure?
 
@@ -21,7 +21,9 @@ Por exemplo, pode aplicar políticas a um grupo de gestão que limita as regiõe
 
 Pode criar uma estrutura flexível de grupos de gestão e de subscrições para organizar os seus recursos numa hierarquia para assegurar uma gestão unificada de acesso e política. O seguinte diagrama mostra um exemplo de criação de uma hierarquia de governação com grupos de gestão.
 
-:::image type="content" source="./media/tree.png" alt-text="Exemplo de uma árvore hierárquica do grupo de gestão" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="Diagrama de uma hierarquia de grupo de gestão de amostras." border="false":::
+   Diagrama de um grupo de gestão de raiz que detém grupos de gestão e subscrições. Alguns grupos de gestão de crianças detêm grupos de gestão, alguns possuem assinaturas, e alguns detêm ambos. Um dos exemplos na hierarquia da amostra é 4 níveis de grupos de gestão, com o nível infantil a ser todas as subscrições.
+:::image-end:::
 
 Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, limitar as localizações das VMs à Região E.U.A. Oeste no grupo com o nome "Produção". Esta política herdará a todas as assinaturas do Acordo Empresarial (EA) que são descendentes desse grupo de gestão e aplicar-se-á a todos os VMs ao abrigo dessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
 
@@ -147,7 +149,9 @@ As definições de função são de âmbito atribuível em qualquer lugar da hie
 
 Por exemplo, vamos olhar para uma pequena parte de uma hierarquia para um visual.
 
-:::image type="content" source="./media/subtree.png" alt-text="sub-árvore" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de um subconjunto da hierarquia do grupo de gestão da amostra." border="false":::
+   O diagrama centra-se no grupo de gestão de raiz com grupos de gestão de crianças I T e Marketing. O grupo de gestão I T tem um único grupo de gestão infantil chamado Production, enquanto o grupo de gestão de Marketing tem duas subscrições de crianças Free Trial.
+:::image-end:::
 
 Digamos que há um papel personalizado definido no grupo de gestão de marketing. Essa função personalizada é então atribuída nas duas subscrições de teste gratuito.  
 
@@ -189,11 +193,11 @@ Se a função do Proprietário na subscrição for herdada do grupo de gestão a
 
 Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Pode procurar todos os eventos que acontecem a um grupo de gestão na mesma localização central de outros recursos do Azure. Por exemplo, pode ver todas as alterações de Atribuições de Funções ou de Atribuição de Política feitas a um grupo de gestão específico.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Registos de atividades com Grupos de Gestão" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Screenshot de Registos de Atividade e operações relacionadas com o grupo de gestão selecionado." border="false":::
 
 Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os grupos de gestão, veja:
 

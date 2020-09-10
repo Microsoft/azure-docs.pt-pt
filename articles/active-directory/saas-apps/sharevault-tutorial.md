@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: dcf67ce9c9e63fdbba8db565113cf3380e4142dd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f8a0576ff9ea128aae0d63d4879fe66ed2bf549
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548675"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660642"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharevault"></a>Tutorial: Azure Ative Directory integração única (SSO) com ShareVault
 
@@ -41,7 +41,10 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * ShareVault apoia **SP e IDP** iniciado SSO
 * ShareVault suporta **provisão de** utilizadores just in time
-* Assim que configurar o ShareVault, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurado o ShareVault, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
 ## <a name="adding-sharevault-from-the-gallery"></a>Adicionar ShareVault da galeria
 
@@ -54,7 +57,7 @@ Para configurar a integração do ShareVault no AD Azure, é necessário adicion
 1. Na secção Adicionar a partir da secção **da galeria,** **escreva ShareVault** na caixa de pesquisa.
 1. Selecione **ShareVault** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharevault"></a>Configurar e testar Azure AD único sign-on para ShareVault
+## <a name="configure-and-test-azure-ad-sso-for-sharevault"></a>Configure e teste Azure AD SSO para ShareVault
 
 Configure e teste Azure AD SSO com ShareVault usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no ShareVault.
 

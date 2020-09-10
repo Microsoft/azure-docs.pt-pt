@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4150464b5c59b631afea0c788b1e351dee5185f9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 86ae186d3d8b131955be7d9fa2c305316dea9f00
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299413"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658437"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT usando mapas Azure
 
@@ -204,7 +204,7 @@ Agora, vamos preparar a nossa função Azure.
     * Substitua o **UDID** pela `udid` geofence que carregou no [Upload a geofence](#upload-a-geofence).
     * A função **CreateBlobAsync** no script cria uma bolha por evento na conta de armazenamento de dados. Substitua o **ACCESS_KEY**, **ACCOUNT_NAME**, e **STORAGE_CONTAINER_NAME** pela chave de acesso da sua conta de armazenamento, nome da conta e recipiente de armazenamento de dados. Estes valores foram gerados quando criou a sua conta de armazenamento na [Create a azure storage account](#create-an-azure-storage-account).
 
-9. Clique na lâmina **de integração** no menu da esquerda. Clique no **Gatilho da grelha de evento** no diagrama. Digite um nome para o gatilho, como *o eventCarTelemetry,* e clique na **subscrição Create Event Grid**.
+9. Clique na lâmina **de integração** no menu da esquerda. Clique no **Gatilho da grelha de evento** no diagrama. Digite um nome para o gatilho, *eventGridEvent,* e clique na **subscrição Create Event Grid**.
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Adicionar subscrição de evento":::
 
