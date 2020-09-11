@@ -213,8 +213,10 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Resolução de problemas
       items:
-        - name: SSPR
-          href: active-directory-passwords-troubleshoot.md
+        - name: Reposição Personalizada de Palavra-passe (SSPR)
+          href: troubleshoot-sspr.md
+        - name: Repetição de escrita de SSPR
+          href: troubleshoot-sspr-writeback.md
         - name: Perguntas Frequentes de SSPR
           href: active-directory-passwords-faq.md
         - name: Perguntas Frequentes de MFA

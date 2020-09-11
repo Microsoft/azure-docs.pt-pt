@@ -151,6 +151,8 @@
           href: cloud-services-disaster-recovery-guidance.md
         - name: Fluxo de trabalho da arquitetura de VM clássica
           href: cloud-services-workflow-process.md
+        - name: Suporte de estado de funcionamento dos recursos para Serviços Cloud
+          href: resource-health-for-cloud-services.md
         - name: FAQ dos Serviços em Nuvem
           items:
             - name: FAQ da disponibilidade de aplicações e serviços

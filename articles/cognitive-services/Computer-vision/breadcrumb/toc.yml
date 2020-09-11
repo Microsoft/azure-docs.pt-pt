@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /DocsLegal/
+  topicHref: /azure/index
+  items:
+    - name: Imagem Digitalizada
+      tocHref: /DocsLegal/computer-vision
+      topicHref: /azure/cognitive-services/Computer-vision/index
+      items:
+        - name: Análise espacial da Imagem Digitalizada
+          tocHref: /DocsLegal/cognitive-services/computer-vision/
+          topicHref: /azure/cognitive-services/Computer-vision/index

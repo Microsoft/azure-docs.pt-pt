@@ -4,7 +4,7 @@
   items:
     - name: O que é o Acesso Condicional?
       href: overview.md
-- name: Guias de Início Rápido
+- name: Guias de Introdução
   items:
     - name: Exigir que os termos de utilização sejam aceites
       href: require-tou.md
@@ -52,8 +52,8 @@
   items:
     - name: Planear a implementação do Acesso Condicional
       href: plan-conditional-access.md
-    - name: Melhores práticas
-      href: best-practices.md
+    - name: APIs de Acesso Condicional
+      href: howto-conditional-access-apis.md
     - name: Políticas de Acesso Condicional comuns
       items:
         - name: Bloquear a autenticação legada
@@ -92,6 +92,8 @@
       href: terms-of-use.md
     - name: Frequência de início de sessão e controlos de persistência do browser
       href: howto-conditional-access-session-lifetime.md
+    - name: Melhores práticas
+      href: best-practices.md
     - name: Resolução de problemas
       items:
         - name: Resolver problemas de início de sessão

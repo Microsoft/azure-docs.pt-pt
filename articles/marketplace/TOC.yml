@@ -17,7 +17,7 @@
               href: ./lead-management-for-cloud-marketplace.md
             - name: Realizar transações no marketplace comercial
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
-            - name: Planos e Preços
+            - name: Planos e preços
               href: plans-pricing.md
             - name: Ofertas privadas
               href: ./private-offers.md
@@ -30,6 +30,8 @@
         - name: Guias de publicação por tipo de oferta
           href: ./publisher-guide-by-offer-type.md
           items:
+            - name: Planear uma oferta SaaS
+              href: ./plan-saas-offer.md
             - name: Máquinas virtuais
               href: ./marketplace-virtual-machines.md
             - name: Modelos de soluções de aplicações do Azure

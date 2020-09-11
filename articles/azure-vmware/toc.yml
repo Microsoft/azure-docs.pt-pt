@@ -58,9 +58,11 @@
               href: set-up-mabs-for-avs.md
             - name: Fazer a cópia de segurança de VMs na cloud privada com o Backup Server
               href: backup-avs-vms-with-mabs.md
+        - name: Gestão do ciclo de vida das VMs
+          href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Gateway de Aplicação
           href: protect-avs-web-apps-with-app-gateway.md
-        - name: Gestor de Tráfego com o AVS
+        - name: Gestor de Tráfego
           href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: Soluções VMware
       items:

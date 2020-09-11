@@ -466,6 +466,8 @@
       href: site-recovery-monitor-and-troubleshoot.md
     - name: Monitorizar o Site Recovery com os Registos do Azure Monitor
       href: monitor-log-analytics.md
+    - name: Monitorizar padrões de abandono em Máquinas Virtuais
+      href: monitoring-high-churn.md
     - name: Monitorizar servidores de processos
       href: vmware-physical-azure-monitor-process-server.md
 - name: Resolução de problemas

@@ -29,7 +29,7 @@
       href: fusion.md
     - name: Alargar o Azure Sentinel através de áreas de trabalho e inquilinos
       href: extend-sentinel-across-workspaces-tenants.md
-- name: Guias de procedimentos
+- name: How-to guides (Guias de procedimentos)
   items:
     - name: Ligar a origens de dados
       href: connect-data-sources.md
@@ -50,17 +50,17 @@
               href: connect-azure-ad-identity-protection.md
             - name: Azure Information Protection
               href: connect-azure-information-protection.md
-            - name: Microsoft Defender ATP
+            - name: Microsoft Defender para Ponto Final
               href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: Azure ATP
+            - name: Microsoft Defender para Identidade (anteriormente Azure ATP)
               href: connect-azure-atp.md
             - name: Azure DDoS Protection
               href: connect-azure-ddos-protection.md
             - name: Azure Firewall
               href: connect-azure-firewall.md
-            - name: Centro de Segurança do Azure
+            - name: Alertas do Azure defender do ASC
               href: connect-azure-security-center.md
-            - name: Centro de Segurança do Azure para IoT
+            - name: Azure Defender (anteriormente ASC) para IoT
               href: connect-asc-iot.md
             - name: Firewall de aplicações Web (WAF) do Azure
               href: connect-azure-waf.md
@@ -114,6 +114,8 @@
               href: connect-vmware-carbon-black.md
             - name: Defesa Contra Ameaças para Dispositivos Móveis da Zimperium
               href: connect-zimperium-mtd.md
+            - name: Ligar através de Logstash
+              href: connect-logstash.md
             - name: Soluções baseadas em CEF
               href: connect-common-event-format.md
               items:

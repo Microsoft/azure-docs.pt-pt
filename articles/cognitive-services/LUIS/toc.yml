@@ -130,6 +130,8 @@
           href: luis-concept-devops-automation.md
 - name: Guias de procedimentos
   items:
+    - name: Iniciar sessão no portal LUIS
+      href: sign-in-luis-portal.md
     - name: Iniciar uma nova aplicação
       href: luis-how-to-start-new-app.md
       displayName: 'import, export, container'

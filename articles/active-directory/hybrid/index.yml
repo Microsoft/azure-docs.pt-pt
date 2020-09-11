@@ -3,7 +3,7 @@ title: Documentação de identidade híbrida
 summary: As soluções de identidade da Microsoft abrangem capacidades baseadas na cloud e no local, ao criar uma única identidade de utilizador para autenticação e autorização a todos os recursos, independentemente da localização. Chamamos-lhe identidade híbrida.
 metadata:
   author: billmath
-  description: O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD.
+  description: O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Permite-lhe fornecer uma identidade comum aos seus utilizadores no Microsoft 365, Azure e aplicações SaaS integradas no Azure AD.
   manager: daveba
   ms.author: billmath
   ms.collection: na
@@ -12,12 +12,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 5c2b9168ad2dcd25e0d99997f17a8ea4cc891eea
-  ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+  ms.openlocfilehash: b23c57561a866318a6dbf38dc2d669f0e9d13d32
+  ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/01/2020
-  ms.locfileid: "89278518"
+  ms.lasthandoff: 09/10/2020
+  ms.locfileid: "89661121"
 landingContent:
 - title: Sobre a Identidade Híbrida
   linkLists:
