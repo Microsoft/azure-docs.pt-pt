@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1829b6d8ab7b2cab0734ffd3cbab295e6c39678
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761098"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024141"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Quickstart: Criar um centro de notificação Azure utilizando o Azure CLI
 
@@ -29,37 +29,30 @@ Neste arranque rápido, cria-se um centro de notificação utilizando o Azure CL
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI. Corra `az --version` para encontrar a versão e bibliotecas dependentes que estão instaladas. Para instalar ou atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
+> [!IMPORTANT]
+> Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI. Execute `az --version` para ver que versão e bibliotecas dependentes estão instaladas. Para instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Preparar o seu ambiente
+## <a name="install-the-azure-cli-extension"></a>Instale a extensão Azure CLI
 
-1. Inicie sessão utilizando o comando [de login az](/cli/azure/reference-index#az-login) se estiver a utilizar uma instalação local do CLI.
+Para trabalhar com referências de extensão da CLI do Azure, terá primeiro de instalar a extensão. As extensões Azure CLI dão-lhe acesso a comandos experimentais e pré-lançamento que não foram enviados como parte do núcleo CLI. Para saber mais sobre as extensões, incluindo a atualização e a desinstalação, veja [Utilizar extensões com a CLI do Azure](/cli/azure/azure-cli-extensions-overview).
 
-    ```azurecli
-    az login
-    ```
+Instale a extensão Azure CLI para os Centros de Notificação.
 
-    Siga os passos apresentados no seu terminal para completar o processo de autenticação.
+```azurecli
+az extension add --name notification-hub
+```
 
-2. Ao trabalhar com referências de extensão para o Azure CLI, deve primeiro instalar a extensão. As extensões Azure CLI dão-lhe acesso a comandos experimentais e pré-lançamento que ainda não foram enviados como parte do núcleo CLI. Para saber mais sobre extensões, incluindo atualização e desinstalação, consulte [extensões de utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-   Instale a [extensão para Centros de Notificação](/cli/azure/ext/notification-hub/notification-hub) executando o seguinte comando:
+Os Hubs de Notificação Azure, como todos os recursos da Azure, devem ser implantados num grupo de recursos.  Os grupos de recursos permitem organizar e gerir recursos relacionados do Azure.  Consulte [o que é O Gestor de Recursos Azure](/azure/azure-resource-manager/management/overview) para saber mais sobre grupos de recursos.
 
-    ```azurecli
-    az extension add --name notification-hub
-   ```
+Para este arranque rápido, crie um grupo de recursos chamado **spnhubrg** na localização **leste** com o [seguinte grupo az criar](/cli/azure/group#az-group-create) comando.
 
-3. Crie um grupo de recursos.
-
-   Os Hubs de Notificação Azure, como todos os recursos da Azure, devem ser implantados num grupo de recursos. Os grupos de recursos permitem organizar e gerir recursos relacionados do Azure.
-
-   Para este arranque rápido, crie um grupo de recursos chamado _spnhubrg_ na localização _este_ com o seguinte [grupo az criar](/cli/azure/group#az-group-create) comando:
-
-   ```azurecli
-   az group create --name spnhubrg --location eastus
-   ```
+```azurecli
+az group create --name spnhubrg --location eastus
+```
 
 ## <a name="create-a-notification-hubs-namespace"></a>Criar um espaço de nomes de Centros de Notificação
 
@@ -109,7 +102,7 @@ Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI.
 
 2. Arranja uma lista de espaços para nomes.
 
-   Para ver os detalhes sobre o seu novo espaço de nome, utilize o comando [da lista de nomes az notification-hub.](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) O `--resource-group` parâmetro é opcional se quiser ver todos os espaços de nome para uma subscrição.
+   Para ver os detalhes sobre o seu novo espaço de nome, utilize o comando [da lista de nomes az notification-hub.](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list) O `--resource-group` parâmetro é opcional se quiser ver todos os espaços de nome para uma subscrição.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -135,7 +128,7 @@ Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI.
 
 3. Obtenha uma lista de centros de notificação.
 
-   O Azure CLI devolve uma mensagem de sucesso ou erro a cada comando executado; no entanto, poder consultar uma lista de centros de notificação é reconfortante. O comando [da lista az-hub](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) foi projetado para este fim.
+   O Azure CLI devolve uma mensagem de sucesso ou erro a cada comando executado; no entanto, poder consultar uma lista de centros de notificação é reconfortante. O comando [da lista az-hub](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) foi projetado para este fim.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table
@@ -181,7 +174,7 @@ Quando já não for necessário, utilize o comando de eliminação do [grupo AZ]
 az group delete --name spnhubrg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Neste arranque rápido, criou um centro de notificação. Para saber como configurar o hub com as definições do sistema de notificação da plataforma (PNS), consulte [Configurar notificações push num centro de notificação](configure-notification-hub-portal-pns-settings.md)
 

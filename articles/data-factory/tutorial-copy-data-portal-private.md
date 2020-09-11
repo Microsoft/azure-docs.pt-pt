@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: b2e666419a702832243c69bdb059f4447b02d756
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079460"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024422"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copie os dados de forma segura do armazenamento do Azure Blob para uma base de dados SQL utilizando pontos finais privados
 
@@ -57,7 +57,7 @@ Agora, prepare o seu armazenamento de bolhas e base de dados SQL para o tutorial
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela SQL sink
 
-1. Utilize o seguinte script SQL para criar a tabela **dbo.emp** na sua base de dados SQL:
+Utilize o seguinte script SQL para criar a tabela **dbo.emp** na sua base de dados SQL:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -70,8 +70,6 @@ Agora, prepare o seu armazenamento de bolhas e base de dados SQL para o tutorial
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
-
-1. Permita que os serviços do Azure acedam ao SQL Server. Certifique-se de que **o acesso aos serviços Azure** é **ligado** para o seu servidor SQL para que a Data Factory possa escrever dados para o seu servidor SQL. Para verificar e ligar esta definição, aceda à firewall do **servidor do servidor Azure SQL**  >  **Overview**  >  **.** Desconfie da opção **De acesso a Azure services** a **ON**.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para criar um pipeline na fábrica de dados.
