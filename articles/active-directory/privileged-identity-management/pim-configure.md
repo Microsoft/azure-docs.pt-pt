@@ -14,20 +14,20 @@ ms.date: 08/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a081bc5a8040fa3ccd0599341eb2671bbe2d4d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9fe22d25be7f98bfb1d9f867b2081cd0489ce17c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047824"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018554"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
- Gestão de Identidade Privilegiada (PIM) é um serviço no Azure Ative Directory (Azure AD) que lhe permite gerir, controlar e monitorizar o acesso a recursos importantes na sua organização. Estes recursos incluem recursos em Azure AD, Azure e outros serviços Microsoft Online, como o Office 365 ou o Microsoft Intune.
+ Gestão de Identidade Privilegiada (PIM) é um serviço no Azure Ative Directory (Azure AD) que lhe permite gerir, controlar e monitorizar o acesso a recursos importantes na sua organização. Estes recursos incluem recursos em Azure AD, Azure e outros serviços Microsoft Online, como o Microsoft 365 ou o Microsoft Intune.
 
 ## <a name="reasons-to-use"></a>Razões para usar
 
-As organizações querem minimizar o número de pessoas que têm acesso a informações ou recursos seguros, porque isso reduz a probabilidade de um ator malicioso ter esse acesso, ou de um utilizador autorizado inadvertidamente impactar um recurso sensível. No entanto, os utilizadores continuam a ter de realizar operações privilegiadas em aplicações do Azure AD, Azure, Office 365 ou SaaS. As organizações podem dar aos utilizadores acesso privilegiado aos recursos Azure e Azure AD. É necessário um controlo sobre o que esses utilizadores estão a fazer com os seus privilégios de administrador.
+As organizações querem minimizar o número de pessoas que têm acesso a informações ou recursos seguros, porque isso reduz a probabilidade de um ator malicioso ter esse acesso, ou de um utilizador autorizado inadvertidamente impactar um recurso sensível. No entanto, os utilizadores ainda precisam de realizar operações privilegiadas em ad AD, Azure, Microsoft 365 ou SaaS. As organizações podem dar aos utilizadores acesso privilegiado aos recursos Azure e Azure AD. É necessário um controlo sobre o que esses utilizadores estão a fazer com os seus privilégios de administrador.
 
 ## <a name="what-does-it-do"></a>O que é que faz?
 
@@ -80,7 +80,7 @@ O Privileged Identity Management suporta os seguintes cenários:
 
 Para melhor compreender a Gestão de Identidade Privilegiada e a sua documentação, deverá rever os seguintes termos.
 
-| Termo ou conceito | Categoria de atribuição de funções | Description |
+| Termo ou conceito | Categoria de atribuição de funções | Descrição |
 | --- | --- | --- |
 | elegível | Tipo | Uma atribuição de funções que requer que um utilizador execute uma ou mais ações para usar o papel. Se um utilizador tiver sido elegível para um papel, isso significa que pode ativar o papel quando precisa de executar tarefas privilegiadas. Não há diferença no acesso dado a alguém com uma função permanente contra uma função elegível. A única diferença é que algumas pessoas não precisam sempre desse acesso. |
 | ativo | Tipo | Uma tarefa que não requer que um utilizador execute qualquer ação para usar o papel. Os utilizadores atribuídos como ativos têm os privilégios atribuídos ao papel. |

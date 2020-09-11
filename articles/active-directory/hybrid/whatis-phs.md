@@ -11,17 +11,17 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e40eecce3ff0ea5b252fd135ae553fa20e0a77b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 23f88a783ca257090fc607cc9a16ec457c7e9c8c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386356"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016593"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>O que é a sincronização de hash de palavra-passe com a Azure AD?
 A sincronização de hash de palavra-passe é um dos métodos de entrada usados para realizar a identidade híbrida. O Azure AD Connect sincroniza um haxixe, do haxixe, da palavra-passe de um utilizador de uma instância do Ative Directory no local para uma instância AD Azure baseada na nuvem.
 
-A sincronização de hash de palavra-passe é uma extensão da funcionalidade de sincronização do diretório implementada pela sincronização Azure AD Connect. Pode utilizar esta funcionalidade para iniciar seduca nos serviços Azure AD, como o Office 365. Inscreva-se no serviço utilizando a mesma palavra-passe que utiliza para iniciar sôm no seu local de acesso ao Ative Directory.
+A sincronização de hash de palavra-passe é uma extensão da funcionalidade de sincronização do diretório implementada pela sincronização Azure AD Connect. Pode utilizar esta funcionalidade para iniciar seduca nos serviços Azure AD, como o Microsoft 365. Inscreva-se no serviço utilizando a mesma palavra-passe que utiliza para iniciar sôm no seu local de acesso ao Ative Directory.
 
 ![O que é o Azure AD Connect](./media/how-to-connect-password-hash-synchronization/arch1.png)
 

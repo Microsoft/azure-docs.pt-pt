@@ -7,13 +7,15 @@ ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: devx-track-python
-ms.openlocfilehash: b79dce7755d6fab633a442839ae3ff8643d0b554
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom:
+- devx-track-python
+- device-developer
+ms.openlocfilehash: 64b44fa2bdb9221d83715d3214da80e82d791e9b
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876704"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017630"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Tutorial: Criar e ligar uma aplicação de cliente à sua aplicação Azure IoT Central (Python)
 

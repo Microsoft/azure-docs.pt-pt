@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para apps Azure Logic
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para aplicações Azure Logic. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.topic: sample
 author: ecfan
 ms.author: estfan
 ms.service: logic-apps
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: fe0b8518bda695126f67d35c123aa60288b76f8a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 92f36a4ed53fecad104e22cb24eae6360060cc78
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484426"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018272"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-logic-apps"></a>Controlos de conformidade regulamentar da política Azure para apps Azure Logic
 

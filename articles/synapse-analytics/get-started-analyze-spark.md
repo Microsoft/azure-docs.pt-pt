@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Começa a analisar com Faísca'
-description: Neste tutorial, você aprenderá os passos básicos para configurar e usar Azure Synapse Analytics.
+description: Neste tutorial, você vai aprender a analisar dados com Apache Spark
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,16 +9,30 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 5c6b35c1d9f00cae8fc688569e3a491679900995
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101800"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017919"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
+## <a name="analyze-nyc-taxi-data-in-blob-storage--using-spark"></a>Analise os dados do táxi de NYC no armazenamento de bolhas usando a Spark
+
 Neste tutorial, você vai aprender os passos básicos para carregar e analisar dados com Apache Spark para Azure Synapse.
+
+1. No centro de **dados** em **Linked**, clique à direita no **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** e selecione **SELECT New notebook**
+1. Isto criará um novo Caderno com o seguinte código:
+    ```
+    from azureml.opendatasets import NycTlcYellow
+
+    data = NycTlcYellow()
+    data_df = data.to_spark_dataframe()
+    display(data_df.limit(10))
+    ```
+1. No caderno escolha uma piscina de faíscas no **Menu Attach**
+1. Clique em **Executar** na célula
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Carregue os dados do táxi de NYC na base de dados Spark nyctaxi
 

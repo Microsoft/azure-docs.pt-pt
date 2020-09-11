@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: 2bc4c2a3ee7f1a1dbd85d46e49ec27e5276de159
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237412"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016559"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Quickstart: Criar um circuito ExpressRoute com um esprevamento privado usando um modelo ARM
 
@@ -76,9 +76,9 @@ Para encontrar mais modelos relacionados com ExpressRoute, consulte [Azure Quick
 
     O nome do grupo de recursos é o nome do projeto com **rg** anexado.
 
-Leva cerca de 20 minutos para implantar o modelo. Quando concluída, a saída é semelhante a:
+    Leva cerca de 20 minutos para implantar o modelo. Quando concluída, a saída é semelhante a:
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Saída de implementação do powershell do gestor de recursos ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Saída de implementação do powershell do gestor de recursos ExpressRoute":::
 
 Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, também pode utilizar o portal Azure CLI e a REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-portal.md).
 
