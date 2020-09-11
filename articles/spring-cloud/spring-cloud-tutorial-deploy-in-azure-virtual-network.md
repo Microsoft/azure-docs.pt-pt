@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f7817a596a38c6bb259a048e3dfea11abfd14d82
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688458"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006436"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implementar Azure Spring Cloud em rede virtual Azure (injeção VNet)
 
@@ -38,7 +38,7 @@ A rede virtual à qual implementa a sua instância de serviço Azure Spring Clou
 * **Sub-redes**: A rede virtual deve incluir duas sub-redes dedicadas a uma instância de serviço Azure Spring Cloud: 
     * Um para o tempo de funcionação do serviço
     * Um para as suas aplicações de microserviço de botas de mola. 
-    * Existe uma relação um-para-um entre estas sub-redes e uma instância de serviço Azure Spring Cloud. Não é possível partilhar várias instâncias de serviço numa única sub-rede. Deve utilizar novas sub-redes para cada instância de serviço que implementar.
+    * Existe uma relação um-para-um entre estas sub-redes e uma instância de serviço Azure Spring Cloud. Tem de utilizar uma nova sub-rede para cada instância de serviço que implementa e cada sub-rede só pode incluir uma única instância de serviço.
 * **Espaço de endereço**: Um bloco CIDR até /28 para a sub-rede de tempo de funcionamento do serviço e outro bloco CIDR até /24 para a sub-rede de aplicações de microserviços de botas de mola.
 * **Tabela de rotas**: As sub-redes não devem ter uma tabela de rotas existente associada.
 
@@ -55,7 +55,7 @@ Se já tem uma rede virtual para hospedar a instância de serviço Azure Spring 
     |-----------------|--------------------------------------------------|
     |Subscrição     |Selecione a sua subscrição.                         |
     |Grupo de recursos   |Selecione o seu grupo de recursos ou crie um novo.  |
-    |Nome             |*Insira azure-spring-cloud-vnet*                   |
+    |Name             |*Insira azure-spring-cloud-vnet*                   |
     |Localização         |Selecione **E.U.A. Leste**.                                |
 
 1. Clique **em seguida: endereços IP >**. 
@@ -152,7 +152,7 @@ Esses recursos de rede estão ligados à sua rede virtual criada acima.
 
 [Implementar aplicação para Azure Spring Cloud no seu VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Resolução de problemas Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Responsabilidades do cliente para correr Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

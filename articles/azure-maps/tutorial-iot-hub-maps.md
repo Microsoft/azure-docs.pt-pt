@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 86ae186d3d8b131955be7d9fa2c305316dea9f00
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 648feedfb82ad43af8f350bd25c9deb5d6ceec03
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658437"
+ms.locfileid: "90007286"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT usando mapas Azure
 
@@ -40,7 +40,7 @@ Neste tutorial você:
 
 4. [Criar um grupo de recursos.](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups) Neste tutorial, vamos nomear o nosso grupo de recursos *ContosoRental,* mas pode escolher o nome que quiser.
 
-5. Descarregue o [projeto De AluguerCarSimulation C# ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
+5. Descarregue o [projeto De AluguerCarSimulation C#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
 
 Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas você pode escolher um ambiente de desenvolvimento de API diferente.
 

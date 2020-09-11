@@ -1,6 +1,6 @@
 ---
-title: Mover VMs Azure IaaS para outra região com recuperação do local de Azure
-description: Utilize a Recuperação do Sítio azul para mover os VMs Azure IaaS de uma região de Azure para outra.
+title: Mover VMs Azure para uma região azure diferente com recuperação do local de Azure
+description: Utilize a Recuperação do Sítio azul para mover VMs Azure de uma região de Azure para outra.
 services: site-recovery
 author: Sharmistha-Rai
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425930"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006419"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
+# <a name="move-vms-to-another-azure-region"></a>Mover VMs para outra região de Azure
 
-Existem vários cenários em que gostaria de mover as suas máquinas virtuais Azure IaaS (VMs) existentes de uma região para outra. Por exemplo, pretende melhorar a fiabilidade e disponibilidade dos seus VM existentes, melhorar a gestão ou mover-se por razões de governação. Para mais informações, consulte a visão geral do [movimento Azure VM](azure-to-azure-move-overview.md). 
+Existem cenários em que gostaria de mover as suas máquinas virtuais Azure IaaS (VMs) existentes de uma região para outra. Por exemplo, pretende melhorar a fiabilidade e disponibilidade dos seus VM existentes, melhorar a gestão ou mover-se por razões de governação. Para mais informações, consulte a visão geral do [movimento Azure VM](azure-to-azure-move-overview.md). 
 
-Pode utilizar o serviço [de Recuperação do Local Azure](site-recovery-overview.md) para gerir e orquestrar a recuperação de desastres de máquinas no local e VMs Azure para a continuidade do negócio e recuperação de desastres (BCDR). Também pode utilizar a Recuperação do Site para gerir a mudança de VMs Azure para uma região secundária.
+Pode utilizar o serviço [de Recuperação do Local Azure](site-recovery-overview.md) para mover VMs Azure para uma região secundária.
 
-Neste tutorial, irá:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > 
@@ -30,7 +30,19 @@ Neste tutorial, irá:
 > * Copie os dados e permita a replicação
 > * Teste a configuração e execute o movimento
 > * Eliminar os recursos na região de origem
-> 
+
+
+> [!IMPORTANT]
+> Para mover os VMs Azure para outra região, recomendamos agora a utilização do [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md). O Resource Mover está em pré-visualização pública e fornece:
+> - Um único centro para movimentar recursos através das regiões.
+> - Tempo de movimento reduzido e complexidade. Tudo o que precisa está num único local.
+> - Uma experiência simples e consistente para mover diferentes tipos de recursos Azure.
+> - Uma maneira fácil de identificar dependências entre recursos que quer mover. Isto ajuda-o a mover recursos relacionados em conjunto, para que tudo funcione como esperado na região alvo, após a mudança.
+> - Limpeza automática dos recursos na região de origem, se quiser eliminá-los após a mudança.
+> - A testar. Podes experimentar um movimento, e depois deitá-lo fora se não quiseres fazer um movimento completo.
+
+
+
 > [!NOTE]
 > Este tutorial mostra-lhe como mover VMs Azure de uma região para outra como está. Se precisar de melhorar a disponibilidade movendo VMs numa disponibilidade definida para VMs de zona fixada em uma região diferente, consulte os [VMs Move Azure em Zonas de Disponibilidade.](move-azure-vms-avset-azone.md)
 

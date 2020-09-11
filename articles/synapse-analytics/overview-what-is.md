@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: f9277842339d7c4fa74e2e0f1febcf5916d86f4a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 653ad7e9b41e1c8a4708f2ab951676c144316192
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180784"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005859"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>O que é Azure Synapse Analytics (pré-visualização de espaços de trabalho)?
 
@@ -38,7 +38,7 @@ Além disso, a Azure Synapse facilita a construção de modelos preditivos e an�
 
 * **O Synapse SQL** é um sistema de consulta distribuído que permite às empresas implementar cenários de armazenamento de dados e virtualização de dados utilizando experiências padrão de T-SQL familiares aos engenheiros de dados. Também expande as capacidades do SQL para abordar cenários de streaming e machine learning.
 
-* O Synapse SQL oferece modelos de recursos **sem servidor** e **aprovisionados,** oferecendo opções de consumo e faturação para adequar as suas necessidades. Para um desempenho e custo previsíveis, provisões para reservar o poder de processamento dos dados armazenados em tabelas SQL. Para cargas de trabalho não planeadas ou rebentadas, utilize o ponto final SQL sem servidor, sempre disponível.
+* O Synapse SQL oferece modelos de recursos **sem servidor** e **dedicados,** oferecendo opções de consumo e faturação para adequar as suas necessidades. Para um desempenho e custo previsíveis, crie piscinas SQL dedicadas para reservar o poder de processamento para os dados armazenados em tabelas SQL. Para cargas de trabalho não planeadas ou rebentadas, utilize o ponto final SQL sempre disponível e sem servidor.
 * Use capacidades de **streaming** incorporadas para obter dados de fontes de dados em nuvem em tabelas SQL
 * Integre a IA com o SQL, utilizando modelos **de machine learning** para obter dados utilizando a [função T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
