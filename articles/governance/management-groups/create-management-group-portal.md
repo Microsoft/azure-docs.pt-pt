@@ -39,7 +39,7 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos pa
    - O **ID do Grupo de Gestão** é o identificador único do diretório que é usado para submeter comandos neste grupo de gestão. Este identificador não é editável após a criação, pois é usado em todo o sistema Azure para identificar este grupo. O [grupo de gestão de raiz](./overview.md#root-management-group-for-each-directory) é automaticamente criado com um ID que é o ID do Diretório Ativo Azure. Para todos os outros grupos de gestão, atribua uma identificação única.
    - O campo de nome de exibição é o nome que é apresentado dentro do portal Azure. Um nome de exibição separado é um campo opcional ao criar o grupo de gestão e pode ser alterado a qualquer momento.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot das opções do "Add Management Group" para criar um novo grupo de gestão.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot das opções do Add Management Group para criar um novo grupo de gestão.":::
 
 1. Selecione **Guardar**.
 
