@@ -40,7 +40,7 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Screenshot de selecionar o botão "Atribuir a política" na página Atribuições." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Screenshot de selecionar o botão Atribuir a política na página Atribuições." border="false":::
 
 1. No separador **'Política de Atribuição'** e **"Básicos",** selecione o **Âmbito** selecionando a elipse e selecionando um grupo de gestão ou subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de política será imposta.
    Em seguida, **selecione Selecione** na parte inferior da página **'Âmbito'.**
