@@ -2,7 +2,7 @@
 title: Documentação do Azure Resource Mover
 summary: Mova os recursos do Azure entre as regiões do Azure no Hub do Azure Resource Mover.
 metadata:
-  title: Documentação do Azure Resource Manager
+  title: Documentação do Azure Resource Mover
   description: Encontre tutoriais e informações sobre como mover recursos entre regiões do Azure.
   ms.service: resource-move
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: raynew
   ms.date: 09/09/2020
   keywords: azure resource mover, azure regions, move across regions
-  ms.openlocfilehash: 4dec18e3000373953c93ee99a6b5500ffb515807
-  ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+  ms.openlocfilehash: 3dab9d313ab9564e860d78495d375bd0116ac9e0
+  ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 09/10/2020
-  ms.locfileid: "89652149"
+  ms.locfileid: "89669657"
 landingContent:
 - title: Acerca do Azure Resource Mover
   linkLists:
