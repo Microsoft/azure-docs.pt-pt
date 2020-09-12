@@ -3,20 +3,20 @@ title: Azure Front Door - Perguntas frequentes
 description: Esta página fornece respostas a perguntas frequentes sobre Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
-ms.author: sohamnc
-ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.author: duau
+ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760418"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399740"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -79,7 +79,7 @@ Azure Front Door é um serviço multi-inquilino distribuído globalmente. Assim,
 
 ### <a name="is-http-https-redirection-supported"></a>Http->reorientação HTTPS suportada?
 
-Sim. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hospedeiro, caminho e consulta, bem como parte da reorientação de URL. Saiba mais sobre [a reorientação de URL.](front-door-url-redirect.md) 
+Yes. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hospedeiro, caminho e consulta, bem como parte da reorientação de URL. Saiba mais sobre [a reorientação de URL.](front-door-url-redirect.md) 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Em que ordem são processadas as regras de encaminhamento?
 
@@ -92,7 +92,7 @@ Para bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua p
 - Configure o IP ACLing para que os seus backends aceitem o tráfego do espaço ip de backend da Azure Front Door e apenas os serviços de infraestrutura do Azure. Consulte os detalhes ip abaixo para ACLing o seu backend:
  
     - Consulte a secção *AzureFrontDoor.Backend* em [Gamas IP Azure e Tags](https://www.microsoft.com/download/details.aspx?id=56519) de Serviço para a gama de endereços IP de backend IPv4 da porta frontal ou também pode utilizar a etiqueta de serviço *AzureFrontDoor.Backend* nos seus [grupos de segurança de rede.](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)
-    - O espaço IP de backend **IPv6** da Porta da Frente, enquanto coberto pela etiqueta de serviço, não está listado no ficheiro JSON das gamas IP Azure. Se estiver à procura de uma gama explícita de endereços IPv6, atualmente está limitada a`2a01:111:2050::/44`
+    - O espaço IP de backend **IPv6** da Porta da Frente, enquanto coberto pela etiqueta de serviço, não está listado no ficheiro JSON das gamas IP Azure. Se estiver à procura de uma gama explícita de endereços IPv6, atualmente está limitada a `2a01:111:2050::/44`
     - Os [serviços básicos de infraestrutura](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) do Azure através de endereços IP de hospedeiros virtualizados: `168.63.129.16``169.254.169.254`
 
     > [!WARNING]
@@ -238,7 +238,7 @@ Os registos de auditoria estão disponíveis para a Porta frontal Azure. No port
 
 Sim, a Porta frontal Azure faz alertas de apoio. Os alertas estão configurados em métricas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

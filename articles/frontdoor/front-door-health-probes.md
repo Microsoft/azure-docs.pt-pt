@@ -3,20 +3,20 @@ title: Azure Front Door - monitorização de saúde backend / Microsoft Docs
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure monitoriza a saúde dos seus backends
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: c96dac55df2cdc15b7d3699e947c851a9fe69b02
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471579"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399638"
 ---
 # <a name="health-probes"></a>Sondas do estado de funcionamento
 

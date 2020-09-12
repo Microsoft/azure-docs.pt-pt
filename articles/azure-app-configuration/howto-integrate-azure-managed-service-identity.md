@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: b1efeeef09e7c228eb8fc14de52a6beb2e9ffffe
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0525f305e130247fd88ee2858c79cbfd0a15283e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206828"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400845"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utilizar identidades geridas para aceder ao App Configuration
 
@@ -73,7 +73,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
     ![Adicionar uma identidade gerida](./media/add-managed-identity.png)
 
-1. Opcional: Se desejar também conceder acesso ao Key Vault, siga as instruções da [autenticação do Cofre de Chaves com uma identidade gerida.](https://docs.microsoft.com/azure/key-vault/managed-identity)
+1. Opcional: Se desejar também conceder acesso ao Key Vault, siga as instruções na [política de acesso do Cofre de Chaves](/azure/key-vault/assign-access-policy-portal).
 
 ## <a name="use-a-managed-identity"></a>Utilizar uma identidade gerida
 
@@ -272,7 +272,7 @@ Por exemplo, pode atualizar a aplicação de consola .NET Framework criada no ar
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, adicionou uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações e melhorar a gestão credencial da sua app. Para saber mais sobre como usar a Configuração de Aplicações, continue para as amostras do Azure CLI.
 
 > [!div class="nextstepaction"]

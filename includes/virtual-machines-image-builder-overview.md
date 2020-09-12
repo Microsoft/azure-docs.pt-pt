@@ -5,12 +5,12 @@ ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: a5a201a9f993db2be00645d8d60a11c5be9cdbe0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554893"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89304009"
 ---
 As imagens padronizadas da máquina virtual (VM) permitem às organizações migrarem para a nuvem e garantirem a consistência nas implementações. As imagens normalmente incluem definições de segurança e configuração predefinidas e software necessário. Configurar o seu próprio pipeline de imagem requer tempo, infraestrutura e configuração, mas com o Azure VM Image Builder, basta fornecer uma configuração simples descrevendo a sua imagem, submetê-la ao serviço, e a imagem é construída e distribuída.
  
@@ -100,7 +100,7 @@ O Image Builder cria um VM utilizando um tamanho D1v2 VM, e o armazenamento e ne
 O Azure Image Builder distribuirá a imagem para as regiões escolhidas, o que poderá incorrer em encargos de saída de rede.
 
 ## <a name="hyper-v-generation"></a>Geração Hiper-V
-O Image Builder atualmente suporta imagens e VMs da geração Hyper-V.
+Atualmente, o Image Builder apenas suporta de forma nativa a criação de imagens de geração Hyper-V (Gen1) 1 para a Galeria de Imagem Partilhada Azure (SIG) ou Imagem Gerida. Se queres criar imagens da Gen2, então precisas de usar uma imagem de origem da Gen2 e distribuir para VHD. Depois, terá de criar uma Imagem Gerida a partir do VHD e injetá-la no SIG como uma imagem gen2.
  
 ## <a name="next-steps"></a>Próximos passos 
  

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e0612a017650f0c6e4c9f63d9a5fd097b0b92c4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184222"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304081"
 ---
 ## <a name="update-resources"></a>Atualizar recursos
 
@@ -65,8 +65,18 @@ Update-AzGalleryImageVersion `
    -PublishingProfileExcludeFromLatest
 ```
 
+Este exemplo mostra como usar [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) para incluir esta versão de imagem em ser considerada para a *imagem mais recente.*
 
-## <a name="clean-up-resources"></a>Limpar recursos
+```azurepowershell-interactive
+Update-AzGalleryImageVersion `
+   -GalleryImageDefinitionName $galleryImage.Name `
+   -GalleryName $gallery.Name `
+   -Name $galleryVersion.Name `
+   -ResourceGroupName $resourceGroup.Name `
+   -PublishingProfileExcludeFromLatest:$false
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao eliminar recursos, é necessário começar com o último item nos recursos aninhados - a versão de imagem. Uma vez eliminadas as versões, pode eliminar a definição de imagem. Não pode apagar a galeria até que todos os recursos abaixo dela tenham sido apagados.
 

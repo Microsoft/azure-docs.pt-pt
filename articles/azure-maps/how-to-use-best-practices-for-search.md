@@ -3,41 +3,39 @@ title: Boas práticas para o Azure Maps Search Service Microsoft Azure Maps
 description: Saiba como aplicar as melhores práticas ao utilizar o Serviço de Pesquisa do Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6565d8056ae8106bd93b7dd096bc709010ec5c3f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064277"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400709"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Melhores práticas para O Serviço de Pesquisa de Mapas Azure
 
 O Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) inclui APIs que oferecem várias capacidades para ajudar os desenvolvedores a pesquisar endereços, locais, listas de negócios por nome ou categoria, e outras informações geográficas. Por exemplo,[a Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) permite que os utilizadores procurem um endereço ou Ponto de Interesse (POI).
 
 Este artigo explica como aplicar práticas sonoras quando liga para os dados do Azure Maps Search Service. Vai aprender a:
-
-* Criar consultas para devolver jogos relevantes
-* Limitar os resultados da pesquisa
-* Saiba as diferenças entre os tipos de resultados
-* Leia a estrutura de resposta à procura de endereços
+> [!div class="checklist"]
+> * Criar consultas para devolver jogos relevantes
+> * Limitar os resultados da pesquisa
+> * Saiba as diferenças entre os tipos de resultados
+> * Leia a estrutura de resposta à procura de endereços
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs do serviço Azure Maps, precisa de uma conta Azure Maps e uma chave. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) e obter uma chave [primária.](quick-demo-map-app.md#get-the-primary-key-for-your-account) 
+1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
 
-Para obter informações sobre a autenticação em Azure Maps, consulte [a autenticação Manage no Azure Maps.](./how-to-manage-authentication.md)
-
-> [!TIP]
-> Para consultar o Serviço de Pesquisa, pode utilizar a [aplicação Postman](https://www.getpostman.com/apps) para construir chamadas DE API REST. Ou pode usar qualquer ambiente de desenvolvimento da API que prefira.
+Este artigo utiliza a [app Postman](https://www.postman.com/downloads/) para construir chamadas REST, mas pode escolher qualquer ambiente de desenvolvimento da API.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Melhores práticas para geocódigo endereços
 
-Quando procura um endereço completo ou parcial utilizando o Azure Maps Search Service, a API lê as palavras-chave da sua consulta de pesquisa. Em seguida, devolve as coordenadas de longitude e latitude do endereço. Este processo chama-se *geocoding.* 
+Quando procura um endereço completo ou parcial utilizando o Azure Maps Search Service, a API lê as palavras-chave da sua consulta de pesquisa. Em seguida, devolve as coordenadas de longitude e latitude do endereço. Este processo chama-se *geocoding.*
 
 A capacidade de geocódificar num país/região depende da disponibilidade de dados rodoviários e da precisão do serviço de geocodagem. Para obter mais informações sobre as capacidades de geocodagem do Azure Maps por país ou região, consulte [a cobertura de Geocoding](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
@@ -79,9 +77,9 @@ Recomendamos que utilize a Azure Maps [Search Fuzzy API](https://docs.microsoft.
 
 #### <a name="usage-examples"></a>Exemplos de utilização
 
-* `idxSet=POI`- Procure apenas POIs. 
+* `idxSet=POI` - Procure apenas POIs. 
 
-* `idxSet=PAD,Addr`- Procurar apenas endereços. `PAD`indica o endereço de ponto, e `Addr` indica o intervalo de endereço.
+* `idxSet=PAD,Addr` - Procurar apenas endereços. `PAD` indica o endereço de ponto, e `Addr` indica o intervalo de endereço.
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Reverse-geocódigo e filtro para um tipo de entidade de geografia
 
@@ -965,7 +963,7 @@ As respostas para a API [do Endereço de Pesquisa](https://docs.microsoft.com/re
 } 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte:
 

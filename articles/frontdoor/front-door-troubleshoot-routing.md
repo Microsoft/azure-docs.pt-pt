@@ -3,7 +3,7 @@ title: Problemas de configuração da porta frontal Azure
 description: Neste tutorial, aprende-se a resolver alguns dos problemas comuns que pode enfrentar para a sua Porta da Frente.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
-ms.author: sharadag
-ms.openlocfilehash: 40809fae312401cb62fabb10140b9bb7f60e3715
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.author: duau
+ms.openlocfilehash: babe24d0c934cffac00a5100d1da7ee252d147da
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234776"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399060"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Resolução de problemas problemas comuns de encaminhamento
 

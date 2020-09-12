@@ -3,20 +3,20 @@ title: Porta frontal Azure - URL Rewrite / Microsoft Docs
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure faz a REescrita de URL para as suas rotas, se configurada.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471477"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398942"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Reescrita de URLs (caminho de reencaminhamento personalizado)
 Azure Front Door suporta a reescrita do URL, permitindo-lhe configurar um Caminho de **Encaminhamento Personalizado** opcional para usar ao construir o pedido de encaminhamento para o backend. Por predefinição, se não for fornecido nenhum caminho de reencaminhamento, o Front Door copiará o caminho do URL de entrada para o URL utilizado no pedido reencaminhado. O cabeçalho Host (Anfitrião) utilizado no pedido reencaminhado é igual ao configurado para o back-end selecionado. Leia [o Cabeçalho do Anfitrião Backend](front-door-backend-pool.md#hostheader) para saber o que faz e como pode configugá-lo.

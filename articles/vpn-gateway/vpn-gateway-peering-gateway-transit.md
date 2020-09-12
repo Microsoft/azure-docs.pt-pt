@@ -7,14 +7,14 @@ author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.date: 03/25/2018
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: b5649c804cb21a221ca287711380c91846f55306
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 16a53c440bc818a65175cf6a4a92cd007349e3b4
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031699"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421344"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o trânsito do gateway de VPN para peering de rede virtual
 
@@ -36,7 +36,7 @@ Neste documento, descrevemos dois cenários:
 > Se fizer uma alteração na topologia da sua rede e tiver clientes Windows VPN, o pacote de clientes VPN para clientes Windows deve ser descarregado e instalado novamente para que as alterações sejam aplicadas ao cliente.
 >
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 
 
@@ -158,7 +158,7 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais acerca das [restrições e comportamentos do peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) e das [definições do peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#create-a-peering) antes de criar um peering de rede virtual para a utilização de produção.
 * Saiba como [criar uma topologia hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com peering de rede virtual e trânsito do gateway.

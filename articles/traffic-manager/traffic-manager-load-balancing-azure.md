@@ -3,7 +3,7 @@ title: Utilização de serviços de equilíbrio de carga em Azure Microsoft Docs
 description: 'Este tutorial mostra-lhe como criar um cenário utilizando o portfólio de equilíbrio de carga Azure: Traffic Manager, Application Gateway e Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: rohink
-ms.openlocfilehash: c5667a03d127441a9a911ff4b8daba0b3b138e3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711753"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393073"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilizar serviços de balanceamento de carga no Azure
 
@@ -41,7 +41,7 @@ A nível conceptual, cada um destes serviços desempenha um papel distinto na hi
 * **O Application Gateway** fornece o controlador de entrega de aplicações (ADC) como um serviço, oferecendo várias capacidades de equilíbrio de carga da Camada 7 para a sua aplicação. Permite que os clientes otimizem a produtividade da web farm, descarregando a rescisão intensiva de TLS da CPU para o gateway de aplicações. Outras capacidades de encaminhamento da Camada 7 incluem distribuição de rodapé de tráfego de entrada, afinidade da sessão baseada em cookies, encaminhamento baseado em caminhos de URL e a capacidade de hospedar vários websites por trás de um único gateway de aplicação. O Gateway de Aplicações pode ser configurado como um portal virado para a Internet, um portal apenas interno, ou uma combinação de ambos. Application Gateway é totalmente gerido a Azure, escalável e altamente disponível. Proporciona um conjunto avançado de capacidades de registo e diagnóstico, para uma melhor capacidade de gestão.
 * **O Balancer** de Carga é parte integrante da stack Azure SDN, fornecendo serviços de equilíbrio de carga de alta performance e baixa latência Camada 4 para todos os protocolos UDP e TCP. Gere ligações de entrada e saída. Pode configurar pontos finais públicos e internos com balanceamento de carga e definir regras para mapear as ligações de entrada para destinos do conjunto de back-end, com opções de pesquisa de estado de funcionamento TCP e HTTP para gerir a disponibilidade do serviço.
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Neste cenário de exemplo, usamos um site simples que serve dois tipos de conteúdo: imagens e páginas web dinamicamente renderizadas. O website deve ser geograficamente redundante, e deve servir os seus utilizadores a partir do local mais próximo (de menor latência) para eles. O desenvolvedor de aplicações decidiu que quaisquer URLs que correspondam ao padrão /imagens/* são servidos a partir de um conjunto dedicado de VMs que são diferentes do resto da fazenda web.
 

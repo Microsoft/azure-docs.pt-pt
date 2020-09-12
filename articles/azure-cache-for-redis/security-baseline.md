@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 215d31ee4797dd3e7eef88d3a6679f2256f0ffae
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0ab9eb36e9d254c4dab5aed36ec6e9784f04d958
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89225983"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400743"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Linha de base de segurança Azure para Azure Cache para Redis
 
@@ -947,11 +947,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 Como criar um Cofre chave:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer a autenticação do Cofre-Chave com uma identidade gerida:
+Como autenticar o Cofre de Chaves:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Como atribuir uma política de acesso ao Cofre chave:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1201,7 +1205,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

@@ -1,18 +1,18 @@
 ---
 title: Adicione um script a um plano de recuperação na Recuperação do Local de Azure
 description: Saiba como adicionar um script VMM a um plano de recuperação para a recuperação de desastres de VMs Hiper-V em nuvens VMM.
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130135"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425879"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicione um script VMM a um plano de recuperação
 
@@ -71,7 +71,7 @@ Depois de adicionar VMs ou grupos de replicação a um plano de recuperação e 
 1. Abra o plano de recuperação.
 1. Na lista **Step,** selecione um item. Em seguida, selecione **script** ou **Ação Manual**.
 1. Especificar se deve adicionar o script ou ação antes ou depois do item selecionado. Para mover a posição do script para cima ou para baixo, selecione os botões **Move Up** e **Move Down.**
-1. Se adicionar um script VMM, selecione **Failover para o script VMM**. Em **Script Path,** insira o caminho relativo para a partilha. Por exemplo, **introduza\RPScripts\RPScript.PS1**.
+1. Se adicionar um script VMM, selecione **Failover para o script VMM**. Em **Script Path,** insira o caminho relativo para a partilha. Por exemplo, ** introduza\RPScripts\RPScript.PS1**.
 1. Se adicionar um runbook Azure Automation, especifique a conta Automation em que o livro de execução está localizado. Em seguida, selecione o script do livro de execução Azure que pretende utilizar.
 1. Para garantir que o script funciona como esperado, faça um teste de failover do plano de recuperação.
 

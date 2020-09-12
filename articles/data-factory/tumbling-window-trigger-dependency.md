@@ -2,21 +2,21 @@
 title: Criar dependências de gatilho de janelas caindo
 description: Aprenda a criar dependência de um gatilho de janela caindo na Azure Data Factory.
 services: data-factory
-ms.author: daperlov
-author: djpmsft
-manager: anandsub
+ms.author: chez
+author: chez-charlie
+manager: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 4a99865e13e029dcea478cf6085d71c465918b14
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82870047"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421854"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,7 @@ Para uma demonstração de como criar oleodutos dependentes na sua Fábrica de D
 
 Para criar dependência de um gatilho, selecione **Trigger > Advanced > New**, e, em seguida, escolha o gatilho para depender do offset e do tamanho apropriados. **Selecione Terminar** e publicar as alterações na fábrica de dados para que as dependências entrem em vigor.
 
-![Criação de Dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Criação de Dependência")
+![Criação de Dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "Criação de Dependência")
 
 ## <a name="tumbling-window-dependency-properties"></a>Propriedades de dependência de janelas caindo
 
@@ -79,11 +79,11 @@ Um gatilho de janela caindo com uma dependência tem as seguintes propriedades:
 
 A tabela seguinte fornece a lista de atributos necessários para definir uma dependência da Janela Tumbling.
 
-| **Nome da Propriedade** | **Descrição**  | **Tipo** | **Necessário** |
+| **Nome da propriedade** | **Descrição**  | **Tipo** | **Necessário** |
 |---|---|---|---|
-| tipo  | Todos os gatilhos da janela de caindo existentes são apresentados nesta queda. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
+| tipo  | Todos os gatilhos da janela de caindo existentes são apresentados nesta queda. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Yes |
 | offset | Compensação do gatilho da dependência. Fornecer um valor no formato de tempo e tanto compensações negativas como positivas são permitidas. Esta propriedade é obrigatória se o gatilho depender de si mesmo e em todos os outros casos é opcional. A auto-dependência deve ser sempre uma compensação negativa. Se nenhum valor especificado, a janela é a mesma que o gatilho em si. | Timespan<br/>(hh:mm:ss) | Auto-dependência: Sim<br/>Outros: Não |
-| size | Tamanho da janela de caindo de dependência. Fornecer um valor de tempos positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
+| size | Tamanho da janela de caindo de dependência. Fornecer um valor de tempos positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
 > Um gatilho da janela caindo pode depender de um máximo de cinco outros gatilhos.
@@ -133,41 +133,53 @@ Abaixo estão ilustrações de cenários e uso de propriedades de dependência d
 
 ### <a name="dependency-offset"></a>Compensação de dependência
 
-![Exemplo de offset](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Exemplo de offset")
+![Exemplo de offset](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "Exemplo de offset")
 
 ### <a name="dependency-size"></a>Tamanho da dependência
 
-![Exemplo de tamanho](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png "Exemplo de tamanho")
+![Exemplo de tamanho](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "Exemplo de tamanho")
 
 ### <a name="self-dependency"></a>Auto-dependência
 
-![Auto-dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "Auto-dependência")
+![Auto-dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Auto-dependência")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Dependência de outro gatilho da janela caindo
 
 Um trabalho diário de processamento de telemetria dependendo de outro trabalho diário agregando a produção dos últimos sete dias e gera fluxos de janelas rolantes de sete dias:
 
-![Exemplo de dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "Exemplo de dependência")
+![Exemplo de dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "Exemplo de dependência")
 
 ### <a name="dependency-on-itself"></a>Dependência de si mesma
 
 Um trabalho diário sem lacunas nos fluxos de saída do trabalho:
 
-![Exemplo de auto-dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Exemplo de auto-dependência")
+![Exemplo de auto-dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Exemplo de auto-dependência")
 
 ## <a name="monitor-dependencies"></a>Monitorizar dependências
 
-Pode monitorizar a cadeia de dependência e as janelas correspondentes a partir da página de monitorização do gatilho. Navegue para **monitorizar > Trigger Runs**. Sob a coluna de ações, pode refazer o gatilho ou ver as suas dependências.
+Pode monitorizar a cadeia de dependência e as janelas correspondentes a partir da página de monitorização do gatilho. Navegue para  **monitorizar > Trigger Runs**. Se um gatilho da janela de ingrção tiver dependências, o Nome do Gatilho terá uma hiperligação para a visão de monitorização da dependência.  
 
-![Monitorizar execuções acionadas](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitorizar execuções acionadas")
+![Monitorizar execuções acionadas](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "O gatilho do monitor corre - inteiro para a vista de dependência da janela caindo")
 
-Se clicar em 'Ver Dependências do Gatilho', pode ver o estado das dependências. Se um dos gatilhos de dependência falhar, deve voltar a executá-lo com sucesso para que o gatilho dependente possa funcionar. Um gatilho da janela caindo vai esperar de dependências por sete dias antes de sair.
+Clique no nome do gatilho para ver as dependências do gatilho. O painel da direita mostra informações detalhadas sobre o gatilho, tais como RunID, tempo de janela, estado, e assim por diante.
 
-![Monitorizar dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitorizar dependências")
+![Vista da lista de dependências do monitor](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Vista da lista de dependências do monitor")
+
+Pode ver o estado das dependências e janelas para cada gatilho dependente. Se um dos gatilhos de dependência falhar, deve reenca encontrá-lo com sucesso para que o gatilho dependente possa funcionar.
+
+Um gatilho da janela caindo vai esperar de dependências por _sete dias_ antes de sair. Após sete dias, o gatilho falhará.
 
 Para uma visualização mais visual do calendário de dependência do gatilho, selecione a vista Gantt.
 
-![Monitorizar dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitorizar dependências")
+![Gráfico de gantt de dependências de monitorização](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Monitor dependências Gantt chart vista")
+
+As caixas transparentes mostram as janelas de dependência de cada gatilho dependente do fluxo, enquanto caixas coloridas sólidas acima mostram corridas individuais de janelas. Aqui ficam algumas dicas para interpretar a vista do gráfico de Gantt:
+
+* Caixa transparente torna azul quando as janelas dependentes estão em estado pendente ou em funcionamento
+* Depois de todas as janelas ter sucesso para um gatilho dependente, a caixa transparente vai ficar verde
+* A caixa transparente torna-se vermelha quando alguma janela dependente falha. Procure uma caixa vermelha sólida para identificar a janela de falha
+
+Para refazer uma janela na vista do gráfico de Gantt, selecione a caixa de cores sólida para a janela, e um painel de ação aparecerá com detalhes e opções de repetição
 
 ## <a name="next-steps"></a>Próximos passos
 

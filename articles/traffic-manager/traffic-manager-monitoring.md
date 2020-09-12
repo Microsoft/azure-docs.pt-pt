@@ -2,20 +2,20 @@
 title: Monitorização do ponto final do Azure Traffic Manager Microsoft Docs
 description: Este artigo pode ajudá-lo a entender como o Gestor de Tráfego utiliza a monitorização de pontos finais e falha automática no ponto final para ajudar os clientes do Azure a implementar aplicações de alta disponibilidade
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: rohink
-ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80757272"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392838"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização do ponto final do Gestor de Tráfego
 

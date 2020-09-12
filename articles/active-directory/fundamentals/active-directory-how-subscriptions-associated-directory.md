@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd095939009c39c48456d330f975303f06a841a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8ddca4bc684646854ae8d308043b3de56ec65924
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267535"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426100"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -26,18 +26,18 @@ Uma subscrição da Azure tem uma relação de confiança com o Azure Ative Dire
 
 Várias subscrições podem confiar no mesmo diretório AD Azure. Cada subscrição só pode confiar num único diretório.
 
-Se a sua subscrição expirar, perde o acesso a todos os outros recursos associados à subscrição. No entanto, o diretório AD Azure permanece em Azure. Pode associar e gerir o diretório utilizando uma subscrição Azure diferente.
+Uma ou mais subscrições da Azure podem estabelecer uma relação de confiança com um caso de Azure Ative Directory (Azure AD) a fim de autenticar e autorizar os principais e dispositivos de segurança contra os serviços Azure.  Quando uma subscrição expira, a instância fidedigna do serviço Azure AD permanece, mas os principais de segurança perdem o acesso aos recursos da Azure.
 
-Por padrão, quando um utilizador se inscreve para um serviço de cloud da Microsoft, é criado um inquilino AZure AD e o utilizador é nomeado membro do papel de Administrador Global. Quando adiciona uma subscrição a um diretório existente, não está atribuído ao papel de Administrador Global.
+Quando um utilizador se inscreve para um serviço de cloud da Microsoft, é criado um novo inquilino AZure AD e o utilizador é nomeado membro da função Ded administrador global. No entanto, quando um proprietário de uma subscrição se junta à sua subscrição a um inquilino existente, o proprietário não é designado para o papel de Administrador Global.
 
 Todos os seus utilizadores têm um único *diretório caseiro* para autenticação. Os seus utilizadores também podem ser convidados em outros diretórios. Você pode ver tanto os diretórios de casa como os convidados para cada utilizador em Azure AD.
 
 > [!Important]
-> Quando associa uma subscrição a um diretório diferente, os utilizadores que têm funções atribuídas usando [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) perdem o seu acesso. Os administradores de subscrição clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
+> Quando associa uma subscrição a um diretório diferente, os utilizadores que têm funções atribuídas através do [controlo de acesso baseado em funções Azure](../../role-based-access-control/role-assignments-portal.md) perdem o seu acesso. Os administradores de subscrição clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
 >
 > As Atribuições de Políticas também são removidas de uma subscrição quando a subscrição é associada a um diretório diferente.
 >
-> Mover o seu cluster Azure Kubernetes Service (AKS) para uma subscrição diferente, ou mover a subscrição proprietária do cluster para um novo inquilino, faz com que o cluster perca a funcionalidade devido às atribuições de papéis perdidas e aos direitos do diretor de serviço. Para obter mais informações sobre a AKS, consulte [o Serviço Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/).
+> Mover o seu cluster Azure Kubernetes Service (AKS) para uma subscrição diferente, ou mover a subscrição proprietária do cluster para um novo inquilino, faz com que o cluster perca a funcionalidade devido às atribuições de papéis perdidas e aos direitos do diretor de serviço. Para obter mais informações sobre a AKS, consulte [o Serviço Azure Kubernetes (AKS)](../../aks/index.yml).
 
 ## <a name="before-you-begin"></a>Before you begin
 
@@ -55,7 +55,7 @@ Antes de poder associar ou adicionar a sua subscrição, faça as seguintes tare
 - Inscreva-se usando uma conta que:
 
   - Tem uma atribuição de função [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a subscrição. Para obter informações sobre como atribuir a função proprietário, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
-  - Existe tanto no diretório atual como no novo diretório. O diretório atual está associado à subscrição. Vai associar o novo diretório à assinatura. Para obter mais informações sobre o acesso a outro diretório, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](../b2b/add-users-administrator.md).
+  - Existe tanto no diretório atual como no novo diretório. O diretório atual está associado à subscrição. Vai associar o novo diretório à assinatura. Para obter mais informações sobre o acesso a outro diretório, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](../external-identities/add-users-administrator.md).
 
 - Certifique-se de que não está a utilizar uma subscrição dos Fornecedores de Serviços em Nuvem (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), uma subscrição da Microsoft Internal (MS-AZR-0015P), ou uma subscrição da Microsoft Imagine (MS-AZR-0144P).
 
@@ -81,7 +81,7 @@ Para associar uma subscrição existente ao seu diretório AD Azure, siga estes 
 
    Pode levar várias horas para que tudo apareça corretamente. Se parecer estar a demorar muito tempo, verifique o **filtro de subscrição Global**. Certifique-se de que a subscrição em 2019 não está escondida. Poderá ter de assinar fora do portal Azure e voltar a entrar para ver o novo diretório.
 
-Mudar o diretório de subscrição é uma operação de nível de serviço, por isso não afeta a propriedade da faturação de subscrição. O Administrador de Conta ainda pode alterar o Administrador de Serviço do Centro de [Contas.](https://account.azure.com/subscriptions) Para eliminar o diretório original, tem de transferir a propriedade da faturação por subscrição para um novo Administrador de Conta. Para saber mais sobre a transferência de propriedade de faturação, consulte [a propriedade de transferência de uma subscrição do Azure para outra conta.](../../cost-management-billing/manage/billing-subscription-transfer.md)
+Mudar o diretório de subscrição é uma operação de nível de serviço, por isso não afeta a propriedade da faturação de subscrição. Para eliminar o diretório original, tem de transferir a propriedade da faturação por subscrição para um novo Administrador de Conta. Para saber mais sobre a transferência de propriedade de faturação, consulte [a propriedade de transferência de uma subscrição do Azure para outra conta.](../../cost-management-billing/manage/billing-subscription-transfer.md)
 
 ## <a name="post-association-steps"></a>Etapas pós-associação
 
@@ -95,7 +95,7 @@ Depois de associar uma subscrição a um diretório diferente, poderá ter de fa
 
 - Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD (Pré-visualização)](../../role-based-access-control/transfer-subscription.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para criar um novo inquilino AZure AD, consulte [Quickstart: Criar um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 

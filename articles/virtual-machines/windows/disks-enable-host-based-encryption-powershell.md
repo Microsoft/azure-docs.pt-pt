@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6a352ecc2d2b02f03e2b55f7c5896ac905077921
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 804f26f27e9f2807b796daa03b045ab1b5948815
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814799"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421939"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o módulo Azure PowerShell para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
 
@@ -49,37 +49,223 @@ Pode ativar a encriptação no anfitrião, definindo uma nova propriedade Encryp
 
 `"securityProfile": { "encryptionAtHost": "true" }`
 
-## <a name="example-scripts"></a>Scripts de exemplo
+## <a name="examples"></a>Exemplos
 
-### <a name="enable-encryption-at-host-for-disks-attached-to-a-vm-with-customer-managed-keys"></a>Ativar a encriptação no anfitrião para discos ligados a um VM com teclas geridas pelo cliente
+### <a name="create-a-vm-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Crie um VM com encriptação no anfitrião ativado com teclas geridas pelo cliente. 
 
-Crie um VM com discos geridos utilizando o recurso URI do DiskEncrypationSet criado anteriormente.
+Crie um VM com discos geridos utilizando o recurso URI do DiskEncrypationSet criado anteriormente para encriptar cache de SISTEMA e discos de dados com chaves geridas pelo cliente. Os discos temporários são encriptados com chaves geridas pela plataforma. 
 
-`<yourPassword>`Substitua, , , , , `<yourVMName>` `<yourVMSize>` `<yourDESName>` `<yoursubscriptionID>` `<yourResourceGroupName>` `<yourRegion>` e, em seguida, executar o script.
+```powershell
+$VMLocalAdminUser = "yourVMLocalAdminUserName"
+$VMLocalAdminSecurePassword = ConvertTo-SecureString <password> -AsPlainText -Force
+$LocationName = "yourRegion"
+$ResourceGroupName = "yourResourceGroupName"
+$ComputerName = "yourComputerName"
+$VMName = "yourVMName"
+$VMSize = "yourVMSize"
+$diskEncryptionSetName="yourdiskEncryptionSetName"
+    
+$NetworkName = "yourNetworkName"
+$NICName = "yourNICName"
+$SubnetName = "yourSubnetName"
+$SubnetAddressPrefix = "10.0.0.0/24"
+$VnetAddressPrefix = "10.0.0.0/16"
+    
+$SingleSubnet = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $SubnetAddressPrefix
+$Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGroupName -Location $LocationName -AddressPrefix $VnetAddressPrefix -Subnet $SingleSubnet
+$NIC = New-AzNetworkInterface -Name $NICName -ResourceGroupName $ResourceGroupName -Location $LocationName -SubnetId $Vnet.Subnets[0].Id
+    
+$Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
 
-```PowerShell
-$password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
-New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
--TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithCMK.json" `
--virtualMachineName "<yourVMName>" `
--adminPassword $password `
--vmSize "<yourVMSize>" `
--diskEncryptionSetId "/subscriptions/<yoursubscriptionID>/resourceGroups/<yourResourceGroupName>/providers/Microsoft.Compute/diskEncryptionSets/<yourDESName>" `
--region "<yourRegion>"
+# Enable encryption at host by specifying EncryptionAtHost parameter
+
+$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize -EncryptionAtHost
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2012-R2-Datacenter' -Version latest
+
+$diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
+
+# Enable encryption with a customer managed key for OS disk by setting DiskEncryptionSetId property 
+
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $($VMName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage
+
+# Add a data disk encrypted with a customer managed key by setting DiskEncryptionSetId property 
+
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name $($VMName +"DataDisk1") -DiskSizeInGB 128 -StorageAccountType Premium_LRS -CreateOption Empty -Lun 0 -DiskEncryptionSetId $diskEncryptionSet.Id 
+    
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine -Verbose
 ```
 
-### <a name="enable-encryption-at-host-for-disks-attached-to-a-vm-with-platform-managed-keys"></a>Ativar a encriptação no anfitrião para discos ligados a um VM com teclas geridas pela plataforma
+### <a name="create-a-vm-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Crie um VM com encriptação no anfitrião ativado com teclas geridas pela plataforma. 
 
-`<yourPassword>`Substitua, `<yourVMName>` , `<yourVMSize>` `<yourResourceGroupName>` `<yourRegion>` e, em seguida, executar o script.
+Crie um VM com encriptação no anfitrião habilitado a encriptar cache de discos de OS/dados e discos temporários com teclas geridas pela plataforma. 
 
-```PowerShell
-$password=ConvertTo-SecureString -String "<yourPassword>" -AsPlainText -Force
-New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
--TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithPMK.json" `
--virtualMachineName "<yourVMName>" `
--adminPassword $password `
--vmSize "<yourVMSize>" `
--region "<yourRegion>"
+```powershell
+$VMLocalAdminUser = "yourVMLocalAdminUserName"
+$VMLocalAdminSecurePassword = ConvertTo-SecureString <password> -AsPlainText -Force
+$LocationName = "yourRegion"
+$ResourceGroupName = "yourResourceGroupName"
+$ComputerName = "yourComputerName"
+$VMName = "yourVMName"
+$VMSize = "yourVMSize"
+    
+$NetworkName = "yourNetworkName"
+$NICName = "yourNICName"
+$SubnetName = "yourSubnetName"
+$SubnetAddressPrefix = "10.0.0.0/24"
+$VnetAddressPrefix = "10.0.0.0/16"
+    
+$SingleSubnet = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $SubnetAddressPrefix
+$Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGroupName -Location $LocationName -AddressPrefix $VnetAddressPrefix -Subnet $SingleSubnet
+$NIC = New-AzNetworkInterface -Name $NICName -ResourceGroupName $ResourceGroupName -Location $LocationName -SubnetId $Vnet.Subnets[0].Id
+    
+$Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
+
+# Enable encryption at host by specifying EncryptionAtHost parameter
+
+$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize -EncryptionAtHost
+
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2012-R2-Datacenter' -Version latest
+
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $($VMName +"_OSDisk") -CreateOption FromImage
+
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name $($VMName +"DataDisk1") -DiskSizeInGB 128 -StorageAccountType Premium_LRS -CreateOption Empty -Lun 0
+    
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine
+```
+
+### <a name="update-a-vm-to-enable-encryption-at-host"></a>Atualize um VM para permitir a encriptação no anfitrião. 
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMName = "yourVMName"
+
+$VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName
+
+Stop-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName -Force
+
+Update-AzVM -VM $VM -ResourceGroupName $ResourceGroupName -EncryptionAtHost $true
+```
+
+### <a name="check-the-status-of-encryption-at-host-for-a-vm"></a>Verifique o estado da encriptação no anfitrião para obter um VM
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMName = "yourVMName"
+
+$VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName
+
+$VM.SecurityProfile.EncryptionAtHost
+```
+
+### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Crie um conjunto de escala de máquina virtual com encriptação no anfitrião ativado com teclas geridas pelo cliente. 
+
+Crie um conjunto de escala de máquina virtual com discos geridos utilizando o recurso URI do DiskEncrypationSet criado anteriormente para encriptar cache de SISTEMA e discos de dados com teclas geridas pelo cliente. Os discos temporários são encriptados com chaves geridas pela plataforma. 
+
+```powershell
+$VMLocalAdminUser = "yourLocalAdminUser"
+$VMLocalAdminSecurePassword = ConvertTo-SecureString Password@123 -AsPlainText -Force
+$LocationName = "westcentralus"
+$ResourceGroupName = "yourResourceGroupName"
+$ComputerNamePrefix = "yourComputerNamePrefix"
+$VMScaleSetName = "yourVMSSName"
+$VMSize = "Standard_DS3_v2"
+$diskEncryptionSetName="yourDiskEncryptionSetName"
+    
+$NetworkName = "yourVNETName"
+$SubnetName = "yourSubnetName"
+$SubnetAddressPrefix = "10.0.0.0/24"
+$VnetAddressPrefix = "10.0.0.0/16"
+    
+$SingleSubnet = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $SubnetAddressPrefix
+
+$Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGroupName -Location $LocationName -AddressPrefix $VnetAddressPrefix -Subnet $SingleSubnet
+
+$ipConfig = New-AzVmssIpConfig -Name "myIPConfig" -SubnetId $Vnet.Subnets[0].Id 
+
+# Enable encryption at host by specifying EncryptionAtHost parameter
+
+$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize -UpgradePolicyMode 'Automatic' -EncryptionAtHost
+
+$VMSS = Add-AzVmssNetworkInterfaceConfiguration -Name "myVMSSNetworkConfig" -VirtualMachineScaleSet $VMSS -Primary $true -IpConfiguration $ipConfig
+
+$diskEncryptionSet=Get-AzDiskEncryptionSet -ResourceGroupName $ResourceGroupName -Name $diskEncryptionSetName
+
+# Enable encryption with a customer managed key for the OS disk by setting DiskEncryptionSetId property 
+
+$VMSS = Set-AzVmssStorageProfile $VMSS -OsDiskCreateOption "FromImage" -DiskEncryptionSetId $diskEncryptionSet.Id -ImageReferenceOffer 'WindowsServer' -ImageReferenceSku '2012-R2-Datacenter' -ImageReferenceVersion latest -ImageReferencePublisher 'MicrosoftWindowsServer'
+
+$VMSS = Set-AzVmssOsProfile $VMSS -ComputerNamePrefix $ComputerNamePrefix -AdminUsername $VMLocalAdminUser -AdminPassword $VMLocalAdminSecurePassword
+
+# Add a data disk encrypted with a customer managed key by setting DiskEncryptionSetId property 
+
+$VMSS = Add-AzVmssDataDisk -VirtualMachineScaleSet $VMSS -CreateOption Empty -Lun 1 -DiskSizeGB 128 -StorageAccountType Premium_LRS -DiskEncryptionSetId $diskEncryptionSet.Id
+```
+
+### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Crie um conjunto de escala de máquina virtual com encriptação no anfitrião ativado com teclas geridas pela plataforma. 
+
+Crie um conjunto de escala de máquina virtual com encriptação no anfitrião habilitado a encriptar cache de discos de OS/dados e discos temporários com teclas geridas pela plataforma. 
+
+```powershell
+$VMLocalAdminUser = "yourLocalAdminUser"
+$VMLocalAdminSecurePassword = ConvertTo-SecureString Password@123 -AsPlainText -Force
+$LocationName = "westcentralus"
+$ResourceGroupName = "yourResourceGroupName"
+$ComputerNamePrefix = "yourComputerNamePrefix"
+$VMScaleSetName = "yourVMSSName"
+$VMSize = "Standard_DS3_v2"
+    
+$NetworkName = "yourVNETName"
+$SubnetName = "yourSubnetName"
+$SubnetAddressPrefix = "10.0.0.0/24"
+$VnetAddressPrefix = "10.0.0.0/16"
+    
+$SingleSubnet = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $SubnetAddressPrefix
+
+$Vnet = New-AzVirtualNetwork -Name $NetworkName -ResourceGroupName $ResourceGroupName -Location $LocationName -AddressPrefix $VnetAddressPrefix -Subnet $SingleSubnet
+
+$ipConfig = New-AzVmssIpConfig -Name "myIPConfig" -SubnetId $Vnet.Subnets[0].Id 
+
+# Enable encryption at host by specifying EncryptionAtHost parameter
+
+$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity 2 -SkuName $VMSize -UpgradePolicyMode 'Automatic' -EncryptionAtHost
+
+$VMSS = Add-AzVmssNetworkInterfaceConfiguration -Name "myVMSSNetworkConfig" -VirtualMachineScaleSet $VMSS -Primary $true -IpConfiguration $ipConfig
+ 
+$VMSS = Set-AzVmssStorageProfile $VMSS -OsDiskCreateOption "FromImage" -ImageReferenceOffer 'WindowsServer' -ImageReferenceSku '2012-R2-Datacenter' -ImageReferenceVersion latest -ImageReferencePublisher 'MicrosoftWindowsServer'
+
+$VMSS = Set-AzVmssOsProfile $VMSS -ComputerNamePrefix $ComputerNamePrefix -AdminUsername $VMLocalAdminUser -AdminPassword $VMLocalAdminSecurePassword
+
+$VMSS = Add-AzVmssDataDisk -VirtualMachineScaleSet $VMSS -CreateOption Empty -Lun 1 -DiskSizeGB 128 -StorageAccountType Premium_LRS 
+
+$Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
+
+New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMScaleSetName
+```
+
+### <a name="update-a-virtual-machine-scale-set-to-enable-encryption-at-host"></a>Atualize uma escala de máquina virtual definida para permitir a encriptação no anfitrião. 
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMScaleSetName = "yourVMSSName"
+
+$VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -Name $VMScaleSetName
+
+Update-AzVmss -VirtualMachineScaleSet $VMSS -Name $VMScaleSetName -ResourceGroupName $ResourceGroupName -EncryptionAtHost $true
+```
+
+### <a name="check-the-status-of-encryption-at-host-for-a-virtual-machine-scale-set"></a>Verifique o estado da encriptação no anfitrião para obter um conjunto de escala de máquina virtual
+
+```powershell
+$ResourceGroupName = "yourResourceGroupName"
+$VMScaleSetName = "yourVMSSName"
+
+$VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -Name $VMScaleSetName
+
+$VMSS.VirtualMachineProfile.SecurityProfile.EncryptionAtHost
 ```
 
 ## <a name="finding-supported-vm-sizes"></a>Encontrar tamanhos de VM suportados
@@ -126,7 +312,7 @@ foreach($vmSize in $vmSizes)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que criou e configura estes recursos, pode usá-los para proteger os seus discos geridos. O link que se segue contém scripts de exemplo, cada um com um cenário respetivo, que pode utilizar para proteger os seus discos geridos.
 

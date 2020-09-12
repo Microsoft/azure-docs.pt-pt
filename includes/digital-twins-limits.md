@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771043"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303988"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
@@ -42,7 +42,7 @@ Esta tabela reflete os limites de taxa de diferentes APIs.
 | Modelos API | Número de pedidos por segundo | 100 | Yes |
 | API de Gémeos Digitais | Número de pedidos por segundo | 1,000 | Yes |
 | API de Consulta | Número de pedidos por segundo | 500 | Yes |
-| API de Consulta | Unidades de consulta por segundo | 4000 | Yes |
+| API de Consulta | [Unidades de consulta](../articles/digital-twins/concepts-query-units.md) por segundo | 4000 | Yes |
 | Rotas do Evento API | Número de pedidos por segundo | 100 | Yes |
 
 ### <a name="other-limits"></a>Outros limites

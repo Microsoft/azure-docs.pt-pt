@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552837"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421463"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -88,11 +88,11 @@ Também pode atribuir qualquer valor constante (estático) a quaisquer reclamaç
 
 1. Introduza o valor constante sem cotações no **atributo Fonte** conforme a sua organização e clique em **Guardar**.
 
-    ![Abra a secção atributos & do utilizador no portal Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Org Atribui & Seção reivindicações no portal Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. O valor constante será apresentado como abaixo.
 
-    ![Abra a secção atributos & do utilizador no portal Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Editar Atributos & Reclamações no portal Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Reivindicações especiais - transformações
 
@@ -121,7 +121,7 @@ Para aplicar uma transformação a um atributo do utilizador:
 2. Selecione a função a partir da redução da transformação. Dependendo da função selecionada, terá de fornecer parâmetros e um valor constante para avaliar na transformação. Consulte a tabela abaixo para obter mais informações sobre as funções disponíveis.
 3. Para aplicar a transformação múltipla, clique na **transformação de Adicionar**. Pode aplicar um máximo de duas transformações a uma reivindicação. Por exemplo, primeiro pode extrair o prefixo de e-mail do `user.mail` . Então, faça a parte superior da corda.
 
-   ![Editar o valor NameID (identificador de nomes)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![Transformação de múltiplas reclamações](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 Pode utilizar as seguintes funções para transformar reclamações.
 
@@ -129,8 +129,8 @@ Pode utilizar as seguintes funções para transformar reclamações.
 |----------|-------------|
 | **ExtractoMailPrefixo()** | Remove o sufixo de domínio do endereço de e-mail ou do nome principal do utilizador. Isto extrai apenas a primeira parte do nome de utilizador que está a ser passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com ). |
 | **Junte-se a nós()** | Cria um novo valor juntando dois atributos. Opcionalmente, pode utilizar um separador entre os dois atributos. Para a transformação da reclamação nameID, a junção é restrita a um domínio verificado. Se o valor do identificador de utilizador selecionado tiver um domínio, extrairá o nome de utilizador para anexar o domínio verificado selecionado. Por exemplo, se selecionar o e-mail ( joe_smith@contoso.com ) como o valor do identificador do utilizador e selecionar contoso.onmicrosoft.com como domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com . |
-| **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
-| **Toupper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculas. |
+| **ToLowercase()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
+| **Touppercase()** | Converte os caracteres do atributo selecionado em caracteres maiúsculas. |
 | **Contém()** | Produz um atributo ou constante se a entrada corresponder ao valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se pretender emitir uma reclamação em que o valor seja o endereço de e-mail do utilizador se contiver o domínio " @contoso.com ", caso contrário pretender desafetar o nome principal do utilizador. Para tal, configurar os seguintes valores:<br/>*Parâmetro 1(entrada)*: user.email<br/>*Valor:* @contoso.com "<br/>Parâmetro 2 (saída): user.email<br/>Parâmetro 3 (saída se não houver correspondência): user.userprincipalname |
 | **EndWith()** | Produz um atributo ou constante se a entrada terminar com o valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se quiser emitir uma reclamação em que o valor seja o ID do funcionário do utilizador se o ID do empregado terminar com "000", caso contrário, pretender fazer um atributo de extensão. Para tal, configurar os seguintes valores:<br/>*Parâmetro 1(entrada)*: user.employeeid<br/>*Valor*: "000"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
 | **StartWith()** | Produz um atributo ou constante se a entrada começar com o valor especificado. Caso contrário, pode especificar outra saída se não houver correspondência.<br/>Por exemplo, se quiser emitir uma reclamação em que o valor é o ID do funcionário do utilizador se o país/região começar com "EUA", caso contrário, pretender obter um atributo de extensão. Para tal, configurar os seguintes valores:<br/>*Parâmetro 1(entrada)*: user.country<br/>*Valor*: "EUA"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
@@ -179,4 +179,4 @@ Em primeiro lugar, a plataforma de identidade da Microsoft verifica se o tipo de
 
 * [Gestão de aplicações em Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurar aplicações únicas de inscrição que não constam da galeria de candidaturas Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Resolução de problemas SEML único sinal de lançamento](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Resolver problemas de início de sessão único baseado em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

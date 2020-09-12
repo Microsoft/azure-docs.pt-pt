@@ -3,13 +3,13 @@ title: Azure Resource Logs suportados serviços e esquemas
 description: Compreenda os serviços suportados e o esquema de eventos para registos de recursos Azure.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/15/2020
-ms.openlocfilehash: acd661467e90b4915daa2f3eb31f34fd350dc9f5
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/01/2020
+ms.openlocfilehash: d0f78b858da51838aacd9e3be9b0a069918710a7
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226468"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421922"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para registos de recursos Azure
 
@@ -23,7 +23,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 ## <a name="top-level-common-schema"></a>Esquema comum de alto nível
 
-| Name | Obrigatório/Opcional | Description |
+| Name | Obrigatório/Opcional | Descrição |
 |---|---|---|
 | hora | Necessário | A hora de jogo (UTC) do evento. |
 | resourceId | Necessário | O ID de recursos do recurso que emitia o evento. Para os serviços de arrendamento, este é do formulário /inquilinos/inquilino-id/provedor/nome de provedor. |
@@ -49,7 +49,7 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Serviço | Schema & Docs |
 | --- | --- |
 | Azure Active Directory | [Visão geral](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Esquema de registo de auditoria](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e esquema de [login](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | https://docs.microsoft.com/azure/analysis-services/analysis-services-logging |
+| Analysis Services | [Serviços de Análise Azure - Registo de diagnóstico de configuração](../../analysis-services/analysis-services-logging.md) |
 | Gestão de API | [Registos de Recursos de Gestão da API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Gateways de Aplicação |[Registo de gateway de aplicações](../../application-gateway/application-gateway-diagnostics.md) |
 | Automatização do Azure |[Analítica de registo para Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -60,12 +60,12 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Cosmos DB | [Azure Cosmos DB Logging](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitorize fábricas de dados usando o Monitor Azure](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Aceder a registos para Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Data Lake Store |[Aceder a registos para a Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Data Lake Storage |[Aceder a registos para a Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Azure Data Explorer | [Registos Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
 | Base de Dados do Azure para MySQL | [Base de Dados Azure para registos de diagnóstico mySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Base de Dados do Azure para PostgreSQL | [Base de Dados Azure para registos PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure Databricks | [Registo de diagnósticos no Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
-| Digital Twins | [Configuração Diagnóstico de Gémeos Digitais](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
+| Azure Databricks | [Registo de diagnósticos no Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Digital Twins | [Configurar diagnósticos de gémeos digitais Azure](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Hubs de Eventos |[Logs de hubs de eventos Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schema não está disponível. |
 | Azure Firewall | Schema não está disponível. |

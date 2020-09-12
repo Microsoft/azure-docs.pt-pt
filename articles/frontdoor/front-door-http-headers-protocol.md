@@ -3,20 +3,20 @@ title: Suporte protocolar para cabeçalhos HTTP na Porta frontal Azure / Microso
 description: Este artigo descreve protocolos de cabeçalho HTTP que a Porta frontal suporta.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: a1060cbf1b2204c3feba413b8c8ce0cba58941c6
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.author: duau
+ms.openlocfilehash: 6864a854215d899043607b3d01cffbd343ee7751
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799128"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399519"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Suporte de protocolo para cabeçalhos HTTP na Porta frontal Azure
 Este artigo descreve o protocolo que a Porta frontal suporta com partes do caminho de chamada (ver imagem). As seguintes secções fornecem mais informações sobre cabeçalhos HTTP suportados pela Porta frontal.
@@ -54,7 +54,7 @@ Quaisquer cabeçalhos enviados para a Porta da Frente a partir do backend també
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOJBV2NT4TY6SQVJC0zV1NURURHRTA2MTKANDM3YzgyY2QtMzYwYS0YTU0LTU0LT0YZMTNHMNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência única que identifica um pedido servido pela Porta da Frente. Isto é fundamental para a resolução de problemas, uma vez que é usado para pesquisar registos de acesso.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma Porta de Entrada](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

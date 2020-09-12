@@ -2,17 +2,17 @@
 title: A bordo de um domínio de raiz ou ápice para uma porta frontal existente - portal Azure
 description: Aprenda a embarcar num domínio de raiz ou ápice para uma porta frontal existente utilizando o portal Azure.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 05267ad43f6e7f89ec50b1765d2475a02fae1702
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743597"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399590"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrar um domínio de raiz ou apex no seu Front Door
 A Azure Front Door utiliza registos CNAME para validar a propriedade do domínio para o embarque de domínios personalizados. Além disso, a Porta Frontal não expõe o endereço IP frontend associado ao seu perfil da Porta frontal e por isso não pode mapear o seu domínio ápice para um endereço IP, se a intenção for a bordo para a Porta frontal Azure.

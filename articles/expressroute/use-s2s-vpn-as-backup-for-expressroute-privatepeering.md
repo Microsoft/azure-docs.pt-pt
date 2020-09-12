@@ -2,17 +2,17 @@
 title: Usando a VPN S2S como backup para a Azure ExpressRoute Private Peering Microsoft Docs
 description: Esta página fornece recomendações arquitetônicas para apoiar o Azure ExpressRoute peering privado com S2S VPN.
 services: networking
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.author: rambala
-ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: duau
+ms.openlocfilehash: 0ab74a14c16b7ea1d587cfcc82eea689e2f98c83
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244776"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393025"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Usando a VPN S2S como uma cópia de segurança para o espreitamento privado ExpressRoute
 
@@ -302,7 +302,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 Para confirmar que o tráfego é recíproca para ExpressRoute, repita o percurso e certifique-se de que está a passar pelo espreitamento privado ExpressRoute.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O ExpressRoute foi concebido para uma elevada disponibilidade sem um único ponto de falha dentro da rede microsoft. Ainda um circuito ExpressRoute está confinado a uma única região geográfica e a um prestador de serviços. A S2S VPN pode ser uma boa solução de backup passiva de recuperação de desastres para um circuito ExpressRoute. Para uma solução de ligação de backup passiva fiável, a manutenção regular da configuração passiva e a validação periódica da ligação são importantes. É essencial não deixar que a configuração VPN fique velha e, periodicamente (digamos, cada trimestre) repita os passos de teste de validação e failover descritos neste artigo durante a janela de manutenção.
 
