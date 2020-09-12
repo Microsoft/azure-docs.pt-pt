@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
-ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/08/2020
+ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949138"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595099"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -48,7 +48,7 @@ Abaixo está uma lista de algumas das vantagens que a integração git proporcio
 > [!NOTE]
 > A autoria direta com o serviço Data Factory é desativada no Azure Data Factory UX quando um repositório de Git é configurado. As alterações efetuadas através do PowerShell ou de um SDK são publicadas diretamente no serviço Data Factory e não são introduzidas no Git.
 
-## <a name="author-with-azure-repos-git-integration"></a>Author with Azure Repos Git integration (Criar com a integração em Repositórios do Azure no Git)
+## <a name="author-with-azure-repos-git-integration"></a>Criar com a integração em Repositórios do Azure
 
 A autoria visual com a integração Azure Repos Git suporta o controlo de fontes e a colaboração para o trabalho nos seus oleodutos de fábrica de dados. Você pode associar uma fábrica de dados a um repositório de organização Azure Repos Git para controlo de origem, colaboração, versão, e assim por diante. Uma única organização Azure Repos Git pode ter vários repositórios, mas um repositório Azure Repos Git pode ser associado a apenas uma fábrica de dados. Se não tiver uma organização ou repositório do Azure Repos, siga [estas instruções](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar os seus recursos.
 
@@ -109,7 +109,7 @@ Após estes passos de configuração, o seu repo pessoal está disponível quand
 
 Para obter mais informações sobre a ligação do Azure Repos ao Ative Directory da sua organização, consulte [a sua organização Azure DevOps ao Azure Ative Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
-## <a name="author-with-github-integration"></a>Author with GitHub integration (Criar com a integração no GitHub)
+## <a name="author-with-github-integration"></a>Criar com a integração no GitHub
 
 A autoria visual com a integração do GitHub suporta o controlo de fontes e a colaboração para o trabalho nos seus oleodutos de fábrica de dados. Pode associar uma fábrica de dados a um repositório de conta GitHub para controlo de origem, colaboração, versão. Uma única conta GitHub pode ter vários repositórios, mas um repositório GitHub pode ser associado a apenas uma fábrica de dados. Se não tiver uma conta GitHub ou repositório, siga [estas instruções](https://github.com/join)   para criar os seus recursos.
 
@@ -242,20 +242,20 @@ Abaixo estão alguns exemplos de situações que podem causar uma sucursal de pu
 
 ## <a name="switch-to-a-different-git-repository"></a>Mude para um repositório de Git diferente
 
-Para mudar para um repositório de Git diferente, clique no ícone **Git Repo Settings** no canto superior direito da página geral da Data Factory. Se não consegue ver o ícone, limpe a cache do navegador local. Selecione o ícone para remover a associação com o repo atual.
+Para mudar para um repositório de Git diferente, aceda à página de configuração git no centro de gestão sob **controlo source**. **Selecione Desligar**. 
 
-![Ícone de Git](media/author-visually/remove-repo.png)
+![Ícone de Git](media/author-visually/remove-repository.png)
 
-Assim que aparecer o painel de definições do repositório, selecione **Remove Git**. Insira o nome da sua fábrica de dados e clique em **confirmar** para remover o repositório Git associado à sua fábrica de dados.
+Insira o nome da sua fábrica de dados e clique em **confirmar** para remover o repositório Git associado à sua fábrica de dados.
 
-![Remova a associação com o atual git repo](media/author-visually/remove-repo2.png)
+![Remova a associação com o atual git repo](media/author-visually/remove-repository-2.png)
 
 Depois de remover a associação com o repo atual, pode configurar as suas definições de Git para usar um repo diferente e, em seguida, importar os recursos existentes da Data Factory para o novo repo.
 
 > [!IMPORTANT]
 > Remover a configuração do Git de uma fábrica de dados não apaga nada do repositório. A fábrica conterá todos os recursos publicados. Pode continuar a editar a fábrica diretamente contra o serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre monitorização e gestão de gasodutos, consulte [o Monitor e gere os gasodutos programáticamente.](monitor-programmatically.md)
 * Para implementar a integração e implantação contínuas, consulte [integração e entrega contínua (CI/CD) na Azure Data Factory](continuous-integration-deployment.md).

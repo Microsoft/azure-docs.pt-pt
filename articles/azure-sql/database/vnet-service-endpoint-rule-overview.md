@@ -11,20 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 827d66b51aa2080c4fb10209439d7781ddf787a7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210395"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436930"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*As regras de rede virtual* são uma funcionalidade de segurança de firewall que controla quer o servidor das suas bases de dados e piscinas elásticas na [Base de Dados Azure SQL](sql-database-paas-overview.md) ou para as suas bases de dados em [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas a partir de sub-redes específicas em redes virtuais. Este artigo explica porque é que a funcionalidade de regra de rede virtual é, por vezes, a sua melhor opção para permitir a comunicação segura à sua base de dados na Base de Dados Azure SQL e no SQL Data Warehouse.
+*As regras de rede virtual* são uma funcionalidade de segurança de firewall que controla quer o servidor das suas bases de dados e piscinas elásticas na [Base de Dados Azure SQL](sql-database-paas-overview.md) ou para as suas bases de dados em [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas a partir de sub-redes específicas em redes virtuais. Este artigo explica porque é que a funcionalidade de regra de rede virtual é, por vezes, a sua melhor opção para permitir a comunicação segura à sua base de dados na Base de Dados Azure SQL e na Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 > [!NOTE]
-> Este artigo aplica-se tanto à Base de Dados Azure SQL como à Azure Synapse Analytics (antiga SQL Data Warehouse). Para simplificar, o termo "base de dados" refere-se a ambas as bases de dados na Base de Dados Azure SQL e na Azure Synapse Analytics. Da mesma forma, quaisquer referências ao 'servidor' referem-se ao [servidor lógico SQL](logical-servers.md) que acolhe a Base de Dados Azure SQL e a Azure Synapse Analytics.
+> Este artigo aplica-se tanto à Base de Dados Azure SQL como à Azure Synapse Analytics. Para simplificar, o termo "base de dados" refere-se a ambas as bases de dados na Base de Dados Azure SQL e na Azure Synapse Analytics. Da mesma forma, quaisquer referências ao 'servidor' referem-se ao [servidor lógico SQL](logical-servers.md) que acolhe a Base de Dados Azure SQL e a Azure Synapse Analytics.
 
 Para criar uma regra de rede virtual, deve primeiro existir um [ponto final de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra a referenciar.
 
@@ -104,7 +104,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto da utilização de pontos finais de serviço VNet com armazenamento Azure
 
-O Armazenamento do Microsoft Azure implementou a mesma funcionalidade que lhe permite limitar a conectividade à conta do Armazenamento do Microsoft Azure. Se optar por utilizar esta funcionalidade com uma conta do Armazenamento do Microsoft Azure que está a ser utilizada pela Base de Dados SQL do Azure, poderão ocorrer problemas. Segue-se uma lista e discussão das funcionalidades Azure SQL Data Warehouse e Azure SQL Data Warehouse que são impactadas por isso.
+O Armazenamento do Microsoft Azure implementou a mesma funcionalidade que lhe permite limitar a conectividade à conta do Armazenamento do Microsoft Azure. Se optar por utilizar esta funcionalidade com uma conta do Armazenamento do Microsoft Azure que está a ser utilizada pela Base de Dados SQL do Azure, poderão ocorrer problemas. Segue-se uma lista e discussão das funcionalidades Azure SQL Database e Azure Synapse Analytics que são impactadas por isso.
 
 ### <a name="azure-synapse-polybase-and-copy-statement"></a>Declaração de Azure Synapse PolyBase e COPY
 
@@ -280,7 +280,7 @@ Já deve ter uma sub-rede que está marcada com o nome de *tipo de ponto* final 
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Regras de firewall ao nível do servidor e de nível de base de dados][sql-db-firewall-rules-config-715d]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Regras de Rede Virtual: Operações][rest-api-virtual-network-rules-operations-862r] com APIs REST

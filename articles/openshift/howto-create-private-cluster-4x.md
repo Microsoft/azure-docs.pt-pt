@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc
-ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056776"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505357"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um aglomerado privado Azure Red Hat OpenShift 4
 
@@ -23,17 +23,35 @@ Neste artigo, você vai preparar o seu ambiente para criar clusters privados Azu
 > * Configurar os pré-requisitos e criar a rede virtual e sub-redes necessárias
 > * Implementar um cluster com um ponto final privado do servidor API e um controlador de entrada privada
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Before you begin
 
-### <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
+### <a name="register-the-resource-providers"></a>Registar os fornecedores de recursos
 
-Em seguida, tem de registar o `Microsoft.RedHatOpenShift` fornecedor de recursos na sua subscrição.
+1. Se tiver várias subscrições do Azure, especifique o ID de subscrição relevante:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Registar o `Microsoft.RedHatOpenShift` fornecedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+
+1. Registar o `Microsoft.Compute` fornecedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Registar o `Microsoft.Storage` fornecedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obtenha um segredo de puxar o chapéu vermelho (opcional)
 
@@ -141,7 +159,7 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Desative as políticas de ponto final privado da sub-rede](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) na sub-rede principal.** Isto é necessário para ser capaz de conectar e gerir o cluster.
+5. **[Desative as políticas de ponto final privado da sub-rede](../private-link/disable-private-link-service-network-policy.md) na sub-rede principal.** Isto é necessário para ser capaz de conectar e gerir o cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -197,7 +215,7 @@ A saída de exemplo a seguir mostra que a palavra-passe estará em `kubeadminPas
 }
 ```
 
-Você pode encontrar o URL da consola de cluster executando o seguinte comando, que será semelhante`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Você pode encontrar o URL da consola de cluster executando o seguinte comando, que será semelhante `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \
@@ -207,7 +225,7 @@ Você pode encontrar o URL da consola de cluster executando o seguinte comando, 
 ```
 
 >[!IMPORTANT]
-> Para se ligar a um cluster openShift de chapéu vermelho Azure privado, terá de executar o seguinte passo a partir de um anfitrião que esteja na Rede Virtual que criou ou numa Rede Virtual que é [espreitada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) com a Rede Virtual para a qual o cluster foi implantado.
+> Para se ligar a um cluster openShift de chapéu vermelho Azure privado, terá de executar o seguinte passo a partir de um anfitrião que esteja na Rede Virtual que criou ou numa Rede Virtual que é [espreitada](../virtual-network/virtual-network-peering-overview.md) com a Rede Virtual para a qual o cluster foi implantado.
 
 Lance o URL da consola num browser e faça login usando as `kubeadmin` credenciais.
 
@@ -230,7 +248,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 ```
 
 >[!IMPORTANT]
-> Para se ligar a um cluster openShift de chapéu vermelho Azure privado, terá de executar o seguinte passo a partir de um anfitrião que esteja na Rede Virtual que criou ou numa Rede Virtual que é [espreitada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) com a Rede Virtual para a qual o cluster foi implantado.
+> Para se ligar a um cluster openShift de chapéu vermelho Azure privado, terá de executar o seguinte passo a partir de um anfitrião que esteja na Rede Virtual que criou ou numa Rede Virtual que é [espreitada](../virtual-network/virtual-network-peering-overview.md) com a Rede Virtual para a qual o cluster foi implantado.
 
 Faça login no servidor API do cluster OpenShift utilizando o seguinte comando. **\<kubeadmin password>** Substitua-a pela palavra-passe que acabou de recuperar.
 
@@ -238,7 +256,7 @@ Faça login no servidor API do cluster OpenShift utilizando o seguinte comando. 
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, foi implantado um cluster Azure Red Hat OpenShift com openshift 4. Aprendeu a:
 

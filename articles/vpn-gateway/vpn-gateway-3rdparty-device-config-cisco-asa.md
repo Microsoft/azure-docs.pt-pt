@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2018
+ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: f693f6a40b87d024430c7626736fab0d0a032238
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 82e00e0b519040c57fdfd798d8992086c61e5481
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082006"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426184"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração da amostra: Dispositivo Cisco ASA (IKEv2/no BGP)
 Este artigo fornece configurações de amostra para ligar dispositivos Cisco Adaptive Security Appliance (ASA) a gateways Azure VPN. O exemplo aplica-se aos dispositivos Cisco ASA que estão a executar o IKEv2 sem o Protocolo de Gateway fronteiriço (BGP). 
@@ -62,7 +62,7 @@ Esta secção lista os parâmetros da amostra.
 | * No local BGP peer IP     | 10.52.255.254                |
 |                              |                              |
 
-\*Parâmetro opcional apenas para BGP.
+\* Parâmetro opcional apenas para BGP.
 
 ### <a name="ipsecike-policy-and-parameters"></a>Política e parâmetros IPsec/IKE
 A tabela que se segue lista os algoritmos e parâmetros IPsec/IKE que são utilizados na amostra. Consulte as especificações do seu dispositivo VPN para verificar os algoritmos suportados para os modelos e versões de firmware do seu dispositivo VPN.
@@ -80,7 +80,7 @@ A tabela que se segue lista os algoritmos e parâmetros IPsec/IKE que são utili
 | Chave Pré-partilhada   | PreSharedKey                         |
 |                  |                                      |
 
-\*Em alguns dispositivos, a Integridade IPsec deve ser um valor nulo quando o algoritmo de encriptação IPsec é AES-GCM.
+\* Em alguns dispositivos, a Integridade IPsec deve ser um valor nulo quando o algoritmo de encriptação IPsec é AES-GCM.
 
 ### <a name="asa-device-support"></a>Suporte ao dispositivo ASA
 
@@ -297,5 +297,5 @@ Utilize os seguintes comandos ASA para fins de depuragem:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para configurar as instalações cruzadas ativas ativas e as ligações VNet-to-VNet, consulte as [portas VPN ativas ativas .](vpn-gateway-activeactive-rm-powershell.md)

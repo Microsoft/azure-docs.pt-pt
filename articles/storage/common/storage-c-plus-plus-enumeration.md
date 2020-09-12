@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 86fc63d8b0615423f4138ed1b09dc3a24d1e527e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ae42bb29d1273e4f0f9c25803e8cc97b56ad95
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514462"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462416"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar Recursos do Armazenamento do Microsoft Azure em C++
 
@@ -185,7 +185,7 @@ As APIs de listagem preguiçosa estão incluídas na Biblioteca do Cliente de Ar
 
 ## <a name="conclusion"></a>Conclusão
 
-Neste artigo, discutimos diferentes sobrecargas para listagem de APIs para vários objetos na Biblioteca do Cliente de Armazenamento para C++ . Em resumo:
+Neste artigo, discutimos diferentes sobrecargas para listagem de APIs para vários objetos na Biblioteca do Cliente de Armazenamento para C++ . Para resumir:
 
 * As APIs async são fortemente recomendados em vários cenários de rosca.
 * A listagem segmentada é recomendada para a maioria dos cenários.
@@ -200,5 +200,5 @@ Para obter mais informações sobre o Azure Storage e a Client Library para C++,
 * [Como utilizar o Armazenamento de Mesa a partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Como utilizar o Armazenamento de Filas a partir do C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Biblioteca do Cliente de Armazenamento Azure para documentação API C++.](https://azure.github.io/azure-storage-cpp/)
-* [Blog da equipa de armazenamento Azure](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog da equipa de armazenamento Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * [Documentação de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)

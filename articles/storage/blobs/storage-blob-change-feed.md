@@ -1,21 +1,21 @@
 ---
-title: Alterar feed em Azure Blob Storage (Preview) / Microsoft Docs
+title: Mude o feed no Azure Blob Storage / Microsoft Docs
 description: Saiba mais sobre alterar os registos de alimentação no Azure Blob Storage e como usá-los.
 author: normesta
 ms.author: normesta
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055432"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568239"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)
+# <a name="change-feed-support-in-azure-blob-storage"></a>Alterar suporte de alimentação no armazenamento de blob Azure
 
 O objetivo do feed de alteração é fornecer registos de transações de todas as alterações que ocorrem às bolhas e aos metadados blob na sua conta de armazenamento. O feed de alteração fornece registo **de leitura,** **garantido,** **durável,** **imutável,** **apenas de leitura** destas alterações. As aplicações do cliente podem ler estes registos a qualquer momento, seja em streaming ou em modo de lote. O feed de alteração permite-lhe construir soluções eficientes e escaláveis que processam eventos que ocorrem na sua conta Blob Storage a baixo custo.
 
@@ -27,11 +27,11 @@ Pode processar estes registos assíncronos, incrementalmente ou em pleno. Qualqu
 
 O suporte de feed de alteração é adequado para cenários que processam dados com base em objetos que mudaram. Por exemplo, as aplicações podem:
 
-  - Atualize um índice secundário, sincronize com um cache, motor de busca ou qualquer outro cenário de gestão de conteúdo.
+  - Atualizar um índice secundário, sincronizar com uma cache, mecanismo de pesquisa ou qualquer outro cenário de gestão de conteúdo.
   
-  - Extrair insights e métricas de análise de negócios, com base em alterações que ocorram aos seus objetos, seja de forma de streaming ou em modo de lote.
+  - Extrair informações e métricas de análise de negócios com base nas alterações que ocorrem nos objetos, seja em lote seja por transmissão em fluxo.
   
-  - Armazenar, auditar e analisar alterações nos seus objetos, ao longo de qualquer período de tempo, para segurança, conformidade ou inteligência para gestão de dados da empresa.
+  - Armazenar, auditar e analisar alterações nos objetos, ao longo de qualquer período de tempo, por motivos de segurança, conformidade ou inteligência para a gestão de dados empresariais.
 
   - Construa soluções para backup, espelho ou replicar o estado do objeto na sua conta para a gestão ou conformidade de desastres.
 
@@ -55,9 +55,6 @@ Eis algumas coisas a ter em mente quando ativar o feed de mudança.
 - O feed de alteração captura *todas as* alterações para todos os eventos disponíveis que ocorrem na conta. As aplicações do cliente podem filtrar os tipos de eventos conforme necessário. (Ver as [condições](#conditions) da libertação atual).
 
 - Apenas as contas de armazenamento GPv2 e Blob podem ativar o feed change. As contas premium BlockBlobStorage e as contas ativadas pelo espaço hierárquico não são suportadas atualmente. As contas de armazenamento GPv1 não são suportadas, mas podem ser atualizadas para GPv2 sem tempo de inatividade, consulte [a atualização para uma conta de armazenamento GPv2](../common/storage-account-upgrade.md) para obter mais informações.
-
-> [!IMPORTANT]
-> O feed de mudança está em pré-visualização pública, e está disponível nas regiões **centro-oeste dos EUA**, **West US 2**, **France Central**, **France South,** **Canadá Central**e **Canadá Leste.** Consulte a secção de [condições](#conditions) deste artigo. Para se inscrever na pré-visualização, consulte a secção de [subscrição](#register) deste artigo. Tem de registar a sua subscrição antes de poder ativar o feed de alteração nas suas contas de armazenamento.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -85,10 +82,10 @@ Ativar o feed de alteração utilizando o PowerShell:
 
 2. Feche e, em seguida, reabra a consola PowerShell.
 
-3. Instale o módulo de pré-visualização **Az.Storage.**
+3. Instale a versão 2.5.0 ou posterior do módulo **Az.Storage.**
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. Inscreva-se na sua subscrição Azure com o `Connect-AzAccount` comando e siga as instruções no ecrã para autenticar.
@@ -289,43 +286,18 @@ Para obter uma descrição de cada propriedade, consulte [o esquema de eventos d
 
 ```
 
-<a id="register"></a>
-
-## <a name="register-your-subscription-preview"></a>Registe a sua subscrição (Pré-visualização)
-
-Como o feed de alteração está apenas na pré-visualização pública, terá de registar a sua subscrição para utilizar a funcionalidade.
-
-### <a name="register-by-using-powershell"></a>Registe-se utilizando o PowerShell
-
-Numa consola PowerShell, execute estes comandos:
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### <a name="register-by-using-azure-cli"></a>Registe-se utilizando o Azure CLI
-
-Em Azure Cloud Shell, executar estes comandos:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## <a name="conditions-and-known-issues-preview"></a>Condições e questões conhecidas (Pré-visualização)
+## <a name="conditions-and-known-issues"></a>Condições e questões conhecidas
 
-Esta secção descreve problemas e condições conhecidos na visualização pública atual do feed de alteração. 
-- Para pré-visualização, tem primeiro de [registar a sua subscrição](#register) antes de poder ativar o feed de alteração da sua conta de armazenamento nas regiões centro-oeste dos EUA, West US 2, France Central, France South, Canadá Central e Canadá East. 
-- O feed de alteração captura apenas criar, atualizar, excluir e copiar operações. As alterações de propriedade blob e metadados também são capturadas. No entanto, a propriedade de nível de acesso não é atualmente capturada. 
+Esta secção descreve problemas e condições conhecidos na versão atual do feed de alteração. 
+
 - Alterar os registos de eventos para qualquer alteração pode aparecer mais de uma vez no seu feed de alteração.
 - Ainda não é possível gerir o período de vida dos ficheiros de registo de ficheiros de registo de ficheiros de alteração, definindo a política de retenção baseada no tempo e não pode eliminar as bolhas.
 - A `url` propriedade do ficheiro de registo está sempre vazia.
 - A `LastConsumable` propriedade do segments.jsem arquivo não enumera o primeiro segmento que o feed de alteração finaliza. Esta questão ocorre apenas após o primeiro segmento ser finalizado. Todos os segmentos subsequentes após a primeira hora são capturados com precisão na `LastConsumable` propriedade.
 - Atualmente, não é possível ver **o** $blobchangefeed recipiente quando liga para a API dos ListContainers e o contentor não aparece no portal Azure ou no Storage Explorer. Pode ver o conteúdo ligando diretamente para a API ListBlobs no recipiente $blobchangefeed.
-- As contas de armazenamento que iniciaram previamente uma [falha na conta](../common/storage-disaster-recovery-guidance.md) podem ter problemas com o ficheiro de registo que não aparece. Quaisquer falhas futuras na conta também podem ter impacto no ficheiro de registo durante a pré-visualização.
+- As contas de armazenamento que iniciaram previamente uma [falha na conta](../common/storage-disaster-recovery-guidance.md) podem ter problemas com o ficheiro de registo que não aparece. Quaisquer falhas futuras na conta também podem ter impacto no ficheiro de registo.
 
 ## <a name="faq"></a>FAQ
 
@@ -337,7 +309,7 @@ O feed de alteração é uma solução que fornece registo transacional de muta�
 ### <a name="should-i-use-change-feed-or-storage-events"></a>Devo utilizar eventos de feed ou armazenamento de alterações?
 Pode aproveitar ambas as funcionalidades, uma vez que os eventos de feed change e blob fornecem as [mesmas](storage-blob-event-overview.md) informações com a mesma garantia de fiabilidade de entrega, sendo a principal diferença a latência, encomenda e armazenamento de registos de eventos. O feed de alteração publica registos no registo dentro de poucos minutos após a alteração e também garante a ordem de mudança de operações por blob. Os eventos de armazenamento são empurrados em tempo real e podem não ser encomendados. Os eventos de feed change são conservados duravelmente dentro da sua conta de armazenamento como registos estáveis apenas de leitura com a sua própria retenção definida, enquanto os eventos de armazenamento são transitórios para serem consumidos pelo manipulador de eventos, a menos que os armazene explicitamente. Com o feed Change, qualquer número das suas aplicações pode consumir os registos à sua própria conveniência usando APIs blob ou SDKs. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Veja um exemplo de como ler o feed de alteração utilizando uma aplicação de cliente .NET. Consulte [os registos de alimentação de alteração de processo no armazenamento de blob Azure](storage-blob-change-feed-how-to.md).
 - Saiba como reagir aos acontecimentos em tempo real. Ver [reagir a eventos de armazenamento de blob](storage-blob-event-overview.md)

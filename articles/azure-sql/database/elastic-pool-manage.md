@@ -10,12 +10,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 0fc4f9c2142011edf78033d36d13ecb9115a8850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e87a083f5b31237c00bc8421774c14d3ef8ef33f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84044991"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439713"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerir piscinas elásticas em Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -94,7 +94,7 @@ Para criar e mover bases de dados dentro de piscinas elásticas existentes ou pa
 | [ALTER DATABASE (Base de dados Azure SQL)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mova uma base de dados para dentro, para fora ou entre piscinas elásticas.|
 |[BASE DE DADOS DROP (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.elastic_pool_resource_stats (Base de Dados Azure SQL)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devolve estatísticas de utilização de recursos para todas as piscinas elásticas de um servidor. Para cada piscina elástica, há uma linha para cada janela de reporte de 15 segundos (quatro linhas por minuto). Isto inclui CPU, IO, Log, consumo de armazenamento e utilização simultânea de pedido/sessão por todas as bases de dados da piscina.|
-|[sys.database_service_objetives (Base de Dados Azure SQL)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve a edição (nível de serviço), o objetivo do serviço (nível de preços) e o nome elástico da piscina, caso existam, para uma base de dados na Base de Dados SQL ou no Armazém de Dados Azure SQL. Se iniciado na base de dados principal num servidor, retorna a informação em todas as bases de dados. Para o Azure SQL Data Warehouse, deve estar ligado à base de dados principal.|
+|[sys.database_service_objetives (Base de Dados Azure SQL)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve a edição (nível de serviço), o objetivo de serviço (nível de preços) e o nome elástico da piscina, caso existam, para uma base de dados na SQL Database ou na Azure Synapse Analytics (anteriormente SQL Data Warehouse). Se iniciado na base de dados principal num servidor, retorna a informação em todas as bases de dados. Para a Azure Synapse Analytics, deve estar ligado à base de dados principal.|
 
 ## <a name="rest-api"></a>API REST
 

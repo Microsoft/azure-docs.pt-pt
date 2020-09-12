@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 680fd298f3d772ecb9a4787342d22bf44e74ec78
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543389"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651089"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Azure Machine Learning
 
@@ -153,12 +153,12 @@ O Azure ML dá-lhe a capacidade de rastrear o rasto de auditoria de ponta a pont
 - [A interpretação](how-to-machine-learning-interpretability.md) permite-lhe explicar os seus modelos, cumprir a conformidade regulamentar e compreender como os modelos chegam a um resultado para uma dada entrada.
 - O histórico do Azure ML Run armazena uma imagem do código, dados e cálculos usados para treinar um modelo.
 - O Registo do Modelo Azure ML captura todos os metadados associados ao seu modelo (que experiência o treinou, onde está a ser implantado, se as suas implementações forem saudáveis).
-- [A integração com o Azure](how-to-use-event-grid.md) permite-lhe atuar em eventos no ciclo de vida do ML. Por exemplo, registo de modelos, implantação, deriva de dados e eventos de formação (run).
+- [A integração com o Azure](how-to-use-event-grid.md)  permite-lhe atuar em eventos no ciclo de vida do ML. Por exemplo, registo de modelos, implantação, deriva de dados e eventos de formação (run).
 
 > [!TIP]
 > Embora algumas informações sobre modelos e conjuntos de dados são automaticamente capturadas, pode adicionar informações adicionais utilizando __tags__. Ao procurar modelos e conjuntos de dados registados no seu espaço de trabalho, pode utilizar tags como filtro.
 >
-> Associar um conjunto de dados com um modelo registado é um passo opcional. Para obter informações sobre a referência a um conjunto de dados ao registar um modelo, consulte a referência da classe [Modelo.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py)
+> Associar um conjunto de dados com um modelo registado é um passo opcional. Para obter informações sobre a referência a um conjunto de dados ao registar um modelo, consulte a referência da classe [Modelo.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true)
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifique, automatize e alerte sobre os eventos no ciclo de vida do ML
@@ -203,7 +203,7 @@ Para obter mais informações sobre a utilização de Gasodutos Azure com Azure 
 
 Também pode utilizar a Azure Data Factory para criar um pipeline de ingestão de dados que prepara dados para uso com formação. Para obter mais informações, consulte [o pipeline data ingestion.](how-to-cicd-data-ingestion.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais lendo e explorando os seguintes recursos:
 

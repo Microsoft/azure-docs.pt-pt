@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804339"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594820"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando o portal Azure
 
@@ -20,12 +20,11 @@ Pode utilizar o portal Azure para criar um [gateway de aplicação](overview.md)
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Criar um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicação com o certificado
-> * Adicione uma regra de ouvinte e redirecionamento
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
+* Criar um certificado autoassinado
+* Configurar uma rede
+* Criar um gateway de aplicação com o certificado
+* Adicione uma regra de ouvinte e redirecionamento
+* Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -173,7 +172,7 @@ Finalmente, tem de atualizar a escala definida com estas alterações.
 2. Em **Definições**, selecione **Instâncias**.
 3. Selecione ambas as instâncias e, em seguida, **selecione Upgrade**.
 4. Selecione **Sim** para confirmar.
-5. Depois de isto concluído, volte ao **myAppGateway** e selecione **backend pools**. Deve agora ver que a **appGatewayBackendPool** tem dois alvos, e **o meuAppGatewaymyvmss** não tem alvos.
+5. Depois de isto concluído, volte ao **myAppGateway** e selecione **backend pools**. Deve agora ver que a **appGatewayBackendPool** tem dois alvos, e  **o meuAppGatewaymyvmss** não tem alvos.
 6. Selecione **myAppGatewaymyvmss**e, em seguida, **selecione Delete**.
 7. Selecione **OK** para confirmar.
 

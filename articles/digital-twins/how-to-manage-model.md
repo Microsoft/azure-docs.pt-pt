@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079781"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536460"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -168,11 +168,16 @@ Os modelos não são necessariamente devolvidos no formulário de documento em q
 
 ### <a name="update-models"></a>Atualizar modelos
 
-Uma vez que um modelo é carregado para o seu exemplo, toda a interface do modelo é imutável. Isto significa que não existe uma "edição" tradicional dos modelos.
+Uma vez que um modelo é carregado para a sua instância Azure Digital Twins, toda a interface do modelo é imutável. Isto significa que não existe uma "edição" tradicional dos modelos. A Azure Digital Twins também não permite o re upload do mesmo modelo.
 
-Em vez disso, se quiser fazer alterações a um modelo em Azure Digital Twins, a forma de o fazer é carregar uma **versão mais recente** do mesmo modelo. Durante a pré-visualização, o avanço de uma versão modelo só lhe permitirá remover campos, não adicionar novos campos (para adicionar novos campos, deve apenas [criar um novo modelo).](#create-models)
+Em vez disso, se pretender fazer alterações a um modelo , como atualizar `displayName` ou — a forma de o fazer é carregar uma versão mais `description` **recente** do modelo. 
+
+#### <a name="model-versioning"></a>Controlo de versões de modelos
 
 Para criar uma nova versão de um modelo existente, comece pelo DTDL do modelo original. Atualize os campos que gostaria de alterar.
+
+>[!NOTE]
+>Durante a pré-visualização, o avanço de uma versão modelo apenas lhe permitirá adicionar novos campos, não remover os existentes. Para remover campos, deve [apenas criar um modelo novo.](#create-models)
 
 Em seguida, marque isto como uma versão mais recente do modelo atualizando o `id` campo do modelo. A última secção do ID do modelo, depois `;` do, representa o número do modelo. Para indicar que esta é agora uma versão mais atualizada deste modelo, incremente o número no final do `id` valor para qualquer número maior do que o número de versão atual.
 
@@ -188,7 +193,17 @@ versão 2 deste modelo pode ser assim:
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-Em seguida, faça o upload da nova versão do modelo para o seu exemplo. Irá ocupar o lugar da versão antiga, e os novos gémeos que criar usando este modelo irão utilizar a versão atualizada.
+Em seguida, faça o upload da nova versão do modelo para o seu exemplo. 
+
+Esta versão do modelo estará então disponível no seu caso para usar para gémeos digitais. **Não substitui** versões anteriores do modelo, pelo que várias versões do modelo coexistirão no seu caso até as [remover.](#remove-models)
+
+#### <a name="impact-on-twins"></a>Impacto nos gémeos
+
+Quando se cria um novo twin, uma vez que a versão do novo modelo e a versão do modelo antigo coexistem, o novo twin pode utilizar quer a nova versão do modelo, quer a versão mais antiga.
+
+Isto também significa que o upload de uma nova versão de um modelo não afeta automaticamente os gémeos existentes. Os gémeos existentes continuarão a ser exemplos da versão modelo antiga.
+
+Pode atualizar estes gémeos existentes para a versão do novo modelo, remendando-os, conforme descrito na [*Atualização de um modelo de modelo de*](how-to-manage-twin.md#update-a-digital-twins-model) *"Como-a-: Gerir gémeos digitais".* Dentro do mesmo patch, tem de atualizar tanto o **ID** do modelo (para a nova versão) **como quaisquer campos que devam ser alterados no gémeo para o tornar em conformidade com o novo modelo.**
 
 ### <a name="remove-models"></a>Remover modelos
 
@@ -274,7 +289,9 @@ A Azure Digital Twins não impede este estado, por isso tenha cuidado para remen
 
 Os modelos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [*Como-a-: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Passos seguintes
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
+## <a name="next-steps"></a>Próximos passos
 
 Veja como criar e gerir gémeos digitais com base nos seus modelos:
 * [*Como fazer: Gerir gémeos digitais*](how-to-manage-twin.md)

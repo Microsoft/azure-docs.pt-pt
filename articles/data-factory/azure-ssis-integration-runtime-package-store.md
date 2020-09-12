@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/20/2020
-ms.openlocfilehash: 6455c186e05fc98b1ec340c152f9b3e5710f1dd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/06/2020
+ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087917"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505493"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Gerir pacotes com loja de pacotes de runtime de integração Azure-SSIS
 
@@ -57,7 +57,7 @@ Depois de ligar ao seu Azure-SSIS IR em SSMS, pode clicar com o botão direito e
       > [!NOTE]
       > Importar pacotes SSIS em lojas de pacotes Azure-SSIS IR só pode ser feito um a um e simplesmente copiá-los no sistema MSDB/ficheiros/Ficheiros Azure subjacentes, preservando a sua versão SQL Server/SSIS. 
       >
-      > Uma vez que o Azure-SSIS IR tem atualmente um nível de compatibilidade padrão de 140, que é igual ao **SQL Server 2017,** executar pacotes de versão inferior nele irá atualizá-los em pacotes SSIS 2017 em tempo de execução. A execução de pacotes de versão superior não é suportada.
+      > Uma vez que o Azure-SSIS IR se baseia atualmente no **SQL Server 2017,** a execução de pacotes de versão inferior no mesmo irá atualizá-los em pacotes SSIS 2017 em tempo de execução. A execução de pacotes de versão superior não é suportada.
       >
       > Além disso, uma vez que as lojas de pacotes SSIS antigas estão ligadas a uma versão específica do SQL Server e acessíveis apenas em SSMS para essa versão, os pacotes de versão inferior nas lojas de pacotes SSIS legacy precisam de ser exportados para o sistema de ficheiros primeiro utilizando a versão designada SSMS antes de poderem ser importados para lojas de pacotes Azure-SSIS IR utilizando versões SSMS 2019 ou posteriormente.
       >
@@ -72,7 +72,7 @@ Depois de ligar ao seu Azure-SSIS IR em SSMS, pode clicar com o botão direito e
       > [!NOTE]
       > A exportação de pacotes SSIS a partir de lojas de pacotes Azure-SSIS IR só pode ser feita um a um e fazê-lo sem alterar o seu nível de proteção irá simplesmente copiá-los preservando a sua versão SQL Server/SSIS, caso contrário irá atualizá-los em pacotes SSIS 2019 ou posterior versão.
       >
-      > Uma vez que o Azure-SSIS IR tem atualmente um nível de compatibilidade padrão de 140, que é igual ao **SQL Server 2017,** executar pacotes de versão inferior nele irá atualizá-los em pacotes SSIS 2017 em tempo de execução. A execução de pacotes de versão superior não é suportada.
+      > Uma vez que o Azure-SSIS IR se baseia atualmente no **SQL Server 2017,** a execução de pacotes de versão inferior no mesmo irá atualizá-los em pacotes SSIS 2017 em tempo de execução. A execução de pacotes de versão superior não é suportada.
       >
       > Em alternativa, para exportar vários pacotes SSIS a partir de lojas de pacotes Azure-SSIS IR enquanto muda o seu nível de proteção, pode utilizar o utilitário da linha de comando [dtutil,](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) ver [implantar vários pacotes com dtutil](#deploying-multiple-packages-with-dtutil).
 
@@ -88,7 +88,7 @@ Depois de ligar ao seu Azure-SSIS IR em SSMS, pode clicar com o botão direito e
 
 ![Executar pacotes de utilidade 3 & 4](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png)
 
-As páginas **Gerais**, **Configurações**, Opções de **Execução**e **Registo** de **Serviços de Utilidade de Pacotes executam** correspondem ao separador **Definições** da atividade do Pacote SSIS Executar. Nestas páginas, pode introduzir a palavra-passe de encriptação do seu pacote e aceder a informações para o seu ficheiro de configuração do pacote. Também pode introduzir as credenciais e propriedades de execução do seu pacote, bem como as informações de acesso para a sua pasta de registo.  A página **'Valores definidos'** do diálogo **de utilidade de pacote execute** corresponde ao **separador Deposição** de Propriedade da atividade do Pacote Executo SSIS, onde pode introduzir as propriedades do pacote existentes para substituir. Para obter mais informações, consulte [os pacotes Run SSIS como executar as atividades do Pacote SSIS em oleodutos ADF.](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+As páginas **Gerais**, **Configurações**, Opções de **Execução**e **Registo** de **Serviços de Utilidade de Pacotes executam** correspondem ao separador  **Definições** da atividade do Pacote SSIS Executar. Nestas páginas, pode introduzir a palavra-passe de encriptação do seu pacote e aceder a informações para o seu ficheiro de configuração do pacote. Também pode introduzir as credenciais e propriedades de execução do seu pacote, bem como as informações de acesso para a sua pasta de registo.  A página **'Valores definidos'** do diálogo **de utilidade de pacote execute** corresponde ao **separador Deposição** de Propriedade da atividade do Pacote Executo SSIS, onde pode introduzir as propriedades do pacote existentes para substituir. Para obter mais informações, consulte [os pacotes Run SSIS como executar as atividades do Pacote SSIS em oleodutos ADF.](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 
 Quando selecionar o botão **Executar,** um novo oleoduto ADF com atividade do Pacote SSIS executar será automaticamente gerado e acionado. Se já existir um gasoduto ADF com as mesmas definições, será reexecutado e não será gerado um novo gasoduto. O oleoduto ADF e a atividade do Pacote SSIS executarão `Pipeline_SSMS_YourPackageName_HashString` `Activity_SSMS_YourPackageName` e, respectivamente.
 
@@ -124,7 +124,7 @@ Para levantar & transferir as cargas de trabalho SSIS no local para sSIS em ADF,
 
 Pode utilizar o utilitário da linha de comando [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) que vem com a instalação SQL Server/SSIS para implantar vários pacotes em lotes. Está ligado a uma versão SSIS específica, por isso, se a utilizar para implantar pacotes de versão inferior sem mudar o seu nível de proteção, irá simplesmente copiá-los preservando a sua versão SSIS. Se o utilizar para os implementar e mudar o seu nível de proteção ao mesmo tempo, irá atualizá-los para a sua versão SSIS.
 
- Uma vez que o Azure-SSIS IR tem atualmente um nível de compatibilidade padrão de 140, que é igual ao **SQL Server 2017,** executar pacotes de versão inferior nele irá atualizá-los em pacotes SSIS 2017 em tempo de execução. A execução de pacotes de versão superior não é suportada.
+ Uma vez que o Azure-SSIS IR se baseia atualmente no **SQL Server 2017,** a execução de pacotes de versão inferior no mesmo irá atualizá-los em pacotes SSIS 2017 em tempo de execução. A execução de pacotes de versão superior não é suportada.
 
 Consequentemente, para evitar atualizações de tempo de execução, a implementação de pacotes para funcionar no Azure-SSIS IR no Modelo de Implementação de Pacotes deverá utilizar o dtutil 2017 que vem com a instalação SQL Server/SSIS 2017. Pode descarregar e instalar a [Edição de Desenvolvimento 2017 do SQL Server/SSIS 2017](https://go.microsoft.com/fwlink/?linkid=853016) gratuita para este fim. Uma vez instalado, pode encontrar até 2017 nesta pasta: `YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn` .
 
@@ -209,6 +209,6 @@ dtutil /SQL YourFolder\YourPackage3 /ENCRYPT FILE;Z:\YourFolder\YourPackage3.dts
 
 Se configurar as lojas de pacotes Azure-SSIS IR em cima dos Ficheiros Azure, os seus pacotes implantados aparecerão neles quando ligar ao seu Azure-SSIS IR em SSMS 2019 ou versões posteriores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode reedição/edição dos oleodutos ADF gerados automaticamente com atividades do Pacote SSIS executado ou criar novos no portal ADF. Para obter mais informações, consulte [os pacotes Run SSIS como executar as atividades do Pacote SSIS em oleodutos ADF.](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)

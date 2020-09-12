@@ -4,12 +4,12 @@ description: Neste artigo, aprenda sobre a cópia de segurança seletiva do disc
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961997"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506700"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup seletivo de disco e restauro para máquinas virtuais Azure
 
@@ -269,6 +269,10 @@ Quando ativa a cópia de segurança utilizando o portal Azure, pode escolher a o
 
 ![Configurar backup apenas para o disco OS](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
 
+## <a name="using-azure-rest-api"></a>Usando Azure REST API
+
+Pode configurar a Cópia de Segurança VM do Azure com alguns discos selecionados ou pode modificar a proteção de um VM existente para incluir/excluir alguns discos como documentado [aqui.](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)
+
 ## <a name="selective-disk-restore"></a>Restauração seletiva do disco
 
 A restauração seletiva do disco é uma funcionalidade adicional que obtém quando ativa a funcionalidade de backup dos discos seletivos. Com esta funcionalidade, pode restaurar discos seletivos de todos os discos apoiados num ponto de recuperação. É mais eficiente e ajuda a poupar tempo em cenários onde sabe qual dos discos precisa de ser restaurado.
@@ -291,7 +295,7 @@ A cópia de segurança da máquina virtual Azure segue o modelo de preços exist
 
 **O custo de Instância Protegida (PI)** é calculado apenas para o disco so se optar por fazer o back up utilizando a opção **de disco OS.**  Se configurar a cópia de segurança e selecionar pelo menos um disco de dados, o custo de PI será calculado para todos os discos ligados ao VM. **O custo de armazenamento de backup** é calculado com base apenas nos discos incluídos e assim você pode economizar no custo de armazenamento. **O custo instantâneo** é sempre calculado para todos os discos do VM (tanto os discos incluídos como os excluídos).  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Matriz de suporte para a cópia de segurança da VM do Azure](backup-support-matrix-iaas.md)
 - [Perguntas frequentes-Back up Azure VMs](backup-azure-vm-backup-faq.md)

@@ -1,14 +1,14 @@
 ---
 title: Como proteger a sua hierarquia de recursos - Azure Governance
 description: Saiba como proteger a sua hierarquia de recursos com definições de hierarquia que incluem a definição do grupo de gestão padrão.
-ms.date: 08/10/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056623"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469784"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos
 
@@ -31,7 +31,26 @@ Por padrão, uma nova subscrição adicionada dentro de um inquilino é adiciona
 
 Ao permitir que o grupo de gestão padrão para novas subscrições seja definido, as construções de governação a nível da organização podem ser aplicadas no grupo de gestão de raiz, e um grupo de gestão separado com atribuições políticas ou atribuições de funções Azure mais adequadas a uma nova subscrição pode ser definido.
 
-Para configurar esta definição, o ponto final da API de [Definições de Hierarquia](/rest/api/resources/hierarchysettings) REST é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. `{rootMgID}`Substitua-se pelo ID do seu grupo de gestão de raízes e `{defaultGroupID}` pelo ID do grupo de gestão para se tornar o grupo de gestão padrão:
+### <a name="set-default-management-group-in-portal"></a>Definir grupo de gestão padrão no portal
+
+Para configurar esta definição no portal Azure, siga estes passos:
+
+1. Utilize a barra de pesquisa para procurar e selecione 'Grupos de Gestão'.
+
+1. No grupo de gestão de raiz, selecione **detalhes** ao lado do nome do grupo de gestão.
+
+1. Em **Definições**, selecione **definições de hierarquia**.
+
+1. Selecione o botão **de grupo de gestão padrão Change.**
+
+   > [!NOTE]
+   > Se o botão **de grupo de gestão por defeito Change** estiver desativado, ou o grupo de gestão que está a ser visto não é o grupo de gestão de raiz ou o seu diretor de segurança não tem as permissões necessárias para alterar as definições da hierarquia.
+
+1. Selecione um grupo de gestão da sua hierarquia e use o botão **Select.**
+
+### <a name="set-default-management-group-with-rest-api"></a>Definir grupo de gestão padrão com REST API
+
+Para configurar esta definição com a API REST, o ponto final [de Definições de Hierarquia](/rest/api/resources/hierarchysettings) é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. `{rootMgID}`Substitua-se pelo ID do seu grupo de gestão de raízes e `{defaultGroupID}` pelo ID do grupo de gestão para se tornar o grupo de gestão padrão:
 
 - URI da API REST
 
@@ -55,7 +74,24 @@ Para retorpar o grupo de gestão predefinido para o grupo de gestão de raiz, ut
 
 Qualquer utilizador, por padrão, pode criar novos grupos de gestão dentro de um inquilino. Os administradores de um inquilino só podem desejar fornecer estas permissões a utilizadores específicos para manter a consistência e a conformidade na hierarquia do grupo de gestão. Se estiver ativado, um utilizador requer a `Microsoft.Management/managementGroups/write` operação no grupo de gestão de raízes para criar novos grupos de gestão de crianças.
 
-Para configurar esta definição, o ponto final da API de [Definições de Hierarquia](/rest/api/resources/hierarchysettings) REST é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. Este valor é um _booleano,_ por isso forneça **verdadeiro** ou **falso** para o valor. Um valor **verdadeiro** permite este método de proteger a sua hierarquia do grupo de gestão:
+### <a name="set-require-authorization-in-portal"></a>Definir requerem autorização no portal
+
+Para configurar esta definição no portal Azure, siga estes passos:
+
+1. Utilize a barra de pesquisa para procurar e selecione 'Grupos de Gestão'.
+
+1. No grupo de gestão de raiz, selecione **detalhes** ao lado do nome do grupo de gestão.
+
+1. Em **Definições**, selecione **definições de hierarquia**.
+
+1. Alternar as **permissões do Requerimento para a criação de novos grupos de gestão.** opção para on.
+
+   > [!NOTE]
+   > Se **o Requerer permissões para a criação de novos grupos de gestão.** o alternância é desativado, ou o grupo de gestão que está a ser visto não é o grupo de gestão de raiz ou o seu diretor de segurança não tem as permissões necessárias para alterar as definições da hierarquia.
+
+### <a name="set-require-authorization-with-rest-api"></a>Definir requer autorização com REST API
+
+Para configurar esta definição com a API REST, o ponto final [de Definições de Hierarquia](/rest/api/resources/hierarchysettings) é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. Este valor é um _booleano,_ por isso forneça **verdadeiro** ou **falso** para o valor. Um valor **verdadeiro** permite este método de proteger a sua hierarquia do grupo de gestão:
 
 - URI da API REST
 
@@ -75,7 +111,7 @@ Para configurar esta definição, o ponto final da API de [Definições de Hiera
 
 Para desligar a regulação, utilize o mesmo ponto final e defina **o requerer a Autenticação para oGroupCreation** a um valor de **falso**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os grupos de gestão, veja:
 

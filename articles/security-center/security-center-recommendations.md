@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 11043d6686bd762b1c0a9827c7edb2230487cc72
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263238"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595449"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
 Este tópico explica como ver e compreender as recomendações no Azure Security Center para ajudá-lo a proteger os seus recursos Azure.
@@ -57,6 +57,7 @@ O Centro de Segurança analisa o estado de segurança dos seus recursos para ide
 
     A página inclui:
 
+    - **Impor** e **Negar** botões sobre recomendações apoiadas (ver [Prevenir configurações erradas com recomendações de Aplicação/Negação)](prevent-misconfigurations.md)
     - **Indicador de gravidade**
     - **Intervalo de frescura**  (se for caso disso) 
     - **Descrição** - Uma breve descrição da questão
@@ -68,10 +69,19 @@ O Centro de Segurança analisa o estado de segurança dos seus recursos para ide
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Não recursos aplicáveis com razões.":::
 
+## <a name="preview-recommendations"></a>Recomendações de pré-visualização
 
+Recomendações assinaladas como **Preview** não estão incluídas nos cálculos da sua pontuação segura.
+
+Devem continuar a ser remediados sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação.
+
+Um exemplo de uma recomendação de pré-visualização:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com a bandeira de pré-visualização":::
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, foi apresentado às recomendações de segurança no Centro de Segurança. Para aprender a remediar as recomendações:
 
-* [Remediar recomendações](security-center-remediate-recommendations.md) — Aprenda a configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.
+- [Remediar recomendações](security-center-remediate-recommendations.md) — Aprenda a configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.
+- [Evitar configurações erradas com recomendações de Cumprir/Negar](prevent-misconfigurations.md).

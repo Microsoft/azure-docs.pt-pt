@@ -2,13 +2,13 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 2265f1d31176052c7e7c358ee8ed4cb06fb50ee7
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002910"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469801"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
@@ -136,7 +136,7 @@ Para direcionar outro grupo de gestão, adicione uma implantação aninhada e es
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-different-mg
                 }
             }
         }
@@ -172,7 +172,7 @@ Para direcionar uma subscrição dentro do grupo de gestão, utilize uma implant
               "properties": {
                 "mode": "Incremental",
                 "template": {
-                  nested-template
+                  nested-template-with-resources-in-resource-group
                 }
               }
             }
@@ -184,6 +184,8 @@ Para direcionar uma subscrição dentro do grupo de gestão, utilize uma implant
 }
 ```
 
+Para utilizar uma implementação de grupo de gestão para criar um grupo de recursos dentro de uma subscrição e implementar uma conta de armazenamento para esse grupo de recursos, consulte [Implementar para subscrição e grupo de recursos](#deploy-to-subscription-and-resource-group).
+
 ## <a name="use-template-functions"></a>Use funções de modelo
 
 Para implementações de grupos de gestão, existem algumas considerações importantes ao utilizar funções de modelo:
@@ -191,87 +193,91 @@ Para implementações de grupos de gestão, existem algumas considerações impo
 * A função [grupo de recursos()](template-functions-resource.md#resourcegroup) **não** é suportada.
 * A função [de subscrição()](template-functions-resource.md#subscription) **não** é suportada.
 * As funções [de referência](template-functions-resource.md#reference) e [lista são](template-functions-resource.md#list) suportadas.
-* A função [resourceId()](template-functions-resource.md#resourceid) é suportada. Use-o para obter o ID de recursos para recursos que são usados em implementações de nível de grupo de gestão. Não forneça um valor para o parâmetro do grupo de recursos.
+* Não utilize a função [resourceId()](template-functions-resource.md#resourceid) para recursos implantados no grupo de gestão.
 
-  Por exemplo, para obter o ID de recurso para uma definição de política, use:
+  Em vez disso, utilize a [função ExtensionResourceId()](template-functions-resource.md#extensionresourceid) para recursos que são implementados como extensões do grupo de gestão. As definições de política personalizada que são implementadas para o grupo de gestão são extensões do grupo de gestão.
+
+  Para obter o ID de recurso para uma definição de política personalizada ao nível do grupo de gestão, utilize:
   
   ```json
-  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
-  
-  O ID de recurso devolvido tem o seguinte formato:
+
+  Utilize a função [TenantResourceId](template-functions-resource.md#tenantresourceid) para os recursos do arrendatário que estão disponíveis dentro do grupo de gestão. As definições políticas incorporadas são recursos ao nível dos inquilinos.
+
+  Para obter o ID de recurso para uma definição de política incorporada, use:
   
   ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
 ## <a name="azure-policy"></a>Azure Policy
 
-### <a name="define-policy"></a>Definir política
-
-O exemplo a seguir mostra como [definir](../../governance/policy/concepts/definition-structure.md) uma política a nível do grupo de gestão.
+O exemplo a seguir mostra como [definir](../../governance/policy/concepts/definition-structure.md) uma política a nível do grupo de gestão e atribuí-la.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMG": {
+            "type": "string",
+            "metadata": {
+                "description": "Target Management Group"
+            }
+        },
+        "allowedLocations": {
+            "type": "array",
+            "defaultValue": [
+                "australiaeast",
+                "australiasoutheast",
+                "australiacentral"
+            ],
+            "metadata": {
+                "description": "An array of the allowed locations, all other locations will be denied by the created policy."
+            }
         }
-      }
-    }
-  ]
-}
-```
-
-### <a name="assign-policy"></a>Atribuir política
-
-O exemplo a seguir atribui uma definição de política existente ao grupo de gestão. Se a apólice tomar parâmetros, forneça-os como um objeto. Se a apólice não tomar parâmetros, use o objeto vazio predefinido.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
     },
-    "policyName": {
-      "type": "string"
+    "variables": {
+        "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
+        "policyDefinition": "LocationRestriction"
     },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyDefinitions",
+            "name": "[variables('policyDefinition')]",
+            "apiVersion": "2019-09-01",
+            "properties": {
+                "policyType": "Custom",
+                "mode": "All",
+                "parameters": {
+                },
+                "policyRule": {
+                    "if": {
+                        "not": {
+                            "field": "location",
+                            "in": "[parameters('allowedLocations')]"
+                        }
+                    },
+                    "then": {
+                        "effect": "deny"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "name": "location-lock",
+            "apiVersion": "2019-09-01",
+            "dependsOn": [
+                "[variables('policyDefinition')]"
+            ],
+            "properties": {
+                "scope": "[variables('mgScope')]",
+                "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', variables('policyDefinition'))]"
+            }
+        }
+    ]
 }
 ```
 
@@ -355,7 +361,7 @@ A partir de uma implementação de nível de grupo de gestão, você pode direci
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender sobre a atribuição de funções, consulte atribuições de [funções Add Azure utilizando modelos do Gestor de Recursos Azure](../../role-based-access-control/role-assignments-template.md).
 * Para um exemplo de implantação de configurações de espaço de trabalho para o Centro de Segurança Azure, consulte [deployASCwithWorkspaceSettings.jsem](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).

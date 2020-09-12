@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 08/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3bd059e59bebe9ae1ecc8f2f00dd63f873e08944
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: eed9109416f434e2492d621f60b7ad6bf6e188e8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269374"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437382"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolver problemas de Ficheiros do Azure no Windows
 
@@ -50,7 +50,12 @@ Se os utilizadores estiverem a aceder à partilha de ficheiros Azure utilizando 
 
 ### <a name="solution-for-cause-3"></a>Solução para a causa 3
 
-Para atualizar as permissões de nível de partilha, consulte [atribuir permissões](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity)de acesso a uma identidade .
+Validar que as permissões estão configuradas corretamente:
+
+- **Ative Directory (AD)** ver [Atribuir permissões de nível de partilha a uma identidade](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+
+    As atribuições de permissão ao nível de partilha são suportadas por grupos e utilizadores que tenham sido sincronizados do Ative Directory (AD) para o Azure Ative Directory (AAD) utilizando o Azure AD Connect.  Confirme que os grupos e utilizadores que estão a ser atribuídos permissões de nível de partilha não são grupos "apenas na nuvem".
+- **Azure Ative Directory Domain Services (Azure AD DS)** ver [Atribuir permissões de acesso a uma identidade](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Erro 53, Erro 67 ou Erro 87 quando monta ou desmonta uma partilha de ficheiros Azure
@@ -316,18 +321,6 @@ Error AadDsTenantNotFound acontece quando tenta ativar a [autenticação dos Ser
 Ativar o Azure AD DS no inquilino AZure AD da subscrição para a qual a sua conta de armazenamento está implantada. Você precisa de privilégios de administrador do inquilino AD Azure para criar um domínio gerido. Se não for o administrador do inquilino Azure AD, contacte o administrador e siga a orientação passo a passo para Ativar os [Serviços de Domínio do Diretório Ativo Azure utilizando o portal Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
-
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>Ocorreu o erro do sistema 1359. Um erro interno' recebido sobre o acesso da SMB a ações de ficheiros com a autenticação do Azure Ative Directory Domain Service (Azure AD DS)
-
-### <a name="cause"></a>Causa
-
-Ocorreu o erro do sistema 1359. Um erro interno ocorre quando tenta ligar à sua partilha de ficheiros com a autenticação AZure AD DS ativada contra um AD DS AD Azure com o nome DNS de domínio a começar por um carácter numérico. Por exemplo, se o nome DNS do domínio Azure AD DS for "1domain", terá este erro ao tentar montar a partilha de ficheiros usando credenciais Azure AD. 
-
-### <a name="solution"></a>Solução
-
-Atualmente, pode considerar a recolocação do seu Azure AD DS utilizando um novo nome DNS de domínio que se aplica às regras abaixo:
-- Os nomes não podem começar com um personagem numérico.
-- Os nomes devem ter entre 3 e 63 caracteres.
 
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Incapaz de montar ficheiros Azure com credenciais de AD 
 

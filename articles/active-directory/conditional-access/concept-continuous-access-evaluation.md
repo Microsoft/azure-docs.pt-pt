@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39736f0a369064e1a825ba3f6975a01c5e9ecc40
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147639"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437246"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -108,7 +108,7 @@ Se não estiver a utilizar clientes com capacidade CAE, o seu prazo de vida de a
 1. Neste caso, o fornecedor de recursos nega o acesso e envia um desafio de reclamação de 401+ para o cliente.
 1. O cliente capaz de CAE compreende o desafio de reclamação de 401+. Contorna os caches e volta ao passo 1, enviando o seu token de atualização juntamente com o desafio de reivindicação de volta para Azure AD. O Azure AD reavaliará todas as condições e solicitará ao utilizador que reautore neste caso.
 
-### <a name="user-condition-change-flow-public-preview"></a>Fluxo de alteração da condição do utilizador (visualização pública):
+### <a name="user-condition-change-flow-preview"></a>Fluxo de alteração da condição do utilizador (pré-visualização):
 
 No exemplo seguinte, um administrador de acesso condicional configura uma política de acesso condicional baseada na localização para permitir apenas o acesso a partir de intervalos IP específicos:
 
@@ -135,6 +135,13 @@ A partir desta página, pode opcionalmente limitar os utilizadores e grupos que 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
+### <a name="supported-location-policies"></a>Políticas de localização apoiadas
+
+Para o CAE, só temos informações sobre locais nomeados com base em IP. Não temos informações sobre outras definições de localização, como [IPs fidedignos de MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) ou localizações baseadas em país. Quando o utilizador vem de um IP fidedigno da MFA ou de localizações fidedignas que incluem IPs fidedignos MFA ou localização do país, o CAE não será aplicado após a mudança do utilizador para um local diferente. Nesses casos, emitiremos um token CAE de 1 hora sem verificação instantânea da aplicação da legislação em matéria de IP.
+
+> [!IMPORTANT]
+> Ao configurar locais para avaliação contínua de acesso, utilize apenas a [condição de localização de acesso condicional baseada em IP](../conditional-access/location-condition.md#preview-features) e configure todos os endereços IP, **incluindo o IPv4 e o IPv6,** que podem ser vistos pelo seu fornecedor de identidade e fornecedor de recursos. Não utilize condições de localização no país ou a funcionalidade ips fidedigna que esteja disponível na página de configurações de serviço do Azure Multi-Factor Authentication.
+
 ### <a name="ip-address-configuration"></a>Configuração do endereço IP
 
 O seu fornecedor de identidade e fornecedores de recursos podem ver diferentes endereços IP. Esta incompatibilidade pode ocorrer devido a implementações de procuração de rede na sua organização ou configurações incorretas do IPv4/IPv6 entre o seu fornecedor de identidade e fornecedor de recursos. Por exemplo:
@@ -144,9 +151,6 @@ O seu fornecedor de identidade e fornecedores de recursos podem ver diferentes e
 - O endereço IP que o seu fornecedor de identidade vê faz parte de uma gama de IP permitida na política, mas o endereço IP do fornecedor de recursos não é.
 
 Se este cenário existir no seu ambiente para evitar loops infinitos, o Azure AD emitirá um token CAE de uma hora e não imporá a mudança de localização do cliente. Mesmo neste caso, a segurança é melhorada em comparação com os tradicionais tokens de uma hora, uma vez que ainda estamos a avaliar os [outros eventos](#critical-event-evaluation) além de eventos de mudança de localização do cliente.
-
-> [!IMPORTANT]
-> Ao configurar locais para avaliação contínua de acesso, utilize apenas a [condição de localização de acesso condicional baseada em IP](../conditional-access/location-condition.md). Não utilize condições de localização no país ou a funcionalidade ips fidedigna que esteja disponível na página de configurações de serviço do Azure Multi-Factor Authentication.
 
 ### <a name="office-and-web-account-manager-settings"></a>Definições de Gestor de Escritórios e Contas Web
 
@@ -179,6 +183,6 @@ Se ativar um utilizador logo após o desativar. Haverá alguma latência antes d
 
 A frequência de inscrição será honrada com ou sem CAE.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Anunciando a avaliação contínua do acesso](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)

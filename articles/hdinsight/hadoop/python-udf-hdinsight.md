@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 2f02e579f7679180cecfd8a48736b3af307ba371
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874763"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462246"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Use funções definidas do utilizador Python (UDF) com a Colmeia Apache e o Porco Apache em HDInsight
 
@@ -38,7 +38,7 @@ HDInsight também inclui Jython, que é uma implementação python escrita em Ja
 
 ## <a name="storage-configuration"></a>Configuração do armazenamento
 
-Não é necessária qualquer ação se a conta de armazenamento utilizada for do tipo `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)` . .  O processo neste artigo produzirá, pelo menos, a `/tezstaging` produção.  Uma configuração de hadoop padrão conterá `/tezstaging` na `fs.azure.page.blob.dir` variável de configuração `core-site.xml` para o serviço `HDFS` .  Esta configuração fará com que a saída para o diretório sejam bolhas de página, que não são suportadas para o tipo de conta de armazenamento `BlobStorage` .  Para utilizar `BlobStorage` este artigo, retire `/tezstaging` da variável de `fs.azure.page.blob.dir` configuração.  A configuração pode ser acedida a partir da [UI Ambari.](../hdinsight-hadoop-manage-ambari.md)  Caso contrário, receberá a mensagem de erro:`Page blob is not supported for this account type.`
+Não é necessária qualquer ação se a conta de armazenamento utilizada for do tipo `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)` . .  O processo neste artigo produzirá, pelo menos, a `/tezstaging` produção.  Uma configuração de hadoop padrão conterá `/tezstaging` na `fs.azure.page.blob.dir` variável de configuração `core-site.xml` para o serviço `HDFS` .  Esta configuração fará com que a saída para o diretório sejam bolhas de página, que não são suportadas para o tipo de conta de armazenamento `BlobStorage` .  Para utilizar `BlobStorage` este artigo, retire `/tezstaging` da variável de `fs.azure.page.blob.dir` configuração.  A configuração pode ser acedida a partir da [UI Ambari.](../hdinsight-hadoop-manage-ambari.md)  Caso contrário, receberá a mensagem de erro: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > Os passos deste documento fazem os seguintes pressupostos:  
@@ -319,7 +319,7 @@ Eis o que este exemplo faz:
 
 1. A primeira linha carrega o ficheiro de dados da amostra `sample.log` em `LOGS` . Também define cada registo como um `chararray` .
 2. A linha seguinte filtra quaisquer valores nulos, armazenando o resultado da operação em `LOG` .
-3. Em seguida, itera sobre os registos `LOG` e usa para invocar o método contido no script `GENERATE` `create_structure` Python/Jython carregado como `myfuncs` . `LINE`é usado para passar o registo atual para a função.
+3. Em seguida, itera sobre os registos `LOG` e usa para invocar o método contido no script `GENERATE` `create_structure` Python/Jython carregado como `myfuncs` . `LINE` é usado para passar o registo atual para a função.
 4. Finalmente, as saídas são despejadas para STDOUT usando o `DUMP` comando. Este comando apresenta os resultados após a conclusão da operação.
 
 ### <a name="create-file"></a>Criar ficheiro
@@ -592,9 +592,9 @@ As informações de erro (STDERR) e o resultado do trabalho (STDOUT) também est
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
-## <a name="next-steps"></a><a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Próximos passos
 
-Se precisar de carregar módulos Python que não são fornecidos por predefinição, consulte [Como implantar um módulo no Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+Se precisar de carregar módulos Python que não são fornecidos por predefinição, consulte [Como implantar um módulo no Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Para outras formas de utilizar o Porco, Colmeia e aprender a usar o MapReduce, consulte os seguintes documentos:
 

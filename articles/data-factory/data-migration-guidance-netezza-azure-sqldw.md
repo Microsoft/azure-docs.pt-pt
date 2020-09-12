@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2197136b86d0bfbb2de79af6712c953339d46371
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416444"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442842"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Utilize a Azure Data Factory para migrar dados de um servidor Netezza no local para a Azure 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-A Azure Data Factory fornece um mecanismo performante, robusto e rentável para migrar dados à escala de um servidor Netezza no local para a sua conta de armazenamento Azure ou base de dados Azure SQL Data Warehouse. 
+A Azure Data Factory fornece um mecanismo performante, robusto e rentável para migrar dados à escala de um servidor Netezza no local para a sua conta de armazenamento Azure ou Azure Synapse Analytics (ex-SQL Data Warehouse). 
 
 Este artigo fornece as seguintes informações para engenheiros de dados e desenvolvedores:
 
@@ -57,7 +57,7 @@ Com a atividade de cópia da Azure Data Factory, quando copia dados entre lojas 
 
 ## <a name="network-security"></a>Segurança da rede 
 
-Por padrão, a Azure Data Factory transfere dados do servidor Netezza para uma conta de armazenamento Azure ou base de dados Azure SQL Data Warehouse utilizando uma ligação encriptada sobre o Hypertext Transfer Protocol Secure (HTTPS). HTTPS fornece encriptação de dados em trânsito e evita escutas e ataques man-in-the-middle.
+Por padrão, a Azure Data Factory transfere dados do servidor Netezza para uma conta de armazenamento Azure ou base de dados Azure Synapse Analytics utilizando uma ligação encriptada sobre o Hypertext Transfer Protocol Secure (HTTPS). HTTPS fornece encriptação de dados em trânsito e evita escutas e ataques man-in-the-middle.
 
 Em alternativa, se não quiser que os dados sejam transferidos através da internet pública, pode ajudar a obter uma maior segurança transferindo dados através de um link de observação privado via Azure Express Route. 
 
@@ -109,7 +109,7 @@ O diagrama anterior pode ser interpretado da seguinte forma:
    
    - Também pode utilizar [o principal de serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou uma chave de conta de [armazenamento.](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) 
 
-- Para autenticar no Armazém de Dados Azure SQL:
+- Para autenticar a Azure Synapse Analytics:
 
    - Recomendamos vivamente a utilização [de identidades geridas para recursos Azure.](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity)
    
@@ -131,7 +131,7 @@ Para tabelas maiores (isto é, tabelas com um volume de 100 GB ou superior ou qu
 
 Se algum trabalho de cópia falhar devido a um problema transitório de rede ou loja de dados, pode voltar a repetir a função de cópia falhada para recarregar essa divisória específica da tabela. Outros trabalhos de cópia que carregam outras divisórias não são afetados.
 
-Quando carrega dados numa base de dados do Armazém de Dados Azure SQL, sugerimos que ative a PolyBase dentro do trabalho de cópia com o armazenamento Azure Blob como encenação.
+Quando carrega dados numa base de dados Azure Synapse Analytics, sugerimos que ative a PolyBase dentro do trabalho de cópia com o armazenamento Azure Blob como encenação.
 
 ### <a name="migrate-delta-data"></a>Migrar dados delta 
 
@@ -162,7 +162,7 @@ Quando se depara com erros de estrangulamento, conforme relatado pela atividade 
 
 ### <a name="estimate-your-pricing"></a>Estime o seu preço 
 
-Considere o seguinte oleoduto, que é construído para migrar dados do servidor Netezza no local para uma base de dados do Armazém de Dados Azure SQL:
+Considere o seguinte oleoduto, que é construído para migrar dados do servidor Netezza no local para uma base de dados Azure Synapse Analytics:
 
 ![O gasoduto de preços](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
 
@@ -196,7 +196,7 @@ Para mais informações, consulte os seguintes artigos e guias:
 - [Conector ODBC](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Conector de armazenamento Azure Blob](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Conector do Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Conector do Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
+- [Conector Azure Synapse Analytics](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
 - [Guia de afinação de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime) (Criar e configurar um runtime de integração autoalojado)
 - [Integração auto-hospedada runtime HA e escalabilidade](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
@@ -206,6 +206,6 @@ Para mais informações, consulte os seguintes artigos e guias:
 - [Copiar dados incrementalmente de várias tabelas](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
 - [Página de preços da Fábrica de Dados Azure](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Copie ficheiros de vários contentores utilizando a Azure Data Factory](solution-template-copy-files-multiple-containers.md)

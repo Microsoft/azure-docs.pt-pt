@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4aad485741abc1c0f54e14e00cd8654a8addbca
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: contperfq1
+ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930808"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500322"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 
@@ -58,7 +59,7 @@ Antes de ativar a Azure AD sobre AMB para ações de ficheiros Azure, certifique
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação Azure Files com Azure AD DS está disponível em [todas as regiões públicas do Azure.](https://azure.microsoft.com/global-infrastructure/locations/)
+A autenticação Azure Files com Azure AD DS está disponível em [todas as regiões Azure Public e Gov](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Visão geral do fluxo de trabalho
 
@@ -143,7 +144,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 Você agora ativou com sucesso a autenticação Azure AD DS sobre SMB e atribuiu uma função personalizada que fornece acesso a uma partilha de ficheiros Azure com uma identidade AD Azure. Para conceder aos utilizadores acesso adicionais à sua partilha de ficheiros, siga as instruções nas [permissões de acesso atribuir](#assign-access-permissions-to-an-identity) para utilizar uma identidade e [configurar permissões NTFS através das secções SMB](#configure-ntfs-permissions-over-smb).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os Ficheiros Azure e como utilizar o Azure AD em SMB, consulte estes recursos:
 

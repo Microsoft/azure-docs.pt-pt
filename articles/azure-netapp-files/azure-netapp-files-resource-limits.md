@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 60d3c9df270561c94b8eb162595e4fe01713c0b5
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752307"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536484"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -56,11 +56,11 @@ O serviço ajusta dinamicamente o limite máximo para um volume baseado no seu t
 
 |    Tamanho do volume (quota)     |  Reajustamento automático do limite máximo    |
 |----------------------------|-------------------|
-|    < 1 TiB                 |    20 milhões     |
-|    >= 1 TiB mas < 2 TiB    |    40 milhões     |
-|    >= 2 TiB mas < 3 TiB    |    60 milhões     |
-|    >= 3 TiB mas < 4 TiB    |    80 milhões     |
-|    >= 4 TiB                |    100 milhões    |
+|    <= 1 TiB                |    20 milhões     |
+|    > 1 TiB mas <= 2 TiB    |    40 milhões     |
+|    > 2 TiB mas <= 3 TiB    |    60 milhões     |
+|    > 3 TiB mas <= 4 TiB    |    80 milhões     |
+|    > 4 TiB                 |    100 milhões    |
 
 Se já alocou pelo menos 4 TiB de quota para um volume, pode iniciar um pedido de [apoio](#limit_increase) para aumentar o limite máximo para além de 100 milhões.
 
@@ -92,7 +92,7 @@ Do plano de navegação do portal Azure:
     3. Clique **em Seguinte: Rever + criar** para criar o pedido. 
 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 - [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 - [Modelo de custo para os Azure NetApp Files](azure-netapp-files-cost-model.md)

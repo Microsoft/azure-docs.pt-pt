@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502703"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595250"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rota tráfego web com base no URL usando o Azure CLI
 
@@ -23,13 +23,12 @@ Enquanto administrador de TI que gere tráfego da Web, deve ajudar os seus clien
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Criar um grupo de recursos para os recursos de rede que precisa
-> * Criar recursos de rede
-> * Criar um gateway de aplicação para o tráfego proveniente da sua aplicação
-> * Especificar agrupamentos de servidores e regras de encaminhamento para os diferentes tipos de tráfego
-> * Criar um conjunto de dimensionamento para cada conjunto, para que o conjunto possa dimensionar automaticamente
-> * Executar um teste para que possa verificar que os diferentes tipos de tráfego vão para o conjunto correto
+* Criar um grupo de recursos para os recursos de rede que precisa
+* Criar recursos de rede
+* Criar um gateway de aplicação para o tráfego proveniente da sua aplicação
+* Especificar agrupamentos de servidores e regras de encaminhamento para os diferentes tipos de tráfego
+* Criar um conjunto de dimensionamento para cada conjunto, para que o conjunto possa dimensionar automaticamente
+* Executar um teste para que possa verificar que os diferentes tipos de tráfego vão para o conjunto correto
 
 Se preferir, pode concluir este procedimento utilizando [a Azure PowerShell](tutorial-url-route-powershell.md) ou o [portal Azure](create-url-route-portal.md).
 
@@ -256,7 +255,7 @@ Altere o URL para http:// &lt; endereço IP &gt; :8080/video/test.html, substitu
 
 ![Testar o URL de vídeo no gateway de aplicação](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem precisos, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 
@@ -264,6 +263,6 @@ Quando já não forem precisos, remova o grupo de recursos, o gateway de aplica�
 az group delete --name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](./tutorial-url-redirect-cli.md)

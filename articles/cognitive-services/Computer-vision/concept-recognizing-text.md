@@ -4,54 +4,59 @@ titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados com o reconhecimento de caracteres óticos (OCR) de imagens e documentos com texto impresso e manuscrito usando a API de Visão Computacional.
 services: cognitive-services
 author: PatrickFarley
-manager: netahw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: cb931d0b9c3dd4d3fa0fa69f69f5f90fc37ea8f6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 24be20d7eac48024b73e88f8ac8500928f0fb840
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929198"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594232"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconhecimento Ótico de Carateres (OCR)
 
-A A API de Visão Computacional do Azure inclui capacidades de reconhecimento de caracteres óticos (OCR) que extraem texto impresso ou manuscrito a partir de imagens. Pode extrair texto de imagens, como fotos de placas ou contentores com números de série, bem como de documentos - faturas, contas, relatórios financeiros, artigos e muito mais. 
+A A API de Visão Computacional do Azure inclui capacidades de reconhecimento de caracteres óticos (OCR) que extraem texto impresso ou manuscrito a partir de imagens. Pode extrair texto de imagens, como fotos de placas ou contentores com números de série, bem como de documentos - faturas, contas, relatórios financeiros, artigos e muito mais.
 
 ## <a name="read-api"></a>Ler API 
 
-A [API de Leitura de](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) Visão Por Computador é a mais recente tecnologia OCR da Azure que extrai texto impresso (em vários idiomas), texto manuscrito (apenas inglês), dígitos e símbolos de moeda a partir de imagens e documentos PDF de várias páginas. É otimizado para extrair texto de imagens pesadas de texto e documentos PDF de várias páginas com línguas mistas. Suporta a deteção de texto impresso e manuscrito na mesma imagem ou documento.
+A [API de Leitura de](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) Visão Computacional é a mais recente tecnologia OCR da Azure ([saiba quais as novidades](./whats-new.md#read-api-v31-public-preview-adds-simplified-chinese-support)) que extrai texto impresso (em vários idiomas), texto manuscrito (apenas inglês), dígitos e símbolos de moeda a partir de imagens e documentos PDF de várias páginas. É otimizado para extrair texto de imagens pesadas de texto e documentos PDF de várias páginas com línguas mistas. Suporta a deteção de texto impresso e manuscrito na mesma imagem ou documento.
 
 ![Como o OCR converte imagens e documentos em saída estruturada com texto extraído](./Images/how-ocr-works.svg)
 
 ## <a name="input-requirements"></a>Requisitos de entrada
-A operação **de Leitura** da API retira imagens e documentos como entrada. Têm os seguintes requisitos:
+A chamada **de Leitura** requer imagens e documentos como entrada. Têm os seguintes requisitos:
 
 * Formatos de ficheiros suportados: JPEG, PNG, BMP, PDF e TIFF
-* Para PDF e TIFF, até 2000 páginas são processadas. Para assinantes de nível gratuito, apenas as duas primeiras páginas são processadas.
-* O tamanho do ficheiro deve ser inferior a 50 MB e dimensões de pelo menos 50 x 50 pixels e, no máximo, 10000 x 10000 pixels.
+* Para ficheiros PDF e TIFF, são processadas até 2000 páginas (apenas duas primeiras páginas para o nível livre).
+* O tamanho do ficheiro deve ser inferior a 50 MB (4 MB para o nível livre) e dimensões de pelo menos 50 x 50 pixels e, no máximo, 10000 x 10000 pixels. 
 * As dimensões PDF devem ser no máximo 17 x 17 polegadas, correspondentes a tamanhos legais ou de papel A3 e menores.
 
 > [!NOTE]
 > **Entrada linguística** 
 >
-> A [operação Leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) tem um parâmetro de pedido opcional para a linguagem. Este é o código linguístico BCP-47 do texto no documento. A leitura suporta a identificação de linguagem automática e documentos multilingues, pelo que só fornece um código linguístico se quiser forçar o documento a ser processado como essa língua específica.
+> A [chamada de Leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) tem um parâmetro de pedido opcional para a linguagem. Este é o código linguístico BCP-47 do texto no documento. A leitura suporta a identificação de linguagem automática e documentos multilingues, pelo que só fornece um código linguístico se quiser forçar o documento a ser processado como essa língua específica.
 
-## <a name="the-read-operation"></a>A operação Ler
+## <a name="the-read-call"></a>A chamada de Leitura
 
-A [operação Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) requer uma imagem ou documento PDF à medida que a entrada e extrai texto assíncroneamente. A chamada retorna com um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o ID da operação para ser usado no passo seguinte.
+A chamada de [Leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) da API retira uma imagem ou documento PDF à medida que a entrada e extrai texto assíncrono. A chamada retorna com um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o ID da operação para ser usado no passo seguinte.
 
 |Cabeçalho de resposta| URL de resultados |
 |:-----|:----|
 |Operação-Localização | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## <a name="the-get-read-results-operation"></a>A operação Get Read Results
+> [!NOTE]
+> **Faturação** 
+>
+> A página [de preços da Visão de Computador](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) inclui o nível de preços para Ler. Cada imagem ou página analisada é uma transação. Se ligar para a operação com um documento PDF ou TIFF contendo 100 páginas, a operação Ler contará como 100 transações e será faturado por 100 transações. Se efec se efec se efec se efec se efec se submeter 50 x 100 = 5000 transações.
 
-O segundo passo é chamar a operação [Get Read Results.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) Esta operação toma como entrada o ID de operação que foi criado pela operação Ler. Devolve uma resposta JSON que contém um campo **de estado** com os seguintes valores possíveis. Você chama a esta operação iterativamente até que ela retorne com o valor **bem sucedido.** Utilize um intervalo de 1 a 2 segundos para evitar exceder os pedidos por segundo (RPS).
+## <a name="the-get-read-results-call"></a>A chamada de Resultados da Leitura
+
+O segundo passo é ligar para a operação [Get Read Results.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) Esta operação toma como entrada o ID de operação que foi criado pela operação Ler. Devolve uma resposta JSON que contém um campo **de estado** com os seguintes valores possíveis. Você chama a esta operação iterativamente até que ela retorne com o valor **bem sucedido.** Utilize um intervalo de 1 a 2 segundos para evitar exceder os pedidos por segundo (RPS).
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
@@ -65,7 +70,7 @@ O segundo passo é chamar a operação [Get Read Results.](https://westcentralus
 
 Quando o campo **de estado** tem o valor **bem sucedido,** a resposta JSON contém o conteúdo de texto extraído da sua imagem ou documento. A resposta JSON mantém os agrupamentos de linha originais de palavras reconhecidas. Inclui as linhas de texto extraídas e as suas coordenadas de caixa de delimitação. Cada linha de texto inclui todas as palavras extraídas com as suas coordenadas e pontuações de confiança.
 
-### <a name="sample-json-output"></a>Amostra de saída JSON
+## <a name="sample-json-output"></a>Amostra de saída JSON
 
 Veja o seguinte exemplo de uma resposta JSON bem sucedida:
 
@@ -120,30 +125,25 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida:
   }
 }
 ```
+Comece com os [quickstarts OCR SDK](./quickstarts-sdk/client-library.md) da Visão do Computador e os [quickstarts da API de Read REST](./QuickStarts/CSharp-hand-text.md) para começar a integrar as capacidades de OCR nas suas aplicações.
 
-Siga o [extrato impresso e manuscrito de texto](./QuickStarts/CSharp-hand-text.md) rápido para implementar OCR usando C# e a API REST.
-
-## <a name="language-support"></a>Suporte de idiomas
-
-### <a name="printed-text"></a>Texto impresso
+## <a name="supported-languages-for-print-text"></a>Línguas suportadas para texto de impressão
 A [API de Leitura 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) suporta a extração de texto impresso em línguas inglesa, espanhola, alemã, francesa, italiana, portuguesa e neerlandesa. 
 
 A [pré-visualização pública da API read 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado. Se o seu cenário necessitar de suportar mais línguas, consulte a secção API do [OCR.](#ocr-api) 
 
 Consulte as [línguas apoiadas](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) para obter a lista completa de línguas apoiadas pelo OCR.
 
-### <a name="handwritten-text"></a>Texto manuscrito
+## <a name="supported-languages-for-handwritten-text"></a>Línguas apoiadas para texto manuscrito
 A operação Read suporta atualmente a extração de texto manuscrito exclusivamente em inglês.
 
-## <a name="integration-options"></a>Opções de integração
-
-### <a name="use-the-rest-api-or-client-sdk"></a>Utilize a REST API ou o cliente SDK
+## <a name="use-the-rest-api-and-sdk"></a>Utilize a REST API e a SDK
 A [API Read 3.x REST](./QuickStarts/CSharp-hand-text.md) é a opção preferida para a maioria dos clientes devido à facilidade de integração e à rápida produtividade fora da caixa. O Azure e o serviço de Visão Computacional lidam com escala, desempenho, segurança de dados e necessidades de conformidade enquanto se concentra em satisfazer as necessidades dos seus clientes.
 
-### <a name="use-containers-for-on-premise-deployment"></a>Utilizar recipientes para implantação no local
+## <a name="deploy-on-premise-with-docker-containers"></a>Implantar no local com contentores Docker
 O [recipiente Read 2.0 Docker (pré-visualização)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) permite-lhe implantar as novas capacidades de OCR no seu próprio ambiente local. Os contentores são ótimos para requisitos específicos de governação de dados e segurança.
 
-## <a name="read-ocr-examples"></a>Leia exemplos de OCR
+## <a name="example-outputs"></a>Saídas de exemplo
 
 ### <a name="text-from-images"></a>Texto a partir de imagens
 
@@ -186,8 +186,9 @@ Tal como acontece com todos os serviços cognitivos, os desenvolvedores que util
 > [!NOTE]
 > As operações Do Computador Vison 2.0 RecogniseText estão em vias de ser depreciadas a favor da nova API de leitura abrangida por este artigo. Os clientes existentes devem [transitar para a utilização de operações de Leitura](upgrade-api-versions.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
+- Começa com os [quickstarts SDK SDK da Visão de Computador 3.0](./quickstarts-sdk/client-library.md) em C#, Java, JavaScript ou Python.
+- Utilize os [quickstarts API de Read 3.0 REST](./QuickStarts/CSharp-hand-text.md) em C#, Java, JavaScript ou Python para aprender a usar as APIs REST REST.
 - Saiba mais sobre a [API De Leitura 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005)REST .
 - Saiba mais sobre a [API de pré-visualização pública Read 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado.
-- Siga o [quickstart de texto extrato](./QuickStarts/CSharp-hand-text.md) para implementar OCR usando C#, Java, JavaScript ou Python juntamente com a REST API.

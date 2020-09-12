@@ -2,17 +2,17 @@
 title: 'Azure VPN Gateway: Ligações ponto-a-local de resolução de problemas: clientes Mac OS X'
 description: Saiba como resolver problemas de conectividade ponto a local a partir do Mac OS X utilizando o cliente nativo VPN e iKEv2.
 services: vpn-gateway
-author: kumudD
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 58250980081388b78ebb32fb01b84beb8d86c1c2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 33e67df5ad68a78cc35f7168813716d1d794d527
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030669"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442807"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Resolução de problemas Ligações VPN ponto-a-local de clientes Mac OS X VPN
 
@@ -25,7 +25,7 @@ Este artigo ajuda-o a resolver problemas de conectividade ponto-a-local do Mac O
 * Versão OS (10.11 ou superior)
 
 
-## <a name="troubleshoot-certificate-based-authentication"></a><a name="VPNClient"></a>Autenticação baseada em certificados de resolução de problemas
+## <a name="troubleshoot-certificate-based-authentication"></a><a name="VPNClient"></a> Autenticação baseada em certificados de resolução de problemas
 1. Verifique as definições do cliente VPN. Aceda à **Definição** de Rede pressionando o Comando + Shift e, em seguida, escreva "VPN" para verificar as definições do cliente VPN. A partir da lista, clique na entrada VPN que precisa de ser investigada.
 
    ![Autenticação baseada em certificados IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
@@ -62,5 +62,5 @@ Se experimentar os passos anteriores e tudo estiver configurado corretamente, de
   
 3. Se não houver resposta do servidor nos vestígios de rede, verifique se ativou o protocolo IKEv2 na página de Configuração do Gateway Azure no website do portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter ajuda adicional, consulte [o Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

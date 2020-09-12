@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382922"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470090"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Ative Directory para o Azure Red Hat OpenShift
 
@@ -30,7 +30,7 @@ Crie um novo utilizador do Azure Ative Directory 'Owner' para iniciar sessão no
 1. Aceda à lâmina [dos utilizadores-Todos os utilizadores.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)
 2. Clique **em +Novo utilizador** para abrir o painel de **utilização.**
 3. Introduza um **Nome** para este utilizador.
-4. Crie um **nome de Utilizador** com base no nome do inquilino que criou, com `.onmicrosoft.com` apêndice no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Escreva este nome de utilizador. Vai precisar dele para se inscrever no seu agrupamento.
+4. Crie um **nome de Utilizador** com base no nome do inquilino que criou, com  `.onmicrosoft.com` apêndice no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Escreva este nome de utilizador. Vai precisar dele para se inscrever no seu agrupamento.
 5. Clique na **função do Diretório** para abrir o painel de funções do diretório e selecione **Proprietário** e, em seguida, clique em **Ok** na parte inferior do painel.
 6. No painel **de utilização,** clique em **Mostrar Palavra-Passe** e grave a palavra-passe temporária. Depois de assinar pela primeira vez, será solicitado para repor.
 7. Na parte inferior do painel, clique em **Criar** para criar o utilizador.
@@ -86,9 +86,9 @@ Gere um segredo de cliente para autenticar a sua aplicação para o Azure Ative 
 
 ![Screenshot do painel de certificados e segredos](./media/howto-create-tenant/create-key.png)
 
-Para obter mais informações sobre os Objetos de Aplicação Azure, consulte [os objetos principais de aplicação e serviço no Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+Para obter mais informações sobre os Objetos de Aplicação Azure, consulte [os objetos principais de aplicação e serviço no Diretório Ativo Azure.](../active-directory/develop/app-objects-and-service-principals.md)
 
-Para obter mais informações sobre a criação de uma nova aplicação AD Azure, consulte [Registar uma aplicação com o ponto final Azure Ative Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+Para obter mais informações sobre a criação de uma nova aplicação AD Azure, consulte [Registar uma aplicação com o ponto final Azure Ative Directory v1.0](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="add-api-permissions"></a>Adicionar permissões de APIs
 
@@ -110,14 +110,14 @@ Para obter mais informações sobre a criação de uma nova aplicação AD Azure
 > [!IMPORTANT]
 > A sincronização do grupo de administradores de cluster só funcionará após a concessão do consentimento. Verá um círculo verde com uma marca de verificação e uma mensagem "Concedido para *Nome de Assinatura"* na coluna *de consentimento do Administrador.*
 
-Para obter detalhes sobre administradores de gestão e outras funções, consulte [adicionar ou alterar administradores de subscrição do Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+Para obter detalhes sobre administradores de gestão e outras funções, consulte [adicionar ou alterar administradores de subscrição do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="resources"></a>Recursos
 
-* [Aplicações e objetos principais de serviço no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Início rápido: Registar uma aplicação com o ponto de final do Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Aplicações e objetos principais de serviço no Azure Ative Directory](../active-directory/develop/app-objects-and-service-principals.md)
+* [Início rápido: Registar uma aplicação com o ponto de final do Azure Active Directory v1.0](../active-directory/develop/quickstart-register-app.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se já conheceu todos os [pré-requisitos do Azure Red Hat OpenShift,](howto-setup-environment.md)está pronto para criar o seu primeiro cluster!
 

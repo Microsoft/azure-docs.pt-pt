@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Requisitos de encaminhamento'
 description: Esta página apresenta os requisitos detalhados para configurar e gerir o encaminhamento para circuitos do ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.author: cherylmc
-ms.openlocfilehash: 7e70348ba1638057fdab579c1f2799a0f5aa77a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341355"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569616"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -83,7 +83,7 @@ Tem de utilizar endereços IP públicos da sua propriedade para configurar as se
 Pode optar por utilizar endereços IPv4 públicos ou privados para o peering privado. Oferecemos um isolamento do tráfego ponto a ponto, de modo a que a sobreposição de endereços com outros clientes não seja possível em caso de peering privado. Estes endereços não são anunciados na Internet. 
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
-O caminho de observação da Microsoft permite-lhe ligar-se aos serviços de cloud da Microsoft. A lista de serviços inclui serviços do Office 365, tais como Exchange Online, SharePoint Online, Skype for Business e Microsoft Teams. A Microsoft suporta a conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de utilizar endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft.
+O caminho de observação da Microsoft permite-lhe ligar-se aos serviços de cloud da Microsoft. A lista de serviços inclui serviços Microsoft 365, tais como Exchange Online, SharePoint Online, Skype for Business e Microsoft Teams. A Microsoft suporta a conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de utilizar endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft.
 
 Certifique-se de que o endereço IP e o número AS estão registados em seu nome num dos registos seguintes:
 
@@ -100,7 +100,7 @@ Se os prefixos e o número SA não estiverem atribuídos a si nos registos anter
 É permitido um Número AS privado com Peering da Microsoft, mas também irá precisar de validação manual. Além disso, removemos os números privados COMO no COMO Caminho para os prefixos recebidos. Por consequência, não pode acrescentar números privados COMO no COMO Caminho de modo a [influenciar o encaminhamento para o Peering da Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Não forneça os seus direitos de propriedade intelectual (IP) públicos e de forma pública. Para reduzir o risco de configuração incorreta que causa o encaminhamento assimétrico, recomendamos vivamente que os [endereços NAT IP anunciados](expressroute-nat.md) à Microsoft sobre o ExpressRoute sejam de uma gama que não é publicitada para a internet. Se isso não for possível, é essencial garantir que anuncia uma gama mais específica sobre o ExpressRoute do que a da ligação à Internet. Além da rota pública para o NAT, também pode anunciar através do ExpressRoute os endereços IP públicos utilizados pelos servidores da sua rede de instalações que comunicam com os pontos finais do Office 365 dentro da Microsoft. 
+> Não forneça os seus direitos de propriedade intelectual (IP) públicos e de forma pública. Para reduzir o risco de configuração incorreta que causa o encaminhamento assimétrico, recomendamos vivamente que os [endereços NAT IP anunciados](expressroute-nat.md) à Microsoft sobre o ExpressRoute sejam de uma gama que não é publicitada para a internet. Se isso não for possível, é essencial garantir que anuncia uma gama mais específica sobre o ExpressRoute do que a da ligação à Internet. Além da rota pública para o NAT, também pode anunciar através do ExpressRoute os endereços IP públicos utilizados pelos servidores da sua rede de instalações que comunicam com os pontos finais da Microsoft 365 dentro da Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ As rotas predefinidas só são permitidas em sessões do peering privado do Azur
 * Utiliza o encaminhamento definido pelo utilizador para permitir a ligação à Internet para cada sub-rede que necessite de ligação à Internet.
 
 > [!NOTE]
-> O anúncio de rotas predefinidas interrompe a ativação de licenças do Windows e de outras licenças de VMs. Siga as instruções [aqui](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para contornar este problema.
+> O anúncio de rotas predefinidas interrompe a ativação de licenças do Windows e de outras licenças de VMs. Siga as instruções [aqui](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) para contornar este problema.
 > 
 > 
 
@@ -159,7 +159,7 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | E.U.A. Leste | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
 | E.U.A. Leste 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
 | E.U.A. Oeste | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
-| E.U.A.Oeste 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
+| E.U.A. Oeste 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
 | E.U.A. Centro-Oeste | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
 | E.U.A. Centro-Norte | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
 | E.U.A. Centro-Sul | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |
@@ -183,13 +183,13 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Oeste da Noruega | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 12076:55043 | 
 | **Ásia-Pacífico** | |
 | Ásia Leste | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
-| Ásia Sudeste | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
+| Sudeste Asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **Japão** | |
 | Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
 | Oeste do Japão | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Austrália** | |
 | Leste da Austrália | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
-| Austrália Sudeste | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
+| Sudeste da Austrália | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
 | **Governo da Austrália** | |
 | Austrália Central | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 | 12076:55032 |
 | Austrália Central 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 | 12076:55033 |
@@ -229,10 +229,10 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | Azure Resource Manager |12076:5070 |
 | Outros serviços do Office 365 Online** | 12076:5100 |
 
-\*A Azure Global Services inclui apenas Azure DevOps neste momento.\
-\*\*Autorização exigida pela Microsoft, consulte os filtros de [rota Configure para o Microsoft Peering](how-to-routefilter-portal.md)\
-\*\*\*Esta comunidade também publica as rotas necessárias para os serviços da Microsoft Teams.\
-\*\*\*\*CRM Online suporta Dinâmica v8.2 e abaixo. Para versões mais altas, selecione a comunidade regional para as suas implementações Dynamics.
+\* A Azure Global Services inclui apenas Azure DevOps neste momento.\
+\*\* Autorização exigida pela Microsoft, consulte os filtros de [rota Configure para o Microsoft Peering](how-to-routefilter-portal.md)\
+\*\*\* Esta comunidade também publica as rotas necessárias para os serviços da Microsoft Teams.\
+\*\*\*\* CRM Online suporta Dinâmica v8.2 e abaixo. Para versões mais altas, selecione a comunidade regional para as suas implementações Dynamics.
 
 > [!NOTE]
 > A Microsoft não honra valores das comunidades de BGP definidos por si nas rotas anunciadas para a Microsoft.

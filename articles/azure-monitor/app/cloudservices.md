@@ -4,12 +4,12 @@ description: Monitorizar as funções Web e de trabalho eficazmente com o Applic
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 2de853655524e99e958f043b7801ee73e937e7ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1662b45d8243217357d1e69124832c499d587812
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923862"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437331"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Insights de Aplicação para serviços em nuvem Azure
 [O Application Insights][start] pode monitorizar [as aplicações do serviço de cloud Azure](https://azure.microsoft.com/services/cloud-services/) para disponibilidade, desempenho, falhas e utilização, combinando dados de SDKs app Insights com dados de [Diagnóstico Azure](../platform/diagnostics-extension-overview.md) dos seus serviços na nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -66,6 +66,8 @@ Se estiver a desenvolver eventos personalizados para a sua próxima funcionalida
 Para evitar esta situação, crie recursos separados para cada configuração de construção ou "carimbo" (desenvolvimento, teste, produção, e assim por diante) do seu sistema. Ponha os recursos de cada configuração de compilação num grupo de recursos separado. 
 
 Para enviar a telemetria para os recursos apropriados, pode configurar o Application Insights SDK para que ele apanhe uma chave de instrumentação diferente, dependendo da configuração de construção. 
+
+Aprenda a [definir dinamicamente a chave de instrumentação](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) para diferentes fases. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Criar um recurso do Application Insights para cada função
 
@@ -272,7 +274,7 @@ Compilou para .NET 4.6? .NET 4.6 não é suportado automaticamente em funções 
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Configure sending Azure Diagnostics to Application Insights](../platform/diagnostics-extension-to-application-insights.md) (Configurar o envio de Diagnósticos do Azure para o Application Insights)
 * [Criar automaticamente recursos de Insights de Aplicação](./powershell.md)
 * [Automatizar diagnósticos Azure](./powershell-azure-diagnostics.md)

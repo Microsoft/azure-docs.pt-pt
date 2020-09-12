@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797436"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569497"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
@@ -42,6 +42,7 @@ As funcionalidades abaixo não são atualmente suportadas por Ficheiros Azure Ne
 * WAN Virtual do Azure 
 * Portas de rede virtual redundantes da zona (Gateway SKUs com Az) 
 * GWs de rede virtual ativa/ativa 
+* VNet de pilha dupla (IPv4 e IPv6)
 
 As seguintes restrições de rede aplicam-se aos ficheiros Azure NetApp:
 
@@ -55,13 +56,13 @@ A tabela seguinte descreve as topologias de rede suportadas pelos Ficheiros Azur
 
 |    Topologias    |    É apoiado    |     Solução    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    Conectividade ao volume num VNet local    |    Sim    |         |
-|    Conectividade ao volume num VNet espremiado (mesma região)    |    Sim    |         |
-|    Conectividade ao volume num VNet espremiado (região cruzada ou persiódia global)    |    Não    |    Nenhuma    |
-|    Conectividade a um volume sobre gateway ExpressRoute    |    Sim    |         |
-|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway ExpressRoute e vNet a espreitar com o trânsito de gateway    |    Sim    |        |
-|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway VPN    |    Sim    |         |
-|    Conectividade desde as instalações até um volume num VNet falado sobre gateway VPN e VNet a espreitar com o trânsito de gateway    |    Sim    |         |
+|    Conectividade ao volume num VNet local    |    Yes    |         |
+|    Conectividade ao volume num VNet espremiado (mesma região)    |    Yes    |         |
+|    Conectividade ao volume num VNet espremiado (região cruzada ou persiódia global)    |    No    |    Nenhum    |
+|    Conectividade a um volume sobre gateway ExpressRoute    |    Yes    |         |
+|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway ExpressRoute e vNet a espreitar com o trânsito de gateway    |    Yes    |        |
+|    Conectividade desde as instalações até um volume num VNet falado sobre o gateway VPN    |    Yes    |         |
+|    Conectividade desde as instalações até um volume num VNet falado sobre gateway VPN e VNet a espreitar com o trânsito de gateway    |    Yes    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Rede virtual para volumes de ficheiros Azure NetApp

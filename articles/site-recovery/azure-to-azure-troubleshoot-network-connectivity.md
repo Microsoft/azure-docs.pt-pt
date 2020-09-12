@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049694"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437467"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução Azure-to-Azure Problemas de conectividade da rede VM
 
@@ -108,7 +108,7 @@ Não é possível estabelecer uma ligação com os pontos finais do serviço de 
 
 #### <a name="resolution"></a>Resolução
 
-Acesso necessário do Azure Site Recovery aos [intervalos de IP do Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), dependendo da região. Certifique-se de que as gamas IP necessárias estão acessíveis a partir do VM.
+Se estiver a utilizar uma regra/procuração do Azure Network Security Group (NSG) para controlar a conectividade da rede de saída na máquina, existem várias tags de serviço que precisam de ser permitidas. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Edição 4: A replicação Azure-to-Azure falhou quando o tráfego da rede passa pelo servidor proxy no local (151072)
 
@@ -139,6 +139,6 @@ As definições de procuração personalizadas são inválidas e o agente de ser
 
 Para permitir [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [intervalos IP necessários,](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)siga os passos no [documento de orientação de rede](./azure-to-azure-about-networking.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Replicar VMs do Azure para outra região do Azure](azure-to-azure-how-to-enable-replication.md)

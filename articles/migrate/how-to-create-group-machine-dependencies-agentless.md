@@ -3,12 +3,12 @@ title: Configurar uma análise de dependência sem agente na avaliação do serv
 description: Configure a análise de dependência sem agente na Avaliação do Servidor Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771381"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536443"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências de máquinas (sem agente)
 
@@ -25,7 +25,7 @@ Este artigo descreve como configurar uma análise de dependência sem agente no 
 
 - Na visão de análise de dependência, não é possível adicionar ou remover um servidor de um grupo.
 - Um mapa de dependência de um grupo de servidores não está disponível atualmente.
-- Os dados de dependência não podem ser descarregados em formato tabular.
+- A recolha de dados de dependência pode ser configurada simultaneamente para 400 servidores. Pode analisar um maior número de servidores sequenciando em lotes de 400.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -117,7 +117,7 @@ Nome do servidor de origem | Nome da máquina de origem
 Aplicação de origem | Nome da aplicação na máquina de origem 
 Processo de origem | Nome do processo na máquina de origem 
 Nome do servidor de destino | Nome da máquina de destino
-ID de destino | Endereço IP da máquina de destino
+IP de destino | Endereço IP da máquina de destino
 Aplicação de destino | Nome da aplicação na máquina de destino
 Processo de destino | Nome do processo na máquina de destino 
 Porta de destino | Número de porta na máquina de destino

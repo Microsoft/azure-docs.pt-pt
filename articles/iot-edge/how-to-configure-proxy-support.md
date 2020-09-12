@@ -3,17 +3,19 @@ title: Configurar dispositivos para proxies de rede - Azure IoT Edge / Microsoft
 description: Como configurar o tempo de execução do Azure IoT Edge e quaisquer módulos IoT Edge virados para a Internet para comunicar através de um servidor proxy.
 author: kgremban
 ms.author: kgremban
-ms.date: 3/10/2020
-ms.topic: conceptual
+ms.date: 09/03/2020
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp
-ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- amqp
+- contperfq1
+ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687186"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500373"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para comunicar através de um servidor proxy
 
@@ -21,29 +23,29 @@ Os dispositivos IoT Edge enviam pedidos HTTPS para comunicar com o IoT Hub. Se o
 
 Este artigo percorre os seguintes quatro passos para configurar e, em seguida, gerir um dispositivo IoT Edge atrás de um servidor proxy:
 
-1. **Instale o tempo de funcionaamento do IoT Edge no seu dispositivo.**
+1. [**Instale o tempo de execução IoT Edge no seu dispositivo**](#install-the-runtime-through-a-proxy)
 
-   Os scripts de instalação IoT Edge retiram pacotes e ficheiros da internet, pelo que o seu dispositivo necessita de comunicar através do servidor proxy para fazer esses pedidos. Para obter etapas detalhadas, consulte a [Instalação do tempo](#install-the-runtime-through-a-proxy) de execução através de uma secção de procuração deste artigo. Para dispositivos Windows, o script de instalação também fornece uma opção [de instalação offline.](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+   Os scripts de instalação IoT Edge retiram pacotes e ficheiros da internet, pelo que o seu dispositivo necessita de comunicar através do servidor proxy para fazer esses pedidos. Para dispositivos Windows, o script de instalação também fornece uma opção [de instalação offline.](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
 
-   Este passo é um processo único realizado no dispositivo IoT Edge quando o configurar pela primeira vez. As mesmas ligações também são necessárias quando atualiza o tempo de funcionação do IoT Edge.
+   Este passo é um processo único para configurar o dispositivo IoT Edge quando o configurar pela primeira vez. As mesmas ligações também são necessárias quando atualiza o tempo de funcionação do IoT Edge.
 
-2. **Configure o daemon do Docker e o daemon IoT Edge no seu dispositivo.**
+2. [**Configure o daemon Do Docker e o daemon IoT Edge no seu dispositivo**](#configure-the-daemons)
 
-   O IoT Edge utiliza dois daemons no dispositivo, ambos os quais precisam de fazer pedidos web através do servidor proxy. O IoT Edge Daemon é responsável pelas comunicações com o IoT Hub. O daemon Moby é responsável pela gestão de contentores, por isso comunica com os registos de contentores. Para obter etapas detalhadas, consulte a secção [Configurar os daemons](#configure-the-daemons) deste artigo.
+   O IoT Edge utiliza dois daemons no dispositivo, ambos os quais precisam de fazer pedidos web através do servidor proxy. O IoT Edge Daemon é responsável pelas comunicações com o IoT Hub. O daemon Moby é responsável pela gestão de contentores, por isso comunica com os registos de contentores.
 
-   Este passo é um processo único realizado no dispositivo IoT Edge quando o configurar pela primeira vez.
+   Este passo é um processo único para configurar o dispositivo IoT Edge quando o configurar pela primeira vez.
 
-3. **Configure as propriedades do agente IoT Edge no ficheiro config.yaml no seu dispositivo.**
+3. [**Configure as propriedades do agente IoT Edge no ficheiro config.yaml no seu dispositivo**](#configure-the-iot-edge-agent)
 
-   O daemon IoT Edge inicia inicialmente o módulo edgeAgent, mas depois o módulo edgeAgent é responsável por recuperar o manifesto de implantação do IoT Hub e iniciar todos os outros módulos. Para que o agente IoT Edge faça a ligação inicial ao IoT Hub, configuure manualmente as variáveis do ambiente do módulo edgeAgent no próprio dispositivo. Após a ligação inicial, pode configurar remotamente o módulo edgeAgent. Para obter etapas detalhadas, consulte a secção [de agente IoT Edge](#configure-the-iot-edge-agent) deste artigo.
+   O daemon IoT Edge inicia inicialmente o módulo edgeAgent. Em seguida, o módulo edgeAgent recupera o manifesto de implantação do IoT Hub e inicia todos os outros módulos. Para que o agente IoT Edge faça a ligação inicial ao IoT Hub, configuure manualmente as variáveis do ambiente do módulo edgeAgent no próprio dispositivo. Após a ligação inicial, pode configurar remotamente o módulo edgeAgent.
 
-   Este passo é um processo único realizado no dispositivo IoT Edge quando o configurar pela primeira vez.
+   Este passo é um processo único para configurar o dispositivo IoT Edge quando o configurar pela primeira vez.
 
-4. **Para todas as futuras implementações de módulos, desacorra variáveis ambientais para qualquer módulo que comunique através do proxy.**
+4. [**Para todas as futuras implementações de módulos, desacorra variáveis ambientais para qualquer módulo que comunique através do proxy**](#configure-deployment-manifests)
 
-   Uma vez configurado e ligado ao IoT Hub através do servidor proxy, é necessário manter a ligação em todas as futuras implementações do módulo. Para obter etapas detalhadas, consulte a secção de manifestos de [implantação configurar](#configure-deployment-manifests) deste artigo.
+   Uma vez configurado e ligado ao IoT Hub através do servidor proxy, é necessário manter a ligação em todas as futuras implementações do módulo.
 
-   Este passo é um processo contínuo realizado remotamente para que cada novo módulo ou atualização de implementação mantenha a capacidade do dispositivo de comunicar através do servidor proxy.
+   Este passo é um processo contínuo feito remotamente para que cada novo módulo ou atualização de implementação mantenha a capacidade do dispositivo de comunicar através do servidor proxy.
 
 ## <a name="know-your-proxy-url"></a>Conheça o seu URL de procuração
 
@@ -205,13 +207,13 @@ Uma vez configurado o seu dispositivo IoT Edge para funcionar com o seu servidor
 
 Configures sempre os dois módulos de tempo de execução, edgeAgent e edgeHub, para comunicar através do servidor proxy para que possam manter uma ligação com o IoT Hub. Se remover as informações de procuração do módulo edgeAgent, a única forma de restabelecer a ligação é editando o ficheiro config.yaml no dispositivo, conforme descrito na secção anterior.
 
-Além dos módulos edgeAgent e edgeHub, outros módulos podem necessitar da configuração proxy. Estes são módulos que precisam de aceder aos recursos Azure para além do Hub IoT, como o armazenamento de bolhas, e devem ter a variável HTTPS_PROXY especificada para esse módulo no ficheiro manifesto de implantação.
+Além dos módulos edgeAgent e edgeHub, outros módulos podem necessitar da configuração proxy. Os módulos que precisam de aceder aos recursos do Azure para além do IoT Hub, como o armazenamento de bolhas, devem ter a variável HTTPS_PROXY especificada no ficheiro manifesto de implantação.
 
 O procedimento a seguir é aplicável ao longo da vida útil do dispositivo IoT Edge.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Quando utiliza o assistente de **módulos set** para criar implementações para dispositivos IoT Edge, cada módulo tem uma secção **de Variáveis ambientais** que pode utilizar para configurar as ligações do servidor proxy.
+Quando utiliza o assistente de **módulos set** para criar implementações para dispositivos IoT Edge, cada módulo tem uma secção **de Variáveis ambientais** onde pode configurar ligações de servidor de procuração.
 
 Para configurar os módulos IoT Edge e IoT Edge hub, selecione **Definições de tempo de execução** no primeiro passo do assistente.
 
@@ -221,7 +223,7 @@ Adicione a variável **ambiente https_proxy** tanto às definições do agente I
 
 ![Definir variável de ambiente https_proxy](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
-Todos os outros módulos que adiciona a um manifesto de implantação seguem o mesmo padrão. Na página onde se define o nome e a imagem do módulo, existe uma secção de variáveis ambientais.
+Todos os outros módulos que adiciona a um manifesto de implantação seguem o mesmo padrão.
 
 ### <a name="json-deployment-manifest-files"></a>Ficheiros manifestos de implantação JSON
 

@@ -9,28 +9,49 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 07/27/2020
-ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.date: 09/04/2020
+ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553415"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500356"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
 
 Este artigo descreve o que é novo e o que mudou a cada nova construção de Azure SQL Edge.
 
+## <a name="ctp-23"></a>CTP 2.3
+### <a name="sql-engine-build-number---15020001549"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1549
+### <a name="whats-new"></a>Novidades
+1. Suporte para origens personalizadas na função Date_Bucket(). 
+2. Suporte para ficheiros BacPac como parte da implementação do SQL.
+3. Assistência à limpeza baseada na política de retenção de dados.      
+   - Apoio DDL para permitir a política de retenção 
+   - Procedimentos de limpeza armazenados e tarefa de limpeza de antecedentes
+   - Eventos alargados para monitorizar tarefas de limpeza
+
+### <a name="fixes"></a>Correções
+1. Mensagens de erro adicionais e detalhes para resolução de problemas das operações de streaming da TSQL. 
+2. Imporvements para preservar a vida útil da bateria no modo de marcha lenta. 
+3. Correções do motor de streaming TSQL: 
+   - Corrigir problema de marca de água preso com janela de salto substreamed 
+   - Corrigir o tratamento da excepção-quadro para garantir que é recolhido como erro de funcionamento do utilizador
+
+
 ## <a name="ctp-22"></a>CTP 2.2
 ### <a name="sql-engine-build-number---15020001546"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1546
-### <a name="fixes"></a>Correções
+### <a name="whats-new"></a>Novidades
 1. Apoio a contentores não-enraizados 
 2. Suporte à recolha de dados de utilização e diagnóstico 
 3. Atualizações de streaming T-SQL
    - Suporte para caracteres Unicode para nomes de objetos de fluxo
+
+### <a name="fixes"></a>Correções
+1. Atualizações de streaming T-SQL
    - Melhorias na limpeza do processo
    - Melhorias no registo e no diagnóstico
-4. Melhoria do desempenho para a ingestão de dados
+2. Melhoria do desempenho para a ingestão de dados
 
 ## <a name="ctp-21"></a>CTP 2.1 
 ### <a name="sql-engine-build-number---15020001545"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1545

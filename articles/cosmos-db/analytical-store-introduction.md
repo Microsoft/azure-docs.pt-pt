@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815832"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505527"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB Analytical Store (Preview)?
 
@@ -155,14 +155,19 @@ A TTL Analítica num recipiente é definida utilizando a `AnalyticalStoreTimeToL
 * Se o presente e o valor for definido para algum número positivo "n": os itens expirarão a partir da loja analítica "n" segundos após o seu último tempo modificado na loja transacional. Esta definição pode ser alavancada se pretender reter os seus dados operacionais por um período limitado de tempo na loja analítica, independentemente da conservação dos dados na loja transacional
 
 Alguns pontos a considerar:
-*   Depois de a loja analítica ser ativada com um valor TTL analítico, pode ser atualizada para um valor válido diferente mais tarde. 
-*   Embora a TTL transacional possa ser definida ao nível do recipiente ou do item, a TTL analítica só pode ser definida ao nível do recipiente atualmente.
-*   Pode obter uma maior retenção dos seus dados operacionais na loja analítica, definindo >TTL Analítica = TTL transacional ao nível do recipiente.
-*   A loja analítica pode ser feita para espelhar a loja transacional, definindo TTL analítico = TTL transacional .
+*   Depois de a loja analítica ser ativada com um valor TTL analítico, pode ser atualizada para um valor válido diferente mais tarde 
+*   Embora a TTL transacional possa ser definida ao nível do recipiente ou do item, a TTL analítica só pode ser definida ao nível do contentor atualmente
+*   Pode obter uma maior retenção dos seus dados operacionais na loja analítica, definindo >TTL analítico = TTL transacional ao nível do contentor
+*   A loja analítica pode ser feita para espelhar a loja transacional, definindo TTL analítico = TTL transacional
+
+Quando ativa a loja de analítica num recipiente:
+ * utilizando o Portal Azure, o TTL analítico é definido para o valor padrão de -1. Pode alterar este valor para 'n' segundos, navegando para as definições do contentor no Data Explorer. 
+ 
+ * utilizando Azure SDK ou Powershell ou CLI, o TTL analítico pode ser ativado definindo-o para -1 ou 'n'. 
 
 Para saber mais, consulte [como configurar a TTL analítica num recipiente](configure-synapse-link.md#create-analytical-ttl).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte os seguintes documentos:
 

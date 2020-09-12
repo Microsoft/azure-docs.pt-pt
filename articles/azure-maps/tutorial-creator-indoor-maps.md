@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688096"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469920"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Use o Criador para criar mapas interiores
 
@@ -117,10 +117,10 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copiar o valor da chave de localização":::
 
-4. Inicie um novo método **GET** HTTP no separador construtor. Apenda a chave de subscrição primária do Azure Maps para o `status URL` . Faça um pedido **GET** no `status URL` que copiou no passo 3. O `status URL` parece o seguinte URL:
+4. Inicie um novo método **GET** HTTP no separador construtor. Apecir a chave de subscrição primária do Azure Maps para o `status URL` . Faça um pedido **GET** no `status URL` que copiou no passo 3. O `status URL` parece o seguinte URL:
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     Se o processo de conversão ainda não tiver sido concluído, poderá ver algo como a seguinte resposta JSON:
@@ -208,7 +208,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 3. Faça um pedido **GET** no `statusURL` para o azulejo. Apecir a chave de subscrição primária do Azure Maps para a autenticação. O pedido deve parecer-se com o seguinte URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 4. Quando o pedido **GET** HTTP estiver concluído com sucesso, o cabeçalho de resposta conterá `tilesetId` o para o teesto criado. Copiar o `tilesetId` .

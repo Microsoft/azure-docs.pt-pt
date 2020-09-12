@@ -3,15 +3,15 @@ title: Personalize propriedades RDP com PowerShell - Azure
 description: Como personalizar propriedades RDP para windows Virtual Desktop com cmdlets PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009108"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462229"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) para uma piscina de anfitriões
 
@@ -21,6 +21,16 @@ ms.locfileid: "88009108"
 A personalização das propriedades do Protocolo remoto de Ambiente de Trabalho (RDP) de uma piscina anfitriã, como experiência multi-monitor e reorientação de áudio, permite-lhe proporcionar uma experiência ideal para os seus utilizadores com base nas suas necessidades. Pode personalizar propriedades RDP no Windows Virtual Desktop utilizando o portal Azure ou utilizando o parâmetro *-CustomRdpProperty* no cmdlet **Update-AzWvdHostPool.**
 
 Consulte [as definições de ficheiros RDP suportados](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa de propriedades suportadas e os seus valores predefinidos.
+
+## <a name="default-rdp-file-properties"></a>Propriedades de ficheiros RDP predefinidos
+
+Os ficheiros RDP têm as seguintes propriedades por padrão:
+
+|Propriedade RDP|No ambiente de trabalho|Como Um RemoteApp|
+|---|---|---|
+|Modo multi-monitor|Ativado|N/D|
+|Redirecionamentos de unidade ativados|Unidades, pranchetas, impressoras, portas COM, dispositivos USB e smartcards|Unidades, pranchetas e impressoras|
+|Modo áudio remoto|Jogue localmente|Jogue localmente|
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -111,7 +121,7 @@ Name              : <hostpoolname>
 CustomRdpProperty : <CustomRDPpropertystring>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que personalizou as propriedades RDP para uma determinada piscina de anfitriões, pode iniciar sessão num cliente virtual do Windows desktop para testá-las como parte de uma sessão de utilizador. Estes próximos guias de como ligar-se a uma sessão utilizando o cliente à sua escolha:
 

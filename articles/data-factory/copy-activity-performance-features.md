@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: 45cecccd88b0b84b478bc6fc7346cb9ef9c2f454
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846348"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440546"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Copiar funcionalidades de otimização do desempenho da atividade
 
@@ -91,7 +91,7 @@ A tabela a seguir enumera o comportamento paralelo da cópia:
 
 | Cenário de cópia | Comportamento de cópia paralela |
 | --- | --- |
-| Entre lojas de arquivos | `parallelCopies`determina o paralelismo **ao nível do ficheiro**. O pedaço dentro de cada ficheiro acontece por baixo de forma automática e transparente. Foi projetado para usar o melhor tamanho adequado para um determinado tipo de loja de dados para carregar dados em paralelo. <br/><br/>O número real de cópias paralelas utiliza a atividade de cópias no tempo de execução não é mais do que o número de ficheiros que tem. Se o comportamento da cópia for **fundirfile** em sumidouro de ficheiros, a atividade da cópia não pode tirar partido do paralelismo de nível de ficheiro. |
+| Entre lojas de arquivos | `parallelCopies` determina o paralelismo **ao nível do ficheiro**. O pedaço dentro de cada ficheiro acontece por baixo de forma automática e transparente. Foi projetado para usar o melhor tamanho adequado para um determinado tipo de loja de dados para carregar dados em paralelo. <br/><br/>O número real de cópias paralelas utiliza a atividade de cópias no tempo de execução não é mais do que o número de ficheiros que tem. Se o comportamento da cópia for **fundirfile** em sumidouro de ficheiros, a atividade da cópia não pode tirar partido do paralelismo de nível de ficheiro. |
 | Da loja de ficheiros à loja de não-arquivos | - Ao copiar dados para a Base de Dados Azure SQL ou para a Azure Cosmos DB, a cópia paralela padrão também depende do nível do lavatório (número de DTUs/RUs).<br>- Ao copiar dados para a Tabela Azure, a cópia paralela padrão é 4. |
 | Da loja de não-arquivos à loja de ficheiros | - Ao copiar dados de loja de dados ativada por opção de partição (incluindo [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza,](connector-netezza.md#netezza-as-source) [SAP HANA,](connector-sap-hana.md#sap-hana-as-source) [SAP Open Hub,](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) [SAP Table,](connector-sap-table.md#sap-table-as-source) [SQL Server](connector-sql-server.md#sql-server-as-a-source), e [Teradata),](connector-teradata.md#teradata-as-source)a cópia paralela padrão é 4. O número real de cópias paralelas utiliza a atividade de cópias no tempo de execução não é mais do que o número de divisórias de dados que tem. Quando utilizar o tempo de execução de integração auto-hospedado e copiar para Azure Blob/ADLS Gen2, note que a cópia paralela máxima eficaz é de 4 ou 5 por nó DE IR.<br>- Para outros cenários, a cópia paralela não faz efeito. Mesmo que o paralelismo seja especificado, não é aplicado. |
 | Entre lojas não-arquivadas | - Ao copiar dados para a Base de Dados Azure SQL ou para a Azure Cosmos DB, a cópia paralela padrão também depende do nível do lavatório (número de DTUs/RUs).<br/>- Ao copiar dados de loja de dados ativada por opção de partição (incluindo [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza,](connector-netezza.md#netezza-as-source) [SAP HANA,](connector-sap-hana.md#sap-hana-as-source) [SAP Open Hub,](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) [SAP Table,](connector-sap-table.md#sap-table-as-source) [SQL Server](connector-sql-server.md#sql-server-as-a-source), e [Teradata),](connector-teradata.md#teradata-as-source)a cópia paralela padrão é 4.<br>- Ao copiar dados para a Tabela Azure, a cópia paralela padrão é 4. |
@@ -126,7 +126,7 @@ Quando especificar um valor para a `parallelCopies` propriedade, tenha em conta 
 
 Ao copiar dados de uma loja de dados de origem para uma loja de dados de lavatórios, poderá optar por utilizar o armazenamento Blob como uma loja de preparação provisória. A encenação é especialmente útil nos seguintes casos:
 
-- **Pretende ingerir dados de várias lojas de dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) via PolyBase.** A Azure Synapse Analytics usa a PolyBase como um mecanismo de alta produção para carregar uma grande quantidade de dados em Azure Synapse Analytics. Os dados de origem devem estar no armazenamento da Blob ou na Azure Data Lake Store, e devem cumprir critérios adicionais. Quando carrega dados de uma loja de dados que não seja o armazenamento blob ou a Azure Data Lake Store, pode ativar a cópia de dados através de uma encenação provisória do armazenamento blob. Nesse caso, a Azure Data Factory realiza as transformações de dados necessárias para garantir que satisfaz os requisitos da PolyBase. Em seguida, utiliza o PolyBase para carregar os dados no Azure Synapse Analytics de forma eficiente. Para obter mais informações, consulte [a PolyBase para carregar dados no Armazém de Dados Azure SQL](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Pretende ingerir dados de várias lojas de dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) via PolyBase.** A Azure Synapse Analytics usa a PolyBase como um mecanismo de alta produção para carregar uma grande quantidade de dados em Azure Synapse Analytics. Os dados de origem devem estar no armazenamento da Blob ou na Azure Data Lake Store, e devem cumprir critérios adicionais. Quando carrega dados de uma loja de dados que não seja o armazenamento blob ou a Azure Data Lake Store, pode ativar a cópia de dados através de uma encenação provisória do armazenamento blob. Nesse caso, a Azure Data Factory realiza as transformações de dados necessárias para garantir que satisfaz os requisitos da PolyBase. Em seguida, utiliza o PolyBase para carregar os dados no Azure Synapse Analytics de forma eficiente. Para obter mais informações, consulte [a PolyBase para carregar dados no Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
 - **Por vezes, demora algum tempo a realizar um movimento de dados híbrido (isto é, a copiar de uma loja de dados no local para uma loja de dados em nuvem) sobre uma ligação de rede lenta.** Para melhorar o desempenho, pode utilizar uma cópia encenada para comprimir os dados no local, de modo a que leve menos tempo a mover dados para a loja de dados de encenação na nuvem. Em seguida, pode descomprimir os dados na loja de preparação antes de carregar na loja de dados de destino.
 - **Você não quer abrir portas além do porto 80 e do porto 443 na sua firewall por causa de políticas corporativas de TI.** Por exemplo, quando copia dados de uma loja de dados no local para um lavatório Azure SQL Database ou um lavatório Azure Synapse Analytics, precisa de ativar a comunicação TCP de saída na porta 1433 para a firewall do Windows e para a sua firewall corporativa. Neste cenário, a cópia encenada pode aproveitar o tempo de integração auto-hospedado para copiar primeiro dados para uma instância de armazenamento Blob sobre HTTP ou HTTPS na porta 443. Em seguida, pode carregar os dados na BASE de Dados SQL ou na Azure Synapse Analytics a partir da paragem de armazenamento blob. Neste fluxo, não precisa de ativar a porta 1433.
 
@@ -144,12 +144,12 @@ Atualmente, não é possível copiar dados entre duas lojas de dados que estão 
 
 Configure a **definição de definição de ativação** na atividade de cópia para especificar se deseja que os dados sejam encenados no armazenamento blob antes de os colocar numa loja de dados de destino. Quando definir **ativar ativar,** `TRUE` especifique as propriedades adicionais listadas na tabela seguinte. Também precisa de criar um serviço de acesso partilhado a azure para a encenação se não tiver um.
 
-| Propriedade | Descrição | Valor predefinido | Obrigatório |
+| Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
-| permitir A marcação |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |Não |
+| permitir A marcação |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |No |
 | linkedServiceName |Especifique o nome de um serviço ligado a [AzureStorage,](connector-azure-blob-storage.md#linked-service-properties) que se refere à instância de Armazenamento que utiliza como loja de encenação provisória. <br/><br/> Não é possível utilizar o Armazenamento com uma assinatura de acesso partilhado para carregar dados no Azure Synapse Analytics via PolyBase. Podes usá-lo em todos os outros cenários. |N/D |Sim, quando **ativar A definição de marcação** está definida para TRUE |
-| caminho |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |Não |
-| permitir a compressão |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |Não |
+| caminho |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |No |
+| permitir a compressão |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |No |
 
 >[!NOTE]
 > Se utilizar cópia encenada com compressão ativada, o principal de serviço ou a autenticação MSI para o serviço de ligação blob de paragem não é suportado.
@@ -191,10 +191,10 @@ Aqui está uma definição de amostra de uma atividade de cópia com as propried
 * Quando utiliza a encenação durante uma cópia em nuvem, que está a copiar dados de uma loja de dados em nuvem para outra loja de dados em nuvem, ambas as fases empoderadas pelo tempo de funcionamento da integração do Azure, é-lhe cobrada a [soma da duração da cópia para o passo 1 e passo 2] x [preço unitário de cópia em nuvem].
 * Quando utiliza a encenação durante uma cópia híbrida, que está a copiar dados de uma loja de dados no local para uma loja de dados em nuvem, uma fase potenciada por um tempo de integração auto-hospedado, é cobrado por [duração da cópia híbrida] x [preço unitário de cópia híbrida] + [duração da cópia da nuvem] x [preço unitário de cópia de nuvem].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de atividade de cópia:
 
-- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Copiar o desempenho da atividade e o guia de escalabilidade](copy-activity-performance.md)
 - [Desempenho da atividade da cópia de resolução de problemas](copy-activity-performance-troubleshooting.md)
 - [Utilize a Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para Azure](data-migration-guidance-overview.md)

@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 64b71c135126ebb540d5ccf72f829f83c74ed0b3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b468f967e68b72e3c9da276dc2077fc09256c895
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495323"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470039"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar o seu ambiente de desenvolvimento do Azure Red Hat OpenShift
 
@@ -37,9 +37,9 @@ az --version
 
 A primeira linha de saída terá a versão CLI, por `azure-cli (2.0.65)` exemplo.
 
-Aqui estão as instruções para [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se necessitar de uma nova instalação ou de uma atualização.
+Aqui estão as instruções para [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) se necessitar de uma nova instalação ou de uma atualização.
 
-Alternadamente, pode utilizar a [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ao utilizar a Azure Cloud Shell, não se esqueça de selecionar o ambiente **Bash** se planeia seguir juntamente com o Create e gerir uma série tutorial [de cluster Azure Red Hat OpenShift.](tutorial-create-cluster.md)
+Alternadamente, pode utilizar a [Azure Cloud Shell](../cloud-shell/overview.md). Ao utilizar a Azure Cloud Shell, não se esqueça de selecionar o ambiente **Bash** se planeia seguir juntamente com o Create e gerir uma série tutorial [de cluster Azure Red Hat OpenShift.](tutorial-create-cluster.md)
 
 ## <a name="register-providers-and-features"></a>Registar fornecedores e funcionalidades
 
@@ -103,11 +103,11 @@ Se você não tem um AD Azure para usar como inquilino para o seu cluster Azure 
 
 ## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Criar um utilizador AD Azure, grupo de segurança e objeto de aplicação
 
-O Azure Red Hat OpenShift requer permissões para executar tarefas no seu cluster, como configurar o armazenamento. Estas permissões são representadas através de um [principal serviço.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) Também vai querer criar um novo utilizador do Ative Directory para testar aplicações em execução no seu cluster Azure Red Hat OpenShift.
+O Azure Red Hat OpenShift requer permissões para executar tarefas no seu cluster, como configurar o armazenamento. Estas permissões são representadas através de um [principal serviço.](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) Também vai querer criar um novo utilizador do Ative Directory para testar aplicações em execução no seu cluster Azure Red Hat OpenShift.
 
 Siga as instruções na [Criar um objeto de aplicação AD AZure e utilizador](howto-aad-app-configuration.md) para criar um principal de serviço, gerar um URL de retorno secreto e de autenticação do cliente para a sua aplicação, e criar um novo grupo de segurança AD AD E um utilizador para aceder ao cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Está agora pronto para usar o Azure Red Hat OpenShift!
 
@@ -115,4 +115,4 @@ Experimente o tutorial:
 > [!div class="nextstepaction"]
 > [Criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
+[azure-cli-install]: /cli/azure/install-azure-cli

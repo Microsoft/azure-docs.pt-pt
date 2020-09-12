@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770973"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440529"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Desempenho da atividade da cópia de resolução de problemas
 
@@ -55,7 +55,7 @@ Os detalhes e durações de execução na parte inferior da visualização de mo
 
 | Fase           | Descrição                                                  |
 | --------------- | ------------------------------------------------------------ |
-| Filas           | O tempo decorrido até que a atividade da cópia realmente comece no tempo de integração. |
+| Fila           | O tempo decorrido até que a atividade da cópia realmente comece no tempo de integração. |
 | Script pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia terminando a execução do script pré-cópia na loja de dados do lavatório. Aplicar quando configurar o script pré-cópia para lavatórios de base de dados, por exemplo, ao escrever dados na Base de Dados Azure SQL, limpe antes de copiar novos dados. |
 | Transferir        | O tempo decorrido entre o final do escalão anterior e o IR transferindo todos os dados de fonte para afundar. <br/>Note que os sub-passos em transferência são executados em paralelo, e algumas operações não são mostradas agora, por exemplo, o formato de ficheiro de parsing/geração.<br><br/>- **Hora de primeiro byte:** O tempo decorrido entre o final do escalão anterior e o momento em que o IR recebe o primeiro byte da loja de dados de origem. Aplica-se a fontes não baseadas em ficheiros.<br>- **Fonte de listagem:** A quantidade de tempo gasto em enumerar ficheiros de origem ou divisórias de dados. Este último aplica-se quando configura opções de partição para fontes de base de dados, por exemplo, quando copia dados de bases de dados como o Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura da fonte:** A quantidade de tempo gasto na recuperação de dados da loja de dados de origem.<br/>- **Escrevendo para afundar:** A quantidade de tempo gasto em escrever dados para afundar a loja de dados. Note que alguns conectores não têm esta métrica no momento, incluindo Azure Cognitive Search, Azure Data Explorer, Azure Table storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce Service Cloud. |
 
@@ -179,7 +179,7 @@ Aqui está a monitorização de desempenho e afinação de referências para alg
 * Armazenamento Azure Blob: [Objetivos de escalabilidade e desempenho para armazenamento blob](../storage/blobs/scalability-targets.md) e [performance e escalabilidade lista de verificação para armazenamento blob](../storage/blobs/storage-performance-checklist.md).
 * Armazenamento da tabela azul: [Metas de escalabilidade e desempenho para armazenamento de mesa](../storage/tables/scalability-targets.md) e performance e lista de [verificação de escala para armazenamento de mesa](../storage/tables/storage-performance-checklist.md).
 * Base de Dados Azure SQL: Pode [monitorizar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem de Transações de Base de Dados (DTU).
-* Azure SQL Data Warehouse: A sua capacidade é medida em Unidades de Armazém de Dados (DWUs). Consulte [a potência de computação em Azure SQL Data Warehouse (Visão geral)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Synapse Analytics (anteriormente SQL Data Warehouse): A sua capacidade é medida em Unidades de Armazém de Dados (DWUs). Consulte [a potência de computação em Azure Synapse Analytics (Visão geral)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Níveis de desempenho em Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server: [Monitor e sintonizar para o desempenho](https://msdn.microsoft.com/library/ms189081.aspx).
 * Servidor de ficheiros no local: [Ajuste de desempenho para servidores de ficheiros](https://msdn.microsoft.com/library/dn567661.aspx).
@@ -187,7 +187,7 @@ Aqui está a monitorização de desempenho e afinação de referências para alg
 ## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de atividade de cópia:
 
-- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Copiar o desempenho da atividade e o guia de escalabilidade](copy-activity-performance.md)
 - [Copiar funcionalidades de otimização do desempenho da atividade](copy-activity-performance-features.md)
 - [Utilize a Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para Azure](data-migration-guidance-overview.md)

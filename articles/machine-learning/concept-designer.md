@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012948"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651227"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o Azure Machine Learning Designer (pré-visualização)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -86,14 +86,14 @@ Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar
 
 Para alguma ajuda na navegação através da biblioteca de algoritmos de machine learning disponíveis, consulte [algoritmo & visão geral de referência do módulo](algorithm-module-reference/module-reference.md). Para ajudar a escolher um algoritmo, consulte a Folha de Batota do [Algoritmo de Aprendizagem de Máquinas Azure.](algorithm-cheat-sheet.md)
 
-## <a name="compute-resources"></a><a name="compute"></a>Recursos de cálculo
+## <a name="compute-resources"></a><a name="compute"></a> Recursos de cálculo
 
 Utilize recursos compute do seu espaço de trabalho para executar o seu pipeline e hospedar os seus modelos implantados como pontos finais em tempo real ou pontos finais do gasoduto (para inferência do lote). Os objetivos de computação suportados são:
 
 | Destino de computação | Formação | Implementação |
 | ---- |:----:|:----:|
 | Azure Machine Learning compute | ✓ | |
-| Exemplo de computação de aprendizagem automática Azure | ✓ | |
+| Instância de computação do Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Os alvos computacional estão ligados ao seu [espaço de trabalho Azure Machine Learning](concept-workspace.md). Gere os seus alvos de computação no seu espaço de trabalho no [estúdio Azure Machine Learning](https://ml.azure.com).
@@ -114,9 +114,9 @@ Os oleodutos publicados são flexíveis, podem ser usados para treinar ou retrei
 
 Um oleoduto publicado funciona nos recursos computacional que define no projeto do pipeline para cada módulo.
 
-O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que o SDK.
+O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) que o SDK.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda os fundamentos da análise preditiva e machine learning com [tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Aprenda a modificar as amostras de [designers existentes](samples-designer.md) para as adaptar às suas necessidades.

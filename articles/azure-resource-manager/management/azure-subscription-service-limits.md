@@ -2,14 +2,13 @@
 title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
-ms.openlocfilehash: 86c9958818b5439502ab37471ed7a51fb3f21bf9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/02/2020
+ms.openlocfilehash: b9b2b7217b854153f03d61713d8b4a1bcf5bfd9d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854120"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470175"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
 
@@ -27,6 +26,9 @@ Para saber mais sobre os preços da Azure, consulte a [visão geral dos preços 
 > Quando o limite pode ser ajustado, as tabelas incluem **limite de predefinição** e cabeçalhos **limite máximos.** O limite pode ser elevado acima do limite de incumprimento, mas não acima do limite máximo.
 >
 > Se pretender elevar o limite ou quota acima do limite por defeito, [abra gratuitamente um pedido de apoio ao cliente online.](../templates/error-resource-quota.md)
+>
+> Os termos *limite suave* e *limite rígido* são frequentemente usados informalmente para descrever o limite atual, ajustável (limite suave) e o limite máximo (limite máximo). Se um limite não for ajustável, não haverá um limite suave, apenas um limite difícil.
+>
 
 [As assinaturas de teste gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para obter mais informações, consulte [a atualização da subscrição do Azure Free Trial para uma subscrição Pay-As-You-Go](../../cost-management-billing/manage/upgrade-azure-subscription.md) e a [subscrição de teste gratuito FAQ](https://azure.microsoft.com/free/free-account-faq).
 
@@ -75,6 +77,10 @@ Os seguintes limites do Serviço de Aplicações incluem limites para aplicaçõ
 ## <a name="automation-limits"></a>Limites de automação
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Configuração da Aplicação Azure
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Cache Azure para os limites de Redis
 
@@ -427,7 +433,7 @@ Existem limites, por subscrição, para a implantação de recursos utilizando g
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Compreender os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de serviço de máquina virtual e nuvem para Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

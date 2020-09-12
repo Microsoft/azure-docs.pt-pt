@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898155"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439089"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados suportadas no Catálogo de Dados do Azure
 
@@ -143,7 +143,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Tabela do Armazém de Dados Azure SQL</td>
+      <td>Tabela Azure Synapse Analytics</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ Pode publicar metadados utilizando uma API pública ou uma ferramenta de registo
       <td></td>
     </tr>
     <tr>
-      <td>Vista do Armazém de Dados Azure SQL</td>
+      <td>Vista Azure Synapse Analytics</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -450,7 +450,7 @@ Se quiser ver uma fonte de dados específica apoiada, sugira-a (ou expresse o se
 <table>
     <tr>
        <td><b>Tipo de origem</b></td>
-       <td><b>Tipo de recurso</b></td>
+       <td><b>Tipo de ativo</b></td>
        <td><b>Tipos de objetos</b></td>
        <td><b>Estrutura DSL<b></td>
     </tr>
@@ -932,7 +932,7 @@ Se quiser ver uma fonte de dados específica apoiada, sugira-a (ou expresse o se
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Command</td>
       <td>Stored procedure</td>
       <td>
@@ -948,7 +948,7 @@ Se quiser ver uma fonte de dados específica apoiada, sugira-a (ou expresse o se
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>TableValuedFunction</td>
       <td>Table-valued function</td>
       <td>
@@ -964,7 +964,7 @@ Se quiser ver uma fonte de dados específica apoiada, sugira-a (ou expresse o se
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -978,7 +978,7 @@ Se quiser ver uma fonte de dados específica apoiada, sugira-a (ou expresse o se
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Table</td>
       <td>Table, view</td>
       <td>

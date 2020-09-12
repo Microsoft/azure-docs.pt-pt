@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229876"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469869"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -85,7 +85,7 @@ Isto permite-lhe apresentar campos adicionais ou remover campos que já são apr
 
 Selecione um item na vista da lista para obter informações mais detalhadas.
 
-![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtro")
+![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ## <a name="filter-provisioning-activities"></a>Atividades de provisão de filtros
@@ -94,12 +94,12 @@ Pode filtrar os seus dados de atenção. Alguns valores de filtro são dinamicam
 Na vista predefinitiva, pode selecionar os seguintes filtros:
 
 - Identidade
-- Date
+- Data
 - Estado
 - Ação
 
 
-![Filtro](./media/concept-provisioning-logs/default-filter.png "Filtro")
+![Adicionar filtros](./media/concept-provisioning-logs/default-filter.png "Filtrar")
 
 O filtro **identidade** permite especificar o nome ou a identidade que lhe interessa. Esta identidade pode ser um utilizador, grupo, papel ou outro objeto. Pode pesquisar pelo nome ou identificação do objeto. O ID varia por cenário. Por exemplo, ao aprovisionar um objeto do Azure AD à SalesForce, o ID de Origem é o ID do objeto do utilizador em Azure AD enquanto o TargetID é o ID do utilizador em Salesforce. Ao ser fornecida de Workday a Ative Directory, o ID de Origem é o ID do trabalhador do Workday. Note que o nome do utilizador pode nem sempre estar presente na coluna Identidade. Haverá sempre uma identificação. 
 
@@ -175,7 +175,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Filtro](./media/concept-provisioning-logs/provisioning-tabs.png "Separadores")
+![Provisionamento de detalhes](./media/concept-provisioning-logs/provisioning-tabs.png "Separadores")
 
 
 
@@ -190,7 +190,7 @@ O separador **Passos** descreve os passos dados para a disposição de um objeto
 
 
 
-![Filtro](./media/concept-provisioning-logs/steps.png "Filtro")
+![Passos](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Resolução de problemas e recomendações
@@ -214,17 +214,19 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 - Pode utilizar o atributo Change ID como identificador único. Isto é, por exemplo, útil quando interage com o suporte do produto.
 
-- Atualmente não existe opção para descarregar dados de fornecimento.
+- Não existe atualmente qualquer opção para descarregar dados de fornecimento como um ficheiro CSV, mas pode exportar os dados usando o [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 - Atualmente, não existe suporte para análise de registos.
 
 - Pode ver eventos ignorados para utilizadores que não estão no âmbito. Isto é esperado, especialmente quando o âmbito de sincronização é definido para todos os utilizadores e grupos. O nosso serviço irá avaliar todos os objetos do arrendatário, mesmo os que estão fora de alcance. 
 
+- Os registos de provisionamento estão atualmente indisponíveis na nuvem governamental. Se não conseguir aceder aos registos de provisionamento, utilize os registos de auditoria como uma solução temporária.  
+
 ## <a name="error-codes"></a>Códigos de Erro
 
 Utilize a tabela abaixo para entender melhor como resolver os erros que pode encontrar nos registos de provisionamento. Para quaisquer códigos de erro que faltem, forneça feedback utilizando o link na parte inferior desta página. 
 
-|Código de Erro|Description|
+|Código de Erro|Descrição|
 |---|---|
 |Conflito, Conflito de Entrada|Corrija os valores de atributos contraditórios em AD ou na aplicação, ou reveja a configuração do seu atributo correspondente se a conta de utilizador conflituosa for correspondida e assumida. Reveja a seguinte [documentação](../app-provisioning/customize-application-attributes.md) para obter mais informações sobre a configuração de atributos correspondentes.|
 |TooManyRequests|A aplicação-alvo rejeitou esta tentativa de atualizar o utilizador por estar sobrecarregado e receber demasiados pedidos. Não há nada a fazer. Esta tentativa será automaticamente retirada. A Microsoft também foi notificada deste problema.|
@@ -244,8 +246,9 @@ Utilize a tabela abaixo para entender melhor como resolver os erros que pode enc
 |DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um utilizador foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado ou reconfigure os mapeamentos do seu atributo como descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando cada utilizador é avaliado, tentamos importar o utilizador do sistema de origem. Este erro ocorre geralmente quando o utilizador que está a ser importado está a perder a propriedade correspondente definida nos mapeamentos do seu atributo. Sem um valor presente no objeto do utilizador para o atributo correspondente, não podemos avaliar alterações de scoping, correspondência ou exportação. Note-se que a presença deste erro não indica que o utilizador esteja no âmbito, uma vez que ainda não avaliámos a verificação para o utilizador.|
 |EntradaSsynchronizationSkipped | O serviço de fornecimento solicitou com sucesso o sistema de origem e identificou o utilizador. Não foram tomadas mais medidas contra o utilizador e foram ignoradas. O salto pode dever-se ao facto de o utilizador estar fora de alcance ou de o utilizador já existir no sistema-alvo sem necessidade de mais alterações.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Ao realizar um pedido GET para recuperar um utilizador ou grupo, recebemos vários utilizadores ou grupos na resposta. Esperávamos receber apenas um utilizador ou grupo na resposta. Se, [por exemplo,](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group)fizermos um pedido GET para recuperar um grupo e fornecermos um filtro para excluir membros e o seu ponto final SCIM devolver os membros, lançaremos este erro.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Verifique o estado do fornecimento do utilizador](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure](../app-provisioning/application-provisioning-config-problem.md)

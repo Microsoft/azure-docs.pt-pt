@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187281"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440512"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
 
@@ -110,7 +110,7 @@ Não há um limite rígido para o número de casos de integração que se possa 
 Uma subscrição do Azure pode ter uma ou mais instâncias do Azure Data Factory (ou fábricas de dados). A Azure Data Factory contém quatro componentes-chave que funcionam em conjunto como uma plataforma na qual pode compor fluxos de trabalho baseados em dados com passos para mover e transformar dados.
 
 ### <a name="pipelines"></a>Pipelines
-Uma fábrica de dados pode ter um ou mais pipelines. Um oleoduto é um agrupamento lógico de atividades para realizar uma unidade de trabalho. Em conjunto, as atividades num pipeline executam tarefas. Por exemplo, um pipeline pode conter um grupo de atividades que ingerem dados de uma bolha Azure e, em seguida, executar uma consulta de Hive em um cluster HDInsight para dividir os dados. O benefício é que você pode usar um oleoduto para gerir as atividades como um conjunto em vez de ter que gerir cada atividade individualmente. Pode acorrentar as atividades num oleoduto para as operar sequencialmente, ou pode operá-las de forma independente, em paralelo.
+Uma fábrica de dados pode ter um ou mais pipelines. Um oleoduto é um agrupamento lógico de atividades para realizar uma unidade de trabalho. Em conjunto, as atividades num pipeline executam uma tarefa. Por exemplo, um pipeline pode conter um grupo de atividades que ingerem dados de uma bolha Azure e, em seguida, executar uma consulta de Hive em um cluster HDInsight para dividir os dados. O benefício é que você pode usar um oleoduto para gerir as atividades como um conjunto em vez de ter que gerir cada atividade individualmente. Pode acorrentar as atividades num oleoduto para as operar sequencialmente, ou pode operá-las de forma independente, em paralelo.
 
 ### <a name="data-flows"></a>Fluxos de dados
 Os fluxos de dados são objetos que constrói visualmente na Data Factory que transformam dados em escala nos serviços backend Spark. Não é preciso compreender a programação ou os internos da Spark. Basta desenhar a sua intenção de transformação de dados usando gráficos (Mapeamento) ou folhas de cálculo (Wrangling).
@@ -118,7 +118,7 @@ Os fluxos de dados são objetos que constrói visualmente na Data Factory que tr
 ### <a name="activities"></a>Atividades
 As atividades representam uma fase de processamento num pipeline. Por exemplo, pode utilizar uma atividade Copy para copiar dados de uma loja de dados para outra loja de dados. Da mesma forma, você pode usar uma atividade de Hive, que executa uma consulta de Hive em um cluster Azure HDInsight para transformar ou analisar seus dados. O Data Factory suporta três tipos de atividades: atividades de movimento de dados, atividades de transformação de dados e atividades de controlo.
 
-### <a name="datasets"></a>Conjuntos de Dados
+### <a name="datasets"></a>Conjuntos de dados
 Os conjuntos de dados representam estruturas de dados nos arquivos de dados, que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas atividades como entrada ou saída. 
 
 ### <a name="linked-services"></a>Serviços ligados
@@ -158,7 +158,7 @@ Para obter detalhes sobre os preços da Azure Data Factory, consulte [os detalhe
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Como posso manter-me atualizado com informações sobre a Data Factory?
 Para obter as informações mais atualizadas sobre a Azure Data Factory, aceda aos seguintes sites:
 
-- [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Blogue](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Página inicial da documentação](/azure/data-factory)
 - [Página inicial do produto](https://azure.microsoft.com/services/data-factory/)
 
@@ -171,13 +171,13 @@ Pode utilizar o gatilho do programador ou o gatilho da janela de tempo para agen
 Sim, os parâmetros são um conceito de primeira classe, de alto nível na Data Factory. Pode definir parâmetros ao nível do gasoduto e passar argumentos à medida que executa o gasoduto a pedido ou utilizando um gatilho.  
 
 ### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>Posso definir valores padrão para os parâmetros do pipeline? 
-Sim. Pode definir valores predefinidos para os parâmetros nos oleodutos. 
+Yes. Pode definir valores predefinidos para os parâmetros nos oleodutos. 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Pode uma atividade num oleoduto consumir argumentos que são passados para um gasoduto? 
-Sim. Cada atividade dentro do oleoduto pode consumir o valor do parâmetro que é passado para o oleoduto e correr com a `@parameter` construção. 
+Yes. Cada atividade dentro do oleoduto pode consumir o valor do parâmetro que é passado para o oleoduto e correr com a `@parameter` construção. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Pode uma propriedade de produção de atividade ser consumida em outra atividade? 
-Sim. Uma produção de atividade pode ser consumida numa atividade subsequente com a `@activity` construção.
+Yes. Uma produção de atividade pode ser consumida numa atividade subsequente com a `@activity` construção.
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como lido graciosamente com valores nulos numa produção de atividade? 
 Pode utilizar a `@coalesce` construção das expressões para lidar graciosamente com valores nulos. 
@@ -190,7 +190,7 @@ Quando a Microsoft fornecer ajuda ou resolução de problemas com fluxos de dado
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Como posso aceder aos dados utilizando os outros 90 tipos de conjuntos de dados na Data Factory?
 
-A funcionalidade de fluxo de dados de mapeamento permite atualmente a base de dados Azure SQL, Azure SQL Data Warehouse, ficheiros de texto delimitados a partir do armazenamento de Azure Blob Blob ou da Azure Data Lake Storage Gen2, e ficheiros Parquet do armazenamento blob ou data lake storage Gen2 na sua terra para origem e pia. 
+A funcionalidade de fluxo de dados de mapeamento permite atualmente a Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), ficheiros de texto delimitados do armazenamento de Azure Blob ou Azure Data Lake Storage Gen2, e ficheiros Parquet do armazenamento blob ou data lake storage Gen2 nautócton para fonte e pia. 
 
 Utilize a atividade Copy para encenar dados de qualquer um dos outros conectores e, em seguida, execute uma atividade de Fluxo de Dados para transformar dados depois de encenado. Por exemplo, o seu pipeline irá primeiro copiar para o armazenamento blob, e então uma atividade de Fluxo de Dados usará um conjunto de dados na fonte para transformar esses dados.
 
@@ -214,13 +214,13 @@ O fluxo de dados de estrangulamento é atualmente suportado em fábricas de dado
 * E.U.A. Leste 2
 * Leste do Japão
 * Europa do Norte
-* Ásia Sudeste
+* Sudeste Asiático
 * E.U.A. Centro-Sul
 * Sul do Reino Unido
 * E.U.A. Centro-Oeste
 * Europa Ocidental
 * E.U.A. Oeste
-* E.U.A.Oeste 2
+* E.U.A. Oeste 2
 
 ### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quais são as limitações e constrangimentos com o fluxo de dados?
 

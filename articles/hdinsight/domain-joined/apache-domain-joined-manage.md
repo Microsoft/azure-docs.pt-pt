@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 17dcaee4f9cd4d889e585394362695ab31f0d012
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079739"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595789"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerir clusters HDInsight com pacote de segurança empresarial
 
@@ -47,9 +47,9 @@ Pode ligar um cluster normal utilizando o nome de utilizador gerido por Ambari, 
 
 O Pacote de Segurança Empresarial (anteriormente conhecido como HDInsight Premium) proporciona acesso multiutilizador ao cluster, onde a autenticação é feita por Ative Directory e autorização por Apache Ranger e Storage ACLs (ADLS ACLs). A autorização fornece limites seguros entre vários utilizadores e permite que apenas os utilizadores privilegiados tenham acesso aos dados com base nas políticas de autorização.
 
-A segurança e o isolamento do utilizador são importantes para um cluster HDInsight com Pacote de Segurança Empresarial. Para satisfazer estes requisitos, o acesso do SSH ao cluster com o Pacote de Segurança Empresarial está bloqueado. A tabela a seguir mostra os métodos de acesso recomendados para cada tipo de cluster:
+A segurança e o isolamento do utilizador são importantes para um cluster HDInsight com Pacote de Segurança Empresarial. Para satisfazer estes requisitos, o acesso do SSH ao cluster com o Pacote de Segurança Empresarial é suportado pelo utilizador local selecionado no tempo de criação do cluster, bem como para os utilizadores disponíveis em AAD-DS (ou seja, Kerberos). A tabela a seguir mostra os métodos de acesso recomendados para cada tipo de cluster:
 
-|Carga de trabalho|Scenario|Método de Acesso|
+|Carga de trabalho|Cenário|Método de Acesso|
 |--------|--------|-------------|
 |Apache Hadoop|Colmeia – Empregos/Consultas Interativas  |<ul><li>[Beeline](#beeline)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas de estúdio visual](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|Empregos/Consultas Interativas, PySpark interativo|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin com Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas de estúdio visual](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|

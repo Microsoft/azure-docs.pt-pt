@@ -4,21 +4,21 @@ description: Saiba como fazer a transição das métricas storage Analytics (mé
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 09/04/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c8eae70b88aa454e5d712b3c5b7930b12d169912
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f0357c153a068b1f857e4595fa17a9ac6bc22104
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078253"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500271"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Monitor Azure
 
-No **dia 31 de agosto de 2023** serão retiradas as métricas de Storage Analytics, também referidas como *métricas clássicas.* Se utilizar métricas clássicas, certifique-se de que faz a transição para métricas no Azure Monitor antes dessa data. Este artigo ajuda-o a fazer a transição.
+No **dia 31 de agosto de 2023** serão retiradas as métricas de Storage Analytics, também referidas como *métricas clássicas.* Para mais informações, consulte o [anúncio oficial.](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/) Se utilizar métricas clássicas, certifique-se de que faz a transição para métricas no Azure Monitor antes dessa data. Este artigo ajuda-o a fazer a transição. 
 
 ## <a name="steps-to-complete-the-transition"></a>Passos para completar a transição
 
@@ -113,7 +113,7 @@ Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azur
 | `TotalIngress` | `Ingress` |
 | `TotalRequests` | `Transactions` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
 * [Métricas de armazenamento no Monitor Azure](./storage-metrics-in-azure-monitor.md)

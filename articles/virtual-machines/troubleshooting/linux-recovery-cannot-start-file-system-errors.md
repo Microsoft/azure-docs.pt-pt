@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526508"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436192"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Resolução de problemas Linux VM problemas iniciais devido a erros no sistema de ficheiros
 
@@ -83,7 +83,7 @@ Para resolver este problema, insira o VM em modo de emergência utilizando a [co
 
    > [!Note]
    > Para obter mais informações sobre a utilização da consola em série para Linux, consulte:
-   > * [Utilize consola em série para aceder ao GRUB e ao modo de utilizador único](../linux/serial-console-grub-single-user-mode.md)
+   > * [Utilize consola em série para aceder ao GRUB e ao modo de utilizador único](serial-console-grub-single-user-mode.md)
    > * [Utilize consola em série para chamadas SysRq e NMI](./serial-console-nmi-sysrq.md)
 
 2. Selecione o botão de ícone de alimentação e, em seguida, selecione Restart VM. (Se a consola em série não estiver ativada ou não ligada com sucesso, não verá o botão.)

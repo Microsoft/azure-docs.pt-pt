@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 08/14/2020
-ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19f811c636d5cf3ffb3eef9904c7ba4f7d456b5f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586822"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462212"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ O modelo de compra de núcleo virtual (vCore) utilizado pela Azure SQL Database 
 
 As opções de nível de serviço no modelo vCore incluem Final Geral, Critical de Negócios e Hiperescala. O nível de serviço define geralmente os limites de arquitetura de armazenamento, espaço e E/S, e opções de continuidade de negócios relacionadas com disponibilidade e recuperação de desastres.
 
-|-|**Finalidade Geral**|**Critical de negócios**|**Hyperscale**|
+|-|**Finalidade Geral**|**Crítico para a Empresa**|**Hyperscale**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho. Oferece opções de computação e armazenamento equilibradas, dimensionáveis e orientadas para orçamentos. |Oferece aplicações de negócio a maior resiliência às falhas usando várias réplicas isoladas, e fornece o maior desempenho de E/S por réplica de base de dados.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento altamente escaláveis e escala de leitura.  Oferece maior resiliência às falhas, permitindo a configuração de mais de uma réplica isolada da base de dados. |
 |Armazenamento|Usa armazenamento remoto.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Sql Gestão de Instância**: 32 GB - 8 TB |Utiliza o armazenamento SSD local.<br/>**Cálculo da base de dados SQL:**<br/>5 GB - 4 TB<br/>**Sql Caso gerido**:<br/>32 GB - 4 TB |Flexível autogrow de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento SSD local para cache local de piscina tampão e armazenamento de dados local. Utiliza o armazenamento remoto Azure como loja final de dados a longo prazo. |
@@ -148,7 +148,7 @@ No **separador Básicos,** selecione o link **de base de dados Configure** na se
   
 **Para alterar a geração de hardware de uma sql existente Exemplo gerido**
 
-# <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
 
 A partir da página SQL Managed Instance, selecione o link **de nível de preços** colocado na secção Definições
 
@@ -188,7 +188,7 @@ A Gen5 está disponível na maioria das regiões do mundo.
 
 #### <a name="fsv2-series"></a>Série Fsv2
 
-A série Fsv2 está disponível nas seguintes regiões: Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Leste Asiático, Leste dos Eua, França Central, Índia Central, Índia Ocidental, Coreia Central, Coreia do Sul, Europa do Norte, África do Sul Norte, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Oeste dos Eua 2.
+A série Fsv2 está disponível nas seguintes regiões: Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Leste Asiático, Leste dos Eua, França Central, Índia Central, Coreia Do Sul, Coreia do Sul, Europa do Norte, África do Sul Norte, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental 2.
 
 
 #### <a name="m-series"></a>Série M
@@ -222,7 +222,7 @@ On the **Details** page, provide the following:
 Approved support requests are typically fulfilled within 5 business days.
 -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, consulte: 
 - [Criação de uma Base de Dados SQL utilizando o portal Azure](single-database-create-quickstart.md)

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: db05c7a5a45221485ecb62c2c90d56be52d5ef48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49d3fd953d069f4368d28e26265114e574e8100a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808616"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506666"
 ---
 # <a name="convert-models"></a>Converter modelos
 
@@ -21,9 +21,9 @@ Uma vez convertido, um modelo pode ser carregado a partir de uma Conta de Armaze
 
 O serviço de conversão suporta estes formatos:
 
-- **FBX** (versão 2011 e acima)
+- **FBX**  (versão 2011 e acima)
 - **GLTF** (versão 2.x)
-- **GLB** (versão 2.x)
+- **GLB**  (versão 2.x)
 
 Existem pequenas diferenças entre os formatos no que diz respeito à conversão de propriedade material, conforme listado no mapeamento de material do capítulo [para formatos de modelos.](../../reference/material-mapping.md)
 
@@ -58,4 +58,5 @@ Para as várias opções de conversão, consulte [este capítulo.](configure-mod
 - [Utilizar o Armazenamento de Blobs do Azure para conversão de modelos](blob-storage.md)
 - [A conversão do modelo REST API](conversion-rest-api.md)
 - [Configurar a conversão do modelo](configure-model-conversion.md)
+- [Preparação de ficheiros para conversão](layout-files-for-conversion.md)
 - [Mapeamento de materiais para formatos de modelos](../../reference/material-mapping.md)

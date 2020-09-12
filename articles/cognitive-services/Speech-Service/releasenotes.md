@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8df54adf8f3aeaa58e30d6d9218cec8bec8c1121
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525926"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462382"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -250,7 +250,7 @@ Mantenha-se saudável!
 
 **Amostras**
 - **Ir**: Entradas rápidas adicionais para [reconhecimento](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) de voz e [assistente de voz personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Encontre o código de amostra [aqui.](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples) 
-- **JavaScript**: Adição de quickstarts para [texto-a-discurso,](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript) [tradução](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?pivots=programming-language-javascript)e [reconhecimento de intenções](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
+- **JavaScript**: Adição de quickstarts para [texto-a-discurso,](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript) [tradução](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp)e [reconhecimento de intenções](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
 - Amostras de reconhecimento de palavras-chave para [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) e [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **Testes abreviados COVID-19:** Devido ao trabalho remoto nas últimas semanas, não podíamos fazer tantos testes de verificação manual como normalmente fazemos. Não fizemos alterações que achamos que podem ter quebrado alguma coisa, e os nossos testes automatizados passaram. No caso improvável de termos perdido algo, por favor, avise-nos no [GitHub.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)<br>
@@ -325,7 +325,7 @@ Mantenha-se saudável!
 - JavaScript: Suporte adicional `FromHost API` para facilitar a utilização com recipientes on-prem e nuvens soberanas. Consulte a documentação [aqui.](speech-container-howto.md)
 - JavaScript: Agora honramos `NODE_TLS_REJECT_UNAUTHORIZED` graças a uma contribuição de [orgads](https://github.com/orgads). Consulte os detalhes [aqui.](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - `OpenSSL` foi atualizado para a versão 1.1.1b e está estáticamente ligado à biblioteca central do SDK do Discurso para o Linux. Isto pode causar uma rutura se a sua caixa de entrada `OpenSSL` não tiver sido instalada no `/usr/lib/ssl` diretório do sistema. Por favor, consulte a [nossa documentação](how-to-configure-openssl-linux.md) nos docs da Speech SDK para contornar o assunto.
 - Alteramos o tipo de dados devolvido para C# `WordLevelTimingResult.Offset` de para permitir o acesso a quando os `int` `long` `WordLevelTimingResults` dados da fala são superiores a 2 minutos.
@@ -366,7 +366,7 @@ Mantenha-se saudável!
 - Suporte `KeywordRecognizer` adicional no Windows (UWP), Android e iOS através dos pacotes NuGet e Unidade
 - Adicionou conversa remota Java API para fazer transcrição de conversação em lotes assíncronos.
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - As funcionalidades de Transcrição de Conversação deslocaram-se sob o espaço de `Microsoft.CognitiveServices.Speech.Transcription` nome.
 - Parte dos métodos de Transcrição de Conversação são transferidos para uma nova `Conversation` classe.
@@ -673,7 +673,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - Apoio ao Objective-C no iOS. Confira o nosso [arranque rápido Objective-C para iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Suporte para JavaScript no browser. Confira o nosso [arranque rápido JavaScript](quickstart-js-browser.md).
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - Com esta versão, são introduzidas várias alterações de rutura.
   Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para mais detalhes.
@@ -692,7 +692,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 
 - Exponha informações adicionais sobre erros de ligação.
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - Em Java (Android), a `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` função já não requer um parâmetro de caminho. Agora o caminho é automaticamente detetado em todas as plataformas suportadas.
 - O acessório da propriedade `EndpointUrl` em Java e C# foi removido.
@@ -721,7 +721,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - O resultado do reconhecimento contém mais campos. São compensados desde o início e duração áudio (ambos em carrapatos) do texto reconhecido e valores adicionais que representam o estatuto de reconhecimento, por exemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout` .
 - Autorização de ApoioToken para criar instâncias de fábrica.
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - Eventos de reconhecimento: `NoMatch` tipo de evento foi fundido no `Error` evento.
 - SpeechOutputFormat em C# foi renomeado `OutputFormat` para permanecer alinhado com C++.
@@ -737,7 +737,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - A dependência das bibliotecas de fundações de media no Windows foi removida. O SDK agora usa APIs de áudio core.
 - Correção de documentação: Adicionou uma página [de regiões](regions.md) para descrever as regiões apoiadas.
 
-**Questão conhecida**
+**Problema conhecido**
 
 - O Speech SDK para Android não reporta os resultados da síntese da fala para tradução. Esta questão será corrigida no próximo lançamento.
 

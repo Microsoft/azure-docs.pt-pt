@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 95af0cd4b59863ad0f591476441d9a7733765453
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076033"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462280"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e HiveQL em Azure HDInsight?
 
@@ -100,7 +100,7 @@ A colmeia também pode ser estendida através **de funções definidas pelo util
 
 * [Utilize uma função C# definida pelo utilizador com a Colmeia Apache](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Como adicionar uma função personalizada definida pelo utilizador Apache Hive ao HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Como adicionar uma função personalizada definida pelo utilizador Apache Hive ao HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Um exemplo da função definida pelo utilizador Apache Hive para converter formatos de data/hora para o relógio da Colmeia](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -131,13 +131,13 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 No exemplo anterior, as declarações da HiveQL realizam as seguintes ações:
 
-|Declaração |Descrição |
+|Instrução |Descrição |
 |---|---|
 |MESA DE LANÇAMENTO|Se a tabela já existir, elimine-a.|
 |CRIAR TABELA EXTERNA|Cria uma nova tabela **externa** na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original e no formato original.|
 |FORMATO DE LINHA|Diz à Hive como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
 |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Diz à Hive onde os dados são armazenados (o `example/data` diretório) e que é armazenado como texto. Os dados podem estar num ficheiro ou difundir-se em vários ficheiros dentro do diretório.|
-|SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta afirmação devolve um valor de **3** porque existem três linhas que contêm este valor.|
+|SELECT|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta afirmação devolve um valor de **3** porque existem três linhas que contêm este valor.|
 |INPUT__FILE__NAME como 'log'.|A Colmeia tenta aplicar o esquema a todos os ficheiros do diretório. Neste caso, o diretório contém ficheiros que não correspondem ao esquema. Para prevenir dados de lixo nos resultados, esta declaração diz à Hive que devemos apenas devolver dados de ficheiros que terminam em .log.|
 
 > [!NOTE]  
@@ -164,7 +164,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Estas declarações executam as seguintes ações:
 
-|Declaração |Descrição |
+|Instrução |Descrição |
 |---|---|
 |CRIAR TABELA SE NÃO EXISTIR|Se a mesa não existe, crie-a. Como a palavra-chave **EXTERNA** não é utilizada, esta afirmação cria uma tabela interna. A tabela é armazenada no armazém de dados da Colmeia e é gerida completamente pela Hive.|
 |ARMAZENADO COMO ORC|Armazena os dados no formato Colunar de Linha Otimizada (ORC). O ORC é um formato altamente otimizado e eficiente para armazenar dados da Hive.|

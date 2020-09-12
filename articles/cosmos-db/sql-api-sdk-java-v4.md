@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586220"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536405"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 para Core (SQL) API: notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "88586220"
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
 > * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector de faíscas](sql-api-sdk-java-spark.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
@@ -68,7 +68,33 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 
 ## <a name="release-history"></a>História do lançamento
 
-### <a name="440-beta1-unreleased"></a>4.4.0-beta.1 (Não lançado)
+### <a name="440-beta2-unreleased"></a>4.4.0-beta.2 (Não lançado)
+#### <a name="key-bug-fixes"></a>Correções de erros de chaves
+* Pedido FixoTimeoutExcepção quando ativar o tcnative.
+
+### <a name="440-beta1-2020-08-27"></a>4.4.0-beta.1 (2020-08-27)
+#### <a name="new-features"></a>Novas Funcionalidades
+* Adicionou uma nova API para carregar eficientemente muitos documentos (através da lista de pares pk/id ou de todos os documentos para um conjunto de valores de pk).
+* Acrescentou nova `deleteItem` API.
+* Métricas de consulta ativadas por padrão.
+#### <a name="key-bug-fixes"></a>Correções de erros de chaves
+* NPE fixo em `GatewayAddressCache` .
+* Correção da questão da métrica da consulta para a resposta zero do item.
+* Melhor desempenho (utilização reduzida do CPU) para a análise de endereços e autenticação Master-Key.
+
+### <a name="432-beta2-2020-08-17"></a>4.3.2-beta.2 (2020-08-17)
+#### <a name="key-bug-fixes"></a>Correções de erros de chaves
+* Sem alterações na versão anterior, libertando para problemas de compatibilidade com módulos de dados de mola.
+
+### <a name="432-beta1-2020-08-14"></a>4.3.2-beta.1 (2020-08-14)
+#### <a name="key-bug-fixes"></a>Correções de erros de chaves
+* Problema fixo no RntbdServiceEndpoint para evitar o encerramento antecipado de uma ligação TCP não utilizada.
+
+### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
+#### <a name="key-bug-fixes"></a>Correções de erros de chaves
+* Problema fixo com `GROUP BY` consulta, onde estava devolvendo apenas uma página.
+* Formato de cadeia de agente de utilizador fixo para cumprir as diretrizes centrais da SDK.
+* Informação de diagnóstico melhorada para incluir diagnósticos de planos de consulta.
 
 ### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
 #### <a name="new-features"></a>Novas funcionalidades
@@ -179,5 +205,5 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)

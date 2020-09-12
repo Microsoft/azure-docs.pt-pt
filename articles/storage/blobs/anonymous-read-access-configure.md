@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3a45f185a20345dac00bd459789afc9d53bd48f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7f3f71f11c741e5e9108d945b60c4465f9cec7da
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534316"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594786"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
@@ -52,7 +52,10 @@ A não permitir o acesso público à conta de armazenamento impede o acesso anó
 
 Para permitir ou proibir o acesso público a uma conta de armazenamento, configurar a propriedade **AllowBlobPublicAccess** da conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para mais informações, consulte [a visão geral da conta de Armazenamento.](../common/storage-account-overview.md)
 
-A propriedade **AllowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou quando é **verdade.**
+> [!NOTE]
+> A propriedade **AllowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou quando é **verdade.**
+>
+> A propriedade **AllowBlobPublicAccess** está atualmente disponível apenas para contas de armazenamento na nuvem pública Azure.
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
@@ -295,7 +298,7 @@ $ctx = $storageAccount.Context
 Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Impedir que o público anónimo leia o acesso a contentores e bolhas](anonymous-read-access-prevent.md)
 - [Aceda a contentores públicos e bolhas de forma anónima com .NET](anonymous-read-access-client.md)

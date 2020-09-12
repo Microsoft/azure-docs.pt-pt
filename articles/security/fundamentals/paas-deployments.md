@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461706"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462365"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações PaaS
 
@@ -102,10 +102,10 @@ A tabela que se segue lista as ameaças stride e dá alguns exemplos de mitigaç
 | --- | --- | --- |
 | Spoofing | Autenticação | Requer ligações HTTPS. |
 | Adulteração | Integridade | Validar certificados TLS/SSL. |
-| Repúdio | Não-repúdio | Ativar [a monitorização e diagnósticos do](/azure/architecture/best-practices/monitoring)Azure . |
-| Divulgação de informação | Confidencialidade | Criptografe os dados sensíveis em repouso utilizando [certificados de serviço.](/rest/api/appservice/certificates) |
-| Denial of service | Disponibilidade | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. |
-| Elevação do privilégio | Autorização | Utilizar [gestão de identidade privilegiada.](/azure/active-directory/privileged-identity-management/subscription-requirements) |
+| Rejeição | Não rejeição | Ativar [a monitorização e diagnósticos do](/azure/architecture/best-practices/monitoring)Azure . |
+| Divulgação de informações | Confidencialidade | Criptografe os dados sensíveis em repouso utilizando [certificados de serviço.](/rest/api/appservice/certificates) |
+| Denial-of-service | Disponibilidade | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. |
+| Elevação de privilégios | Autorização | Utilizar [gestão de identidade privilegiada.](/azure/active-directory/privileged-identity-management/subscription-requirements) |
 
 ## <a name="develop-on-azure-app-service"></a>Desenvolver no Azure App Service
 [O Azure App Service](/azure/app-service/overview) é uma oferta paaS que permite criar aplicações web e móveis para qualquer plataforma ou dispositivo e conectar-se a dados em qualquer lugar, na nuvem ou no local. O Serviço de Aplicações inclui as capacidades web e móveis que foram previamente entregues separadamente como Websites Azure e Azure Mobile Services. Também inclui novas capacidades para automatizar processos de negócio e o alojar APIs da nuvem. Como um único serviço integrado, o App Service traz um rico conjunto de capacidades para cenários web, mobile e de integração.
@@ -150,11 +150,11 @@ Validar defesas de segurança é tão importante como testar qualquer outra func
 O teste de fuzz é um método para encontrar falhas de programa (erros de código) fornecendo dados de entrada mal formados para interfaces de programa (pontos de entrada) que analisam e consomem estes dados. [A Deteção](https://www.microsoft.com/en-us/security-risk-detection/) de Riscos de Segurança da Microsoft é uma ferramenta baseada na nuvem que pode usar para procurar bugs e outras vulnerabilidades de segurança no seu software antes de o implementar no Azure. A ferramenta foi concebida para capturar vulnerabilidades antes de implementar software para que não tenha de corrigir um bug, lidar com falhas ou responder a um ataque após o lançamento do software.
 
 
-## <a name="next-steps"></a>Passos seguintes
-Neste artigo, focamo-nos nas vantagens de segurança de uma implementação do Azure PaaS e nas melhores práticas de segurança para aplicações em nuvem. Em seguida, aprenda práticas recomendadas para garantir as suas soluções web e móveis PaaS utilizando serviços Azure específicos. Começaremos com o Azure App Service, Azure SQL Database e Azure SQL Data Warehouse e Azure Storage. À medida que os artigos sobre práticas recomendadas para outros serviços Azure ficarem disponíveis, os links serão fornecidos na seguinte lista:
+## <a name="next-steps"></a>Próximos passos
+Neste artigo, focamo-nos nas vantagens de segurança de uma implementação do Azure PaaS e nas melhores práticas de segurança para aplicações em nuvem. Em seguida, aprenda práticas recomendadas para garantir as suas soluções web e móveis PaaS utilizando serviços Azure específicos. Começaremos com o Azure App Service, Azure SQL Database e Azure Synapse Analytics e Azure Storage. À medida que os artigos sobre práticas recomendadas para outros serviços Azure ficarem disponíveis, os links serão fornecidos na seguinte lista:
 
 - [Serviço de Aplicações do Azure](paas-applications-using-app-services.md)
-- [Azure SQL Database e Azure SQL Data Warehouse](paas-applications-using-sql.md)
+- [Azure SQL Database e Azure Synapse Analytics](paas-applications-using-sql.md)
 - [Armazenamento do Azure](paas-applications-using-storage.md)
 - Cache do Azure para Redis
 - Service Bus do Azure
@@ -166,4 +166,4 @@ Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de s
 
 Estão disponíveis os seguintes recursos para fornecer informações mais gerais sobre a segurança da Azure e serviços relacionados com a Microsoft:
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - para informações atualizadas sobre as últimas informações em Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail parasecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com

@@ -1,25 +1,28 @@
 ---
-title: Discurso-a-texto - Serviço de fala
+title: Visão geral do discurso para o texto - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: A funcionalidade discurso-texto permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas nesta entrada de texto. Este serviço funciona perfeitamente com o texto-a-voz (síntese da fala) e as características de tradução da fala.
+description: O software de fala para texto permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas nesta entrada de texto. Este artigo é uma visão geral dos benefícios e capacidades do serviço de voz a texto.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.custom: cog-serv-seo-aug-2020
+keywords: discurso ao texto, discurso ao software de texto
+ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640417"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569225"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
-O discurso-a-texto do serviço de discurso, também conhecido como reconhecimento de voz, permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas neste texto como entrada de comando. Este serviço é alimentado pela mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos Cortana e Office. Funciona perfeitamente com as ofertas de serviços de <a href="./speech-translation.md" target="_blank">tradução <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e <a href="./text-to-speech.md" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> texto-a-fala.</a> Para obter uma lista completa das línguas disponíveis de voz para texto, consulte [as línguas apoiadas.](language-support.md#speech-to-text)
+Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço de voz a texto.
+O discurso-a-texto, também conhecido como reconhecimento de voz, permite a transcrição em tempo real de streams de áudio em texto. As suas aplicações, ferramentas ou dispositivos podem consumir, exibir e tomar medidas neste texto como entrada de comando. Este serviço é alimentado pela mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos Cortana e Office. Funciona perfeitamente com as ofertas de serviços de <a href="./speech-translation.md" target="_blank">tradução <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e <a href="./text-to-speech.md" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> texto-a-fala.</a> Para obter uma lista completa das línguas disponíveis de voz para texto, consulte [as línguas apoiadas.](language-support.md#speech-to-text)
 
 O serviço de voz para texto não utiliza o modelo de linguagem Universal. Este modelo foi treinado com dados da Microsoft e é implementado na nuvem. É ideal para cenários de conversação e ditado. Ao utilizar modelos de voz para texto para reconhecimento e transcrição num ambiente único, pode criar e treinar modelos acústicos, linguísticos e de pronúncia personalizados. A personalização é útil para abordar o ruído ambiente ou o vocabulário específico da indústria.
 
@@ -31,23 +34,11 @@ Com um texto de referência adicional como entrada, o serviço de voz a texto ta
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started-with-speech-to-text"></a>Começar com discurso-a-texto
+## <a name="get-started"></a>Introdução
 
-O serviço de voz a texto está disponível através do [Speech SDK](speech-sdk.md). Existem vários cenários comuns disponíveis como quickstarts, em vários idiomas e plataformas:
+Veja o [início rápido](get-started-speech-to-text.md) para começar com discurso-a-texto. O serviço está disponível através do [Speech SDK,](speech-sdk.md)da [API REST](rest-speech-to-text.md#pronunciation-assessment-parameters)e do [Speech CLI](spx-overview.md).
 
- - [Quickstart: Reconhecer a fala com a entrada do microfone](quickstarts/speech-to-text-from-microphone.md)
- - [Quickstart: Reconhecer a fala de um ficheiro](quickstarts/speech-to-text-from-file.md)
- - [Quickstart: Reconhecer a fala armazenada no armazenamento de bolhas](quickstarts/from-blob.md)
-
-Se preferir utilizar o serviço REST de voz a texto, consulte [AS APIs de REST](rest-speech-to-text.md).
-
- - [Quickstart: Avaliação de pronúncia com entrada de referência](rest-speech-to-text.md#pronunciation-assessment-parameters)
-
-## <a name="tutorials-and-sample-code"></a>Tutoriais e código de amostra
-
-Depois de ter tido a oportunidade de usar o serviço de Discurso, experimente o nosso tutorial que lhe ensina a reconhecer as intenções da fala usando o Discurso SDK e o LUIS.
-
-- [Tutorial: Reconhecer intenções do discurso com o Discurso SDK e LUIS, usando C #](how-to-recognize-intents-from-speech-csharp.md)
+## <a name="sample-code"></a>Código de exemplo
 
 O código de amostra para o SDK de discurso está disponível no GitHub. Estas amostras cobrem cenários comuns como ler áudio a partir de um ficheiro ou stream, reconhecimento contínuo e de tiro único, e trabalhar com modelos personalizados.
 
@@ -61,11 +52,11 @@ Além do modelo padrão de serviço de fala, pode criar modelos personalizados. 
 
 ## <a name="batch-transcription"></a>Transcrição em lote
 
-A transcrição do lote é um conjunto de operações de API REST que permitem transcrever uma grande quantidade de áudio no armazenamento. Pode apontar para ficheiros áudio com uma assinatura de acesso partilhado (SAS) URI e receber assincronamente os resultados da transcrição. Consulte o [como fazer para](batch-transcription.md) obter mais informações sobre como usar a API de transcrição do lote.
+A transcrição do lote é um conjunto de operações de API REST que permitem transcrever uma grande quantidade de áudio no armazenamento. Pode apontar para ficheiros de áudio com um URI de assinatura de acesso partilhado (SAS) e receber os resultados de transcrição de forma assíncrona. Consulte o [como fazer para](batch-transcription.md) obter mais informações sobre como usar a API de transcrição do lote.
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](get-started.md)
 - [Obtenha o Discurso SDK](speech-sdk.md)

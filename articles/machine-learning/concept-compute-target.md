@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146742"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651210"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos de computação em Azure Machine Learning? 
 
@@ -49,9 +49,9 @@ Saiba [onde e como implementar o seu modelo num alvo de computação.](how-to-de
 Um recurso de computação gerido é criado e gerido pela Azure Machine Learning. Este cálculo está otimizado para trabalhos de aprendizagem automática. Azure Machine Learning compute clusters e [compute instances](concept-compute-instance.md) são os únicos computas geridos. 
 
 Pode criar casos de cálculo de aprendizagem automática Azure ou clusters de cálculo a partir de:
-* [Estúdio Azure Machine Learning](how-to-create-attach-compute-studio.md)
+* [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
 * Portal do Azure
-* Aulas python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
+* Aulas python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true)
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (pré-visualização)
 * Modelo de gestor de recursos. Para um modelo de exemplo, consulte o [modelo de computação de aprendizagem de máquinas Azure.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute)
 * Extensão de aprendizagem [automática para o Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
@@ -104,7 +104,7 @@ Embora a Azure Machine Learning suporte estas séries VM, podem não estar dispo
 
 Um alvo computacional não gerido *não* é gerido pela Azure Machine Learning. Você cria este tipo de meta de computação fora do Azure Machine Learning e, em seguida, anexá-lo ao seu espaço de trabalho. Os recursos computacional não geridos podem exigir medidas adicionais para manter ou melhorar o desempenho das cargas de trabalho de aprendizagem automática.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a:
 * [Use um alvo computacional para treinar o seu modelo](how-to-set-up-training-targets.md)

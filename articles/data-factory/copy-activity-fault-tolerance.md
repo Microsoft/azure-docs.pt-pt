@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130777"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440648"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -72,13 +72,13 @@ Ao copiar ficheiros binários entre armazéns, pode ativar a tolerância à falh
 ```
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | -------- 
-skipErrorFile | Um grupo de propriedades para especificar os tipos de falhas que pretende ignorar durante o movimento de dados. | | Não
-arquivoSSing | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja saltar ficheiros, que estão a ser eliminados por outras aplicações quando a ADF está a copiar entretanto. <br/> -Verdade: pretende copiar o resto ignorando os ficheiros que são eliminados por outras aplicações. <br/> - Falso: pretende abortar a atividade da cópia assim que quaisquer ficheiros forem eliminados da loja de origem no meio do movimento de dados. <br/>Esteja ciente de que esta propriedade está definida como padrão. | Verdadeiro(padrão) <br/>Falso | Não
-arquivoS Proibido | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja saltar os ficheiros específicos, quando os ACLs desses ficheiros ou pastas requerem um nível de permissão mais elevado do que a ligação configurada em ADF. <br/> -Verdade: quer copiar o resto ignorando os ficheiros. <br/> - Falso: pretende abortar a atividade de cópia uma vez que recebe o problema de permissão em pastas ou ficheiros. | Verdadeiro <br/>Falso(padrão) | Não
-dataInconsistency | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja ignorar os dados inconsistentes entre a loja de origem e destino. <br/> -Verdade: quer copiar o resto ignorando dados inconsistentes. <br/> - Falso: pretende abortar a atividade de cópia uma vez encontrados dados inconsistentes. <br/>Esteja ciente de que esta propriedade só é válida quando definir validar DataConsistency como True. | Verdadeiro <br/>Falso(padrão) | Não
-logStorageSettings  | Um grupo de propriedades que podem ser especificadas quando pretende registar os nomes dos objetos ignorados. | &nbsp; | Não
-linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os ficheiros de registo de sessão. | Os nomes de um `AzureBlobStorage` serviço ligado ou `AzureBlobFS` tipo, que se refere à instância que utiliza para armazenar o ficheiro de registo. | Não
-path | O caminho dos ficheiros de registo. | Especifique o caminho que utiliza para armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
+skipErrorFile | Um grupo de propriedades para especificar os tipos de falhas que pretende ignorar durante o movimento de dados. | | No
+arquivoSSing | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja saltar ficheiros, que estão a ser eliminados por outras aplicações quando a ADF está a copiar entretanto. <br/> -Verdade: pretende copiar o resto ignorando os ficheiros que são eliminados por outras aplicações. <br/> - Falso: pretende abortar a atividade da cópia assim que quaisquer ficheiros forem eliminados da loja de origem no meio do movimento de dados. <br/>Esteja ciente de que esta propriedade está definida como padrão. | Verdadeiro(padrão) <br/>Falso | No
+arquivoS Proibido | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja saltar os ficheiros específicos, quando os ACLs desses ficheiros ou pastas requerem um nível de permissão mais elevado do que a ligação configurada em ADF. <br/> -Verdade: quer copiar o resto ignorando os ficheiros. <br/> - Falso: pretende abortar a atividade de cópia uma vez que recebe o problema de permissão em pastas ou ficheiros. | Verdadeiro <br/>Falso(padrão) | No
+dataInconsistency | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja ignorar os dados inconsistentes entre a loja de origem e destino. <br/> -Verdade: quer copiar o resto ignorando dados inconsistentes. <br/> - Falso: pretende abortar a atividade de cópia uma vez encontrados dados inconsistentes. <br/>Esteja ciente de que esta propriedade só é válida quando definir validar DataConsistency como True. | Verdadeiro <br/>Falso(padrão) | No
+logStorageSettings  | Um grupo de propriedades que podem ser especificadas quando pretende registar os nomes dos objetos ignorados. | &nbsp; | No
+linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os ficheiros de registo de sessão. | Os nomes de um `AzureBlobStorage` serviço ligado ou `AzureBlobFS` tipo, que se refere à instância que utiliza para armazenar o ficheiro de registo. | No
+caminho | O caminho dos ficheiros de registo. | Especifique o caminho que utiliza para armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | No
 
 > [!NOTE]
 > Os seguintes são os pré-requisitos para permitir a tolerância a falhas na atividade de cópias ao copiar ficheiros binários.
@@ -126,7 +126,7 @@ Os ficheiros de registo têm de ser os ficheiros csv. O esquema do ficheiro de r
 
 Coluna | Descrição 
 -------- | -----------  
-Carimbo de data/hora | A hora de tempo quando a ADF ignora o ficheiro.
+Timestamp | A hora de tempo quando a ADF ignora o ficheiro.
 Nível | O nível de registo deste item. Estará no nível 'Aviso' para o item que mostra o salto do ficheiro.
 OperationName | ADF copia comportamento operacional da atividade em cada ficheiro. Será 'FileSkip' para especificar o ficheiro a ser ignorado.
 OperaçãoItem | Os nomes dos ficheiros a serem ignorados.
@@ -159,7 +159,7 @@ A atividade de cópia suporta três cenários para detetar, saltar e registar da
     Por exemplo: Copiar dados de um servidor SQL para uma base de dados SQL. Uma chave primária é definida na base de dados SQL do lavatório, mas nenhuma chave primária é definida no servidor SQL de origem. As linhas duplicadas existentes na fonte não podem ser copiadas para a pia. Copiar a atividade copia apenas a primeira linha dos dados de origem na pia. As linhas de origem subsequentes que contêm o valor da chave primária duplicada são detetadas como incompatíveis e ignoradas.
 
 >[!NOTE]
->- Para carregar dados no SQL Data Warehouse utilizando o PolyBase, configurar as definições de tolerância à falha nativa da PolyBase especificando políticas de rejeição através de "[poliBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Pode ainda ativar a reorientação das linhas incompatíveis da PolyBase para Blob ou ADLS normalmente, como mostrado abaixo.
+>- Para carregar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) utilizando a PolyBase, configurar as definições de tolerância à falha nativa da PolyBase especificando políticas de rejeição através de "[poliBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Pode ainda ativar a reorientação das linhas incompatíveis da PolyBase para Blob ou ADLS normalmente, como mostrado abaixo.
 >- Esta funcionalidade não se aplica quando a atividade de cópia é configurada para invocar a [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Esta função não se aplica quando a atividade da cópia é configurada para invocar um [procedimento armazenado a partir de um lavatório SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 
@@ -187,10 +187,10 @@ O exemplo a seguir fornece uma definição JSON para configurar saltar as linhas
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Especifica se deve saltar linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>Falso (predefinição) | Não
-logStorageSettings | Um grupo de propriedades que podem ser especificadas quando pretende registar as linhas incompatíveis. | &nbsp; | Não
-linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o registo que contém as linhas ignoradas. | Os nomes de um `AzureBlobStorage` serviço ligado ou `AzureBlobFS` tipo, que se refere à instância que utiliza para armazenar o ficheiro de registo. | Não
-path | O caminho dos ficheiros de registo que contém as linhas ignoradas. | Especifique o caminho que pretende utilizar para registar os dados incompatíveis. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
+enableSkipIncompatibleRow | Especifica se deve saltar linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>Falso (predefinição) | No
+logStorageSettings | Um grupo de propriedades que podem ser especificadas quando pretende registar as linhas incompatíveis. | &nbsp; | No
+linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o registo que contém as linhas ignoradas. | Os nomes de um `AzureBlobStorage` serviço ligado ou `AzureBlobFS` tipo, que se refere à instância que utiliza para armazenar o ficheiro de registo. | No
+caminho | O caminho dos ficheiros de registo que contém as linhas ignoradas. | Especifique o caminho que pretende utilizar para registar os dados incompatíveis. Se não providenciar um caminho, o serviço cria um recipiente para si. | No
 
 ### <a name="monitor-skipped-rows"></a>Monitor saltou linhas
 Após o funcionar da atividade da cópia, pode ver o número de linhas ignoradas na saída da atividade da cópia:
@@ -215,7 +215,7 @@ Os ficheiros de registo serão os ficheiros csv. O esquema do ficheiro de regist
 
 Coluna | Descrição 
 -------- | -----------  
-Carimbo de data/hora | A hora de se pular quando a ADF salta as linhas incompatíveis
+Timestamp | A hora de se pular quando a ADF salta as linhas incompatíveis
 Nível | O nível de registo deste item. Estará no nível 'Aviso' se este item mostrar as linhas ignoradas
 OperationName | ADF copia comportamento operacional da atividade em cada linha. Será 'TabularRowSkip' especificar que a linha incompatível particular foi ignorada
 OperaçãoItem | As filas ignoradas da loja de dados de origem.
@@ -261,10 +261,10 @@ O exemplo a seguir fornece uma definição JSON para configurar saltar as linhas
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Especifica se deve saltar linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>Falso (predefinição) | Não
-redireccionamentosIncompatíveis | Um grupo de propriedades que podem ser especificadas quando pretende registar as linhas incompatíveis. | &nbsp; | Não
-linkedServiceName | O serviço ligado da [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para armazenar o registo que contém as linhas ignoradas. | Os nomes de um `AzureStorage` `AzureDataLakeStore` serviço ou tipo ligado, que se refere à instância que pretende utilizar para armazenar o ficheiro de registo. | Não
-path | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique o caminho que pretende utilizar para registar os dados incompatíveis. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
+enableSkipIncompatibleRow | Especifica se deve saltar linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>Falso (predefinição) | No
+redireccionamentosIncompatíveis | Um grupo de propriedades que podem ser especificadas quando pretende registar as linhas incompatíveis. | &nbsp; | No
+linkedServiceName | O serviço ligado da [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para armazenar o registo que contém as linhas ignoradas. | Os nomes de um `AzureStorage` `AzureDataLakeStore` serviço ou tipo ligado, que se refere à instância que pretende utilizar para armazenar o ficheiro de registo. | No
+caminho | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique o caminho que pretende utilizar para registar os dados incompatíveis. Se não providenciar um caminho, o serviço cria um recipiente para si. | No
 
 ### <a name="monitor-skipped-rows"></a>Monitor saltou linhas
 Após o funcionar da atividade da cópia, pode ver o número de linhas ignoradas na saída da atividade da cópia:
@@ -296,7 +296,7 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 ## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de atividade de cópia:
 
-- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Desempenho da atividade de cópia](copy-activity-performance.md)
 
 

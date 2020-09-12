@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036373"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440614"
 ---
 # <a name="monitor-copy-activity"></a>Monitorizar a atividade de cópia
 
@@ -30,7 +30,7 @@ Uma vez criado e publicado um oleoduto na Azure Data Factory, pode associá-lo a
 
 Para monitorizar a atividade copy, vá à sua fábrica de dados **Autor & Monitor** UI. No **separador Monitor,** vê uma lista de correções de gasodutos, clique no link de nome do **gasoduto** para aceder à lista de atividades executadas no curso do gasoduto.
 
-![Monitorizar a atividade da cópia](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Monitorizar execução do pipeline](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 A este nível, pode ver links para copiar entrada, saída e erros da atividade (se a atividade copy funcionar falhar), bem como estatísticas como duração/estado. Clicar no botão **Detalhes** (óculos) ao lado do nome da atividade da cópia irá dar-lhe detalhes profundos sobre a execução da sua atividade de cópia. 
 
@@ -38,7 +38,7 @@ A este nível, pode ver links para copiar entrada, saída e erros da atividade (
 
 Nesta visão de monitorização gráfica, a Azure Data Factory apresenta-lhe as informações de execução da atividade de cópia, incluindo o volume de leitura/escrita de dados, o número de ficheiros/linhas de dados copiados de fonte para afundar, o rendimento, as configurações aplicadas para o seu cenário de cópia, passos que a atividade da cópia passa com as respetivas durações e detalhes, e muito mais. Consulte [esta tabela](#monitor-programmatically) sobre cada métrica possível e a sua descrição detalhada. 
 
-Em alguns cenários, quando executar uma atividade copy na Data Factory, verá "Dicas de **afinação** de desempenho" no topo da vista de monitorização da atividade da cópia, como mostra o exemplo. As dicas dizem-lhe o estrangulamento identificado pela ADF para a execução de cópias específicas, juntamente com uma sugestão sobre o que mudar para aumentar o rendimento da cópia. Saiba mais sobre [as dicas de afinação de desempenho automático](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+Em alguns cenários, quando executar uma atividade copy na Data Factory, verá "Dicas de **afinação**  de desempenho" no topo da vista de monitorização da atividade da cópia, como mostra o exemplo. As dicas dizem-lhe o estrangulamento identificado pela ADF para a execução de cópias específicas, juntamente com uma sugestão sobre o que mudar para aumentar o rendimento da cópia. Saiba mais sobre [as dicas de afinação de desempenho automático](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
 Os **detalhes e durações** da execução inferior descrevem os passos-chave que a sua atividade de cópia passa, o que é especialmente útil para resolver problemas no desempenho da cópia. O estrangulamento da sua cópia é o que tem a maior duração. Consulte o [desempenho da atividade da cópia de resolução de problemas](copy-activity-performance-troubleshooting.md) sobre o que cada fase representa e a orientação detalhada de resolução de problemas.
 
@@ -67,7 +67,7 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 | de transferência de dados | Taxa de transferência de dados. | Número do ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados de origem durante a atividade Copy. | Valor int32 (sem unidade) |
 | sinkPeakConnections| Número máximo de ligações simultâneas estabelecidas na loja de dados do lavatório durante a execução da atividade Copy.| Valor int32 (sem unidade) |
-| sqlDwPolyBase | Se a PolyBase é utilizada quando os dados são copiados para o SQL Data Warehouse. | Booleano |
+| sqlDwPolyBase | Se a PolyBase é utilizada quando os dados são copiados para a Azure Synapse Analytics (anteriormente SQL Data Warehouse). | Booleano |
 | redshiftUnload | Se o UNLOAD é utilizado quando os dados são copiados do Redshift. | Booleano |
 | hdfsDistcp | Se o DistCp é utilizado quando os dados são copiados do HDFS. | Booleano |
 | efetivamenteIntegrationRuntime | O tempo de integração (IR) ou os tempos de funcionação utilizados para alimentar a atividade funcionam, no formato `<IR name> (<region if it's Azure IR>)` . | Texto (cadeia) |
@@ -160,9 +160,9 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os outros artigos de Atividade de Cópia:
 
-\-[Visão geral da atividade da cópia](copy-activity-overview.md)
+\- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 
 \- [Desempenho da atividade de cópia](copy-activity-performance.md)

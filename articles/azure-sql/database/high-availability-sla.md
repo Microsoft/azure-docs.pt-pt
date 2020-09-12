@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 16e15976c6f09881b75dcec207833f48aa1c4e7a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189935"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437685"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,11 +91,11 @@ A versão redundante da zona da arquitetura de alta disponibilidade é ilustrada
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação acelerada da base de dados (ADR)
 
-[A Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) é uma nova funcionalidade de motor de base de dados que melhora consideravelmente a disponibilidade da base de dados, especialmente na presença de transações de longa duração. A ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Instance e Azure SQL Data Warehouse.
+[A Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) é uma nova funcionalidade de motor de base de dados que melhora consideravelmente a disponibilidade da base de dados, especialmente na presença de transações de longa duração. A ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 ## <a name="testing-application-fault-resiliency"></a>Teste de resiliência da falha da aplicação
 
-A alta disponibilidade é uma parte fundamental da plataforma SQL Database e SQL Managed Instance que funciona de forma transparente para a sua aplicação de base de dados. No entanto, reconhecemos que poderá querer testar como as operações automáticas de failover iniciadas durante eventos planeados ou não planeados teriam impacto numa aplicação antes de a implantar na produção. Pode desencadear manualmente uma falha, chamando uma API especial para reiniciar uma base de dados, uma piscina elástica ou uma instância gerida. No caso de uma base de dados redundante ou piscina elástica, a chamada da API resultaria na reorientação das ligações dos clientes para a nova primária numa Zona de Disponibilidade diferente da Zona de Disponibilidade da antiga primária. Assim, além de testar como o failover impacta as sessões de base de dados existentes, também pode verificar se altera o desempenho de ponta a ponta devido a alterações na latência da rede. Como a operação de reinício é intrusiva e um grande número deles pode stressar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada base de dados, piscina elástica ou instância gerida.
+A elevada disponibilidade é uma parte fundamental da plataforma SQL Managed Instance e da Base de Dados SQL que funcionam de forma transparente na aplicação de base de dados. No entanto, reconhecemos que possa querer testar de que forma as operações de ativação pós-falha automáticas e iniciadas durante eventos planeados ou não planeados afetam a aplicação antes de a implementar para produção. Pode desencadear manualmente uma falha, chamando uma API especial para reiniciar uma base de dados, uma piscina elástica ou uma instância gerida. No caso de uma base de dados redundante ou piscina elástica, a chamada da API resultaria na reorientação das ligações dos clientes para a nova primária numa Zona de Disponibilidade diferente da Zona de Disponibilidade da antiga primária. Assim, além de testar como o failover impacta as sessões de base de dados existentes, também pode verificar se altera o desempenho de ponta a ponta devido a alterações na latência da rede. Como a operação de reinício é intrusiva e um grande número deles pode stressar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada base de dados, piscina elástica ou instância gerida.
 
 Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
 
@@ -112,7 +112,7 @@ Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
 
 A Azure SQL Database e Azure SQL Managed Instance apresentam uma solução de alta disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. Depende do Tecido de Serviço para deteção e recuperação de falhas, no armazenamento de Azure Blob para proteção de dados, e em Zonas de Disponibilidade para maior tolerância a falhas (como mencionado anteriormente no documento ainda não aplicável ao Azure SQL Managed Instance). Além disso, a SQL Database e a SQL Managed Instance aproveitam a tecnologia de grupo de disponibilidade Always On a partir da instância sql Server para replicação e failover. A combinação destas tecnologias permite que as aplicações percebam plenamente os benefícios de um modelo de armazenamento misto e suportem os SLAs mais exigentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [as Zonas de Disponibilidade Azure](../../availability-zones/az-overview.md)
 - Saiba mais sobre [o Tecido de Serviço](../../service-fabric/service-fabric-overview.md)

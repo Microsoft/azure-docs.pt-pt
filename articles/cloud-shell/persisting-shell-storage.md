@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273295"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470141"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir ficheiros em Azure Cloud Shell
 A Cloud Shell utiliza o armazenamento de ficheiros Azure para persistir ficheiros em todas as sessões. No início inicial, a Cloud Shell pede-lhe que associe uma nova ou existente partilha de ficheiros para persistir ficheiros em todas as sessões.
@@ -34,8 +34,8 @@ A Cloud Shell utiliza o armazenamento de ficheiros Azure para persistir ficheiro
 
 Quando utiliza definições básicas e seleciona apenas uma subscrição, a Cloud Shell cria três recursos em seu nome na região suportada que está mais próxima de si:
 * Grupo de recursos: `cloud-shell-storage-<region>`
-* Conta de armazenamento:`cs<uniqueGuid>`
-* Partilha de ficheiros:`cs-<user>-<domain>-com-<uniqueGuid>`
+* Conta de armazenamento: `cs<uniqueGuid>`
+* Partilha de ficheiros: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![A definição de subscrição](media/persisting-shell-storage/basic-storage.png)
 
@@ -66,7 +66,7 @@ Para encontrar a sua região atual pode correr `env` em Bash e localizar a vari�
 
 As máquinas Cloud Shell existem nas seguintes regiões:
 
-|Área|Região|
+|Área|Region|
 |---|---|
 |Américas|Leste dos EUA, Centro Sul dos EUA, Oeste dos EUA|
 |Europa|Europa do Norte, Europa Ocidental|
@@ -83,12 +83,12 @@ Se for utilizada uma região de armazenamento secundário, a conta de armazename
 Um utilizador pode correr `(Get-CloudDrive | Get-AzStorageAccount).Location` no PowerShell para ver a localização da sua Partilha de Ficheiros.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir a criação de recursos com uma política de recursos Azure
-As contas de armazenamento que cria na Cloud Shell estão marcadas com `ms-resource-usage:azure-cloud-shell` . Se pretender proibir os utilizadores de criarem contas de armazenamento na Cloud Shell, crie uma [política de recursos Azure para tags](../azure-policy/json-samples.md) que são desencadeadas por esta etiqueta específica.
+As contas de armazenamento que cria na Cloud Shell estão marcadas com `ms-resource-usage:azure-cloud-shell` . Se pretender proibir os utilizadores de criarem contas de armazenamento na Cloud Shell, crie uma [política de recursos Azure para tags](../governance/policy/samples/index.md) que são desencadeadas por esta etiqueta específica.
 
 ## <a name="how-cloud-shell-storage-works"></a>Como funciona o armazenamento da Cloud Shell 
 A Cloud Shell persiste nos ficheiros através de ambos os seguintes métodos: 
 * Criar uma imagem em disco do seu `$Home` diretório para persistir todos os conteúdos dentro do diretório. A imagem do disco é guardada na sua partilha de ficheiros especificada `acc_<User>.img` como em , e sincroniza automaticamente as `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img` alterações. 
-* Montagem da sua partilha de ficheiros especificada como `clouddrive` no seu `$Home` diretório para interação direta com partilha de ficheiros. `/Home/<User>/clouddrive`está mapeado para `fileshare.storage.windows.net/fileshare` .
+* Montagem da sua partilha de ficheiros especificada como `clouddrive` no seu `$Home` diretório para interação direta com partilha de ficheiros. `/Home/<User>/clouddrive` está mapeado para `fileshare.storage.windows.net/fileshare` .
  
 > [!NOTE]
 > Todos os ficheiros do seu `$Home` diretório, como as teclas SSH, são persistidos na imagem do seu disco de utilizador, que é armazenado na sua partilha de ficheiros montada. Aplique as melhores práticas quando persistir em informação no seu `$Home` diretório e partilha de ficheiros montado.
@@ -100,7 +100,7 @@ Na Cloud Shell, pode executar um comando chamado `clouddrive` , que lhe permite 
 
 ![Executando o comando "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
 
-### <a name="list-clouddrive"></a>Lista`clouddrive`
+### <a name="list-clouddrive"></a>Lista `clouddrive`
 Para descobrir qual a partilha de ficheiros que é montada `clouddrive` como , executar o `df` comando. 
 
 O caminho do ficheiro para clouddrive mostra o nome da sua conta de armazenamento e a sua partilha de ficheiros no URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
@@ -157,7 +157,7 @@ A sua partilha de ficheiros continuará a existir a menos que a elimine manualme
 O `Get-CloudDrive` cmdlet recupera a informação de partilha de ficheiros Azure atualmente montada pela `clouddrive` Cloud Shell. <br>
 ![Running Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
-### <a name="unmount-clouddrive"></a>Desmontar`clouddrive`
+### <a name="unmount-clouddrive"></a>Desmontar `clouddrive`
 Pode desmontar uma partilha de ficheiros Azure que está montada na Cloud Shell a qualquer momento. Se a partilha de ficheiros Azure tiver sido removida, será solicitado a criar e montar uma nova partilha de ficheiros Azure na próxima sessão.
 
 O `Dismount-CloudDrive` cmdlet desmonta uma parte de ficheiro Azure da conta de armazenamento corrente. Desmontar o `clouddrive` termina a sessão atual. O utilizador será solicitado a criar e montar uma nova partilha de ficheiros Azure durante a próxima sessão.
@@ -170,4 +170,4 @@ Nota: Se precisar de definir uma função num ficheiro e chamá-la a partir dos 
 ## <a name="next-steps"></a>Próximos passos
 [Cloud Shell Quickstart](quickstart.md) <br>
 [Saiba mais sobre o armazenamento de Ficheiros Microsoft Azure](../storage/files/storage-files-introduction.md) <br>
-[Saiba mais sobre etiquetas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Saiba mais sobre etiquetas de armazenamento](../azure-resource-manager/management/tag-resources.md) <br>

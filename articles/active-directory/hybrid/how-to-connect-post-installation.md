@@ -16,12 +16,12 @@ ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a859a10e02a5738ee023db5d653ea14403b9bcad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358451"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657112"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximos passos e como gerir a Azure AD Connect
 Utilize os procedimentos operacionais deste artigo para personalizar o Azure Ative Directory (Azure AD) Connect para atender às necessidades e requisitos da sua organização.  
@@ -30,7 +30,7 @@ Utilize os procedimentos operacionais deste artigo para personalizar o Azure Ati
 Por predefinição, apenas o utilizador que fez a instalação e os administradores locais são capazes de gerir o motor de sincronização instalado. Para que pessoas adicionais possam aceder e gerir o motor de sincronização, localize o grupo chamado ADSyncAdmins no servidor local e adicione-os a este grupo.
 
 ## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Atribuir licenças aos utilizadores do Azure AD Premium e da Enterprise Mobility Suite
-Agora que os seus utilizadores foram sincronizados com a nuvem, precisa de lhes atribuir uma licença para que possam avançar com aplicações na nuvem como o Office 365.
+Agora que os seus utilizadores foram sincronizados na nuvem, precisa de lhes atribuir uma licença para que possam avançar com aplicações na nuvem como a Microsoft 365.
 
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Para atribuir uma Licença Azure AD Premium ou Suíte de Mobilidade Empresarial
 

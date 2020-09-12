@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69367da8a732f383222836442406a495bf82a0db
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3dcbd8618dc0f2bae2eacc9ced67869d8209286a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892597"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565529"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Crie um grupo básico e adicione membros usando o Azure Ative Directory
 Pode criar um grupo básico através do portal do Microsoft Azure Active Directory (Microsoft Azure AD). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam de aceder a esse recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regras, veja [Documentação da gestão de utilizadores do Azure Active Directory](../users-groups-roles/index.yml).
@@ -28,7 +28,7 @@ Existem vários tipos de grupos e membros. As seguintes informações explicam c
 
 ### <a name="group-types"></a>Tipos de grupo:
 - **Segurança**. Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de ter de adicionar permissões a cada membro individualmente. Um grupo de segurança pode ter utilizadores, dispositivos, grupos e diretores de serviço como seus membros e utilizadores e diretores de serviço como seus proprietários. Para obter mais informações sobre a gestão de acesso a recursos, veja [Gerir o acesso a recursos com grupos do Azure Active Directory](active-directory-manage-groups.md).
-- **Microsoft 365**. Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo. Um grupo Microsoft 365 só pode ter utilizadores como membros. Tanto os utilizadores como os principais de serviço podem ser proprietários de um grupo Microsoft 365. Para obter mais informações sobre os Grupos Office 365, consulte [Os Grupos Microsoft 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+- **Microsoft 365**. Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo. Um grupo Microsoft 365 só pode ter utilizadores como membros. Tanto os utilizadores como os principais de serviço podem ser proprietários de um grupo Microsoft 365. Para obter mais informações sobre os Grupos Microsoft 365, consulte [Saiba mais sobre os Grupos Microsoft 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### <a name="membership-types"></a>Tipos de adesão:
 - **Designado.** Permite-lhe adicionar utilizadores específicos para serem membros deste grupo e terem permissões exclusivas. Para os fins deste artigo, estamos a utilizar esta opção.
@@ -77,10 +77,9 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo. Para criar um
 
 ## <a name="turn-on-or-off-group-welcome-email"></a>Ligue ou desligue o e-mail de boas-vindas do grupo
 
-Quando qualquer novo grupo Microsoft 365 é criado, seja com adesão dinâmica ou estática, é enviada uma notificação bem-vinda a todos os utilizadores que são adicionados ao grupo. Quando quaisquer atributos de um utilizador ou dispositivo mudam, todas as regras dinâmicas do grupo na organização são processadas para potenciais alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Quando qualquer novo grupo Microsoft 365 é criado, seja com adesão dinâmica ou estática, é enviada uma notificação bem-vinda a todos os utilizadores que são adicionados ao grupo. Quando quaisquer atributos de um utilizador ou dispositivo mudam, todas as regras dinâmicas do grupo na organização são processadas para potenciais alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gerir o acesso a aplicações SaaS através de grupos](../users-groups-roles/groups-saasapps.md)
 - [Gerir grupos através de comandos do PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
-

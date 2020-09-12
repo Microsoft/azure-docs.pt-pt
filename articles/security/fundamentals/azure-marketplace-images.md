@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038278"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536387"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendações de segurança para imagens do mercado de Azure
 
@@ -39,8 +39,8 @@ Execute sempre uma deteção de vulnerabilidade de segurança na sua imagem ante
 | Segurança                                                     | Evite utilizar o LVM.                                                                                                                                                                                                                                            |
 | Segurança                                                     | Inclua as versões mais recentes das bibliotecas necessárias: </br> - OpenSSL v1.0 ou superior </br> - Python 2.5 ou superior (Python 2.6+ é altamente recomendado) </br> - Pacote Python pyasn1 se ainda não estiver instalado </br> - d.OpenSSL v 1.0 ou maior                                                                |
 | Segurança                                                     | Entradas claras da história bash/Shell.                                                                                                                                                                                                                                             |
-| Redes                                                   | Inclua o servidor SSH por predefinição. Set SSH mantenha-se vivo para sshd config com a seguinte opção: ClientAliveInterval 180.                                                                                                                                                        |
-| Redes                                                   | Remova qualquer configuração de rede personalizada da imagem. Eliminar o resolve.conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
+| Rede                                                   | Inclua o servidor SSH por predefinição. Set SSH mantenha-se vivo para sshd config com a seguinte opção: ClientAliveInterval 180.                                                                                                                                                        |
+| Rede                                                   | Remova qualquer configuração de rede personalizada da imagem. Eliminar o resolve.conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
 | Implementação                                                   | Instale o mais recente agente Azure Linux.</br> - Instalar utilizando o pacote RPM ou Deb.  </br> - Também pode utilizar o processo de instalação manual, mas as embalagens do instalador são recomendadas e preferidas. </br> - Se instalar o agente manualmente a partir do repositório GitHub, primeiro copie o `waagent` ficheiro para e corra `/usr/sbin` (como raiz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>O ficheiro de configuração do agente é colocado em `/etc/waagent.conf` . |
 | Implementação                                                   | Certifique-se de que o Suporte Azure pode fornecer aos nossos parceiros a saída da consola em série quando necessário e fornecer um tempo suficiente para a montagem do disco de SO a partir do armazenamento em nuvem. Adicione os seguintes parâmetros à imagem Kernel Boot Line: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` . |
 | Implementação                                                   | Sem troca de divisórias no disco de so. O Swap pode ser solicitado para criação no disco de recursos local pelo Agente Linux.         |
@@ -65,11 +65,3 @@ Execute sempre uma deteção de vulnerabilidade de segurança na sua imagem ante
 
 Mesmo que a sua organização não tenha imagens no mercado Azure, considere verificar as configurações de imagem do Windows e Linux contra estas recomendações.
 
-## <a name="contacting-customers"></a>Contatar clientes
-
-Para identificar clientes e seus e-mails de contacto:
-
-1.  No Cloud Partner Portal, no trilho esquerdo, **selecione Insights**.
-2.  No separador **Ordens e Utilização,** utilize os campos **Data de Início** e Data de **Fim** para consultar a utilização dentro do intervalo de datas exigido. Isto mostra quais as assinaturas Azure foram usadas para a oferta diariamente. Exporte estes dados. 
-3.  Da mesma forma, no separador **Cliente,** consultar e exportar a sua base de clientes.
-4.  Combine o ID de subscrição do passo 2 para o ID de subscrição do passo 3 para encontrar a informação necessária do cliente.

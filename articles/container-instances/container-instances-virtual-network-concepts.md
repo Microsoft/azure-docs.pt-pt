@@ -3,13 +3,12 @@ title: Cenários para usar uma rede virtual
 description: Cenários, recursos e limitações para implantar grupos de contentores numa rede virtual Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.author: danlep
-ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870770"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569174"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Cenários e recursos de rede virtual
 
@@ -75,7 +74,7 @@ No diagrama seguinte, vários grupos de contentores foram destacados para uma su
 
 ![Grupos de contentores dentro de uma rede virtual][aci-vnet-01]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para exemplos de implantação com o CLI Azure, consulte [as instâncias de implantação de contentores numa rede virtual Azure](container-instances-vnet.md).
 * Para implementar uma nova rede virtual, sub-rede, perfil de rede e grupo de contentores utilizando um modelo de Gestor de Recursos, consulte [Criar um grupo de contentores Azure com VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet

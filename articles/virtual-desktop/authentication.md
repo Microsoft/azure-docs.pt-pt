@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8328fa9c9e32a22e8e5093aa343f333cd1914ddc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038668"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500305"
 ---
 # <a name="supported-authentication-methods"></a>Métodos de autenticação suportados
 
@@ -43,12 +43,16 @@ Estes são os métodos de inscrição atualmente suportados:
 >[!NOTE]
 >Smartcard e Windows Hello só podem usar Kerberos para iniciar sinsus. A inscrição com kerberos requer uma linha de visão para o controlador de domínio.
 
+## <a name="hybrid-identity"></a>Identidade híbrida
+
+O Windows Virtual Desktop suporta [identidades híbridas](../active-directory/hybrid/whatis-hybrid-identity.md) através do Azure Ative Directory (AD), incluindo as federadas utilizando os Serviços da Federação de Diretório Ativo (ADFS). Uma vez que os utilizadores devem ser detetáveis através do Azure AD, o Windows Virtual Desktop não suporta implementações autónomas do Ative Directory com ADFS.
+
 ## <a name="single-sign-on-sso"></a>Único sinal (SSO)
 
-O Windows Virtual Desktop não suporta atualmente serviços da Federação de Diretórios Ativos (ADFS) para autenticação ou SSO.
+O Windows Virtual Desktop não suporta atualmente serviços da Federação de Diretórios Ativos (ADFS) para SSO.
 
 A única maneira de evitar ser solicitado para as suas credenciais para o anfitrião da sessão é salvá-las no cliente. Recomendamos que o faça apenas com dispositivos seguros para evitar que outros utilizadores acedam aos seus recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Curioso sobre outras formas de manter o seu destacamento seguro? Confira [as melhores práticas de segurança.](security-guide.md)

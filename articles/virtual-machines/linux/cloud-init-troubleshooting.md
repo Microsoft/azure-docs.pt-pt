@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510978"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434644"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Resolução de problemas de fornecimento de VM com cloud-init
 
@@ -21,7 +21,7 @@ Se tem vindo a criar imagens personalizadas generalizadas, utilizando o cloud-in
 
 Alguns exemplos, de questões relacionadas com o provisionamento:
 - VM fica preso em 'criar' por 40 minutos, e a criação de VM é marcada como falhada
-- `CustomData`não é processado
+- `CustomData` não é processado
 - O disco efémero não monta
 - Os utilizadores não são criados, ou existem problemas de acesso ao utilizador
 - A rede não está configurada corretamente
@@ -29,7 +29,7 @@ Alguns exemplos, de questões relacionadas com o provisionamento:
 
 Este artigo percorre-o como resolver problemas. Para obter mais detalhes aprofundados, consulte [o mergulho profundo de nuvem.](./cloud-init-deep-dive.md)
 
-## <a name="step-1-test-the-deployment-without-customdata"></a>Passo 1: Testar a implantação sem`customData`
+## <a name="step-1-test-the-deployment-without-customdata"></a>Passo 1: Testar a implantação sem `customData`
 
 A cloud-init pode aceitar `customData` , que é passada para ele, quando o VM é criado. Em primeiro lugar, deve certificar-se de que isto não está a causar problemas com as implementações. Tente a provisionar o VM sem passar em qualquer configuração. Se encontrar que o VM não fornece, continue com os passos abaixo, se encontrar a configuração que está a passar não está a ser aplicada, passo [4](). 
 
@@ -41,7 +41,7 @@ Os seguintes artigos ilustram os passos para preparar várias distribuições de
 
 - [Distribuições baseadas em CentOS](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
-- [Contentor Flatcar Linux](flatcar-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES e openSUSE](suse-create-upload-vhd.md)
@@ -56,7 +56,7 @@ Quando o VM não for o fornecimento, o Azure mostrará o estado de "criação", 
 
 Enquanto o VM está em funcionamento, você precisará dos registos do VM para entender por que o provisionamento falhou.  Para entender por que o fornecimento de VM falhou, não pare o VM. Mantenha o VM a funcionar. Terá de manter o VM falhado num estado de funcionamento para recolher registos. Para recolher os registos, utilize um dos seguintes métodos:
 
-- [Consola de Série](./serial-console-grub-single-user-mode.md)
+- [Consola de Série](../troubleshooting/serial-console-grub-single-user-mode.md)
 
 - [Ativar o Boot Diagnostics](./tutorial-monitor.md#enable-boot-diagnostics) antes de criar o VM e depois [vê-los](./tutorial-monitor.md#view-boot-diagnostics) durante a bota.
 
@@ -108,7 +108,7 @@ Depois de ter encontrado um erro ou aviso, leia para trás no registo de init nu
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Se tiver acesso à [Consola em Série,](./serial-console-grub-single-user-mode.md)pode tentar refazer o comando que a cloud-in estava a tentar executar.
+Se tiver acesso à [Consola em Série,](../troubleshooting/serial-console-grub-single-user-mode.md)pode tentar refazer o comando que a cloud-in estava a tentar executar.
 
 O registo `/var/log/cloud-init.log` também pode ser reconfigurado dentro de /etc/cloud/cloud.cfg.d/05_logging.cfg. Para obter mais detalhes sobre o registo de informação em nuvem, consulte a [documentação de insição de nuvem](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -126,7 +126,7 @@ Se ainda não consegue isolar o porquê de a nuvem não ter conseguido a provis�
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>Passo 4: Investigar por que a configuração não está a ser aplicada
 Nem todas as falhas no nebulosidade resulta numa falha fatal no fornecimento. Por exemplo, se estiver a utilizar o `runcmd` módulo num config de nuvem, um código de saída não zero do comando que está a executar fará com que o fornecimento de VM falhe. Isto porque corre atrás da funcionalidade de provisão central que acontece nas primeiras 3 fases da cloud-init. Para resolver os problemas por que a configuração não se aplica, reveja os registos no Passo 3 e os módulos de init em nuvem manualmente. Por exemplo:
 
-- `runcmd`- os scripts funcionam sem erros? Executar a configuração manualmente a partir do terminal para garantir que funcionam como esperado.
+- `runcmd` - os scripts funcionam sem erros? Executar a configuração manualmente a partir do terminal para garantir que funcionam como esperado.
 - Instalação de pacotes - o VM tem acesso a repositórios de pacotes?
 - Deve também verificar a configuração de `customData` dados que foi fornecida ao VM, isto está localizado em `/var/lib/cloud/instances/<unique-instance-identifier>/user-data.txt` .
 

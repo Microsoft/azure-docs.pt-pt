@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 09/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837314"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505344"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -29,6 +29,16 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de erros
 * Funcionalidade preterida
+
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="mobile-design-for-the-video-indexer-website"></a>Design móvel para o site do Indexer de Vídeo
+
+A experiência do site do Video Indexer está agora a apoiar dispositivos móveis. A experiência do utilizador é sensível à adaptação ao tamanho do seu ecrã móvel (excluindo uIs de personalização). 
+
+### <a name="accessibility-improvements-and-bug-fixes"></a>Melhorias de acessibilidade e correções de bugs 
+
+Como parte das diretrizes do WCAG (Web Content Accessibility), as experiências do site do Video Indexer estão alinhadas com o grau C, como parte dos padrões de Acessibilidade da Microsoft. Vários bugs e melhorias relacionadas com a navegação de teclado, acesso programático e leitor de ecrã foram resolvidos. 
 
 ## <a name="july-2020"></a>Julho de 2020
 
@@ -129,7 +139,7 @@ A ação da conta de eliminação agora elimina a conta no prazo de 90 dias em v
  
 ### <a name="new-video-indexer-github-repository"></a>Novo repositório do índice de vídeo GitHub
 
-Um novo Índice de Vídeo GitHub com diferentes projetos, iniciando guias e amostras de código está agora disponível:https://github.com/Azure-Samples/media-services-video-indexer
+Um novo Índice de Vídeo GitHub com diferentes projetos, iniciando guias e amostras de código está agora disponível: https://github.com/Azure-Samples/media-services-video-indexer
  
 ### <a name="swagger-update"></a>Atualização de Swagger
 
@@ -289,6 +299,6 @@ Ao ligar para a [transcrição do Vídeo de Atualização API,](https://api-port
 
 Além do formato de legendagem fechado já suportado (SRT, VTT e TTML), o Video Indexer suporta agora o download da transcrição nos formatos TXT e CSV.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Descrição Geral](video-indexer-overview.md)

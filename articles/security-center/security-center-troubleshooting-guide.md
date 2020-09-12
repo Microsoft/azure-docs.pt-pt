@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836010"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462399"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 
@@ -29,7 +29,7 @@ Tipos de alerta:
 
 * Análise Comportamental de Máquinas Virtuais (VMBA)
 * Análise de Rede
-* Base de Dados SQL e SQL Data Warehouse Analysis
+* SqL Database e Azure Synapse Analytics (anteriormente SQL Data Warehouse) Análise
 * Informações Contextuais
 
 Consoante os tipos de alerta, os clientes podem obter as informações necessárias para investigar o alerta através dos seguintes recursos:
@@ -105,10 +105,10 @@ A tabela seguinte mostra os recursos necessários para a comunicação.
 
 | Recursos do Agente | Portas | Inspeção de HTTPS direto |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Sim |
-| *.oms.opinsights.azure.com | 443 | Sim |
-| *.blob.core.windows.net | 443 | Sim |
-| *.azure-automation.net | 443 | Sim |
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
 Se encontrar problemas de integração com o agente, certifique-se de que lê o artigo [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Como resolver problemas de integração do Operations Management Suite).
 
@@ -151,4 +151,4 @@ Neste documento, aprendeu a configurar as políticas de segurança no Centro de 
 * [Capacidades de deteção do Centro de Segurança Azure](security-center-detection-capabilities.md)
 * [Monitorizar soluções de parceiros com o Azure Security Center](security-center-partner-solutions.md) — Saiba como monitorizar o estado de saúde das soluções do seu parceiro.
 * [Azure Security Center FAQ](faq-general.md) — Encontre perguntas frequentes sobre a utilização do serviço
-* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure
+* [Blogue de Segurança do Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure

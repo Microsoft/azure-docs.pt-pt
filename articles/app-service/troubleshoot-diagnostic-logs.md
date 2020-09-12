@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962184"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469937"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
 ## <a name="overview"></a>Descrição geral
@@ -187,14 +187,14 @@ A tabela a seguir mostra os tipos e descrições de registos suportados:
 
 | Tipo de registo | Suporte ao Windows | Suporte Linux (Docker) | Descrição |
 |-|-|-|
-| AppServiceConsoleLogs | TBA | Sim | Saída padrão e erro padrão |
-| AppServiceHTTPLogs | Sim | Sim | Registos de servidores web |
-| AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
-| AppServiceAuditLogs | Sim | Sim | Atividade de login via FTP e Kudu |
-| AppServiceFileAuditLogs | Sim | TBD | Alterações de ficheiros via FTP e Kudu |
+| AppServiceConsoleLogs | TBA | Yes | Saída padrão e erro padrão |
+| AppServiceHTTPLogs | Yes | Yes | Registos de servidores web |
+| AppServiceEnvironmentPlatformLogs | Yes | Yes | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
+| AppServiceAuditLogs | Yes | Yes | Atividade de login via FTP e Kudu |
+| AppServiceFileAuditLogs | Yes | TBD | Alterações de ficheiros es feitas no conteúdo do site; apenas disponível para nível Premium e acima |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Registos de aplicações |
-| AppServiceIPSecAuditLogs  | Sim | Sim | Pedidos de Regras de IP |
-| AppServicePlatformLogs  | TBA | Sim | Troncos de contentores |
+| AppServiceIPSecAuditLogs  | Yes | Yes | Pedidos de Regras de IP |
+| AppServicePlatformLogs  | TBA | Yes | Troncos de contentores |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249173"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442910"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app multi-inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ As aplicações SaaS que desenvolve têm acesso a uma grande quantidade de dados
 
 O acesso aos dados para todos os inquilinos é simples quando todos os dados estão numa base de dados multi-inquilinos. Mas o acesso é mais complexo quando distribuído em escala por milhares de bases de dados. Uma forma de domar a complexidade é extrair os dados para uma base de dados de análise ou um armazém de dados. Em seguida, você consulta o armazém de dados para recolher informações dos dados dos bilhetes de todos os inquilinos.
 
-Este tutorial apresenta um cenário de análise completo para esta aplicação SaaS amostra. Em primeiro lugar, os trabalhos elásticos são usados para agendar a extração de dados de cada base de dados de inquilinos. Os dados são enviados para uma loja de análise. A loja de análise pode ser uma Base de Dados SQL ou um Armazém de Dados SQL. Para a extração de dados em larga escala, a [Azure Data Factory](../../data-factory/introduction.md) é elogiada.
+Este tutorial apresenta um cenário de análise completo para esta aplicação SaaS amostra. Em primeiro lugar, os trabalhos elásticos são usados para agendar a extração de dados de cada base de dados de inquilinos. Os dados são enviados para uma loja de análise. A loja de análise pode ser uma Base de Dados SQL ou um Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para a extração de dados em larga escala, a [Azure Data Factory](../../data-factory/introduction.md) é elogiada.
 
 Em seguida, os dados agregados são triturados em um conjunto de tabelas [de esquemas estelares.](https://www.wikipedia.org/wiki/Star_schema) As tabelas consistem num quadro central de factos mais tabelas de dimensão relacionadas:
 
@@ -157,7 +157,7 @@ Nesta secção do tutorial, você define e executou um trabalho que funde os dad
 2. No SSMS, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics\ShredRawExtractedData.sql*.
 3. Prima **F5** para executar o script para definir um trabalho que ligue para o sp_ShredRawExtractedData procedimento armazenado na loja de análise.
 4. Dê tempo suficiente para que o trabalho corra com sucesso.
-    - Consulte a coluna **lifecycle** de empregos.jobs_execution tabela para o estado de trabalho. Certifique-se **de** que o trabalho foi bem sucedido antes de prosseguir. Uma execução bem sucedida exibe dados semelhantes ao seguinte gráfico:
+    - Verifique a coluna **lifecycle** da tabela jobs.jobs_execution para obter o estado de trabalho. Certifique-se **de** que o trabalho foi bem sucedido antes de prosseguir. Uma execução bem sucedida exibe dados semelhantes ao seguinte gráfico:
 
 ![triturar oJob](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 

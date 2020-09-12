@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador de cluster para recursos 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542709"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482730"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade e segurança da rede no Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Este artigo de boas práticas centra-se na conectividade da rede e na segurança
 As redes virtuais fornecem a conectividade básica para os nós AKS e os clientes acederem às suas aplicações. Existem duas maneiras diferentes de implantar clusters AKS em redes virtuais:
 
 * **Rede Kubenet** - Azure gere os recursos de rede virtuais à medida que o cluster é implantado e utiliza o [plugin kubenetes][kubenet] Kubernetes.
-* **Rede Azure CNI** - Implementa-se numa rede virtual existente e utiliza o plugin de [rede de contentores Azure (CNI).][cni-networking] Os pods recebem IPs individuais que podem encaminhar-se para outros serviços de rede ou recursos no local.
+* **Rede CNI Azure** - Implementa-se numa rede virtual e utiliza o plugin kubernetes [da Interface de Rede de Contentores Azure (CNI).][cni-networking] Os pods recebem IPs individuais que podem encaminhar-se para outros serviços de rede ou recursos no local.
 
 A Interface de Rede de Contentores (CNI) é um protocolo neutro do fornecedor que permite ao contentor fazer pedidos a um fornecedor de rede. O Azure CNI atribui endereços IP a pods e nós e fornece funcionalidades de gestão de endereços IP (IPAM) à medida que se conecta às redes virtuais Azure existentes. Cada recurso de nó e pod recebe um endereço IP na rede virtual Azure, e não é necessário um encaminhamento adicional para comunicar com outros recursos ou serviços.
 
@@ -64,7 +64,7 @@ A Kubenet é adequada para pequenas cargas de trabalho de desenvolvimento ou tes
 
 **Orientação de boas práticas** - Para distribuir tráfego HTTP ou HTTPS às suas aplicações, utilize recursos e controladores de entrada. Os controladores ingress fornecem funcionalidades adicionais sobre um balanceador de carga Azure regular, e podem ser geridos como recursos nativos de Kubernetes.
 
-Um equilibrador de carga Azure pode distribuir o tráfego do cliente para aplicações no seu cluster AKS, mas é limitado no que entende sobre esse tráfego. Um recurso de balanceador de carga funciona na camada 4 e distribui tráfego com base em protocolos ou portas. A maioria das aplicações web que usam HTTP ou HTTPS devem usar recursos e controladores de entrada de Kuberenetes, que funcionam na camada 7. A Ingress pode distribuir tráfego com base no URL da aplicação e lidar com a rescisão TLS/SSL. Esta capacidade também reduz o número de endereços IP que expõe e mapeia. Com um equilibrador de carga, cada aplicação normalmente necessita de um endereço IP público atribuído e mapeado para o serviço no cluster AKS. Com um recurso de entrada, um único endereço IP pode distribuir tráfego para várias aplicações.
+Um equilibrador de carga Azure pode distribuir o tráfego do cliente para aplicações no seu cluster AKS, mas é limitado no que entende sobre esse tráfego. Um recurso de balanceador de carga funciona na camada 4 e distribui tráfego com base em protocolos ou portas. A maioria das aplicações web que usam HTTP ou HTTPS devem usar recursos e controladores de entrada de Kubernetes, que funcionam na camada 7. A Ingress pode distribuir tráfego com base no URL da aplicação e lidar com a rescisão TLS/SSL. Esta capacidade também reduz o número de endereços IP que expõe e mapeia. Com um equilibrador de carga, cada aplicação normalmente necessita de um endereço IP público atribuído e mapeado para o serviço no cluster AKS. Com um recurso de entrada, um único endereço IP pode distribuir tráfego para várias aplicações.
 
 ![Diagrama mostrando fluxo de tráfego ingress num cluster AKS](media/operator-best-practices-network/aks-ingress.png)
 
@@ -160,7 +160,7 @@ A maioria das operações em AKS pode ser concluída usando as ferramentas de ge
 
 A rede de gestão do hospedeiro de bastião também deve ser assegurada. Utilize uma porta de entrada [Azure ExpressRoute][expressroute] ou [VPN][vpn-gateway] para ligar a uma rede no local e controlar o acesso utilizando grupos de segurança de rede.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo focou-se na conectividade da rede e na segurança. Para obter mais informações sobre os fundamentos da rede em Kubernetes, consulte [conceitos de rede para aplicações no Serviço Azure Kubernetes (AKS)][aks-concepts-network]
 

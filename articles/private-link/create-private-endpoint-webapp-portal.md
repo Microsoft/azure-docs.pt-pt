@@ -1,19 +1,19 @@
 ---
 title: Conecte-se privadamente a uma Aplicação Web usando o Azure Private Endpoint
-description: Conecte-se privadamente a uma Aplicação Web usando o Azure Private Endpoint
+description: Este artigo explica como ligar-se privadamente a uma Aplicação Web usando o Azure Private Endpoint
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 09/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d547546c3c0e0bbcdde65a654bf373ab7407be3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737398"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569470"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Conecte-se privadamente a uma Aplicação Web utilizando o Azure Private Endpoint (Preview)
 
@@ -65,7 +65,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
 1. Em Criar uma máquina virtual - Básicos, insira ou selecione esta informação:
 
    > [!div class="mx-imgBorder"]
-   >![Máquina virtual básica][4]
+   >![Máquina virtual básica ][4]
 
 1. Selecione **"Seguinte: Discos"**
 
@@ -94,7 +94,7 @@ Nesta secção, irá criar uma Web App privada utilizando um Ponto Final Privado
 1. In Create Web App - Básicos, insira ou selecione estas informações:
 
    > [!div class="mx-imgBorder"]
-   >![Web App básico][6]
+   >![Web App básico ][6]
 
 1. Selecione **"Review + create"**
 
@@ -138,13 +138,13 @@ Nesta secção, irá criar uma Web App privada utilizando um Ponto Final Privado
 
 1. Abra o ficheiro.rdp descarregado.
 
-- Se lhe for pedido, selecione Ligar.
-- Introduza o nome de utilizador e a palavra-passe que especificou ao criar o VM.
+   - Se lhe for pedido, selecione Ligar.
+   - Introduza o nome de utilizador e a palavra-passe que especificou ao criar o VM.
 
-> [!Note]
-> Poderá ter de selecionar Mais opções > Utilizar uma conta diferente, para especificar as credenciais que introduziu quando criou o VM.
+   > [!Note]
+   > Poderá ter de selecionar Mais opções > Utilizar uma conta diferente, para especificar as credenciais que introduziu quando criou o VM.
 
-- Selecione OK.
+   - Selecione OK.
 
 1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione Sim ou Continue.
 
@@ -174,12 +174,21 @@ Nesta secção, irá ligar-se em privado à Web App utilizando o Ponto Final Pri
 1. No myVM, verifique se a Web App não está acessível através do IP público. Abra um navegador e cole o nome da Web App, você deve ter uma página de erro 403 proibida
 
    > [!div class="mx-imgBorder"]
-   >![Proibido][17]
+   >![erro Proibido ao tentar utilizar o endereço IP][17]
 
-> [!Important]
-> Como esta funcionalidade está em pré-visualização, é necessário gerir manualmente a entrada DNS.
+   > [!Important]
+   > Como esta funcionalidade está em pré-visualização, é necessário gerir manualmente a entrada DNS.
 
-1. Crie a entrada do anfitrião, abra o explorador de ficheiros e localize o ficheiro dos anfitriões
+   Para o DNS, tem duas opções:
+   - usar o arquivo de anfitrião do VM 
+   - ou usar o serviço de zona privada Azure DNS.
+
+1. Primeira solução: pode criar uma zona privada DNS chamada privatelink.azurewebsites.net e ligá-la ao VNet
+1. Em seguida, você precisa criar os dois registos A (nome de aplicação e nome SCM) com o endereço IP do seu Private Endpoint
+   > [!div class="mx-imgBorder"]
+   >![Registos de zonas privadas DNS][21]
+
+1. Segunda solução: criar a entrada do anfitrião, abrir o explorador de ficheiros e localizar o ficheiro dos anfitriões
 
    > [!div class="mx-imgBorder"]
    >![Arquivo de anfitriões][18]
@@ -198,7 +207,7 @@ Nesta secção, irá ligar-se em privado à Web App utilizando o Ponto Final Pri
 
 1. Está a aceder à sua Aplicação Web através do Ponto Final Privado
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar de usar o Ponto Final Privado, a Web App e o VM, elimine o grupo de recursos e todos os recursos que contém:
 
@@ -214,7 +223,7 @@ Neste Quickstart, criou um VM numa rede virtual, uma Web App e um Private Endpoi
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
 [2]: ./media/create-private-endpoint-webapp-portal/ipaddresses.png
 [3]: ./media/create-private-endpoint-webapp-portal/subnet.png
-[4]: ./media/create-private-endpoint-webapp-portal/virtualmachine.png
+[4]: ./media/create-private-endpoint-webapp-portal/virtual-machine.png
 [5]: ./media/create-private-endpoint-webapp-portal/vmnetwork.png
 [6]: ./media/create-private-endpoint-webapp-portal/webapp.png
 [7]: ./media/create-private-endpoint-webapp-portal/webappnetworking.png
@@ -231,6 +240,8 @@ Neste Quickstart, criou um VM numa rede virtual, uma Web App e um Private Endpoi
 [18]: ./media/create-private-endpoint-webapp-portal/explorer.png
 [19]: ./media/create-private-endpoint-webapp-portal/hosts.png
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
+[21]: ./media/create-private-endpoint-webapp-portal/dns-private-zone-records.png
+
 
 <!--Links-->
 [privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

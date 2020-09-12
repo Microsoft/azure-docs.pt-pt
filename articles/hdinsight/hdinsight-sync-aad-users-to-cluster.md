@@ -1,19 +1,19 @@
 ---
 title: Sincronizar os utilizadores do Azure Ative Directory para o cluster HDInsight
 description: Sincronizar os utilizadores autenticados do Azure Ative Directory para um cluster HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 83e168c5f1d1bad58a193937a4b97fe686dde2a3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 689417dd0743b01afd18b57b5336640f11edd044
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004420"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504660"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight
 
@@ -59,7 +59,7 @@ O seguinte método utiliza POST com a API Ambari REST. Para obter mais informaç
     "https://CLUSTERNAME.azurehdinsight.net/api/v1/ldap_sync_events"
     ```
 
-    A resposta deve ser assim:
+    A resposta deverá ter o seguinte aspeto:
 
     ```json
     {
@@ -80,7 +80,7 @@ O seguinte método utiliza POST com a API Ambari REST. Para obter mais informaç
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
 
-    A resposta deve ser assim:
+    A resposta deverá ter o seguinte aspeto:
 
     ```json
     {
@@ -123,7 +123,7 @@ O seguinte método utiliza POST com a API Ambari REST. Para obter mais informaç
 1. Este resultado mostra que o estado é **COMPLETO**, um novo utilizador foi criado, e o utilizador foi atribuído a uma adesão. Neste exemplo, o utilizador é atribuído ao grupo LDAP sincronizado "HiveUsers", uma vez que o utilizador foi adicionado ao mesmo grupo em Azure AD.
 
     > [!NOTE]  
-    > O método anterior apenas sincroniza os grupos AZure AD especificados na propriedade do grupo de **utilizadores Access** das definições de domínio durante a criação do cluster. Para obter mais informações, consulte [criar um cluster HDInsight](domain-joined/apache-domain-joined-configure.md).
+    > O método anterior apenas sincroniza os grupos AZure AD especificados na propriedade do grupo de **utilizadores Access** das definições de domínio durante a criação do cluster. Para obter mais informações, consulte  [criar um cluster HDInsight](domain-joined/apache-domain-joined-configure.md).
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Verifique o recém-adicionado utilizador AZure AD
 
@@ -137,7 +137,7 @@ Abra o [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) para verificar 
 
     ![Menu de utilizadores e grupos HDInsight](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
-3. O novo utilizador deve ser listado dentro da tabela Utilizadores. O Tipo está definido para `LDAP` e não `Local` .
+3. O novo utilizador deve ser listado dentro da tabela Utilizadores. O Tipo está definido para `LDAP` e não  `Local` .
 
     ![Visão geral da página dos utilizadores do HDInsight aad](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 

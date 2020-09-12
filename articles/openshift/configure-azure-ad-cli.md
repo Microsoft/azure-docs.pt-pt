@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc
-ms.openlocfilehash: 393185d2167e18df3f8c1319e7367efbc437de1a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590341"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469427"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurar a autenticação do Diretório Ativo Azure para um cluster Azure Red Hat OpenShift 4 (CLI)
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Recupere os seus URLs específicos do cluster que serão utilizados para configurar a aplicação do Diretório Ativo Azure.
 
@@ -66,7 +66,7 @@ Devia ter de volta algo assim. Tome nota disso como este é o **TenantId** que v
 
 ## <a name="create-a-manifest-file-to-define-the-optional-claims-to-include-in-the-id-token"></a>Crie um ficheiro manifesto para definir as alegações opcionais a incluir no ID Token
 
-Os desenvolvedores de aplicações podem usar [reclamações opcionais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) nas suas aplicações AZure AD para especificar quais as alegações que pretendem em fichas enviadas para a sua aplicação.
+Os desenvolvedores de aplicações podem usar [reclamações opcionais](../active-directory/develop/active-directory-optional-claims.md) nas suas aplicações AZure AD para especificar quais as alegações que pretendem em fichas enviadas para a sua aplicação.
 
 Pode utilizar reclamações opcionais para:
 
@@ -127,7 +127,7 @@ az ad app permission add \
 
 As aplicações registadas num inquilino do Azure Ative Directory (Azure AD) estão, por defeito, disponíveis para todos os utilizadores do arrendatário que autenticam com sucesso. A Azure AD permite que administradores e desenvolvedores de inquilinos restringam uma app a um conjunto específico de utilizadores ou grupos de segurança no inquilino.
 
-Siga as instruções da documentação do Azure Ative Directory para [atribuir utilizadores e grupos à aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Siga as instruções da documentação do Azure Ative Directory para [atribuir utilizadores e grupos à aplicação](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Configure a autenticação OpenShift OpenID
 

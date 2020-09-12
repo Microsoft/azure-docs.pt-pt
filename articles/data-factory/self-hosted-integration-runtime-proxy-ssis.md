@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 1eac86e856840d5cb78313fb4d61751066d6886b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 09/09/2020
+ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184009"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595026"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como representante de um Azure-SSIS IR na Azure Data Factory
 
@@ -27,9 +27,11 @@ Este artigo descreve como executar pacotes SQL Server Integration Services (SSIS
 
 Com esta funcionalidade, pode aceder aos dados no local sem ter de se juntar ao [seu Azure-SSIS IR a uma rede virtual.](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) A funcionalidade é útil quando a sua rede corporativa tem uma configuração demasiado complexa ou uma política demasiado restritiva para que possa injetar o seu Azure-SSIS IR na sua.
 
-Esta funcionalidade divide qualquer tarefa de fluxo de dados SSIS que tenha uma fonte de dados no local em duas tarefas de encenação: 
-* A primeira tarefa, que funciona no seu IR auto-hospedado, move primeiro dados da fonte de dados no local para uma área de preparação no seu armazenamento Azure Blob.
-* A segunda tarefa, que funciona no seu Azure-SSIS IR, em seguida, transfere os dados da área de preparação para o destino de dados pretendido.
+Esta funcionalidade decompõe a sua tarefa de fluxo de dados SSIS em duas tarefas de preparação sempre que aplicável: 
+* **Tarefa de preparação no local**: Esta tarefa executa o seu componente de fluxo de dados que se conecta a uma loja de dados no local no seu IR auto-hospedado. Move dados da loja de dados no local para uma área de preparação no seu armazenamento Azure Blob ou vice-versa.
+* **Tarefa de preparação**em nuvem : Esta tarefa executa o seu componente de fluxo de dados que não se conecta a uma loja de dados no local no seu Azure-SSIS IR. Move dados da área de preparação do seu armazenamento Azure Blob para uma loja de dados em nuvem ou vice-versa.
+
+Se a sua tarefa de fluxo de dados mover dados de instalações para nuvem, então as tarefas de primeira e segunda encenação serão tarefas de preparação no local e de paragem em nuvem, respectivamente. Se a sua tarefa de fluxo de dados mover dados da nuvem para as instalações, então as tarefas de primeira e segunda encenação serão tarefas de fase de cloud e no local, respectivamente. Se a sua tarefa de fluxo de dados mover dados de instalações para as instalações, então as tarefas de primeira e segunda encenação serão tarefas de preparação no local. Se a sua tarefa de fluxo de dados mover dados de nuvem para nuvem, então esta funcionalidade não é aplicável.
 
 Outros benefícios e capacidades desta funcionalidade permitem-lhe, por exemplo, configurar o seu IR auto-hospedado em regiões que ainda não são suportadas por um IR Azure-SSIS, e permitir o endereço IP estático público do seu IR auto-hospedado na firewall das suas fontes de dados.
 
@@ -41,13 +43,13 @@ Em seguida, instalou o seu IR auto-hospedado na mesma fábrica de dados onde est
 
 Por fim, descarrega e instala a versão mais recente do IR auto-hospedado, bem como os controladores e tempo de execução adicionais, na sua máquina de bordo ou na máquina virtual Azure (VM), da seguinte forma:
 - Descarregue e instale a versão mais recente do [IR auto-hospedado](https://www.microsoft.com/download/details.aspx?id=39717).
-- Se utilizar conectores de base de dados de ligação de objetos e incorporação (OLEDB) nas suas embalagens, descarregue e instale os controladores OLEDB relevantes na mesma máquina onde o seu IR auto-hospedado está instalado, se ainda não o fez.  
+- Se utilizar conectores de ligação e incorporação de objetos (OLEDB)/Open Database Connectivity (ODBC) nas suas embalagens, descarregue e instale os controladores relevantes na mesma máquina onde o seu IR auto-alojado está instalado, se ainda não o fez.  
 
   Se utilizar a versão anterior do controlador OLEDB para o SQL Server (SQL Server Native Client [SQLNCLI]), [descarregue a versão de 64 bits](https://www.microsoft.com/download/details.aspx?id=50402).  
 
   Se utilizar a versão mais recente do controlador OLEDB para o SQL Server (MSOLEDBSQL), [descarregue a versão de 64 bits](https://www.microsoft.com/download/details.aspx?id=56730).  
   
-  Se utilizar controladores OLEDB para outros sistemas de base de dados, tais como PostgreSQL, MySQL, Oracle, e assim por diante, pode descarregar as versões de 64 bits dos seus websites.
+  Se utilizar controladores OLEDB/ODBC para outros sistemas de base de dados, tais como PostgreSQL, MySQL, Oracle, e assim por diante, pode descarregar as versões de 64 bits dos seus websites.
 - Se ainda não o fez, [descarregue e instale a versão de 64 bits do tempo de funcionaamento Visual C++ (VC)](https://www.microsoft.com/download/details.aspx?id=40784) na mesma máquina onde está instalado o seu IR auto-hospedado.
 
 ## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>Prepare o serviço ligado ao armazenamento Azure Blob para a realização
@@ -78,7 +80,7 @@ Depois de ter preparado o seu serviço de armazenamento ir e Azure Blob auto-hos
 
    1. Na caixa de **caminho de staging,** especifique um recipiente blob na sua conta de armazenamento Azure Blob selecionada ou deixe-a vazia para utilizar uma padrão para a encenação.
 
-   1. Selecione **Continuar**.
+   1. **Selecione Continuar**.
 
    ![Configurações avançadas com um IR auto-hospedado](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
@@ -118,20 +120,20 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>Permitir que os pacotes SSIS se conectem por procuração
 
-Ao utilizar a mais recente extensão SSDT com SSIS Projects para Visual Studio ou um instalador autónomo, pode encontrar uma nova `ConnectByProxy` propriedade que foi adicionada nos gestores de conexão OLEDB ou Flat File.
-* [Descarregue a extensão SSDT com projetos SSIS para Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
+Ao utilizar o SSDT mais recente como extensão de Projetos SSIS para Estúdio Visual ou um instalador autónomo, pode encontrar uma nova `ConnectByProxy` propriedade que foi adicionada nos gestores de ligação para componentes de fluxo de dados suportados.
+* [Descarregue a extensão dos Projetos SSIS para o Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [Descarregue o instalador autónomo](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
-Quando conceber novos pacotes que contenham tarefas de fluxo de dados com fontes OLEDB ou Ficheiros Planos, que lhe permitem aceder a bases de dados ou ficheiros no local, pode capacitar esta propriedade definindo-a para *True* no painel **de propriedades** dos gestores de conexão relevantes.
+Quando concebe novos pacotes que contenham tarefas de fluxo de dados com componentes que acedam aos dados nas instalações, pode ativar esta propriedade definindo-a para *True* no painel **de Propriedades** dos gestores de conexão relevantes.
 
 ![Ativar a propriedade ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 Também pode ativar esta propriedade quando executar pacotes existentes, sem ter que alterá-los manualmente um por um.  Existem duas opções:
-- **Opção A**: Abrir, reconstruir e recolocar o projeto que contém esses pacotes com o mais recente SSDT a funcionar no seu Azure-SSIS IR. Em seguida, pode ativar a propriedade definindo-a para *True* para os gestores de conexão relevantes. Quando estão a executar pacotes a partir de SSMS, estes gestores de ligação aparecem no **separador Connection Managers** da janela pop-up **do Pacote executar.**
+- **Opção A**: Abrir, reconstruir e recolocar o projeto que contém esses pacotes com o mais recente SSDT a funcionar no seu Azure-SSIS IR. Em seguida, pode ativar a propriedade definindo-a para *True* para os gestores de conexão relevantes. Quando está a executar pacotes a partir de SSMS, estes gestores de ligação aparecem no **separador Gestores** de Ligação da janela pop-up **do Pacote Executar.**
 
   ![Ativar a propriedade ConnectByProxy2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
-  Também pode ativar a propriedade definindo-a para *True* para os gestores de conexão relevantes que aparecem no **separador Gestores** de Ligação da [atividade do Pacote Executo SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando estão a executar pacotes em pipelines data factory.
+  Também pode ativar a propriedade definindo-a para *True* para os gestores de conexão relevantes que aparecem no **separador Gestores** de Ligação da [atividade do Pacote Executo SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando estiver a executar pacotes em pipelines data factory.
   
   ![Ativar a propriedade ConnectByProxy3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
@@ -143,27 +145,27 @@ Também pode ativar esta propriedade quando executar pacotes existentes, sem ter
   
   ![Ativar a propriedade ConnectByProxy5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
-## <a name="debug-the-first-and-second-staging-tasks"></a>Depurar as primeira e segunda tarefas de encenação
+## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Depurar as tarefas de preparação de nuvens e em nuvem
 
-No seu IR auto-hospedado, pode encontrar os registos de tempo de execução na pasta *C:\ProgramData\SSISTelemetry* e os registos de execução das primeiras tarefas de encenação na pasta *C:\ProgramData\SSISTelemetry\ExecutionLog.*  Pode encontrar os registos de execução de segundas tarefas de preparação no seu SSISDB ou caminhos de registo especificados, dependendo se armazena as suas encomendas no SSISDB ou no sistema de ficheiros, nas partilhas de ficheiros ou nos Ficheiros Azure. Também pode encontrar os IDs únicos das primeiras tarefas de encenação nos registos de execução de segundas tarefas de encenação. 
+No seu IR auto-hospedado, pode encontrar os registos de tempo de execução na pasta *C:\ProgramData\SSISTelemetry* e os registos de execução de tarefas de encenação no local na pasta *C:\ProgramData\SSISTelemetry\ExecutionLog.*  Pode encontrar os registos de execução de tarefas de encenação em nuvem no seu SSISDB ou caminhos de registo especificados, dependendo se armazena ou não as suas embalagens no SSISDB. Também pode encontrar os IDs exclusivos de tarefas de encenação no local nos registos de execução de tarefas de encenação em nuvem. 
 
 ![ID único da primeira tarefa de encenação](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
-## <a name="use-windows-authentication-in-staging-tasks"></a>Utilize a autenticação do Windows em tarefas de preparação
+## <a name="use-windows-authentication-in-on-premises-staging-tasks"></a>Utilize a autenticação do Windows em tarefas de preparação no local
 
-Se as tarefas de preparação do seu IR auto-alojado exigirem a autenticação do Windows, [configuure os seus pacotes SSIS para utilizar a mesma autenticação do Windows](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+Se as tarefas de preparação no local do seu IR auto-hospedado exigirem a autenticação do Windows, [configuure os seus pacotes SSIS para utilizar a mesma autenticação do Windows](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
 
-As suas tarefas de encenação serão invocadas com a conta de serviço de IR auto-hospedada (*NT SERVICE\DIAHostService,* por padrão), e as suas lojas de dados serão acedidas com a conta de autenticação do Windows. Ambas as contas exigem que sejam atribuídas determinadas políticas de segurança. Na máquina de INFRAVERMELHOs auto-hospedada, vá à Atribuição de Direitos de Utilizador de Políticas Locais **de**  >  **Segurança**  >  **User Rights Assignment**Local, e, em seguida, faça o seguinte:
+As suas tarefas de preparação no local serão invocadas com a conta de serviço de IR auto-hospedada *(NT SERVICE\DIAHostService,* por padrão), e as suas lojas de dados serão acedidas com a conta de autenticação do Windows. Ambas as contas exigem que sejam atribuídas determinadas políticas de segurança. Na máquina de INFRAVERMELHOs auto-hospedada, vá à Atribuição de Direitos de Utilizador de Políticas Locais **de**  >  **Segurança**  >  **User Rights Assignment**Local, e, em seguida, faça o seguinte:
 
 1. Atribua as *quotas de memória ajustar para um processo* e substituir as políticas de símbolo de *nível* de processo na conta de serviço de ir auto-hospedada. Isto deve ocorrer automaticamente quando instalar o seu IR auto-hospedado com a conta de serviço predefinida. Se não, atribua essas apólices manualmente. Se utilizar uma conta de serviço diferente, atribua-lhe as mesmas políticas.
 
 1. Atribua o *Registo como uma* política de serviço à conta de Autenticação do Windows.
 
-## <a name="billing-for-the-first-and-second-staging-tasks"></a>Faturação para a primeira e segunda tarefas de encenação
+## <a name="billing-for-the-on-premises-and-cloud-staging-tasks"></a>Faturação para as tarefas de preparação no local e cloud staging
 
-As primeiras tarefas de encenação que executam o seu IR auto-hospedado são faturadas separadamente, assim como quaisquer atividades de movimento de dados que funcionam em um IR auto-hospedado são faturadas. Isto é especificado no artigo de preços do pipeline de dados da [Azure Data Factory.](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
+As tarefas de preparação no local que funcionam no seu IR auto-hospedado são faturadas separadamente, assim como quaisquer atividades de movimento de dados que funcionam em um IR auto-hospedado são faturadas. Isto é especificado no artigo de preços do pipeline de dados da [Azure Data Factory.](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-As segundas tarefas de encenação que executam o seu Azure-SSIS IR não são faturadas separadamente, mas o seu Azure-SSIS IR em execução é faturado conforme especificado no artigo de preços do [Azure-SSIS IR.](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
+As tarefas de preparação em nuvem que funcionam no seu Azure-SSIS IR não são faturadas separadamente, mas o seu Azure-SSIS IR em execução é faturado conforme especificado no artigo de preços do [Azure-SSIS IR.](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
 
 ## <a name="enabling-tls-12"></a>Ativar o TLS 1.2
 
@@ -173,10 +175,10 @@ Se precisar de utilizar uma encriptação forte/protocolo de rede mais seguro (T
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Apenas as tarefas de fluxo de dados com conectividade open database (ODBC)/OLEDB/Flat File sources ou o destino OLEDB são atualmente suportadas. 
+- Apenas as tarefas de fluxo de dados com fontes OLEDB/ODBC/Flat File ou destino OLEDB são atualmente suportadas.
 - Apenas os serviços ligados ao armazenamento Azure Blob que estão configurados com *a chave conta,* *a Assinatura de Acesso Partilhado (SAS) URI*ou a autenticação *principal do serviço* são atualmente suportados.
-- *O parâmetroMapping* em OLEDB Source ainda não é suportado. Como solução alternativa, utilize o *Comando SQL from Variable* como o *AccessMode* e use *a Expressão* para inserir as suas variáveis/parâmetros num comando SQL. Como ilustração, consulte o pacote *ParameterMappingSample.dtsx* que pode ser encontrado na pasta *SelfHostedIRProxy/Limitations* do nosso recipiente de pré-visualização pública. Utilizando o Azure Storage Explorer, pode ligar-se ao nosso recipiente de pré-visualização público introduzindo o SAS URI acima.
+- *O modo de aplicação de parâmetros* na Fonte OLEDB não é atualmente suportado. Como solução alternativa, utilize o *Comando SQL from Variable* como o *AccessMode* e use *a Expressão* para inserir as suas variáveis/parâmetros num comando SQL. Como ilustração, consulte o pacote *ParameterMappingSample.dtsx* que pode ser encontrado na pasta *SelfHostedIRProxy/Limitations* do nosso recipiente de pré-visualização pública. Utilizando o Azure Storage Explorer, pode ligar-se ao nosso recipiente de pré-visualização público introduzindo o SAS URI acima.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de configurar o seu IR auto-hospedado como um representante para o seu Azure-SSIS IR, pode implementar e executar os seus pacotes para aceder aos dados no local como executar atividades do Pacote SSIS em pipelines data Factory. Para saber como, consulte [os pacotes Run SSIS como executar atividades de pacote SSIS em pipelines data factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f12b4e1d64db097730494da746b44479a791f9d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 569bc54d262e8611679c8aa86ed4dbfbed61aa79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268643"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442684"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
@@ -161,7 +161,7 @@ Para gerir as identidades dos dispositivos utilizando o portal AD Azure, estes d
 > [!NOTE]
 > **Exija que o Multi-Factor Auth se junte à** definição de dispositivos que estejam aderentes a Azure AD ou a AZure AD registados. Esta definição não se aplica aos dispositivos híbridos Azure AD.
 
-- **Número máximo de dispositivos** - Esta definição permite selecionar o número máximo de dispositivos registados AZURE AD ou Azure AD que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, não poderá adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes sejam removidos. O valor predefinido é **de 20**.
+- **Número máximo de dispositivos** - Esta definição permite selecionar o número máximo de dispositivos registados AZURE AD ou Azure AD que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, não poderá adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes sejam removidos. O valor predefinido é **de 50**.
 
 > [!NOTE]
 > **O número máximo de dispositivos** que se aplicam a dispositivos que estejam aderentes a Azure AD ou a Azure AD registados. Esta definição não se aplica aos dispositivos híbridos Azure AD.
@@ -204,7 +204,7 @@ Além dos filtros, pode procurar entradas específicas.
 
 ![Registos de auditoria](./media/device-management-azure-portal/65.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Como gerir dispositivos em Azure AD](manage-stale-devices.md)
 

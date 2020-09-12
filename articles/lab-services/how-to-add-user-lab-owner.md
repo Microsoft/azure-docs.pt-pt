@@ -2,13 +2,13 @@
 title: Como adicionar proprietários adicionais a um laboratório em Azure Lab Services
 description: Este artigo mostra-lhe como um administrador pode adicionar um utilizador como proprietário a um laboratório nos Serviços Azure Lab.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 6671a3070dae672769eecf59d614d3b75455ef5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/04/2020
+ms.openlocfilehash: 4b46dd08a3b9527cdfc7bdf766ee4976e67656d0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445870"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482674"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Como adicionar proprietários adicionais a um laboratório existente nos Serviços de Laboratório Azure
 Este artigo mostra-lhe como você, como administrador, pode adicionar proprietários adicionais a um laboratório existente.
@@ -31,6 +31,9 @@ Para adicionar um utilizador como proprietário adicional a um laboratório exis
         ![Adicione o utilizador ao papel de leitor para a conta de laboratório ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
 
 ## <a name="add-user-to-the-owner-role-for-the-lab"></a>Adicione o utilizador à função de proprietário para o laboratório
+
+> [!NOTE]
+> Se o utilizador tiver apenas acesso ao Reader num laboratório, o laboratório não é mostrado em labs.azure.com.
 
 1. De volta à página **da Conta de Laboratório,** selecione **Todos os laboratórios** no menu esquerdo.
 2. Selecione o **laboratório** ao qual pretende adicionar o utilizador como proprietário. 

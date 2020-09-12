@@ -1,6 +1,6 @@
 ---
 title: Transformar dados
-description: Saiba como transformar dados ou processar dados na Azure Data Factory utilizando Hadoop, Machine Learning ou Azure Data Lake Analytics.
+description: Transforme dados ou processos na Azure Data Factory usando Hadoop, Machine Learning ou Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: fdb10894ab9d1c6b805b8b43c90e54126d67b8dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606620"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442790"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 
@@ -78,7 +78,7 @@ Com o tempo, os modelos preditivos nas experiências de pontuação machine lear
 Consulte [as atividades de Machine Learning](transform-data-using-machine-learning.md) para obter detalhes sobre estas atividades de Machine Learning. 
 
 ### <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
-Pode utilizar a atividade do Procedimento Armazenado do SQL server num oleoduto da Data Factory para invocar um procedimento armazenado numa das seguintes lojas de dados: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database na sua empresa ou um VM Azure. Consulte o artigo [de atividade do Procedimento Armazenado](transform-data-using-stored-procedure.md) para obter mais informações.  
+Pode utilizar a atividade do Procedimento Armazenado do SQL server num oleoduto da Data Factory para invocar um procedimento armazenado numa das seguintes lojas de dados: Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), SQL Server Database na sua empresa ou um VM Azure. Consulte o artigo [de atividade do Procedimento Armazenado](transform-data-using-stored-procedure.md) para obter mais informações.  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Atividade U-SQL do Data Lake Analytics
 Data Lake Analytics U-SQL atividade executa um script U-SQL em um cluster Azure Data Lake Analytics. Consulte o artigo [de atividade u-SQL da Data Analytics](transform-data-using-data-lake-analytics.md) para obter mais detalhes. 

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 725e8165f8a7bdb654f61d7257867a2d0bf17110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 131811ffd268f001a047a7031170f0723770d24c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213572"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462331"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração contínua e implantação para armazenamento de dados
 
@@ -44,13 +44,13 @@ Este simples tutorial descreve como integrar o seu projeto de base de dados sql 
 
 Neste momento, você tem um ambiente simples onde qualquer check-in no seu ramo principal de repositório de controlo de origem deve automaticamente desencadear uma construção bem sucedida do Visual Studio do seu projeto de base de dados. Validar a automatização está a trabalhar de ponta a ponta, fazendo uma alteração no seu projeto de base de dados local e verificando essa alteração no seu ramo principal.
 
-## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do Azure SQL Data Warehouse (ou Base de Dados)
+## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Implementação contínua com a tarefa de implantação Azure Synapse Analytics (ou Base de Dados)
 
-1. Adicione uma nova tarefa utilizando a tarefa de implantação da [Base de Dados Azure SQL](/azure/devops/pipelines/targets/azure-sqldb) e preencha os campos necessários para ligar ao seu armazém de dados-alvo. Quando esta tarefa é executado, o DACPAC gerado a partir do processo de construção anterior é implantado para o armazém de dados-alvo. Também pode utilizar a tarefa de implantação do [Armazém de Dados Azure SQL](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
+1. Adicione uma nova tarefa utilizando a tarefa de implantação da [Base de Dados Azure SQL](/azure/devops/pipelines/targets/azure-sqldb) e preencha os campos necessários para ligar ao seu armazém de dados-alvo. Quando esta tarefa é executado, o DACPAC gerado a partir do processo de construção anterior é implantado para o armazém de dados-alvo. Também pode utilizar a [tarefa de implementação Azure Synapse Analytics](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
       ![Tarefa de implantação](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarefa de implantação")
 
-2. Se estiver a utilizar um agente auto-hospedado, certifique-se de que define a variável ambiente para utilizar a SqlPackage.exe correta para o SQL Data Warehouse. O caminho deve ser parecido com isto:
+2. Se estiver a utilizar um agente auto-hospedado, certifique-se de que define a variável do seu ambiente para utilizar o SqlPackage.exe correto para o Azure Synapse Analytics. O caminho deve ser parecido com isto:
 
       ![Variável ambiente](./media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variável ambiente")
 

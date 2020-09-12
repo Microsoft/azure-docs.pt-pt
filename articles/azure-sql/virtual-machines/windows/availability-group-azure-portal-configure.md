@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 46e2563b0d1c26c984616b523a367c8b2cff7aaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038572"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482805"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Configure um grupo de disponibilidade para o SQL Server em Azure VM (portal Azure - Pré-visualização)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,9 +74,14 @@ Se ainda não tiver um cluster existente, crie-o utilizando o portal Azure com e
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Fornecer credenciais para a conta de Serviço SQL, conta de operador de cluster e conta de botas cluster":::
 
 1. Selecione os VMs do servidor SQL que pretende adicionar ao cluster. Note se é necessário ou não um reinício e proceda com cautela. Apenas VMs que são registados com o fornecedor de recursos SQL VM em modo de gestão completa, e estão na mesma localização, domínio, e na mesma rede virtual que o VM do servidor SQL primário será visível. 
-1. **Selecione Aplicar** para criar o cluster. 
+1. **Selecione Aplicar** para criar o cluster. Pode verificar o estado da sua implantação no **registo de atividade** que está acessível a partir do ícone da campainha na barra de navegação superior. 
+1. Para que um cluster de failover seja suportado pela Microsoft, tem de passar na validação do cluster. Ligue-se ao VM utilizando o seu método preferido (como o Protocolo de Ambiente de Trabalho Remoto (RDP) e valide que o seu cluster passa a validação antes de prosseguir. Se não o fizer, deixa o seu aglomerado num estado não apoiado. Pode validar o cluster utilizando o Failover Cluster Manager (FCM) ou o seguinte comando PowerShell:
 
-Pode verificar o estado da sua implantação no **registo de atividade** que está acessível a partir do ícone da campainha na barra de navegação superior. 
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+    ```
+    
+
 
 ### <a name="onboard-existing-cluster"></a>Aglomerado existente a bordo
 
@@ -93,6 +98,8 @@ Para o fazer, siga estes passos:
 
 1. Reveja as definições do seu cluster. 
 1. Selecione **Aplicar** a bordo do seu cluster e, em seguida, selecionar **Sim** na hora de proceder.
+
+
 
 
 ## <a name="create-availability-group"></a>Criar grupo de disponibilidade
@@ -261,7 +268,7 @@ Esta é uma indicação de que o fornecedor de recursos não conseguiu aceder ao
 - Validar as credenciais fornecidas no portal correspondem às do serviço SQL Server. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
 Para obter mais informações sobre grupos de disponibilidade, consulte:

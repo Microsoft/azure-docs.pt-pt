@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a2ba89a9adec5443ed8ae2a10e0230874b571f46
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9abc6574117b194a626c2697f5297a13566e0447
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690243"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481795"
 ---
-# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Diretrizes de desempenho para SQL Server em Máquinas Virtuais Azure
+# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Diretrizes de desempenho do SQL Server nas Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo fornece orientação para otimizar o desempenho do SQL Server nas Máquinas Virtuais Microsoft Azure.
@@ -198,10 +198,23 @@ Se estiver a utilizar espaços de armazenamento, ao adicionar nós ao cluster na
 
 Se estiver a utilizar espaços de armazenamento e não desmarcar **Adicione todo o armazenamento elegível ao cluster, o**Windows destaca os discos virtuais durante o processo de agrupamento. Como resultado, não aparecem no Disk Manager ou No Explorer até que os espaços de armazenamento sejam removidos do cluster e religados utilizando o PowerShell. Os Espaços de Armazenamento agrulem vários discos para piscinas de armazenamento. Para mais informações, consulte [os Espaços de Armazenamento.](/windows-server/storage/storage-spaces/overview)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="multiple-instances"></a>Múltiplas instâncias 
 
-Para obter mais informações sobre armazenamento e desempenho, consulte [as Diretrizes de Configuração de Armazenamento para O Servidor SQL em Máquinas Virtuais Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
+Considere as seguintes boas práticas ao implementar várias instâncias do SQL Server numa única máquina virtual: 
 
-Para obter as melhores práticas de segurança, consulte [considerações de segurança para o servidor SQL em Máquinas Virtuais Azure](security-considerations-best-practices.md).
+- Desaperte a memória máxima do servidor para cada instância do SQL Server, certificando-se de que sobrou memória para o sistema operativo. Certifique-se de atualizar as restrições de memória para as instâncias do SQL Server se alterar a quantidade de memória que é atribuída à máquina virtual. 
+- Tenha LUNs separados para dados, registos e TempDB, uma vez que todos eles têm diferentes padrões de carga de trabalho e você não quer que eles impactem uns aos outros. 
+- Teste minuciosamente o seu ambiente sob cargas de trabalho pesadas semelhantes à produção para garantir que consegue lidar com a capacidade máxima de carga de trabalho dentro da sua aplicação SLAs. 
+
+Os sinais de sistemas sobrecarregados podem incluir, mas não se limitam a, exaustão do fio do trabalhador, tempos de resposta lentos e/ou memória do sistema do sistema de despachante paralisado. 
+
+
+
+
+## <a name="next-steps"></a>Próximos passos
+
+Para obter mais informações sobre armazenamento e desempenho, consulte [as diretrizes de configuração de armazenamento para SQL Server em Azure Virtual Machines](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
+
+Para obter as melhores práticas de segurança, consulte [considerações de segurança para o SQL Server em Azure Virtual Machines](security-considerations-best-practices.md).
 
 Reveja outros artigos da Máquina Virtual do SqL Server [no SQL Server na Visão Geral das Máquinas Virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](frequently-asked-questions-faq.md).

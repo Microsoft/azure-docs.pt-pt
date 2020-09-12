@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 0dbd7eb9203f31b580f586a8a7d1fa216533628c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170518"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437875"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -219,7 +219,7 @@ Como a IWA é um fluxo silencioso, um dos seguintes deve ser verdade:
 Isto significa que um dos seguintes é verdade:
 
 - Como desenvolvedor, escolheu **Grant** no portal Azure para si mesmo.
-- Um administrador de inquilino selecionou **o consentimento de administração Grant/revoke para {domínio do inquilino}** no separador **permissões API** do registo de aplicações no portal Azure (ver [Adicionar permissões para aceder a APIs web).](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+- Um administrador de inquilino selecionou **o consentimento de administração Grant/revoke para {domínio do inquilino}** no separador **permissões API** do registo de aplicações no portal Azure (ver [Adicionar permissões para aceder à sua API web).](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)
 - Forneceu uma forma de os utilizadores consentirem com a aplicação; ver [Solicitar o consentimento individual do utilizador.](v2-permissions-and-consent.md#requesting-individual-user-consent)
 - Forneceu uma maneira de o administrador do inquilino consentir o pedido; ver [consentimento administrativo](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -227,7 +227,7 @@ O fluxo IWA está ativado para aplicações .NET desktop, .NET Core e Windows Un
 
 Para obter mais informações sobre o consentimento, consulte [permissões v2.0 e consentimento.](v2-permissions-and-consent.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu os fluxos de autenticação suportados pela Microsoft Authentication Library (MSAL), saiba a aquisição e caching dos tokens utilizados nestes fluxos:
 

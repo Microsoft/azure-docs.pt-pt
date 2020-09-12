@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cf630f6028248d799a3953d25db27a2150602586
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 46b3a782d93a55ed7f6eee6c76886f27c2652572
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087016"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469648"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Name resolution for resources in Azure virtual networks (Resolução de nomes para recursos em redes virtuais do Azure)
 
@@ -86,7 +86,7 @@ Pontos a ter em conta quando estiver a utilizar a resolução de nomes fornecida
 O DNS invertido é suportado em todas as redes virtuais baseadas na ARM. Pode emitir consultas de DNS inversas (consultas PTR) para mapear endereços IP de máquinas virtuais para FQDNs de máquinas virtuais.
 * Todas as consultas de PTR para endereços IP de máquinas virtuais irão devolver FQDNs do formulário \[ vmname \] .internal.cloudapp.net
 * A retrospetiva em FQDNs de formulário \[ vmname \] .internal.cloudapp.net resolverá o endereço IP atribuído à máquina virtual.
-* Se a rede virtual estiver ligada a uma [zona privada Azure DNS](../dns/private-dns-overview.md) como rede virtual de registo, as consultas de DNS inversas devolverão dois registos. Um recorde será o do formulário \[ vmname \] .. nome privado] e outros seriam da forma \[ vmname \] .internal.cloudapp.net
+* Se a rede virtual estiver ligada a uma [zona privada Azure DNS](../dns/private-dns-overview.md) como rede virtual de registo, as consultas de DNS inversas devolverão dois registos. Um recorde será do formulário \[ vmname \] .. nome privado] e o outro será do nome \[ vmname \] .internal.cloudapp.net
 * A pesquisa reversa de DNS é procurada por uma determinada rede virtual, mesmo que seja espreitada para outras redes virtuais. Consultas de DNS inversas (consultas PTR) para endereços IP de máquinas virtuais localizadas em redes virtuais espreguiçadeiras irão devolver NXDOMAIN.
 * Se pretender desligar a função DNS inversa numa rede virtual, pode fazê-lo criando uma zona de pesquisa inversa utilizando [zonas privadas Azure DNS](../dns/private-dns-overview.md) e ligando esta zona à sua rede virtual. Por exemplo, se o espaço de endereço IP da sua rede virtual for 10.20.0.0/16, então pode criar uma zona privada de DNS vazia 20.10.in-addr.arpa e ligá-lo à rede virtual. Ao ligar a zona à sua rede virtual, deverá desativar o registo automático no link. Esta zona irá sobrepor-se às zonas de procura inversa padrão para a rede virtual e uma vez que esta zona está vazia, obterá NXDOMAIN para as suas consultas de DNS invertidos. Consulte o nosso [guia Quickstart](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) para obter detalhes sobre como criar uma zona privada de DNS e ligá-la a uma rede virtual.
 
@@ -189,7 +189,7 @@ Se as consultas de encaminhamento para Azure não se adequam às suas necessidad
 > [!NOTE]
 > Para um melhor desempenho, quando estiver a utilizar VMs Azure como servidores DNS, o IPv6 deve ser desativado.
 
-### <a name="web-apps"></a>Aplicações Web
+### <a name="web-apps"></a>Web Apps
 Suponha que precisa de executar a resolução de nomes a partir da sua aplicação web construída utilizando o App Service, ligado a uma rede virtual, a VMs na mesma rede virtual. Além de configurar um servidor DNS personalizado que tenha um reencaminhador DENS que encaminha consultas para Azure (IP virtual 168.63.129.16), execute os seguintes passos:
 1. Ativar a integração de rede virtual para a sua aplicação web, se ainda não for feita, como descrito na [Integração da sua aplicação com uma rede virtual.](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 2. No portal Azure, para o plano de Serviço de Aplicações que acolhe a aplicação web, selecione **Sync Network** em **Rede,** **Integração de Rede Virtual**.
@@ -220,7 +220,7 @@ Quando estiver a utilizar o modelo de implementação clássico, pode especifica
 > [!NOTE]
 > Se alterar as definições de DNS para uma rede virtual ou máquina virtual que já esteja implantada, para que as novas definições de DNS produzam efeitos, deve efetuar uma renovação do aluguer de DHCP em todos os VMs afetados na rede virtual. Para os VMs que executam o Sistema operativo Windows, pode fazê-lo digitando `ipconfig /renew` diretamente no VM. Os passos variam dependendo do SO. Consulte a documentação relevante para o seu tipo de SO.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Modelo de implementação do Gestor de Recursos Azure:
 

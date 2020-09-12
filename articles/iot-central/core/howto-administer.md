@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7b77ea9e0e1f322cb5ef0bc63885c3ccce1b76f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37a3725fb7684a9e87f1936ef0ce8cc79de03894
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158691"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594667"
 ---
 # <a name="change-iot-central-application-settings"></a>Alterar definições de aplicação IoT Central
 
@@ -45,7 +45,7 @@ Utilize o botão **Eliminar** para eliminar permanentemente a sua aplicação Io
 
 Os pacotes SDK do IoT Central Resource Manager estão disponíveis para Node, Python, C#, Ruby, Java e Go. Pode utilizar estes pacotes para criar, listar, atualizar ou eliminar aplicações IoT Central. As embalagens incluem ajudantes para gerir a autenticação e o manuseamento de erros.
 
-Pode encontrar exemplos de como utilizar os SDKs do Azure Resource Manager em [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples) .
+Pode encontrar exemplos de como utilizar os SDKs do Azure Resource Manager em [https://github.com/Azure-Samples/azure-iot-central-arm-sdk-samples](https://github.com/Azure-Samples/azure-iot-central-arm-sdk-samples) .
 
 Para saber mais, consulte os seguintes repositórios e pacotes GitHub:
 
@@ -58,6 +58,6 @@ Para saber mais, consulte os seguintes repositórios e pacotes GitHub:
 | Java | [https://github.com/Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) | [https://search.maven.org/search?q=a:azure-mgmt-iotcentral](https://search.maven.org/search?q=a:azure-mgmt-iotcentral)
 | Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu como administrar a sua aplicação Azure IoT Central, o próximo passo sugerido é aprender sobre [gerir utilizadores e funções](howto-manage-users-roles.md) no Azure IoT Central.

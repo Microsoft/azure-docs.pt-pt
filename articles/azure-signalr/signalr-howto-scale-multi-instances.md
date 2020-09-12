@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921992"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439219"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como escalar o Serviço SignalR com várias instâncias?
 O mais recente Serviço SignalR SDK suporta vários pontos finais para instâncias do Serviço SignalR. Pode utilizar esta funcionalidade para escalar as ligações simultâneas ou usá-la para mensagens transversais.
@@ -27,7 +27,7 @@ Se a chave começar `Azure:SignalR:ConnectionString:` com , deve estar em format
 
 Pode adicionar cadeias de ligação de vários casos utilizando os `dotnet` seguintes comandos:
 
-```batch
+```cmd
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <ConnectionString2>
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>
@@ -236,7 +236,7 @@ Quando todos os `primary` pontos finais não estão disponíveis, as escolhas do
 
 ![Repse-over](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia, aprendeu sobre como configurar várias instâncias na mesma aplicação para cenários de escala, fragmentos e cross-region.
 

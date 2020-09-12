@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612559"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482849"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configure um equilibrador de carga para um sql servidor sempre em grupo de disponibilidade em Máquinas Virtuais Azure
 
@@ -40,7 +40,7 @@ Ver artigos relacionados:
 
 Ao percorrer este artigo, cria-se e configura um equilibrador de carga no portal Azure. Após o processo estar concluído, configura o cluster para utilizar o endereço IP do equilibrador de carga para o ouvinte do grupo de disponibilidade.
 
-## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Criar e configurar o equilibrador de carga no portal Azure
+## <a name="create--configure-load-balancer"></a>Criar & configurar o balançador de carga 
 
 Nesta parte da tarefa, faça os seguintes passos:
 
@@ -71,7 +71,7 @@ Primeiro, crie o equilibrador de carga.
    | --- | --- |
    | **Nome** |Um nome de texto que representa o equilibrador de carga. Por exemplo, **sqlLB**. |
    | **Tipo** |**Interna**: A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo**: Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação pública à Internet. |
-   | **SKU** |**Standard**: Obrigatório se as suas instâncias SQL estiverem num conjunto de disponibilidade diferente do equilibrador de carga. </br> **Básico**: Opção predefinição. |
+   | **SKU** |**Básico**: Opção predefinição. Só é válido se as instâncias do SQL Server estiverem no mesmo conjunto de disponibilidade. </br> **Norma**: Preferido. Válido se as instâncias do SQL Server estiverem no mesmo conjunto de disponibilidade. Necessário se as suas instâncias do SQL Server estiverem em diferentes zonas de disponibilidade. |
    | **Rede virtual** |Selecione a rede virtual em que se encontram as instâncias do SQL Server. |
    | **Sub-rede** |Selecione a sub-rede em que se encontram as instâncias do SQL Server. |
    | **Atribuição de endereços IP** |**Estático** |
@@ -317,6 +317,6 @@ Se tiver um Grupo de Segurança da Rede Azure para restringir o acesso, certifiq
 - Os endereços IP flutuantes do balançador de carga para o ouvinte AG
 - O endereço IP do núcleo do cluster, se aplicável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configure um SQL Server Always On availability group em máquinas virtuais Azure em diferentes regiões](availability-group-manually-configure-multiple-regions.md)
