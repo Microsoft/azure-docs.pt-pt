@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210666"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441685"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e concência para Azure Synapse Analytics
 
@@ -125,7 +125,7 @@ A tabela a seguir mostra as consultas simultâneas máximas e as faixas horária
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-Quando não há slots de concuncy suficientes para iniciar a execução de consultas, as consultas são filas e executadas com base na importância.  Se houver uma importância equivalente, as consultas são executadas numa base de primeira e primeira saída.  À medida que as consultas terminam e o número de consultas e slots ficam abaixo dos limites, o SQL Data Warehouse lança consultas em fila.
+Quando não há slots de concuncy suficientes para iniciar a execução de consultas, as consultas são filas e executadas com base na importância.  Se houver uma importância equivalente, as consultas são executadas numa base de primeira e primeira saída.  À medida que as consultas terminam e o número de consultas e slots ficam abaixo dos limites, a Azure Synapse Analytics lança consultas em fila.
 
 ## <a name="next-steps"></a>Próximos passos
 

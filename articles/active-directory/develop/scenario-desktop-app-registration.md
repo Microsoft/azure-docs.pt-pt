@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6796ac42a10d3b976b23f5af1418b1789011d61b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885162"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440954"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de desktop que chama APIs web: Registo de aplicações
 
@@ -28,7 +28,7 @@ Os tipos de conta suportados numa aplicação de ambiente de trabalho dependem d
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Público para aquisição de fichas interativas
 
-Se a sua aplicação para desktop utilizar a autenticação interativa, pode iniciar sação nos utilizadores a partir de qualquer tipo de [conta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+Se a sua aplicação para desktop utilizar a autenticação interativa, pode iniciar sação nos utilizadores a partir de qualquer tipo de [conta](quickstart-register-app.md).
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>Público para aplicativo de ambiente de trabalho fluxos silenciosos
 
@@ -41,7 +41,7 @@ Se a sua aplicação para desktop utilizar a autenticação interativa, pode ini
 Os URIs de redirecionamento para utilizar numa aplicação de ambiente de trabalho dependem do fluxo que pretende utilizar.
 
 - Se utilizar a autenticação interativa ou o fluxo de código do dispositivo, utilize `https://login.microsoftonline.com/common/oauth2/nativeclient` - Para obter esta configuração, selecione o URL correspondente na secção **autenticação** para a sua aplicação.
-  
+
   > [!IMPORTANT]
   > Hoje em dia, MSAL.NET usa outro URI de redirecionamento por padrão em aplicações de desktop que funcionam no Windows `urn:ietf:wg:oauth:2.0:oob` (). No futuro, vamos querer alterar este padrão, por isso recomendamos que `https://login.microsoftonline.com/common/oauth2/nativeclient` utilize.
 

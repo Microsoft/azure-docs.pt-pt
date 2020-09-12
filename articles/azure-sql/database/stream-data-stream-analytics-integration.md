@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869869"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437076"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmitir dados para a Base de Dados Azure SQL utilizando a integração Azure Stream Analytics (pré-visualização)
 
@@ -31,7 +31,7 @@ Os utilizadores podem agora ingerir, processar, visualizar e analisar dados de s
 - Facilidade adicional de utilização com dados de pré-visualização: Pré-visualizar dados de entrada a partir da fonte de eventos (Event Hub/IoT Hub) no contexto da tabela selecionada
 
 > [!IMPORTANT]
-> Um trabalho do Azure Stream Analytics pode ser transmitido para Azure SQL Database, Azure SQL Managed Instance, ou Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para mais informações, consulte [outputs](../../stream-analytics/sql-database-output.md).
+> Um trabalho do Azure Stream Analytics pode ser transmitido para Azure SQL Database, Azure SQL Managed Instance, ou Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para mais informações, consulte [outputs](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -122,7 +122,7 @@ Para concluir os passos neste artigo, precisa dos seguintes recursos:
 
      ![stream de trabalhos de análise](./media/stream-data-stream-analytics-integration/jobs.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Documentação do Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
 - [Padrões da solução Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)

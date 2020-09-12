@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9b493e862ed70bbeab9ac509c79003a535366d0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116545"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433913"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de registos de aplicações para o Azure Ative Directory B2C
 
@@ -32,7 +32,7 @@ Você pode chegar à nova experiência navegando para **inscrições** da App em
 A experiência de registos de aplicações Azure AD B2C baseia-se na experiência geral de Registo de [Aplicações](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) para qualquer inquilino AD Azure, mas é personalizada para inquilinos Azure AD B2C.
 
 ## <a name="whats-not-changing"></a>O que não está a mudar?
-- As suas aplicações e configurações relacionadas podem ser encontradas como está na nova experiência. Não precisa de voltar a registar as aplicações e os utilizadores das suas aplicações não precisarão de voltar a entrar. 
+- As suas aplicações e configurações relacionadas podem ser encontradas como está na nova experiência. Não precisa de voltar a registar as aplicações e os utilizadores das suas aplicações não precisarão de voltar a entrar.
 
 > [!NOTE]
 > Para visualizar todas as suas aplicações previamente criadas, navegue para a lâmina **de registos** da App e selecione o separador **Todas as aplicações.** Isto irá exibir aplicações criadas na experiência do legado, na nova experiência e nas criadas no serviço AZure AD.
@@ -43,7 +43,7 @@ A experiência de registos de aplicações Azure AD B2C baseia-se na experiênci
 
 -   **O registo combinado** de aplicações permite-lhe registar rapidamente uma aplicação, quer se trate de uma aplicação virada para o cliente ou de uma aplicação para aceder ao Microsoft Graph.
 
-- O painel **endpoints** permite identificar rapidamente os pontos finais relevantes para o seu cenário, incluindo a configuração de ligação OpenID, metadados SAML, Microsoft Graph API e [pontos finais de fluxo de utilizador OAuth 2.0](tokens-overview.md#endpoints). 
+- O painel **endpoints** permite identificar rapidamente os pontos finais relevantes para o seu cenário, incluindo a configuração de ligação OpenID, metadados SAML, Microsoft Graph API e [pontos finais de fluxo de utilizador OAuth 2.0](tokens-overview.md#endpoints).
 
 - **Permissões API** e **Expor uma API** fornecem um âmbito, permissão e gestão de consentimento mais extensos. Agora também pode atribuir permissões de MS Graph e Azure AD Graph a uma aplicação.
 
@@ -57,7 +57,7 @@ Na nova experiência, selecione um tipo de conta de suporte a partir das seguint
 - Contas em qualquer diretório organizacional (Qualquer diretório AD Azure – Multitenant).
 - Contas em qualquer diretório organizacional ou qualquer fornecedor de identidade. Para autenticar utilizadores com Azure AD B2C.
 
-Para entender os diferentes tipos de conta, **selecione Ajude-me** a escolher na experiência de criação. 
+Para entender os diferentes tipos de conta, **selecione Ajude-me** a escolher na experiência de criação.
 
 Na experiência do legado, as aplicações foram sempre criadas como aplicações viradas para o cliente. Para essas aplicações, o tipo de conta é definido para **Contas em qualquer diretório organizacional ou qualquer fornecedor de identidade. Para autenticar utilizadores com Azure AD B2C**.
 > [!NOTE]
@@ -68,9 +68,9 @@ Também pode utilizar esta opção para utilizar o Azure AD B2C como prestador d
 ## <a name="applications-for-devops-scenarios"></a>Aplicações para cenários de DevOps
 Pode utilizar os outros tipos de conta para criar uma aplicação para gerir os seus cenários de DevOps, como usar o Microsoft Graph para carregar políticas do Quadro de Experiência de Identidade ou de utilizadores de fornecimento. Saiba [como registar uma aplicação do Microsoft Graph para gerir os recursos Azure AD B2C](microsoft-graph-get-started.md).
 
-Pode não ver todas as permissões do Microsoft Graph, porque muitas destas permissões não se aplicam aos utilizadores de consumidores Azure B2C. [Leia mais sobre a gestão de utilizadores usando o Microsoft Graph](manage-user-accounts-graph-api.md).  
+Pode não ver todas as permissões do Microsoft Graph, porque muitas destas permissões não se aplicam aos utilizadores de consumidores Azure B2C. [Leia mais sobre a gestão de utilizadores usando o Microsoft Graph](manage-user-accounts-graph-api.md).
 
-## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Consentimento de administração e offline_access+âmbitos abertos  
+## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Consentimento de administração e offline_access+âmbitos abertos
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
 
 O âmbito **aberto** é necessário para que o Azure AD B2C possa inscrever os utilizadores numa aplicação. O **âmbito offline_access** é necessário para emitir fichas de atualização para um utilizador. Estes âmbitos foram previamente adicionados e dado consentimento administrativo por padrão. Agora, pode facilmente adicionar permissões para estes âmbitos durante o processo de criação, garantindo que o **consentimento da administração Grant para a opção de permissão de abertura e offline_access** é selecionada. Caso contrário, as permissões do Microsoft Graph podem ser adicionadas com o consentimento de administração nas definições de **permissões API** para uma aplicação existente.
@@ -78,11 +78,11 @@ O âmbito **aberto** é necessário para que o Azure AD B2C possa inscrever os u
 Saiba mais sobre [permissões e consentimento.](../active-directory/develop/v2-permissions-and-consent.md)
 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plataformas/Autenticação: URLs de resposta/URIs de redirecionamento
-Na experiência do legado, os vários tipos de plataformas foram geridos em **Propriedades** como urls de resposta para aplicações web/APIs e Redirecionamento URI para clientes nativos. Os "clientes nativos" também são conhecidos como "clientes públicos" e incluem aplicações para iOS, macOS, Android e outros tipos de aplicações móveis e desktop. 
+Na experiência do legado, os vários tipos de plataformas foram geridos em **Propriedades** como urls de resposta para aplicações web/APIs e Redirecionamento URI para clientes nativos. Os "clientes nativos" também são conhecidos como "clientes públicos" e incluem aplicações para iOS, macOS, Android e outros tipos de aplicações móveis e desktop.
 
-Na nova experiência, os URLs de resposta e uris de redirecionamento são ambos referidos como URIs de redirecionamento e podem ser encontrados na secção de Autenticação de uma **aplicação.** Os registos de aplicações não se limitam a ser uma aplicação web ou uma aplicação nativa. Pode utilizar o mesmo registo de aplicações para todos estes tipos de plataformas registando os respetivos URIs de redirecionamento. 
+Na nova experiência, os URLs de resposta e uris de redirecionamento são ambos referidos como URIs de redirecionamento e podem ser encontrados na secção de Autenticação de uma **aplicação.** Os registos de aplicações não se limitam a ser uma aplicação web ou uma aplicação nativa. Pode utilizar o mesmo registo de aplicações para todos estes tipos de plataformas registando os respetivos URIs de redirecionamento.
 
-Os URIs de redirecionamento são necessários para serem associados a um tipo de aplicação, web ou público (mobile e desktop). [Saiba mais sobre redirecionar URIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Os URIs de redirecionamento são necessários para serem associados a um tipo de aplicação, web ou público (mobile e desktop). [Saiba mais sobre redirecionar URIs](../active-directory/develop/quickstart-register-app.md#add-a-redirect-uri)
 
 <!-- Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to **Yes** for flows that might not use a redirect URI, such as ROPC flows. -->
 
@@ -110,7 +110,7 @@ A nova experiência tem as seguintes limitações:
 <!-- - Azure AD B2C doesn't currently support the single-page application "SPA" app type.  -->
 - Alterar o valor das contas suportadas não é suportado na UI. Você precisará usar o manifesto da aplicação, a menos que você esteja trocando entre Azure AD single-tenant e multi-inquilino.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a nova experiência de registo de aplicações:
 * Saiba [como registar uma aplicação web.](tutorial-register-applications.md)

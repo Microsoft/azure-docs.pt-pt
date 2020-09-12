@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631475"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440903"
 ---
 # <a name="using-openfaas-on-aks"></a>Utilização do OpenFaaS em AKS
 
@@ -72,7 +72,7 @@ helm upgrade openfaas --install openfaas/openfaas \
     --set serviceType=LoadBalancer
 ```
 
-Saída:
+Resultado:
 
 ```output
 NAME:   openfaas
@@ -91,7 +91,8 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+```console
+kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
 É criado um endereço IP público para aceder ao gateway OpenFaaS. Para recuperar este endereço IP, utilize o [comando de serviço kubectl.][kubectl-get] Pode levar um minuto para o endereço IP ser atribuído ao serviço.
@@ -141,7 +142,7 @@ Use caracóis para invocar a função. Substitua o endereço IP no exemplo segui
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 ```
 
-Saída:
+Resultado:
 
 ```output
  _   _      _ _            _
@@ -208,7 +209,7 @@ Coloque os dados na base de dados.
 mongoimport --uri=$COSMOS -c plans < plans.json
 ```
 
-Saída:
+Resultado:
 
 ```output
 2018-02-19T14:42:14.313+0000    connected to: localhost
@@ -234,7 +235,7 @@ Teste a função com caracóis. Atualize o endereço IP com o endereço de gatew
 curl -s http://52.186.64.52:8080/function/cosmos-query
 ```
 
-Saída:
+Resultado:
 
 ```json
 [{"ID":"","Name":"two_person","FriendlyName":"","PortionSize":"","MealsPerWeek":"","Price":72,"Description":"Our basic plan, delivering 3 meals per week, which will feed 1-2 people."}]

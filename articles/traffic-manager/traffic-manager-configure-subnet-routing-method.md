@@ -3,20 +3,20 @@ title: Encaminhamento de tráfego de sub-redes configurada - Gestor de Tráfego 
 description: Este artigo explica como configurar o Gestor de Tráfego para encaminhar o tráfego a partir de sub-redes específicas.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: rohink
-ms.openlocfilehash: fe65e2e2a05c3c1d936bcdfa94bbe8cc310f7c68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711787"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401372"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar tráfego para pontos finais específicos com base na sub-rede do utilizador com o Gestor de Tráfego
 
@@ -65,7 +65,7 @@ Nesta secção, você cria dois VMs *myEndpointVMEastUS* e *myEndpointVMWEurope*
     |---|---|
     |Rede virtual| Selecione **Rede virtual** em **Criar rede virtual**. Para **Nome**, introduza *myVNet1*; para sub-rede, introduza *mySubnet*.|
     |Grupo de Segurança de Rede|Selecione **Básico** e, no menu pendente **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP** |
-    |Diagnósticos de arranque|Selecione **Desativado**.|
+    |Diagnósticos de arranque.|Selecione **Desativado**.|
     |||
 
 6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implementação da VM.
@@ -150,7 +150,7 @@ Nesta secção, você cria um VM *(mVMEastUS* e *myVMWestEurope*) em cada regiã
     |---|---|
     |Rede virtual| Selecione **Rede virtual** em **Criar rede virtual**. Para **Nome**, introduza *myVNet3*; para sub-rede, introduza *mySubnet3*.|
     |Grupo de Segurança de Rede|Selecione **Básico** e, no menu pendente **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP** |
-    |Diagnósticos de arranque|Selecione **Desativado**.|
+    |Diagnósticos de arranque.|Selecione **Desativado**.|
     |||
 
 6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implementação da VM.

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 0d0f3a45842638915947f5df04e06e2c81a7f5f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081190"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442076"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Como obter fontes de dados de perfil de dados no Catálogo de Dados Azure
 
@@ -29,7 +29,7 @@ O perfil de dados examina os dados na fonte de dados que está a ser registada e
 
 As seguintes fontes de dados suportam perfis de dados:
 
-* SQL Server (incluindo Azure SQL DB e Azure SQL Data Warehouse) mesas e vistas
+* SQL Server (incluindo Azure SQL DB e Azure Synapse Analytics) mesas e vistas
 * Mesas e vistas do oráculo
 * Teradata mesas e vistas
 * Tabelas do Hive

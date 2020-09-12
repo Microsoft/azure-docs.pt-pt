@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292791"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441498"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Voltar a proteger do Azure para o local
 
@@ -47,6 +47,9 @@ Ative a replicação. Pode reprotegir VMs específicos ou um plano de recuperaç
 - Se reprotetar um plano de recuperação, deve fornecer os valores para cada máquina protegida.
 - Se os VMs pertencerem a um grupo de replicação para a consistência multi-VM, só podem ser reprotegidos usando um plano de recuperação. VMs em um grupo de replicação deve usar o mesmo servidor alvo principal
 
+>[!NOTE]
+>A quantidade de dados enviados de Azure para fonte durante a reproteção, pode ser qualquer coisa entre 0 bytes e soma de tamanho do disco para todas as máquinas protegidas, e não pode ser calculado.
+
 ### <a name="before-you-start"></a>Antes de começar
 
 - Depois de umas botas VM em Azure após o failover, o agente demora algum tempo a registar-se de volta ao servidor de configuração (até 15 minutos). Durante este tempo, não poderá reprotegir e uma mensagem de erro indica que o agente não está instalado. Se isto acontecer, espere uns minutos e reproteja.
@@ -71,7 +74,7 @@ Permitir a reproteção da seguinte forma:
     - Não ligue o VM no local depois de terminar a reprotecção.
    
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se encontrar algum problema, reveja o [artigo de resolução de problemas](vmware-azure-troubleshoot-failback-reprotect.md).
 - Depois de os VMs Azure estarem protegidos, pode [executar uma falha](vmware-azure-failback.md). Failback desliga o Azure VM e arranca o VM no local. Espere algum tempo de inatividade para a aplicação, e escolha um tempo de insí bem-estar em conformidade.

@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: d70558efb1ea54f069981062e5379d995dbeddd2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950345"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459104"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
-O Azure NetApp Files suporta a criação de instantâneos a pedido e a utilização de políticas instantâneas para agendar a criação automática de instantâneos.  Também pode restaurar uma imagem instantânea para um novo volume.  
+O Azure NetApp Files suporta a criação de instantâneos a pedido e a utilização de políticas instantâneas para agendar a criação automática de instantâneos.  Também pode restaurar uma imagem instantânea para um novo volume ou restaurar um único ficheiro utilizando um cliente.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Crie um instantâneo a pedido para um volume
 
@@ -134,7 +134,7 @@ Pode apagar uma política de instantâneo que já não pretende manter.
 
 1.  A partir da vista da Conta NetApp, clique na **política Snapshot**.
 
-2.  Clique em direito na política de instantâneo que pretende modificar e, em seguida, **selecione Delete**.
+2.  Clique à direita na política de instantâneo que pretende modificar e, em seguida, selecione **Delete**.
 
     ![Menu de clique de política instantânea](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
@@ -165,7 +165,62 @@ Atualmente, pode restaurar uma imagem apenas para um novo volume.
     O novo volume utiliza o mesmo protocolo que o instantâneo utiliza.   
     O novo volume ao qual o instantâneo é restaurado aparece na lâmina Volumes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="restore-a-file-from-a-snapshot-using-a-client"></a>Restaurar um ficheiro a partir de uma imagem usando um cliente
+
+Se não quiser [restaurar a totalidade do instantâneo num volume,](#restore-a-snapshot-to-a-new-volume)tem a opção de restaurar um ficheiro a partir de uma imagem, utilizando um cliente que tenha o volume montado.  
+
+O volume montado contém um diretório instantâneo denominado  `.snapshot` (em clientes NFS) ou `~snapshot` (em clientes SMB) que é acessível ao cliente. O diretório instantâneo contém subdireções correspondentes às imagens do volume. Cada subdiretório contém os ficheiros do instantâneo. Se eliminar acidentalmente ou substituir um ficheiro, pode restaurar o ficheiro no diretório de leitura-escrita dos pais copiando o ficheiro de uma subdiretório instantânea para o diretório de leitura. 
+
+Se selecionou a caixa de verificação Hide Snapshot Path quando criou o volume, o diretório instantâneo está escondido. Pode ver o estado do Caminho do Instantâneo de Ocultação do volume selecionando o volume. Pode editar a opção Ocultar O caminho do instantâneo clicando em **Editar** na página do volume.  
+
+![Editar opções de instantâneo de volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
+### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurar um ficheiro utilizando um cliente Linux NFS 
+
+1. Utilize o `ls` comando Linux para listar o ficheiro que pretende restaurar do `.snapshot` diretório. 
+
+    Por exemplo:
+
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
+
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
+
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
+    `my.txt`
+
+2. Utilize o `cp` comando para copiar o ficheiro para o diretório dos pais.  
+
+    Por exemplo: 
+
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
+
+    `$ ls my.txt`   
+    `my.txt`   
+
+### <a name="restore-a-file-by-using-a-windows-client"></a>Restaurar um ficheiro utilizando um cliente Windows 
+
+1. Se o `~snapshot` diretório do volume estiver escondido, [mostre itens ocultos](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) no diretório dos pais para visualizar `~snapshot` .
+
+    ![Mostrar itens ocultos](../media/azure-netapp-files/snapshot-show-hidden.png) 
+
+2. Navegue para a subdiretória interior `~snapshot` para encontrar o ficheiro que pretende restaurar.  Clique com o direito no ficheiro. Selecione **Copiar**.  
+
+    ![Copy file para restaurar](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+
+3. Volte para o diretório dos pais. Clique com o botão direito no diretório dos pais e `Paste` selecione para colar o ficheiro ao diretório.
+
+    ![Pasta para restaurar](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+
+4. Também pode clicar à direita no diretório dos pais, selecionar **Propriedades,** clicar no separador **Versões Anteriores** para ver a lista de instantâneos e selecione **Restaurar** um ficheiro.  
+
+    ![Propriedades Versões anteriores](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
+* [Azure NetApp Files Snapshots 101 vídeo](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

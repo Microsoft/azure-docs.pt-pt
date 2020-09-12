@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d4459547300f5dfc7b7c22d1e531b928a13aa66c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213436"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459152"
 ---
 # <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Utilização de rótulos para consultas de instrumentos na piscina Sinaapse SQL
 
 Incluído neste artigo estão dicas para o desenvolvimento de soluções que usam rótulos para consultas de instrumentos na piscina SQL.
 
-Dicas para utilizar rótulos para consultas de instrumentos no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+Dicas para utilizar rótulos para consultas de instrumentos no Azure Synapse Analytics para o desenvolvimento de soluções.
 
 ## <a name="what-are-labels"></a>O que são rótulos?
 

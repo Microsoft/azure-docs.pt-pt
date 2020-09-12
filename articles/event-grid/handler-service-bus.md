@@ -2,13 +2,13 @@
 title: Filas de autocarros de serviço e tópicos como manipuladores de eventos para eventos Azure Event Grid
 description: Descreve como pode usar filas e tópicos de Service Bus como manipuladores de eventos para eventos Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: c573f7ee088fe1d88f832623891377d4fd50bd4b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/03/2020
+ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105698"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440801"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Filas de autocarros de serviço e tópicos como manipuladores de eventos para eventos Azure Event Grid
 Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais algumas medidas para processar o evento. Vários serviços da Azure são automaticamente configurados para lidar com eventos e **a Azure Service Bus** é um deles. 
@@ -32,7 +32,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-## <a name="service-bus-topics"></a>Tópicos de ônibus de serviço
+## <a name="service-bus-topics"></a>Tópicos do Service Bus
 
 Você pode encaminhar eventos em Event Grid diretamente para tópicos de Service Bus para lidar com eventos do sistema Azure com tópicos de Service Bus, ou para o comando & controlar cenários de mensagens.
 
@@ -62,9 +62,9 @@ Se utilizar um **tópico de ônibus de serviço ou fila** como manipulador de ev
 | versão aeg-data | <p>Versão de dados do evento.</p><p>Exemplo: "1".</p><p>Para **o esquema de eventos Grid,** esta propriedade representa a versão de dados e para o esquema de **eventos em nuvem,** não se aplica.</p> |
 
 ## <a name="message-headers"></a>Cabeçalhos de mensagem
-Ao enviar um evento para uma fila de autocarros de serviço ou tópico como uma mensagem intermediada, `messageid` a mensagem intermediada é o **ID**do evento .
+Ao enviar um evento para uma fila de Autocarro de Serviço ou tópico como uma mensagem intermediada, `messageid` a mensagem intermediada é um ID do sistema interno.
 
-O ID do evento será mantido em toda a reentrega do evento para que possa evitar entregas duplicadas, ligando a **deteção duplicada** na entidade de autocarros de serviço. Recomendamos que permita que a duração da deteção duplicada na entidade Service Bus seja o tempo de vida (TTL) do evento ou a duração máxima da relistência, o que for mais longo.
+O ID do sistema interno para a mensagem será mantido em toda a reentrega do evento para que possa evitar entregas duplicadas, ligando a **deteção duplicada** na entidade de autocarros de serviço. Recomendamos que permita que a duração da deteção duplicada na entidade Service Bus seja o tempo de vida (TTL) do evento ou a duração máxima da relistência, o que for mais longo.
 
 ## <a name="rest-examples-for-put"></a>Exemplos de REPOUSO (para PUT)
 

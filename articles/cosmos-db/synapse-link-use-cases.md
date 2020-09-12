@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 3a522a5a5945fe7a4b63dc759077d744f951a76f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d6039ac3bead535fd9c7de64a8e92a0d7a58f390
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814421"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319241"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para o Azure Cosmos DB: casos de utilização da análise quase em tempo real
+# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para Azure Cosmos DB: Casos de utilização de análise quase em tempo real
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB é uma capacidade de processamento transacional e analítico híbrido nativo em nuvem (HTAP) que lhe permite executar perto de análises em tempo real sobre dados operacionais. A Synapse Link cria uma integração apertada e perfeita entre a Azure Cosmos DB e a Azure Synapse Analytics.
 
@@ -86,7 +86,7 @@ Segue-se uma arquitetura que aproveita as capacidades nativas de HTAP em nuvem d
 
 Link Synapse para Azure Cosmos DB usar casos:
 
-* **Prepare & gasoduto preditivo do comboio:** Os dados operacionais históricos dos sensores de dispositivos IoT poderiam ser usados para treinar modelos preditivos, como detetores de anomalias. Estes detetores de anomalias são então implantados de volta à borda para monitorização em tempo real. Este ciclo virtuoso permite uma reconversão contínua dos modelos preditivos.
+* **Prepare & gasoduto preditivo do comboio:** Os dados operacionais históricos dos sensores de dispositivos IoT poderiam ser usados para treinar modelos preditivos, como detetores de anomalias. Estes detetores de anomalias são depois implementados na periferia para uma monitorização em tempo real. Este ciclo virtuoso permite uma reconversão contínua dos modelos preditivos.
 
 * **Relatórios operacionais:** Com o crescimento das iniciativas digitais gémeas, as empresas estão a recolher grandes quantidades de dados operacionais de um grande número de sensores para construir uma cópia digital de cada máquina. Este dados powers BI precisa entender tendências sobre dados históricos, além de aplicações em tempo real sobre dados quentes recentes.
 
@@ -128,13 +128,13 @@ Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operaç
 
   * Ao utilizar [a loja analítica Azure Cosmos DB](analytical-store-introduction.md), uma loja de colunas totalmente isolada, a Synapse Link não permite análises extract-Transform-Load (ETL) em [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) contra dados operacionais distribuídos globalmente à escala.  Analistas de negócios, engenheiros de dados e cientistas de dados podem agora usar o Synapse Spark ou Synapse SQL de forma interoperável para executar perto de inteligência empresarial em tempo real, analíticos e oleodutos de aprendizagem automática sem afetar o desempenho das suas cargas de trabalho transacionais na Azure Cosmos DB. Veja os [benefícios do Synapse Link em Azure Cosmos DB](synapse-link.md) para mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte os seguintes documentos:
 
 * [Ligação Azure Synapse para Azure Cosmos DB](synapse-link.md) 
 
-* [Loja Azure Cosmos DB Analytical](analytical-store-introduction.md)
+* [Arquivo Analítico do Azure Cosmos DB](analytical-store-introduction.md)
 
 * [Trabalhando com Azure Synapse Link para Azure Cosmos DB](configure-synapse-link.md)
 
@@ -142,4 +142,4 @@ Para saber mais, consulte os seguintes documentos:
 
 * [Faísca Apache em Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [SQL sem servidor/a pedido no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Suporte de tempo sem servidor SQL no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254224"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319297"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Implementar uma aplicação apátrida php guestbook com Redis on Arc habilitado cluster Kubernetes em Azure Stack Edge GPU
 
@@ -57,7 +57,7 @@ Antes de poder implementar a aplicação apátrida, certifique-se de que preench
       - Na UI local do seu dispositivo Azure Stack Edge, vá ao **Overview** e note o número de software Kubernetes. 
       - Verifique estas duas versões para compatibilidade a partir do mapeamento fornecido na versão Kubernetes Suportada <!--insert link-->.
 
-1. Tem uma [configuração GitOps que pode utilizar para executar uma implementação do Arco Azure](https://github.com/kagoyal/dbehaikudemo). Utilizará os `yaml` seguintes ficheiros para implantar no seu dispositivo Azure Stack Edge.
+1. Tem uma [configuração GitOps que pode utilizar para executar uma implementação do Arco Azure](https://github.com/kagoyal/dbehaikudemo). Neste exemplo, utilizará os `yaml` seguintes ficheiros para implementar no seu dispositivo Azure Stack Edge.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -174,6 +174,6 @@ C:\Users\user>
 ```-->
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como utilizar o [Painel de Instrumentos de Kubernetes para monitorizar as implementações no seu dispositivo Azure Stack Edge](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)

@@ -4,12 +4,12 @@ description: Este artigo descreve o Anfitrião do Processador de Eventos em Azur
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27b587e6562b5ba0c9bf28a52a00a9d8e7d9201c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010465"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319507"
 ---
 # <a name="event-processor-host"></a>Anfitrião do processador de eventos
 > [!NOTE]
@@ -87,6 +87,8 @@ Em seguida, instantaneamente um [caso EventProcessorHost.](/dotnet/api/microsoft
 
 Finalmente, os consumidores registam a instância [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) com o serviço Event Hubs. Registar uma classe de processador de eventos com uma instância de EventProcessorHost inicia o processamento de eventos. O registo instrui o serviço Desempreimentos a esperar que a app de consumo consuma eventos de algumas das suas divisórias e que invoque o código de implementação do [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) sempre que pressiona os eventos a consumir. 
 
+> [!NOTE]
+> O nome do Grupo de Consumidores é sensível a casos.  Alterações no consumidorGroupName podem resultar na leitura de todas as divisórias desde o início do fluxo.
 
 ### <a name="example"></a>Exemplo
 
@@ -186,7 +188,7 @@ Não recomendamos a utilização da aplicação quando se cria um recetor com é
 > Recomendamos a utilização de diferentes grupos de consumidores para aplicações que utilizem épocas e para aqueles que não usam épocas para evitar erros. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que está familiarizado com o Anfitrião do Processador de Eventos, consulte os seguintes artigos para saber mais sobre os Centros de Eventos:
 

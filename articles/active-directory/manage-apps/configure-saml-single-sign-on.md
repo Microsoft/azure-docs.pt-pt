@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640485"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441923"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurar o início de sessão único baseado em SAML
 
@@ -51,7 +51,6 @@ Deve obter os valores do vendedor de aplicações. Pode introduzir manualmente o
 | **URL de inscrição** | Necessário | Não especifique | Quando um utilizador abre este URL, o fornecedor de serviços redireciona para o Azure AD para autenticar e iniciar a sessão do utilizador. A Azure AD utiliza o URL para iniciar a aplicação a partir do Office 365 ou Azure AD My Apps. Quando em branco, o Azure AD faz um sinal iniciado pelo IdP quando um utilizador lança a aplicação a partir do Office 365, Azure AD My Apps, ou o URL Azure AD SSO.|
 | **Estado de Reencaminhamento** | Opcional | Opcional | Especifica à aplicação para onde deve redirecionar o utilizador após a conclusão da autenticação. Normalmente, o valor é um URL válido para a aplicação. No entanto, algumas aplicações utilizam este campo de forma diferente. Para obter mais informações, contacte o fornecedor da aplicação.
 | **Logout URL** | Opcional | Opcional | Usado para enviar as respostas de logout SAML de volta para a aplicação.
-
 
 ## <a name="user-attributes-and-claims"></a>Atributos e reclamações do utilizador 
 
@@ -129,7 +128,7 @@ Se aparecer uma mensagem de erro, complete os seguintes passos:
 Para obter mais informações, consulte [o único sign-on baseado em Debug SAML para aplicações no Azure Ative Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 - [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)

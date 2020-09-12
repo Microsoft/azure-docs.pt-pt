@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: b4cd1fefb728da797d5ff56fe833662f21630c58
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3d49422af01e38884b5d8ff871fbe84254938944
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796413"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434118"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços ligados no Azure Data Factory
 
@@ -32,7 +32,7 @@ Se é novo na Data Factory, consulte [a Introdução à Fábrica de Dados Azure]
 
 ## <a name="overview"></a>Descrição geral
 
-Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para o Azure SQL Data Warehouse, além das quais são construídas soluções de reporte de informação de inteligência empresarial (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) na Azure Data Factory.
+Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para a Azure Synapse Analytics (ex-SQL Data Warehouse), além das quais são construídas soluções de reporte de informação de inteligência empresarial (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) na Azure Data Factory.
 
 Agora, um conjunto de **dados** é uma visão nomeada de dados que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas **atividades** como entradas e saídas.
 
@@ -68,10 +68,10 @@ A tabela a seguir descreve propriedades no JSON acima:
 
 Propriedade | Descrição | Obrigatório |
 -------- | ----------- | -------- |
-name | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Sim |
-tipo | Tipo de serviço ligado. Por exemplo: AzureBlobStorage (data store) ou AzureBatch (computação). Consulte a descrição para tipos de propriedades. | Sim |
-typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e as suas propriedades de tipo, consulte o artigo de visão geral do [conector.](copy-activity-overview.md#supported-data-stores-and-formats) Navegue para o artigo de conector da loja de dados para saber sobre propriedades de tipo específicas para uma loja de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [os serviços ligados ao Compute](compute-linked-services.md). | Sim |
-connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não
+name | Nome do serviço ligado. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Yes |
+tipo | Tipo de serviço ligado. Por exemplo: AzureBlobStorage (data store) ou AzureBatch (computação). Consulte a descrição para tipos de propriedades. | Yes |
+typeProperties | As propriedades do tipo são diferentes para cada loja de dados ou cálculo. <br/><br/> Para os tipos de loja de dados suportados e as suas propriedades de tipo, consulte o artigo de visão geral do [conector.](copy-activity-overview.md#supported-data-stores-and-formats) Navegue para o artigo de conector da loja de dados para saber sobre propriedades de tipo específicas para uma loja de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [os serviços ligados ao Compute](compute-linked-services.md). | Yes |
+connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No
 
 ## <a name="linked-service-example"></a>Exemplo de serviço ligado
 
@@ -108,7 +108,7 @@ Pode encontrar a lista de lojas de dados suportadas pela Data Factory a partir d
 
 Ambientes [computativos](compute-linked-services.md) de referência suportados para detalhes sobre diferentes ambientes de computação a que pode ligar a partir da sua fábrica de dados, bem como as diferentes configurações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o seguinte tutorial para obter instruções passo a passo para a criação de oleodutos e conjuntos de dados utilizando uma destas ferramentas ou SDKs.
 

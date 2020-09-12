@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ddab106e11340dd040b99d1e8abf9d93e9338ab7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956394"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441209"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Melodia de desempenho com vistas materializadas
 
@@ -36,8 +36,8 @@ A maioria dos requisitos numa vista padrão ainda se aplica a uma visão materia
 |Ver definição                 | Armazenada na piscina SQL.              | Armazenada na piscina SQL.
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado na piscina SQL durante a criação de vista. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
-|Velocidade para recuperar dados de visualização de consultas complexas     | Devagar                                         | Rápido  
-|Armazenamento extra                   | Não                                           | Sim
+|Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
+|Armazenamento extra                   | No                                           | Yes
 |Syntax                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-using-materialized-views"></a>Benefícios da utilização de vistas materializadas
@@ -52,7 +52,7 @@ Uma visão materializada devidamente concebida proporciona os seguintes benefíc
 
 As vistas materializadas implementadas na piscina SQL também proporcionam os seguintes benefícios adicionais:
 
-Comparando com outros fornecedores de armazéns de dados, as vistas materializadas implementadas no Azure SQL Data Warehouse também fornecem os seguintes benefícios adicionais:
+Comparando com outros fornecedores de armazéns de dados, as vistas materializadas implementadas no Azure Synapse Analytics também proporcionam os seguintes benefícios adicionais:
 
 - Atualização automática e sincronizada de dados com alterações de dados nas tabelas base. Não é necessária qualquer ação do utilizador.
 - Suporte de função agregado alargado. Consulte [CREATE VISTA MATERIALIZADA COMO SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

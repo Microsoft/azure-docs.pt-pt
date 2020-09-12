@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068731"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436855"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -130,7 +130,7 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 
 **Configurar pedidos opcionais através da UI:**
 
-[![Mostra como configurar reclamações opcionais usando o UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Configure créditos opcionais na UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. A partir da secção **Gerir,** selecione **a configuração Token**.
 1. **Selecione Adicionar reclamação opcional**.
@@ -238,7 +238,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista
 1. Na secção **Gerir,** selecione **a configuração token**
 1. Selecione **adicionar grupos reivindicação**
-1. Selecione os tipos de grupo para devolver **(Todos os grupos,** **Grupo de Segurança,** ou **Diretório).** A opção **All Groups** inclui **SecurityGroup,** **DirectyRole**e **DistributionList**
+1. Selecione os tipos de grupo para devolver **(Grupos de segurança,** ou **funções de diretório**, **Todos os grupos**e/ou **grupos designados para a aplicação).** Os **Grupos atribuídos à opção de candidatura** incluem apenas grupos atribuídos à aplicação. A opção **All Groups** inclui **SecurityGroup,** **DirectyRole**e **DistributionList,** mas não **grupos atribuídos à aplicação.** 
 1. Opcional: selecione as propriedades específicas do tipo símbolo para modificar o valor de reivindicação dos grupos para conter nos atributos do grupo de instalações ou para alterar o tipo de reclamação para uma função
 1. Selecione **Guardar**
 
@@ -256,6 +256,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
    - "All" (esta opção inclui SecurityGroup, DirectyRole e DistributionList)
    - "SecurityGroup"
    - "DirectoryRole"
+   - "ApplicationGroup" (esta opção inclui apenas grupos que são atribuídos à aplicação)
 
    Por exemplo:
 
@@ -307,7 +308,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
     **Configuração de UI:**
 
-    [![Mostra como configurar reclamações opcionais usando o UI](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Configurar afirmações opcionais](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **Inscrição manifesto de aplicação:**
 
@@ -328,7 +329,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
     **Configuração de UI:**
 
-    [![Mostra como configurar reclamações opcionais usando o UI](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Reclamações opcionais em manifesto](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Inscrição manifesto de aplicação:**
 
@@ -394,11 +395,11 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. **Selecione Adicionar a reclamação opcional**, selecione o tipo de token **SAML,** selecione **extn.skypeID** da lista de reclamações (apenas aplicável se tiver criado um objeto de utilizador Azure AD chamado skypeID) e, em seguida, selecione **Add**.
 
-    [![Mostra como configurar reclamações opcionais usando o UI](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Créditos opcionais para ficha SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Configuração manifesta:**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 1. Selecione **Azure Ative Directory** a partir do menu da mão esquerda.
 1. Encontre a aplicação que pretende configurar reclamações opcionais para a lista e selecione-a.
@@ -434,7 +435,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

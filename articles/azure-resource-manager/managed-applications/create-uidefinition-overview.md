@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 0e2aee194d3c97655dd4ec5aaeea46fb607c4c5e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210970"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319577"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para experiência de criação de aplicação gerida do Azure
 
@@ -25,6 +25,7 @@ O modelo é o seguinte
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
+            "isWizard": false,
             "basics": { }
         },
         "basics": [ ],
@@ -35,7 +36,7 @@ O modelo é o seguinte
 }
 ```
 
-Um CreateUiDefinition contém sempre três propriedades: 
+A `CreateUiDefinition` contém sempre três propriedades:
 
 * manipulador
 * versão
@@ -43,41 +44,19 @@ Um CreateUiDefinition contém sempre três propriedades:
 
 O manipulador deve ser sempre `Microsoft.Azure.CreateUIDef` , e a versão mais recente suportada é `0.1.2-preview` .
 
-O esquema da propriedade dos parâmetros depende da combinação do manipulador especificado e da versão. Para aplicações geridas, as propriedades suportadas `basics` `steps` são, `outputs` e `config` . As propriedades básicas e de passos contêm os [elementos](create-uidefinition-elements.md) - como caixas de texto e dropdowns - a serem exibidos no portal Azure. A propriedade outputs é usada para mapear os valores de saída dos elementos especificados para os parâmetros do modelo do Gestor de Recursos Azure. Só se usa `config` quando é necessário anular o comportamento predefinido do `basics` passo.
+O esquema da propriedade dos parâmetros depende da combinação do manipulador especificado e da versão. Para aplicações geridas, as propriedades suportadas `config` `basics` são, `steps` e `outputs` . Só se usa `config` quando é necessário anular o comportamento predefinido do `basics` passo. As propriedades básicas e de passos contêm os [elementos](create-uidefinition-elements.md) - como caixas de texto e dropdowns - a serem exibidos no portal Azure. A propriedade outputs é usada para mapear os valores de saída dos elementos especificados para os parâmetros do modelo do Gestor de Recursos Azure.
 
 Incluindo `$schema` é recomendado, mas opcional. Se especificado, o valor para `version` deve corresponder à versão dentro do `$schema` URI.
 
 Pode utilizar um editor JSON para criar o seu createUiDefinition e, em seguida, testá-lo na [createUiDefinition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) para pré-visualizar. Para obter mais informações sobre a caixa de areia, consulte [testar a interface do seu portal para aplicações geridas azure.](test-createuidefinition.md)
 
-## <a name="basics"></a>Informações básicas
-
-O **passo Basics** é o primeiro passo gerado quando o portal Azure analisa o ficheiro. Por predefinição, o passo básico permite que os utilizadores escolham a subscrição, o grupo de recursos e a localização para implementação.
-
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Padrão básico":::
-
-Pode adicionar mais elementos nesta secção. Quando possível, adicione elementos que consultam parâmetros de implantação, como o nome de um cluster ou credenciais de administrador.
-
-O exemplo a seguir mostra uma caixa de texto que foi adicionada aos elementos predefinidos.
-
-```json
-"basics": [
-    {
-        "name": "textBox1",
-        "type": "Microsoft.Common.TextBox",
-        "label": "Textbox on basics",
-        "defaultValue": "my text value",
-        "toolTip": "",
-        "visible": true
-    }
-]
-```
-
 ## <a name="config"></a>Configurar
 
-Especifica o elemento config quando precisa de anular o comportamento predefinido para os passos básicos. O exemplo a seguir mostra as propriedades disponíveis.
+A `config` propriedade é opcional. Use-o para anular o comportamento predefinido do passo básico, ou para definir a sua interface como um assistente passo a passo. Se `config` for usado, é a primeira propriedade do **createUiDefinition.jsna** secção do `parameters` arquivo. O exemplo a seguir mostra as propriedades disponíveis.
 
 ```json
 "config": {
+    "isWizard": false,
     "basics": {
         "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
         "subscription": {
@@ -124,15 +103,50 @@ Especifica o elemento config quando precisa de anular o comportamento predefinid
 },
 ```
 
-Para `description` , forneça uma cadeia ativada por marcação que descreva o seu recurso. O formato multi-linha e as ligações são suportadas.
+### <a name="wizard"></a>Feiticeiro
 
-Para `location` , especificar as propriedades para o controlo de localização que deseja anular. Quaisquer propriedades não ultrapassadas são definidas para os seus valores padrão. `resourceTypes` aceita uma série de cordas que contenham nomes de tipo de recurso totalmente qualificados. As opções de localização são restritas apenas a regiões que suportam os tipos de recursos.  `allowedValues`   aceita uma variedade de cordas da região. Apenas essas regiões aparecem no recuo.Pode definir os dois `allowedValues`    `resourceTypes` e. O resultado é a intersecção de ambas as listas. Por último, a `visible` propriedade pode ser usada para desativar condicional ou completamente a localização.  
+A `isWizard` propriedade permite-lhe exigir validação bem sucedida de cada passo antes de avançar para o passo seguinte. Quando a `isWizard` propriedade não é especificada, o padrão é **falso,** e a validação passo a passo não é necessária.
+
+Quando `isWizard` estiver ativado, definido como **verdadeiro,** o separador **Básicos** está disponível e todos os outros separadores estão desativados. Quando o botão **Seguinte** é selecionado, o ícone do separador indica se a validação de um separador passou ou falhou. Depois de concluídos os campos necessários e validado, o botão **Seguinte** permite a navegação para o separador seguinte. Quando todos os separadores passam a validação, pode ir à página **'Rever e Criar' e** selecionar o botão **Criar** para iniciar a implementação.
+
+:::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Assistente de separador":::
+
+### <a name="override-basics"></a>Sobrepor-se ao básico
+
+O básico config permite-lhe personalizar o passo básico.
+
+Para `description` , forneça uma cadeia ativada por marcação que descreva o seu recurso. O formato multi-linha e as ligações são suportadas.
 
 Os `subscription` `resourceGroup` elementos e elementos permitem especificar validações adicionais. A sintaxe para especificar validações é idêntica à validação personalizada para [caixa de texto](microsoft-common-textbox.md). Também pode especificar `permission` validações no grupo de subscrição ou recursos.  
 
 O controlo de subscrição aceita uma lista de espaços de nome do fornecedor de recursos. Por exemplo, pode especificar **Microsoft.Compute**. Mostra uma mensagem de erro quando o utilizador seleciona uma subscrição que não suporta o fornecedor de recursos. O erro ocorre quando o fornecedor de recursos não está registado nessa subscrição, e o utilizador não tem permissão para registar o fornecedor de recursos.  
 
 O controlo do grupo de recursos tem uma opção para `allowExisting` . Quando `true` , os utilizadores podem selecionar grupos de recursos que já possuem recursos. Esta bandeira é mais aplicável aos modelos de solução, onde o comportamento padrão determina que os utilizadores devem selecionar um grupo de recursos novo ou vazio. Na maioria dos outros cenários, especificar esta propriedade não é necessário.  
+
+Para `location` , especificar as propriedades para o controlo de localização que deseja anular. Quaisquer propriedades não ultrapassadas são definidas para os seus valores padrão. `resourceTypes` aceita uma série de cordas que contenham nomes de tipo de recurso totalmente qualificados. As opções de localização são restritas apenas a regiões que suportam os tipos de recursos.  `allowedValues`   aceita uma variedade de cordas da região. Apenas essas regiões aparecem no recuo.Pode definir os dois `allowedValues`    `resourceTypes` e. O resultado é a intersecção de ambas as listas. Por último, a `visible` propriedade pode ser usada para desativar condicional ou completamente a localização.  
+
+## <a name="basics"></a>Noções básicas
+
+O **passo Basics** é o primeiro passo gerado quando o portal Azure analisa o ficheiro. Por predefinição, o passo básico permite que os utilizadores escolham a subscrição, o grupo de recursos e a localização para implementação.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Padrão básico":::
+
+Pode adicionar mais elementos nesta secção. Quando possível, adicione elementos que consultam parâmetros de implantação, como o nome de um cluster ou credenciais de administrador.
+
+O exemplo a seguir mostra uma caixa de texto que foi adicionada aos elementos predefinidos.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
 
 ## <a name="steps"></a>Passos
 
@@ -185,7 +199,7 @@ Para filtrar os locais disponíveis apenas para os locais que suportam os tipos 
 
 A CreateUiDefinition fornece [funções](create-uidefinition-functions.md) para trabalhar com entradas e saídas de elementos, e funcionalidades como condicionalidades. Estas funções são semelhantes tanto na sintaxe como na funcionalidade das funções do modelo do Gestor de Recursos Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O createUiDefinition.jsno ficheiro em si tem um esquema simples. A verdadeira profundidade vem de todos os elementos e funções suportados. Estes itens são descritos com maior detalhe em:
 

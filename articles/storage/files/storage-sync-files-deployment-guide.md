@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c8dbebce685eea67672a2b8c93d51e356ac69c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 834b3b60a887dadd75e00a7a33abaff15e1a9407
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226056"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441481"
 ---
-# <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
+# <a name="deploy-azure-file-sync"></a>Implementar o Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
 
 Recomendamos vivamente que leia Planeamento para uma implementação e Planeamento de [Ficheiros Azure](storage-files-planning.md) [antes de](storage-sync-files-planning.md) completar os passos descritos neste artigo.
@@ -404,6 +404,9 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ## <a name="create-a-server-endpoint"></a>Criar um ponto final de servidor
 Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Um ponto final do servidor deve ser um caminho num servidor registado (em vez de uma partilha montada) e para utilizar o tiering da nuvem, o caminho deve estar num volume não-sistema. O armazenamento ligado à rede (NAS) não é suportado.
 
+> [!NOTE]
+> Alterar o caminho ou a letra de unidade depois de ter estabelecido um ponto final do servidor num volume não é suportado. Certifique-se de que está a utilizar um caminho final no seu servidor registado.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para adicionar um ponto final do servidor, vá ao grupo de sincronização recém-criado e, em seguida, **selecione Adicionar ponto final do servidor**.
 
@@ -571,7 +574,7 @@ No entanto, se alterar o horário de uma forma que resultará num instantâneo d
 
 O número máximo predefinido de instantâneos VSS por volume (64) bem como o horário predefinido para os tomar, resultam num máximo de 45 dias de versões anteriores que um trabalhador da informação pode restaurar, dependendo do número de instantâneos VSS que pode armazenar no seu volume.
 
-Se max. 64 As snapshots VSS por volume não são a definição correta para si, pode [alterar esse valor através de uma chave de registo](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Se as imagens de 64 VSS por volume não forem a definição correta, pode [alterar esse valor através de uma chave de registo](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Para que o novo limite produza efeitos, é necessário reencaminhar o cmdlet para permitir a compatibilidade da versão anterior em todos os volumes previamente ativados, com a bandeira da Força a ter em conta o novo número máximo de instantâneos VSS por volume. Isto resultará num número recém-calculado de dias compatíveis. Por favor, note que esta alteração só produzirá efeito em ficheiros recém-hierarquizados e substituirá quaisquer personalizações no calendário VSS que possa ter feito.
 
 <a id="proactive-recall"></a>

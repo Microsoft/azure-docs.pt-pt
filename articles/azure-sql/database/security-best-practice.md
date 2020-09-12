@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541724"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442110"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Este documento fornece orientações sobre como resolver requisitos de seguranç
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Ofertas de implantação não abrangidas por este guia
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 - VMs Azure SQL (IaaS)
 - SQL Server
 
@@ -47,7 +47,7 @@ Os públicos pretendidos para este guia são os clientes que enfrentam questões
 - Oficiais de Privacidade
 - Engenheiros de Segurança
 
-### <a name="using-this-guide"></a><a id="using"></a>Usando este guia
+### <a name="using-this-guide"></a><a id="using"></a> Usando este guia
 
 Este documento destina-se a ser um companheiro da nossa documentação de segurança existente [na Base de Dados Azure SQL.](security-overview.md)
 
@@ -501,7 +501,7 @@ As melhores práticas sobre como impedir que máquinas e aplicações de cliente
 
 **Como implementar:**
 
-- Certifique-se de que as máquinas clientes que se ligam à Base de Dados Azure SQL e à SQL Managed Instance estão a utilizar [a Segurança da Camada de Transporte (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
+- Certifique-se de que as máquinas clientes que se ligam à Base de Dados Azure SQL e à SQL Managed Instance estão a utilizar  [a Segurança da Camada de Transporte (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
 
 **Boas práticas:**
 
@@ -742,7 +742,7 @@ Monitorize quem acede a dados sensíveis e capture consultas sobre dados sensív
 
 **Como implementar:**
 
-- Utilize a Auditoria SQL e a Classificação de Dados em combinação.
+- Utilize a Auditoria de SQL e a Classificação de Dados em combinação.
   - No seu registo [de Auditoria de Base de Dados SQL,](../../azure-sql/database/auditing-overview.md) pode rastrear o acesso especificamente a dados sensíveis. Também pode ver informações como os dados acedidos, bem como o seu rótulo de sensibilidade. Para mais informações, consulte [data Discovery e Classification](data-discovery-and-classification-overview.md) and [Auditing access a dados sensíveis.](data-discovery-and-classification-overview.md#audit-sensitive-data)
 
 **Boas práticas:**
@@ -798,6 +798,6 @@ A maioria das normas de segurança aborda a disponibilidade de dados em termos d
 
 - Características adicionais de continuidade do negócio, tais como grupos de auto-failover em diferentes geos Azure podem ser configurados como descrito aqui: [Visão geral da continuidade do negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [uma visão geral das capacidades de segurança da Base de Dados Azure SQL](security-overview.md)

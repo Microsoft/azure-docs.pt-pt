@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212036"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434236"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -126,7 +126,7 @@ Os fluxos de dados têm preços a vcore-hrs, o que significa que tanto o tamanho
 
 ### <a name="time-to-live"></a>Time to live
 
-Por padrão, cada atividade de fluxo de dados gira um novo cluster com base na configuração de IR. O tempo de arranque do cluster demora alguns minutos e o processamento de dados não pode começar até que esteja completo. Se os seus oleodutos contiverem múltiplos fluxos de dados **sequenciais,** pode permitir um tempo para viver (TTL). Especificar um tempo para o valor vivo mantém um cluster vivo por um certo período de tempo após a sua execução terminar. Se um novo trabalho começar a utilizar o IR durante o tempo TTL, reutilizará o cluster existente e o tempo de arranque será em segundos e não em minutos. Após o segundo trabalho concluído, o cluster permanecerá novamente vivo durante o tempo de TTL.
+Por padrão, cada atividade de fluxo de dados gira um novo cluster com base na configuração de IR. O tempo de arranque do cluster demora alguns minutos e o processamento de dados não pode começar até que esteja completo. Se os seus oleodutos contiverem múltiplos fluxos de dados **sequenciais,** pode permitir um tempo para viver (TTL). Especificar um tempo para o valor vivo mantém um cluster vivo por um certo período de tempo após a sua execução terminar. Se um novo trabalho começar a utilizar o IR durante o tempo TTL, reutilizará o cluster existente e o tempo de arranque será muito reduzido. Após o segundo trabalho concluído, o cluster permanecerá novamente vivo durante o tempo de TTL.
 
 Só um trabalho pode funcionar num único aglomerado de cada vez. Se houver um cluster disponível, mas dois fluxos de dados começarem, apenas um usará o cluster vivo. O segundo trabalho vai girar o seu próprio aglomerado isolado.
 
@@ -297,7 +297,7 @@ Gerir os postos de trabalho sequencialmente levará provavelmente mais tempo a e
 
 Se colocar toda a sua lógica dentro de um único fluxo de dados, a ADF executará todo o trabalho numa única instância spark. Embora isto possa parecer uma forma de reduzir custos, mistura diferentes fluxos lógicos e pode ser difícil de monitorizar e depurar. Se um componente falhar, todas as outras partes do trabalho também falharão. A equipa da Azure Data Factory recomenda a organização de fluxos de dados por fluxos independentes de lógica empresarial. Se o fluxo de dados se tornar demasiado grande, dividi-lo em componentes separados facilitará a monitorização e a depuragem. Embora não exista um limite rígido para o número de transformações num fluxo de dados, ter demasiadas tornará o complexo de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte outros artigos do Fluxo de Dados relacionados com o desempenho:
 

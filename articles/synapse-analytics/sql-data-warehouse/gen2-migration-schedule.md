@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eebde4470ba2635a5287cb3b0103fa49e0e243e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207724"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441005"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Atualize a sua piscina SQL para a Gen2
 
@@ -30,7 +30,7 @@ A Microsoft está a ajudar a reduzir o custo de entrada de uma piscina SQL.  Ní
 
 O quadro seguinte resume por região quando o nível de cálculo da Baixa Gen2 estará disponível e quando as atualizações automáticas começarem. As datas estão sujeitas a alterações. Volte a verificar quando a sua região fica disponível.
 
-\*indica que um calendário específico para a região está atualmente indisponível.
+\* indica que um calendário específico para a região está atualmente indisponível.
 
 | **Região** | **Menor Gen2 disponível** | **Começam as atualizações automáticas** |
 |:--- |:--- |:--- |
@@ -133,4 +133,4 @@ Para mais informações, consulte [Upgrade para a Gen2](upgrade-to-latest-genera
 - [Atualizar no local e atualizar a partir de um ponto de restauro](upgrade-to-latest-generation.md)
 - [Criar um ponto de restauro definido pelo utilizador](sql-data-warehouse-restore-points.md)
 - [Saiba como restaurar a Gen2](sql-data-warehouse-restore-active-paused-dw.md)
-- [Abrir um pedido de apoio ao Armazém de Dados SQL](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Abra um pedido de apoio ao Azure Synapse Analytics](https://go.microsoft.com/fwlink/?linkid=857950)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 7564adb6e2e596b95cd138c8e4e2190a4c1e2a57
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 098ac343885db3e267dcefb3785f5abd55d17ee2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042650"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441039"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Executar consultas ad hoc analíticas em várias bases de dados (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ As aplicações saaS podem analisar a vasta quantidade de dados do inquilino que
 
 Aceder a estes dados numa única base de dados multi-inquilinos é fácil, mas não será tão fácil se houver uma distribuição à escala através de potencialmente milhares de bases de dados. Uma abordagem é usar [a Consulta Elástica,](elastic-query-overview.md)que permite consultar um conjunto distribuído de bases de dados com esquema comum. Estas bases de dados podem ser distribuídas por diferentes grupos de recursos e subscrições. No entanto, um login comum deve ter acesso a extrair dados de todas as bases de dados. A Consulta Elástica utiliza uma única base de dados de *cabeça* em que são definidas tabelas externas que espelham tabelas ou vistas nas bases de dados distribuídas (inquilinos). As consultas submetidas para esta base de dados “head” são compiladas para produzir um plano de consultas distribuídas, com partes das consultas enviadas para as bases de dados inquilinas, conforme necessário. A Consulta Elástica utiliza o mapa de fragmentos na base de dados do catálogo para determinar a localização de todas as bases de dados dos inquilinos. A configuração e consulta são simples usando [transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)padrão, e suportam consulta ad hoc de ferramentas como Power BI e Excel.
 
-Ao distribuir consultas através das bases de dados dos inquilinos, a Elastic Query fornece informações imediatas sobre os dados de produção ao vivo. No entanto, à medida que a Consulta Elástica retira dados de potencialmente muitas bases de dados, a latência da consulta pode por vezes ser maior do que para consultas equivalentes submetidas a uma única base de dados multi-inquilino. Certifique-se de desenhar consultas para minimizar os dados que são devolvidos. A consulta elástica é frequentemente mais adequada para consultar pequenas quantidades de dados em tempo real, em oposição à construção de consultas ou relatórios de análise frequentemente utilizados ou complexos. Se as consultas não funcionarem bem, consulte o plano de [execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver que parte da consulta foi empurrada para a base de dados remota. E avaliar a quantidade de dados que estão a ser devolvidos. Consultas que requerem processamento analítico complexo podem ser melhor servidas guardando os dados do inquilino extraído em uma base de dados que é otimizada para consultas de análise. A BASE de Dados SQL e o SQL Data Warehouse poderiam acolher tal base de dados de análise.
+Ao distribuir consultas através das bases de dados dos inquilinos, a Elastic Query fornece informações imediatas sobre os dados de produção ao vivo. No entanto, à medida que a Consulta Elástica retira dados de potencialmente muitas bases de dados, a latência da consulta pode por vezes ser maior do que para consultas equivalentes submetidas a uma única base de dados multi-inquilino. Certifique-se de desenhar consultas para minimizar os dados que são devolvidos. A consulta elástica é frequentemente mais adequada para consultar pequenas quantidades de dados em tempo real, em oposição à construção de consultas ou relatórios de análise frequentemente utilizados ou complexos. Se as consultas não funcionarem bem, consulte o plano de [execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver que parte da consulta foi empurrada para a base de dados remota. E avaliar a quantidade de dados que estão a ser devolvidos. Consultas que requerem processamento analítico complexo podem ser melhor servidas guardando os dados do inquilino extraído em uma base de dados que é otimizada para consultas de análise. A SQL Database e a Azure Synapse Analytics (anteriormente SQL Data Warehouse) poderiam acolher essa base de dados de análise.
 
 Este padrão de análise é explicado no tutorial de análise do [inquilino.](saas-multitenantdb-tenant-analytics.md)
 

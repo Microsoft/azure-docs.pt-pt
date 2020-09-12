@@ -8,35 +8,33 @@ ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2019
-ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 63b7ad84b0866c91e84007a188b82de65983790f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233300"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458855"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
-Esta função devolve o valor da data correspondente ao início de cada balde de data, a partir do valor de origem padrão de `1900-01-01 00:00:00.000` .
+Esta função devolve o valor da data correspondente ao início de cada balde de data, a partir do tempotando definido pelo `origin` parâmetro ou pelo valor de origem padrão de se o parâmetro de `1900-01-01 00:00:00.000` origem não for especificado. 
 
-Consulte [os tipos e funções de data e hora &#40;&#41;Transact-SQL](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) para uma visão geral de todos os tipos e funções de data e hora Transact-SQL.
+Consulte [os tipos e funções de data e hora &#40;&#41;Transact-SQL ](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) para uma visão geral de todos os tipos e funções de data e hora Transact-SQL.
 
 [Convenções de Sintaxe Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
-
-`DATE_BUCKET`usa um valor de data de origem padrão de `1900-01-01 00:00:00.000` ou seja, 12:00 AM na segunda-feira, 1 de janeiro de 1900.
 
 ## <a name="syntax"></a>Sintaxe
 
 ```sql
-DATE_BUCKET (datePart, number, date)
+DATE_BUCKET (datePart, number, date, origin)
 ```
 
 ## <a name="arguments"></a>Argumentos
 
 *dataPart*
 
-A parte da *data* que é usada com o parâmetro 'número'. Ex. Ano, mês, minuto, segundo, etc.
+A parte da *data* que é usada com o parâmetro 'número'. Por exemplo: Ano, mês, minuto, segundo, etc.
 
 > [!NOTE]
 > `DATE_BUCKET`não aceita equivalentes variáveis definidos pelo utilizador para os argumentos *datapPart.*
@@ -63,19 +61,34 @@ Uma expressão que pode resolver um dos seguintes valores:
 + **datatimeoffoff**
 + **datetime2**
 + **hora pequena**
-+ **tempo**
++ **Hora**
 
 Para *data*, `DATE_BUCKET` aceitará uma expressão de coluna, expressão ou variável definida pelo utilizador se resolverem qualquer um dos tipos de dados acima mencionados.
 
+**Origem** 
+
+Uma expressão opcional que pode resolver um dos seguintes valores:
+
++ **data**
++ **datetime**
++ **datatimeoffoff**
++ **datetime2**
++ **hora pequena**
++ **Hora**
+
+O tipo de dados `Origin` para deve coincidir com o tipo de dados do `Date` parâmetro. 
+
+`DATE_BUCKET` utiliza um valor de data de origem padrão das `1900-01-01 00:00:00.000` 12:00 de segunda-feira, 1 de janeiro de 1900, se não for especificado qualquer valor de Origem para a função.
+
 ## <a name="return-type"></a>Tipo de retorno
 
-O tipo de dados de valor de retorno para este método é dinâmico. O tipo de devolução depende do argumento fornecido para `date` . Se for fornecido um tipo de dados de entrada `date` válido, `DATE_BUCKET` retorna o mesmo tipo de dados. `DATE_BUCKET`levanta um erro se uma corda literal for especificada para o `date` parâmetro.
+O tipo de dados de valor de retorno para este método é dinâmico. O tipo de devolução depende do argumento fornecido para `date` . Se for fornecido um tipo de dados de entrada `date` válido, `DATE_BUCKET` retorna o mesmo tipo de dados. `DATE_BUCKET` levanta um erro se uma corda literal for especificada para o `date` parâmetro.
 
 ## <a name="return-values"></a>Valores de devolução
 
-### <a name="understanding-the-output-from-date_bucket"></a>Compreender a saída de`DATE_BUCKET`
+### <a name="understanding-the-output-from-date_bucket"></a>Compreender a saída de `DATE_BUCKET`
 
-`Date_Bucket`devolve a data ou o valor de hora mais recente, correspondente ao parâmetro dataPart e número. Por exemplo, nas expressões abaixo, `Date_Bucket` devolverá o valor de saída de `2020-04-13 00:00:00.0000000` , uma vez que a saída é calculada com base em baldes de uma semana a partir do tempo de origem padrão de `1900-01-01 00:00:00.000` . O valor `2020-04-13 00:00:00.0000000` é de 6276 semanas a partir do valor de origem de `1900-01-01 00:00:00.000` . 
+`Date_Bucket` devolve a data ou o valor de hora mais recente, correspondente ao parâmetro dataPart e número. Por exemplo, nas expressões abaixo, `Date_Bucket` devolverá o valor de saída de `2020-04-13 00:00:00.0000000` , uma vez que a saída é calculada com base em baldes de uma semana a partir do tempo de origem padrão de `1900-01-01 00:00:00.000` . O valor `2020-04-13 00:00:00.0000000` é de 6276 semanas a partir do valor de origem de `1900-01-01 00:00:00.000` . 
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
@@ -92,11 +105,19 @@ Select DATE_BUCKET(wk, 4, @date)
 Select DATE_BUCKET(wk, 6, @date)
 ```
 
-A saída para a expressão abaixo, que é 6275 semanas a partir do tempo de origem.
+A saída para a expressão abaixo é `2020-04-06 00:00:00.0000000` , que é de 6275 semanas a partir do tempo de origem padrão `1900-01-01 00:00:00.000` .
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 5, @date)
+```
+
+A saída para a expressão abaixo é `2020-06-09 00:00:00.0000000` , que é de 75 semanas a partir do tempo de origem especificado `2019-01-01 00:00:00` .
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(wk, 5, @date, @origin)
 ```
 
 ## <a name="datepart-argument"></a>argumento de par de datas
@@ -121,11 +142,15 @@ Invalid bucket width value passed to date_bucket function. Only positive values 
 
 ## <a name="date-argument"></a>data Argumento  
 
-`DATE_BUCKET`devolva o valor base correspondente ao tipo de dados do `date` argumento. No exemplo seguinte, é devolvido um valor de saída com o tipo de dados da data 2. 
+`DATE_BUCKET` devolva o valor base correspondente ao tipo de dados do `date` argumento. No exemplo seguinte, é devolvido um valor de saída com o tipo de dados da data 2. 
 
 ```sql
 Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 ```
+
+## <a name="origin-argument"></a>argumento de origem  
+
+O tipo de `origin` `date` dados e os argumentos dentro devem ser os mesmos. Se forem utilizados diferentes tipos de dados, será gerado um erro.
 
 ## <a name="remarks"></a>Observações
 
@@ -134,12 +159,12 @@ Utilização `DATE_BUCKET` nas seguintes cláusulas:
 + GROUP BY
 + HAVING
 + ORDENAR POR
-+ SELECIONE\<list>
++ SELECIONE \<list>
 + WHERE
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="a-calculating-date_bucket-with-a-bucket-width-of-1-from-the-origin-time"></a>R. Calcular Date_Bucket com uma largura de balde de 1 a partir do tempo de origem
+### <a name="a-calculating-date_bucket-with-a-bucket-width-of-1-from-the-origin-time"></a>A. Calcular Date_Bucket com uma largura de balde de 1 a partir do tempo de origem
 
 Cada uma destas declarações incrementa *date_bucket* com uma largura de balde de 1 a partir do tempo de origem:
 
@@ -239,7 +264,7 @@ Aqui está o conjunto de resultados.
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Especificando subqueries escalar e funções escalares como número e data
 
-Este exemplo utiliza subqueries escalares, `MAX(OrderDate)` como argumentos para o *número* e *data*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)`serve como um argumento artificial para o parâmetro do número, para mostrar como selecionar um argumento *numer numer* de uma lista de valores.
+Este exemplo utiliza subqueries escalares, `MAX(OrderDate)` como argumentos para o *número* e *data*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` serve como um argumento artificial para o parâmetro do número, para mostrar como selecionar um argumento *numer numer* de uma lista de valores.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
@@ -268,7 +293,16 @@ Where ShipDate between '2011-01-03 00:00:00.000' and '2011-02-28 00:00:00.000'
 order by DateBucket
 GO  
 ``` 
+### <a name="c-using-a-non-default-origin-value"></a>C. Usando um valor de origem não padrão
+
+Este exemplo utiliza um valor de orgin não padrão para gerar os baldes de data. 
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(hh, 2, @date, @origin)
+```
 
 ## <a name="see-also"></a>Veja também
 
-[CAST e CONVERT &#40;&#41;Transact-SQL](/sql/t-sql/functions/cast-and-convert-transact-sql/)
+[CAST e CONVERT &#40;&#41;Transact-SQL ](/sql/t-sql/functions/cast-and-convert-transact-sql/)

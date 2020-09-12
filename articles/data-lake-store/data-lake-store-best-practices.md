@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981440"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440835"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para a utilização do Azure Data Lake Storage Gen1
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 suporta a opção de ligar uma firewall e limitar o acess
 
 ![Definições de firewall na Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Definições de firewall na Data Lake Storage Gen1")
 
-Uma vez ativada a firewall, apenas os serviços Azure, tais como HDInsight, Data Factory, SQL Data Warehouse, etc. têm acesso à Data Lake Storage Gen1. Devido à tradução interna do endereço de rede utilizada pelo Azure, a firewall da Data Lake Storage Gen1 não suporta a restrição de serviços específicos por IP e destina-se apenas a restrições de pontos finais fora de Azure, como no local.
+Uma vez ativada a firewall, apenas os serviços Azure tais como HDInsight, Data Factory, Azure Synapse Analytics (anteriormente SQL Data Warehouse), etc. têm acesso a Data Lake Storage Gen1. Devido à tradução interna do endereço de rede utilizada pelo Azure, a firewall da Data Lake Storage Gen1 não suporta a restrição de serviços específicos por IP e destina-se apenas a restrições de pontos finais fora de Azure, como no local.
 
 ## <a name="performance-and-scale-considerations"></a>Considerações de desempenho e escala
 
@@ -101,8 +101,8 @@ Abaixo estão as três principais opções recomendadas para orquestrar a replic
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limites de escala**     | Delimitada por nódoas operárias        | Limitado por unidades de Movimento de Dados de Nuvem Max        | Ligado por unidades de Analytics        |
-|**Suporta a cópia de deltas**     |   Sim      | Não         | Não         |
-|**Orquestração embuta**     |  Não (use Oozie Airflow ou cron jobs)       | Sim        | Não (Use Azure Automation ou Windows Task Scheduler)         |
+|**Suporta a cópia de deltas**     |   Yes      | No         | No         |
+|**Orquestração embuta**     |  Não (use Oozie Airflow ou cron jobs)       | Yes        | Não (Use Azure Automation ou Windows Task Scheduler)         |
 |**Sistemas de ficheiros suportados**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerosos, consulte [conectores.](../data-factory/connector-azure-blob-storage.md)         | ADL a ADL, WASB a ADL (apenas na mesma região)        |
 |**Suporte ao OS**     |Qualquer os que executa o Hadoop         | N/D          | Windows 10         |
 

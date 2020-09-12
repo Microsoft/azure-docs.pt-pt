@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13d483507092892187bc13dd23bfa51ed516c890
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545646"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441158"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalar e executar Recipientes de leitura (pré-visualização)
 
@@ -55,6 +55,7 @@ O computador **anfitrião** é o computador que gere o contentor do estivador. O
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
 > [!WARNING]
 > O computador anfitrião é *necessário* para suportar o AVX2. O recipiente *não funcionará* corretamente sem suporte AVX2.
 
@@ -68,14 +69,14 @@ As imagens do recipiente para Ler estão disponíveis.
 
 | Contentor | Registo de contentores / Repositório / Nome da imagem |
 |-----------|------------|
-| Ler | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Ler | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
 
 Utilize o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para descarregar uma imagem de contentor.
 
 ### <a name="docker-pull-for-the-read-container"></a>Docker puxa para o recipiente ler
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -186,13 +187,16 @@ O `operation-location` url totalmente qualificado é acedido através de um HTTP
 }
 ```
 
+> [!IMPORTANT]
+> Se colocar vários recipientes De leitura atrás de um equilibrador de carga, por exemplo, sob Docker Compose ou Kubernetes, deve ter uma cache externa. Como o recipiente de processamento e o recipiente de pedido GET podem não ser os mesmos, uma cache externa armazena os resultados e partilha-os através de contentores. Para obter mais informações sobre as definições de cache, consulte [os recipientes Configure Computer Vision Docker](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+
 ### <a name="synchronous-read"></a>Leitura sincronizada
 
 Pode utilizar a `POST /vision/v2.0/read/core/Analyze` operação para ler sincronizadamente uma imagem. Quando a imagem é lida na sua totalidade, então e só então a API devolve uma resposta JSON. A única exceção a isto é se ocorrer um erro. Quando ocorre um erro, o seguinte JSON é devolvido:
 
 ```json
 {
-    status: "Failed"
+    "status": "Failed"
 }
 ```
 
@@ -280,10 +284,10 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
-* Reveja [a visão geral da Visão computacional](Home.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito
+* Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito
 * Consulte a [API de Visão De Computador](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter mais informações sobre os métodos suportados pelo recipiente.
 * Consulte [perguntas frequentes (FAQ)](FAQ.md) para resolver problemas relacionados com a funcionalidade de Visão de Computador.
 * Use mais [recipientes de serviços cognitivos](../cognitive-services-container-support.md)

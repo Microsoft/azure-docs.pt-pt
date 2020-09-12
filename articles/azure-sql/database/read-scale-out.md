@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 06/26/2020
-ms.openlocfilehash: cf9f48b0907d3bfe1d07dcffcc0d0b9534f74c83
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 09/03/2020
+ms.openlocfilehash: 2e7c931d6d99187b4ee7985be19374048c226312
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135889"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442195"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Use réplicas apenas de leitura para descarregar cargas de trabalho de consulta apenas de leitura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Como parte da arquitetura de [alta disponibilidade,](high-availability-sla.md#premium-and-business-critical-service-tier-availability)cada base de dados e instância gerida no nível de serviço Premium e Business Critical é automaticamente a provisionada com uma réplica de leitura primária e várias réplicas secundárias apenas de leitura. As réplicas secundárias são aviscadas com o mesmo tamanho computacional que a réplica primária. A funcionalidade *de escala de leitura* permite descarregar cargas de trabalho apenas de leitura utilizando a capacidade de cálculo de uma das réplicas apenas de leitura, em vez de executá-las na réplica de leitura-escrita. Desta forma, algumas cargas de trabalho apenas de leitura podem ser isoladas das cargas de trabalho de leitura-escrita, e não afetarão o seu desempenho. A funcionalidade destina-se às aplicações que incluem cargas de trabalho apenas de leitura separadas logicamente, como analíticas. Nos níveis de serviço Premium e Business Critical, as aplicações poderiam obter benefícios de desempenho usando esta capacidade adicional sem custos adicionais.
+Como parte da arquitetura de [Alta Disponibilidade](high-availability-sla.md#premium-and-business-critical-service-tier-availability), cada base de dados, base de dados elástica e caso gerido no nível de serviço Premium e Business Critical é automaticamente a provisionado com uma réplica de leitura primária e várias réplicas secundárias apenas de leitura. As réplicas secundárias são aviscadas com o mesmo tamanho computacional que a réplica primária. A funcionalidade *de escala de leitura* permite descarregar cargas de trabalho apenas de leitura utilizando a capacidade de cálculo de uma das réplicas apenas de leitura, em vez de executá-las na réplica de leitura-escrita. Desta forma, algumas cargas de trabalho apenas de leitura podem ser isoladas das cargas de trabalho de leitura-escrita, e não afetarão o seu desempenho. A funcionalidade destina-se às aplicações que incluem cargas de trabalho apenas de leitura separadas logicamente, como analíticas. Nos níveis de serviço Premium e Business Critical, as aplicações poderiam obter benefícios de desempenho usando esta capacidade adicional sem custos adicionais.
 
 A funcionalidade *de escala de leitura* também está disponível no nível de serviço hyperscale quando pelo menos uma réplica secundária é criada. Réplicas secundárias múltiplas podem ser usadas para cargas de trabalho apenas de equilíbrio de carga que requerem mais recursos do que disponíveis numa réplica secundária.
 
@@ -45,7 +45,7 @@ Se desejar garantir que a aplicação se liga à réplica primária, independent
 
 ## <a name="data-consistency"></a>Consistência de dados
 
-Um dos benefícios das réplicas é que as réplicas estão sempre no estado transaccionalmente consistente, mas em diferentes pontos do tempo pode haver alguma pequena latência entre diferentes réplicas. A escala de leitura suporta a consistência ao nível da sessão. Significa que, se a sessão de leitura só se reconectar após um erro de ligação causado pela indisponibilidade de réplica, pode ser redirecionado para uma réplica que não está 100% atualizada com a réplica de leitura-escrita. Da mesma forma, se uma aplicação escrever dados usando uma sessão de leitura e lê-lo imediatamente usando uma sessão de leitura, é possível que as últimas atualizações não sejam imediatamente visíveis na réplica. A latência é causada por uma operação de redo de registo de transações assíncronos.
+Um dos benefícios das réplicas é que as réplicas estão sempre no estado transaccionalmente consistente, mas em diferentes pontos do tempo pode haver alguma pequena latência entre diferentes réplicas. A escala de leitura suporta a consistência ao nível da sessão. Significa que, se a sessão de leitura só se reconectar após um erro de ligação causado pela indisponibilidade de réplica, pode ser redirecionado para uma réplica que não está 100% atualizada com a réplica de leitura-escrita. De igual forma, se uma aplicação escrever dados com uma sessão de leitura-escrita e os ler de imediato com uma sessão só de leitura, será possível que as últimas atualizações não estejam imediatamente visíveis na réplica. A latência é causada por uma operação de fase de rollforward de registo de transações assíncronas.
 
 > [!NOTE]
 > As latências de replicação na região são baixas, e esta situação é rara. Para monitorizar a latência da replicação, consulte [a monitorização e resolução de problemas da réplica apenas de leitura](#monitoring-and-troubleshooting-read-only-replicas).
@@ -123,7 +123,7 @@ Se uma consulta de longa duração sobre uma réplica só de leitura causar este
 > Se receber o erro 3961 ou o erro 1219 ao executar consultas contra uma réplica apenas de leitura, recandidutar a consulta.
 
 > [!TIP]
-> Nos níveis de serviço Premium e Business Critical, quando ligados a uma réplica apenas de leitura, o `redo_queue_size` e `redo_rate` colunas no [Sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV podem ser utilizados para monitorizar o processo de sincronização de dados, servindo como indicadores de latência de dados na réplica apenas de leitura.
+> Nos níveis de serviço Premium e Business Critical, quando ligados a uma réplica apenas de leitura, o `redo_queue_size` `redo_rate` DMV [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) pode ser utilizado para monitorizar o processo de sincronização de dados, servindo como indicadores de latência de dados na réplica apenas de leitura.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Ativar e desativar a escala de leitura

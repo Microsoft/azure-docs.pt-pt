@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Mover um público a espreitar para a Microsoft a espreitar'
 description: Este artigo mostra-lhe os passos para mover o seu público olhando para a Microsoft olhando no ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.author: cherylmc
-ms.openlocfilehash: 2f6b3ec93498ab58ba67a2ca08199feaa2da73ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738367"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401423"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Move a public peering to Microsoft peering (Mover um peering público para o peering da Microsoft)
 
@@ -22,7 +22,7 @@ O Azure public peering tem 1 endereço IP NAT associado a cada sessão de BGP. O
 
 Uma vez que o espreitamento público esteja ativado, pode ligar-se a todos os serviços Azure. Não lhe permitimos escolher seletivamente serviços para os quais anunciamos rotas. Enquanto o espreitamento da Microsoft é uma conectividade bidisl onde a ligação pode ser iniciada a partir do serviço Microsoft Azure juntamente com o seu WAN. Para obter mais informações sobre domínios de encaminhamento e observação, consulte [circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 Para se ligar ao olho da Microsoft, é necessário configurar e gerir o NAT. O seu fornecedor de conectividade pode configurar e gerir o NAT como um serviço gerido. Se está a planear aceder aos serviços Azure PaaS e Azure SaaS na Microsoft, é importante dimensionar corretamente o pool NAT IP. Para obter mais informações sobre o NAT para ExpressRoute, consulte os [requisitos NAT para o espremia da Microsoft](expressroute-nat.md#nat-requirements-for-microsoft-peering). Quando se conecta à Microsoft através do Azure ExpressRoute (microsoft peering), tem várias ligações à Microsoft. Uma ligação é a ligação à Internet existente e a outra é através do ExpressRoute. Algum tráfego para a Microsoft poderá passar pela Internet, mas voltar através do ExpressRoute ou vice-versa.
 

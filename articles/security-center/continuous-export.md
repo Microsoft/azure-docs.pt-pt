@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612389"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433942"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportar alertas e recomendações de segurança
 
@@ -36,12 +36,12 @@ Utilizando estas ferramentas pode:
 |Estado de libertação:|Geralmente disponível|
 |Preços:|Escalão gratuito|
 |Funções e permissões necessárias:|**Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**<br>Também deve ter permissões de escrita para o recurso alvo|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (para Event Hub), Outro Gov|
 |||
 
 
 
-## <a name="setting-up-a-continuous-export"></a>Criação de uma exportação contínua
+## <a name="set-up-a-continuous-export"></a>Criar uma exportação contínua
 
 Os passos abaixo são necessários quer esteja a configurar uma exportação contínua para o log analytics ou para o Azure Event Hubs.
 
@@ -55,12 +55,24 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
 
 1. Selecione o tipo de dados que pretende exportar e escolha entre os filtros de cada tipo (por exemplo, exportar apenas alertas de alta gravidade).
 
+1. Opcionalmente, se a sua seleção incluir uma destas quatro recomendações, pode incluir os resultados da avaliação da vulnerabilidade juntamente com eles:
+
+    - Os resultados da Avaliação de Vulnerabilidades nas suas bases de dados SQL devem ser remediados
+    - As conclusões da Avaliação de Vulnerabilidade nos seus servidores SQL em máquinas devem ser remediadas (Pré-visualização)
+    - As vulnerabilidades nas imagens do Registo de Contentores de Azure devem ser remediadas (alimentadas por Qualys)
+    - As vulnerabilidades nas suas máquinas virtuais devem ser remediadas
+
+    Para incluir as conclusões com estas recomendações, permitir a opção **incluindo as conclusões de segurança.**
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação" :::
+
+
 1. A partir da área "Export target", escolha onde quer que os dados guardados. Os dados podem ser guardados num alvo numa subscrição diferente (por exemplo, numa instância Central do Centro de Eventos ou num espaço de trabalho central do Log Analytics).
 
 1. Selecione **Guardar**.
 
 
-## <a name="setting-up-continuous-export-via-the-rest-api"></a>Criação de exportação contínua através da API REST
+## <a name="set-up-continuous-export-via-the-rest-api"></a>Configurar exportação contínua através da API REST
 
 A funcionalidade de exportação contínua pode ser configurada e gerida através do Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Utilize esta API para criar ou atualizar automatizações para exportação para qualquer um dos seguintes destinos possíveis:
 
@@ -83,7 +95,7 @@ Saiba mais sobre as automatizações API na [documentação REST API](https://do
 
 
 
-## <a name="configuring-siem-integration-via-azure-event-hubs"></a>Configurar a integração do SIEM através dos Hubs de Eventos Azure
+## <a name="configure-siem-integration-via-azure-event-hubs"></a>Configurar a integração do SIEM através dos Hubs de Eventos Azure
 
 O Azure Event Hubs é uma ótima solução para consumir programaticamente quaisquer dados de streaming. Para alertas e recomendações do Azure Security Center, é a forma preferida de se integrar com um SIEM de terceiros.
 
@@ -168,7 +180,7 @@ Saiba mais sobre [os preços do espaço de trabalho Log Analytics.](https://azur
 Saiba mais sobre [os preços do Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a configurar as exportações contínuas das suas recomendações e alertas. Também aprendeu a descarregar os seus dados de alerta como um ficheiro CSV. 
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196115"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441090"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia de desempenho e otimização da Atividade de Cópia
 
@@ -32,7 +32,7 @@ A Azure Data Factory Copy Activity oferece uma solução de carregamento de dado
 
 O Azure fornece um conjunto de soluções de armazenamento de dados e armazém de dados de nível empresarial, e a Copy Activity oferece uma experiência de carregamento de dados altamente otimizada que é fácil de configurar e configurar. Com apenas uma única atividade de cópia, pode conseguir:
 
-* A carregar dados no Armazém de **Dados Azure SQL** a **1,2 GBps**. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB no Armazém de Dados Azure SQL em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+* A carregar dados para **a Azure Synapse Analytics** a **1,2 GBps**. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics (anteriormente SQL Data Warehouse) em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Carregar dados no **armazenamento da Azure Blob** a **1,0 GBps**
 * Carregar dados na **Azure Data Lake Store** a **1,0 GBps**
 
@@ -183,9 +183,9 @@ Para melhor utilizar estas duas propriedades e melhorar a produção do seu movi
 ## <a name="staged-copy"></a>Cópia encenada
 Ao copiar dados de uma loja de dados de origem para uma loja de dados de lavatórios, poderá optar por utilizar o armazenamento Blob como uma loja de preparação provisória. A encenação é especialmente útil nos seguintes casos:
 
-1. **Pretende ingerir dados de várias lojas de dados no SQL Data Warehouse via PolyBase**. O SQL Data Warehouse utiliza o PolyBase como um mecanismo de alta produção para carregar uma grande quantidade de dados no SQL Data Warehouse. No entanto, os dados de origem devem estar no armazenamento blob, e devem cumprir critérios adicionais. Quando carrega dados de uma loja de dados que não seja o armazenamento blob, pode ativar a cópia de dados através de uma encenação provisória do armazenamento blob. Nesse caso, a Data Factory realiza as transformações de dados necessárias para garantir que satisfaz os requisitos da PolyBase. Em seguida, utiliza a PolyBase para carregar dados no SQL Data Warehouse. Para obter mais detalhes, consulte [a PolyBase para carregar dados no Armazém de Dados Azure SQL](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse). Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB no Armazém de Dados Azure SQL em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+1. **Pretende ingerir dados de várias lojas de dados no Azure Synapse Analytics via PolyBase**. A Azure Synapse Analytics usa a PolyBase como um mecanismo de alta produção para carregar uma grande quantidade de dados em Azure Synapse Analytics. No entanto, os dados de origem devem estar no armazenamento blob, e devem cumprir critérios adicionais. Quando carrega dados de uma loja de dados que não seja o armazenamento blob, pode ativar a cópia de dados através de uma encenação provisória do armazenamento blob. Nesse caso, a Data Factory realiza as transformações de dados necessárias para garantir que satisfaz os requisitos da PolyBase. Em seguida, utiliza a PolyBase para carregar dados no Azure Synapse Analytics. Para obter mais detalhes, consulte [o PolyBase para carregar dados no Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics). Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 2. **Por vezes demora algum tempo a realizar um movimento de dados híbrido (isto é, a copiar entre uma loja de dados no local e uma loja de dados em nuvem) sobre uma ligação de rede lenta**. Para melhorar o desempenho, pode comprimir os dados no local para que leve menos tempo a mover dados para a loja de dados de encenação na nuvem. Em seguida, pode descomprimir os dados na loja de preparação antes de os colocar na loja de dados de destino.
-3. **Não pretende abrir portas que não o porto 80 e o porto 443 na sua firewall, por causa das políticas corporativas de TI.** Por exemplo, quando copia dados de uma loja de dados no local para um lavatório Azure SQL Database ou um lavatório Azure SQL Data Warehouse, precisa de ativar a comunicação TCP de saída na porta 1433 para a firewall do Windows e para a sua firewall corporativa. Neste cenário, aproveite a porta de entrada para copiar primeiro os dados para uma instância de armazenamento Blob sobre HTTP ou HTTPS na porta 443. Em seguida, carregue os dados na Base de Dados SQL ou no SQL Data Warehouse a partir da paragem de armazenamento blob. Neste fluxo, não precisa de ativar a porta 1433.
+3. **Não pretende abrir portas que não o porto 80 e o porto 443 na sua firewall, por causa das políticas corporativas de TI.** Por exemplo, quando copia dados de uma loja de dados no local para um lavatório Azure SQL Database ou um lavatório Azure Synapse Analytics, precisa de ativar a comunicação TCP de saída na porta 1433 para a firewall do Windows e para a sua firewall corporativa. Neste cenário, aproveite a porta de entrada para copiar primeiro os dados para uma instância de armazenamento Blob sobre HTTP ou HTTPS na porta 443. Em seguida, carregue os dados na Base de Dados SQL ou na Azure Synapse Analytics a partir da paragem de armazenamento Blob. Neste fluxo, não precisa de ativar a porta 1433.
 
 ### <a name="how-staged-copy-works"></a>Como funciona a cópia encenada
 Quando ativar a função de encenação, primeiro os dados são copiados da loja de dados de origem para a loja de dados de encenação (traga o seu próprio). Em seguida, os dados são copiados da loja de dados de encenação para a loja de dados da pia. A Data Factory gere automaticamente o fluxo de dois estágios para si. A Data Factory também limpa dados temporários do armazenamento de encenação após o movimento de dados estar completo.
@@ -207,10 +207,10 @@ Configure a **definição de definição de definição de ativação** na Ativi
 
 | Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
-| **permitir A marcação** |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |Não |
-| **linkedServiceName** |Especifique o nome de um serviço ligado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas,](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) que se refere à instância de Armazenamento que utiliza como loja de paragem provisória. <br/><br/> Não é possível utilizar o Armazenamento com uma assinatura de acesso partilhado para carregar dados no SQL Data Warehouse via PolyBase. Podes usá-lo em todos os outros cenários. |N/D |Sim, quando **ativar A definição de marcação** está definida para TRUE |
-| **caminho** |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |Não |
-| **permitir a compressão** |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |Não |
+| **permitir A marcação** |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |No |
+| **linkedServiceName** |Especifique o nome de um serviço ligado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas,](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) que se refere à instância de Armazenamento que utiliza como loja de paragem provisória. <br/><br/> Não é possível utilizar o Armazenamento com uma assinatura de acesso partilhado para carregar dados no Azure Synapse Analytics via PolyBase. Podes usá-lo em todos os outros cenários. |N/D |Sim, quando **ativar A definição de marcação** está definida para TRUE |
+| **caminho** |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |No |
+| **permitir a compressão** |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |No |
 
 Aqui está uma definição de amostra de Copy Activity com as propriedades descritas na tabela anterior:
 
@@ -262,7 +262,7 @@ Sugerimos que tome estas medidas para afinar o desempenho do seu serviço de Dat
      * [Unidades de movimento de dados em nuvem](#cloud-data-movement-units)
      * [Cópia encenada](#staged-copy)
      * [Escalabilidade gateway de gestão de dados](data-factory-data-management-gateway-high-availability-scalability.md)
-   * [Gateway de Gestão de Dados](#considerations-for-data-management-gateway)
+   * [Data Management Gateway](#considerations-for-data-management-gateway)
    * [Origem](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serialização e deserialização](#considerations-for-serialization-and-deserialization)
@@ -282,7 +282,7 @@ Certifique-se de que a loja de dados subjacente não está sobrecarregada por ou
 
 Para as lojas de dados da Microsoft, consulte [tópicos de monitorização e afinação específicos](#performance-reference) das lojas de dados e ajude-o a compreender as características de desempenho da loja de dados, a minimizar os tempos de resposta e a maximizar a produção.
 
-Se copiar dados do armazenamento blob para o SQL Data Warehouse, considere usar **a PolyBase** para aumentar o desempenho. Consulte [o PolyBase para carregar os dados no Armazém de Dados Azure SQL](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter mais detalhes. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB no Armazém de Dados Azure SQL em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Se copiar dados do armazenamento blob para a Azure Synapse Analytics, considere usar **a PolyBase** para aumentar o desempenho. Consulte [o PolyBase para carregar os dados no Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) para obter mais detalhes. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### <a name="file-based-data-stores"></a>Lojas de dados baseadas em ficheiros
 *(Inclui armazenamento blob, Data Lake Store, Amazon S3, sistemas de ficheiros no local e HDFS no local)*
@@ -292,7 +292,7 @@ Se copiar dados do armazenamento blob para o SQL Data Warehouse, considere usar 
 * Para o cenário **do sistema de ficheiros no local,** no qual é necessário **o Gateway de Gestão de Dados,** consulte a secção [Considerações para a Gateway de Gestão de Dados.](#considerations-for-data-management-gateway)
 
 ### <a name="relational-data-stores"></a>Lojas de dados relacionais
-*(Inclui base de dados SQL; Armazém de Dados SQL; Amazon Redshift; Bases de dados do SQL Server; e Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL bases de dados, etc.)*
+*(Inclui base de dados SQL; Azure Synapse Analytics; Amazon Redshift; Bases de dados do SQL Server; e Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL bases de dados, etc.)*
 
 * **Padrão de dados**: O seu esquema de tabela afeta a produção de cópias. Um tamanho de linha grande dá-lhe um melhor desempenho do que o tamanho da fila pequena, para copiar a mesma quantidade de dados. A razão é que a base de dados pode recuperar de forma mais eficiente menos lotes de dados que contêm menos linhas.
 * **Consulta ou procedimento armazenado**: Otimize a lógica da consulta ou do procedimento armazenado que especifique na fonte de Atividade de Cópia para obter dados de forma mais eficiente.
@@ -304,7 +304,7 @@ Certifique-se de que a loja de dados subjacente não está sobrecarregada por ou
 
 Para as lojas de dados da Microsoft, consulte [tópicos de monitorização e afinação específicos](#performance-reference) das lojas de dados. Estes tópicos podem ajudá-lo a compreender as características de desempenho da data store e como minimizar os tempos de resposta e maximizar a produção.
 
-Se estiver a copiar dados do **armazenamento blob** para o **SQL Data Warehouse,** considere utilizar a **PolyBase** para aumentar o desempenho. Consulte [o PolyBase para carregar os dados no Armazém de Dados Azure SQL](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter mais detalhes. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB no Armazém de Dados Azure SQL em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Se estiver a copiar dados do **armazenamento Blob** para **a Azure Synapse Analytics,** considere utilizar o **PolyBase** para aumentar o desempenho. Consulte [o PolyBase para carregar os dados no Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) para obter mais detalhes. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### <a name="file-based-data-stores"></a>Lojas de dados baseadas em ficheiros
 *(Inclui armazenamento blob, Data Lake Store, Amazon S3, sistemas de ficheiros no local e HDFS no local)*
@@ -315,7 +315,7 @@ Se estiver a copiar dados do **armazenamento blob** para o **SQL Data Warehouse,
 * Para **cenários de sistemas de ficheiros no local** que exijam a utilização do Gateway de Gestão de **Dados,** consulte a secção [Considerations for Data Management Gateway.](#considerations-for-data-management-gateway)
 
 ### <a name="relational-data-stores"></a>Lojas de dados relacionais
-*(Inclui base de dados SQL, ARMAZÉM DE DADOS SQL, bases de dados do SQL Server e bases de dados da Oracle)*
+*(Inclui base de dados SQL, Azure Synapse Analytics, bases de dados do SQL Server e bases de dados oracle)*
 
 * **Comportamento da cópia**: Dependendo das propriedades que definiu para **sqlSink,** copy Activity escreve dados para a base de dados de destino de diferentes maneiras.
   * Por predefinição, o serviço de movimento de dados utiliza a API de cópia a granel para inserir dados no modo de apêndice, que proporciona o melhor desempenho.
@@ -419,7 +419,7 @@ Aqui estão as referências de monitorização e afinação de desempenho para a
 * Armazenamento Azure Blob: [Objetivos de escalabilidade e desempenho para armazenamento blob](../../storage/blobs/scalability-targets.md) e [performance e escalabilidade lista de verificação para armazenamento blob](../../storage/blobs/storage-performance-checklist.md).
 * Armazenamento da tabela azul: [Metas de escalabilidade e desempenho para armazenamento de mesa](../../storage/tables/scalability-targets.md) e performance e lista de [verificação de escala para armazenamento de mesa](../../storage/tables/storage-performance-checklist.md).
 * Base de Dados Azure SQL: Pode [monitorizar o desempenho](../../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem de transações de bases de dados (DTU)
-* Azure SQL Data Warehouse: A sua capacidade é medida em unidades de armazém de dados (DWUs); ver Gerir a potência de computação no Armazém de [Dados Azure SQL (Visão geral)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure Synapse Analytics: A sua capacidade é medida em unidades de armazém de dados (DWUs); ver [Gerir o poder de computação em Azure Synapse Analytics (Visão geral)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Níveis de desempenho em Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * Servidor SQL no local: [Monitor e sintonização para desempenho](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de ficheiros no local: [Ajuste de desempenho para servidores de ficheiros](https://msdn.microsoft.com/library/dn567661.aspx)

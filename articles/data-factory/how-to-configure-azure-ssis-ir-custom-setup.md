@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/11/2020
-ms.openlocfilehash: 3bc8458aa009920f183b076d12185295ef294e07
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186085"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440580"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um tempo de execução de integração Azure-SSIS
 
@@ -147,9 +147,9 @@ Se selecionar o tipo **de componente licenciado instalar** para a sua configura�
 
    * Se selecionar o componente **SQLPhonetics.NET do oh22,** pode instalar [o](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) SQLPhonetics.NET componente de qualidade/correspondência de dados a partir de oh22 no seu Azure-SSIS IR. Para tal, introduza a chave de licença do produto que adquiriu previamente na caixa de texto **da chave da licença.** A versão integrada atual é **1.0.45**.
 
-   * Se selecionar o componente **SSIS Integration Toolkit da KingswaySoft,** pode instalar o conjunto de conectores [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) para aplicações CRM/ERP/marketing/colaboração, tais como Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. da KingswaySoft no seu Azure-SSIS IR. Para tal, introduza a chave de licença do produto que adquiriu previamente na caixa de texto **da chave da licença.** A versão integrada atual é **2019.2**.
+   * Se selecionar o componente **SSIS Integration Toolkit da KingswaySoft,** pode instalar o conjunto de conectores [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) para aplicações CRM/ERP/marketing/colaboração, tais como Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. da KingswaySoft no seu Azure-SSIS IR. Para tal, introduza a chave de licença do produto que adquiriu previamente na caixa de texto **da chave da licença.** A versão integrada atual é **2020.1**.
 
-   * Se selecionar o componente **SSIS Productivity Pack da KingswaySoft,** pode instalar o conjunto de componentes [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) da KingswaySoft no seu Azure-SSIS IR. Para tal, introduza a chave de licença do produto que adquiriu previamente na caixa de texto **da chave da licença.** A versão integrada atual é **10.0**.
+   * Se selecionar o componente **SSIS Productivity Pack da KingswaySoft,** pode instalar o conjunto de componentes [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) da KingswaySoft no seu Azure-SSIS IR. Para tal, introduza a chave de licença do produto que adquiriu previamente na caixa de texto **da chave da licença.** A versão integrada atual é **20.1**.
 
    * Se selecionar o componente **Xtract IS do Theobald Software,** pode instalar o conjunto de conectores [Xtract IS](https://theobald-software.com/en/xtract-is/) para sistemas SAP (ERP, S/4HANA, BW) a partir do Software Theobald no seu Azure-SSIS IR. Para tal, arraste & largar/carregar o ficheiro de licença de produto que adquiriu previamente na caixa de entrada de **ficheiros License.** A versão integrada atual é **6.1.1.3**.
 
@@ -325,7 +325,7 @@ Para visualizar e reutilizar algumas amostras de configurações personalizadas 
 
       * Uma pasta *TERADATA,* que contém um script de configuração personalizado *(main.cmd),* o seu ficheiro associado *(install.cmd)* e pacotes instaladores *(.msi*). Estes ficheiros instalam os conectores Teradata, a API do Transporte Paralelo Teradata e o controlador ODBC em cada nó da sua Edição Empresarial Azure-SSIS IR. Esta configuração permite-lhe utilizar o Gestor de Ligação Teradata, Fonte e Destino para ligar ao servidor Teradata. 
       
-        Em primeiro lugar, [faça o download do ficheiro Teradata Tools and Utilities 15.x zip](http://partnerintelligence.teradata.com) (por exemplo, *TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip), *e depois carreve-o juntamente com os ficheiros *.cmd* e *.msi* anteriormente mencionados para o seu contentor.
+        Em primeiro lugar, [faça o download do ficheiro Teradata Tools and Utilities 15.x zip](http://partnerintelligence.teradata.com) (por exemplo,  *TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip), *e depois carreve-o juntamente com os ficheiros *.cmd* e *.msi* anteriormente mencionados para o seu contentor.
 
       * Uma pasta *TLS 1.2,* que contém um script de configuração personalizado *(main.cmd*) para utilizar uma criptografia forte e um protocolo de rede mais seguro (TLS 1.2) em cada nó do seu Azure-SSIS IR. O script também desativa as versões SSL/TLS mais antigas.
 
@@ -343,7 +343,7 @@ Para visualizar e reutilizar algumas amostras de configurações personalizadas 
 
 1. Depois de terminar a configuração personalizada padrão e o seu Azure-SSIS IR começar, pode encontrar todos os registos de configuração personalizados na pasta *principal.cmd.log* do seu recipiente. Incluem a saída padrão do *main.cmd* e outros registos de execução.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar a Edição Empresarial da Azure-SSIS IR](how-to-configure-azure-ssis-ir-enterprise-edition.md)
 - [Desenvolver componentes pagos ou licenciados para a Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509057"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441668"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Resolução de problemas Linux VM problemas de início devido a erros de fstab
 
@@ -107,7 +107,7 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
 ### <a name="using-single-user-mode"></a>Usando o modo de utilizador único
 
 1. Ligue-se [à consola em série.](./serial-console-linux.md)
-2. Utilize a consola em série para tomar o [modo único de utilizador no modo único de utilizador](../linux/serial-console-grub-single-user-mode.md)
+2. Utilize a consola em série para tomar o [modo único de utilizador no modo único de utilizador](serial-console-grub-single-user-mode.md)
 3. Uma vez iniciado o vm no modo de utilizador único. Use o seu editor de texto favorito para abrir o ficheiro fstab. 
 
    ```
@@ -119,7 +119,7 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
    > [!Note]
    > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal numer (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas fstab sobre as quais não tem a certeza em vez de remover as linhas.
    > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comentadas adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descoduir quaisquer linhas comentadas.
-   > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Para determinar o UUID do sistema de ficheiros, executar o comando blkid. Para mais informações sobre a sintaxe, mande o comando blkid.
    > * A opção nofalil ajuda a garantir que o VM começa mesmo que o sistema de ficheiros esteja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofalil no ficheiro fstab para permitir que o arranque continue após erros ocorridos em divisórias que não são necessárias para o arranque do VM.
 
@@ -172,7 +172,7 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
    > [!Note]
    > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal numer (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas fstab sobre as quais não tem a certeza em vez de remover as linhas.
    > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comentadas adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descoduir quaisquer linhas comentadas.
-   > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Para determinar o UUID do sistema de ficheiros, executar o comando blkid. Para mais informações sobre a sintaxe, mande o comando blkid.
    > * A opção nofalil ajuda a garantir que o VM começa mesmo que o sistema de ficheiros esteja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofalil no ficheiro fstab para permitir que o arranque continue após erros ocorridos em divisórias que não são necessárias para o arranque do VM.
 
@@ -216,7 +216,7 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
    > [!Note]
    > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal numer (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas fstab sobre as quais não tem a certeza em vez de remover as linhas.
    > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comentadas adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descoduir quaisquer linhas comentadas.
-   > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Para determinar o UUID do sistema de ficheiros, executar o comando blkid. Para mais informações sobre a sintaxe, mande o comando blkid. Note que o disco que pretende recuperar está agora montado num novo VM. Embora os UUIDs devam ser consistentes, os IDs de partição do dispositivo (por exemplo, "/dev/sda1") são diferentes neste VM. As divisórias do sistema de ficheiros do VM original que estão localizados num VHD não-sistema não estão disponíveis para a recuperação VM [utilizando comandos CLI](./troubleshoot-recovery-disks-linux.md).
    > * A opção nofalil ajuda a garantir que o VM começa mesmo que o sistema de ficheiros esteja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofalil no ficheiro fstab para permitir que o arranque continue após erros ocorridos em divisórias que não são necessárias para o arranque do VM.
 
@@ -235,7 +235,7 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
 13. Depois de voltar a criar o VM e pode ligá-lo através do SSH, tome as seguintes ações:
     * Reveja qualquer uma das linhas fstab que foram alteradas ou comentadas durante a recuperação.
     * Certifique-se de que está a utilizar o UUID e a opção nofale adequadamente.
-    * Teste quaisquer alterações de fstab antes de reiniciar o VM. Para isso, utilize o seguinte comando:``$ sudo mount -a``
+    * Teste quaisquer alterações de fstab antes de reiniciar o VM. Para isso, utilize o seguinte comando: ``$ sudo mount -a``
     * Crie uma cópia adicional do ficheiro fstab corrigido para utilização em futuros cenários de recuperação.
 
 ## <a name="next-steps"></a>Próximos passos

@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c2d3237e629c7ed5d2931e15939b154e0239f259
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553112"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441104"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -136,9 +136,8 @@ Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamesp
  
 Para mostrar os resultados em CSV:
 ```powershell
-$errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
-    C:\results.csv -Encoding utf8
+$validation = Invoke-AzStorageSyncCompatibilityCheck C:\DATA
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Compatibilidade do sistema de ficheiros
@@ -304,37 +303,37 @@ O Azure File Sync está disponível nas seguintes regiões:
 
 | Nuvem do Azure | Região geográfica | Região do Azure | Código da região |
 |-------------|-------------------|--------------|-------------|
-| Públicos | Ásia | Ásia Leste | `eastasia` |
-| Públicos | Ásia | Sudeste Asiático | `southeastasia` |
-| Públicos | Austrália | Leste da Austrália | `australiaeast` |
-| Públicos | Austrália | Sudeste da Austrália | `australiasoutheast` |
-| Públicos | Brasil | Sul do Brasil | `brazilsouth` |
-| Públicos | Canadá | Canadá Central | `canadacentral` |
-| Públicos | Canadá | Leste do Canadá | `canadaeast` |
-| Públicos | Europa | Europa do Norte | `northeurope` |
-| Públicos | Europa | Europa Ocidental | `westeurope` |
-| Públicos | França | França Central | `francecentral` |
-| Públicos | França | França Sul* | `francesouth` |
-| Públicos | Índia | Índia Central | `centralindia` |
-| Públicos | Índia | Sul da Índia | `southindia` |
-| Públicos | Japão | Leste do Japão | `japaneast` |
-| Públicos | Japão | Oeste do Japão | `japanwest` |
-| Públicos | Coreia | Coreia do Sul Central | `koreacentral` |
-| Públicos | Coreia | Sul da Coreia do Sul | `koreasouth` |
-| Públicos | África do Sul | África do Sul Norte | `southafricanorth` |
-| Públicos | África do Sul | África do Sul Oeste* | `southafricawest` |
-| Públicos | E.A.U. | UAE Central* | `uaecentral` |
-| Públicos | E.A.U. | Uae Norte | `uaenorth` |
-| Públicos | REINO UNIDO | Sul do Reino Unido | `uksouth` |
-| Públicos | REINO UNIDO | Oeste do Reino Unido | `ukwest` |
-| Públicos | EUA | E.U.A. Central | `centralus` |
-| Públicos | EUA | E.U.A. Leste | `eastus` |
-| Públicos | EUA | E.U.A. Leste 2 | `eastus2` |
-| Públicos | EUA | E.U.A. Centro-Norte | `northcentralus` |
-| Públicos | EUA | E.U.A. Centro-Sul | `southcentralus` |
-| Públicos | EUA | E.U.A. Centro-Oeste | `westcentralus` |
-| Públicos | EUA | E.U.A. Oeste | `westus` |
-| Públicos | EUA | E.U.A. Oeste 2 | `westus2` |
+| Público | Ásia | Ásia Leste | `eastasia` |
+| Público | Ásia | Sudeste Asiático | `southeastasia` |
+| Público | Austrália | Leste da Austrália | `australiaeast` |
+| Público | Austrália | Sudeste da Austrália | `australiasoutheast` |
+| Público | Brasil | Sul do Brasil | `brazilsouth` |
+| Público | Canadá | Canadá Central | `canadacentral` |
+| Público | Canadá | Leste do Canadá | `canadaeast` |
+| Público | Europa | Europa do Norte | `northeurope` |
+| Público | Europa | Europa Ocidental | `westeurope` |
+| Público | França | França Central | `francecentral` |
+| Público | França | França Sul* | `francesouth` |
+| Público | Índia | Índia Central | `centralindia` |
+| Público | Índia | Sul da Índia | `southindia` |
+| Público | Japão | Leste do Japão | `japaneast` |
+| Público | Japão | Oeste do Japão | `japanwest` |
+| Público | Coreia | Coreia do Sul Central | `koreacentral` |
+| Público | Coreia | Sul da Coreia do Sul | `koreasouth` |
+| Público | África do Sul | África do Sul Norte | `southafricanorth` |
+| Público | África do Sul | África do Sul Oeste* | `southafricawest` |
+| Público | E.A.U. | UAE Central* | `uaecentral` |
+| Público | E.A.U. | Uae Norte | `uaenorth` |
+| Público | REINO UNIDO | Sul do Reino Unido | `uksouth` |
+| Público | REINO UNIDO | Oeste do Reino Unido | `ukwest` |
+| Público | EUA | E.U.A. Central | `centralus` |
+| Público | EUA | E.U.A. Leste | `eastus` |
+| Público | EUA | E.U.A. Leste 2 | `eastus2` |
+| Público | EUA | E.U.A. Centro-Norte | `northcentralus` |
+| Público | EUA | E.U.A. Centro-Sul | `southcentralus` |
+| Público | EUA | E.U.A. Centro-Oeste | `westcentralus` |
+| Público | EUA | E.U.A. Oeste | `westus` |
+| Público | EUA | E.U.A. Oeste 2 | `westus2` |
 | US Gov | EUA | US Gov - Arizona | `usgovarizona` |
 | US Gov | EUA | US Gov - Texas | `usgovtexas` |
 | US Gov | EUA | US Gov - Virginia | `usgovvirginia` |
@@ -382,7 +381,7 @@ Se preferir utilizar uma solução de backup no local, as cópias de segurança 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 * [Implementar os Ficheiros do Azure](storage-files-deployment-guide.md)

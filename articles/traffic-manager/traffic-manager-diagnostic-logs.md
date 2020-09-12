@@ -2,20 +2,20 @@
 title: Permitir a sessão de registo de recursos no Azure Traffic Manager
 description: Saiba como ativar a sessão de registo de recursos para o seu perfil de Gestor de Tráfego e aceda aos ficheiros de registo que são criados como resultado.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: rohink
-ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 25c0b18da1690557f11e36dd11dda693ddddb838
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089061"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401321"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Permitir a sessão de registo de recursos no Azure Traffic Manager
 
@@ -70,11 +70,11 @@ A tabela seguinte inclui esquema de registos específico do recurso de perfil do
 
 |Nome do Campo|Tipo de Campo|Definição|Exemplo|
 |----|----|---|---|
-|Nome de ponto final|Cadeia|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
-|Estado|Cadeia|O estado de saúde do ponto final do Gerente de Trânsito que foi sondado. O estado pode ser **para cima** ou **para baixo**.|**Cima**|
+|Nome de ponto final|String|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
+|Estado|String|O estado de saúde do ponto final do Gerente de Trânsito que foi sondado. O estado pode ser **para cima** ou **para baixo**.|**Cima**|
 |||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [monitorização do Gestor de Tráfego](traffic-manager-monitoring.md)
 

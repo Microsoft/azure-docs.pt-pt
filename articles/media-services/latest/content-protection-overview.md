@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 81ec96d244c36c0328134b415465d632ef6c1dd5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d0f040961bfb72082f8c5accb86999d489a93de5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267926"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401389"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteja o seu conteúdo com encriptação dinâmica dos Media Services
 
@@ -156,6 +156,10 @@ O protocolo Smooth Streaming suporta os seguintes formatos de contentores e esqu
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
+|fMP4 | PIFF 1.1 (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> O suporte PIFF 1.1 é fornecido como uma solução compatível para trás para Smart TV (Samsung, LG) que implementou a versão inicial "Silverlight" da Common Encryption. Recomenda-se apenas utilizar o formato PIFF sempre que necessário para suporte de legacey Samsung ou LG Smart TVs enviados entre 2009-2015 que suportavam a versão PIFF 1.1 da encriptação PlayReady. 
 
 ### <a name="browsers"></a>Navegadores
 
@@ -261,7 +265,7 @@ Se tiver erros que terminam com `_NOT_SPECIFIED_IN_URL` , certifique-se de que e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteger com encriptação AES](protect-with-aes128.md)
 * [Proteger com DRM](protect-with-drm.md)

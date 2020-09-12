@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9909b92e58d73c9578d3d17a7bbf24fe2924fae2
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797088"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319530"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Atribuir ou remover licenças no portal Azure Ative Directory
 
@@ -35,7 +35,7 @@ Existem vários planos de licença disponíveis para o serviço Azure AD, inclui
 
 - Azure AD Premium P2
 
-Para obter informações específicas sobre cada plano de licença e os detalhes de licenciamento associados, veja [que licença preciso?](https://azure.microsoft.com/pricing/details/active-directory/) Para se inscrever nos planos de licença premium Azure AD veja [aqui.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)
+Para obter informações específicas sobre cada plano de licença e os detalhes de licenciamento associados, veja [que licença preciso?](https://azure.microsoft.com/pricing/details/active-directory/) Para se inscrever nos planos de licença premium Azure AD veja [aqui.](./active-directory-get-started-premium.md)
 
 Nem todos os serviços da Microsoft estão disponíveis em todos os locais. Antes de uma licença poder ser atribuída a um grupo, deve especificar a **localização de utilização** para todos os membros. Pode definir este valor na área de ** &gt; &gt; &gt; Definições de Perfil dos Utilizadores do Diretório Ativo Azure** em Azure AD. Qualquer utilizador cuja localização de utilização não seja especificada herda a localização da organização Azure AD.
 
@@ -140,7 +140,7 @@ Pode remover uma licença da página de utilizador Azure AD de um utilizador, da
     > [!NOTE]
     > Quando uma conta de utilizador no local sincronizada com a Azure AD cai fora do alcance da sincronização ou quando a sincronização é removida, o utilizador é eliminado em Azure AD. Quando isto ocorrer, as licenças atribuídas ao utilizador diretamente ou através de licenças baseadas em grupo serão marcadas como **suspensas** em vez de **eliminadas**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ter atribuído as suas licenças, pode realizar os seguintes processos:
 

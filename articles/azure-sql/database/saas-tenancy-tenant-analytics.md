@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043517"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437399"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app de inquilino único
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ As aplicações SaaS multi-arrendatários normalmente têm uma grande quantidade
 
 O acesso aos dados para todos os inquilinos é simples quando todos os dados estão numa base de dados multi-inquilinos. Mas o acesso é mais complexo quando distribuído em escala por potencialmente milhares de bases de dados. Uma forma de domar a complexidade e minimizar o impacto das consultas de análise em dados transacionais é extrair dados numa base de dados ou armazém de dados para fins específicos.
 
-Este tutorial apresenta um cenário de análise completo para a aplicação Wingtip Tickets SaaS. Em primeiro lugar, *a Elastic Jobs* é usada para extrair dados de cada base de dados de inquilinos e carregá-lo em mesas de paragem numa loja de análise. A loja de análise pode ser uma Base de Dados SQL ou um Armazém de Dados SQL. Para a extração de dados em larga escala, recomenda-se [a Azure Data Factory.](../../data-factory/introduction.md)
+Este tutorial apresenta um cenário de análise completo para a aplicação Wingtip Tickets SaaS. Em primeiro lugar, *a Elastic Jobs* é usada para extrair dados de cada base de dados de inquilinos e carregá-lo em mesas de paragem numa loja de análise. A loja de análise pode ser uma Base de Dados SQL ou uma piscina SQL. Para a extração de dados em larga escala, recomenda-se [a Azure Data Factory.](../../data-factory/introduction.md)
 
 Em seguida, os dados agregados são transformados em um conjunto de tabelas [de esquemas estelares.](https://www.wikipedia.org/wiki/Star_schema) As tabelas consistem numa tabela central de factos mais tabelas de dimensão relacionadas.  Para bilhetes wingtip:
 
@@ -156,7 +156,7 @@ Nesta secção do tutorial, você define e executou um trabalho que funde os dad
 2. No SSMS, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics\ShredRawExtractedData.sql*.
 3. Prima **F5** para executar o script para definir um trabalho que ligue para o sp_ShredRawExtractedData procedimento armazenado na loja de análise.
 4. Dê tempo suficiente para que o trabalho corra com sucesso.
-    - Consulte a coluna **lifecycle** de empregos.jobs_execution tabela para o estado de trabalho. Certifique-se **de** que o trabalho foi bem sucedido antes de prosseguir. Uma execução bem sucedida exibe dados semelhantes ao seguinte gráfico:
+    - Verifique a coluna **lifecycle** da tabela jobs.jobs_execution para obter o estado de trabalho. Certifique-se **de** que o trabalho foi bem sucedido antes de prosseguir. Uma execução bem sucedida exibe dados semelhantes ao seguinte gráfico:
 
 ![trituração](./media/saas-tenancy-tenant-analytics/shreddingJob.PNG)
 

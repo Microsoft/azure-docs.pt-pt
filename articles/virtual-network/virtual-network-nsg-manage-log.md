@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696036"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319450"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registo de recursos para um grupo de segurança de rede
 
@@ -24,7 +24,7 @@ Um grupo de segurança de rede (NSG) inclui regras que permitem ou negam o tráf
 Quando ativa a sessão de registo de um NSG, pode recolher os seguintes tipos de informações de registo de recursos:
 
 * **Evento:** As entradas são registadas para as quais as regras NSG são aplicadas a VMs, com base no endereço MAC.
-* **Contador de regras:** Contém entradas para quantas vezes cada regra NSG é aplicada para negar ou permitir o tráfego. O estatuto destas regras é recolhido a cada 60 segundos.
+* **Contador de regras:** Contém entradas para quantas vezes cada regra NSG é aplicada para negar ou permitir o tráfego. O estatuto destas regras é recolhido a cada 300 segundos.
 
 Os registos de recursos só estão disponíveis para os NSGs implementados através do modelo de implementação do Gestor de Recursos Azure. Não é possível ativar a registo de recursos para NSGs implementadas através do modelo clássico de implementação. Para uma melhor compreensão dos dois modelos, consulte os [modelos de implementação Understanding Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -201,8 +201,8 @@ Para saber como ver os dados do registo de recursos, consulte [a visão geral do
 - **Registos do Monitor Azure**: Pode utilizar a solução de análise do [grupo de segurança](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) da rede para obter informações melhoradas. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede numa máquina virtual.
 - **Conta de Armazenamento Azure**: Os dados são escritos para um PT1H.jsficheiro. Pode encontrar o:
-  - Registo de eventos no seguinte caminho:`insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-  - Registo de contador de regras no seguinte caminho:`insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Registo de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Registo de contador de regras no seguinte caminho: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>Próximos passos
 

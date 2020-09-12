@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985229"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459424"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Problemas de conectividade de resolução de problemas e outros erros com Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ A infraestrutura do Azure tem a capacidade de reconfigurar dinamicamente os serv
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
-| 4060 |16 |Não é possível abrir a base de dados "%&#x2a;ls" solicitada pelo login. O login falhou. Para mais informações, consulte [Errors 4000 a 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
+| 4060 |16 |Não é possível abrir a base de dados "%&#x2a;ls" solicitada pelo login. O início de sessão falhou. Para mais informações, consulte [Errors 4000 a 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |O serviço encontrou um erro no processamento do seu pedido. Tente novamente. Código de erro %d.<br/><br/>Recebe este erro quando o serviço está em baixo devido a atualizações de software ou hardware, falhas de hardware ou quaisquer outros problemas de falha. O código de erro (%d) incorporado na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou falha que ocorreu. Alguns exemplos dos códigos de erro estão incorporados na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>A reconexão liga-o automaticamente a uma cópia saudável da sua base de dados. A sua aplicação deve apanhar o erro 40197, registar o código de erro incorporado (%d) dentro da mensagem para resolução de problemas e tentar reconectar-se à Base de Dados SQL até que os recursos estejam disponíveis e a sua ligação seja novamente estabelecida. Para obter mais informações, consulte [erros transitórios.](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)|
 | 40501 |20 |o serviço está ocupado neste momento. Reda o pedido após 10 segundos. Identificação do incidente: %ls. Código: %d. Para obter mais informações, consulte: <br/>&bull;&nbsp; [Limites de recursos de servidor SQL lógicos](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bases de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites à base de DTU para piscinas elásticas](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bases de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para piscinas elásticas](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos de instância gerida Azure SQL](../managed-instance/resource-limits.md).|
 | 40613 |17 |A base de dados "%.&#x2a;ls" no servidor '%.&#x2a;ls' não está disponível atualmente. Por favor, re-teste a ligação mais tarde. Se o problema persistir, contacte o apoio ao cliente e forneça-lhes o ID de '%.&#x2a;ls'.<br/><br/> Este erro pode ocorrer se já existir uma ligação de administrador dedicada existente (DAC) estabelecida na base de dados. Para obter mais informações, consulte [erros transitórios.](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults)|
@@ -119,7 +119,7 @@ Normalmente, o administrador de serviço pode usar os seguintes passos para adic
 4. Se o nome de utilizador de login SQL não existir, crie-o seguindo estes passos:
 
    1. Na SSMS, clique duas vezes **em Segurança** para expandi-lo.
-   2. Clique com botão direito do rato em **Inícios de sessão** e, em seguida, selecione **Novo início de sessão**.
+   2. Clique em **Logins**com direito e, em seguida, **selecione Novo login**.
    3. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
 
    ```sql
@@ -128,10 +128,10 @@ Normalmente, o administrador de serviço pode usar os seguintes passos para adic
    GO
    ```
 
-5. Faça duplo clique em **Base de dados**.
+5. Base de **dados**de duplo clique .
 6. Selecione a base de dados a que pretende conceder a permissão do utilizador.
-7. Faça duplo clique em **Segurança**.
-8. Clique com botão direito do rato em **Utilizadores** e, em seguida, selecione **Novo utilizador**.
+7. **Segurança**de duplo clique.
+8. Clique com o botão direito **dos Utilizadores**e, em seguida, selecione **Novo Utilizador**.
 9. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
 
    ```sql
@@ -194,13 +194,13 @@ Para contornar esta questão, experimente um dos seguintes métodos:
 2. Determine o **tampão de entrada** para o bloqueador de cabeça.
 3. Sintonize a consulta do bloqueador de cabeça.
 
-   Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+   Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
 
 Se a base de dados atingir consistentemente o seu limite apesar de abordar consultas de bloqueio e de longa duração, considere o upgrade para uma edição com mais [recursos Edições](https://azure.microsoft.com/pricing/details/sql-database/)).
 
 Para obter mais informações sobre pontos de vista dinâmicos de gestão, consulte [as opiniões de gestão dinâmica do Sistema.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-Para obter mais informações sobre os limites da base de dados, consulte [os limites de recursos da Base de Dados SQL para servidores](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+Para obter mais informações sobre os limites da base de dados, consulte  [os limites de recursos da Base de Dados SQL para servidores](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
 
 ### <a name="error-10929-resource-id-1"></a>Erro 10929: ID de recurso: 1
 
@@ -261,7 +261,7 @@ Se encontrar repetidamente este erro, tente resolver o problema seguindo estes p
 
 Considere também a lotar as suas consultas. Para obter informações sobre o lote, consulte [como utilizar o lote para melhorar o desempenho da aplicação da base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Erro 40551: A sessão foi encerrada devido a uma utilização excessiva do TEMPDB
 
@@ -292,7 +292,7 @@ Tente reduzir o número de linhas que são operadas imediatamente, implementando
 
 Para contornar esta questão, tente otimizar a consulta.
 
-Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+Para um procedimento aprofundado de resolução de problemas, vê [a minha consulta está a correr bem na nuvem?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabela de mensagens de erro de governação de recursos adicionais
 
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Quando a exceção for desencadeada por problemas de consulta, notará uma pilha de chamadas semelhante à seguinte (note a referência à classe **SqlCommand).** Nesta situação, [afina as suas consultas.](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+Quando a exceção for desencadeada por problemas de consulta, notará uma pilha de chamadas semelhante à seguinte (note a referência à classe **SqlCommand).** Nesta situação, [afina as suas consultas.](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

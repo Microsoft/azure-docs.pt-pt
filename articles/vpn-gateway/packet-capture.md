@@ -1,36 +1,36 @@
 ---
-title: 'Azure VPN Gateway: Capturas de pacotes de configuração'
-description: Saiba mais sobre as funcionalidades de captura de pacotes que pode usar nas portas VPN.
+title: 'Azure VPN Gateway: Captura de pacotes de configure'
+description: Saiba mais sobre a funcionalidade de captura de pacotes que pode usar nas portas VPN para ajudar a reduzir a causa de um problema.
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2019
+ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 3ba3046367ceece6bf0ddf157451025c79977324
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 486ac23f26a7eee6b31322de79bfb68076a598ec
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077208"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441600"
 ---
-# <a name="configure-packet-captures-for-vpn-gateways"></a>Configure capturas de pacotes para gateways VPN
+# <a name="configure-packet-capture-for-vpn-gateways"></a>Captura de pacotes de configuração para gateways VPN
 
-A conectividade e as questões relacionadas com o desempenho são muitas vezes complexas e demoram muito tempo e esforço apenas para reduzir a causa do problema. A capacidade de captura de pacotes ajuda muito a reduzir o tempo na redução do âmbito do problema para certas partes da rede, como se o problema está do lado do cliente da rede, do lado Azure da rede, ou algures no meio. Uma vez que a questão tenha sido restringida, é muito mais eficaz depurar e tomar medidas corretivas.
+A conectividade e os problemas relacionados com o desempenho são muitas vezes complexos. Pode levar tempo e esforço significativos apenas para reduzir a causa do problema. A captura de pacotes pode ajudá-lo a reduzir o âmbito de um problema a certas partes da rede. Pode ajudá-lo a determinar se o problema está do lado do cliente da rede, do lado Azure da rede, ou algures no meio. Depois de reduzir o problema, é mais eficiente depurar e tomar medidas corretivas.
 
-Existem algumas ferramentas geralmente disponíveis para a captura de pacotes. Obter capturas de pacotes relevantes com estas ferramentas pode ser complicado, especialmente quando se trabalha com cenários de tráfego de grande volume. As capacidades de filtragem fornecidas por uma captura de pacotes de gateway VPN tornam-se um grande diferenciador. Pode utilizar uma captura de pacotes de gateway VPN para além de ferramentas de captura de pacotes geralmente disponíveis.
+Existem algumas ferramentas de captura de pacotes geralmente disponíveis. Obter capturas de pacotes relevantes com estas ferramentas pode ser complicado, especialmente em cenários de tráfego de grande volume. As capacidades de filtragem fornecidas pela captura de pacotes Azure VPN Gateway são um diferenciador importante. Você pode usar a captura de pacotes VPN Gateway juntamente com ferramentas de captura de pacotes geralmente disponíveis.
 
-## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Capacidades de filtragem do pacote de gateway VPN
+## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Capacidades de filtragem de pacotes VPN Gateway
 
-As capturas de pacotes de gateway VPN podem ser executadas no gateway ou numa ligação específica, dependendo das necessidades do cliente. Também pode executar capturas de pacotes em vários túneis ao mesmo tempo. Você pode capturar tráfego de direção única ou bidirecional, tráfego IKE e ESP, e pacotes internos, juntamente com filtragem em um gateway VPN.
+Pode executar a captura de pacotes VPN Gateway no gateway ou numa ligação específica, dependendo das suas necessidades. Também pode executar a captura de pacotes em vários túneis ao mesmo tempo. Você pode capturar tráfego unidirecional ou bidirecional, tráfego IKE e ESP, e pacotes internos, juntamente com filtragem em um gateway VPN.
 
-A utilização de um filtro de cinco tuples (sub-rede de origem, sub-rede de destino, porta de origem, porta de destino, protocolo) e bandeiras TCP (SYN, ACK, FIN, URG, PSH, RST) é útil ao isolar problemas num tráfego de grande volume.
+É útil usar um filtro de cinco tuples (sub-rede de origem, sub-rede de destino, porta de origem, porta de destino, protocolo) e bandeiras TCP (SYN, ACK, FIN, URG, PSH, RST) quando você está isolando problemas em tráfego de grande volume.
 
-Veja abaixo um exemplo de esquema JSON e JSON com explicação de cada propriedade. Além disso, note algumas limitações durante a execução das capturas do pacote:
-- No esquema, o filtro é mostrado como uma matriz, mas atualmente apenas um filtro pode ser utilizado de cada vez.
-- Não são permitidas múltiplas capturas de pacotes em toda a porta ao mesmo tempo.
-- Não são permitidas capturas múltiplas de pacotes na mesma ligação ao mesmo tempo. Pode executar capturas de pacotes em diferentes ligações ao mesmo tempo.
-- Um máximo de cinco capturas de pacotes pode ser executado em paralelo por gateway. Estas capturas de pacotes podem ser uma combinação de captura de pacotes em larga porta ou por captura de pacotes de conexão.
+Os seguintes exemplos de JSON e um esquema JSON fornecem explicações de cada propriedade. Aqui estão algumas limitações a ter em mente quando executar capturas de pacotes:
+- No esquema mostrado aqui, o filtro é uma matriz, mas atualmente apenas um filtro pode ser usado de cada vez.
+- Não pode executar várias capturas de pacotes em toda a porta ao mesmo tempo.
+- Não é possível executar várias capturas de pacotes numa única ligação ao mesmo tempo. Pode executar várias capturas de pacotes em diferentes ligações ao mesmo tempo.
+- Um máximo de cinco capturas de pacotes pode ser executado em paralelo por gateway. Estas capturas de pacotes podem ser uma combinação de capturas de pacotes em larga porta e capturas de pacotes por ligação.
 
 ### <a name="example-json"></a>Exemplo JSON
 ```JSON-interactive
@@ -316,9 +316,9 @@ Veja abaixo um exemplo de esquema JSON e JSON com explicação de cada proprieda
 }
 ```
 
-## <a name="setup-packet-capture-using-powershell"></a>Captura de pacote de configuração usando PowerShell
+## <a name="set-up-packet-capture-by-using-powershell"></a>Configurar a captura de pacotes utilizando o PowerShell
 
-Veja os exemplos abaixo para que os comandos PowerShell iniciem e parem as capturas de pacotes. Para obter mais informações sobre as opções de parâmetros, consulte este [documento](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)PowerShell .
+Os exemplos a seguir mostram comandos PowerShell que iniciam e param as capturas de pacotes. Para obter mais informações sobre as opções de parâmetros, consulte [este documento PowerShell](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Inicie a captura de pacotes para uma porta de entrada VPN
 
@@ -326,7 +326,7 @@ Veja os exemplos abaixo para que os comandos PowerShell iniciem e parem as captu
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Parâmetro opcional **-FilterData** pode ser usado para aplicar filtro.
+Pode utilizar o parâmetro opcional `-FilterData` para aplicar um filtro.
 
 ### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Pare a captura de pacotes para uma porta de entrada VPN
 
@@ -340,7 +340,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Parâmetro opcional **-FilterData** pode ser usado para aplicar filtro.
+Pode utilizar o parâmetro opcional `-FilterData` para aplicar um filtro.
 
 ### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Parar a captura de pacotes numa ligação de gateway VPN
 
@@ -350,10 +350,11 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 ## <a name="key-considerations"></a>Considerações principais
 
-- A execução de capturas de pacotes pode afetar o desempenho. Lembre-se de parar a captura do pacote quando não for necessário.
-- A duração mínima de captura do pacote é de 600 segundos. Ter uma duração de captura de pacote mais curta pode não fornecer dados completos devido a problemas de sincronização entre vários componentes no caminho.
+- A captura de pacotes de execução pode afetar o desempenho. Lembre-se de parar a captura do pacote quando não precisar.
+- A duração mínima de captura do pacote é de 600 segundos. Devido a problemas de sincronização entre vários componentes no caminho, capturas de pacotes mais curtos podem não fornecer dados completos.
 - Os ficheiros de dados de captura de pacotes são gerados no formato PCAP. Utilize o Wireshark ou outras aplicações comumente disponíveis para abrir ficheiros PCAP.
+- As capturas de pacotes não são suportadas em gateways baseados em políticas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para mais informações sobre o Gateway VPN, consulte [Sobre o Gateway VPN](vpn-gateway-about-vpngateways.md)
+Para mais informações sobre o VPN Gateway, veja [o que é VPN Gateway?](vpn-gateway-about-vpngateways.md)
