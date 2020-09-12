@@ -3,12 +3,12 @@ title: Criar fluxos de trabalho de Política como Código
 description: Aprenda a desenhar fluxos de trabalho para implementar as definições da Política Azure como código e valide automaticamente os recursos.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047331"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651887"
 ---
 # <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
@@ -43,7 +43,9 @@ Exemplos destes formatos de ficheiros estão disponíveis no [Azure Policy GitHu
 
 O fluxo de trabalho geral recomendado de Política como Código parece este diagrama:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Política como visão geral do fluxo de trabalho do código" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagrama mostrando a Política como caixas de fluxo de trabalho de Código de Criar para Testar para Implementar." border="false":::
+   O diagrama que mostra a Política como caixas de fluxo de trabalho do Código. Criar capas de criação das definições de política e iniciativa. O teste cobre a atribuição com o modo de execução desativado. Segue-se uma verificação de porta de entrada para o estado de conformidade, concedendo às atribuições permissões M S I e recursos de reparação.  Implementar capas que actualizássem a atribuição com o modo de execução ativado.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Criar e atualizar definições de políticas
 
@@ -142,7 +144,7 @@ Nestes casos, após a aplicação ou implantação da infraestrutura a um grupo 
 
 Este artigo abrange o fluxo de trabalho geral para a Política como Código e também onde a avaliação das políticas deve fazer parte de outros fluxos de trabalho de implantação. Este fluxo de trabalho pode ser usado em qualquer ambiente que suporte passos scripted e automação com base em gatilhos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça a estrutura de [definição de políticas.](./definition-structure.md)
 - Conheça a [estrutura de atribuição de políticas.](./assignment-structure.md)

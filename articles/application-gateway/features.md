@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067983"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651990"
 ---
 # <a name="azure-application-gateway-features"></a>Funcionalidades do Gateway de Aplicações Azure
 
@@ -26,7 +26,7 @@ O Gateway de Aplicações inclui as seguintes funcionalidades:
 - [Dimensionamento automático](#autoscaling)
 - [Redundância entre zonas](#zone-redundancy)
 - [VIP estático](#static-vip)
-- [Firewall de Aplicação Web](#web-application-firewall)
+- [Firewall de Aplicações Web](#web-application-firewall)
 - [Controlador de Entrada para AKS](#ingress-controller-for-aks)
 - [Encaminhamento baseado em URL](#url-based-routing)
 - [Alojamento de vários sites](#multiple-site-hosting)
@@ -35,7 +35,7 @@ O Gateway de Aplicações inclui as seguintes funcionalidades:
 - [Tráfego de Websocket e HTTP/2](#websocket-and-http2-traffic)
 - [Drenagem de ligação](#connection-draining)
 - [Páginas de erro personalizadas](#custom-error-pages)
-- [Reescrever cabeçalhos HTTP e URL](#rewrite-http-headers-and-url)
+- [Rescrever cabeçalhos HTTP e URL](#rewrite-http-headers-and-url)
 - [Dimensionamento](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Terminação da camada de tomadas seguras (SSL/TLS)
@@ -58,7 +58,7 @@ Um Gateway de aplicação Standard_v2 pode abranger várias Zonas de Disponibili
 
 A porta de entrada de aplicação Standard_v2 SKU suporta exclusivamente o tipo VIP estático. Isto garante que o VIP associado ao gateway de aplicações não muda mesmo ao longo da vida útil do Gateway de aplicações.
 
-## <a name="web-application-firewall"></a>Firewall de Aplicação Web
+## <a name="web-application-firewall"></a>Firewall de Aplicações Web
 
 Web Application Firewall (WAF) é um serviço que fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns. A WAF baseia-se nas regras do [OWASP (Open Web Application Security Project) que define](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (apenas WAF_v2), 3.0 e 2.2.9. 
 
@@ -83,13 +83,13 @@ Para obter mais informações, consulte [a visão geral do encaminhamento basead
 
 ## <a name="multiple-site-hosting"></a>Alojamento de vários sites
 
-Com o Application Gateway, pode configurar o encaminhamento com base no nome do anfitrião ou no nome de domínio para mais de uma aplicação web no mesmo gateway de aplicações. Permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um gateway de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicações. Criaria três ouvintes multi-locais e configuraria cada ouvinte para a respetiva definição de porta e protocolo. 
+Com o Application Gateway, pode configurar o encaminhamento com base no nome do anfitrião ou no nome de domínio para mais de uma aplicação web no mesmo gateway de aplicações. Permite-lhe configurar uma topologia mais eficiente para as implementações ao adicionar até 100 sites a um gateway de aplicação. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicação. Teria de criar três serviços de escuta com vários sites e configurar cada serviço de escuta para a respetiva definição de porta e protocolo. 
 
 Os pedidos `http://contoso.com` são encaminhados para ContosoServerPool, `http://fabrikam.com` são encaminhados para FabrikamServerPool, e assim por diante.
 
 Da mesma forma, dois subdomínios do mesmo domínio principal podem ser alojados na mesma implementação do gateway de aplicação. Exemplos de como utilizar subdomínios podem incluir `http://blog.contoso.com` e `http://app.contoso.com` alojados numa única implementação do gateway de aplicação. Para obter mais informações, consulte [o site application gateway múltiplo.](multiple-site-overview.md)
 
-Também pode definir nomes de anfitriões wildcard num ouvinte multi-site e até 5 nomes de anfitriões por ouvinte. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte (pré-visualização)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+Além disso, pode definir nomes de anfitrião de caráter universal num serviço de escuta com vários sites e até cinco nomes de anfitrião por serviço de escuta. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte (pré-visualização)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Redirecionamento
 
@@ -117,13 +117,13 @@ O Gateway de Aplicação fornece suporte nativo para os protocolos WebSocket e H
 
 Os protocolos WebSocket e HTTP/2 ativam a comunicação duplex completa entre um servidor e um cliente através de uma ligação TCP de execução longa. Isto permite uma comunicação mais interativa entre o servidor Web e o cliente, que pode ser bidirecional sem necessidade de consulta, que é necessária em implementações com base em HTTP. Estes protocolos têm sobrecargas baixas, ao contrário de HTTP, e podem reutilizar a mesma ligação TCP para múltiplos pedidos/respostas, resultando numa utilização mais eficiente dos recursos. Estes protocolos foram concebidos para funcionar através das portas HTTP tradicionais 80 e 443.
 
-Para obter mais informações, consulte [o suporte da WebSocket](application-gateway-websocket.md) e [o suporte HTTP/2](configuration-overview.md#http2-support).
+Para obter mais informações, consulte [o suporte da WebSocket](application-gateway-websocket.md) e [o suporte HTTP/2](configuration-listeners.md#http2-support).
 
 ## <a name="connection-draining"></a>Drenagem de ligação
 
 A drenagem de ligação ajuda a conseguir uma remoção correta de membros do conjunto de back-end durante as atualizações de serviço planeadas. Esta definição é ativada através da definição de http de back-end e pode ser aplicada a todos os membros de um conjunto de back-end durante a criação da regra. Uma vez ativado, o Application Gateway garante que todas as instâncias de desregista de um pool de backend não recebem qualquer novo pedido, permitindo que os pedidos existentes completem dentro de um prazo configurado. Isto aplica-se a ambos os casos de backend que são explicitamente removidos do pool de backend por uma alteração de configuração do utilizador, e casos de backend que são reportados como insalubres como determinados pelas sondas de saúde. A única exceção a esta questão são os pedidos destinados a desregistar casos, que foram explicitamente descontados, devido à afinidade da sessão gerida por gateways e que continuam a ser acompanhados das instâncias de desregiscimento.
 
-Para obter mais informações, consulte [a visão geral da configuração do Gateway de aplicações](configuration-overview.md#connection-draining).
+Para obter mais informações, consulte [a visão geral da configuração do Gateway de aplicações](configuration-http-settings.md#connection-draining).
 
 ## <a name="custom-error-pages"></a>Páginas de erro personalizadas
 
@@ -131,7 +131,7 @@ O Gateway de Aplicação permite-lhe criar páginas de erro personalizadas, em v
 
 Para mais informações, consulte [Erros Personalizados.](custom-error.md)
 
-## <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos HTTP e URL
+## <a name="rewrite-http-headers-and-url"></a>Rescrever cabeçalhos HTTP e URL
 
 Os cabeçalhos HTTP permitem ao cliente e ao servidor passar informações adicionais com o pedido ou a resposta. Reescrever estes cabeçalhos HTTP ajuda-o a realizar vários cenários importantes, tais como:
 
@@ -139,15 +139,15 @@ Os cabeçalhos HTTP permitem ao cliente e ao servidor passar informações adici
 - Remover campos de cabeçalho de resposta que podem revelar informações sensíveis.
 - Despojando informações portuárias de cabeçalhos X-Forwarded-For.
 
-O Application Gateway e o WAF v2 SKU suportam a capacidade de adicionar, remover ou atualizar os cabeçalhos de pedido e resposta HTTP, enquanto os pacotes de pedido e resposta se movem entre o cliente e os pools back-end. Também pode reescrever URLs, parâmetros de cadeia de consulta e nome de anfitrião. Com a reescrita de URL e encaminhamento baseado em caminhos URL, você pode escolher qualquer um dos pedidos de rota para uma das piscinas de backend com base no caminho original ou no caminho reescrito, usando a opção de mapa de caminho de reavaliação. 
+O Gateway de Aplicação e o SKU da WAF v2 suportam a capacidade de adicionar, remover ou atualizar cabeçalhos de pedido e de resposta HTTP, enquanto os pacotes de pedido e de resposta se movem entre os conjuntos de cliente e back-end. Também pode reescrever os URLs, os parâmetros de cadeia de consulta e o nome do anfitrião. Com a reescrita de URLs e o encaminhamento baseado em caminhos de URLs, pode escolher encaminhar pedidos para um dos conjuntos de back-end com base no caminho original ou no caminho reescrito ao utilizar a opção Reavaliar mapa do caminho. 
 
-Também lhe fornece a capacidade de adicionar condições para garantir que os cabeçalhos especificados ou URL são reescritos apenas quando determinadas condições são satisfeitas. Estas condições baseiam-se na informação de pedido e resposta.
+Além disso, permite-lhe adicionar condições para garantir que os cabeçalhos ou URLs especificados são reescritos apenas quando forem cumpridas determinadas condições. Estas condições baseiam-se nas informações do pedido e da resposta.
 
 Para obter mais informações, consulte [os cabeçalhos HTTP e URL](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Dimensionamento
 
-O Gateway de aplicação Standard_v2 pode ser configurado para implantações de autoscaling ou de tamanho fixo. Este SKU não oferece diferentes tamanhos de instância. Para obter mais informações sobre o desempenho e preços v2 v2, consulte [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md#pricing).
+O Gateway de aplicação Standard_v2 pode ser configurado para implantações de autoscaling ou de tamanho fixo. Este SKU não oferece diferentes tamanhos de instância. Para obter mais informações sobre o desempenho e preços v2, consulte o [preço de Autoscaling V2](application-gateway-autoscaling-zone-redundant.md) e [Understanding](understanding-pricing.md).
 
 O Application Gateway Standard é oferecido em três tamanhos: **Pequeno,** **Médio**e **Grande.** Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
 
@@ -155,7 +155,7 @@ Para obter uma lista completa dos limites do gateway de aplicação, veja [limit
 
 A tabela a seguir mostra uma produção média para cada instância de gateway v1 de aplicação com descarregamento SSL ativado:
 
-| Tamanho médio de resposta de página de back-end | Pequeno | Médio | Grande |
+| Tamanho médio de resposta de página de back-end | Small | Médio | Grande |
 | --- | --- | --- | --- |
 | 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
 | 100 KB |35 Mbps |100 Mbps |200 Mbps |
@@ -167,6 +167,6 @@ A tabela a seguir mostra uma produção média para cada instância de gateway v
 
 Para uma comparação de funcionalidades de gateway de aplicação v1-v2, consulte [Autoscaling e Zone-redundante Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como funciona o Application Gateway - [Como funciona um gateway de aplicações](how-application-gateway-works.md)

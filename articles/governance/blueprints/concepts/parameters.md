@@ -3,12 +3,12 @@ title: Use parâmetros para criar plantas dinâmicas
 description: Saiba sobre parâmetros estáticos e dinâmicos e como usá-los para criar plantas seguras e dinâmicas.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051564"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651948"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criar plantas dinâmicas através de parâmetros
 
@@ -61,11 +61,11 @@ Um valor de parâmetro definido na definição de uma planta é chamado de **par
 
 1. Artefactos adicionados à planta que têm opções de parâmetros exibem **X de parâmetros Y povoados** na coluna **Parâmetros.** Selecione a linha de artefactos para editar os parâmetros do artefacto.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parâmetros de planta em uma definição de planta" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Screenshot de uma definição de planta e os parâmetros 'X de Y povoados' realçados." border="false":::
 
-1. A página **editar o Artefacto** exibe opções de valor adequadas ao artefacto clicado. Cada parâmetro no artefacto tem um título, uma caixa de valor e uma caixa de verificação. Desaperte a caixa para não ser verificada para torná-la um **parâmetro estático**. No exemplo abaixo, _apenas a localização_ é um **parâmetro estático,** uma vez que não é verificado e _o Nome do Grupo de Recursos_ é verificado.
+1. A página **editar o Artefacto** apresenta opções de valor adequadas ao artefacto selecionado. Cada parâmetro no artefacto tem um título, uma caixa de valor e uma caixa de verificação. Desaperte a caixa para não ser verificada para torná-la um **parâmetro estático**. No exemplo abaixo, _apenas a localização_ é um **parâmetro estático,** uma vez que não é verificado e _o Nome do Grupo de Recursos_ é verificado.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Parâmetros estáticos de plantas em um artefacto de planta" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot de parâmetros estáticos em um artefacto de planta." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Definição de parâmetros estáticos da API REST
 
@@ -176,7 +176,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico.** Este parâme
 
 1. Na página **de planta 'Atribuir',** encontre a secção **de parâmetros do Artefacto.** Cada artefacto com pelo menos um **parâmetro dinâmico** exibe o artefacto e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir a planta. No exemplo abaixo, _o Nome_ é um **parâmetro dinâmico** que deve ser definido para completar a atribuição do projeto.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parâmetro dinâmico da planta durante a atribuição do projeto" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot de definição de parâmetros dinâmicos durante a atribuição da planta." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definição de parâmetros dinâmicos da REST API
 
@@ -231,7 +231,7 @@ A definição **de parâmetros dinâmicos** durante a atribuição é feita intr
   }
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a lista de [funções de planta](../reference/blueprint-functions.md).
 - Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).

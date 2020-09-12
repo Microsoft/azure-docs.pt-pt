@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588826"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651859"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Certificação de Azure Key Vault FAQ
 
@@ -54,7 +54,7 @@ Para obter mais informações sobre as políticas de acesso relacionadas com [ce
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Como posso resolver "Error type: Conflict when creating a certificate"?
     
-Cada nome de certificado deve ser único. Um certificado com o mesmo nome que outro pode estar num estado de apagação suave. Além disso, de acordo com a [composição de um certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) no Azure Key Vault, se houver outra chave ou segredo no cofre com o mesmo nome que você está tentando especificar para o seu certificado, a criação de certificado falhará e você precisará remover essa chave ou segredo ou usar um nome diferente para o seu certificado. 
+Cada nome de certificado deve ser único. Um certificado com o mesmo nome pode estar num estado de apagação suave. Além disso, de acordo com a [composição de um certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), quando o novo certificado é criado, cria um segredo endereçado com o mesmo nome, por isso, se houver outra chave ou segredo no cofre com o mesmo nome que o que está a tentar especificar para o seu certificado, a criação do certificado falhará e terá de remover essa chave ou segredo ou usar um nome diferente para o seu certificado. 
 
 Para mais informações, consulte [a operação 'Obter CertificadoS' (Certificado Desaubita).](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)
 
@@ -81,6 +81,6 @@ Yes. Depois de ter carregado o certificado, não se esqueça de especificar a au
 Se importou o certificado com sucesso, deverá poder confirmá-lo indo ao painel **Secrets.**
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Certificados Azure Key Vault](/azure/key-vault/certificates/about-certificates)

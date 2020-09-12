@@ -1,29 +1,26 @@
 ---
-title: Feed de mudança de processo no Azure Blob Storage (Preview) / Microsoft Docs
+title: Mudança de processo feed no Azure Blob Storage / Microsoft Docs
 description: Saiba como processar alterar registos de alimentação numa aplicação de cliente .NET
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018965"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568256"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Alterar o feed de mudança de processo no Armazenamento Azure Blob (Pré-visualização)
+# <a name="process-change-feed-in-azure-blob-storage"></a>Alterar o feed de mudança de processo no armazenamento de blob Azure
 
 O feed de alteração fornece registos de transações de todas as alterações que ocorrem às bolhas e aos metadados blob na sua conta de armazenamento. Este artigo mostra-lhe como ler alterar registos de feed utilizando a biblioteca do processador de feed de alteração de bolhas.
 
-Para saber mais sobre o feed de mudança, consulte [change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
-
-> [!NOTE]
-> O feed de mudança está em visualização pública, e está disponível em regiões limitadas. Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [o suporte para feed change no Azure Blob Storage](storage-blob-change-feed.md). A biblioteca do processador de feed de alteração está sujeita a alterações entre agora e quando esta biblioteca se tornar geralmente disponível.
+Para saber mais sobre o feed de mudança, consulte [change feed in Azure Blob Storage](storage-blob-change-feed.md).
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Obtenha a biblioteca do processador de feed de mudança de blob
 
@@ -217,6 +214,6 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
 
 A hora de início que fornece é arredondada para a hora mais próxima e o tempo final é arredondado até a hora mais próxima. É possível que os utilizadores possam ver eventos que ocorreram antes da hora de início e depois do fim do tempo. Também é possível que alguns eventos que ocorrem entre o início e o fim do tempo não apareçam. Isto porque os eventos podem ser registados durante a hora anterior à hora de início ou durante a hora após o fim do tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre alterar registos de feed. Ver [Alterar o feed no armazenamento de blob Azure (pré-visualização)](storage-blob-change-feed.md)
+Saiba mais sobre alterar registos de feed. Ver [Alterar feed no armazenamento de blob Azure](storage-blob-change-feed.md)

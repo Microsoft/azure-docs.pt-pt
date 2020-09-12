@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio nas Plantas Azure para proteger os recursos ao atribuir uma planta.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051507"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651935"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o bloqueio de recursos em Azure Blueprints
 
@@ -103,7 +103,7 @@ Quando a atribuição é removida, as fechaduras criadas pela Azure Blueprints s
 
 Um RBAC [nega que as atribuições](../../../role-based-access-control/deny-assignments.md) neguem que a ação seja aplicada aos recursos de artefactos durante a atribuição de um projeto se a atribuição selecionar a opção **Read Only** ou **Not Delete.** A ação de negação é adicionada pela identidade gerida da atribuição do projeto e só pode ser removida dos recursos do artefacto pela mesma identidade gerida. Esta medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio da planta fora das Plantas Azure.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Projeto negar atribuição em grupo de recursos" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Screenshot da página Access control (I A M) e do separador de atribuições Deny para um grupo de recursos." border="false":::
 
 As propriedades de [atribuição de negação](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são as seguintes:
 
@@ -179,7 +179,7 @@ Semelhante a [excluir um principal](#exclude-a-principal-from-a-deny-assignment)
 
 Embora **os Prncipals excluídos** devam ser explícitos, as entradas **excluídas deacções** podem utilizar `*` para a correspondência de wildcard das operações do RBAC.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Siga o tutorial [de novos recursos.](../tutorials/protect-new-resources.md)
 - Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).

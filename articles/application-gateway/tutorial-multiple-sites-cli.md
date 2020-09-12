@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502766"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595857"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicações que acolhe vários web sites usando o Azure CLI
 
@@ -22,13 +22,12 @@ Pode utilizar a CLI do Azure para [configurar o alojamento de vários sites](mul
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação
-> * Criar serviços de escuta de back-end
-> * Criar regras de encaminhamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
-> * Criar um registo CNAME no seu domínio
+* Configurar a rede
+* Criar um gateway de aplicação
+* Criar serviços de escuta de back-end
+* Criar regras de encaminhamento
+* Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
+* Criar um registo CNAME no seu domínio
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Gateway de aplicação multi-site":::
 
@@ -256,6 +255,6 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um gateway de aplicação com regras de encaminhamento com base no caminho de URL](./tutorial-url-route-cli.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cb45f4a19cf36fe291ffe7299a46a44a245fbb8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806197"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595891"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gerir o tráfego da Web com um gateway de aplicação com o Azure PowerShell
 
@@ -21,10 +21,9 @@ O gateway de aplicação serve para gerir e proteger o tráfego da Web para os s
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
+* Configurar a rede
+* Criar um gateway de aplicação
+* Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
 Se preferir, pode concluir este procedimento utilizando [o Azure CLI](tutorial-manage-web-traffic-cli.md).
 
@@ -248,7 +247,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testar o URL base no gateway de aplicação](./media/tutorial-manage-web-traffic-powershell/tutorial-iistest.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

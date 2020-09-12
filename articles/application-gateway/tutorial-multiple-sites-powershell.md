@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f6c6dd18ba57d83aa235f66285e7cb2ed42c1703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525008"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595873"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicação que aloja vários sites através do Azure PowerShell
 
@@ -22,13 +22,12 @@ Pode utilizar o Azure PowerShell para [configurar o alojamento de vários sites]
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação
-> * Criar serviços de escuta de back-end
-> * Criar regras de encaminhamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
-> * Criar um registo CNAME no seu domínio
+* Configurar a rede
+* Criar um gateway de aplicação
+* Criar serviços de escuta de back-end
+* Criar regras de encaminhamento
+* Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
+* Criar um registo CNAME no seu domínio
 
 :::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Gateway de aplicação multi-site":::
 
@@ -296,7 +295,7 @@ Altere o endereço para o outro domínio, e deverá ver algo semelhante ao segui
 
 ![Testar o site fabrikam no gateway de aplicação](./media/tutorial-multiple-sites-powershell/application-gateway-iistest2.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

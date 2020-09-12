@@ -5,17 +5,17 @@ description: Aprenda a usar python em Azure Machine Learning designer (pré-visu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 02/28/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
-ms.openlocfilehash: 7cb6fc0f4f2c2d3f57588d8ef0412177f612ee02
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: aae92b4a499a46956262ea902fc12341f8cda63b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853131"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657693"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Executar código Python em Azure Machine Learning designer
 
@@ -85,6 +85,6 @@ Neste exemplo, você usa Pandas para combinar duas colunas encontradas no conjun
 
 Agora, você tem um conjunto de dados com a nova funcionalidade **Dólares/HP,** o que pode ser útil na formação de um recomendador de carro. Este é um exemplo de extração de recursos e redução da dimensionalidade. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a [importar os seus próprios dados](how-to-designer-import-data.md) no designer de Machine Learning Azure.

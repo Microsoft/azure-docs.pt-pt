@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502737"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595823"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um gateway de aplicações com rescisão de TLS usando o Azure CLI
 
@@ -21,11 +21,10 @@ Pode utilizar o CLI Azure para criar um [gateway de aplicação](overview.md) co
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Criar um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicação com o certificado
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
+* Criar um certificado autoassinado
+* Configurar uma rede
+* Criar um gateway de aplicação com o certificado
+* Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
 Se preferir, pode concluir este procedimento utilizando [a Azure PowerShell](tutorial-ssl-powershell.md).
 
@@ -173,7 +172,7 @@ Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecio
 
 ![Testar o URL base no gateway de aplicação](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 
@@ -181,6 +180,6 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroupAG --location eastus
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um gateway de aplicação que aloja vários sites](./tutorial-multiple-sites-cli.md)

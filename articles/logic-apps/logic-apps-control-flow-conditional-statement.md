@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 796558c2579504b673fd15c468ce635c6b1cca8e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19f42270e37c42cf56bbde04f73c01027a56ff63
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066364"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657390"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Criar declarações condicionais que controlam as ações de fluxo de trabalho em Azure Logic Apps
 
@@ -28,7 +28,7 @@ Por exemplo, suponha que tem uma aplicação lógica que envia muitos e-mails qu
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Para seguir o exemplo neste artigo, [crie esta aplicação lógica de amostra](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta Outlook.com ou Office 365 Outlook.
+* Para seguir o exemplo neste artigo, [crie esta app lógica de amostra](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta Outlook.com ou uma conta de trabalho ou escola.
 
 ## <a name="add-condition"></a>Adicionar condição
 
@@ -40,7 +40,7 @@ Por exemplo, suponha que tem uma aplicação lógica que envia muitos e-mails qu
 
    ![Adicionar ação entre passos](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   Quando quiser adicionar uma condição no final do seu fluxo de trabalho, na parte inferior da sua aplicação lógica, escolha **Novo passo** Adicione > **uma ação**.
+   Quando quiser adicionar uma condição no final do seu fluxo de trabalho, na parte inferior da sua aplicação lógica, escolha  **Novo passo** Adicione > **uma ação**.
 
 1. Na caixa de pesquisa, introduza "condição" como filtro. Selecione esta ação: **Condição - Controlo**
 
@@ -113,7 +113,7 @@ Aqui está a definição de código de alto nível por trás de uma declaração
 * Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do [utilizador do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Passos de execução com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Executar e repetir passos (laços)](../logic-apps/logic-apps-control-flow-loops.md)

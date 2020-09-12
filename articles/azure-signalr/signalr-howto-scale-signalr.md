@@ -4,21 +4,21 @@ description: Aprenda a escalar uma instância do Serviço Azure SignalR para adi
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500492"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595772"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Como escalar uma instância do Serviço Azure SignalR?
 Este artigo mostra-lhe como escalar o seu caso de Serviço Azure SignalR. Há dois cenários para escalar, escalar e escalar.
 
 * [Escala:](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)Obtenha mais unidades, ligações, mensagens e muito mais. Aumenta-se alterando o nível de preços de Free para Standard.
-* [Escala :](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)Aumentar o número de unidades SignalR. Pode aumentar até 100 unidades.
+* [Escala :](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)Aumentar o número de unidades SignalR. Pode aumentar até 100 unidades. Existem opções de unidade limitadas para selecionar para o dimensionamento: 1, 2, 5, 10, 20, 50 e 100 unidades para uma única instância do Serviço SignalR.
 
 As regulações da balança demoram alguns minutos a aplicar-se. Em casos raros, pode levar cerca de 30 minutos a candidatar-se. Não exigem que altere o seu código ou reimplante a aplicação do servidor.
 
@@ -84,7 +84,7 @@ Para obter informações detalhadas, tais como mensagens incluídas e ligações
 
 Para uma tabela de limites de serviço, quotas e restrições em cada nível, consulte [os limites do Serviço SignalR](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia, aprendeu sobre como escalar uma única instância do Serviço SignalR.
 

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 6573237cbba8951bdd45c5b32c572b9af772ee5a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6cd69d1f5330e4967a31ac77359e046f461270cf
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519272"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657508"
 ---
 # <a name="connect-windows-security-events"></a>Ligar aos eventos de segurança do Windows 
 
-O conector Security Events permite-lhe transmitir todos os eventos de segurança dos seus sistemas Windows (servidores e estações de trabalho, físicas e virtuais) para o seu espaço de trabalho Azure Sentinel. Isto permite-lhe visualizar eventos de segurança do Windows nos seus dashboards, usá-los na criação de alertas personalizados e confiar neles para melhorar as suas investigações, dando-lhe mais informações sobre a rede da sua organização e expandindo as suas capacidades de operações de segurança. Pode selecionar quais os eventos a transmitir entre os seguintes conjuntos:<a name="event-sets"></a>
+O conector Security Events permite-lhe transmitir todos os eventos de segurança dos seus sistemas Windows (servidores e estações de trabalho, físicas e virtuais) para o seu espaço de trabalho Azure Sentinel. Isto permite-lhe visualizar eventos de segurança do Windows nos seus dashboards, usá-los na criação de alertas personalizados e confiar neles para melhorar as suas investigações, dando-lhe mais informações sobre a rede da sua organização e expandindo as suas capacidades de operações de segurança. Pode selecionar quais os eventos a transmitir entre os seguintes conjuntos: <a name="event-sets"></a>
 
 - **Todos os eventos** - Todos os eventos de segurança windows e AppLocker.
 - **Comum** - Um conjunto padrão de eventos para fins de auditoria. Neste conjunto está incluído um rasto completo de auditoria do utilizador. Por exemplo, contém eventos de inscrição do utilizador e de inscrição do utilizador (IDs de evento 4624, 4634). Existem também ações de auditoria, tais como alterações de grupos de segurança, operações de controlador de domínio chave Kerberos e outros tipos de eventos em conformidade com as melhores práticas aceites.
@@ -43,10 +43,10 @@ O conector Security Events permite-lhe transmitir todos os eventos de segurança
     | **Common** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729 , 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137 , 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 > [!NOTE]
-> A recolha de Eventos de Segurança no contexto de um único espaço de trabalho pode ser configurada a partir do Azure Security Center ou Azure Sentinel, mas não ambos. Se estiver a bordo do Azure Sentinel num espaço de trabalho que já está a funcionar no Azure Security Center, e está programado para recolher Eventos de Segurança, tem duas opções:
-> - Deixe a coleção de Eventos de Segurança no Centro de Segurança Azure como está. Poderá consultar e analisar estes eventos em Azure Sentinel, bem como no Centro de Segurança Azure. No entanto, não será capaz de monitorizar o estado de conectividade do conector ou alterar a sua configuração no Azure Sentinel. Se isto é importante para si, considere a segunda opção.
+> A recolha de Eventos de Segurança no contexto de um único espaço de trabalho pode ser configurada a partir de Azure Defender (antigo Centro de Segurança Azure) ou Azure Sentinel, mas não ambos. Se estiver a bordo do Azure Sentinel num espaço de trabalho que já está a funcionar a Azure Defender, e está pronto para recolher Eventos de Segurança, tem duas opções:
+> - Deixe a coleção de Eventos de Segurança no Azure Defender como está. Poderá consultar e analisar estes eventos em Azure Sentinel, bem como no Azure Defender. No entanto, não será capaz de monitorizar o estado de conectividade do conector ou alterar a sua configuração no Azure Sentinel. Se isto é importante para si, considere a segunda opção.
 >
-> - [Desativar a coleção de Eventos](../security-center/security-center-enable-data-collection.md) de Segurança no Azure Security Center e só depois adicionar o conector eventos de segurança em Azure Sentinel. Tal como na primeira opção, poderá consultar e analisar eventos tanto no Azure Sentinel como no Azure Security Center, mas agora poderá monitorizar o estado de conectividade do conector ou alterar a sua configuração em - e apenas em - Azure Sentinel.
+> - [Desativar a coleção de Eventos](../security-center/security-center-enable-data-collection.md) de Segurança em Azure Defender e só depois adicionar o conector eventos de segurança em Azure Sentinel. Tal como na primeira opção, poderá consultar e analisar eventos tanto no Azure Sentinel como no Azure Defender, mas agora poderá monitorizar o estado de conectividade do conector ou alterar a sua configuração em - e apenas em - Azure Sentinel.
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Configurar o conector de eventos de segurança do Windows
 
@@ -106,7 +106,7 @@ O Azure Sentinel pode aplicar machine learning (ML) a dados de eventos de segura
 
 1. Deve estar a recolher dados de login RDP (Evento ID 4624) através do conector de **dados de eventos de Segurança.** Certifique-se de que selecionou um [conjunto de eventos](#event-sets) para além de "Nenhum" para transmitir para o Azure Sentinel.
 
-1. A partir do portal Azure Sentinel, clique em **Analytics**e, em seguida, clique no separador **Desíbs de Modelos de Regra.** Escolha a regra **(Pré-visualização) de Deteção de Início de Saúde RDP anómala** e mova o slider **de Estado** para **Ativado**.
+1. A partir do portal Azure Sentinel, clique em **Analytics**e, em seguida, clique no **separador 'Modelos'.** Escolha a regra **de deteção de início de Sessão RDP (pré-visualização) anómala** e mova o slider **de estado** para **Ativado**.
 
     > [!NOTE]
     > Como o algoritmo de aprendizagem automática requer 30 dias de dados para construir um perfil de base do comportamento do utilizador, deve permitir que 30 dias de dados de eventos de Segurança sejam recolhidos antes de qualquer incidente ser detetado.
