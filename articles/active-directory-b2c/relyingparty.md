@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40672ac958e84d816d4b582472ae04502a910c6a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521268"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023793"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -74,7 +74,7 @@ O exemplo a seguir mostra um elemento **DaParte de Apoio** no ficheiro de polít
 
 O elemento **opcional RelyingParty** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | PredefiniçãoJourney | 1:1 | A viagem de utilizador predefinido para a aplicação RP. |
 | UserJourneyBehaviors | 0:1 | O âmbito dos comportamentos de viagem do utilizador. |
@@ -110,7 +110,7 @@ O elemento **DefaultUserJourney** contém o seguinte atributo:
 
 O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | O âmbito do comportamento de sessão de sessão de inscrição única (SSO) de uma viagem de utilizador. |
 | SessãoExpiryType |0:1 | O comportamento de autenticação da sessão. Valores possíveis: `Rolling` ou `Absolute` . O `Rolling` valor (predefinido) indica que o utilizador permanece assinado enquanto o utilizador estiver continuamente ativo na aplicação. O `Absolute` valor indica que o utilizador é obrigado a reautenticar após o período de tempo especificado pela sessão de trabalho útil da sessão de aplicação. |
@@ -138,7 +138,7 @@ O elemento **JourneyInsights** contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | TelemetriaEngine | Yes | O valor deve `ApplicationInsights` ser. |
 | InstrumentaçãoKey | Yes | A cadeia que contém a chave de instrumentação para o elemento de insights de aplicação. |
-| DeveloperMode | Yes | Valores possíveis: `true` ou `false` . Se, `true` Application Insights acelerar a telemetria através do gasoduto de processamento. Esta configuração é boa para o desenvolvimento, mas limitada em volumes elevados Os registos de atividades detalhadas são projetados apenas para ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para os fornecedores de identidade durante o desenvolvimento. Se for utilizado na produção, o desenvolvedor assume a responsabilidade pelo PII (PrivateLy Identifiable Information) recolhido no registo app Insights que possuem. Estes registos detalhados só são recolhidos quando este valor é definido para `true` .|
+| DeveloperMode | Yes | Valores possíveis: `true` ou `false` . Se, `true` Application Insights acelerar a telemetria através do gasoduto de processamento. Este cenário é bom para o desenvolvimento, mas limitado em volumes elevados. Os registos de atividades detalhados destinam-se apenas a ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para os fornecedores de identidade durante o desenvolvimento. Se for utilizado na produção, o desenvolvedor assume a responsabilidade pelo PII (PrivateLy Identifiable Information) recolhido no registo app Insights que possuem. Estes registos detalhados só são recolhidos quando este valor é definido para `true` .|
 | ClienteEnabled | Yes | Valores possíveis: `true` ou `false` . Se `true` , enviar o script do lado do cliente do Application Insights para visualização da página de rastreio e erros do lado do cliente. |
 | ServerEnabled | Yes | Valores possíveis: `true` ou `false` . Se `true` , enviar o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights. |
 | TelemetriaVersão | Yes | O valor deve `1.0.0` ser. |
@@ -155,7 +155,7 @@ O exemplo a seguir passa um parâmetro nomeado `campaignId` com um valor da cade
 
 O elemento **ContentDefinitionParameters** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | ConteúdoDefinitionParameter | 0:n | Uma cadeia que contém o par de valor chave que é anexado à cadeia de consulta de uma definição de conteúdo carregar URI. |
 
@@ -177,10 +177,10 @@ O elemento **TécnicoProfile** contém o seguinte atributo:
 
 O **Ficheiro Técnico** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | A cadeia que contém o nome do perfil técnico. |
-| Description | 0:1 | A cadeia que contém a descrição do perfil técnico. |
+| Descrição | 0:1 | A cadeia que contém a descrição do perfil técnico. |
 | Protocolo | 1:1 | O protocolo usado para a federação. |
 | Metadados | 0:1 | A recolha de *Itens* de pares chave/valor utilizados pelo protocolo para comunicar com o ponto final no decurso de uma transação para configurar a interação entre a parte de confiança e outros participantes da comunidade. |
 | Resultados | 1:1 | Uma lista de tipos de reclamações que são tomados como saída no perfil técnico. Cada um destes elementos contém referência a um **ClaimType** já definido na secção **ClaimsSchema** ou numa política a partir da qual este ficheiro de política herda. |
@@ -198,13 +198,18 @@ Quando o protocolo é `SAML` , um elemento de metadados contém os seguintes ele
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | No | Indica se o fluxo iniciado pelo IDP é suportado. Valores possíveis: `true` ou `false` (predefinição). | 
 | XmlSignatureAlgorithm | No | O método que a Azure AD B2C utiliza para assinar a Resposta SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a afirmação do SAML, consulte [metadados de perfil técnico do emitente SAML](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | No | Indica o método que o Azure AD B2C utiliza para encriptar os dados, utilizando algoritmos Advanced Encryption Standard (AES). Os metadados controlam o valor do `<EncryptedData>` elemento na resposta SAML. Valores possíveis: `Aes256` (padrão), `Aes192` `Sha512` ou ` Aes128` . |
+| KeyEncryptionMethod| No | Indica o método que o Azure AD B2C utiliza para encriptar a cópia da chave que foi usada para encriptar os dados. Os metadados controlam o valor do  `<EncryptedKey>` elemento na resposta SAML. Valores possíveis: ` Rsa15` (padrão) - RSA Public Key Cryptography Standard (PKCS) Algoritmo versão 1.5, ` RsaOaep` - RSA Optimal Encryption Estofamento de encriptação assimétrica (OAEP). |
+| Utilizar's DetachedKeys | No |  Valores possíveis: `true` , ou `false` (predefinição). Quando o valor é definido para `true` , Azure AD B2C altera o formato das afirmações encriptadas. A utilização de teclas separadas adiciona a afirmação encriptada como uma criança da EncrytedAssertion em oposição ao Dado Encriptado. |
+| Quer Respostas Assinadas| No | Indica se a Azure AD B2C assina a `Response` secção da resposta SAML. Valores possíveis: `true` (padrão) ou `false` . .  |
 
 ### <a name="outputclaims"></a>Resultados
 
 O elemento **OutputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Description |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | O nome de um tipo de reclamação esperada na lista apoiada para a política a que o partido que conta subscrever. Esta alegação serve de saída para o perfil técnico. |
 

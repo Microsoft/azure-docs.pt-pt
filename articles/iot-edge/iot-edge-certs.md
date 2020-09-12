@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 9d7caf332239d364b5bc47b5d58a808ead70395d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d1d4abbcc0768915d7d2e693cfc76a699ed21a91
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210591"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669632"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entenda como Azure IoT Edge usa certificados
 
@@ -34,7 +34,7 @@ A seguinte figura ilustra a utilização de certificados da IoT Edge. Pode haver
 ![Diagrama de relações típicas de certificado](./media/iot-edge-certs/edgeCerts-general.png)
 
 > [!NOTE]
-> Atualmente, uma limitação no libiothsmo impede a utilização de certificados que expirem em ou após 1 de janeiro de 2050. Esta limitação aplica-se ao certificado de CA do dispositivo, a quaisquer certificados no pacote fiduciário e aos certificados de identificação do dispositivo utilizados para métodos de provisionamento X.509.
+> Atualmente, uma limitação no libiothsmo impede a utilização de certificados que expirem em ou após 1 de janeiro de 2038. Esta limitação aplica-se ao certificado de CA do dispositivo, a quaisquer certificados no pacote fiduciário e aos certificados de identificação do dispositivo utilizados para métodos de provisionamento X.509.
 
 ### <a name="certificate-authority"></a>Autoridade de certificação
 
@@ -105,7 +105,7 @@ Pode ver a hierarquia da profundidade do certificado representada na imagem:
 | Certificado ca de carga de trabalho     | iotedge carga de trabalho ca                                                                                       |
 | Certificado de servidor IoT Edge Hub | iotedgegw.local (corresponde ao 'nome anfitrião' de config.yaml)                                            |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Compreender os módulos do Azure IoT Edge](iot-edge-modules.md)
 

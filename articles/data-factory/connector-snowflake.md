@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181889"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023861"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiar e transformar dados em Snowflake utilizando a Azure Data Factory
 
@@ -63,7 +63,11 @@ As seguintes propriedades são suportadas para um serviço ligado a Floco de Nev
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -109,7 +113,7 @@ As seguintes propriedades são suportadas para o conjunto de dados snowflake.
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Yes                         |
 | esquema | O nome do esquema. Note que o nome do esquema é sensível a maiíssimos em ADF. |Não para a fonte, sim para a pia.  |
-| tabela | Nome da mesa/vista. Note que o nome da tabela é sensível a maiôs na ADF. |Não para a fonte, sim para a pia.  |
+| mesa | Nome da mesa/vista. Note que o nome da tabela é sensível a maiôs na ADF. |Não para a fonte, sim para a pia.  |
 
 **Exemplo:**
 
@@ -409,8 +413,8 @@ A tabela abaixo lista as propriedades suportadas pela fonte snowflake. Pode edit
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Tabela | Se selecionar tabela como entrada, o fluxo de dados irá recolher todos os dados da tabela especificada no conjunto de dados de Snowflake ou nas opções de origem ao utilizar o conjunto de dados inline. | No | String | *(apenas para conjunto de dados em linha)*<br>tableName<br>schemaName |
-| Consulta | Se selecionar a Consulta como entrada, insira uma consulta para obter dados do Floco de Neve. Esta definição substitui qualquer tabela que tenha escolhido no conjunto de dados.<br>Se os nomes do esquema, da tabela e das colunas contiverem uma minúscula, cite o identificador de objetos em consulta, por `select * from "schema"."myTable"` exemplo. | No | String | consulta |
+| Tabela | Se selecionar tabela como entrada, o fluxo de dados irá recolher todos os dados da tabela especificada no conjunto de dados de Snowflake ou nas opções de origem ao utilizar o conjunto de dados inline. | Não | String | *(apenas para conjunto de dados em linha)*<br>tableName<br>schemaName |
+| Consulta | Se selecionar a Consulta como entrada, insira uma consulta para obter dados do Floco de Neve. Esta definição substitui qualquer tabela que tenha escolhido no conjunto de dados.<br>Se os nomes do esquema, da tabela e das colunas contiverem uma minúscula, cite o identificador de objetos em consulta, por `select * from "schema"."myTable"` exemplo. | Não | String | consulta |
 
 #### <a name="snowflake-source-script-examples"></a>Exemplos de script de fonte de floco de neve
 
@@ -481,6 +485,6 @@ IncomingStream sink(allowSchemaDrift: true,
 
 Para obter mais informações sobre as propriedades, consulte [a atividade da Lookup.](control-flow-lookup-activity.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma lista de lojas de dados suportadas como fontes e pias por copy atividade na Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

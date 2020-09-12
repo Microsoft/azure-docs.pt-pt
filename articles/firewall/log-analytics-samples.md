@@ -1,20 +1,20 @@
 ---
-title: Amostras de análise de registo de Azure Firewall
+title: Registos do Monitor Azure para Azure Firewall
 description: Os registos do Azure Monitor podem ser utilizados para analisar o seu Azure Firewall. Um ficheiro de amostra é construído no View Designer em Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705999"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023878"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Amostras de análise de registo de Azure Firewall
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Registos do Monitor Azure para Azure Firewall
 
 As seguintes amostras de registos do Azure Monitor podem ser usadas para analisar os seus registos Azure Firewall. O ficheiro de amostra é construído no View Designer in Azure Monitor, o artigo [do View Designer em Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) tem mais informações sobre o conceito de View Design.
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 As seguintes amostras de registo mostram os dados incluídos numa entrada de registo.
 
-![entrada de log](media/log-analytics-samples/log1.png)
+![entrada log um](media/log-analytics-samples/log1.png)
 
-![entrada de log](media/log-analytics-samples/log2.png)
+![entrada de log dois ](media/log-analytics-samples/log2.png)
 
-![entrada de log](media/log-analytics-samples/log3.png)
+![entrada de registo três](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a monitorização e diagnósticos do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall registos e métricas](tutorial-diagnostics.md).

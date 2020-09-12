@@ -1,6 +1,6 @@
 ---
 title: Conceitos de segurança Azure IoT Hub X.509 Microsoft Docs
-description: Conceito - compreensão do valor dos certificados X.509 da autoridade de certificados no fabrico de dispositivos IoT e autenticação .
+description: Conceito - compreender o valor dos certificados X.509 da autoridade de certificados no fabrico de dispositivos IoT e autenticação.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61320506"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019908"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Compreensão conceptual dos certificados X.509 CA na indústria IoT
 
@@ -29,7 +29,9 @@ Este artigo descreve:
 
 * Como os dispositivos assinados com X.509 CA conectam-se ao IoT Hub
 
-## <a name="overview"></a>Descrição Geral
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
+## <a name="overview"></a>Descrição geral
 
 A autenticação da X.509 Certificate Authority (CA) é uma abordagem para autenticar dispositivos para o IoT Hub utilizando um método que simplifica drasticamente a criação de identidade do dispositivo e a gestão do ciclo de vida na cadeia de fornecimento.
 
@@ -69,7 +71,7 @@ Para adquirir um certificado X.509 CA, a Empresa-X escolheria um prestador de se
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Criação de um certificado de CA X.509 auto-assinado
 
-O processo de criação de um certificado de CA Auto-Assinado X.509 é semelhante à compra, com exceção de envolver um signatário de terceiros como a autoridade do certificado raiz. No nosso exemplo, a Empresa-X assinará o seu certificado de autoridade em vez de uma autoridade de certificados de raiz. A Empresa-X pode escolher esta opção para testes até estarem prontos para comprar um certificado de autoridade. A Empresa-X também pode utilizar um certificado X.509 CA auto-assinado em produção, se o Smart-X-Widget não se destinar a ligar a quaisquer serviços de terceiros fora do IoT Hub.
+O processo de criação de um certificado de CA Auto-Assinado X.509 é semelhante à compra, com exceção de envolver um signatário de terceiros como a autoridade do certificado de raiz. No nosso exemplo, a Empresa-X assinará o seu certificado de autoridade em vez de uma autoridade de certificados de raiz. A Empresa-X pode escolher esta opção para testes até estarem prontos para comprar um certificado de autoridade. A Empresa-X também pode utilizar um certificado X.509 CA auto-assinado em produção, se o Smart-X-Widget não se destinar a ligar a quaisquer serviços de terceiros fora do IoT Hub.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registe o certificado X.509 no IoT Hub
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030491"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017239"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Access control in Azure Data Lake Storage Gen2 (Controlo de acesso no Azure Data Lake Storage Gen2)
 
@@ -256,7 +256,7 @@ A umask para Azure Data Lake Storage Gen2 um valor constante que está definido 
 | umask.owning_group  |    0         |   `---`      | Para possuir o grupo, copie o ACL padrão do progenitor para o acesso da criança ACL | 
 | umask.outro         |    7         |   `RWX`      | Para outro, remova todas as permissões no acesso da criança ACL |
 
-O valor de umask usado pelo Azure Data Lake Storage Gen2 significa efetivamente que o valor para **os outros** nunca é transmitido por padrão em novas crianças, independentemente do que o ACL padrão indica. 
+O valor de umask usado pelo Azure Data Lake Storage Gen2 significa efetivamente que o valor para **outros** nunca é transmitido por padrão em novas crianças, a menos que um ACL predefinido seja definido no diretório principal. Nesse caso, a umask é efetivamente ignorada e as permissões definidas pela ACL predefinida são aplicadas ao item da criança. 
 
 O pseudocódigo que se segue mostra como a umask é aplicada ao criar os ACLs para um item infantil.
 
@@ -328,7 +328,7 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 OID será exibido.
 
-Quando tiver o OID correto para o principal do serviço, vá à página de **Acesso gerido** do Explorador de Armazenamento para adicionar o OID e atribua permissões apropriadas para o OID. Certifique-se de que **seleciona Guardar**.
+Quando tiver o OID correto para o principal do serviço, vá à página de **Acesso gerido** do Explorador de Armazenamento para adicionar o OID e atribua permissões apropriadas para o OID. Confirme que selecionou **Guardar**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>O Data Lake Storage Gen2 suporta a herança dos ACLs?
 

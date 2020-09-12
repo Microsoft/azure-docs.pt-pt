@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012386"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023759"
 ---
 # <a name="use-the-session-management-rest-api"></a>Utilizar a API REST de gestão de sessões
 
@@ -122,7 +122,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 Existem alguns comandos para consultar ou modificar os parâmetros das sessões existentes.
 
 > [!CAUTION]
-No que diz respeito a todas as chamadas REST, o envio demasiado frequente destes comandos fará com que o servidor se ausse e retornará eventualmente. O código de estado neste caso é 429 ("muitos pedidos"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
+> No que diz respeito a todas as chamadas REST, o envio demasiado frequente destes comandos fará com que o servidor se ausse e retornará eventualmente. O código de estado neste caso é 429 ("muitos pedidos"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
 
 ### <a name="update-session-parameters"></a>Atualizar parâmetros de sessão
 
@@ -288,6 +288,6 @@ Headers           : {[MS-CV, YDxR5/7+K0KstH54WG443w.0], [Date, Thu, 09 May 2019 
 RawContentLength  : 0
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

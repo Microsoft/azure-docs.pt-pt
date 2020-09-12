@@ -1,6 +1,6 @@
 ---
 title: Verificação de editores de resolução de problemas - Plataforma de identidade da Microsoft Rio Azure
-description: Descreve como resolver problemas na verificação do editor (pré-visualização) para a plataforma de identidade da Microsoft, chamando APIs do Microsoft Graph.
+description: Descreve como resolver problemas na verificação de editores para a plataforma de identidade da Microsoft, chamando APIs do Microsoft Graph.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282981"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007558"
 ---
-# <a name="troubleshoot-publisher-verification-preview"></a>Resolver problemas da verificação do publicador (pré-visualização)
-Se não conseguir completar o processo ou estiver a experimentar comportamentos inesperados com [a verificação do editor (pré-visualização)](publisher-verification-overview.md), deve começar por fazer o seguinte se estiver a receber erros ou a ver comportamentos inesperados: 
+# <a name="troubleshoot-publisher-verification"></a>Resolver problemas da verificação do publicador
+Se não conseguir completar o processo ou estiver a experimentar comportamentos inesperados com [a verificação do editor,](publisher-verification-overview.md)deve começar por fazer o seguinte se estiver a receber erros ou a ver comportamentos inesperados: 
 
 1. Reveja os [requisitos](publisher-verification-overview.md#requirements) e certifique-se de que todos foram cumpridos.
 
@@ -62,7 +62,7 @@ Abaixo estão algumas questões comuns que podem ocorrer durante o processo.
 
 ## <a name="making-microsoft-graph-api-calls"></a>Fazer chamadas API do Microsoft Graph 
 
-Se estiver a ter um problema mas não conseguir perceber porquê, com base no que está a ver na UI, poderá ser útil realizar mais resoluções de problemas utilizando chamadas do Microsoft Graph para executar as mesmas operações que pode realizar no portal De Registo de Aplicações. Durante a fase de pré-visualização, estas APIs só estarão disponíveis no ponto final /beta do Microsoft Graph.  
+Se estiver a ter um problema mas não conseguir perceber porquê, com base no que está a ver na UI, poderá ser útil realizar mais resoluções de problemas utilizando chamadas do Microsoft Graph para executar as mesmas operações que pode realizar no portal De Registo de Aplicações.
 
 A forma mais fácil de fazer estes pedidos é usar [o Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer) Também pode considerar outras opções como usar [o Carteiro,](https://www.postman.com/)ou usar o PowerShell para [invocar um pedido web.](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7)  
 
@@ -205,7 +205,7 @@ O ID MPN não foi fornecido no órgão de pedido ou o tipo de conteúdo do pedid
 
 Esta funcionalidade não é suportada para contas de consumidores da Microsoft. Apenas as aplicações registadas no Azure AD por um utilizador AZure AD são suportadas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver revisto todas as informações anteriores e ainda estiver a receber um erro do Microsoft Graph, recolha o máximo de informações possíveis relacionadas com o pedido de falha e contacte o suporte da [Microsoft.](developer-support-help-options.md#open-a-support-request)
 

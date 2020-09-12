@@ -4,15 +4,15 @@ description: Replicar servidores de Serviços de Análise Azure com escala. As c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716933"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007711"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalamento horizontal do Azure Analysis Services
 
@@ -41,6 +41,8 @@ Ao executar uma operação de escala subsequente, por exemplo, aumentando o núm
 * Efetuar uma sincronização *antes da operação de escala para* evitar a hidratação redundante das réplicas adicionadas. Não são permitidas operações de sincronização e de escala simultâneas em execução ao mesmo tempo.
 
 * Ao automatizar as operações de processamento *e* escala, é importante primeiro processar os dados no servidor primário, depois realizar uma sincronização e, em seguida, executar a operação de escala. Esta sequência garante o mínimo impacto na QPU e nos recursos de memória.
+
+* Durante as operações de escala, todos os servidores do pool de consultas, incluindo o servidor primário, estão temporariamente offline.
 
 * A sincronização é permitida mesmo quando não há réplicas na piscina de consultas. Se estiver a escalonar de zero para uma ou mais réplicas com novos dados de uma operação de processamento no servidor primário, execute primeiro a sincronização sem réplicas no pool de consultas e, em seguida, dimensione. Sincronizar antes de escalonar evita a hidratação redundante das réplicas recém-adicionadas.
 
@@ -114,7 +116,7 @@ As operações de sincronização devem ser efetuadas manualmente ou utilizando 
 
 No **modelo** > > **Synchronize.**
 
-![Deslizador de escala](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Ícone de sincronização](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
 

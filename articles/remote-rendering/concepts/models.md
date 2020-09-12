@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9c8c4a1209b8bb5be7af87ef22aeab0ffd90b79
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021889"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023776"
 ---
 # <a name="models"></a>Modelos
 
@@ -28,7 +28,6 @@ Cada entidade pode ter [componentes ligados.](components.md) No caso mais comum,
 A criação de modelos para tempo de execução é conseguida através da [conversão de modelos](../how-tos/conversion/model-conversion.md) de entrada de formatos de ficheiros como FBX e GLTF. O processo de conversão extrai todos os recursos, tais como texturas, materiais e malhas, e converte-os em formatos de tempo de execução otimizados. Extrairá igualmente a informação estrutural e convertê-la-á na estrutura de gráficos de entidade/componente da ARR.
 
 > [!IMPORTANT]
->
 > [A conversão do modelo](../how-tos/conversion/model-conversion.md) é a única forma de criar [malhas.](meshes.md) Embora as malhas possam ser partilhadas entre entidades em tempo de execução, não há outra forma de obter uma malha no tempo de execução, além de carregar um modelo.
 
 ## <a name="loading-models"></a>Modelos de carregamento
@@ -119,7 +118,14 @@ Depois pode atravessar a hierarquia da entidade e modificar as entidades e compo
 > [!CAUTION]
 > Todas as funções *Async* em ARR retornam objetos de operação assíncronos. Deve guardar uma referência a esses objetos até que a operação esteja concluída. Caso contrário, o coletor de lixo C# pode apagar a operação mais cedo e nunca poderá terminar. No código de amostra acima da utilização de *garantias* de que a variável local 'loadOp' mantém uma referência até que o carregamento do modelo esteja terminado. No entanto, se utilizar o evento *Complete,* terá de armazenar a operação assíncronea numa variável de membro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# RemoteManager.LoadModelAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C# RemoteManager.LoadModelFromSASAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C++ RemoteManager::LoadModelAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C++ RemoteManager::LoadModelFromSASAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Entidades](entities.md)
 * [Malhas](meshes.md)
