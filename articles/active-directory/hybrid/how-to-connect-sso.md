@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf7db5f27ed6f612d0896bff0899feda3311883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357754"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658365"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Ative Directory Sem Emenda Único Sign-On
 
@@ -53,21 +53,21 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 
 - O nome de utilizador de inscrição pode ser o nome de utilizador predefinido no local `userPrincipalName` () ou outro atributo configurado no Azure AD Connect `Alternate ID` (). Ambos os casos funcionam porque o Seamless SSO utiliza a `securityIdentifier` reclamação no bilhete Kerberos para procurar o objeto de utilizador correspondente em Azure AD.
 - Seamless SSO é uma característica oportunista. Se falhar por qualquer motivo, a experiência de início de sômbar volta ao seu comportamento regular - ou seja, o utilizador precisa de introduzir a sua palavra-passe na página de início de s.a..
-- Se uma aplicação (por exemplo, `https://myapps.microsoft.com/contoso.com` ) encaminhar um `domain_hint` parâmetro (OpenID Connect) ou `whr` (SAML) - identificando o seu inquilino, ou `login_hint` parâmetro - identificando o utilizador, no seu pedido de entrada AD Azure, os utilizadores são automaticamente inscritos sem que estes introduzam nomes de utilizador ou palavras-passe.
+- Se uma aplicação (por exemplo,  `https://myapps.microsoft.com/contoso.com` ) encaminhar um `domain_hint` parâmetro (OpenID Connect) ou `whr` (SAML) - identificando o seu inquilino, ou `login_hint` parâmetro - identificando o utilizador, no seu pedido de entrada AD Azure, os utilizadores são automaticamente inscritos sem que estes introduzam nomes de utilizador ou palavras-passe.
 - Os utilizadores também obtêm uma experiência de inscrição silenciosa se uma aplicação (por exemplo, `https://contoso.sharepoint.com` ) enviar pedidos de inscrição para os pontos finais da AZure AD configurados como inquilinos - isto é, `https://login.microsoftonline.com/contoso.com/<..>` ou - em vez do ponto final comum da `https://login.microsoftonline.com/<tenant_ID>/<..>` AD AD - isto é, `https://login.microsoftonline.com/common/<...>` .
 - A assinatura é suportada. Isto permite que os utilizadores escolham outra conta Azure AD para iniciar seduca, em vez de serem automaticamente assinados na utilização de SSO sem emenda.
-- Os clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com versões 16.0.8730.xxxx e acima são suportados com um fluxo não interativo. Para o OneDrive, terá de ativar a [funcionalidade de config silencioso OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de sinal-on silenciosa.
+- Os clientes Microsoft 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e acima são suportados com um fluxo não interativo. Para o OneDrive, terá de ativar a [funcionalidade de config silencioso OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de sinal-on silenciosa.
 - Pode ser ativado através do Azure AD Connect.
 - É uma funcionalidade gratuita e não precisa de edições pagas da Azure AD para usá-lo.
-- É suportado em clientes baseados no navegador web e clientes do Office que suportam [a autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) em plataformas e navegadores capazes de autenticação Kerberos:
+- É suportado em clientes baseados no navegador web e clientes do Office que suportam [a autenticação moderna](/office365/enterprise/modern-auth-for-office-2013-and-2016) em plataformas e navegadores capazes de autenticação Kerberos:
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
-|Windows 8.1|Sim\*|N/D|Sim|Sim\*\*\*|N/D
-|Windows 8|Sim\*|N/D|Sim|Sim\*\*\*|N/D
-|Windows 7|Sim\*|N/D|Sim|Sim\*\*\*|N/D
-|Windows Server 2012 R2 ou superior|Sim, é o seu\*\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 10|Yes\*|Yes|Yes|Sim\*\*\*|N/D
+|Windows 8.1|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
+|Windows 8|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
+|Windows 7|Sim, é o seu\*|N/D|Yes|Sim\*\*\*|N/D
+|Windows Server 2012 R2 ou superior|Sim, é o seu\*\*|N/D|Yes|Sim\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
 
@@ -88,4 +88,3 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 - [**Perguntas frequentes**](how-to-connect-sso-faq.md) - Respostas a perguntas frequentes.
 - [**Resolução de problemas**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com a funcionalidade.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - Para arquivar novos pedidos de funcionalidades.
-

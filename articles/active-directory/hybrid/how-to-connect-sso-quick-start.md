@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115749"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658743"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
 
@@ -40,7 +40,7 @@ Certifique-se de que existem os seguintes pré-requisitos:
    - Se a sua firewall ou proxy permitir, adicione as ligações à lista permitida para ** \* URLs de .msappproxy.net** sobre a porta 443. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Este pré-requisito só é aplicável quando ativar a funcionalidade. Não é necessário para as insuposições reais do utilizador.
 
     >[!NOTE]
-    >As versões AZURE AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização da hash da palavra-passe. Se _não_ pretender utilizar a sincronização de hash de palavra-passe em conjunto com a Autenticação Pass-through, leia as notas de lançamento do [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
+    >As versões AZURE AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização da hash da palavra-passe. Se _não_ pretender utilizar a sincronização de hash de palavra-passe em conjunto com a Autenticação Pass-through, leia as notas de lançamento do [Azure AD Connect](./reference-connect-version-history.md) para saber mais.
 
 * **Utilize uma topologia suportada do Azure AD Connect**: Certifique-se de que está a utilizar uma das topologias suportadas do Azure AD Connect [descritas aqui](plan-connect-topologies.md).
 
@@ -51,9 +51,9 @@ Certifique-se de que existem os seguintes pré-requisitos:
     * Sincroniza-se com a Azure AD através do Azure AD Connect.
     * Contém utilizadores que pretende ativar para SSO sem emenda.
     
-* **Ativar a autenticação moderna**: É necessário ativar a [autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) no seu inquilino para que esta funcionalidade funcione.
+* **Ativar a autenticação moderna**: É necessário ativar a [autenticação moderna](/office365/enterprise/modern-auth-for-office-2013-and-2016) no seu inquilino para que esta funcionalidade funcione.
 
-* **Utilize as versões mais recentes dos clientes do Office 365**: Para obter uma experiência de login silenciosa com clientes do Office 365 (Outlook, Word, Excel, entre outros), os seus utilizadores precisam de utilizar as versões 16.0.8730.xxxx ou superiores.
+* **Utilize as versões mais recentes dos clientes da Microsoft 365**: Para obter uma experiência de login silenciosa com clientes Microsoft 365 (Outlook, Word, Excel, entre outros), os seus utilizadores precisam de utilizar as versões 16.0.8730.xxxx ou superiores.
 
 ## <a name="step-2-enable-the-feature"></a>Passo 2: Ativar a funcionalidade
 
@@ -132,7 +132,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
      O resultado tem o seguinte aspeto:
 
-     Nome de valor:`https://autologon.microsoftazuread-sso.com`
+     Nome de valor: `https://autologon.microsoftazuread-sso.com`
   
      Valor (Dados): 1
 
@@ -187,11 +187,11 @@ Certifique-se de que a máquina que está a funcionar o macOS está associada à
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge baseado em Chromium (todas as plataformas)
 
-Se tiver ultrapassado as definições de política [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de que também lhe adiciona o URL do Azure AD `https://autologon.microsoftazuread-sso.com` ( ) também.
+Se tiver ultrapassado as definições de política [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de que também lhe adiciona o URL do Azure AD `https://autologon.microsoftazuread-sso.com` ( ) também.
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge com base no Chromium (macOS e outras plataformas não-Windows)
 
-Para o Microsoft Edge baseado no Chromium em macOS e outras plataformas não-Windows, consulte [o Microsoft Edge com base na Lista de Políticas de Crómio](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obter informações sobre como adicionar o URL AD AZure para autenticação integrada na sua lista de admissões.
+Para o Microsoft Edge baseado no Chromium em macOS e outras plataformas não-Windows, consulte [o Microsoft Edge com base na Lista de Políticas de Crómio](/DeployEdge/microsoft-edge-policies#authserverallowlist) para obter informações sobre como adicionar o URL AD AZure para autenticação integrada na sua lista de admissões.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
@@ -211,7 +211,7 @@ O Seamless SSO não funciona em modo de navegação privada nos navegadores Fire
 
 Para testar a funcionalidade para um utilizador específico, certifique-se de que estão todas as seguintes condições:
   - O utilizador assina um dispositivo corporativo.
-  - O dispositivo está associado ao seu domínio Ative Directory. O dispositivo _não_ precisa de ser [Azure AD Joined](../active-directory-azureadjoin-overview.md).
+  - O dispositivo está associado ao seu domínio Ative Directory. O dispositivo _não_ precisa de ser [Azure AD Joined](../devices/overview.md).
   - O dispositivo tem uma ligação direta ao seu controlador de domínio (DC), quer na rede com fios ou sem fios da empresa, quer através de uma ligação de acesso remoto, como uma ligação VPN.
   - Lançou [a funcionalidade](#step-3-roll-out-the-feature) a este utilizador através da Política de Grupo.
 
@@ -234,7 +234,7 @@ Para obter instruções sobre como rolar as teclas, consulte [O Diretório Azure
 >[!IMPORTANT]
 >Não precisa de fazer este passo _imediatamente_ depois de ter ativado a funcionalidade. Revir as chaves de desencriptação Kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a função 'Sign-On' sem emenda.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Sign-On Único Sem Emenda.

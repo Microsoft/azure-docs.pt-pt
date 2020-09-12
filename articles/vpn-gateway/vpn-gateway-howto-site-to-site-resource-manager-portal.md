@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 09/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: ebfd03935f5189a544f11e5b8bbdd4b46e2aa989
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 660c346669c684921164f6488647f589492c7416
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037070"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006623"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma ligação Site a Site no portal do Azure
 
@@ -86,7 +86,7 @@ Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muit
 
 ## <a name="3-create-the-local-network-gateway"></a><a name="LocalNetworkGateway"></a>3. Criar o portal de rede local
 
-O gateway de rede local refere-se normalmente à sua localização no local. Dê um nome ao site pelo qual o Azure se possa referir ao mesmo e especifique o endereço IP do dispositivo VPN no local para o qual vai criar uma ligação. Também pode especificar os prefixos do endereço IP que vai ser encaminhado através do gateway de VPN para o dispositivo VPN. Os prefixos do endereço que especificar são os que estão localizados na sua rede no local. Se a sua rede no local for alterada ou se precisar de alterar o endereço IP público para o dispositivo VPN, pode atualizar facilmente os valores mais tarde.
+O gateway de rede local é um objeto específico que representa a sua localização no local (o site) para fins de encaminhamento. Dê um nome ao site pelo qual o Azure se possa referir ao mesmo e especifique o endereço IP do dispositivo VPN no local para o qual vai criar uma ligação. Também pode especificar os prefixos do endereço IP que vai ser encaminhado através do gateway de VPN para o dispositivo VPN. Os prefixos do endereço que especificar são os que estão localizados na sua rede no local. Se a sua rede no local for alterada ou se precisar de alterar o endereço IP público para o dispositivo VPN, pode atualizar facilmente os valores mais tarde.
 
 **Valores de exemplo**
 
@@ -137,7 +137,7 @@ Pode adicionar mais ligações, desde que nenhum desses espaços de endereços s
 3. Se estiver a ligar através de Site a Site e ainda não tiver criado um gateway de rede local para o site ao qual se quer ligar, pode criar um novo.
 4. Especifique a chave partilhada que pretende utilizar e clique em **OK** para criar a ligação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Para obter informações sobre túneis forçados, consulte [sobre o túnel forçado.](vpn-gateway-forced-tunneling-rm.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: d086f8f3a2f4939012691d5bd03cc92a50ac4613
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078321"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006402"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
@@ -146,7 +146,7 @@ Neste cenário, a Microsoft fatura $100,00 pela sua licença de software e paga 
 
 ### <a name="reduced-service-fee"></a>Taxa reduzida de serviço
 
-Para certas ofertas que publica no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa de Serviço de Mercado Reduzida aplica-se à Azure IP Co-vender saaS, VMs, apps geridas e quaisquer outras ofertas de iass transacionáveis qualificadas disponibilizadas através do mercado comercial.
+Para certas ofertas que publica no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa de Serviço de Mercado Reduzida aplica-se à Azure IP Co-vender saaS, VMs, apps geridas e quaisquer outras ofertas de iass transacionáveis qualificadas disponibilizadas através do mercado comercial. As ofertas pagas do SaaS associadas a uma aplicação da Microsoft Teams ou a pelo menos dois add-ins microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint) e publicadas no AppSource também recebem este desconto.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faturação, pagamento, faturação e cobranças de clientes
 
@@ -185,6 +185,7 @@ Esta secção abrange os requisitos de transação para diferentes tipos de ofer
 
 - Uma conta Microsoft e informações financeiras são necessárias para a opção de publicação de transações, independentemente do modelo de preços da oferta.
 - A informação financeira obrigatória inclui conta de pagamento e perfil fiscal.
+- O editor deve viver num [país ou região apoiado.](sell-from-countries.md)
 
 Para obter mais informações sobre a configuração destas contas, consulte [Gerir a sua conta de mercado comercial no Partner Center.](partner-center-portal/manage-account.md)
 
@@ -198,7 +199,7 @@ A opção de publicação de transações só está disponível para utilizaçã
 
 - **Aplicação SaaS** - Deve ser uma solução multitenante, utilizar [o Azure Ative Directory](https://azure.microsoft.com/services/active-directory/) para autenticação e integrar-se com as [APIs de Cumprimento do SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). O uso da infraestrutura Azure é gerido e faturado diretamente para você (o parceiro), por isso você deve prestar contas das taxas de utilização da infraestrutura Azure e taxas de licenciamento de software como um item de custo único. Para obter orientações detalhadas, consulte [Criar uma nova oferta saaS no mercado comercial.](partner-center-portal/create-new-saas-offer.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.
 - Reveja os padrões de publicação por loja online por exemplos sobre como a sua solução mapeia para um tipo de oferta e configuração.

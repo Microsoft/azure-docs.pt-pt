@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526835"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017477"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configurar a gravação do atributo Azure AD para o Workday
 O objetivo deste tutorial é mostrar os passos que precisa de executar para escrever atributos de Azure AD a Workday. A aplicação de writeback Workday suporta atribuir valores aos seguintes atributos workday:
@@ -34,7 +34,7 @@ Depois de configurar a integração de provisionamento de entrada utilizando a a
 
 Esta solução de provisionamento do utilizador Workday Writeback é ideal para:
 
-* Organizações que usam o Office 365 que desejam escrever atributos autoritários geridos por TI (como endereço de e-mail, nome de utilizador e número de telefone) de volta ao Workday
+* Organizações que usam o Microsoft 365 que desejam escrever atributos autoritários geridos por TI (como endereço de e-mail, nome de utilizador e número de telefone) de volta ao Workday
 
 ## <a name="configure-integration-system-user-in-workday"></a>Configure o utilizador do sistema de integração no Workday
 
@@ -155,7 +155,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
      > [!div class="mx-imgBorder"]
      > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)

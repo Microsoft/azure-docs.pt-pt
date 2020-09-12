@@ -1,6 +1,6 @@
 ---
 title: Visão geral de verificação do editor - Plataforma de identidade da Microsoft Rio Azure
-description: Fornece uma visão geral do programa de verificação de editores (pré-visualização) para a plataforma de identidade da Microsoft. Lista os benefícios, requisitos do programa e perguntas frequentes. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta da Microsoft Partner Network que concluiu o processo de verificação e associou esta conta MPN ao seu registo de candidatura.
+description: Fornece uma visão geral do programa de verificação de editores para a plataforma de identidade da Microsoft. Lista os benefícios, requisitos do programa e perguntas frequentes. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta da Microsoft Partner Network que concluiu o processo de verificação e associou esta conta MPN ao seu registo de candidatura.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068478"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005796"
 ---
-# <a name="publisher-verification-preview"></a>Verificação do publicador (pré-visualização)
+# <a name="publisher-verification"></a>Verificação de editores
 
-A verificação do editor (pré-visualização) ajuda os administradores e os utilizadores finais a compreender a autenticidade dos desenvolvedores de aplicações que se integram na plataforma de identidade da Microsoft. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta [da Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de candidatura. 
+A verificação do editor ajuda os administradores e os utilizadores finais a compreender a autenticidade dos desenvolvedores de aplicações que se integram na plataforma de identidade da Microsoft. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta [da Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de candidatura. 
 
 Um crachá azul "verificado" aparece na solicitação de consentimento Azure AD e outros ecrãs: ![ Pedido de consentimento](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -69,6 +69,6 @@ Abaixo estão algumas perguntas frequentes sobre o programa de verificação de 
 
 - **É a mesma coisa que a Galeria de Aplicações AD AZure?** A verificação de não editores é um programa complementar, mas separado, para a galeria de candidaturas do [Azure Ative Directory.](../azuread-dev/howto-app-gallery-listing.md) Os desenvolvedores que se enquadrarem nos critérios acima devem completar o processo de verificação do editor independentemente da participação nesse programa. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [marcar uma aplicação como editor verificado.](mark-app-as-publisher-verified.md)
 * [Verificação de](troubleshoot-publisher-verification.md) editor de resolução de problemas.

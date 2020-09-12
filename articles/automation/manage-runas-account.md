@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2d6e026f87211260a2cf45c0623806cc024b44e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530671"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005739"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerir uma execução de automação Azure Como conta
 
@@ -26,16 +26,16 @@ A Azure Automation utiliza dois tipos de contas Run As:
 >[!NOTE]
 >As assinaturas Azure Cloud Solution Provider (CSP) suportam apenas o modelo Azure Resource Manager. Os serviços não-Azure Resource Manager não estão disponíveis no programa. Quando está a utilizar uma subscrição CSP, a conta Azure Classic Run As não é criada, mas a conta Azure Run As é criada. Para saber mais sobre as subscrições da CSP, consulte [os serviços disponíveis em subscrições CSP.](/azure/cloud-solution-provider/overview/azure-csp-available-services)
 
-O titular do serviço para uma Execução como Conta não tem permissões para ler Azure AD por padrão. Se pretender adicionar permissões para ler ou gerir a AD Azure, terá de conceder as permissões ao principal do serviço sob **permissões da API.** Para saber mais, consulte [Adicionar permissões para aceder a APIs web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+O titular do serviço para uma Execução como Conta não tem permissões para ler Azure AD por padrão. Se pretender adicionar permissões para ler ou gerir a AD Azure, terá de conceder as permissões ao principal do serviço sob **permissões da API.** Para saber mais, consulte [Adicionar permissões para aceder à sua API web.](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)
 
 ### <a name="run-as-account"></a>Conta Run As
 
 A conta Run As gere os recursos [do modelo de implementação do Gestor de Recursos.](../azure-resource-manager/management/deployment-models.md) Faz as seguintes tarefas.
 
 * Cria uma aplicação do Azure AD com um certificado autoassinado, cria uma conta de principal de serviço para a aplicação no Azure AD e atribui a função Contribuidor à conta na sua subscrição atual. Pode alterar a definição de certificado para Proprietário ou qualquer outra função. Para obter mais informações, veja [Controlo de acesso baseado em funções na Automatização do Azure](automation-role-based-access-control.md).
-  
+
 * Cria um certificado de automação nomeado `AzureRunAsCertificate` na conta de Automação especificada. O certificado detém a chave privada de certificado que a aplicação Azure AD utiliza.
-  
+
 * Cria um ativo de ligação Automation named `AzureRunAsConnection` in the specific Automation account. O ativo de ligação detém o ID da aplicação, iD do inquilino, ID de assinatura e impressão digital de certificado.
 
 ### <a name="azure-classic-run-as-account"></a>Conta Run As Clássica do Azure
@@ -80,7 +80,7 @@ Para verificar se a situação que produz a mensagem de erro foi corrigida:
 
 1. A partir do painel de diretório ativo Azure no portal Azure, selecione **Utilizadores e grupos**.
 2. Selecione **Todos os utilizadores**.
-3. Escolha o seu nome e, em seguida, selecione **Perfil**. 
+3. Escolha o seu nome e, em seguida, selecione **Perfil**.
 4. Certifique-se de que o valor do atributo **do tipo Utilizador** no perfil do utilizador não está definido para o **Convidado**.
 
 ### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obtenha permissões para configurar Classic Run Como contas
@@ -99,7 +99,7 @@ Execute os seguintes passos para atualizar a sua conta Azure Automation no porta
 
 4. No painel esquerdo, selecione **Executar Como Contas** na secção de definições de conta.
 
-5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**. 
+5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**.
 
 6. Dependendo da conta de juros, utilize o **Add Azure Run As** ou Add **Azure Classic Run As Account.** Depois de rever as informações de visão geral, clique em **Criar**.
 
@@ -113,7 +113,7 @@ Esta secção descreve como eliminar uma conta Run As ou Classic Run As. Quando 
 
 2. No painel esquerdo, selecione **Executar Como Contas** na secção de definições de conta.
 
-3. Nas propriedades Contas Run As, selecione a conta Run As ou a conta Run As Clássica que quer eliminar. 
+3. Nas propriedades Contas Run As, selecione a conta Run As ou a conta Run As Clássica que quer eliminar.
 
 4. No painel propriedades para a conta selecionada, clique em **Eliminar**.
 
@@ -127,7 +127,7 @@ Esta secção descreve como eliminar uma conta Run As ou Classic Run As. Quando 
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovar um certificado auto-assinado
 
-O certificado auto-assinado que criou para a conta Run As expira um ano a contar da data de criação. Em algum momento antes da sua conta run Como expira, você deve renovar o certificado. Pode renová-lo a qualquer momento antes que expire. 
+O certificado auto-assinado que criou para a conta Run As expira um ano a contar da data de criação. Em algum momento antes da sua conta run Como expira, você deve renovar o certificado. Pode renová-lo a qualquer momento antes que expire.
 
 Quando renova o certificado auto-assinado, o certificado válido atual é mantido para garantir que quaisquer livros que estejam em fila ou que estejam a funcionar ativamente, e que autentem com a conta Run As, não sejam afetados negativamente. O certificado permanece válido até à data de expiração.
 
@@ -158,7 +158,7 @@ Utilize os seguintes passos para renovar o certificado auto-assinado.
 Para controlar a segmentação da Automação contra recursos em Azure, pode executar o [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script. Este script altera o seu run como principal do serviço de conta existente para criar e usar uma definição de função personalizada. O papel tem permissões para todos os recursos, exceto [o Key Vault.](../key-vault/index.yml)
 
 >[!IMPORTANT]
->Depois de executar o script **Update-AutomationRunAsAccountRoleAssignments.ps1,** os livros que acedem ao Key Vault através da utilização de Run As contas já não funcionam. Antes de executar o script, deve rever os runbooks na sua conta para chamadas para Azure Key Vault. Para permitir o acesso ao Key Vault a partir de runbooks da Azure Automation, tem de [adicionar a conta Run As às permissões do Key Vault](#add-permissions-to-key-vault).
+>Depois de executar o script **Update-AutomationRunAsAccountRoleAssignments.ps1, ** os livros que acedem ao Key Vault através da utilização de Run As contas já não funcionam. Antes de executar o script, deve rever os runbooks na sua conta para chamadas para Azure Key Vault. Para permitir o acesso ao Key Vault a partir de runbooks da Azure Automation, tem de [adicionar a conta Run As às permissões do Key Vault](#add-permissions-to-key-vault).
 
 Se precisar de restringir, promover o que o responsável de serviço pode fazer, pode adicionar outros tipos de recursos ao `NotActions` elemento da definição de função personalizada. O exemplo a seguir restringe o acesso a `Microsoft.Compute/*` . Se adicionar este tipo de recurso `NotActions` para a definição de função, a função não será capaz de aceder a qualquer recurso Compute. Para saber mais sobre definições de funções, consulte [as definições de funções para os recursos da Azure.](../role-based-access-control/role-definitions.md)
 
@@ -168,10 +168,10 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-Pode determinar se o principal de serviço utilizado pela sua conta Run As está na definição de função do Contribuinte ou na definição personalizada. 
+Pode determinar se o principal de serviço utilizado pela sua conta Run As está na definição de função do Contribuinte ou na definição personalizada.
 
 1. Aceda à sua conta Demômes automática e selecione **Executar Como Contas** na secção de definições de conta.
-2. Selecione **Azure Run as Account**. 
+2. Selecione **Azure Run as Account**.
 3. Selecione **Função** para localizar a definição de função que está a ser usada.
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verifique a função 'Executar como conta'." lightbox="media/manage-runas-account/verify-role-expanded.png":::
@@ -186,7 +186,7 @@ Pode permitir que a Azure Automation verifique se o Key Vault e o seu responsáv
 * Conceda permissões ao Key Vault.
 * Desa parte da política de acesso.
 
-Pode utilizar [o](https://aka.ms/AA5hugb)Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1script na PowerShell Gallery para dar a sua execução como permissões de conta para Key Vault. Consulte [o acesso das aplicações Grant a um cofre chave](../key-vault/general/group-permissions-for-apps.md) para obter mais detalhes sobre a definição de permissões no Key Vault.
+Pode utilizar [ o ](https://aka.ms/AA5hugb)Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1script na PowerShell Gallery para dar a sua execução como permissões de conta para Key Vault. Consulte [a política de acesso do Cofre de Chaves](/azure/key-vault/general/assign-access-policy-powershell) para obter mais detalhes sobre a definição de permissões no Key Vault.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Resolver problemas de configuração errada para run As accounts
 
@@ -207,9 +207,9 @@ Quando seleciona a conta Run As, o painel de propriedades da conta apresenta a s
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-Pode resolver rapidamente estes problemas da conta Run As, ao eliminar e recriar a conta.
+Pode resolver rapidamente estes problemas de conta run como eliminando e recriando a conta Run As.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Objetos de aplicação e objetos principais de serviço.](../active-directory/develop/app-objects-and-service-principals.md)
 * [Visão geral dos certificados para serviços de nuvem Azure](../cloud-services/cloud-services-certs-create.md).

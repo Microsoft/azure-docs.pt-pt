@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ca1a1bd1f07bf30fd7e5cd57b617a823120e85ea
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104236"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017375"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Centro de Parceiros
 
@@ -62,7 +62,7 @@ Pode adicionar até três áreas de solução para a sua oferta. Para cada área
 
 ## <a name="documents"></a>Documentos
 
-Pode fornecer garantias para a Microsoft utilizar para avaliar as necessidades dos seus clientes.
+Tem a opção de fornecer documentos colaterais que a Microsoft utilizará para saber mais sobre a sua oferta e avaliar o seu ajuste às necessidades do seu cliente. Todos os documentos listados na tabela abaixo são opcionais.
 
 | **Documentos**    | **Descrição**  |
 | :------------------- | :-------------------|
@@ -79,14 +79,14 @@ Pode fornecer garantias para a Microsoft utilizar para avaliar as necessidades d
 
 As suas informações de contacto permitem que as equipas de vendas da Microsoft e os revendedores de canais solicitem informações adicionais do recurso apropriado na sua organização. As informações de contacto estão disponíveis para todas as equipas de vendas da Microsoft. Se optar por disponibilizar a sua oferta no programa CSP, esta informação de contacto também está disponível para revendedores de canais.
 
-Este documento fornece orientações sobre as diferentes funções para os parceiros e como escolher entre eles. Pode fornecer os seus contactos descarregando o modelo CSV do Partner Center, preenchendo cada linha com informações sobre o contacto e importando este ficheiro CSV. A importação de um ficheiro CSV substituirá os contactos existentes.
+Pode fornecer os seus contactos descarregando o modelo CSV do Partner Center, preenchendo cada linha com informações sobre o contacto e importando este ficheiro CSV. A importação de um ficheiro CSV substituirá os contactos existentes.
 
 Também pode exportar a sua lista de contactos existente de uma oferta e, em seguida, fazer alterações nesse ficheiro.
 
 * *Nome (obrigatório)*: O nome do contacto.
 * *Endereço de e-mail (obrigatório)*: O endereço de e-mail do contacto.
 * *Título de trabalho (obrigatório)*: Título de emprego.
-* *Função (necessária)*: Utilize uma das seguintes funções neste campo no modelo.
+* *Função (necessária)*: Utilize qualquer uma das seguintes funções.
 
     | **Role**    | **Descrição**  |
     | :------------------- | :-------------------|
