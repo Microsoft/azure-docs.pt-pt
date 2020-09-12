@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/03/2020
 tags: connectors
-ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 68b81fa8cf110b47581e482e7e546821d40aef62
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853297"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435155"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -167,10 +167,10 @@ Ao criar uma aplicação lógica, pode selecionar a **entrega de encomenda corre
 
 ## <a name="connector-reference"></a>Referência do conector
 
-O conector Service Bus pode economizar até 1.500 sessões únicas de cada vez, desde um autocarro de serviço até à cache do conector. Se a contagem de sessão exceder este limite, as sessões antigas são removidas da cache. Para mais informações, consulte [as sessões de Mensagem](../service-bus-messaging/message-sessions.md).
+A partir de um autocarro de serviço, o conector Service Bus pode economizar até 1.500 sessões únicas de cada vez para a cache do conector, por [entidade de mensagens Service Bus, como uma subscrição ou tópico](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Se a contagem de sessão exceder este limite, as sessões antigas são removidas da cache. Para mais informações, consulte [as sessões de Mensagem](../service-bus-messaging/message-sessions.md).
 
 Para outros detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição do Conector Swagger, consulte a página de referência do [conector](/connectors/servicebus/). Para mais informações sobre a Azure Service Bus Messaging, veja [o que é o Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

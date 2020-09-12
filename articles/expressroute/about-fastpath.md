@@ -2,17 +2,17 @@
 title: Sobre o Azure ExpressRoute FastPath
 description: Saiba mais sobre o Azure ExpressRoute FastPath para enviar tráfego de rede contornando o gateway
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.author: cherylmc
-ms.openlocfilehash: 265004b1171d1df95b3090676d5836b951c28a28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: bf600d835e177ce51870ed2a8894adcd667e3901
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282856"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398057"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca do ExpressRoute FastPath
 
@@ -45,6 +45,6 @@ Embora o FastPath suporte a maioria das configurações, não suporta as seguint
 
 * Link Privado: Se ligar a um [ponto final privado](../private-link/private-link-overview.md) na sua rede virtual a partir da sua rede no local, a ligação passará pelo gateway de rede virtual.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ativar o FastPath, consulte [Link uma rede virtual ao ExpressRoute](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).

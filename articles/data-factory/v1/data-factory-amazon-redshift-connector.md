@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710155"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443029"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados da Amazon Redshift usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -59,14 +59,14 @@ As secções seguintes descrevem as propriedades JSON que são usadas para defin
 
 A tabela seguinte fornece descrições para os elementos JSON que são específicos de um serviço ligado à Amazon Redshift.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Sim |
-| **servidor** |O endereço IP ou o nome de anfitrião do servidor Amazon Redshift. |Sim |
-| **porta** |O número da porta TCP que o servidor Amazon Redshift utiliza para ouvir as ligações dos clientes. |Não (o padrão é 5439) |
-| **base de dados** |O nome da base de dados Amazon Redshift. |Sim |
-| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Sim |
-| **palavra-passe** |A palavra-passe para a conta de utilizador. |Sim |
+| **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Yes |
+| **servidor** |O endereço IP ou o nome de anfitrião do servidor Amazon Redshift. |Yes |
+| **porto** |O número da porta TCP que o servidor Amazon Redshift utiliza para ouvir as ligações dos clientes. |Não (o padrão é 5439) |
+| **base de dados** |O nome da base de dados Amazon Redshift. |Yes |
+| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Yes |
+| **palavra-passe** |A palavra-passe para a conta de utilizador. |Yes |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -74,7 +74,7 @@ Para obter uma lista das secções e propriedades disponíveis para definir conj
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja. A secção **typeProperties** para um conjunto de dados do tipo **RelationalTable,** que inclui o conjunto de dados Redshift da Amazon, tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome da tabela na base de dados Amazon Redshift a que o serviço ligado se refere. |Não (se for especificada a propriedade de **consulta** de uma atividade de cópia do tipo **RelationalSource)** |
 
@@ -84,16 +84,16 @@ Para obter uma lista de secções e propriedades disponíveis para definir ativi
 
 Para a Atividade de Cópia, quando a fonte é do tipo **AmazonRedshiftSource,** as seguintes propriedades estão disponíveis na secção **typeProperties:**
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** | Utilize a consulta personalizada para ler os dados. |Não (se for especificada a propriedade do nome de **tabela** de um conjunto de dados) |
-| **redshiftUnloadSettings** | Contém o grupo de propriedade ao utilizar o comando Redshift **UNLOAD.** | Não |
+| **redshiftUnloadSettings** | Contém o grupo de propriedade ao utilizar o comando Redshift **UNLOAD.** | No |
 | **s3LinkedServiceName** | O Amazon S3 para usar como loja provisória. O serviço ligado é especificado utilizando um nome Azure Data Factory do tipo **AwsAccessKey**. | Necessário ao utilizar a propriedade **redshiftUnloadSettings** |
 | **baldeName** | Indica o balde Amazon S3 para utilizar para armazenar os dados provisórios. Se esta propriedade não for fornecida, copy Activity gera automaticamente um balde. | Necessário ao utilizar a propriedade **redshiftUnloadSettings** |
 
 Em alternativa, pode utilizar o tipo **RelationalSource,** que inclui o Amazon Redshift, com a seguinte propriedade na secção **typeProperties.** Note que este tipo de fonte não suporta o comando Redshift **UNLOAD.**
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** |Utilize a consulta personalizada para ler os dados. | Não (se for especificada a propriedade do nome de **tabela** de um conjunto de dados) |
 
@@ -101,13 +101,13 @@ Em alternativa, pode utilizar o tipo **RelationalSource,** que inclui o Amazon R
 
 O comando Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) descarrega os resultados de uma consulta a um ou mais ficheiros sobre o Amazon S3. Este comando é recomendado pela Amazon para copiar grandes conjuntos de dados da Redshift.
 
-**Exemplo: Copiar dados da Amazon Redshift para O Armazém de Dados Azure SQL**
+**Exemplo: Copiar dados da Amazon Redshift para a Azure Synapse Analytics (anteriormente SQL Data Warehouse)**
 
-Este exemplo copia dados da Amazon Redshift para o Azure SQL Data Warehouse. O exemplo utiliza o comando Redshift **UNLOAD,** dados de cópias encenados e Microsoft PolyBase.
+Este exemplo copia dados da Amazon Redshift para a Azure Synapse Analytics. O exemplo utiliza o comando Redshift **UNLOAD,** dados de cópias encenados e Microsoft PolyBase.
 
-Para este caso de utilização de amostras, copy Activity primeiro descarrega os dados da Amazon Redshift para o Amazon S3 como configurado na opção **RedshiftUnloadSettings.** Em seguida, os dados são copiados do armazenamento Amazon S3 para Azure Blob, conforme especificado na opção **de stagingSettings.** Finalmente, a PolyBase carrega os dados no SQL Data Warehouse. Todos os formatos provisórios são tratados pela Copy Activity.
+Para este caso de utilização de amostras, copy Activity primeiro descarrega os dados da Amazon Redshift para o Amazon S3 como configurado na opção **RedshiftUnloadSettings.** Em seguida, os dados são copiados do armazenamento Amazon S3 para Azure Blob, conforme especificado na opção **de stagingSettings.** Finalmente, a PolyBase carrega os dados no Azure Synapse Analytics. Todos os formatos provisórios são tratados pela Copy Activity.
 
-![Copy workflow da Amazon Redshift para SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Copy workflow da Amazon Redshift para Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {
@@ -334,12 +334,12 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
 | REAL |Único |
-| DUPLA PRECISÃO |Double |
+| DUPLA PRECISÃO |Double (Duplo) |
 | BOOLEANA |String |
 | CHAR |String |
 | RIO VARCHAR |String |
-| DATA |DateTime |
-| TIMETAMP |DateTime |
+| DATA |Data e Hora |
+| TIMETAMP |Data e Hora |
 | TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas

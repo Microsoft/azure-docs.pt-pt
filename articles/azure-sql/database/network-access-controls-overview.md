@@ -1,7 +1,7 @@
 ---
 title: Controlos de Acesso à Rede
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Visão geral de como gerir e controlar o acesso à rede para a Base de Dados Azure SQL e para a Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse).
+description: Visão geral de como gerir e controlar o acesso à rede para a Base de Dados Azure SQL e para a Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085468"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435376"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database e Azure Synapse Analytics controlos de acesso à rede
 
@@ -102,7 +102,7 @@ start          end
 13.86.216.192  13.86.216.223
 ```
 
-Agora pode adicionar estas como regras de firewall distintas e, em seguida, definir **Permitir que os serviços Azure acedam ao servidor** off.
+Agora pode adicionar estas como regras de firewall distintas e, em seguida, definir **Permitir que os serviços Azure acedam ao servidor**  off.
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall IP
 
@@ -138,7 +138,7 @@ As regras de rede virtual são mais fáceis de estabelecer e gerir o acesso a pa
 > [!NOTE]
 > Ainda não é possível ter base de dados SQL numa sub-rede. Se o seu servidor fosse um nó numa sub-rede na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com a sua Base de Dados SQL. Neste caso, os seus VMs podem comunicar com a SQL Database sem precisar de quaisquer regras de rede virtuais ou regras de IP.
 
-## <a name="private-link"></a>Ligação Privada
+## <a name="private-link"></a>Private Link
 
 O Private Link permite-lhe ligar-se a um servidor através de um **ponto final privado.** Um ponto final privado é um endereço IP privado dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md) específica e sub-rede.
 

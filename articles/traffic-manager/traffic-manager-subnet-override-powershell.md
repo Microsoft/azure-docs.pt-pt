@@ -3,17 +3,17 @@ title: Sub-rede Azure Traffic Manager sobrepõe-se usando Azure PowerShell Micro
 description: Este artigo irá ajudá-lo a entender como a sub-rede do Traffic Manager é usada para substituir o método de encaminhamento de um perfil de Gestor de Tráfego para direcionar o tráfego para um ponto final baseado no endereço IP do utilizador final através da gama IP pré-indefinida para mapeamentos de ponto final utilizando Azure PowerShell.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: rohink
-ms.openlocfilehash: 3b58a0aef4df71649e657c04b44c31b6bbfe019c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 01bd3b1e945ee7c9ac16af7048536c0a9e2d731a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689576"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401593"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Sub-rede do Gestor de Tráfego sobrepõe-se usando Azure Powershell
 

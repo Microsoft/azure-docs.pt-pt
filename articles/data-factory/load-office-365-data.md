@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170716804a5bc3133e070ee67f2aac71acad7b0b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415805"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435567"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 utilizando a Azure Data Factory
 
@@ -37,7 +37,7 @@ Este artigo mostra-lhe como utilizar os dados de carga da Data Factory _do Offic
     * **Nome**: Introduza um nome globalmente único para a sua fábrica de dados Azure. Se receber o erro "Data factory name *LoadFromOffice365Demo* não está disponível", insira um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome _**do seu nome**_**LoadFromOffice365Demo**. Tente criar a fábrica de dados de novo. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: Selecione a sua subscrição Azure na qual criar a fábrica de dados. 
     * **Grupo de Recursos**: Selecione um grupo de recursos existente da lista de drop-down, ou selecione a nova opção **Criar** e insira o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
-    * **Versão**: Selecione **V2**.
+    * **Versão**: selecione **V2**.
     * **Localização**: Selecione a localização para a fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. As lojas de dados que são utilizadas pela fábrica de dados podem estar noutros locais e regiões. Estas lojas de dados incluem Azure Data Lake Store, Azure Storage, Azure SQL Database, e assim por diante.
 
 3. Selecione **Criar**.
@@ -145,9 +145,9 @@ Uma vez que o consentimento é fornecido, a extração de dados continuará e, a
 
 Agora vá ao destino Azure Blob Storage e verifique se os dados do Office 365 foram extraídos em formato Binário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Avance para o seguinte artigo para saber sobre o suporte do Armazém de Dados Azure SQL: 
+Avance para o seguinte artigo para saber sobre o suporte da Azure Synapse Analytics (anteriormente SQL Data Warehouse): 
 
 > [!div class="nextstepaction"]
 >[Conector do Office 365](connector-office-365.md)

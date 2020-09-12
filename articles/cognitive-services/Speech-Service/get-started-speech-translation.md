@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 0925eef7ffd420b1240e335b0bc394197c651cbe
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+keywords: tradução da fala
+ms.openlocfilehash: da321e2f259ae6e994cddcb928cc139a28c6d9ae
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055796"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394878"
 ---
-# <a name="get-started-with-speech-translation"></a>Começar com a tradução da fala
+# <a name="get-started-with-speech-translation"></a>Introdução à tradução de voz
 
 Uma das características centrais do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras línguas. Neste arranque rápido aprende-se a usar o Speech SDK nas suas apps e produtos para realizar tradução de fala de alta qualidade. Este arranque rápido abrange temas como:
 
@@ -54,7 +55,7 @@ Uma das características centrais do serviço de fala é a capacidade de reconhe
 [!INCLUDE [More languages include](includes/how-to/speech-translation-basics/more.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilize formatos de áudio comprimido codec](how-to-use-codec-compressed-audio-input-streams.md)
 * Veja as [amostras de arranque rápido](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) no GitHub.

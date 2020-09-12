@@ -1,19 +1,19 @@
 ---
 title: Phoenix Consulta Server REST SDK - Azure HDInsight
 description: Instale e utilize o REST SDK para o Servidor de Consulta Phoenix em Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
-ms.openlocfilehash: 4ad6d16e4c6d91b44061d99ffa1c397fb0e0ec28
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 051d7b37f5f78ce28134fa7c4ee188f3dde81812
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019645"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504847"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Consulta Servidor REST SDK
 
@@ -539,7 +539,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Apache Phoenix no HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Utilizando o Apache HBase REST SDK](apache-hbase-rest-sdk.md)

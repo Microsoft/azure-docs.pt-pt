@@ -3,20 +3,20 @@ title: Azure Front Door - arquitetura de encaminhamento / Microsoft Docs
 description: Este artigo ajuda-o a entender o aspeto global da arquitetura da Porta da Frente.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b36852e27f6aa3a909dd645c19a12c55e082b761
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80879297"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399332"
 ---
 # <a name="routing-architecture-overview"></a>Visão geral da arquitetura de encaminhamento
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e79e5e16b300fd02b9c9124f9677747834f22813
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523456"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443148"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Como catalogar big data no Catálogo de Dados Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "86523456"
 
 **O Microsoft Azure Data Catalog** é um serviço de cloud totalmente gerido que serve como um sistema de registo e sistema de descoberta para fontes de dados empresariais. Trata-se de ajudar as pessoas a descobrir, compreender e usar fontes de dados, e ajudar as organizações a obter mais valor a partir das suas fontes de dados existentes, incluindo big data.
 
-**O Azure Data Catalog** suporta o registo de bolhas e diretórios de armazenamento de blogs Azure, bem como ficheiros e diretórios Hadoop HDFS. A natureza semi-estruturada destas fontes de dados proporciona uma grande flexibilidade. No entanto, para obter o maior valor ao registar os mesmos no **Azure Data Catalog,** os utilizadores devem considerar como as fontes de dados são organizadas.
+**O Azure Data Catalog** suporta o registo de bolhas e diretórios de armazenamento Azure, bem como ficheiros e diretórios Hadoop HDFS. A natureza semi-estruturada destas fontes de dados proporciona uma grande flexibilidade. No entanto, para obter o maior valor ao registar os mesmos no **Azure Data Catalog,** os utilizadores devem considerar como as fontes de dados são organizadas.
 
 ## <a name="directories-as-logical-data-sets"></a>Diretórios como conjuntos de dados lógicos
 

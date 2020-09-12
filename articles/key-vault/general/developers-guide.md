@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2f90ba0bb732930b4cf3b1c832c6954683119f5f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585870"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394759"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -67,7 +67,7 @@ Antes de trabalhar com chaves, segredos ou certificados no seu cofre chave, irá
 - [Definir e recuperar um certificado com CLI](../certificates/quick-create-cli.md)
 - [Desemole e recupere um certificado com PowerShell](../certificates/quick-create-powershell.md)
 - [Desconfiem e recupere um certificado com o portal Azure](../certificates/quick-create-portal.md)
-- [Operações de chaves com REST](/rest/api/keyvault/#certificate-operations)
+- [Operações de certificado com REST](/rest/api/keyvault/#certificate-operations)
 - [Definir e recuperar um certificado com Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Codificação com cofre de chaves
@@ -125,7 +125,7 @@ Os seguintes artigos e cenários fornecem orientações específicas para a tare
 - [Como utilizar o Key Vault para uma gestão extensível de chaves com o SQL](https://msdn.microsoft.com/library/dn198405.aspx) Server - O Conector do Servidor SQL para o Azure Key Vault permite que o SQL-in-a-VM aproveite o serviço Azure Key Vault como fornecedor de Gestão de Chaves Extensível (EKM) para proteger as suas chaves de encriptação para ligação de aplicações; Encriptação de dados transparente, encriptação de backup e encriptação do nível da coluna.
 - [Como implementar certificados para VMs do Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Uma aplicação em nuvem em execução num VM em Azure precisa de um certificado. Como é que se consegue este certificado neste VM hoje?
 - [A implementação do Certificado de Aplicação Web Azure através do Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) fornece instruções passo a passo para a implementação de certificados armazenados no Cofre-Chave como parte da oferta de Certificado de Serviço de [Aplicações.](https://azure.microsoft.com/blog/internals-of-app-service-certificate/)
-- [Conceder permissão a muitas aplicações para aceder a um cofre chave](group-permissions-for-apps.md) A política de controlo de acesso do Key Vault suporta até 1024 entradas. No entanto, pode criar um grupo de segurança Azure Ative Directory. Adicione todos os principais de serviço associados a este grupo de segurança e, em seguida, conceda acesso a este grupo de segurança ao Key Vault.
+- Atribuir uma política de acesso[(Portal CLI](assign-access-policy-cli.md)  |  [PowerShell).](assign-access-policy-powershell.md)  |  [Portal](assign-access-policy-portal.md) O Key Vault suporta até 1024 entradas na política de acesso. Para permanecer dentro deste limite com os utilizadores, criar grupos de segurança Azure Ative Directory, adicionar todos os principais de serviço associados a esse grupo e, em seguida, conceder ao grupo acesso ao Key Vault.
 - Para obter mais orientações específicas para a integração e utilização de Key Vaults com Azure, consulte [exemplos de modelos do Azure Resource Manager de Ryan Jones para Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Como utilizar o Key Vault soft-delete com O CLI guia-o](soft-delete-cli.md) através da utilização e ciclo de vida de um cofre de chaves e vários objetos chave do cofre com eliminação suave ativado.
 - [Como utilizar o Key Vault soft-delete com o PowerShell guia-o](soft-delete-powershell.md) através da utilização e ciclo de vida de um cofre de chaves e vários objectos-chave com aabasta ativada.

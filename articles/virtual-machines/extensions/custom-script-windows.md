@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 5ab8d45c12d7b2c408328e306b1a6961cbe5272a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010942"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426270"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -60,6 +60,7 @@ Se o seu script estiver num servidor local, poderá ainda necessitar de firewall
 * Existe um período de 90 minutos permitido para a execução do script. Um período mais longo resultará numa falha de aprovisionamento da extensão.
 * Não coloque reinícios no script. Essa ação causará problemas com outras extensões que sejam instaladas. Após o reinício, a extensão não continuará.
 * Se tiver um script que irá causar um reboot, em seguida, instalar aplicações e executar scripts, você pode agendar o reboot usando uma Tarefa Agendada do Windows, ou usar ferramentas como extensões DSC, Chef ou Puppet.
+* Não é aconselhável executar um script que irá causar uma paragem ou atualização do Agente VM. Isto pode permitir a extensão em um estado de transição, levando a um tempo limite.
 * A extensão apenas executará um script de uma vez. Se quiser executar um script a cada arranque, tem de utilizar a extensão para criar uma Tarefa Agendada do Windows.
 * Se quiser agendar a execução de um script, deve utilizar a extensão para criar uma Tarefa Agendada do Windows.
 * Quando o script estiver em execução, verá apenas um estado de extensão "em transição" no portal ou na CLI do Azure. Se quiser atualizações de estado mais frequentes de um script em execução, terá de criar a sua própria solução.
@@ -123,7 +124,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 | Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute | string |
 | tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.10 | int |
@@ -141,7 +142,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 * `commandToExecute`:**(obrigatório,** string) o roteiro do ponto de entrada a executar. Utilize este campo em vez disso se o seu comando contiver segredos como palavras-passe ou os seus ficheirosUris são sensíveis.
 * `fileUris`: (opcional, matriz de cordas) os URLs para ficheiros a serem descarregados.
-* `timestamp`(opcional, inteiro de 32 bits) utilize este campo apenas para desencadear uma repetição do script alterando o valor deste campo.  Qualquer valor inteiro é aceitável; só deve ser diferente do valor anterior.
+* `timestamp` (opcional, inteiro de 32 bits) utilize este campo apenas para desencadear uma repetição do script alterando o valor deste campo.  Qualquer valor inteiro é aceitável; só deve ser diferente do valor anterior.
 * `storageAccountName`: (opcional, cadeia) o nome da conta de armazenamento. Se especificar credenciais de armazenamento, todos `fileUris` devem ser URLs para Azure Blobs.
 * `storageAccountKey`: (opcional, cadeia) a chave de acesso da conta de armazenamento
 * `managedIdentity`: (opcional, objeto json) a [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) para descarregar ficheiros
@@ -205,7 +206,7 @@ As extensões Azure VM podem ser implementadas com modelos Azure Resource Manage
 * [Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
 * [Implementar aplicação de dois níveis no Windows e Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
-## <a name="powershell-deployment"></a>Implantação powerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 
 O `Set-AzVMCustomScriptExtension` comando pode ser usado para adicionar a extensão de Script Personalizado a uma máquina virtual existente. Para obter mais informações, consulte [Set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
 
@@ -222,7 +223,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Usando vários scripts
 
-Neste exemplo, tem três scripts que são usados para construir o seu servidor. O **comandoToExecute** chama o primeiro script, então você tem opções sobre como os outros são chamados. Por exemplo, pode ter um script principal que controla a execução, com o manuseamento de erros, registo e gestão do estado. Os scripts são descarregados para a máquina local para correr. Por `1_Add_Tools.ps1` exemplo, você chamaria `2_Add_Features.ps1` adicionando `.\2_Add_Features.ps1` ao script, e repetiria este processo para os outros scripts que define em `$settings` .
+Neste exemplo, tem três scripts que são usados para construir o seu servidor. O **comandoToExecute** chama o primeiro script, então você tem opções sobre como os outros são chamados. Por exemplo, pode ter um script principal que controla a execução, com o manuseamento de erros, registo e gestão do estado. Os scripts são descarregados para a máquina local para correr. Por `1_Add_Tools.ps1` exemplo, você chamaria `2_Add_Features.ps1` adicionando  `.\2_Add_Features.ps1` ao script, e repetiria este processo para os outros scripts que define em `$settings` .
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -319,7 +320,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando:
 

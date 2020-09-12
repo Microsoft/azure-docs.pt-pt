@@ -6,13 +6,13 @@ author: charwen
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/13/2018
-ms.author: charwen
-ms.openlocfilehash: e576fe2f08d54d2642603e3b7974e00feec8ce93
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: f3b34966aa46ca8d663f83ab2aceafa4b0dda2eb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192182"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395745"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Reset ExpressRoute
 
@@ -141,7 +141,7 @@ Existem alguns cenários em que poderá achar útil repor os seus seus olhos Exp
    ```
    O olhar deve estar num estado que definiu. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se precisar de ajuda para resolver um problema expressRoute, confira os seguintes artigos:
 * [Verificar a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 * [Resolver problemas de desempenho da rede](expressroute-troubleshooting-network-performance.md)

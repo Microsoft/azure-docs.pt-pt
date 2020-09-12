@@ -3,20 +3,20 @@ title: Porta frontal Azure - Segurança da camada de aplicação / Microsoft Doc
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure permite proteger e proteger os backends da sua aplicação
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471800"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399944"
 ---
 # <a name="application-layer-security-with-front-door"></a>Segurança da camada de aplicação com porta da frente
 O Azure Front Door fornece capacidade de proteção de aplicações web para proteger as suas aplicações web de ataques de rede e explorações de vulnerabilidades web comuns como Aqual ou Cross Site Scripting (XSS). Ativado para as extremidades dianteiras http(s), a segurança da camada de aplicação da Front Door é distribuída globalmente e sempre em frente, impedindo ataques maliciosos na borda da rede do Azure, longe dos seus backends. Com uma otimização adicional de segurança e desempenho, a Porta Frontal oferece experiências web rápidas e seguras aos seus utilizadores finais.

@@ -1,7 +1,7 @@
 ---
-title: Utilize o recipiente de visão computacional com Kubernetes e Helm
+title: Use o recipiente de visão de computador com Kubernetes e Helm
 titleSuffix: Azure Cognitive Services
-description: Desloque o recipiente Computer Vision para uma instância de contentores Azure e teste-o num navegador web.
+description: Implemente o recipiente de Visão de Computador para uma Instância de Contentores Azure e teste-o num navegador web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 9aac374de5af748eafbe4c22e5fc89f64e483c2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2a017371ccb3cf70812aed5606c386746024884
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877983"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443165"
 ---
-# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Utilize o recipiente de visão computacional com Kubernetes e Helm
+# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use o recipiente de visão de computador com Kubernetes e Helm
 
-Uma opção para gerir os seus recipientes Computer Vision no local é utilizar Kubernetes e Helm. Usando Kubernetes e Helm para definir uma imagem de recipiente computer vision, vamos criar um pacote Kubernetes. Este pacote será implantado num aglomerado kubernetes no local. Finalmente, vamos explorar como testar os serviços implantados. Para obter mais informações sobre a execução de contentores Docker sem orquestração Kubernetes, consulte [instalar e executar recipientes Computer Vision](computer-vision-how-to-install-containers.md).
+Uma opção para gerir os seus contentores de Visão de Computador no local é utilizar Kubernetes e Helm. Usando Kubernetes e Helm para definir uma imagem de recipiente de Visão de Computador, criaremos um pacote Kubernetes. Este pacote será implantado num cluster kubernetes no local. Finalmente, vamos explorar como testar os serviços implantados. Para obter mais informações sobre a execução de recipientes Docker sem orquestração kubernetes, consulte [instalar e executar recipientes de Visão de Computador](computer-vision-how-to-install-containers.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os seguintes pré-requisitos antes de utilizar em instalações recipientes computer vision:
+Os seguintes pré-requisitos antes da utilização de recipientes de visão computacional no local:
 
 | Necessário | Objetivo |
 |----------|---------|
-| Conta do Azure | Se não tiver uma subscrição Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
-| Kubernetes CLI | O [Kubernetes CLI][kubernetes-cli] é necessário para gerir as credenciais partilhadas do registo de contentores. Kubernetes também é necessário antes de Helm, que é o gestor de pacotes Kubernetes. |
-| Helm CLI | Instale o [HELM CLI,][helm-install]que é utilizado para instalar um gráfico de leme (definição de pacote de recipientes). |
-| Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada ao ponto final URI. Ambos os valores estão disponíveis nas páginas Overview e Keys para o recurso e são necessários para iniciar o recipiente.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final fornecido na página **'Visão Geral'**|
+| Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
+| Kubernetes CLI | O [CLI de Kubernetes][kubernetes-cli] é necessário para gerir as credenciais partilhadas do registo do contentor. Kubernetes também é necessário antes de Helm, que é o gestor de pacotes Kubernetes. |
+| Helm CLI | Instale o [Helm CLI,][helm-install]que é utilizado para instalar um cartão de leme (definição de embalagem de recipiente). |
+| Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada o ponto final URI. Ambos os valores estão disponíveis nas páginas 'Visão Geral' e Chaves para o recurso e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -38,19 +38,19 @@ Os seguintes pré-requisitos antes de utilizar em instalações recipientes comp
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="container-requirements-and-recommendations"></a>Requisitos e recomendações de contentores
+### <a name="container-requirements-and-recommendations"></a>Requisitos e recomendações do contentor
 
 [!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Ligue-se ao cluster Kubernetes
 
-Espera-se que o computador anfitrião tenha um cluster Kubernetes disponível. Consulte este tutorial sobre [a implementação de um cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para uma compreensão conceptual de como implantar um cluster Kubernetes para um computador hospedeiro.
+Espera-se que o computador anfitrião tenha um cluster Kubernetes disponível. Veja este tutorial sobre [a implementação de um cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para uma compreensão conceptual de como implantar um cluster Kubernetes num computador anfitrião.
 
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Partilhar credenciais do Docker com o cluster Kubernetes
+### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Partilhar credenciais de Docker com o cluster Kubernetes
 
-Para permitir que o cluster `docker pull` Kubernetes se transforme nas imagens configuradas do `containerpreview.azurecr.io` registo do contentor, é necessário transferir as credenciais de estivador para o cluster. Execute [`kubectl create`][kubectl-create] o comando abaixo para criar um *segredo de registo de estivadores* com base nas credenciais fornecidas pelo pré-requisito de acesso ao registo do contentor.
+Para permitir que o cluster Kubernetes seja `docker pull` configurado a partir do registo do `containerpreview.azurecr.io` contentor, é necessário transferir as credenciais de estivador para o cluster. Execute o [`kubectl create`][kubectl-create] comando abaixo para criar um *segredo de registo de estivadores* com base nas credenciais fornecidas a partir do pré-requisito de acesso ao registo do contentor.
 
-A partir da interface de escolha da linha de comando, execute o seguinte comando. Certifique-se de `<username>` `<password>`substituir `<email-address>` as credenciais de registo de contentores.
+A partir da sua interface de linha de comando de eleição, executar o seguinte comando. Certifique-se de que substitui as `<username>` `<password>` credenciais de `<email-address>` registo de contentores e de contentores.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -61,44 +61,53 @@ kubectl create secret docker-registry containerpreview \
 ```
 
 > [!NOTE]
-> Se já tiver acesso `containerpreview.azurecr.io` ao registo de contentores, poderá criar um segredo kubernetes usando a bandeira genérica. Considere o seguinte comando que executa contra a sua configuração Docker JSON.
+> Se já tiver acesso ao registo do `containerpreview.azurecr.io` contentor, pode criar um segredo de Kubernetes usando a bandeira genérica. Considere o seguinte comando que executa contra a configuração do Docker JSON.
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
 >      --type=kubernetes.io/dockerconfigjson
 > ```
 
-A saída seguinte é impressa na consola quando o segredo foi criado com sucesso.
+A seguinte saída é impressa na consola quando o segredo foi criado com sucesso.
 
 ```console
 secret "containerpreview" created
 ```
 
-Para verificar se o segredo foi [`kubectl get`][kubectl-get] criado, execute o com a `secrets` bandeira.
+Para verificar se o segredo foi criado, execute o [`kubectl get`][kubectl-get] com a `secrets` bandeira.
 
 ```console
 kubectl get secrets
 ```
 
-Executando `kubectl get secrets` as impressões digitais todos os segredos configurados.
+Executando as `kubectl get secrets` impressões digitais todos os segredos configurados.
 
 ```console
 NAME                  TYPE                                  DATA      AGE
 containerpreview      kubernetes.io/dockerconfigjson        1         30s
 ```
 
-## <a name="configure-helm-chart-values-for-deployment"></a>Configure os valores do gráfico helm para implementação
+## <a name="configure-helm-chart-values-for-deployment"></a>Configurar valores de gráfico de leme para implantação
 
-Comece por criar uma pasta chamada *read*, em seguida, cole o seguinte conteúdo YAML em um novo ficheiro chamado *Chart.yml*.
+Comece por criar uma pasta chamada *leitura*. Em seguida, cole o seguinte conteúdo YAML num novo ficheiro chamado `chart.yaml` :
 
 ```yaml
-apiVersion: v1
+apiVersion: v2
 name: read
 version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+dependencies:
+- name: rabbitmq
+  condition: read.image.args.rabbitmq.enabled
+  version: ^6.12.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
+- name: redis
+  condition: read.image.args.redis.enabled
+  version: ^6.0.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
 ```
 
-Para configurar os valores predefinidos do gráfico Helm, copie e cole o seguinte YAML num ficheiro nomeado `values.yaml`. Substitua `# {ENDPOINT_URI}` `# {API_KEY}` os comentários e comentários pelos seus próprios valores.
+Para configurar os valores predefinidos do gráfico Helm, copie e cole o YAML seguinte num ficheiro denominado `values.yaml` . Substitua os `# {ENDPOINT_URI}` comentários e os comentários pelos seus `# {API_KEY}` próprios valores. Configure resultadoExpirationPeriod, Redis e RabbitMQ, se necessário.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -107,7 +116,7 @@ read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry: containerpreview.azurecr.io/
+    registry:  containerpreview.azurecr.io/
     repository: microsoft/cognitive-services-read
     tag: latest
     pullSecret: containerpreview # Or an existing secret
@@ -115,25 +124,52 @@ read:
       eula: accept
       billing: # {ENDPOINT_URI}
       apikey: # {API_KEY}
+      
+      # Result expiration period setting. Specify when the system should clean up recognition results.
+      # For example, resultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.
+      # resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.
+      resultExpirationPeriod: 1
+      
+      # Redis storage, if configured, will be used by read container to store result records.
+      # A cache is required if multiple read containers are placed behind load balancer.
+      redis:
+        enabled: false # {true/false}
+        password: password
+
+      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read containers are
+      # placed behind load balancer.
+      rabbitmq:
+        enabled: false # {true/false}
+        rabbitmq:
+          username: user
+          password: password
 ```
 
 > [!IMPORTANT]
-> Se `billing` os `apikey` valores e valores não forem fornecidos, os serviços expirarão após 15 min. Da mesma forma, a verificação falhará, uma vez que os serviços não estarão disponíveis.
+> - Se os `billing` valores e `apikey` valores não forem fornecidos, os serviços expiram após 15 minutos. Da mesma forma, a verificação falha porque os serviços não estão disponíveis.
+> 
+> - Se colocar vários recipientes De leitura atrás de um equilibrador de carga, por exemplo, sob Docker Compose ou Kubernetes, deve ter uma cache externa. Como o recipiente de processamento e o recipiente de pedido GET podem não ser os mesmos, uma cache externa armazena os resultados e partilha-os através de contentores. Para obter mais informações sobre as definições de cache, consulte [os recipientes Configure Computer Vision Docker](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+>
 
-Crie uma pasta de *modelos* sob o diretório *de leitura.* Copie e cole o seguinte YAML num ficheiro chamado `deployment.yaml`. O `deployment.yaml` ficheiro servirá como modelo helm.
+Crie uma pasta *de modelos* sob o *diretório de leitura.* Copiar e colar o seguinte YAML num ficheiro denominado `deployment.yaml` . O `deployment.yaml` ficheiro servirá como modelo de leme.
 
-> Os modelos geram ficheiros manifestos, que são descrições de recursos formados por YAML que kubernetes podem entender. [- Guia de modelo de gráfico de leme][chart-template-guide]
+> Os modelos geram ficheiros manifestos, que são descrições de recursos formatadas por YAML que kubernetes podem entender. [- Guia de modelo de gráfico de leme][chart-template-guide]
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: read
+  labels:
+    app: read-deployment
 spec:
+  selector:
+    matchLabels:
+      app: read-app
   template:
     metadata:
       labels:
-        app: read-app
+        app: read-app       
     spec:
       containers:
       - name: {{.Values.read.image.name}}
@@ -147,14 +183,23 @@ spec:
           value: {{.Values.read.image.args.billing}}
         - name: apikey
           value: {{.Values.read.image.args.apikey}}
+        args:        
+        - ReadEngineConfig:ResultExpirationPeriod={{ .Values.read.image.args.resultExpirationPeriod }}
+        {{- if .Values.read.image.args.rabbitmq.enabled }}
+        - Queue:RabbitMQ:HostName={{ include "rabbitmq.hostname" . }}
+        - Queue:RabbitMQ:Username={{ .Values.read.image.args.rabbitmq.rabbitmq.username }}
+        - Queue:RabbitMQ:Password={{ .Values.read.image.args.rabbitmq.rabbitmq.password }}
+        {{- end }}      
+        {{- if .Values.read.image.args.redis.enabled }}
+        - Cache:Redis:Configuration={{ include "redis.connStr" . }}
+        {{- end }}
       imagePullSecrets:
-      - name: {{.Values.read.image.pullSecret}}
-
+      - name: {{.Values.read.image.pullSecret}}      
 --- 
 apiVersion: v1
 kind: Service
 metadata:
-  name: read
+  name: read-service
 spec:
   type: LoadBalancer
   ports:
@@ -163,19 +208,34 @@ spec:
     app: read-app
 ```
 
-O modelo especifica um serviço de equilíbrio de carga e a implantação do seu recipiente/imagem para Read.
+Na pasta dos *mesmos modelos,* copie e cole as seguintes funções de ajudante em `helpers.tpl` . `helpers.tpl` define funções úteis para ajudar a gerar o modelo Helm.
+
+```yaml
+{{- define "rabbitmq.hostname" -}}
+{{- printf "%s-rabbitmq" .Release.Name -}}
+{{- end -}}
+
+{{- define "redis.connStr" -}}
+{{- $hostMaster := printf "%s-redis-master:6379" .Release.Name }}
+{{- $hostSlave := printf "%s-redis-slave:6379" .Release.Name -}}
+{{- $passWord := printf "password=%s" .Values.read.image.args.redis.password -}}
+{{- $connTail := "ssl=False,abortConnect=False" -}}
+{{- printf "%s,%s,%s,%s" $hostMaster $hostSlave $passWord $connTail -}}
+{{- end -}}
+```
+O modelo especifica um serviço de balançador de carga e a implantação do seu recipiente/imagem para Ler.
 
 ### <a name="the-kubernetes-package-helm-chart"></a>O pacote Kubernetes (gráfico helm)
 
-O *gráfico Helm* contém a configuração de que `containerpreview.azurecr.io` imagens de estivador retirar do registo do recipiente.
+O *gráfico Helm* contém a configuração de que estivar a imagem(s) para puxar do registo do `containerpreview.azurecr.io` contentor.
 
-> Um [gráfico helm][helm-charts] é uma coleção de ficheiros que descrevem um conjunto relacionado de recursos kubernetes. Um único gráfico pode ser usado para implementar algo simples, como um casulo memcached, ou algo complexo, como uma pilha de aplicativos web completo com servidores HTTP, bases de dados, caches, e assim por diante.
+> Um [gráfico Helm][helm-charts] é uma coleção de ficheiros que descrevem um conjunto relacionado de recursos Kubernetes. Um único gráfico pode ser usado para implementar algo simples, como um casulo memcached, ou algo complexo, como uma pilha completa de aplicativos web com servidores HTTP, bases de dados, caches, e assim por diante.
 
-As *tabelas helm* fornecidas retiram as imagens do estivador do Serviço de Visão Computacional e o serviço correspondente do registo de `containerpreview.azurecr.io` contentores.
+Os *gráficos helm* fornecidos retiram as imagens do serviço de visão computacional e o serviço correspondente do registo do `containerpreview.azurecr.io` contentor.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instale o gráfico Helm no cluster Kubernetes
 
-Para instalar o gráfico de *leme,* [`helm install`][helm-install-cmd] precisamos executar o comando. Certifique-se de executar o comando `read` de instalação a partir do diretório acima da pasta.
+Para instalar o gráfico de *leme,* precisamos executar o [`helm install`][helm-install-cmd] comando. Certifique-se de que executa o comando de instalação a partir do diretório acima da `read` pasta.
 
 ```console
 helm install read ./read
@@ -209,7 +269,7 @@ A implantação de Kubernetes pode demorar vários minutos a ser concluída. Par
 kubectl get all
 ```
 
-Deve esperar ver algo semelhante à seguinte saída:
+Deverá esperar ver algo semelhante à seguinte saída:
 
 ```console
 kubectl get all
@@ -230,12 +290,12 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para mais detalhes sobre a instalação de aplicações com helm in Azure Kubernetes Service (AKS), [visite aqui][installing-helm-apps-in-aks].
+Para mais detalhes sobre a instalação de aplicações com Helm in Azure Kubernetes Service (AKS), [visite aqui][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Recipientes de Serviços Cognitivos][cog-svcs-containers]
+> [Contentores dos Serviços Cognitivos][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

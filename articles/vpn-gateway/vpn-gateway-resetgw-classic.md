@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9f78b33a95001639abfeaecb381b597f5273c0fc
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c0313c74b046d4c93c8625eab8659df392041059
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033058"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419814"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 
@@ -28,7 +28,7 @@ Se a ligação não for restaurada após o primeiro reinício, execute o mesmo c
 
 Depois de duas reinicializações, se ainda estiver a ter problemas de conectividade nas instalações, abra um pedido de apoio do portal Azure.
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 Antes de repor o gateway, verifique os itens principais listados abaixo para cada túnel de rede de VPNs (S2S) do IPsec. Qualquer erro de correspondência nos itens desligará os túneis VPN S2S. Verificar e corrigir as configurações para as suas entradas no local e gateways Azure VPN salva-o de reboots e interrupções desnecessárias para as outras ligações de trabalho nos gateways.
 
@@ -38,7 +38,7 @@ Verifique os seguintes itens antes de redefinir o seu gateway:
 * A chave pré-partilhada tem de ser igual no VPN Gateway do Azure e no gateway no local.
 * Se aplicar uma configuração IPsec/IKE específica, tal como encriptação, algoritmos hash e PFS (Perfect Forward Secrecy), confirme se o VPN Gateway do Azure e o gateway no local têm as mesmas configurações.
 
-## <a name="azure-portal"></a><a name="portal"></a>Portal do Azure
+## <a name="azure-portal"></a><a name="portal"></a>Portal Azure
 
 Pode redefinir uma porta de entrada VPN do Gestor de Recursos utilizando o portal Azure. Se quiser redefinir uma porta de entrada clássica, consulte os passos [PowerShell.](#resetclassic)
 

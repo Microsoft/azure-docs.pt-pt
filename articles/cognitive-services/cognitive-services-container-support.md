@@ -8,22 +8,25 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
-ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 141b82467f2b437cfd4a8125d86618b85e48a6ef
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104418"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424651"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contentores nos Serviços Cognitivos Azure
+
+> [!WARNING]
+> A 11 de junho de 2020, a Microsoft anunciou que não irá vender tecnologia de reconhecimento facial a esquadras da polícia nos Estados Unidos até à implementação de uma regulamentação rígida assente nos direitos humanos. Como tal, os clientes não podem utilizar funcionalidades ou funcionalidades de reconhecimento facial incluídas nos Serviços Azure, como o Face ou o Video Indexer, se um cliente estiver, ou estiver a permitir o uso de tais serviços por ou para, um departamento de polícia nos Estados Unidos.
 
 O suporte a contentores nos Serviços Cognitivos Azure permite que os desenvolvedores utilizem as mesmas APIs ricas que estão disponíveis no Azure, e permite flexibilidade em onde implantar e hospedar os serviços que vêm com [os contentores Docker.](https://www.docker.com/what-container) O suporte ao contentor está atualmente disponível para um subconjunto de Serviços Cognitivos Azure, incluindo partes de:
 
 > [!div class="checklist"]
 > * [Detetor de Anomalias][ad-containers]
-> * [Visão computacional][cv-containers]
+> * [Imagem Digitalizada][cv-containers]
 > * [Face][fa-containers]
 > * [Reconhecedor de Formato][fr-containers]
 > * [Compreensão de Idiomas (LUIS)][lu-containers]
@@ -52,7 +55,7 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 | Serviço | Nível de Preços Suportados | Contentor | Descrição |
 |--|--|--|--|
 | [Detetor de anomalias][ad-containers] | F0, S0 | **Detetor de Anomalias** | A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo com aprendizagem automática.<br>[Pedir acesso][request-access] |
-| [Visão computacional][cv-containers] | F0, S1 | **Leitura** | Extratos de texto impresso a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. O recipiente Ler também deteta *texto manuscrito* em imagens e fornece suporte PDF/TIFF/multi-página.<br/><br/>**Importante:** O recipiente Ler funciona atualmente apenas com inglês. |
+| [Imagem Digitalizada][cv-containers] | F0, S1 | **Ler** | Extratos de texto impresso a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. O recipiente Ler também deteta *texto manuscrito* em imagens e fornece suporte PDF/TIFF/multi-página.<br/><br/>**Importante:** O recipiente Ler funciona atualmente apenas com inglês. |
 | [Face][fa-containers] | F0, S0 | **Face** | Deteta rostos humanos em imagens e identifica atributos, incluindo marcos faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pela máquina. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança, ou comparar rostos com uma base de dados para ver se já existe um rosto semelhante ou idêntico. Também pode organizar rostos semelhantes em grupos, usando traços visuais partilhados.<br>[Pedir acesso][request-access] |
 | [Reconhecedor de formulários][fr-containers] | F0, S0 | **Reconhecedor de Formato** | A Form Understanding aplica tecnologia de aprendizagem automática para identificar e extrair pares e tabelas de valor-chave a partir de formulários.<br>[Pedir acesso][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409) | Carrega um modelo de Compreensão de Linguagem treinado ou publicado, também conhecido como app LUIS, num recipiente de estivadores e fornece acesso às previsões de consulta dos pontos finais da API do contentor. Pode recolher registos de consultas a partir do contentor e enviá-los de volta para o [portal LUIS](https://www.luis.ai) para melhorar a precisão de previsão da aplicação. |
@@ -60,6 +63,7 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 | [API de Serviço de Voz][sp-containers-cstt] | F0, S0 | **Discurso-a-texto personalizado** | Transcreve a fala contínua em tempo real em texto usando um modelo personalizado. |
 | [API de Serviço de Voz][sp-containers-tts] | F0, S0 | **Conversão de texto em voz** | Converte texto em voz com som natural. |
 | [API de Serviço de Voz][sp-containers-ctts] | F0, S0 | **Texto-a-discurso personalizado** | Converte o texto em discurso sonoro natural usando um modelo personalizado. |
+| [API de Serviço de Voz][sp-containers-ntts] | F0, S0 | **Texto-a-discurso neural** | Converte o texto em discurso sonoro natural usando a tecnologia de rede neural profunda, permitindo um discurso mais natural sintetizado. |
 | [Análise de Texto][ta-containers-keyphrase] | F0, S | **Extração de frases-chave** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409) | Extrai frases-chave para identificar os principais pontos. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. |
 | [Análise de Texto][ta-containers-language] | F0, S | **Deteção de Idiomas** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409) | Para até 120 línguas, deteta em que língua o texto de entrada está escrito e reporta um código linguístico único para cada documento submetido no pedido. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. |
 | [Análise de Texto][ta-containers-sentiment] | F0, S | **Análise de Sentimento v3** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409) | Analisa texto cru para pistas sobre sentimento positivo ou negativo. Esta versão da análise de sentimento devolve rótulos de sentimento (por *exemplo, positivos* ou *negativos)* para cada documento e frase dentro dele. |
@@ -127,6 +131,7 @@ Instale e explore a funcionalidade fornecida pelos contentores nos Serviços Cog
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
+[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language

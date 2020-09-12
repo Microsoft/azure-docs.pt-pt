@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 7025d042fa021c6ee5311566d66bfd090dbd06cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 503e37d0e339cacc9c21a2b2f3ad739e1385c955
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851584"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443199"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções da Web e de trabalho do Python com Ferramentas de Python para Visual Studio
 
@@ -288,7 +288,7 @@ else
 #### <a name="pscmd"></a>ps.cmd
 Os modelos do Visual Studio criam um ficheiro **ps.cmd** na pasta **./bin**. Este script de shell chama os scripts de wrapper do PowerShell acima e fornece o registo com base no nome do wrapper de PowerShell chamado. Se este ficheiro não foi criado, eis o que deve aparecer no mesmo. 
 
-```bat
+```cmd
 @echo off
 
 cd /D %~dp0
@@ -326,7 +326,7 @@ A implementação demora alguns minutos a ser concluída. Em seguida, as funçõ
 ### <a name="investigate-logs"></a>Investigar registos
 Depois de a máquina virtual do serviço de nuvem arrancar e instalar o Python, pode procurar nos registos para localizar todas as mensagens de falha. Estes registos estão localizados na pasta **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** tem, pelo menos, um erro quando o script tenta detetar se o Python está instalado e o **PipInstaller.err.txt** pode queixar-se de uma versão desatualizada do pip.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações mais detalhadas sobre como trabalhar com funções da Web e de trabalho nas Ferramentas do Python para Visual Studio, consulte a documentação das PTVS:
 
 * [Projetos de Serviço Cloud][Cloud Service Projects]
@@ -337,7 +337,7 @@ Para obter mais detalhes sobre a utilização de serviços do Azure a partir das
 * [Serviço Tabela][Table Service]
 * [Serviço Fila][Queue Service]
 * [Filas de autocarros de serviço][Service Bus Queues]
-* [Tópicos de Service Bus][Service Bus Topics]
+* [Tópicos de ônibus de serviço][Service Bus Topics]
 
 <!--Link references-->
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4526611fa8b80a7b97ee7317f5e285c50f05b0de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 326abaa123ede1fbe371c69fcbed47a310b54511
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650642"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424842"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Sobre os perfis de clientes P2S VPN
 

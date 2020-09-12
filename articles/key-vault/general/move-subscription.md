@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145370"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394742"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Cofre chave Azure para outra subscrição
 
@@ -97,11 +97,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Agora que o seu cofre está associado com o ID do inquilino correto e as entradas antigas da política de acesso são removidas, deslote novas entradas de política de acesso com o cmdlet Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) ou o comando [de política de definição de keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) Azure CLI az.
 
-Se você está usando uma identidade gerida para recursos Azure, você precisará atualizá-lo para o novo inquilino AZURE AD também. Para obter mais informações sobre identidades geridas, consulte [fornecer autenticação key vault com uma identidade gerida](managed-identity.md).
+Se estiver a usar uma identidade gerida para os recursos da Azure, também terá de a atualizar para o novo inquilino do Azure Ative Directory. Para obter mais informações sobre identidades geridas, [visão geral da identidade gerida](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Se você estiver usando MSI, você também terá que atualizar a identidade MSI, uma vez que a identidade antiga não estará mais no inquilino correto da AAD. Consulte os seguintes documentos para ajudar a resolver esta questão. 
+Se estiver a usar a identidade gerida, também terá de atualizar a identidade porque a identidade antiga deixará de estar no inquilino correto do Azure Ative Directory. Consulte os seguintes documentos para ajudar a resolver esta questão. 
 
 * [Atualizar o MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [Subscrição de transferência para novo diretório](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
-
-

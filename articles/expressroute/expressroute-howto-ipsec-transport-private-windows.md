@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute peering privado: Configure IPsec modo de transporte - anfitriões Windows'
 description: Como permitir o modo de transporte IPsec entre VMs Azure Windows e no local, o Windows acolhe através do expressRoute private peering usando GPOs e OUs.
 services: expressroute
-author: fabferri
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: fabferri
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737262"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396493"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configure o modo de transporte IPsec para o espremiamento privado ExpressRoute
 
@@ -147,7 +147,7 @@ Para aplicar o GPO à U, o GPO não só deve estar ligado à UO, como também de
 8. Na página De Definições do **Método de Segurança Personalizada,** selecione a **integridade e encriptação dos dados (ESP): SHA1, 3DES**. Em seguida, clique **OK**.
 
    [![22]][22]
-9. Na página **'Manage Filter Actions',** pode ver que o filtro **myEncrypation** foi adicionado com sucesso. Clique em **Fechar**.
+9. Na página **'Manage Filter Actions',** pode ver que o filtro **myEncrypation** foi adicionado com sucesso. Clique em **Close** (Fechar).
 
    [![23]][23]
 
@@ -246,7 +246,7 @@ Adicione à política IPsec a **Lista de Filtros IP** e a Ação de **Filtragem*
 4. **O Tipo de Rede** define qual a ligação de rede associada à política de segurança. Selecione **Todas as ligações de rede**e, em seguida, clique em **Seguinte**.
 
    [![44]][44]
-5. Selecione a lista de filtros IP que criou anteriormente, **azure-onpremises-HTTP8080**, e, em seguida, clique em **Seguinte**.
+5. Selecione a lista de filtros IP que criou anteriormente,  **azure-onpremises-HTTP8080**, e, em seguida, clique em **Seguinte**.
 
    [![45]][45]
 6. Selecione a **myEncryption** de Ação filtrante existente que criou anteriormente.

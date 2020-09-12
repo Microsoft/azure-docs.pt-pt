@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6045c491ea68d759b2a1739e20aa2f12b8520c87
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c72ff14246f3f96980fe1de2fdef16794bf23e4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006490"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399995"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Cenário: Rota para Serviços Partilhados VNets
 
@@ -22,9 +22,9 @@ Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cen
 
 Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Conceção
+## <a name="design"></a><a name="design"></a>Design
 
-Podemos usar uma matriz de conectividade para resumir os requisitos deste cenário. Na matriz, cada célula descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico.
+Podemos usar uma matriz de conectividade para resumir os requisitos deste cenário. Na matriz, cada célula descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida pela VIRTUAL WAN:
 
 **Matriz de conectividade**
 
@@ -73,7 +73,7 @@ Isto resultará na configuração de encaminhamento mostrada na seguinte figura:
 
    :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Serviços partilhados VNet" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

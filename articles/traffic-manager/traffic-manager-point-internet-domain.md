@@ -2,20 +2,20 @@
 title: Aponte um domínio de Internet para Traffic Manager - Azure Traffic Manager
 description: Este artigo ajuda-o a apontar o nome de domínio da sua empresa para um nome de domínio do Traffic Manager.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: rohink
-ms.openlocfilehash: 69bdf9a0e04b4d9c2a55f1c0f346d601830ded09
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: 93a8076f12b8f006d600cbd32ce39169f4b47c67
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053070"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392600"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gestor de Tráfego do Azure
 
@@ -30,7 +30,7 @@ Todos os pedidos de tráfego para *www \. contoso.com* são direcionados para *c
 > [!IMPORTANT]
 > Não é possível apontar um domínio de segundo nível, como *contoso.com*, para o domínio do Traffic Manager. Os padrões de protocolo DNS não permitem registos CNAME para nomes de domínio de segundo nível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Métodos de encaminhamento do Gestor de Tráfego](traffic-manager-routing-methods.md)
 * [Gestor de tráfego - Desativar, ativar ou apagar um perfil](disable-enable-or-delete-a-profile.md)

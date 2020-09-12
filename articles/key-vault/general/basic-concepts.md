@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c64835ced558727718690138c3e7a7666cf0809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167303"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89379006"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos Azure Key Vault
 
-O Azure Key Vault é uma ferramenta para armazenar e aceder a segredos em segurança. Um segredo é tudo cujo acesso deseja controlar rigidamente, como chaves de API, palavras-passe ou certificados. Um cofre é um grupo lógico de segredos.
+O Azure Key Vault é uma ferramenta para armazenar e aceder a segredos em segurança. Um segredo é tudo aquilo cujo acesso deseja controlar rigidamente, como chaves de API, palavras-passe ou certificados. Um cofre é um grupo lógico de segredos.
 
 Aqui estão outros termos importantes:
 
@@ -33,7 +33,7 @@ Aqui estão outros termos importantes:
 
 - **Grupo de recursos**: um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.
 
-- **Principal de serviço**: Um diretor de serviço Azure é uma identidade de segurança que aplicações, serviços e ferramentas de automação criados pelo utilizador usam para aceder a recursos específicos do Azure. Pense nisso como uma "identidade de utilizador" (nome de utilizador e palavra-passe ou certificado) com uma função específica e permissões rigorosamente controladas. Um principal de serviço apenas precisa de fazer determinadas coisas, ao contrário das identidades de utilizador gerais. Melhora a segurança se lhe conceder apenas o nível mínimo de autorização de que necessita para executar as suas tarefas de gestão.
+- **Principal de segurança**: Um principal de segurança Azure é uma identidade de segurança que aplicações, serviços e ferramentas de automação criados pelo utilizador usam para aceder a recursos específicos do Azure. Pense nisso como uma "identidade de utilizador" (nome de utilizador e palavra-passe ou certificado) com uma função específica e permissões rigorosamente controladas. Um diretor de segurança só deve fazer coisas específicas, ao contrário de uma identidade geral do utilizador. Melhora a segurança se lhe conceder apenas o nível mínimo de autorização de que necessita para executar as suas tarefas de gestão. Um principal de segurança utilizado com uma aplicação ou serviço é especificamente chamado de **principal de serviço.**
 
 - [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): o Azure AD é o serviço do Active Directory para um inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino.
 

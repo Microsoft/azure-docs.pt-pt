@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/10/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: f9792f52ae60039ff4891ea95688f961e73283af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc9f9ca72247ac54286037475912cf6051d8d2af
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983425"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394191"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generate and export certificates for Point-to-Site using PowerShell (Gerar e exportar certificados para Ponto a Site através da PowerShell)
 

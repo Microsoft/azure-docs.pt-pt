@@ -2,17 +2,17 @@
 title: 'ExpressRoute: Como configurar alertas personalizados para rotas anunciadas'
 description: Este artigo mostra-lhe como utilizar a Azure Automation and Logic Apps para monitorizar o número de rotas anunciadas a partir da porta de entrada ExpressRoute para redes no local, de forma a evitar atingir o limite de 200 rotas.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
-ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738486"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401729"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorizar rotas anunciadas
 
@@ -32,7 +32,7 @@ A criação de um alerta personalizado baseia-se em três passos principais:
 
 3. Crie uma aplicação lógica que dispare a Conta Demômótica e envie um e-mail de alerta se o número for maior do que um limiar (por exemplo, 160).
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -78,7 +78,7 @@ Por predefinição, a **função Contribuinte** é atribuída ao titular de serv
 
 2. Selecione **Funções** para ver a definição de função que está a ser usada.
 
-   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Atribuir papel":::
+   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Atribuir função":::
 
 ## <a name="create-and-configure-runbooks"></a><a name="runbooks"></a>Criar e configurar livros de execução
 
@@ -247,7 +247,7 @@ Quando executam o script PowerShell, é recolhida uma lista de valores:
 
 * Número de prefixos de rede anunciados a partir da porta de entrada ExpressRoute para o segundo par BGP (peer2)
 
-* Carimbo de data/hora
+* Timestamp
 
 * Estado, classificado como:
 
@@ -257,7 +257,7 @@ Quando executam o script PowerShell, é recolhida uma lista de valores:
 
 * Mensagem de alerta, para uma descrição verbosa do estado (OK, ALERTA, AVISO)
 
-O script PowerShell converte a informação recolhida numa saída JSON. O livro de bordo utiliza o cmdlet PowerShell [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?) como fluxo de saída para comunicar informações ao cliente.
+O script PowerShell converte a informação recolhida numa saída JSON. O livro de bordo utiliza o cmdlet PowerShell [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  como fluxo de saída para comunicar informações ao cliente.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. Validar o livro de recortes
 
@@ -308,13 +308,13 @@ Uma aplicação lógica acede a outras aplicações, serviços e à plataforma a
 1. In **Logic Apps Designer**, abaixo da **Recorrência,** selecione **Novo passo**. Em **Escolha uma ação** e a caixa de pesquisa, selecione **All**.
 2. Na caixa de pesquisa, **digite Azure Automation** e procure. Selecione **Criar trabalho**. **Criar trabalho** será usado para disparar o runbook de automação que foi criado anteriormente.
 
-   :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Criar tarefa":::
+   :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Criar a tarefa":::
 
 3. Inscreva-se usando um diretor de serviço. Pode usar um principal de serviço existente, ou pode criar um novo. Para criar um novo diretor de serviço, consulte [Como usar o portal para criar um diretor de serviço AD Azure que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md) Selecione **Connect com o principal de serviço.**
 
    :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Iniciar sessão":::
 
-4. Digite um **Nome de Ligação,** adicione o seu **ID do Cliente** (ID de aplicação), Segredo de **Cliente,** e o seu **ID do Inquilino.** Em seguida, **selecione Criar**.
+4. Digite um **Nome de Ligação,** adicione o seu **ID do Cliente** (ID de aplicação), Segredo de **Cliente,** e o seu **ID do Inquilino.** Em seguida, selecione **Criar**.
 
    :::image type="content" source="./media/custom-route-alert-portal/connect-service-principal.png" alt-text="Conecte-se com o principal de serviço":::
 

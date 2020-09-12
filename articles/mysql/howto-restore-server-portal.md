@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 1a10d61c5dc35a19a8b02769a517d9f1c7aac601
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119230"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421089"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para o MySQL utilizando o portal Azure
 
@@ -73,6 +73,12 @@ Os seguintes passos restauram o servidor da amostra num ponto no tempo:
 
 O novo servidor criado por point-in-time restore tem o mesmo nome de login de administrador do servidor e palavra-passe que era válido para o servidor existente no ponto no tempo escolhido. Pode alterar a palavra-passe a partir da página **de Visão Geral** do novo servidor.
 
+Além disso, após o acabamento da operação de restauro, existem dois parâmetros do servidor que são reiniciados para valores predefinidos (e não são copiados do servidor primário) após a operação de restauro
+*   time_zone - Este valor para definir para DEFAULT Value **SYSTEM**
+*   event_scheduler - O event_scheduler está definido para **OFF** no servidor restaurado
+
+Terá de copiar o valor do servidor primário e defini-lo no servidor restaurado reconfigurando o parâmetro do [servidor](howto-server-parameters.md)
+
 O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
 ## <a name="geo-restore"></a>Restauro geo
@@ -100,7 +106,7 @@ Se configurar o servidor para cópias de segurança geograficamente redundantes,
    
    :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selecione backup.":::
 
-6. O servidor irá predefinir para valores para o número de **vCores**, Período de **Retenção de Cópia**de Segurança , **Opção de Redundância de Backup,** **Versão do Motor**e **credenciais de administração**. Selecione **Continuar**. 
+6. O servidor irá predefinir para valores para o número de **vCores**, Período de **Retenção de Cópia**de Segurança , **Opção de Redundância de Backup,** **Versão do Motor**e **credenciais de administração**. **Selecione Continuar**. 
    
    :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continue com reforços.":::
 

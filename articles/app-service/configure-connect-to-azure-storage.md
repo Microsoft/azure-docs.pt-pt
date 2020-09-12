@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8ca3688ad11bc7a694327990be22b8eccd8f8161
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962864"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435614"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Aceda ao Azure Storage como uma partilha de rede a partir de um contentor no Serviço de Aplicações
 
@@ -57,7 +57,7 @@ Este guia mostra como ligar o Azure Storage a um Serviço de Aplicações para c
 - A Azure Storage in App Service não é atualmente **suportada** para trazer os seus próprios cenários de código (aplicações windows não contentorizadas).
 - O Azure Storage in App Service **não suporta** a utilização da configuração de Firewall de **Armazenamento** devido a limitações de infraestrutura.
 - O Azure Storage com Serviço de Aplicações permite especificar **até cinco** pontos de montagem por aplicação.
-- O Azure Storage montado numa aplicação não é acessível através de pontos finais ftp/FTPs do Serviço de Aplicações. Utilize [o explorador de armazenamento Azure](https://azure.microsoft.com/features/storage-explorer/).
+- O Azure Storage montado numa aplicação não é acessível através de pontos finais ftp/FTPs do Serviço de Aplicações. Utilize [o Explorador de Armazenamento Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ::: zone-end
 
@@ -67,7 +67,7 @@ Este guia mostra como ligar o Azure Storage a um Serviço de Aplicações para c
 - O Azure Storage in App Service suporta a montagem **de recipientes Azure Files** (Ler/ Escrever) e **recipientes Azure Blob** (Read Only)
 - O Azure Storage in App Service **não suporta** a utilização da configuração de Firewall de **Armazenamento** devido a limitações de infraestrutura.
 - O Azure Storage in App Service permite especificar **até cinco** pontos de montagem por aplicação.
-- O Azure Storage montado numa aplicação não é acessível através de pontos finais ftp/FTPs do Serviço de Aplicações. Utilize [o explorador de armazenamento Azure](https://azure.microsoft.com/features/storage-explorer/).
+- O Azure Storage montado numa aplicação não é acessível através de pontos finais ftp/FTPs do Serviço de Aplicações. Utilize [o Explorador de Armazenamento Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ::: zone-end
 
@@ -114,7 +114,7 @@ Uma vez que a partilha esteja ligada à aplicação, pode verificar isso executa
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 ::: zone pivot="container-windows"
 

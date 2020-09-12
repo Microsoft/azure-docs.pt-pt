@@ -3,20 +3,20 @@ title: Porta frontal Azure - REDIRECIONamento de URL / Microsoft Docs
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure suporta a reorientação de URL para as suas rotas, se configurada.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 41cb2343cb86d2ec756bb0a2fb690b7df886024f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295480"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399043"
 ---
 # <a name="url-redirect"></a>Redirecionamento de URL
 Pode utilizar a Porta frontal Azure para redirecionar o tráfego. Pode redirecionar o tráfego a vários níveis (protocolo, nome de anfitrião, caminho, cadeia de consulta) e toda a funcionalidade pode ser configurada para microserviços individuais, uma vez que a reorientação é baseada em caminhos. Isto simplifica a configuração da aplicação, otimiza o uso do recurso e suporta novos cenários de reorientação, incluindo a reorientação global e baseada no caminho.
@@ -43,7 +43,7 @@ Pode definir o protocolo que será usado para reorientação. Isto permite um do
 Como parte da configuração de um encaminhamento de redirecionamento, também pode alterar o nome ou domínio do anfitrião para o pedido de redirecionamento. Pode definir este campo para alterar o nome de anfitrião no URL para a reorientação ou preservar o nome de anfitrião a partir do pedido de entrada. Assim, usando este campo, pode redirecionar todos os pedidos enviados `https://www.contoso.com/*` para `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>Caminho de destino
-Para os casos em que pretende substituir o segmento de caminho de um URL como parte da reorientação, pode definir este campo com o novo valor do caminho. Caso contrário, pode optar por preservar o valor do caminho como parte do redirecionamento. Assim, usando este campo, você pode redirecionar todos os pedidos enviados `https://www.contoso.com/\*` para `https://www.contoso.com/redirected-site` .
+Para os casos em que pretende substituir o segmento de caminho de um URL como parte da reorientação, pode definir este campo com o novo valor do caminho. Caso contrário, pode optar por preservar o valor do caminho como parte do redirecionamento. Assim, usando este campo, você pode redirecionar todos os pedidos enviados `https://www.contoso.com/\*` para  `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>Parâmetros de cadeia de consulta
 Também pode substituir os parâmetros de cadeia de consulta no URL redirecionado. Para substituir qualquer cadeia de consulta existente do URL de pedido de entrada, desaprote este campo para 'Substituir' e, em seguida, desaprote o valor adequado. Caso contrário, pode reter o conjunto original de cordas de consulta definindo o campo para 'Preservar'. Como exemplo, utilizando este campo, pode redirecionar todo o tráfego enviado `https://www.contoso.com/foo/bar` para `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 
@@ -51,7 +51,7 @@ Também pode substituir os parâmetros de cadeia de consulta no URL redirecionad
 ## <a name="destination-fragment"></a>Fragmento de destino
 O fragmento de destino é a parte de URL após '#', normalmente usado pelos navegadores para aterrar numa secção específica numa página. Pode definir este campo para adicionar um fragmento ao URL de redirecionamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

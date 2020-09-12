@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 42a76a2cf583a57ae5b38fe051ee48d16d705dd2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319971"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378734"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do mercado
 
@@ -68,10 +68,10 @@ Para obter mais informações sobre estes tokens, consulte [os tokens de acesso 
 
 |  **Nome da propriedade**  |  **Necessário**  |  **Descrição**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   Verdadeiro         | Tipo grant. Utilize`client_credentials`. |
+|  `Grant_type`       |   Verdadeiro         | Tipo grant. Utilize `client_credentials`. |
 |  `Client_id`        |   Verdadeiro         | Identificador de cliente/aplicação associado à aplicação Azure AD.|
 |  `client_secret`    |   Verdadeiro         | Segredo associado à aplicação AZure AD.  |
-|  `Resource`         |   Verdadeiro         | Recurso-alvo para o qual o símbolo é solicitado. Utilize`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
+|  `Resource`         |   Verdadeiro         | Recurso-alvo para o qual o símbolo é solicitado. Utilize `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Response*
@@ -145,7 +145,7 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -153,7 +153,7 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
 
 1. Utilize o [serviço de medição marketplace API](./marketplace-metering-service-apis.md) para emitir o uso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma oferta de aplicações do Azure](./create-new-azure-apps-offer.md)
-* [Criar uma oferta de SaaS transacionável](./offer-creation-checklist.md)
+* [Planear uma oferta SaaS](../plan-saas-offer.md)

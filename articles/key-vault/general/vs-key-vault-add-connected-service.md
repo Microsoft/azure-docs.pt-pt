@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 3d39ad2016da1525658944f4f13185e9df9855af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007099"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378870"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Cofre chave à sua aplicação web utilizando serviços conectados ao estúdio visual
 
@@ -199,8 +199,8 @@ Afeta o ficheiro do projeto .NET referências e `packages.config` (referências 
 - Adicionei o ItemGroup de Serviços Conectados e ConnectedServices.jsem ficheiro.
 - Referências aos conjuntos .NET descritos na secção [Referências Adicionadas.](#added-references-for-aspnet-framework)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se seguiu este tutorial, as suas permissões key Vault estão configuras para funcionar com a sua própria assinatura Azure, mas isso pode não ser desejável para um cenário de produção. Pode criar uma identidade gerida para gerir o acesso do Key Vault à sua aplicação. Consulte [a autenticação do Cofre de Chaves com uma identidade gerida](/azure/key-vault/managed-identity).
+Se seguiu este tutorial, as suas permissões key Vault estão configuras para funcionar com a sua própria assinatura Azure, mas isso pode não ser desejável para um cenário de produção. Pode criar uma identidade gerida para gerir o acesso do Key Vault à sua aplicação. Ver [como autenticar para o cofre](/azure/key-vault/general/authentication) de chaves e atribuir uma política de acesso ao cofre de [chaves](/azure/key-vault/general/assign-access-policy-portal).
 
 Saiba mais sobre o desenvolvimento do Key Vault lendo o [Guia do Desenvolvedor de Cofres de Chaves.](developers-guide.md)

@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f816c95b5e210e86e2215cadf8407f442d69ebe
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1c5efbbd5f9f5dfe701deb50b51605ab324c081a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476241"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401678"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo atribuível a funções no Azure Ative Directory
 
-Só é possível atribuir um papel a um grupo que foi criado com a propriedade 'isAssignableToRole' definida para True, ou foi criada no portal AD AZure com **funções AD Azure pode ser atribuída ao grupo** ligado. Este atributo de grupo faz do grupo um que pode ser atribuído a um papel no Azure Ative Directory (Azure AD). Este artigo descreve como criar este tipo especial de grupo.
+Só é possível atribuir um papel a um grupo que foi criado com a propriedade 'isAssignableToRole' definida para True, ou foi criada no portal AD AZure com **funções AD Azure pode ser atribuída ao grupo** ligado. Este atributo de grupo faz do grupo um que pode ser atribuído a um papel no Azure Ative Directory (Azure AD). Este artigo descreve como criar este tipo especial de grupo. **Nota:** Um grupo com propriedade isAssignableToRole definido para verdadeiro não pode ser de tipo de membro dinâmico. Para obter mais informações, consulte [utilizar um grupo para gerir as atribuições de funções Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
 
 ## <a name="using-azure-ad-admin-center"></a>Usando o centro de administração Ad da Adure
 
@@ -124,8 +124,8 @@ POST https://graph.microsoft.com/beta/groups
 
 Para este tipo de grupo, `isPublic` será sempre falso e será sempre `isSecurityEnabled` verdade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir um papel a um grupo de nuvens](roles-groups-assign-role.md)
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
-- [Funções de resolução de problemas atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)
+- [Resolver problemas de funções atribuídas a grupos de cloud](roles-groups-faq-troubleshooting.md)

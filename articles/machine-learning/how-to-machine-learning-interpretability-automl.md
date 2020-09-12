@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 921132947fbf52fbd187941b96d8b75197763387
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306422"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419117"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretação: explicações de modelos em machine learning automatizado (pré-visualização)
 
@@ -39,6 +39,14 @@ Neste artigo, vai aprender a:
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretação durante o treino para o melhor modelo
 
 Recupere a explicação do `best_run` , que inclui explicações para as características projetadas.
+
+> [!Warning]
+> A interpretação, melhor explicação para o modelo, não está disponível para experiências de previsão de ML auto que recomendem os seguintes algoritmos como o melhor modelo: 
+> * PrevisãoTCN
+> * Média 
+> * Ingénuo
+> * Média sazonal 
+> * Ingénua Sazonal
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Descarregue a importância do recurso projetado da loja de artefactos
 
@@ -112,7 +120,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="interpretability-during-inference"></a>Interpretação durante a inferência
+## <a name="interpretability-during-inference"></a>Interpretação durante a inferência
 
 Nesta secção, aprende-se a operacionalizar um modelo de ML automatizado com o explicador que foi utilizado para calcular as explicações na secção anterior.
 
@@ -213,6 +221,6 @@ Pode visualizar o gráfico de importância de recurso no seu espaço de trabalho
 
 [![Arquitetura de Interpretação de Aprendizagem Automática](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre como pode permitir explicações de modelos e destacar importância em áreas do Azure Machine Learning SDK que não seja o machine learning automatizado, consulte o [artigo de conceito sobre interpretação.](how-to-machine-learning-interpretability.md)

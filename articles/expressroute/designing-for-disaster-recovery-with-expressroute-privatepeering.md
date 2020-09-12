@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Desenho para recuperação de desastres'
 description: Esta página fornece recomendações arquitetónicas para a recuperação de desastres enquanto utiliza o Azure ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
-ms.author: rambala
-ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 0c85272989a362da77b01af7bb1fe968516e53b6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081173"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398007"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Desenho para recuperação de desastres com o espreitamento privado ExpressRoute
 
@@ -131,7 +131,7 @@ A solução é ilustrada no diagrama seguinte. Como ilustrado, pode arquitetar o
 [![10]][10]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, discutimos como projetar para a recuperação de desastres de um circuito ExpressRoute conectividade de espreitar privadamente. Os seguintes artigos abordam a recuperação de desastres a partir de aplicações e perspetivas de acesso frontend:
 

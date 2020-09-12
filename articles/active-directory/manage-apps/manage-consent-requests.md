@@ -1,6 +1,6 @@
 ---
-title: Gestão do consentimento para pedidos e avaliação de pedidos de consentimento - Azure AD
-description: Saiba como gerir os pedidos de consentimento quando o consentimento do utilizador é desativado ou restrito, e como avaliar um pedido de consentimento administrativo para um pedido de administração em todo o cliente para um pedido.
+title: Gerir o consentimento dos pedidos e avaliar os pedidos de consentimento no Azure Ative Directory
+description: Saiba como gerir os pedidos de consentimento quando o consentimento do utilizador é desativado ou restrito, e como avaliar um pedido de consentimento administrativo em todo o inquilino para um pedido no Diretório Ativo Azure.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763198"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420460"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gerir o consentimento dos pedidos e avaliar os pedidos de consentimento
 
@@ -76,7 +75,7 @@ A lista a seguir fornece algumas recomendações a considerar na avaliação de 
 
 * **Compreenda as permissões que estão a ser pedidas.**
 
-   As permissões solicitadas pelo pedido estão listadas no [pedido de consentimento.](../develop/application-consent-experience.md) Expandir o título de permissão apresentará a descrição da permissão. A descrição das permissões de aplicação geralmente termina em "sem um utilizador inscrito". A descrição das permissões delegadas geralmente termina com "em nome do utilizador inscrito". As permissões para a API do Gráfico da Microsoft são descritas em [Referência de Permissões de Gráficos da Microsoft]- consulte a documentação para outras APIs para compreender as permissões que expõem.
+   As permissões solicitadas pelo pedido estão listadas no [pedido de consentimento.](../develop/application-consent-experience.md) Expandir o título de permissão apresentará a descrição da permissão. A descrição das permissões de aplicação geralmente termina em "sem um utilizador inscrito". A descrição das permissões delegadas geralmente termina com "em nome do utilizador inscrito". Permissões para a API do Gráfico microsoft são descritas no [Microsoft Graph Permissions Reference](https://docs.microsoft.com/graph/permissions-reference) - consulte a documentação para outras APIs para entender as permissões que expõem.
 
    Se não entender a solicitação de uma autorização, *não conceda o consentimento*.
 
@@ -95,27 +94,29 @@ A lista a seguir fornece algumas recomendações a considerar na avaliação de 
 ## <a name="granting-consent-as-an-administrator"></a>Concessão de consentimento como administrador
 
 ### <a name="granting-tenant-wide-admin-consent"></a>Concessão de consentimento administrativo em todo o inquilino
-
 Consulte [o consentimento da administração do grant para um pedido](grant-admin-consent.md) de instruções passo a passo para conceder o consentimento administrativo do porta-administração do inquilino a partir do portal Azure, utilizando a Azure AD PowerShell, ou a partir do consentimento.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Concessão de consentimento em nome de um utilizador específico
-
-Em vez de conceder o consentimento para toda a organização, um administrador também pode usar a [API do Gráfico Microsft](https://docs.microsoft.com/graph/use-the-api) para conceder consentimento a permissões delegadas em nome de um único utilizador. Para mais informações, consulte [Obter acesso em nome de um utilizador](https://docs.microsoft.com/graph/auth-v2-user).
+Em vez de conceder o consentimento para toda a organização, um administrador também pode usar a [API do Gráfico da Microsoft](https://docs.microsoft.com/graph/use-the-api) para conceder consentimento a permissões delegadas em nome de um único utilizador. Para mais informações, consulte [Obter acesso em nome de um utilizador](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitação do acesso dos utilizadores às aplicações
-
 O acesso dos utilizadores às aplicações ainda pode ser limitado mesmo quando o consentimento administrativo do arrendatário foi concedido. Para obter mais informações sobre como exigir a atribuição do utilizador a uma aplicação, consulte [métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
 
 Para obter uma visão geral mais ampla, incluindo como lidar com cenários complexos adicionais, consulte [a utilização do Azure AD para a gestão do acesso a aplicações.](what-is-access-management.md)
 
+## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Desativar todas as futuras operações de consentimento do utilizador para qualquer aplicação
+Desativar o consentimento do utilizador para todo o seu diretório impede que os utilizadores finais consintam em qualquer aplicação. Os administradores ainda podem consentir em nome do utilizador. Para saber mais sobre o consentimento da aplicação e por que pode ou não querer consentir, leia [o consentimento do utilizador e da administração](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+
+Para desativar todas as futuras operações de consentimento do utilizador em todo o seu diretório, siga estes passos:
+1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**
+2.  Abra a **Extensão do Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
+3.  Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
+4.  Selecione **Utilizadores e grupos** no menu de navegação.
+5.  Selecione **Definições do utilizador**.
+6.  Desativar todas as futuras operações de consentimento do utilizador, definindo os **Utilizadores, pode permitir que as aplicações acedam aos seus dados** para **alternar** para No e clicar no botão **Guardar.**
+
 ## <a name="next-steps"></a>Próximos passos
-
-[Cinco passos para garantir a sua infraestrutura de identidade](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
-
-[Configure o fluxo de trabalho de consentimento administrativo](configure-admin-consent-workflow.md)
-
-[Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
-
-[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
-
-[Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Cinco passos para garantir a sua infraestrutura de identidade](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+* [Configure o fluxo de trabalho de consentimento administrativo](configure-admin-consent-workflow.md)
+* [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
+* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)

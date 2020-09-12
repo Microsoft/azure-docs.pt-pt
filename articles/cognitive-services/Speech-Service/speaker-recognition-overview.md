@@ -1,25 +1,27 @@
 ---
-title: Serviço de Reconhecimento de Altifalantes Azure
+title: Visão geral do reconhecimento de oradores - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O Reconhecimento de Altifalantes de Serviços Cognitivos Azure fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?".
+description: O Reconhecimento de Altifalantes fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas utilizando biometria de voz. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?". Este artigo é uma visão geral dos benefícios e capacidades do serviço de reconhecimento de altifalantes.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: cog-serv-seo-aug-2020
+keywords: reconhecimento de colunas, biometria de voz
+ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780890"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397264"
 ---
-# <a name="what-is-the-azure-speaker-recognition-service"></a>O que é o serviço de reconhecimento de altifalantes Azure?
+# <a name="what-is-speaker-recognition"></a>O que é o Reconhecimento de Orador?
 
-O serviço de Reconhecimento de Altifalantes fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?". Fornece dados de formação áudio para um único altifalante, o que cria um perfil de inscrição baseado nas características únicas da voz do orador. Em seguida, pode cruzar as amostras de voz áudio contra este perfil para verificar se o altifalante é a mesma pessoa (verificação do altifalante) ou cruzar amostras de voz áudio contra um *grupo* de perfis de altifalantes inscritos, para ver se corresponde a algum perfil do grupo (identificação do altifalante). Em contraste, [a diarização](batch-transcription.md#speaker-separation-diarization) dos altifalantes agrupe segmentos de áudio por altifalante numa operação de lote.
+O serviço de Reconhecimento de Altifalantes fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas utilizando biometria de voz. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?". Fornece dados de formação áudio para um único altifalante, o que cria um perfil de inscrição baseado nas características únicas da voz do orador. Em seguida, pode cruzar as amostras de voz áudio contra este perfil para verificar se o altifalante é a mesma pessoa (verificação do altifalante) ou cruzar amostras de voz áudio contra um *grupo* de perfis de altifalantes inscritos, para ver se corresponde a algum perfil do grupo (identificação do altifalante). Em contraste, [a diarização](batch-transcription.md#speaker-separation-diarization) dos altifalantes agrupe segmentos de áudio por altifalante numa operação de lote.
 
 ## <a name="speaker-verification"></a>Verificação de Orador
 
@@ -70,7 +72,7 @@ Tal como acontece com todos os recursos dos Serviços Cognitivos, os desenvolved
 | Pode inscrever um orador várias vezes? | Sim, para verificação dependente de texto, pode inscrever um altifalante até 50 vezes. Para verificação independente de texto ou identificação de altifalantes, pode inscrever-se com até 300 segundos de áudio. |
 | Que dados são armazenados em Azure? | O áudio de inscrição é armazenado no serviço até que o perfil de voz seja [eliminado](speaker-recognition-basics.md#deleting-voice-profile-enrollments). As amostras de áudio de reconhecimento não são retidas ou armazenadas. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > * Preencha o artigo básico de reconhecimento de [altifalantes](speaker-recognition-basics.md) para um ensaio de padrões de design comuns que pode usar nas suas aplicações.

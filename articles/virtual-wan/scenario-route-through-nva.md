@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852096"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400029"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
 
@@ -46,7 +46,7 @@ A seguinte matriz de conectividade, resume os fluxos suportados neste cenário:
 | **VNets não-NVA**| &#8594; |   Estático |      X   |        X     |      X    |
 | **Ramos**     | &#8594; |   Estático |      X   |        X     |      X    |
 
-Cada uma das células da matriz de conectividade descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico. Considere o seguinte:
+Cada uma das células da matriz de conectividade descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida nativamente por VIRTUAL WAN, e "Estática" significa que a conectividade é fornecida por WAN virtual usando rotas estáticas. Considere o seguinte:
 
 * Os porta-vozes da NVA não são geridos pela Virtual WAN. Como resultado, os mecanismos com os quais comunicarão a outros VNets ou ramos são mantidos pelo utilizador. A conectividade com o VNet NVA é fornecida por um peering VNet, e uma rota padrão para 0.0.0.0/0 apontando para o NVA como o próximo salto deve cobrir conectividade com a Internet, com outros raios, e para sucursais
 * Os VNets NVA saberão dos seus próprios porta-vozes da NVA, mas não sobre os porta-vozes da NVA ligados a outros VNets NVA. Por exemplo, na Tabela 1, o VNet 2 sabe sobre o VNet 5 e o VNet 6, mas não sobre outros porta-vozes como o VNet 7 e o VNet 8. É necessária uma rota estática para injetar os prefixos de outros porta-vozes em VNets NVA
@@ -129,7 +129,7 @@ Isto resultará em alterações na configuração do encaminhamento, como mostra
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Sobre a Encriptação'
 description: Saiba mais sobre a encriptação ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.author: cherylmc
-ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 46f0a0e86c5db612f440bcf631329d2800251dab
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838761"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397802"
 ---
 # <a name="expressroute-encryption"></a>Encriptação ExpressRoute
  
@@ -25,7 +25,7 @@ Não. O MACsec encripta todo o tráfego numa ligação física com uma chave det
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>Posso encriptar alguns dos circuitos ExpressRoute nas minhas portas ExpressRoute Direct e deixar outros circuitos nas mesmas portas sem encriptação? 
 Não. Uma vez que o MACsec esteja ativado todo o tráfego de controlo de rede, por exemplo, o tráfego de dados BGP e o tráfego de dados do cliente são encriptados. 
 ### <a name="when-i-enabledisable-macsec-or-update-macsec-key-will-my-on-premises-network-lose-connectivity-to-microsoft-over-expressroute"></a>Quando eu ativar/desativar o MACsec ou atualizar a chave MACsec, a minha rede no local perderá a conectividade com a Microsoft em vez do ExpressRoute?
-Sim. Para a configuração DO MACsec, apoiamos apenas o modo de chave pré-partilhado. Significa que precisa de atualizar a chave tanto nos seus dispositivos como na microsoft (através da nossa API). Esta mudança não é atómica, por isso vai perder conectividade quando há um desfasamento entre os dois lados. Recomendamos vivamente que marque uma janela de manutenção para a alteração da configuração. Para minimizar o tempo de inatividade, sugerimos que atualize a configuração de uma ligação do ExpressRoute Direct numa altura em que altere o tráfego da rede para outra ligação.  
+Yes. Para a configuração DO MACsec, apoiamos apenas o modo de chave pré-partilhado. Significa que precisa de atualizar a chave tanto nos seus dispositivos como na microsoft (através da nossa API). Esta mudança não é atómica, por isso vai perder conectividade quando há um desfasamento entre os dois lados. Recomendamos vivamente que marque uma janela de manutenção para a alteração da configuração. Para minimizar o tempo de inatividade, sugerimos que atualize a configuração de uma ligação do ExpressRoute Direct numa altura em que altere o tráfego da rede para outra ligação.  
 ### <a name="will-traffic-continue-to-flow-if-theres-a-mismatch-in-macsec-key-between-my-devices-and-microsofts"></a>O tráfego continuará a fluir se houver uma incompatibilidade na chave MACsec entre os meus dispositivos e os da Microsoft?
 Não. Se o MACsec estiver configurado e ocorrer uma incompatibilidade de chaves, perde-se a conectividade com a Microsoft. Por outras palavras, não vamos voltar a uma ligação não encriptada, expondo os seus dados. 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Permitirá que o MACsec no ExpressRoute Direct degrade o desempenho da rede?
@@ -36,9 +36,9 @@ Apoiamos apenas a versão [de Numeramento de Pacotes Estendidos](https://1.ieee8
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Encriptação de ponta a ponta por FAQ IPsec
 O IPsec é uma [norma IETF.](https://tools.ietf.org/html/rfc6071) Encripta dados no nível do Protocolo de Internet (IP) ou na Camada de Rede 3. Pode utilizar o IPsec para encriptar uma ligação de ponta a ponta entre a sua rede no local e a sua rede virtual (VNET) no Azure. Veja outras PERGUNTAS Frequentes abaixo.
 ### <a name="can-i-enable-ipsec-in-addition-to-macsec-on-my-expressroute-direct-ports"></a>Posso permitir o IPsec para além do MACsec nas minhas portas ExpressRoute Direct?
-Sim. O MACsec assegura as ligações físicas entre si e a Microsoft. O IPsec assegura a ligação de ponta a ponta entre si e as suas redes virtuais no Azure. Pode ative-los independentemente. 
+Yes. O MACsec assegura as ligações físicas entre si e a Microsoft. O IPsec assegura a ligação de ponta a ponta entre si e as suas redes virtuais no Azure. Pode ative-los independentemente. 
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-between-my-on-premises-network-and-my-azure-virtual-network"></a>Posso usar a porta de entrada da Azure VPN para instalar o túnel IPsec entre a minha rede no local e a minha rede virtual Azure?
-Sim. Pode configurar este túnel IPsec sobre o Microsoft Peering do seu circuito ExpressRoute. Siga o nosso [guia de configuração.](site-to-site-vpn-over-microsoft-peering.md)
+Yes. Pode configurar este túnel IPsec sobre o Microsoft Peering do seu circuito ExpressRoute. Siga o nosso [guia de configuração.](site-to-site-vpn-over-microsoft-peering.md)
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-over-azure-private-peering"></a>Posso usar a porta de entrada da Azure VPN para montar o túnel IPsec sobre o Azure Private Peering?
 Se adotar a Azure Virtual WAN, pode seguir [estes passos](../virtual-wan/vpn-over-expressroute.md) para encriptar a ligação de ponta a ponta. Se tiver um VNET Azure regular, pode implantar uma porta VPN de terceiros no seu VNET e estabelecer um túnel IPsec entre ele e o seu gateway VPN no local.
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>Qual é a produção que vou ter depois de permitir o IPsec na minha ligação ExpressRoute?

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ff46c5e2d434a75bf71d6216ce81b34de878ba80
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304195"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419185"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Ratings & Avalia painel de análise no Partner Center
 
@@ -33,7 +33,7 @@ O painel de instrumentos apresenta uma representação gráfica da seguinte ativ
 - Avaliações & avaliações  
 - Comentários de revisão
 
-Utilize os separadores **de montras do Marketplace** para ver a sua oferta as métricas do Microsoft AppSource e Azure Marketplace separadamente. Para ver métricas específicas da oferta, selecione a oferta da lista de abandono da oferta.
+Utilize os separadores **Marketplace Insights** para visualizar a sua oferta as métricas do Microsoft AppSource e Azure Marketplace separadamente. Para ver métricas específicas da oferta, selecione a oferta da lista de abandono da oferta.
 
 ### <a name="ratings--reviews-summary"></a>Resumo das avaliações &
 
@@ -52,7 +52,7 @@ As avaliações são apresentadas por ordem cronológica para quando foram publi
 
 ![Parceiro Center analisar comentários de revisão](./media/analyze-reviews.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 2e289f30ef1c1883c38884eb563a41bccc841329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd8c8450d6e747e9789c785d1c594532b94a36cb
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79462656"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443080"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Use o PowerShell para criar um oleoduto de fábrica de dados para copiar dados na nuvem
 
@@ -27,7 +27,7 @@ Esta amostra de script PowerShell cria um oleoduto na Azure Data Factory que cop
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Conta de Armazenamento Azure**. Pode utilizar o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md), que explica como criar uma. 
-* Crie um **contentor de blobs** no Armazenamento de Blobs, crie uma **pasta** de entrada no contentor e carregue alguns ficheiros para a pasta. Pode utilizar ferramentas como o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ligar ao Armazenamento de Blobs do Azure, criar contentores de blobs, carregar o ficheiro de entrada e verificar o ficheiro de saída.
+* Crie um **contentor de blobs** no Armazenamento de Blobs, crie uma **pasta** de entrada no contentor e carregue alguns ficheiros para a pasta. Pode utilizar ferramentas como [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para ligar ao armazenamento do Azure Blob, criar um recipiente blob, carregar o ficheiro de entrada e verificar o ficheiro de saída.
 
 ## <a name="sample-script"></a>Script de exemplo
 

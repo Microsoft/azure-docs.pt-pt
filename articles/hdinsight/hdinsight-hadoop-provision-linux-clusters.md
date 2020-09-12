@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b7757b5204c9b3b32145667367a71a9acc42c230
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749870"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434661"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -39,7 +39,7 @@ A tabela a seguir mostra os diferentes métodos que pode utilizar para configura
 | [CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Modelos de gestor de recursos Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 Este artigo acompanha-o através da configuração no [portal Azure,](https://portal.azure.com)onde pode criar um cluster HDInsight.
 
@@ -82,7 +82,7 @@ A Azure HDInsight fornece atualmente os seguintes tipos de cluster, cada um com 
 | [Kafka](kafka/apache-kafka-introduction.md) | Uma plataforma de streaming distribuída que pode ser usada para construir oleodutos e aplicações de dados de streaming em tempo real |
 | [Serviços ML](r-server/r-server-overview.md) |Várias estatísticas de big data, modelação preditiva e capacidades de aprendizagem automática |
 | [Spark](spark/apache-spark-overview.md) |Processamento em memória, consultas interativas, processamento de fluxo de micro-lotes |
-| [Tempestade](storm/apache-storm-overview.md) |Processamento de eventos em tempo real |
+| [Storm](storm/apache-storm-overview.md) |Processamento de eventos em tempo real |
 
 #### <a name="version"></a>Versão
 
@@ -139,7 +139,7 @@ Durante a configuração, para o ponto final de armazenamento predefinido, espec
 
 ### <a name="metastore-settings"></a>Configurações de metastões
 
-Pode criar metastões opcionais de Hive ou Apache Oozie. No entanto, nem todos os tipos de cluster suportam metastões, e o Azure SQL Data Warehouse não é compatível com as metastores.
+Pode criar metastões opcionais de Hive ou Apache Oozie. No entanto, nem todos os tipos de cluster suportam metastões, e o Azure Synapse Analytics não é compatível com as metastores.
 
 Para obter mais informações, consulte [utilizar lojas de metadados externos no Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
@@ -216,7 +216,7 @@ Cada tipo de cluster tem o seu próprio número de nós, terminologia para nós,
 | --- | --- | --- |
 | Hadoop |Nó de cabeça (2), nó do trabalhador (1+) |![HdInsight Hadoop cluster nosdes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor de cabeça (2), servidor de região (1+), nó master/ZooKeeper (3) |![Configuração do tipo de cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Tempestade |Nó Nimbus (2), servidor de supervisor (1+), nó ZooKeeper (3) |![Configuração do tipo de cluster de tempestade HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
+| Storm |Nó Nimbus (2), servidor de supervisor (1+), nó ZooKeeper (3) |![Configuração do tipo de cluster de tempestade HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Nó de cabeça (2), nó do trabalhador (1+), nó ZooKeeper (3) (grátis para o tamanho A1 ZooKeeper VM) |![Configuração do tipo de cluster de faíscas HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 Para obter mais informações, consulte [a configuração do nó padrão e os tamanhos de máquinas virtuais para clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) em "Quais são os componentes e versões Hadoop em HDInsight?"
@@ -290,7 +290,7 @@ Por vezes, pretende-se configurar os seguintes ficheiros de configuração duran
 
 Para obter mais informações, consulte [os clusters HDInsight personalizados utilizando o Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Falhas na criação de clusters de resolução de problemas com Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 * [O que são HDInsight, o ecossistema Apache Hadoop e os aglomerados hadoop?](hadoop/apache-hadoop-introduction.md)

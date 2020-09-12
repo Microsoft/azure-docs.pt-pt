@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: Verificar conectividade - Guia de resolução de problemas'
 description: Esta página fornece instruções sobre a resolução de problemas e validação da conectividade final até ao fim de um circuito ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
-ms.author: rambala
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 4525ea6e23c4f1c2c96ab2beb21e8bfd5b66ca50
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204221"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401746"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 Este artigo ajuda-o a verificar e a resolver problemas a conectividade ExpressRoute. O ExpressRoute estende uma rede no local para a nuvem da Microsoft sobre uma ligação privada que é geralmente facilitada por um fornecedor de conectividade. A conectividade ExpressRoute envolve tradicionalmente três zonas de rede distintas, da seguinte forma:

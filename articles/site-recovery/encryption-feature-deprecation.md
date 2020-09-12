@@ -2,18 +2,18 @@
 title: Depreciação da funcionalidade de encriptação de dados de recuperação de dados do Azure Site Recovery / Microsoft Docs
 description: Detalhes regarig Azure Site Recovery data encryption feature
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: rajanaki
-ms.openlocfilehash: 79c129fee6d0339eed752abe94059fa566859bc0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sharrai
+ms.openlocfilehash: 5860928d71c0e7431190908d5df5d7496e8ffb17
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086188"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426321"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Depreciação da funcionalidade de encriptação de dados de recuperação de sítios
 
@@ -42,5 +42,5 @@ Siga estes passos para cada VM:
 Depois de completar a replicação inicial para contas de armazenamento com SSE ativada, os seus VMs estarão a usar encriptação em repouso com recuperação do site Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Planeie executar os passos de reparação, e executá-los o mais cedo possível. No caso de ter dúvidas sobre esta depreciação, por favor contacte o Microsoft Support. Para ler mais sobre o cenário Hyper-V para Azure, consulte [aqui](hyper-v-vmm-architecture.md).

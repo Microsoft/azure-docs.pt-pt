@@ -3,14 +3,14 @@ title: Reencaminhar dados de tarefa da Automatização do Azure para os registos
 description: Este artigo diz como enviar fluxos de trabalho de trabalho e runbook para registos do Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/22/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004754"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397440"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Reencaminhar dados de tarefa da Automatização do Azure para os registos do Azure Monitor
 
@@ -22,37 +22,57 @@ A Azure Automation pode enviar o estado de trabalho do runbook e os fluxos de tr
 * Correlacionar empregos em todas as contas de Automação.
 * Utilize vistas personalizadas e consultas de pesquisa para visualizar os resultados do seu runbook, o estado do trabalho do runbook e outros indicadores ou métricas de chaves relacionadas.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="prerequisites-and-deployment-considerations"></a>Pré-requisitos e considerações de implantação
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar a enviar os seus registos de Automação para registos do Azure Monitor, é necessário:
 
 * O mais recente lançamento da [Azure PowerShell](/powershell/azure/).
-* Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [Começar com os registos do Azure Monitor](../azure-monitor/overview.md).
-* O ID de recursos para a sua conta Azure Automation.
 
-Utilize o seguinte comando para encontrar o ID de recurso para a sua conta Azure Automation:
+* Um espaço de trabalho log Analytics e identificação de recursos. Para obter mais informações, consulte [Começar com os registos do Azure Monitor](../azure-monitor/overview.md).
 
-```powershell-interactive
-# Find the ResourceId for the Automation account
-Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
-```
+* A identificação de recursos da sua conta Azure Automation.
 
-Para encontrar o ID de recurso para o seu espaço de trabalho Log Analytics, execute o seguinte comando PowerShell:
+## <a name="how-to-find-resource-ids"></a>Como encontrar iDs de recursos
 
-```powershell-interactive
-# Find the ResourceId for the Log Analytics workspace
-Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
-```
+1. Utilize o seguinte comando para encontrar o ID de recurso para a sua conta Azure Automation:
+
+    ```powershell-interactive
+    # Find the ResourceId for the Automation account
+    Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
+    ```
+
+2. Copiar o valor **para ResourceID**.
+
+3. Utilize o seguinte comando para encontrar o ID de recurso do seu espaço de trabalho Log Analytics:
+
+    ```powershell-interactive
+    # Find the ResourceId for the Log Analytics workspace
+    Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+    ```
+
+4. Copiar o valor **para ResourceID**.
+
+Para devolver os resultados de um grupo de recursos específicos, inclua o `-ResourceGroupName` parâmetro. Para mais informações, consulte [o Get-AzResource.](/powershell/module/az.resources/get-azresource)
 
 Se tiver mais do que uma conta de Automação ou espaço de trabalho na saída dos comandos anteriores, pode encontrar o nome e outras propriedades relacionadas que fazem parte do ID completo do recurso da sua conta Demôm automação, executando o seguinte:
 
-1. No portal Azure, selecione a sua conta Demôm automação na página **Contas de Automação.** 
-2. Na página da conta de Automação selecionada, em **Definições de Conta**, selecione **Propriedades**.  
-3. Na página **Propriedades,** note os detalhes apresentados abaixo.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. No portal Azure, selecione a sua conta Demôm automação na página **Contas de Automação.**
+1. Na página da conta de Automação selecionada, em **Definições de Conta**, selecione **Propriedades**.
+1. Na página **Propriedades,** note os detalhes apresentados abaixo.
 
     ![Propriedades de conta de automação](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+
+## <a name="configure-diagnostic-settings"></a>Configurar configurações de diagnóstico
+
+As definições de diagnóstico de automatização suportam o encaminhamento dos seguintes registos da plataforma e dados métricos:
+
+* JobLogs
+* JobStreams
+* DSCNodeStatus
+* Métricas - Total de Empregos, Funcionamento total da máquina de implementação de atualização, execuções de implementação de atualização total
+
+Para começar a enviar os seus registos de Automação para registos do Azure Monitor, [reveja criar definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) para compreender a funcionalidade e os métodos disponíveis para configurar as definições de diagnóstico para enviar registos da plataforma.
 
 ## <a name="azure-monitor-log-records"></a>Registos de registos do Azure Monitor
 
@@ -102,40 +122,11 @@ Os diagnósticos de Automatização Azure criam dois tipos de registos em regist
 | ResourceProvider | O fornecedor de recursos. O valor é MICROSOFT. AUTOMAÇÃO. |
 | ResourceType | O tipo de recurso. O valor é AUTOMATIONACCOUNTS. |
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>Confiúdo de integração com registos do Azure Monitor
-
-1. No seu computador, inicie o Windows PowerShell a partir do ecrã **Iniciar.**
-2. Executar os seguintes comandos PowerShell e editar os valores para `$automationAccountId` e `$workspaceId` com os valores da secção anterior.
-
-   ```powershell-interactive
-   $workspaceId = "resource ID of the log analytics workspace"
-   $automationAccountId = "resource ID of your Automation account"
-
-   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
-   ```
-
-Depois de executar este script, pode demorar uma hora até começar a ver registos em registos do Azure Monitor de novos `JobLogs` ou `JobStreams` escritos.
-
-Para ver os registos, execute a seguinte consulta na pesquisa de registo de registo de registo de registos de registos:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
-
-### <a name="verify-configuration"></a>Verificar configuração
-
-Para confirmar que a sua conta Demômpa está a enviar registos para o seu espaço de trabalho Log Analytics, verifique se os diagnósticos estão corretamente configurados na conta Automação utilizando o seguinte comando PowerShell.
-
-```powershell-interactive
-Get-AzDiagnosticSetting -ResourceId $automationAccountId
-```
-
-Na saída, certifique-se de que:
-
-* `Logs`Abaixo, o valor para é `Enabled` verdadeiro.
-* `WorkspaceId`está definido para o `ResourceId` valor do seu espaço de trabalho Log Analytics.
-
 ## <a name="view-automation-logs-in-azure-monitor-logs"></a>Ver registos de automatização em registos do Monitor Azure
 
-Agora que começou a enviar os seus registos de trabalho da Automação para registos do Azure Monitor, vamos ver o que pode fazer com estes registos dentro dos registos do Azure Monitor.
+Agora que começou a enviar os seus fluxos de trabalho de Automação e registos para registos do Azure Monitor, vamos ver o que pode fazer com estes registos dentro dos registos do Azure Monitor.
 
-Para ver os registos, execute a seguinte consulta:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os registos, execute a seguinte consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Envie um e-mail quando um trabalho de runbook falha ou suspende
 
@@ -145,7 +136,7 @@ Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os
 
 1. A partir da página de visão geral do espaço de trabalho do Log Analytics, clique em **Ver registos**.
 
-2. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Também pode agrupar o nome do livro de corridas utilizando:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Também pode agrupar o nome do livro de corridas utilizando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Se configurar registos de mais de uma conta de Automação ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta Demôm automação. O nome da conta de automação pode ser encontrado no `Resource` campo na procura de `JobLogs` .
 
@@ -163,28 +154,43 @@ Além de alertar sobre falhas, pode encontrar quando um trabalho de runbook tem 
 
 ### <a name="view-job-streams-for-a-job"></a>Ver fluxos de emprego para um trabalho
 
-Quando estás a depurar um emprego, também podes querer ver os fluxos de emprego. A seguinte consulta mostra todos os fluxos para um único trabalho com GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
+Quando estás a depurar um emprego, também podes querer ver os fluxos de emprego. A seguinte consulta mostra todos os fluxos para um único trabalho com GUID `2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0` :
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0"
+| sort by TimeGenerated asc
+| project ResultDescription
+```
 
 ### <a name="view-historical-job-status"></a>Ver estado histórico do trabalho
 
 Finalmente, talvez queira visualizar o seu histórico de trabalho ao longo do tempo. Pode utilizar esta consulta para procurar o estado dos seus trabalhos ao longo do tempo.
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
-<br> ![Gráfico de estado histórico de trabalho de log analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
-
-## <a name="remove-diagnostic-settings"></a>Remover as definições de diagnóstico
-
-Para remover a definição de diagnóstico da conta Automação, execute o seguinte comando:
-
-```powershell-interactive
-$automationAccountId = "[resource ID of your Automation account]"
-
-Remove-AzDiagnosticSetting -ResourceId $automationAccountId
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started"
+| summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+![Gráfico de estado histórico de trabalho de log analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)
+
+### <a name="filter-job-status-output-converted-into-a-json-object"></a>Saída do estado do trabalho do filtro convertido num objeto JSON
+
+Recentemente, alterámos o comportamento de como os dados de registo da Automatização são escritos para a `AzureDiagnostics` tabela no serviço Log Analytics, onde já não decompõe as propriedades JSON em campos separados. Se configurar o seu runbook para formatar objetos no fluxo de saída no formato JSON como colunas separadas, é necessário reconfigurar as suas consultas para analisar esse campo a um objeto JSON para aceder a essas propriedades. Isto é realizado usando [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) para aceder a um elemento JSON específico em um caminho conhecido.
+
+Por exemplo, um runbook forma a propriedade *ResultadoDscription* no fluxo de saída no formato JSON com vários campos. Para procurar o estado dos seus trabalhos que se encontrem num estado de falha, conforme especificado num campo chamado **Status,** utilize esta consulta de exemplo para pesquisar o *ResultadoDiscrição* com um estado de **Falha**:
+
+```kusto
+AzureDiagnostics
+| where Category == 'JobStreams'
+| extend jsonResourceDescription = parse_json(ResultDescription)
+| where jsonResourceDescription.Status == 'Failed'
+```
+
+![Log Analytics Histórico Fluxo de Emprego JSON formato](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
+
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a construir consultas de pesquisa e rever os registos de trabalho da Automação com registos do Azure Monitor, consulte [as pesquisas de Registo nos registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Para compreender a criação e recuperação de mensagens de saída e erro a partir de runbooks, consulte [a saída do livro de execução do Monitor](automation-runbook-output-and-messages.md).

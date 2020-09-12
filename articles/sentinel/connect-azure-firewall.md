@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 167cfe6b8fb1394291866e51ec14ec91bf9035a1
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89183701"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504881"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Ligar dados do Azure Firewall
 
@@ -40,7 +40,7 @@ Saiba mais sobre [a monitorização dos registos do Azure Firewall](https://docs
 
 1. Ativar **registos de diagnóstico** em todas as firewalls cujos registos pretende ligar:
 
-    1. Selecione o [recurso Open Azure Firewall >](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FazureFirewalls) link.
+    1. Selecione o **recurso Open Azure Firewall >** link.
 
     1. A partir do menu de navegação **firewalls,** selecione **definições de Diagnóstico**.
 
@@ -60,7 +60,7 @@ Saiba mais sobre [a monitorização dos registos do Azure Firewall](https://docs
 >
 > Com este conector de dados em particular, os indicadores de estado de conectividade (uma faixa de cor na galeria de conectores de dados e ícones de conexão ao lado dos nomes do tipo de dados) só mostrarão como *conectados* (verdes) se os dados ingerirem em algum ponto nas últimas duas semanas. Uma vez passadas duas semanas sem ingestão de dados, o conector mostrará como estando desligado. No momento em que mais dados chegam, o estado *ligado* voltará.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar os registos do Azure Firewall ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

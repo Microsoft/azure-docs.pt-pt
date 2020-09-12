@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816274"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420936"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
@@ -48,11 +48,11 @@ As categorias e indústrias para uma loja online diferente serão aplicáveis a 
 
 ### <a name="categories"></a>Categorias
 
-Microsoft AppSource e Azure Marketplace são duas lojas online diferentes que servem requisitos exclusivos do cliente. A Azure Marketplace tem como alvo profissionais de TI e desenvolvedores que criam soluções no Azure.  O Microsoft AppSource tem como alvo utilizadores empresariais que procuram aplicações SaaS de negócios e/ou indústria, add-ins Dynamics 365, add-ins microsoft 365 e aplicações power platform.
+Microsoft AppSource e Azure Marketplace são lojas online que oferecem diferentes tipos de soluções. O Azure Marketplace oferece soluções de TI construídas sobre ou para o Azure.  O Microsoft AppSource oferece soluções de negócio, como aplicações SaaS da indústria, add-ins Dynamics 365, add-ins microsoft 365 e aplicações power platform.
 
-As categorias e subcategorias são mapeadas para cada loja online com base no público-alvo. A sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace, dependendo do tipo de oferta, capacidades de transação da oferta e da seleção categoria/subcategoria. 
+As categorias e subcategorias são mapeadas para cada loja online com base no tipo de solução. A sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace, dependendo do tipo de oferta, capacidades de transação da oferta e da seleção categoria/subcategoria. 
 
-Selecione categorias e subcategorias que melhor se alinham com a sua oferta e o seu público pretendido. Pode selecionar:
+Selecione categorias e subcategorias que melhor se alinham com o seu tipo de solução. Pode selecionar:
 
 * Até duas categorias, incluindo uma categoria primária e secundária (opcional).
 * Até duas subcategorias para cada categoria primária e/ou secundária. Se não for selecionada nenhuma subcategoria, a sua oferta continuará a ser detetável apenas na categoria selecionada.
@@ -136,7 +136,7 @@ O url de exemplo a seguir contém ambos os parâmetros de consulta anteriores: `
 
 Ao adicionar os parâmetros ao seu URL AppSource, pode rever a eficácia da sua campanha no painel de análise no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os seus [benefícios no mercado comercial.](./gtm-your-marketplace-benefits.md)
 

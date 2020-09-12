@@ -2,17 +2,17 @@
 title: Ligando Azure às nuvens públicas Microsoft Docs
 description: Descreva várias formas de ligar O Azure a outras nuvens públicas
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
-ms.author: osamaz
-ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: f413b6100fb2a7d1c8bc06d787468cc3e79c0169
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081105"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397479"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Ligando Azure com nuvens públicas
 
@@ -58,7 +58,7 @@ Os clientes podem aproveitar a Internet para ligar as suas instâncias em Azure 
 
 A VPN local não é considerada uma solução de alta produção e baixa latência. No entanto, pode ser usado como uma cópia de segurança para a conectividade física.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte [o ExpressRoute FAQ][ER-FAQ] para mais perguntas sobre a conectividade ExpressRoute e rede virtual.
 
 Ver [Configurar a ligação direta entre Azure e Oracle Cloud][ER-OCI] para a conectividade entre Azure e Oráculo

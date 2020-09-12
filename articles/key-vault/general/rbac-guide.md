@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f1e95c1244d327478862c3919481394d974ea42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270344"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419270"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)
 
@@ -61,6 +61,10 @@ Para obter mais informações sobre as definições de funções incorporadas do
 O novo modelo de permissão Azure RBAC para o cofre de chaves fornece alternativa ao modelo de permissões de política de acesso ao cofre. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Ativar permissões Azure RBAC no Cofre de Chaves
+
+Durante a pré-visualização, deve utilizar a etiqueta de recurso Azure RBAC (Microsoft_Azure_KeyVault_RBACEnabled=verdade) para ver as novas opções do modelo de permissão.
+
+https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > Definir o modelo de permissão Azure RBAC invalida todas as permissões de políticas de acesso. Pode causar interrupções quando não são atribuídas funções equivalentes do Azure.
@@ -205,8 +209,6 @@ az role definition create --role-definition '{ \
 Para obter mais informações sobre como criar funções personalizadas, consulte:
 
 [Funções personalizadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-
-Para as ações disponíveis verifique apêndice: **Ações disponíveis**
 
 ## <a name="known-limits-and-performance"></a>Limites e desempenho conhecidos
 

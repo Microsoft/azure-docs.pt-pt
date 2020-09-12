@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5f16a902980b8cf88fb3e8a7f888a0f58ed34355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35631c8a0b66ade1457228ba16150f94f761f7b3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986555"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419916"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar ficheiros de configuração do cliente VPN para autenticação P2S RADIUS
 
@@ -45,7 +45,7 @@ Pode configurar a autenticação do nome de utilizador/palavra-passe para utiliz
 
 Ao configurar a autenticação do nome de utilizador/palavra-passe, só pode criar uma configuração para o protocolo de autenticação de nome de utilizador/palavra-passe EAP-MSCHAPv2. Nos comandos, `-AuthenticationMethod` `EapMSChapv2` está.
 
-### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a>1. Gerar ficheiros de configuração de clientes VPN
+### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a> 1. Gerar ficheiros de configuração de clientes VPN
 
 Pode gerar os ficheiros de configuração do cliente VPN utilizando o portal Azure ou utilizando o Azure PowerShell.
 
@@ -80,7 +80,7 @@ Para recuperar ficheiros de configuração do cliente previamente gerados, utili
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. Configures clientes VPN
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a> 2. Configures clientes VPN
 
 Pode configurar os seguintes clientes VPN:
 
@@ -184,11 +184,11 @@ Pode criar ficheiros de configuração de clientes VPN para autenticação de ce
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-Nos comandos, `-AuthenticationMethod` `EapTls` está. Durante a autenticação do certificado, o cliente valida o servidor RADIUS validando o seu certificado. `-RadiusRootCert`é o ficheiro .cer que contém o certificado raiz que é usado para validar o servidor RADIUS.
+Nos comandos, `-AuthenticationMethod` `EapTls` está. Durante a autenticação do certificado, o cliente valida o servidor RADIUS validando o seu certificado. `-RadiusRootCert` é o ficheiro .cer que contém o certificado raiz que é usado para validar o servidor RADIUS.
 
 Cada dispositivo cliente VPN requer um certificado de cliente instalado. Às vezes, um dispositivo Windows tem vários certificados de cliente. Durante a autenticação, isto pode resultar numa caixa de diálogo pop-up que lista todos os certificados. O utilizador deve então escolher o certificado a utilizar. O certificado correto pode ser filtrado especificando o certificado raiz a que o certificado do cliente deve ser acorrentado. 
 
-`-ClientRootCert`é o ficheiro .cer que contém o certificado raiz. É um parâmetro opcional. Se o dispositivo a que pretende ligar tiver apenas um certificado de cliente, não tem de especificar este parâmetro.
+`-ClientRootCert` é o ficheiro .cer que contém o certificado raiz. É um parâmetro opcional. Se o dispositivo a que pretende ligar tiver apenas um certificado de cliente, não tem de especificar este parâmetro.
 
 ### <a name="1-generate-vpn-client-configuration-files"></a><a name="certfiles"></a>1. Gerar ficheiros de configuração de clientes VPN
 
@@ -211,7 +211,7 @@ Para recuperar ficheiros de configuração do cliente previamente gerados, utili
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. Configures clientes VPN
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a> 2. Configures clientes VPN
 
 Pode configurar os seguintes clientes VPN:
 

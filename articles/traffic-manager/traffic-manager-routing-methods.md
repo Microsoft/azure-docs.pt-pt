@@ -2,22 +2,22 @@
 title: Azure Traffic Manager - métodos de encaminhamento de tráfego
 description: Estes artigos ajudam a entender os diferentes métodos de encaminhamento de tráfego usados pelo Traffic Manager
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: rohink
-ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689661"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401661"
 ---
-# <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
+# <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Gestor de Tráfego
 
 O Azure Traffic Manager suporta seis métodos de encaminhamento de tráfego para determinar como encaminhar o tráfego da rede para os vários pontos finais de serviço. Para qualquer perfil, o Traffic Manager aplica o método de encaminhamento de tráfego que lhe está associado a cada consulta de DNS que recebe. O método de encaminhamento de tráfego determina qual o ponto final devolvido na resposta ao DNS.
 

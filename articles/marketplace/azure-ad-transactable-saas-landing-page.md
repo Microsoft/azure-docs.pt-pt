@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/02/2020
+ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921271"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378802"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Construa a página de aterragem para a sua oferta de SaaS transacionável no mercado comercial
 
@@ -38,15 +38,15 @@ A página de aterragem normalmente inclui o seguinte:
 As seguintes secções irão guiá-lo através do processo de construção de uma página de aterragem:
 
 1. [Crie um registo de aplicativo AD AZure](#create-an-azure-ad-app-registration) para a página de aterragem.
-2. [Utilize uma amostra de código como ponto de partida](#use-a-code-sample-as-a-starting-point) para a sua aplicação.
-3. [Resolva o símbolo de identificação de compra de mercado](#resolve-the-marketplace-purchase-identification-token) adicionado ao URL pelo mercado comercial.
-4. [Leia as informações de reclamações codificadas no token](#read-information-from-claims-encoded-in-the-id-token)de ID , que foi recebido da Azure AD após o login, que foi enviada com o pedido.
-5. [Utilize a API do Gráfico microsoft](#use-the-microsoft-graph-api) para recolher informações adicionais, conforme necessário.
-6. [Utilize duas aplicações AD AZure para melhorar a segurança na produção.](#use-two-azure-ad-apps-to-improve-security-in-production)
+1. [Utilize uma amostra de código como ponto de partida](#use-a-code-sample-as-a-starting-point) para a sua aplicação.
+1. [Utilize duas aplicações AD AZure para melhorar a segurança na produção.](#use-two-azure-ad-apps-to-improve-security-in-production)
+1. [Resolva o símbolo de identificação de compra de mercado](#resolve-the-marketplace-purchase-identification-token) adicionado ao URL pelo mercado comercial.
+1. [Leia as informações de reclamações codificadas no token de identificação,](#read-information-from-claims-encoded-in-the-id-token)que foi recebido da Azure AD após o sinal, que foi enviado com o pedido.
+1. [Utilize a API do Gráfico microsoft](#use-the-microsoft-graph-api) para recolher informações adicionais, conforme necessário.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Criar um registo de aplicativo AD Azure
 
-O mercado comercial está totalmente integrado com a Azure AD. Os compradores chegam ao mercado autenticados com uma [conta AD Azure ou conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Após a compra, o comprador vai do mercado comercial para o URL da sua página de aterragem para ativar e gerir a sua subscrição da sua aplicação SaaS. Deve deixar o comprador iniciar súpido na sua aplicação com a Azure AD SSO. (O URL da página de aterragem é especificado na página de [configuração técnica](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) da oferta.
+O mercado comercial está totalmente integrado com a Azure AD. Os compradores chegam ao mercado autenticados com uma [conta AD Azure ou conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Após a compra, o comprador vai do mercado comercial para o URL da sua página de aterragem para ativar e gerir a sua subscrição da sua aplicação SaaS. Deve deixar o comprador iniciar súpido na sua aplicação com a Azure AD SSO. (O URL da página de aterragem é especificado na página de [configuração técnica](plan-saas-offer.md#technical-information) da oferta.
 
 O primeiro passo para usar a identidade é certificar-se de que a sua página de aterragem está registada como uma aplicação AD AZure. O registo da aplicação permite-lhe utilizar a Azure AD para autenticar os utilizadores e solicitar o acesso aos recursos dos utilizadores. Pode ser considerada a definição da aplicação, que permite ao serviço saber como emitir fichas para a app com base nas definições da app.
 
@@ -82,7 +82,7 @@ Isto permite que a solução funcione em cenários que respeitem o princípio [d
 Quando o comprador é enviado para a sua página de aterragem, um sinal é adicionado ao parâmetro URL. Este token é diferente tanto do token emitido pela Azure AD como do token de acesso utilizado para a autenticação de serviço-a-serviço, e é usado como uma entrada para as [APIs de cumprimento saaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) resolver chamada para obter os detalhes da subscrição. Tal como acontece com todas as chamadas para as APIs de cumprimento do SaaS, o seu pedido de serviço-a-serviço será autenticado com um token de acesso que se baseia no ID da aplicação Azure para autenticação de serviço-a-serviço.
 
 > [!NOTE]
-> Na maioria dos casos, é preferível fazer esta ligação a partir de um segundo pedido de inquilino único. Consulte [duas aplicações AD AZure para melhorar a segurança na produção](#use-two-azure-ad-apps-to-improve-security-in-production) mais tarde neste artigo.
+> Na maioria dos casos, é preferível fazer esta ligação a partir de um segundo pedido de inquilino único. Consulte [duas aplicações AD AZure para melhorar a segurança na produção](#use-two-azure-ad-apps-to-improve-security-in-production) no início deste artigo.
 
 ### <a name="request-an-access-token"></a>Pedir um token de acesso
 
@@ -129,6 +129,6 @@ A maioria das aplicações registadas com Azure AD concedem permissões delegada
 > [!NOTE]
 > As contas do inquilino da MSA (com identificação do ``9188040d-6c67-4c5b-b112-36a304b66dad`` inquilino) não devolverão mais informações do que já foram recolhidas com o token de identificação. Para que possa ignorar esta chamada para a API do Gráfico para estas contas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Criar uma oferta SaaS no mercado comercial](./partner-center-portal/create-new-saas-offer.md)
+- [Como criar uma oferta SaaS no mercado comercial](create-new-saas-offer.md)

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 080b5a224f3d4a720d8009933ddd9161f56dba0a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d2a62b55ce7f8cd408afeb2f10fd40f42b36d53d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270233"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393943"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de acesso condicional numa política personalizada do Azure Ative Directory B2C
 
@@ -47,13 +47,13 @@ O exemplo a seguir mostra um perfil técnico de acesso condicional:
 
 ## <a name="conditional-access-evaluation"></a>Avaliação de Acesso Condicional
 
-Para cada sing-in, o Azure AD B2C avalia todas as políticas e garante que todos os requisitos são cumpridos antes de conceder o acesso ao utilizador. O "bloqueio de acesso" substitui todas as outras definições de configuração. O modo de **Avaliação** do perfil técnico de Acesso Condicional avalia os sinais recolhidos pelo Azure AD B2C durante a entrada com uma conta local. O resultado do perfil técnico de Acesso Condicional é um conjunto de reclamações que resultam da avaliação do Acesso Condicional. A política Azure AD B2C utiliza estas alegações numa próxima etapa de orquestração para tomar uma ação, como bloquear o utilizador ou desafiar a utilização com autenticação multi-factor. As seguintes opções podem ser configuradas para este modo.
+Para cada sing-in, o Azure AD B2C avalia todas as políticas e garante que todos os requisitos são cumpridos antes de conceder o acesso ao utilizador. O "bloqueio de acesso" substitui todas as outras definições de configuração. O modo de **Avaliação** do perfil técnico de Acesso Condicional avalia os sinais recolhidos pelo Azure AD B2C durante a entrada com uma conta local. O resultado do perfil técnico de Acesso Condicional é um conjunto de reclamações que resultam da avaliação do Acesso Condicional. A política Azure AD B2C utiliza estas alegações numa próxima etapa de orquestração para tomar uma ação, como bloquear o utilizador ou desafiar o utilizador com a autenticação multi-factor. As seguintes opções podem ser configuradas para este modo.
 
 ### <a name="metadata"></a>Metadados
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| OperaçãoType | Sim | Deve ser **avaliação.**  |
+| OperaçãoType | Yes | Deve ser **avaliação.**  |
 
 ### <a name="input-claims"></a>Reclamações de entrada
 
@@ -61,10 +61,10 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para Aces
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| IDUtilizador | Sim | string | O identificador do utilizador que se inscreve. |
-| Autenticação MehodsUsed | Sim |stringCollection | A lista de métodos que o utilizador usou para iniciar sinscrevi-se. Valores possíveis: `Password` e `OneTimePasscode` . |
-| IsFederated | Sim |boolean | Indica se um utilizador assinou ou não com uma conta federada. O valor deve `false` ser. |
-| IsMfaRegistered | Sim |boolean | Indica se o utilizador já inscreveu um número de telefone para autenticação multi-factor. |
+| IDUtilizador | Yes | string | O identificador do utilizador que se inscreve. |
+| Autenticação MehodsUsed | Yes |stringCollection | A lista de métodos que o utilizador usou para iniciar sinscrevi-se. Valores possíveis: `Password` e `OneTimePasscode` . |
+| IsFederated | Yes |boolean | Indica se um utilizador assinou ou não com uma conta federada. O valor deve `false` ser. |
+| IsMfaRegistered | Yes |boolean | Indica se o utilizador já inscreveu um número de telefone para autenticação multi-factor. |
 
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **entradaClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novas antes de enviá-las para o serviço de Acesso Condicional.
@@ -75,8 +75,8 @@ O elemento **OutputClaims** contém uma lista de reclamações geradas pelo Cond
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| Desafios | Sim |stringCollection | Lista de ações para remediar a ameaça identificada. Valores possíveis: `block` |
-| MultiConditionalAccessStatus | Sim | stringCollection |  |
+| Desafios | Yes |stringCollection | Lista de ações para remediar a ameaça identificada. Valores possíveis: `block` |
+| MultiConditionalAccessStatus | Yes | stringCollection |  |
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos.
 
@@ -115,7 +115,7 @@ O modo de **remediação** do perfil técnico de Acesso Condicional informa a Az
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| OperaçãoType | Sim | Deve ser **remediação.**  |
+| OperaçãoType | Yes | Deve ser **remediação.**  |
 
 ### <a name="input-claims"></a>Reclamações de entrada
 
@@ -123,7 +123,7 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para Aces
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| DesafiosSSatisficados | Sim | stringCollection| A lista de desafios satisfeitos para remediar a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
+| DesafiosSSatisficados | Yes | stringCollection| A lista de desafios satisfeitos para remediar a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
 
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **entradaClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novas antes de ligar para o serviço de Acesso Condicional.
