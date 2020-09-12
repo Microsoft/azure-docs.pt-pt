@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e6702ab3753604af50e21f931dd23f63de3c1451
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4c5389e322fdf44e8a71baa8770f87c276c076c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936202"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400403"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual key Vault para Linux
 
@@ -80,7 +80,7 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.KeyVault | string |
@@ -206,7 +206,7 @@ O CLI Azure pode ser utilizado para implantar a extensão VM do Cofre de Chaves 
 Por favor, esteja ciente das seguintes restrições/requisitos:
 - Restrições do Cofre chave:
   - Deve existir no momento da implantação 
-  - A Política de Acesso ao Cofre de Chaves deve ser definida para identidade VM/VMSS utilizando uma identidade gerida. Consulte [a autenticação do Cofre de Chaves com uma identidade gerida](../../key-vault/general/managed-identity.md)
+  - A Política de Acesso ao Cofre de Chaves deve ser definida para identidade VM/VMSS utilizando uma identidade gerida. Ver [como autenticar para o cofre](/azure/key-vault/general/authentication) de chaves e atribuir uma política de acesso ao cofre de [chaves](/azure/key-vault/general/assign-access-policy-cli).
 
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio

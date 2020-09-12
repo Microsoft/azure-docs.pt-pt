@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 2a57c5244630c2328320d7d99eed98c892d49897
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4a98007917e95b1880661fe35bfd3f85f633e9a3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230760"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321774"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Etiquetas de imagem de recipientes de serviços cognitivos Azure
 
@@ -997,6 +997,32 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | `1.0.0-amd64-zh-cn-huihuirus-preview`       | Imagem de recipiente com o `zh-CN` local e `zh-CN-HuihuiRUS` a voz.       |
 | `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de recipiente com o `zh-CN` local e `zh-CN-Kangkang-Apollo` a voz. |
 | `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de recipiente com o `zh-CN` local e `zh-CN-Yaoyao-Apollo` a voz.   |
+
+## <a name="neural-text-to-speech"></a>Texto-a-discurso neural
+
+A imagem do contentor [Texto-a-fala] [sp-ntts] pode ser encontrada no registo do `containerpreview.azurecr.io` contentor. Reside dentro do `microsoft` repositório e é `cognitive-services-neural-text-to-speech` nomeado. O nome de imagem do recipiente totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` .
+
+Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
+
+| Etiquetas de imagem                                  | Notas                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Imagem de recipiente com o `en-US` local e `en-US-AriaNeural` a voz.      |
+| `1.1.0-amd64-de-de-katjaneural-preview`     | Imagem de recipiente com o `de-DE` local e `de-DE-KatjaNeural` a voz.     |
+| `1.1.0-amd64-en-au-natashaneural-preview`   | Imagem de recipiente com o `en-AU` local e `en-AU-NatashaNeural` a voz.   |
+| `1.1.0-amd64-en-ca-claraneural-preview`     | Imagem de recipiente com o `en-CA` local e `en-CA-ClaraNeural` a voz.     |
+| `1.1.0-amd64-en-gb-libbyneural-preview`     | Imagem de recipiente com o `en-GB` local e `en-GB-LibbyNeural` a voz.     |
+| `1.1.0-amd64-en-gb-mianeural-preview`       | Imagem de recipiente com o `en-GB` local e `en-GB-MiaNeural` a voz.       |
+| `1.1.0-amd64-en-us-arianeural-preview`      | Imagem de recipiente com o `en-US` local e `en-US-AriaNeural` a voz.      |
+| `1.1.0-amd64-en-us-guyneural-preview`       | Imagem de recipiente com o `en-US` local e `en-US-GuyNeural` a voz.       |
+| `1.1.0-amd64-es-es-elviraneural-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-ElviraNeural` a voz.    |
+| `1.1.0-amd64-es-mx-dalianeural-preview`     | Imagem de recipiente com o `es-MX` local e `es-MX-DaliaNeural` a voz.     |
+| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Imagem de recipiente com o `fr-CA` local e `fr-CA-SylvieNeural` a voz.    |
+| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Imagem de recipiente com o `fr-FR` local e `fr-FR-DeniseNeural` a voz.    |
+| `1.1.0-amd64-it-it-elsaneural-preview`      | Imagem de recipiente com o `it-IT` local e `it-IT-ElsaNeural` a voz.      |
+| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Imagem de recipiente com o `ja-JP` local e `ja-JP-NanamiNeural` a voz.    |
+| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Imagem de recipiente com o `ko-KR` local e `ko-KR-SunHiNeural` a voz.     |
+| `1.1.0-amd64-pt-br-franciscaneural-preview` | Imagem de recipiente com o `pt-BR` local e `pt-BR-FranciscaNeural` a voz. |
+| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Imagem de recipiente com o `zh-CN` local e `zh-CN-XiaoxiaoNeural` a voz.  |
 
 ## <a name="key-phrase-extraction"></a>Extração de Expressões-Chave
 

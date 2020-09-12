@@ -3,7 +3,7 @@ title: Tráfego de rotas para HA de aplicações - Azure CLI - Traffic Manager
 description: Amostra de script Azure CLI - Tráfego de rota para alta disponibilidade de aplicações
 services: traffic-manager
 documentationcenter: traffic-manager
-author: rohinkoul
+author: duongau
 manager: twooley
 tags: azure-infrastructure
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: rohink
-ms.openlocfilehash: e108fbe54ce67d4eb354319450259fc410462c53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 86151efdc6d2b17c9eef722f2dc3c6306d5aa1b8
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81460618"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400233"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Tráfego de rotas para elevada disponibilidade de aplicações utilizando O Azure CLI
 
@@ -55,7 +55,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [az perfil de gestor de tráfego de rede criar](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Cria um perfil do Gestor de Tráfego do Azure. |
 | [az rede gestor de tráfego-manager criar](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Adiciona um ponto final a um Perfil do Gestor de Tráfego do Azure. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

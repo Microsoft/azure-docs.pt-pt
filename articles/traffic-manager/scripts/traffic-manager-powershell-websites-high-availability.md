@@ -3,7 +3,7 @@ title: Tráfego de rotas para HA de aplicações - Azure PowerShell - Traffic Ma
 description: Amostra de script Azure PowerShell - Tráfego de rota para alta disponibilidade de aplicações
 services: traffic-manager
 documentationcenter: traffic-manager
-author: rohinkoul
+author: duongau
 manager: kumudD
 editor: ''
 tags: azure-infrastructure
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: rohink
-ms.openlocfilehash: 67d87549503a6ee458342ebb7c629a839f97bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: a8547a681d3b2b1cfb01750c4898b45f10d18d57
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070129"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400221"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Tráfego de rotas para alta disponibilidade de aplicações usando Azure PowerShell
 
@@ -58,7 +58,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Cria um perfil do Gestor de Tráfego do Azure. |
 | [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Adiciona um ponto final a um Perfil do Gestor de Tráfego do Azure. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 

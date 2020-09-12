@@ -11,23 +11,23 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 04/23/2020
-ms.openlocfilehash: e1f97b1a29681a65cddf3a5904020555e903fe63
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984780"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434287"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utilize a autenticação do Diretório Ativo Azure
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-A autenticação Azure Ative Directory (Azure AD) é um mecanismo de ligação à [Base de Dados Azure SQL](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades em Azure AD.
+A autenticação Azure Ative Directory (Azure AD) é um mecanismo de ligação à [Base de Dados Azure SQL](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades em Azure AD.
 
 > [!NOTE]
 > Este artigo aplica-se à Base de Dados Azure SQL, SQL Managed Instance e Azure Synapse Analytics.
 
-Com a autenticação do Azure Active Directory, pode gerir centralmente as identidades dos utilizadores da base de dados e de outros serviços da Microsoft num local central. A gestão de IDs centralizada disponibiliza um único local para gerir utilizadores da base de dados e simplifica a gestão de permissões. Os benefícios incluem o seguinte:
+Com a autenticação do Azure Active Directory, pode gerir de forma centralizada as identidades dos utilizadores da base de dados e outros serviços Microsoft numa única localização central. A gestão de IDs centralizada disponibiliza um único local para gerir utilizadores da base de dados e simplifica a gestão de permissões. Os benefícios incluem o seguinte:
 
 - Fornece uma alternativa à autenticação do SQL Server.
 - Ajuda a parar a proliferação de identidades dos utilizadores através dos servidores.
@@ -168,7 +168,7 @@ Os seguintes métodos de autenticação são suportados para os principais servi
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e permissões.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](https://msdn.microsoft.com/library/ms189121.aspx).
-- Para sintaxe sobre a criação de principais servidores AD (logins) para SQL Managed Instance, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Para sintaxe sobre a criação de principais servidores AD (logins) para SQL Managed Instance, consulte  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Para obter mais informações sobre as regras de firewall na Base de Dados SQL, veja [Regras de firewall da Base de Dados SQL](firewall-configure.md).
 
 <!--Image references-->

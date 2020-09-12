@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: ac8e49c85147576e489b16a3a421c75d60ad4aee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff039d6d5879e036aecc63b46359d84673f84a0e
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104419"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424650"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contentores
 
@@ -66,11 +66,12 @@ Os seguintes recipientes de pré-visualização fechados estão alojados no regi
 
 | Serviço | Contentor | Registo de contentores / Repositório / Nome da imagem |
 |--|--|--|
-| [Visão computacional](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leitura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
+| [Imagem Digitalizada](../../Computer-vision/computer-vision-how-to-install-containers.md) | Ler | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Face](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Reconhecedor de formulários](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Reconhecedor de Formato | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=stt) | Conversão de voz em texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=cstt) | Discurso-a-texto personalizado | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=tts) | Conversão de texto em voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=ctts) | Texto-a-discurso personalizado | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
-| [Análise de texto para a saúde](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Análise de texto para a saúde | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
+| [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=ntts) | Texto-a-discurso neural | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` |
+| [Análise de texto para a saúde](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Análise de Texto para a saúde | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

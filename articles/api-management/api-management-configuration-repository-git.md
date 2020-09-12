@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723950"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400365"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como guardar e configurar a sua configuração do serviço de Gestão de API com Git
 
@@ -47,7 +47,7 @@ Este artigo descreve como ativar e utilizar o Git para gerir a sua configuraçã
 
 ## <a name="access-git-configuration-in-your-service"></a>Aceda à configuração do Git no seu serviço
 
-Para visualizar e configurar as definições de configuração do Git, pode clicar no menu **'Segurança'** e navegar no **separador repositório de Configuração.**
+Para visualizar e configurar as definições de configuração do Git, pode clicar no menu **de Implementação e infraestrutura** e navegar no **separador Repositório.**
 
 ![Ativar GIT][api-management-enable-git]
 
@@ -62,7 +62,7 @@ Para obter informações sobre como ativar ou desativar o acesso do Git utilizan
 
 O primeiro passo antes da clonagem do repositório é salvar o estado atual da configuração do serviço para o repositório. Clique **em Guardar para repositório**.
 
-Faça quaisquer alterações desejadas no ecrã de confirmação e clique em **Ok** para guardar.
+Faça quaisquer alterações desejadas no ecrã de confirmação e clique em **Guardar** para guardar.
 
 Após alguns momentos, a configuração é guardada e o estado de configuração do repositório é apresentado, incluindo a data e hora da última alteração de configuração e a última sincronização entre a configuração de serviço e o repositório.
 
@@ -112,7 +112,7 @@ Uma vez clonado o repositório, pode ver e trabalhar com ele no seu sistema de f
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para atualizar o seu repositório local com a configuração de instância de serviço mais atual
 
-Se escamar alterações na sua instância de serviço de Gestão API no portal Azure ou utilizar a API REST, tem de guardar estas alterações no repositório antes de poder atualizar o seu repositório local com as alterações mais recentes. Para isso, clique em **Guardar a configuração para repositório** no **separador repositório de Configuração** no portal Azure e, em seguida, emitir o seguinte comando no seu repositório local.
+Se escamar alterações na sua instância de serviço de Gestão API no portal Azure ou utilizar a API REST, tem de guardar estas alterações no repositório antes de poder atualizar o seu repositório local com as alterações mais recentes. Para isso, clique em Guardar para o **repositório** no **separador Repositório** no portal Azure e, em seguida, emite o seguinte comando no seu repositório local.
 
 ```
 git pull
@@ -198,7 +198,7 @@ A pasta raiz `api-management` contém um ficheiro que contém `configuration.jso
 }
 ```
 
-As quatro primeiras definições `RegistrationEnabled` (, `UserRegistrationTerms` , , e `UserRegistrationTermsEnabled` ) `UserRegistrationTermsConsentRequired` mapeam para as seguintes definições no **separador Identidades** na secção **Segurança.**
+As primeiras quatro definições `RegistrationEnabled` (, `UserRegistrationTerms` , , e `UserRegistrationTermsEnabled` ) `UserRegistrationTermsConsentRequired` mapeam para as seguintes definições no **separador Identidades** na secção **portal do Desenvolvedor.**
 
 | Definição de identidade | Mapas para |
 | --- | --- |
@@ -208,7 +208,7 @@ As quatro primeiras definições `RegistrationEnabled` (, `UserRegistrationTerms
 | UserRegistrationTermsConsentRequired |**Requerer caixa de** verificação de consentimento |
 | RequeruserSigninEnabled |**Redirecione os utilizadores anónimos para iniciar sing-in na caixa de** verificação da página |
 
-As próximas quatro configurações `DelegationEnabled` `DelegationUrl` (, , `DelegatedSubscriptionEnabled` e ) `DelegationValidationKey` mapeam para as seguintes definições no **separador delegação** na secção **de Segurança.**
+As próximas quatro configurações `DelegationEnabled` (, `DelegationUrl` , e ) `DelegatedSubscriptionEnabled` `DelegationValidationKey` mapeiam para as seguintes definições no **separador Delegação** na secção **portal do Desenvolvedor.**
 
 | Definição de delegação | Mapas para |
 | --- | --- |
@@ -258,7 +258,7 @@ A `templates` pasta contém configuração para os modelos de [e-mail](api-manag
 * `<template name>\configuration.json` - esta é a configuração para o modelo de e-mail.
 * `<template name>\body.html` - este é o corpo do modelo de e-mail.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter informações sobre outras formas de gerir a sua instância de serviço, consulte:
 
 * Gerencie a sua instância de serviço utilizando os seguintes cmdlets PowerShell

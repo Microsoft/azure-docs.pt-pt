@@ -2,18 +2,18 @@
 title: ficheiro de inclusão
 description: ficheiro de inclusão
 services: frontdoor
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 148ec3eccce71ab7a4a6c1391c0fa4753c248bd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 361fb18574e90fc46e45bff8914c51ee1afa2f96
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335090"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89411641"
 ---
 | Recurso | Limite |
 | --- | --- |

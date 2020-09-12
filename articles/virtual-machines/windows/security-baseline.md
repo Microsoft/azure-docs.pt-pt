@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ef21412a045edba3a816193860fa21b755ef9c68
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227020"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400386"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais do Windows
 
@@ -973,7 +973,9 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 * [Como criar um Cofre-Chave](../../key-vault/secrets/quick-create-portal.md)
 
-* [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](../../key-vault/general/managed-identity.md)
+* [Como autenticar para o Cofre de Chaves](../../key-vault/general/authentication.md)
+
+* [Como atribuir uma política de acesso ao Cofre de Chaves](../../key-vault/general/assign-access-policy-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1187,7 +1189,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../../security/benchmarks/security-baselines-overview.md)

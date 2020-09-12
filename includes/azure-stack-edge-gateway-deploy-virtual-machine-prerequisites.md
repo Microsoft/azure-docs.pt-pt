@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/03/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b98d3c1febd68a7ee73cf3064f4d8e108ea81fa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3a17e73c66c2296cc36b24e3b0a8abfcab00e46a
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084889"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419414"
 ---
 Antes de poder implantar VMs no seu dispositivo Azure Stack Edge, tem de configurar o seu cliente para se ligar ao dispositivo através do Azure Resource Manager sobre a Azure PowerShell. Para etapas detalhadas, aceda ao [Connect to Azure Resource Manager no seu dispositivo Azure Stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
 
@@ -19,7 +19,7 @@ Certifique-se de que os seguintes passos podem ser utilizados para aceder ao dis
 1. Verifique se a comunicação do Gestor de Recursos Azure está a funcionar. Escreva:     
 
     ```powershell
-    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:30005/
+    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
     ```
 
 1. Ligue para apis de dispositivo local para autenticar. Escreva: 
@@ -28,7 +28,7 @@ Certifique-se de que os seguintes passos podem ser utilizados para aceder ao dis
 
     Forneça o nome de utilizador - *EdgeARMuser* e a palavra-passe para ligar através do Azure Resource Manager.
 
-1. Se configurar **o Compute** para Kubernetes, pode saltar este passo. Proceda a garantir que ativou uma interface de rede para calcular. Na UI local, vá às definições **de Compute.** Selecione a interface de rede que utilizará para criar um interruptor virtual. Os VMs que criar serão ligados a um interruptor virtual ligado a esta porta e à rede associada. Certifique-se de que escolhe uma rede que corresponda ao endereço IP estático que irá utilizar para o VM.  
+1. Se configurar **o Compute** para Kubernetes, pode saltar este passo. Proceda a garantir que ativou uma interface de rede para calcular. Na UI local, vá às definições **de Compute.** Selecione a interface de rede que utilizará para criar um interruptor virtual. Os VMs que criar serão ligados a um interruptor virtual ligado a esta porta e à rede associada. Certifique-se de escolher uma rede que corresponda ao endereço IP que irá utilizar para o VM.  
 
     ![Ativar as definições de cálculo 1](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-templates/enable-compute-setting.png)
 

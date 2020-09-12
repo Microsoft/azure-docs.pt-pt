@@ -4,12 +4,12 @@ description: SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compr
 ms.topic: reference
 ms.date: 05/19/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 759111ee7e77ce00fec3762b1a20494c2771ef8f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 43c9ca244f02ffe1485fbd7316901d607d6e2479
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931204"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321230"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvimento de SDK, REST e CLI para a Compreensão da Linguagem (LUIS)
 
@@ -86,11 +86,11 @@ O [esquema da aplicação](app-schema-definition.md) é importado e exportado em
 
 |Linguagem |Documentação de referência|Pacote|Guias de Início Rápido|
 |--|--|--|--|
-|C#|[Criação](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Previsão](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Autoria nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Criação](quickstart-sdk.md?pivots=programming-language-csharp)<br>[Previsão de consulta](quickstart-sdk.md?pivots=programming-language-csharp)|
+|C#|[Criação](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Previsão](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Autoria nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Criação](azure-sdk-quickstart.md?pivots=programming-language-csharp)<br>[Previsão de consulta](azure-sdk-quickstart.md?pivots=programming-language-csharp)|
 |Go|[Autoria e previsão](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
 |Java|[Autoria e previsão](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Autoria de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Previsão de Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[Criação](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Previsão](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[Autoria do NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Previsão de NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Criação](quickstart-sdk.md?pivots=programming-language-javascript)<br>[Previsão](quickstart-sdk.md?pivots=programming-language-javascript)|
-|Python|[Autoria e previsão](quickstart-sdk.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Criação](quickstart-sdk.md?pivots=programming-language-python)<br>[Previsão](quickstart-sdk.md?pivots=programming-language-python)|
+|JavaScript|[Criação](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Previsão](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[Autoria do NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Previsão de NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Criação](azure-sdk-quickstart.md?pivots=programming-language-javascript)<br>[Previsão](azure-sdk-quickstart.md?pivots=programming-language-javascript)|
+|Python|[Autoria e previsão](azure-sdk-quickstart.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Criação](azure-sdk-quickstart.md?pivots=programming-language-python)<br>[Previsão](azure-sdk-quickstart.md?pivots=programming-language-python)|
 
 
 ### <a name="containers"></a>Contentores
@@ -125,7 +125,7 @@ A estrutura do bot fornece [várias ferramentas](https://github.com/microsoft/bo
 * [Emulador Bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases) - uma aplicação para desktop que permite aos desenvolvedores de bots testar e depurar bots construídos usando o Bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - uma ferramenta integrada de desenvolvimento para desenvolvedores e equipas multidisciplinares para construir bots e experiências de conversação com o Microsoft Bot Framework
 * [Amostras de estrutura de](https://github.com/microsoft/botbuilder-samples) bot - em #C, JavaScript, TypeScript e Python
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Conheça os [códigos](luis-reference-response-codes.md) de erro HTTP comuns
 * [Documentação de referência](https://docs.microsoft.com/azure/index) para todos os APIs e SDKs

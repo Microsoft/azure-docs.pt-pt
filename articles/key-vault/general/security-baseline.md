@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d939c03aef8d155d83d20c7d8211e04fae26c228
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230284"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400471"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de Base de Segurança do Azure para o Key Vault
 
@@ -411,7 +411,7 @@ Planejando uma implementação de autenticação Azure multi-factor baseada na n
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registar e alertar sobre atividades suspeitas a partir de contas administrativas
 
-**Orientação**: Utilize o Azure Ative Directory (AAD) Gestão de Identidade Privilegiada (PIM) para a geração de registos e alertas quando ocorrem atividades suspeitas ou inseguras no ambiente. Utilize deteções de risco AAD para visualizar alertas e relatórios sobre o comportamento do utilizador de risco. Para obter registos adicionais, envie alertas de deteção de risco do Azure Security Center para o Azure Monitor e configuure alertas/notificações personalizados utilizando grupos de ação.
+**Orientação**: Utilize o Azure Ative Directory (Azure AD) Gestão de Identidade Privilegiada (PIM) para a geração de registos e alertas quando ocorrem atividades suspeitas ou inseguras no ambiente. Utilize deteções de risco Azure AD para visualizar alertas e relatórios sobre o comportamento do utilizador de risco. Para obter registos adicionais, envie alertas de deteção de risco do Azure Security Center para o Azure Monitor e configuure alertas/notificações personalizados utilizando grupos de ação.
 
 Ativar uma proteção avançada de ameaças (ATP) para o Azure Key Vault para gerar alertas para atividades suspeitas.
 
@@ -445,7 +445,7 @@ Qual é a condição de localização no Azure Ative Directy Conditional Access?
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Utilizar o Diretório Ativo Azure
 
-**Orientação**: Utilize o Azure Ative Directory (AAD) como o sistema central de autenticação e autorização para recursos Azure, como o Key Vault. Isto permite que o controlo de acesso baseado em funções (RBAC) administrar recursos sensíveis.
+**Orientação**: Utilize o Azure Ative Directory (Azure AD) como o sistema central de autenticação e autorização para recursos Azure, como o Key Vault. Isto permite que o controlo de acesso baseado em funções (RBAC) administrar recursos sensíveis.
 
  
 
@@ -460,7 +460,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Reveja e reconciliar regularmente o acesso dos utilizadores
 
-**Orientação**: Rever os registos do Azure Ative Directory (AAD) para ajudar a descobrir contas velhas com funções administrativas do Azure Key Vault. Além disso, utilize avaliações de acesso AAD para gerir eficientemente os membros do grupo, acesso a aplicações empresariais que possam ser usadas para aceder ao Azure Key Vault e atribuições de funções. O acesso ao utilizador deve ser revisto regularmente, como a cada 90 dias, para garantir que apenas os utilizadores certos têm acesso continuado.
+**Orientação**: Rever os registos do Azure Ative Directory (Azure AD) para ajudar a descobrir contas velhas com funções administrativas do Azure Key Vault. Além disso, utilize avaliações de acesso AZure AD para gerir eficientemente os membros do grupo, acesso a aplicações empresariais que possam ser usadas para aceder ao Azure Key Vault e atribuições de funções. O acesso ao utilizador deve ser revisto regularmente, como a cada 90 dias, para garantir que apenas os utilizadores certos têm acesso continuado.
 
 Relatórios do Azure Ative Directory e documentação de monitorização:
 
@@ -1009,11 +1009,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 Como criar um Cofre chave:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer a autenticação do Cofre-Chave com uma identidade gerida: 
+Como autenticar o Cofre de Chaves:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Como atribuir uma política de acesso ao Cofre chave:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1025,16 +1029,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-Como integrar-se com identidades geridas aZure: 
+* [Como integrar-se com identidades geridas aZure](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [Como criar um Cofre-Chave](quick-create-portal.md)
 
-Como criar um Cofre chave: 
+* [Como autenticar para o Cofre de Chaves](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-Como fornecer a autenticação do Cofre-Chave com uma identidade gerida:  
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [Como atribuir uma política de acesso ao Cofre de Chaves](assign-access-policy-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1300,7 +1301,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

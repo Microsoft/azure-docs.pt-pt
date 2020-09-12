@@ -1,27 +1,29 @@
 ---
-title: Text-to-speech - Serviço de fala
+title: Visão geral text-to-speech - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: A funcionalidade text-to-speech no serviço Discurso permite que as suas aplicações, ferramentas ou dispositivos convertam o texto em linguagem humana natural. Escolha vozes predefinidas ou crie a sua própria voz personalizada.
+description: A funcionalidade text-to-speech no serviço Discurso permite que as suas aplicações, ferramentas ou dispositivos convertam o texto em linguagem humana natural. Este artigo é uma visão geral dos benefícios e capacidades do serviço text-to-speech.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: texto para a fala
+ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167713"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401185"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O texto-a-voz do serviço Discurso permite que as suas aplicações, ferramentas ou dispositivos convertam texto em linguagem humana. Escolha entre vozes padrão e neurais ou crie uma voz personalizada única ao seu produto ou marca. Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, e 5 vozes neurais estão disponíveis em um número selecionado de idiomas e locais. Para obter uma lista completa de vozes, línguas e locais apoiados, consulte [as línguas apoiadas.](language-support.md#text-to-speech)
+Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço de texto-a-fala, que permite que suas aplicações, ferramentas ou dispositivos convertam texto em linguagem humana. Escolha entre vozes padrão e neurais ou crie uma voz personalizada única ao seu produto ou marca. Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, e 5 vozes neurais estão disponíveis em um número selecionado de idiomas e locais. Para obter uma lista completa de vozes, línguas e locais apoiados, consulte [as línguas apoiadas.](language-support.md#text-to-speech)
 
 > [!NOTE]
 > Bing Speech foi desativado a 15 de outubro de 2019. Se as suas aplicações, ferramentas ou produtos estiverem a utilizar as APIs do Discurso Bing ou o Discurso Personalizado, criámos guias para o ajudar a migrar para o serviço Desemaguiso.
@@ -73,7 +75,7 @@ Para obter informações detalhadas, consulte [a fixação de preços.](https://
 - [API de Voz](speech-sdk.md)
 - [REST API: Texto-a-discurso](rest-text-to-speech.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Obtenha uma subscrição de serviço de voz gratuita](get-started.md)
 - [Obtenha o Discurso SDK](speech-sdk.md)

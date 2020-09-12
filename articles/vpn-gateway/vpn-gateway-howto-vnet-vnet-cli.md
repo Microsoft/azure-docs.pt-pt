@@ -6,15 +6,15 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/14/2018
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6cb1c8ad41ccd5f16c4a68b0b8ef4ace768bde8b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8ffad738a8f10816f26760fa34c5ce686fac5bad
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495646"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401151"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com a CLI do Azure
 
@@ -376,7 +376,7 @@ Este passo foi dividido em duas sessões da CLI marcadas como **[Subscription 1]
 ## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>FAQ da ligação VNet a VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja a [documentação das Máquinas Virtuais](https://docs.microsoft.com/azure/).
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

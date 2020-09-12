@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605776"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400318"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -118,6 +118,7 @@ Dependendo da API que utilizar, um recipiente Azure Cosmos pode representar uma 
 | Número máximo de caminhos na política de indexação| 100 <sup>*</sup>|
 | Número máximo de chaves únicas por recipiente|10 <sup>*</sup>|
 | Número máximo de caminhos por restrição única da chave|16 <sup>*</sup>|
+| Valor máximo de TTL |2147483647|
 
 <sup>*</sup> Pode aumentar qualquer um destes limites por contentor contactando o Suporte Azure.
 
@@ -136,6 +137,7 @@ Dependendo da API que utiliza, um item Azure Cosmos pode representar um document
 | Comprimento máximo do valor da propriedade | Sem limite prático |
 | Comprimento máximo do valor da propriedade da corda | Sem limite prático |
 | Comprimento máximo do valor da propriedade numérica | IEEE754 de dupla precisão 64 bits |
+| Valor máximo de TTL |2147483647|
 
 Não existem restrições às cargas de produtos como o número de propriedades e a profundidade de nidificação, exceto as restrições de comprimento na chave de partição e valores de ID, e a restrição global de tamanho de 2 MB. Pode ter de configurar a política de indexação de recipientes com estruturas de item grandes ou complexas para reduzir o consumo de RU. Veja [itens de modelação em Cosmos DB](how-to-model-partition-example.md) para um exemplo do mundo real, e padrões para gerir itens grandes.
 
@@ -235,7 +237,7 @@ A tabela que se segue lista os limites para as [contas de nível livre do Azure 
 
   Para além do acima referido, os [limites da conta Per aplicam-se](#per-account-limits) também às contas de nível livre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre os conceitos fundamentais da Cosmos DB, [distribuição global](distribute-data-globally.md) e [partição](partitioning-overview.md) e [produção a provisionada.](request-units.md)
 

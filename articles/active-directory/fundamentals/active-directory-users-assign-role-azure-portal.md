@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e28da81400a97216836cfd9eccf0d4859ce0762f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228227"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321247"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory
 
@@ -28,7 +28,7 @@ Para obter mais informações sobre as funções de Ad Azure disponíveis, consu
 
 ## <a name="assign-roles"></a>Atribuir funções
 
-Uma forma comum de atribuir funções Azure AD a um utilizador está na página **de funções atribuídas** para um utilizador. Também pode configurar a elegibilidade do utilizador para ser elevado just-in-time para uma função usando Gestão de Identidade Privilegiada (PIM). Para obter mais informações sobre como utilizar a PIM, consulte [Gestão de Identidade Privilegiada.](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)
+Uma forma comum de atribuir funções Azure AD a um utilizador está na página **de funções atribuídas** para um utilizador. Também pode configurar a elegibilidade do utilizador para ser elevado just-in-time para uma função usando Gestão de Identidade Privilegiada (PIM). Para obter mais informações sobre como utilizar a PIM, consulte [Gestão de Identidade Privilegiada.](../privileged-identity-management/index.yml)
 
 > [!Note]
 > Se tiver um plano de licença Azure AD Premium P2 e já utilizar o PIM, todas as tarefas de gestão de funções são desempenhadas na [experiência de Gestão de Identidade Privilegiada.](../users-groups-roles/directory-manage-roles-portal.md) Atualmente, esta funcionalidade limita-se a atribuir apenas uma função de cada vez. Não é possível selecionar várias funções e atribuí-las a um utilizador de uma só vez.
@@ -73,12 +73,12 @@ Se precisar de remover a atribuição de funções de um utilizador, também pod
 
     A função de administrador de aplicação é removida de Alain Charon e já não aparece na página **Alain Charon - Funções Administrativas.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)
 
 - [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
 
-- [Adicionar utilizadores convidados a partir de outro diretório](../b2b/what-is-b2b.md)
+- [Adicionar utilizadores convidados a partir de outro diretório](../external-identities/what-is-b2b.md)
 
 Outras tarefas de gestão do utilizador que pode consultar estão disponíveis na documentação de [gestão de utilizadores do Azure Ative Directory.](../users-groups-roles/index.yml)

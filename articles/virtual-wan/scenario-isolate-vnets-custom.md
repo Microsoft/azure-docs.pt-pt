@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0a3665f1719c7a5f8ed9bd6acf518b642e06320d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831027"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400063"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Cenário: Isolamento personalizado para VNets
 
 Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Num cenário de isolamento personalizado para os VNets, o objetivo é evitar que um conjunto específico de VNets seja capaz de alcançar outro conjunto específico de VNets. No entanto, os VNets são necessários para chegar a todos os ramos (VPN/ER/User VPN). Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Conceção
+## <a name="design"></a><a name="design"></a>Design
 
 Para descobrir quantas tabelas de rotas serão necessárias, você pode construir uma matriz de conectividade. Para este cenário será o seguinte, onde cada célula representa se uma fonte (linha) pode comunicar a um destino (coluna):
 
@@ -29,7 +29,7 @@ Para descobrir quantas tabelas de rotas serão necessárias, você pode construi
 | **VNets vermelhos**  |   &#8594;|              |       X       |       X      |
 | **Ramos**   |   &#8594;|     X        |       X       |       X      |
 
-Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico.
+Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "De" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico, onde um "X" significa que a conectividade é fornecida por Virtual WAN.
 
 O número de diferentes padrões de linha será o número de tabelas de rotas que vamos precisar neste cenário. Neste caso, três tabelas de rota que chamaremos **RT_BLUE** e **RT_RED** para as redes virtuais, e **Padrão** para os balcões. Lembre-se, os ramos têm sempre de estar associados à tabela de encaminhamento padrão.
 
@@ -74,7 +74,7 @@ Isto resultará em alterações na configuração do encaminhamento, como visto 
 
 :::image type="content" source="./media/routing-scenarios/custom-isolation/custom.png" alt-text="figura 1":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

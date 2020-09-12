@@ -7,14 +7,14 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/09/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121430"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401202"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicione uma ligação Site-a-Site a um VNet com uma ligação de gateway VPN existente
 
@@ -35,7 +35,7 @@ Atualizamos esta tabela à medida que novos artigos e ferramentas adicionais fic
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 Verifique os seguintes itens:
 
 * Não está a configurar uma nova configuração expressRoute e VPN Gateway coexistindo.
@@ -86,6 +86,6 @@ Verifique os seguintes itens:
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Consulte o [caminho de aprendizagem das máquinas virtuais](/learn/paths/deploy-a-website-with-azure-virtual-machines/) para obter mais informações.

@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 08/17/2020
-ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551846"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434406"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo mostra-lhe como criar e povoar uma instância do Azure Ative Directory (Azure AD) e, em seguida, usar Azure AD com [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para uma visão geral, consulte [a autenticação do Azure Ative Directory](authentication-aad-overview.md).
+Este artigo mostra-lhe como criar e povoar um exemplo de Diretório Ativo Azure (Azure AD) e, em seguida, usar Azure AD com [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para uma visão geral, consulte [a autenticação do Azure Ative Directory](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Métodos de autenticação AD AZure
 
@@ -190,7 +190,7 @@ Para obter um administrador AD Azure, execute os seguintes comandos Azure PowerS
 
 Os cmdlets utilizados para a prestação e gestão do administrador AdD Ad para a sua SQL Managed Instance estão listados na tabela seguinte:
 
-| Nome do cmdlet | Description |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Disposições um administrador AD Azure para a SQL Managed Instance na subscrição atual. (Deve ser da subscrição atual)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Remove um administrador AD Azure para a SqL Managed Instance na subscrição atual. |
@@ -279,7 +279,7 @@ Para executar os cmdlets PowerShell, é necessário ter o Azure PowerShell insta
 
 Cmdlets utilizados para a prestação e gestão do administrador AZure AD para a Base de Dados SQL e Azure Synapse:
 
-| Nome do cmdlet | Description |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Disposições um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. (Deve ser da subscrição atual) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse.|
@@ -344,7 +344,7 @@ Em todas as máquinas clientes, a partir das quais as suas aplicações ou utili
 
 - .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
 - Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL* (ADAL.DLL*). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
-  - [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+  - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [Controlador ODBC 17 para sql server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB Driver 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
@@ -532,7 +532,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e contas de utilizador.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).

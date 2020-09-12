@@ -1,28 +1,29 @@
 ---
-title: Tradução da fala com serviço de fala
+title: Visão geral da tradução da fala - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O serviço de fala permite-lhe adicionar tradução de voz em tempo real, em tempo real, multi-linguístico às suas aplicações, ferramentas e dispositivos. A mesma API pode ser utilizada para a tradução de voz para voz e para a tradução de voz para texto.
+description: A tradução da fala permite-lhe adicionar tradução de voz em tempo real, em tempo real, multi-linguístico às suas aplicações, ferramentas e dispositivos. A mesma API pode ser utilizada para a tradução de voz para voz e para a tradução de voz para texto. Este artigo é uma visão geral dos benefícios e capacidades do serviço de tradução da fala.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/01/2020
 ms.author: erhopf
-ms.custom: devx-track-csharp
-ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: tradução da fala
+ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055537"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401219"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-A tradução da fala do serviço de fala permite a tradução em tempo real, multi-línguas de fala em voz e de voz para texto de streams de áudio. Com o Speech SDK, as suas aplicações, ferramentas e dispositivos têm acesso a transcrições de origem e saídas de tradução para áudio fornecido. Os resultados provisórios da transcrição e tradução são devolvidos à medida que a fala é detetada, e os resultados finais podem ser convertidos em discurso sintetizado.
+Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço de tradução da fala, que permite a tradução em tempo real, multi-línguas fala-a-fala e tradução de voz-para-texto de streams de áudio. Com o Speech SDK, as suas aplicações, ferramentas e dispositivos têm acesso a transcrições de origem e saídas de tradução para áudio fornecido. Os resultados provisórios de transcrição e tradução são devolvidos à medida que a fala é detetada, e os resultados finais podem ser convertidos em discurso sintetizado.
 
 O motor de tradução da Microsoft é alimentado por duas abordagens diferentes: tradução automática estatística (SMT) e tradução de máquinas neurais (NMT). O SMT utiliza uma análise estatística avançada para estimar as melhores traduções possíveis dado o contexto de algumas palavras. Com o NMT, as redes neurais são usadas para fornecer traduções mais precisas e de som natural, utilizando todo o contexto das frases para traduzir palavras.
 
@@ -59,7 +60,7 @@ Se as suas aplicações, ferramentas ou produtos estiverem a utilizar a [API do 
 * [REST API: Texto-a-discurso](rest-text-to-speech.md)
 * [REST API: Transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Complete o [quickstart](get-started-speech-translation.md) de tradução da fala
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](get-started.md)

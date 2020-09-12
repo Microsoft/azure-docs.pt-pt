@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 48e6d8870baad60c79cf392894db8b71003bb875
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276984"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440410"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de dados escalável com lago de dados Azure: um walkthrough de ponta a ponta
 Este walkthrough mostra como usar o Azure Data Lake para fazer tarefas de exploração de dados e classificação binária numa amostra da viagem de táxi de NYC e conjunto de dados de tarifas para prever se uma gorjeta é ou não paga por uma tarifa. Percorre os passos do Processo de Ciência de Dados de [Equipa,](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)de ponta a ponta, desde a aquisição de dados até à formação de modelos, e depois à implantação de um serviço web que publica o modelo.
@@ -34,7 +34,7 @@ Estas tecnologias são usadas neste walkthrough.
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 O [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) tem todas as capacidades necessárias para facilitar aos cientistas de dados a armazenar dados de qualquer tamanho, forma e velocidade, e a realizar processamento de dados, análise avançada e modelação de machine learning com alta escalabilidade de uma forma rentável.   Paga-se por trabalho, só quando os dados estão a ser processados. A azure Data Lake Analytics inclui u-SQL, um idioma que mistura a natureza declarativa do SQL com o poder expressivo de C# para fornecer capacidade de consulta distribuída escalável. Permite-lhe processar dados não estruturados aplicando esquemas na leitura, inserindo lógicas personalizadas e funções definidas pelo utilizador (UDFs), e inclui extensibilidade para permitir um controlo fino sobre como executar em escala. Para saber mais sobre a filosofia de design por trás da U-SQL, consulte o [post de blog do Visual Studio.](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)
 
-Data Lake Analytics é também uma parte chave da Cortana Analytics Suite e trabalha com Azure SQL Data Warehouse, Power BI e Data Factory. Esta combinação dá-lhe um grande dado de nuvem completa e plataforma de análise avançada.
+Data Lake Analytics é também uma parte chave da Cortana Analytics Suite e trabalha com a Azure Synapse Analytics, Power BI e Data Factory. Esta combinação dá-lhe um grande dado de nuvem completa e plataforma de análise avançada.
 
 Esta passagem começa por descrever como instalar os pré-requisitos e recursos necessários para completar as tarefas de processo de data science. Em seguida, descreve os passos de processamento de dados usando o U-SQL e conclui mostrando como usar Python e Hive com Azure Machine Learning Studio (clássico) para construir e implementar os modelos preditivos.
 
@@ -181,7 +181,7 @@ FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyct
 USING Extractors.Csv();
 ```
 
-Uma vez que existem cabeçalhos na primeira fila, é necessário remover os cabeçalhos e alterar os tipos de colunas em outros apropriados. Pode guardar os dados processados para o Azure Data Lake Storage utilizando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou para a conta de armazenamento Azure Blob usando **wasb://container_name \@ blob_storage_account_name.blob.core.windows.net/blob_name**.
+Uma vez que existem cabeçalhos na primeira fila, é necessário remover os cabeçalhos e alterar os tipos de colunas em outros apropriados. Pode guardar os dados processados para o Azure Data Lake Storage utilizando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ ou para a conta de armazenamento Azure Blob usando  **wasb://container_name \@ blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 ```sql
 // change data types
@@ -512,7 +512,7 @@ from azureml import services
 ```
 
 ### <a name="read-in-the-data-from-blob"></a>Leia os dados da blob
-* Cadeia de conexão
+* Cadeia de Ligação
 
   ```text
   CONTAINERNAME = 'test1'
@@ -756,7 +756,7 @@ Ao completar esta passagem, criou um ambiente de ciência de dados para construi
 ## <a name="whats-next"></a>O que se segue?
 O caminho de aprendizagem para o [Processo de Ciência de Dados de Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) fornece ligações a tópicos que descrevem cada passo no processo de análise avançada. Há uma série de avanços na página do Processo de Ciência de Dados de Equipa que mostram como usar recursos e [serviços](walkthroughs.md) em vários cenários de análise preditiva:
 
-* [O processo de ciência de dados da equipa em ação: usando o SQL Data Warehouse](sqldw-walkthrough.md)
+* [O processo de ciência de dados da equipa em ação: usando a Azure Synapse Analytics](sqldw-walkthrough.md)
 * [O processo de ciência de dados da equipa em ação: usando clusters HDInsight Hadoop](hive-walkthrough.md)
 * [O processo de ciência de dados da equipa: usando o SQL Server](sql-walkthrough.md)
 * [Visão geral do processo de ciência de dados usando faísca no Azure HDInsight](spark-overview.md)

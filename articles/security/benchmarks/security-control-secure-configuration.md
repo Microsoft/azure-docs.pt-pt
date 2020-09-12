@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ac538d71f854643cb59390447be360bc541142ac
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077233"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400097"
 ---
 # <a name="security-control-secure-configuration"></a>Controlo de Segurança: Configuração Segura
 
@@ -174,7 +174,9 @@ Use identidade de serviço gerido em conjunto com o Azure Key Vault para simplif
 
 - [Como criar um Cofre-Chave](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Como autenticar para o Cofre de Chaves](../../key-vault/general/authentication.md)
+
+- [Como atribuir uma política de acesso ao Cofre de Chaves](../../key-vault/general/assign-access-policy-portal.md)
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7.12: Gerir as identidades de forma segura e automática
 
@@ -197,6 +199,6 @@ Implementar o Scanner credencial para identificar credenciais dentro do código.
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Veja o próximo Controlo de Segurança:  [Defesa de Malware](security-control-malware-defense.md)

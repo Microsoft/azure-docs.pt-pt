@@ -3,7 +3,7 @@ title: Hierarquia país/região utilizada pelo encaminhamento geográfico - Gest
 description: Este artigo lista a hierarquia país/região usada pelo tipo de encaminhamento Azure Traffic Manager Geographic
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,17 +11,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: rohink
-ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 83300a5c518a3acf853968164031a80e1c882187
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938635"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401242"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia país/região utilizada pelo Gestor de Tráfego Azure para o método de encaminhamento de tráfego geográfico
 
-Este artigo lista os países e regiões utilizados pelo método de encaminhamento de tráfego **geográfico** em Azure Traffic Manager. Também pode obter esta informação programáticamente, ligando para a [API REST do Gestor de Tráfego do Azure.](https://docs.microsoft.com/rest/api/trafficmanager/) 
+Este artigo lista os países e regiões utilizados pelo método de encaminhamento de tráfego **geográfico**  em Azure Traffic Manager. Também pode obter esta informação programáticamente, ligando para a [API REST do Gestor de Tráfego do Azure.](https://docs.microsoft.com/rest/api/trafficmanager/) 
 
 - MUNDO(Mundo)
 
