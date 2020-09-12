@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 95059710ce759a1536bcaacd35c0d2cf6497269b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4f6b24b17ac0e12c286a11abe8732bb86e2deb5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265597"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297353"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ligue-se aos Serviços de Mídia v3 API - Node.js
 
@@ -126,11 +126,11 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Conceitos de Serviços de Mídia](concepts-overview.md)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/) (Instalação de azure-arm-mediaservices do NPM)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Explore a documentação [Node.js ref](/javascript/api/overview/azure/mediaservices/management) dos Serviços de Comunicação Social e confira [amostras](https://github.com/Azure-Samples/media-services-v3-node-tutorials) que mostram como utilizar a API dos Serviços de Comunicação social com node.js.

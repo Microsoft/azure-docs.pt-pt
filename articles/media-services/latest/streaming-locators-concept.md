@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe448ea5a4d9610ff82beb7cfa1071d2e8249dfd
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89257624"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297965"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -99,13 +99,13 @@ Para obter localizadores de streaming com base no nome do Ativo associado, utili
 |Java|[Gestor de ActivosStreamingLotor](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Recursos](assets-concept.md)
 * [Políticas de streaming](streaming-policy-concept.md)
 * [Políticas-chave de conteúdo](content-key-policy-concept.md)
 * [Tutorial: Carregar, codificar e transmitir vídeos usando .NET](stream-files-tutorial-with-api.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Como criar um localizador de streaming e construir URLs](create-streaming-locator-build-url.md)

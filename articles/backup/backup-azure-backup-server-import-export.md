@@ -3,12 +3,12 @@ title: Cópia de segurança offline para o DPM e Azure Backup Server
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002016"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378462"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS)
 
@@ -51,10 +51,10 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 * Crie uma conta de Armazenamento Azure na mesma subscrição que o cofre dos Serviços de Recuperação.
 * Certifique-se de que tem as [permissões necessárias](../active-directory/develop/howto-create-service-principal-portal.md) para criar a aplicação Azure Ative Directory. O fluxo de trabalho de Backup Offline cria uma aplicação Azure Ative Directory na subscrição associada à conta de Armazenamento Azure. O objetivo da aplicação é fornecer ao Azure Backup um acesso seguro e alargado ao Serviço de Importação Azure, necessário para o fluxo de trabalho de backup offline.
 * Registe o fornecedor de recursos Microsoft.ImportExport com a subscrição que contém a conta de Armazenamento Azure. Para registar o fornecedor de recursos:
-    1. No menu principal, clique em **Assinaturas.**
+    1. No menu principal, **selecione Subscrições**.
     2. Se estiver subscrito em várias subscrições, selecione a subscrição que está a utilizar para a cópia de segurança offline. Se utilizar apenas uma subscrição, a sua assinatura aparece.
-    3. No menu de subscrição, clique em **Fornecedores de Recursos** para ver a lista de fornecedores.
-    4. Na lista de fornecedores desloque-se até microsoft.ImportExport. Se o Estado não estiver registado, clique em **Registar**.
+    3. No menu de subscrição, selecione **Fornecedores de Recursos** para ver a lista de fornecedores.
+    4. Na lista de fornecedores desloque-se até microsoft.ImportExport. Se o Estado não estiver registado, **selecione Registar-se**.
 
        ![Registo do fornecedor de recursos](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -68,7 +68,7 @@ As informações nesta secção ajudam-no a completar o fluxo de trabalho de bac
 
 ## <a name="initiate-offline-backup"></a>Iniciar backup offline
 
-1. Quando criar um novo grupo de proteção com proteção on-line ou adicionar proteção on-line ao grupo de proteção existente, vê o seguinte ecrã. Para selecionar o método inicial de replicação on-line, selecione **Transferir usando o meu próprio disco** e clique em **Seguinte**.
+1. Quando criar um novo grupo de proteção com proteção on-line ou adicionar proteção on-line ao grupo de proteção existente, vê o seguinte ecrã. Para selecionar o método inicial de replicação on-line, selecione **Transferir usando o meu próprio disco** e selecione **Next**.
 
     ![Tela de importação](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -160,7 +160,7 @@ O procedimento seguinte atualiza os detalhes do envio de emprego da Azure Import
 * devolução de dados para os seus discos
 
    1. Inscreva-se na sua assinatura Azure.
-   2. No menu principal, clique em **Todos os serviços** e no diálogo de todos os serviços, tipo Import. Quando vir **empregos de importação/exportação,** clique nele.
+   2. No menu principal, selecione **Todos os serviços** e no diálogo de todos os serviços, escreva Import. Quando vir **empregos de importação/exportação,** selecione-o.
        ![Insira informações de envio](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        Abre a lista do menu de **empregos de importação/exportação** e aparece a lista de todos os postos de trabalho de importação/exportação na subscrição selecionada.
@@ -169,11 +169,11 @@ O procedimento seguinte atualiza os detalhes do envio de emprego da Azure Import
 
        ![Rever informações de envio](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. No menu Definições para o trabalho De Importação, clique em **Gerir informações de envio** e insira os detalhes do envio de retorno.
+   4. No menu Definições para o trabalho De Importação, **selecione Gerir informações de envio** e insira os detalhes do envio de retorno.
 
        ![Armazenar informações de envio](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. Quando tiver o número de rastreio da sua transportadora de envio, clique no banner na página geral do trabalho da Azure Import e introduza os seguintes detalhes:
+   5. Quando tiver o número de rastreio da sua transportadora de envio, selecione o banner na página geral de trabalho da Azure Import e introduza os seguintes detalhes:
 
       > [!IMPORTANT]
       > Confirme que as informações da transportadora e que o número de acompanhamento estão atualizados num prazo de duas semanas após a criação do trabalho de importação do Azure. A não verificação desta informação no prazo de duas semanas pode resultar na perda do trabalho e na não formação.
@@ -196,6 +196,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento do próximo trabalho de criação de réplicas online programado, o Data Protection Manager realiza backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).

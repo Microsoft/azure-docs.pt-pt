@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796765"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321196"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover um utilizador recentemente eliminado usando o Azure Ative Directory
 Depois de eliminar um utilizador, a conta permanece em estado suspenso durante 30 dias. Durante essa janela de 30 dias, a conta do utilizador pode ser restaurada, juntamente com todas as suas propriedades. Após a janela de 30 dias passar, o utilizador é automaticamente e permanentemente eliminado.
@@ -79,7 +79,7 @@ Pode eliminar permanentemente um utilizador da sua organização sem esperar os 
 
     ![Utilizadores - Página de utilizadores eliminada, com a opção de utilizador Restaurar em destaque](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de restaurar ou apagar os seus utilizadores, pode realizar os seguintes processos básicos:
 
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)
@@ -88,6 +88,6 @@ Depois de restaurar ou apagar os seus utilizadores, pode realizar os seguintes p
 
 - [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
 
-- [Adicionar utilizadores convidados de outra organização](../b2b/what-is-b2b.md)
+- [Adicionar utilizadores convidados de outra organização](../external-identities/what-is-b2b.md)
 
 Para mais informações sobre outras tarefas disponíveis de gestão de [utilizadores, a documentação de gestão de utilizadores Azure AD](../users-groups-roles/index.yml).

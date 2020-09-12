@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934978"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297999"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utilize a sintaxe de pesquisa lucene "completa" (consultas avançadas em Pesquisa Cognitiva Azure)
 
@@ -40,13 +40,13 @@ O que precisa é do Carteiro ou de uma ferramenta equivalente para emitir pedido
 
 Depois de especificar o cabeçalho do pedido, pode reutilizá-lo para todas as consultas neste artigo, trocando apenas a **cadeia search=.** 
 
-  ![Cabeçalho de pedido do Postman](media/search-query-lucene-examples/postman-header.png)
+  ![Carteiro solicitam parâmetros definidos](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Definir o URL de pedido
 
 O pedido é um comando GET emparelhado com um URL que contém o ponto final de pesquisa cognitiva do Azure e a cadeia de pesquisa.
 
-  ![Cabeçalho de pedido do Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Cabeçalho de pedido do carteiro GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 A composição url tem os seguintes elementos:
 
@@ -111,7 +111,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 A resposta a esta consulta deve ser semelhante à seguinte imagem.
 
-  ![Resposta da amostra do carteiro](media/search-query-lucene-examples/postman-sample-results.png)
+  ![Resposta da amostra do carteiro com pontuações](media/search-query-lucene-examples/postman-sample-results.png)
 
 Deve ter reparado na pontuação da pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, quer porque a pesquisa não foi completamente pesquisa de texto, quer porque não foi aplicado nenhum critério. Para uma busca nula sem critérios, as linhas voltam por ordem arbitrária. Quando incluir critérios de pesquisa reais, verá as pontuações de pesquisa evoluir em valores significativos.
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Resposta da amostra do carteiro](media/search-query-lucene-examples/intrafieldfilter.png)
+  ![Expressão de pesquisa de resposta de amostra de carteiro](media/search-query-lucene-examples/intrafieldfilter.png)
 
 Pode definir uma operação de pesquisa em campo com o **fieldName:searchX** sintaxe de expressão de pesquisa, onde a expressão de pesquisa pode ser uma única palavra ou uma frase, ou uma expressão mais complexa em parênteses, opcionalmente com operadores Boolean. Alguns exemplos incluem:
 
@@ -281,7 +281,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 > As consultas wildcard não são [analisadas.](./search-lucene-query-architecture.md#stage-2-lexical-analysis) A única transformação realizada em termos de consulta incompleta é a redução.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Tente especificar o Lucene Query Parser no seu código. Os seguintes links explicam como configurar consultas de pesquisa tanto para .NET como para a API REST. As ligações utilizam a sintaxe simples padrão, pelo que terá de aplicar o que aprendeu com este artigo para especificar a **consultaType**.
 
 * [Consultar o seu índice utilizando o .NET SDK](./search-get-started-dotnet.md)

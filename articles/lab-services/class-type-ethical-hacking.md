@@ -3,12 +3,12 @@ title: Criar um laboratório de Hacking Ético com serviços de laboratório Azu
 description: Aprenda a criar um laboratório usando os Serviços Azure Lab para ensinar hacking ético.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444000"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297591"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Crie um laboratório para ensinar aulas de hacking ético 
 Este artigo mostra-lhe como criar uma aula que se centre no lado forense da pirataria ética. Os testes de penetração, uma prática usada pela comunidade de hacking ético, ocorre quando alguém tenta aceder ao sistema ou rede para demonstrar vulnerabilidades que um intruso malicioso pode explorar. 
@@ -74,7 +74,7 @@ A imagem Metaplodável Rapid7 é uma imagem configurada propositadamente com vul
 1. Selecione o botão **Baixar Metaploitável Agora.**
 1. Quando o ficheiro zip for descarregado, extraia o ficheiro zip e lembre-se da localização.
 1. Converta o ficheiro vmdk extraído num ficheiro vhdx para que possa utilizar com Hyper-V. Para tal, abra a PowerShell com privilégios administrativos e navegue até à pasta onde reside o ficheiro VMDK, e siga estas instruções:
-    1. Descarregue o [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)e execute mvmc_setup.msi ficheiro quando solicitado.
+    1. Descarregue o [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)e execute mvmc_setup.msi ficheiro quando solicitado.
     1. Importe o módulo PowerShell.  A localização predefinida na qual o módulo está instalado é C:\Program Files\Microsoft Virtual Machine Converter\
 
         ```powershell
@@ -117,7 +117,7 @@ A imagem Metaplodável Rapid7 é uma imagem configurada propositadamente com vul
 O modelo está agora atualizado e tem imagens necessárias para uma aula de testes de penetração de hacking ético, uma imagem com ferramentas para fazer o teste de penetração e outra imagem com vulnerabilidades de segurança para descobrir. A imagem do modelo pode agora ser publicada na classe. Selecione o botão **Publicar** na página do modelo para publicar o modelo para o laboratório.
   
 
-## <a name="cost"></a>Custo  
+## <a name="cost"></a>Cost  
 Se quiser estimar o custo deste laboratório, pode usar o seguinte exemplo: 
  
 Para uma turma de 25 alunos com 20 horas de horário de aula programado e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria: 

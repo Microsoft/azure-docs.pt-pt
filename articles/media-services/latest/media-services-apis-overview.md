@@ -9,16 +9,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 6cb771b8df4ab81ff9c538a38b084856b1dfbc39
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 371cfdc8bf2b09f703e1c7bd0153a433ff60ad16
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267280"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298968"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programar com as APIs dos Serviços de Multimédia v3
 
@@ -129,7 +129,7 @@ Apenas uma operação de longa duração é suportada para um determinado Evento
 |[SDK Go](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Ver também
+### <a name="see-also"></a>Veja também
 
 - [EventGrid .NET SDK que inclui eventos de Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -148,11 +148,11 @@ Consulte [a filtragem, encomenda, paging de entidades da Azure Media Services](e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 Para obter todos os valores necessários, consulte [a Access Azure Media Services API](./access-api-howto.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ligue-se aos Serviços de Comunicação Social com a Java](configure-connect-java-howto.md)
 * [Ligar aos Serviços de Mídia com .NET](configure-connect-dotnet-howto.md)

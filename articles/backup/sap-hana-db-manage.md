@@ -3,12 +3,12 @@ title: Gerir bases de dados SAP HANA em VMs Azure
 description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 40761415042cc619893ab3a712a763d4fb046e38
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267484"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377459"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
@@ -41,7 +41,7 @@ Os alertas são um meio fácil de monitorizar as cópias de segurança das bases
 
   ![Lista de alertas de backup](./media/sap-hana-db-manage/backup-alerts-list.png)
 
-* Clique nos alertas para ver mais detalhes:
+* Selecione os alertas para ver mais detalhes:
 
   ![Detalhes do alerta](./media/sap-hana-db-manage/alert-details.png)
 
@@ -61,9 +61,9 @@ O Azure Backup facilita a gestão de uma base de dados SAP HANA apoiada com uma 
 
 Os backups são executados de acordo com o calendário de apólices. Pode executar uma cópia de segurança a pedido da seguinte forma:
 
-1. No menu do cofre, clique em **itens de cópia de segurança.**
-2. Em **Itens de Cópia de Segurança**, selecione o VM que executa a base de dados SAP HANA e, em seguida, clique em Backup **agora**.
-3. In **Backup Now,** escolha o tipo de cópia de segurança que pretende realizar. Em seguida, clique em **OK**. Esta cópia de segurança será mantida de acordo com a política associada a este item de backup.
+1. No menu do cofre, selecione **itens de reserva**.
+2. Em **Itens de Cópia de Segurança,** selecione o VM que executa a base de dados SAP HANA e, em seguida, selecione **Backup agora**.
+3. In **Backup Now,** escolha o tipo de cópia de segurança que pretende realizar. Em seguida, selecione **OK**. Esta cópia de segurança será mantida de acordo com a política associada a este item de backup.
 4. Monitorize as notificações do portal. Pode monitorizar o progresso do trabalho no painel de segurança do cofre > **trabalhos de reserva**  >  **em curso**. Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
 
 Por padrão, a retenção de backups a pedido é de 45 dias.
@@ -114,7 +114,7 @@ Pode alterar a política subjacente a um item de backup SAP HANA.
   ![Escolha SAP HANA em Azure VM](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
 * Escolha o item de backup cuja política subjacente pretende alterar
-* Clique na política de backup existente
+* Selecione a política de backup existente.
 
   ![Selecione a política de backup existente](./media/sap-hana-db-manage/existing-backup-policy.png)
 
@@ -242,6 +242,6 @@ Por vezes, a extensão da carga de trabalho no VM pode ser afetada por uma razã
 
 Utilize esta opção com cuidado: quando acionado num VM com uma extensão já saudável, esta operação fará com que a extensão seja reiniciada. Isto pode fazer com que todos os empregos em curso falhem. Verifique se existem um ou mais [dos sintomas](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) antes de desencadear a operação de re-registo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [resolver problemas comuns ao fazer o backup das bases de dados SAP HANA.](./backup-azure-sap-hana-database-troubleshoot.md)

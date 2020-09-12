@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bee1f95e1f56b65912895fec8af2512c6cd7b85a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76511098"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300379"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Prepare o seu ambiente de desenvolvimento e teste para ioT Edge
 
@@ -56,11 +56,11 @@ Os modelos do módulo para algumas línguas e serviços têm pré-requisitos nec
 | Modelo de módulo | Pré-requisito |
 | --------------- | ------------ |
 | Funções do Azure | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
-| C | [Git](https://git-scm.com/) |
+| C | [Rio Git](https://git-scm.com/) |
 | C# | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Kit de Desenvolvimento Java SE 10](https://aka.ms/azure-jdks) <li> [Definir a variável do ambiente JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Rio Yeoman](https://www.npmjs.com/package/yo) <li> [Gerador de módulo de Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Rio Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Extensão Visual Studio 2017/2019
 
@@ -82,10 +82,10 @@ Apenas o tempo de execução IoT Edge é suportado para implementações de prod
 
 | Ferramenta | Também conhecido como | Plataformas suportadas | Melhor para |
 | ---- | ------------- | ------------------- | --------- |
-| Ferramenta ioT EdgeHub dev  | iotedgehubdev | Windows, Linux, MacOS | Simular um dispositivo para depurar módulos. |
-| Recipiente IoT Edge dev | microsoft/iotedgedev | Windows, Linux, MacOS | Desenvolver sem instalar dependências. |
-| Tempo de execução IoT Edge em um recipiente | iotedgec | Janelas, Linux, MacOS, ARM | Testes num dispositivo que pode não suportar o tempo de funcionaamento. |
-| Recipiente de dispositivo IoT Edge | toolboc/azure-iot-edge-device-container | Janelas, Linux, MacOS, ARM | Testar um cenário com muitos dispositivos IoT Edge em escala. |
+| Ferramenta ioT EdgeHub dev  | iotedgehubdev | Windows, Linux, macOS | Simular um dispositivo para depurar módulos. |
+| Recipiente IoT Edge dev | microsoft/iotedgedev | Windows, Linux, macOS | Desenvolver sem instalar dependências. |
+| Tempo de execução IoT Edge em um recipiente | iotedgec | Windows, Linux, macOS, ARM | Testes num dispositivo que pode não suportar o tempo de funcionaamento. |
+| Recipiente de dispositivo IoT Edge | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Testar um cenário com muitos dispositivos IoT Edge em escala. |
 
 ### <a name="iot-edgehub-dev-tool"></a>Ferramenta ioT EdgeHub dev
 
@@ -103,7 +103,7 @@ Para mais informações, consulte [o recipiente Azure IoT Edge dev](https://hub.
 
 ### <a name="iot-edge-runtime-in-a-container"></a>Tempo de execução IoT Edge em um recipiente
 
-O tempo de funcionaamento do IoT Edge num recipiente proporciona um tempo de funcionaamento completo que leva a cadeia de ligação do seu dispositivo como uma variável ambiental. Este recipiente permite testar módulos e cenários IoT Edge num sistema que pode não suportar o tempo de funcionação de forma nativa, como o MacOS. Quaisquer módulos que implementar serão iniciados fora do recipiente de tempo de execução. Se pretender que o tempo de funcionaamento e quaisquer módulos implantados existam dentro do mesmo recipiente, considere o recipiente do dispositivo IoT Edge.
+O tempo de funcionaamento do IoT Edge num recipiente proporciona um tempo de funcionaamento completo que leva a cadeia de ligação do seu dispositivo como uma variável ambiental. Este recipiente permite testar módulos e cenários IoT Edge num sistema que pode não suportar o tempo de funcionação de forma nativa, como o macOS. Quaisquer módulos que implementar serão iniciados fora do recipiente de tempo de execução. Se pretender que o tempo de funcionaamento e quaisquer módulos implantados existam dentro do mesmo recipiente, considere o recipiente do dispositivo IoT Edge.
 
 Para obter mais informações, consulte [Running Azure IoT Edge num recipiente](https://github.com/Azure/iotedgedev/tree/master/docker/runtime).
 
@@ -119,7 +119,7 @@ Quando estiver pronto para desenvolver soluções à escala para cenários de pr
 
 Para mais informações, orientação e exemplos, consulte as seguintes páginas:
 
-* [Integração contínua e implantação contínua para Azure IoT Edge](how-to-ci-cd.md)
-* [Criar um pipeline CI/CD para IoT Edge com projetos Azure DevOps](how-to-devops-project.md)
+* [Integração contínua e implantação contínua para Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
+* [Criar um pipeline CI/CD para IoT Edge com Azure DevOps Starter](how-to-devops-starter.md)
 * [Plugin Azure IoT Edge Jenkins](https://plugins.jenkins.io/azure-iot-edge)
 * [IoT Edge DevOps GitHub repo](https://github.com/toolboc/IoTEdge-DevOps)

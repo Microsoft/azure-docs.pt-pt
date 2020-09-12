@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713afb7b277fba65dc4c860e8bdd6b62b4e0147d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204952"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320040"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Responder rapidamente para proteger identidades com o Azure AD
 
@@ -51,11 +51,11 @@ Há uma série de recomendações que os clientes da app Azure AD Free ou Office
 - Microsoft 365 (M365 Business, A1)
 - Azure AD Free (incluído com Azure, Dynamics 365, Intune e Power Platform)
 
-| Ação recomendada | Detalhes |
+| Ação recomendada | Detalhe |
 | --- | --- |
 | [Ativar incumprimentos de segurança](concept-fundamentals-security-defaults.md) | Proteja todas as identidades e aplicações dos utilizadores, permitindo a autenticação de legados MFA e bloqueando a autenticação de legados |
 | [Ativar o Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) (se utilizar identidades híbridas) | Fornecer redundância para a autenticação e melhorar a segurança (incluindo Smart Lockout, IP Lockout, e a capacidade de descobrir credenciais vazadas.) |
-| [Ativar o bloqueio inteligente ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (Se aplicável) | Protege os seus utilizadores de experimentarem o bloqueio da conta extranet de atividades maliciosas. |
+| [Ativar o bloqueio inteligente ADFS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (Se aplicável) | Protege os seus utilizadores de experimentarem o bloqueio da conta extranet de atividades maliciosas. |
 | [Ativar o bloqueio inteligente do Azure Ative Directory](../authentication/howto-password-smart-lockout.md) (se utilizar identidades geridas) | O bloqueio inteligente ajuda a bloquear os maus atores que estão a tentar adivinhar as palavras-passe dos seus utilizadores ou a usar métodos de força bruta para entrar. |
 | [Desativar o consentimento do utilizador final para aplicações](../manage-apps/configure-user-consent.md) | O fluxo de trabalho de consentimento administrativo dá aos administradores uma forma segura de conceder acesso a aplicações que requerem aprovação de administração para que os utilizadores finais não exponham os dados corporativos. A Microsoft recomenda a desativação de futuras operações de consentimento do utilizador para ajudar a reduzir a sua área de superfície e a mitigar este risco. |
 | [Integre aplicações de SaaS suportadas da galeria para Azure AD e ativar o único sinal em](../manage-apps/add-application-portal.md) | A Azure AD tem uma galeria que contém milhares de aplicações pré-integradas. Algumas das aplicações que a sua organização utiliza provavelmente estão na galeria acessível diretamente a partir do portal Azure. Fornecer acesso a aplicações Corporativas SaaS remotamente e de forma segura com uma melhor experiência do utilizador (SSO) |
@@ -74,7 +74,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 - Mobilidade Empresarial + Segurança (EMS E3)
 - Microsoft 365 (M365 E3, A3, F1, F3)
 
-| Ação recomendada | Detalhes |
+| Ação recomendada | Detalhe |
 | --- | --- |
 | [Permitir experiência de registo combinado para Azure MFA e SSPR para simplificar a experiência de registo do utilizador](../authentication/howto-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. |
 | [Configurar configurações de MFA para a sua organização](../authentication/howto-mfa-getstarted.md) | Garantir que as contas estão protegidas contra serem comprometidas com a autenticação de vários fatores |
@@ -82,7 +82,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 | [Implementar o Writeback de Palavra-Passe](../authentication/tutorial-enable-sspr-writeback.md) (se utilizar identidades híbridas) | Permitir que as alterações de palavra-passe na nuvem sejam escritas de volta para um ambiente de Diretório Ativo do Windows Server no local. |
 | Criar e ativar políticas de acesso condicional | [MFA para administradores para proteger contas que são atribuídos direitos administrativos.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Bloqueie os protocolos de autenticação de legados devido ao risco acrescido associado aos protocolos de autenticação de legados.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [MFA para todos os utilizadores e aplicações para criar uma política de MFA equilibrada para o seu ambiente, garantindo os seus utilizadores e aplicações.](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) <br><br> [Exija que a MFA for Azure Management proteja os seus recursos privilegiados, exigindo autenticação multi-factor para qualquer utilizador que aceda aos recursos do Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Ativar o Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) (se utilizar identidades híbridas) | Fornecer redundância para a autenticação e melhorar a segurança (incluindo Smart Lockout, IP Lockout, e a capacidade de descobrir credenciais vazadas.) |
-| [Ativar o bloqueio inteligente ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (Se aplicável) | Protege os seus utilizadores de experimentarem o bloqueio da conta extranet de atividades maliciosas. |
+| [Ativar o bloqueio inteligente ADFS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (Se aplicável) | Protege os seus utilizadores de experimentarem o bloqueio da conta extranet de atividades maliciosas. |
 | [Ativar o bloqueio inteligente do Azure Ative Directory](../authentication/howto-password-smart-lockout.md) (se utilizar identidades geridas) | O bloqueio inteligente ajuda a bloquear os maus atores que estão a tentar adivinhar as palavras-passe dos seus utilizadores ou a usar métodos de força bruta para entrar. |
 | [Desativar o consentimento do utilizador final para aplicações](../manage-apps/configure-user-consent.md) | O fluxo de trabalho de consentimento administrativo dá aos administradores uma forma segura de conceder acesso a aplicações que requerem aprovação de administração para que os utilizadores finais não exponham os dados corporativos. A Microsoft recomenda a desativação de futuras operações de consentimento do utilizador para ajudar a reduzir a sua área de superfície e a mitigar este risco. |
 | [Permitir o acesso remoto a aplicações antigas no local com Aplicação Proxy](../manage-apps/application-proxy-add-on-premises-application.md) | Ativar o Proxy da Aplicação AD Azure e integrar-se com aplicações antigas para os utilizadores acederem de forma segura às aplicações no local, insinundo-se com a sua conta Azure AD. |
@@ -94,7 +94,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 | [Designar mais do que um administrador global](../users-groups-roles/directory-emergency-access.md) | Atribua pelo menos duas contas de administrador global permanente apenas na nuvem para utilização em caso de emergência. Estas contas não são usadas diariamente e devem ter senhas longas e complexas. As Contas Break Glass garantem que pode aceder ao serviço em caso de emergência. |
 | [Utilizar funções administrativas não globais sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Dê aos seus administradores apenas o acesso que precisam para apenas as áreas a que precisam de acesso. Nem todos os administradores precisam de ser administradores globais. |
 | [Ativar a orientação da palavra-passe da Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Pare de exigir que os utilizadores alterem a sua palavra-passe num horário definido, desativem os requisitos de complexidade e os seus utilizadores estão mais aptos a lembrarem-se das suas palavras-passe e a mantê-las em algo seguro. |
-| [Crie um plano para o acesso do utilizador convidado](../b2b/what-is-b2b.md) | Colabore com os utilizadores convidados, permitindo-lhes assinar nas suas apps e serviços com o seu próprio trabalho, escola ou identidades sociais. |
+| [Crie um plano para o acesso do utilizador convidado](../external-identities/what-is-b2b.md) | Colabore com os utilizadores convidados, permitindo-lhes assinar nas suas apps e serviços com o seu próprio trabalho, escola ou identidades sociais. |
 
 ### <a name="guidance-for-azure-ad-premium-plan-2-customers"></a>Orientação para clientes Azure AD Premium Plan 2.
 
@@ -104,7 +104,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 - Mobilidade Empresarial + Segurança (EMS E5)
 - Microsoft 365 (M365 E5, A5)
 
-| Ação recomendada | Detalhes |
+| Ação recomendada | Detalhe |
 | --- | --- |
 | [Permitir experiência de registo combinado para Azure MFA e SSPR para simplificar a experiência de registo do utilizador](../authentication/howto-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. |
 | [Configurar configurações de MFA para a sua organização](../authentication/howto-mfa-getstarted.md) | Garantir que as contas estão protegidas contra serem comprometidas com a autenticação de vários fatores |
@@ -114,7 +114,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 | [Ativar as políticas de risco de proteção de identidade e de inscrição](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Ativar as políticas de Utilização de Identidade e Desinsusitada. A política de inscrição recomendada destina-se a inscrições de risco médio e requer MFA. Para as políticas do Utilizador, deve direcionar os utilizadores de alto risco que necessitem da ação de alteração da palavra-passe. |
 | Criar e ativar políticas de acesso condicional | [MFA para administradores para proteger contas que são atribuídos direitos administrativos.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Bloqueie os protocolos de autenticação de legados devido ao risco acrescido associado aos protocolos de autenticação de legados.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Exija que a MFA for Azure Management proteja os seus recursos privilegiados, exigindo autenticação multi-factor para qualquer utilizador que aceda aos recursos do Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Ativar o Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) (se utilizar identidades híbridas) | Fornecer redundância para a autenticação e melhorar a segurança (incluindo Smart Lockout, IP Lockout, e a capacidade de descobrir credenciais vazadas.) |
-| [Ativar o bloqueio inteligente ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (Se aplicável) | Protege os seus utilizadores de experimentarem o bloqueio da conta extranet de atividades maliciosas. |
+| [Ativar o bloqueio inteligente ADFS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (Se aplicável) | Protege os seus utilizadores de experimentarem o bloqueio da conta extranet de atividades maliciosas. |
 | [Ativar o bloqueio inteligente do Azure Ative Directory](../authentication/howto-password-smart-lockout.md) (se utilizar identidades geridas) | O bloqueio inteligente ajuda a bloquear os maus atores que estão a tentar adivinhar as palavras-passe dos seus utilizadores ou a usar métodos de força bruta para entrar. |
 | [Desativar o consentimento do utilizador final para aplicações](../manage-apps/configure-user-consent.md) | O fluxo de trabalho de consentimento administrativo dá aos administradores uma forma segura de conceder acesso a aplicações que requerem aprovação de administração para que os utilizadores finais não exponham os dados corporativos. A Microsoft recomenda a desativação de futuras operações de consentimento do utilizador para ajudar a reduzir a sua área de superfície e a mitigar este risco. |
 | [Permitir o acesso remoto a aplicações antigas no local com Aplicação Proxy](../manage-apps/application-proxy-add-on-premises-application.md) | Ativar o Proxy da Aplicação AD Azure e integrar-se com aplicações antigas para os utilizadores acederem de forma segura às aplicações no local, insinundo-se com a sua conta Azure AD. |
@@ -126,10 +126,10 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 | [Designar mais do que um administrador global](../users-groups-roles/directory-emergency-access.md) | Atribua pelo menos duas contas de administrador global permanente apenas na nuvem para utilização em caso de emergência. Estas contas não são usadas diariamente e devem ter senhas longas e complexas. As Contas Break Glass garantem que pode aceder ao serviço em caso de emergência. |
 | [Utilizar funções administrativas não globais sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Dê aos seus administradores apenas o acesso que precisam para apenas as áreas a que precisam de acesso. Nem todos os administradores precisam de ser administradores globais. |
 | [Ativar a orientação da palavra-passe da Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Pare de exigir que os utilizadores alterem a sua palavra-passe num horário definido, desativem os requisitos de complexidade e os seus utilizadores estão mais aptos a lembrarem-se das suas palavras-passe e a mantê-las em algo seguro. |
-| [Crie um plano para o acesso do utilizador convidado](../b2b/what-is-b2b.md) | Colabore com os utilizadores convidados, permitindo-lhes assinar nas suas apps e serviços com o seu próprio trabalho, escola ou identidades sociais. |
+| [Crie um plano para o acesso do utilizador convidado](../external-identities/what-is-b2b.md) | Colabore com os utilizadores convidados, permitindo-lhes assinar nas suas apps e serviços com o seu próprio trabalho, escola ou identidades sociais. |
 | [Ativar a Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) | Permite-lhe gerir, controlar e monitorizar o acesso a recursos importantes na sua organização, garantindo que os administradores têm acesso apenas quando necessário e com aprovação |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter orientações detalhadas de implementação para características individuais do Azure AD, reveja os [planos de implantação do projeto Azure AD](active-directory-deployment-plans.md).
 

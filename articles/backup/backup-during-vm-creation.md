@@ -3,12 +3,12 @@ title: Ativar a cópia de segurança quando cria uma VM do Azure
 description: Descreve como ativar o backup quando cria um Azure VM com Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892308"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377340"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
@@ -26,14 +26,14 @@ Se ainda não se inscreveu na sua conta, inscreva-se no [portal Azure.](https://
 
 ## <a name="create-a-vm-with-backup-configured"></a>Criar um VM com backup configurado
 
-1. No portal Azure, clique em **Criar um recurso.**
+1. No portal Azure, selecione **Criar um recurso**.
 
-2. No Azure Marketplace, clique em **Compute**e, em seguida, selecione uma imagem VM.
+2. No Azure Marketplace, **selecione Compute**e, em seguida, selecione uma imagem VM.
 
 3. Configurar o VM de acordo com as instruções [do Windows](../virtual-machines/windows/quick-create-portal.md) ou [Linux.](../virtual-machines/linux/quick-create-portal.md)
 
-4. No separador **Gestão,** em **Ativar a cópia de segurança,** clique **em On**.
-5. Backups Azure para um cofre dos Serviços de Recuperação. Clique **em Criar Novo** se não tiver um cofre existente.
+4. No **separador Gestão,** em **Ativar a cópia de segurança**, selecione **On**.
+5. Backups Azure para um cofre dos Serviços de Recuperação. **Selecione Create New** se não tiver um cofre existente.
 6. Aceite o nome do cofre sugerido ou especifique o seu próprio.
 7. Especifique ou crie um grupo de recursos no qual o cofre será localizado. O cofre do grupo de recursos pode ser diferente do grupo de recursos VM.
 
@@ -76,8 +76,8 @@ A sua cópia de segurança VM será executada de acordo com a sua política de b
 
 Após a criação do VM, faça o seguinte:
 
-1. Nas propriedades VM, clique em **Backup**. O estado de VM é backup inicial pendente até que o backup inicial seja executado
-2. Clique **em Backup agora** para executar uma cópia de segurança a pedido.
+1. Nas propriedades VM, selecione **Backup**. O estado de VM é cópia de segurança inicial pendente até que a cópia de segurança inicial seja executado.
+2. **Selecione Backup agora** para executar uma cópia de segurança a pedido.
 
     ![Faça uma cópia de segurança a pedido](./media/backup-during-vm-creation/run-backup.png)
 
@@ -85,7 +85,7 @@ Após a criação do VM, faça o seguinte:
 
 Os passos anteriores explicam como usar o portal Azure para criar uma máquina virtual e protegê-la num cofre dos Serviços de Recuperação. Para implementar rapidamente um ou mais VMs e protegê-los num cofre dos Serviços de Recuperação, consulte o modelo [Implementar um VM do Windows e ativar a cópia de segurança](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que protegeste o teu VM, aprende a geri-los e a restaurá-los.
 

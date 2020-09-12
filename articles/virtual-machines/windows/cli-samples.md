@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8e83b289abd92d657b2e336aed3a74c10d6f6490
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6c4b707a3cebc1bcdad7c9e14a96d82a8dda2371
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501036"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318799"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Exemplos da CLI do Azure para máquinas virtuais do Windows
 
@@ -28,12 +28,12 @@ A tabela seguinte inclui links para scripts de bash construídos usando o CLI Az
 | [Criar uma VM e executar o script de configuração](./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria uma máquina virtual e utiliza a extensão Azure Custom Script para instalar o IIS. |
 | [Crie uma configuração VM e execute dSC](./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria uma máquina virtual e utiliza a extensão de Configuração do Estado Azure Desired (DSC) para instalar o IIS. |
 |**Manage storage**||
-| [Criar um disco gerido a partir de um VHD](../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria um disco gerido a partir de um VHD especializado como disco de SO ou a partir de um VHD de dados como disco de dados.  |
-| [Criar um disco gerido a partir de um instantâneo](../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria um disco gerido a partir de uma imagem instantânea. |
-| [Copiar discos geridos para uma subscrição igual ou diferente](../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | As cópias conseguiram o disco para a mesma subscrição ou subscrição diferente, mas na mesma região que o disco gerido pelos pais. 
-| [Exportar um instantâneo como VHD para uma conta de armazenamento](../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Exporta um instantâneo gerido como VHD para uma conta de armazenamento em diferentes regiões. |
-| [Exportar o VHD de um disco gerido para uma conta de armazenamento](../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Exporta o VHD subjacente de um disco gerido para uma conta de armazenamento em diferentes regiões. |
-| [Copiar instantâneo para uma subscrição igual ou diferente](../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Copia instantâneo para a mesma subscrição ou subscrição diferente, mas na mesma região que o instantâneo dos pais. |
+| [Criar um disco gerido a partir de um VHD](../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria um disco gerido a partir de um VHD especializado como disco de SO ou a partir de um VHD de dados como disco de dados.  |
+| [Criar um disco gerido a partir de um instantâneo](../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria um disco gerido a partir de uma imagem instantânea. |
+| [Copiar discos geridos para uma subscrição igual ou diferente](../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | As cópias conseguiram o disco para a mesma subscrição ou subscrição diferente, mas na mesma região que o disco gerido pelos pais. 
+| [Exportar um instantâneo como VHD para uma conta de armazenamento](../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Exporta um instantâneo gerido como VHD para uma conta de armazenamento em diferentes regiões. |
+| [Exportar o VHD de um disco gerido para uma conta de armazenamento](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Exporta o VHD subjacente de um disco gerido para uma conta de armazenamento em diferentes regiões. |
+| [Copiar instantâneo para uma subscrição igual ou diferente](../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Copia instantâneo para a mesma subscrição ou subscrição diferente, mas na mesma região que o instantâneo dos pais. |
 |**Máquinas virtuais da rede**||
 | [Proteger o tráfego de rede entre as máquinas virtuais](./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria duas máquinas virtuais, todos os recursos relacionados, e um grupo interno e externo de segurança de rede (NSG). |
 |**Máquinas virtuais seguras**||

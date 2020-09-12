@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 6a1506de0bf21e44d84925fabeeea860f5807e2c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958104"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322454"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Resolução de problemas Por que os dados dos seus dispositivos não aparecem na Azure IoT Central
 
@@ -57,7 +57,7 @@ az set account --subscription <your-subscription-id>
 Para monitorizar a telemetria que o seu dispositivo está a enviar, utilize o seguinte comando:
 
 ```cmd/bash
-az iot central app monitor-events --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Se o dispositivo tiver sido ligado com sucesso à IoT Central, vê saída semelhante à seguinte:
@@ -82,7 +82,7 @@ Filtering on device: device-001
 Para monitorizar as atualizações da propriedade que o seu dispositivo está a trocar com a IoT Central, utilize o seguinte comando de pré-visualização:
 
 ```cmd/bash
-az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Se o dispositivo enviar com sucesso atualizações de propriedade, vê uma saída semelhante à seguinte:
@@ -106,7 +106,7 @@ Se ainda não está a ver nenhum dado aparecer no seu terminal, é provável que
 Se os seus dados não estiverem a aparecer no monitor, verifique o estado de provisionamento do seu dispositivo executando o seguinte comando:
 
 ```cmd/bash
-az iot central app device registration-info --app-id <app-id> --device-id <device-name>
+az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 A seguinte saída mostra um exemplo de um dispositivo que está bloqueado de ligação:
@@ -176,13 +176,13 @@ Para detetar em que categorias está o seu problema, execute o comando mais adeq
 - Para validar a telemetria, utilize o comando de pré-visualização:
 
     ```cmd/bash
-    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Para validar atualizações de propriedade, utilize o comando de pré-visualização
 
     ```cmd/bash
-    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
 Pode ser solicitado a instalar a `uamqp` biblioteca na primeira vez que executar um `validate` comando.
@@ -209,7 +209,7 @@ Quando tiver detetado o problema, poderá necessitar de atualizar o firmware do 
 
 Se escolheu criar um novo modelo que modele os dados corretamente, migrar dispositivos do seu modelo antigo para o novo modelo. Para saber mais, consulte [Gerir os dispositivos na sua aplicação Azure IoT Central](howto-manage-devices.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de mais ajuda, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode arquivar um [bilhete de apoio Azure.](https://portal.azure.com/#create/Microsoft.Support)
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8035744cd7ff7bb3d8347a7d26796531a666bbd
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: fc512bf664857129377d2eb928ff025d1c5f659b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796816"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321179"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicione o seu nome de domínio personalizado usando o portal Azure Ative Directory
 
@@ -108,7 +108,7 @@ Se a Azure AD não puder verificar um nome de domínio personalizado, experiment
 
 - **Certifique-se de não ter nenhum inquilino de Bi de energia não gerido.** Se os seus utilizadores ativaram o Power BI através de uma inscrição de self-service e criaram um inquilino não gerido para a sua organização, deve assumir a gestão como administrador interno ou externo, utilizando o PowerShell. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Adicione outro administrador global ao seu diretório. Para obter mais informações, consulte [Como atribuir funções e administradores.](active-directory-users-assign-role-azure-portal.md)
 
@@ -116,4 +116,4 @@ Se a Azure AD não puder verificar um nome de domínio personalizado, experiment
 
 - Gerencie as informações sobre o nome de domínio no Azure AD. Para obter mais informações, consulte [gerir nomes de domínio personalizados.](../users-groups-roles/domains-manage.md)
 
-- Se tiver versões no local do Windows Server que pretende utilizar ao lado do Azure Ative Directory, consulte [Integrar os seus diretórios no local com o Azure Ative Directory](../connect/active-directory-aadconnect.md).
+- Se tiver versões no local do Windows Server que pretende utilizar ao lado do Azure Ative Directory, consulte [Integrar os seus diretórios no local com o Azure Ative Directory](../hybrid/whatis-hybrid-identity.md).

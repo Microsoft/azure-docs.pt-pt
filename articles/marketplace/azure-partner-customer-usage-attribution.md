@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031344"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320975"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -97,9 +97,9 @@ Para adicionar um identificador globalmente único (GUID), faça uma única modi
 
 1. Abra o modelo de Gestor de Recursos.
 
-1. Adicione um novo recurso no ficheiro do modelo principal. O recurso tem de estar no **mainTemplate.jsapenas em** ficheiros ou **azuredeploy.js,** e não em modelos aninhados ou ligados.
+1. Adicione um novo recurso do tipo [Microsoft.Resources/implementações](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) no ficheiro de modelo principal. O recurso tem de estar no **mainTemplate.jsapenas em** ficheiros ou **azuredeploy.js,** e não em modelos aninhados ou ligados.
 
-1. Introduza o valor GUID após o `pid-` prefixo (por exemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Introduza o valor GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome de recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Verifique se o modelo é de eventuais erros.
 
@@ -112,11 +112,11 @@ Para adicionar um identificador globalmente único (GUID), faça uma única modi
 Para ativar os recursos de rastreio do seu modelo, precisa adicionar o seguinte recurso adicional na secção de recursos. Por favor, certifique-se de modificar o código de amostra abaixo com as suas próprias entradas quando o adicionar ao ficheiro do modelo principal.
 O recurso precisa de ser adicionado no **mainTemplate.jsapenas em** ficheiros ou **azuredeploy.js,** e não em modelos aninhados ou ligados.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -153,6 +153,20 @@ Para Python, use o atributo **config.** Só pode adicionar o atributo a um UserA
 
 > [!NOTE]
 > Adicione o atributo para cada cliente. Não há nenhuma configuração estática global. Pode marcar uma fábrica de clientes para ter a certeza que todos os clientes estão a seguir o rasto. Para mais informações, consulte esta [amostra de fábrica de clientes no GitHub.](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
+
+#### <a name="example-the-net-sdk"></a>Exemplo: O .NET SDK
+
+Para .NET, certifique-se de definir o agente do utilizador. A biblioteca [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) pode ser utilizada para definir o agente do utilizador com o seguinte código (exemplo em C#):
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Marque uma implementação utilizando o Azure PowerShell
 
@@ -256,7 +270,7 @@ Quando implementa \<PARTNER> software, a Microsoft é capaz de identificar a ins
 
 Existem dois canais de suporte dependendo das questões que está a enfrentar.
 
-Se encontrar algum problema no Centro de Parceiros, como ver o relatório de atribuição de uso do cliente ou iniciar sessão, crie um pedido de apoio com a equipa de apoio do Centro de Parceiros aqui:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+Se encontrar algum problema no Centro de Parceiros, como ver o relatório de atribuição de uso do cliente ou iniciar sessão, crie um pedido de apoio com a equipa de apoio do Centro de Parceiros aqui: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![Screenshot da página de suporte get](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -339,7 +353,7 @@ Você pode criar uma oferta VM no mercado usando o seu VHD personalizado e marc�
 
 **Falha na atualização *de conteúdoVersion* propriedade para o modelo principal?**
 
-Provavelmente um bug em alguns casos quando o modelo está sendo implementado usando um TemplateLink de outro modelo que espera conteúdo mais antigoVersão por alguma razão. A solução é utilizar a propriedade de metadados:
+Isto é provavelmente um bug, nos casos em que o modelo está sendo implementado usando um TemplateLink de outro modelo que espera conteúdo mais antigoVersão por alguma razão. A solução é utilizar a propriedade de metadados:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

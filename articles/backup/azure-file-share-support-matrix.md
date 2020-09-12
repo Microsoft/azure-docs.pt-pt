@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações e limitações de suporte ao 
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289499"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378037"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para cópia de segurança da partilha de ficheiros Azure
 
@@ -25,7 +25,7 @@ A azure file shares backup está disponível em todas as **regiões, exceto:** A
 
 | Detalhes da conta de armazenamento | Suporte                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo de Conta            | A Azure Backup suporta ações de ficheiros Azure presentes em contas de armazenamento de tipo v1, v2 de uso geral e de armazenamento de ficheiros |
+| Tipo de Conta            | A Azure Backup suporta ações de ficheiros Azure presentes em v1, v2 de uso geral e contas de armazenamento de tipo de armazenamento de ficheiros |
 | Desempenho              | A Azure Backup suporta ações de ficheiros em contas standard e Premium Storage |
 | Replicação              | As ações de ficheiros Azure em contas de armazenamento com qualquer tipo de replicação são suportadas |
 | Firewall ativada         | As ações de ficheiros Azure em contas de armazenamento com regras de Firewall que permitem ao Microsoft Azure Services aceder à conta de armazenamento são suportadas|
@@ -81,7 +81,7 @@ A azure file shares backup está disponível em todas as **regiões, exceto:** A
 | Restauro de ações completas | Pode restaurar a partilha completa do ficheiro para a localização original ou alternativa |
 | Restauro do nível do item | Pode restaurar ficheiros e pastas individuais para a localização original ou alternativa |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
 * Saiba como restaurar as [ações de ficheiros Azure](restore-afs.md)

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5599ce6f086ca9c3dcbf7ac406306b6198d3080a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 476cf8013f5dc8b5d54efb573cf305d81fc690b1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797619"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319156"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>O que é a arquitetura do Diretório Ativo Azure?
 
@@ -121,6 +121,6 @@ Se qualquer serviço AD Azure não estiver a funcionar como esperado, serão tom
 
 Utilizando controlos operacionais como a autenticação de vários fatores (MFA) para qualquer operação, bem como a auditoria de todas as operações. Além disso, utilizar um sistema de elevação just-in-time para conceder o acesso temporário necessário a qualquer tarefa operacional a pedido numa base contínua. Para obter mais informações, veja [A Cloud de Confiança](https://azure.microsoft.com/support/trust-center).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-[Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop)
+[Guia para programadores do Azure Active Directory](../develop/index.yml)

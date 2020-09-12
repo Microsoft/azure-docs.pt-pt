@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: dba0f82ced5500dc85c3254bea6a2a0066770b1e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 58edf1e0257cf9de8d8f3a3b56f295dcaf1f6cbf
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265665"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298203"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso
 
@@ -358,7 +358,7 @@ A imagem a seguir mostra um cenário que usa uma chave assimétrica através de 
 
 Em ambos os casos anteriores, a autenticação do utilizador mantém-se a mesma. Passa-se através do Azure AD. A única diferença é que os JWTs são emitidos pela STS personalizada em vez de Azure AD. Ao configurar uma proteção dinâmica do CENC, a restrição do serviço de entrega de licença especifica o tipo de JWT, seja uma chave simétrica ou assimétrica.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Perguntas mais frequentes](frequently-asked-questions.md)
 * [Visão geral da proteção de conteúdos](content-protection-overview.md)

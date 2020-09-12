@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: f1c5fb04597ec274eaf2b4a4e7a5e2b96f1816f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 05accd69f1868b8b0e0f6dbd4fb5c21ee843ec5e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258831"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297728"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificar com uma escada de bitrate gerada automaticamente
 
@@ -71,7 +71,7 @@ Fonte com altura "360" e framerate "29.970" produz 3 camadas de vídeo:
 |2|270|480|440|
 |3|180|320|230|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)

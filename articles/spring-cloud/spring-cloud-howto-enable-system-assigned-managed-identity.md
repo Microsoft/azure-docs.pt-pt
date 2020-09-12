@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b9d7326ec13176fbe65ba430a8a33bb93a48f74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c092052e05f355838f3853fa7376b46ef743de7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091458"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299650"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud
 Identidades geridas para recursos Azure fornecem uma identidade gerida automaticamente no Azure Ative Directory a um recurso Azure, como a sua aplicação Azure Spring Cloud. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, sem ter credenciais no seu código.
@@ -21,7 +21,7 @@ Este artigo mostra como ativar e desativar identidades geridas atribuídas pelo 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se não está familiarizado com as identidades geridas para recursos Azure, consulte [a secção de visão geral](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-Vai precisar de uma instância da Nuvem de primavera de Azure. Siga o [Quickstart para implementar utilizando o Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
+Vai precisar de uma instância da Nuvem de primavera de Azure. Siga o [Quickstart para implementar utilizando o Azure CLI](spring-cloud-quickstart.md).
 
 ## <a name="add-a-system-assigned-identity"></a>Adicionar uma identidade atribuída ao sistema
 A criação de uma app com uma identidade atribuída ao sistema requer a definição de uma propriedade adicional na aplicação.
@@ -32,7 +32,7 @@ Para configurar uma identidade gerida no [portal Azure](https://portal.azure.com
 1. Crie uma aplicação no portal como normalmente faria. Navegue até ele no portal.
 2. Desloque-se até ao grupo **Definições** no painel de navegação esquerdo.
 3. Selecione **identidade**.
-4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Save** (Guardar).
+4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Guardar**.
 
  ![Identidade gerida no portal](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -72,7 +72,7 @@ Para remover a identidade gerida atribuída pelo sistema de uma aplicação que 
 1. Navegue para a máquina virtual desejada e selecione **Identidade**.
 1. Em **Estado atribuído ao** / **Sistema**, selecione **Off** e clique em **Guardar**:
 
- ![Identidade gerida no portal](./media/spring-cloud-managed-identity/remove-identity.png)
+ ![Identidade gerida](./media/spring-cloud-managed-identity/remove-identity.png)
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 Para remover a identidade gerida atribuída pelo sistema a partir de uma aplicação que já não precisa, utilize o seguinte comando:
@@ -80,7 +80,7 @@ Para remover a identidade gerida atribuída pelo sistema a partir de uma aplica�
 az spring-cloud app identity remove -n app_name -s service_name -g resource_group_name
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Como usar identidades geridas com Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 * [Access Azure Key Vault com identidades geridas no arranque da bota de primavera](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Saiba mais sobre identidades geridas para recursos Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)

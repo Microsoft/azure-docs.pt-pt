@@ -7,19 +7,19 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5cfc13700decf0176b283f5f1f9bd81503c1b10a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037598"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299512"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Gerir e monitorizar aplicações com o Spring Boot Actuator
 
 Depois de implementar um novo binário na sua aplicação, poderá querer verificar a funcionalidade e ver informações sobre a sua aplicação de execução. Este artigo explica como aceder à API a partir de um ponto final de teste fornecido pela Azure Spring Cloud e expor as funcionalidades prontas para a produção para a sua aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que tem uma aplicação Spring Boot 2.x que pode ser implantada e iniciada com sucesso no serviço Azure Spring Cloud.  Ver [Quickstart: Lançar uma aplicação Azure Spring Cloud existente utilizando o portal Azure](spring-cloud-quickstart-launch-app-portal.md)
+Este artigo pressupõe que tem uma aplicação Spring Boot 2.x que pode ser implantada e iniciada com sucesso no serviço Azure Spring Cloud.  Ver [Quickstart: Lançar uma aplicação Azure Spring Cloud existente utilizando o portal Azure](spring-cloud-quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Verificar aplicativo através do ponto final do teste
 1. Vá ao **painel de aplicações** e clique na sua aplicação para introduzir a página geral da aplicação.
@@ -63,15 +63,15 @@ Para observar a configuração e o ambiente configurável, precisamos de ativar 
 Agora pode voltar ao painel geral da aplicação e aguardar até que o Estado de Provisionamento mude para "Bem-sucedido".  Haverá mais de um caso em execução.
 
 > [!Note] 
-> Uma vez que exponha a aplicação ao público, estes pontos finais do actuador também estão expostos ao público. Você pode esconder todos os pontos finais, eliminando as variáveis `management.endpoints.web.exposure.include` ambientais, e definir`management.endpoints.web.exposure.exclude=*`
+> Uma vez que exponha a aplicação ao público, estes pontos finais do actuador também estão expostos ao público. Você pode esconder todos os pontos finais, eliminando as variáveis `management.endpoints.web.exposure.include` ambientais, e definir `management.endpoints.web.exposure.exclude=*`
 
 ## <a name="view-the-actuator-endpoint-to-view-application-information"></a>Ver o ponto final do actuador para ver as informações da aplicação
 1. Agora pode aceder ao url `"<test-endpoint>/actuator/"` para ver todos os pontos finais expostos pelo Actuador de Botas de Mola.
 1. Aceda a url `"<test-endpoint>/actuator/env"` , pode ver perfis ativos utilizados pela app, e todas as variáveis ambientais carregadas.
-1. Se quiser pesquisar um ambiente específico, pode aceder ao url `"<test-endpoint>/actuator/env/{toMatch}"` para o visualizar.
+1. Se quiser pesquisar um ambiente específico, pode aceder ao url  `"<test-endpoint>/actuator/env/{toMatch}"` para o visualizar.
 
 Para ver todos os pontos finais incorporados, consulte [Exposing Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Compreenda as métricas para Azure Spring Cloud](spring-cloud-concept-metrics.md)
 * [Compreender o estado da aplicação em Azure Spring Cloud](spring-cloud-concept-app-status.md))

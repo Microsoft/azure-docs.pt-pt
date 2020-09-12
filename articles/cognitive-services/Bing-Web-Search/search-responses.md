@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202250"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297795"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API estrutura de resposta e tipos de resposta  
 
@@ -296,7 +296,7 @@ Uma expressão matemática pode conter os seguintes símbolos:
 |-|Subtração|
 |/|Divisão|
 |*|Multiplicação|
-|^|Potência|
+|^|Energia|
 |!|Fatorial|
 |.|Decimal|
 |()|Agrupamento de precedência|
@@ -445,7 +445,7 @@ As respostas da API de Pesquisa Web de Bing podem conter os seguintes cabeçalho
 
 No entanto, quando liga para a API de Pesquisa Web Bing do JavaScript, as funcionalidades de segurança incorporadas do seu navegador (CORS) podem impedir-lhe de aceder aos valores destes cabeçalhos.
 
-Para obter acesso aos cabeçalhos, pode fazer o pedido de API de Pesquisa Web Bing através de um representante do CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
+Para obter acesso aos cabeçalhos, pode fazer o pedido de API de Pesquisa Web Bing através de um representante do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que filtra cabeçalhos de resposta e os coloca disponíveis para JavaScript.
 
 É fácil instalar um proxy CORS para permitir que a nossa [aplicação tutorial](tutorial-bing-web-search-single-page-app.md) aceda aos cabeçalhos opcionais do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, insira o seguinte comando num pedido de comando.
 
@@ -476,10 +476,10 @@ O seguinte mostra como Bing usa a sugestão ortográfica.
 
 ![Bing exemplo de sugestão ortográfica](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * Reveja a documentação de estrangulamento do pedido de [revisão.](throttling-requests.md)  
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Veja também  
 
 * [Bing Web Search API referência](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

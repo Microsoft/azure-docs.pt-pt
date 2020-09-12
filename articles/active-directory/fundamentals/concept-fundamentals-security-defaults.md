@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 64ee8f2daddd53d37aeaf0f02208e02500b48f57
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873726"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320873"
 ---
 # <a name="what-are-security-defaults"></a>O que são falhas de segurança?
 
@@ -92,7 +92,7 @@ Após o incumprimento de segurança ser ativado no seu inquilino, todos os pedid
 > [!WARNING]
 > Antes de ativar as falhas de segurança, certifique-se de que os seus administradores não estão a utilizar protocolos de autenticação mais antigos. Para mais informações, consulte [Como afastar-se da autenticação do legado.](concept-fundamentals-block-legacy-authentication.md)
 
-- [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail usando o Office 365 e o Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail usando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Proteger ações privilegiadas
 
@@ -109,7 +109,7 @@ Utilizar o Azure Resource Manager para gerir os seus serviços é uma ação alt
 Depois de ativar falhas de segurança no seu inquilino, qualquer utilizador que aceda ao portal Azure, Azure PowerShell ou ao CLI Azure terá de completar a autenticação adicional. Esta política aplica-se a todos os utilizadores que acedam ao Azure Resource Manager, quer sejam administradores ou utilizadores. 
 
 > [!NOTE]
-> Os inquilinos online do Exchange Online antes de 2017 têm a autenticação moderna desativada por padrão. Para evitar a possibilidade de um ciclo de login durante a autenticação através destes inquilinos, deve [permitir a autenticação moderna.](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)
+> Os inquilinos online do Exchange Online antes de 2017 têm a autenticação moderna desativada por padrão. Para evitar a possibilidade de um ciclo de login durante a autenticação através destes inquilinos, deve [permitir a autenticação moderna.](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)
 
 > [!NOTE]
 > A conta de sincronização Azure AD Connect está excluída de incumprimentos de segurança e não será solicitada a registar-se ou realizar a autenticação de vários fatores. As organizações não devem utilizar esta conta para outros fins.
@@ -175,6 +175,6 @@ Para desativar as falhas de segurança no seu diretório:
 1. Desafine o **alternador de segurança** de Ativação para **Nº**.
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md)

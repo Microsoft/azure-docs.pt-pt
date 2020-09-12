@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4d1490c4900c957a7dce7e632415823723f81b
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797292"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322539"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontre ajuda e abra um bilhete de apoio para o Azure Ative Directory
 A Microsoft fornece suporte técnico, pré-venda, faturação e subscrição globais para o Azure Ative Directory (Azure AD). O suporte está disponível tanto online como por telefone para subscrições pagas e de teste da Microsoft Azure. O suporte por telefone e o suporte de faturação online estão disponíveis em idiomas adicionais. 
@@ -29,7 +29,7 @@ A Microsoft fornece suporte técnico, pré-venda, faturação e subscrição glo
 
 Antes de criar um pedido de suporte, veja os seguintes recursos para obter respostas e informações. 
 
-* Para conteúdos como informações de como fazer informações ou amostras de código para profissionais de TI e desenvolvedores, consulte a [documentação técnica em docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
+* Para conteúdos como informações de como fazer informações ou amostras de código para profissionais de TI e desenvolvedores, consulte a [documentação técnica em docs.microsoft.com](../index.yml).
 
 * A [Microsoft Technical Community](https://techcommunity.microsoft.com/) é o local para os nossos parceiros e clientes profissionais de TI colaborarem, partilharem e aprenderem. O [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) é utilizado para anúncios, posts de blog, interações ask-me-anything (AMA) com especialistas, e muito mais. Também pode [juntar-se à comunidade para apresentar as suas ideias.](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)
 
@@ -96,8 +96,8 @@ Se não conseguir encontrar respostas utilizando recursos de autoajuda, pode abr
 
 Consulte a página de suporte do [Contact Microsoft para](https://portal.office.com/Support/ContactUs.aspx) obter números de telefone de suporte.
 
-##  <a name="next-steps"></a>Passos seguintes
+##  <a name="next-steps"></a>Próximos passos
 
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
-* [Documentação técnica na docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)
+* [Documentação técnica na docs.microsoft.com](../index.yml)

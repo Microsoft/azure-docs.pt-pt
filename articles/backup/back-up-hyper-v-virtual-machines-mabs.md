@@ -3,12 +3,12 @@ title: Apoiar máquinas virtuais Hiper-V com MABS
 description: Este artigo contém os procedimentos de backup e recuperação de máquinas virtuais utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: d3648bf6c980049a2e3ccfa90a777bddc1748dc9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011944"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378003"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Faça backup de máquinas virtuais Hyper-V com servidor de backup Azure
 
@@ -78,7 +78,7 @@ Estes são os pré-requisitos para o backup de máquinas virtuais Hiper-V com MA
 
 2. Instale o agente de proteção MABS nos nós do servidor Hiper-V ou hiper-V. Se estiver a fazer backup ao nível de hóspedes, instalará o agente nos VMs que pretende apoiar ao nível dos hóspedes.
 
-3. Na consola MABS Administrator, clique em **Proteção**  >  **Criar grupo de proteção** para abrir o assistente **do Grupo criar novos.**
+3. Na consola MABS Administrator, selecione **Protection**  >  **Create protection group** para abrir o assistente criar novo grupo de **proteção.**
 
 4. Na página **Selecionar Membros do Grupo**, selecione as VMs que pretende proteger a partir dos servidores de anfitrião de Hyper-V em que se encontram. Recomendamos que coloque todas as VMs com a mesma política de proteção num grupo de proteção. Para uma utilização eficaz do espaço, ative a colocalização. A colocalização permite-lhe localizar dados a partir de diferentes grupos de proteção no mesmo armazenamento em disco ou em banda, de modo a que múltiplas origens de dados tenham uma réplica e um volume de ponto de recuperação únicos.
 
@@ -110,7 +110,7 @@ Se o MABS estiver a funcionar no Windows Server 2012 R2 ou superior, então pode
 
 **Ativa a cópia de segurança do fornecedor de serviços de alojamento** -pode utilizar um centro de dados alojado como um site de réplica, sem ser necessário um centro de dados secundário. Neste caso, o hoster SLA requer uma cópia de segurança consistente de máquinas virtuais réplicas.
 
-A máquina virtual de réplica está desativada até à ocorrência de uma ativação pós-falha, e o VSS não consegue garantir cópias de segurança consistentes de uma máquina virtual de réplica. Deste modo, as cópias de segurança de uma máquina virtual de réplica apenas serão consistentes com falhas. Se não for possível garantir a consistência com falhas, a cópia de segurança falha e esta situação pode ocorrer em várias condições:
+A máquina virtual de réplica está desativada até à ocorrência de uma ativação pós-falha, e o VSS não consegue garantir cópias de segurança consistentes de uma máquina virtual de réplica. Assim, a cópia de segurança de uma máquina virtual réplica será apenas consistente com acidentes. Se não for possível garantir a consistência com falhas, a cópia de segurança falha e esta situação pode ocorrer em várias condições:
 
 - A máquina virtual de réplica não está em bom estado de funcionamento, mas sim em estado crítico.
 
@@ -128,13 +128,13 @@ Quando for possível recuperar uma máquina virtual com cópia de segurança, ut
 
 1. Na consola MABS Administrator, escreva o nome do VM ou expanda a lista de itens protegidos e selecione o VM que pretende recuperar.
 
-2. No painel **Pontos de recuperação para**, no calendário, clique em qualquer data para ver os pontos de recuperação disponíveis. Em seguida, no painel **Caminho**, selecione o ponto de recuperação que pretende utilizar no assistente de Recuperação.
+2. Nos **pontos de recuperação do** painel, no calendário, selecione qualquer data para ver os pontos de recuperação disponíveis. Em seguida, no painel **Caminho**, selecione o ponto de recuperação que pretende utilizar no assistente de Recuperação.
 
-3. No menu **Ações**, clique em **Recuperar** para abrir o Assistente de Recuperação.
+3. No menu **Ações,** selecione **Recuperar** para abrir o Assistente de Recuperação.
 
-    A VM e o ponto de recuperação que selecionou são apresentados no ecrã **Rever Seleção de Recuperação**. Clique em **Seguinte**.
+    A VM e o ponto de recuperação que selecionou são apresentados no ecrã **Rever Seleção de Recuperação**. Selecione **Seguinte**.
 
-4. No ecrã **Selecionar Tipo de Recuperação**, selecione onde pretende restaurar os dados e clique em **Seguinte**.
+4. No ecrã **Select Recovery Type,** selecione onde pretende restaurar os dados e, em seguida, selecione **Seguinte**.
 
     - **Recuperar para a instância original**: quando recuperar para a instância original, o VHD será eliminado. O MABS recupera o VHD e outros ficheiros de configuração para a localização original utilizando o escritor Hyper-V VSS. No final do processo de recuperação, as máquinas virtuais continuam a ter elevada disponibilidade.
         O grupo de recursos tem de estar presente para a recuperação. Se não estiver disponível, recupere para uma localização alternativa e torne a máquina virtual altamente disponível.
@@ -143,16 +143,16 @@ Quando for possível recuperar uma máquina virtual com cópia de segurança, ut
 
     - **Cópia para uma pasta**de rede : O MABS suporta a recuperação do nível de item (ILR), que permite fazer a recuperação ao nível do item de ficheiros, pastas, volumes e discos rígidos virtuais (VHDs) de uma cópia de segurança ao nível do hospedeiro de máquinas virtuais Hyper-V para uma partilha de rede ou um volume num servidor protegido pelo MABS. O agente de proteção MABS não precisa de ser instalado dentro do hóspede para realizar a recuperação ao nível do item. Se escolher esta opção, o Assistente de Recuperação apresenta um ecrã adicional para identificar o destino e o caminho de destino.
 
-5. Em **Especificar Opções de Recuperação**, configure as opções de recuperação e clique em **Seguinte**:
+5. Em **Especificar Opções de Recuperação** configurar as opções de recuperação e selecionar **Seguinte**:
 
-    - Se estiver a recuperar uma VM ao longo da largura de banda reduzida, clique em **Modificar** para ativar a **Limitação da utilização de largura de banda**. Depois de ativar a opção de limitação, pode especificar a quantidade de largura de banda que pretende disponibilizar e a hora a que essa largura de banda fica disponível.
-    - Selecione **Ativar a recuperação baseada em SAN utilizando instantâneos de hardware**, se tiver configurado a sua rede.
+    - Se estiver a recuperar um VM em relação à largura de banda baixa, selecione **Modificar** para ativar o **estrangulamento de utilização da largura de banda da rede**. Depois de ativar a opção de limitação, pode especificar a quantidade de largura de banda que pretende disponibilizar e a hora a que essa largura de banda fica disponível.
+    - Selecione **Ativar a recuperação baseada em SAN utilizando imagens** de hardware se tiver configurado a sua rede.
     - Selecione **Enviar um e-mail ao concluir a recuperação** e forneça os endereços de e-mail, se pretender que sejam enviadas notificações de -mail ao concluir o processo de recuperação.
 
-6. No ecrã Resumo, certifique-se de que todos os detalhes estão corretos. Se os detalhes estiverem incorretos ou se pretender efetuar uma alteração, clique em **Anterior**. Se estiver satisfeito com as definições, clique em **Recuperar** para iniciar o processo de recuperação.
+6. No ecrã Resumo, certifique-se de que todos os detalhes estão corretos. Se os detalhes não estiverem corretos, ou se quiser fazer uma alteração, selecione **Back**. Se estiver satisfeito com as definições, selecione **Recuperar** para iniciar o processo de recuperação.
 
 7. O ecrã **Estado de Recuperação** fornece informações sobre a tarefa de recuperação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Recuperar dados do Azure Backup Server](./backup-azure-alternate-dpm-server.md)

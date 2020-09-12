@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387120"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318301"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -132,6 +132,11 @@ Após o acesso à chave ser restaurado, a tomada de base de dados online requer 
 - Se o acesso à chave for restaurado dentro de 8 horas, a base de dados curar-se-á automaticamente dentro de uma hora.
 
 - Se o acesso à chave for restaurado mais de 8 horas depois, não será possível realizar a autorrecuperação. Além disso, recuperar a base de dados requer passos adicionais no portal e pode demorar bastante tempo, dependendo do tamanho da base de dados. Uma vez que a base de dados esteja novamente on-line, configuradas previamente configuradas configurações de nível do servidor, tais como configuração [do grupo de failover,](auto-failover-group-overview.md) histórico de restauração pontual e tags **serão perdidas**. Por isso, recomenda-se a implementação de um sistema de notificação que lhe permita identificar e resolver os principais problemas de acesso subjacentes dentro de 8 horas.
+
+Abaixo está uma visão dos passos adicionais necessários no portal para colocar uma base de dados inacessível de volta on-line.
+
+![TDE BYOK Base de Dados Inacessível](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Revogação acidental do acesso ao protetor TDE
 

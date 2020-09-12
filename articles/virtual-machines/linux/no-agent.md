@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045336"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322556"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criação de imagens generalizadas sem um agente de provisionamento
 
@@ -174,7 +174,7 @@ Se o seu VM não tiver Python instalado ou disponível, pode reproduzir program�
    </Health>
    ```
 
-3. Publique estes dados na WireServer:`curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
+3. Publique estes dados na WireServer: `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
 
 ### <a name="automating-running-the-code-at-first-boot"></a>Automatização executando o código na primeira bota
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Este serviço sistemado faz três coisas para o fornecimento básico:
 
 1. Relatórios prontos para Azure (para indicar que surgiu com sucesso).
-1. Rebatiza o VM com base no nome VM fornecido pelo utilizador, retirando estes dados do IMDS.
+1. Rebatiza o VM com base no nome VM fornecido pelo utilizador, retirando estes dados do [Azure Instance Medata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Nota** O IMDS também fornece outros [metadados de exemplo,](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service)como as Chaves Públicas SSH, para que possa definir mais do que o nome de anfitrião.
 1. Desativa-se por si só para que corra apenas na primeira bota e não em reboots subsequentes.
 
 Com a unidade no sistema de ficheiros, execute o seguinte para o ativar:

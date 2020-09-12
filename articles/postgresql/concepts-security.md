@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75972594"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375796"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Segurança na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -23,7 +23,7 @@ Existem várias camadas de segurança disponíveis para proteger os dados na sua
 A Azure Database for PostgreSQL protege os seus dados encriptando dados em trânsito com a Segurança da Camada de Transporte. A encriptação (SSL/TLS) é aplicada por padrão.
 
 ### <a name="at-rest"></a>Em repouso
-A Base de Dados Azure para o serviço PostgreSQL utiliza o módulo criptográfico validado FIPS 140-2 para encriptação de armazenamento de dados em repouso. Os dados, incluindo cópias de segurança, são encriptados no disco, com exceção dos ficheiros temporários criados durante a execução de consultas. O serviço utiliza a cifra AES de 256 bits incluída na encriptação de armazenamento Azure, e as teclas são geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
+A Base de Dados Azure para o serviço PostgreSQL utiliza o módulo criptográfico validado FIPS 140-2 para encriptação de armazenamento de dados em repouso. Os dados, incluindo cópias de segurança, são encriptados no disco, incluindo os ficheiros temporários criados durante a execução de consultas. O serviço utiliza a cifra AES de 256 bits incluída na encriptação de armazenamento Azure, e as teclas são geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 
 
 ## <a name="network-security"></a>Segurança da rede

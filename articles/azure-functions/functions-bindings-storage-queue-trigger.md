@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 515e23fa318e8e77024dadefe9a13e795999f820
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761700"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376643"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -388,7 +388,7 @@ O algoritmo utiliza a seguinte lógica:
 - Quando uma mensagem é encontrada, o tempo de execução espera dois segundos e, em seguida, verifica se há outra mensagem
 - Quando nenhuma mensagem é encontrada, espera cerca de quatro segundos antes de tentar novamente.
 - Após tentativas falhadas subsequentes de obter uma mensagem de fila, o tempo de espera continua a aumentar até atingir o tempo máximo de espera, o que não chega a um minuto.
-- O tempo máximo de espera é configurável através da `maxPollingInterval` propriedade nahost.jsem [ arquivo](functions-host-json.md#queues).
+- O tempo máximo de espera é configurável através da `maxPollingInterval` propriedade nahost.jsem [ arquivo](functions-host-json-v1.md#queues).
 
 Para o desenvolvimento local, o intervalo máximo de votação é de dois segundos.
 
@@ -406,7 +406,7 @@ O gatilho da fila impede automaticamente que uma função processe uma mensagem 
 
 A [host.jsno](functions-host-json.md#queues) ficheiro contém definições que controlam o comportamento do gatilho da fila. Consulte a secçãohost.jsna secção [ de definições](functions-bindings-storage-queue-output.md#hostjson-settings) para obter informações sobre as definições disponíveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Escreva mensagens de armazenamento de bolhas (ligação de saída)](./functions-bindings-storage-blob-output.md)
 

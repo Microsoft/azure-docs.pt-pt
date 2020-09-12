@@ -3,12 +3,12 @@ title: Azure Relay FAQs / Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes sobre o serviço Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317025"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299291"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes de retransmissão de Azure
 
@@ -18,7 +18,7 @@ Este artigo responde a algumas perguntas frequentes (FAQs) sobre [Azure Relay](h
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Perguntas gerais
-### <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
+### <a name="what-is-azure-relay"></a>O que é o Azure Relay?
 O [serviço Azure Relay](relay-what-is-it.md) facilita as suas aplicações híbridas ajudando-o a expor de forma mais segura os serviços que residem dentro de uma rede empresarial para a nuvem pública. Pode expor os serviços sem abrir uma ligação de firewall e sem exigir alterações intrusivas numa infraestrutura de rede corporativa.
 
 ### <a name="what-is-a-relay-namespace"></a>O que é um espaço de nomes de Retransmissor?
@@ -119,8 +119,8 @@ Para uma descrição de exceções comuns e ações sugeridas que você pode tom
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso partilhado, e que línguas posso usar para gerar uma assinatura?
 As Assinaturas de Acesso Partilhado (SAS) são um mecanismo de autenticação baseado em hashes ou URIs seguros SHA-256. Para obter informações sobre como gerar as suas próprias assinaturas em Node.js, PHP, Python, Java, C e C#, consulte [a autenticação do Service Bus com assinaturas de acesso partilhado][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível branquear os pontos finais da lista branca?
-Sim. O cliente de retransmissão faz ligações ao serviço Azure Relay utilizando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` firewalls que suportam a whitelisting DNS.
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>É possível permitir apenas alguns pontos finais de retransmissão?
+Yes. O cliente de retransmissão faz ligações ao serviço Azure Relay utilizando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` firewalls que suportam a listagem de aprovação de DNS.
 
 ## <a name="next-steps"></a>Próximos passos
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)

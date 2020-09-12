@@ -3,39 +3,25 @@ title: Utilize uma chave gerida pelo cliente para encriptar discos Azure no Serv
 description: Traga as suas próprias chaves (BYOK) para encriptar os discos AKS OS e Data.
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.openlocfilehash: 5725bc9a4d16b93ba36ac800d25e3c30f090c2df
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/01/2020
+ms.openlocfilehash: 8687d95878cde7d0ed3308d67f26ffc266abad1e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796889"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297761"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga as suas próprias chaves (BYOK) com discos Azure no Serviço Azure Kubernetes (AKS)
 
-O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, os dados são encriptados com as teclas geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer [chaves geridas pelo cliente][customer-managed-keys] para usar para encriptação em repouso tanto para o SISTEMA como para os discos de dados para os seus clusters AKS.
+O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, os dados são encriptados com as teclas geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer chaves geridas pelo cliente para usar para encriptação em repouso tanto para o SISTEMA como para os discos de dados para os seus clusters AKS. Saiba mais sobre as chaves geridas pelo cliente no [Linux][customer-managed-keys-linux] e [windows][customer-managed-keys-windows].
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="limitations"></a>Limitações
+* O suporte de encriptação do disco de dados está limitado a clusters AKS que executam a versão 1.17 e acima de Kubernetes.
+* A encriptação do SISTEMA e do disco de dados com chaves geridas pelo cliente só pode ser ativada na criação de um cluster AKS.
 
-* Este artigo pressupõe que está a criar um *novo cluster AKS.*
-
+## <a name="prerequisites"></a>Pré-requisitos
 * Tem de ativar a proteção para a eliminação e purga suave do *Cofre da Chave Azure* quando utilizar o Cofre de Chaves para encriptar discos geridos.
-
-* Precisa da versão 2.0.79 ou posterior do Azure CLI e da extensão aks-preview 0.4.26
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="install-latest-aks-cli-preview-extension"></a>Instale a mais recente extensão de pré-visualização do AKS CLI
-
-Para utilizar as teclas geridas pelo cliente, precisa da versão de extensão CLI *de pré-visualização aks* 0.4.26 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+* Precisa da versão 2.11.1 ou posterior do Azure CLI.
 
 ## <a name="create-an-azure-key-vault-instance"></a>Criar uma instância Azure Key Vault
 
@@ -155,12 +141,7 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## <a name="limitations"></a>Limitações
-
-* Encriptação do disco de dados suportada com a versão 1.17 e superior de Kubernetes
-* A encriptação com as chaves geridas pelo cliente atualmente é apenas para novos clusters AKS, os clusters existentes não podem ser atualizados
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Rever [as melhores práticas para a segurança do cluster AKS][best-practices-security]
 
@@ -171,6 +152,7 @@ Rever [as melhores práticas para a segurança do cluster AKS][best-practices-se
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
-[customer-managed-keys]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

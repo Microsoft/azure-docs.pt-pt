@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054717"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320261"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configure o 'Stay signed in?' solicitação para contas AD AZure
 
@@ -57,7 +57,7 @@ Os detalhes sobre o erro de inscrição são os seguintes e realçados no exempl
 
 Pode impedir que os utilizadores vejam a interrupção definindo **a opção 'Mostrar' para permanecerem assinados na** definição de **Nº** nas definições avançadas de marca. Isto desativa a solicitação KMSI para todos os utilizadores do seu diretório AD Azure.
 
-Também pode utilizar os controlos persistentes da sessão do navegador no acesso condicional para impedir que os utilizadores possam ver a solicitação KMSI. Esta opção permite desativar a solicitação KMSI para um grupo selecionado de utilizadores (como os administradores globais) sem afetar o comportamento de inscrição para os restantes utilizadores no diretório. Para obter mais informações, consulte [a frequência de inscrição do utilizador.](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime) 
+Também pode utilizar os controlos persistentes da sessão do navegador no acesso condicional para impedir que os utilizadores possam ver a solicitação KMSI. Esta opção permite desativar a solicitação KMSI para um grupo selecionado de utilizadores (como os administradores globais) sem afetar o comportamento de inscrição para os restantes utilizadores no diretório. Para obter mais informações, consulte [a frequência de inscrição do utilizador.](../conditional-access/howto-conditional-access-session-lifetime.md) 
 
 Para garantir que o pedido KMSI só é mostrado quando pode beneficiar o utilizador, o pedido KMSI não é intencionalmente mostrado nos seguintes cenários:
 
@@ -72,6 +72,6 @@ Para garantir que o pedido KMSI só é mostrado quando pode beneficiar o utiliza
 
 Saiba mais sobre outras definições que afetam o tempo limite da sessão de sessão de sessão:
 
-* Microsoft 365 - [Intervalo de sessão inativo](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Acesso Condicional Azure AD - [Frequência de inscrição do utilizador](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Portal Azure – [Tempo de inatividade ao nível do diretório](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365 - [Intervalo de sessão inativo](/sharepoint/sign-out-inactive-users)
+* Acesso Condicional Azure AD - [Frequência de inscrição do utilizador](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Portal Azure – [Tempo de inatividade ao nível do diretório](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

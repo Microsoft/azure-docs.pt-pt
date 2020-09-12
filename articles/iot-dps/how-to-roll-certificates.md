@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974892"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299273"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como rolar certificados de dispositivo X.509
 
@@ -51,7 +51,7 @@ Quando um dispositivo é inicialmente a provisionado através de provisões auto
 
 Uma vez que um novo certificado de folha foi enrolado no dispositivo, ele não pode mais ligar-se ao hub IoT porque está usando um novo certificado para ligar. O hub IoT só reconhece o dispositivo com o certificado antigo. O resultado da tentativa de ligação do dispositivo será um erro de ligação "não autorizado". Para resolver este erro, tem de atualizar a entrada de inscrição do dispositivo para ter em conta o novo certificado de folha do dispositivo. Em seguida, o serviço de fornecimento pode atualizar as informações de registo do dispositivo IoT Hub, conforme necessário, quando o dispositivo for reprovisionado. 
 
-Uma possível exceção a esta falha de ligação seria um cenário em que criou um [Grupo de Inscrição](concepts-service.md#enrollment-group) para o seu dispositivo no serviço de fornecimento. Neste caso, se não estiver a rolar os certificados de raiz ou intermédios na cadeia de certificados do dispositivo, então o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de inscrição. Se este cenário surgir como uma reação a uma falha de segurança, deverá pelo menos colocar na lista negra os certificados específicos do dispositivo no grupo que são considerados violados. Para obter mais informações, consulte [dispositivos específicos da Blacklist num grupo de matrículas.](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group)
+Uma possível exceção a esta falha de ligação seria um cenário em que criou um [Grupo de Inscrição](concepts-service.md#enrollment-group) para o seu dispositivo no serviço de fornecimento. Neste caso, se não estiver a rolar os certificados de raiz ou intermédios na cadeia de certificados do dispositivo, então o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de inscrição. Se este cenário surgir como uma reação a uma falha de segurança, deve pelo menos não permitir os certificados específicos do dispositivo no grupo que são considerados violados. Para obter mais informações, consulte [Dispositivos específicos desprovidas de informação num grupo de matrículas.](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group)
 
 A atualização das inscrições para certificados enrolados é realizada na página **de inscrições de Gestão.** Para aceder a esta página, siga estes passos:
 
@@ -197,9 +197,9 @@ Outra forma é que tanto os antigos como os novos certificados sejam válidos pa
 Uma vez concluída a reprovisionamento, os dispositivos poderão ligar-se ao IoT Hub utilizando os seus novos certificados.
 
 
-## <a name="blacklist-certificates"></a>Certificados blacklist
+## <a name="disallow-certificates"></a>Não permitir certificados
 
-Em resposta a uma falha de segurança, poderá ter de colocar na lista negra um certificado de dispositivo. Para colocar na lista negra um certificado de dispositivo, desative a entrada de inscrição para o dispositivo/certificado alvo. Para obter mais informações, consulte os dispositivos de blacklist no artigo [de desinscrição de gestão.](how-to-revoke-device-access-portal.md)
+Em resposta a uma falha de segurança, poderá ser necessário não permitir um certificado de dispositivo. Para não permitir um certificado de dispositivo, desative a entrada de inscrição para o dispositivo/certificado alvo. Para obter mais informações, consulte dispositivos de desativação no artigo [de desinscrição de gestão.](how-to-revoke-device-access-portal.md)
 
 Uma vez que um certificado é incluído como parte de uma entrada de inscrição com deficiência, qualquer tentativa de registrar-se com um hub IoT usando esses certificados falhará mesmo que seja ativado como parte de outra inscrição.
  
@@ -211,13 +211,3 @@ Uma vez que um certificado é incluído como parte de uma entrada de inscrição
 - Para saber mais sobre os certificados X.509 no Serviço de Provisionamento de Dispositivos, consulte [Segurança](concepts-security.md) 
 - Para saber como fazer o comprovativo de posse dos certificados X.509 CA com o Serviço de Provisionamento de Dispositivos Azure IoT Hub, consulte [como verificar os certificados](how-to-verify-certificates.md)
 - Para saber como usar o portal para criar um grupo de [inscrições, consulte gestão de inscrições de dispositivos com portal Azure.](how-to-manage-enrollments.md)
-
-
-
-
-
-
-
-
-
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: fcd9f0759ae885199347cc23d93e8f1c00251387
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1ad008ff3ef4f29ee358b075802deba7eef919bd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260531"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322046"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
 
@@ -36,7 +36,8 @@ A segurança e a privacidade estão entre as principais prioridades para os clie
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Em que regiões está disponível a Nuvem de primavera de Azure?
 
-Leste dos EUA, Oeste dos EUA 2, Europa Ocidental e Sudeste Asiático.
+Leste dos EUA, Leste dos EUA 2, Central EUA, Central Norte-Americano, Oeste dos EUA 2, Europa Ocidental, Norte da Europa, Reino Unido Sul, Sudeste Asiático e Austrália Oriental.
+
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Quais são as limitações conhecidas de Azure Spring Cloud?
 
@@ -58,7 +59,7 @@ Se encontrar algum problema com a Nuvem de primavera de Azure, crie um [Pedido d
 
 ### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>Sou um desenvolvedor de Spring Cloud, mas novo em Azure. Qual é a maneira mais rápida de aprender a desenvolver uma aplicação Azure Spring Cloud?
 
-Para obter a forma mais rápida de começar com a Azure Spring Cloud, siga as instruções em [Quickstart: Lance uma aplicação Azure Spring Cloud utilizando o portal Azure](spring-cloud-quickstart-launch-app-portal.md).
+Para obter a forma mais rápida de começar com a Azure Spring Cloud, siga as instruções em [Quickstart: Lance uma aplicação Azure Spring Cloud utilizando o portal Azure](spring-cloud-quickstart.md).
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Que tempo de execução java suporta a Azure Spring Cloud?
 
@@ -151,7 +152,7 @@ Não.  Azure Spring Cloud abstrata o desenvolvedor da arquitetura subjacente, pe
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>A Azure Spring Cloud suporta contentores de construção de fonte?
 
-Yes. Para obter mais informações, consulte [lançar a sua aplicação Cloud Spring a partir do código fonte](spring-cloud-launch-from-source.md).
+Yes. Para obter mais informações, consulte [lançar a sua aplicação Cloud Spring a partir do código fonte](spring-cloud-quickstart.md).
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>O Azure Spring Cloud suporta autoscaling em instâncias de aplicações?
 
@@ -183,6 +184,6 @@ Não deve haver impactos na experiência do utilizador, o cliente eureka tem sim
 Vamos melhorar esta parte e evitar este erro das aplicações dos utilizadores num futuro curto.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver mais perguntas, consulte o [guia de resolução de problemas da Nuvem de primavera de Azure](spring-cloud-troubleshoot.md).

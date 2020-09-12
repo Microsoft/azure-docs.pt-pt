@@ -3,12 +3,12 @@ title: Restaurar ações de ficheiros Azure
 description: Saiba como utilizar o portal Azure para restaurar uma partilha de ficheiros inteira ou ficheiros específicos a partir de um ponto de restauração criado pelo Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762829"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376779"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar ações de ficheiros Azure
 
@@ -50,16 +50,16 @@ Pode utilizar esta opção de restauro para restaurar a partilha completa de fic
 
    ![Selecione Restaurar Partilhar](./media/restore-afs/restore-share.png)
 
-1. Depois de selecionar **Restaurar Partilhar,** o **painel De restauro** abre-se. Para selecionar o ponto de restauro que pretende utilizar para executar a operação de restauro, clique no texto de link **Select** abaixo da caixa de texto **'Ponto de Vista'** ..
+1. Depois de selecionar **Restaurar Partilhar,** o **painel De restauro** abre-se. Para selecionar o ponto de restauro que pretende utilizar para executar a operação de restauro, escolha o texto de ligação **Select** abaixo da caixa de texto **Ponto de Restauração.**
 
-    ![Selecione o ponto de restauro clicando Selecione](./media/restore-afs/select-restore-point.png)
+    ![Selecione o ponto de restauro escolhendo Select](./media/restore-afs/select-restore-point.png)
 
 1. O painel de contexto **Select Restore Point** abre à direita, listando os pontos de restauro disponíveis para a partilha de ficheiros selecionada. Selecione o ponto de restauro que pretende utilizar para executar a operação de restauro e selecione **OK**.
 
     ![Selecione ponto de restauro](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >Por predefinição, o **painel Select Restore Point** lista pontos de restauro dos últimos 30 dias. Se pretender olhar para os pontos de restauro criados durante uma duração específica, especifique o intervalo selecionando a **hora** de início e **o tempo de início** adequados e clique no botão **Refresh.**
+    >Por predefinição, o **painel Select Restore Point** lista pontos de restauro dos últimos 30 dias. Se pretender olhar para os pontos de restauro criados durante uma duração específica, especifique o intervalo selecionando a **hora** de início e **o tempo de início** adequados e selecione o botão **Refresh.**
 
 1. O próximo passo é escolher a **Localização De Restauro.** Na secção **Destino de Recuperação,** especifique onde ou como restaurar os dados. Selecione uma das duas opções seguintes utilizando o botão de alternar:
 
@@ -93,9 +93,9 @@ Pode utilizar esta opção de restauro para restaurar ficheiros ou pastas indivi
 
     ![Selecione recuperação de ficheiros](./media/restore-afs/file-recovery.png)
 
-1. Depois de selecionar **a Recuperação de Ficheiros,** o **painel De restauro** abre-se. Para selecionar o ponto de restauro que pretende utilizar para executar a operação de restauro, clique no texto de link **Select** abaixo da caixa de texto **'Ponto de Vista'** ..
+1. Depois de selecionar **a Recuperação de Ficheiros,** o **painel De restauro** abre-se. Para selecionar o ponto de restauro que pretende utilizar para executar a operação de restauro, selecione o texto de ligação **Select** abaixo da caixa de texto **'Ponto de Vista'** ..
 
-    ![Selecione o ponto de restauro clicando Selecione](./media/restore-afs/select-restore-point.png)
+    ![Selecione o ponto de restauro escolhendo o link Select](./media/restore-afs/select-restore-point.png)
 
 1. O painel de contexto **Select Restore Point** abre à direita, listando os pontos de restauro disponíveis para a partilha de ficheiros selecionada. Selecione o ponto de restauro que pretende utilizar para executar a operação de restauro e selecione **OK**.
 
@@ -112,7 +112,7 @@ Pode utilizar esta opção de restauro para restaurar ficheiros ou pastas indivi
 
     ![Localização original para recuperação do nível do item](./media/restore-afs/original-location-item-level.png)
 
-1. Para selecionar os ficheiros ou pastas que pretende restaurar, clique no botão **'Adicionar Ficheiro'.** Isto abrirá um painel de contexto à direita, mostrando o conteúdo do ponto de recuperação da partilha de ficheiros selecionado para restauro.
+1. Para selecionar os ficheiros ou pastas que pretende restaurar, selecione o botão **'Adicionar Ficheiro'.** Isto abrirá um painel de contexto à direita, mostrando o conteúdo do ponto de recuperação da partilha de ficheiros selecionado para restauro.
 
     ![Escolha adicionar ficheiro](./media/restore-afs/add-file.png)
 
@@ -132,7 +132,7 @@ Pode utilizar esta opção de restauro para restaurar ficheiros ou pastas indivi
 1. A lista de drop-down **Select File Share** apresenta as ações de ficheiro presentes na conta de armazenamento selecionada no passo 2. Selecione a partilha de ficheiros onde pretende restaurar o conteúdo de back-up.
 1. Na caixa Nome da **Pasta,** especifique um nome de pasta que pretende criar na partilha de ficheiros de destino com o conteúdo restaurado.
 1. Selecione se deve saltar ou substituir se houver conflitos.
-1. Para selecionar os ficheiros ou pastas que pretende restaurar, clique no botão **'Adicionar Ficheiro'.** Isto abrirá um painel de contexto no lado direito mostrando o conteúdo do ponto de recuperação da partilha de ficheiros selecionado para restauro.
+1. Para selecionar os ficheiros ou pastas que pretende restaurar, selecione o botão **'Adicionar Ficheiro'.** Isto abrirá um painel de contexto no lado direito mostrando o conteúdo do ponto de recuperação da partilha de ficheiros selecionado para restauro.
 
     ![Selecione itens para restaurar para localização alternativa](./media/restore-afs/restore-to-alternate-location.png)
 
@@ -162,6 +162,6 @@ Também pode monitorizar o progresso da recuperação do cofre dos Serviços de 
 
     ![Ver detalhes restaurados](./media/restore-afs/restore-details.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como gerir as [cópias de segurança de partilha de ficheiros Azure](manage-afs-backup.md).

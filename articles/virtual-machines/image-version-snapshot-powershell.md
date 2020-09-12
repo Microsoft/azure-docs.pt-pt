@@ -1,6 +1,6 @@
 ---
-title: PowerShell - Criar uma imagem a partir de um instantâneo ou VHD numa Galeria de Imagens Partilhadas
-description: Saiba como criar uma imagem a partir de um instantâneo ou VHD numa Galeria de Imagens Partilhadas utilizando o PowerShell.
+title: PowerShell - Criar uma imagem a partir de um instantâneo ou disco gerido numa Galeria de Imagens Partilhadas
+description: Saiba como criar uma imagem a partir de um instantâneo ou disco gerido numa Galeria de Imagens Partilhadas utilizando o PowerShell.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2ebff0d86c27bcdbc11d23e18116b33b4ea838a6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494722"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300260"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Crie uma imagem a partir de um VHD ou instantâneo numa Galeria de Imagens Partilhadas usando PowerShell
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Crie uma imagem a partir de um disco gerido ou instantâneo numa Galeria de Imagens Partilhadas usando PowerShell
 
-Se tiver um instantâneo ou VHD existente que gostaria de migrar para uma Galeria de Imagens Partilhadas, pode criar uma imagem da Galeria de Imagens Partilhada diretamente a partir do VHD ou instantâneo. Depois de ter testado a sua nova imagem, pode eliminar a fonte VHD ou a snapshot. Também pode criar uma imagem a partir de um VHD ou instantâneo numa Galeria de Imagens Partilhadas utilizando o [Azure CLI](image-version-snapshot-cli.md).
+Se tiver um instantâneo ou disco gerido existente que gostaria de migrar para uma Galeria de Imagens Partilhadas, pode criar uma imagem da Galeria de Imagens Partilhada diretamente do Disco Gerido ou instantâneo. Depois de ter testado a sua nova imagem, pode eliminar o disco gerido ou o instantâneo de origem. Também pode criar uma imagem a partir de um disco gerido ou instantâneo numa Galeria de Imagens Partilhadas utilizando o [Azure CLI](image-version-snapshot-cli.md).
 
 As imagens numa galeria de imagens têm dois componentes, que iremos criar neste exemplo:
 - Uma **definição de Imagem** transporta informações sobre a imagem e requisitos para a sua utilização. Isto inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de lançamento e requisitos mínimos e máximo de memória. É uma definição de um tipo de imagem. 
@@ -27,14 +27,14 @@ As imagens numa galeria de imagens têm dois componentes, que iremos criar neste
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Para completar este artigo, você deve ter uma foto ou VHD. 
+Para completar este artigo, tem de ter uma foto ou disco gerido. 
 
 Se pretender incluir um disco de dados, o tamanho do disco de dados não pode ser superior a 1 TB.
 
 Ao trabalhar neste artigo, substitua os nomes dos recursos sempre que necessário.
 
 
-## <a name="get-the-snapshot-or-vhd"></a>Obtenha o instantâneo ou VHD
+## <a name="get-the-snapshot-or-managed-disk"></a>Obtenha o instantâneo ou disco gerido
 
 Pode ver uma lista de instantâneos disponíveis num grupo de recursos utilizando [o Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). 
 
@@ -50,17 +50,17 @@ $source = Get-AzSnapshot `
    -ResourceGroupName myResourceGroup
 ```
 
-Também pode utilizar um VHD em vez de uma foto instantânea. Para obter um VHD, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
+Também pode utilizar um Disco Gerido em vez de um instantâneo. Para obter um Disco Gerido, utilize [o Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
 
 ```azurepowershell-interactive
 Get-AzDisk | Format-Table -Property Name,ResourceGroupName
 ```
 
-Em seguida, pegue o VHD e atribua-o à `$source` variável.
+Em seguida, pegue o Disco Gerido e atribua-o à `$source` variável.
 
 ```azurepowershell-interactive
 $source = Get-AzDisk `
-   -SnapshotName mySnapshot
+   -Name myDisk
    -ResourceGroupName myResourceGroup
 ```
 
@@ -88,7 +88,7 @@ $gallery = Get-AzGallery `
 
 As definições de imagem criam um agrupamento lógico para imagens. São usados para gerir informação sobre a imagem. Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. 
 
-Ao fazer a definição de imagem, certifique-se de que tem todas as informações corretas. Neste exemplo, estamos assumindo que o instantâneo ou VHD são de um VM que está em uso, e não foi generalizado. Se o VHD ou o instantâneo tiver sido tirado de um SISTEMA generalizado (depois de executar sysprep para Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou para `-deprovision+user` Linux) então mude o `-OsState` para `generalized` . 
+Ao fazer a definição de imagem, certifique-se de que tem todas as informações corretas. Neste exemplo, estamos assumindo que o instantâneo ou o Disco Gerido são de um VM que está em uso, e não foi generalizado. Se o Disco Gerido ou instantâneo foi tirado de um SISTEMA generalizado (depois de executar Sysprep para Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou para `-deprovision+user` Linux) então mude o `-OsState` para `generalized` . 
 
 Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./windows/shared-image-galleries.md#image-definitions).
 
@@ -118,7 +118,7 @@ Crie uma versão de imagem a partir do instantâneo utilizando [a Versão Nova-A
 
 Os caracteres permitidos para a versão de imagem são números e períodos. Os números devem estar dentro do alcance de um inteiro de 32 bits. Formato: *MajorVersion*. *Menorversão.* *Patch*.
 
-Se quiser que a sua imagem contenha um disco de dados, para além do disco de SO, adicione o `-DataDiskImage` parâmetro e desloque-o para o ID do instantâneo do disco de dados ou VHD.
+Se quiser que a sua imagem contenha um disco de dados, para além do disco DE, adicione o `-DataDiskImage` parâmetro e desa quando o coloque no ID do instantâneo do disco de dados ou no Disco Gerido.
 
 Neste exemplo, a versão de imagem é *1.0.0* e é replicada tanto para os centros de dados do *Centro Central Oeste dos EUA* como para os centros de dados do Centro Central Sul dos *EUA.* Ao escolher regiões-alvo para replicação, lembre-se que também tem de incluir a região *de origem* como alvo de replicação.
 

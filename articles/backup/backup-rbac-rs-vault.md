@@ -4,12 +4,12 @@ description: Use o Control de Acesso baseado em funções para gerir o acesso a 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 1a4bb617511f5d5ccf882ccb11e7d88eb7a848ea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017809"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376133"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure
 
@@ -37,7 +37,7 @@ O quadro seguinte captura as ações de gestão de Backup e a correspondente fun
 | | Contribuidor de Máquina Virtual | Recurso VM |
 | Backup a pedido da VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | Restaurar VMs | Operador de backup | Cofre dos Serviços de Recuperação |
-| | Contribuinte | Grupo de recursos no qual a VM será implantada |
+| | Contribuidor | Grupo de recursos no qual a VM será implantada |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | Restaurar a cópia de segurança dos discos não geridos VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
@@ -45,7 +45,7 @@ O quadro seguinte captura as ações de gestão de Backup e a correspondente fun
 | Restaurar discos geridos a partir de backup VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | | Contribuidor de Conta de Armazenamento | Conta de Armazenamento Temporário selecionada como parte da restauração para reter dados do cofre antes de convertê-los em discos geridos |
-| | Contribuinte | Grupo de recursos para o qual os discos geridos serão restaurados |
+| | Contribuidor | Grupo de recursos para o qual os discos geridos serão restaurados |
 | Restaurar ficheiros individuais a partir de cópia de segurança VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | Criar política de backup para backup Azure VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
@@ -56,7 +56,7 @@ O quadro seguinte captura as ações de gestão de Backup e a correspondente fun
 | Eliminar o Windows Server/cliente/SCDPM ou O Azure Backup Server | Colaborador de backup | Cofre dos Serviços de Recuperação |
 
 > [!IMPORTANT]
-> Se especificar o VM Contributor num âmbito de recursos VM e clicar em Backup como parte das definições de VM, abrirá o ecrã 'Enable Backup', mesmo que o VM já esteja apoiado como a chamada para verificar o estado de backup funciona apenas ao nível da subscrição. Para evitar isto, vá ao cofre e abra a vista de ponto de cópia de segurança do VM ou especifique a função VM Contributor a nível de subscrição.
+> Se especificar o VM Contributor num âmbito de recursos VM e selecionar **o Backup** como parte das definições de VM, abrirá o ecrã de **Backup Ativa,** mesmo que o VM já esteja apoiado. Isto porque a chamada para verificar o estado de backup funciona apenas ao nível da subscrição. Para evitar isto, vá ao cofre e abra a vista de ponto de cópia de segurança do VM ou especifique a função de Contribuinte VM a nível de subscrição.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos mínimos de função para o backup de partilha de ficheiros Azure
 
@@ -75,7 +75,7 @@ A tabela seguinte captura as ações de gestão de Backup e o papel corresponden
 | Conta de armazenamento não registro do cofre |Colaborador de backup | Cofre dos Serviços de Recuperação |
 | |Contribuidor de Conta de Armazenamento | Recurso de conta de armazenamento|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Começa com o RBAC no portal Azure.
 * Saiba como gerir o acesso com:

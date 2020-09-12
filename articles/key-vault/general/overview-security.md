@@ -1,5 +1,5 @@
 ---
-title: Segurança Azure Key Vault / Microsoft Docs
+title: Segurança do Azure Key Vault
 description: Gerencie permissões de acesso para Azure Key Vault, chaves e segredos. Cobre o modelo de autenticação e autorização do Key Vault e como proteger o cofre da chave.
 services: key-vault
 author: msmbaldwin
@@ -10,17 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: edef64c215f96b34cd0efbff4521a7d5adb98885
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870583"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377578"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
-Você precisa proteger chaves de encriptação e segredos como certificados, cadeias de conexão e senhas na nuvem para que você esteja usando Azure Key Vault. Uma vez que está a armazenar dados críticos sensíveis e empresariais, precisa de tomar medidas para maximizar a segurança dos seus cofres e os dados armazenados nos mesmos. Este artigo cobrirá alguns dos conceitos que deve considerar ao conceber a sua segurança Azure Key Vault.
+Você usa o Cofre de Chaves Azure para proteger chaves de encriptação e segredos como certificados, cadeias de conexão e senhas na nuvem. Ao armazenar dados críticos sensíveis e empresariais, é necessário tomar medidas para maximizar a segurança dos seus cofres e os dados armazenados nos mesmos.
 
 ## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
 
@@ -65,7 +64,7 @@ As políticas de acesso ao Cofre chave concedem permissões separadamente a chav
 > [!IMPORTANT]
 > As políticas de acesso ao Cofre não suportam permissões granulares ao nível de objetos como uma chave específica, segredo ou certificado. Quando um utilizador tem permissão para criar e eliminar chaves, pode efetuar essas operações em todas as teclas do cofre.
 
-Para definir políticas de acesso para um cofre de chaves, utilize o [portal Azure,](https://portal.azure.com/)o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [o Azure PowerShell](/powershell/azure/)ou as [APIs de Gestão de Cofres de Chaves](/rest/api/keyvault/).
+Pode definir políticas de acesso para um cofre de chaves utilizar o [portal Azure,](assign-access-policy-portal.md)o [Azure CLI,](assign-access-policy-cli.md) [a Azure PowerShell](assign-access-policy-powershell.md)ou as [APIs de Gestão de Cofres de Chave](/rest/api/keyvault/).
 
 Pode restringir o acesso a um plano de dados utilizando [pontos finais de serviço de rede virtual para a Azure Key Vault](overview-vnet-service-endpoints.md)). Pode configurar [firewalls e regras de rede virtuais](network-security.md) para uma camada adicional de segurança.
 
@@ -93,7 +92,7 @@ A informação de registo pode ser acedida no prazo de 10 minutos após a opera�
 - Utilize métodos padrão de controlo de acesso do Azure para proteger os seus registos, restringindo o seu acesso.
 - Elimine os registos que já não pretende manter na sua conta de armazenamento.
 
-Para recomendação sobre gestão segura de contas de armazenamento, reveja o [guia de segurança do Azure Storage](../../storage/blobs/security-recommendations.md)
+Para recomendação sobre a gestão segura das contas de armazenamento, reveja o [guia de segurança do Azure Storage](../../storage/blobs/security-recommendations.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

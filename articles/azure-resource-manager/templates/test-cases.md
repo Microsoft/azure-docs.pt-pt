@@ -2,15 +2,15 @@
 title: Teste de caixas para kit de ferramentas de teste
 description: Descreve os testes que são executados pelo kit de ferramentas de teste do modelo ARM.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255987"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378122"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de teste predefinidos para o kit de ferramentas de teste do modelo ARM
 
@@ -100,6 +100,37 @@ O próximo exemplo **passa** neste teste:
         "type": "SecureString"
     }
 }
+```
+
+## <a name="environment-urls-cant-be-hardcoded"></a>UrLs ambientais não podem ser codificados
+
+Nome do teste: **DeploymentTemplate Must Not Contain Hardcoded Uri**
+
+Não faça o hardcode ambiente URLs no seu modelo. Em vez disso, utilize a [função ambiente](template-functions-deployment.md#environment) para obter dinamicamente estes URLs durante a implantação. Para obter uma lista dos anfitriões url que estão bloqueados, consulte o [caso de teste](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+
+O exemplo a seguir **falha** neste teste porque o URL está codificado.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+O teste também **falha** quando utilizado com [concat](template-functions-string.md#concat) ou [uri](template-functions-string.md#uri).
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+O exemplo que **se segue passa** neste teste.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## <a name="location-uses-parameter"></a>Localização usa parâmetro
@@ -353,16 +384,16 @@ Você também recebe este aviso se fornecer um valor min ou máximo, mas não o 
 
 Nome do teste: **parâmetro de artefactos**
 
-Quando incluir parâmetros para `_artifactsLocation` `_artifactsLocationSasToken` e, utilize os predefinidos e os tipos corretos. Devem ser esubaadas as seguintes condições para passar neste teste:
+Quando incluir parâmetros para `_artifactsLocation` `_artifactsLocationSasToken` e, utilize os predefinidos e os tipos corretos. Devem ser reunidas as seguintes condições para passar neste ensaio:
 
 * se fornecer um parâmetro, deve fornecer o outro
-* `_artifactsLocation`deve ser uma **corda**
-* `_artifactsLocation`deve ter um valor padrão no modelo principal
-* `_artifactsLocation`não pode ter um valor padrão em um modelo aninhado 
-* `_artifactsLocation`deve ter um `"[deployment().properties.templateLink.uri]"` ou o URL de repo cru para o seu valor padrão
-* `_artifactsLocationSasToken`deve ser um **secureString**
-* `_artifactsLocationSasToken`só pode ter uma corda vazia para o seu valor padrão
-* `_artifactsLocationSasToken`não pode ter um valor padrão em um modelo aninhado 
+* `_artifactsLocation` deve ser uma **corda**
+* `_artifactsLocation` deve ter um valor padrão no modelo principal
+* `_artifactsLocation` não pode ter um valor padrão em um modelo aninhado 
+* `_artifactsLocation` deve ter um `"[deployment().properties.templateLink.uri]"` ou o URL de repo cru para o seu valor padrão
+* `_artifactsLocationSasToken` deve ser um **secureString**
+* `_artifactsLocationSasToken` só pode ter uma corda vazia para o seu valor padrão
+* `_artifactsLocationSasToken` não pode ter um valor padrão em um modelo aninhado 
 
 ## <a name="declared-variables-must-be-used"></a>Variáveis declaradas devem ser utilizadas
 
@@ -514,9 +545,9 @@ Este teste aplica-se a:
 
 Para `reference` `list*` e, o teste **falha** quando se utiliza `concat` para construir o ID do recurso.
 
-## <a name="dependson-cant-be-conditional"></a>dependeOn não pode ser condicional
+## <a name="dependson-best-practices"></a>depende Das melhores práticas
 
-Nome do teste: **Dependon Não deve ser condicional**
+Nome do teste: **Depende das melhores práticas**
 
 Ao definir as dependências de implantação, não utilize a função [se](template-functions-logical.md#if) funcionar para testar uma condição. Se um recurso depender de um recurso que esteja [implementado condicionalmente,](conditional-resource-deployment.md)desloque a dependência como faria com qualquer recurso. Quando um recurso condicional não é implantado, o Azure Resource Manager remove-o automaticamente das dependências necessárias.
 
@@ -572,7 +603,7 @@ Se o seu modelo incluir uma máquina virtual com uma imagem, certifique-se de qu
 
 ## <a name="use-stable-vm-images"></a>Use imagens VM estáveis
 
-Nome do teste: **Virtual-Machines-Should-Not-Be-Preview**
+Nome do teste: **Máquinas virtuais não devem ser pré-visualização**
 
 As máquinas virtuais não devem utilizar imagens de pré-visualização.
 

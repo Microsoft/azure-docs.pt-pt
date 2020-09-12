@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 8748e4f78582ab133d7e527daba1c126dcb7e7e2
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0fe8c4753cef9fa829a2cb696e164dbdf5f2b8f2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543712"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297574"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -62,7 +62,7 @@ As seguintes regiões são apoiadas para implantações virtuais de nó:
 A funcionalidade Nódes Virtuais está fortemente dependente do conjunto de funcionalidades do ACI. Para além das [quotas e limites para as instâncias do contentor Azure,](../container-instances/container-instances-quotas.md)os seguintes cenários ainda não são suportados com nóns virtuais:
 
 * Utilizar o principal de serviço para retirar imagens ACR. [A solução](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) é usar [segredos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitações de rede virtuais,](../container-instances/container-instances-vnet.md) incluindo o peering VNet, as políticas de rede Kubernetes e o tráfego de saída para a internet com grupos de segurança de rede.
+* [Limitações de rede virtuais,](../container-instances/container-instances-virtual-network-concepts.md) incluindo o peering VNet, as políticas de rede Kubernetes e o tráfego de saída para a internet com grupos de segurança de rede.
 * Recipientes init
 * [Pseudónimos anfitrião](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para executivos em ACI
@@ -212,7 +212,7 @@ A aplicação de demonstração é apresentada, como mostra a seguinte saída de
 
 Feche a sessão de terminais à sua cápsula de teste com `exit` . Quando a sessão terminar, a cápsula é apagada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, foi agendada uma cápsula no nó virtual e atribuída um endereço IP interno e privado. Em vez disso, pode criar uma implementação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][aks-basic-ingress].
 

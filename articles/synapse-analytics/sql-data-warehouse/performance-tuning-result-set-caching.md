@@ -11,20 +11,18 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 919f3105c1ee9cc8cbdfaf413be56f6dd6291683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212688"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378530"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados
 
 Quando o caching do resultado está ativado, a consulta de caches Synapse SQL automaticamente resulta na base de dados do utilizador para uma utilização repetitiva.  Isto permite que execuções de consulta subsequentes obtenham resultados diretamente da cache persistiu, pelo que não é necessária recomputação.   O conjunto de resultados melhora o desempenho da consulta e reduz o uso de recursos compute.  Além disso, as consultas que utilizam os resultados em cache não utilizam quaisquer ranhuras de concordância e, portanto, não contam com os limites de concordância existentes. Para a segurança, os utilizadores só podem aceder aos resultados em cache se tiverem as mesmas permissões de acesso aos dados que os utilizadores que criam os resultados em cache.  
 
 ## <a name="key-commands"></a>Comandos-chave
-
-[Ligue o conjunto de resultados LIGADO/OFF para uma base de dados de utilizadores](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 [Ligue o conjunto de resultados LIGADO/OFF para uma base de dados de utilizadores](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 

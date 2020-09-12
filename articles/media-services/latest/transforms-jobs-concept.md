@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: inhenkel
-ms.openlocfilehash: 103509de90d8819b19c46ebba7ae2dcc6071ac33
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a9e34c4aaeb6fc2c151233b05ed5584e0e624148
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256074"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297982"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e Empregos em Serviços de Media
 
@@ -114,12 +114,12 @@ Para mais informações, consulte [o processamento de mídia scale com CLI](medi
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Códigos de erro](/rest/api/media/jobs/get#joberrorcode)
 * [Filtragem, encomenda, paging de entidades de Serviços de Comunicação Social](entities-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Antes de começar a desenvolver, [reveja o Desenvolvimento com os Serviços de Comunicação Social v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)
 - Confira estes tutoriais:

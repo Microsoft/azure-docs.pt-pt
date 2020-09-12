@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 09/01/2020
 ms.author: yushwang
-ms.openlocfilehash: 18eaf520c70b064f26cd1da5f50c023f42adb8ee
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021821"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318952"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca dos dispositivos de VPN e dos parâmetros IPsec/IKE para ligações do Gateway da Rede de VPNs
 
@@ -46,7 +46,7 @@ Para ajudar a configurar o seu dispositivo VPN, consulte os links que correspond
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Suportado |Suportado |
 | Cisco | CSR | Percurso: IOS-XE 16.10 | (não testado) | [Script de configuração](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Suportado |Suportado |
-| Cisco |Meraki |N/D |Não compatível |Não compatível |
+| Cisco |Meraki (MX) | MX v15.12 |Não compatível | [Guia de configuração](https://documentation.meraki.com/MX/Site-to-site_VPN/Configuring_Site_to_Site_VPN_tunnels_to_Azure_VPN_Gateway) |
 | Cisco | vEdge (Viptela OS) | 18.4.0 (Modo Ativo/Passivo)<br><br>19.2 (Modo Ativo/Ativo) | Não compatível |  [Configuração manual (Ativa/Passiva)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[Configuração onramp de nuvem (Ativo/Ativo)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e posterior |[Guia de configuração](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Não compatível |
 | F5 |Série BIG-IP |12.0 |[Guia de configuração](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guia de configuração](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -144,7 +144,7 @@ Nas seguintes tabelas:
 | Algoritmos de Encriptação e Hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas de RouteBased QM SA](#RouteBasedOffers) |
 | Duração de SA (Tempo)            |3600 segundos  |27,000 segundos                               |
 | Duração de SA (Bytes)           |102 400 000 KB |102 400 000 KB                               |
-| Perfect Forward Secrecy (PFS) |Não             |[Ofertas de RouteBased QM SA](#RouteBasedOffers) |
+| Perfect Forward Secrecy (PFS) |No             |[Ofertas de RouteBased QM SA](#RouteBasedOffers) |
 | Deteção de Elemento Inutilizado (DPD)     |Não suportado  |Suportado                                    |
 
 

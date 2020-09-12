@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/02/2020
 ms.author: victorh
-ms.openlocfilehash: 82202705c5dbd4539eec4775d0844a749fd405f9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537008"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376949"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar registos e métricas do Azure Firewall
 
@@ -78,6 +78,7 @@ Pode ver e analisar os dados de registo de atividades através de um dos seguint
 
 * **Ferramentas do Azure**: recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 * **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), pode experimentá-lo gratuitamente. Ao utilizar o [pacote de conteúdos de Registos de Atividades do Azure para o Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), pode analisar os seus dados com dashboards pré-configurados que podem ser utilizados tal como estão ou personalizados.
+* **Azure Sentinel**: Pode ligar os registos do Azure Firewall ao Azure Sentinel, permitindo-lhe visualizar dados de registo em livros de trabalho, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a sua investigação. O conector de dados Azure Firewall em Azure Sentinel está atualmente em pré-visualização pública. Para obter mais informações, consulte [os dados do Azure Firewall.](../sentinel/connect-azure-firewall.md)
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ver e analisar os registos de regras de rede e de aplicação
 

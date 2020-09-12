@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: a2dff1ea9c830fa48545dc25654cc3c5318c3415
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 20a376d303f90727063f288e239e89ede2a1113c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235915"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298220"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
 
@@ -60,6 +60,12 @@ Este padrão lê-se diretamente do twin da sala, em vez do dispositivo IoT, o qu
     ```
 
 3. Crie uma rota em Azure Digital Twins para enviar eventos de atualização dupla para o seu ponto final.
+
+    >[!NOTE]
+    >Existe atualmente um **problema conhecido** na Cloud Shell que afeta estes grupos de comando: . . . . . . . . . . . . `az dt route` . `az dt model` `az dt twin` .
+    >
+    >Para resolver, ou corra `az login` em Cloud Shell antes de executar o comando, ou use o [CLI local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) em vez de Cloud Shell. Para mais detalhes sobre este assunto, consulte [*Troubleshooting: Questões conhecidas em Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
@@ -156,7 +162,7 @@ Uma solução para este exemplo específico implicaria atualizar cada espaço de
 
 Dependendo da configuração da sua topologia, poderá armazenar estes três atributos em diferentes níveis correlacionados com a granularidade do seu mapa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ler mais sobre gestão, atualização e recolha de informações do gráfico de gémeos, consulte as seguintes referências:
 

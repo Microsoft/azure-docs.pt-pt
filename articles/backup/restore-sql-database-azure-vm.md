@@ -3,12 +3,12 @@ title: Restaurar bases de dados do SQL Server num Azure VM
 description: Este artigo descreve como restaurar as bases de dados do SQL Server que estão a funcionar num Azure VM e que são cópias de segurança do Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826561"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377986"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs Azure
 
@@ -98,7 +98,7 @@ Restaurar da seguinte forma:
 
         ![Insira caminhos-alvo](./media/backup-azure-sql-database/target-paths.png)
 
-1. Clique **em OK** para ativar o restauro. Acompanhe o progresso do restauro na área **de Notificações** ou rastreie-o sob a vista **de Backup Jobs** no cofre.
+1. Selecione **OK** para ativar o restauro. Acompanhe o progresso do restauro na área **de Notificações** ou rastreie-o sob a vista **de Backup Jobs** no cofre.
 
     > [!NOTE]
     > A restauração pontual está disponível apenas para cópias de segurança de registo para bases de dados que estejam em modo de recuperação completo e a granel.
@@ -161,7 +161,7 @@ Se selecionou **o Diferencial Full &** como tipo de restauro, faça o seguinte:
     ![Escolha um ponto de recuperação completo](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > Por predefinição, são apresentados pontos de recuperação dos últimos 30 dias. Pode apresentar pontos de recuperação com mais de 30 dias clicando em **Filter** e selecionando uma gama personalizada.
+    > Por predefinição, são apresentados pontos de recuperação dos últimos 30 dias. Pode apresentar pontos de recuperação com mais de 30 dias selecionando **Filter** e selecionando uma gama personalizada.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restaurar bases de dados com um grande número de ficheiros
 
@@ -169,6 +169,6 @@ Se o tamanho total das cordas dos ficheiros numa base de dados for superior a um
 
   ![Restaurar a Base de Dados com grande arquivo](./media/backup-azure-sql-database/restore-large-files.jpg)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gerir e monitorizar](manage-monitor-sql-database-backup.md) Bases de dados do SQL Server que são apoiadas por Azure Backup.

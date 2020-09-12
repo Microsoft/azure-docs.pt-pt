@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 72597d445be41ede47d043d11653df139bc52d0d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226268"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297677"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -66,7 +66,7 @@ Para simplificar, os diagramas apresentados neste artigo exibem o ID da versão 
 
 O diagrama que se segue mostra como as operações de escrita afetam as versões blob. Quando uma bolha é criada, esta bolha é a versão atual. Quando a mesma bolha é modificada, uma nova versão é criada para salvar o estado anterior da bolha, e a bolha atualizada torna-se a versão atual.
 
-:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas":::
+:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
 
 > [!NOTE]
 > Uma bolha que foi criada antes de a versão ser ativada para a conta de armazenamento não tem um ID de versão. Quando esta bolha é modificada, a bolha modificada torna-se a versão atual, e uma versão é criada para salvar o estado da bolha antes da atualização. A versão é atribuída a uma versão ID que é o seu tempo de criação.
@@ -79,11 +79,11 @@ Chamar a operação [Delete Blob](/rest/api/storageservices/delete-blob) sem uma
 
 O diagrama a seguir mostra o efeito de uma operação de eliminação numa bolha versada:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama mostrando supressão da bolha versada":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama mostrando eliminação da bolha versada.":::
 
 Escrever novos dados para a bolha cria uma nova versão da bolha. Quaisquer versões existentes não são afetadas, como mostra o diagrama seguinte.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando recriação de bolhas versadas após eliminação":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando a recriação da bolha versada após a eliminação.":::
 
 ### <a name="blob-types"></a>Tipos de blobs
 
@@ -122,7 +122,7 @@ Pode ler ou eliminar versões utilizando o ID da versão após a versão ser des
 
 O diagrama seguinte mostra como modificar uma bolha após a versão é desativada cria uma bolha que não é versão. As versões existentes associadas à bolha persistem.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagrama mostrando bolha de base modificada após ver versão desativada":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagrama mostrando a bolha de base modificada após a versão desativada.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Versões blob e eliminação suave
 
@@ -138,7 +138,7 @@ Para remover uma versão anterior de uma bolha, elimine-a explicitamente especif
 
 O diagrama que se segue mostra o que acontece quando se apaga uma bolha ou uma versão blob.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama mostrando a eliminação de uma versão com exclusão suave ativada":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama mostrando a eliminação de uma versão com exclusão suave ativada.":::
 
 Se a versão e a eliminação suave estiverem ativadas numa conta de armazenamento, então não é criada nenhuma imagem de imagem com eliminação suave quando uma versão blob ou blob é modificada ou eliminada.
 
@@ -150,7 +150,7 @@ Restaurar versões de soft-dele com a operação **Undelete Blob** não promove 
 
 O diagrama que se segue mostra como restaurar as versões blob desagravada com a operação **Undelete Blob** e como restaurar a versão atual do blob com a operação **Copy Blob.**
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagrama mostrando como restaurar versões desagravamento suave":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagrama mostrando como restaurar versões desagravamento suave.":::
 
 Após o período de retenção de eliminação suave, quaisquer versões blob apagadas com soft-delete são permanentemente eliminadas.
 
@@ -169,7 +169,7 @@ Quando tira uma foto de uma bolha em versão, uma nova versão é criada ao mesm
 
 O diagrama que se segue mostra o que acontece quando se tira uma fotografia de uma bolha em versão. No diagrama, as versões blob e as imagens com a versão ID 2 e 3 contêm dados idênticos.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando instantâneos de uma bolha em versão ":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando instantâneos de uma bolha em versão.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autorizar operações em versões blob
 
@@ -185,7 +185,7 @@ A versão blob foi concebida para proteger os seus dados de eliminação acident
 
 A tabela que se segue mostra quais as ações do RBAC que suportam a eliminação de uma bolha ou uma versão blob.
 
-| Description | Operação de serviço blob | Ação de dados da RBAC necessária | Suporte ao papel incorporado da RBAC |
+| Descrição | Operação de serviço blob | Ação de dados da RBAC necessária | Suporte ao papel incorporado da RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Contribuinte de Dados do Armazenamento de Blobs |
 | Apagar uma versão | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/deleteBlobVersion/action** | Proprietário de dados blob de armazenamento |
@@ -231,25 +231,25 @@ Os seguintes cenários demonstram como os encargos acumulam-se para uma bolha de
 
 No cenário 1, a bolha tem uma versão anterior. A bolha não foi atualizada desde que a versão foi criada, pelo que os encargos são incorridos apenas para blocos únicos 1, 2 e 3.
 
-![Diagrama 1 mostrando faturação para blocos únicos na bolha base e versão anterior](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagrama 1 mostrando faturação para blocos únicos na bolha base e versão anterior.](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Cenário 2
 
 No cenário 2, um bloco (bloco 3 no diagrama) na bolha foi atualizado. Apesar de o bloco atualizado conter os mesmos dados e o mesmo ID, não é o mesmo que o bloco 3 na versão anterior. Como resultado, a conta é cobrada por quatro blocos.
 
-![Diagrama 2 mostrando faturação para blocos únicos na bolha base e versão anterior](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagrama 2 mostrando faturação para blocos únicos na bolha base e versão anterior.](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Cenário 3
 
 No cenário 3, a bolha foi atualizada, mas a versão não. O bloco 3 foi substituído pelo bloco 4 na bolha base, mas a versão anterior ainda reflete o bloco 3. Como resultado, a conta é cobrada por quatro blocos.
 
-![Diagrama 3 mostrando faturação para blocos únicos na bolha base e versão anterior](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagrama 3 mostrando faturação para blocos únicos na bolha base e versão anterior.](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Cenário 4
 
 No cenário 4, a bolha de base foi completamente atualizada e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada para todos os oito blocos únicos &mdash; quatro na bolha base, e quatro na versão anterior. Este cenário pode ocorrer se estiver a escrever para uma bolha com a operação [Put Blob,](/rest/api/storageservices/put-blob) porque substitui todo o conteúdo da bolha de base.
 
-![Diagrama 4 mostrando faturação para blocos únicos na bolha base e versão anterior](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagrama 4 mostrando faturação para blocos únicos na bolha base e versão anterior.](./media/versioning-overview/versions-billing-scenario-4.png)
 
 ### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Faturação quando o nível blob foi explicitamente definido
 
@@ -266,6 +266,10 @@ A tabela seguinte descreve o comportamento de faturação para uma bolha ou vers
 | Uma versão anterior | A versão no novo nível e a bolha base no nível original, além de quaisquer blocos únicos em outras versões. <sup>1</sup> |
 
 <sup>1</sup> Se existirem outras versões ou instantâneos anteriores que não tenham sido retirados do seu nível original, essas versões ou instantâneos são carregados com base no número de blocos únicos que contêm, como descrito em [Billing quando o nível de bolhas não foi explicitamente definido](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+O diagrama seguinte ilustra como os objetos são faturados quando uma bolha ver versão é movida para um nível diferente.
+
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagrama mostrando como os objetos são faturados quando uma bolha em versão é explicitamente nivelada.":::
 
 Definir explicitamente o nível para uma bolha, versão ou instantâneo não pode ser desfeito. Se mover uma bolha para um novo nível e depois movê-la de volta para o seu nível original, é cobrado o comprimento total do conteúdo do objeto, mesmo que partilhe blocos com outros objetos no nível original.
 
@@ -287,7 +291,7 @@ A tabela seguinte descreve o comportamento de faturação de uma bolha que é ap
 | Se a eliminação suave e a versão macias estão ativadas | Todas as versões existentes com o comprimento total do conteúdo, independentemente do nível. |
 | Se a eliminação suave blob estiver ativada, mas a versão é desativada | Todos os instantâneos de exclusão suave existentes com todo o comprimento do conteúdo, independentemente do nível. |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Ativar e gerir a versão blob](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

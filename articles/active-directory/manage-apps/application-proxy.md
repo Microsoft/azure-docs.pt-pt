@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164925"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377867"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acesso remoto a aplicações no local através do Azure AD Application Proxy
 
@@ -58,6 +58,11 @@ O diagrama seguinte mostra como a Azure AD e a Application Proxy trabalham em co
 5. O conector envia o pedido para o pedido no local.
 6. A resposta é enviada através do serviço de conector e procuração de aplicação para o utilizador.
 
+> [!NOTE]
+> Tal como a maioria dos agentes híbridos AZure AD, o Conector Proxy de Aplicação não requer que abra ligações de entrada através da sua firewall. O tráfego do utilizador no passo 3 termina no Serviço de Procuração de Aplicações (em Azure AD). O Conector Proxy de Aplicação (no local) é responsável pelo resto da comunicação.
+>
+
+
 | Componente | Descrição |
 | --------- | ----------- |
 | Ponto final  | O ponto final é um URL ou um [portal de utilizador final](end-user-experiences.md). Os utilizadores podem chegar a aplicações fora da sua rede acedendo a um URL externo. Os utilizadores dentro da sua rede podem aceder à aplicação através de um URL ou de um portal de utilizador final. Quando os utilizadores vão a um destes pontos finais, autenticam-se em Azure AD e depois são encaminhados através do conector para a aplicação no local.|
@@ -67,6 +72,6 @@ O diagrama seguinte mostra como a Azure AD e a Application Proxy trabalham em co
 | Diretório Ativo (AD) | O Ative Directory funciona no local para efetuar a autenticação para contas de domínio. Quando o único sinal de sação é configurado, o conector comunica com AD para efetuar qualquer autenticação adicional necessária.
 | Aplicação no local | Por fim, o utilizador pode aceder a uma aplicação no local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para começar a utilizar o Application Proxy, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](application-proxy-add-on-premises-application.md).
 

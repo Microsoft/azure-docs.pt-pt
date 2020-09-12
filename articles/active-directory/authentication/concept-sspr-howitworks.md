@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716321"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377204"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -27,7 +27,7 @@ O Azure Ative Directory (Azure AD) redefiniu a palavra-passe de autosserviço (S
 >
 > Se a sua equipa de TI não tiver ativado a capacidade de redefinir a sua própria palavra-passe, contacte o seu helpdesk para obter assistência adicional.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Como funciona o portal de reset da palavra-passe?
+## <a name="how-does-the-password-reset-process-work"></a>Como funciona o processo de reset da palavra-passe?
 
 Um utilizador pode reiniciar ou alterar a sua palavra-passe utilizando o [portal SSPR](https://aka.ms/sspr). Devem primeiro ter registado os seus métodos de autenticação pretendidos. Quando um utilizador acede ao portal SSPR, a plataforma Azure considera os seguintes fatores:
 
@@ -58,6 +58,11 @@ Depois de o portal SSPR ser apresentado no idioma requerido, o utilizador é sol
   * Se a gravação do SSPR não for implementada e a palavra-passe do utilizador for gerida no local, o utilizador é solicitado a contactar o seu administrador para redefinir a sua palavra-passe.
 
 Se todas as verificações anteriores forem concluídas com sucesso, o utilizador é guiado através do processo para reiniciar ou alterar a sua palavra-passe.
+
+> [!NOTE]
+> A SSPR pode enviar notificações por e-mail aos utilizadores como parte do processo de reset da palavra-passe. Estes e-mails são enviados usando o serviço de retransmissão SMTP, que opera em modo ativo em várias regiões.
+>
+> Os serviços de retransmissão SMTP recebem e processam o corpo de e-mail, mas não o armazenem. O corpo do e-mail SSPR que pode potencialmente conter informações fornecidas pelo cliente não está armazenado nos registos de serviço de retransmissão SMTP. Os registos contêm apenas metadados de protocolo.
 
 Para começar com a SSPR, complete o seguinte tutorial:
 
@@ -230,7 +235,7 @@ Para testar este cenário, vá a https://passwordreset.microsoftonline.com um de
 > [!NOTE]
 > As contas da Microsoft a quem foi concedido acesso ao seu inquilino Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de e-mail pessoais, não são capazes de usar Azure AD SSPR. Precisam de redefinir a sua palavra-passe utilizando as informações encontradas no [When you can't't iniciar sôm no seu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo de conta Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a SSPR, complete o seguinte tutorial:
 

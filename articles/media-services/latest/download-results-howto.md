@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bc1ac986ffb8e15df5dab14403aac5eca05c5b5d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b3decdd4a2855382b27cb426d7fb030b46a2458c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263727"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298033"
 ---
 # <a name="download-the-results-of-a-job"></a>Descarregue os resultados de um trabalho
 
@@ -121,6 +121,6 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 
 Consulte a amostra de código completa: [Codificação ComMESPredefinedPredefinedPredeset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Crie uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md).

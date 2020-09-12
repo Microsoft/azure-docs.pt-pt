@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935556"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378360"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Resolução de problemas erros e avisos comuns do indexante na Pesquisa Cognitiva do Azure
 
@@ -349,3 +349,7 @@ Para contornar este aviso, determine qual é o texto codificado para esta bolha 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Aviso: A coleção 'X' da Cosmos DB tem uma política de indexação preguiçosa. Alguns dados podem ser perdidos
 
 As coleções com políticas de indexação [preguiçosas](/azure/cosmos-db/index-policy#indexing-mode) não podem ser consultadas de forma consistente, resultando em dados em falta do seu indexante. Para contornar este aviso, altere a sua política de indexação para Consistente.
+
+## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Aviso: O documento contém palavras muito longas (mais de 64 caracteres). Estas palavras podem resultar em previsões de modelos truncadas e/ou pouco fiáveis.
+
+Este aviso é transmitido pelo serviço Text Analytics.  Em alguns casos, é seguro ignorar este aviso, como quando o seu documento contém um URL longo (o que provavelmente não é uma frase chave ou sentimento de condução, etc.).  Esteja ciente de que quando uma palavra é maior que 64 caracteres, será truncado para 64 caracteres que podem afetar as previsões do modelo.  

@@ -2,13 +2,13 @@
 title: Funções de modelos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: d237f5c42c1d1eaab7b2236b15a3122bcb55865b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/01/2020
+ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84331411"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378411"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
 
@@ -38,20 +38,20 @@ A maioria das funções funciona da mesma forma quando implantada num grupo de r
 
 O Gestor de Recursos fornece várias funções para trabalhar com matrizes.
 
-* [array](template-functions-array.md#array)
+* [matriz](template-functions-array.md#array)
 * [concat](template-functions-array.md#concat)
-* [contém](template-functions-array.md#contains)
+* [contains](template-functions-array.md#contains)
 * [criarArray](template-functions-array.md#createarray)
 * [vazio](template-functions-array.md#empty)
 * [primeiro](template-functions-array.md#first)
 * [intersecção](template-functions-array.md#intersection)
 * [último](template-functions-array.md#last)
-* [comprimento](template-functions-array.md#length)
+* [length](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
 * [máx](template-functions-array.md#max)
 * [gama](template-functions-array.md#range)
 * [saltar](template-functions-array.md#skip)
-* [tomar](template-functions-array.md#take)
+* [take](template-functions-array.md#take)
 * [união](template-functions-array.md#union)
 
 <a id="coalesce" aria-hidden="true"></a>
@@ -66,7 +66,7 @@ O Gestor de Recursos fornece várias funções para trabalhar com matrizes.
 O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos.
 
 * [coalesce](template-functions-comparison.md#coalesce)
-* [equals](template-functions-comparison.md#equals)
+* [é igual a](template-functions-comparison.md#equals)
 * [less](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
 * [greater](template-functions-comparison.md#greater)
@@ -102,7 +102,7 @@ O Gestor de Recursos fornece as seguintes funções para obter valores a partir 
 
 O Gestor de Recursos fornece as seguintes funções para trabalhar com condições lógicas:
 
-* [e](template-functions-logical.md#and)
+* [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
 * [se](template-functions-logical.md#if)
 * [não](template-functions-logical.md#not)
@@ -126,7 +126,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com inteiros:
 * [adicionar](template-functions-numeric.md#add)
 * [copyIndex](template-functions-numeric.md#copyindex)
 * [div](template-functions-numeric.md#div)
-* [flutuar](template-functions-numeric.md#float)
+* [flutuante](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
 * [min](template-functions-numeric.md#min)
 * [máx](template-functions-numeric.md#max)
@@ -140,11 +140,11 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com inteiros:
 
 O Gestor de Recursos fornece várias funções para trabalhar com objetos.
 
-* [contém](template-functions-object.md#contains)
+* [contains](template-functions-object.md#contains)
 * [vazio](template-functions-object.md#empty)
 * [intersecção](template-functions-object.md#intersection)
 * [json](template-functions-object.md#json)
-* [comprimento](template-functions-object.md#length)
+* [length](template-functions-object.md#length)
 * [união](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -167,6 +167,7 @@ O Gestor de Recursos fornece as seguintes funções para obter valores de recurs
 * [listKeys](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
 * [lista*](template-functions-resource.md#list)
+* [pickZones](template-functions-resource.md#pickzones)
 * [fornecedores](template-functions-resource.md#providers)
 * [referência](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) - só pode ser utilizado em implementações para um grupo de recursos.
@@ -214,7 +215,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
 * [concat](template-functions-string.md#concat)
-* [contém](template-functions-string.md#contains)
+* [contains](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
 * [vazio](template-functions-string.md#empty)
@@ -225,7 +226,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [indexOf](template-functions-string.md#indexof)
 * [último](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
-* [comprimento](template-functions-string.md#length)
+* [length](template-functions-string.md#length)
 * [newGuid](template-functions-string.md#newguid)
 * [padLeft](template-functions-string.md#padleft)
 * [substituir](template-functions-string.md#replace)
@@ -234,7 +235,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [começacom](template-functions-string.md#startswith)
 * [string](template-functions-string.md#string)
 * [substring](template-functions-string.md#substring)
-* [tomar](template-functions-string.md#take)
+* [take](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
 * [toupper](template-functions-string.md#toupper)
 * [guarnição](template-functions-string.md#trim)

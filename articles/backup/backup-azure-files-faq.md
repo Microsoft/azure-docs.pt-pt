@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas a perguntas comuns sobre como proteger as suas partilhas de ficheiros Azure com o serviço de Backup Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824734"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377425"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -30,7 +30,7 @@ Verifique se a partilha de ficheiros do Azure já está protegida no mesmo cofre
 
 Yes. Está ativada a proteção das ações de ficheiros Azure ligadas a Grupos de Sincronização.
 
-### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Quando estava a tentar criar cópias de segurança de partilhas de ficheiros, cliquei numa Conta de Armazenamento para ver que partilhas havia na mesma. No entanto, não os protegi. Como posso proteger estas ações com qualquer outro cofre?
+### <a name="when-trying-to-back-up-file-shares-i-selected-a-storage-account-to-discover-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ao tentar fazer o back up de ações de ficheiros, selecionei uma Conta de Armazenamento para descobrir as ações de ficheiros nela. No entanto, não os protegi. Como posso proteger estas ações com qualquer outro cofre?
 
 Ao tentar fazer o back up, selecionar uma Conta de Armazenamento para descobrir ações de ficheiros no seu interior regista a Conta de Armazenamento com o cofre a partir do qual isto é feito. Se optar por proteger as partilhas de ficheiros com um cofre diferente, [não registe](manage-afs-backup.md#unregister-a-storage-account) a Conta de Armazenamento escolhida a partir deste cofre.
 
@@ -97,13 +97,13 @@ Aqui está um exemplo de como isto funciona:
 
 |Tipo de Retenção |Agenda |Retenção  |
 |---------|---------|---------|
-|Diariamente    |    Todos os dias às 20h    |  100 dias       |
+|Diário    |    Todos os dias às 20h    |  100 dias       |
 
 #### <a name="new-policy-modified-p1"></a>Nova Política [P1 modificado]
 
 | Tipo de Retenção | Agenda                       | Retenção |
 | -------------- | ------------------------------ | --------- |
-| Diariamente          | Todos os dias às 21h              | 50 dias   |
+| Diário          | Todos os dias às 21h              | 50 dias   |
 | Semanal         | No domingo, às 21h00              | 3 semanas   |
 | Mensalmente        | Na última segunda-feira às 21h         | 1 mês   |
 | Anualmente         | Em jan no terceiro domingo às 21h | 4 anos   |
@@ -131,14 +131,14 @@ Aqui está um exemplo de como isto funciona:
 
 | Tipo de Retenção | Agenda           | Retenção |
 | -------------- | ------------------ | --------- |
-| Diariamente          | Todos os dias às 20h | 50 dias   |
+| Diário          | Todos os dias às 20h | 50 dias   |
 | Semanal         | Segunda-feira às 20:00  | 3 semanas   |
 
 #### <a name="new-policy-modified-p2"></a>Nova Política [P2 modificado]
 
 | Tipo de Retenção | Agenda               | Retenção |
 | -------------- | ---------------------- | --------- |
-| Diariamente          | Todos os dias às 21h     | 10 dias   |
+| Diário          | Todos os dias às 21h     | 10 dias   |
 | Semanal         | Segunda-feira às 21h      | 2 semanas   |
 | Mensalmente        | Na última segunda-feira às 21h | 2 meses  |
 
@@ -155,6 +155,6 @@ Aqui está um exemplo de como isto funciona:
 >[!NOTE]
 >As mudanças de política afetarão apenas os pontos de recuperação criados como parte do backup programado. Para cópias de segurança a pedido, a retenção é determinada pelo valor **Retenuso Till** especificado no momento da tomada do backup.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure](troubleshoot-azure-files.md)

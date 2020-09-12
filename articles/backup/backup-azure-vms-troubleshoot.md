@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178016"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376184"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -198,7 +198,7 @@ A operação de backup falhou devido ao estado inconsistente da extensão de res
 
 * Certifique-se de que o Agente Convidado está instalado e a responder
 * A partir do portal Azure, vá para **a Máquina Virtual**Todas as  >  **Extensões de**  >  **Definições**
-* Selecione a extensão de cópia de segurança VmSnapshot ou VmSnapshotLinux e clique em **Desinstalar**
+* Selecione a extensão de backup VmSnapshot ou VmSnapshotLinux e selecione **Desinstalar**.
 * Depois de eliminar a extensão de backup, recandidutar a operação de backup
 * A operação de cópia de segurança subsequente irá instalar a nova extensão no estado pretendido
 
@@ -363,7 +363,7 @@ Verifique a versão VM Agent nos VMs do Windows:
 1. Inscreva-se na máquina virtual Azure e navegue para a pasta **C:\WindowsAzure\Packages**. Devia encontrar o ficheiro **WaAppAgent.exe.**
 2. Clique com o direito no ficheiro e vá ao **Properties.** Em seguida, selecione o separador **Detalhes.** O campo **versão do produto** deve ser 2.6.1198.718 ou superior.
 
-## <a name="troubleshoot-vm-snapshot-issues"></a>Problemas de resolução de problemas VM problemas de instantâneo
+## <a name="troubleshoot-vm-snapshot-issues"></a>Resolver problemas de instantâneos de VM
 
 A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o armazenamento subjacente. Não ter acesso ao armazenamento ou atrasos numa execução de tarefa instantânea pode fazer com que o trabalho de backup falhe. As seguintes condições podem causar falhas de tarefa instantâneas:
 

@@ -3,12 +3,12 @@ title: Resolução de problemas SAP HANA erros de backup
 description: Descreve como resolver erros comuns que podem ocorrer quando utiliza o Azure Backup para fazer backup nas bases de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004175"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377689"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Backup de resolução de problemas das bases de dados SAP HANA em Azure
 
@@ -97,7 +97,7 @@ Tenha em atenção os seguintes pontos:
 
 - Por predefinição, o nome db restaurado será preenchido com o nome do item de reserva. Neste caso, h21(sdc).
 - Selecionar o alvo como H11 não alterará automaticamente o nome db restaurado. **Deve ser editado para h11(sdc)**. No que diz respeito ao SDC, o nome db restaurado será o ID de instância-alvo com letras minúsculas e 'sdc' anexados em parênteses.
-- Uma vez que o SDC pode ter apenas uma única base de dados, também precisa clicar na caixa de verificação para permitir a substituição dos dados da base de dados existentes com os dados do ponto de recuperação.
+- Uma vez que o SDC pode ter apenas uma única base de dados, também precisa de selecionar a caixa de verificação para permitir a substituição dos dados da base de dados existentes com os dados do ponto de recuperação.
 - Linux é sensível a casos. Então tenha cuidado para preservar o caso.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Restauro da Base de Dados de Vários Contentores (MDC)
@@ -165,7 +165,7 @@ As atualizações de SDC para MDC que não causam uma alteração sid podem ser 
 - Execute a atualização. Após a conclusão, o sistema HANA é agora MDC com um sistema DB e DBs inquilinos
 - Reexecutar o [script de pré-registo](https://aka.ms/scriptforpermsonhana)
 - Re-registrar a extensão para a mesma máquina no portal Azure **(Backup**  ->  **Ver detalhes** -> Selecione o Azure VM -> re-registro)
-- Clique **em Redescobrir DBs** para o mesmo VM. Esta ação deve mostrar os novos DBs no passo 3 como SYSTEMDB e Tenant DB, e não SDC
+- Selecione **Redescobrir DBs** para o mesmo VM. Esta ação deve mostrar os novos DBs no passo 3 como SYSTEMDB e Tenant DB, e não SDC
 - A base de dados mais antiga da SDC continuará a existir no cofre e terá dados antigos de apoio mantidos de acordo com a política
 - Configurar backup para estas bases de dados
 
@@ -178,7 +178,7 @@ As atualizações de SDC para MDC que causam uma alteração sid podem ser manus
 - Execute a atualização. Após a conclusão, o sistema HANA é agora MDC com um sistema DB e DBs inquilinos
 - Reencamúndio do [script de pré-registo](https://aka.ms/scriptforpermsonhana) com detalhes corretos (novos SID e MDC). Devido a uma mudança no SID, poderá enfrentar problemas com a execução com sucesso do script. Contacte o suporte de backup da Azure se tiver problemas.
 - Re-registrar a extensão para a mesma máquina no portal Azure **(Backup**  ->  **Ver detalhes** -> Selecione o Azure VM -> re-registro)
-- Clique **em Redescobrir DBs** para o mesmo VM. Esta ação deve mostrar os novos DBs no passo 3 como SYSTEMDB e Tenant DB, e não SDC
+- Selecione **Redescobrir DBs** para o mesmo VM. Esta ação deve mostrar os novos DBs no passo 3 como SYSTEMDB e Tenant DB, e não SDC
 - A base de dados mais antiga da SDC continuará a existir no cofre e terá dados antigos retidos de acordo com a política
 - Configurar backup para estas bases de dados
 
@@ -202,6 +202,6 @@ Estes sintomas podem surgir por uma ou mais das seguintes razões:
 
 Nos cenários anteriores, recomendamos que desencadeie uma operação de re-registo no VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja as [perguntas frequentes](./sap-hana-faq-backup-azure-vm.md) sobre o backup das bases de dados SAP HANA em VMs Azure.

@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ec79fc7c09f2bc1aeb2c07016365e831932fa1ff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018115"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377323"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
@@ -61,7 +61,7 @@ O feiticeiro só lista VMs na mesma região que o cofre, e isso já não está a
 
 Yes. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
 
-### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de reserva em progresso?
+### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar uma tarefa de cópia de segurança em curso?
 
 Yes. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
 
@@ -197,6 +197,6 @@ Sim, há um limite de 100 VMs que podem ser associados à mesma política de bac
 
 Atualmente, pode ver as definições de retenção a um nível de backup item (VM) com base na política de backup que é atribuída ao VM.
 
-Uma forma de visualizar as definições de retenção para as suas cópias de segurança é navegar para o [painel de instrumentos](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) de reserva para o seu VM, no portal Azure. Clicar no link para a sua política de backup ajuda-o a ver a duração de retenção de todos os pontos de retenção diários, semanais, mensais e anorais associados ao VM.
+Uma forma de visualizar as definições de retenção para as suas cópias de segurança é navegar para o [painel de instrumentos](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) de reserva para o seu VM, no portal Azure. A seleção do link para a sua política de backup ajuda-o a visualizar a duração de retenção de todos os pontos de retenção diários, semanais, mensais e anualmente associados ao VM.
 
 Também pode utilizar [o Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) para visualizar as definições de retenção de todos os seus VMs dentro de um único painel de vidro. Navegue para o Backup Explorer a partir de qualquer cofre dos Serviços de Recuperação, vá ao separador **Itens de Reserva** e selecione a Vista Avançada para ver informações detalhadas de retenção para cada VM.

@@ -9,33 +9,33 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/20/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: 61ba06054e86d544ae4ab1edbdef8d86667ef3b2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796583"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322607"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com a verificação de dois fatores e a conta escolar ou profissional
 
-A sua organização Azure Ative Directory (Azure AD) pode ativar a verificação de dois fatores (2FV). Há alguns problemas comuns de 2FV que parecem acontecer com mais frequência do que qualquer um de nós gostaria. Reunimos este artigo para descrever correções para os problemas mais comuns.
+Existem alguns problemas comuns de verificação de dois fatores que parecem acontecer com mais frequência do que qualquer um de nós gostaria. Reunimos este artigo para descrever correções para os problemas mais comuns.
 
-Quando o 2FV está ligado, o seu inserção na conta requer uma combinação dos seguintes dados:
+A sua organização Azure Ative Directory (Azure AD) pode ativar a verificação de dois fatores para a sua conta. Quando a verificação de dois fatores está acesa, o seu inserção na conta requer uma combinação dos seguintes dados:
 
 - O seu nome de utilizador
 - A sua palavra-passe
 - Um dispositivo móvel ou telefone
 
-2FV é mais seguro do que apenas uma senha, porque 2FV requer algo que _você sabe_ mais algo que _você tem_. Nenhum hacker tem o seu telemóvel físico.
+A verificação de dois fatores é mais segura do que apenas uma palavra-passe, porque a verificação de dois fatores requer algo _que você sabe_ mais algo que você _tem_. Nenhum hacker tem o seu telemóvel físico.
 
 >[!Important]
 >Se for administrador, pode encontrar mais informações sobre como configurar e gerir o seu ambiente AD AZure na [documentação AD Azure](../index.yml).
 
-Este conteúdo destina-se a ajudá-lo com o seu trabalho ou conta escolar, que é a conta que lhe é fornecida pela sua organização (por exemplo, dritan@contoso.com ). Se estiver a ter problemas com a verificação de dois fatores numa conta pessoal da Microsoft, que é uma conta que criou para si (por exemplo, danielle@outlook.com ), consulte [a verificação de dois fatores dentro ou fora para a sua conta Microsoft.](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)
+Este conteúdo pode ajudá-lo com o seu trabalho ou conta escolar, que é a conta que lhe é fornecida pela sua organização (por exemplo, dritan@contoso.com ). Se estiver a ter problemas com a verificação de dois fatores numa conta pessoal da Microsoft, que é uma conta que criou para si (por exemplo, danielle@outlook.com ), consulte [a verificação de dois fatores dentro ou fora para a sua conta Microsoft.](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Não tenho o meu telemóvel comigo.
 
@@ -51,7 +51,15 @@ Acontece. Deixaste o teu dispositivo móvel em casa, e agora não podes usar o t
 
 2. Escolha o seu método de verificação alternativo e continue com o processo de verificação de dois fatores.
 
-## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>Perdi o meu dispositivo móvel ou foi roubado.
+## <a name="i-cant-turn-two-factor-verification-off"></a>Não posso desligar a verificação de dois fatores.
+
+- Se estiver a utilizar uma verificação de dois fatores com uma conta pessoal para um serviço Microsoft, por alain@outlook.com tipo, pode [ligar e desligar a funcionalidade](https://account.live.com/proofs/Manage).
+
+- Se estiver a usar uma verificação de dois fatores com o seu trabalho ou conta escolar, provavelmente significa que a sua organização decidiu que deve usar esta funcionalidade de segurança adicional. Não há como desligá-lo individualmente.
+
+Se não é possível desativar a verificação de dois fatores, também pode ser devido aos incumprimentos de segurança que foram aplicados a nível da organização. Para obter mais informações sobre incumprimentos de segurança, veja [quais são os incumprimentos de segurança?](../fundamentals/concept-fundamentals-security-defaults.md)
+
+## <a name="my-device-was-lost-or-stolen"></a>O meu dispositivo foi perdido ou roubado.
 
 Se perdeu ou roubou o seu dispositivo móvel, pode tomar qualquer uma das seguintes ações:
 
@@ -64,7 +72,7 @@ Recomendamos vivamente que informe a secretária de ajuda da sua organização s
 
 Não receber o seu código de verificação é um problema comum. O problema está tipicamente relacionado com o seu dispositivo móvel e as suas definições. Aqui estão algumas ações que podes tentar.
 
-Experimente isto. | Informação de orientação
+Experimente isto | Informação de orientação
 --------- | ------------
 Reinicie o seu dispositivo móvel | Às vezes, o seu dispositivo só precisa de ser atualizado. Quando reinicia o seu dispositivo, todos os processos e serviços de fundo terminam. O reinício também desliga os componentes do núcleo do seu dispositivo. Qualquer serviço ou componente é atualizado quando reinicia o seu dispositivo.
 Verifique se as suas informações de segurança estão corretas | Certifique-se de que as informações do seu método de verificação de segurança são precisas, especialmente os seus números de telefone. Se colocar o número de telefone errado, todos os seus alertas irão para esse número incorreto. Felizmente, esse utilizador não poderá fazer nada com os alertas, mas também não o ajudará a entrar na sua conta. Para se certificar de que as suas informações estão corretas, consulte as instruções no artigo [de definição do método de verificação de dois fatores.](multi-factor-authentication-end-user-manage-settings.md)
@@ -72,14 +80,14 @@ Verifique se as suas notificações estão ligadas | Certifique-se de que o seu 
 Certifique-se de que tem um sinal de dispositivo e ligação à Internet | Certifique-se de que as suas chamadas telefónicas e mensagens de texto estão a chegar ao seu dispositivo móvel. Peça a um amigo que lhe ligue e envie uma mensagem de texto para se certificar de que recebe os dois. Se não receber a chamada ou texto, verifique primeiro se o seu dispositivo móvel está ligado. Se o seu dispositivo estiver ligado, mas ainda não estiver a receber a chamada ou a mensagem, provavelmente há um problema com a sua rede. Precisa de falar com o seu fornecedor. Se tiver frequentemente problemas relacionados com o sinal, recomendamos que instale e utilize a [aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) no seu dispositivo móvel. A aplicação autenticadora pode gerar códigos de segurança aleatórios para iniciar sing-in, sem necessitar de qualquer sinal de telemóvel ou ligação à Internet.
 Desligar Não perturbe | Certifique-se de que não ligou a função **Não perturbe** o seu dispositivo móvel. Quando esta funcionalidade é ligada, as notificações não são permitidas para alertá-lo no seu dispositivo móvel. Consulte o manual do seu dispositivo móvel para obter instruções sobre como desligar esta função.
 Desbloquear números de telefone | Nos Estados Unidos, as chamadas de voz da Microsoft vêm dos seguintes números: +1 (866) 539 4191, +1 (855) 330 8653 e +1 (877) 668 6536.
-Verifique as definições relacionadas com a bateria | Este parece um pouco estranho na superfície. Mas se configurar a otimização da bateria para impedir que as aplicações menos utilizadas se mantenham ativas em segundo plano, o seu sistema de notificação foi provavelmente afetado. Para tentar corrigir este problema, desligue a otimização da bateria tanto para a sua app de autenticação como para a sua aplicação de mensagens. Então tente entrar na sua conta de novo.
-Desativar aplicações de segurança de terceiros | Algumas aplicações de segurança telefónica bloqueiam mensagens de texto e chamadas telefónicas de chamadas desconhecidas irritantes. Tais aplicações podem impedir que o seu telefone receba o código de verificação. Tente desativar quaisquer aplicações de segurança de terceiros no seu telefone e, em seguida, solicite que seja enviado outro código de verificação.
+Verifique as definições relacionadas com a bateria | Se definir a otimização da bateria para impedir que as aplicações menos utilizadas se mantenham ativas em segundo plano, o seu sistema de notificação foi provavelmente afetado. Tente desligar a otimização da bateria tanto para a sua app de autenticação como para a sua aplicação de mensagens. Então tente entrar na sua conta de novo.
+Desativar aplicações de segurança de terceiros | Algumas aplicações de segurança telefónica bloqueiam mensagens de texto e chamadas telefónicas de chamadas desconhecidas irritantes. Uma aplicação de segurança pode impedir o seu telefone de receber o código de verificação. Tente desativar quaisquer aplicações de segurança de terceiros no seu telefone e, em seguida, solicite que seja enviado outro código de verificação.
 
 ## <a name="im-not-being-prompted-for-my-second-verification-information"></a>Não estou a ser solicitado para a minha segunda informação de verificação.
 
 Inscreva-se na sua conta de trabalho ou escola utilizando o seu nome de utilizador e senha. Em seguida, deverá ser solicitado para obter informações adicionais de verificação de segurança. Se não for solicitado, talvez ainda não tenha preparado o seu dispositivo. O seu dispositivo móvel deve ser configurado para funcionar com o seu método específico de verificação de segurança adicional.
 
-Para se certificar de que o seu dispositivo móvel está ligado e disponível, consulte o artigo [de definição do método de verificação de dois fatores.](multi-factor-authentication-end-user-manage-settings.md) Se sabe que não montou o seu dispositivo ou a sua conta, pode fazê-lo agora seguindo os passos na minha conta para o artigo de verificação em [duas etapas.](multi-factor-authentication-end-user-first-time.md)
+Talvez ainda não tenhas preparado o teu dispositivo. O seu dispositivo móvel tem de ser configurado para funcionar com o seu método específico de verificação de segurança adicional. Para que os passos tornem o seu dispositivo móvel disponível para utilizar com o seu método de verificação, consulte [Gerir as definições do método de verificação de dois fatores](multi-factor-authentication-end-user-manage-settings.md). Se sabe que ainda não montou o seu dispositivo ou a sua conta, pode seguir os passos na minha conta para o artigo de verificação em [duas etapas.](multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="i-have-a-new-phone-number-and-i-want-to-add-it"></a>Tenho um novo número de telefone e quero adicioná-lo.
 
@@ -95,13 +103,13 @@ Se tiver um novo dispositivo móvel, terá de o configurar para funcionar com um
 
 Passos opcionais:
 
-- Instale e instale a aplicação Microsoft Authenticator no seu dispositivo móvel. Instale seguindo os passos no Download e instale o artigo [da aplicação Microsoft Authenticator.](user-help-auth-app-download-install.md)
+- Instale a aplicação Microsoft Authenticator no seu dispositivo móvel seguindo os passos no Download e instale o artigo [da aplicação Microsoft Authenticator.](user-help-auth-app-download-install.md)
 
-- Ligue a verificação de dois fatores (2FV) para os seus dispositivos de confiança. Ligue o 2FV seguindo os passos na **verificação de dois fatores numa** secção de dispositivo fidedigno do artigo de [definição do método de verificação de dois fatores.](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)
+- Ligue a verificação de dois fatores para os seus dispositivos fidedignos seguindo os passos na **verificação de dois fatores numa** secção de dispositivo fidedigno do artigo [de definição do método de verificação de dois fatores.](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Estou com problemas em iniciar sessão no meu dispositivo móvel enquanto viajava.
 
-Pode ser mais difícil utilizar um método de verificação relacionado com dispositivos móveis, como uma mensagem de texto, enquanto estiver num local internacional. Também é possível que o seu dispositivo móvel possa causar incorrer em taxas de roaming. Para esta situação, recomendamos que utilize a aplicação Microsoft Authenticator, com a opção de ligar a um hotspot Wi-Fi. Para obter mais informações sobre como configurar a aplicação Microsoft Authenticator no seu dispositivo móvel, consulte o Download e instale o artigo [da aplicação Microsoft Authenticator.](user-help-auth-app-download-install.md)
+Pode ser mais difícil utilizar um método de verificação relacionado com dispositivos móveis, como uma mensagem de texto, enquanto estiver num local internacional. Também é possível que o seu dispositivo móvel possa causar incorrer em taxas de roaming. Para esta situação, recomendamos que utilize a aplicação Microsoft Authenticator, com a opção de ligar a um hot spot Wi-Fi. Para obter mais informações sobre como configurar a aplicação Microsoft Authenticator no seu dispositivo móvel, consulte o Download e instale o artigo [da aplicação Microsoft Authenticator.](user-help-auth-app-download-install.md)
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Não consigo que as minhas palavras-passe funcionem.
 

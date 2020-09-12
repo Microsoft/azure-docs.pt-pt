@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: fe540dbb230f033f139e82325bf8e20846f5bfe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de232ab6c52afa45b40ef7863a0cb35d7b40531f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832547"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299121"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Enviar pedidos para a API de Verificação de Ortografia do Bing
 
@@ -42,7 +42,7 @@ Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeça
 
 Ao ligar para a API de Verificação ortográfica Bing usando o JavaScript, as funcionalidades de segurança incorporadas do seu navegador podem impedir-lhe de aceder aos valores destes cabeçalhos.
 
-Para resolver este problema, pode efetuar o pedido de API de Verificação ortográfica de Bing através de um representante do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que os cabeças-de-resposta whitelists e os coloca à disposição do JavaScript.
+Para resolver este problema, pode efetuar o pedido de API de Verificação ortográfica de Bing através de um representante do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que filtra cabeçalhos de resposta e os coloca disponíveis para JavaScript.
 
 É fácil instalar um proxy CORS para permitir que a [aplicação tutorial](../tutorials/spellcheck.md) aceda aos cabeçalhos opcionais do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, insira o seguinte comando num pedido de comando.
 

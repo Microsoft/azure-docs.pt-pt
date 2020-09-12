@@ -4,12 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 0e1e50f27c6d0563ab51a74bbfa22d2a7f54ecd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000741"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377408"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -100,10 +100,10 @@ Se a frequência foi definida para uma digestão de hora a hora e um alerta foi 
 
 ## <a name="inactivating-alerts"></a>Alertas inativos
 
-Para inativar/resolver um alerta ativo, pode selecionar o item da lista correspondente ao alerta que pretende inativar. Isto abre um ecrã que exibe informações detalhadas sobre o alerta, com um botão **Inativado** na parte superior. Clicar neste botão alterará o estado do alerta para **Inativo**. Pode também inativar um alerta clicando à direita no item da lista correspondente a esse alerta e selecionando **Inativado**.
+Para inativar/resolver um alerta ativo, pode selecionar o item da lista correspondente ao alerta que pretende inativar. Isto abre um ecrã que exibe informações detalhadas sobre o alerta, com um botão **Inativado** na parte superior. A seleção deste botão alterará o estado do alerta para **Inativo**. Pode também inativar um alerta clicando à direita no item da lista correspondente a esse alerta e selecionando **Inativado**.
 
 ![Inativação de alerta RS Vault](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Monitorar cargas de trabalho de backup do Azure usando o Monitor Azure](backup-azure-monitoring-use-azuremonitor.md)

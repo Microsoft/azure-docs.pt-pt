@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0c373a2ae19a4f899dc72a337fed415bc36c8210
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 23898969f254063ee9e5385fee577661871ccf45
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265070"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298985"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
 
@@ -123,7 +123,7 @@ O ativo a que a saída ao vivo está a arquivar, torna-se automaticamente um ati
 - [States and billing](live-event-states-billing.md) (Estados e faturação)
 - [Latência](live-event-latency.md)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-streaming)
 
@@ -131,7 +131,7 @@ Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-str
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Arranque rápido de streaming ao vivo](live-events-wirecast-quickstart.md)
 * [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

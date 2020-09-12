@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas na Cópia de Segurança 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022365"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376286"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Backup do Estado do Sistema de Resolução de Problemas
 
@@ -66,20 +66,20 @@ Para instalar a Cópia de Segurança do Servidor do Windows utilizando o PowerSh
 
 Para instalar a Cópia de Segurança do Servidor do Windows utilizando o Gestor do Servidor, execute os seguintes passos:
 
-1. Na **Manjedoura de Servidor,** clique em **Adicionar papéis e funcionalidades**. Aparece **o assistente de adicionar funções e funcionalidades.**
+1. Na **Manjedoura de Servidor**, selecione Adicionar **funções e funcionalidades**. Aparece **o assistente de adicionar funções e funcionalidades.**
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Selecione **o tipo de instalação** e clique em **Seguinte**.
+2. Selecione **o Tipo de Instalação** e selecione **Seguinte**.
 
     ![Tipo de Instalação](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Selecione um servidor a partir da piscina do servidor e clique em **Seguinte**. Na Função Servidor, deixe a seleção predefinida e clique em **Seguinte**.
-4. Selecione **backup do Servidor do Windows** no separador **Funcionalidades** e clique em **Seguinte**.
+3. Selecione um servidor a partir da piscina do servidor e selecione **Seguinte**. Na Função Servidor, deixe a seleção predefinitiva e selecione **Seguinte**.
+4. Selecione **cópia de segurança do servidor do Windows** no separador **Funcionalidades** e selecione **Seguinte**.
 
     ![Selecione a janela de funcionalidades](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. No **separador Confirmação,** clique em **Instalar** para iniciar o processo de instalação.
+5. No **separador Confirmação,** **selecione Instalar** para iniciar o processo de instalação.
 6. No separador **Resultados,** apresentará a função de Backup do Servidor do Windows instalada com sucesso no seu Servidor Windows.
 
     ![Resultados da instalação](./media/backup-azure-system-state-troubleshoot/results.jpg)
@@ -92,7 +92,7 @@ Certifique-se de que o SISTEMA Local tem controlo total na pasta **informação 
 
 Certifique-se de que os serviços abaixo estão no estado de funcionamento:
 
-**Nome do Serviço** | **Tipo de Arranque**
+**Nome de serviço** | **Tipo de Arranque**
 --- | ---
 Chamada de Procedimento Remoto (RPC) | Automático
 Sistema de Eventos COM+(Sistema de Eventos) | Automático
@@ -145,6 +145,6 @@ Se o trabalho falhar, indica um problema WSB que resultaria na falha de backups 
 | -- | --
 | O agente MARS falha com a mensagem de erro: "A cópia de segurança do estado do sistema falhou à medida que a partição do sistema EFI está bloqueada. Isto pode ser devido ao acesso à partição do sistema por uma segurança de terceiros ou a um software de back-up" | - Se o problema for devido a um software de segurança de terceiros, então tem de contactar o fornecedor Anti Virus para que eles possam permitir o agente MARS <br/><br/> - Se um software de backup de terceiros estiver em execução, então espere que termine e, em seguida, volte a tentar
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre o estado do sistema Windows na implementação do Gestor de Recursos, consulte [o Estado do Sistema do Servidor do Windows](backup-azure-system-state.md)

@@ -1,5 +1,5 @@
 ---
-title: Crie uma imagem de um VHD em Azure
+title: Crie uma imagem instantânea de um VHD utilizando o Azure CLI
 description: Aprenda a criar uma cópia de um VHD em Azure como um back up ou para problemas de resolução de problemas.
 author: roygara
 manager: twooley
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659962"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318000"
 ---
-# <a name="create-a-snapshot"></a>Criar um instantâneo 
+# <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Crie um instantâneo utilizando o portal ou O Azure CLI
 
 Tire uma foto de um sistema operativo ou disco de dados para obter cópia de segurança ou para resolver problemas de VM. Uma foto é uma cópia completa e só de leitura de um VHD. 
 

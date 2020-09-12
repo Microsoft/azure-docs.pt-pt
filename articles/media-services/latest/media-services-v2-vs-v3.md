@@ -10,17 +10,17 @@ tags: ''
 keywords: serviços de multimédia do azure, transmissão, difusão, em direto, offline
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: be0c12eacae9bb13a475de4634746e9d38d35e43
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 061ae48de9a73270ed499282c9fc9a4f8f1dba90
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267569"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298951"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de Mídia v2 vs. v3
 
@@ -138,6 +138,6 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md)

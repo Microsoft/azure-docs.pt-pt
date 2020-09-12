@@ -3,12 +3,12 @@ title: Fazer o back bases de dados do SQL Server para o Azure
 description: Este artigo explica como fazer o back up SQL Server para Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892444"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376541"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -66,11 +66,11 @@ Para todas as outras versões, corrija permissões com os seguintes passos:
 
       ![No Início de Sessão - Nova caixa de diálogo, selecione Pesquisar](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. A conta de serviço virtual windows **NT SERVICE\AzureWLBackupPluginSvc** foi criada durante a fase de registo de máquinas virtuais e fase de descoberta do SQL. Introduza o nome da conta como mostrado no **Insira o nome do objeto para selecionar**. Selecione **Verificar Nomes** para resolver o nome. Clique em **OK**.
+  4. A conta de serviço virtual windows **NT SERVICE\AzureWLBackupPluginSvc** foi criada durante a fase de registo de máquinas virtuais e fase de descoberta do SQL. Introduza o nome da conta como mostrado no **Insira o nome do objeto para selecionar**. Selecione **Verificar Nomes** para resolver o nome. Selecione **OK**.
 
       ![Selecione Verificar Nomes para resolver o nome de serviço desconhecido](./media/backup-azure-sql-database/check-name.png)
 
-  5. Em **Funções de Servidor,** certifique-se de que a função **sysadmin** está selecionada. Clique em **OK**. As permissões necessárias devem agora existir.
+  5. Em **Funções de Servidor,** certifique-se de que a função **sysadmin** está selecionada. Selecione **OK**. As permissões necessárias devem agora existir.
 
       ![Certifique-se de que a função do servidor sysadmin está selecionada](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -91,23 +91,23 @@ Adicione **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc** para a 
 
 1. Vá à ocorrência do servidor SQL no explorador de objetos.
 2. Navegue para Segurança -> Logins
-3. Clique no direito nos Logins e clique em *Novo Início de Sessão...*
+3. Clique com o botão direito nos logins e selecione *Novo Login...*
 
     ![Novo Login utilizando SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
 4. Aceda ao separador Geral e insira **NT AUTHORITY\SYSTEM** como o Nome de Login.
 
-    ![nome de login para SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![Nome de login para SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
 5. Vá a *Server Roles* e escolha funções *públicas* e *sysadmin.*
 
-    ![escolher papéis em SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![Escolher papéis em SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
 6. Ir para *o Status*. *Conceda* a Permissão para ligar ao motor de base de dados e ao Login conforme *Ativado*.
 
     ![Concessão de permissões em SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. Clique em OK.
+7. Selecione OK.
 8. Repita a mesma sequência de passos (1-7 acima) para adicionar o login NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o login já existir, certifique-se de que tem a função de servidor sysadmin e em Status tem a Permissão de Ligar ao motor de base de dados e ao Login como Ativado.
 9. Após a concessão de permissão, **redescubra os DBs** no portal: Carga de Trabalho da Infraestrutura de Backup do Cofre **->** **->** em Azure VM:
 
@@ -148,7 +148,7 @@ catch
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como](backup-sql-server-database-azure-vms.md) fazer o backup das bases de dados do SQL Server.
 * [Saiba como](restore-sql-database-azure-vm.md) restaurar as bases de dados do SQL Server.

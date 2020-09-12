@@ -3,12 +3,12 @@ title: Configurar configurações de diagnóstico de abóbada em escala
 description: Configurar definições de diagnóstico de log analytics para todos os cofres num determinado âmbito utilizando a Política Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 751ce0233fb232ef5d276c88a8c2429a2975b2f9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179985"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378054"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurar configurações de diagnóstico de abóbada em escala
 
@@ -22,7 +22,7 @@ Para simplificar a criação de configurações de diagnóstico em escala (com L
 
 * A política pode ser aplicada de uma só vez a todos os cofres dos Serviços de Recuperação numa determinada subscrição (ou a um grupo de recursos dentro da subscrição). O utilizador que atribui a apólice precisa de ter o acesso **do Proprietário** à subscrição à qual a apólice é atribuída.
 
-* O espaço de trabalho de LA, conforme especificado pelo utilizador (para o qual os dados de diagnóstico serão enviados) pode estar numa subscrição diferente dos cofres aos quais a política é atribuída. O utilizador precisa de **ter**o leitor, **o contribuinte** ou o **proprietário** a aceder à subscrição na qual existe o espaço de trabalho de LA especificado.
+* O espaço de trabalho de LA, conforme especificado pelo utilizador (para o qual os dados de diagnóstico serão enviados) pode estar numa subscrição diferente dos cofres aos quais a política é atribuída. O utilizador precisa de **ter**o leitor, **o contribuinte,** ou o **proprietário** acesso à subscrição na qual existe o espaço de trabalho de LA especificado.
 
 * O âmbito do Grupo de Gestão não é atualmente suportado.
 

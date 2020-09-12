@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d05de44343d5d530a367286bec3d82ba3d66f0f6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818037"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322522"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre discos de VM IaaS do Azure e discos premium geridos e não geridos
 
@@ -398,11 +398,11 @@ Não, os discos geridos padrão SSD de qualquer tamanho não podem ser utilizado
 
 **Qual é o maior tamanho do disco gerido suportado para sistema operativo e discos de dados?**
 
-O tipo de partição que o Azure suporta para um disco de sistema operativo é o registo principal de arranque (MBR). O formato MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que o Azure suporta para um disco de sistema operativo é 2 TiB. O Azure suporta até 32 TiB para discos de dados geridos.
+O tipo de partição que o Azure suporta para um disco de sistema operativo é o registo principal de arranque (MBR). O formato MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que o Azure suporta para um disco de sistema operativo é 4 TiB. O Azure suporta até 32 TiB para discos de dados geridos.
 
 **Qual é o maior tamanho de disco não gerido suportado para sistema operativo e discos de dados?**
 
-O tipo de partição que o Azure suporta para um disco de sistema operativo é o registo principal de arranque (MBR). O formato MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que o Azure suporta para um sistema operativo não gerido é 2 TiB. O Azure suporta até 4 TiB para dados de discos não geridos.
+O tipo de partição que o Azure suporta para um disco de sistema operativo é o registo principal de arranque (MBR). O formato MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que o Azure suporta para um sistema operativo não gerido é 4 TiB. O Azure suporta até 4 TiB para dados de discos não geridos.
 
 **Qual é o maior tamanho de bolha de página que é suportado?**
 

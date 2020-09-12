@@ -3,12 +3,12 @@ title: Resolução de problemas Azure ficheiros backup
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 9e8869ed75350fd4063832932f076fb6fd52d4e5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001744"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376983"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
 
@@ -51,7 +51,7 @@ Recandidutar o registo. Se o problema persistir, contacte o suporte.
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Incapaz de apagar o cofre dos Serviços de Recuperação depois de desprotegir uma partilha de ficheiros
 
-No portal Azure, abra as suas contas de Armazenamento de Infraestruturas de **Backup do Cofre**e clique em Não  >  **Backup Infrastructure**  >  **Storage accounts** **registar** para remover as contas de armazenamento do cofre dos Serviços de Recuperação.
+No portal Azure, abra as suas contas **de**Armazenamento  >  **de Infraestruturas de Backup**do Cofre  >  **Storage accounts**. Selecione **Unregister** para remover as contas de armazenamento do cofre dos Serviços de Recuperação.
 
 >[!NOTE]
 >Um cofre dos Serviços de Recuperação só pode ser apagado depois de não registar todas as contas de armazenamento registadas no cofre.
@@ -318,7 +318,7 @@ Error Message: A cópia de segurança falhou à medida que a partilha de ficheir
 
 Verifique se a parte do ficheiro retrossativo é permanentemente eliminada. Se sim, pare a cópia de segurança para a partilha de ficheiros para evitar falhas repetidas de backup. Para aprender a parar a proteção consulte [stop Protection for Azure file share](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o backup das ações de ficheiros Azure, consulte:
 

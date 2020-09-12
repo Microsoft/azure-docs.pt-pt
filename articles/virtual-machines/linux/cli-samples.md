@@ -1,18 +1,18 @@
 ---
 title: Exemplos da CLI do Azure
-description: Exemplos da CLI do Azure
+description: Amostras de CLI para máquinas virtuais Azure
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ecc195017b99da576cba9944613c76bea3c31abf
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 63c420a7ae082cbf38b529e71d8324550a84b7bd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498723"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319173"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Exemplos da CLI do Azure para máquinas virtuais do Linux
 
@@ -29,12 +29,12 @@ A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure
 | [Criar uma VM a partir de um disco de SO gerido](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria uma máquina virtual anexando um disco gerido existente como disco OS. |
 | [Criara uma VM a partir de um instantâneo](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria uma máquina virtual a partir de um instantâneo, criando primeiro um disco gerido a partir de instantâneo e, em seguida, anexando o novo disco gerido como disco OS. |
 |**Manage storage**||
-| [Criar um disco gerido a partir de um VHD](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria um disco gerido a partir de um VHD especializado como disco de SO ou a partir de um VHD de dados como disco de dados.  |
-| [Criar um disco gerido a partir de um instantâneo](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria um disco gerido a partir de uma imagem instantânea. |
-| [Copiar discos geridos para uma subscrição igual ou diferente](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | As cópias conseguiram o disco para a mesma subscrição ou subscrição diferente, mas na mesma região que o disco gerido pelos pais. 
-| [Exportar um instantâneo como VHD para uma conta de armazenamento](../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Exporta um instantâneo gerido como VHD para uma conta de armazenamento em diferentes regiões. |
-| [Exportar o VHD de um disco gerido para uma conta de armazenamento](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Exporta o VHD subjacente de um disco gerido para uma conta de armazenamento em diferentes regiões. |
-| [Copiar instantâneo para uma subscrição igual ou diferente](../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copia instantâneo para a mesma subscrição ou subscrição diferente, mas na mesma região que o instantâneo dos pais. |
+| [Criar um disco gerido a partir de um VHD](../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria um disco gerido a partir de um VHD especializado como disco de SO ou a partir de um VHD de dados como disco de dados.  |
+| [Criar um disco gerido a partir de um instantâneo](../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria um disco gerido a partir de uma imagem instantânea. |
+| [Copiar discos geridos para uma subscrição igual ou diferente](../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | As cópias conseguiram o disco para a mesma subscrição ou subscrição diferente, mas na mesma região que o disco gerido pelos pais. 
+| [Exportar um instantâneo como VHD para uma conta de armazenamento](../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Exporta um instantâneo gerido como VHD para uma conta de armazenamento em diferentes regiões. |
+| [Exportar o VHD de um disco gerido para uma conta de armazenamento](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Exporta o VHD subjacente de um disco gerido para uma conta de armazenamento em diferentes regiões. |
+| [Copiar instantâneo para uma subscrição igual ou diferente](../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copia instantâneo para a mesma subscrição ou subscrição diferente, mas na mesma região que o instantâneo dos pais. |
 |**Máquinas virtuais da rede**||
 | [Proteger o tráfego de rede entre as máquinas virtuais](./../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria duas máquinas virtuais, todos os recursos relacionados, e um grupo interno e externo de segurança de rede (NSG). |
 |**Máquinas virtuais seguras**||

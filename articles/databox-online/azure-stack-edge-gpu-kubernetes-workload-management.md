@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 53bd7a404e4635833b03507e8b5ae93ae40b1c61
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268040"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318986"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Gestão da carga de trabalho da Kubernetes no seu dispositivo Azure Stack Edge
 
@@ -27,11 +27,11 @@ Os dois tipos comuns de carga de trabalho que pode implementar no seu dispositiv
 
 - **As aplicações apátridas** não preservam o seu estado e não guardam dados para o armazenamento persistente. Todos os dados do utilizador e da sessão ficam com o cliente. Alguns exemplos de aplicações apátridas incluem frontends web como Nginx, e outras aplicações web.
 
-    Pode criar uma Implantação de Kubernetes para implementar uma aplicação apátrida no seu cluster. 
+    Pode criar uma implementação de Kubernetes para implementar uma aplicação apátrida no seu cluster. 
 
 - **Aplicações imponentes** exigem que o seu estado seja salvo. Aplicações imponentes utilizam armazenamento persistente, como volumes persistentes, para guardar dados para utilização pelo servidor ou por outros utilizadores. Exemplos de aplicações estatais incluem bases de dados como o MongoDB.
 
-    Pode criar uma Implantação de Kubernetes para implementar uma aplicação imponente. 
+    Pode criar uma implementação de Kubernetes para implementar uma aplicação imponente. 
 
 ## <a name="deployment-flow"></a>Fluxo de implantação
 
@@ -47,7 +47,7 @@ Há três formas primárias de implantar as suas cargas de trabalho. Cada uma de
 
 ![Implantação da carga de trabalho de Kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Implementação local**: Isto é através de uma ferramenta de acesso à linha de comando, tal como `kubectl` permite-lhe implantar Kubernetes `yamls` . Liga-se ao cluster Kubernetes no seu Azure Stack Edge que cria utilizando o `kubeconfig` ficheiro. Para mais informações, aceda a [um cluster Kubernetes via kubectl.](azure-stack-edge-gpu-create-kubernetes-cluster.md)
+- **Implantação local**: Esta implementação é através da ferramenta de acesso à linha de comando, tal como `kubectl` permite-lhe implantar Kubernetes `yamls` . Aceda ao cluster Kubernetes no seu Azure Stack Edge através de um `kubeconfig` ficheiro. Para mais informações, aceda a [um cluster Kubernetes via kubectl.](azure-stack-edge-gpu-create-kubernetes-cluster.md)
 
 - **Implementação IoT Edge**: Isto é através do IoT Edge, que se conecta ao Azure IoT Hub. Liga-se ao cluster Kubernetes no seu dispositivo Azure Stack Edge através do `iotedge` espaço de nomes. Os agentes IoT Edge implantados neste espaço de nome são responsáveis pela conectividade com o Azure. Aplica a `IoT Edge deployment.json` configuração utilizando Azure DevOps CI/CD. A gestão namespace e IoT Edge é feita através do operador de nuvem.
 
@@ -59,12 +59,12 @@ Ao implementar aplicações, considere as seguintes informações:
 
 - **Tipos simples ou múltiplos**: Pode escolher uma única opção de implantação ou uma mistura de diferentes opções de implementação.
 - **Cloud versus local**: Dependendo das suas aplicações, pode escolher a implementação local através de kubectl ou cloud deployment via IoT Edge e Azure Arc. 
-    - A implantação local é mais adequada para cenários de desenvolvimento. Quando escolhe uma implementação local, está restrito à rede em que o seu dispositivo Azure Stack Edge está implantado.
+    - Quando escolhe uma implementação local, está restrito à rede em que o seu dispositivo Azure Stack Edge está implantado.
     - Se tiver um agente de nuvem que possa implementar, deve implantar o seu operador de nuvem e utilizar a gestão da nuvem.
-- **IoT vs Azure Arc**: A escolha da implementação também depende da intenção do seu cenário de produto. Se estiver a implementar aplicações ou contentores que tenham uma integração mais profunda com o ecossistema IoT ou IoT, então deve escolher a forma de implantação de aplicações IoT Edge. Se tiver as implementações de Kubernetes existentes, a Azure Arc seria a escolha preferida.
+- **IoT vs Azure Arc**: A escolha da implementação também depende da intenção do seu cenário de produto. Se estiver a implementar aplicações ou contentores que tenham uma integração mais profunda com o ecossistema IoT ou IoT, então selecione IoT Edge para implementar as suas aplicações. Se tiver as implementações de Kubernetes existentes, a Azure Arc seria a escolha preferida.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para implementar localmente uma aplicação via kubectl, consulte:
 
@@ -76,4 +76,4 @@ Para implementar uma aplicação via IoT Edge, consulte:
 
 Para implementar uma aplicação via Azure Arc, consulte:
 
-- [Implementar uma aplicação utilizando o Arco Azure](azure-stack-edge-gpu-deploy-sample-module.md).
+- [Implementar uma aplicação utilizando o Arco Azure](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).

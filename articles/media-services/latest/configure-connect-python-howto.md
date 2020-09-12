@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 42fea1a4363684667ccb41f0406bb66ef00d5485
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 68620b644ef85f7b627b7b6380c16959b25299f0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265580"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297336"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Ligue-se aos Serviços de Mídia v3 API - Python
 
@@ -104,7 +104,7 @@ pip3 install azure-mgmt-media==1.1.1
 
 1. Executar o arquivo
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Use [o Python SDK.](https://aka.ms/ams-v3-python-sdk)
 - Reveja a documentação do árbitro media [python.](https://aka.ms/ams-v3-python-ref)

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797105"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321094"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar utilizadores usando o Azure Ative Directory
 
@@ -60,7 +60,7 @@ O utilizador é criado e adicionado à sua organização Azure AD.
 
 ## <a name="add-a-new-guest-user"></a>Adicione um novo utilizador convidado
 
-Também pode convidar um novo utilizador convidado a colaborar com a sua organização selecionando o **utilizador Convidar** a partir da nova página do **utilizador.** Se as configurações de colaboração externa da sua organização estiverem configuradas de modo a que possa convidar os hóspedes, o utilizador receberá um convite que deve aceitar para começar a colaborar. Para obter mais informações sobre convidar utilizadores de colaboração B2B, consulte [utilizadores de Convite B2B para o Azure Ative Directory](../b2b/add-users-administrator.md)
+Também pode convidar um novo utilizador convidado a colaborar com a sua organização selecionando o **utilizador Convidar** a partir da nova página do **utilizador.** Se as configurações de colaboração externa da sua organização estiverem configuradas de modo a que possa convidar os hóspedes, o utilizador receberá um convite que deve aceitar para começar a colaborar. Para obter mais informações sobre convidar utilizadores de colaboração B2B, consulte [utilizadores de Convite B2B para o Azure Ative Directory](../external-identities/add-users-administrator.md)
 
 ## <a name="add-a-consumer-user"></a>Adicionar um utilizador de consumo
 
@@ -93,7 +93,7 @@ Quando um utilizador é eliminado, quaisquer licenças consumidas pelo utilizado
 >[!Note]
 >Tem de utilizar o Windows Server Ative Directory para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Windows Server Ative Directory. Depois de completar a atualização, tem de esperar que o próximo ciclo de sincronização esteja concluído antes de ver as alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de adicionar os seus utilizadores, pode fazer os seguintes processos básicos:
 
@@ -105,4 +105,4 @@ Depois de adicionar os seus utilizadores, pode fazer os seguintes processos bás
 
 - [Trabalhar com grupos dinâmicos e utilizadores](../users-groups-roles/groups-create-rule.md)
 
-Ou pode fazer outras tarefas de gestão do utilizador, tais como [adicionar utilizadores convidados a partir de outro diretório](../b2b/what-is-b2b.md) ou [restaurar um utilizador eliminado](active-directory-users-restore.md). Para obter mais informações sobre outras ações disponíveis, consulte [a documentação de gestão de utilizadores do Azure Ative Directory](../users-groups-roles/index.yml).
+Ou pode fazer outras tarefas de gestão do utilizador, tais como [adicionar utilizadores convidados a partir de outro diretório](../external-identities/what-is-b2b.md) ou [restaurar um utilizador eliminado](active-directory-users-restore.md). Para obter mais informações sobre outras ações disponíveis, consulte [a documentação de gestão de utilizadores do Azure Ative Directory](../users-groups-roles/index.yml).

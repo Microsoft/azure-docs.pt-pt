@@ -1,0 +1,268 @@
+---
+title: Países e regiões editores apoiados
+description: Lista de países a partir dos quais pode publicar uma oferta para o mercado comercial da Microsoft.
+ms.reviewer: nanef
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
+ms.custom: references_regions
+ms.topic: how-to
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 09/02/2020
+ms.openlocfilehash: 393b71e78c59d126b24da2f1fd354ccfadf6825a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89323003"
+---
+# <a name="supported-publisher-countries-and-regions"></a>Países e regiões editores apoiados
+
+Para publicar uma oferta ao mercado comercial da Microsoft, deve ter a sua residência num dos seguintes países ou regiões.
+
+- Afeganistão
+- Ilhas Åland
+- Albânia
+- Argélia
+- Samoa Americana
+- Andorra
+- Angola
+- Anguila
+- Antártica
+- Antígua e Barbuda
+- Argentina
+- Arménia
+- Aruba
+- Austrália
+- Áustria
+- Azerbaijão
+- Baamas
+- Barém
+- Bangladesh
+- Barbados
+- Bielorrússia
+- Bélgica
+- Belize
+- Benim
+- Bermudas
+- Butão
+- Bolívia
+- Bonaire, Sint Eustatius e Saba
+- Bósnia e Herzegovina
+- Botsuana
+- Ilha Bouvet
+- Brasil
+- Território Britânico do Oceano Índico
+- Ilhas Virgens Britânicas
+- Brunei
+- Bulgária
+- Burkina Faso
+- Burundi
+- Cabo Verde
+- Camboja
+- Camarões
+- Canadá
+- Ilhas Caimão
+- República Centro-Africana
+- Chade
+- Chile
+- China
+- Ilha do Natal
+- Ilhas dos Cocos (Keeling)
+- Colômbia
+- Comoros
+- Congo
+- República Democrática do Congo
+- Ilhas Cook
+- Costa Rica
+- Croácia
+- Curaçao
+- Chipre
+- Costa do Marfim
+- Checa
+- Dinamarca
+- Jibuti
+- Dominica
+- República Dominicana
+- Equador
+- Egito
+- Salvador
+- Guiné Equatorial
+- Eritreia
+- Estónia
+- Etiópia
+- Ilhas Falkland (Malvinas)
+- Ilhas Faroé
+- Fiji
+- Finlândia
+- França
+- Guiana Francesa
+- Polinésia Francesa
+- Territórios Austrais Franceses
+- Gabão
+- Gâmbia
+- Geórgia
+- Alemanha
+- Gana
+- Gibraltar
+- Grécia
+- Gronelândia
+- Granada
+- Guadalupe
+- Guame
+- Guatemala
+- Guernesey
+- Guiné
+- Guiné-Bissau
+- Guiana
+- Haiti
+- Ilha Heard e Ilhas McDonald
+- Honduras
+- R.A.E. de Hong Kong
+- Hungria
+- Islândia
+- Índia
+- Indonésia
+- Iraque
+- Irlanda
+- Ilha de Man
+- Israel
+- Itália
+- Jamaica
+- Japão
+- Jersey
+- Jordânia
+- Cazaquistão
+- Quénia
+- Quiribáti
+- Coreia
+- Kosovo
+- Koweit
+- Quirguistão
+- Laos
+- Letónia
+- Líbano
+- Lesoto
+- Libéria
+- Líbia
+- Listenstaine
+- Lituânia
+- Luxemburgo
+- RAE de Macau
+- Madagáscar
+- Maláui
+- Malásia
+- Maldivas
+- Mali
+- Malta
+- Ilhas Marshall
+- Martinica
+- Mauritânia
+- Maurícias
+- Maiote
+- México
+- Micronésia
+- Moldávia
+- Mónaco
+- Mongólia
+- Montenegro
+- Montserrate
+- Marrocos
+- Moçambique
+- Mianmar
+- Namíbia
+- Nauru
+- Nepal
+- Países Baixos
+- Nova Caledónia
+- Nova Zelândia
+- Nicarágua
+- Níger
+- Nigéria
+- Niuê
+- Ilha Norfolk
+- Macedónia do Norte
+- Ilhas Marianas do Norte
+- Noruega
+- Omã
+- Paquistão
+- Palau
+- Autoridade Palestiniana
+- Panamá
+- Papua-Nova Guiné
+- Paraguai
+- Peru
+- Filipinas
+- Ilhas Pitcairn
+- Polónia
+- Portugal
+- Porto Rico
+- Catar
+- Roménia
+- Rússia
+- Ruanda
+- Reunião
+- Rio Saba
+- São Barthélemy
+- São Cristóvão e Neves
+- Santa Lúcia
+- São Martinho (Saint Martin)
+- São Pedro e Miquelon
+- São Vicente e Granadinas
+- Samoa
+- São Marino
+- Arábia Saudita
+- Senegal
+- Sérvia
+- Seicheles
+- Serra Leoa
+- Singapura
+- Sint Eustatius
+- São Martinho (Sint Maarten)
+- Eslováquia
+- Eslovénia
+- Ilhas Salomão
+- Somália
+- África do Sul
+- Ilhas da Geórgia do Sul e Sandwich do Sul
+- Sudão do Sul
+- Espanha
+- Sri Lanca
+- Santa Helena, Ascensão, Tristão da Cunha
+- Suriname
+- Svalbard e Jan Mayen
+- Suazilândia
+- Suécia
+- Suíça
+- São Tomé e Príncipe
+- Taiwan
+- Tajiquistão
+- Tanzânia
+- Tailândia
+- Timor-Leste
+- Togo
+- Toquelau
+- Tonga
+- Trindade e Tobago
+- Tunísia
+- Turquia
+- Turquemenistão
+- Ilhas Turcas e Caicos
+- Tuvalu
+- Ilhas Menores Distantes dos EUA
+- Ilhas Virgens Americanas
+- Uganda
+- Ucrânia
+- Emirados Árabes Unidos
+- Reino Unido
+- Estados Unidos da América
+- Uruguai
+- Usbequistão
+- Vanuatu
+- Cidade do Vaticano
+- Venezuela
+- Vietname
+- Wallis e Futuna
+- Iémen
+- Zâmbia
+- Zimbabué

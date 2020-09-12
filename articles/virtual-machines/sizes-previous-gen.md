@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 37a687a17df266fe0589c24b392c0527e001f976
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683900"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298917"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -59,7 +59,7 @@ Caching de armazenamento premium: Suportado
 
 MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
-<sup>1</sup> A produção máxima de disco (IOPS ou MBps) possível com um VM da série Fs pode ser limitada pelo número, tamanho e desmontagem do ou dos discos anexos.  Para mais detalhes, consulte [Design para alto desempenho(./premium-storage-performance.md).
+<sup>1</sup> A produção máxima de disco (IOPS ou MBps) possível com um VM da série Fs pode ser limitada pelo número, tamanho e desmontagem do ou dos discos anexos.  Para mais detalhes, consulte [Design para obter um desempenho elevado.](premium-storage-performance.md)
 
 
 ## <a name="nvv2-series"></a>Série NVv2
@@ -267,7 +267,7 @@ Caching de armazenamento premium: Suportado
 | Standard_DS13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
 | Standard_DS14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
 
-<sup>1</sup> A produção máxima de disco (IOPS ou MBps) possível com um VM série DS pode ser limitada pelo número, tamanho e desmontagem do ou dos discos anexos.  Para mais detalhes, consulte [Design para alto desempenho(./premium-storage-performance.md).
+<sup>1</sup> A produção máxima de disco (IOPS ou MBps) possível com um VM série DS pode ser limitada pelo número, tamanho e desmontagem do ou dos discos anexos.  Para mais detalhes, consulte [Design para obter um desempenho elevado.](premium-storage-performance.md)
 <sup>2</sup> VM Family pode funcionar em um dos seguintes CPU's: 2.2 GHz Intel Xeon® E5-2660 v2, 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>
@@ -293,7 +293,7 @@ Caching de armazenamento premium: Não suportado
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
 | Standard_L32s &nbsp; <sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
-A produção máxima de disco possível com VMs da série L pode ser limitada pelo número, tamanho e despimento de quaisquer discos anexos. Para mais detalhes, consulte [Design para alto desempenho(./premium-storage-performance.md).
+A produção máxima de disco possível com VMs da série L pode ser limitada pelo número, tamanho e despimento de quaisquer discos anexos. Para mais detalhes, consulte [Design para obter um desempenho elevado.](premium-storage-performance.md)
 
 <sup>1</sup> A instância é isolada para hardware dedicado a um único cliente.
 
@@ -315,7 +315,7 @@ Caching de armazenamento premium: Suportado
 | Standard_GS4 &nbsp; <sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
 | Standard_GS5 &nbsp; <sup>2, &nbsp; 3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
-<sup>1</sup> A produção máxima de disco (IOPS ou MBps) possível com um VM da série GS pode ser limitada pelo número, tamanho e desmontagem do ou dos discos anexos. Para mais detalhes, consulte [Design para alto desempenho(./premium-storage-performance.md).
+<sup>1</sup> A produção máxima de disco (IOPS ou MBps) possível com um VM da série GS pode ser limitada pelo número, tamanho e desmontagem do ou dos discos anexos. Para mais detalhes, consulte [Design para obter um desempenho elevado.](premium-storage-performance.md)
 
 <sup>2</sup> A instância é isolada para hardware dedicado a um único cliente.
 
@@ -377,6 +377,6 @@ Atualizações de preservação da memória: Não suportadas
 * [GPU](sizes-gpu.md)
 * [Computação de elevado desempenho](sizes-hpc.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

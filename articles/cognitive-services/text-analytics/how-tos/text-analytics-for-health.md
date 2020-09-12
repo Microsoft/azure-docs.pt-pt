@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 4ba7aa530699ab0e06ac42e3701265254b617f73
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5bb244796414c828e1535e4874fc85aa83f182dc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167696"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300073"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar o Text Analytics para a saúde (pré-visualização)
 
@@ -91,7 +91,7 @@ Existem várias formas de instalar e executar o recipiente.
 A azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) é um recurso Azure dedicado a executar contentores na nuvem. Traz capacidades fora da caixa, tais como autoscaling, suporte de contentores estivadores e composição de estiva, suporte HTTPS e muito mais.
 
 > [!NOTE]
-> Utilizando a App Web Azure, obterá automaticamente um domínio sob a forma de`<appservice_name>.azurewebsites.net`
+> Utilizando a App Web Azure, obterá automaticamente um domínio sob a forma de `<appservice_name>.azurewebsites.net`
 
 Execute este script PowerShell utilizando o CLI Azure para criar uma Aplicação Web para Contentores, utilizando a sua subscrição e a imagem do recipiente em HTTPS. Aguarde que o script esteja completo (aproximadamente 25-30 minutos) antes de submeter o primeiro pedido.
 
@@ -161,11 +161,11 @@ Por predefinição, não existe qualquer garantia quando se utiliza a ACI com AP
 
 #### <a name="set-up-nginx-as-an-ingress-gateway"></a>Configurar o NGINX como um portal de entrada
 
-O NGINX utiliza [ficheiros de configuração](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) para ativar funcionalidades em tempo de execução. Para permitir a rescisão de TLS para outro serviço, deve especificar um certificado SSL para encerrar a ligação TLS e `proxy_pass` especificar um endereço para o serviço. Uma amostra é fornecida abaixo.
+O NGINX utiliza [ficheiros de configuração](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) para ativar funcionalidades em tempo de execução. Para permitir a rescisão de TLS para outro serviço, deve especificar um certificado SSL para encerrar a ligação TLS e  `proxy_pass` especificar um endereço para o serviço. Uma amostra é fornecida abaixo.
 
 
 > [!NOTE]
-> `ssl_certificate`espera que um caminho seja especificado dentro do sistema de ficheiros local do contentor NGINX. O endereço especificado `proxy_pass` deve estar disponível na rede do contentor NGINX.
+> `ssl_certificate` espera que um caminho seja especificado dentro do sistema de ficheiros local do contentor NGINX. O endereço especificado `proxy_pass` deve estar disponível na rede do contentor NGINX.
 
 O recipiente NGINX carregará todos os ficheiros no `_.conf_` que são montados `/etc/nginx/conf.d/` no caminho de configuração HTTP.
 
@@ -399,28 +399,25 @@ A saída de extração de relação contém referências URI à *origem* da rela
 
 ```json
 "relations": [
-  {
-      "relationType": "DosageOfMedication",
-      "score": 1.0,
-      "bidirectional": false,
-      "source": "#/documents/2/entities/0",
-      "target": "#/documents/2/entities/1",
-      "entities": [
-          {
-              "id": "0",
-              "role": "ATTRIBUTE"
-          },
-          {
-              "id": "1",
-              "role": "ENTITY"
-          }
-      ]
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
   },
 ...
 ]
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Categorias de entidades nomeadas](../named-entity-types.md)

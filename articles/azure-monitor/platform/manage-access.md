@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925639"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300107"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
 
@@ -228,14 +228,14 @@ Consulte [a definição do controlo de acesso por tabela](#table-level-rbac) aba
 
     * Conceda aos utilizadores as seguintes permissões no espaço de trabalho: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– necessário para que o utilizador possa enumerar o espaço de trabalho e abrir a lâmina do espaço de trabalho no portal Azure
-        * `Microsoft.OperationalInsights/workspaces/query/read`– necessário para cada utilizador que possa executar consultas
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– ser capaz de ler registos de login Azure AD
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`– ser capaz de ler registos de soluções de Gestão de Atualização
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`– ser capaz de ler registos de soluções de Gestão de Atualização
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`– ser capaz de ler registos de gestão de atualização
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– necessária para poder utilizar a solução de Gestão de Atualização
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– necessária para poder utilizar a solução de Gestão de Atualização
+        * `Microsoft.OperationalInsights/workspaces/read` – necessário para que o utilizador possa enumerar o espaço de trabalho e abrir a lâmina do espaço de trabalho no portal Azure
+        * `Microsoft.OperationalInsights/workspaces/query/read` – necessário para cada utilizador que possa executar consultas
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – ser capaz de ler registos de login Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` – ser capaz de ler registos de soluções de Gestão de Atualização
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` – ser capaz de ler registos de soluções de Gestão de Atualização
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` – ser capaz de ler registos de gestão de atualização
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – necessária para poder utilizar a solução de Gestão de Atualização
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – necessária para poder utilizar a solução de Gestão de Atualização
 
     * Conceda aos utilizadores as seguintes permissões aos seus recursos: `*/read` , atribuídos à função Reader, ou `Microsoft.Insights/logs/*/read` . 
 
@@ -270,7 +270,7 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline,_ crie uma
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-Os exemplos acima definem uma lista branca de tabelas que são permitidas. Este exemplo mostra a definição da lista negra quando um utilizador pode aceder a todas as tabelas, menos a tabela _SecurityAlert:_
+Os exemplos acima definem uma lista de tabelas que são permitidas. Este exemplo mostra a definição de lista bloqueada quando um utilizador pode aceder a todas as tabelas, menos a tabela _SecurityAlert:_
 
 ```
 "Actions":  [
@@ -308,7 +308,7 @@ Por vezes, os registos personalizados provêm de fontes que não estão diretame
 * Os proprietários do espaço de trabalho são tratados como qualquer outro utilizador para o controlo de acesso por mesa.
 * Recomendamos atribuir funções a grupos de segurança em vez de utilizadores individuais para reduzir o número de atribuições. Isto também o ajudará a usar as ferramentas de gestão do grupo existentes para configurar e verificar o acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [a visão geral](./log-analytics-agent.md) do agente Do Log Analytics para recolher dados de computadores no seu datacenter ou noutro ambiente em nuvem.
 

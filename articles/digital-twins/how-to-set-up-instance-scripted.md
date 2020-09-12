@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181379"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298900"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -58,6 +58,13 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
     * Para o registo da aplicação: um *URL de resposta a aplicação Azure AD* para a aplicação AZure AD. Utilize `http://localhost`. O script irá configurar um URI *de cliente público/nativo (mobile & desktop)* para o mesmo.
 
 O script criará uma instância Azure Digital Twins, atribuirá ao seu utilizador Azure o papel *de Azure Digital Twins Owner (Preview)* no caso, e configurará um registo de aplicações AD AZure para a aplicação do seu cliente para usar.
+
+>[!NOTE]
+>Existe atualmente um **problema conhecido** com a configuração escrita, no qual alguns utilizadores (especialmente utilizadores em contas pessoais da [Microsoft (MSAs)](https://account.microsoft.com/account)podem encontrar a **atribuição de papel para _Azure Digital Twins Owner (Preview)_ não foi criada**.
+>
+>Pode verificar a atribuição de funções com a secção [*de atribuição de funções de utilizador*](#verify-user-role-assignment) verificar mais tarde neste artigo e, se necessário, configurar a atribuição de funções manualmente utilizando o portal [Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>
+>Para mais detalhes sobre este assunto, consulte [*Troubleshooting: Questões conhecidas em Azure Digital Twins*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 Aqui está um excerto do registo de saída do script:
 
@@ -125,7 +132,11 @@ Em primeiro lugar, verifique se as permissões das permissões Azure Digital Twi
 
 [!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:
+Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI dos Gémeos Digitais Azure: 
+* [az dt referência](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)
+
+Ou, veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:
 * [*Como fazer: Escrever código de autenticação de aplicativos*](how-to-authenticate-client.md)

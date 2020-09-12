@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223861"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300277"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configure credenciais de implementação para o Azure App Service
 [O Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) suporta dois tipos de credenciais para [a implantação local](deploy-local-git.md) de Git e [implantação ftp/S](deploy-ftp.md). Estas credenciais não são as mesmas que as suas credenciais de subscrição Azure.
@@ -61,7 +61,7 @@ Se a implementação do Git estiver configurada, a página mostra um **nome de u
 
 ## <a name="use-user-level-credentials-with-ftpftps"></a>Utilize credenciais ao nível do utilizador com FTP/FTPS
 
-Autenticação num ponto final FTP/FTPS utilizando credenciais de nível de utilizador requer um nome de utilizador no seguinte formato:`<app-name>\<user-name>`
+Autenticação num ponto final FTP/FTPS utilizando credenciais de nível de utilizador requer um nome de utilizador no seguinte formato: `<app-name>\<user-name>`
 
 Uma vez que as credenciais ao nível do utilizador estão ligadas ao utilizador e não a um recurso específico, o nome de utilizador deve estar neste formato para direcionar a ação de entrada para o ponto final da aplicação certa.
 
@@ -74,6 +74,36 @@ Para obter as credenciais de nível de aplicação:
 
 Para redefinir as credenciais de nível de aplicação, selecione **'Repor credenciais'** no mesmo diálogo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="disable-basic-authentication"></a>Desativar a autenticação básica
+
+Algumas organizações precisam de cumprir os requisitos de segurança e preferem desativar o acesso através de FTP ou WebDeploy. Desta forma, os membros da organização só podem aceder aos seus Serviços de Aplicações através de APIs que são controlados pelo Azure Ative Directory (Azure AD).
+
+### <a name="ftp"></a>FTP
+
+Para desativar o acesso FTP ao site, executar o seguinte comando CLI. Substitua os espaços reservados pelo seu grupo de recursos e nome do local. 
+
+```bash
+az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Para confirmar que o acesso FTP está bloqueado, pode tentar autenticar usando um cliente FTP, como o FileZilla. Para obter as credenciais de publicação, vá à lâmina de visão geral do seu site e clique em Baixar Perfil de Publicação. Utilize o nome de anfitrião FTP do ficheiro, o nome de utilizador e a palavra-passe para autenticar, e obterá uma resposta de erro 401, indicando que não está autorizado.
+
+### <a name="webdeploy-and-scm"></a>WebDeploy e SCM
+
+Para desativar o acesso básico à porta WebDeploy e ao site SCM, executar o seguinte comando CLI. Substitua os espaços reservados pelo seu grupo de recursos e nome do local. 
+
+```bash
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Para confirmar que as credenciais de perfil de publicação estão bloqueadas na WebDeploy, tente [publicar uma aplicação web utilizando o Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+
+### <a name="disable-access-to-the-api"></a>Desativar o acesso à API
+
+A API na secção anterior é apoiada pelo Azure Role-Based Access Control (RBAC), o que significa que pode [criar uma função personalizada](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) e atribuir utilizadores de baixos privados ao papel para que não possam ativar o auth básico em qualquer site. Para configurar o papel personalizado, [siga estas instruções](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+
+Também pode utilizar [o Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) para auditar quaisquer pedidos de autenticação bem-sucedidos e utilizar a [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) para impor esta configuração para todos os sites da sua subscrição.
+
+## <a name="next-steps"></a>Próximos passos
 
 Descubra como usar estas credenciais para implementar a sua aplicação a partir de [Git local](deploy-local-git.md) ou usando [FTP/S](deploy-ftp.md).

@@ -3,12 +3,12 @@ title: Restaurar o Estado do Sistema num Servidor windows
 description: Explicação passo a passo para restaurar o Estado do Sistema do Servidor do Windows a partir de uma cópia de segurança no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178591"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377442"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para o Servidor do Windows
 
@@ -56,7 +56,7 @@ Os passos seguintes explicam como reverter a configuração do Windows Server pa
 
 8. Verifique os detalhes da recuperação no painel **de confirmação** e selecione **Recuperar**.
 
-   ![clique em Recuperar para reconhecer a ação de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Selecione Recuperar para reconhecer a ação de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copie o diretório *WindowsImageBackup* no destino Recovery para um volume não crítico do servidor. Normalmente, o volume de SISTEMA do Windows é o volume crítico.
 
@@ -104,7 +104,7 @@ A terminologia utilizada nestes passos inclui:
 
 11. Verifique os detalhes da recuperação no painel de confirmação e selecione **Recuperar**.
 
-    ![clique no botão Recuperar para confirmar o processo de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Selecione o botão Recuperar para confirmar o processo de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copie o diretório *WindowsImageBackup* para um volume não crítico do servidor (por exemplo, D: \) . Normalmente, o volume do Windows OS é o volume crítico.
 
@@ -244,6 +244,6 @@ Se o processo anterior de aplicação do Estado do Sistema não estiver concluí
 
      ![Recuperar todos os volumes](./media/backup-azure-restore-system-state/winre-6.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Agora que recuperou os seus ficheiros e pastas, pode [gerir as suas cópias de segurança.](backup-azure-manage-windows-server.md)

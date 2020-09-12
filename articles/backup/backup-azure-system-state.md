@@ -3,12 +3,12 @@ title: Apoiar o estado do sistema Windows para o Azure
 description: Saiba como fazer o back up do estado do sistema dos computadores windows server para o Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181634"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376495"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Apoiar o estado do sistema Windows para o Azure
 
@@ -62,7 +62,7 @@ Agora que criaste um cofre, configura-o para apoiar o Windows System State.
 
     ![Configurar ficheiros e pastas](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Depois de clicar em OK, uma marca de verificação aparece ao lado **do objetivo backup**, e o painel de **infraestrutura** Prepare-se.
+    Depois de selecionar **OK,** aparece uma marca de verificação ao lado **do objetivo Backup**, e o painel de **infraestrutura** Prepare-se.
 
     ![Objetivo de cópia de segurança configurado, em seguida, preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
@@ -185,7 +185,7 @@ Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluíd
 
 Se tiver dúvidas, [envie-nos feedback.](https://feedback.azure.com/forums/258995-azure-backup)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Obtenha mais detalhes sobre como [efetuar a cópia de segurança das máquinas Windows](backup-windows-with-mars-agent.md).
 * Agora que fez o back up do seu Estado do Sistema do Servidor do Windows, pode [gerir os seus cofres e servidores](backup-azure-manage-windows-server.md).

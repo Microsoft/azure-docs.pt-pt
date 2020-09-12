@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f13dc3e86b21a3f4113a7a7c6f477f239315a27
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2c642b2441d1f30c31e707a237732e028f548ac5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499097"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298186"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Utilizar a CLI do Azure Digital Twins
 
@@ -24,6 +24,8 @@ Além de gerir a sua instância Azure Digital Twins no portal Azure, a Azure Dig
 * Pontos finais configurados
 * Gerir [rotas](concepts-route-events.md)
 * Configurar a [segurança](concepts-security.md) através do controlo de acesso baseado em funções (RBAC)
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="uses-deploy-and-validate"></a>Utilizações (implantar e validar)
 
@@ -39,7 +41,7 @@ Pode certificar-se de que tem a versão mais recente da extensão com estes pass
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma alternativa aos comandos CLI, consulte como gerir uma instância Azure Digital Twins usando APIs e SDKs:
 * [*Como fazer: Use as APIs e SDKs de gémeos digitais Azure*](how-to-use-apis-sdks.md)

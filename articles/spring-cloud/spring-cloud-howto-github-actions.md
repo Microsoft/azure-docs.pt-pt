@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 960e480bc3271a24f1fa898e1af6c55bcaaada7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f004be0afc6c73fdabe57e568cd57b51e9abcc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037564"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299687"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações do GitHub
 
@@ -42,7 +42,7 @@ O comando deve descoduar um objeto JSON:
 }
 ```
 
-Este exemplo utiliza a amostra [piggy Metrics](https://github.com/Azure-Samples/piggymetrics) no GitHub.  Forque a amostra, abra a página de repositório do GitHub e clique no **separador Definições.** Menu **De Segredos Abertos** e clique em **Adicionar um novo segredo**:
+Este exemplo utiliza a amostra [piggy Metrics](https://github.com/Azure-Samples/piggymetrics) no GitHub.  Forque a amostra, abra a página do repositório GitHub e clique no **separador Definições.** Abra o menu **Segredos** e clique em **Adicionar um novo segredo:**
 
  ![Adicionar novo segredo](./media/github-actions/actions1.png)
 
@@ -164,7 +164,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Implementar com o Maven Plugin
-Outra opção é utilizar o [Plugin Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) para implementar o Jar e atualizar as definições da App. O comando `mvn azure-spring-cloud:deploy` é idempotente e criará automaticamente Apps se necessário. Não precisa de criar aplicações correspondentes com antecedência.
+Outra opção é utilizar o [Plugin Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) para implementar o Jar e atualizar as definições da App. O comando `mvn azure-spring-cloud:deploy` é idempotente e criará automaticamente Apps se necessário. Não precisa de criar aplicações correspondentes com antecedência.
 
 ```
 name: AzureSpringCloud
@@ -209,7 +209,7 @@ Se a sua ação correr por engano, por exemplo, se não tiver definido a credenc
 
  ![Verificações de repetição](./media/github-actions/actions4.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Cofre chave para ações do GitHub da nuvem de primavera](./spring-cloud-github-actions-key-vault.md)
 * [Diretores de serviço azure ative](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [GitHub Actions para o Azure](https://github.com/Azure/actions/)

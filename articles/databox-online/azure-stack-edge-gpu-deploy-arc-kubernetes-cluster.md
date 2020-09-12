@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3405f28d5f306e8370bae72eb5f3f3c406235c3d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268198"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322029"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Ativar o Azure Arc no cluster Kubernetes no seu dispositivo GPU Azure Stack Edge
 
@@ -59,7 +59,7 @@ Antes de poder ativar o Azure Arc no cluster Kubernetes, certifique-se de que co
 
 ## <a name="register-kubernetes-resource-providers"></a>Registar fornecedores de recursos Kubernetes
 
-Antes de configurar o cluster Kubernetes via Azure Arc, terá de ativar e registar-se `Microsoft.Kubernetes` e contra a sua `Microsoft.KubernetesConfiguration` subscrição. 
+Antes de ativar o Azure Arc no cluster Kubernetes, terá de ativar e registar-se `Microsoft.Kubernetes` e contra a sua `Microsoft.KubernetesConfiguration` subscrição. 
 
 1. Para ativar um fornecedor de recursos, no portal Azure, vá à subscrição que está a planear utilizar para a implementação. Vá aos **Fornecedores de Recursos.** 
 1. No painel direito, procure os fornecedores que pretende adicionar. Neste exemplo, `Microsoft.Kubernetes` e `Microsoft.KubernetesConfiguration` .
@@ -88,7 +88,7 @@ Também pode registar fornecedores de recursos através do `az cli` . Para obter
 
 1. Para criar um principal de serviço, utilize o seguinte comando através do `az cli` .
 
-    `az as sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
 
     Para obter informações sobre como iniciar sessão no `az cli` portal , Inicie a Cloud Shell no portal [Azure](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
 
@@ -142,12 +142,12 @@ Siga estes passos para configurar o cluster Kubernetes para a gestão do Arco Az
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Para implantar o Arco Azure no dispositivo Azure Stack Edge, certifique-se de que está a utilizar uma [região suportada para o Arco Azure](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc está atualmente em pré-visualização. 
+    Para implantar o Arco Azure no dispositivo Azure Stack Edge, certifique-se de que está a utilizar uma [região suportada para o Arco Azure](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc está atualmente em pré-visualização. Também pode descobrir o nome exato da região para passar no cmdlet usando o `az account list-locations` comando.
     
     Segue-se um exemplo:
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "WestEurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
+    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
         [10.128.44.240]: PS>
     ```
     
@@ -222,6 +222,6 @@ Para remover a gestão do Arco Azure, siga estes passos:
     `Remove-HcsKubernetesAzureArcAgent` 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para entender como executar uma implementação do Arco Azure, consulte [implementar uma aplicação apátrida php guestbook com Redis via GitOps num dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

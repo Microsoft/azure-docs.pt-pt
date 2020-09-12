@@ -4,14 +4,14 @@ description: Saiba como permitir a ligação sinapse para as contas do Azure Cos
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815577"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322471"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
@@ -32,7 +32,7 @@ Utilize os seguintes passos para executar consultas analíticas com a Ligação 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma nova conta Azure,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
@@ -216,7 +216,7 @@ Utilize as instruções no artigo da [loja analítica Da Consulta Azure Cosmos D
 
 Pode encontrar amostras para começar com a Azure Synapse Link no [GitHub.](https://aka.ms/cosmosdb-synapselink-samples) Estas soluções de ponta a ponta com cenários IoT e Retail.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte os seguintes documentos:
 
@@ -228,4 +228,4 @@ Para saber mais, consulte os seguintes documentos:
 
 * [Faísca Apache em Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL sem servidor/a pedido no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Suporte de tempo sem servidor SQL no Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

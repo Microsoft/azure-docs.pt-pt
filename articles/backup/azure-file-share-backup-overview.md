@@ -3,12 +3,12 @@ title: Sobre a Azure file share backup
 description: Saiba como apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180019"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378088"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a Azure file share backup
 
@@ -44,7 +44,7 @@ A azure file share backup é uma solução de backup baseada em nuvem nativa que
 
 6. Pode restaurar o conteúdo da partilha de ficheiros Azure (ficheiros individuais ou a parte completa) a partir de instantâneos disponíveis na partilha de ficheiros de origem. Uma vez que a operação é desencadeada, o URL instantâneo é recuperado da loja de metadados e os dados são listados e transferidos do instantâneo de origem para a parte do ficheiro alvo da sua escolha.
 
-7. Se estiver a utilizar o Azure File Sync, o serviço de Cópia de Segurança indica ao serviço Azure File Sync os caminhos dos ficheiros que estão a ser restaurados e, em seguida, desencadeia um processo de deteção de mudança de fundo nestes ficheiros. Quaisquer ficheiros que tenham sido alterados são sincronizados até ao ponto final do servidor. Este processo ocorre em paralelo com o restauro original da partilha de ficheiros Azure.
+7. Se estiver a utilizar o Azure File Sync, o serviço de Cópia de Segurança indica para o serviço Azure File Sync os caminhos dos ficheiros que estão a ser restaurados, o que, em seguida, desencadeia um processo de deteção de mudança de fundo nestes ficheiros. Quaisquer ficheiros que tenham sido alterados são sincronizados até ao ponto final do servidor. Este processo ocorre em paralelo com o restauro original da partilha de ficheiros Azure.
 
 8. Os dados de monitorização do trabalho de backup e restauro são empurrados para o serviço de monitorização de backup Azure. Isto permite-lhe monitorizar as cópias de segurança em nuvem para as suas partilhas de ficheiros num único dashboard. Além disso, também pode configurar alertas ou notificações de e-mail quando a saúde de backup é afetada. Os e-mails são enviados através do serviço de e-mail Azure.
 
@@ -52,13 +52,13 @@ A azure file share backup é uma solução de backup baseada em nuvem nativa que
 
 Existem dois custos associados à solução de backup de partilha de ficheiros Azure:
 
-1. **Custo de armazenamento instantâneo**: Os encargos de armazenamento incorridos para instantâneos são faturados juntamente com a utilização dos Ficheiros Azure de acordo com os detalhes de preços [mencionados aqui](https://azure.microsoft.com/pricing/details/storage/files/) 
+1. **Custo de armazenamento instantâneo**: Os encargos de armazenamento incorridos para instantâneos são faturados juntamente com a utilização dos Ficheiros Azure de acordo com os detalhes de preços [mencionados aqui](https://azure.microsoft.com/pricing/details/storage/files/)
 
-2. **Taxa de Instância Protegida** "A partir de 1 de setembro de 2020, os clientes serão cobrados uma taxa de instância protegida de acordo com os detalhes de preços [aqui mencionados](https://azure.microsoft.com/en-in/pricing/details/backup/) . A taxa de instância protegida depende do tamanho total das ações de ficheiros protegidas numa conta de armazenamento.
+2. **Taxa de Instância Protegida**: A partir de 1 de setembro de 2020, os clientes serão cobrados uma taxa de instância protegida de acordo com os detalhes de preços [aqui mencionados.](https://azure.microsoft.com/pricing/details/backup/) A taxa de instância protegida depende do tamanho total das ações de ficheiros protegidas numa conta de armazenamento.
 
 Para obter estimativas detalhadas para o backup de ações de ficheiros Azure, você pode baixar o estimador de preços de [Azure Backup](https://aka.ms/AzureBackupCostEstimates)detalhado .  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
 * Encontre respostas a [Perguntas sobre o backup dos Ficheiros Azure](backup-azure-files-faq.md)
