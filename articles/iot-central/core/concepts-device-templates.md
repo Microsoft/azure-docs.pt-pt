@@ -7,12 +7,13 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: device-developer
+ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337114"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015097"
 ---
 # <a name="what-are-device-templates"></a>O que são modelos de dispositivo?
 
@@ -160,10 +161,10 @@ O exemplo a seguir mostra a definição de interface de sensores ambientais:
 
 Este exemplo mostra duas propriedades, um tipo de telemetria, e dois comandos. Uma descrição mínima de campo tem um:
 
-- `@type`para especificar o tipo de capacidade: `Telemetry` `Property` , , ou `Command` .  Em alguns casos, o tipo inclui um tipo semântico para permitir que a IoT Central faça algumas suposições sobre como lidar com o valor.
-- `name`para o valor da telemetria.
-- `schema`para especificar o tipo de dados para a telemetria ou a propriedade. Este valor pode ser um tipo primitivo, como duplo, inteiro, booleano ou corda. Os tipos complexos de objetos, matrizes e mapas também são suportados.
-- `commandType`para especificar como o comando deve ser tratado.
+- `@type` para especificar o tipo de capacidade: `Telemetry` `Property` , , ou `Command` .  Em alguns casos, o tipo inclui um tipo semântico para permitir que a IoT Central faça algumas suposições sobre como lidar com o valor.
+- `name` para o valor da telemetria.
+- `schema` para especificar o tipo de dados para a telemetria ou a propriedade. Este valor pode ser um tipo primitivo, como duplo, inteiro, booleano ou corda. Os tipos complexos de objetos, matrizes e mapas também são suportados.
+- `commandType` para especificar como o comando deve ser tratado.
 
 Os campos opcionais, como o nome do ecrã e a descrição, permitem adicionar mais detalhes à interface e às capacidades.
 
@@ -222,7 +223,7 @@ Um desenvolvedor de soluções cria pontos de vista que permitem aos operadores 
 
 A telemetria, propriedades e comandos que pode adicionar a uma vista são determinados pelo DCM, propriedades em nuvem e personalizações no modelo do dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Como desenvolvedor de dispositivos, agora que aprendeu sobre os modelos do dispositivo, um próximo passo sugerido é ler [telemetria, propriedade e cargas de comando](./concepts-telemetry-properties-commands.md) para saber mais sobre os dados que um dispositivo troca com a IoT Central.
 

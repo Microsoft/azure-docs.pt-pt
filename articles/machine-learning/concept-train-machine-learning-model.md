@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d0341e5a4d5dc036a4c3f90b2a25003137602694
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 6b40130fb1d965abf76ba9ed1f6ebd45d94c8e01
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144843"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651025"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 
@@ -42,13 +42,13 @@ Cada um destes métodos de treino pode utilizar diferentes tipos de recursos com
 
 O Azure Machine Learning SDK para Python permite-lhe construir e executar fluxos de trabalho de aprendizagem automática com Azure Machine Learning. Você pode interagir com o serviço a partir de uma sessão interativa python, Cadernos Jupyter, Código de Estúdio Visual, ou outro IDE.
 
-* [O que é o Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Instalar/atualizar o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [O que é o Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
+* [Instalar/atualizar o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Configure um ambiente de desenvolvimento para a aprendizagem automática Azure](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configuração de execução
 
-Um trabalho de formação genérico com Azure Machine Learning pode ser definido usando a [Configuração run.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) A configuração de execução é então usada, juntamente com o seu(s script(s) de treino para treinar um modelo num alvo de computação.
+Um trabalho de formação genérico com Azure Machine Learning pode ser definido usando a [Configuração run.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) A configuração de execução é então usada, juntamente com o seu(s script(s) de treino para treinar um modelo num alvo de computação.
 
 Pode começar com uma configuração de execução para o seu computador local e, em seguida, mudar para um para um alvo de computação baseado na nuvem, conforme necessário. Ao alterar o alvo do cálculo, só altera a configuração de execução que utiliza. Uma corrida também regista informações sobre o trabalho de formação, como as entradas, saídas e registos.
 
@@ -123,7 +123,7 @@ Para obter mais informações, veja os seguintes artigos:
 * [Tutorial: Criar um modelo de regressão logística](tutorial-1st-r-experiment.md)
 * [Azure Machine Learning SDK para referência R](https://azure.github.io/azureml-sdk-for-r/index.html)
 
-## <a name="azure-machine-learning-designer"></a>Designer de aprendizagem de máquinas Azure
+## <a name="azure-machine-learning-designer"></a>Estruturador do Azure Machine Learning
 
 O designer permite-lhe treinar modelos usando uma interface de arrasto e queda no seu navegador web.
 
@@ -158,6 +158,6 @@ O CLI de aprendizagem automática é uma extensão para o CLI Azure. Fornece com
 
 Pode utilizar a extensão do Código VS para executar e gerir os seus trabalhos de formação. Consulte o [guia de gestão de recursos do Código VS para](how-to-manage-resources-vscode.md#experiments) saber mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [utilizar alvos de computação para a formação de modelos.](how-to-set-up-training-targets.md)

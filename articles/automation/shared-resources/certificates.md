@@ -2,23 +2,19 @@
 title: Gerir certificados em Azure Automation
 description: Este artigo diz como trabalhar com certificados de acesso por runbooks e configurações DSC.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/02/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 61e2cdf63e5553ba8d796115284dad9a538c2b81
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6220cfb5649995e54338f245b4cb62511b89a2c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056280"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004702"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Gerir certificados em Azure Automation
 
-A Azure Automation armazena certificados de forma segura para acesso por runbooks e configurações DSC, utilizando o cmdlet [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) para recursos do Azure Resource Manager. O armazenamento seguro de certificados permite-lhe criar runbooks e configurações DSC que usam certificados para autenticação, ou adicioná-los a recursos Azure ou de terceiros.
+A Azure Automation armazena certificados de forma segura para acesso por runbooks e configurações DSC, utilizando o cmdlet [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate) para recursos do Azure Resource Manager. O armazenamento seguro de certificados permite-lhe criar runbooks e configurações DSC que usam certificados para autenticação, ou adicioná-los a recursos Azure ou de terceiros.
 
 >[!NOTE]
 >Os ativos seguros na Azure Automation incluem credenciais, certificados, conexões e variáveis encriptadas. Estes ativos são encriptados e armazenados na Automação utilizando uma chave única que é gerada para cada conta Dem automação. A automatização armazena a chave no serviço Key Vault gerido pelo sistema. Antes de armazenar um ativo seguro, a Automatização carrega a chave do Key Vault e, em seguida, utiliza-a para encriptar o ativo. 
@@ -29,10 +25,10 @@ Os cmdlets na tabela seguinte criam e gerem certificados de Automação com Powe
 
 |Cmdlet |Descrição|
 | --- | ---|
-|[Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Recupera informações sobre um certificado para utilizar num livro de bordo ou configuração DSC. Só é possível recuperar o certificado utilizando o `Get-AutomationCertificate` cmdlet interno.|
-|[Novo AzAutomationCertificato](/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Cria um novo certificado em Automação.|
-|[Remover-AzAutomationCertificato](/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Remove um certificado da Automação.|
-|[Set-AzAutomationCertificato](/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Define as propriedades para um certificado existente, incluindo o upload do ficheiro de certificado e a definição da palavra-passe para um ficheiro **.pfx.**|
+|[Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate)|Recupera informações sobre um certificado para utilizar num livro de bordo ou configuração DSC. Só é possível recuperar o certificado utilizando o `Get-AutomationCertificate` cmdlet interno.|
+|[Novo AzAutomationCertificato](/powershell/module/Az.Automation/New-AzAutomationCertificate)|Cria um novo certificado em Automação.|
+|[Remover-AzAutomationCertificato](/powershell/module/Az.Automation/Remove-AzAutomationCertificate)|Remove um certificado da Automação.|
+|[Set-AzAutomationCertificato](/powershell/module/Az.Automation/Set-AzAutomationCertificate)|Define as propriedades para um certificado existente, incluindo o upload do ficheiro de certificado e a definição da palavra-passe para um ficheiro **.pfx.**|
 
 O [cmdlet Add-AzureCertificate](/powershell/module/servicemanagement/azure.service/add-azurecertificate) também pode ser utilizado para carregar um certificado de serviço para o serviço de nuvem especificado.
 
@@ -64,7 +60,8 @@ Quando criar um novo certificado, carrequipe um ficheiro .cer ou .pfx para a Aut
 
 ### <a name="create-a-new-certificate-with-the-azure-portal"></a>Criar um novo certificado com o portal Azure
 
-1. Na sua conta **Assets**de Automação, selecione  >  **Certificados de**Ativos  >  **Adicione um certificado.**
+1. Na sua conta de Automação, no painel esquerdo selecione Certificados em **Recursos** **Partilhados.**
+1. Na página **certificados,** **selecione Adicionar um certificado**.
 1. No campo **Nome,** escreva um nome para o certificado.
 1. Para navegar por um ficheiro **.cer** ou **.pfx,** ao carregar **um ficheiro de certificado,** escolha **Selecione um ficheiro**. Se selecionar um ficheiro **.pfx,** especifique uma palavra-passe e indique se pode ser exportado.
 1. Selecione **Criar** para guardar o novo ativo de certificado.
@@ -127,7 +124,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## <a name="get-a-certificate"></a>Obtenha um certificado
 
-Para obter um certificado, utilize o `Get-AutomationCertificate` cmdlet interno. Não pode utilizar o [cmdlet Get-AzAutomationCertificate,](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) porque devolve informações sobre o ativo do certificado, mas não sobre o certificado em si.
+Para obter um certificado, utilize o `Get-AutomationCertificate` cmdlet interno. Não pode utilizar o [cmdlet Get-AzAutomationCertificate,](/powershell/module/Az.Automation/Get-AzAutomationCertificate) porque devolve informações sobre o ativo do certificado, mas não sobre o certificado em si.
 
 ### <a name="textual-runbook-example"></a>Exemplo de livro de texto
 
@@ -147,7 +144,7 @@ Adicione uma atividade para o `Get-AutomationCertificate` cmdlet interno a um ru
 
 ![Screenshot de adicionar um certificado à tela](../media/certificates/automation-certificate-add-to-canvas.png)
 
-A imagem a seguir mostra um exemplo de utilização de um certificado num livro gráfico. 
+A imagem a seguir mostra um exemplo de utilização de um certificado num livro gráfico.
 
 ![Screenshot de um exemplo de autoria gráfica](../media/certificates/graphical-runbook-add-certificate.png)
 
@@ -163,9 +160,8 @@ cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
 print cert
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os cmdlets utilizados para aceder a certificados, consulte [Gerir módulos na Azure Automation.](modules.md)
 * Para obter informações gerais sobre os runbooks, consulte [a execução do Runbook na Azure Automation](../automation-runbook-execution.md).
-* Para obter detalhes sobre as configurações do DSC, consulte [a visão geral da configuração do Estado da Automação Azure](../automation-dsc-overview.md). 
-
+* Para obter detalhes sobre as configurações do DSC, consulte [a visão geral da configuração do Estado da Automação Azure](../automation-dsc-overview.md).

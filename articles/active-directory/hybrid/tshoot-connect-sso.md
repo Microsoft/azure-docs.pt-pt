@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355918"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016270"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolução de problemas Azure Ative Directory Sem Emenda Único Sinal-On
 
@@ -29,7 +29,7 @@ Este artigo ajuda-o a encontrar informações sobre problemas comuns no que diz 
 - Em alguns casos, permitir o SSO sem emenda pode demorar até 30 minutos.
 - Se desativar e reativar o SSO sem emenda no seu inquilino, os utilizadores não terão a única experiência de inscrição até que os seus bilhetes Kerberos em cache, normalmente válidos por 10 horas, tenham expirado.
 - Se o Seamless SSO tiver sucesso, o utilizador não tem a oportunidade de selecionar **Mantenha-me inscrito.** Devido a este comportamento, [os cenários de mapeamento sharePoint e OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) não funcionam.
-- Os clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com versões 16.0.8730.xxxx e acima são suportados com um fluxo não interativo. Outras versões não são suportadas; nessas versões, os utilizadores introduzirão os seus nomes de utilizador, mas não palavras-passe, para iniciar sintrodução. Para o OneDrive, terá de ativar a [funcionalidade de config silencioso OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de sinal-on silenciosa.
+- Os clientes Microsoft 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e acima são suportados com um fluxo não interativo. Outras versões não são suportadas; nessas versões, os utilizadores introduzirão os seus nomes de utilizador, mas não palavras-passe, para iniciar sintrodução. Para o OneDrive, terá de ativar a [funcionalidade de config silencioso OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de sinal-on silenciosa.
 - O SSO sem emenda não funciona em modo de navegação privada no Firefox.
 - O SSO sem emenda não funciona no Internet Explorer quando o modo Protegido Melhorado é ligado.
 - O Seamless SSO não funciona em navegadores móveis em iOS e Android.
@@ -74,9 +74,9 @@ Navegue para **Azure Ative Directory**  >  **Sign-ins** no centro de administra�
 Utilize a seguinte lista de verificação para resolver problemas de SSO sem problemas:
 
 - Certifique-se de que a função SSO sem emenda está ativada no Azure AD Connect. Se não conseguir ativar a funcionalidade (por exemplo, devido a uma porta bloqueada), certifique-se de que tem todos os [pré-requisitos](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) no lugar.
-- Se você ativou tanto [a Azure AD Join](../active-directory-azureadjoin-overview.md) como a Seamless SSO no seu inquilino, certifique-se de que o problema não é com a Azure AD Join. O SSO da Azure AD Join tem precedência sobre o Seamless SSO se o dispositivo estiver registado tanto com AZure AD como com o domínio. Com SSO da Azure AD Junte-se ao utilizador vê um azulejo de inscrição que diz "Ligado ao Windows".
+- Se você ativou tanto [a Azure AD Join](../devices/overview.md) como a Seamless SSO no seu inquilino, certifique-se de que o problema não é com a Azure AD Join. O SSO da Azure AD Join tem precedência sobre o Seamless SSO se o dispositivo estiver registado tanto com AZure AD como com o domínio. Com SSO da Azure AD Junte-se ao utilizador vê um azulejo de inscrição que diz "Ligado ao Windows".
 - Certifique-se de que o URL AD Ad do Azure `https://autologon.microsoftazuread-sso.com` faz parte das definições da zona intranet do utilizador.
-- Certifique-se de que o dispositivo corporativo está associado ao domínio ative directory. O dispositivo _não_ precisa de ser [Azure AD Unidos](../active-directory-azureadjoin-overview.md) para que o SSO sem emenda funcione.
+- Certifique-se de que o dispositivo corporativo está associado ao domínio ative directory. O dispositivo _não_ precisa de ser [Azure AD Unidos](../devices/overview.md) para que o SSO sem emenda funcione.
 - Certifique-se de que o utilizador está ligado ao dispositivo através de uma conta de domínio do Ative Directory.
 - Certifique-se de que a conta do utilizador é de uma floresta de Diretório Ativo onde foi criada a Seamless SSO.
 - Certifique-se de que o dispositivo está ligado à rede corporativa.
@@ -106,7 +106,7 @@ Se a resolução de problemas não ajudar, pode redefinir manualmente a funciona
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Passo 1: Importar o módulo SSO PowerShell sem costura
 
-1. Primeiro, faça o download e instale [o Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Primeiro, faça o download e instale [o Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Navegue na `%programfiles%\Microsoft Azure Active Directory Connect` pasta.
 3. Importe o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
 

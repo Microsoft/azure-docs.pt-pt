@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: c80823513dd65d68d74be62ca1194f843623d2dc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323031"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019534"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o Hub IoT
 
@@ -28,6 +28,8 @@ Em vez de intermediar mensagens através do próprio IoT Hub, o IoT Hub atua com
 Antes de enviar um ficheiro para o IoT Hub a partir de um dispositivo, tem de configurar o seu hub associando-lhe uma conta [de Armazenamento Azure.](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub)
 
 O seu dispositivo pode então [inicializar um upload](iot-hub-devguide-file-upload.md#initialize-a-file-upload) e, em seguida, notificar o [hub IoT](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) quando o upload estiver concluído. Opcionalmente, quando um dispositivo notifica o IoT Hub de que o upload está completo, o serviço pode gerar uma [mensagem de notificação](iot-hub-devguide-file-upload.md#file-upload-notifications).
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ### <a name="when-to-use"></a>Quando utilizar
 
@@ -150,7 +152,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a enviar ficheiros a partir de dispositivos que utilizam o IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

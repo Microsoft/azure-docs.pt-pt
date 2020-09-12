@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 443649826e821014e0e9918526a363a944b5eceb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889945"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660006"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
@@ -89,7 +89,7 @@ URLs necessários para as regiões do Governo de Azure.
 | **usgovarizona.api.ml.azure.us** | A região EUA-Arizona |
 | **usgovvirginia.api.ml.azure.us** | A região EUA-Virgínia |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure](../firewall/tutorial-firewall-deploy-portal.md)
-* [Secure Azure ML experimentação e inferências de empregos dentro de uma Rede Virtual Azure](how-to-enable-virtual-network.md)
+* [Proteger as tarefas de experimentação e de inferência do Azure ML numa Rede Virtual do Azure](how-to-network-security-overview.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 79d3829eaea15c8e7909b98b83d1327cd90e4544
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 59318cca33ba1607498546161764aa3aaaaea13e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260328"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014944"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Prepare uma aplicação java spring para implantação em Azure Spring Cloud
 
@@ -128,9 +128,9 @@ A tabela que se segue lista as versões Azure Spring Cloud corretas para a sua a
 
 Versão Boot de primavera | Versão Cloud de primavera | Versão inicial do cliente Azure Spring Cloud
 ---|---|---
-2.1 | Greenwich.RELEASE | 2.1.2
-2.2 | Hoxton.SR8 | Não necessário
-2.3 | Hoxton.SR8 | Não necessário
+2.1.x | Greenwich.RELEASE | 2.1.2
+2.2.x | Hoxton.SR8 | Não necessário
+2.3.x | Hoxton.SR8 | Não necessário
 
 Inclua a seguinte dependência no seu ficheiro pom.xml se estiver a utilizar o Boot 2.1 da Mola.
 
@@ -232,14 +232,14 @@ Inclua o seguinte `spring-cloud-starter-sleuth` e `spring-cloud-starter-zipkin` 
 
  Também precisa de permitir que uma instância Azure Application Insights funcione com a sua instância de serviço Azure Spring Cloud. Para obter informações sobre como utilizar o Application Insights com Azure Spring Cloud, consulte a [documentação sobre o rastreio distribuído.](spring-cloud-tutorial-distributed-tracing.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Analisar registos de aplicações e métricas](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 * [Configurar o Servidor de Configuração](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
 * [Use rastreio distribuído com Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
 * [Guia de arranque rápido de primavera](https://spring.io/quickstart)
 * [Documentação do Boot de primavera](https://spring.io/projects/spring-boot)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tópico, aprendeu a configurar a sua aplicação Java Spring para implantação na Azure Spring Cloud. Para aprender a configurar uma instância do Servidor Config, consulte [configurar uma instância do Servidor Config](spring-cloud-tutorial-config-server.md).
 

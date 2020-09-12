@@ -3,16 +3,16 @@ title: Atualizar uma oferta de mercado comercial existente
 description: Como fazer atualizações para uma oferta comercial existente, incluindo edição, eliminação de um rascunho, cancelamento de um pedido de publicação, parar de vender uma oferta ou plano, e sincronizar audiências privadas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056147"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650106"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no mercado comercial
 
@@ -190,6 +190,6 @@ Para atualizar e sincronizar o público privado para o seu plano):
 
 **O público privado sincronizado** publicará apenas as alterações ao seu público privado, sem publicar quaisquer outras atualizações que possa ter feito à oferta de projeto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Verifique o estado editorial da sua oferta de mercado comercial](./publishing-status.md)

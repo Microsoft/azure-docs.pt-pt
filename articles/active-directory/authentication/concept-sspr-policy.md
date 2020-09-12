@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194070"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005025"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
 
@@ -43,13 +43,13 @@ O quadro que se segue descreve as políticas de nome de utilizador que se aplica
 
 Uma política de palavra-passe é aplicada a todas as contas de utilizador que são criadas e geridas diretamente no AZure AD. Esta política de palavra-passe não pode ser modificada, embora possa [configurar senhas proibidas personalizadas para proteção de senha AD AZure](tutorial-configure-custom-password-protection.md).
 
-A política de palavra-passe não se aplica às contas de utilizador sincronizadas a partir de um ambiente AD DS no local utilizando o Azure AD Connect.
+A política de palavra-passe não se aplica às contas de utilizador sincronizadas a partir de um ambiente AD DS no local utilizando o Azure AD Connect, a menos que ative o EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 São definidas as seguintes opções de política de senha:
 
-| Propriedade | Requirements |
+| Propriedade | Requisitos |
 | --- | --- |
-| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li># $ % ^ & * - _ ! + = { { } &#124; \ : '' . ? / \`~ " ( ) ;</li> <li>espaço em branco</li></ul> |
+| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li># $ % ^ & * - _ ! + = { { } &#124; \ : '' . ? / \` ~ " ( ) ;</li> <li>espaço em branco</li></ul> |
 | Caracteres não são permitidos | Caracteres unicódigo. |
 | Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 256 caracteres.</li><li>Requer três de quatro dos seguintes:<ul><li>Personagens minúsculos.</li><li>Personagens maiúsculas.</li><li>Números (0-9).</li><li>Símbolos (ver as restrições de senha anteriores).</li></ul></li></ul> |
 | Duração da expiração da palavra-passe (idade máxima da senha) |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet do Módulo de Diretório Ativo Azure para o Windows PowerShell.</li></ul> |

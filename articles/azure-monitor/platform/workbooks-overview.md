@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799570"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657943"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de trabalho do Monitor Azure
 
@@ -43,12 +43,13 @@ Os livros de trabalho são atualmente compatíveis com as seguintes fontes de da
 
 Os livros de trabalho fornecem um rico conjunto de capacidades para visualizar os seus dados. Para exemplos detalhados de cada tipo de visualização, pode consultar os links de exemplo abaixo:
 
-* [Texto](workbooks-visualizations.md#text)
-* [Gráficos](workbooks-visualizations.md#charts)
-* [Grelhas](workbooks-visualizations.md#grids)
-* [Azulejos](workbooks-visualizations.md#tiles)
-* [Árvores](workbooks-visualizations.md#trees)
-* [Gráficos](workbooks-visualizations.md#graphs)
+* [Texto](workbooks-text-visualizations.md)
+* [Gráficos](workbooks-chart-visualizations.md)
+* [Grelhas](workbooks-grid-visualizations.md)
+* [Azulejos](workbooks-tile-visualizations.md)
+* [Árvores](workbooks-tree-visualizations.md)
+* [Gráficos](workbooks-graph-visualizations.md)
+* [Barra composta](workbooks-composite-bar.md)
 
 ![Visualizações de livros de exemplo](./media/workbooks-overview/visualizations.png)
 
@@ -86,9 +87,9 @@ No caso deste livro em particular, a experiência é interativa. Pode ajustar a 
 
 ### <a name="editing-mode"></a>Modo de edição
 
-Para entender como este modelo de livro é montado, você precisa trocar para o modo de edição selecionando **Edit .** 
+Para entender como este modelo de livro é montado, você precisa trocar para o modo de edição selecionando **Edit .**
 
-![Screenshot do modelo de análise de falha de aplicação](./media/workbooks-overview/edit.png)
+![Screenshot do botão de edição em livros de trabalho.](./media/workbooks-overview/edit.png)
 
 Uma vez que tenha mudado para o modo de edição, notará que algumas caixas **editar** parecem corresponder à direita correspondentes a cada aspeto individual do seu livro.
 

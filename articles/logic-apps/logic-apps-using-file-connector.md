@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 1e6abeff8998e55eb7cbf450d1c3cc32f233e382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065974"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659924"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com o Azure Logic Apps
 
@@ -35,7 +35,7 @@ Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, confor
 
 * Acesso ao computador que tem o sistema de ficheiros que pretende utilizar. Por exemplo, se instalar o portal de dados no mesmo computador que o seu sistema de ficheiros, precisa das credenciais de conta para esse computador.
 
-* Uma conta de e-mail de um fornecedor que é suportado por Aplicações Lógicas, como o Office 365 Outlook, Outlook.com ou Gmail. Para outros fornecedores, [consulte a lista de conectores aqui](/connectors/). Esta aplicação lógica utiliza uma conta do Outlook do Office 365. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
+* Uma conta de e-mail de um fornecedor que é suportado por Aplicações Lógicas, como o Office 365 Outlook, Outlook.com ou Gmail. Para outros fornecedores, [consulte a lista de conectores aqui](/connectors/). Esta aplicação lógica utiliza uma conta de trabalho ou escola. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
   > [!IMPORTANT]
   > Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -101,7 +101,7 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [ligar-se aos dados no local](../logic-apps/logic-apps-gateway-connection.md) 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

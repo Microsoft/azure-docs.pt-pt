@@ -1,20 +1,20 @@
 ---
-title: Referência de Ficheiros Azure
-description: Encontre referência API de armazenamento Azure, readme ficheiros e pacotes de biblioteca de clientes.
+title: Referência dos Ficheiros do Azure
+description: Encontre referência API de Ficheiros Azure, leia ficheiros e pacotes de biblioteca de clientes.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: c5799b7ec9f6ecce1b9203345446b2d3240beb80
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cbbd4960a498516182323748e6609b834b1d4884
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527851"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014689"
 ---
-# <a name="azure-files-reference"></a>Referência de Ficheiros Azure
+# <a name="azure-files-reference"></a>Referência dos Ficheiros do Azure
 
 Encontre referência a API de ficheiros Azure, pacotes de bibliotecas, ficheiros de leitura e iniciação de artigos.
 
@@ -66,8 +66,8 @@ A tabela que se segue lista a referência e a documentação da amostra para api
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliotecas de clientes Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Exemplos](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [Bibliotecas de clientes Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Programar para os Ficheiros do Azure com Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
+| 12.x | [Bibliotecas de clientes Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Exemplos](/python/api/overview/azure/storage-file-share-readme#examples) |
+| 2.x | [Bibliotecas de clientes Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Programar para os Ficheiros do Azure com Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas de clientes JavaScript
 
@@ -82,13 +82,13 @@ A tabela que se segue lista a referência e a documentação da amostra para api
 
 A tabela que se segue lista a referência e a documentação da amostra para as APIs do Azure Files REST.
 
-| Documentação de referência | Descrição Geral |
+| Documentação de referência | Descrição geral |
 | ----------------------- | -------- |
 | [Serviço de arquivo REST API](/rest/api/storageservices/file-service-rest-api) | [Conceitos de serviço de ficheiros](/rest/api/storageservices/file-service-concepts) |
 
 ### <a name="other-rest-reference"></a>Outra referência REST
 
-- [A Azure Storage import-export REST API](/rest/api/storageimportexport/) ajuda-o a gerir postos de trabalho de importação/exportação para transferir dados de ou para o armazenamento da Blob.
+- [A Azure Storage import-export REST API ](/rest/api/storageimportexport/) ajuda-o a gerir postos de trabalho de importação/exportação para transferir dados de ou para o armazenamento da Blob.
 
 ## <a name="other-languages-and-platforms"></a>Outras línguas e plataformas
 
@@ -106,8 +106,9 @@ A tabela a seguir contém links para a versão mais recente do conteúdo de refe
 
 | Versão | Plataforma |
 | ------- | -------- |
-|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  3.x  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
+|  2.x  | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 
 ## <a name="azure-cli"></a>CLI do Azure
 

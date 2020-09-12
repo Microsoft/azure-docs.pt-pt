@@ -2,19 +2,15 @@
 title: Gerir horários na Azure Automation
 description: Este artigo diz como criar e trabalhar com um horário na Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187358"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004617"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Azure Automation
 
@@ -28,17 +24,17 @@ Para agendar um livro de execução na Azure Automation para começar numa hora 
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Cmdlets PowerShell usados para aceder a horários
 
-Os cmdlets na tabela seguinte criam e gerem horários de Automação com o PowerShell. Eles enviam como parte dos [módulos Az.](modules.md#az-modules) 
+Os cmdlets na tabela seguinte criam e gerem horários de Automação com o PowerShell. Eles enviam como parte dos [módulos Az.](modules.md#az-modules)
 
 | Cmdlets | Descrição |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera um horário. |
-| [Get-AzAutomationScheduldRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera livros de corridas programados. |
-| [Nova AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Cria um novo horário. |
-| [Registro-AzAutomationScheduldRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associa um livro com um horário. |
-| [Remover-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Remove um horário. |
-| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Define as propriedades para um horário existente. |
-| [Não registro-azautomationScheduldRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissocia um livro de bordo de um horário. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |Recupera um horário. |
+| [Get-AzAutomationScheduldRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |Recupera livros de corridas programados. |
+| [Nova AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) |Cria um novo horário. |
+| [Registro-AzAutomationScheduldRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) |Associa um livro com um horário. |
+| [Remover-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule) |Remove um horário. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) |Define as propriedades para um horário existente. |
+| [Não registro-azautomationScheduldRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook) |Dissocia um livro de bordo de um horário. |
 
 ## <a name="create-a-schedule"></a>Criar um horário
 
@@ -49,23 +45,33 @@ Pode criar um novo horário para os seus runbooks no portal Azure ou com o Power
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Criar uma nova programação no portal Azure
 
-1. No portal Azure, a partir da sua conta Automation, selecione **Agendas** na secção **Recursos Partilhados** à esquerda.
-1. **Selecione Adicione um horário** no topo da página.
-1. No painel de **horário novo,** insira um nome e insira opcionalmente uma descrição para o novo horário.
-1. Selecione se o horário é executado uma vez ou num horário recorrente selecionando **Uma vez** ou **recorrente**. Se selecionar **Uma vez**, especifique uma hora de início e, em seguida, selecione **Criar**. Se selecionar **'Recorrente',** especifique uma hora de início. Para **repetir cada**, selecione quantas vezes pretende que o livro de execução repita. Selecione por hora, dia, semana ou mês.
-    1. Se selecionar **Week,** os dias da semana são apresentados para que possa escolher. Selecione quantos dias quiser. A primeira execução da sua programação acontecerá no primeiro dia selecionado após a hora de início. Por exemplo, para escolher um horário de fim de semana, selecione sábado e domingo.
-    
-       ![Definição de horário recorrente de fim de semana](../media/schedules/week-end-weekly-recurrence.png)
+1. A partir da sua conta Demôm automação, no painel esquerdo selecione Agendas em **Recursos** **Partilhados.**
+2. Na página **Agendas,** **selecione Adicionar um horário**.
+3. Na página de **nova programação,** insira um nome e introduza opcionalmente uma descrição para o novo horário.
 
-    2. Se selecionar **mês,** é-lhe dadas diferentes opções. Para a opção **de ocorrências mensais,** selecione **os dias mensais** ou **semanas**. Se selecionar **dias de mês,** aparece um calendário para que possa escolher quantos dias quiser. Se escolher uma data como a 31ª que não ocorre no mês em curso, o horário não será executado. Se quiser que o horário seja executado no último dia, selecione **Sim** em **Execução no último dia do mês**. Se selecionar **os dias semanais,** aparece todas as opções **de Recur.** Escolha **primeiro,** **segundo,** **terceiro,** **quarto**ou **último**. Finalmente, escolha um dia para repetir.
+    >[!NOTE]
+    >Atualmente, os horários de automatização não suportam a utilização de caracteres especiais no nome do horário.
+    >
 
-       ![Horário mensal no primeiro, décimo quinto e último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
+4. Selecione se o horário é executado uma vez ou num horário recorrente selecionando **Uma vez** ou **recorrente**. Se selecionar **Uma vez**, especifique uma hora de início e, em seguida, selecione **Criar**. Se selecionar **'Recorrente',** especifique uma hora de início. Para **repetir cada**, selecione quantas vezes pretende que o livro de execução repita. Selecione por hora, dia, semana ou mês.
 
-1. Quando terminar, **selecione Criar**.
+    * Se selecionar **Week,** os dias da semana são apresentados para que possa escolher. Selecione quantos dias quiser. A primeira execução da sua programação acontecerá no primeiro dia selecionado após a hora de início. Por exemplo, para escolher um horário de fim de semana, selecione sábado e domingo.
+
+    ![Definição de horário recorrente de fim de semana](../media/schedules/week-end-weekly-recurrence.png)
+
+    * Se selecionar **mês,** é-lhe dadas diferentes opções. Para a opção **de ocorrências mensais,** selecione **os dias mensais** ou **semanas**. Se selecionar **dias de mês,** aparece um calendário para que possa escolher quantos dias quiser. Se escolher uma data como a 31ª que não ocorre no mês em curso, o horário não será executado. Se quiser que o horário seja executado no último dia, selecione **Sim** em **Execução no último dia do mês**. Se selecionar **os dias semanais,** aparece todas as opções **de Recur.** Escolha **primeiro,** **segundo,** **terceiro,** **quarto**ou **último**. Finalmente, escolha um dia para repetir.
+
+    ![Horário mensal no primeiro, décimo quinto e último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. Quando terminar, **selecione Criar**.
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Criar um novo horário com a PowerShell
 
-Utilize o [cmdlet New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para criar horários. Especifica a hora de início do horário e a frequência que deve ser executada. Os exemplos a seguir mostram como criar muitos cenários de agenda diferentes.
+Utilize o [cmdlet New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) para criar horários. Especifica a hora de início do horário e a frequência que deve ser executada. Os exemplos a seguir mostram como criar muitos cenários de agenda diferentes.
+
+>[!NOTE]
+>Atualmente, os horários de automatização não suportam a utilização de caracteres especiais no nome do horário.
+>
 
 #### <a name="create-a-one-time-schedule"></a>Criar um horário único
 
@@ -128,7 +134,7 @@ Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbo
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Ligue um horário a um livro com o PowerShell
 
-Utilize o [cmdlet Register-AzAutomationScheduldRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para ligar um horário. Pode especificar os valores dos parâmetros do runbook através do parâmetro Parâmetros . Para obter mais informações sobre como especificar valores de parâmetros, consulte [Iniciar um Runbook na Azure Automation](../start-runbooks.md).
+Utilize o [cmdlet Register-AzAutomationScheduldRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) para ligar um horário. Pode especificar os valores dos parâmetros do runbook através do parâmetro Parâmetros . Para obter mais informações sobre como especificar valores de parâmetros, consulte [Iniciar um Runbook na Azure Automation](../start-runbooks.md).
 O exemplo a seguir mostra como ligar um horário a um runbook utilizando um cmdlet Azure Resource Manager com parâmetros.
 
 ```azurepowershell-interactive
@@ -155,7 +161,7 @@ Quando desativa um horário, qualquer livro de recortes ligado a ele já não fu
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Desativar um horário do portal Azure
 
-1. Na sua conta Demômes, selecione Agendas em **Recursos** **Partilhados.**
+1. Na sua conta Demôm automação, no painel esquerdo selecione **Agendas** em **Recursos Partilhados**.
 1. Selecione o nome de um horário para abrir o painel de detalhes.
 1. Alteração **Ativada** para **Não**.
 
@@ -164,7 +170,7 @@ Quando desativa um horário, qualquer livro de recortes ligado a ele já não fu
 
 ### <a name="disable-a-schedule-with-powershell"></a>Desative um horário com o PowerShell
 
-Utilize o [cmdlet Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para alterar as propriedades de um horário existente. Para desativar o horário, especifique Falso para o `IsEnabled` parâmetro.
+Utilize o [cmdlet Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) para alterar as propriedades de um horário existente. Para desativar o horário, especifique Falso para o `IsEnabled` parâmetro.
 
 O exemplo a seguir mostra como desativar um horário de um livro de corridas utilizando um cmdlet Azure Resource Manager.
 
@@ -181,13 +187,13 @@ Quando estiver pronto para remover os seus horários, pode utilizar o portal Azu
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Remova um horário usando o portal Azure
 
-1. Na sua conta Demômes, selecione Agendas em **Recursos** **Partilhados.**
-2. Clique no nome de um horário para abrir o painel de detalhes.
+1. Na sua conta Demôm automação, no painel esquerdo selecione **Agendas** em **Recursos Partilhados**.
+2. Selecione o nome de um horário para abrir o painel de detalhes.
 3. Clique em **Eliminar**.
 
 ### <a name="remove-a-schedule-with-powershell"></a>Remova um horário com PowerShell
 
-Pode utilizar o `Remove-AzAutomationSchedule` cmdlet como mostrado abaixo para eliminar um horário existente. 
+Pode utilizar o `Remove-AzAutomationSchedule` cmdlet como mostrado abaixo para eliminar um horário existente.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
@@ -196,7 +202,7 @@ Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
 -Name $scheduleName -ResourceGroupName "ResourceGroup01"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os cmdlets utilizados para aceder a horários, consulte [Gerir módulos na Azure Automation.](modules.md)
 * Para obter informações gerais sobre os runbooks, consulte [a execução do Runbook na Azure Automation](../automation-runbook-execution.md).

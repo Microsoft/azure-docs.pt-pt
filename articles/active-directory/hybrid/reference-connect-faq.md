@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256684"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014638"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Diretório Ativo Azure Conecta FAQ
 
@@ -34,13 +34,13 @@ A Microsoft recomenda endurecer o seu servidor Azure AD Connect para diminuir a 
 
 Para saber mais, consulte: 
 
-* [Assegurar grupos de administradores](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Assegurar grupos de administradores](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Assegurar contas de administrador incorporadas](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Assegurar contas de administrador incorporadas](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Melhoria e sustentação da segurança reduzindo as superfícies de ataque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Melhoria e sustentação da segurança reduzindo as superfícies de ataque](/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Redução da superfície de ataque do Ative Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Redução da superfície de ataque do Ative Directory](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 **P: Funcionará a instalação se o Azure Ative Directory (Azure AD) Global Admin tiver uma autenticação de dois fatores (2FA) ativada?**  
 A partir das construções de fevereiro de 2016, este cenário é apoiado.
@@ -52,7 +52,7 @@ A instalação Azure AD Connect só é suportada quando utilizar o assistente de
 A partir das construções de fevereiro de 2016, este cenário é apoiado.
 
 **P: O agente de saúde Azure Ative Directory Domain Services (Azure AD DS) funciona no núcleo do servidor?**  
-Sim. Depois de instalar o agente, pode concluir o processo de registo utilizando o seguinte cmdlet PowerShell: 
+Yes. Depois de instalar o agente, pode concluir o processo de registo utilizando o seguinte cmdlet PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -139,10 +139,10 @@ Não, o Azure AD Connect não suporta um ambiente IPv6 puro.
 Não, a utilização do Azure AD Connect sobre o NAT não é suportada. 
 
 ## <a name="federation"></a>de Federação
-**P: O que faço se receber um e-mail que me pede para renovar o meu certificado do Office 365?**  
+**P: O que faço se receber um e-mail que me pede para renovar o meu certificado Microsoft 365?**  
 Para obter orientações sobre a renovação do certificado, consulte [os certificados de renovação.](how-to-connect-fed-o365-certs.md)
 
-**P: Tenho "Atualização automática da festa de confiante" definida para a festa de apoio do Office 365. Tenho de tomar alguma ação quando o meu certificado de assinatura de fichas se passa automaticamente?**  
+**P: Tenho "Atualização automática da festa de confiante" definida para a festa de apoio da Microsoft 365. Tenho de tomar alguma ação quando o meu certificado de assinatura de fichas se passa automaticamente?**  
 Utilize as orientações descritas no artigo [renovar certificados.](how-to-connect-fed-o365-certs.md)
 
 ## <a name="environment"></a>Ambiente
@@ -155,14 +155,14 @@ Não.  Não são suportadas.
 **Q. Se desativei um dispositivo sincronizado (por exemplo: HAADJ) no portal Azure, por que é reativado?**<br>
 Os dispositivos sincronizados podem ser da autoria ou dominados nas instalações. Se um dispositivo sincronizado estiver ativado no local, poderá ser reativado no portal Azure, mesmo que tenha sido previamente desativado por um administrador. Para desativar um dispositivo sincronizado, utilize o Ative Directory no local para desativar a conta do computador.
 
-**P. Se bloquear o registo de utilizadores no portal Office 365 ou AD AZure para utilizadores sincronizados, por que razão é desbloqueado ao iniciar novamente a sessão?**<br>
+**Q. Se bloquear o sessão de utilizadores no portal Microsoft 365 ou AZure AD para utilizadores sincronizados, por que razão é desbloqueado ao iniciar novamente a sessão?**<br>
 Os utilizadores sincronizados podem ser da autoria ou dominados no local. Se a conta estiver ativada nas instalações, pode desbloquear o bloco de inscrição colocado pelo administrador.
 
 ## <a name="identity-data"></a>Dados de identidade
 **P: Porque é que o atributo userPrincipalName (UPN) em Azure AD não corresponde à UPN no local?**  
 Para obter informações, consulte estes artigos:
 
-* [Os nomes de utilizador no Office 365, Azure ou Intune não correspondem ao UPN no local ou ao ID de login alternativo](https://support.microsoft.com/kb/2523192)
+* [Os nomes de utilizador no Microsoft 365, Azure ou Intune não correspondem ao UPN no local ou ao ID de login alternativo](https://support.microsoft.com/kb/2523192)
 * [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Ative Directory depois de alterar a UPN de uma conta de utilizador para utilizar um domínio federado diferente](https://support.microsoft.com/kb/2669550)
 
 Também pode configurar a AD Azure para permitir que o motor de sincronização atualize a UPN, conforme descrito nas [funções de serviço de sincronização Azure AD Connect](how-to-connect-syncservice-features.md).
@@ -253,19 +253,19 @@ Sim, a atualização automática também atualiza Azure AD Connect Health.
 Sim, pode atualizar automaticamente um servidor Azure AD Connect que está em modo de preparação.
 
 **P: Se a atualização automática falhar e o meu servidor Azure AD Connect não arrancar, o que devo fazer?**  
-Em casos raros, o serviço Azure AD Connect não começa depois de realizar a atualização. Nestes casos, reiniciar o servidor normalmente corrige o problema. Se o serviço Azure AD Connect ainda não arrancar, abra um bilhete de apoio. Para mais informações, consulte [Criar um pedido de serviço para contactar o Suporte do Office 365.](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) 
+Em casos raros, o serviço Azure AD Connect não começa depois de realizar a atualização. Nestes casos, reiniciar o servidor normalmente corrige o problema. Se o serviço Azure AD Connect ainda não arrancar, abra um bilhete de apoio. Para obter mais informações, consulte [Criar um pedido de serviço para contactar o suporte do Microsoft 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
 
 **P: Não sei quais são os riscos quando faço upgrade para uma versão mais recente do Azure AD Connect. Pode ligar-me para me ajudar com a atualização?**  
-Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Connect, abra um bilhete de apoio na [Create um pedido de serviço para contactar o suporte do Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Connect, abra um bilhete de suporte na Create um pedido de [serviço para contactar o suporte da Microsoft 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
 
 ## <a name="operational-best-practice"></a>Melhores práticas operacionais    
 Abaixo estão algumas das melhores práticas que deve implementar ao sincronizar entre o Windows Server Ative Directory e o Azure Ative Directory.
 
-**Aplicar autenticação multi-factor para todas as contas sincronizadas** A autenticação multi-factor Azure ajuda a salvaguardar o acesso a dados e aplicações, mantendo a simplicidade para os utilizadores. Proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte através de uma gama de métodos de autenticação fáceis de usar. Os utilizadores podem ou não ser desafiados para mFA com base nas decisões de configuração que um administrador toma. Pode ler mais sobre mFA aqui:https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**Aplicar autenticação multi-factor para todas as contas sincronizadas** A autenticação multi-factor Azure ajuda a salvaguardar o acesso a dados e aplicações, mantendo a simplicidade para os utilizadores. Proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte através de uma gama de métodos de autenticação fáceis de usar. Os utilizadores podem ou não ser desafiados para mFA com base nas decisões de configuração que um administrador toma. Pode ler mais sobre mFA aqui: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
-**Siga as diretrizes de segurança do servidor Azure AD Connect** O servidor Azure AD Connect contém dados de identidade críticos e deve ser tratado como um componente tier 0, conforme documentado no [modelo de nível administrativo](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)do Diretório Ativo . Consulte também [as nossas diretrizes para assegurar o seu servidor AADConnect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+**Siga as diretrizes de segurança do servidor Azure AD Connect** O servidor Azure AD Connect contém dados de identidade críticos e deve ser tratado como um componente tier 0, conforme documentado no [modelo de nível administrativo](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)do Diretório Ativo . Consulte também [as nossas diretrizes para assegurar o seu servidor AADConnect](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 
-**Ativar o PHS para deteção de credenciais vazadas** O Password Hash Sync também permite [a deteção de credenciais vazadas](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) para as suas contas híbridas. A Microsoft trabalha ao lado de pesquisadores web escuros e agências de aplicação da lei para encontrar pares de nome de utilizador/palavra-passe disponíveis ao público. Se algum destes pares corresponder aos dos seus utilizadores, a conta associada é transferida para um risco elevado. 
+**Ativar o PHS para deteção de credenciais vazadas** O Password Hash Sync também permite [a deteção de credenciais vazadas](../identity-protection/concept-identity-protection-risks.md) para as suas contas híbridas. A Microsoft trabalha ao lado de pesquisadores web escuros e agências de aplicação da lei para encontrar pares de nome de utilizador/palavra-passe disponíveis ao público. Se algum destes pares corresponder aos dos seus utilizadores, a conta associada é transferida para um risco elevado. 
 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -275,11 +275,11 @@ Abaixo estão algumas das melhores práticas que deve implementar ao sincronizar
 
 * Procure soluções técnicas para obter soluções comuns sobre o suporte ao Azure AD Connect.
 
-[Microsoft Q&Uma página de perguntas para o Azure Ative Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Microsoft Q&Uma página de perguntas para o Azure Ative Directory](/answers/topics/azure-active-directory.html)
 
-* Procure perguntas técnicas e respostas ou faça as suas próprias perguntas indo para [a comunidade AZure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Procure perguntas técnicas e respostas ou faça as suas próprias perguntas indo para [a comunidade AZure AD](/answers/topics/azure-active-directory.html).
 
-[Obter suporte para o Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+[Obter suporte para o Azure AD](../fundamentals/active-directory-troubleshooting-support-howto.md)
 
 **P: Porque estou a ver os Eventos 6311 e 6401 ocorrerem após erros de sync step?**
 

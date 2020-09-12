@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-javascript
 - devx-track-csharp
-ms.openlocfilehash: f8971faec53830746c76d09a6cf7f22d2c80c45a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3e1de8b5c35c2f62c65b2bdd4751df86127010ad
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017690"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015131"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -361,7 +361,12 @@ Os certificados suportados incluem:
 
 Um dispositivo pode utilizar um certificado X.509 ou um símbolo de segurança para autenticação, mas não ambos.
 
-Para obter mais informações sobre a autenticação utilizando a autoridade do certificado, consulte [a Autenticação do Dispositivo utilizando certificados X.509 CA](iot-hub-x509ca-overview.md).
+A seguinte funcionalidade não é suportada para dispositivos que utilizem a autenticação X.509 CA:
+
+* HTTPS, MQTT sobre WebSockets e AMQP sobre os protocolos WebSockets.
+* Uploads de ficheiros (todos os protocolos).
+
+Para obter mais informações sobre a autenticação utilizando a autoridade do certificado, consulte [a Autenticação do Dispositivo utilizando certificados X.509 CA](iot-hub-x509ca-overview.md). Para obter informações sobre como carregar e verificar uma autoridade de certificados com o seu hub IoT, consulte [configurar a segurança X.509 no seu hub Azure IoT](iot-hub-security-x509-get-started.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registar um certificado X.509 para um dispositivo
 
@@ -466,7 +471,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [RFC 5246 - A versão 1.2 do Protocolo de Segurança da Camada de Transporte (TLS)](https://tools.ietf.org/html/rfc5246/) fornece mais informações sobre a autenticação TLS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a controlar o acesso ao IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

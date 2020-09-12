@@ -1,5 +1,5 @@
 ---
-title: Debug e resolução de problemas ParallelRunStep
+title: Depurar e resolver problemas do ParallelRunStep
 titleSuffix: Azure Machine Learning
 description: Depurar e resolução de problemas ParallelRunStep em oleodutos de aprendizagem automática no Azure Machine Learning SDK para Python. Aprenda armadilhas comuns para desenvolver com oleodutos e dicas para ajudá-lo a depurar os seus scripts antes e durante a execução remota.
 services: machine-learning
@@ -11,17 +11,17 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 0b914059567e9a513b605ce733407465b625a909
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 8d357cea7ce809c2df6b35e08ac7da7e9d3795e9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950022"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650430"
 ---
-# <a name="debug-and-troubleshoot-parallelrunstep"></a>Debug e resolução de problemas ParallelRunStep
+# <a name="debug-and-troubleshoot-parallelrunstep"></a>Depurar e resolver problemas do ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a depurar e a resolver problemas na aula [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) do [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+Neste artigo, aprende-se a depurar e a resolver problemas na aula [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) do [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
 ## <a name="testing-scripts-locally"></a>Testar scripts localmente
 
@@ -90,7 +90,7 @@ def run(mini_batch):
 
 O utilizador pode passar dados de referência para script usando side_inputs parâmetro do ParalleRunStep. Todos os conjuntos de dados fornecidos como side_inputs serão montados em cada nó de trabalhador. O utilizador pode obter a localização do monte através do argumento de passagem.
 
-Construa um [Conjunto de Dados](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) contendo os dados de referência e registe-os com o seu espaço de trabalho. Passe-o para o `side_inputs` parâmetro do seu `ParallelRunStep` . Além disso, pode adicionar o seu caminho na `arguments` secção para aceder facilmente ao seu caminho montado:
+Construa um [Conjunto de Dados](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) contendo os dados de referência e registe-os com o seu espaço de trabalho. Passe-o para o `side_inputs` parâmetro do seu `ParallelRunStep` . Além disso, pode adicionar o seu caminho na `arguments` secção para aceder facilmente ao seu caminho montado:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -114,8 +114,8 @@ args, _ = parser.parse_known_args()
 labels_path = args.labels_dir
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Consulte a referência SDK para obter ajuda com o pacote [de passos de gasoduto azureml.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) Ver [documentação de](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) referência para a classe ParallelRunStep.
+* Consulte a referência SDK para obter ajuda com o pacote [de passos de gasoduto azureml.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) Ver [documentação de](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) referência para a classe ParallelRunStep.
 
 * Siga o [tutorial avançado](tutorial-pipeline-batch-scoring-classification.md) sobre a utilização de gasodutos com ParallelRunStep. O tutorial mostra como passar outro ficheiro como entrada lateral. 

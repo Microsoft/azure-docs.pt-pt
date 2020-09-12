@@ -1,6 +1,6 @@
 ---
 title: Gerencie as suas organizações a partir do portal My Account - Azure AD
-description: Como visualizar e deixar as organizações ligadas ao seu trabalho ou conta escolar a partir da página organizações do portal My Account.
+description: Como visualizar e deixar as organizações a que tem acesso a partir da página organizações do portal Minha Conta.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798181"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005076"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gerencie as suas organizações conectadas a partir da página organizações
+# <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gerir organizações a que tem acesso no portal Minha Conta
 
-A página **organizações** do portal **My Account** ajuda-o a gerir as organizações (normalmente, o nome da sua organização) ligadas ao seu trabalho ou conta escolar. Existem dois tipos de organizações mostradas na página das **Organizações:**
+A página **organizações** do portal **My Account** ajuda-o a gerir as organizações (normalmente, o nome da sua organização) a que tem acesso. Existem dois tipos de organizações mostradas na página das **Organizações:**
 
 - **Organização doméstica.** A sua organização é a organização proprietária do seu trabalho ou da sua conta escolar. Não pode deixar a sua organização.
 
@@ -30,7 +30,7 @@ A página **organizações** do portal **My Account** ajuda-o a gerir as organiz
 - **Outras organizações.** As outras organizações são qualquer grupo em que se inscreveu anteriormente usando o seu trabalho ou conta escolar. Pode deixar qualquer uma destas organizações a qualquer momento.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem atualizar as informações da organização ligadas a uma conta de trabalho ou escola. Se é um administrador que procura informações sobre o grupo e a gestão do utilizador para os seus colaboradores e outras utilizações, consulte a [documentação de gestão de utilizadores](../users-groups-roles/index.yml)da Enterprise .
+>Este artigo destina-se a utilizadores que tentem atualizar as informações da organização acedidas por uma conta de trabalho ou escola. Se é um administrador que procura informações sobre o grupo e a gestão do utilizador para os seus colaboradores e outras utilizações, consulte a [documentação de gestão de utilizadores](../users-groups-roles/index.yml)da Enterprise .
 
 ## <a name="view-your-organizations"></a>Ver as suas organizações
 
@@ -44,7 +44,7 @@ A página **organizações** do portal **My Account** ajuda-o a gerir as organiz
 
     ![Página de organizações](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Reveja as suas outras organizações associadas, certificando-se de que reconhece todas as organizações ligadas à sua conta.
+4. Reveja as suas outras organizações, certificando-se de que reconhece todas as organizações a que tem acesso.
 
 ## <a name="leave-an-organization"></a>Sair de uma organização
 
@@ -57,7 +57,7 @@ Pode deixar qualquer organização que não seja a sua organização.
 
     ![Página de organizações com link de organização de licença em destaque](media/my-account-portal/my-account-portal-organizations-leave.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ver as suas organizações, pode:
 

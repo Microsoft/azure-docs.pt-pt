@@ -3,13 +3,13 @@ title: Resolver erros de implementação comuns
 description: Descreve como resolver erros comuns quando implementa recursos para o Azure usando o Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
-ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/09/2020
+ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008173"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650958"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
@@ -75,7 +75,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ArmazenamentoAccountNotFound | Verifique a subscrição, o grupo de recursos e o nome da conta de armazenamento que está a tentar usar. | |
 | SubnetsNotInSameVnet | Uma máquina virtual só pode ter uma rede virtual. Ao implementar vários NICs, certifique-se de que pertencem à mesma rede virtual. | [Múltiplos NICs](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriçãoNotFound | Uma subscrição especificada para implementação não pode ser acedida. Pode ser que o ID de subscrição esteja errado, o utilizador que implementa o modelo não tem permissões adequadas para implementar na subscrição, ou o ID de subscrição está no formato errado. Ao utilizar implementações aninhadas para [implantar através de âmbitos,](cross-scope-deployment.md)forneça o GUID para a subscrição. | |
-| SubscriçãoNotRegista | Ao implementar recursos de rede, o fornecedor de recursos Microsoft.Network é automaticamente registado na subscrição. Às vezes, o registo automático não completa a tempo. Para evitar este erro intermitente, registe o fornecedor de recursos Microsoft.Network antes da sua implantação. | [Resolver o registo](error-register-resource-provider.md) |
+| SubscriçãoNotRegista | Ao utilizar um recurso, o fornecedor de recursos deve estar registado para a sua subscrição. Quando utiliza um modelo de Gestor de Recursos Azure para implantação, o fornecedor de recursos é automaticamente registado na subscrição. Às vezes, o registo automático não completa a tempo. Para evitar este erro intermitente, registe o fornecedor de recursos antes da sua utilização. | [Resolver o registo](error-register-resource-provider.md) |
 | ModeloResourceCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação de âmbito transversal](cross-scope-deployment.md) |
 
@@ -245,7 +245,7 @@ Em alguns casos, a maneira mais fácil de resolver problemas o seu modelo é tes
 
 Ou suponha que esteja a ter erros de implantação que acredita estarem relacionados com dependências incorretamente definidas. Teste o seu modelo quebrando-o em modelos simplificados. Em primeiro lugar, crie um modelo que implemente apenas um único recurso (como um SQL Server). Quando tiver a certeza de que tem esse recurso corretamente definido, adicione um recurso que depende dele (como uma Base de Dados SQL). Quando tiver esses dois recursos corretamente definidos, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implementação de teste, elimine o grupo de recursos para se certificar de que testa adequadamente as dependências.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações de modelos do Gestor de Recursos de Resolução de Problemas](template-tutorial-troubleshoot.md)
 * Para conhecer as ações de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../management/view-activity-logs.md)

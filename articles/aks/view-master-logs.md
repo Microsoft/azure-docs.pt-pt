@@ -4,12 +4,12 @@ description: Saiba como ativar e ver os registos do nó mestre kubernetes no Ser
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a0207ebbb1596e41ad65e21a769d7041a239f767
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048283"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004872"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -69,52 +69,53 @@ pod/nginx created
 
 Pode levar alguns minutos para os registos de diagnóstico serem ativados e aparecer. No portal Azure, navegue para o seu cluster AKS e selecione **Logs** no lado esquerdo. Feche a janela *'Exemplo',* se aparecer.
 
-
 No lado esquerdo, escolha **Logs**. Para ver os registos *de auditoria de kube,* insira a seguinte consulta na caixa de texto:
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
 ```
 
 Muitos registos são provavelmente devolvidos. Para examinar a consulta para visualizar os registos sobre o pod NGINX criado no passo anterior, adicione um adicional *onde* a declaração para procurar *nginx* como mostrado na seguinte consulta de exemplo:
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| where log_s contains "nginx"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
+| where Name contains "nginx"
 ```
-
-Para visualizar registos adicionais, pode atualizar a consulta do nome *category* para *o gestor de controlador de kube* ou para o *programador de kube,* dependendo dos registos adicionais que ativa. Adicional *onde* as declarações podem ser usadas para refinar os eventos que procura.
 
 Para obter mais informações sobre como consultar e filtrar os seus dados de registo, consulte [ver ou analisar dados recolhidos com pesquisa de registo de registo][analyze-log-analytics]de registos .
 
 ## <a name="log-event-schema"></a>Esquema de evento de log
 
-Para ajudar a analisar os dados de registo, os seguintes detalhes da tabela detalham o esquema utilizado para cada evento:
+AKS regista os seguintes eventos:
 
-| Nome do campo               | Description |
-|--------------------------|-------------|
-| *recursosId*             | Recurso azul que produziu o log |
-| *Hora*                   | Timetamp de quando o registo foi carregado |
-| *categoria*               | Nome do contentor/componente que gera o log |
-| *operaçãoName*          | Sempre *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
-| *propriedades.log*         | Texto completo do registo do componente |
-| *propriedades.stream*      | *stderr* ou *stdout* |
-| *propriedades.pod*         | Pod nome de que o tronco veio |
-| *propriedades.containerID* | ID do recipiente de estiva este tronco veio de |
+* [AzureActivity][log-schema-azureactivity]
+* [AzureMetrics][log-schema-azuremetrics]
+* [ContainerImageInventory][log-schema-containerimageinventory]
+* [ContentorInventory][log-schema-containerinventory]
+* [ContainerLog][log-schema-containerlog]
+* [ContentorNodeInventory][log-schema-containernodeinventory]
+* [ContainerServiceLog][log-schema-containerservicelog]
+* [Heartbeat][log-schema-heartbeat]
+* [InsightsMetrics][log-schema-insightsmetrics]
+* [KubeEvents][log-schema-kubeevents]
+* [KubeHealth][log-schema-kubehealth]
+* [KubeMonAgentEvents][log-schema-kubemonagentevents]
+* [KubeNodeInventory][log-schema-kubenodeinventory]
+* [KubePodInventory][log-schema-kubepodinventory]
+* [KubeServices][log-schema-kubeservices]
+* [Rio Perf][log-schema-perf]
 
 ## <a name="log-roles"></a>Funções de Registo
 
-| Função                     | Description |
+| Função                     | Descrição |
 |--------------------------|-------------|
 | *aksService*             | O nome de exibição no registo de auditoria para a operação do plano de controlo (a partir do hcpService) |
 | *masterclient*           | O nome de exibição no registo de auditoria do MasterClientCertificate, o certificado que obtém a az aks obter credenciais |
 | *não declarado*             | O nome de exibição para ClientCertificate, que é usado por nós de agente |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a ativar e rever os registos dos componentes principais de Kubernetes no seu cluster AKS. Para monitorizar e resolver mais problemas, também pode [ver os registos de Kubelet][kubelet-logs] e [permitir o acesso ao nó SSH][aks-ssh].
 
@@ -131,3 +132,19 @@ Neste artigo, aprendeu a ativar e rever os registos dos componentes principais d
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
+[log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
+[log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory
+[log-schema-containerlog]: /azure/azure-monitor/reference/tables/containerlog
+[log-schema-containernodeinventory]: /azure/azure-monitor/reference/tables/containernodeinventory
+[log-schema-containerservicelog]: /azure/azure-monitor/reference/tables/containerservicelog
+[log-schema-heartbeat]: /azure/azure-monitor/reference/tables/heartbeat
+[log-schema-insightsmetrics]: /azure/azure-monitor/reference/tables/insightsmetrics
+[log-schema-kubeevents]: /azure/azure-monitor/reference/tables/kubeevents
+[log-schema-kubehealth]: /azure/azure-monitor/reference/tables/kubehealth
+[log-schema-kubemonagentevents]: /azure/azure-monitor/reference/tables/kubemonagentevents
+[log-schema-kubenodeinventory]: /azure/azure-monitor/reference/tables/kubenodeinventory
+[log-schema-kubepodinventory]: /azure/azure-monitor/reference/tables/kubepodinventory
+[log-schema-kubeservices]: /azure/azure-monitor/reference/tables/kubeservices
+[log-schema-perf]: /azure/azure-monitor/reference/tables/perf

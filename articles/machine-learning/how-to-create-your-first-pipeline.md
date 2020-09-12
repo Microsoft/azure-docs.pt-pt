@@ -11,18 +11,18 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 0d917ea686c2003bf46b6fca872ef67fb0363107
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 968685b64b1412751ca990842d95e9d2ffb251a6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228924"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650555"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a criar e executar um [oleoduto de aprendizagem automática](concept-ml-pipelines.md) utilizando o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Utilize **gasodutos ML** para criar um fluxo de trabalho que cosa várias fases ML. Em seguida, publique o oleoduto para mais tarde aceder ou partilhar com outros. Rastreia os oleodutos ML para ver como o seu modelo está a funcionar no mundo real e para detetar a deriva de dados. Os oleodutos ML são ideais para cenários de pontuação de lotes, utilizando vários cálculos, reutilizando passos em vez de os reexame, bem como partilhando fluxos de trabalho ML com outros.
+Neste artigo, aprende-se a criar e executar um [oleoduto de aprendizagem automática](concept-ml-pipelines.md) utilizando o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Utilize **gasodutos ML** para criar um fluxo de trabalho que cosa várias fases ML. Em seguida, publique o oleoduto para mais tarde aceder ou partilhar com outros. Rastreia os oleodutos ML para ver como o seu modelo está a funcionar no mundo real e para detetar a deriva de dados. Os oleodutos ML são ideais para cenários de pontuação de lotes, utilizando vários cálculos, reutilizando passos em vez de os reexame, bem como partilhando fluxos de trabalho ML com outros.
 
 Embora possa utilizar um tipo diferente de oleoduto chamado [Gasoduto Azure](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) para automatização de CI/CD de tarefas ML, esse tipo de gasoduto não é armazenado no seu espaço de trabalho. [Compare estes diferentes oleodutos.](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)
 
@@ -56,7 +56,7 @@ Criar os recursos necessários para executar um gasoduto ML:
 * Configure um `Dataset` objeto para apontar para dados persistentes que vivem ou estão acessíveis numa datastore. Configure um `PipelineData` objeto para dados temporários passados entre as etapas do gasoduto. 
 
     > [!TIP]
-    > Uma experiência melhorada para a passagem de dados temporários entre etapas de gasoduto está disponível na classe de pré-visualização pública,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) .  Esta aula é uma funcionalidade de pré-visualização [experimental,](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento.
+    > Uma experiência melhorada para a passagem de dados temporários entre etapas de gasoduto está disponível na classe de pré-visualização pública,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .  Esta aula é uma funcionalidade de pré-visualização [experimental,](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) e pode mudar a qualquer momento.
 
 * Desaponte os [alvos de cálculo](concept-azure-machine-learning-architecture.md#compute-targets) nos quais os seus passos de gasoduto irão funcionar.
 
@@ -85,14 +85,14 @@ As etapas geralmente consomem dados e produzem dados de produção. Um passo pod
 A forma preferida de fornecer dados a um pipeline é um objeto [dataset.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) O `Dataset` objeto aponta para dados que vivem dentro ou estão acessíveis a partir de uma datastore ou em um URL web. A `Dataset` classe é abstrata, por isso irá criar um exemplo de um `FileDataset` (referindo-se a um ou mais ficheiros) ou de um `TabularDataset` que é criado por um ou mais ficheiros com colunas de dados delimitadas.
 
 
-Cria-se um `Dataset` método de utilização como [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) ou [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
+Cria-se um `Dataset` método de utilização como [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) ou [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
-Os dados intermédios (ou saída de um passo) são representados por um objeto [PipelineData.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) `output_data1` é produzido como a saída de um passo, e usado como a entrada de um ou mais passos futuros. `PipelineData` introduz uma dependência de dados entre passos, e cria uma ordem de execução implícita no oleoduto. Este objeto será utilizado mais tarde ao criar passos de gasoduto.
+Os dados intermédios (ou saída de um passo) são representados por um objeto [PipelineData.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) `output_data1` é produzido como a saída de um passo, e usado como a entrada de um ou mais passos futuros. `PipelineData` introduz uma dependência de dados entre passos, e cria uma ordem de execução implícita no oleoduto. Este objeto será utilizado mais tarde ao criar passos de gasoduto.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -105,7 +105,7 @@ output_data1 = PipelineData(
 ```
 
 > [!TIP]
-> Os dados intermédios persistentes entre as etapas do gasoduto também são possíveis com a classe de pré-visualização pública, `OutputFileDatasetConfig` . Saiba mais sobre `OutputFileDatasetConfig` padrões e métodos de design [na documentação de referência SDK.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)
+> Os dados intermédios persistentes entre as etapas do gasoduto também são possíveis com a classe de pré-visualização pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Para um exemplo de código utilizando a `OutputFileDatasetConfig` classe, consulte como [construir um gasoduto ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)de dois passos .
 
 ## <a name="set-up-a-compute-target"></a>Configurar um alvo de computação
 
@@ -179,7 +179,7 @@ O caminho tomado se mudar `USE_CURATED_ENV` para `False` mostrar o padrão para 
 
 ## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>Construa os seus passos de oleoduto
 
-Assim que tiver o recurso compute e o ambiente criados, está pronto para definir os passos do seu pipeline. Existem muitos passos incorporados disponíveis através do Azure Machine Learning SDK, como pode ver na [documentação de referência do `azureml.pipeline.steps` pacote.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) A classe mais flexível é [PythonScriptStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)que executa um script Python.
+Assim que tiver o recurso compute e o ambiente criados, está pronto para definir os passos do seu pipeline. Existem muitos passos incorporados disponíveis através do Azure Machine Learning SDK, como pode ver na [documentação de referência do `azureml.pipeline.steps` pacote.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) A classe mais flexível é [PythonScriptStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py&preserve-view=true)que executa um script Python.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -234,12 +234,12 @@ O código acima é muito semelhante ao da etapa de preparação de dados. O cód
 
 
 > [!TIP]
-> Para uma experiência melhorada e a capacidade de escrever dados intermédios nas suas datastores no final do seu percurso de pipeline, utilize a classe de pré-visualização pública, `OutputFileDatasetConfig` . Saiba mais sobre `OutputFileDatasetConfig` padrões e métodos de design [na documentação de referência SDK.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)
+> Para uma experiência melhorada e a capacidade de escrever dados intermédios nas suas datastores no final do seu percurso de pipeline, utilize a classe de pré-visualização pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Para exemplos de código, consulte como [construir um oleoduto ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) de dois passos e como escrever [dados de volta às datastores após a conclusão do prazo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
 Depois de definir os seus passos, constrói o oleoduto utilizando alguns ou todos esses passos.
 
 > [!NOTE]
-> Nenhum ficheiro ou dados é enviado para a Azure Machine Learning quando define os passos ou constrói o pipeline. Os ficheiros são carregados quando liga para [Experiment.submit()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-).
+> Nenhum ficheiro ou dados é enviado para a Azure Machine Learning quando define os passos ou constrói o pipeline. Os ficheiros são carregados quando liga para [Experiment.submit()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-).
 
 ```python
 # list of steps to run (`compare_step` definition not shown)
@@ -253,12 +253,12 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados 
 
-Conjuntos de dados criados a partir do armazenamento de Azure Blob, Ficheiros Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database for PostgreSQL podem ser usados como entrada para qualquer passo de pipeline. Pode escrever saída para um [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)ou se pretender escrever dados para uma loja de dados específica utilizar [o PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
+Conjuntos de dados criados a partir do armazenamento de Azure Blob, Ficheiros Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database for PostgreSQL podem ser usados como entrada para qualquer passo de pipeline. Pode escrever saída para um [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true), [DatabricksStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true)ou se pretender escrever dados para uma loja de dados específica utilizar [o PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true). 
 
 > [!IMPORTANT]
 > A produção de dados de volta para uma loja de dados utilizando o PipelineData é suportada apenas para as lojas de dados de partilha de ficheiros Azure Blob e Azure File. 
 >
-> Para escrever os dados de saída de volta para Azure Blob, Azure File share, ADLS Gen 1 e ADLS Gen 2 datastores use a classe de pré-visualização pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py) .
+> Para escrever os dados de saída de volta para Azure Blob, Azure File share, ADLS Gen 1 e ADLS Gen 2 datastores use a classe de pré-visualização pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -269,7 +269,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-Em seguida, recupere o conjunto de dados no seu pipeline utilizando o dicionário [Run.input_datasets.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#input-datasets)
+Em seguida, recupere o conjunto de dados no seu pipeline utilizando o dicionário [Run.input_datasets.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueinput-datasets)
 
 ```python
 # iris_train.py
@@ -293,7 +293,7 @@ Para obter mais detalhes, incluindo formas alternativas de passar e aceder aos d
 ## <a name="caching--reuse"></a>Caching & reutilização  
 
 Para otimizar e personalizar o comportamento dos seus oleodutos, pode fazer algumas coisas em torno do caching e reutilização. Por exemplo, pode optar por:
-+ **Desligue a reutilização predefinida da saída de marcha** por passo, regulando durante a `allow_reuse=False` [definição do passo](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). A reutilização é fundamental quando se utilizam gasodutos num ambiente colaborativo, uma vez que eliminar corridas desnecessárias oferece agilidade. No entanto, pode optar por não reutilizar.
++ **Desligue a reutilização predefinida da saída de marcha** por passo, regulando durante a `allow_reuse=False` [definição do passo](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true). A reutilização é fundamental quando se utilizam gasodutos num ambiente colaborativo, uma vez que eliminar corridas desnecessárias oferece agilidade. No entanto, pode optar por não reutilizar.
 + **Forçar a regeneração da saída para todos os passos em uma corrida** com `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 Por predefinição, `allow_reuse` para os passos está ativado e `source_directory` o especificado na definição de passo é hashed. Assim, se o guião para um dado passo permanecer o mesmo ( `script_name` entradas e parâmetros), e nada mais no ` source_directory` mudou, a saída de um passo anterior é reutilizado, o trabalho não é submetido ao cálculo, e os resultados da execução anterior estão imediatamente disponíveis para o passo seguinte.
@@ -336,7 +336,7 @@ Quando se faz um oleoduto pela primeira vez, a Azure Machine Learning:
 
 ![Diagrama de executar uma experiência como um oleoduto](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-Para mais informações, consulte a referência da [classe Experiment.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)
+Para mais informações, consulte a referência da [classe Experiment.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)
 
 ## <a name="view-results-of-a-pipeline"></a>Ver resultados de um oleoduto
 
@@ -355,10 +355,10 @@ Veja a lista de todos os seus oleodutos e os seus detalhes de execução no est�
 
 Quando se inicia uma corrida de treinamento onde o diretório de origem é um repositório local de Git, a informação sobre o repositório é armazenada na história da execução. Para obter mais informações, consulte [a integração do Git para a Azure Machine Learning.](concept-train-model-git-integration.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para partilhar o seu oleoduto com colegas ou clientes, consulte [os pipelines de machine learning da Publish](how-to-deploy-pipelines.md)
 - Use [estes cadernos Jupyter no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais os oleodutos de aprendizagem automática
-- Consulte a ajuda de referência SDK para o pacote [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote [de passos de gasodutos azureml](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
+- Consulte a ajuda de referência SDK para o pacote [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e o pacote [de passos de gasodutos azureml](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true)
 - Consulte o ["how-to"](how-to-debug-pipelines.md) para obter dicas sobre depuração e resolução de problemas de gasodutos=
 - Saiba como executar cadernos seguindo o artigo [Use os cadernos Jupyter para explorar este serviço.](samples-notebooks.md)

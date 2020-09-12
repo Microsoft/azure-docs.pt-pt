@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 38816b616179ec16e06e987f82b498085c34ba3f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e6006444e933dd93467dde01affd29c5d0c4a146
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327587"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019551"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Java)
 
@@ -47,6 +47,8 @@ No final deste tutorial, executam duas aplicações para consolas Java:
 
 > [!NOTE]
 > O IoT Hub suporta muitas plataformas e idiomas de dispositivos (incluindo C, .NET e Javascript) através de SDKs de dispositivoS Azure IoT. Consulte o [Centro de Desenvolvimento Azure IoT](https://azure.microsoft.com/develop/iot) para obter instruções passo a passo sobre como ligar o seu dispositivo ao Azure IoT Hub.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -270,7 +272,7 @@ Pode utilizar o portal para visualizar o ficheiro carregado no recipiente de arm
 
 ![Ficheiro carregado](media/iot-hub-java-java-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar as capacidades de upload de ficheiros do IoT Hub para simplificar os uploads de ficheiros a partir de dispositivos. Pode continuar a explorar funcionalidades e cenários do hub IoT com os seguintes artigos:
 

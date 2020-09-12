@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4, devx-track-python
-ms.openlocfilehash: 3f8a3c705878e212e6a26670e20b5a81a3f2a6ba
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 4a0601e2821920e7de3b389d9acfd78598ef67ee
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904382"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019296"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Resolução de problemas Colocação de Docker de modelos com serviço Azure Kubernetes e Instâncias de Contentores Azure 
 
@@ -25,7 +25,7 @@ Aprenda a resolver problemas e a resolver, ou a trabalhar em torno de erros comu
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
-* [O Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [O Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * O [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Para depurar localmente, você deve ter uma instalação Docker funcionando no seu sistema local.
@@ -36,7 +36,7 @@ Aprenda a resolver problemas e a resolver, ou a trabalhar em torno de erros comu
 
 Ao implementar um modelo em Azure Machine Learning, o sistema executa uma série de tarefas.
 
-A abordagem recomendada para a implementação do modelo é através da [API modelo.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando um objeto [Ambiente](how-to-use-environments.md) como parâmetro de entrada. Neste caso, o serviço cria uma imagem base de estivador durante a fase de implantação e monta os modelos necessários, tudo numa só chamada. As tarefas básicas de implantação são:
+A abordagem recomendada para a implementação do modelo é através da [API modelo.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando um objeto [Ambiente](how-to-use-environments.md) como parâmetro de entrada. Neste caso, o serviço cria uma imagem base de estivador durante a fase de implantação e monta os modelos necessários, tudo numa só chamada. As tarefas básicas de implantação são:
 
 1. Registe o modelo no registo do modelo do espaço de trabalho.
 
@@ -52,7 +52,7 @@ Saiba mais sobre este processo na introdução da [Gestão](concept-model-manage
 
 Se encontrar algum problema, a primeira coisa a fazer é quebrar a tarefa de implantação (anteriormente descrita) em passos individuais para isolar o problema.
 
-Assumindo que está a utilizar o novo método de implantação/recomendado via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API com um objeto [ambiente](how-to-use-environments.md) como parâmetro de entrada, o seu código pode ser dividido em três passos principais:
+Assumindo que está a utilizar o novo método de implantação/recomendado via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API com um objeto [ambiente](how-to-use-environments.md) como parâmetro de entrada, o seu código pode ser dividido em três passos principais:
 
 1. Registar o modelo. Aqui está um código de amostra:
 
@@ -99,9 +99,9 @@ Uma vez que tenha dividido o processo de implantação em tarefas individuais, p
 
 ## <a name="debug-locally"></a>Debug localmente
 
-Se encontrar problemas na implementação de um modelo para ACI ou AKS, tente implantá-lo como um serviço web local. A utilização de um serviço web local facilita a resolução de problemas. A imagem do Docker que contém o modelo é descarregada e iniciada no seu sistema local.
+Se ocorrer algum problema ao implementar um modelo no ACI ou AKS, tente implementá-lo como um serviço Web local. A utilização de um serviço Web local facilita a resolução de problemas. A imagem do Docker que contém o modelo é descarregada e iniciada no seu sistema local.
 
-Pode encontrar uma amostra [de um caderno de implementação local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) no repo [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) para explorar um exemplo runnable.
+Pode encontrar uma amostra [de um caderno de implementação local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) no repo  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) para explorar um exemplo runnable.
 
 > [!WARNING]
 > As implementações de serviços web locais não são suportadas para cenários de produção.
@@ -163,7 +163,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > O script é recarregado a partir do local especificado pelo `InferenceConfig` objeto utilizado pelo serviço.
 
-Para alterar o modelo, as dependências da Conda ou a configuração de implantação, utilize [a atualização()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). O exemplo a seguir atualiza o modelo utilizado pelo serviço:
+Para alterar o modelo, as dependências da Conda ou a configuração de implantação, utilize [a atualização()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=trueupdate--args-). O exemplo a seguir atualiza o modelo utilizado pelo serviço:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -171,9 +171,9 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>Apagar o serviço
 
-Para eliminar o serviço, utilize [eliminar()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
+Para eliminar o serviço, utilize [eliminar()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=truedelete--).
 
-### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a>Inspecione o registo do Docker
+### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Inspecione o registo do Docker
 
 Pode imprimir mensagens detalhadas de registo do motor Do Docker a partir do objeto de serviço. Pode visualizar o registo de implementações ACI, AKS e Local. O exemplo a seguir demonstra como imprimir os registos.
 
@@ -185,7 +185,7 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 Se vires a linha `Booting worker with pid: <pid>` a ocorrer várias vezes nos registos, significa que não há memória suficiente para ligar o trabalhador.
-Pode resolver o erro aumentando o valor de `memory_gb` in`deployment_config`
+Pode resolver o erro aumentando o valor de `memory_gb` in `deployment_config`
  
 ## <a name="container-cannot-be-scheduled"></a>O contentor não pode ser programado
 
@@ -201,7 +201,7 @@ Utilize a informação na secção [de registo do Docker](#dockerlog) para verif
 
 ## <a name="function-fails-get_model_path"></a>Falha na função: get_model_path()
 
-Frequentemente, `init()` na função no script de pontuação, a função [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) é chamada para localizar um ficheiro modelo ou uma pasta de ficheiros de modelos no recipiente. Se o ficheiro ou a pasta do modelo não puderem ser encontrados, a função falha. A maneira mais fácil de depurar este erro é executar o código Python abaixo na concha do recipiente:
+Frequentemente, `init()` na função no script de pontuação, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) a função é chamada para localizar um ficheiro modelo ou uma pasta de ficheiros de modelos no recipiente. Se o ficheiro ou a pasta do modelo não puderem ser encontrados, a função falha. A maneira mais fácil de depurar este erro é executar o código Python abaixo na concha do recipiente:
 
 ```python
 from azureml.core.model import Model
@@ -276,7 +276,7 @@ Há duas coisas que podem ajudar a prevenir 503 códigos de estado:
     > [!NOTE]
     > Se receber picos de pedido maiores do que as novas réplicas mínimas podem manusear, poderá receber 503s novamente. Por exemplo, à medida que o tráfego para o seu serviço aumenta, poderá ter de aumentar as réplicas mínimas.
 
-Para obter mais informações sobre a definição `autoscale_target_utilization` `autoscale_max_replicas` , e `autoscale_min_replicas` para, consulte a referência do módulo [AksWebservice.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)
+Para obter mais informações sobre a definição `autoscale_target_utilization` `autoscale_max_replicas` , e `autoscale_min_replicas` para, consulte a referência do módulo [AksWebservice.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true)
 
 ## <a name="http-status-code-504"></a>Código de estado HTTP 504
 
@@ -288,7 +288,9 @@ Pode aumentar o tempo limite ou tentar acelerar o serviço modificando o score.p
 
 Em alguns casos, poderá ser necessário depurar interativamente o código Python contido na sua implementação de modelo. Por exemplo, se o script de entrada estiver a falhar e a razão não puder ser determinada por registo adicional. Ao utilizar o Código de Estúdio Visual e o depuratório, pode anexar-se ao código que está a decorrer dentro do contentor Docker. Para mais informações, visite a [depuragem interativa no guia do Código VS.](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="model-deployment-user-forum"></a>[Fórum de utilizador de implementação de modelos](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
+
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a implementação:
 

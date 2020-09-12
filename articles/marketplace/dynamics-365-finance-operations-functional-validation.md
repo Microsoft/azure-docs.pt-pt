@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 1b5c756fed5d172593b23c2a157c280caa614940
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098698"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016253"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 Validação funcional de Finanças e Operações
 
@@ -35,7 +35,7 @@ A equipa de certificação da Microsoft analisa o vídeo e os ficheiros, e depoi
 
 ### <a name="option-1-30-minute-conference-call"></a>Opção 1: chamada de conferência de 30 minutos
 
-Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) com o nome da sua oferta e algumas faixas horárias potenciais entre as 8 h. e 17h. Hora do Pacífico.
+Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) com o nome da sua oferta e algumas faixas horárias entre as 8:00 e as 17:00 horas do Pacífico.
 
 ### <a name="option-2-upload-a-demo-video-and-lcs-screenshots"></a>Opção 2: Carregar um vídeo de demonstração e imagens LCS
 
@@ -60,7 +60,7 @@ Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com
     | --- | --- |
     | Descrição geral do pacote | [![Ecrã geral do pacote](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Aprovadores de soluções</li></ul> | [![Ecrã geral do pacote](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
-    | Conteúdo do pacote<ul><li>Modelação</li><li>Pacote implementável de software</li></ul> | [![Ecrã de conteúdo de pacote um](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
+    | Conteúdo do pacote<ul><li>Modelo</li><li>Pacote implementável de software</li></ul> | [![Ecrã de conteúdo de pacote um](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>Configuração GER</li><li>Backup de base de dados</li></ul><br>Os artefactos não são necessários na secção **de configuração GER.** | [![Ecrã de conteúdo de pacote dois](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |
     | <ul><li>Modelo de relatório de bi de potência</li><li>Artefacto BPM</li></ul><br>Os artefactos não são necessários na secção **Power BI.** | [![Ecrã de conteúdo do pacote três](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Pacote de dados de processo</li><li>Contrato de licença de solução e política de privacidade</li></ul><br>As **secções de modelo ger e** power bi **report** são opcionais para incluir para ofertas de Finanças e Operações. | [![Ecrã de conteúdo de pacote quatro](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
@@ -74,6 +74,6 @@ Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com
 
     [![Mostra a janela da biblioteca do projeto](media/dynamics-365-finance-operations/supplemental-content.png)](media/dynamics-365-finance-operations/supplemental-content.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a criar uma oferta, consulte: [Criar uma oferta Dynamics 365 for Operations.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)

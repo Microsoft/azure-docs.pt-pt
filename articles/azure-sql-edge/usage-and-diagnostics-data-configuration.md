@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: af4353e5b0991f7ce2f6fe8ff940e916717b0579
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759619"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650486"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge utiliza e diagnostica a configuração de dados
 
@@ -72,7 +72,7 @@ Para desativar a recolha de dados de Utilização e Diagnóstico no Azure SQL Ed
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Desativar o uso e diagnósticos usando o ficheiro mssql.conf
 
-Para desativar a recolha de dados de Utilização e Diagnóstico no Azure SQL Edge, adicione os seguintes ficheiros no ficheiro mssql.conf na unidade de armazenamento persistente que está mapeada para a pasta /var/opt/mssql/ no módulo SQL Edge. Para obter mais informações sobre a configuração do Azure SQL Edge utilizando o ficheiro mssql.conf, consulte [o ficheiro Configure utilizando o ficheiro mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
+Para desativar a recolha de dados de Utilização e Diagnóstico no Azure SQL Edge, adicione as seguintes linhas no ficheiro mssql.conf na unidade de armazenamento persistente que é mapeada para a pasta /var/opt/mssql/ no módulo SQL Edge. Para obter mais informações sobre a configuração do Azure SQL Edge utilizando o ficheiro mssql.conf, consulte [o ficheiro Configure utilizando o ficheiro mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
 
 ```ini
 [telemetry]
@@ -105,7 +105,7 @@ Para ativar os dados de utilização e diagnóstico de auditoria local no Azure 
        userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ligue-se à Borda Azure SQL](connect.md)
 - [Construa uma solução IoT de ponta a ponta com o SQL no Edge](tutorial-deploy-azure-resources.md)

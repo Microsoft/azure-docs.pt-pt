@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273206"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649745"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -47,87 +47,7 @@ Com o V2 SKU, o modelo de preços é impulsionado pelo consumo e já não está 
 
 Cada unidade de capacidade é composta por, no máximo: 1 unidade de computação, 2500 ligações persistentes e produção de 2,22-Mbps.
 
-Orientação da unidade computacional:
-
-- **Standard_v2** - Cada unidade de computação é capaz de aproximadamente 50 ligações por segundo com o certificado TLS chave RSA 2048.
-- **WAF_v2** - Cada unidade de computação pode suportar aproximadamente 10 pedidos simultâneos por segundo para 70-30% de mistura de tráfego com 70% pedidos inferiores a 2 KB GET/POST e permanecer mais alto. O desempenho da WAF não é afetado pelo tamanho da resposta atualmente.
-
-> [!NOTE]
-> Cada instância pode suportar atualmente cerca de 10 unidades de capacidade.
-> O número de pedidos que uma unidade de computação pode lidar depende de vários critérios como o tamanho da chave do certificado TLS, algoritmo de troca de chaves, reescritas de cabeçalho, e no caso do tamanho do pedido de entrada da WAF. Recomendamos que realize testes de aplicação para determinar a taxa de pedido por unidade de cálculo. Tanto a unidade de capacidade como a unidade de computação serão disponibilizadas como métrica antes do início da faturação.
-
-A tabela a seguir mostra preços de exemplo e é apenas para fins de ilustração.
-
-**Preços no Leste dos EUA:**
-
-|              Nome SKU                             | Preço fixo ($/hr)  | Preço unitário da capacidade ($/CU-hr)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0,20             | 0.0080                          |
-| WAF_v2                                            |    0.36             | 0.0144                          |
-
-Para obter mais informações sobre preços, consulte [a página de preços](https://azure.microsoft.com/pricing/details/application-gateway/). 
-
-**Exemplo 1**
-
-Um gateway de aplicação Standard_v2 é a provisionado sem autoscaling em modo de escala manual com capacidade fixa de cinco instâncias.
-
-Preço fixo = 744(horas) * $0,20 = $148,8 <br>
-Unidades de capacidade = 744 (horas) * Unidade de capacidade de 10 por exemplo * 5 instâncias * $0,008 por hora unitária de capacidade = $297,6
-
-Preço total = $148,8 + $297,6 = $446,4
-
-**Exemplo 2**
-
-Um gateway de aplicação standard_v2 está previsto para um mês, com zero instâncias mínimas, e durante este tempo recebe 25 novas ligações TLS/seg, média de 8,88-Mbps transferência de dados. Assumindo que as ligações são de curta duração, o seu preço seria:
-
-Preço fixo = 744(horas) * $0,20 = $148,8
-
-Preço unitário da capacidade = 744(horas) * Má (unidade de cálculo 25/50 para ligações/seg, 8,88/2,22 unidade de capacidade para produção) * $0,008 = 744 * 4 * 0,008 = $23,81
-
-Preço total = $148.8+23,81 = $172,61
-
-Como pode ver, só são cobrados quatro Unidades de Capacidade, não para todo o caso. 
-
-> [!NOTE]
-> A função Max devolve o maior valor num par de valores.
-
-
-**Exemplo 3**
-
-Um standard_v2 de Gateway de Aplicação está previsto para um mês, com um mínimo de cinco instâncias. Assumindo que não há tráfego e as ligações são de curta duração, o seu preço seria:
-
-Preço fixo = 744(horas) * $0,20 = $148,8
-
-Preço unitário da capacidade = 744(horas) * Max (unidade de computação de 0/50 para ligações/seg, unidade de capacidade de 0/2,22 para produção) * $0,008 = 744 * 50 * 0,008 = $297,60
-
-Preço total = $148.80+297,60 = $446,4
-
-Neste caso, é cobrado por todas as cinco instâncias, mesmo que não haja trânsito.
-
-**Exemplo 4**
-
-Um gateway de aplicação standard_v2 está previsto para um mês, com um mínimo de cinco instâncias, mas desta vez há uma média de transferência de dados de 125 mbps, e 25 ligações TLS por segundo. Assumindo que não há tráfego e as ligações são de curta duração, o seu preço seria:
-
-Preço fixo = 744(horas) * $0,20 = $148,8
-
-Preço unitário da capacidade = 744(horas) * Má (unidade de cálculo 25/50 para ligações/seg, unidade de capacidade de 125/2,22 para produção) * $0,008 = 744 * 57 * 0,008 = $339,26
-
-Preço total = $148.80+339,26 = $488,06
-
-Neste caso, você é cobrado para o total de cinco instâncias, mais sete Unidades de Capacidade (que é 7/10 de um caso).  
-
-**Exemplo 5**
-
-Um WAF_v2 de Gateway de Aplicação está previsto para um mês. Durante este período, recebe 25 novas ligações TLS/seg, média de 8,88-Mbps transferência de dados e faz 80 pedidos por segundo. Assumindo que as ligações são de curta duração, e que o cálculo da unidade de cálculo para a aplicação suporta 10 RPS por unidade de computação, o seu preço seria:
-
-Preço fixo = 744(horas) * $0,36 = $267,84
-
-Preço unitário da capacidade = 744(horas) * Max (unidade de computação Max (25/50 para ligações/seg, 80/10 WAF RPS), 8.88/2.22 unidade de capacidade para produção) * $0,0144 = 744 * 8 * 0,0144 = $85,714
-
-Preço total = $267,84 + $85,71 = $353,55
-
-> [!NOTE]
-> A função Max devolve o maior valor num par de valores.
+Para saber mais, consulte [os preços de Compreensão.](understanding-pricing.md)
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Porta de aplicação de escala e WAF v2
 
@@ -180,7 +100,7 @@ Esta secção descreve características e limitações do V2 SKU que difere do V
 |--|--|
 |Certificado de autenticação|Não suportado.<br>Para obter mais informações, consulte [a visão geral do fim do TLS com o Gateway de aplicações.](ssl-overview.md#end-to-end-tls-with-the-v2-sku)|
 |Mistura Standard_v2 e Gateway de aplicação padrão na mesma sub-rede|Não suportado|
-|Rota definida pelo utilizador (UDR) na sub-rede do Gateway de Aplicação|Suportado (cenários específicos). Na pré-estreia.<br> Para obter mais informações sobre cenários suportados, consulte a [visão geral da configuração do Gateway de Aplicação](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
+|Rota definida pelo utilizador (UDR) na sub-rede do Gateway de Aplicação|Suportado (cenários específicos). Na pré-estreia.<br> Para obter mais informações sobre cenários suportados, consulte a [visão geral da configuração do Gateway de Aplicação](configuration-infrastructure.md#supported-user-defined-routes).|
 |NSG para a gama porta de entrada| - 65200 a 65535 para Standard_v2 SKU<br>- 65503 a 65534 para a Standard SKU.<br>Para mais informações, consulte as [FAQ.](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)|
 |Registos de desempenho em diagnósticos Azure|Não suportado.<br>Devem ser utilizadas métricas azure.|
 |Faturação|Faturação prevista para 1 de julho de 2019.|
@@ -193,7 +113,7 @@ Esta secção descreve características e limitações do V2 SKU que difere do V
 
 Um script Azure PowerShell está disponível na galeria PowerShell para ajudá-lo a migrar do seu V1 Application Gateway/WAF para o V2 Autoscaling SKU. Este script ajuda-o a copiar a configuração do seu gateway V1. A migração do tráfego continua a ser da sua responsabilidade. Para mais informações, consulte [o Portal de Aplicações Migrate Azure de v1 a v2](migrate-v1-v2.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure](quick-create-portal.md)
 - [Crie um porta de aplicação redundante de zona de auto-estação com um endereço IP virtual reservado usando a Azure PowerShell](tutorial-autoscale-ps.md)

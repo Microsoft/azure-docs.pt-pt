@@ -1,6 +1,6 @@
 ---
 title: Estender Azure Sentinel através de espaços de trabalho e inquilinos Microsoft Docs
-description: Como trabalhar com vários inquilinos para a Azure Sentinel para prestadores de serviços MSSP.
+description: Como estender as capacidades de análise do Azure Sentinel através de espaços de trabalho e inquilinos.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9e0fe46e0a7382c0adcfa1f1f781f282e9e77942
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519018"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019330"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Alargar o Azure Sentinel através de áreas de trabalho e inquilinos
 
@@ -37,7 +37,7 @@ Você pode obter o benefício total da experiência Azure Sentinel ao usar um ú
 | Controlo de acesso a dados granulares | Uma organização pode precisar de permitir que diferentes grupos, dentro ou fora da organização, acedam a alguns dos dados recolhidos pelo Azure Sentinel. Por exemplo:<br><ul><li>Acesso dos proprietários de recursos aos dados relativos aos seus recursos</li><li>Acesso dos SOCs regionais ou subsidiadores aos dados relevantes para as suas partes da organização</li></ul> | Utilize [o recurso RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) ou [o nível de mesa RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Definições de retenção granular | Historicamente, vários espaços de trabalho eram a única forma de definir diferentes períodos de retenção para diferentes tipos de dados. Isto já não é necessário em muitos casos, graças à introdução de definições de retenção ao nível da tabela. | Utilize [definições de retenção de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) ou automatize a [eliminação de dados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Faturação dividida | Ao colocar espaços de trabalho em subscrições separadas, podem ser faturados a diferentes partes. | Relatórios de utilização e cobrança cruzada |
-| Arquitetura antiga | O uso de múltiplos espaços de trabalho pode decorrer de um design histórico que tenha em conta limitações ou boas práticas que já não são verdadeiras. Também pode ser uma escolha de design arbitrária que pode ser modificada para acomodar melhor O Azure Sentinel.<br><br>Os exemplos incluem:<br><ul><li>Utilizar um espaço de trabalho por subscrição padrão ao implementar o Centro de Segurança Azure</li><li>A necessidade de definições de controlo ou retenção de acesso granular, as soluções para as quais são relativamente novas</li></ul> | Espaços de trabalho re-arquitetos |
+| Arquitetura antiga | O uso de múltiplos espaços de trabalho pode decorrer de um design histórico que tenha em conta limitações ou boas práticas que já não são verdadeiras. Também pode ser uma escolha de design arbitrária que pode ser modificada para acomodar melhor O Azure Sentinel.<br><br>Alguns exemplos incluem:<br><ul><li>Utilizar um espaço de trabalho por subscrição padrão ao implementar o Centro de Segurança Azure</li><li>A necessidade de definições de controlo ou retenção de acesso granular, as soluções para as quais são relativamente novas</li></ul> | Espaços de trabalho re-arquitetos |
 
 ### <a name="managed-security-service-provider-mssp"></a>Prestador de Serviços de Segurança Gerido (MSSP)
 
@@ -94,6 +94,13 @@ Uma função também pode simplificar uma união comumente usada. Por exemplo, p
 
 Em seguida, pode escrever uma consulta em ambos os espaços de trabalho, começando por `unionSecurityEvent | where ...` .
 
+#### <a name="scheduled-alerts"></a>Alertas agendados
+
+As consultas de espaço de trabalho cruzada podem agora ser incluídas em alertas programados nas regras de análise, sujeitos às seguintes limitações:
+
+- Até 10 espaços de trabalho podem ser incluídos numa única consulta.
+- O Azure Sentinel deve ser implantado em todos os espaços de trabalho referenciados na consulta.
+
 > [!NOTE] 
 > Consultar vários espaços de trabalho na mesma consulta pode afetar o desempenho, e portanto é recomendado apenas quando a lógica requer esta funcionalidade.
 
@@ -121,13 +128,6 @@ As capacidades de caça cross-workspace permitem que os seus caçadores de amea�
 Para configurar e gerir vários espaços de trabalho do Azure Sentinel, terá de automatizar o uso da API de gestão Azure Sentinel. Para obter mais informações sobre como automatizar a implantação de recursos do Azure Sentinel, incluindo regras de alerta, consultas de caça, livros de trabalho e livros de reprodução, consulte [Extending Azure Sentinel: APIs, Integração e automatização de gestão.](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885)
 
 Consulte também [a Implementação e Gestão do Azure Sentinel como Código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinando o Farol Azure com as capacidades de DevOps da Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para uma metodologia consolidada e contribuída pela comunidade para gerir o Azure Sentinel como código e para a implantação e configuração de recursos a partir de um repositório privado do GitHub. 
-
-
-## <a name="whats-not-supported-across-workspaces"></a>O que não é suportado em espaços de trabalho?
-
-As seguintes funcionalidades não são suportadas em espaços de trabalho:
-
-- Uma regra de alerta programada não pode correr através de espaços de trabalho usando uma consulta de espaço de trabalho transversal.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gerir espaços de trabalho em todos os inquilinos usando o Farol de Azure
 

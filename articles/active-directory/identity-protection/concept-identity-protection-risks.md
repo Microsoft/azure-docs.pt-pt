@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/10/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047110"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016406"
 ---
 # <a name="what-is-risk"></a>O que é o risco?
 
@@ -30,13 +30,15 @@ A Proteção de Identidade proporciona às organizações acesso a recursos pode
 
 Existem dois tipos de **risco Utilizador** e **Iniciar sção** e dois tipos de deteção ou cálculo **em tempo real** e **offline**.
 
+As deteções em tempo real podem não aparecer nos relatórios durante 5 a 10 minutos. As deteções offline podem não aparecer nos relatórios durante duas a quatro horas.
+
 ### <a name="user-risk"></a>Risco de utilizador
 
 O risco de utilizador representa a probabilidade de uma determinada identidade ou conta estar comprometida. 
 
 Estes riscos são calculados offline usando as fontes internas e externas de inteligência da Microsoft, incluindo investigadores de segurança, profissionais da aplicação da lei, equipas de segurança na Microsoft e outras fontes fidedignas.
 
-| Deteção de riscos | Description |
+| Deteção de riscos | Descrição |
 | --- | --- |
 | Fuga de credenciais | Este tipo de deteção de risco indica que as credenciais válidas do utilizador foram vazadas. Quando os cibercriminosos comprometem senhas válidas de utilizadores legítimos, muitas vezes partilham essas credenciais. Esta partilha é normalmente feita publicamente publicamente na dark web, pasta sites, ou através da negociação e venda das credenciais no mercado negro. Quando o serviço de credenciais vazado da Microsoft adquire credenciais de utilizador a partir da web escura, sites de pasta ou outras fontes, eles são verificados contra as credenciais válidas atuais dos utilizadores do AD AZure para encontrar correspondências válidas. Para obter mais informações sobre credenciais vazadas, consulte [questões comuns.](#common-questions) |
 | Inteligência de ameaça Azure AD | Este tipo de deteção de risco indica atividade de utilizador que é incomum para o utilizador dado ou é consistente com padrões de ataque conhecidos com base nas fontes internas e externas de inteligência da Microsoft. |
@@ -47,7 +49,7 @@ Um risco de entrada representa a probabilidade de um dado pedido de autenticaç�
 
 Estes riscos podem ser calculados em tempo real ou calculados offline usando as fontes internas e externas de inteligência da Microsoft, incluindo investigadores de segurança, profissionais da aplicação da lei, equipas de segurança na Microsoft e outras fontes fidedignas.
 
-| Deteção de riscos | Tipo de deteção | Description |
+| Deteção de riscos | Tipo de deteção | Descrição |
 | --- | --- | --- |
 | Endereço IP anónimo | Em tempo real | Este tipo de deteção de risco indica insusores de um endereço IP anónimo (por exemplo, navegador Tor ou VPN anónimo). Estes endereços IP são normalmente utilizados por atores que pretendem ocultar a sua telemetria de login (endereço IP, localização, dispositivo, etc.) para intenção potencialmente maliciosa. |
 | Viagem atípica | Offline | Este tipo de deteção de risco identifica dois sign-ins originários de locais geograficamente distantes, onde pelo menos um dos locais pode também ser atípico para o utilizador, dado o comportamento passado. Entre vários outros fatores, este algoritmo de aprendizagem automática tem em conta o tempo entre os dois sign-ins e o tempo que o utilizador levaria a viajar do primeiro para o segundo, indicando que um utilizador diferente está a usar as mesmas credenciais. <br><br> O algoritmo ignora "falsos positivos" óbvios, contribuindo para as condições impossíveis de viagem, como VPNs e locais regularmente utilizados por outros utilizadores da organização. O sistema tem um período de aprendizagem inicial dos primeiros 14 dias ou 10 logins, durante os quais aprende o comportamento de entrada de um novo utilizador. |
@@ -61,7 +63,7 @@ Estes riscos podem ser calculados em tempo real ou calculados offline usando as 
 
 ### <a name="other-risk-detections"></a>Outras deteções de risco
 
-| Deteção de riscos | Tipo de deteção | Description |
+| Deteção de riscos | Tipo de deteção | Descrição |
 | --- | --- | --- |
 | Risco adicional detetado | Em tempo real ou offline | Esta deteção indica que foi detetada uma das deteções de prémios acima. Uma vez que as deteções de prémios são visíveis apenas para os clientes Azure AD Premium P2, são intituladas "risco adicional detetado" para clientes sem licença Azure AD Premium P2. |
 
@@ -98,7 +100,7 @@ Se não viu nenhum evento de risco credencial vazado, é por causa das seguintes
 
 As credenciais são processadas imediatamente após terem sido encontradas, normalmente em vários lotes por dia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
 - [Descrição geral da segurança](concept-identity-protection-security-overview.md)

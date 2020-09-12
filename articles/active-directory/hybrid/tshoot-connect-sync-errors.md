@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca2600101c302cee1da4d22a3f098436ecb71e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bd779c26cd523bbf33fa1be6c87f21b4415c152
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355901"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016423"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Erros de resolução de problemas durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do Windows Server Ative Directory (AD DS) para o Azure Ative Directory (Azure AD). Este artigo fornece uma visão geral de diferentes tipos de erros de sincronização, alguns dos cenários possíveis que causam esses erros e formas potenciais de corrigir os erros. Este artigo inclui os tipos de erros comuns e pode não cobrir todos os erros possíveis.
@@ -75,19 +75,19 @@ O esquema do Azure Ative Directory não permite que dois ou mais objetos tenham 
 2. O Nome **Do UtilizadorPrincipal de** Bob Smith está definido como **bobs \@ contoso.com**.
 3. **"abcdefghijlmnopqrstuv==** **"SourceAnchor"** é o SourceAnchor calculado pela Azure AD Connect utilizando **o objectGUID** de Bob Smith nas instalações Ative Directory, que é o **imutávelid** de Bob Smith em Azure Ative Directory.
 4. Bob também tem valores a seguir para o atributo **proxyAddresses:**
-   * smtp:bobs@contoso.com
-   * smtp:bob.smith@contoso.com
+   * smtp: bobs@contoso.com
+   * smtp: bob.smith@contoso.com
    * **smtp: bob \@ contoso.com**
 5. Um novo utilizador, **Bob Taylor,** é adicionado ao diretório ativo nas instalações.
 6. O Nome **Do Utilizador Do Bob** Taylor está definido como **bobt \@ contoso.com**.
 7. **"abcdefghijkl0123456789=="= "abcdefghijl0123456789="=** **"fonte"** é a fonte calculada pela Azure AD Connect utilizando o **objectGUID** de Bob Taylor a partir das instalações Ative Directory. O objeto de Bob Taylor ainda não sincronizou com o Azure Ative Directory.
 8. Bob Taylor tem os seguintes valores para o atributo proxyAddresses
-   * smtp:bobt@contoso.com
-   * smtp:bob.taylor@contoso.com
+   * smtp: bobt@contoso.com
+   * smtp: bob.taylor@contoso.com
    * **smtp: bob \@ contoso.com**
 9. Durante a sincronização, o Azure AD Connect reconhecerá a adição de Bob Taylor nas instalações Ative Directory e pedirá à Azure AD que faça a mesma alteração.
 10. A Azure AD vai primeiro executar um jogo duro. Ou seja, procurará se houver algum objeto com o imutávelId igual a "abcdefghijkl0123456789=". Hard Match falhará, uma vez que nenhum outro objeto em Azure AD terá aquele imutávelId.
-11. A Azure AD tentará então combinar com Bob Taylor. Ou seja, procurará se houver algum objeto com proxyAddresses iguais aos três valores, incluindo smtp:bob@contoso.com
+11. A Azure AD tentará então combinar com Bob Taylor. Ou seja, procurará se houver algum objeto com proxyAddresses iguais aos três valores, incluindo smtp: bob@contoso.com
 12. A Azure AD vai encontrar o objeto de Bob Smith para corresponder aos critérios de soft-match. Mas este objeto tem o valor de imutávelD = "abcdefghijklmnopqrstuv=". o que indica que este objeto foi sincronizado a partir de outro objeto a partir das instalações Ative Directory. Assim, o Azure AD não pode combinar com estes objetos e resulta num erro de sincronização **InvalidSoftMatch.**
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>Como corrigir erro invalidSoftMatch
@@ -106,17 +106,17 @@ Os relatórios de erro sincronizados dentro do Azure AD Connect Health para sinc
 >
 
 #### <a name="related-articles"></a>Artigos Relacionados
-* [Atributos duplicados ou inválidos impedem a sincronização do diretório no Office 365](https://support.microsoft.com/kb/2647098)
+* [Atributos duplicados ou inválidos impedem a sincronização do diretório na Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>Descrição
 Quando a Azure AD tenta combinar dois objetos suavemente, é possível que dois objetos de diferente "tipo de objeto" (como Utilizador, Grupo, Contacto, etc.) tenham os mesmos valores para os atributos utilizados para executar a combinação suave. Como a duplicação destes atributos não é permitida no Azure AD, a operação pode resultar num erro de sincronização "ObjectTypeMismatch".
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Exemplo de cenários para erro objectTypeMismatch
-* Um grupo de segurança habilitado por correio é criado no Office 365. A Admin adiciona um novo utilizador ou contacto nas instalações AD (que ainda não está sincronizado com Azure AD) com o mesmo valor para o atributo ProxyAddresses que o do grupo Office 365.
+* Um grupo de segurança ativado por correio é criado no Microsoft 365. A Admin adiciona um novo utilizador ou contacto nas instalações AD (que ainda não está sincronizado com Azure AD) com o mesmo valor para o atributo ProxyAddresses que o do grupo Microsoft 365.
 
 #### <a name="example-case"></a>Caso de exemplo
-1. A Admin cria um novo grupo de segurança habilitado para o Serviço 365 para o Departamento de Impostos e fornece um endereço de e-mail como tax@contoso.com . Este grupo é atribuído ao ProxyAddresses valor de atributo de **smtp: tax \@ contoso.com**
+1. A Admin cria um novo grupo de segurança habilitado para o e-mail na Microsoft 365 para o departamento fiscal e fornece um endereço de e-mail como tax@contoso.com . Este grupo é atribuído ao ProxyAddresses valor de atributo de **smtp: tax \@ contoso.com**
 2. Um novo utilizador junta-se a Contoso.com e é criada uma conta para o utilizador nas instalações com o proxyAddress como **smtp: tax \@ contoso.com**
 3. Quando o Azure AD Connect sincronizar a nova conta de utilizador, obterá o erro "ObjectTypeMismatch".
 
@@ -145,12 +145,12 @@ Se o Azure AD Connect tentar adicionar um novo objeto ou atualizar um objeto exi
 1. **Bob Smith** é um utilizador sincronizado no Azure Ative Directory a partir das instalações Ative Directory of contoso.com
 2. O Nome **Do UtilizadorPrincipal de** Bob Smith no local está definido como **bobs \@ contoso.com**.
 3. Bob também tem valores a seguir para o atributo **proxyAddresses:**
-   * smtp:bobs@contoso.com
-   * smtp:bob.smith@contoso.com
+   * smtp: bobs@contoso.com
+   * smtp: bob.smith@contoso.com
    * **smtp: bob \@ contoso.com**
 4. Um novo utilizador, **Bob Taylor,** é adicionado ao diretório ativo nas instalações.
 5. O Nome **Do Utilizador Do Bob** Taylor está definido como **bobt \@ contoso.com**.
-6. **Bob Taylor** tem os seguintes valores para o atributo **ProxyAddresses** i. smtp: bobt@contoso.com ii. smtp:bob.taylor@contoso.com
+6. **Bob Taylor** tem os seguintes valores para o atributo **ProxyAddresses** i. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. O objeto de Bob Taylor está sincronizado com a Azure AD com sucesso.
 8. A Admin decidiu atualizar o atributo **ProxyAddresses** de Bob Taylor com o seguinte valor: i. **smtp: bob \@ contoso.com**
 9. A Azure AD tentará atualizar o objeto de Bob Taylor em AZure AD com o valor acima, mas essa operação falhará, uma vez que o valor da ProxyAddresses já está atribuído a Bob Smith, resultando num erro "AttributeValueMustBeUnique".
@@ -164,7 +164,7 @@ A razão mais comum para o erro AttributeValueMustBeUnique é dois objetos com i
 4. Se escoda a alteração no AD das instalações, deixe o Azure AD Ligar sincronizar a alteração para que o erro seja corrigido.
 
 #### <a name="related-articles"></a>Artigos Relacionados
--[Atributos duplicados ou inválidos impedem a sincronização do diretório no Office 365](https://support.microsoft.com/kb/2647098)
+-[Atributos duplicados ou inválidos impedem a sincronização do diretório na Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ## <a name="data-validation-failures"></a>Falhas de validação de dados
 ### <a name="identitydatavalidationfailed"></a>IdentidadeDataValidationFailed
@@ -179,7 +179,7 @@ b. O atributo UserPrincipalName não segue o formato exigido.
 a. Certifique-se de que o atributo UserPrincipalName tem caracteres suportados e formato necessário.
 
 #### <a name="related-articles"></a>Artigos Relacionados
-* [Prepare-se para a provisionar os utilizadores através da sincronização do diretório para o Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Prepare-se para a provisionar utilizadores através da sincronização do diretório para o Microsoft 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Descrição
@@ -189,15 +189,15 @@ Este caso resulta num erro de sincronização **"FederatedDomainChangeError"** q
 Para um utilizador sincronizado, o sufixo de Nome Do UtilizadorPrincipal foi alterado de um domínio federado para outro domínio federado nas instalações. Por exemplo, *UserPrincipalName = bob \@ contoso.com* foi alterado para *UserPrincipalName = bob \@ fabrikam.com*.
 
 #### <a name="example"></a>Exemplo
-1. Bob Smith, uma conta para Contoso.com, é adicionado como um novo utilizador no Ative Directory com o UserPrincipalNamebob@contoso.com
-2. Bob muda-se para uma divisão diferente de Contoso.com chamada Fabrikam.com e seu Nome UserPrincipal é alterado parabob@fabrikam.com
+1. Bob Smith, uma conta para Contoso.com, é adicionado como um novo utilizador no Ative Directory com o UserPrincipalName bob@contoso.com
+2. Bob muda-se para uma divisão diferente de Contoso.com chamada Fabrikam.com e seu Nome UserPrincipal é alterado para bob@fabrikam.com
 3. Tanto os domínios contoso.com como fabrikam.com são domínios federados com o Azure Ative Directory.
 4. O nome de utilizador do BobPrincipalName não é atualizado e resulta num erro de sincronização "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Como corrigir
 Se o sufixo do Nome De Utilizador de um utilizador foi atualizado de bob@**contoso.com** para bob \@ **fabrikam.com**, onde tanto **contoso.com** como **fabrikam.com** são **domínios federados**, siga estes passos para corrigir o erro de sincronização
 
-1. Atualize o Nome Do UtilizadorPrincipalName em Azure AD de bob@contoso.com bob@contoso.onmicrosoft.com . Pode utilizar o seguinte comando PowerShell com o Módulo AD PowerShell Azure:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
+1. Atualize o Nome Do UtilizadorPrincipalName em Azure AD de bob@contoso.com bob@contoso.onmicrosoft.com . Pode utilizar o seguinte comando PowerShell com o Módulo AD PowerShell Azure: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Deixe o próximo ciclo de sincronização tentar a sincronização. Desta vez, a sincronização será bem sucedida e atualizará o Nome Do UtilizadorPrincipal de Bob bob@fabrikam.com como esperado.
 
 #### <a name="related-articles"></a>Artigos Relacionados
@@ -246,5 +246,5 @@ Para resolver esta questão, faça o seguinte:
 >Pode atribuir novamente a função administrativa ao objeto de utilizador existente após a partida suave entre o objeto do utilizador no local e o objeto do utilizador Azure AD.
 
 ## <a name="related-links"></a>Ligações relacionadas
-* [Localizar objetos de diretório ativo no Centro Administrativo de Diretório Ativo](https://technet.microsoft.com/library/dd560661.aspx)
-* [Como consultar o Azure Ative Directory para um objeto que usa o Azure Ative Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Localizar objetos de diretório ativo no Centro Administrativo de Diretório Ativo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560661(v=ws.10))
+* [Como consultar o Azure Ative Directory para um objeto que usa o Azure Ative Directory PowerShell](/previous-versions/azure/jj151815(v=azure.100))

@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect no Microsoft Cloud Alemanha
-description: O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para as aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD.
+description: O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para as aplicações Microsoft 365, Azure e SaaS integradas com Azure AD.
 keywords: introdução ao Azure AD Connect, descrição geral do Azure AD Connect, o que é o Azure AD Connect, instalar o Active Directory, Alemanha, Floresta Negra
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62f0d82a543c0ae4e629eda3bca18b0a06322f2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246f8326f7112825de98ee824cf4bab7952a7878
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60381254"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014592"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect no Microsoft Cloud Alemanha - Pré-visualização Pública
 ## <a name="introduction"></a>Introdução
@@ -33,7 +33,7 @@ Atualmente, muitos dos cenários no [Microsoft Cloud Alemanha](https://azure.mic
 * Os seguintes URLs têm de ser abertos num servidor proxy para que a sincronização seja feita com êxito:
   
   * *.microsoftonline.de
-  * *.windows.net
+  * \*.windows.net
   * * Listas de Revogação de Certificados
 * Quando inicia sessão no seu diretório do Azure AD, tem de utilizar uma conta no domínio onmicrosoft.de.
 

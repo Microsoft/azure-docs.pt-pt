@@ -3,12 +3,12 @@ title: Alertas métricos do Monitor Azure para contentores Microsoft Docs
 description: Este artigo analisa os alertas métricos recomendados do Azure Monitor para contentores em visualização pública.
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563369"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019891"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas métricos recomendados (pré-visualização) do Monitor Azure para contentores
 
@@ -144,7 +144,7 @@ Os passos básicos são os seguintes:
 
 2. Para implementar um modelo personalizado através do portal, selecione **Criar um recurso** a partir do portal [Azure](https://portal.azure.com).
 
-3. Procure **o modelo**e, em seguida, selecione **Modelo**. implantação.
+3. Procure o **modelo**e, em seguida, selecione **a implementação do modelo**.
 
 4. Selecione **Criar**.
 
