@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b9d5a9e071cc1b2ac81e8cacea8c974181fbb3b6
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 736746cc710e4e22f61edaa7b2dfd1ceef3d90eb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070399"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645473"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -292,7 +292,7 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **--s-handle-invalid-metadados-metadados** especifica como as chaves de metadados inválidas são manuseadas. Opções disponíveis: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (predefinição). `ExcludeIfInvalid` (predefinição "Excluir NãoInvalide")
 
-**--s2s-preserve-access-tier**   Preservar o nível de acesso durante o serviço à cópia de serviço. Consulte o [armazenamento do Azure Blob: níveis de acesso quentes, frescos e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino suporta a definição do nível de acesso. Nos casos em que a definição do nível de acesso não seja suportada, utilize s2sPreserveAccessTier=falso para contornar o nível de acesso de cópia. (padrão verdadeiro).  (verdade padrão)
+**--s2s-preserve-access-tier**   Preservar o nível de acesso durante o serviço à cópia de serviço. Consulte o [armazenamento do Azure Blob: níveis de acesso quentes, frescos e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino suporta a definição do nível de acesso. Nos casos em que a definição do nível de acesso não seja suportada, utilize s2sPreserveAccessTier=falso para contornar o nível de acesso de cópia. (predefinição). `true`  (padrão "verdadeiro")
 
 **--s2-conserva-propriedades**   Preservar propriedades completas durante o serviço à cópia de serviço. Para a AWS S3 e Azure File não é única fonte de ficheiro, a operação da lista não devolve propriedades completas de objetos e ficheiros. Para preservar propriedades completas, a AzCopy precisa de enviar um pedido adicional por objeto ou ficheiro. (verdade padrão)
 
@@ -304,6 +304,6 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **--cadeia de sufixos fidedignos-microsoft-sufixos** Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  A predefinição é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
-- [azcopy](storage-ref-azcopy.md)
+- [azcopia](storage-ref-azcopy.md)

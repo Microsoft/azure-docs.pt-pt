@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 74fdfb9f3a3f59f55b0f0ed4865601c0ddb7b7f2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b21062256896ebfc9c11b031413538b39620d1e7
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241969"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613971"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Compreender a continuidade do negócio na Base de Dados Azure para o MySQL
 
@@ -19,7 +19,7 @@ Este artigo descreve as capacidades que a Azure Database para o MySQL prevê par
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Características que pode usar para proporcionar continuidade ao negócio
 
-A Azure Database for MySQL fornece funcionalidades de continuidade de negócios que incluem cópias de segurança automatizadas e a capacidade de os utilizadores iniciarem o geo-restauro. Cada um tem características diferentes para o tempo estimado de recuperação (ERT) e a perda de dados potenciais. Assim que compreenderes estas opções, podes escolher entre elas e usá-las juntas para diferentes cenários. À medida que desenvolve o seu plano de continuidade de negócio, precisa de compreender o tempo máximo aceitável antes que a aplicação recupere totalmente após o evento disruptivo - este é o seu Objetivo de Tempo de Recuperação (RTO). Também precisa de compreender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que a aplicação pode tolerar perder ao recuperar após o evento disruptivo - este é o seu Objetivo de Ponto de Recuperação (RPO).
+A Azure Database for MySQL fornece funcionalidades de continuidade de negócios que incluem cópias de segurança automatizadas e a capacidade de os utilizadores iniciarem o geo-restauro. Cada um tem características diferentes para o tempo estimado de recuperação (ERT) e a perda de dados potenciais. Estima-se que o tempo de recuperação (ERT) seja estimado para que a base de dados esteja totalmente funcional após um pedido de restauro/falha. Assim que compreenderes estas opções, podes escolher entre elas e usá-las juntas para diferentes cenários. À medida que desenvolve o seu plano de continuidade de negócio, precisa de compreender o tempo máximo aceitável antes que a aplicação recupere totalmente após o evento disruptivo - este é o seu Objetivo de Tempo de Recuperação (RTO). Também precisa de compreender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que a aplicação pode tolerar perder ao recuperar após o evento disruptivo - este é o seu Objetivo de Ponto de Recuperação (RPO).
 
 A tabela a seguir compara o ERT e o RPO pelas funcionalidades disponíveis:
 
@@ -56,7 +56,7 @@ Você pode usar réplicas de leitura de região cruzada para melhorar o seu plan
 ### <a name="where-does-azure-database-for-mysql-store-customer-data"></a>Onde é que a Azure Database para o MySQL armazena os dados dos clientes?
 Por padrão, a Base de Dados Azure para o MySQL não move nem armazena os dados dos clientes para fora da região em que está implantado. No entanto, os clientes podem optar opcionalmente por permitir [cópias de segurança geo-redundantes](concepts-backup.md#backup-redundancy-options) ou criar [réplicas de leitura cruzada](concepts-read-replicas.md#cross-region-replication) para armazenar dados noutra região.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as [cópias de segurança automáticas na Base de Dados Azure para o MySQL](concepts-backup.md).
 - Saiba como restaurar utilizando [o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).

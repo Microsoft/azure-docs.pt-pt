@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723848"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650635"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Permitir o registo em ações de treino do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,17 +37,17 @@ Os registos podem ajudá-lo a diagnosticar erros e advertências, ou rastrear m�
 
 ## <a name="data-types"></a>Tipos de dados
 
-Pode registar vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios e muito mais. Para obter mais informações e exemplos de código Python para diferentes tipos de dados, consulte a [página de referência da classe Executar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
+Pode registar vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios e muito mais. Para obter mais informações e exemplos de código Python para diferentes tipos de dados, consulte a [página de referência da classe Executar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
 
 ## <a name="interactive-logging-session"></a>Sessão interativa de registo
 
-As sessões de registo interativo são normalmente utilizadas em ambientes de cadernos. O método [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) inicia uma sessão de registo interativo. Quaisquer métricas registadas durante a sessão são adicionadas ao registo de execução na experiência. O método [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) termina as sessões e marca a execução como concluído.
+As sessões de registo interativo são normalmente utilizadas em ambientes de cadernos. O método [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) inicia uma sessão de registo interativo. Quaisquer métricas registadas durante a sessão são adicionadas ao registo de execução na experiência. O método [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) termina as sessões e marca a execução como concluído.
 
 ## <a name="scriptrunconfig-logs"></a>ScriptRunConfig regista
 
-Nesta secção, aprende-se a adicionar código de registo dentro das execuções scriptConfig. Pode utilizar a classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) para encapsular scripts e ambientes para execuções repetíveis. Também pode usar esta opção para mostrar um widget de Cadernos Jupyter visual para monitorização.
+Nesta secção, aprende-se a adicionar código de registo dentro das execuções scriptConfig. Pode utilizar a classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para encapsular scripts e ambientes para execuções repetíveis. Também pode usar esta opção para mostrar um widget de Cadernos Jupyter visual para monitorização.
 
-Este exemplo executa uma varredura de parâmetros sobre os valores alfa e captura os resultados usando o método [run.log().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----)
+Este exemplo executa uma varredura de parâmetros sobre os valores alfa e captura os resultados usando o método [run.log().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----)
 
 1. Crie um script de formação que inclua a lógica de registo, `train.py` .
 
@@ -93,7 +93,7 @@ Os seguintes cadernos demonstram conceitos neste artigo:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte estes artigos para saber mais sobre como usar a Azure Machine Learning:
 

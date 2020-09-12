@@ -4,12 +4,12 @@ description: Alerta-o para alterações invulgares na taxa de pedidos falhados n
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420214"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565842"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção Inteligente - Anomalias de falha
 [O Application Insights](./app-insights-overview.md) alerta-o automaticamente em tempo real se a sua aplicação web experimentar um aumento anormal na taxa de pedidos falhados. Deteta um aumento invulgar na taxa de pedidos HTTP ou chamadas de dependência que são reportadas como falhadas. Para pedidos, os pedidos falhados geralmente têm códigos de resposta de 400 ou mais. Para o ajudar a triagem e diagnóstico do problema, é fornecida uma análise das características das falhas e dados de aplicações relacionados nos detalhes do alerta. Existem também ligações ao portal Application Insights para um diagnóstico mais aprofundado. A funcionalidade não necessita de configuração nem configuração, pois utiliza algoritmos de aprendizagem automática para prever a taxa normal de falha.
@@ -58,6 +58,7 @@ Os alertas são desencadeados pelo nosso algoritmo de aprendizagem automática p
 * Uma comparação da percentagem de falha dos últimos 20 minutos com a taxa nos últimos 40 minutos e nos últimos sete dias, e à procura de desvios significativos que excedam os X-vezes esse desvio padrão.
 * Utilizando um limite adaptativo para a percentagem mínima de falha, que varia em com base no volume de pedidos/dependências da aplicação.
 * Existe uma lógica que pode resolver automaticamente a condição do monitor de alerta disparado, se o problema deixar de ser detetado durante 8-24 horas.
+  Nota: no desenho atual. uma notificação ou ação não será enviada quando um alerta de Deteção Inteligente for resolvido. Pode verificar se um alerta de Deteção Inteligente foi resolvido no portal Azure.
 
 ## <a name="configure-alerts"></a>Configurar alertas
 

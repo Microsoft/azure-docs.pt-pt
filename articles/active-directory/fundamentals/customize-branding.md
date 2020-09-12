@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f664f55f2870f4f0e06f3a96a3f2b7ae91e7a378
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796799"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565859"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione marca à página de inscrição do Azure Ative Directory da sua organização
-Use o logótipo da sua organização e esquemas de cores personalizados para fornecer um look-and-feel consistente nas suas páginas de inscrição do Azure Ative(Azure AD). As suas páginas de insusição aparecem quando os utilizadores acedem às aplicações web da sua organização, como o Office 365, que utiliza a Azure AD como fornecedor de identidade.
+Use o logótipo da sua organização e esquemas de cores personalizados para fornecer um look-and-feel consistente nas suas páginas de inscrição do Azure Ative(Azure AD). As suas páginas de insusição aparecem quando os utilizadores acedem às aplicações web da sua organização, como o Microsoft 365, que utiliza o Azure AD como fornecedor de identidade.
 
 >[!NOTE]
->A adição de marca personalizada requer que utilize edições Azure Ative Directory Premium 1, Premium 2 ou Basic, ou tenha uma licença Office 365. Para obter mais informações sobre licenciamento e edições, consulte [Inscreva-se no Azure AD Premium.](active-directory-get-started-premium.md)<br><br>As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>A adição de marca personalizada requer que utilize edições Azure Ative Directory Premium 1, Premium 2 ou Basic ou para ter uma licença Microsoft 365. Para obter mais informações sobre licenciamento e edições, consulte [Inscreva-se no Azure AD Premium.](active-directory-get-started-premium.md)<br><br>As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalize a sua página de ad AD Azure
 Pode personalizar as suas páginas de inscrição AD AZure, que aparecem quando os utilizadores insinam-se nas aplicações específicas para o inquilino da sua organização, tais `https://outlook.com/contoso.com` como, ou ao passar uma variável de domínio, como `https://passwordreset.microsoftonline.com/?whr=contoso.com` .
@@ -32,7 +32,7 @@ Pode personalizar as suas páginas de inscrição AD AZure, que aparecem quando 
 A sua marca personalizada não aparecerá imediatamente quando os seus utilizadores se derem a sites como, em www \. office.com. Em vez disso, o utilizador tem de iniciar sing-in antes da sua marca personalizada aparecer. Depois de o utilizador ter assinado, a marca pode demorar 15 minutos ou mais a aparecer. 
 
 > [!NOTE]
-> Todos os elementos de marca são opcionais. Por exemplo, se especificar um logótipo de banner sem imagem de fundo, a página de início mostrará o seu logotipo com uma imagem de fundo padrão do local de destino (por exemplo, Office 365).<br><br>Além disso, a marca de página de inscrição não é entregue a contas pessoais da Microsoft. Se os seus utilizadores ou clientes empresariais iniciarem saúde através de uma conta pessoal da Microsoft, a página de inscrição não refletirá a marca da sua organização.
+> Todos os elementos de marca são opcionais. Por exemplo, se especificar um logótipo de banner sem imagem de fundo, a página de início mostrará o seu logotipo com uma imagem de fundo padrão do site de destino (por exemplo, Microsoft 365).<br><br>Além disso, a marca de página de inscrição não é entregue a contas pessoais da Microsoft. Se os seus utilizadores ou clientes empresariais iniciarem saúde através de uma conta pessoal da Microsoft, a página de inscrição não refletirá a marca da sua organização.
 
 ### <a name="to-customize-your-branding"></a>Para personalizar a sua marca
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
@@ -66,13 +66,13 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 
            Pode personalizar o texto da página de entrada que introduziu. Para iniciar um novo parágrafo, utilize a tecla de entrada duas vezes. Também pode alterar a formatação de texto para incluir um link arrojado, itálico, um ponto de sublinhar ou clicável. Utilize a seguinte sintaxe para adicionar formatação ao texto: 
 
-          > Hiperligação:```[text](link)``` 
+          > Hiperligação: ```[text](link)``` 
           
-          > Arrojado: ``` **text** ``` ou``` __text__ ``` 
+          > Arrojado: ``` **text** ``` ou ``` __text__ ``` 
           
-          > Itálico: ``` *text* ``` ou``` _text_ ``` 
+          > Itálico: ``` *text* ``` ou ``` _text_ ``` 
           
-          > Sublinhar:``` ++text++ ``` 
+          > Sublinhar: ``` ++text++ ``` 
 
     - **Definições avançadas**
             
@@ -80,7 +80,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 
         - **Cor de fundo da página de iniciar s-in.** Especifique a cor hexadecimal (por exemplo, o branco é #FFFFFF) que aparecerá no lugar da sua imagem de fundo em situações de ligação de baixa largura de banda. Recomendamos a utilização da cor primária do seu logotipo do banner ou da cor da sua organização.
 
-        - **Imagem de logotipo quadrado.** Selecione uma imagem .png (preferencial) ou .jpg do logótipo da sua organização para aparecer aos utilizadores durante o processo de configuração de novos dispositivos do Windows 10 Enterprise. Esta imagem é utilizada apenas para autenticação do Windows e aparece apenas em inquilinos que estão a utilizar [o Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) para implementação ou para páginas de entrada de palavra-passe noutras experiências do Windows 10. Em alguns casos, pode também aparecer no diálogo de consentimento.
+        - **Imagem de logotipo quadrado.** Selecione uma imagem .png (preferencial) ou .jpg do logótipo da sua organização para aparecer aos utilizadores durante o processo de configuração de novos dispositivos do Windows 10 Enterprise. Esta imagem é utilizada apenas para autenticação do Windows e aparece apenas em inquilinos que estão a utilizar [o Windows Autopilot]( /windows/deployment/windows-autopilot/windows-10-autopilot) para implementação ou para páginas de entrada de palavra-passe noutras experiências do Windows 10. Em alguns casos, pode também aparecer no diálogo de consentimento.
         
             A imagem não pode ser maior do que 240x240 pixels de tamanho e deve ter um tamanho de arquivo inferior a 10 KB. Recomendamos a utilização de uma imagem transparente, uma vez que o fundo pode não corresponder ao fundo do seu logotipo. Também recomendamos que não adicione estofos em torno da imagem ou pode fazer o seu logotipo parecer pequeno.
     
@@ -88,7 +88,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
         
         - **Mostrar a opção de permanecer assinado.** Pode optar por deixar que os seus utilizadores permaneçam inscritos no Azure AD até que seja explicitamente assinado. Se escolher **Não,** esta opção está escondida e os utilizadores devem iniciar sação sempre que o navegador estiver fechado e reaberto.
 
-            Para saber mais sobre configurar e resolver problemas a opção de permanecer inscrito, consulte [o pedido de 'Permanência assinada?' para as contas AD do Azure](keep-me-signed-in.md)
+            Esta capacidade só está disponível no objeto de marca padrão e não em qualquer objeto específico da linguagem. Para saber mais sobre configurar e resolver problemas a opção de permanecer inscrito, consulte [o pedido de 'Permanência assinada?' para as contas AD do Azure](keep-me-signed-in.md)
         
             >[!NOTE]
             >Algumas funcionalidades do SharePoint Online e do Office 2010 dependem da capacidade de os utilizadores poderem escolher manter a sessão iniciada. Se tiver definido esta opção como **Não**, os utilizadores poderão ver avisos adicionais e inesperados para iniciar sessão.
@@ -134,7 +134,7 @@ Não é possível alterar o idioma da sua configuração original a partir do se
 
     As atualizações da página **de marca Contoso – Empresa** para mostrar a sua nova configuração francesa.
 
-    ![Contoso - Página de marca da empresa, com configuração padrão mostrada](media/customize-branding/company-branding-french-config.png)
+    ![Contoso - Página de marca da empresa, com a nova configuração linguística mostrada](media/customize-branding/company-branding-french-config.png)
 
 ## <a name="add-your-custom-branding-to-pages"></a>Adicione o seu branding personalizado às páginas
 Adicione a sua marca personalizada às páginas modificando o final do URL com o texto, `?whr=yourdomainname` . Esta modificação funciona em várias páginas, incluindo a página de configuração de autenticação multi-factor (MFA), a página de configuração de Reset de Palavra-Passe de Autosserviço (SSPR) e o sinal na página.

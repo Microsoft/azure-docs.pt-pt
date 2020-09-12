@@ -2,21 +2,21 @@
 title: 'Desempenho da ligação da rede de resolução de problemas: Azure'
 description: Esta página fornece um método padronizado de testar o desempenho da ligação de rede Azure.
 services: expressroute
-author: tracsman
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521671"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566080"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolver problemas de desempenho da rede
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O Azure fornece formas estáveis e rápidas para se ligar ao Azure a partir da rede no local. Métodos como VPN Site a Site e ExpressRoute são utilizados com êxito por clientes grandes e pequenos para a gestão dos seus negócios no Azure. Mas o que acontece quando o desempenho não corresponde às suas expectativas ou experiência anteriores? Este documento pode ajudar a normalizar a forma como testa e faz a linha de base do seu ambiente específico.
 
 Este documento mostra como pode testar facilmente e de forma consistente a latência da rede e a largura de banda entre dois anfitriões. Este documento também fornece alguns conselhos sobre formas de olhar para a rede Azure e ajudar a isolar pontos problemáticos. O script e as ferramentas do PowerShell discutidos requerem dois anfitriões na rede (em cada extremidade da ligação que está a ser testada). Um dos anfitriões deve ser um Servidor do Windows ou um Ambiente de Trabalho, o outro pode ser Windows ou Linux. 
@@ -121,7 +121,7 @@ Se não tem certeza de onde está a borda da nuvem, isolar os componentes Azure 
 ![2][2]
 
 >[!NOTE]
-> Note que o MSEE não está na nuvem de Azure. O ExpressRoute encontra-se, na verdade, no limite da rede microsoft que não está realmente no Azure. Uma vez ligado ao ExpressRoute a um MSEE, está ligado à rede da Microsoft, a partir daí pode ir a qualquer um dos serviços na nuvem, como o Office 365 (com o Microsoft Peering) ou o Azure (com Private e/ou Microsoft Peering).
+> Note que o MSEE não está na nuvem de Azure. O ExpressRoute encontra-se, na verdade, no limite da rede microsoft que não está realmente no Azure. Uma vez ligado ao ExpressRoute a um MSEE, está ligado à rede da Microsoft, a partir daí pode ir a qualquer um dos serviços na nuvem, como o Microsoft 365 (com o Microsoft Peering) ou o Azure (com Private e/ou Microsoft Peering).
 >
 >
 
@@ -177,7 +177,7 @@ Configuração do teste:
 >
 >
 
-| ExpressRoute<br/>Localização|Azure<br/>Região | Estimado<br/>Distância (km) | Latência|1 Sessão<br/>Largura de banda | Máximo<br/>Largura de banda |
+| ExpressRoute<br/>Localização|Azure<br/>Region | Estimado<br/>Distância (km) | Latência|1 Sessão<br/>Largura de banda | Máximo<br/>Largura de banda |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | E.U.A. Oeste 2        |    191 km |   5 ms | 262,0 Mbits/seg |  3,74 Gbits/seg |
 | Seattle | E.U.A. Oeste          |  1.094 km |  18 ms |  82,3 Mbits/seg |  3,70 Gbits/seg |
@@ -194,10 +194,10 @@ Configuração do teste:
 | Seattle | Brasil Sul *   | 10.930 km | 189 ms |   8,2 Mbits/seg |   699 Mbits/seg |
 | Seattle | Sul da Índia      | 12.918 km | 202 ms |   7,7 Mbits/seg |   634 Mbits/seg |
 
-\*A latência para o Brasil é um bom exemplo onde a distância de linha reta difere significativamente da distância de corrida de fibra. Eu esperaria que a latência fosse na vizinhança de 160 ms, mas na verdade é 189 ms. Esta diferença em contra a minha expectativa pode indicar um problema de rede em algum lugar, mas o mais provável é que a corrida de fibra não vá para o Brasil em linha reta e tenha mais 1.000 km de viagem para chegar ao Brasil a partir de Seattle.
+\* A latência para o Brasil é um bom exemplo onde a distância de linha reta difere significativamente da distância de corrida de fibra. Eu esperaria que a latência fosse na vizinhança de 160 ms, mas na verdade é 189 ms. Esta diferença em contra a minha expectativa pode indicar um problema de rede em algum lugar, mas o mais provável é que a corrida de fibra não vá para o Brasil em linha reta e tenha mais 1.000 km de viagem para chegar ao Brasil a partir de Seattle.
 
 ## <a name="next-steps"></a>Próximos passos
-1. Descarregue o Azure Connectivity Toolkit do GitHub[https://aka.ms/AzCT][ACT]
+1. Descarregue o Azure Connectivity Toolkit do GitHub [https://aka.ms/AzCT][ACT]
 2. Siga as instruções para testar o [desempenho da ligação][Performance Doc]
 
 <!--Image References-->

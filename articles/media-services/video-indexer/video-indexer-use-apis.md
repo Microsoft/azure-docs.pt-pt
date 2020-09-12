@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 09/03/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94d5b0cac332cf777f9393104861ee766ef2488c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022433"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458302"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
@@ -36,7 +36,6 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
    > * Tem de utilizar o mesmo fornecedor que utilizou quando se inscreveu no Video Indexer.
    > * As contas pessoais do Google e da Microsoft (Outlook/Live) só podem ser utilizadas para contas de teste. As contas ligadas ao Azure necessitam do Azure AD.
    > * Pode haver apenas uma conta ativa por e-mail. Se um utilizador tentar iniciar singing user@gmail.com com o LinkedIn e mais tarde com user@gmail.com o Google, este apresentará uma página de erro, dizendo que o utilizador já existe.
-
 2. Subscreva.
 
     Selecione o separador [Produtos.](https://api-portal.videoindexer.ai/products) Em seguida, selecione Autorização e subscreva.
@@ -46,7 +45,7 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
     > [!NOTE]
     > Os utilizadores novos estão automaticamente subscritos em Autorização.
     
-    Uma vez que você subscreva, você pode ver a sua subscrição e as suas chaves primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. Não devem estar disponíveis do lado do cliente (.js, .html, e assim por diante).
+    Depois de subscrever, pode encontrar a sua subscrição sob a Autorização **de Produtos.**  ->  **Authorization** Na página de subscrição, encontrará as teclas primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. Não devem estar disponíveis do lado do cliente (.js, .html, e assim por diante).
 
     ![Subscrição e chaves no Portal do Desenvolvedor de Indexados de Vídeo](./media/video-indexer-use-apis/video-indexer-api03.png)
 
@@ -208,12 +207,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Descrição geral do Video Indexer](video-indexer-overview.md)
 - [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Examinar detalhes da saída JSON](video-indexer-output-json-v2.md)
 - Confira o código de [amostra](https://github.com/Azure-Samples/media-services-video-indexer) que demonstra aspeto importante do upload e indexação de um vídeo. Seguindo o código, você lhe dará uma boa ideia de como usar a nossa API para funcionalidades básicas. Certifique-se de ler os comentários inline e note os nossos conselhos de boas práticas.

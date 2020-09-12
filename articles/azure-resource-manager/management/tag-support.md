@@ -2,13 +2,13 @@
 title: Suporte de etiquetas para recursos
 description: Mostra quais os tipos de recursos Azure que suportam tags. Fornece detalhes para todos os serviços da Azure.
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 1f74ecff7c5db7a851ad2795fdfdb8e552a309c0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/08/2020
+ms.openlocfilehash: ea46e263d934c327cf6dfa343a5e0b5a170f545e
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231525"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513919"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiqueta para recursos Azure
 Este artigo descreve se um tipo de recurso suporta [tags](tag-resources.md). As **etiquetas de suporte** da coluna rotuladas indicam se o tipo de recurso tem uma propriedade para a etiqueta. A coluna rotulada **Tag no relatório de custos** indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode ver os custos por etiquetas na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/group-filter.md) e na faturação da [Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -378,7 +378,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | b2cDirectes | Sim | No |
+> | b2cDirectes | Yes | No |
 > | b2ctenants | No | No |
 > | guestUsages | Yes | Yes |
 
@@ -964,6 +964,9 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | dataFactorySchema | No | No |
 > | fábricas | Yes | Yes |
 > | fábricas / integraçãoRuntimes | No | No |
+
+> [!NOTE]
+> Se tiver tempos de integração Azure-SSIS na sua fábrica de dados, o seu custo de funcionamento será marcado com etiquetas de fábrica de dados.  Os tempos de execução da integração Azure-SSIS devem ser interrompidos e reiniciados para que novas etiquetas de fábrica de dados sejam aplicadas ao seu custo de funcionamento.
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -1656,10 +1659,10 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Sim | No |
+> | netAppAccounts | Yes | No |
 > | netAppAccounts / accountBackups | No | No |
-> | netAppAccounts / capacityPools | Sim | No |
-> | netAppAccounts / capacityPools / volumes | Sim | No |
+> | netAppAccounts / capacityPools | Yes | No |
+> | netAppAccounts / capacityPools / volumes | Yes | No |
 > | netAppAccounts / capacityPools / volumes / snapshots | No | No |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -1671,8 +1674,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | aplicaçãoGatewayWebApplicationFirewallPolicies | Yes | Yes |
 > | applicationSecurityGroups | Yes | Yes |
 > | azureFirewallFqdnTags | No | No |
-> | azureFirewalls | Sim | No |
-> | bastionHosts | Sim | No |
+> | azureFirewalls | Yes | No |
+> | bastionHosts | Yes | No |
 > | bgpServiceCommunidades | No | No |
 > | conexões | Yes | Yes |
 > | ddosCustomPolicies | Yes | Yes |
@@ -1710,10 +1713,10 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | redesProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
 > | networkWatchers | Yes | Yes |
-> | networkWatchers / connectionMonitors | Sim | No |
+> | networkWatchers / connectionMonitors | Yes | No |
 > | networkWatchers / flowLogs | No | No |
-> | networkWatchers / lentes | Sim | No |
-> | networkWatchers / pingMeshes | Sim | No |
+> | networkWatchers / lentes | Yes | No |
+> | networkWatchers / pingMeshes | Yes | No |
 > | p2sVpnGateways | Yes | Yes |
 > | privateDnsOperationStatuses | No | No |
 > | privateDnsZones | Yes | Yes |
@@ -1743,7 +1746,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | virtualNetworks | Yes | Yes |
 > | virtualNetworks / sub-redes | No | No |
 > | virtualNetworkTaps | Yes | Yes |
-> | virtualWans | Sim | No |
+> | virtualWans | Yes | No |
 > | VPNGateways | Yes | Yes |
 > | VPNSites | Yes | Yes |
 > | webApplicationFirewallPolicies | Yes | Yes |
@@ -1766,8 +1769,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | espaços de nome | Sim | No |
-> | espaços de nomes / notificaçõesHubs | Sim | No |
+> | espaços de nome | Yes | No |
+> | espaços de nomes / notificaçõesHubs | Yes | No |
 
 ## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
 
@@ -1949,15 +1952,15 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
 > | calcularTemplateHash | No | No |
-> | implementações | Sim | No |
+> | implementações | Yes | No |
 > | implantações / operações | No | No |
 > | implementaçõesScripts | Yes | Yes |
 > | implementaçõesScripts / registos | No | No |
 > | ligações | No | No |
 > | notificarResourceJobs | No | No |
 > | fornecedores | No | No |
-> | grupos de recursos | Sim | No |
-> | assinaturas | Sim | No |
+> | grupos de recursos | Yes | No |
+> | assinaturas | Yes | No |
 > | modeloSpecs | Yes | Yes |
 > | modeloSpecs / versões | Yes | Yes |
 > | inquilinos | No | No |
@@ -2311,10 +2314,10 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | ambientes | Sim | No |
+> | ambientes | Yes | No |
 > | ambientes / acessosPolícias | No | No |
-> | ambientes / fontes de eventos | Sim | No |
-> | ambientes / referênciaSSets | Sim | No |
+> | ambientes / fontes de eventos | Yes | No |
+> | ambientes / referênciaSSets | Yes | No |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
 

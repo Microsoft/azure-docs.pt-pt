@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650473"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440699"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -88,7 +88,7 @@ As recomendações de cache para discos premium Azure abaixo assumem as caracter
 **Recomendação: Em resultado destes padrões de E/S observados pela SAP HANA, o caching para os diferentes volumes que utilizam o armazenamento premium Azure deve ser definido como:**
 
 - **/hana/data** - sem caching ou leitura de caching
-- **/hana/log** - sem caching - exceção para sérieS M- e Mv2 onde o Acelerador de Escrita deve ser ativado sem leitura de caching. 
+- **/hana/log** - sem caching - exceção para VMs da série M- e Mv2 onde o Acelerador de Escrita Azure deve ser ativado 
 - **/hana/shared** - ler caching
 - **Disco oss** - não altere o cache padrão que é definido por Azure no tempo de criação do VM
 
@@ -236,6 +236,10 @@ Nesta configuração, mantenha os **volumes /hana/data** e **/hana/log** separad
 
 As recomendações excedem frequentemente os requisitos mínimos do SAP, tal como indicado anteriormente neste artigo. As recomendações enumeradas são um compromisso entre as recomendações de tamanho por SAP e a produção máxima de armazenamento que os diferentes tipos de VM fornecem.
 
+> [!NOTE]
+> O disco Azure Ultra está a impor um mínimo de 2 IOPS por gigabyte de capacidade de um disco
+
+
 | SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | /volume de dados /hana/volume de dados | /hana/data I/O produção | /hana/data IOPS | /volume de hana/log | /hana/log I/O produção | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2.500 | 80 GB | 250 MB | 1.800 |
@@ -249,11 +253,11 @@ As recomendações excedem frequentemente os requisitos mínimos do SAP, tal com
 | M64s | 1.000 GiB | 1.000 MB/s |  1.200 GB | 600 MBps | 5000 | 512 GB | 250 MBps  | 2.500 |
 | M64ms | 1.750 GiB | 1.000 MB/s | 2.100 GB | 600 MBps | 5000 | 512 GB | 250 MBps  | 2.500 |
 | M128s | 2.000 GiB | 2.000 MB/s |2.400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2.500 | 
-| M128ms | 3.800 GiB | 2.000 MB/s | 4.800 GB | 750 MBps |7,000 | 512 GB | 250 MBps  | 2.500 | 
+| M128ms | 3.800 GiB | 2.000 MB/s | 4.800 GB | 750 MBps |9600 | 512 GB | 250 MBps  | 2.500 | 
 | M208s_v2 | 2.850 GiB | 1.000 MB/s | 3.500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2.500 | 
-| M208ms_v2 | 5.700 GiB | 1.000 MB/s | 7.200 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2.500 | 
-| M416s_v2 | 5.700 GiB | 2.000 MB/s | 7.200 GB | 1.000 MBps | 9000 | 512 GB | 400 MBps  | 4000 | 
-| M416ms_v2 | 11.400 GiB | 2.000 MB/s | 14.400 GB | 1.500 MBps | 9000 | 512 GB | 400 MBps  | 4000 |   
+| M208ms_v2 | 5.700 GiB | 1.000 MB/s | 7.200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2.500 | 
+| M416s_v2 | 5.700 GiB | 2.000 MB/s | 7.200 GB | 1.000 MBps | 14,400 | 512 GB | 400 MBps  | 4000 | 
+| M416ms_v2 | 11.400 GiB | 2.000 MB/s | 14.400 GB | 1.500 MBps | 28,800 | 512 GB | 400 MBps  | 4000 |   
 
 **Os valores enumerados destinam-se a ser um ponto de partida e precisam de ser avaliados em face das exigências reais.** A vantagem com o disco Azure Ultra é que os valores para IOPS e produção podem ser adaptados sem a necessidade de desligar o VM ou parar a carga de trabalho aplicada ao sistema.   
 
@@ -361,7 +365,7 @@ No caso de combinar os dados e o volume de registo para o SAP HANA, os discos qu
 Existem tipos de VM listados que não são certificados com SAP e, como tal, não estão listados no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O feedback dos clientes foi o de que esses tipos de VM não listados foram utilizados com sucesso para algumas tarefas não-produção.
 
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações, veja:
+## <a name="next-steps"></a>Próximos passos
+Para obter mais informações, consulte:
 
 - [Guia de alta disponibilidade SAP HANA para máquinas virtuais Azure](./sap-hana-availability-overview.md).

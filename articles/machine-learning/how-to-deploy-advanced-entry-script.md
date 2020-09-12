@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 0499cd6885454604e89ce4cadc313b2f68c45156
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 95d3570d93aa4966fcf6864838ec01735b8662db
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544643"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650283"
 ---
-# <a name="advanced-entry-script-authoring"></a>Autoria de script de entrada avançada
+# <a name="advanced-entry-script-authoring"></a>Criação de um script de entrada avançado
 
 Este artigo mostra como escrever scripts de entrada para casos de uso especializado.
 
@@ -90,7 +90,7 @@ def run(data):
 ```
 
 
-## <a name="binary-ie-image-data"></a><a id="binary-data"></a>Dados binários (ou seja, imagem)
+## <a name="binary-ie-image-data"></a><a id="binary-data"></a> Dados binários (ou seja, imagem)
 
 Se o seu modelo aceitar dados binários, como uma imagem, tem de modificar o `score.py` ficheiro utilizado para a sua implementação para aceitar pedidos HTTP brutos. Para aceitar dados brutos, utilize a `AMLRequest` classe no seu script de entrada e adicione o `@rawhttp` decorador à `run()` função.
 
@@ -260,18 +260,18 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Quando regista um modelo, fornece-se um nome modelo que é usado para gerir o modelo no registo. Utilize este nome com o método [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do ficheiro modelo ou ficheiros no sistema de ficheiros local. Se registar uma pasta ou uma recolha de ficheiros, esta API devolve o caminho do diretório que contém esses ficheiros.
+Quando regista um modelo, fornece-se um nome modelo que é usado para gerir o modelo no registo. Utilize este nome com o método [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do ficheiro modelo ou ficheiros no sistema de ficheiros local. Se registar uma pasta ou uma recolha de ficheiros, esta API devolve o caminho do diretório que contém esses ficheiros.
 
 Quando se regista um modelo, dá-se-lhe um nome. O nome corresponde ao local onde o modelo é colocado, localmente ou durante a colocação de serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
-* [Atualizar o serviço web](how-to-deploy-update-web-service.md)
+* [Atualizar serviços Web](how-to-deploy-update-web-service.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
-* [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
+* [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
 * [Criar alertas e gatilhos de eventos para implementações de modelos](how-to-use-event-grid.md)

@@ -3,12 +3,12 @@ title: Configurar um aparelho Azure Migrate com um script
 description: Saiba como configurar um aparelho Azure Migrate com um script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 43e47c6b4121a2f389dfec27873b90b7031c4f2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5be6f161724b8ab555c406ebf6e75072d7902eda
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929980"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514412"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um script
 
@@ -51,7 +51,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
     **Algoritmo** | **Transferência** | **SHA256**
     --- | --- | ---
-    VMware (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59f809acfeb17f5a36f57af4dac4a0a62dde1f
+    VMware (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116601) | 72fef66b8efd93106e626ea87354af0fb800893f9cb77edb5490490106c6a193
 
 
 
@@ -100,7 +100,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
     **Cenário** | **Transferência** | **SHA256**
     --- | --- | ---
-    Hiper-V (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) |  5d0a3dbce4b5010980d59f809acfeb17f5a36f57af4dac4a0a62dde1f
+    Hiper-V (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116657) |  bea013eab690ae3a47622c55becd87c369c14834e52f8cafe6ad0ed7f416b4f
 
 ### <a name="run-the-script"></a>Executar o script
 
@@ -129,7 +129,7 @@ Para executar o script:
 
 Certifique-se de que o aparelho pode ligar-se aos URLs Azure para a nuvem [pública.](migrate-appliance.md#public-cloud-urls)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de colocar o aparelho, é necessário configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 

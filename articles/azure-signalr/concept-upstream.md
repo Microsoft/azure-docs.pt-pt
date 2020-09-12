@@ -6,16 +6,16 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: be7736d0c90d1c384e15e8c7dee29d016b052dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559437"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514242"
 ---
 # <a name="upstream-settings"></a>Definições de origem
 
-A montante é uma funcionalidade que permite ao Serviço Azure SignalR enviar mensagens e eventos de ligação a um conjunto de pontos finais no modo sem servidor. Pode utilizar a montante para invocar um método de hub dos clientes em modo sem servidor e deixar que os pontos finais sejam notificados quando as ligações do cliente estiverem ligadas ou desligadas.
+A montante é uma funcionalidade de pré-visualização que permite ao Serviço Azure SignalR enviar mensagens e eventos de ligação a um conjunto de pontos finais no modo sem servidor. Pode utilizar a montante para invocar um método de hub dos clientes em modo sem servidor e deixar que os pontos finais sejam notificados quando as ligações do cliente estiverem ligadas ou desligadas.
 
 > [!NOTE]
 > Só o modo sem servidor pode configurar as definições a montante.
@@ -60,6 +60,10 @@ Pode definir regras para *regras de hub,* *regras de categoria*e *regras de even
 - Use uma vírgula (,) para se juntar a vários eventos. Por exemplo, `connected, disconnected` corresponde aos eventos ligados e desligados.
 - Use o nome completo do evento para combinar com o evento. Por exemplo, `connected` corresponde ao evento conectado.
 
+> [!NOTE]
+> Se estiver a utilizar funções Azure e [o gatilho SignalR,](../azure-functions/functions-bindings-signalr-service-trigger.md)o gatilho SignalR exporá um único ponto final no seguinte `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` formato:
+> Você pode configurar o modelo de url para este url.
+
 ### <a name="authentication-settings"></a>Definições de autenticação
 
 Pode configurar a autenticação para cada item de regulação a montante separadamente. Ao configurar a autenticação, é definido um token no `Authentication` cabeçalho da mensagem a montante. Atualmente, o Serviço Azure SignalR suporta os seguintes tipos de autenticação:
@@ -78,7 +82,7 @@ Ao `ManagedIdentity` selecionar, deve ativar uma identidade gerida no Serviço A
 3. Adicione URLs sob **o padrão de URL a montante.** Em seguida, as definições como **as Regras do Hub** mostrarão o valor predefinido.
 4. Para definir as definições para **as regras do hub**, **regras de eventos,** **regras de categoria**e **autenticação a montante,** selecione o valor das **regras**do Hub . Aparece uma página que lhe permite editar definições:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Definições de origem":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Detalhes de definição a montante":::
 
 5. Para configurar **a Autenticação A montante,** certifique-se de que ativou uma identidade gerida primeiro. Em seguida, selecione **Use Managed Identity**. De acordo com as suas necessidades, pode escolher quaisquer opções em conformidade com **o ID de Recursos Auth.** Consulte [as identidades geridas para o Serviço Azure SignalR](howto-use-managed-identity.md) para obter mais detalhes.
 
@@ -119,7 +123,7 @@ POST
 
 ### <a name="request-header"></a>Cabeçalho do pedido
 
-|Name |Descrição|
+|Nome |Descrição|
 |---------|---------|
 |X-ASRS-Connection-Id |A identificação da ligação para a ligação ao cliente.|
 |X-ASRS-Hub |O centro a que pertence a ligação com o cliente.|
@@ -139,17 +143,17 @@ Tipo de conteúdo: aplicação/json
 
 #### <a name="disconnected"></a>Desligado
 
-Tipo de conteúdo:`application/json`
+Tipo de conteúdo: `application/json`
 
-|Name  |Tipo  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |Erro |string |A mensagem de erro de uma ligação fechada. Esvazie quando as ligações fecharem sem erro.|
 
 #### <a name="invocation-message"></a>Mensagem de invocação
 
-Tipo de conteúdo: `application/json` ou`application/x-msgpack`
+Tipo de conteúdo: `application/json` ou `application/x-msgpack`
 
-|Name  |Tipo  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |InvocationId |string | Uma corda opcional que representa uma mensagem de invocação. Encontre detalhes em [Invocações.](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations)|
 |Destino |string | O mesmo que o evento e o mesmo que o alvo numa [mensagem de invocação.](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) |

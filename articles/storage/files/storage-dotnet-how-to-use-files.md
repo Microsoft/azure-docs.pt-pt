@@ -9,12 +9,12 @@ ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5c51bb052948c58d4849c556d0756240d6968ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 53f96d8988adfea6e14e3eb349276199afc444d7
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011536"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461923"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 
@@ -71,7 +71,7 @@ Consulte estes pacotes no seu projeto para completar este tutorial:
 
   Este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, onde quer que a sua aplicação seja executado.
 
-Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
+Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos:
 
 1. No **Solution Explorer,** clique com o botão direito do seu projeto e escolha **Gerir pacotes NuGet**.
 1. In **NuGet Package Manager**, selecione **Procurar**. Em seguida, procure e escolha **Microsoft.Azure.Storage.Blob**e, em seguida, **selecione Instalar**.
@@ -481,7 +481,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 Se encontrar algum problema, pode consultar problemas de [Ficheiros Azure de resolução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os Ficheiros Azure, consulte os seguintes recursos:
 
@@ -504,5 +504,5 @@ Para obter mais informações sobre os Ficheiros Azure, consulte os seguintes re
 
 * [Armazenamento de ficheiros Azure, agora geralmente disponível](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure File Storage (Dentro do Armazenamento de Ficheiros do Azure)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Apresentando o Serviço de Ficheiros Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure Files (Ligações persistentes aos Ficheiros do Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Apresentando o Serviço de Ficheiros Microsoft Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Persisting connections to Microsoft Azure Files (Ligações persistentes aos Ficheiros do Microsoft Azure)](https://docs.microsoft.com/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)

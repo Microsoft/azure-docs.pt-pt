@@ -3,12 +3,12 @@ title: Conformidade Regulamentar nas definições de iniciativa
 description: Descreve como usar uma definição de iniciativa para agrupar políticas por domínio regulamentar como Controlo de Acesso, Gestão de Configurações, entre outros.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 296febc1aad62d06c8e9dfcf4f285b16cacf0a40
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544626"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645535"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformidade Regulamentar na Política Azure
 
@@ -33,18 +33,18 @@ Quando uma definição de iniciativa foi criada com [grupos,](./initiative-defin
 
 Um novo separador, **Controls** é adicionado à página. A filtragem está disponível por **domínio de conformidade** e as definições de política são agrupadas pelo campo a partir do objeto `title` **policyMetadata.** Cada linha representa um **controlo** que mostra o seu estado de conformidade, o domínio de **conformidade** de que faz parte, informações de responsabilidade, e quantas definições de política não conformes e conformes compõem esse **controlo.**
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Uma amostra da visão geral da conformidade regulamentar para a definição incorporada NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Screenshot da visão geral da conformidade regulamentar para a definição incorporada NIST SP 800-53 R4 mostrando controlos compatíveis e não conformes.":::
 
 A seleção de um **controlo** abre uma página de detalhes sobre esse controlo. A **visão geral** contém a informação de `description` e `requirements` . No âmbito do separador **Políticas** estão todas as definições políticas individuais na iniciativa que contribuem para este **controlo.** O **separador de conformidade de recursos** fornece uma visão granular de cada recurso que é avaliado por uma política de membros do **controlo**atualmente visualizado .
 
 > [!NOTE]
 > Um tipo de avaliação gerida **pela Microsoft** é para uma definição de política [estática.](./definition-structure.md#type) `type`
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Uma amostra das definições da política de conformidade regulamentar no controlo de proteção das fronteiras do domínio de proteção do sistema e das comunicações da definição incorporada NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot dos detalhes da conformidade regulamentar para o controlo de proteção de fronteiras da definição incorporada NIST SP 800-53 R4.":::
 
 A partir da mesma página **de controlo,** a alteração para o **separador de conformidade de Recursos** mostra todos os recursos que as definições de política do **controlo**incluem. Os filtros estão disponíveis para nome ou ID, estado de conformidade, tipo de recurso e localização.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Uma amostra dos recursos de conformidade regulamentar impactada por definições de política no controlo de proteção de fronteiras do domínio de proteção do sistema e das comunicações da definição incorporada NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Screenshot da conformidade dos recursos com o controlo de proteção de fronteiras da definição incorporada NIST SP 800-53 R4.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Conformidade Regulamentar em SDK
 
@@ -64,7 +64,7 @@ O seguinte código é um exemplo de resultados adicionados de uma `summarize` ch
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a estrutura de [definição de iniciativa](./initiative-definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).

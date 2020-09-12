@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/24/2020
-ms.author: kumud
-ms.openlocfilehash: 54b839170d95918889d1295eb20308688fbfb2a7
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 09/03/2020
+ms.author: cherylmc
+ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032378"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440818"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Acerca do encaminhamento VPN de Ponto a Site
 
@@ -249,6 +249,6 @@ Os clientes que utilizam o Windows podem aceder a VNets e sites que estejam liga
 
 * Os clientes não Windows podem aceder a VNet1, Vnet2, VNet3 e Site1.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [Criar uma VPN P2S utilizando o portal Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para começar a criar o seu P2S VPN.

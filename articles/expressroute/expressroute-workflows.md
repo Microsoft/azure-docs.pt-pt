@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: Fluxo de trabalho de configuração de circuitos'
 description: Esta página mostra o fluxo de trabalho para configurar circuitos ExpressRoute e espreitar
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.author: cherylmc
+ms.author: duau
 ms.custom: contperfq1
-ms.openlocfilehash: 229b7c145fa38443d2bc5f99005078ffa7f77065
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814081"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565928"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para o aprovisionamento e estados dos circuitos
 
@@ -86,7 +86,7 @@ Permitir que o espreitamento privado se conecte a VMs e serviços de nuvem impla
 
 #### <a name="for-microsoft-peering"></a>Para olhando a Microsoft
 
-Permita-o aceder a serviços online da Microsoft, como o Office 365. Além disso, todos os serviços Azure PaaS estão acessíveis através do persto da Microsoft. Deve certificar-se de que utiliza um proxy/edge separado para ligar à Microsoft do que aquele que utiliza para a Internet. A utilização da mesma borda tanto para o ExpressRoute como para a Internet irá causar o encaminhamento assimétrico e causar interrupções de conectividade para a sua rede.
+Ative isto para aceder a serviços online da Microsoft, como o Microsoft 365. Além disso, todos os serviços Azure PaaS estão acessíveis através do persto da Microsoft. Deve certificar-se de que utiliza um proxy/edge separado para ligar à Microsoft do que aquele que utiliza para a Internet. A utilização da mesma borda tanto para o ExpressRoute como para a Internet irá causar o encaminhamento assimétrico e causar interrupções de conectividade para a sua rede.
 
 * Sub-rede de pares para o caminho 1 (/30) - deve ser IP público
 * Sub-rede de pares para o caminho 2 (/30) - deve ser IP público
@@ -171,7 +171,7 @@ Se o estado de prefixo público anunciado for definido como um estado *de valida
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Configurar a ligação do ExpressRoute.
   

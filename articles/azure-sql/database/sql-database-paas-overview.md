@@ -12,14 +12,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343256"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612084"
 ---
-# <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
+# <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 O Azure SQL Database é uma plataforma totalmente gerida como um motor de base de dados de serviço (PaaS) que lida com a maioria das funções de gestão de bases de dados, tais como upgrade, patching, backups e monitorização sem o envolvimento do utilizador. O Azure SQL Database está sempre a funcionar na versão mais recente e estável do motor de base de dados sql Server e o SISTEMA remendado com 99,99% de disponibilidade. As capacidades paaS que são incorporadas na Base de Dados Azure SQL permitem-lhe focar-se na administração de bases de dados específicas do domínio e atividades de otimização que são fundamentais para o seu negócio.
@@ -29,6 +29,9 @@ Com a Azure SQL Database, pode criar uma camada de armazenamento de dados altame
 O Azure SQL Database baseia-se na versão mais recente estável do motor de base de dados do [Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Pode utilizar funcionalidades de processamento de consultas avançadas, tais como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e processamento inteligente de [consultas.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json) De facto, as mais recentes capacidades do SQL Server são lançadas primeiro para a Base de Dados SQL e, em seguida, para o próprio SQL Server. Obtém-se as mais recentes capacidades do SQL Server sem sobrecarga para remendar ou atualizar, testadas em milhões de bases de dados. 
 
 A SQL Database permite-lhe definir e escalar facilmente o desempenho dentro de dois modelos de compra diferentes: um [modelo de compra baseado em vCore](service-tiers-vcore.md) e um modelo de compra baseado em [DTU.](service-tiers-dtu.md) A SQL Database é um serviço totalmente gerido que tem alta disponibilidade incorporada, backups e outras operações de manutenção comuns. A Microsoft lida com todos os patchings e atualizações do SQL e do código do sistema operativo. Não tens de gerir a infraestrutura subjacente.
+
+Se é novo na Base de Dados Azure SQL, consulte o vídeo da *Base de Dados Azure SQL* da nossa série de [vídeos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
 ## <a name="deployment-models"></a>Modelos de implementação
 
@@ -169,18 +172,18 @@ A segurança avançada dos dados é um pacote unificado para capacidades avança
   Esta funcionalidade fornece capacidades incorporadas na Base de Dados Azure SQL para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Fornece visibilidade no estado de classificação da sua base de dados e rastreia o acesso a dados sensíveis dentro da base de dados e além das suas fronteiras.
 - [Avaliação da vulnerabilidade:](sql-vulnerability-assessment.md)
 
-  Este serviço pode descobrir, rastrear e ajudá-lo a corrigir potenciais vulnerabilidades de base de dados. Oferece visibilidade sobre o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
+  Este serviço pode descobrir, rastrear e ajudá-lo a corrigir potenciais vulnerabilidades de base de dados. Fornece visibilidade sobre o seu estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as defesas da sua base de dados.
 - [Deteção de ameaças:](threat-detection-configure.md)
 
-  Esta funcionalidade deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de aceder ou explorar a sua base de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Os alertas de deteção de ameaças fornecem detalhes da atividade suspeita e recomendam medidas sobre como investigar e mitigar a ameaça.
+  Esta funcionalidade deteta atividades anómalas que indicam tentativas incomuns e potencialmente nocivas de aceder ou explorar a sua base de dados. Monitoriza continuamente a sua base de dados em busca de atividades suspeitas e apresenta alertas de segurança imediatos em casos de potenciais vulnerabilidades, ataques de injeção SQL e padrões anómalos de acesso a bases de dados. Os alertas de deteção de ameaças proporcionam detalhes sobre a atividade suspeita e recomendam ações de investigação e mitigação da ameaça.
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoria para conformidade e segurança
 
-[A auditoria](../../azure-sql/database/auditing-overview.md) rastreia os eventos da base de dados e escreve-os para um registo de auditoria na sua conta de armazenamento Azure. A auditoria pode ajudá-lo a manter a conformidade regulatória, a compreender a atividade da base de dados e a obter informações sobre discrepâncias e anomalias que possam indicar preocupações comerciais ou suspeitas de violações de segurança.
+[A auditoria](../../azure-sql/database/auditing-overview.md) rastreia os eventos da base de dados e escreve-os para um registo de auditoria na sua conta de armazenamento Azure. A auditoria pode ajudar a manter a conformidade regulatória, a compreender as atividades da base de dados e a obter informações relativas a discrepâncias e anomalias que podem indicar preocupações comerciais ou suspeitas de violações de segurança.
 
 ### <a name="data-encryption"></a>Encriptação de dados
 
-A SQL Database ajuda a proteger os seus dados fornecendo encriptação. Para os dados em movimento, utiliza [a segurança da camada de transporte.](https://support.microsoft.com/kb/3135244) Para dados em repouso, utiliza [encriptação de dados transparentes.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Para os dados utilizados, utiliza [Sempre Encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+A Base de Dados SQL ajuda a proteger os dados ao proporcionar a encriptação. Para os dados em movimento, utiliza [a segurança da camada de transporte.](https://support.microsoft.com/kb/3135244) Para dados em repouso, utiliza [encriptação de dados transparentes.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Para os dados utilizados, utiliza [Sempre Encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 
@@ -196,7 +199,7 @@ Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo.
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de base de dados transversal que funciona no Windows, MacOS e Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
 |[Ferramentas de dados do servidor SQL no Estúdio Visual](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Uma aplicação gratuita e transferível para o cliente para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados na Base de Dados Azure SQL, pacotes de Serviços de Integração, modelos de dados de serviços de análise e relatórios de Serviços de Relatórios.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure SQL Data Warehouse.|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse).|
 
 A SQL Database suporta aplicações de construção com Python, Java, Node.js, PHP, Ruby e .NET em macOS, Linux e Windows. A Base de Dados SQL suporta as mesmas [bibliotecas de ligações](connect-query-content-reference-guide.md#libraries) que o SQL Server.
 

@@ -2,13 +2,13 @@
 title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086817"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535563"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
@@ -19,7 +19,9 @@ Para soluções pequenas e médias, um único modelo é mais fácil de entender 
 Para um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> Para modelos ligados ou aninhados, só pode utilizar o modo de implementação [Incremental.](deployment-modes.md)
+> Para modelos ligados ou aninhados, só pode definir o modo de implementação para [Incremental](deployment-modes.md). No entanto, o modelo principal pode ser implantado em modo completo. Se implementar o modelo principal no modo completo e o modelo ligado ou aninhado atingir o mesmo grupo de recursos, os recursos implantados no modelo ligado ou aninhado estão incluídos na avaliação para implementação completa do modo. A recolha combinada de recursos implantados no modelo principal e modelos ligados ou aninhados é comparada com os recursos existentes no grupo de recursos. Quaisquer recursos não incluídos nesta coleção combinada são eliminados.
+>
+> Se o modelo ligado ou aninhado tiver como alvo um grupo de recursos diferente, essa implementação utiliza o modo incremental.
 >
 
 ## <a name="nested-template"></a>Modelo aninhado
@@ -160,7 +162,7 @@ O modelo a seguir demonstra como as expressões do modelo são resolvidas de aco
 
 O valor das `exampleVar` alterações dependendo do valor do `scope` imóvel em `expressionEvaluationOptions` . A tabela seguinte mostra os resultados de ambos os âmbitos.
 
-| `expressionEvaluationOptions`âmbito | Saída |
+| `expressionEvaluationOptions` âmbito | Saída |
 | ----- | ------ |
 | interior | do modelo aninhado |
 | exterior (ou padrão) | do modelo dos pais |
@@ -312,14 +314,9 @@ Ao fazer referência a um modelo ligado, o valor de `uri` não deve ser um fiche
 
 > [!NOTE]
 >
-> Pode fazer referências a modelos utilizando parâmetros que, em última análise, se resolvem a algo que utiliza **http** ou **https**, por exemplo, utilizando o `_artifactsLocation` parâmetro como assim:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+> Pode fazer referências a modelos utilizando parâmetros que, em última análise, se resolvem a algo que utiliza **http** ou **https**, por exemplo, utilizando o `_artifactsLocation` parâmetro como assim: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 O Gestor de Recursos deve ser capaz de aceder ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item.
-
-[As especificações do modelo](./template-specs.md) (atualmente em pré-visualização privada) permitem-lhe partilhar modelos ARM com outros utilizadores na sua organização. As especificações dos modelos também podem ser usadas para embalar um modelo principal e os seus modelos ligados. Para obter mais informações, veja:
-
-- [Tutorial: Criar uma especificação de modelo com modelos ligados.](./template-specs-create-linked.md)
-- [Tutorial: Implementar uma especificação de modelo como um modelo ligado](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo ligado
 
@@ -369,6 +366,15 @@ Para passar os valores dos parâmetros em linha, utilize a propriedade dos **par
 ```
 
 Não é possível utilizar os parâmetros inline e um link para um ficheiro de parâmetros. A implementação falha com um erro quando ambos `parametersLink` e `parameters` são especificados.
+
+## <a name="template-specs"></a>Especificações de modelo
+
+Em vez de manter os seus modelos ligados num ponto final acessível, pode criar uma [especificação de modelo](template-specs.md) que embala o modelo principal e os seus modelos ligados numa única entidade que pode implementar. A especificação do modelo é um recurso na sua subscrição Azure. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções (RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
+
+Para obter mais informações, consulte:
+
+- [Tutorial: Criar uma especificação de modelo com modelos ligados.](./template-specs-create-linked.md)
+- [Tutorial: Implementar uma especificação de modelo como um modelo ligado](./template-specs-deploy-linked-template.md).
 
 ## <a name="contentversion"></a>parte de conteúdoVersão
 
@@ -724,6 +730,9 @@ O ficheiro de parâmetros também pode ser limitado ao acesso através de um tok
 
 Atualmente, não é possível ligar-se a um modelo numa conta de armazenamento que está por detrás de uma [firewall de armazenamento Azure](../../storage/common/storage-network-security.md).
 
+> [!IMPORTANT]
+> Em vez de garantir o seu modelo ligado com um token SAS, considere criar uma [especificação de modelo](template-specs.md). A especificação do modelo armazena de forma segura o modelo principal e os seus modelos ligados como um recurso na sua subscrição Azure. Você usa o RBAC para conceder acesso aos utilizadores que precisam de implementar o modelo.
+
 O exemplo a seguir mostra como passar um token SAS ao ligar a um modelo:
 
 ```json
@@ -796,7 +805,7 @@ Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 |[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos em modelo ligado.  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para passar por um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
 * Para saber mais sobre a definição da ordem de implantação dos seus recursos, consulte [definindo dependências nos modelos do Gestor de Recursos Azure](define-resource-dependency.md).

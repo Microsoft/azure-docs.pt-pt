@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852162"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614067"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal de desenvolvimento da AZure API Management
 
@@ -31,9 +31,9 @@ Este artigo descreve as diferenças entre versões auto-hospedadas e geridas do 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 > [!NOTE]
-> <a name="migrate-from-legacy"></a>O novo portal de desenvolvedores é incompatível com o portal de desenvolvedores legados e a migração automatizada não é possível. É necessário recriar manualmente o conteúdo (páginas, texto, ficheiros de mídia) e personalizar a aparência do novo portal. Consulte [o tutorial do portal do desenvolvedor](api-management-howto-developer-portal-customize.md) para obter orientação.
+> <a name="migrate-from-legacy"></a> O novo portal de desenvolvedores é incompatível com o portal de desenvolvedores legados e a migração automatizada não é possível. É necessário recriar manualmente o conteúdo (páginas, texto, ficheiros de mídia) e personalizar a aparência do novo portal. Consulte [o tutorial do portal do desenvolvedor](api-management-howto-developer-portal-customize.md) para obter orientação.
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Versões geridas e auto-hospedadas
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Versões geridas e auto-hospedadas
 
 Pode construir o seu portal de desenvolvedores de duas formas:
 
@@ -67,27 +67,27 @@ Os componentes do portal podem ser logicamente divididos em duas categorias: *c�
 
 O portal baseia-se num garfo adaptado da [estrutura Paperbits.](https://paperbits.io/) A funcionalidade original de Paperbits foi alargada para fornecer widgets específicos da API Management (por exemplo, uma lista de APIs, uma lista de Produtos) e um conector para o serviço de Gestão API para guardar e recuperar conteúdos.
 
-## <a name="frequently-asked-questions"></a><a name="faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a><a name="faq"></a> Perguntas frequentes
 
 Nesta secção, respondemos a questões comuns sobre o portal de desenvolvimento, que são de natureza geral. Para questões específicas da versão auto-hospedada, consulte [a secção wiki do repositório GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Como posso migrar da versão de pré-visualização do portal?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> Como posso migrar da versão de pré-visualização do portal?
 
-Ao utilizar a versão de pré-visualização do portal do desenvolvedor, forcou o conteúdo de pré-visualização no seu serviço de Gestão API. O conteúdo predefinido foi significativamente modificado na versão geralmente disponível para uma melhor experiência do utilizador. Também inclui novos widgets.
+Quando lançou pela primeira vez a versão de pré-visualização do portal do programador, adifou a versão de pré-visualização do seu conteúdo padrão no seu serviço de Gestão API. O conteúdo predefinido foi significativamente modificado na versão geralmente disponível. Por exemplo, a versão de pré-visualização do conteúdo predefinido não inclui botões OAuth nas páginas de login, utiliza diferentes widgets para exibir APIs, e baseia-se em capacidades limitadas para estruturar páginas do portal do desenvolvedor. Apesar de existirem diferenças no conteúdo, o motor do portal (incluindo widgets subjacentes) é automaticamente atualizado sempre que publica o seu portal de desenvolvimento.
 
-Se estiver a utilizar a versão gerida, reinicie o conteúdo do portal clicando em Redefinir o **conteúdo** na secção de **menus 'Operações'.** A confirmação desta operação irá remover todo o conteúdo do portal e disponibilização do novo conteúdo predefinido. O motor do portal foi atualizado automaticamente no seu serviço de Gestão API.
+Se personalizou fortemente o seu portal com base na versão de pré-visualização dos conteúdos, poderá continuar a usá-lo como está e colocar novos widgets manualmente nas páginas do portal. Caso contrário, recomendamos a substituição do conteúdo do seu portal pelo novo conteúdo predefinido.
+
+Para redefinir o conteúdo num portal gerido, clique em Redefinir o **conteúdo** na secção menu **'Operações'.** Esta operação removerá todo o conteúdo do portal e irá providenciar novos conteúdos predefinidos. Perderá todas as personalizações e alterações do portal do desenvolvedor. **Não podes desfazer esta ação.**
 
 ![Redefinir o conteúdo do portal](media/api-management-howto-developer-portal/reset-content.png)
 
-Se estiver a utilizar a versão auto-hospedada, utilize `scripts/cleanup.bat` `scripts/generate.bat` o repositório gitHub para remover o conteúdo existente e forrê-lo de novos conteúdos. Certifique-se de atualizar o código do seu portal para a versão mais recente do repositório GitHub.
+Se estiver a utilizar a versão auto-hospedada, corra `scripts.v2/cleanup.bat` e `scripts.v2/generate.bat` scripts do repositório GitHub para remover os conteúdos existentes e forrê-lo de novos conteúdos. Certifique-se de atualizar o código do seu portal para a versão mais recente do repositório GitHub.
 
-Se não quiser redefinir o conteúdo do portal, poderá considerar a utilização de widgets recém-disponíveis nas suas páginas. Os widgets existentes foram automaticamente atualizados para as versões mais recentes.
-
-Se o seu portal foi a provisionado após o anúncio geral de disponibilidade, já deverá apresentar o novo conteúdo predefinido. Não é necessária nenhuma ação do seu lado.
+Caso tenha acedido pela primeira vez ao portal após o anúncio de disponibilidade geral em novembro de 2019, deverá já contar com o novo conteúdo predefinido e não é necessária qualquer outra ação.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>O portal tem todas as características do portal do legado?
 
-O portal de desenvolvedores já não suporta *Aplicações* e *Problemas.*
+O portal de desenvolvedores já não suporta *aplicações*, *Problemas*e integração direta com o Facebook, Microsoft, Twitter e Google como fornecedores de identidade (pode utilizar o Azure AD B2C em vez disso).
 
 ### <a name="has-the-legacy-portal-been-deprecated"></a>O portal do legado foi deprectado?
 
@@ -145,7 +145,7 @@ Depois de configurar a delegação, precisa [de reeditar o portal](api-managemen
 
 A maioria das alterações de configuração (por exemplo, VNet, sign-in e termos de produto) [requerem a republicagem do portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Estou a receber um erro de CORS ao usar a consola interativa
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> Estou a receber um erro de CORS ao usar a consola interativa
 
 A consola interativa faz um pedido de API do lado do cliente do navegador. Resolva o problema do CORS adicionando [uma política CORS](api-management-cross-domain-policies.md#CORS) à sua API(s).
 
@@ -217,12 +217,12 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
 | Microsoft Edge              | Sim<sup>1</sup> |
-| Microsoft Internet Explorer | Não              |
+| Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Sim<sup>1</sup> |
 
  <small><sup>1</sup> Suportado nas duas versões de produção mais recentes.</small>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o novo portal de desenvolvedores:
 

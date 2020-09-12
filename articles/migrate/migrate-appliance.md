@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f0bba2f2d200ffc84855ff8fc7f634bd8b71ceb6
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927522"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514361"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -121,7 +121,7 @@ download.microsoft.com/download | Permita downloads a partir do download da Micr
 graph.windows.net | Inscreva-se na sua assinatura Azure.
 login.microsoftonline.us  | Crie aplicativos Azure Ative Directory (AD) para o aparelho comunicar com a Azure Migrate.
 management.usgovcloudapi.net | Crie aplicativos AD AZure para o aparelho comunicar com o serviço Azure Migrate.
-dc.services.visualstudio.com | Faça upload de registos de aplicativos utilizados para monitorização interna.
+*.services.visualstudio.com | Faça upload de registos de aplicativos utilizados para monitorização interna.
 *.vault.usgovcloudapi.net | Gerir segredos no Cofre da Chave Azure.
 aka.ms/* | Permitir o acesso a links aka. Utilizado para atualizações de aparelhos Azure Migrate.
 download.microsoft.com/download | Permita downloads a partir do download da Microsoft.
@@ -180,7 +180,7 @@ Endereços IPv6 | vm. Guest.Net
 Ler a produção (MB por segundo) | net.received.average
 Produção de escrita (MB por segundo) | net.transmitted.average
 **Detalhes do caminho do inventário** | 
-Nome | contentor. GetType(). Nome
+Name | contentor. GetType(). Nome
 Tipo de objeto de criança | contentor. ChildType
 Detalhes de referência | contentor. Rio MoRef
 Detalhes dos pais | Contentor.Pai
@@ -227,7 +227,7 @@ Aqui estão os dados das funcionalidades que o aparelho recolhe de cada VM habil
 
 **Dados**  | **Cmdlet PowerShell** | **Propriedade**
 --- | --- | ---
-Nome  | Get-WindowsFeature  | Nome
+Name  | Get-WindowsFeature  | Name
 Tipo de Recurso | Get-WindowsFeature  | CaracterísticaType
 Principal  | Get-WindowsFeature  | Principal
 
@@ -237,7 +237,7 @@ Aqui está os metadados do servidor SQL que o aparelho recolhe a partir de VMs q
 
 **Dados**  | **Localização do registo**  | **Chave**
 --- | --- | ---
-Nome  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server\Instance Names\SQL  | instaladoInstance
+Name  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server\Instance Names\SQL  | instaladoInstance
 Edição  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Edição 
 Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
 Versão  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Versão 
@@ -248,7 +248,7 @@ Aqui estão os dados do sistema operativo que o aparelho recolhe cada VM habilit
 
 Dados  | Classe WMI  | Propriedade classe WMI
 --- | --- | ---
-Nome  | Win32_operatingsystem  | Legenda
+Name  | Win32_operatingsystem  | Legenda
 Versão  | Win32_operatingsystem  | Versão
 Arquitetura  | Win32_operatingsystem  | OsArchitecture
 
@@ -258,7 +258,7 @@ Aqui estão os dados da aplicação instalados que o aparelho recolhe de cada VM
 
 Dados  | Comando
 --- | --- 
-Nome | rpm, dpkg-consulta, estalar
+Name | rpm, dpkg-consulta, estalar
 Versão | rpm, dpkg-consulta, estalar
 Fornecedor | rpm, dpkg-consulta, estalar
 
@@ -268,7 +268,7 @@ Aqui estão os dados do sistema operativo que o aparelho recolhe cada VM habilit
 
 **Dados**  | **Comando** 
 --- | --- | ---
-Nome <br/> versão | Recolhidos a partir de um ou mais dos seguintes ficheiros:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oráculo-liberação  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Name <br/> versão | Recolhidos a partir de um ou mais dos seguintes ficheiros:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oráculo-liberação  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arquitetura | uname
 
 
@@ -522,7 +522,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho para VMware.
 - [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o aparelho para o Hyper-V.

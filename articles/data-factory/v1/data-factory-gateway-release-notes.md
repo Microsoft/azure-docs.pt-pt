@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194475"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490093"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de lançamento do Gateway de Gestão de Dados
 > [!NOTE]
@@ -26,7 +26,7 @@ Um dos desafios para a integração moderna de dados é mover dados de e para o 
 
 Consulte os seguintes artigos para obter informações detalhadas sobre a Data Management Gateway e como utilizá-la:
 
-*  [Gateway de Gestão de Dados](data-factory-data-management-gateway.md)
+*  [Data Management Gateway](data-factory-data-management-gateway.md)
 *  [Mover dados entre as instalações e a nuvem usando a Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
@@ -39,14 +39,14 @@ Não mantemos mais as notas de lançamento aqui. Receba as últimas notas de lan
 ## <a name="earlier-versions"></a>Versões anteriores
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Melhoramentos...
-- Pode adicionar entradas DNS ao autocarro de serviço whitelist em vez de branquear todos os endereços IP do Azure a partir da sua firewall (se necessário). Pode encontrar a respetiva entrada de DNS no portal Azure (Data Factory -> 'Author and Deploy' -> 'Gateways' -> "serviceUrls" (em JSON)
+- Pode adicionar entradas DNS para permitir o autocarro de serviço em vez de permitir todos os endereços IP Azure a partir da sua firewall (se necessário). Pode encontrar a respetiva entrada de DNS no portal Azure (Data Factory -> 'Author and Deploy' -> 'Gateways' -> "serviceUrls" (em JSON)
 - O conector HDFS suporta agora o certificado público auto-assinado, permitindo-lhe ignorar a validação TLS.
 - Fixo: Problema com gateway offline durante a atualização (devido a distorção do relógio)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Melhoramentos...
--   Pode adicionar entradas DNS ao Whitelist Service Bus em vez de branquear todos os endereços IP do Azure a partir da sua firewall (se necessário). Mais detalhes aqui.
+-   Pode adicionar entradas DNS para permitir o Service Bus em vez de permitir todos os endereços IP Azure a partir da sua firewall (se necessário). Mais detalhes aqui.
 -   Agora pode copiar dados de/para uma única bolha de bloco até 4.75 TB, que é o tamanho máximo suportado da bolha de bloco. (o limite anterior era de 195 GB).
 -   Fixo: Fora do problema de memória enquanto abre vários pequenos ficheiros durante a atividade da cópia.
 -   Fixo: Índice fora do alcance problema enquanto copia do Documento DB para SQL Server com recurso de idempoteência.
@@ -198,7 +198,7 @@ Não mantemos mais as notas de lançamento aqui. Receba as últimas notas de lan
 
 *  Apoiar ferramentas de diagnóstico no Gestor de Configuração
 *  Apoiar colunas de tabelas para fontes de dados tabulares para a Azure Data Factory
-*  Suporte SQL DW para Azure Data Factory
+*  Apoiar a Azure Synapse Analytics para a Azure Data Factory
 *  Suporte Recluso em BlobSource e FileSource para Azure Data Factory
 *  Cópia de suporteBehavior – MergeFiles, PreserveHierarchy e FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
 *  Atividade de cópia de suporte reportando progressos para Azure Data Factory

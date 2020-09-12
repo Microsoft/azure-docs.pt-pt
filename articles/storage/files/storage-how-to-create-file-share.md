@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930677"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645579"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 Para criar uma partilha de ficheiros Azure, precisa responder a três perguntas sobre como irá usá-lo:
@@ -231,7 +231,7 @@ Este comando falhará se a conta de armazenamento estiver contida numa rede virt
 > O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre ações e ficheiros de ficheiros de [nomeação, consulte naming e referências de ações, diretórios, ficheiros e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### <a name="create-a-hot-or-cool-file-share"></a>Crie uma partilha de ficheiros quente ou legal
-Uma participação de ficheiro numa **conta de armazenamento v2 (GPv2)** pode conter ações de ficheiros otimizadas, quentes ou frias (ou uma mistura delas). As ações otimizadas de transações estão disponíveis em todas as regiões do Azure, mas as ações de ficheiros quentes e frescas só estão disponíveis [num subconjunto de regiões.](storage-files-planning.md#storage-tiers) Pode criar uma partilha de ficheiros quente ou legal utilizando o módulo de pré-visualização Azure PowerShell ou o Azure CLI. 
+Uma **conta de armazenamento v2 (GPv2)** pode conter ações de ficheiros otimizadas, quentes ou frias (ou uma mistura delas). As ações otimizadas de transações estão disponíveis em todas as regiões do Azure, mas as ações de ficheiros quentes e frescas só estão disponíveis [num subconjunto de regiões.](storage-files-planning.md#storage-tiers) Pode criar uma partilha de ficheiros quente ou legal utilizando o módulo de pré-visualização Azure PowerShell ou o Azure CLI. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 O portal Azure ainda não suporta a criação de ações de ficheiros quentes e cool, ou a movimentação de ações de ficheiros otimizadas de transações existentes para quentes ou frescos. Por favor, consulte as instruções para criar uma partilha de ficheiros com o PowerShell ou o Azure CLI.
@@ -291,7 +291,7 @@ az storage share-rm create \
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Plano para a implementação de Ficheiros Azure](storage-files-planning.md) ou [Plano para uma implantação do Azure File Sync](storage-sync-files-planning.md). 
 - [Visão geral de ligação em rede](storage-files-networking-overview.md).
 - Ligue e monte uma partilha de ficheiros no [Windows,](storage-how-to-use-files-windows.md) [macOS](storage-how-to-use-files-mac.md)e [Linux](storage-how-to-use-files-linux.md).

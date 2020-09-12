@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações da Azure com o Advisor
 description: Utilize recomendações de desempenho no Azure Advisor para melhorar a rapidez e capacidade de resposta das suas aplicações críticas ao negócio.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653312"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651579"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
 
@@ -63,6 +63,8 @@ O advisor identifica tabelas que não têm estatísticas atualizadas de [tabelas
 
 A análise do conselho pode indicar que a sua aplicação conectada a um servidor MySQL pode não estar a gerir as ligações de forma eficiente. Esta condição poderia conduzir a um consumo desnecessário de recursos e a uma maior latência da aplicação. Para melhorar a gestão das ligações, recomendamos que reduza o número de ligações de curta duração e elimine as ligações inativas desnecessárias. Pode efetá-las configurando um pooler de ligação do lado do servidor, como o ProxySQL.
 
+## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Atualizar a versão atual do SDK de Gestão de Computação para a versão mais recente
+O Advisor identifica subscrições que têm operações utilizando versões SDK de gestão de computação desatualizadas. Isto pode afetar a segurança e o desempenho das suas cargas de trabalho e, assim, o Advisor recomenda que mude para a versão mais recente da Compute Management SDK. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Dimensione para otimizar a utilização de cache nas suas tabelas Azure Synapse Analytics para aumentar o desempenho da consulta
 
@@ -165,7 +167,7 @@ Esta recomendação expõe as tabelas do Azure Data Explorer que têm um grande 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Melhore o desempenho ao otimizar o dimensionamento de tabelas temporárias MySQL
 A análise do conselho indica que o seu servidor MySQL pode estar a incorrer em sobrecargas desnecessárias de I/O devido a baixas definições de parâmetros de tabela temporária. Tal pode resultar em transações baseadas em discos desnecessárias e desempenho reduzido. Recomendamos que aumente os valores dos parâmetros “tmp_table_size” e “max_heap_table_size” para reduzir o número de transações baseadas em discos. [Saiba mais](https://aka.ms/azure_mysql_tmp_table)
 
-## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuir dados no grupo do servidor para distribuir carga de trabalho entre os nóns
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuir dados no grupo de servidores para distribuir a carga de trabalho entre nós
 O advisor identifica os grupos de servidores onde os dados não foram distribuídos, mas permanece no coordenador. Com base nisto, o Advisor recomenda que para benefícios completos da Hyperscale (Citus) distribuam dados em nós de trabalhadores para os seus grupos de servidores. Isto melhorará o desempenho da consulta utilizando recursos de cada nó no grupo do servidor. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como aceder às recomendações de desempenho no Advisor
@@ -174,7 +176,7 @@ O advisor identifica os grupos de servidores onde os dados não foram distribuí
 
 2.  No painel 'Advisor', selecione o **separador Desempenho.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 

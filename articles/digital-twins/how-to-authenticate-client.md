@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: c211c0e5ef0b39f778db7c922fafc735e2411068
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 88f74bcc93d640ec8d4d9014c6f25a6d0d0df680
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930048"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614003"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
@@ -34,7 +34,7 @@ Para prosseguir, você precisará de um projeto de aplicação de cliente no qua
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>Autenticação e criação de clientes: .NET (C#) SDK
 
 Em primeiro lugar, inclua os seguintes pacotes no seu projeto para utilizar as ferramentas de autenticação .NET SDK e para este modo de como:
-* `Azure.DigitalTwins.Core``1.0.0-preview.2`(versão)
+* `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 
 Dependendo das suas ferramentas de eleição, pode incluir os pacotes utilizando o gestor de pacotes Visual Studio ou a `dotnet` ferramenta da linha de comando. 
@@ -197,7 +197,7 @@ Note mais uma vez que quando o código acima coloca o ID do cliente, iD do inqui
 
 A MSAL tem muitas mais opções que pode usar, para implementar coisas como caching e outros fluxos de autenticação. Para obter mais informações sobre este documento, consulte [*a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)*](../active-directory/develop/msal-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre como funciona a segurança em Azure Digital Twins:
 * [*Conceitos: Segurança para soluções Azure Digital Twins*](concepts-security.md)

@@ -4,14 +4,14 @@ description: Como criar uma instância cache Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092495"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612075"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar uma Cache Azure HPC
 
@@ -29,7 +29,7 @@ Clique na imagem abaixo para ver uma [demonstração](https://azure.microsoft.co
 
 ![screenshot da página de detalhes do projeto no portal Azure](media/hpc-cache-create-basics.png)
 
-Em **Detalhes do Projeto,** selecione o grupo de subscrição e recursos que irá acolher a cache. Certifique-se de que a subscrição está na lista [de acesso.](hpc-cache-prerequisites.md#azure-subscription)
+Em **Detalhes do Projeto,** selecione o grupo de subscrição e recursos que irá acolher a cache.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
 
 Em **Detalhes de Serviço,** desateie o nome da cache e estes outros atributos:
 
@@ -191,7 +191,7 @@ A mensagem inclui algumas informações úteis, incluindo estes itens:
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois da sua cache aparecer na lista **de Recursos,** pode passar para o próximo passo.
 

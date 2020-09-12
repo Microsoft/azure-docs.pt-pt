@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 93015427dddfe2b311783c20587792e34c098ce8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011043"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462008"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -134,7 +134,7 @@ As métricas de armazenamento apenas armazenam métricas de capacidade para o se
 >
 >
 
-Para ajudar a estimar o tamanho de vários objetos de armazenamento, tais como bolhas, consulte o post do blog [Understanding Azure Storage Billing – Bandwidth, Transactions e Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Para ajudar a estimar o tamanho de vários objetos de armazenamento, tais como bolhas, consulte o post do blog [Understanding Azure Storage Billing – Bandwidth, Transactions e Capacity](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Monitorizar a disponibilidade
 Deverá monitorizar a disponibilidade dos serviços de armazenamento na sua conta de armazenamento, monitorizando o valor na coluna **Disponibilidade** nas tabelas de métricas horárias ou minúsculas — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable,** **$MetricsHourPrimaryTransactionsQueue,** **$MetricsMinutePrimaryTransactionsBlob,** **$MetricsMinutePrimaryTransactionsTable,** **$MetricsMinutePrimaryTransactionsQueue,** **$MetricsCapacityBlob**. A coluna **Disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou da operação API representada pela linha (o **RowKey** mostra se a linha contém métricas para o serviço como um todo ou para uma operação API específica).
@@ -559,7 +559,7 @@ Se a aplicação do cliente tentar utilizar uma chave SAS que não inclua as per
 
 A tabela a seguir mostra uma mensagem de registo do lado do servidor da amostra a partir do ficheiro de registo de registo de registo de registo de registo de registo de registo de armazenamento:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 | Pedir hora de início | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
@@ -806,7 +806,7 @@ Também pode utilizar a funcionalidade Application Insights para Azure DevOps co
 
 Pode encontrar mais informações no [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a análise no Azure Storage, consulte estes recursos:
 

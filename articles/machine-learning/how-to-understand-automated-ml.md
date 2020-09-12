@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 89fe1d80fb7282a72bde6bcafa070f2d7461b02f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0a41aa062cf4804587b97ce224f80c0bc4bf2b3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320838"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650572"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Compreender os resultados de machine learning automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,14 +59,14 @@ Depois de executar uma experiência automatizada de aprendizagem automática, um
 
    [![Modelo de experiência](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-Você também vê estes mesmos resultados durante uma corrida quando você usa o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+Você também vê estes mesmos resultados durante uma corrida quando você usa o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
 
-## <a name="classification-results"></a><a name="classification"></a>Resultados da classificação
+## <a name="classification-results"></a><a name="classification"></a> Resultados da classificação
 
 As seguintes métricas e gráficos estão disponíveis para todos os modelos de classificação que constrói utilizando as capacidades automatizadas de aprendizagem automática de máquinas de aprendizagem automática do Azure Machine Learning
 
 + [Métricas](#classification-metrics)
-+ [Matriz de confusão](#confusion-matrix)
++ [A matriz de confusão](#confusion-matrix)
 + [Gráfico de recuperação de precisão](#precision-recall-chart)
 + [Características de funcionamento do recetor (ou ROC)](#roc)
 + [Curva de elevação](#lift-curve)
@@ -108,7 +108,7 @@ Um exemplo concreto torna esta distinção mais clara: Em vez de calcular a reco
 
 <a name="confusion-matrix"></a>
 
-### <a name="confusion-matrix"></a>Matriz de confusão
+### <a name="confusion-matrix"></a>A matriz de confusão
 
 #### <a name="what-is-a-confusion-matrix"></a>O que é uma matriz de confusão?
 Uma matriz de confusão é usada para descrever o desempenho de um modelo de classificação. Cada linha exibe os casos da classe verdadeira ou real no seu conjunto de dados, e cada coluna representa os casos da classe que foi prevista pelo modelo. 
@@ -211,7 +211,7 @@ Um modelo bem calibrado alinha-se com a linha y=x, onde prevê corretamente a pr
 ##### <a name="example-2-an-over-confident-model"></a>Exemplo 2: Um modelo muito confiante
 ![Um modelo muito confiante](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
-## <a name="regression-results"></a><a name="regression"></a>Resultados da regressão
+## <a name="regression-results"></a><a name="regression"></a> Resultados da regressão
 
 As seguintes métricas e gráficos estão disponíveis para cada modelo de regressão que constrói utilizando as capacidades automatizadas de aprendizagem automática de máquinas de aprendizagem de máquinas
 
@@ -220,7 +220,7 @@ As seguintes métricas e gráficos estão disponíveis para cada modelo de regre
 + [Histograma de residuais](#histo)
 
 
-### <a name="regression-metrics"></a><a name="reg-metrics"></a>Métricas de regressão
+### <a name="regression-metrics"></a><a name="reg-metrics"></a> Métricas de regressão
 
 As seguintes métricas são guardadas em cada iteração de execução para uma tarefa de regressão ou previsão.
 
@@ -238,7 +238,7 @@ normalized_root_mean_squared_error|Erro quadrado de raiz normalizado é erro qua
 root_mean_squared_log_error|Erro de log quadrado de raiz é a raiz quadrada do erro logarítmico quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhum|
 normalized_root_mean_squared_log_error|Erro de registo quadrado de raiz normalizado é erro de registo quadrado de raiz dividido pela gama de dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo de dados|
 
-### <a name="predicted-vs-true-chart"></a><a name="pvt"></a>Gráfico previsto vs. Verdadeiro gráfico
+### <a name="predicted-vs-true-chart"></a><a name="pvt"></a> Gráfico previsto vs. Verdadeiro gráfico
 #### <a name="what-is-a-predicted-vs-true-chart"></a>O que é um gráfico previsto vs. Verdadeiro?
 Previsto vs. Verdadeiro mostra a relação entre um valor previsto e o seu valor real correlacionado para um problema de regressão. Este gráfico pode ser usado para medir o desempenho de um modelo à medida que quanto mais próximo da linha y=x os valores previstos são, melhor a precisão de um modelo preditivo.
 
@@ -254,7 +254,7 @@ Após cada corrida, pode ver um gráfico previsto vs. verdadeiro para cada model
 
 
 
-### <a name="histogram-of-residuals-chart"></a><a name="histo"></a>Histograma de gráfico de residuais
+### <a name="histogram-of-residuals-chart"></a><a name="histo"></a> Histograma de gráfico de residuais
 #### <a name="what-is-a-residuals-chart"></a>O que é um gráfico residual?
 Um residual é a diferença entre a previsão e o valor real ( `y_pred - y_true` ). Para mostrar uma margem de erro com baixo viés, o histograma dos residuais deve ser moldado como uma curva sineira, centrada em torno de 0. 
 #### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>O que faz a ML automatizada com o gráfico de residuais?
@@ -268,14 +268,14 @@ Um bom modelo normalmente terá residuais intimamente centrados em torno de zero
 ##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Exemplo 2: Um modelo de regressão com distribuição mais uniforme de erros
 ![Um modelo de regressão com distribuição mais uniforme de erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
-## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a>Interpretação do modelo e importância de característica
+## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a> Interpretação do modelo e importância de característica
 O ML automatizado fornece um painel de interpretação de aprendizagem automática para as suas execuções.
 Para obter mais informações sobre a ativação de funcionalidades de interpretação, consulte o como permitir [a](how-to-machine-learning-interpretability-automl.md) interpretação em experiências automatizadas de ML.
 
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado pelo Cliente explicação. Este modelo não devolverá um dashboard de explicação se for devolvido como o melhor modelo, e não suporta explicações a pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre [ml automatizado](concept-automated-ml.md) em Azure Machine Learning.
 + Experimente os [cadernos de amostras de modelo de aprendizagem automática de](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) máquinas.

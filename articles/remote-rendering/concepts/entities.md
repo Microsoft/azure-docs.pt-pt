@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20de83e190a419b95c99c1c1238eb931910feb82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020291"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613926"
 ---
 # <a name="entities"></a>Entidades
 
@@ -21,7 +21,7 @@ Uma *Entidade* representa um objeto móvel no espaço e é o bloco fundamental d
 
 As entidades têm uma transformação definida por uma posição, rotação e escala. Por si só, as entidades não têm qualquer funcionalidade observável. Em vez disso, o comportamento é adicionado através de componentes, que estão ligados a entidades. Por exemplo, a anexação de um [CutPlaneComponent](../overview/features/cut-planes.md)  criará um plano de corte na posição da entidade.
 
-O aspeto mais importante da própria entidade é a hierarquia e a transformação hierárquica resultante. Por exemplo, quando várias entidades são ligadas como crianças a uma entidade-mãe partilhada, todas estas entidades podem ser movidas, rotativas e dimensionadas em uníssono, alterando a transformação da entidade-mãe.
+O aspeto mais importante da própria entidade é a hierarquia e a transformação hierárquica resultante. Por exemplo, quando várias entidades são ligadas como crianças a uma entidade-mãe partilhada, todas estas entidades podem ser movidas, rotativas e dimensionadas em uníssono, alterando a transformação da entidade-mãe. Além disso, o estado da entidade `enabled` pode ser usado para desligar a visibilidade e as respostas aos moldes de raios para um gráfico completo na hierarquia.
 
 Uma entidade é propriedade única do seu progenitor, o que significa que quando o progenitor é destruído `Entity.Destroy()` com, assim como os seus filhos e todos os [componentes conectados.](components.md) Assim, a remoção de um modelo da cena é conseguida invocando `Destroy` o nó raiz de um modelo, devolvido por ou a sua variante `AzureSession.Actions.LoadModelAsync()` `AzureSession.Actions.LoadModelFromSASAsync()` SAS.
 
@@ -95,7 +95,6 @@ Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
 ```
 
-
 ### <a name="querying-spatial-bounds"></a>Consulta de limites espaciais
 
 As consultas bounds são chamadas assíncronos que operam numa hierarquia de objetos completos, usando uma entidade como raiz. Consulte o capítulo dedicado sobre [os limites dos objetos.](object-bounds.md)
@@ -138,7 +137,14 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 
 A consulta terá sucesso mesmo que o objeto não possua nenhum metadados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [Classe de entidade](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C# RemoteManager.CreateEntity()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [Classe de entidade C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [C++ RemoteManager::CreateEntity()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Componentes](components.md)
 * [Limites dos objetos](object-bounds.md)

@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029319"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611922"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Crie um conjunto de escala de máquina virtual que utilize Zonas de Disponibilidade
 
@@ -22,13 +22,17 @@ Para proteger os conjuntos de escala de máquina virtual contra falhas de nível
 
 ## <a name="availability-considerations"></a>Considerações de disponibilidade
 
-Quando implantar uma escala definida numa ou mais zonas a partir da versão API *2017-12-01,* tem a opção de implantar com "propagação máxima" ou "propagação estática de 5 domínios de avaria". Com a propagação máxima, o conjunto de escala espalha os seus VMs pelo maior número possível de domínios de avaria dentro de cada zona. Esta propagação pode ser através de maiores ou menos de cinco domínios de avaria por zona. Com a "propagação do domínio de avaria estática 5", o conjunto de escala espalha os seus VMs em exatamente cinco domínios de avaria por zona. Se o conjunto de escala não encontrar cinco domínios de avarias distintos por zona para satisfazer o pedido de atribuição, o pedido falha.
+Quando implementar uma escala regional (não zonal) definida em uma ou mais zonas a partir da versão API *2017-12-01,* tem as seguintes opções de disponibilidade:
+- Propagação máxima (plataformaFaultDomainCount = 1)
+- Propagação fixa estática (plataformaFaultDomainCount = 5)
+- Propagação alinhada com domínios de falha do disco de armazenamento (platforFaultDomainCount = 2 ou 3)
+
+Com a propagação máxima, o conjunto de escala espalha os seus VMs pelo maior número possível de domínios de avaria dentro de cada zona. Esta propagação pode ser através de maiores ou menos de cinco domínios de avaria por zona. Com a propagação estática fixa, o conjunto de escala espalha os seus VMs em exatamente cinco domínios de avaria por zona. Se o conjunto de escala não encontrar cinco domínios de avarias distintos por zona para satisfazer o pedido de atribuição, o pedido falha.
 
 **Recomendamos a implantação com propagação máxima para a maioria das cargas de trabalho,** uma vez que esta abordagem proporciona a melhor propagação na maioria dos casos. Se precisar de réplicas para ser espalhada por unidades distintas de isolamento de hardware, recomendamos que se espalhe pelas Zonas de Disponibilidade e utilize a propagação máxima dentro de cada zona.
 
-Com a propagação máxima, só se vê um domínio de falha na visão de instância de VM definida na escala e nos metadados de exemplo, independentemente de quantos domínios de avaria os VMs estão espalhados. A propagação dentro de cada zona está implícita.
-
-Para utilizar a propagação máxima, definir *plataformaFaultDomainCount* a *1*. Para utilizar a propagação estática de cinco domínios de avaria, desatar *a plataformaFaultDomainCount* a *5*. Na versão API *2017-12-01*, *a plataformaFaultDomainCount* falha em *1* para conjuntos de escala de zona única e de zona cruzada. Atualmente, apenas a propagação estática de cinco domínios de avaria é suportada para conjuntos regionais de escala (não zonal).
+> [!NOTE]
+> Com a propagação máxima, só se vê um domínio de falha na visão de instância de VM definida na escala e nos metadados de exemplo, independentemente de quantos domínios de avaria os VMs estão espalhados. A propagação dentro de cada zona está implícita.
 
 ### <a name="placement-groups"></a>Grupos de colocação
 
@@ -213,6 +217,6 @@ Se criar um endereço IP público ou um equilibrador de carga, especifique o *"s
 
 Para um exemplo completo de um conjunto de escalas redundantes de zona e recursos de rede, consulte [este modelo de gestor de recursos de amostra](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que criou uma escala definida numa Zona de Disponibilidade, pode aprender a [implementar aplicações em conjuntos de escala de máquinas virtuais](tutorial-install-apps-cli.md) ou [utilizar uma escala automática com conjuntos de escala de máquina virtual](tutorial-autoscale-cli.md).

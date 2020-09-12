@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651731"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650689"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
 
@@ -213,7 +213,7 @@ Durante esta fase, normalmente implementa sistemas de desenvolvimento, sistemas 
 12. À medida que a carga de trabalho se aplica, registe o consumo de recursos dos sistemas em Azure. Compare este consumo com os registos da sua antiga plataforma. Ajuste o tamanho de VM de futuras implementações se vir que tem grandes diferenças. Tenha em mente que quando reduzir, o armazenamento e as larguras de banda de VM também serão reduzidos.
     - [Tamanhos de máquinas virtuais do Windows no Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
-13. Experimente a funcionalidade e os processos de cópia do sistema. O objetivo é facilitar a cópia de um sistema de desenvolvimento ou de um sistema de teste, para que as equipas de projeto possam obter novos sistemas rapidamente. Considere usar [o SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) para estas tarefas.
+13. Experimente a funcionalidade e os processos de cópia do sistema. O objetivo é facilitar a cópia de um sistema de desenvolvimento ou de um sistema de teste, para que as equipas de projeto possam obter novos sistemas rapidamente. 
 14. Otimize e aprimore o acesso, permissões e processos baseados em funções da sua equipa para garantir a separação de deveres. Ao mesmo tempo, certifique-se de que todas as equipas podem desempenhar as suas tarefas na infraestrutura Azure.
 15. Exercite, teste e documente procedimentos de alta disponibilidade e recuperação de desastres para permitir que o seu pessoal execute estas tarefas. Identifique as deficiências e adapte a nova funcionalidade Azure que está a integrar nas suas implementações.
 
@@ -298,7 +298,7 @@ Esta fase tem a ver com monitorização, operação e administração do sistema
 3. Otimize os tempos em que pode desligar os sistemas.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja estes artigos:
 
 - [Azure Virtual Machines planejamento e implementação para SAP NetWeaver](./planning-guide.md)

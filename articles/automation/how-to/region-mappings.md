@@ -1,27 +1,29 @@
 ---
 title: Regiões suportadas para a área de trabalho do Log Analytics ligada
-description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho Log Analytics.
+description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho Log Analytics, uma vez que se relaciona com certas características da Azure Automation.
+ms.date: 09/03/2020
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/12/2020
 ms.topic: conceptual
-manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447859"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440665"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
-Na Azure Automation, pode ativar a Gestão de Atualização, O Rastreio de Alterações e Inventário e VMs de início/paragem durante as funcionalidades fora de horas para os seus VMs. No entanto, apenas certas regiões são suportadas para ligar um espaço de trabalho Log Analytics e uma conta Automation na sua subscrição. Os mapeamentos da região aplicam-se apenas à conta Automation e ao espaço de trabalho Log Analytics. O espaço de trabalho do Log Analytics e a conta De automação devem estar na mesma subscrição, mas podem estar em diferentes grupos de recursos implantados na mesma região. Para mais informações, consulte [o espaço de trabalho do Log Analytics e a conta Dem automação.](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)
+Na Azure Automation, pode ativar a Gestão de Atualização, O Rastreio de Alterações e Inventário e VMs de início/paragem durante as funcionalidades de folga para os seus servidores e máquinas virtuais. Estas funcionalidades têm uma dependência de um espaço de trabalho Log Analytics, pelo que requerem a ligação do espaço de trabalho com uma conta Automation. No entanto, apenas algumas regiões são apoiadas para as associar. Em geral, o mapeamento *não* é aplicável se pretender ligar uma conta Demômpa ao espaço de trabalho que não terá estas funcionalidades ativadas.
+
+Este artigo fornece os mapeamentos suportados de forma a ativar e utilizar com sucesso estas funcionalidades na sua conta Automation.
+
+Para mais informações, consulte [o espaço de trabalho do Log Analytics e a conta Dem automação.](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)
 
 ## <a name="supported-mappings"></a>Mapeamentos suportados
+
+> [!NOTE]
+> Como mostrado na tabela seguinte, apenas um mapeamento pode existir entre Log Analytics e Azure Automation.
 
 A tabela a seguir mostra os mapeamentos suportados:
 
@@ -52,7 +54,7 @@ A tabela a seguir mostra os mapeamentos suportados:
 
 ## <a name="unlink-a-workspace"></a>Desvincular um espaço de trabalho
 
-Se decidir que já não pretende integrar a sua conta Demômpacial com um espaço de trabalho Log Analytics, pode desvincular a sua conta diretamente do portal Azure. Antes de continuar, tem primeiro de [remover](move-account.md#remove-features) a Gestão de Atualização, Alterar o Rastreio e o Inventário e Iniciar/Parar VMs durante as horas de folga se estiver a usá-los. Se não os remover, não pode completar a operação de desvinculação. 
+Se decidir que já não pretende integrar a sua conta Demômpacial com um espaço de trabalho Log Analytics, pode desvincular a sua conta diretamente do portal Azure. Antes de continuar, tem primeiro de [remover](move-account.md#remove-features) a Gestão de Atualização, Alterar o Rastreio e o Inventário e Iniciar/Parar VMs durante as horas de folga se estiver a usá-los. Se não os remover, não pode completar a operação de desvinculação.
 
 Com as funcionalidades removidas, pode seguir os passos abaixo para desvincular a sua conta Dem automação.
 
@@ -68,7 +70,7 @@ Com as funcionalidades removidas, pode seguir os passos abaixo para desvincular 
 4. Se usou a Gestão de Atualização, opcionalmente poderá querer remover os seguintes itens que já não são necessários:
 
     * Agendas de atualização: Cada um tem um nome que corresponde a uma implementação de atualização que criou.
-    * Grupos operários híbridos criados para a funcionalidade: Cada um tem um nome semelhante a `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8` .
+    * Grupos operários híbridos criados para a funcionalidade: Cada um tem um nome semelhante a  `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8` .
 
 5. Se utilizar VMs de início/paragem durante o horário de folga, opcionalmente pode remover os seguintes itens que já não são necessários:
 
@@ -81,7 +83,7 @@ Em alternativa, pode desvincular o seu espaço de trabalho da sua conta Automati
 1. No espaço de trabalho, selecione **a Conta de Automação** em **Recursos Relacionados.**
 2. Na página 'Conta Dem automação', selecione **'Desvincular'.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../update-management/update-mgmt-overview.md).
 * Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking.md).

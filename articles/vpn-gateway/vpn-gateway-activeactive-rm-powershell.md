@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 3747be15f7a15d3d47af2d3495eea2315d40a044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 022ccaab0b210cd2d656b69f505791d1a2aa963f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419908"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440784"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configure ligações S2S VPN ativas ativas com gateways Azure VPN
 
@@ -411,7 +411,7 @@ Neste passo, ativa o modo ativo e atualiza o gateway. No exemplo, o gateway VPN 
 
 * Não podes mudar um SKU legado para um dos novos SKUs usando este passo. Só pode redimensionar um legado SKU para outro legado apoiado SKU. Por exemplo, não é possível alterar o SKU de Standard para VpnGw1 (mesmo que o VpnGw1 seja suportado para active-active) porque o Standard é um legado SKU e VpnGw1 é um SKU atual. Para obter mais informações sobre o redimensionamento e migração de SKUs, consulte [gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Se quiser redimensionar um SKU atual, por exemplo VpnGw1 para VpnGw3, pode fazê-lo usando este passo porque os SKUs estão na mesma família SKU. Para tal, utilizaria o valor:```-GatewaySku VpnGw3```
+* Se quiser redimensionar um SKU atual, por exemplo VpnGw1 para VpnGw3, pode fazê-lo usando este passo porque os SKUs estão na mesma família SKU. Para tal, utilizaria o valor: ```-GatewaySku VpnGw3```
 
 Quando estiver a usar isto no seu ambiente, se não precisar de redimensionar o gateway, não precisará de especificar o -GatewaySku. Note que neste passo, deve definir o objeto gateway no PowerShell para ativar a atualização real. Esta atualização pode demorar 30 a 45 minutos, mesmo que não esteja a redimensionar o seu gateway.
 

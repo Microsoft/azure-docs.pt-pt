@@ -3,12 +3,12 @@ title: Instale o agente da máquina conectada utilizando o Windows PowerShell DS
 description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc (pré-visualização) utilizando o Windows PowerShell DSC.
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 25d6e435c261a83bf81c15d5dd445a936d48a08b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 675258ff95829c2dc9922571db5014b2ba93d336
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213079"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565825"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Como instalar o agente da Máquina Conectada utilizando o Windows PowerShell DSC
 
@@ -82,9 +82,9 @@ Depois de instalar o agente e configurá-lo para ligar aos servidores ativados d
 
 Este recurso pode ser adicionado às configurações DSC existentes para representar uma configuração de ponta a ponta para uma máquina. Por exemplo, é melhor adicionar este recurso a uma configuração que define as definições seguras do sistema operativo.
 
-O módulo [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) da PowerShell Gallery pode ser usado para criar um [recurso composto](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) da configuração do exemplo, para simplificar ainda mais as configurações combinadas.
+O módulo [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) da PowerShell Gallery pode ser utilizado para criar um [recurso composto](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) da configuração do exemplo, para simplificar ainda mais as configurações combinadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 

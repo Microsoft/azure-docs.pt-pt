@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056386"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500135"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementar um gateway autoalojado no Kubernetes
 
@@ -63,7 +63,7 @@ Este artigo descreve os passos para a implantação do componente de gateway aut
 ## <a name="production-deployment-considerations"></a>Considerações de implantação da produção
 
 ### <a name="access-token"></a>Ficha de acesso
-Sem um token de acesso válido, um gateway auto-hospedado não pode aceder e descarregar dados de configuração a partir do ponto final do serviço de Gestão API associado. O token de acesso pode ser válido por um máximo de 30 dias. Deve ser regenerado e o cluster configurado com um token fresco, manualmente ou através da automatização antes de expirar. 
+Sem um token de acesso válido, um gateway auto-hospedado não pode aceder e descarregar dados de configuração a partir do ponto final do serviço de Gestão API associado. O token de acesso pode ser válido por um máximo de 30 dias. Deve ser regenerado e o cluster configurado com um token fresco, manualmente ou através da automatização antes de expirar.
 
 Quando estiver a automatizar a atualização de fichas, use [esta operação de API](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) de gestão para gerar um novo token. Para obter informações sobre a gestão dos segredos de Kubernetes, consulte o [site da Kubernetes.](https://kubernetes.io/docs/concepts/configuration/secret)
 
@@ -107,6 +107,9 @@ O ficheiro YAML fornecido no portal Azure aplica a política padrão [clusterFir
 
 Para saber mais sobre a resolução de nomes em Kubernetes, consulte o [site da Kubernetes.](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service) Considere personalizar a [política de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) ou [a configuração de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) como apropriado para a sua configuração.
 
+### <a name="external-traffic-policy"></a>Política de tráfego externo
+O ficheiro YAML fornecido no portal Azure define `externalTrafficPolicy` o campo no objeto de [Serviço](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) para `Local` . Isto preserva o endereço IP do chamador (acessível no contexto do [pedido)](api-management-policy-expressions.md#ContextVariables)e desativa o equilíbrio da carga do nó transversal, eliminando o lúpulo de rede causado por ele. Esteja ciente de que esta configuração pode causar distribuição assimétrica do tráfego em implantações com um número desigual de cápsulas de gateway por nó.
+
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Nomes de domínio personalizados e certificados SSL
 
 Se utilizar nomes de domínio personalizados para os pontos finais da API Management, especialmente se utilizar um nome de domínio personalizado para o ponto final de Gestão, poderá ter de atualizar o valor do `config.service.endpoint` ficheiro ** \<gateway-name\> .yaml** para substituir o nome de domínio predefinido pelo nome de domínio personalizado. Certifique-se de que o ponto final de Gestão pode ser acedido a partir do casulo do gateway auto-hospedado no cluster Kubernetes.
@@ -124,6 +127,6 @@ O gateway auto-hospedado envia telemetria para [Azure Monitor](api-management-ho
 Quando [a conectividade com Azure](self-hosted-gateway-overview.md#connectivity-to-azure) é temporariamente perdida, o fluxo de telemetria para Azure é interrompido e os dados são perdidos durante a interrupção.
 Considere [a criação de monitorização local](how-to-configure-local-metrics-logs.md) para garantir a capacidade de observar o tráfego da API e evitar a perda de telemetria durante as interrupções de conectividade Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a porta de entrada auto-hospedada, consulte [a visão geral do gateway auto-hospedado.](self-hosted-gateway-overview.md)

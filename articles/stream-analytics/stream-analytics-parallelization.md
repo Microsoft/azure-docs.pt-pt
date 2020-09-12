@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8a86c1df5925097fa85d09590b59f8f30fde41d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aed0c83bfa61f6afdbdcca3c10dbd5fac3f823d3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296326"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458183"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Paralelização de consulta de alavancagem em Azure Stream Analytics
 Este artigo mostra-lhe como aproveitar a paralelização no Azure Stream Analytics. Aprende-se a escalar os trabalhos do Stream Analytics configurando divisórias de entrada e ajustando a definição de consulta analítica.
@@ -41,7 +41,7 @@ Quando trabalha com o Stream Analytics, pode aproveitar a partilha nas saídas:
 -   Centros de Eventos (necessidade de definir explicitamente a chave de partição)
 -   IoT Hub (necessidade de definir explicitamente a chave de partição)
 -   Service Bus
-- SQL e SQL Data Warehouse com partição opcional: consulte mais informações sobre a [página de Base de Dados Azure SQL](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL e Azure Synapse Analytics com partição opcional: ver mais informações sobre a [página de Base de Dados Azure SQL](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
 O Power BI não suporta a divisão. No entanto, ainda pode dividir a entrada como descrito [nesta secção](#multi-step-query-with-different-partition-by-values) 
 
@@ -279,9 +279,9 @@ A solução [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 |    5 m.   |   18 |  P4   |
 |    10 K  |   36 |  P6   |
 
-[O Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) suporta a escrita em paralelo, chamada Partição Herdada, mas não é ativada por defeito. No entanto, permitir a partilha herdada, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter posições mais elevadas. Os produção de escrita SQL dependem significativamente da configuração da sua base de dados e do esquema de tabela. O artigo [SQL Output Performance](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar o seu rendimento de escrita. Como indicado na saída Azure Stream Analytics para o artigo [base de dados Azure SQL,](./stream-analytics-sql-output-perf.md#azure-stream-analytics) esta solução não escala linearmente como um gasoduto totalmente paralelo para além de 8 divisórias e pode necessitar de repartição antes da saída SQL (ver [INTO).](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) Os SKUs premium são necessários para manter altas taxas de IO, juntamente com a sobrecarga de backups de registos que acontecem a cada poucos minutos.
+[O Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  suporta a escrita em paralelo, chamada Partição Herdada, mas não é ativada por defeito. No entanto, permitir a partilha herdada, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter posições mais elevadas. Os produção de escrita SQL dependem significativamente da configuração da sua base de dados e do esquema de tabela. O artigo [SQL Output Performance](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar o seu rendimento de escrita. Como indicado na saída Azure Stream Analytics para o artigo [base de dados Azure SQL,](./stream-analytics-sql-output-perf.md#azure-stream-analytics) esta solução não escala linearmente como um gasoduto totalmente paralelo para além de 8 divisórias e pode necessitar de repartição antes da saída SQL (ver [INTO).](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) Os SKUs premium são necessários para manter altas taxas de IO, juntamente com a sobrecarga de backups de registos que acontecem a cada poucos minutos.
 
-#### <a name="cosmos-db"></a>BD do Cosmos
+#### <a name="cosmos-db"></a>Cosmos DB
 |Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de Saída  |
 |-------|-------|---------|
 |  Mil   |  3    | 20K RU  |

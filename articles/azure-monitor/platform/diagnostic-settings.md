@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135441"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614050"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos
 [Os registos da plataforma](platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
@@ -100,7 +100,7 @@ Pode configurar as definições de diagnóstico no portal Azure, quer a partir d
      - **A AllMetrics** encaminha as métricas da plataforma de um recurso para a loja Azure Logs, mas em forma de registo. Estas métricas são geralmente enviadas apenas para a base de dados de séries de séries de métricas Azure Monitor. Enviando-os para a loja Azure Monitor Logs (que é pes pescável através do Log Analytics) para integrá-los em consultas que procuram em outros registos. Esta opção pode não estar disponível para todos os tipos de recursos. Quando é suportado, [as métricas suportadas pelo Azure Monitor](metrics-supported.md) listam as métricas recolhidas para que tipos de recursos.
 
        > [!NOTE]
-       > Consulte a limitação das métricas de encaminhamento para registos do Monitor Azure anteriormente neste artigo.  
+       > Consulte a limitação das métricas de encaminhamento para Azure Monitor Logs no início deste artigo.  
 
 
      - **Os registos** listam as diferentes categorias disponíveis dependendo do tipo de recurso. Consulte as categorias que pretende encaminhar para um destino.

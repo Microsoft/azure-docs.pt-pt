@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 371099610da129025f6683630b1824b8466b5aff
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 77980541049740c5f706d54d289472a076103137
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833016"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461906"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utilizar os pontos finais de serviço e regras de Rede Virtual para Base de Dados do Azure para MySQL
 
@@ -53,7 +53,7 @@ Uma regra de rede virtual diz ao seu Azure Database para o servidor MySQL aceita
 
 Até tomar medidas, os VMs nas suas sub-redes não podem comunicar com a sua Base de Dados Azure para o servidor MySQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A razão para escolher a abordagem da regra VNet requer uma discussão de comparação e contraste envolvendo as opções de segurança concorrentes oferecidas pela firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Permitir o acesso aos serviços do Azure
+### <a name="a-allow-access-to-azure-services"></a>A. Permitir acesso aos serviços do Azure
 
 O painel de segurança Connection tem um botão **ON/OFF** com a etiqueta **Permitir o acesso aos serviços Azure**. A definição **ON** permite comunicações a partir de todos os endereços Azure IP e de todas as sub-redes Azure. Estes IPs ou sub-redes Azure podem não ser propriedade de si. Esta definição **ON** é provavelmente mais aberta do que pretende que a sua Base de Dados Azure para a Base de Dados MySQL seja. A funcionalidade de regra de rede virtual oferece um controlo granular muito mais fino.
 
@@ -112,7 +112,7 @@ Para a base de dados Azure para o MySQL, a funcionalidade de regras de rede virt
 
 - As regras de rede virtuais aplicam-se apenas às redes virtuais do Azure Resource Manager; e não para redes [de modelos de implantação clássicas.][arm-deployment-model-568f]
 
-- Ligar os pontos finais do serviço de rede virtual ON para Azure Database for MySQL utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database e Azure SQL Data Warehouse.
+- Ligar os pontos finais do serviço de rede virtual ON para Azure Database for MySQL utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL, Base de Dados Azure SQL e Azure Synapse Analytics (ex-SQL Data Warehouse).
 
 - O suporte para os pontos finais do serviço VNet é apenas para servidores otimizados para fins gerais e memória.
 
@@ -138,7 +138,7 @@ Pode definir a bandeira **IgnoreMissingServiceEndpoint** utilizando o Azure CLI 
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para artigos sobre a criação de regras VNet, consulte:
 - [Criar e gerir a Base de Dados Azure para as regras do MySQL VNet utilizando o portal Azure](howto-manage-vnet-using-portal.md)
 - [Criar e gerir a Base de Dados de Azure para as regras do MySQL VNet utilizando o Azure CLI](howto-manage-vnet-using-cli.md)

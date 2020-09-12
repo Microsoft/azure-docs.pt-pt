@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45f704afce28967237b2905ef068678ba05ae085
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 88160d82cb7cc0a012d63445f101a1f2a3740da0
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206655"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569289"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho temporizador para funções Azure 
 
@@ -22,15 +22,15 @@ Este artigo explica como trabalhar com gatilhos temporizadores em Funções Azur
 
 Para obter informações sobre como executar manualmente uma função acionada pelo temporizador, consulte [executar manualmente uma função não acionada por HTTP](./functions-manually-run-non-http.md).
 
-## <a name="packages---functions-1x"></a>Pacotes - Funções 1.x
-
-O gatilho do temporizador é fornecido no pacote [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet, versão 2.x. O código fonte para o pacote está no [repositório GitHub.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/)
-
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
 ## <a name="packages---functions-2x-and-higher"></a>Pacotes - Funções 2.x e superior
 
 O gatilho do temporizador é fornecido no pacote [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet, versão 3.x. O código fonte para o pacote está no [repositório GitHub.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/)
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## <a name="packages---functions-1x"></a>Pacotes - Funções 1.x
+
+O gatilho do temporizador é fornecido no pacote [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet, versão 2.x. O código fonte para o pacote está no [repositório GitHub.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/)
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -329,7 +329,7 @@ Ao contrário do gatilho da fila, o gatilho do temporizador não se ressando dep
 
 Para obter informações sobre o que fazer quando o gatilho do temporizador não funcionar como esperado, consulte [questões de investigação e reporte com funções desacionadas de temporizador que não disparem](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Vá a um arranque rápido que usa um gatilho do temporizador](functions-create-scheduled-function.md)

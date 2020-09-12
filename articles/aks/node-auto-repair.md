@@ -3,21 +3,17 @@ title: Reparação automática de nós do Serviço Azure Kubernetes (AKS)
 description: Saiba mais sobre a funcionalidade de reparação automática do nó e como a AKS corrige os nós de trabalhador quebrados.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 7fcb7b380f3694aaf34328019c3e09f5157c9e64
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/24/2020
+ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542047"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490110"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Serviço Azure Kubernetes (AKS) autorreparação do nó
 
-A AKS verifica continuamente o estado de saúde dos nós dos trabalhadores e executa a reparação automática dos nós se ficarem insalubres. Este documento informa os operadores sobre como a funcionalidade de reparação automática de nós se comporta. Além das reparações da AKS, a plataforma Azure VM [realiza manutenção em Máquinas Virtuais][vm-updates] que também experimentam problemas. Os VMs AKS e Azure trabalham em conjunto para minimizar as perturbações de serviço para clusters.
-
-## <a name="limitations"></a>Limitações
-
-* As piscinas de nó de janelas não são suportadas hoje.
+A AKS verifica continuamente o estado de saúde dos nós dos trabalhadores e executa a reparação automática dos nós se ficarem insalubres. Este documento informa os operadores sobre como a funcionalidade de reparação automática de nós se comporta tanto para os nós Windows como linux. Além das reparações da AKS, a plataforma Azure VM [realiza manutenção em Máquinas Virtuais][vm-updates] que também experimentam problemas. Os VMs AKS e Azure trabalham em conjunto para minimizar as perturbações de serviço para clusters.
 
 ## <a name="how-aks-checks-for-unhealthy-nodes"></a>Como a AKS verifica os nódoas não saudáveis
 
@@ -37,11 +33,15 @@ kubectl get nodes
 > [!Note]
 > A AKS inicia operações de reparação com o **aks-correcttor de**conta de utilizador .
 
-Se um nó for determinado como insalubre com base nas regras acima e permanecer insalubre durante 10 minutos consecutivos, a AKS reinicia o nó. Se os nós não saudáveis após a operação inicial de reparação, as reparações adicionais são investigadas por engenheiros da AKS.
-  
-Se vários nós não forem saudáveis durante uma verificação de saúde, cada nó é reparado individualmente antes de começar outra reparação.
+Se um nó não for saudável com base nas regras acima referidas e permanecer insalubre durante 10 minutos consecutivos, serão tomadas as seguintes medidas.
 
-## <a name="next-steps"></a>Passos seguintes
+1. Reinicie o nó
+1. Se o reboot não for bem sucedido, reimagem o nó
+1. Se a reimagem não for bem sucedida, crie e reimagem um novo nó
+
+Se nenhuma das ações for bem sucedida, as reparações adicionais são investigadas por engenheiros da AKS. Se vários nós não forem saudáveis durante uma verificação de saúde, cada nó é reparado individualmente antes de começar outra reparação.
+
+## <a name="next-steps"></a>Próximos passos
 
 Utilize [Zonas de disponibilidade][availability-zones] para aumentar a disponibilidade com as cargas de trabalho do cluster AKS.
 

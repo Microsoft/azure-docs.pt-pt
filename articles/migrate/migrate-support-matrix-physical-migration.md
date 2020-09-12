@@ -4,12 +4,12 @@ description: Saiba mais sobre o suporte à migração de servidores físicos em 
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 2e71ab5cd934f2fe931cd901d425061455cc9f0e
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051139"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535453"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidores físicos
 
@@ -45,7 +45,7 @@ A tabela resume o suporte para servidores físicos que pretende migrar usando mi
 **Serviço de mobilidade** | O agente de serviço de mobilidade deve ser instalado em cada máquina que pretende migrar.
 **Bota UEFI** | A máquina migrada em Azure será automaticamente convertida para uma bota BIOS Azure VM. Apenas o servidor que executa o Windows Server 2012 e posteriormente suportado.<br/><br/> O disco de so deve ter até quatro divisórias, e os volumes devem ser formatados com NTFS.
 **UEFI - Arranque seguro**         | Não apoiado para a migração.
-**Disco-alvo** | As máquinas só podem ser migradas para discos geridos (HDD padrão, SSD premium) em Azure.
+**Disco-alvo** | As máquinas só podem ser migradas para discos geridos (HDD padrão, SSD padrão, SSD premium) em Azure.
 **Tamanho do disco** | 2 Disco de SO TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por máquina.
 **Discos/volumes encriptados** |  As máquinas com discos/volumes encriptados não são suportadas para migração.
@@ -90,6 +90,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada. Além disso, adicione um endereço IP público para o VM. |  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Migrar](tutorial-migrate-physical-virtual-machines.md) servidores físicos.
