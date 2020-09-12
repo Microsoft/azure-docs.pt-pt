@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: de5346387336acb5a4b13457d3a163f529c51b89
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566272"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438692"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Segurança avançada de dados para máquinas SQL (Pré-visualização)
 
@@ -109,7 +109,7 @@ Pode ver os resultados da avaliação da vulnerabilidade diretamente do Centro d
     Em cada vista, os controlos de segurança são classificados pela **Severidade**. Clique numa verificação de segurança específica para ver um painel de detalhes com uma **Descrição**, como **remediar** e outras informações relacionadas, como **Impacto** ou **Benchmark**.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-machines-alerts"></a>Proteção avançada de ameaças para servidores SQL em alertas de máquinas
-Os alertas são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar máquinas SQL. Estes eventos podem desencadear alertas apresentados nos Alertas para a [Base de Dados SQL e na secção SQL Data Warehouse da página de referência dos alertas](alerts-reference.md#alerts-sql-db-and-warehouse).
+Os alertas são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar máquinas SQL. Estes eventos podem desencadear alertas mostrados na secção alertas para a [Base de Dados SQL e Azure Synapse Analytics (antigo ARMAZÉM DE DADOS SQL) da página de referência dos alertas](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 
 
@@ -127,11 +127,11 @@ Os alertas de segurança estão disponíveis na página de alerta do Security Ce
     [Saiba mais sobre como gerir e responder a alertas.](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para material relacionado, consulte o seguinte artigo:
 
-- [Alertas de segurança para base de dados SQL e Armazém de Dados SQL](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Alertas de segurança para a SQL Database e Azure Synapse Analytics (anteriormente SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Configurar notificações de email para alertas de segurança](security-center-provide-security-contact-details.md)
 - [Saiba mais sobre a Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [O pacote avançado de segurança de dados do Azure Security Center](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: d12df01fe1506f7f5ade9cce60ae7af0412e3010
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080816"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378207"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Endurecimento de rede adaptativa no Centro de Segurança Azure
 Saiba como configurar o Endurecimento adaptativo da rede no Centro de Segurança Azure.
 
-## <a name="what-is-adaptive-network-hardening"></a>O que é o Endurecimento da Rede Adaptável?
+## <a name="what-is-adaptive-network-hardening"></a>O que é o endurecimento adaptativo da rede?
 A aplicação de grupos de segurança de [rede (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui através do NSG é um subconjunto das regras do NSG definidos. Nestes casos, melhorar ainda mais a postura de segurança pode ser alcançado endurecendo as regras do NSG, com base nos padrões reais de tráfego.
 
 O Endurecimento da Rede Adaptativa fornece recomendações para endurecer ainda mais as regras do NSG. Usa um algoritmo de aprendizagem automática que fatores no tráfego real, configuração confiável conhecida, inteligência de ameaça e outros indicadores de compromisso, e depois fornece recomendações para permitir o tráfego apenas a partir de tuples IP/port específico.
@@ -35,6 +35,17 @@ Por exemplo, digamos que a regra nSG existente é permitir o tráfego a partir d
 
 
 ![Vista de endurecimento da rede](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+
+
+## <a name="availability"></a>Disponibilidade
+
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Disponibilidade geral|
+|Preços:|Escalão standard|
+|Funções e permissões necessárias:|Escreva permissões nos NSGs da máquina|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Ver alertas e regras de endurecimento da rede adaptativa

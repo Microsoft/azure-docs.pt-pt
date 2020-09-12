@@ -4,12 +4,12 @@ description: Conheça os grupos de contentores em Instâncias de Contentores Azu
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72ebe6186da179bc5a1effddcc14327455eb7557
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583828"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612411"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentores no Azure Container Instances
 
@@ -96,7 +96,7 @@ O uso de exemplos pode incluir:
 * Um recipiente de aplicação e um recipiente de monitorização. O recipiente de monitorização faz periodicamente um pedido à aplicação para garantir que está a funcionar e a responder corretamente, e levanta um alerta se não estiver.
 * Um recipiente frontal e um recipiente de back-end. A parte frontal pode servir uma aplicação web, com a parte de trás a executar um serviço para recuperar dados. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como implantar um grupo de contentores multi-contentores com um modelo de Gestor de Recursos Azure:
 
@@ -108,7 +108,7 @@ Saiba como implantar um grupo de contentores multi-contentores com um modelo de 
 
 <!-- LINKS - External -->
 [dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
-[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
+[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/
 
 <!-- LINKS - Internal -->
 [resource-manager template]: container-instances-multi-container-group.md

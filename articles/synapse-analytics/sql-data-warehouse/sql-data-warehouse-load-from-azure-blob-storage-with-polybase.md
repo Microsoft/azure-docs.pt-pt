@@ -1,5 +1,5 @@
 ---
-title: Carregue os dados de retalho da Contoso para um armazém de dados Synapse SQL
+title: Carregar dados de retalho contoso para Synapse SQL
 description: Utilize comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho Contoso em Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213317"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461702"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Carregar dados de retalho contoso para Synapse SQL 
 
-Neste tutorial, aprende-se a usar comandos PolyBase e T-SQL para carregar duas tabelas dos dados de retalho contoso num armazém de dados Synapse SQL.
+Neste tutorial, aprende-se a usar comandos PolyBase e T-SQL para carregar duas tabelas a partir dos dados de retalho contoso para o Synapse SQL.
 
 Neste tutorial você:
 
@@ -30,11 +30,11 @@ Neste tutorial você:
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Para executar este tutorial, você precisa de uma conta Azure que já tem um armazém de dados Synapse SQL. Se não tiver um armazém de dados a forrado, consulte [criar um armazém de dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
+Para executar este tutorial, você precisa de uma conta Azure que já tem um SQL Synapse. Se não tiver um armazém de dados a forrado, consulte [criar um armazém de dados e definir a regra de firewall ao nível do servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configure a fonte de dados
 
-A PolyBase utiliza objetos externos T-SQL para definir a localização e atributos dos dados externos. As definições de objetos externos são armazenadas no seu armazém de dados Synapse SQL. Os dados são armazenados externamente.
+A PolyBase utiliza objetos externos T-SQL para definir a localização e atributos dos dados externos. As definições de objetos externos são armazenadas em Sinaapse SQL. Os dados são armazenados externamente.
 
 ## <a name="create-a-credential"></a>Criar uma credencial
 
@@ -122,7 +122,7 @@ GO
 
 Execute o seguinte script para criar as tabelas externas DimProduct e FactOnlineSales. Tudo o que está a fazer aqui é definir nomes de colunas e tipos de dados, e encaderna-los à localização e formato dos ficheiros de armazenamento de bolhas Azure. A definição é armazenada no armazém de dados e os dados ainda estão na Bolha de Armazenamento Azure.
 
-O parâmetro **LOCALIZAÇÃO** é a pasta sob a pasta raiz na Bolha de Armazenamento Azure. Cada mesa está numa pasta diferente.
+O parâmetro  **LOCALIZAÇÃO** é a pasta sob a pasta raiz na Bolha de Armazenamento Azure. Cada mesa está numa pasta diferente.
 
 ```sql
 --DimProduct
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Otimizar a compressão da loja de colunas
 
-Por padrão, o armazém de dados Synapse SQL armazena a tabela como um índice de loja de colunas agrupado. Depois de concluída uma carga, algumas das linhas de dados podem não ser comprimidas na loja de colunas.  Há diferentes razões para isto acontecer. Para saber mais, consulte [gerir os índices de loja de colunas.](sql-data-warehouse-tables-index.md)
+Por padrão, o Synapse SQL armazena a tabela como um índice de loja de colunas agrupado. Depois de concluída uma carga, algumas das linhas de dados podem não ser comprimidas na loja de colunas.  Há diferentes razões para isto acontecer. Para saber mais, consulte [gerir os índices de loja de colunas.](sql-data-warehouse-tables-index.md)
 
 Para otimizar o desempenho da consulta e a compressão da loja de colunas após uma carga, reconstrua a tabela para forçar o índice da loja de colunas a comprimir todas as linhas.
 
@@ -340,7 +340,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>Realização desbloqueada!
 
-Você carregou com sucesso dados públicos no seu armazém de dados. Grande trabalho!
+Você carregou com sucesso dados públicos no seu armazém de dados. Parabéns!
 
 Pode agora começar a consultar as tabelas para explorar os seus dados. Executar a seguinte consulta para descobrir o total de vendas por marca:
 

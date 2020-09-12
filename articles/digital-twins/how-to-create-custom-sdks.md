@@ -8,16 +8,16 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c562708dcf554afc8dfe4acf6b525db1db677f40
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855956"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89564907"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Crie SDKs personalizados para gémeos digitais Azure usando o AutoRest
 
-Neste momento, o único plano de dados publicado SDK para interagir com as APIs das Gémeas Digitais Azure é para .NET (C#). Pode ler sobre os .NET SDK e as APIs em geral, em [*Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md). Se estiver a trabalhar noutro idioma, este artigo irá mostrar-lhe como gerar o seu próprio plano de dados SDK na linguagem à sua escolha, utilizando o AutoRest.
+Neste momento, os únicos SDKs de plano de dados publicados para interagir com as APIs de Gémeos Digitais Azure são para .NET (C#) e JavaScript. Você pode ler sobre estes SDKs, e as APIs em geral, em [*Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md). Se estiver a trabalhar noutro idioma, este artigo irá mostrar-lhe como gerar o seu próprio plano de dados SDK na linguagem à sua escolha, utilizando o AutoRest.
 
 >[!NOTE]
 > Também pode utilizar o AutoRes para gerar um plano de controlo SDK, se quiser. Para isso, complete os passos deste artigo utilizando o [ficheiro do plano de controlo Swagger (OpenAPI)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) em vez do plano de dados um.
@@ -189,7 +189,7 @@ try
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Caminhe pelos degraus para criar uma aplicação para clientes onde pode utilizar o seu SDK:
 * [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

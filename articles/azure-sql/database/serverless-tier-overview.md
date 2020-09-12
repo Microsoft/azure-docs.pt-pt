@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 8/7/2020
-ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 9/8/2020
+ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121362"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565094"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ O nível de computação sem servidor para bases de dados individuais na Base de
 - Os **vCores mínimos** e **os vCores máximos** são parâmetros configuráveis que definem a gama de capacidade de computação disponível para a base de dados. Os limites de memória e IO são proporcionais à gama vCore especificada.  
 - O **atraso da automatização** é um parâmetro configurável que define o período de tempo em que a base de dados deve estar inativa antes de ser automaticamente interrompida. A base de dados é retomada automaticamente quando ocorre o próximo login ou outra atividade.  Em alternativa, a autopausing pode ser desativada.
 
-### <a name="cost"></a>Custo
+### <a name="cost"></a>Cost
 
 - O custo de uma base de dados sem servidor é a soma do custo de cálculo e do custo de armazenamento.
 - Quando a utilização do cálculo está entre os limites min e máximo configurados, o custo do cálculo baseia-se no vCore e na memória utilizada.
@@ -114,11 +114,12 @@ A automatização automática é desencadeada se todas as seguintes condições 
 
 É fornecida uma opção para desativar a autopausing se desejar.
 
-As seguintes funcionalidades não suportam a autopausing, mas suportam a auto-escala.  Ou seja, se alguma das seguintes funcionalidades forem utilizadas, a base de dados permanece on-line independentemente da duração da inatividade da base de dados:
+As seguintes funcionalidades não suportam a autopausing, mas suportam a auto-escala.  Se alguma das seguintes funcionalidades forem utilizadas, então a utilização automática deve ser desativada e a base de dados permanecerá on-line independentemente da duração da inatividade da base de dados:
 
 - Geo-replicação (geo-replicação ativa e grupos de falha automática).
 - Retenção de backup a longo prazo (LTR).
 - A base de dados de sincronização utilizada na sincronização de dados SQL.  Ao contrário das bases de dados de sincronização, as bases de dados do hub e dos membros suportam a automatização.
+- Pseudónimo do DNS
 - A base de dados de trabalho utilizada em Elastic Jobs (pré-visualização).
 
 A utilização automática é temporariamente impedida durante a implementação de algumas atualizações de serviço que exigem que a base de dados esteja online.  Nesses casos, a autopausing torna-se permitida novamente assim que a atualização do serviço estiver concluída.
@@ -364,7 +365,7 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Germany Central, Germany Northeast, e US Gov Central (Iowa).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](single-database-create-quickstart.md).
 - Para obter limites de recursos, consulte [os limites de recursos de nível de cálculo serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

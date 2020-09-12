@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/08/2020
 ms.author: kumud
-ms.openlocfilehash: 45da0556d074fdb81002f73cd89d0c35cb37276e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd95f022e40b9ae6fa60a6536a87146049c53b68
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530054"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565332"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Regiões do azul em que existe indexante de vídeo
 
@@ -23,7 +23,7 @@ As APIs do Indexante de Vídeo contêm um parâmetro **de localização** que de
 
 ## <a name="locations"></a>Localizações
 
-O `location` parâmetro deve ser dado como valor o nome de código da região de Azure. Se estiver a utilizar o Video Indexer no modo de pré-visualização, deverá colocar `"trial"` como valor. `trial`é o valor padrão para o `location` parâmetro. Caso contrário, para obter o nome de código da região Azure em que a sua conta está e que a sua chamada deve ser encaminhada para, pode executar a seguinte linha em [Azure CLI](/cli/azure):
+O `location` parâmetro deve ser dado como valor o nome de código da região de Azure. Se estiver a utilizar o Video Indexer no modo de pré-visualização, deverá colocar `"trial"` como valor. `trial` é o valor padrão para o `location` parâmetro. Caso contrário, para obter o nome de código da região Azure em que a sua conta está e que a sua chamada deve ser encaminhada para, pode executar a seguinte linha em [Azure CLI](/cli/azure):
 
 ```azurecli-interactive
 az account list-locations
@@ -36,7 +36,7 @@ Por exemplo, para a região de Azure West US 2 (apresentado abaixo), você usar�
 ```json
    {
       "displayName": "West US 2",
-      "id": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/locations/westus2",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/locations/westus2",
       "latitude": "47.233",
       "longitude": "-119.852",
       "name": "westus2",

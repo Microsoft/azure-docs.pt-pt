@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891866"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439749"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -277,6 +277,6 @@ Para qualquer escalada, envie um e-mail para a [Equipa de Integração Azure AD 
 A Microsoft Partner Network fornece acesso instantâneo a recursos exclusivos, programas, ferramentas e conexões. Para aderir à rede e criar o seu plano de mercado, consulte [os clientes comerciais Reach.](https://partner.microsoft.com/explore/commercial#gtm)
 
 
-## <a name="next-steps"></a>Passos seguintes
-
-Para obter mais informações sobre aplicações de construção que suportem as entradas AD do Azure, consulte cenários de [autenticação para Azure AD](authentication-flows-app-scenarios.md).
+## <a name="next-steps"></a>Próximos passos
+* [Construa um ponto final SCIM e configuure o fornecimento de utilizadores](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Cenários de autenticação para Azure AD](authentication-flows-app-scenarios.md)

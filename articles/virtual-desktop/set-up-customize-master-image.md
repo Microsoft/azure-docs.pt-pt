@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2a10a32a98a240f740f48f7b25e6fa6ac3f2e873
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009516"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433709"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -93,7 +93,7 @@ Para desativar as atualizações automáticas através da política de grupo loc
 
 Também pode executar o seguinte comando numa solicitação de comando para desativar atualizações automáticas.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
@@ -101,7 +101,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpd
 
 Executar este comando para especificar um layout Iniciar para computadores Windows 10.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
@@ -119,7 +119,7 @@ Para redirecionar os fusos horários:
 
 Também pode executar este comando na imagem principal para redirecionar fusos horários:
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
 ```
 
@@ -132,7 +132,7 @@ Para o anfitrião de sessão virtual do Windows Desktop que utilize o Windows 10
 
 Também pode alterar a definição com o registo executando o seguinte comando:
 
-```batch
+```cmd
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
@@ -153,19 +153,19 @@ Esta secção abrange a configuração da aplicação e do sistema operativo. To
 
 Para a recolha de dados de telemetria do Hub de feedback na multi-sessão do Windows 10 Enterprise, execute este comando:
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
 Executar o seguinte comando para corrigir acidentes watson:
 
-```batch
+```cmd
 remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 ```
 
 Introduza os seguintes comandos no editor de registo para corrigir o suporte de resolução 5k. Tem de executar os comandos antes de poder ativar a pilha lado a lado.
 
-```batch
+```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxXResolution /t REG_DWORD /d 5120 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxYResolution /t REG_DWORD /d 2880 /f
@@ -204,7 +204,7 @@ As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para um
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para saber mais sobre como criar e atualizar piscinas de anfitriões, consulte os seguintes artigos:
 

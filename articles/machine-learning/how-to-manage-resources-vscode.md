@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
-ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/03/2020
+ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306150"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440123"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerir os recursos de aprendizagem automática Azure com a extensão do código VS (pré-visualização)
 
@@ -48,6 +48,7 @@ Para mais informações, consulte [espaços de trabalho.](concept-workspace.md)
 
 Os métodos alternativos para criar um espaço de trabalho incluem:
 
+- Abra a paleta de comando **Ver > Paleta de Comando** e introduza no texto prompt **Azure ML: Create Workspace**.
 - Clique `+` no ícone no topo da vista Azure Machine Learning.
 - Crie um novo espaço de trabalho quando solicitado para selecionar um espaço de trabalho durante o fornecimento de outros recursos.
 
@@ -243,6 +244,39 @@ Uma vez concluída uma execução, poderá querer descarregar os registos e ativ
 
 Na extensão, pode inspecionar metadados como a configuração de execução utilizada para a execução, bem como executar detalhes.
 
+## <a name="compute-instances"></a>Instâncias de computação
+
+Para obter mais informações, consulte [as instâncias computacional](concept-compute-instance.md).
+
+### <a name="create-compute-instance"></a>Criar instância computacional
+
+1. Expanda o nó de subscrição que contém o seu espaço de trabalho.
+1. Expanda o nó do espaço de trabalho que pretende criar a instância de computação.
+1. Clique com o botão direito no nó **de instâncias computacional** e selecione **Criar instância de computação**.
+1. No aviso:
+    1. Forneça um nome para a sua instância de computação.
+    1. Selecione um tamanho VM da lista.
+    1. Escolha se deseja ativar o acesso ao SSH.
+        1. Se ativar o acesso ao SSH, também terá de fornecer a chave SSH pública ou o ficheiro que contém a chave. Para obter mais informações, consulte o [guia sobre a criação e utilização das teclas SSH no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+
+### <a name="stop-or-restart-compute-instance"></a>Parar ou reiniciar a instância de computação
+
+1. Expanda o nó de subscrição que contém o seu espaço de trabalho.
+1. Expanda o nó **de instância compute** dentro do seu espaço de trabalho.
+1. Clique com o botão direito na instância de cálculo que pretende parar ou reiniciar e selecione **Para parar a instância do Compute** ou reiniciar a instância de **cálculo,** respectivamente.
+
+### <a name="view-compute-instance-configuration"></a>Ver configuração de instância computacional
+
+1. Expanda o nó de subscrição que contém o seu espaço de trabalho.
+1. Expanda o nó **de instância compute** dentro do seu espaço de trabalho.
+1. Clique com o botão direito na instância de cálculo que pretende inspecionar e selecione **Ver Casos Compute Propriedades**.
+
+### <a name="delete-compute-instance"></a>Eliminar instância de cálculo
+
+1. Expanda o nó de subscrição que contém o seu espaço de trabalho.
+1. Expanda o nó **de instância compute** dentro do seu espaço de trabalho.
+1. Clique com o botão direito na instância de cálculo que pretende eliminar e selecione **Delete compute instance**.
+
 ## <a name="compute-clusters"></a>Clusters computacional
 
 A extensão suporta os seguintes tipos de cálculo:
@@ -362,7 +396,7 @@ Para mais informações, consulte [os pontos finais do serviço web.](concept-az
 1. Clique com o botão direito no nó **endpoints** e selecione **o Serviço de Implantação**.
 1. No aviso:
     1. Escolha se pretende utilizar um modelo já registado ou um ficheiro de modelo local.
-    1. Selecione o seu modelo
+    1. Selecionar o modelo
     1. Escolha o alvo de implantação para o qual pretende implementar o seu modelo.
     1. Forneça um nome para o seu modelo.
     1. Forneça o script para executar ao marcar o modelo.
@@ -390,6 +424,6 @@ Além de criar e eliminar implementações, pode visualizar e editar as definiç
         - Um ficheiro de configuração para a sua implantação aparece no editor. Se estiver satisfeito com a sua configuração, **selecione Save and continue** ou abra a paleta de comando VS Code **(Ver > Paleta de Comando)** e **digite Azure ML: Save and Continue**.
     - Para visualizar as definições de configuração da implementação, selecione **Ver as propriedades do serviço**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Treine um modelo de classificação de imagem](tutorial-train-deploy-image-classification-model-vscode.md) com a extensão do Código VS.

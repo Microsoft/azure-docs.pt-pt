@@ -3,16 +3,16 @@ title: Criar uma oferta de aplicações Azure - Mercado comercial da Microsoft
 description: Conheça os passos e considerações para a criação de uma nova oferta de aplicações Azure no portal do mercado comercial no Partner Center. Pode listar ou vender a sua oferta de aplicação Azure no Azure Marketplace ou através do programa Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 071d3fc972e99d61a226492350b7eee146584df6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e7e7845b458d6d1a37b65fb79e0e7e9c13b0d07d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815675"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646931"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -72,7 +72,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua a
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-* [Explorador do Storage do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Explorador de Armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Código do Estúdio Visual](https://code.visualstudio.com/) com as seguintes extensões:
     * Extensão: [Ferramentas do gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Extensão: [Embelezamento](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -600,6 +600,6 @@ O passo **de validação manual** no processo de publicação representa uma rev
 
 Se tiver erros numa ou mais das etapas de publicação, corrija-as antes de voltar a publicar a sua oferta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

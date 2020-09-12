@@ -1,19 +1,19 @@
 ---
 title: Utilizar o Azure Site Recovery para proteger um servidor de ficheiros
 description: Este artigo descreve como utilizar o Azure Site Recovery para proteger um servidor de ficheiros
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: c4b6d583c2dd3d54c6201917a40fa6165efac18f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131273"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425522"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Utilizar o Azure Site Recovery para proteger um servidor de ficheiros 
 
@@ -66,10 +66,10 @@ Uma vez que a replicação do Site Recovery não depende da aplicação, espera-
 
 | Origem  |Para um site secundário  |Para o Azure
 |---------|---------|---------|
-|Azure|  -|Sim|
-|Hyper-V|  Sim  |Sim
-|VMware  |Sim|  Sim
-|Servidor físico|  Sim  |Sim
+|Azure|  -|Yes|
+|Hyper-V|  Yes  |Yes
+|VMware  |Yes|  Yes
+|Servidor físico|  Yes  |Yes
  
 
 > [!IMPORTANT]
@@ -123,7 +123,7 @@ Os passos abaixo descrevem a replicação para uma VM de VMware. Veja [este tuto
 1. [Prepare os recursos do Azure](tutorial-prepare-azure.md) para a replicação de máquinas no local.
 2. Estabeleça uma ligação VPN site a site entre o site no local e a rede do Azure. 
 3. Expanda o Active Directory no local.
-4. [Prepare os servidores do VMware no local](./vmware-azure-tutorial-prepare-on-premises.md).
+4. [Preparar servidores VMware no local](./vmware-azure-tutorial-prepare-on-premises.md).
 5. [Configure a recuperação após desastre](./vmware-azure-tutorial.md) para o Azure das VMs no local.
 
 ## <a name="extend-dfsr-to-an-azure-iaas-virtual-machine"></a>Expandir o DFSR para uma máquina virtual de IaaS do Azure

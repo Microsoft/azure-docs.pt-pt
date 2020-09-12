@@ -3,12 +3,12 @@ title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079664"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425539"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -156,7 +156,8 @@ Os **detalhes** da propriedade dos efeitos AuditIfNotExists tem todas as subprop
   - Se **o detalhe.type** é um tipo de recurso por baixo do recurso **de** condição, as consultas de política para recursos deste **tipo** no âmbito do recurso avaliado. Caso contrário, as consultas políticas dentro do mesmo grupo de recursos que o recurso avaliado.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso para corresponder e faz com que a política pegue um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando a condição se valoriza para **se.field.type** **e, em seguida,.details.type** match, então **o nome** torna-se _necessário_ e deve ser `[field('name')]` . No entanto, deve considerar-se um efeito [de auditoria.](#audit)
+  - Quando a condição se avalia para **se.field.type** **e, em seguida,.details.type** match, então **o nome** torna-se _necessário_ e deve ser , ou para um `[field('name')]` recurso `[field('fullName')]` infantil.
+    No entanto, deve considerar-se um efeito [de auditoria.](#audit)
 - **Nome do Grupo de Recursos** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **o tipo** for um recurso que estaria abaixo do recurso **de** condição.
@@ -277,7 +278,7 @@ A propriedade de **detalhes** do efeito DeployIfNotExists tem todas as subpropri
   - Começa por tentar obter um recurso por baixo do recurso **de condição,** em seguida, questiona dentro do mesmo grupo de recursos que o recurso **da** condição.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso para corresponder e faz com que a política pegue um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando a condição se valoriza para **se.field.type** **e, em seguida,.details.type** match, então **o nome** torna-se _necessário_ e deve ser `[field('name')]` .
+  - Quando a condição se avalia para **se.field.type** **e, em seguida,.details.type** match, então **o nome** torna-se _necessário_ e deve ser , ou para um `[field('name')]` recurso `[field('fullName')]` infantil.
 - **Nome do Grupo de Recursos** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **o tipo** for um recurso que estaria abaixo do recurso **de** condição.
@@ -672,7 +673,7 @@ Se tanto a política 1 como a política 2 tiveram efeito de negação, a situaç
 
 Cada atribuição é avaliada individualmente. Como tal, não há uma oportunidade para um recurso escapar através de uma lacuna de diferenças de âmbito. Considera-se **cumulativo o**resultado líquido das definições de política de camadas. A título de exemplo, se ambas as políticas 1 e 2 tivessem um efeito de negação, um recurso seria bloqueado pelas definições políticas sobrepostas e contraditórias. Se ainda precisar do recurso para ser criado no âmbito alvo, reveja as exclusões de cada atribuição para validar as atribuições políticas certas estão a afetar os âmbitos certos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](definition-structure.md).

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: b613e89fbe29074160d83a96d2cd13505244994a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f0e5a153efe26640e54f386600f07c7b3d4711d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186724"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649057"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral da monitorização da saúde do Gateway de aplicação
 
@@ -98,9 +98,9 @@ Deve permitir a entrada de tráfego de Internet nas portas TCP 65503-65534 para 
 
 Além disso, a conectividade de saída da Internet não pode ser bloqueada, e o tráfego de entrada proveniente da etiqueta **AzureLoadBalancer** deve ser permitido.
 
-Para obter mais informações, consulte a [visão geral da configuração do Gateway de Aplicação](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
+Para obter mais informações, consulte a [visão geral da configuração do Gateway de Aplicação](configuration-infrastructure.md#network-security-groups).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de aprender sobre a monitorização de saúde do Application Gateway, pode configurar uma [sonda de saúde personalizada](application-gateway-create-probe-portal.md) no portal Azure ou uma sonda de [saúde personalizada](application-gateway-create-probe-ps.md) utilizando o PowerShell e o modelo de implementação do Azure Resource Manager.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

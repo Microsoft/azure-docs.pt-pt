@@ -10,17 +10,17 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e2f13cbdca9d6372677bbba24d60f4a73436cfd7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 1f68753e7b28163f3ec0c18c30cf5939e0bc5243
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179302"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649422"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure no portal Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de Aprendizagem automática Azure**](concept-workspace.md) no portal Azure para [aprendizagem automática Azure](overview-what-is-azure-ml.md).  O portal é a forma mais fácil de começar com espaços de trabalho, mas à medida que as suas necessidades mudam ou os requisitos para o aumento da automatização também pode criar e apagar espaços de trabalho [utilizando o CLI,](reference-azure-machine-learning-cli.md) [com o código Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou através da [extensão do Código VS.](tutorial-setup-vscode-extension.md)
+Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de Aprendizagem automática Azure**](concept-workspace.md) no portal Azure para [aprendizagem automática Azure](overview-what-is-azure-ml.md).  O portal é a forma mais fácil de começar com espaços de trabalho, mas à medida que as suas necessidades mudam ou os requisitos para o aumento da automatização também pode criar e apagar espaços de trabalho [utilizando o CLI,](reference-azure-machine-learning-cli.md) [com o código Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) ou através da [extensão do Código VS.](tutorial-setup-vscode-extension.md)
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
@@ -190,7 +190,7 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga o tutorial de corpo inteiro para aprender a usar um espaço de trabalho para construir, treinar e implementar modelos com Azure Machine Learning.
 

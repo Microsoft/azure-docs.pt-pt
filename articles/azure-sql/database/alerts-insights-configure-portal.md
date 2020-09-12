@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7457ad5870e31d682f8727901795c9d6d73f06
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553487"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442679"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Criar alertas para a Base de Dados Azure SQL e Azure Synapse Analytics utilizando o portal Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "85553487"
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo mostra como configurar alertas para bases de dados na Base de Dados Azure SQL e Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) utilizando o portal Azure. Os alertas podem enviar-lhe um e-mail ou chamar um gancho web quando alguma métrica (por exemplo, tamanho da base de dados ou utilização do CPU) atinge o limiar.
+Este artigo mostra como configurar alertas para bases de dados na Base de Dados Azure SQL e Azure Synapse Analytics (antigo ARMAZÉM DE DADOS SQL) utilizando o portal Azure. Os alertas podem enviar-lhe um e-mail ou chamar um gancho web quando alguma métrica (por exemplo, tamanho da base de dados ou utilização do CPU) atinge o limiar.
 
 > [!NOTE]
 > Para obter instruções específicas para a Azure SQL, consulte [criar alertas para a exemplo gerida do Azure SQL](../managed-instance/alerts-create.md).

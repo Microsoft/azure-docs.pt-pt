@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: d7ac2777ffd500082bd0b8a9700d53bffd9d6931
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2012f590aa833bea1b49955958095917a6479665
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177317"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438573"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -28,6 +28,84 @@ Esta página fornece-lhe informações sobre:
 - Novas funcionalidades
 - Correções de erros
 - Funcionalidade preterida
+
+
+## <a name="march-2020"></a>Março de 2020
+
+As atualizações em março incluem:
+
+- [A automatização do fluxo de trabalho está agora geralmente disponível](#workflow-automation-is-now-generally-available)
+- [Integração do Centro de Segurança Azure com o Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)
+- [Proteção para o Serviço Azure Kubernetes](#protection-for-azure-kubernetes-service)
+- [Experiência just-in-time melhorada](#improved-just-in-time-experience)
+- [Duas recomendações de segurança para aplicações web depreciadas](#two-security-recommendations-for-web-applications-deprecated)
+
+
+### <a name="workflow-automation-is-now-generally-available"></a>A automatização do fluxo de trabalho está agora geralmente disponível
+
+A funcionalidade de automatização do fluxo de trabalho do Azure Security Center está agora geralmente disponível. Utilize-o para ativar automaticamente as Aplicações Lógicas em alertas de segurança e recomendações. Além disso, os gatilhos manuais estão disponíveis para alertas e todas as recomendações que têm a opção de correção rápida disponível.
+
+Todos os programas de segurança incluem vários fluxos de trabalho para resposta a incidentes. Estes processos podem incluir notificar as partes interessadas relevantes, lançar um processo de gestão de mudanças e aplicar medidas de reparação específicas. Os peritos em segurança recomendam que automatize o máximo de passos possível. A automatização reduz a sobrecarga e pode melhorar a sua segurança garantindo que os passos do processo são feitos de forma rápida, consistente e de acordo com os seus requisitos predefinidos.
+
+Para obter mais informações sobre as capacidades automáticas e manuais do Centro de Segurança para executar os seus fluxos de trabalho, consulte [a automatização do fluxo de trabalho.](workflow-automation.md)
+
+Saiba mais sobre [a criação de Aplicações Lógicas.](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+
+
+### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integração do Centro de Segurança Azure com o Windows Admin Center
+
+Agora é possível mover os seus servidores Windows no local do Windows Admin Center diretamente para o Centro de Segurança Azure. O Security Center torna-se então o seu único painel de vidro para visualizar informações de segurança para todos os seus recursos do Windows Admin Center, incluindo servidores no local, máquinas virtuais e cargas de trabalho adicionais do PaaS.
+
+Depois de mover um servidor do Windows Admin Center para o Azure Security Center, poderá:
+
+- Ver alertas de segurança e recomendações na extensão do Centro de Segurança do Windows Admin Center.
+- Veja a postura de segurança e recupere informações detalhadas adicionais dos servidores geridos do Windows Admin Center no Centro de Segurança dentro do portal Azure (ou através de uma API).
+
+Saiba mais sobre [como integrar o Azure Security Center com o Windows Admin Center](windows-admin-center-integration.md).
+
+
+### <a name="protection-for-azure-kubernetes-service"></a>Proteção para o Serviço Azure Kubernetes
+
+O Azure Security Center está a expandir as suas funcionalidades de segurança para proteger o Serviço Azure Kubernetes (AKS).
+
+A popular plataforma de código aberto Kubernetes foi adotada de forma tão ampla que agora é um padrão da indústria para a orquestração de contentores. Apesar desta implementação generalizada, ainda há uma falta de compreensão sobre como garantir um ambiente Kubernetes. A defesa das superfícies de ataque de uma aplicação contentorizada requer conhecimentos especializados para garantir que a infraestrutura seja configurada de forma segura e constante para potenciais ameaças.
+
+A defesa do Centro de Segurança inclui:
+
+- **Descoberta e visibilidade** - Descoberta contínua de instâncias AKS geridas dentro das subscrições registadas no Centro de Segurança.
+- **Recomendações de segurança** - Recomendações acccáveis para ajudá-lo a cumprir as melhores práticas de segurança para a AKS. Estas recomendações estão incluídas na sua pontuação segura para garantir que são vistas como parte da postura de segurança da sua organização. Um exemplo de uma recomendação relacionada com a AKS que pode ver é "O controlo de acesso baseado em papéis deve ser usado para restringir o acesso a um cluster de serviços Kubernetes".
+- **Proteção contra ameaças** - Através de uma análise contínua da sua implementação AKS, o Security Center alerta-o para ameaças e atividades maliciosas detetadas ao nível do cluster hospedeiro e AKS.
+
+Saiba mais sobre [a integração dos Serviços Azure Kubernetes com o Security Center.](azure-kubernetes-service-integration.md)
+
+Saiba mais sobre [as funcionalidades de segurança do contentor no Centro de Segurança.](container-security.md)
+
+
+### <a name="improved-just-in-time-experience"></a>Experiência just-in-time melhorada
+
+As funcionalidades, operação e UI para as ferramentas just-in-time do Azure Security Center que protegem as suas portas de gestão foram melhoradas da seguinte forma: 
+
+- **Campo de justificação** - Ao solicitar o acesso a uma máquina virtual (VM) através da página just-in-time do portal Azure, está disponível um novo campo opcional para introduzir uma justificação para o pedido. As informações inseridas neste campo podem ser rastreadas no registo de atividades. 
+- **Limpeza automática das regras redundantes just-in-time (JIT)** - Sempre que atualiza uma política JIT, uma ferramenta de limpeza funciona automaticamente para verificar a validade de todo o seu conjunto de regras. A ferramenta procura desencontros entre regras na sua política e regras no NSG. Se a ferramenta de limpeza encontrar um desfasamento, determina a causa e, quando é seguro fazê-lo, remove regras incorporadas que já não são necessárias. O aspirador nunca apaga as regras que criaste. 
+
+Saiba mais sobre [a funcionalidade de acesso JIT.](security-center-just-in-time.md)
+
+
+### <a name="two-security-recommendations-for-web-applications-deprecated"></a>Duas recomendações de segurança para aplicações web depreciadas
+
+Duas recomendações de segurança relacionadas com aplicações web estão a ser depreciadas: 
+
+- As regras para aplicações web em IAAS NSGs devem ser endurecidas.
+    (Política relacionada: as regras do INE para aplicações web no IAAS devem ser endurecidas)
+
+- O acesso aos Serviços de Aplicações deve ser restringido.
+    (Política relacionada: o acesso aos Serviços de Aplicações deve ser restringido [pré-visualização])
+
+Estas recomendações deixarão de constar da lista de recomendações do Centro de Segurança. As políticas relacionadas deixarão de ser incluídas na iniciativa denominada "Security Center Default".
+
+Saiba mais sobre [recomendações de segurança.](recommendations-reference.md)
+
+
 
 
 ## <a name="february-2020"></a>Fevereiro de 2020

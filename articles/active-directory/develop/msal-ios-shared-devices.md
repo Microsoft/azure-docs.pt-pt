@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 5abb6852e267fa7d7277e0e0674a4099343e14ca
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0354010297942c3b9e18dc6f556cb0afa075ff5f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114919"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649100"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo partilhado para dispositivos iOS
 
@@ -65,7 +65,7 @@ O seu dispositivo necessita de ser configurado para suportar o modo de dispositi
     - Dados adicionais para configurar:
       - Chave: compartilhadoDeviceMode
       - Tipo: Boolean
-      - Valor: Verdadeiro
+      - Valor: verdadeiro
 
     Para obter mais informações sobre a configuração com o Intune, consulte a documentação de [configuração Intune](/intune/configuration/ios-device-features-settings).
 
@@ -76,7 +76,7 @@ O seu dispositivo necessita de ser configurado para suportar o modo de dispositi
     - Configuração 1:
       - Chave: compartilhadoDeviceMode
       - Tipo: Boolean
-      - Valor: Verdadeiro
+      - Valor: verdadeiro
 
 ## <a name="modify-your-ios-application-to-support-shared-device-mode"></a>Modifique a sua aplicação iOS para suportar o modo de dispositivo partilhado
 
@@ -221,7 +221,7 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 }];
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ver o modo de dispositivo partilhado em ação, a seguinte amostra de código no GitHub inclui um exemplo de execução de uma aplicação Firstline Worker num dispositivo iOS no modo dispositivo partilhado:
 

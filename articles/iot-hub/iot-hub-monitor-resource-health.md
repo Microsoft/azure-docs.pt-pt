@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: c7b2055494d61ba348ae6226e6fc0ad9ce5775bb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022144"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438406"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente
 
@@ -61,7 +61,7 @@ A categoria de ligações rastreia o dispositivo conectar e desligar eventos de 
             "operationName": "deviceConnect",
             "category": "Connections",
             "level": "Information",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
             "location": "Resource location"
         }
     ]
@@ -426,7 +426,7 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 #### <a name="configurations"></a>Configurações
 
-Os registos de configuração do IoT Hub rastreia eventos e erros para o conjunto de funções de Gestão automática de dispositivos.
+Os registos de configuração do IoT Hub rastreiam eventos e erros para o conjunto de funções de gestão automática de dispositivos.
 
 ```json
 {
@@ -470,6 +470,42 @@ A categoria de streams de dispositivos rastreia as interações de resposta de p
          }
     ]
 }
+```
+
+### <a name="sdk-version"></a>Versão do SDK
+
+Algumas operações devolvem uma `sdkVersion` propriedade no `properties` objeto. Para estas operações, quando um dispositivo ou app backend está a usar um dos SDKs Azure IoT, esta propriedade contém informações sobre o SDK que está a ser utilizado, a versão SDK e a plataforma em que o SDK está em execução. O exemplo a seguir mostra a `sdkVersion` propriedade emitida para uma `deviceConnect` operação quando utiliza o dispositivo de Node.js SDK: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"` . Aqui está um exemplo do valor emitido para o .NET (C#) SDK: `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"` .
+
+A tabela a seguir mostra o nome SDK usado para diferentes SDK Azure IoT:
+
+| Nome SDK na propriedade SdkVersion | Linguagem |
+|----------|----------|
+| .NET | .NET (C#) |
+| microsoft.azure.dispositivos | .NET (C#) serviço SDK |
+| microsoft.azure.devices.client | .NET (C#) dispositivo SDK |
+| iothubclient | Dispositivo C ou Python v1 (preceded) SDK |
+| iothubserviceclient | Serviço C ou Python v1 (preceded) SDK |
+| azure-iot-device-iothub-py | Dispositivo python SDK |
+| azure-iot-device | Node.js dispositivo SDK |
+| azure-iothub | serviço Node.js SDK |
+| com.microsoft.azure.iothub-java-cliente | Dispositivo Java SDK |
+| com.microsoft.azure.iothub.service.sdk | Serviço Java SDK |
+| com.microsoft.azure.sdk.iot.iot-device-client | Dispositivo Java SDK |
+| com.microsoft.azure.sdk.iot.iot-service-client | Serviço Java SDK |
+| C | Incorporado C |
+| C + (OSSimplificado = Azure RTOS) | Azure RTOS |
+
+Pode extrair a propriedade da versão SDK quando efetuar consultas contra registos de diagnóstico. A seguinte consulta extrai a propriedade da versão SDK (e iD do dispositivo) das propriedades devolvidas por eventos de Conexões. Estas duas propriedades são escritas para os resultados juntamente com a hora do evento e o ID de recursos do hub IoT a que o dispositivo está a ligar.
+
+```kusto
+// SDK version of devices
+// List of devices and their SDK versions that connect to IoT Hub
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s) 
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
 ```
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Leia registos dos Hubs de Eventos Azure
@@ -557,7 +593,7 @@ Para verificar a saúde dos seus centros de IoT, siga estes passos:
 
 Para saber mais sobre como interpretar dados de saúde, consulte [a visão geral da saúde dos recursos Azure](../service-health/resource-health-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as métricas do IoT Hub](iot-hub-metrics.md)
 * [Monitorização remota IoT e notificações com Azure Logic Apps que ligam o seu hub IoT e caixa de correio](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

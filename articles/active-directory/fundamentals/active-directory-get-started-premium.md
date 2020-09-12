@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f2e3e9376c26bae2c0b3c0dda06b781b5f2f7c4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 425809339cf4c468293801460fdeb79d9e467968
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799162"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565604"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscrever-se nas edições Premium do Azure Active Directory
 Pode adquirir e associar edições premium do Azure Ative Directory (Azure AD) com a sua assinatura Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.
@@ -28,7 +28,7 @@ Pode adquirir e associar edições premium do Azure Ative Directory (Azure AD) c
 
 Para se inscrever no Active Directory Premium 1 ou Premium 2, tem de determinar primeiro que subscrição ou plano existente planeia utilizar:
 
-- Através da sua subscrição do Azure ou do Office 365 existente
+- Através da subscrição Azure ou Microsoft 365 existente
 
 - Através do seu plano de licenciamento Enterprise Mobility + Security
 
@@ -36,8 +36,8 @@ Para se inscrever no Active Directory Premium 1 ou Premium 2, tem de determina
 
 Ao inscrever-se com a sua subscrição do Azure com licenças do Microsoft Azure AD anteriormente compradas e ativadas, ativa automaticamente as licenças no mesmo diretório. Se não for esse o caso, ainda terá de ativar o plano de licenciamento e o acesso ao Microsoft Azure AD. Para obter mais informações sobre como ativar o plano de licenciamento, veja [Ativar o novo plano de licença](#activate-your-new-license-plan). Para obter mais informações sobre como ativar o acesso ao Microsoft Azure AD, veja [Ativar o acesso ao Microsoft Azure AD](#activate-your-azure-ad-access). 
 
-## <a name="sign-up-using-your-existing-azure-or-office-365-subscription"></a>Inscrever-se através da sua subscrição do Azure ou do Office 365 existente
-Na qualidade de subscritor do Azure ou do Office 365, pode comprar as edições do Azure Active Directory Premium online. Para etapas detalhadas, consulte [Como Comprar Azure Ative Directory Premium - Novos Clientes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
+## <a name="sign-up-using-your-existing-azure-or-microsoft-365-subscription"></a>Inscreva-se usando a subscrição Azure ou Microsoft 365 existente
+Como assinante do Azure ou microsoft 365, pode adquirir online as edições Azure Ative Directory Premium. Para etapas detalhadas, consulte [Como Comprar Azure Ative Directory Premium - Novos Clientes](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>Inscrever-se através do seu plano de licenciamento Enterprise Mobility + Security
 Enterprise Mobility + Security é uma suite composta por Azure AD Premium, Azure Information Protection e Microsoft Intune. Se já tiver uma licença do EMS, poderá começar a utilizar o Microsoft Azure AD, com uma destas opções de licenciamento:
@@ -97,5 +97,5 @@ Depois de as suas licenças compradas serem aprovisionadas no diretório, recebe
 
 Normalmente, o processo de ativação demora apenas alguns minutos e, em seguida, pode utilizar o inquilino do Microsoft Azure AD. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que tem o Azure AD Premium, pode [personalizar o seu domínio](add-custom-domain.md), adicionar a sua [imagem corporativa](customize-branding.md), [criar um inquilino](active-directory-access-create-new-tenant.md) e [adicionar grupos](active-directory-groups-create-azure-portal.md) e [utilizadores](add-users-azure-active-directory.md).

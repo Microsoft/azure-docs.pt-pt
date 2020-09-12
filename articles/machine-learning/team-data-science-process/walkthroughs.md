@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864082"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439832"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Walkthroughs executando o processo de ciência de dados de equipa
 
@@ -32,7 +32,7 @@ Aqui estão breves descrições do que estes exemplos walkthrough fornecem nas r
 - [HDInsight Hadoop walkthroughs usando Hive](walkthroughs-hdinsight-hadoop.md) Estes walkthroughs usam a Colmeia com um cluster HDInsight Hadoop para fazer análises preditivas.
 - [Azure Data Lake walkthroughs usando U-SQL](walkthroughs-azure-data-lake.md) Estes walkthroughs usam U-SQL com Azure Data Lake para fazer análises preditivas.
 - [Servidor SQL](walkthroughs-sql-server.md) Estes walkthroughs utilizam serviços SQL Server, SQL Server R e SQL Server Python Services para fazer análises preditivas.
-- [Armazém de Dados SQL](walkthroughs-sql-data-warehouse.md) Estes walkthroughs usam o SQL Data Warehouse para fazer análises preditivas. 
+- [Azure Synapse Analytics](walkthroughs-sql-data-warehouse.md) Estes walkthroughs usam a Azure Synapse Analytics para fazer análises preditivas. 
 
 
 

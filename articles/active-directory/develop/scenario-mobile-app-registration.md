@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047678"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442739"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registar aplicativos móveis que chamam APIs web
 
@@ -30,7 +30,7 @@ Os tipos de conta que as suas aplicações móveis suportam dependem da experiê
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Público para aquisição de fichas interativas
 
-A maioria das aplicações móveis usam a autenticação interativa. Se a sua aplicação utilizar esta forma de autenticação, pode iniciar sação nos utilizadores a partir de qualquer tipo de [conta.](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)
+A maioria das aplicações móveis usam a autenticação interativa. Se a sua aplicação utilizar esta forma de autenticação, pode iniciar sação nos utilizadores a partir de qualquer tipo de [conta.](quickstart-register-app.md)
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Público para autenticação integrada do Windows, username-password e B2C
 
@@ -89,7 +89,7 @@ As aplicações móveis chamam APIs em nome do utilizador inscrito. A sua aplica
 
 Ao registar estáticamente permissões, permite que os administradores aprovem facilmente a sua aplicação. Recomenda-se o registo estático.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configuração do código](scenario-mobile-app-configuration.md)

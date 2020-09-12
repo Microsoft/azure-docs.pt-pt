@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6a37aaa2eee3151087ce33815d37bf5537578329
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: fe562b8202c508c13f4127d14aeb5f994d15f962
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782758"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649608"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste guia, aprenda a definir várias configurações das suas experiências automatizadas de aprendizagem automática de máquinas com o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). A aprendizagem automática de máquinas escolhe um algoritmo e hiperparímetros para si e gera um modelo pronto para ser implantado. Existem várias opções que pode usar para configurar experiências automatizadas de aprendizagem automática de máquinas.
+Neste guia, aprenda a definir várias configurações das suas experiências automatizadas de aprendizagem automática de máquinas com o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). A aprendizagem automática de máquinas escolhe um algoritmo e hiperparímetros para si e gera um modelo pronto para ser implantado. Existem várias opções que pode usar para configurar experiências automatizadas de aprendizagem automática de máquinas.
 
 Para ver exemplos de experiências automatizadas de aprendizagem automática de máquinas, consulte [Tutorial: Treine um modelo de classificação com machine learning automatizado](tutorial-auto-train-models.md) ou [modelos de comboio com aprendizagem automática de máquinas na nuvem.](how-to-auto-train-remote.md)
 
@@ -31,7 +31,7 @@ Opções de configuração disponíveis em machine learning automatizado:
 * Fonte de dados, formatos e recolha de dados
 * Escolha o seu alvo de cálculo: local ou remoto
 * Definições automatizadas de experiências de aprendizagem de máquinas
-* Executar uma experiência automatizada de aprendizagem automática
+* Executar uma experimentação de machine learning automatizado
 * Explore as métricas do modelo
 * Registar e implementar modelo
 
@@ -46,7 +46,7 @@ Para este artigo que precisa,
     Para instalar o SDK pode, 
     * Crie uma instância computacional, que instala automaticamente o SDK e está pré-configurada para fluxos de trabalho ML. Veja [o que é um azure machine learning por exemplo para](concept-compute-instance.md#managing-a-compute-instance) mais informações. 
 
-    * [Instale o SDK por si mesmo.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) Apenas certifique-se de incluir o `automl` extra. 
+    * [Instale o SDK por si mesmo.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) Apenas certifique-se de incluir o `automl` extra. 
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimentação
 
@@ -69,7 +69,7 @@ Requisitos para dados de formação:
 - Os dados devem estar em forma tabular.
 - O valor a prever, coluna-alvo, deve estar nos dados.
 
-**Para experiências remotas,** os dados de treino devem estar acessíveis a partir do cálculo remoto. A AutoML só aceita [TabularDatasets de Aprendizagem de Máquinas Azure](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) ao trabalhar num computação remota. 
+**Para experiências remotas,** os dados de treino devem estar acessíveis a partir do cálculo remoto. A AutoML só aceita [TabularDatasets de Aprendizagem de Máquinas Azure](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) ao trabalhar num computação remota. 
 
 Os conjuntos de dados Azure Machine Learning expõem a funcionalidade a:
 
@@ -344,7 +344,7 @@ Para obter informações gerais sobre como as explicações dos modelos e a impo
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado pelo Cliente explicação. Este modelo não devolverá um dashboard de explicação se for devolvido como o melhor modelo, e não suporta explicações a pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

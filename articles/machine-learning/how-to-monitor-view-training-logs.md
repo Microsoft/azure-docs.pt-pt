@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 642186ef4af43127ba0d6eb6950f09e069eb79ca
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005960"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649284"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
@@ -58,7 +58,7 @@ Uma vez concluída uma execução, deixará de ser exibida nesta página. Para v
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Monitor executa usando o widget de caderno Jupyter
 
-Quando utilizar o método **ScriptRunConfig** para submeter execuções, pode observar o progresso da execução utilizando o [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Tal como a submissão da execução, o widget é assíncrono e disponibiliza atualizações dinâmicas a cada 10 a 15 segundos até à conclusão do trabalho.
+Quando utilizar o método **ScriptRunConfig** para submeter execuções, pode observar o progresso da execução utilizando o [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Tal como a submissão da execução, o widget é assíncrono e disponibiliza atualizações dinâmicas a cada 10 a 15 segundos até à conclusão do trabalho.
 
 Veja o widget Jupyter enquanto espera que a corrida esteja completa.
     
@@ -125,7 +125,7 @@ Utilize os seguintes métodos nas APIs de registo para influenciar o estúdio vi
 |Tabela de registo com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linha de duas variáveis|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente estes próximos passos para aprender a usar a Azure Machine Learning:
 

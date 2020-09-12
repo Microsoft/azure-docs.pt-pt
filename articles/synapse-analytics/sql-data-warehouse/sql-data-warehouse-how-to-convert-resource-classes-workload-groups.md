@@ -1,6 +1,6 @@
 ---
 title: Converter classe de recursos para um grupo de carga de trabalho
-description: Saiba como criar um grupo de carga de trabalho semelhante a uma classe de recursos no Azure SQL Data Warehouse.
+description: Aprenda a criar um grupo de carga de trabalho semelhante a uma classe de recursos em Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe65aa8c69bc4bd3837ea68bc48ffdbbeed87e0e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192326"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461379"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos em grupos de carga de trabalho
 
@@ -27,7 +27,7 @@ Os grupos de trabalho fornecem um mecanismo para isolar e conter recursos do sis
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Compreender a configuração de classe de recursos existente
 
-Os grupos de carga de trabalho exigem um parâmetro chamado `REQUEST_MIN_RESOURCE_GRANT_PERCENT` que especifica a percentagem de recursos globais do sistema atribuídos por pedido.  A atribuição de recursos é feita para [as classes de recursos](resource-classes-for-workload-management.md#what-are-resource-classes) através da atribuição de faixas horárias de conuncy.  Para determinar o valor a `REQUEST_MIN_RESOURCE_GRANT_PERCENT` especificar, utilize o Sys.dm_workload_management_workload_groups_stats <link tbd> DMV.  Por exemplo, a consulta abaixo devolve um valor que pode ser usado para o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parâmetro para criar um grupo de carga de trabalho semelhante ao staticrc40.
+Os grupos de carga de trabalho exigem um parâmetro chamado `REQUEST_MIN_RESOURCE_GRANT_PERCENT` que especifica a percentagem de recursos globais do sistema atribuídos por pedido.  A atribuição de recursos é feita para [as classes de recursos](resource-classes-for-workload-management.md#what-are-resource-classes) através da atribuição de faixas horárias de conuncy.  Para determinar o valor a `REQUEST_MIN_RESOURCE_GRANT_PERCENT` especificar, utilize o <link tbd> DMV sys.dm_workload_management_workload_groups_stats.  Por exemplo, a consulta abaixo devolve um valor que pode ser usado para o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parâmetro para criar um grupo de carga de trabalho semelhante ao staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -86,7 +86,7 @@ SELECT request_id, [label], classifier_name, group_name, command
   ORDER BY submit_time DESC
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Isolamento da carga de trabalho](sql-data-warehouse-workload-isolation.md)
 - [Como criar um grupo de trabalho](quickstart-configure-workload-isolation-tsql.md)

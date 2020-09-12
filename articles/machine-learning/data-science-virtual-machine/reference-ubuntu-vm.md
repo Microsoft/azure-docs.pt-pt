@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: c919e8abc55dd5cb36325ae060340c1ee147a1a0
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816308"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440342"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Máquina Virtual Ubuntu (Linux) Data Science
 
@@ -232,7 +232,7 @@ As seguintes ferramentas Azure são instaladas no VM:
 * **Azure Storage Explorer**: Azure Storage Explorer é uma ferramenta gráfica que pode utilizar para navegar pelos objetos que armazenou na sua conta de armazenamento Azure, e para carregar e transferir dados de e para as bolhas Azure. Pode aceder ao Storage Explorer a partir do ícone do atalho do ambiente de trabalho. Também pode abri-lo a partir de uma solicitação de concha, introduzindo **StorageExplorer**. Você deve ser contratado por um cliente X2Go, ou ter X11 reencaminhamento.
 * **Bibliotecas azul**: Seguem-se algumas das bibliotecas pré-instaladas.
   
-  * **Python**: As bibliotecas relacionadas com o Azure em Python são *azul,* *azureml,* *pydocumentdb,* e *pyodbc.* Com as três primeiras bibliotecas, pode aceder aos serviços de armazenamento Azure, Azure Machine Learning e Azure Cosmos DB (uma base de dados NoSQL em Azure). A quarta biblioteca, pyodbc (juntamente com o controlador Microsoft ODBC para o SQL Server), permite o acesso ao SQL Server, Azure SQL Database e Azure SQL Data Warehouse a partir de Python utilizando uma interface ODBC. Insira a **lista de pips** para ver todas as bibliotecas listadas. Certifique-se de executar este comando em ambos os ambientes Python 2.7 e 3.5.
+  * **Python**: As bibliotecas relacionadas com o Azure em Python são *azul,* *azureml,* *pydocumentdb,* e *pyodbc.* Com as três primeiras bibliotecas, pode aceder aos serviços de armazenamento Azure, Azure Machine Learning e Azure Cosmos DB (uma base de dados NoSQL em Azure). A quarta biblioteca, pyodbc (juntamente com o controlador Microsoft ODBC para o SQL Server), permite o acesso ao SQL Server, Azure SQL Database e Azure Synapse Analytics de Python utilizando uma interface ODBC. Insira a **lista de pips** para ver todas as bibliotecas listadas. Certifique-se de executar este comando em ambos os ambientes Python 2.7 e 3.5.
   * **R**: As bibliotecas relacionadas com o Azure em R são AzureML e RODBC.
   * **Java**: A lista de bibliotecas Azure Java pode ser encontrada no diretório /dsvm/sdk/AzureSDKJava no VM. As principais bibliotecas são os pilotos de armazenamento e gestão Azure, Azure Cosmos DB e JDBC para o SQL Server.  
 
@@ -253,7 +253,7 @@ Também pode construir os seus modelos em R ou Python no VM e, em seguida, impla
 
 ## <a name="machine-learning-tools"></a>Ferramentas de aprendizagem automática
 
-O VM vem com ferramentas de machine learning e algoritmos que foram pré-compilados e pré-instalados localmente. Estas incluem:
+O VM vem com ferramentas de machine learning e algoritmos que foram pré-compilados e pré-instalados localmente. Incluem-se:
 
 * **Vowpal Wabbit:** Um algoritmo de aprendizagem online rápido.
 * **xgboost**: Uma ferramenta que fornece algoritmos de árvores otimizados e impulsionados.
@@ -344,6 +344,6 @@ Agora uma interface gráfica abre com um conjunto de separadores. Utilize os seg
 
 Pode sair do Rattle e do R. Agora pode modificar o script R gerado. Ou, use o script como está, e execute-o a qualquer hora para repetir tudo o que foi feito dentro da UI Rattle. Especialmente para principiantes em R, esta é uma forma de fazer rapidamente análises e machine learning numa interface gráfica simples, enquanto gera código automaticamente em R para modificar ou aprender.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Tem perguntas adicionais? Considere criar um [bilhete de apoio.](https://azure.microsoft.com/support/create-ticket/)

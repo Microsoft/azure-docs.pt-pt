@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 791402f5d9648c8d235f8853de1b6c41f8082e1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1dbd66e34790599020233c5b1249593a4c0472d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018320"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442654"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configure a autenticação multi-factor para SQL Server Management Studio e AZure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo mostra-lhe como utilizar a autenticação multi-factor Azure Ative (Azure AD) com o SQL Server Management Studio (SSMS). O Azure AD MFA pode ser utilizado ao ligar SSMS ou SqlPackage.exe à [Base de Dados Azure SQL](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para uma visão geral da autenticação multi-factor, consulte [a Autenticação Universal com Base de Dados SQL, SQL Managed Instance e Azure Synapse (suporte SSMS para MFA)](../database/authentication-mfa-ssms-overview.md).
+Este artigo mostra-lhe como utilizar a autenticação multi-factor Azure Ative (Azure AD) com o SQL Server Management Studio (SSMS). O Azure AD MFA pode ser utilizado ao ligar SSMS ou SqlPackage.exe à [Base de Dados Azure SQL](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para uma visão geral da autenticação multi-factor, consulte [a Autenticação Universal com Base de Dados SQL, SQL Managed Instance e Azure Synapse (suporte SSMS para MFA)](../database/authentication-mfa-ssms-overview.md).
 
 > [!IMPORTANT]
-> As bases de dados em Azure SQL Database, Azure SQL Managed Instance e Azure Synapse (anteriormente Azure SQL Data Warehouse) são referidas coletivamente no restante deste artigo como bases de dados, e o servidor refere-se ao [servidor](logical-servers.md) que acolhe bases de dados para a Base de Dados Azure SQL e Sinapse Azure.
+> As bases de dados em Azure SQL Database, Azure SQL Managed Instance e Azure Synapse (anteriormente SQL Data Warehouse) são referidas coletivamente no restante deste artigo como bases de dados, e o servidor refere-se ao [servidor](logical-servers.md) que acolhe bases de dados para a Base de Dados Azure SQL e Sinapse Azure.
 
 ## <a name="configuration-steps"></a>Passos de configuração
 
@@ -52,7 +52,7 @@ Os passos a seguir mostram como ligar utilizando o SSMS mais recente.
 
    ![mfa-inquilino-ssms](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
-4. Selecione **Opções** e especifique a base de dados na caixa de diálogo **Opções.** (Se o utilizador ligado for um utilizador convidado (ou joe@outlook.com seja, deve verificar a caixa e adicionar o nome de domínio AD atual ou iD do inquilino como parte das Opções. Consulte [a Autenticação Universal com Base de Dados SQL e Armazém de Dados SQL (suporte SSMS para MFA)](../database/authentication-mfa-ssms-overview.md). Em seguida, clique em **Connect** (Ligar).  
+4. Selecione **Opções** e especifique a base de dados na caixa de diálogo **Opções.** (Se o utilizador ligado for um utilizador convidado (ou joe@outlook.com seja, deve verificar a caixa e adicionar o nome de domínio AD atual ou iD do inquilino como parte das Opções. Consulte [a Autenticação Universal com Base de Dados SQL e Azure Synapse Analytics (suporte SSMS para MFA)](../database/authentication-mfa-ssms-overview.md). Em seguida, clique em **Connect** (Ligar).  
 5. Quando aparecer a caixa de diálogo de **inscrição na sua conta,** forneça a conta e a palavra-passe da sua identidade do Azure Ative Directory. Não é necessária nenhuma palavra-passe se um utilizador fizer parte de um domínio federado com Azure AD.
 
    ![2mfa-sign-in](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
@@ -74,7 +74,7 @@ Os passos a seguir mostram como ligar utilizando o SSMS mais recente.
 
 Quando a verificação está concluída, o SSMS liga-se normalmente presumindo credenciais válidas e acesso a firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral da autenticação multi-factor, consulte [a Autenticação Universal com Base de Dados SQL, SQL Managed Instance e Azure Synapse (suporte SSMS para MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Concede acesso à sua base de dados: [Autenticação e Autorização de Dados sql: Concessão de Acesso](logins-create-manage.md)  

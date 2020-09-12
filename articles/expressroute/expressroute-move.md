@@ -2,17 +2,17 @@
 title: 'ExpressRoute: Mover circuitos do clássico para o Azure Resource Manager'
 description: Saiba o que significa mover um circuito Azure ExpressRoute do clássico para o modelo de implementação do Azure Resource Manager.
 services: expressroute
-author: ganesr
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.author: ganesr
-ms.openlocfilehash: 2fc3a72ff9d6ec4dbd2eaa33e4af3054ad2a57b9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192394"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395167"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mover circuitos ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager
 Este artigo fornece uma descrição geral sobre o que significa mover um circuito Azure ExpressRoute do modelo de implementação clássica Azure Resource Manager.
@@ -90,7 +90,7 @@ Esta secção descreve o que não é suportado para circuitos ExpressRoute:
 ## <a name="configuration"></a>Configuração
 Siga as instruções descritas em [Mover um circuito ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](expressroute-howto-move-arm.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Migrar as redes virtuais ligadas ao circuito ExpressRoute a partir do modelo clássico ao modelo do Azure Resource Manager](expressroute-migration-classic-resource-manager.md)
 * Para obter informações sobre o fluxo de trabalho, veja [Circuito ExpressRoute aprovisiona fluxos de trabalho e estados de circuitos](expressroute-workflows.md).
 * Para configurar a ligação do ExpressRoute:

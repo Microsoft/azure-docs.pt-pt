@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 97119f3ec370894183c4aee44ff8a5bd6e5ea93b
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650830"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647143"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
 
@@ -49,8 +49,8 @@ Execute este código em qualquer um dos seguintes ambientes. Recomendamos que ex
  
  - O seu próprio servidor de cadernos Jupyter
 
-    - Instale o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Instale o [Azure Machine Learning RL SDK:](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py)`pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Instale o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+    - Instale o [Azure Machine Learning RL SDK:](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true)`pip install --upgrade azureml-contrib-reinforcementlearning`
     - Crie um [ficheiro de configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
     - Executar o caderno de [configuração](https://aka.ms/azure-rl-env-setup) de rede virtual para abrir portas de rede utilizadas para a aprendizagem de reforço distribuído.
 
@@ -71,7 +71,7 @@ O processo de iteração através da simulação e da reconversão de um DNN é 
 
 A Azure Machine Learning fornece o enquadramento para gerir estas complexidades para escalar as suas cargas de trabalho RL.
 
-## <a name="set-up-the-environment"></a>Configure o ambiente
+## <a name="set-up-the-environment"></a>Configurar o ambiente
 
 Configurar o ambiente RL local carregando os pacotes Python necessários, inicializando o seu espaço de trabalho, criando uma experiência e especificando uma rede virtual configurada.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Criar uma experiência de aprendizagem de reforço
 
-Crie uma [experiência](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) para acompanhar a sua aprendizagem de reforço. Em Azure Machine Learning, as experiências são coleções lógicas de ensaios relacionados para organizar registos de corridas, história, saídas e muito mais.
+Crie uma [experiência](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) para acompanhar a sua aprendizagem de reforço. Em Azure Machine Learning, as experiências são coleções lógicas de ensaios relacionados para organizar registos de corridas, história, saídas e muito mais.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Criar um estimador de aprendizagem de reforço
 
-Nesta secção, você aprende a usar o [ReforçoLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) para submeter um trabalho de formação ao Azure Machine Learning.
+Nesta secção, você aprende a usar o [ReforçoLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) para submeter um trabalho de formação ao Azure Machine Learning.
 
 A Azure Machine Learning usa aulas de estimador para encapsular informações de configuração de execução. Isto permite especificar facilmente como configurar uma execução de script. Para obter mais informações sobre o padrão do estimador Azure Machine Learning, consulte [Como treinar modelos utilizando estimadores](how-to-train-ml-models.md).
 
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Submeter uma corrida
 
-[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) lida com o histórico de trabalhos em curso ou completos. 
+[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true) lida com o histórico de trabalhos em curso ou completos. 
 
 ```python
 run = exp.submit(config=rl_estimator)
@@ -431,6 +431,6 @@ Se navegar em registos da execução da criança, pode ver os resultados da aval
 
 Em pouco trabalho, aprendeu a configurar múltiplos recursos computacional para formar um agente de aprendizagem de reforço para jogar Pong muito bem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md)

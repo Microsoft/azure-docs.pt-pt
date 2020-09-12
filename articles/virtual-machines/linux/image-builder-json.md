@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 6ed95f87d2b2a5f811531a5ff258ebe97a9b892a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869206"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378377"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens Azure 
 
@@ -142,7 +142,7 @@ Para obter mais informações sobre a implementação desta funcionalidade, cons
 
 ## <a name="properties-source"></a>Propriedades: fonte
 
-Atualmente, o Image Builder apenas suporta imagens de geração HyperV 1 e VMs, a `source` secção contém informações sobre a imagem de origem que será usada pelo Image Builder.
+A `source` secção contém informações sobre a imagem de origem que será usada pelo Image Builder. Atualmente, o Image Builder apenas suporta de forma nativa a criação de imagens de geração Hyper-V (Gen1) 1 para a Galeria de Imagem Partilhada Azure (SIG) ou Imagem Gerida. Se queres criar imagens da Gen2, então precisas de usar uma imagem de origem da Gen2 e distribuir para VHD. Depois, terá de criar uma Imagem Gerida a partir do VHD e injetá-la no SIG como uma imagem gen2.
 
 A API requer um 'SourceType' que define a fonte para a construção de imagem, atualmente existem três tipos:
 - PlatformImage - indicou que a imagem de origem é uma imagem do Marketplace.
@@ -571,7 +571,7 @@ Antes de poder distribuir pela Galeria de Imagens, tem de criar uma galeria e um
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {
@@ -675,6 +675,6 @@ az resource invoke-action \
      --action Cancel 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Existem ficheiros de amostra .json para diferentes cenários no [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder).

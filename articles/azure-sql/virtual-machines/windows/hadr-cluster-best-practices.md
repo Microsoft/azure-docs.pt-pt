@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50546a3efc008e074f4e7831d2cc657539b2f98b
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285633"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612323"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>As melhores práticas de configuração do cluster (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ Um cluster é utilizado para alta disponibilidade e recuperação de desastres (
 Este artigo fornece as melhores práticas de configuração do cluster para ambos os [casos de cluster failover (FCIs)](failover-cluster-instance-overview.md) e [grupos de disponibilidade](availability-group-overview.md) quando os utiliza com SQL Server em VMs Azure. 
 
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 Utilize um único NIC por servidor (nó de cluster) e uma única sub-rede. O networking Azure tem redundância física, o que torna niCs adicionais e sub-redes desnecessários num cluster de hóspedes virtuais Azure. O relatório de validação do cluster irá avisá-lo de que os nós são alcançáveis apenas numa única rede. Pode ignorar este aviso em aglomerados de failover de hóspedes virtuais da Azure.
 
@@ -35,26 +35,23 @@ Utilize um único NIC por servidor (nó de cluster) e uma única sub-rede. O net
 
 Embora um cluster de dois nós funcione sem um recurso de [quórum,](/windows-server/storage/storage-spaces/understand-quorum)os clientes são estritamente obrigados a usar um recurso quórum para ter suporte de produção. A validação do cluster não passará por nenhum cluster sem um recurso de quórum. 
 
-Tecnicamente, um aglomerado de três nós pode sobreviver a uma única perda de nó (até dois nós) sem um recurso de quórum. Mas depois que o aglomerado é reduzido a dois nó, há o risco de encontrar: 
+Tecnicamente, um aglomerado de três nós pode sobreviver a uma única perda de nó (até dois nós) sem um recurso de quórum. Mas depois que o cluster está reduzido a dois nós, há o risco de os recursos agrupados ficarem offline no caso de uma perda de nó ou falha de comunicação para evitar um cenário de cérebro dividido.
 
-- **Partição no espaço** (cérebro dividido): Os nós de cluster separam-se na rede devido ao problema do servidor, NIC ou switch. 
-- **Partição no tempo** (amnésia): Um nó une-se ou volta a juntar-se ao cluster e tenta reivindicar a propriedade do grupo de agrupamento ou um papel de cluster de forma inadequada. 
-
-O recurso quórum protege o cluster contra qualquer uma destas questões. 
+Configurar um recurso de quórum permitirá que o cluster continue on-line com apenas um nó on-line.
 
 A tabela a seguir enumera as opções de quórum disponíveis na ordem recomendada para a utilização com um Azure VM, sendo a testemunha de disco a escolha preferida: 
 
 
 ||[Testemunho de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testemunha de cloud](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testemunho de partilha de ficheiros](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**SoA apoiado**| Todos |Windows Server 2016+| Windows Server 2012+|
+|**SoA apoiado**| Todos |Windows Server 2016+| Todos|
 
 
 
 
 ### <a name="disk-witness"></a>Testemunho de disco
 
-Uma testemunha em disco é um pequeno disco agrupado no grupo de armazenamento disponível do Cluster. Este disco está altamente disponível e pode falhar entre nós. Contém uma cópia da base de dados do cluster, com um tamanho padrão que normalmente é inferior a 1 GB. A testemunha de disco é a opção de quórum preferida para um VM Azure, pois pode resolver a partição no tempo, ao contrário da testemunha em nuvem e testemunha de partilha de ficheiros. 
+Uma testemunha em disco é um pequeno disco agrupado no grupo de armazenamento disponível do Cluster. Este disco está altamente disponível e pode falhar entre nós. Contém uma cópia da base de dados do cluster, com um tamanho padrão que normalmente é inferior a 1 GB. A testemunha em disco é a opção de quórum preferida para qualquer cluster que utilize Discos Partilhados Azure (ou qualquer solução de disco partilhado como SCSI compartilhado, iSCSI ou canal de fibra SAN).  Um volume partilhado agrupado não pode ser usado como testemunha de disco.
 
 Configure um disco partilhado do Azure como testemunha do disco. 
 
@@ -95,8 +92,8 @@ O quadro a seguir compara a capacidade de suporte à ligação HADR:
 
 | |**Nome de Rede Virtual (VNN)**  |**Nome de Rede Distribuída (DNN)**  |
 |---------|---------|---------|
-|**Versão mínima do SO**| Windows Server 2012 | Windows Server 2016|
-|**Versão mínima do SqL Server** |SQL Server 2012 |SQL Server 2019 CU2|
+|**Versão mínima do SO**| Todos | Todos |
+|**Versão mínima do SqL Server** |Todos |SQL Server 2019 CU2|
 |**Solução HADR suportada** | Instância de cluster de ativação pós-falha <br/> Grupo de disponibilidade | Instância de cluster de ativação pós-falha|
 
 
@@ -108,9 +105,9 @@ Há um ligeiro atraso de incumprimento quando se está a usar o equilibrador de 
 
 Para começar, aprenda a [configurar o Azure Load Balancer para uma FCI](hadr-vnn-azure-load-balancer-configure.md). 
 
-**SISTEMA Suportado**: Windows Server 2012 e posteriormente   
-**Versão SQL suportada**: SQL Server 2012 e mais tarde   
-**Solução HADR suportada**: Instância de cluster de failover e grupo de disponibilidade 
+**Os suportados**: Todos   
+**Versão SQL suportada**: Todos   
+**Solução HADR suportada**: Instância de cluster de failover e grupo de disponibilidade   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nome de Rede Distribuída (DNN)
@@ -138,15 +135,16 @@ Para começar, aprenda a [configurar um recurso DNN para um FCI](hadr-distribute
 Considere as seguintes limitações quando estiver a trabalhar com fci ou grupos de disponibilidade e SQL Server em Azure Virtual Machines. 
 
 ### <a name="msdtc"></a>MSDTC 
-A Azure Virtual Machines suporta o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em Volumes Compartilhados Agrupados (CSV) e [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
-Nas Máquinas Virtuais Azure, o MSDTC não é suportado para o Windows Server 2016 ou mais cedo porque:
+As Máquinas Virtuais Azure suportam o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em Volumes Compartilhados Agrupados (CSV) e [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) ou em VMs do SERVIDOR SQL que estão a usar discos partilhados Azure. 
+
+Nas Máquinas Virtuais Azure, o MSDTC não é suportado para Windows Server 2016 ou anteriormente com volumes compartilhados agrupados porque:
 
 - O recurso MSDTC agrupado não pode ser configurado para usar armazenamento partilhado. No Windows Server 2016, se criar um recurso MSDTC, não apresentará nenhum armazenamento partilhado disponível para utilização, mesmo que o armazenamento esteja disponível. Este problema foi corrigido no Windows Server 2019.
 - O equilibrador de carga básico não lida com portas RPC.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ter determinado as melhores práticas adequadas para a sua solução, começa por [preparar o seu SQL Server VM para a FCI](failover-cluster-instance-prepare-vm.md). Também pode criar o seu grupo de disponibilidade utilizando os modelos [Azure CLI](availability-group-az-cli-configure.md), ou [Azure quickstart](availability-group-quickstart-template-configure.md). 
 

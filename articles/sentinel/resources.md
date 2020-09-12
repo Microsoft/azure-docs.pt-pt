@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77585276"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461736"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com Azure Sentinel
 
@@ -28,7 +28,7 @@ ms.locfileid: "77585276"
 
 Este artigo lista recursos que podem ajudá-lo a obter mais informações sobre o trabalho com a Azure Sentinel.
 
-Conectores Azure Logic Apps:<https://docs.microsoft.com/connectors/>
+Conectores Azure Logic Apps: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Auditoria e reporte
@@ -82,4 +82,4 @@ Ver posts de blog do Azure Sentinel da [TechCommunity](https://techcommunity.mic
 
 
 ## <a name="next-steps"></a>Próximos passos
-Neste documento, você tem uma lista de recursos que são úteis quando você está trabalhando com Azure Sentinel. Encontrará informações adicionais sobre segurança e conformidade da Azure no [blog Microsoft Azure Security and Compliance](https://blogs.msdn.com/b/azuresecurity/).
+Neste documento, você tem uma lista de recursos que são úteis quando você está trabalhando com Azure Sentinel. Encontrará informações adicionais sobre segurança e conformidade da Azure no [blog Microsoft Azure Security and Compliance](https://docs.microsoft.com/archive/blogs/azuresecurity/).

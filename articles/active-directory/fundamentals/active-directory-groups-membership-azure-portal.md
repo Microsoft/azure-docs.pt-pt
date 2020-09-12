@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfc532ea859c78b72a15dc85e0d3fc740ffe19a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797547"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565469"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Adicione ou remova um grupo de outro grupo usando o Azure Ative Directory
 Este artigo ajuda-o a adicionar e remover um grupo de outro grupo usando o Azure Ative Directory.
@@ -30,7 +30,7 @@ Este artigo ajuda-o a adicionar e remover um grupo de outro grupo usando o Azure
 Pode adicionar um grupo de Segurança existente a outro grupo de Segurança existente (também conhecido como grupos aninhados), criando um grupo de membros (subgrupo) e um grupo de pais. O grupo membro herda os atributos e propriedades do grupo-mãe, poupando-lhe tempo de configuração.
 
 >[!Important]
->Não apoiamos atualmente:<ul><li>Adicionar grupos a um grupo sincronizado com o Ative Directory no local.</li><li>Adicionar grupos de segurança ao Office 365 grupos.</li><li>Adicionar grupos do Office 365 a grupos de segurança ou outros grupos do Office 365.</li><li>Atribuindo aplicativos a grupos aninhados.</li><li>Aplicação de licenças a grupos aninhados.</li><li>Adicionar grupos de distribuição em cenários de nidificação.</li></ul>
+>Não apoiamos atualmente:<ul><li>Adicionar grupos a um grupo sincronizado com o Ative Directory no local.</li><li>Adicionar grupos de segurança a grupos Microsoft 365.</li><li>Adicionar grupos Microsoft 365 a grupos de Segurança ou outros grupos Microsoft 365.</li><li>Atribuindo aplicativos a grupos aninhados.</li><li>Aplicação de licenças a grupos aninhados.</li><li>Adicionar grupos de distribuição em cenários de nidificação.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Para adicionar um grupo como membro de outro grupo
 

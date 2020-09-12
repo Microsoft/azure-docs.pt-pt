@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043961"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612158"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Teste um trabalho de Azure Stream Analytics no portal
 
@@ -23,7 +23,7 @@ No Azure Stream Analytics, pode testar a sua consulta sem iniciar ou parar o seu
 
 O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entradas de streaming. Pode executar consultas na amostra predefinida ou definir um prazo específico para a amostra.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Localize e selecione o seu trabalho stream analytics existente.
 
@@ -71,7 +71,7 @@ O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entra
 
 Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro local para testar a sua consulta Azure Stream Analytics.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
    
 2. Localize o seu trabalho stream analytics existente e selecione-o.
 
@@ -96,6 +96,21 @@ Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro
    ![Azure Stream Analytics produção selecionada](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. Depois de verificar os resultados apresentados no navegador, pode **iniciar** o trabalho.
+
+## <a name="limitations"></a>Limitações
+
+1.  A política do tempo não é suportada nos testes do portal:
+
+   * Fora de ordem: todos os eventos de entrada serão encomendados.
+   * Chegada tardia: Não haverá evento de chegada tardia, uma vez que o Stream Analytics só pode utilizar os dados existentes para testes.
+   
+2.  C# UDF não é suportado.
+
+3.  Todos os testes serão executados com um trabalho que tem uma Unidade de Streaming.
+
+4.  O tamanho do tempo limite é de um minuto. Assim, qualquer consulta com um tamanho de janela superior a um minuto não pode obter qualquer dado.
+
+5.  A aprendizagem automática não é suportada.
 
 ## <a name="next-steps"></a>Próximos passos
 * [Construa uma solução IoT utilizando o Stream Analytics:](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)este tutorial irá guiá-lo a construir uma solução de ponta a ponta com um gerador de dados que simulará o tráfego numa cabine de portagens.

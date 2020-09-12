@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: fff1aac5df50550e43ae3e87c63c2130c6b39644
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3fdb0f572f7ed399e908c997999b0925806d3739
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013968"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425131"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
@@ -443,17 +443,17 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
     "operationName": "Microsoft.ServiceHealth/maintenance/action",
     "operationId": "<GUID>",
     "properties": {
-      "title": "Azure SQL DW Scheduled Maintenance Pending",
-      "service": "SQL Data Warehouse",
+      "title": "Azure Synapse Analytics Scheduled Maintenance Pending",
+      "service": "Azure Synapse Analytics",
       "region": "East US",
       "communication": "<MESSAGE>",
       "incidentType": "Maintenance",
       "trackingId": "<GUID>",
       "impactStartTime": "2019-06-26T04:00:00Z",
       "impactMitigationTime": "2019-06-26T12:00:00Z",
-      "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"East US\"}],\"ServiceName\":\"SQL Data Warehouse\"}]",
-      "impactedServicesTableRows": "<tr>\r\n<td align='center' style='padding: 5px 10px; border-right:1px solid black; border-bottom:1px solid black'>SQL Data Warehouse</td>\r\n<td align='center' style='padding: 5px 10px; border-bottom:1px solid black'>East US<br></td>\r\n</tr>\r\n",
-      "defaultLanguageTitle": "Azure SQL DW Scheduled Maintenance Pending",
+      "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"East US\"}],\"ServiceName\":\"Azure Synapse Analytics\"}]",
+      "impactedServicesTableRows": "<tr>\r\n<td align='center' style='padding: 5px 10px; border-right:1px solid black; border-bottom:1px solid black'>Azure Synapse Analytics</td>\r\n<td align='center' style='padding: 5px 10px; border-bottom:1px solid black'>East US<br></td>\r\n</tr>\r\n",
+      "defaultLanguageTitle": "Azure Synapse Analytics Scheduled Maintenance Pending",
       "defaultLanguageContent": "<MESSAGE>",
       "stage": "Planned",
       "communicationId": "<GUID>",
@@ -497,7 +497,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [esquema de alerta comum.](https://aka.ms/commonAlertSchemaDocs)
 - Saiba [como criar uma aplicação lógica que utilize o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md) 

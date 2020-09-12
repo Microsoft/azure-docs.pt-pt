@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 21bede74ee265ffbe530c7697817186ac0e8dd3b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845702"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440206"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>O processo de ciência de dados da equipa em ação: usando a Azure Synapse Analytics
 Neste tutorial, percorremos a construção e implementamos um modelo de machine learning usando a Azure Synapse Analytics para um conjunto de dados publicamente disponível - o conjunto de dados [de Viagens de Táxi de NYC.](https://www.andresmh.com/nyctaxitrips/) O modelo de classificação binária construído prevê se uma gorjeta é ou não paga por uma viagem.  Os modelos incluem classificação multiclasse (se há ou não uma ponta) e regressão (a distribuição pelos valores da gorjeta paga).
@@ -40,7 +40,7 @@ Os dados da NY Taxi Trip consistem em cerca de 20 GB de ficheiros CSV comprimido
 
 `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868`
 
-2. O **ficheirotrip_fare.csv** contém detalhes da tarifa paga por cada viagem, como tipo de pagamento, valor da tarifa, sobretaxa e impostos, gorjetas e portagens, e o valor total pago. Aqui estão alguns registos de amostras:
+2. O ** ficheirotrip_fare.csv** contém detalhes da tarifa paga por cada viagem, como tipo de pagamento, valor da tarifa, sobretaxa e impostos, gorjetas e portagens, e o valor total pago. Aqui estão alguns registos de amostras:
 
 `medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount`
 
@@ -91,14 +91,14 @@ Para configurar o seu ambiente Azure Data Science, siga estes passos.
   * **Nome do recipiente** (que pretende que os dados sejam armazenados no armazenamento da bolha Azure)
 
 **Provisionar o seu exemplo Azure Synapse Analytics.**
-Siga a documentação na [Create e consultar um Armazém de Dados Azure SQL no portal Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para obter uma instância Azure Synapse Analytics. Certifique-se de que faz notações nas seguintes credenciais Azure Synapse Analytics que serão usadas em etapas posteriores.
+Siga a documentação na [Create e questione um Azure Synapse Analytics no portal Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para obter uma instância Azure Synapse Analytics. Certifique-se de que faz notações nas seguintes credenciais Azure Synapse Analytics que serão usadas em etapas posteriores.
 
 * **Nome do servidor**: \<server Name> .database.windows.net
 * **Nome SQLDW (Base de Dados)**
 * **Nome de Utilizador**
 * **Palavra-passe**
 
-**Instale ferramentas de dados do Estúdio Visual e do Servidor SQL.** Para obter instruções, consulte [Começar com o Visual Studio 2019 para o SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Instale ferramentas de dados do Estúdio Visual e do Servidor SQL.** Para obter instruções, consulte [Começar com o Visual Studio 2019 para a Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Ligue-se ao Azure Synapse Analytics com o Visual Studio.** Para obter instruções, consulte os passos 1 & 2 em [Connect to SQL Analytics in Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
@@ -966,7 +966,7 @@ Neste exercício, já exploramos e concebemos os dados no Azure Synapse Analytic
 
     ![Dados de importação de Azure ML][17]
 2. Selecione **Azure SQL Database** como **fonte de dados** no painel **Propriedades.**
-3. Introduza o nome DNS da base de dados no campo **de nome do servidor Database.** Formato:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Introduza o nome DNS da base de dados no campo **de nome do servidor Database.** Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome base de dados** no campo correspondente.
 5. Introduza o *nome de utilizador SQL* no nome da **conta de utilizador**do Servidor e na *palavra-passe* da **conta de utilizador**do Servidor .
 7. Na **área de consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessários (incluindo quaisquer campos calculados, como os rótulos) e diminui as amostras dos dados para o tamanho da amostra pretendido.

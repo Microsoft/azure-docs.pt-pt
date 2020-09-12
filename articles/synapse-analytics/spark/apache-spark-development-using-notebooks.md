@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 6e0062450889a2bbbdfcd47137ffbe36b83cae57
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 2feaf33f7bc31396764bfbaa3ae6291b6752e961
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849103"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612809"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter cadernos do Synapse Studio (pré-visualização) em Azure Synapse Analytics
 
@@ -114,12 +114,12 @@ Os cadernos do Azure Synapse Studio estão integrados com o editor do Mónaco pa
 
 As características do IntelliSense estão em diferentes níveis de maturidade para diferentes línguas. Use a tabela abaixo para ver o que é suportado.
 
-|Linguagens| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
+|Idiomas| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
-|PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
-|Sparksql|Sim|Sim|-|-|-|-|-|-|
-|.NET for Spark (C#)|Sim|-|-|-|-|-|-|-|
+|PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Faísca (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
+|Sparksql|Yes|Yes|-|-|-|-|-|-|
+|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 
@@ -232,7 +232,7 @@ from pyspark.sql.types import *
 account_name = "Your account name"
 container_name = "Your container name"
 relative_path = "Your path"
-adls_path = 'abfss://%s@%s.dfs.core.windows.net/%s' % (blob_container_name, blob_account_name,  blob_relative_path)
+adls_path = 'abfss://%s@%s.dfs.core.windows.net/%s' % (container_name, account_name, relative_path)
 
 spark.conf.set("fs.azure.account.auth.type.%s.dfs.core.windows.net" %account_name, "SharedKey")
 spark.conf.set("fs.azure.account.key.%s.dfs.core.windows.net" %account_name ,"Your ADLSg2 Primary Key")
@@ -349,7 +349,7 @@ Nas propriedades do portátil, pode configurar se deve incluir a saída da célu
    ![portátil-propriedades](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## <a name="magic-commands"></a>Comandos mágicos
-Você pode usar seus comandos mágicos Jupyter familiares em cadernos do Estúdio Azure Synapse. Consulte a lista abaixo como os comandos mágicos disponíveis atuais. Diga-nos os seus casos de uso no GitHub para que possamos continuar a construir mais comandos mágicos para satisfazer as suas necessidades.
+Você pode usar seus comandos mágicos Jupyter familiares em cadernos do Estúdio Azure Synapse. Consulte a lista abaixo como os comandos mágicos disponíveis atuais. Diga-nos [os seus casos de uso no GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que possamos continuar a construir mais comandos mágicos para satisfazer as suas necessidades.
 
 Magias de linha disponíveis: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
@@ -435,7 +435,7 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 |Dedent|Ctrl +|
 |Mudar para o modo de comando| Esc |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Confira os cadernos da amostra da Sinapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark em Azure Synapse Analytics](apache-spark-overview.md)

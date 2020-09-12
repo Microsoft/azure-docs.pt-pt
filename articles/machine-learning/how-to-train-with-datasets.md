@@ -12,19 +12,19 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b20612756050ae2e9d39f59d049b8c097e3b8010
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1db62b77f3b9b1bcfc524a68b52c4aef5c16d851
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651221"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648177"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende a trabalhar com [conjuntos de dados de Aprendizagem automática Azure](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) nas suas experiências de treino.  Pode utilizar conjuntos de dados no seu alvo de computação local ou remota sem se preocupar com cordas de ligação ou caminhos de dados.
+Neste artigo, aprende a trabalhar com [conjuntos de dados de Aprendizagem automática Azure](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) nas suas experiências de treino.  Pode utilizar conjuntos de dados no seu alvo de computação local ou remota sem se preocupar com cordas de ligação ou caminhos de dados.
 
-Os conjuntos de dados Azure Machine Learning proporcionam uma integração perfeita com produtos de formação de aprendizagem automática Azure como [scriptRun,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py) [Estimador,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) e [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
+Os conjuntos de dados Azure Machine Learning proporcionam uma integração perfeita com produtos de formação de aprendizagem automática Azure como [scriptRun,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true) [Estimador,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true) e [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,16 +34,16 @@ Para criar e treinar com conjuntos de dados, precisa:
 
 * Um [espaço de trabalho de aprendizagem automática Azure.](how-to-manage-workspace.md)
 
-* O [Azure Machine Learning SDK para Python instalado,](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)que inclui o pacote de conjuntos de dados azureml.
+* O [Azure Machine Learning SDK para Python instalado,](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)que inclui o pacote de conjuntos de dados azureml.
 
 > [!Note]
-> Algumas classes dataset têm dependências do pacote [azureml-dataprep.](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Algumas classes dataset têm dependências do pacote [azureml-dataprep.](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
 ## <a name="access-and-explore-input-datasets"></a>Aceda e explore conjuntos de dados de entrada
 
 Você pode aceder a um Separadornus existente a partir do script de treino de uma experiência no seu espaço de trabalho, e carregar esse conjunto de dados em um dataframe pandas para mais exploração no seu ambiente local.
 
-O código que se segue utiliza o [`get_context()`]() método na classe para aceder à entrada existente [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) TabularDataset, `titanic` no script de treino. Em seguida, utiliza o [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método para carregar esse conjunto de dados num dataframe de pandas para mais exploração e preparação de dados antes do treino.
+O código que se segue utiliza o [`get_context()`]() método na classe para aceder à entrada existente [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true) TabularDataset, `titanic` no script de treino. Em seguida, utiliza o [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método para carregar esse conjunto de dados num dataframe de pandas para mais exploração e preparação de dados antes do treino.
 
 > [!Note]
 > Se a sua fonte de dados original contiver NaN, cordas vazias ou valores em branco, quando utilizar o to_pandas_dataframe(), esses valores são substituídos como um valor *nulo.* 
@@ -67,7 +67,7 @@ Se precisar de carregar os dados preparados num novo conjunto de dados a partir 
 
 Se tiver dados estruturados ainda não registados como conjunto de dados, crie um Separadors e utilize-os diretamente no seu script de treino para a sua experiência local ou remota.
 
-Neste exemplo, cria-se um [Separador Não](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) Registado e utiliza-o como entrada direta no seu `estimator` objeto para o treino. Se pretender reutilizar este SeparadorDataset com outras experiências no seu espaço de trabalho, consulte [como registar conjuntos de dados no seu espaço de trabalho.](how-to-create-register-datasets.md#register-datasets)
+Neste exemplo, cria-se um [Separador Não](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) Registado e utiliza-o como entrada direta no seu `estimator` objeto para o treino. Se pretender reutilizar este SeparadorDataset com outras experiências no seu espaço de trabalho, consulte [como registar conjuntos de dados no seu espaço de trabalho.](how-to-create-register-datasets.md#register-datasets)
 
 ### <a name="create-a-tabulardataset"></a>Criar um Conjunto de Dados Tabular
 
@@ -84,7 +84,7 @@ Os objetos TabularDataset fornecem a capacidade de carregar os dados no seu Sepa
 
 ### <a name="configure-the-estimator"></a>Configure o estimador
 
-Um [objeto estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) é usado para submeter a experiência. A Azure Machine Learning tem estimativas pré-configuradas para quadros comuns de aprendizagem automática, bem como um estimador genérico.
+Um [objeto estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) é usado para submeter a experiência. A Azure Machine Learning tem estimativas pré-configuradas para quadros comuns de aprendizagem automática, bem como um estimador genérico.
 
 Este código cria um objeto estimador genérico, `est` que especifica
 
@@ -109,9 +109,12 @@ experiment_run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>Monte ficheiros para alvos de computação remota
 
-Se tiver dados não estruturados, crie um [Dataset de Ficheiros](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) e monte ou descarregue os seus ficheiros de dados para os disponibilizar ao seu alvo de computação remota para treino. Saiba quando usar [o mount vs. download](#mount-vs-download) para as suas experiências de treino remoto. 
+Se tiver dados não estruturados, crie um [Dataset de Ficheiros](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e monte ou descarregue os seus ficheiros de dados para os disponibilizar ao seu alvo de computação remota para treino. Saiba quando usar [o mount vs. download](#mount-vs-download) para as suas experiências de treino remoto. 
 
 O exemplo a seguir cria um Dataset de Ficheiros e monta o conjunto de dados para o alvo do cálculo, passando-o como argumento no estimador para a formação. 
+
+> [!Note]
+> Se estiver a utilizar uma imagem base personalizada do Docker, terá de instalar o fusível através `apt-get install -y fuse` de uma dependência para o conjunto de dados funcionar. Aprenda a [construir uma imagem de construção personalizada.](how-to-deploy-custom-docker-image.md#build-a-custom-base-image)
 
 ### <a name="create-a-filedataset"></a>Criar um Conjunto de Dados de Ficheiros
 
@@ -133,7 +136,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 Recomendamos a passagem do conjunto de dados como argumento ao montagem. Além de passar o conjunto de dados através do `inputs` parâmetro no estimador, também pode passar o conjunto de dados `script_params` e obter o caminho de dados (ponto de montagem) no seu script de treino através de argumentos. Desta forma, poderá utilizar o mesmo script de treino para depurar local e treinar remotamente em qualquer plataforma em nuvem.
 
-Um objeto estimador [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) é usado para submeter a corrida para experiências scikit-learn. Após a submissão da execução, os ficheiros de dados referidos pelo `mnist` conjunto de dados serão montados no alvo do cálculo. Saiba mais sobre o treino com o [estimador SKlearn.](how-to-train-scikit-learn.md)
+Um objeto estimador [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true) é usado para submeter a corrida para experiências scikit-learn. Após a submissão da execução, os ficheiros de dados referidos pelo `mnist` conjunto de dados serão montados no alvo do cálculo. Saiba mais sobre o treino com o [estimador SKlearn.](how-to-train-scikit-learn.md)
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -219,7 +222,7 @@ print (mounted_path)
 
 ## <a name="access-datasets-in-your-script"></a>Aceda a conjuntos de dados no seu script
 
-Os conjuntos de dados registados são acessíveis localmente e remotamente em clusters computacional como o cálculo Azure Machine Learning. Para aceder ao conjunto de dados registado através de experiências, utilize o seguinte código para aceder ao seu espaço de trabalho e ao conjunto de dados registado pelo nome. Por predefinição, [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) o método na classe devolve a versão mais recente do conjunto de `Dataset` dados registado no espaço de trabalho.
+Os conjuntos de dados registados são acessíveis localmente e remotamente em clusters computacional como o cálculo Azure Machine Learning. Para aceder ao conjunto de dados registado através de experiências, utilize o seguinte código para aceder ao seu espaço de trabalho e ao conjunto de dados registado pelo nome. Por predefinição, [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) o método na classe devolve a versão mais recente do conjunto de `Dataset` dados registado no espaço de trabalho.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -253,7 +256,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Os [cadernos de conjuntos de dados](https://aka.ms/dataset-tutorial) demonstram e expandem-se sobre conceitos neste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Modelos de aprendizagem automática de máquinas](how-to-auto-train-remote.md) de comboio com Separadors.
 

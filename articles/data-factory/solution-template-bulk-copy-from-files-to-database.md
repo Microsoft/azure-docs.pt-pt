@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 468bd838237e076aacb9dee0ccacfdcc1ea940af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7f4cba10117efef4099b3524b49cae313593a9a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629121"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442722"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Cópia em massa de ficheiros para base de dados
 
@@ -55,7 +55,7 @@ O modelo define os dois parâmetros seguintes:
     ![Reveja o oleoduto](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Se escolheu **a Azure Synapse Analytics (anteriormente SQL DW)** como o destino de dados no **passo 2** acima mencionado, deve introduzir uma ligação ao armazenamento Azure Blob para a realização, conforme exigido pela SQL Data Warehouse Polybase. Como mostra a imagem que se segue, o modelo gerará automaticamente um *Caminho de Armazenamento* para o seu armazenamento Blob. Verifique se o recipiente foi criado após o funcionado do gasoduto.
+    > Se escolheu **a Azure Synapse Analytics (anteriormente SQL DW)** como o destino de dados na **etapa 2** acima mencionada, deve introduzir uma ligação ao armazenamento Azure Blob para a realização, conforme exigido pela Azure Synapse Analytics (anteriormente SQL Data Warehouse) Polybase. Como mostra a imagem que se segue, o modelo gerará automaticamente um *Caminho de Armazenamento* para o seu armazenamento Blob. Verifique se o recipiente foi criado após o funcionado do gasoduto.
         
     ![Definição de base poli-base](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 
@@ -68,6 +68,6 @@ O modelo define os dois parâmetros seguintes:
     ![Reveja o resultado](media/solution-template-bulk-copy-from-files-to-database/run-succeeded.png)
 
        
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Introdução ao Azure Data Factory](introduction.md)

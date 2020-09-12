@@ -3,12 +3,12 @@ title: Apoie uma fazenda SharePoint em Azure Stack
 description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os dados do SharePoint no Azure Stack. Este artigo fornece as informações para configurar a sua quinta SharePoint para que os dados desejados possam ser armazenados em Azure. Pode restaurar dados protegidos do SharePoint a partir do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 7319cf064ab2bab20e4140f8a208be843df7fa71
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017977"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378326"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Apoie uma fazenda SharePoint em Azure Stack
 
@@ -76,7 +76,7 @@ Para fazer o back up da quinta SharePoint, configuure a proteção para o ShareP
 
         Depois de executar ConfigureSharePoint.exe, terá de a refazer se houver uma alteração nas credenciais de administrador agrícola do SharePoint.
 
-1. Para criar um grupo **Protection**de proteção, clique em  >  **"Protection Actions**  >  **Create Protection Group"** para abrir o assistente criar novo grupo de **proteção** na consola MABS.
+1. Para criar um grupo de proteção, selecione **Protection**  >  **Actions**  >  **Create Protection Group** para abrir o assistente criar novo grupo de **proteção** na consola MABS.
 
 1. Em **Selecionar Tipo de Grupo de Proteção**, selecione **Servidores**.
 
@@ -104,7 +104,7 @@ Para fazer o back up da quinta SharePoint, configuure a proteção para o ShareP
 
 1. In **Escolha a replicação on-line**, especifique como a replicação completa inicial dos dados ocorrerá. Pode replicar através da rede ou criar uma cópia de segurança offline (propagação offline). A cópia de segurança offline utiliza a funcionalidade de Importação do Azure. [Leia mais.](./backup-azure-backup-import-export.md)
 
-1. Na página  **Resumo,** reveja as suas definições. Depois de clicar em **Criar Grupo,** ocorre a replicação inicial dos dados. Quando terminar, o estado do grupo de proteção mostrará **como OK** na página **'Status'.** A criação da cópia de segurança está em conformidade com as definições do grupo de proteção.
+1. Na página  **Resumo,** reveja as suas definições. Depois de selecionar **Criar Grupo,** ocorre a replicação inicial dos dados. Quando terminar, o estado do grupo de proteção mostrará **como OK** na página **'Status'.** A criação da cópia de segurança está em conformidade com as definições do grupo de proteção.
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -116,17 +116,17 @@ Após a criação do grupo de proteção, ocorre a replicação inicial e o MABS
 
 ### <a name="set-up-monitoring-notifications"></a>Configurar as notificações de monitorização
 
-1. Na consola de administrador MABS, clique em **Opções de Ação de**  >  **Action**  >  **Monitorização**.
+1. Na consola de administrador MABS, selecione Opções **de Ação de**  >  **Action**  >  **Monitorização**.
 
-2. Clique em **Servidor SMTP**, introduza o nome do servidor, a porta e o endereço de e-mail a partir dos quais as notificações serão enviadas. O endereço tem de ser válido.
+2. Selecione **SMTP Server**, digite o nome do servidor, porta e endereço de e-mail a partir do qual serão enviadas notificações. O endereço tem de ser válido.
 
 3. No **servidor SMTP autenticado,** digite um nome de utilizador e uma palavra-passe. O nome de utilizador e a palavra-passe devem ser o nome da conta de domínio da pessoa cujo endereço "From" é descrito no passo anterior. Caso contrário, a entrega da notificação falha.
 
-4. Para testar as definições do servidor SMTP, clique em **Enviar E-mail de Teste,** digite o endereço de e-mail onde pretende que o MABS envie a mensagem de teste e, em seguida, clique **em OK**. Clique em **Opções**  >  **Notificações** e selecione os tipos de alertas sobre os destinatários que pretendem ser notificados. Nos **Destinatários** digita o endereço de e-mail de cada destinatário a quem pretende que o MABS envie cópias das notificações.
+4. Para testar as definições do servidor SMTP, selecione **Enviar E-mail**de Teste, digite o endereço de e-mail onde pretende que o MABS envie a mensagem de teste e, em seguida, selecione **OK**. Selecione **Opções**  >  **Notificações** e selecione os tipos de alertas sobre os destinatários que querem ser notificados. Nos **Destinatários** digita o endereço de e-mail de cada destinatário a quem pretende que o MABS envie cópias das notificações.
 
 ### <a name="publish-operations-manager-alerts"></a>Publicar alertas do Operations Manager
 
-1. Na consola de administrador MABS, clique em **monitorizar**  >  opções de**ação**  >  **Options**  >  **alerta publicar**  >  **alertas ativos**
+1. Na consola de administrador MABS, selecione **Opções de Ação de Monitorização**  >  **Action**  >  **Options**  >  **Alert Publishing**  >  **Ative Alerts**
 
 2. Depois de **ativar a Publishing alert,** todos os alertas MABS existentes que possam necessitar de uma ação do utilizador são publicados no registo de **eventos MABS Alerts.** O agente Gestor de Operações que está instalado no servidor MABS publica estes alertas ao Gestor de Operações e continua a atualizar a consola à medida que são gerados novos alertas.
 
@@ -148,10 +148,10 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
 5. Também pode navegar por vários pontos de recuperação e selecionar uma base de dados ou um item para recuperar. Selecione **data > tempo de recuperação**e, em seguida, selecione a base de dados > ponto de **recuperação > ponto de recuperação > > ponto de recuperação do SharePoint**correto .
 
     ![MABS SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Clique com o botão direito no item e, em seguida, **selecione Recuperar** para abrir o Assistente **de Recuperação**. Clique em **Seguinte**.
+6. Clique com o botão direito no item e, em seguida, **selecione Recuperar** para abrir o Assistente **de Recuperação**. Selecione **Seguinte**.
 
     ![Seleção de Recuperação de Revisão](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. Selecione o tipo de recuperação que pretende realizar e, em seguida, clique em **Seguinte**.
+7. Selecione o tipo de recuperação que pretende realizar e, em seguida, selecione **Seguinte**.
 
     ![Tipo de Recuperação](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -172,7 +172,7 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
     O MABS anexa a base de dados de conteúdos que está a hospedar o item SharePoint à instância temporária do SQL Server. A partir da base de dados de conteúdos, recupera o item e coloca-o na localização do ficheiro de paragem no MABS. O item recuperado que está no local de preparação precisa agora de ser exportado para o local de paragem na fazenda SharePoint.
 
     ![Localização de encenação2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. **Selecione Especificar as opções de recuperação**e aplicar definições de segurança na fazenda SharePoint ou aplicar as definições de segurança do ponto de recuperação. Clique em **Seguinte**.
+10. **Selecione Especificar as opções de recuperação**e aplicar definições de segurança na fazenda SharePoint ou aplicar as definições de segurança do ponto de recuperação. Selecione **Seguinte**.
 
     ![Opções de Recuperação](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -180,7 +180,7 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
     > Pode optar por acelerar o uso da largura de banda da rede. Isto minimiza o impacto no servidor de produção durante as horas de produção.
     >
     >
-11. Reveja as informações do resumo e, em seguida, clique em **Recuperar** para iniciar a recuperação do ficheiro.
+11. Reveja as informações de resumo e, em seguida, **selecione Recuperar** para iniciar a recuperação do ficheiro.
 
     ![Resumo da recuperação](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. Selecione agora o **separador Monitor na** **Consola de Administrador MABS** para visualizar o **Estado** da recuperação.
@@ -203,7 +203,7 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
    > Como a quinta SharePoint está protegida para retenção a longo prazo no Azure, nenhuma informação de catálogo (metadados) está disponível no servidor MABS. Como resultado, sempre que uma base de dados de conteúdos do SharePoint pontual precisa de ser recuperada, é necessário catalogar novamente a quinta SharePoint.
    >
    >
-3. Clique **em Re-catálogo.**
+3. Selecione **Re-catálogo**.
 
     ![MABS SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -211,10 +211,10 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
 
     ![MABS SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Depois de concluída a catalogação, o estado muda para *Sucesso*. Clique em **Close** (Fechar).
+    Depois de concluída a catalogação, o estado muda para *Sucesso*. Selecione **Fechar**.
 
     ![MABS SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Clique no objeto SharePoint mostrado no separador **Recuperação** MABS para obter a estrutura da base de dados de conteúdos. Clique com o botão direito no item e, em seguida, clique em **Recuperar**.
+4. Selecione o objeto SharePoint mostrado no separador **Recuperação** MABS para obter a estrutura da base de dados de conteúdos. Clique com o botão direito no item e, em seguida, **selecione Recuperar**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste ponto, siga os passos de recuperação mais cedo neste artigo para recuperar uma base de dados de conteúdos SharePoint do disco.
@@ -249,7 +249,7 @@ O procedimento a seguir utiliza o exemplo de uma quinta de servidores com dois s
 
 1. No *Server2,* com um pedido de comando, altere o diretório para `_MABS installation location_\bin\` e executar o **ConfigureSharepoint**. Para obter mais informações sobre o ConfigureSharePoint, consulte [a cópia de segurança Configure](#configure-backup).
 
-1. Selecione o grupo de proteção a que pertence a quinta do servidor e, em seguida, clique em **Modificar o grupo de proteção**.
+1. Selecione o grupo de proteção a que pertence a exploração do servidor e, em seguida, selecione **Modificar o grupo de proteção**.
 
 1. No Assistente de Grupo modificar, na página **'Selecionar Membros do Grupo',** expandir o *Servidor2* e selecionar a fazenda do servidor e, em seguida, completar o assistente.
 
@@ -257,7 +257,7 @@ O procedimento a seguir utiliza o exemplo de uma quinta de servidores com dois s
 
 1. Se tiver realizado o passo 6, pode agora retirar o volume do grupo de proteção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte os ficheiros de cópia de segurança e o artigo [de aplicação.](backup-mabs-files-applications-azure-stack.md)
 * Consulte o servidor SQL de backup no artigo [Azure Stack.](backup-mabs-sql-azure-stack.md)

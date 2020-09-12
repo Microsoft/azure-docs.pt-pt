@@ -11,20 +11,20 @@ ms.subservice: core
 ms.date: 02/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f76e149339e80ddeba8431afffbd677a4b595ec3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac7420e47077e4e2b5bcfce0f33766554cd5c76d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319478"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647323"
 ---
-# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Utilize a identidade AZure AD com o seu serviço web de aprendizagem automática no Serviço Azure Kubernetes
+# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Utilizar a identidade do Azure Active Directory com o serviço Web de aprendizagem automática no Azure Kubernetes Service
 
 Neste modo de fazer, aprende a atribuir uma identidade do Azure Ative Directory (AAD) ao seu modelo de machine learning implantado no Serviço Azure Kubernetes. O projeto [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) permite que as aplicações acedam a recursos em nuvem de forma segura com a AAD utilizando uma [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) e primitivos Kubernetes. Isto permite que o seu serviço web aceda de forma segura aos seus recursos Azure sem ter de incorporar credenciais ou gerir fichas diretamente dentro do seu `score.py` script. Este artigo explica os passos para criar e instalar uma Identidade Azure no seu cluster de Serviço Azure Kubernetes e atribuir a identidade ao seu serviço web implantado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A [extensão Azure CLI para o serviço machine learning](reference-azure-machine-learning-cli.md), o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), ou a extensão do Código do Estúdio Visual de [Aprendizagem de Máquinas Azure.](tutorial-setup-vscode-extension.md)
+- A [extensão Azure CLI para o serviço machine learning](reference-azure-machine-learning-cli.md), o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), ou a extensão do Código do Estúdio Visual de [Aprendizagem de Máquinas Azure.](tutorial-setup-vscode-extension.md)
 
 - Acesso ao seu cluster AKS utilizando o `kubectl` comando. Para mais informações, consulte [Connect to the cluster](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
 
@@ -153,7 +153,7 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> Este exemplo utiliza o DefaultAzureCredential. Para conceder o acesso à sua identidade utilizando uma política de acesso específica, consulte [a Parte 4: Recupere o segredo de si Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
+> Este exemplo utiliza o DefaultAzureCredential. Para conceder o acesso à sua identidade utilizando uma política de acesso específica, consulte [atribuir uma política de acesso ao Cofre de Chaves utilizando o CLI Azure](/azure/key-vault/general/assign-access-policy-cli).
 
 ### <a name="access-blob-from-your-web-service"></a>Aceder Blob a partir do seu serviço web
 
@@ -177,7 +177,7 @@ blob_data = blob_client.download_blob()
 blob_data.readall()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre como usar a biblioteca de clientes Python Azure Identity, consulte o [repositório](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-python) no GitHub.
 * Para obter um guia detalhado sobre a implementação de modelos para os clusters de serviços Azure Kubernetes, consulte o [como fazer](how-to-deploy-azure-kubernetes-service.md).

@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d5343e6c21da4c30dc18c8692b41dd66eb9566a4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8c97ee9782f728e39175ed2517b64020ca4169f4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846705"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649400"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e eliminar recursos Azure ML usando REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Existem várias formas de gerir os seus recursos Azure ML. Pode utilizar o [portal,](https://portal.azure.com/) [interface de linha de comando,](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)ou Python [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Ou, pode escolher a API REST. A API REST utiliza verbos HTTP de forma padrão para criar, recuperar, atualizar e eliminar recursos. A API REST funciona com qualquer idioma ou ferramenta que possa fazer pedidos HTTP. A estrutura simples do REST muitas vezes faz com que seja uma boa escolha em ambientes de script e para a automação de MLOps. 
+Existem várias formas de gerir os seus recursos Azure ML. Pode utilizar o [portal,](https://portal.azure.com/) [interface de linha de comando,](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)ou Python [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Ou, pode escolher a API REST. A API REST utiliza verbos HTTP de forma padrão para criar, recuperar, atualizar e eliminar recursos. A API REST funciona com qualquer idioma ou ferramenta que possa fazer pedidos HTTP. A estrutura simples do REST muitas vezes faz com que seja uma boa escolha em ambientes de script e para a automação de MLOps. 
 
 Neste artigo, vai aprender a:
 
@@ -420,7 +420,7 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Explore a referência completa da [AzureML REST API](https://docs.microsoft.com/rest/api/azureml/).
 - Saiba como utilizar o Studio & Designer para [prever o preço do automóvel com o designer (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).

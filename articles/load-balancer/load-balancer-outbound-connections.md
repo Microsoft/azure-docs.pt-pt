@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4368a025ecc158afa1ee78b8abd86bd6db42ba75
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706069"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438670"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -44,7 +44,7 @@ O Azure Load Balancer proporciona conectividade de saída através de diferentes
 
 O Azure usa um algoritmo para determinar o número de portas SNAT pré-locadas disponíveis com base no tamanho da piscina de backend ao usar o PAT. Para cada endereço IP público associado a um balanceador de carga existem 64.000 portas disponíveis como portas SNAT para cada protocolo de transporte IP. O mesmo número de portas SNAT é pré-alocado para UDP e TCP respectivamente e consumidos de forma independente por protocolo de transporte IP.  No entanto, a utilização da porta SNAT é diferente dependendo se o fluxo é UDP ou TCP. Quando os fluxos de saída são criados, estas portas são consumidas dinamicamente (até ao limite pré-locado) e libertadas quando o fluxo se fecha ou o intervalo de [tempo](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) ocorrem. As portas só são consumidas se for necessário para fazer fluxos únicos.
 
-#### <a name="default-snat-ports-allocated"></a><a name="snatporttable"></a> Portas SNAT predefinidas atribuídas
+#### <a name="dynamic-snat-ports-allocated"></a><a name="snatporttable"></a> Portas Dinâmicas SNAT alocadas
 
 A tabela a seguir mostra as pré-aallocations da porta SNAT para níveis de tamanhos de piscina de backend:
 
@@ -139,7 +139,7 @@ Se um NSG bloquear pedidos de sonda de saúde a partir da etiqueta padrão AZURE
 - As regras de saída só podem ser aplicadas à configuração ip primária de um NIC.  Não é possível criar uma regra de saída para o IP secundário de um VM ou NVA. Vários NICs são suportados.
 - As funções do Web Worker roles sem um VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando apenas um Balancer de Carga Standard interno é usado devido a um efeito colateral da forma como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie neste efeito colateral, uma vez que o próprio serviço ou a plataforma subjacente podem mudar sem aviso prévio. Deve sempre assumir que precisa de criar conectividade de saída explicitamente se desejar quando utilizar apenas um Balanceador de Carga Padrão interno. O cenário 3 descrito neste artigo não está disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o Balancer de Carga Padrão](load-balancer-standard-overview.md).
 - Consulte [as nossas perguntas frequentes sobre o Azure Load Balancer](load-balancer-faqs.md).

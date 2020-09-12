@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249283"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439780"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gestão da Base de Dados Azure SQL após migração
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -63,9 +63,9 @@ As capacidades de continuidade do negócio e recuperação de desastres permitem
 
 Não cria cópias de segurança na Base de Dados Azure SQL e isso é porque não precisa. A SQL Database faz automaticamente o backup das bases de dados para si, pelo que já não deve preocupar-se em agendar, tirar e gerir cópias de segurança. A plataforma recebe uma cópia de segurança completa todas as semanas, backup diferencial a cada poucas horas e uma cópia de segurança de registo a cada 5 minutos para garantir que a recuperação de desastres é eficiente, e a perda mínima de dados. A primeira cópia de segurança completa acontece assim que criar uma base de dados. Estas cópias de segurança estão disponíveis para si durante um determinado período chamado "Período de Retenção" e variam de acordo com o nível de serviço que escolher. A Base de Dados SQL fornece-lhe a capacidade de restaurar a qualquer ponto no tempo dentro deste período de retenção utilizando [Point in Time Recovery (PITR)](recovery-using-backups.md#point-in-time-restore).
 
-|Camada de serviços|Período de retenção em dias|
+|Escalão de serviço|Período de retenção em dias|
 |---|:---:|
-|Básica|7|
+|Básico|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -101,12 +101,14 @@ A Base de Dados SQL leva a Segurança e Privacidade muito a sério. A segurança
 
 Existem dois métodos de autenticação oferecidos na Base de Dados SQL:
 
-- [Autenticação do Azure Active Directory](authentication-aad-overview.md)
-- [Autenticação do SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
+- [Autenticação do Diretório Ativo Azure](authentication-aad-overview.md)
+- [Autenticação SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-A autenticação tradicional das janelas não é suportada. O Azure Ative Directory (Azure AD) é um serviço centralizado de gestão de identidade e acesso. Com isto pode fornecer convenientemente um Único Acesso De Acesso (SSO) a todo o pessoal da sua organização. O que isto significa é que as credenciais são partilhadas em todos os serviços da Azure para uma autenticação mais simples. O Azure AD suporta [a autenticação multi-factor Azure](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) o Azure AD pode ser integrado com o Windows Server Ative Directory. A autenticação SQL funciona exatamente como a tens usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados num determinado servidor. Isto também permite que a BASE de Dados SQL e o SQL Data Warehouse ofereçam autenticação multi-factor e contas de utilizadores de hóspedes dentro de um domínio AD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
+A autenticação tradicional das janelas não é suportada. O Azure Ative Directory (Azure AD) é um serviço centralizado de gestão de identidade e acesso. Com isto pode fornecer convenientemente um Único Acesso De Acesso (SSO) a todo o pessoal da sua organização. O que isto significa é que as credenciais são partilhadas em todos os serviços da Azure para uma autenticação mais simples. 
 
-|**Se...**|**SQL Database / SQL Data Warehouse**|
+O Azure AD suporta [a autenticação multi-factor Azure](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) o Azure AD pode ser integrado com o Windows Server Ative Directory. A autenticação SQL funciona exatamente como a tens usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados num determinado servidor. Isto também permite que a SQL Database e a Azure Synapse Analytics (anteriormente SQL Data Warehouse) ofereçam autenticação multi-factor e contas de utilizadores convidados dentro de um domínio AD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
+
+|**Se...**|**Base de Dados SQL / Azure Synapse Analytics**|
 |---|---|
 |Prefere não usar O Diretório Ativo Azure (Azure AD) em Azure|Use [a autenticação SQL](security-overview.md)|
 |AD usado no SQL Server no local|[Federate AD com Azure AD,](../../active-directory/hybrid/whatis-hybrid-identity.md)e use a autenticação AZure AD. Com isto, pode utilizar o Single Sign-On.|
@@ -114,7 +116,7 @@ A autenticação tradicional das janelas não é suportada. O Azure Ative Direct
 |Ter contas de hóspedes a partir de contas da Microsoft (live.com, outlook.com) ou outros domínios (gmail.com)|Utilize [a autenticação universal Azure AD](authentication-mfa-ssms-overview.md) na Base de Dados SQL/Data Warehouse, que aproveita [a colaboração Azure AD B2B](../../active-directory/b2b/what-is-b2b.md).|
 |Estão registados no Windows utilizando as suas credenciais AD Azure a partir de um domínio federado|Utilize [a autenticação integrada Azure AD](authentication-aad-configure.md).|
 |São iniciados no Windows usando credenciais de um domínio não federado com Azure|Utilize [a autenticação integrada Azure AD](authentication-aad-configure.md).|
-|Disponha de serviços de nível médio que precisam de se ligar à Base de Dados SQL ou ao ARMAZÉM DE DADOS SQL|Utilize [a autenticação integrada Azure AD](authentication-aad-configure.md).|
+|Disponha de serviços de nível médio que precisam de se ligar à BASE de Dados SQL ou ao Azure Synapse Analytics|Utilize [a autenticação integrada Azure AD](authentication-aad-configure.md).|
 |||
 
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Como limito ou controlo o acesso à conectividade à minha base de dados
@@ -122,7 +124,7 @@ A autenticação tradicional das janelas não é suportada. O Azure Ative Direct
 Existem múltiplas técnicas à sua disposição que pode usar para alcançar uma organização de conectividade ideal para a sua aplicação.
 
 - Regras da Firewall
-- Pontos finais de serviço VNet
+- Pontos Finais de Serviço da VNet
 - IPs Reservados
 
 #### <a name="firewall"></a>Firewall
@@ -137,7 +139,7 @@ Por predefinição, a sua base de dados está configurada para "Permitir que os 
 
 Os pontos finais de serviço (SE) permitem-lhe expor os seus recursos Azure críticos apenas à sua própria rede virtual privada em Azure. Ao fazê-lo, elimina essencialmente o acesso do público aos seus recursos. O tráfego entre a sua rede virtual para a Azure permanece na rede de espinha dorsal Azure. Sem a SE, recebes um encaminhamento de pacotes de túneis forçados. A sua rede virtual força o tráfego de internet para a sua organização e o tráfego do Serviço Azure para percorrer a mesma rota. Com o Service Endpoints, pode otimizá-lo uma vez que os pacotes fluem diretamente da sua rede virtual para o serviço na rede de espinha dorsal Azure.
 
-![VNet service endpoints (Pontos finais de serviço de VNet)](./media/manage-data-after-migrating-to-database/vnet-service-endpoints.png)
+![Pontos finais de serviço VNet](./media/manage-data-after-migrating-to-database/vnet-service-endpoints.png)
 
 #### <a name="reserved-ips"></a>IPs Reservados
 
@@ -167,10 +169,10 @@ A encriptação fornece um mecanismo forte para proteger e proteger os seus dado
 Na Base de Dados SQL, por padrão, os seus dados em repouso nos dados e ficheiros de registo no subsistema de armazenamento são completamente e sempre encriptados através da [Encriptação de Dados Transparente [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). As suas cópias de segurança também estão encriptadas. Com o TDE não são necessárias alterações no seu lado da aplicação que esteja a aceder a estes dados. A encriptação e a desencriptação acontecem de forma transparente; daí o nome.
 Para proteger os seus dados sensíveis em voo e em repouso, a SQL Database fornece uma funcionalidade chamada [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE é uma forma de encriptação do lado do cliente que encripta colunas sensíveis na sua base de dados (por isso estão em cifração para administradores de bases de dados e utilizadores não autorizados). O servidor recebe os dados encriptados para começar. A chave para Always Encrypted também é armazenada no lado do cliente, pelo que apenas os clientes autorizados podem desencriptar as colunas sensíveis. O servidor e os administradores de dados não conseguem ver os dados sensíveis uma vez que as chaves de encriptação são armazenadas no cliente. A AE encripta colunas sensíveis na mesa de ponta a ponta, de clientes não autorizados ao disco físico. A AE suporta comparações de igualdade hoje em dia, para que os DBAs possam continuar a consultar colunas encriptadas como parte dos seus comandos SQL. Sempre encriptado pode ser usado com uma variedade de opções de loja chave, tais como [Azure Key Vault,](always-encrypted-azure-key-vault-configure.md)loja de certificados Windows e módulos de segurança de hardware locais.
 
-|**Características**|**Always Encrypted**|**Encriptação de dados transparentes**|
+|**Características**|**Always Encrypted**|**Encriptação de Dados Transparente**|
 |---|---|---|
 |**Extensão de encriptação**|De ponta a ponta|Dados de repouso|
-|**O servidor pode aceder a dados sensíveis**|Não|Sim, já que a encriptação é para os dados em repouso|
+|**O servidor pode aceder a dados sensíveis**|No|Sim, já que a encriptação é para os dados em repouso|
 |**Operações T-SQL permitidas**|Comparação da igualdade|Toda a área de superfície T-SQL está disponível|
 |**Alterações de aplicação necessárias para usar a funcionalidade**|Mínimo|Muito mínimo|
 |**Granularidade de encriptação**|Nível de coluna|Ao nível da base de dados|
@@ -269,9 +271,9 @@ O portal Azure mostra a utilização de uma base de dados selecionando a base de
 
 A partir deste gráfico, também pode configurar alertas por recurso. Estes alertas permitem-lhe responder às condições de recursos com um e-mail, escrever para um ponto final HTTPS/HTTP ou realizar uma ação. Para mais informações, consulte [Criar alertas.](alerts-insights-configure-portal.md)
 
-#### <a name="dynamic-management-views"></a>Pontos de vista dinâmicos de gestão
+#### <a name="dynamic-management-views"></a>Vistas de gestão dinâmicas (DMV)
 
-Pode consultar a visão de gestão dinâmica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) para devolver o histórico de estatísticas de consumo de recursos da última hora e a visão do catálogo do sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para devolver a história dos últimos 14 dias.
+Pode consultar [a](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) sys.dm_db_resource_stats vista dinâmica de gestão para devolver o histórico de estatísticas de consumo de recursos da última hora e a [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) visão do catálogo do sistema para devolver a história dos últimos 14 dias.
 
 #### <a name="query-performance-insight"></a>Query Performance Insight
 
@@ -291,7 +293,7 @@ A sua abordagem para resolver problemas de desempenho pode beneficiar significat
 
 Com a resolução de problemas de desempenho, é importante identificar se é apenas a aplicação ou a base de dados que a apoia, que está a afetar o desempenho da sua aplicação. Muitas vezes, o problema de desempenho reside na camada de aplicação. Pode ser a arquitetura ou o padrão de acesso a dados. Por exemplo, considere que tem uma aplicação de chatty que é sensível à latência da rede. Neste caso, a sua aplicação sofre porque haveria muitos pedidos curtos indo e vindo ("chatty") entre a aplicação e o servidor e numa rede congestionada, estas velhagens acumulam-se rapidamente. Para melhorar o desempenho neste caso, pode utilizar [As Consultas de Lote](performance-guidance.md#batch-queries). A utilização de lotes ajuda-o tremendamente porque agora os seus pedidos são processados num lote; assim, ajudá-lo a reduzir a latência de ida e volta e melhorar o desempenho da sua aplicação.
 
-Além disso, se notar uma degradação no desempenho geral da sua base de dados, pode monitorizar os [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats pontos](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de vista dinâmicos de gestão para compreender o consumo de CPU, IO e memória. O teu desempenho pode ter impacto porque a tua base de dados está esfomeada de recursos. Pode ser que precise de alterar o tamanho do cálculo e/ou o nível de serviço com base nas crescentes e diminuídas exigências de carga de trabalho.
+Além disso, se notar uma degradação no desempenho geral da sua base de dados, pode monitorizar os [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) pontos de vista dinâmicos de gestão para compreender o consumo de CPU, IO e memória. O teu desempenho pode ter impacto porque a tua base de dados está esfomeada de recursos. Pode ser que precise de alterar o tamanho do cálculo e/ou o nível de serviço com base nas crescentes e diminuídas exigências de carga de trabalho.
 
 Para obter um conjunto abrangente de recomendações para afinar problemas de desempenho, consulte: [Afinar a sua base de dados](performance-guidance.md#tune-your-database).
 
@@ -299,7 +301,7 @@ Para obter um conjunto abrangente de recomendações para afinar problemas de de
 
 A SQL Database oferece vários níveis de serviço Básico, Standard e Premium. Cada nível de serviço obtém um desempenho previsível garantido ligado a esse nível de serviço. Dependendo da sua carga de trabalho, pode ter explosões de atividade onde a sua utilização de recursos pode atingir o teto do tamanho atual do cálculo em que se encontra. Nestes casos, é útil começar primeiro por avaliar se qualquer sintonização pode ajudar (por exemplo, adicionar ou alterar um índice, etc.). Se ainda encontrar problemas de limite, considere mudar-se para um nível de serviço mais elevado ou tamanho de computação.
 
-|**Nível de serviço**|**Cenários de casos de uso comum**|
+|**Escalão de serviço**|**Cenários de casos de uso comum**|
 |---|---|
 |**Básica**|Aplicações com um punhado de utilizadores e uma base de dados que não tem elevados requisitos de concordância, escala e desempenho. |
 |**Standard**|Aplicações com uma considerável concordância, escala e requisitos de desempenho associados a exigências de IO baixas a médias. |

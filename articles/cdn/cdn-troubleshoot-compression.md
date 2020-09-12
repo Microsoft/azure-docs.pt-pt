@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192528"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433675"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Resolver problemas de compressão de ficheiros CDN
 Este artigo ajuda-o a resolver problemas com [a compressão de ficheiros CDN](cdn-improve-performance.md).
@@ -111,8 +111,8 @@ Utilizando as ferramentas de desenvolvimento do seu navegador, verifique os cabe
 
 Para ser elegível para compressão, um ficheiro deve satisfazer os seguintes requisitos de tamanho:
 
-* Maior que 128 bytes.
-* Menor que 1 MB.
+* Maior que 128 bytes (Comprimento de Conteúdo: 128)
+* Menor que 3 MB
 
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Verifique o pedido no servidor de origem para obter um cabeçalho **Via**
 O cabeçalho **Via** HTTP indica ao servidor web que o pedido está a ser transmitido por um servidor proxy.  Os servidores web do Microsoft IIS por padrão não comprimem respostas quando o pedido contém um cabeçalho **Via.**  Para anular este comportamento, execute o seguinte:

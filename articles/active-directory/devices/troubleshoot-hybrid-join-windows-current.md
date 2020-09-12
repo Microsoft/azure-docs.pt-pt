@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268779"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433658"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Resolver problemas de dispositivos associados ao Azure Active Directory híbrido
 
@@ -99,7 +99,7 @@ Este campo indica se o dispositivo está ou não ligado a um Ative Directory no 
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined : NO
 
-Este campo indica se o dispositivo está registado no Azure AD como um dispositivo pessoal (marcado como *Workplace Joined*). Este valor deve ser **NO** para um computador de domínio que também é híbrido Azure AD. Se o valor for **SIM,** foi adicionada uma conta de trabalho ou escola antes da conclusão da ad azure híbrida. Neste caso, a conta é ignorada quando utiliza a versão Desematado de Aniversário do Windows 10 (1607).
+Este campo indica se o dispositivo está registado no Azure AD como um dispositivo pessoal (marcado como *Workplace Joined*). Este valor deve ser **NO** para um computador de domínio que também é híbrido Azure AD. Se o valor for **SIM,** foi adicionada uma conta de trabalho ou escola antes da conclusão da ad azure híbrida. Neste caso, a conta é ignorada quando se utiliza a versão 1607 ou posterior do Windows 10.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : SIM
 
@@ -413,7 +413,7 @@ Se os valores forem **NÃO,** pode ser devido:
 ## <a name="known-issues"></a>Problemas conhecidos
 - Em Definições -> Contas -> Access Work ou Escola, os dispositivos híbridos Azure AD podem apresentar duas contas diferentes, uma para AZure AD e outra para AD no local, quando ligadas a hotspots móveis ou redes Wi-Fi externas. Este é apenas um problema de UI e não tem qualquer impacto na funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue [a resolução de problemas utilizando o comando dsregcmd](troubleshoot-device-dsregcmd.md)
 

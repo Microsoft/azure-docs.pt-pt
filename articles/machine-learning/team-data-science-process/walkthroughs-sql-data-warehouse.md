@@ -1,6 +1,6 @@
 ---
-title: Analytics on SQL Data Warehouse com T-SQL, Python - Processo de Ciência de Dados de Equipa
-description: Exemplos que atravessam a utilização do SQL Data Warehouse para fazer análises preditivas.
+title: Analytics on Azure Synapse Analytics com T-SQL, Python - Team Data Science Process
+description: Exemplos que atravessam o uso do Azure Synapse Analytics para fazer análises preditivas.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,26 +11,26 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f657f02a39a023f6cb620895549105e7fd1eb233
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92cd3a9cc82a38cae6a56b7796e22d035979f2d5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128174"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439855"
 ---
-# <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>SQL Data Warehouse data science science walkthroughs usando T-SQL e Python on Azure
+# <a name="azure-synapse-analytics-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Azure Synapse Analytics data science walkthroughs usando T-SQL e Python on Azure
 
-Estes walkthroughs usam o SQL Data Warehouse para fazer análises preditivas. Seguem os passos delineados no Processo de Ciência de Dados da Equipa. Para uma visão geral do processo de ciência de dados da equipa, consulte o [Processo de Ciência de Dados.](overview.md) Para uma introdução ao SQL Data Warehouse, veja o que é O Armazém de [Dados Azure SQL?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Estes walkthroughs usam a Azure Synapse Analytics para fazer análises preditivas. Seguem os passos delineados no Processo de Ciência de Dados da Equipa. Para uma visão geral do processo de ciência de dados da equipa, consulte o [Processo de Ciência de Dados.](overview.md) Para uma introdução ao Azure Synapse Analytics, veja [o que é Azure Synapse Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 As análises adicionais da ciência dos dados que executam o Processo de Ciência de Dados de Equipa são agrupadas pela **plataforma** que utilizam. Consulte [Walkthroughs executando o Processo de Ciência de Dados de Equipa](walkthroughs.md) para uma itemização destes exemplos.
 
 
-## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Prever dicas de táxi usando cadernos T-SQL e IPython com SQL Data Warehouse
+## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-azure-synapse-analytics"></a>Prever dicas de táxi usando cadernos T-SQL e IPython com Azure Synapse Analytics
 
-O [walkthrough do Use SQL Data Warehouse](sqldw-walkthrough.md) mostra-lhe como construir e implementar modelos de classificação e regressão de machine learning utilizando o SQL Data Warehouse (SQL DW).  Os dados são uma viagem de táxi e dataset de tarifas de NYC publicamente disponíveis.
+O [walkthrough Use Azure Synapse Analytics](sqldw-walkthrough.md) mostra-lhe como construir e implementar modelos de classificação e regressão de machine learning utilizando a Azure Synapse Analytics.  Os dados são uma viagem de táxi e dataset de tarifas de NYC publicamente disponíveis.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma discussão dos componentes-chave que compõem o Processo de Ciência de Dados de Equipa, consulte [a visão geral do Processo de Ciência de Dados da Equipa.](overview.md)
 

@@ -3,12 +3,12 @@ title: Faça o backup de uma base de dados SAP HANA para Azure com Azure Backup
 description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA para máquinas virtuais Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 07b82e166b0ec6f0d3a29de50584158b67750e8e
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: b808038c9b973cbf4ba9e0b2e54d97bd41664297
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146560"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378258"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -65,7 +65,7 @@ Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *
 
 1. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
 
-1. Clique **em Adicionar**  para salvar a regra de segurança de saída recém-criada.
+1. **Selecione Adicionar** para salvar a regra de segurança de saída recém-criada.
 
 Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](../virtual-network/service-tags-overview.md)
 
@@ -95,16 +95,16 @@ Quando faz backup de uma base de dados SAP HANA em execução num Azure VM, a ex
 
 ## <a name="discover-the-databases"></a>Descubra as bases de dados
 
-1. No cofre, em **"Getting Started",** clique **em Backup**. Em Onde está a correr **SAP HANA in Azure VM**a sua carga **de trabalho?**
-2. Clique **em Iniciar A descoberta**. Isto inicia a descoberta de VMs Linux desprotegidos na região do cofre.
+1. No cofre, em **"Getting Started",** selecione **Backup**. Em Onde está a correr **SAP HANA in Azure VM**a sua carga **de trabalho?**
+2. Selecione **Iniciar a Descoberta**. Isto inicia a descoberta de VMs Linux desprotegidos na região do cofre.
 
    * Após a descoberta, os VMs desprotegidos aparecem no portal, listados pelo nome e pelo grupo de recursos.
    * Se um VM não está listado como esperado, verifique se já está num cofre.
    * Vários VMs podem ter o mesmo nome, mas pertencem a diferentes grupos de recursos.
 
-3. Em **Select Virtual Machines**, clique no link para descarregar o script que fornece permissões para o serviço de Backup Azure aceder aos VMs SAP HANA para a descoberta da base de dados.
+3. Em **Select Virtual Machines**, selecione o link para descarregar o script que fornece permissões para o serviço de Backup Azure para aceder aos VMs SAP HANA para a descoberta da base de dados.
 4. Execute o script em cada VM que hospeda bases de dados SAP HANA que pretende fazer.
-5. Depois de executar o script nos VMs, em **Select Virtual Machines,** selecione os VMs. Em seguida, clique em **Descobrir DBs**.
+5. Depois de executar o script nos VMs, em **Select Virtual Machines,** selecione os VMs. Em seguida, **selecione Discover DBs**.
 6. A Azure Backup descobre todas as bases de dados SAP HANA na VM. Durante a descoberta, a Azure Backup regista o VM com o cofre e instala uma extensão no VM. Nenhum agente está instalado na base de dados.
 
     ![Descubra bases de dados SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
@@ -113,7 +113,7 @@ Quando faz backup de uma base de dados SAP HANA em execução num Azure VM, a ex
 
 Agora ative a cópia de segurança.
 
-1. No passo 2, clique em **Configurar Backup**.
+1. No passo 2, selecione **Configure Backup**.
 
     ![Configurar a Cópia de Segurança](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. Em **Selecionar itens para fazer o back up,** selecione todas as bases de dados que pretende proteger > **OK**.
@@ -122,7 +122,7 @@ Agora ative a cópia de segurança.
 3. Na política **de backup**Escolha a política  >  **de backup,** crie uma nova política de backup para as bases de dados, de acordo com as instruções abaixo.
 
     ![Escolha a política de backup](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. Depois de criar a política, no menu **Backup,** clique em **Ativar a cópia de segurança**.
+4. Depois de criar a política, no menu **Backup,** selecione **Ative backup**.
 
     ![Ativar backup](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. Acompanhe o progresso da configuração de backup na área de **Notificações** do portal.
@@ -147,7 +147,7 @@ Especificar as definições de política da seguinte forma:
 2. Na **política de cópia de segurança completa**, selecione uma frequência de **backup**, escolha **diariamente** ou **semanalmente**.
    * **Diariamente**: Selecione a hora e o fuso horário em que o trabalho de reserva começa.
        * Tens de fazer uma cópia de segurança completa. Não pode desligar esta opção.
-       * Clique **em Full Backup** para ver a política.
+       * Selecione **Full Backup** para ver a política.
        * Não é possível criar cópias de segurança diferenciais para cópias de segurança diárias.
    * **Semanalmente**: Selecione o dia da semana, hora e fuso horário em que o trabalho de reserva funciona.
 
@@ -160,7 +160,7 @@ Especificar as definições de política da seguinte forma:
     * A cópia de segurança para um dia específico é marcada e mantida com base na gama e configuração semanais de retenção.
     * As gamas de retenção mensais e anual comportam-se de forma semelhante.
 
-4. No menu **de política de cópia de segurança completa,** clique em **OK** para aceitar as definições.
+4. No menu **de política de cópia de segurança completa,** selecione **OK** para aceitar as definições.
 5. Selecione **Backup diferencial** para adicionar uma política diferencial.
 6. Na **política de backup diferencial,** selecione **Ativar** para abrir os controlos de frequência e retenção.
     * No máximo, pode acionar uma cópia de segurança diferencial por dia.
@@ -171,7 +171,7 @@ Especificar as definições de política da seguinte forma:
     > [!NOTE]
     > Os backups incrementais não são suportados atualmente.
 
-7. Clique **em OK** para guardar a política e volte ao menu de política de **backup** principal.
+7. Selecione **OK** para guardar a política e volte ao menu de política de **backup** principal.
 8. Selecione **'Registar'** para adicionar uma política de backup de registo de transações,
     * In **Log Backup**, selecione **Enable**.  Isto não pode ser desativado, uma vez que a SAP HANA gere todos os backups de registo.
     * Desacione os controlos de frequência e retenção.
@@ -179,8 +179,8 @@ Especificar as definições de política da seguinte forma:
     > [!NOTE]
     > As cópias de segurança de registo só começam a fluir depois de concluída uma cópia de segurança completa bem sucedida.
 
-9. Clique **em OK** para guardar a política e volte ao menu de política de **backup** principal.
-10. Depois de terminar de definir a política de backup, clique em **OK**.
+9. Selecione **OK** para guardar a política e volte ao menu de política de **backup** principal.
+10. Depois de terminar de definir a política de backup, selecione **OK**.
 
 > [!NOTE]
 > Cada cópia de segurança de registo está acorrentada à cópia de segurança completa anterior para formar uma cadeia de recuperação. Este backup completo será mantido até que a retenção da última cópia de segurança de registo tenha expirado. Isto pode significar que a cópia de segurança completa é retida por um período extra para garantir que todos os registos podem ser recuperados. Vamos supor que um utilizador tem uma cópia de segurança semanal, diferencial diário e registos de 2 horas. Todos estão retidos por 30 dias. Mas, a totalidade semanal só pode ser limpa/apagada após a próxima cópia de segurança completa disponível, ou seja, após 30 + 7 dias. Por exemplo, um backup semanal completo acontece no dia 16 de novembro. De acordo com a política de retenção, deve ser mantida até 16 de dezembro. O último registo para este registo completo acontece antes do próximo dia 22 de novembro. Até que este registo esteja disponível até 22 de dezembro, o 16 de novembro completo não pode ser apagado. Assim, o 16º de novembro completo é mantido até 22 de dezembro.
@@ -189,9 +189,9 @@ Especificar as definições de política da seguinte forma:
 
 Os backups são executados de acordo com o calendário de apólices. Pode executar uma cópia de segurança a pedido da seguinte forma:
 
-1. No menu do cofre, clique em **itens de cópia de segurança.**
-2. Em **Itens de Cópia de Segurança**, selecione o VM que executa a base de dados SAP HANA e, em seguida, clique em Backup **agora**.
-3. In **Backup Now,** escolha o tipo de cópia de segurança que pretende realizar. Em seguida, clique em **OK**. Esta cópia de segurança será mantida de acordo com a política associada a este item de backup.
+1. No menu do cofre, selecione **itens de reserva**.
+2. Em **Itens de Cópia de Segurança,** selecione o VM que executa a base de dados SAP HANA e, em seguida, selecione **Backup agora**.
+3. In **Backup Now,** escolha o tipo de cópia de segurança que pretende realizar. Em seguida, selecione **OK**. Esta cópia de segurança será mantida de acordo com a política associada a este item de backup.
 4. Monitorize as notificações do portal. Pode monitorizar o progresso do trabalho no painel de segurança do cofre > **trabalhos de reserva**  >  **em curso**. Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
 
 Por padrão, a retenção de backups a pedido é de 45 dias.
@@ -213,7 +213,7 @@ Se quiser fazer uma cópia de segurança local (usando o HANA Studio) de uma bas
     * Desa parte **log_backup_using_backint** a **True**.
     * De **catalog_backup_using_backint** catalog_backup_using_backint a **True**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como restaurar as [bases de dados SAP HANA em execução em VMs Azure](./sap-hana-db-restore.md)
 * Saiba como [gerir as bases de dados SAP HANA que são apoiadas através do Azure Backup](./sap-hana-db-manage.md)

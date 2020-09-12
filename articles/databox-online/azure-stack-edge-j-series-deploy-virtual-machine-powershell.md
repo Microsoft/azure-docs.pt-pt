@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: d5210a3788f7bb054492c2d83c595c26fa3c4f42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265716"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461719"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge via Azure PowerShell
 
@@ -220,8 +220,8 @@ Crie um disco gerido a partir do VHD carregado.
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
 Abaixo é mostrada uma saída de amostra: 
-
-$DiskConfig = New-AzureRmDiskConfig -Localização DBELocal -CreateOption Import –SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd 
+<code>
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
 ```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
@@ -408,24 +408,39 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## <a name="connect-to-a-vm"></a>Ligar a uma VM
 
-Ligue-se ao VM utilizando o IP privado que passou durante a criação de VM.
+Dependendo se criou um Windows ou um Linux VM, os passos para ligar podem ser diferentes.
 
-Abra uma sessão de SSH para ligar com o endereço IP.
+### <a name="connect-to-linux-vm"></a>Ligue-se ao Linux VM
+
+Siga estes passos para ligar a um Linux VM.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### <a name="connect-to-windows-vm"></a>Ligue-se ao Windows VM
+
+Siga estes passos para ligar a um VM do Windows.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+
+<!--Connect to the VM using the private IP that you passed during the VM creation.
+
+Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-Quando solicitado, forneça a palavra-passe que utilizou ao criar o VM.
+When prompted, provide the password that you used when creating the VM.
 
-Se precisar de fornecer a chave SSH, utilize este comando.
+If you need to provide the SSH key, use this command.
 
 ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
-Se usou um endereço IP público durante a criação de VM, pode utilizar esse IP para ligar ao VM. Para obter o IP público: 
+If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
 
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-O IP público neste caso será o mesmo que o IP privado que passou durante a criação de interface de rede virtual.
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
 
 
 ## <a name="manage-vm"></a>Gerir vM
@@ -550,6 +565,6 @@ Para verificar se a variável ambiental para a AzCopy foi corretamente definida,
 2. Encontre `AZCOPY_DEFAULT_SERVICE_API_VERSION` o parâmetro. Isto deve ter o valor que definiu nos passos anteriores.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Cmdlets do Gestor de Recursos Azure](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

@@ -3,12 +3,12 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022416"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378292"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
@@ -66,7 +66,7 @@ O Azure Backup utiliza o sistema atribuído à identidade gerida para autenticar
 
     ![Definições de identidade](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Alterar o **Estado** para **On** e clicar **Em Guardar**.
+1. Alterar o **Estado** para **On** e selecionar **Guardar**.
 
 1. Um ID de objeto é gerado, que é a identidade gerida do sistema do cofre.
 
@@ -82,13 +82,13 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
     ![Atribuir permissões-chave](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Vá ao **Select Principal** e procure o seu cofre na caixa de pesquisa usando o seu nome ou identidade gerida. Uma vez que apareça, selecione o cofre e clique em **Selecionar** na parte inferior do painel.
+1. Vá ao **Select Principal** e procure o seu cofre na caixa de pesquisa usando o seu nome ou identidade gerida. Uma vez que apareça, selecione o cofre e escolha **Selecione** na parte inferior do painel.
 
     ![Selecione principal](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. Uma vez feito, clique **em Adicionar** para adicionar a nova política de acesso.
+1. Uma vez feito, **selecione Adicionar** para adicionar a nova política de acesso.
 
-1. Clique em **Guardar** para guardar as alterações feitas à política de acesso do Cofre da Chave Azure.
+1. **Selecione Guardar** para guardar as alterações feitas na política de acesso do Cofre da Chave Azure.
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Permitir a eliminação suave e a proteção de purga no Cofre da Chave Azure
 
@@ -148,7 +148,7 @@ Para atribuir a chave:
 
     ![Definições de encriptação](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Clique em **Atualização** em **Definições de Encriptação**.
+1. Selecione **Atualização** em **Definições de Encriptação**.
 
 1. No painel de Definições de Encriptação, selecione **Use a sua própria tecla** e continue a especificar a chave utilizando uma das seguintes formas. **Certifique-se de que a chave que pretende utilizar é uma chave RSA 2048, que está em estado ativado.**
 
@@ -160,7 +160,7 @@ Para atribuir a chave:
 
         ![Selecione a chave do cofre da chave](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Clique em **Guardar**.
+1. Selecione **Guardar**.
 
 1. **Rastreio do progresso da atualização da chave de encriptação:** Pode acompanhar o progresso da atribuição de chave utilizando o **Registo de Atividades** no cofre dos Serviços de Recuperação. O estatuto deve em breve mudar para **Sucesso**. O seu cofre irá agora encriptar todos os dados com a chave especificada como KEK.
 
@@ -258,6 +258,6 @@ Não seguir os passos do artigo e continuar a proteger os itens pode levar a que
 
 A utilização da encriptação CMK para cópia de segurança não incorre em custos adicionais para si. No entanto, pode continuar a incorrer em custos para a utilização do seu Cofre de Chaves Azure, onde a sua chave está armazenada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](security-overview.md)

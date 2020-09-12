@@ -3,12 +3,12 @@ title: Use armazenamento de backup moderno com servidor de backup Azure
 description: Conheça as novas funcionalidades no Azure Backup Server. Este artigo descreve como atualizar a instalação do Servidor de Cópia de Segurança.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b8620f6999c1fcb1a1e70c73fb71fcaac008d930
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825873"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378241"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
 
@@ -105,7 +105,7 @@ A atualização dos grupos de proteção para utilizar o Armazenamento de Cópia
 
    ![Parar a proteção do membro](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. Na caixa de diálogo **Remove from Group,** reveja o espaço do disco usado e o espaço livre disponível para a piscina de armazenamento. A predefinição é deixar os pontos de recuperação no disco e permitir que os mesmos expirem, conforme a política de retenção associada. Clique em **OK**.
+2. Na caixa de diálogo **Remove from Group,** reveja o espaço do disco usado e o espaço livre disponível para a piscina de armazenamento. A predefinição é deixar os pontos de recuperação no disco e permitir que os mesmos expirem, conforme a política de retenção associada. Selecione **OK**.
 
    Se pretender devolver imediatamente o espaço do disco usado ao conjunto de armazenamento gratuito, selecione a **réplica Delete na** caixa de verificação do disco para eliminar os dados de cópia de segurança (e pontos de recuperação) associados a esse membro.
 
@@ -127,7 +127,7 @@ Adicionar armazenamento no disco:
 
 3. Na lista de discos disponíveis, selecione os discos que pretende adicionar, selecione **Add**, e, em seguida, selecione **OK**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de instalar o Backup Server, aprenda a preparar o seu servidor ou comece a proteger uma carga de trabalho.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Depurativo: VS Código & instâncias de computação ML (pré-visualização)'
+title: Conecte-se à instância computecional no Código do Estúdio Visual (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Confiem o código VS Remote para depurar interativamente o seu código com a Azure Machine Learning.
+description: Saiba como se conectar a um azure machine learning em caso de código de estúdio visual
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,34 +9,73 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 08/06/2020
-ms.openlocfilehash: 37d0ec0295d76f740b2e8bf70ae72f0c95e68d14
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.date: 09/03/2020
+ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904484"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461566"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>Depurar interativamente numa Azure Machine Learning Compute Instance com VS Code Remote (pré-visualização)
+# <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conecte-se a uma instância computacional de aprendizagem de máquinas Azure no Código do Estúdio Visual (pré-visualização)
 
-Neste artigo, você vai aprender a configurar a extensão visual Studio Code Remote em uma Azure Machine Learning Compute Instance para que possa **depurar interativamente o seu código** a partir do Código VS.
+Neste artigo, você vai aprender a conectar-se a uma instância de cálculo Azure Machine Learning usando Visual Studio Code.
 
-* [A Azure Machine Learning Compute Instance](concept-compute-instance.md) é uma estação de trabalho totalmente gerida baseada na nuvem para cientistas de dados e fornece capacidades de gestão e prontidão empresarial para administradores de TI. 
+[A Azure Machine Learning Compute Instance](concept-compute-instance.md) é uma estação de trabalho totalmente gerida baseada na nuvem para cientistas de dados e fornece capacidades de gestão e prontidão empresarial para administradores de TI.
 
-* [Código de estúdio visual remoto](https://code.visualstudio.com/docs/remote/remote-overview) O desenvolvimento permite-lhe utilizar um contentor, uma máquina remota ou o Subsistema Windows para Linux (WSL) como um ambiente de desenvolvimento completo. 
+Existem duas formas de se ligar a uma instância computacional do Código do Estúdio Visual:
 
-## <a name="prerequisite"></a>Pré-requisito  
+* Servidor remoto do Bloco de Notas do Jupyter. Esta opção permite-lhe definir uma instância de cálculo como um servidor remoto do Jupyter Notebook.
+* [Desenvolvimento remoto do Código do Estúdio Visual](https://code.visualstudio.com/docs/remote/remote-overview). O desenvolvimento remoto do Código do Estúdio Visual permite-lhe utilizar um contentor, uma máquina remota ou o Subsistema Windows para Linux (WSL) como um ambiente de desenvolvimento completo.
 
-* Instância computacional ativada pelo SSH. Para obter mais informações, [consulte o guia Criar uma instância computacional.](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#create)
-* Nas plataformas do Windows, tem de [instalar um cliente SSH compatível com OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) se ainda não estiver presente. 
+## <a name="configure-compute-instance-as-remote-notebook-server"></a>Configurar a instância computacional como servidor de caderno remoto
 
-> [!Note]
-> PuTTY não é suportado no Windows, uma vez que o comando ssh deve estar no caminho. 
+Para configurar uma instância computacional como um servidor remoto do Jupyter Notebook, você precisará de alguns pré-requisitos:
 
-## <a name="get-the-ip-and-ssh-port-for-your-compute-instance"></a>Obtenha a porta IP e SSH para a sua instância computacional
+* Extensão do Código do Estúdio Visual Azure Machine Learning. Para obter mais informações, consulte o [guia de configuração do código do estúdio visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
+* Espaço de trabalho de aprendizagem automática Azure. [Utilize a extensão do Código de Estúdio Visual Azure Machine Learning para criar um novo espaço de trabalho](how-to-manage-resources-vscode.md#create-a-workspace) se ainda não tiver um.
+
+Para ligar a uma instância computacional:
+
+1. Abra um Caderno Jupyter em Código de Estúdio Visual.
+1. Quando o portátil integrado experimentar cargas, selecione **Jupyter Server**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Lançamento Azure Machine Learning remoto servidor de caderno jupyter dropdown](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+
+    Em alternativa, também utiliza a paleta de comando:
+
+    1. Abra a paleta de comando selecionando **a Paleta de Comando Ver >** da barra de menu.
+    1. Introduza na caixa de texto `Azure ML: Connect to Compute instance Jupyter server` .
+
+1. Escolha `Azure ML Compute Instances` entre a lista de opções do servidor Jupyter.
+1. Selecione a sua subscrição a partir da lista de subscrições. Se já configurado previamente o seu espaço de trabalho de Aprendizagem automática Azure, este passo é ignorado.
+1. Selecione o seu espaço de trabalho.
+1. Selecione a sua instância de cálculo da lista. Se não tiver um, **selecione Criar a nova Instância de Computação Azure ML** e siga as instruções para criar uma.
+1. Para que as alterações entrem em vigor, tem de recarregar o Código do Estúdio Visual.
+1. Abre um Caderno Jupyter e dirige uma cela.
+
+> [!IMPORTANT]
+> **Tem de** executar uma célula para estabelecer a ligação.
+
+Neste momento, pode continuar a executar células no seu caderno Jupyter.
+
+> [!TIP]
+> Também pode trabalhar com ficheiros de script python (.py) que contêm células de código semelhantes a Jupyter. Para mais informações, consulte a [documentação interativa Visual Studio Code Python](https://code.visualstudio.com/docs/python/jupyter-support-py).
+
+## <a name="configure-compute-instance-remote-development"></a>Configurar o desenvolvimento remoto de instância computacional
+
+Para uma experiência de desenvolvimento remoto em destaque, você precisará de alguns pré-requisitos:
+
+* [Extensão SSH remota do código do estúdio visual](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
+* Instância computacional ativada pelo SSH. Para obter mais informações, [consulte o guia Criar um conjunto de casos de computação.](concept-compute-instance.md#create)
+
+> [!NOTE]
+> Nas plataformas do Windows, tem de [instalar um cliente SSH compatível com OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) se ainda não estiver presente. PuTTY não é suportado no Windows, uma vez que o comando ssh deve estar no caminho.
+
+### <a name="get-the-ip-and-ssh-port-for-your-compute-instance"></a>Obtenha a porta IP e SSH para a sua instância computacional
 
 1. Vá ao estúdio Azure Machine Learning em https://ml.azure.com/ .
-
 2. Selecione o seu [espaço de trabalho](concept-workspace.md).
 1. Clique no **separador Instâncias computacional.**
 1. Na coluna URI de **aplicação,** clique na ligação **SSH** da instância de computação que pretende utilizar como um cálculo remoto. 
@@ -73,9 +112,9 @@ Neste artigo, você vai aprender a configurar a extensão visual Studio Code Rem
    chmod 600 ~/.ssh/id_azmlcitest_rsa
    ```
 
-## <a name="add-instance-as-a-host"></a>Adicionar instância como hospedeiro
+### <a name="add-instance-as-a-host"></a>Adicionar instância como hospedeiro
 
-Abra o ficheiro `~/.ssh/config` (Linux) ou `C:\Users<username>.ssh\config` (Windows) num editor e adicione uma nova entrada semelhante a esta:
+Abra o ficheiro `~/.ssh/config` (Linux) ou `C:\Users<username>.ssh\config` (Windows) num editor e adicione uma nova entrada semelhante ao conteúdo abaixo:
 
 ```
 Host azmlci1 
@@ -101,13 +140,9 @@ Aqui alguns detalhes sobre os campos:
 
 Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a abreviatura que você usou acima, `ssh azmlci1` .
 
-## <a name="connect-vs-code-to-the-instance"></a>Ligue o Código VS ao caso
+### <a name="connect-vs-code-to-the-instance"></a>Ligue o Código VS ao caso
 
-1. [Instale o Código do Estúdio Visual](https://code.visualstudio.com/).
-
-1. [Instale a extensão SSH remota](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-
-1. Clique no ícone Remote-SSH à esquerda para mostrar as suas configurações SSH.
+1. Clique no ícone Remote-SSH da barra de atividades do Código do Estúdio Visual para mostrar as suas configurações SSH.
 
 1. Clique com o botão direito na configuração do anfitrião SSH que acabou de criar.
 
@@ -115,7 +150,7 @@ Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a ab
 
 A partir de agora, está a trabalhar inteiramente na instância computacional e agora pode editar, depurar, usar git, usar extensões, etc.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que configuraste o Visual Studio Code Remote, podes usar uma instância computacional como computação remota do Código do Estúdio Visual para [depurar interativamente o teu código.](how-to-debug-visual-studio-code.md)
 
