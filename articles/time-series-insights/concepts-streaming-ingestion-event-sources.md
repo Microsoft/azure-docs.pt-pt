@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a16a83408587a1b99485140174c45e457ac820f8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 08/31/2020
+ms.openlocfilehash: 9564611ee37c2aa2f104bbb14096a3b2f45fb7cd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855091"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485374"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 Event Sources
 
@@ -64,7 +64,7 @@ A utilização do gasoduto de streaming para importar dados históricos não é 
 
 ## <a name="event-source-timestamp"></a>Data de tempo de fonte de evento
 
-Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o $event.$ts nas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) e para traçar séries no Azure Time Series Insights TSI Explorer. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
+Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o $event.$ts nas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) e para traçar séries no Azure Time Series Insights Explorer. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
 
 Em geral, os utilizadores optarão por personalizar a propriedade do timetamp e utilizar o tempo em que o sensor ou tag gerou a leitura em vez de usar o tempo padrão do hub. Isto é particularmente necessário quando os dispositivos têm perda de conectividade intermitente e um lote de mensagens atrasadas são reencaminhadas para Azure Time Series Insights Gen2.
 
@@ -80,7 +80,7 @@ A compensação do fuso horário deve ser formatada como uma das seguintes:
 ±HH:MM</br>
 ±HH:MMZ</br>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia as [Regras de Achatamento e Fuga](./concepts-json-flattening-escaping-rules.md) do JSON para entender como os eventos serão armazenados.
 

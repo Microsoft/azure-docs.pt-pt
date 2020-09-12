@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d48ca3685dca36157307e7cb4b3d25261c243aa
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 10108fdf4f2b7090eaeaa4b378992c2e94d3b04c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705746"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489583"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database e Azure Synapse Analytics arquitetura de conectividade
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -53,13 +53,13 @@ Os servidores da BASE de Dados SQL e do Azure Synapse suportam as seguintes trê
 
 Recomendamos vivamente a `Redirect` política de ligação sobre a política de `Proxy` ligação para a menor latência e maior produção. No entanto, terá de cumprir os requisitos adicionais para permitir o tráfego da rede, tal como acima descrito. Se o cliente for uma Máquina Virtual Azure, pode fazê-lo utilizando grupos de segurança de rede (NSG) com [etiquetas de serviço](../../virtual-network/security-overview.md#service-tags). Se o cliente estiver a ligar-se a partir de uma estação de trabalho no local, poderá ter de trabalhar com o administrador da rede para permitir o tráfego de rede através da sua firewall corporativa.
 
-## <a name="connectivity-from-within-azure"></a>Conectividade de dentro de Azure
+## <a name="connectivity-from-within-azure"></a>Conectividade a partir do Azure
 
 Se estiver a ligar a partir de dentro do Azure, as suas ligações têm uma política de ligação `Redirect` por defeito. Uma política de `Redirect` meios que após a sessão de TCP é estabelecida para Azure SQL Database, a sessão do cliente é então redirecionada para o cluster de base de dados direito com uma alteração para o destino IP virtual do de destino do gateway Azure SQL Database para o do cluster. Posteriormente, todos os pacotes subsequentes fluem diretamente para o cluster, contornando o gateway de base de dados Azure SQL. O diagrama que se segue ilustra este fluxo de tráfego.
 
 ![visão geral da arquitetura](./media/connectivity-architecture/connectivity-azure.png)
 
-## <a name="connectivity-from-outside-of-azure"></a>Conectividade de fora de Azure
+## <a name="connectivity-from-outside-of-azure"></a>Conectividade a partir de outro local que não o Azure
 
 Se estiver a ligar-se de fora do Azure, as suas ligações têm uma política de ligação `Proxy` por defeito. Uma política de `Proxy` meios que a sessão de TCP é estabelecida através do gateway de base de dados Azure SQL e todos os pacotes subsequentes fluem através do gateway. O diagrama que se segue ilustra este fluxo de tráfego.
 
@@ -94,6 +94,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | França Central       | 40.79.137.0, 40.79.129.1 |
 | Alemanha Central      | 51.4.144.100       |
 | Alemanha Nordeste   | 51.5.144.179       |
+| Alemanha Centro-Oeste | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
 | Índia Central        | 104.211.96.159     |
 | Índia do Sul          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80     |
@@ -121,7 +122,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | E.U.A. Oeste 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre como alterar a política de ligação da Base de Dados Azure SQL para um servidor, consulte [a política de conn- policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para obter informações sobre o comportamento de ligação da Base de Dados Azure SQL para clientes que utilizem ADO.NET 4.5 ou uma versão posterior, consulte [portões para além de 1433 para ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).

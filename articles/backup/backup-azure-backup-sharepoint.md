@@ -3,12 +3,12 @@ title: Apoiar uma quinta sharePoint para Azure com DPM
 description: Este artigo fornece uma visão geral da proteção do servidor de backup DPM/Azure de uma fazenda SharePoint para Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032889"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375249"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Apoiar uma quinta sharePoint para Azure com DPM
 
@@ -53,7 +53,7 @@ Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consu
    > Como a quinta SharePoint está protegida para retenção a longo prazo no Azure, nenhuma informação de catálogo (metadados) está disponível no servidor DPM. Como resultado, sempre que uma base de dados de conteúdos do SharePoint pontual precisa de ser recuperada, é necessário catalogar novamente a quinta SharePoint.
    >
    >
-3. Clique **em Re-catálogo.**
+3. Selecione **Re-catálogo**.
 
     ![DPM SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -61,10 +61,10 @@ Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consu
 
     ![DPM SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Depois de concluída a catalogação, o estado muda para *Sucesso*. Clique em **Close** (Fechar).
+    Depois de concluída a catalogação, o estado muda para *Sucesso*. Selecione **Fechar**.
 
     ![DPM SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Clique no objeto SharePoint mostrado no separador **Recuperação** de DPM para obter a estrutura da base de dados de conteúdos. Clique com o botão direito no item e, em seguida, clique em **Recuperar**.
+4. Selecione o objeto SharePoint mostrado no separador **recuperação** de DPM para obter a estrutura da base de dados de conteúdos. Clique com o botão direito no item e, em seguida, **selecione Recuperar**.
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste ponto, siga os passos de recuperação mais cedo neste artigo para recuperar uma base de dados de conteúdos SharePoint do disco.
@@ -73,7 +73,7 @@ Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consu
 
 Se tiver mais do que um servidor web frontal e quiser mudar o servidor que o DPM utiliza para proteger a quinta, siga as instruções para [mudar o Servidor Web front-end](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure Backup Server e DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
 * [Troubleshoot System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md) (Resolver Problemas do System Center Data Protection Manager)

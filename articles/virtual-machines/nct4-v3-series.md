@@ -8,16 +8,18 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 73d583cb371876cefc10c982dbe66f6e15bddf03
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: af9f7eb21d533bc5fb365e7cbf1fb8fc18184fa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932615"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375232"
 ---
-# <a name="ncast4_v3-series"></a>Série NCasT4_v3 
+# <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3 série (Na pré-visualização) 
 
 As máquinas virtuais da série NCasT4_v3 são alimentadas por [GPUs Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPUs AMD EPYC 7V12(Roma). Os VMs apresentam até 4 GPUs NVIDIA T4 com 16 GB de memória cada, até 64 núcleos de processador AMD EPYC 7V12(Roma) não multi-leitores e 440 GiB de memória do sistema. Estas máquinas virtuais são ideais para executar cargas de trabalho ML e IA utilizando CUDA, TensorFlow, Pytorch, Caffe, e outros Quadros ou as cargas de trabalho gráficas utilizando a tecnologia NVIDIA GRID. NCasT4_v3 série é ideal para executar cargas de trabalho de inferência.
+
+Pode [submeter um pedido](https://aka.ms/NCT4v3Preview) para fazer parte do programa de pré-visualização.
 
 <br>
 
@@ -56,6 +58,6 @@ Para instalar manualmente os controladores da Nvidia GPU, consulte a [configura�
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

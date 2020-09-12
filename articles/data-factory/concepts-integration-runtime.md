@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407698"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485724"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory 
 
@@ -143,7 +143,7 @@ Se optar por utilizar o Azure IR de resolução automática na rede pública, qu
   - Quando copiam dados para a Salesforce dos quais a região não é detetável, a atividade de cópia é executada em IR no Leste dos EUA.
 
   >[!TIP] 
-  >Se tiver requisitos de conformidade de dados estritos e precisar de garantir que os dados não saem de uma detemrinada geografia, pode criar explicitamente um IR do Azure numa determinada região e apontar o Serviço Ligado a esse RI ao utilizar a propriedade ConnectVia. Por exemplo, se quiser copiar dados do Blob no Sul do Reino Unido para o SQL DW no Sul do Reino Unido e quiser garantir que os dados não saem do Reino Unido, crie um IR do Azure no Sul do Reino Unido e ligue ambos os Serviços Ligados a este IR.
+  >Se tiver requisitos de conformidade de dados estritos e precisar de garantir que os dados não saem de uma detemrinada geografia, pode criar explicitamente um IR do Azure numa determinada região e apontar o Serviço Ligado a esse RI ao utilizar a propriedade ConnectVia. Por exemplo, se quiser copiar dados da Blob no Reino Unido Sul para a Azure Synapse Analytics no Reino Unido Sul e quiser garantir que os dados não saem do Reino Unido, crie um Azure IR no Reino Unido Sul e ligue ambos os Serviços Ligados a este IR.
 
 - Para a execução de atividades De Procura/GetMetadata/Delete (também conhecidas como atividades pipeline), despacho de atividades de transformação (também conhecidas como atividades externas) e operações de autoria (ligação de teste, lista de pastas de navegação e lista de tabelas, dados de pré-visualização), a ADF utiliza o IR na região da fábrica de dados.
 

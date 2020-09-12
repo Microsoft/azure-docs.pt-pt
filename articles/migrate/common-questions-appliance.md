@@ -3,12 +3,12 @@ title: Azure Migrate eletrodoméstico FAQ
 description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050680"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514548"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Questões comuns
 
@@ -21,7 +21,7 @@ Este artigo responde a perguntas comuns sobre o aparelho Azure Migrate. Se tiver
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>O que é o aparelho Azure Migrate?
 
-O aparelho Azure Migrate é um aparelho leve que a ferramenta Azure Migrate: Ferramenta de avaliação do servidor utiliza para descobrir e avaliar servidores no local. A ferramenta Azure Migrate: Server Migration também utiliza o aparelho para migração sem agentes de VMware VMware no local.
+O aparelho Azure Migrate é um aparelho leve que a ferramenta Azure Migrate: Ferramenta de avaliação do servidor utiliza para descobrir e avaliar servidores físicos ou virtuais a partir de instalações ou de qualquer nuvem. A ferramenta Azure Migrate: Server Migration também utiliza o aparelho para migração sem agentes de VMware VMware no local.
 
 Aqui está mais informações sobre o aparelho Azure Migrate:
 
@@ -35,13 +35,14 @@ Aqui está mais informações sobre o aparelho Azure Migrate:
 
 O aparelho pode ser acionado da seguinte forma:
 
-- Utilizando um modelo para VMware VMs e Hiper-VMs (modelo OVA para VMware ou VHD para Hiper-V).
-- Se não quiser utilizar um modelo, ou se estiver no Governo Azure, pode utilizar o aparelho para VMware ou Hyper-V utilizando um script PowerShell.
-- Para servidores físicos, utilize sempre o aparelho utilizando um script.
+- Usando um modelo para a descoberta de VMware VMs (. Ficheiro OVA) e Hiper-VMs (. Ficheiro VHD) para criar um novo VM que acolhe o aparelho.
+- Se não quiser utilizar um modelo, pode implantar o aparelho numa máquina física ou virtual existente para a descoberta de VMware VMs ou VMs hiper-V usando um script instalador PowerShell, disponível para download num ficheiro zip a partir do portal.
+- Para servidores físicos ou virtuais a partir de instalações ou de qualquer nuvem, utilize sempre o aparelho utilizando um script num servidor existente.
+- Para o Governo Azure, os três aparelhos só podem ser implantados utilizando o script do instalador PowerShell.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como é que o aparelho se liga ao Azure?
 
-O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute.
+O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute. Certifique-se de que estes [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) estão na lista branca para o aparelho ligar ao Azure.
 
 - Para utilizar o tráfego de replicação do Azure ExpressRoute para o Azure Migrate, é necessário espreitar a Microsoft ou um espreitamento público existente (o olhar público é depreciado para novas criações de ER).
 - A replicação sobre o Azure ExpressRoute com (apenas) o espreitamento privado ativado não é suportado.
@@ -66,6 +67,7 @@ Consulte os seguintes artigos para obter informações sobre os dados que o apar
 
 - **VMware VM:** [Rever os](migrate-appliance.md#collected-data---vmware) dados recolhidos.
 - **Hiper-V VM:** [Rever os](migrate-appliance.md#collected-data---hyper-v) dados recolhidos.
+- **Servidores físicos ou virtuais:**[Rever os](migrate-appliance.md#collected-data---physical) dados recolhidos.
 
 ## <a name="how-is-data-stored"></a>Como são armazenados os dados?
 
@@ -107,8 +109,7 @@ Um projeto pode ter vários aparelhos ligados a ele. No entanto, um aparelho só
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>O aparelho Azure Migrate/aparelho de replicação pode ligar-se ao mesmo vCenter?
 
-Yes. Pode adicionar tanto o aparelho Azure Migrate (utilizado para avaliação e migração de VMware sem agente) como o aparelho de replicação (utilizado para a migração baseada em agentes de VMware VMs) ao mesmo servidor vCenter.
-
+Yes. Pode adicionar tanto o aparelho Azure Migrate (utilizado para avaliação e migração de VMware sem agente) como o aparelho de replicação (utilizado para a migração baseada em agentes de VMware VMs) ao mesmo servidor vCenter. Mas certifique-se de que não está a montar ambos os aparelhos no mesmo VM e que, atualmente, não está suportado.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantos VMs ou servidores posso descobrir com um aparelho?
 
@@ -124,7 +125,9 @@ No entanto, a eliminação do grupo de recursos também elimina outros aparelhos
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>Posso utilizar o aparelho com uma subscrição ou projeto diferente?
 
-Depois de utilizar o aparelho para iniciar a descoberta, não pode reconfigurar o aparelho para utilizar com uma subscrição Azure diferente, e não pode usá-lo num projeto diferente da Azure Migrate. Também não é possível descobrir VMs numa instância diferente do vCenter Server. Crie um novo aparelho para estas tarefas.
+Para utilizar o aparelho com uma subscrição ou projeto diferente, seria necessário voltar a configurar o aparelho existente, executando o script do instalador PowerShell para o cenário específico (VMware/Hyper-V/Physical) na máquina do aparelho. O script limpará os componentes e configurações do aparelho existentes para implantar um aparelho fresco. Certifique-se de que limpa a cache do navegador antes de começar a utilizar o gestor de configuração do aparelho recém-implantado.
+
+Além disso, não é possível reutilizar uma chave de projeto Azure Migrate existente num aparelho re-configurado. Certifique-se de que gera uma nova chave a partir da subscrição/projeto pretendido para completar o registo do aparelho.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Posso montar o aparelho num Azure VM?
 
@@ -144,6 +147,6 @@ Apenas o aparelho e os agentes do aparelho são atualizados através destas atua
 
 Yes. No portal, vá à página **de saúde do Agente** para o Azure Migrate: Avaliação do Servidor ou Azure Migrate: Ferramenta de migração do servidor. Lá, pode verificar o estado de ligação entre a Azure e os agentes de descoberta e avaliação do aparelho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia a visão geral do [Azure Migrate](migrate-services-overview.md).

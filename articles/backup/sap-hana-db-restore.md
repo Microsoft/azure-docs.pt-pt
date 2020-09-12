@@ -3,12 +3,12 @@ title: Restaurar as bases de dados SAP HANA em VMs Azure
 description: Neste artigo, descubra como restaurar as bases de dados SAP HANA que estão a funcionar nas Máquinas Virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006317"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375317"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurar as bases de dados SAP HANA em VMs Azure
 
@@ -28,29 +28,29 @@ O Azure Backup pode restaurar as bases de dados SAP HANA que estão a funcionar 
 
 Antes de restaurar uma base de dados, note o seguinte:
 
-* Você pode restaurar a base de dados apenas para um caso SAP HANA que está na mesma região
+* Só pode restaurar a base de dados para uma hana que esteja na mesma região.
 
-* A instância-alvo deve ser registada com o mesmo cofre que a fonte.
+* A instância do alvo deve ser registada com o mesmo cofre que a fonte.
 
 * O Azure Backup não consegue identificar duas instâncias diferentes da SAP HANA no mesmo VM. Então, restaurar dados de um caso para outro no mesmo VM não é possível.
 
 * Para garantir que a instância SAP HANA alvo está pronta para ser restaurada, verifique o seu **estado de prontidão de backup:**
 
-  1. Abra o cofre no qual o caso SAP HANA alvo é registado
+  1. Abra o cofre no qual está registado o caso SAP HANA alvo.
 
-  1. No painel de abóbada, em **"Começar",** escolha **Backup**
+  1. No painel de abóbada, em **"Começar",** escolha **Backup**.
 
       ![Backup no painel de abóbada](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. In **Backup**, under **What you want to backup?** Escolha **SAP HANA in Azure VM**
+  1. Em **Backup**, em O que pretende fazer **backup?** Escolha **SAP HANA em Azure VM**.
 
       ![Escolha SAP HANA em Azure VM](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. Em **Discover DBs em VMs,** clique em **Ver detalhes**
+  1. Em **Discover DBs em VMs,** selecione **Ver detalhes**.
 
       ![Ver detalhes](media/sap-hana-db-restore/view-details.png)
 
-  1. Reveja a **prontidão** de backup do VM alvo
+  1. Reveja a **prontidão** de backup do VM alvo.
 
       ![Servidores protegidos](media/sap-hana-db-restore/protected-servers.png)
 
@@ -250,6 +250,6 @@ Se selecionou **o Diferencial Full &** como tipo de restauro, faça o seguinte:
     > [!NOTE]
     > Em Multiple Database Container (MDC) restaura-se após o DB do sistema ser restaurado para uma instância-alvo, é necessário voltar a executar o script de pré-registo. Só então o inquilino subsequente DB restaura será bem sucedido. Para saber mais, consulte a [Resolução de Problemas – Restauro do MDC](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como](sap-hana-db-manage.md) gerir as bases de dados SAP HANA com recurso a Backup Azure

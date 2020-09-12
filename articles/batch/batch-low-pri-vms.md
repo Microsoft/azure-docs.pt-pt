@@ -3,14 +3,14 @@ title: Executar cargas de trabalho em VMs de baixa prioridade com baixo nível d
 description: Saiba como providenciar VMs de baixa prioridade para reduzir o custo das cargas de trabalho do Azure Batch.
 author: mscurrell
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816699"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568460"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch
 
@@ -18,7 +18,7 @@ O Azure Batch oferece máquinas virtuais de baixa prioridade (VMs) para reduzir 
 
 Os VM de baixa prioridade aproveitam a capacidade excedentária em Azure. Quando especificar VMs de baixa prioridade nas suas piscinas, o Azure Batch pode utilizar este excedente, quando disponível.
 
-A compensação pela utilização de VMs de baixa prioridade é que esses VM podem não estar disponíveis para serem atribuídos ou podem ser antecipados a qualquer momento, dependendo da capacidade disponível. Por esta razão, os VM de baixa prioridade são mais adequados para certos tipos de cargas de trabalho. Utilize VMs de baixa prioridade para cargas de trabalho de processamento de lotes e assíncronos, onde o tempo de conclusão do trabalho é flexível e o trabalho é distribuído por muitos VMs.
+A compensação pela utilização de VMs de baixa prioridade é que esses VMs podem nem sempre estar disponíveis para serem atribuídos, ou podem ser antecipados a qualquer momento, dependendo da capacidade disponível. Por esta razão, os VM de baixa prioridade são mais adequados para certos tipos de cargas de trabalho. Utilize VMs de baixa prioridade para cargas de trabalho de processamento de lotes e assíncronos, onde o tempo de conclusão do trabalho é flexível e o trabalho é distribuído por muitos VMs.
 
 Os VM de baixa prioridade são oferecidos a um preço significativamente reduzido em comparação com os VM dedicados. Para obter detalhes sobre os preços, consulte [o Preço do Lote](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -123,7 +123,7 @@ Os nó de piscina têm uma propriedade para indicar se o nó é um VM dedicado o
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-Quando um ou mais nós numa piscina são antecipados, uma operação de nós de lista na piscina ainda devolve esses nós. O número atual de nós de baixa prioridade permanece inalterado, mas esses nós têm o seu estado definido para o Estado **Preempted.** O lote tenta encontrar VMs de substituição e, se for bem sucedido, os nós passam por **Criar** e, em seguida, Iniciar estados antes **de** se tornar disponível para execução de tarefas, assim como novos nós.
+Para piscinas de configuração de máquinas virtuais, quando um ou mais nós são antecipados, uma operação de nós de lista na piscina ainda devolve esses nós. O número atual de nós de baixa prioridade permanece inalterado, mas esses nós têm o seu estado definido para o Estado **Preempted.** O lote tenta encontrar VMs de substituição e, se for bem sucedido, os nós passam por **Criar** e, em seguida, Iniciar estados antes **de** se tornar disponível para execução de tarefas, assim como novos nós.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>Escalar uma piscina contendo VMs de baixa prioridade
 
@@ -155,10 +155,11 @@ Os postos de trabalho e as tarefas requerem pouca configuração adicional para 
 
 ## <a name="handling-preemption"></a>Tratamento da preempção
 
-Os VM podem ocasionalmente ser preemptidos; quando a pré-edição acontece, o Batch faz o seguinte:
+Os VMs podem ocasionalmente ser antecipados. Quando isto acontece, as tarefas que estavam a ser executadas nos VMs de nó antecipado são requeadas e executadas novamente.
+
+Para piscinas de configuração de máquinas virtuais, o Batch também faz o seguinte:
 
 -   Os VMs preempted têm o seu estado atualizado para **Preempted**.
--   Se as tarefas estavam a ser executadas nos VMs de nó antecipado, então essas tarefas são requeadas e executadas novamente.
 -   O VM é efetivamente eliminado, levando à perda de quaisquer dados armazenados localmente no VM.
 -   A piscina tenta continuamente alcançar o número alvo de nós de baixa prioridade disponíveis. Quando a capacidade de substituição é encontrada, os nós mantêm os seus IDs, mas são reinicializados, **passando** por Estados **de Criação** e Início antes de estarem disponíveis para agendamento de tarefas.
 -   As contagens de preempção estão disponíveis como métrica no portal Azure.
@@ -168,7 +169,7 @@ Os VM podem ocasionalmente ser preemptidos; quando a pré-edição acontece, o B
 Novas métricas estão disponíveis no [portal Azure](https://portal.azure.com) para nós de baixa prioridade. Estas métricas são:
 
 - Contagem de nó de baixa prioridade
-- Contagem de núcleo de baixa prioridade 
+- Contagem de núcleo de baixa prioridade
 - Contagem de nódoaista preventiva
 
 Para ver métricas no portal Azure:
@@ -177,10 +178,10 @@ Para ver métricas no portal Azure:
 2. Selecione **métricas** da secção **de monitorização.**
 3. Selecione as métricas desejadas na lista **Métricas Disponíveis.**
 
-![Métricas para os nosdes de baixa prioridade](media/batch-low-pri-vms/low-pri-metrics.png)
+![Screenshot mostrando seleção métrica para nós de baixa prioridade.](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
-* Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
-* Comece a planear a mudança de VMs de baixa prioridade para Spot VMs. Se utilizar VMs de baixa prioridade com piscinas de **configuração do Serviço de Nuvem,** planeie mudar-se para piscinas **de configuração de Máquina** Virtual.
+- Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
+- Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
+- Comece a planear a mudança de VMs de baixa prioridade para Spot VMs. Se utilizar VMs de baixa prioridade com piscinas de **configuração do Serviço de Nuvem,** planeie mudar-se para piscinas **de configuração de Máquina** Virtual.

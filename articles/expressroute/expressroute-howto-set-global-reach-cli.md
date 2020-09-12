@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: Configure ExpressRoute Global Reach: CLI'
 description: Este artigo ajuda-o a ligar os circuitos ExpressRoute em conjunto para fazer uma rede privada entre as suas redes no local e ativar o Global Reach.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2018
-ms.author: jaredro
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2e4f7b53ffd3642869e6246e546e3feeda3cf529
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 20ec5bb565a506d935ef7de6475e5062a21faa22
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495901"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395490"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configure ExpressRoute Global Reach usando o Azure CLI
 
@@ -149,7 +149,7 @@ Utilize o ```show``` comando para verificar o estado.
 
 Quando esta operação estiver concluída, deixará de ter conectividade entre as suas redes no local através dos circuitos ExpressRoute.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre o ExpressRoute Global Reach](expressroute-global-reach.md)
 * [Verificar conectividade ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

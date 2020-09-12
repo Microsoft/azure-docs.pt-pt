@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 0fb50e01e86c00ac863352118eb36f7470251435
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855145"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489158"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consulta dados da Azure Time Series Insights Gen2
 
@@ -70,7 +70,7 @@ Estas APIs estão disponíveis em ambas as lojas (Quente e Fria) na nossa soluç
 
   Os tempos devolvidos no conjunto de resposta são dos limites do intervalo esquerdo, não dos eventos amostrados do intervalo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia mais sobre diferentes variáveis que podem ser definidas no [Modelo série de tempo.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm)
-* Leia mais sobre como consultar dados do [Azure Time Series Insights TSI Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Leia mais sobre como consultar dados do [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

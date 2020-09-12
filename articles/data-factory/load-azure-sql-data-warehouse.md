@@ -1,5 +1,5 @@
 ---
-title: Carregar dados em Azure Synapse Analytics
+title: Carregar dados para o Azure Synapse Analytics
 description: Utilize a Azure Data Factory para copiar dados em Azure Synapse Analytics
 services: data-factory
 ms.author: jingwang
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
-ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c90590ac4c47f6ac8d51273fecfb653dfe056b1d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252003"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485775"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carregue os dados no Azure Synapse Analytics utilizando a Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[A azure Synapse Analytics (anteriormente SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é uma base de dados baseada em nuvem e escala que é capaz de processar volumes maciços de dados, tanto relacionais como não relacionais. O Azure Synapse Analytics é construído sobre a arquitetura de processamento massivamente paralelo (MPP) que é otimizada para cargas de trabalho de armazém de dados empresariais. Oferece elasticidade em nuvem com a flexibilidade para escalar o armazenamento e calcular de forma independente.
+[A Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é uma base de dados baseada em nuvem e escala que é capaz de processar volumes maciços de dados, tanto relacionais como não relacionais. O Azure Synapse Analytics é construído sobre a arquitetura de processamento massivamente paralelo (MPP) que é otimizada para cargas de trabalho de armazém de dados empresariais. Oferece elasticidade em nuvem com a flexibilidade para escalar o armazenamento e calcular de forma independente.
 
 Começar com a Azure Synapse Analytics é agora mais fácil do que nunca quando se utiliza a Azure Data Factory. AZure Data Factory é um serviço de integração de dados totalmente gerido na nuvem. Pode utilizar o serviço para preencher um Azure Synapse Analytics com dados do seu sistema existente e economizar tempo na construção das suas soluções de análise.
 
@@ -54,7 +54,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
     * **Nome**: Introduza *loadSQLDWDemo* para o nome. O nome da sua fábrica de dados deve ser *globalmente único. Se receber o erro "O nome da fábrica de dados 'LoadSQLDWDemo' não está disponível", insira um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome _**do seu nome**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados de novo. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: Selecione a sua subscrição Azure na qual criar a fábrica de dados. 
     * **Grupo de Recursos**: Selecione um grupo de recursos existente da lista de drop-down, ou selecione a nova opção **Criar** e insira o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
-    * **Versão**: Selecione **V2**.
+    * **Versão**: selecione **V2**.
     * **Localização**: Selecione a localização para a fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. As lojas de dados que são utilizadas pela fábrica de dados podem estar noutros locais e regiões. Estas lojas de dados incluem Azure Data Lake Store, Azure Storage, Azure SQL Database, e assim por diante.
 
 3. Selecione **Criar**.
@@ -64,7 +64,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
    Selecione o mosaico **Criar e Monitorizar** para iniciar a Aplicação de Integração de Dados num separador à parte.
 
-## <a name="load-data-into-azure-synapse-analytics"></a>Carregar dados em Azure Synapse Analytics
+## <a name="load-data-into-azure-synapse-analytics"></a>Carregar dados para o Azure Synapse Analytics
 
 1. Na página **Introdução**, selecione o mosaico **Copiar Dados** para iniciar a ferramenta Copiar Dados.
 
@@ -102,13 +102,13 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
     a. Clique em **+ Criar nova ligação** para adicionar uma ligação
 
-    b. Selecione **Azure Synapse Analytics (anteriormente SQL DW)** da galeria, e **selecione Continue**. Pode escrever "SQL" na caixa de pesquisa para filtrar os conectores.
+    b. Selecione **Azure Synapse Analytics (anteriormente SQL Data Warehouse)** da galeria, e selecione **Continue**. Pode escrever "SQL" na caixa de pesquisa para filtrar os conectores.
 
-    ![Selecione Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+    ![Selecione Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
     c. Na página **New Linked Service,** selecione o nome do servidor e o nome DB da lista de dropdown e especifique o nome de utilizador e a palavra-passe. Clique **na ligação de teste** para validar as definições e, em seguida, selecione **Criar**.
 
-    ![Configurar Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+    ![Configure Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. Selecione o serviço ligado criado recentemente como sink e, em seguida, clique em **Seguinte**.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922808"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661099"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
@@ -39,7 +39,7 @@ A maioria das funcionalidades estão disponíveis em todos os níveis, incluindo
 
 Os níveis são diferenciados por:
 
-+ Quantidade de índices e indexantes que pode criar
++ Quantidade de índices e indexantes (limites máximos)
 + Tamanho e velocidade das divisórias (armazenamento físico)
 
 O nível selecionado determina a taxa de faturação. A imagem que se segue do portal Azure mostra os níveis disponíveis, menos os preços (que pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). **Free,** **Basic**e **Standard** são os níveis mais comuns.
@@ -213,7 +213,7 @@ As funcionalidades de nível gratuito e de pré-visualização não fornecem [ac
 
 + Lembre-se que a única desvantagem do fornecimento é que você pode ter que demolir um serviço se os requisitos reais são maiores do que as suas previsões. Para evitar perturbações no serviço, criaria um novo serviço num nível mais alto e executá-lo-ia lado a lado até que todas as aplicações e pedidos direcionem o novo ponto final.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Comece com um nível Livre e construa um índice inicial utilizando um subconjunto dos seus dados para compreender as suas características. A estrutura de dados na Azure Cognitive Search é uma estrutura de índice invertida. O tamanho e complexidade de um índice invertido é determinado pelo conteúdo. Lembre-se que o conteúdo altamente redundante tende a resultar num índice menor do que um conteúdo altamente irregular. Assim, as características do conteúdo em vez do tamanho do conjunto de dados determinam os requisitos de armazenamento do índice.
 

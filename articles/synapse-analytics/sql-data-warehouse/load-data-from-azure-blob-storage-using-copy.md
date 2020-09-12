@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c4dbc63e8829d8a9ca3a3820fbb6675da4fad357
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262079"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442986"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carregue o conjunto de dados do Táxi de Nova Iorque
 
@@ -89,7 +89,7 @@ Siga estes passos para criar uma base de dados em branco.
 
 10. Agora que preencheu o formulário, **selecione Criar** para a provisionar a base de dados. O aprovisionamento demora alguns minutos.
 
-11. Na barra de **ferramentas,** selecione Notificações para monitorizar o processo de implementação.
+11. Na barra de ferramentas, selecione **Notificações** para monitorizar o processo de implementação.
   
      ![notificação](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
@@ -98,7 +98,7 @@ Siga estes passos para criar uma base de dados em branco.
 Uma firewall ao nível do servidor que impede que aplicações e ferramentas externas se conectem ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos.  Siga estes passos para criar uma [regra de firewall ao nível do servidor](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do cliente.
 
 > [!NOTE]
-> O SQL Data Warehouse comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Em caso afirmativo, não é possível ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
+> A Azure Synapse Analytics comunica sobre a porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Em caso afirmativo, não é possível ligar-se ao seu servidor a menos que o seu departamento de TI abra a porta 1433.
 
 1. Após a implementação concluída, selecione bases de **dados SQL** a partir do menu à esquerda e, em seguida, selecione **mySampleDatabase** na página de **bases de dados SQL.** A página geral da sua base de dados abre, mostrando-lhe o nome do servidor totalmente qualificado (como **mynewserver-20180430.database.windows.net)** e fornece opções para uma configuração posterior.
 
@@ -513,7 +513,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 5. Para remover o grupo de recursos, selecione **myResourceGroup**e, em seguida, **selecione Delete resource group**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Usou a simples [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) para carregar dados no seu armazém de dados.
 

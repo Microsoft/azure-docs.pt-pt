@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c7bef7fac23ab054810d7d27f99b773f6910f344
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: contperfq1
+ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021448"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299937"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction to Azure managed disks (Introdução aos discos geridos do Azure)
 
@@ -143,7 +144,7 @@ O Azure utiliza um canal de rede prioritário para o tráfego de discos, o que o
 
 Consulte o nosso design para artigo [de alto desempenho,](premium-storage-performance.md) para aprender as melhores práticas para otimizar as configurações de VM + Disco para que possa alcançar o desempenho desejado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se quiser que um vídeo entre em mais detalhes sobre discos geridos, confira: [Melhor Resiliência VM Azure com Discos Geridos](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 

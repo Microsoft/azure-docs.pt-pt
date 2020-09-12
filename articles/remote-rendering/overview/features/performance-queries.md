@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c7212157bb7ef541ac1eb1753f46ea6ad434c2ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cd255896d57d6bda60ec8874430fa994eae69f40
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013372"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613631"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de desempenho do lado do servidor
 
@@ -173,7 +173,12 @@ A `GetStatsString` API forma uma cadeia de todos os valores, mas cada valor úni
 
 Há também variantes dos membros, que agregam os valores ao longo do tempo. Consulte os membros com sufixo, `*Avg` `*Max` ou `*Total` . O membro `FramesUsedForAverage` indica quantos quadros foram usados para esta agregação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# RemoteManager.QueryServerPerformanceAssessmentAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
+* [C++ RemoteManager::QueryServerPerformanceAssessmentAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar traços de desempenho](../../how-tos/performance-tracing.md)
 * [Configurar a conversão do modelo](../../how-tos/conversion/configure-model-conversion.md)
