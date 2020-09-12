@@ -2,14 +2,14 @@
 title: Encriptação em repouso com uma chave gerida pelo cliente
 description: Saiba mais sobre encriptação no resto do seu registo de contentores Azure e como encriptar o seu registo Premium com uma chave gerida pelo cliente armazenada no Cofre de Chaves Azure
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/26/2020
 ms.custom: ''
-ms.openlocfilehash: 67fb58d0e11709b3d801a81f15d856e9b3db922b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0e1810c8e3da334570dd1c4d6adb500e2cfa95e3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225891"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487237"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Registo encriptado usando uma chave gerida pelo cliente
 
@@ -22,10 +22,14 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 
 ## <a name="things-to-know"></a>Aspetos importantes
 
-* Atualmente só pode ativar uma chave gerida pelo cliente quando criar um registo.
-* Depois de ativar uma chave gerida pelo cliente num registo, não pode desativá-la.
+* Atualmente só pode ativar uma chave gerida pelo cliente quando criar um registo. Ao ativar a chave, configura uma identidade gerida *atribuída pelo utilizador* para aceder ao cofre da chave.
+* Depois de ativar a encriptação com uma chave gerida pelo cliente num registo, não é possível desativar a encriptação.  
 * [A confiança dos conteúdos](container-registry-content-trust.md) não é suportada num registo encriptado com uma chave gerida pelo cliente.
 * Num registo encriptado com uma chave gerida pelo cliente, os registos de execução [de Tarefas ACR](container-registry-tasks-overview.md) são atualmente mantidos por apenas 24 horas. Se precisar de reter registos por um período mais longo, consulte orientações para [exportar e armazenar registos de execução de tarefas](container-registry-tasks-logs.md#alternative-log-storage).
+
+
+> [!NOTE]
+> Se o acesso ao cofre da chave Azure for restringido utilizando uma rede virtual com uma [firewall Key Vault,](../key-vault/general/network-security.md)são necessários passos de configuração extra. Depois de criar o registo e permitir a chave gerida pelo cliente, configure o acesso à chave utilizando a identidade gerida *pelo sistema* do registo e configuure o registo para contornar a firewall do Cofre de Chaves. Siga primeiro os passos deste artigo para permitir a encriptação com uma chave gerida pelo cliente e, em seguida, consulte a orientação para [o cenário Avançado: Firewall Key Vault](#advanced-scenario-key-vault-firewall) mais tarde neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -372,7 +376,7 @@ Depois de ativar uma chave gerida pelo cliente num registo, pode efetuar as mesm
 
 ## <a name="rotate-key"></a>Chave rotativa
 
-Rode uma chave gerida pelo cliente utilizada para encriptação de registo nas suas políticas de conformidade. Crie uma nova chave, ou atualize uma versão chave e, em seguida, atualize o registo para encriptar dados usando a chave. Pode executar estes passos utilizando o CLI Azure ou no portal.
+Rode uma chave gerida pelo cliente utilizada para encriptação de registo de acordo com as suas políticas de conformidade. Crie uma nova chave, ou atualize uma versão chave e, em seguida, atualize o registo para encriptar dados usando a chave. Pode executar estes passos utilizando o CLI Azure ou no portal.
 
 Ao rodar uma chave, normalmente especifica a mesma identidade utilizada na criação do registo. Opcionalmente, configurar uma nova identidade atribuída ao utilizador para o acesso à chave, ou ativar e especificar a identidade atribuída ao sistema do registo.
 
@@ -439,9 +443,15 @@ az keyvault delete-policy \
 
 Revogar a chave bloqueia eficazmente o acesso a todos os dados do registo, uma vez que o registo não consegue aceder à chave de encriptação. Se o acesso à chave estiver ativado ou a chave eliminada for restaurada, o seu registo escolherá a chave para que possa aceder novamente aos dados de registo encriptados.
 
-## <a name="advanced-scenarios"></a>Cenários avançados
+## <a name="advanced-scenario-key-vault-firewall"></a>Cenário avançado: Firewall key Vault
 
-### <a name="system-assigned-identity"></a>Identidade atribuída ao sistema
+Se o seu cofre de chaves Azure for implantado numa rede virtual com uma firewall Key Vault, execute os seguintes passos adicionais depois de permitir a encriptação de chaves gerida pelo cliente no seu registo.
+
+1. Encriptação do registo para utilizar a identidade atribuída ao sistema do registo
+1. Habilitar o registo a contornar a firewall do Cofre de Chaves
+1. Rode a chave gerida pelo cliente
+
+### <a name="configure-system-assigned-identity"></a>Configure identidade atribuída ao sistema
 
 Pode configurar a identidade gerida atribuída pelo sistema de um registo para aceder ao cofre de chaves para chaves de encriptação. Se não está familiarizado com as diferentes identidades geridas para os recursos da Azure, consulte a [visão geral.](../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -466,14 +476,18 @@ Para atualizar as definições de encriptação do registo para utilizar a ident
 1. Em **Definições**, selecione **a**  >  **tecla de alteração de**encriptação .
 1. Em **Identidade**, selecione **Sistema atribuído**e selecione **Save**.
 
-### <a name="key-vault-firewall"></a>Firewall do Cofre chave
+### <a name="enable-key-vault-bypass"></a>Ativar o bypass do cofre de chaves
 
-Se o seu cofre de chaves Azure for implantado numa rede virtual com uma firewall Key Vault, execute os seguintes passos:
+Para aceder a um cofre de chaves configurado com uma firewall key Vault, o registo deve contornar a firewall. Configure o cofre de chaves para permitir o acesso por qualquer [serviço de confiança](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). O Registo de Contentores Azure é um dos serviços de confiança.
 
-1. Configurar encriptação de registo para usar a identidade atribuída pelo sistema do registo. Consulte a secção anterior.
-2. Configure o cofre de chaves para permitir o acesso por qualquer [serviço de confiança](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
+1. No portal, navegue para o cofre da chave.
+1. Selecione **Rede de Definições**  >  **Networking**.
+1. Confirme, atualize ou adicione definições de rede virtuais. Para obter etapas detalhadas, consulte [as firewalls Configure Key Vault e redes virtuais](../key-vault/general/network-security.md).
+1. Para **permitir que os Serviços Fidedignos da Microsoft contornem esta firewall**, selecione **Sim**. 
 
-Para obter etapas detalhadas, consulte [as firewalls Configure Key Vault e redes virtuais](../key-vault/general/network-security.md).
+### <a name="rotate-the-customer-managed-key"></a>Rode a chave gerida pelo cliente
+
+Depois de completar os passos anteriores, rode a chave para uma nova chave no cofre da chave atrás de uma firewall. Para etapas, consulte [a tecla Rotativa](#rotate-key) neste artigo.
 
 ## <a name="next-steps"></a>Próximos passos
 

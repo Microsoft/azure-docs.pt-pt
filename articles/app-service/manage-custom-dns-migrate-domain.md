@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871399"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484308"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Azure App Service
 
@@ -40,7 +40,7 @@ Quando, finalmente, migrar o nome DNS personalizado do antigo site para a aplica
 
 ### <a name="get-domain-verification-id"></a>Obtenha iD de verificação de domínio
 
-Obtenha o ID de verificação de domínio para a sua aplicação seguindo os passos no [Get domain Verification ID](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+Obtenha o ID de verificação de domínio para a sua aplicação seguindo os passos no [Get domain Verification ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
 
 ### <a name="create-domain-verification-record"></a>Criar registo de verificação de domínio
 
@@ -48,9 +48,9 @@ Para verificar a propriedade do domínio, adicione um registo TXT para verifica�
 
 | DnS exemplo de registo | Anfitrião TXT | Valor TXT |
 | - | - | - |
-| \@ (raiz) | _asuid_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| www(sub) | _asuid.www_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| \* (wildcard) | _asuid_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \@ (raiz) | _asuid_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| www(sub) | _asuid.www_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \* (wildcard) | _asuid_ | [ID de verificação de domínio para a sua aplicação](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
 
 Na sua página de registos DNS, note o tipo de registo do nome DNS que pretende migrar. O Serviço de Aplicações suporta mapeamentos de registos CNAME e A.
 
@@ -119,7 +119,7 @@ Pode migrar um domínio personalizado ativo em Azure, entre subscrições ou den
 
 Pode encontrar a unidade de implantação da sua aplicação olhando para o nome de domínio do URL FTP/S `<deployment-unit>.ftp.azurewebsites.windows.net` . Verifique e certifique-se de que a unidade de implementação é diferente entre a aplicação de origem e a aplicação-alvo. A unidade de implantação de uma aplicação é determinada pelo plano de Serviço de [Aplicações](overview-hosting-plans.md) em que está. É selecionado aleatoriamente pelo Azure quando se cria o plano e não se pode mudar. O Azure apenas garante que dois planos estão na mesma unidade de implantação quando [os cria no mesmo grupo de recursos *e* na mesma região](app-service-plan-manage.md#create-an-app-service-plan), mas não tem qualquer lógica para garantir que os planos estão em diferentes unidades de implantação. A única maneira de criar um plano numa unidade de implantação diferente é continuar a criar um plano num novo grupo de recursos ou região até obter uma unidade de implantação diferente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como ligar um certificado TLS/SSL personalizado ao Serviço de Aplicações.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92abfa9937c1ac3f7d4ba68e9228b29e0211e1af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007796"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611706"
 ---
 # <a name="reliable-actors-state-management"></a>Gestão estatal de atores confiáveis
 Os atores fiáveis são objetos de linha única que podem encapsular a lógica e o estado. Como os atores funcionam em Serviços Fiáveis, podem manter o Estado de forma fiável usando os mesmos mecanismos de persistência e replicação. Desta forma, os atores não perdem o seu estado após falhas, após a reativação após a recolha de lixo, ou quando são movidos entre nós num cluster devido ao equilíbrio de recursos ou atualizações.
@@ -115,9 +115,9 @@ Isto é fundamental para o desempenho e utilização de recursos da sua aplicaç
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Gerir corretamente o ciclo de vida do ator
 Deve ter uma política clara sobre a gestão do tamanho do estado em cada divisão de um serviço de ator. O seu serviço de ator deve ter um número fixo de atores e reutilizá-los o máximo possível. Se criar continuamente novos atores, deve eliminá-los assim que terminarem o seu trabalho. O ator framework armazena alguns metadados sobre cada ator que existe. Apagar todo o estado de um ator não remove metadados sobre aquele ator. Deve eliminar o ator (ver [apagar atores e o seu estado)](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)para remover toda a informação armazenada no sistema. Como verificação extra, deve consultar o serviço de atores (ver [atores enumerantes)](service-fabric-reliable-actors-enumerate.md)de vez em quando para garantir que o número de atores está dentro do alcance esperado.
  
-Se alguma vez vir que o tamanho do ficheiro de base de dados de um Serviço de Ator está a aumentar para além do tamanho esperado, certifique-se de que está a seguir as diretrizes anteriores. Se estiver a seguir estas diretrizes e ainda estiver a ter problemas de tamanho de ficheiros de base de dados, deverá [abrir um bilhete de apoio](service-fabric-support.md) com a equipa de produtos para obter ajuda.
+Se alguma vez vir que o tamanho do ficheiro de base de dados de um Serviço de Ator está a aumentar para além do tamanho esperado, certifique-se de que está a seguir as diretrizes anteriores. Se estiver a seguir estas diretrizes e ainda estiver a ter problemas de tamanho de ficheiro de base de dados, deverá [abrir um bilhete de apoio](service-fabric-support.md) com a equipa de produtos para obter ajuda.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O estado que está armazenado em Reliable Actors deve ser serializado antes de ser escrito em disco e replicado para alta disponibilidade. Saiba mais sobre [a serialização do tipo ator.](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 

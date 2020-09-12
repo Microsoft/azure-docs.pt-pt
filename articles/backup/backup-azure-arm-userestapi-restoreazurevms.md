@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a gerir as operações de restauro da Cópia 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f9cd0cca938dac79071d7ded6f6139f4e3c3840d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011195"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506683"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais Azure usando REST API
 
@@ -244,6 +244,30 @@ O seguinte pedido do corpo define as propriedades necessárias para desencadear 
 }
 ```
 
+### <a name="restore-disks-selectively"></a>Restaurar os discos seletivamente
+
+Se estiver [a fazer o backup seletivo](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)dos discos, a lista de discos com suporte atual é fornecida no resumo do ponto de [recuperação](#select-recovery-point) e [na resposta detalhada](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). Também pode restaurar seletivamente os discos e mais detalhes são fornecidos [aqui.](selective-disk-backup-restore.md#selective-disk-restore) Para restaurar seletivamente um disco entre a lista de discos retroseridos, encontre o LUN do disco a partir da resposta do ponto de recuperação e adicione a propriedade **restauradaDiskLunList** ao [corpo de pedido acima,](#example-request) como mostrado abaixo.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "RestoreDisks",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "encryptionDetails": {
+          "encryptionEnabled": false
+        },
+        "restoreDiskLunList" : [0]
+    }
+}
+
+```
+
 Uma vez que rastreia a resposta como [explicado acima](#responses), e o trabalho de longa duração está completo, os discos e a configuração da máquina virtual de backed ("VMConfig.json") estarão presentes na conta de armazenamento dada.
 
 ### <a name="replace-disks-in-a-backed-up-virtual-machine"></a>Substitua os discos numa máquina virtual com apoio
@@ -327,7 +351,7 @@ Como [explicado acima,](#restore-operations)o corpo de pedido que se segue defin
 
 A resposta deve ser tratada da mesma forma [que explica acima para restaurar os discos.](#responses)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as APIs de backup Azure, consulte os seguintes documentos:
 

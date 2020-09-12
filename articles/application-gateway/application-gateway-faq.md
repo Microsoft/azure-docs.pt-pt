@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236119"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646555"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
 
@@ -105,7 +105,7 @@ Uma única sub-rede não suporta tanto os SKUs de gateway de aplicação v2 como
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>O Application Gateway v2 suporta rotas definidas pelo utilizador (UDR)?
 
-Sim, mas apenas cenários específicos. Para obter mais informações, consulte a [visão geral da configuração do Gateway de Aplicação](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+Sim, mas apenas cenários específicos. Para obter mais informações, consulte a [configuração da infraestrutura do Gateway de Aplicação](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>O Application Gateway suporta cabeçalhos x-forward-for?
 
@@ -136,7 +136,7 @@ Não. O Gateway V2 de aplicação ainda não suporta pedidos de procuração com
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do Portal de Aplicação suporta o atributo SameSite?
 Sim, a [atualização v80](https://chromiumdash.appspot.com/schedule) do [navegador de Crómio](https://www.chromium.org/Home) introduziu um mandato em cookies HTTP sem atributo SameSite para ser tratado como SameSite=Lax. Isto significa que o cookie de afinidade Do Gateway de Aplicação não será enviado pelo navegador num contexto de terceiros. 
 
-Para suportar este cenário, o Application Gateway injeta outro cookie chamado *ApplicationGatewayAffinityCORS,* além do cookie *applicationGatewayAffinity* existente.  Estes cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados: *SameSite=Nenhum; Seguro*. Estes atributos mantêm sessões pegajosas mesmo para pedidos de origem cruzada. Consulte a [secção de afinidade baseada em cookies](configuration-overview.md#cookie-based-affinity) para obter mais informações.
+Para suportar este cenário, o Application Gateway injeta outro cookie chamado *ApplicationGatewayAffinityCORS,* além do cookie *applicationGatewayAffinity* existente.  Estes cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados: *SameSite=Nenhum; Seguro*. Estes atributos mantêm sessões pegajosas mesmo para pedidos de origem cruzada. Consulte a [secção de afinidade baseada em cookies](configuration-http-settings.md#cookie-based-affinity) para obter mais informações.
 
 ## <a name="performance"></a>Desempenho
 
@@ -186,7 +186,7 @@ Consulte [os grupos de segurança da rede na sub-rede 'Gateway' de aplicação.]
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>A sub-rede de gateway de aplicação suporta rotas definidas pelo utilizador?
 
-Consulte [as rotas definidas pelo utilizador suportadas na sub-rede Do Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+Consulte [as rotas definidas pelo utilizador suportadas na sub-rede Do Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites do Gateway de Aplicação? Posso aumentar estes limites?
 
@@ -404,7 +404,7 @@ Atualmente, um caso de Controlador de Entrada só pode ser associado a um Gatewa
 
 ### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Porque é que o meu cluster AKS com a Kubenet não está a trabalhar com a AGIC?
 
-A AGIC tenta associar automaticamente o recurso da tabela de rotas à sub-rede Do Gateway de Aplicação, mas pode não o fazer devido à falta de permissões da AGIC. Se a AGIC não conseguir associar a tabela de rotas à sub-rede Do Gateway de Aplicação, haverá um erro nos registos AGIC dizendo que sim, caso em que terá de associar manualmente a tabela de rotas criada pelo cluster AKS à sub-rede do Gateway de Aplicação. Para mais informações, consulte [aqui](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)as instruções.
+A AGIC tenta associar automaticamente o recurso da tabela de rotas à sub-rede Do Gateway de Aplicação, mas pode não o fazer devido à falta de permissões da AGIC. Se a AGIC não conseguir associar a tabela de rotas à sub-rede Do Gateway de Aplicação, haverá um erro nos registos AGIC dizendo que sim, caso em que terá de associar manualmente a tabela de rotas criada pelo cluster AKS à sub-rede do Gateway de Aplicação. Para obter mais informações, consulte [rotas definidas pelo utilizador suportados.](configuration-infrastructure.md#supported-user-defined-routes)
 
 ### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Posso ligar o meu cluster AKS e o Application Gateway em redes virtuais separadas? 
 
@@ -467,6 +467,6 @@ Yes. Se a sua configuração corresponder ao seguinte cenário, não verá tráf
 - Você tem um NSG na sub-rede de gateway de aplicação
 - Você ativou registos de fluxo NSG em que NSG
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Application Gateway, veja [o que é O Gateway de Aplicação Azure?](overview.md)

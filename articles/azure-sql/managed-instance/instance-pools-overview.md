@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708846"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658726"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>O que é uma piscina Azure SQL Managed Instance (pré-visualização)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,6 +79,7 @@ Existem várias limitações de recursos em relação a conjuntos de instâncias
 - Para além dos limites de nível de instância, existem também dois limites impostos *ao nível da piscina de exemplo:*
   - Tamanho total de armazenamento por piscina (8 TB).
   - Número total de bases de dados por piscina (100).
+- O AAD Admin não pode ser definido para as instâncias implantadas dentro do pool de exemplo, pelo que a autenticação AAD não pode ser utilizada.
 
 A repartição total do armazenamento e o número de bases de dados em todas as instâncias devem ser inferiores ou iguais aos limites expostos por agrupamentos de exemplo.
 

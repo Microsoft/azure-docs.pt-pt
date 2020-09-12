@@ -1,24 +1,21 @@
 ---
 title: Permitir a replicação de máquinas no local com pontos finais privados
 description: Este artigo descreve como configurar a replicação para máquinas no local utilizando pontos finais privados na Recuperação do Local.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 13c19f07ac21f986a5523407e46c59c050ebf96d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142082"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658793"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replicar máquinas no local utilizando pontos finais privados
 
-A Azure Site Recovery permite-lhe utilizar pontos finais privados [do Azure Private Link](../private-link/private-endpoint-overview.md) para replicar as suas máquinas no local para uma rede virtual em Azure. O apoio ao acesso privado a um cofre de recuperação é suportado nestas regiões:
-
-- Comercial Azure: South Central US, West US 2, East US
-- Governo de Azure: EUA Gov Virginia, EUA Gov Arizona, US Gov Texas, US Dod East, US Dod Central
+A Azure Site Recovery permite-lhe utilizar pontos finais privados [do Azure Private Link](../private-link/private-endpoint-overview.md) para replicar as suas máquinas no local para uma rede virtual em Azure. O acesso privado a um cofre de recuperação é suportado em todas as regiões do Governo comercial & Azure.
 
 Este artigo descreve como completar os seguintes passos:
 

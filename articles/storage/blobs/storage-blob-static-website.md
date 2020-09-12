@@ -6,25 +6,28 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432506"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486863"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Static website hosting in Azure Storage (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)
 
-Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente de armazenamento denominado *$web*. Hospedar o seu conteúdo no Azure Storage permite-lhe utilizar arquiteturas sem servidor que incluam [Funções Azure](/azure/azure-functions/functions-overview) e outras plataformas como serviços (PaaS).
+Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente de armazenamento denominado *$web*. Hospedar o seu conteúdo no Azure Storage permite-lhe utilizar arquiteturas sem servidor que incluam [Funções Azure](/azure/azure-functions/functions-overview) e outras plataformas como serviços (PaaS). O alojamento estático do website Azure Storage é uma ótima opção nos casos em que não é necessário um servidor web para renderizar conteúdo.
+
+[App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/) é uma ótima alternativa para hospedar websites estáticos Azure Storage e também é apropriado em casos em que você não precisa de um servidor web para renderizar conteúdo. As Aplicações Web Estáticas do Serviço de Aplicações fornecem-lhe um fluxo de trabalho de integração contínua e entrega contínua (CI/CD) totalmente gerido da fonte do GitHub para a implementação global.
+
+Se precisar de um servidor web para renderizar conteúdo, pode utilizar [o Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> Se o seu site depender do código do lado do servidor, utilize [o Azure App Service.](/azure/app-service/overview)
-Certifique-se de criar uma conta de armazenamento v2 Standard para fins gerais . Os sites estáticos não estão disponíveis em qualquer outro tipo de conta de armazenamento.
+> Certifique-se de criar uma conta de armazenamento v2 Standard para fins gerais . Os sites estáticos não estão disponíveis em qualquer outro tipo de conta de armazenamento.
 
 ## <a name="setting-up-a-static-website"></a>Criação de um website estático
 
@@ -46,7 +49,7 @@ Pode utilizar qualquer uma destas ferramentas para enviar conteúdo para o recip
 > * [CLI do Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
 > * [Módulo do Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
+> * [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 > * [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Extensão do Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
@@ -103,6 +106,11 @@ Se a conta de armazenamento estiver configurada para [exigir transferência segu
 Não há como configurar cabeçalhos como parte da funcionalidade estática do site. No entanto, pode utilizar o Azure CDN para adicionar cabeçalhos e valores de cabeçalho (ou substituição). Consulte [a referência do motor standard para Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
 
 Se pretender utilizar cabeçalhos para controlar o caching, consulte [o comportamento do caching do Control Azure CDN com regras de caching](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+
+## <a name="multi-region-website-hosting"></a>Hospedagem de websites multi-regiões
+
+Se planeia hospedar um website em várias geografias, recomendamos que utilize uma [Rede de Entrega de Conteúdos](https://docs.microsoft.com/azure/cdn/) para caching regional. Utilize [a Porta frontal Azure](https://docs.microsoft.com/azure/frontdoor/) se quiser servir conteúdos diferentes em cada região. Também fornece capacidades de failover. [O Gestor de Tráfego Azure](https://docs.microsoft.com/azure/traffic-manager/) não é recomendado se pretender utilizar um domínio personalizado. Os problemas podem surgir devido à forma como o Azure Storage verifica nomes de domínio personalizados.
+
 
 ## <a name="pricing"></a>Preços
 

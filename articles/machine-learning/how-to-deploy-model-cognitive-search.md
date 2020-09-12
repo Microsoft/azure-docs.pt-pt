@@ -10,12 +10,12 @@ ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: 59671a0520d665d594356a2e6aee46116a8de5d3
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 88dde6e3deeebcb93da3fcd278721a0f5d4bf900
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541775"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646054"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementar um modelo para utilizar com o Cognitive Search
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -45,7 +45,7 @@ Ao implementar um modelo para utilização com a Azure Cognitive Search, a imple
 
 * Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [Criar um espaço de trabalho para aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 
-* Um ambiente de desenvolvimento Python com o Azure Machine Learning SDK instalado. Para mais informações, consulte [a Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
+* Um ambiente de desenvolvimento Python com o Azure Machine Learning SDK instalado. Para mais informações, consulte [a Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
 
 * Um modelo registado. Se não tiver um modelo, utilize o caderno de exemplo em [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill) .
 
@@ -240,7 +240,7 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                        max_request_wait_time=5000)
 ```
 
-Para mais informações, consulte a documentação de referência para [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
+Para mais informações, consulte a documentação de referência para [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
 
 ## <a name="define-the-inference-configuration"></a>Definir a configuração da inferência
 
@@ -251,7 +251,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-Para mais informações, consulte a documentação de referência para [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
+Para mais informações, consulte a documentação de referência para [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
@@ -276,7 +276,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-Para mais informações, consulte a documentação de referência [do Modelo.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)
+Para mais informações, consulte a documentação de referência [do Modelo.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true)
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Emite uma consulta de amostra ao seu serviço
 
@@ -321,6 +321,6 @@ aks_service.delete()
 aks_target.delete()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Construa e implemente uma habilidade personalizada com a Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md)

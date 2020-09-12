@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3ece750ab63c2c8e33fbfb46739eec55de4f5d07
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320192"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646070"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recolher dados de modelos em produção
 
@@ -67,11 +67,11 @@ O caminho para os dados de saída na bolha segue esta sintaxe:
 
 - Precisas de um aglomerado AKS. Para obter informações sobre como criar um e implementar nele, consulte [como implementar e onde](how-to-deploy-and-where.md).
 
-- [Confende o seu ambiente](how-to-configure-environment.md) e instale o [Azure Machine Learning Monitoring SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+- [Confende o seu ambiente](how-to-configure-environment.md) e instale o [Azure Machine Learning Monitoring SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 ## <a name="enable-data-collection"></a>Ativar a recolha de dados
 
-Pode ativar a recolha de [dados](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) independentemente do modelo que implementa através do Azure Machine Learning ou de outras ferramentas.
+Pode ativar a recolha de [dados](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) independentemente do modelo que implementa através do Azure Machine Learning ou de outras ferramentas.
 
 Para ativar a recolha de dados, é necessário:
 
@@ -149,7 +149,7 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Analisar dados de modelos usando Power BI
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a> Analisar dados de modelos usando Power BI
 
 1. Descarregue e abra [o Power BI Desktop](https://www.powerbi.com).
 
@@ -185,7 +185,7 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
 
 1. Comece a construir os seus relatórios personalizados sobre os seus dados de modelo.
 
-### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Analisar dados de modelos usando Azure Databricks
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Analisar dados de modelos usando Azure Databricks
 
 1. Criar um [espaço de trabalho Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 
@@ -210,6 +210,6 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
 
 1. Siga os passos no modelo para visualizar e analisar os seus dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Detete a deriva de dados](how-to-monitor-datasets.md) nos dados recolhidos.

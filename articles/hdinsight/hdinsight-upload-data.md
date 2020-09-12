@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085876"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462569"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Upload de dados para empregos apache Hadoop em HDInsight
 
@@ -68,7 +68,7 @@ ou
 
 `wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
-Para uma lista de outros comandos Hadoop que funcionam com ficheiros, ver[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Para uma lista de outros comandos Hadoop que funcionam com ficheiros, ver [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > Nos clusters Apache HBase, o tamanho do bloco predefinido utilizado ao escrever dados é de 256 KB. Embora isto funcione bem quando se utiliza APIs HBase ou REST APIs, usar os `hadoop` `hdfs dfs` ou comandos para escrever dados maiores do que ~12 GB resulta num erro. Para obter mais informações, consulte [a exceção de armazenamento para escrever no blob](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
@@ -80,7 +80,7 @@ Existem também várias aplicações que fornecem uma interface gráfica para tr
 | Cliente | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Ferramentas de estúdio visual da Microsoft para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Explorador do Storage do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [Explorador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [CloudBerry Explorer para Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
@@ -88,7 +88,7 @@ Existem também várias aplicações que fornecem uma interface gráfica para tr
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Armazenamento do Monte Azure como Unidade Local
 
-Consulte [o Armazenamento do Monte Azure como Unidade Local](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Consulte [o Armazenamento do Monte Azure como Unidade Local](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## <a name="upload-using-services"></a>Upload usando serviços
 
@@ -99,8 +99,8 @@ O serviço Azure Data Factory é um serviço totalmente gerido para a composiç�
 |Tipo de armazenamento|Documentação|
 |----|----|
 |Armazenamento de Blobs do Azure|[Copiar dados de/para o Armazenamento de blobs do Azure com o Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
-|Azure Data Lake Storage Gen1|[Copiar dados para ou a partir da Azure Data Lake Storage Gen1 utilizando a Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
-|Azure Data Lake Storage Gen2 |[Carregue os dados no Azure Data Lake Storage Gen2 com a Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
+|Armazenamento do Azure Data Lake Ger1|[Copiar dados para ou a partir da Azure Data Lake Storage Gen1 utilizando a Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
+|Armazenamento do Azure Data Lake Ger2 |[Carregue os dados no Azure Data Lake Storage Gen2 com a Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 ### <a name="apache-sqoop"></a>Apache Sqoop
 

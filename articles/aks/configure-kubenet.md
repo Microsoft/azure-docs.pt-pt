@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: f9bc0cd229888d952821509ced6cc5410000ee52
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6f773f57bea40ba87f35ca2bbefe424d084afb2e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078729"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462144"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -24,7 +24,7 @@ Este artigo mostra-lhe como usar a rede *kubenet* para criar e utilizar uma sub-
 
 * A rede virtual para o cluster AKS deve permitir a conectividade de saída da Internet.
 * Não crie mais do que um cluster AKS na mesma sub-rede.
-* Os clusters AKS não podem utilizar , , ou para a gama de `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` endereços de serviço Kubernetes.
+* Os clusters AKS não podem utilizar `169.254.0.0/16` , , ou para a gama de `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` endereços de serviço Kubernetes, gama de endereços pod ou intervalo de endereços de rede virtual de cluster.
 * O principal de serviço utilizado pelo cluster AKS deve ter pelo menos [função de Contribuinte de Rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede dentro da sua rede virtual. Também deve ter as permissões apropriadas, como o proprietário da subscrição, para criar um principal serviço e atribuir-lhe permissões. Se desejar definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de utilizar a função de contribuinte de rede incorporada, são necessárias as seguintes permissões:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -244,7 +244,7 @@ az network vnet subnet list --resource-group
 az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com um cluster AKS implantado na sua sub-rede de rede virtual existente, pode agora utilizar o cluster normalmente. Começa com [a construção de apps que utilizam o Azure Dev Spaces,][dev-spaces] [implemente aplicações existentes usando o Helm,][use-helm]ou [crie novas aplicações usando o Helm.][develop-helm]
 

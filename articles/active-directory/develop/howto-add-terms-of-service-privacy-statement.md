@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478013"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535777"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar termos de serviço e declaração de privacidade para uma aplicação
 
@@ -45,7 +45,7 @@ Antes de adicionar links aos termos de serviço e documentos de declaração de 
 | Esquemas válidos | HTTP e HTTPS<br/>Recomendamos HTTPS |
 | Comprimento máximo    | 2048 caracteres                       |
 
-Exemplos: `https://myapp.com/terms-of-service` e`https://myapp.com/privacy-statement`
+Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statement`
 
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Adicionar links aos termos de serviço e declaração de privacidade
 
@@ -58,7 +58,7 @@ Quando os termos de serviço e declaração de privacidade estiverem prontos, po
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Utilizar o portal do Azure
 Siga estes passos no portal Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inscreva-se no [portal Azure,](https://portal.azure.com/)selecione o inquilino AzureAD correto (não B2C).
 2. Navegue na secção registos de **aplicações** e selecione a sua aplicação.
 3. Abra o painel **de marcação.**
 4. Preencha os termos **de URL de serviço** e url de Declaração de **Privacidade.**
@@ -69,6 +69,11 @@ Siga estes passos no portal Azure.
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>Usando o objeto de aplicação JSON
 
 Se preferir modificar diretamente o objeto da aplicação JSON, pode utilizar o editor manifesto no portal Azure ou no Portal de Registo de Aplicações para incluir links para os termos de serviço e declaração de privacidade da sua aplicação.
+
+1. Navegando na secção registos de **aplicações** e selecione a sua aplicação.
+2. Abra o **painel manifesto.**
+3. Ctrl+F, Procura por "informationalUrls". Preencha a informação.
+4. Guarde as alterações.
 
 ```json
     "informationalUrls": { 

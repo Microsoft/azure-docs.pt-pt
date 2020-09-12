@@ -2,17 +2,17 @@
 title: Sobre a Azure ExpressRoute Direct
 description: Conheça as principais funcionalidades da Azure ExpressRoute Direct e as informações necessárias para embarcar no ExpressRoute Direct, como SKUs disponíveis e requisitos técnicos.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jaredro
-ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192356"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566403"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
@@ -44,7 +44,7 @@ Antes de utilizar o ExpressRoute Direct, tem primeiro de inscrever a sua subscri
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos Diretos ExpressRoute
 
-O Microsoft Azure ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, como o Microsoft Azure e o Office 365.
+O Microsoft Azure ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, como o Microsoft Azure e o Microsoft 365.
 
 Cada local de observação tem acesso à rede global da Microsoft e pode aceder a qualquer região numa zona geopolítica por padrão e pode aceder a todas as regiões globais com um circuito premium.  
 
@@ -91,6 +91,6 @@ O ExpressRoute Direct suporta a marcação VLAN QinQ e Dot1Q.
 
 O ExpressRoute Direct fornece o mesmo SLA de nível empresarial com ligações redundantes ativas/ativas na Rede Global da Microsoft. A infraestrutura ExpressRoute é redundante e a conectividade na Microsoft Global Network é redundante e diversificada e escala em conformidade com os requisitos do cliente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar o ExpressRoute Direct](expressroute-howto-erdirect.md)

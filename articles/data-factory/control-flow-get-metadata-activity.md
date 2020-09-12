@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 09/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 26d52eed02c9d25ed2f18afa3a5262ba9224b0ba
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: c761cf1265ad61517a9d0123b932d31b27d157dd
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224871"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613506"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de metadados na Azure Data Factory
 
@@ -50,7 +50,7 @@ A atividade Get Metadados requer um conjunto de dados como uma entrada e devolve
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Ficheiros do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [Sistema de Ficheiros](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
@@ -69,7 +69,7 @@ A atividade Get Metadados requer um conjunto de dados como uma entrada e devolve
 |:--- |:--- |:--- |:--- |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
 | [Instância Gerida do SQL no Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
-| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### <a name="metadata-options"></a>Opções de metadados
@@ -95,7 +95,7 @@ Pode especificar os seguintes tipos de metadados na lista de atividades do Get M
 >[!NOTE]
 >Quando obtém metadados nas lojas de ficheiros e `modifiedDatetimeStart` configurar `modifiedDatetimeEnd` ou, a `childItems` saída in incluirá apenas ficheiros na via dada que tenham um último tempo modificado dentro do intervalo especificado. Não incluirá itens em sub-dobradeiras.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 **Obtenha atividade de metadados**
 
@@ -168,12 +168,12 @@ Atualmente, a atividade Get Metadata pode devolver os seguintes tipos de informa
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-fieldList | Os tipos de informação de metadados necessários. Para obter mais informações sobre metadados suportados, consulte a secção de opções de [metadados](#metadata-options) deste artigo. | Sim 
-conjunto de dados | O conjunto de dados de referência cujos metadados devem ser recuperados pela atividade Get Metadados. Consulte a secção [Capabilities](#capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Sim
+fieldList | Os tipos de informação de metadados necessários. Para obter mais informações sobre metadados suportados, consulte a secção de opções de [metadados](#metadata-options) deste artigo. | Yes 
+conjunto de dados | O conjunto de dados de referência cujos metadados devem ser recuperados pela atividade Get Metadados. Consulte a secção [Capabilities](#capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Yes
 formatoStas | Aplicar quando utilizar o conjunto de dados do tipo de formato. | No
-lojaSs | Aplicar quando utilizar o conjunto de dados do tipo de formato. | Não
+lojaSs | Aplicar quando utilizar o conjunto de dados do tipo de formato. | No
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 Os resultados do Get Metadados são apresentados na saída da atividade. Seguem-se duas amostras que mostram extensas opções de metadados. Para utilizar os resultados numa atividade subsequente, utilize este padrão: `@{activity('MyGetMetadataActivity').output.itemName}` .
 

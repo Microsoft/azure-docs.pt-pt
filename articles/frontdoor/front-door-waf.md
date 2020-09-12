@@ -1,22 +1,22 @@
 ---
 title: Dimensione e proteja rapidamente uma aplicação web usando Azure Front Door e Azure Web Application Firewall (WAF) Microsoft Docs
-description: Este artigo ajuda-o a entender como usar firewall de aplicação web com o seu serviço de porta frontal AAzure
+description: Este artigo ajuda-o a entender como usar firewall de aplicação web com o seu serviço de porta frontal Azure
 services: frontdoor
 documentationcenter: ''
-author: tremansdoerfer
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/06/2020
-ms.author: rimansdo
-ms.openlocfilehash: 6f91a98372aa85a52a6013a121235ca354004a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a0252004b01e64b195b372d72682f6b777012258
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743546"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535436"
 ---
 # <a name="quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Dimensione rapidamente e proteja uma aplicação web usando Azure Front Door e Azure Web Application Firewall (WAF)
 
@@ -119,7 +119,7 @@ Inicialmente, o nome de domínio personalizado da sua aplicação web (a que os 
 
 As etapas específicas para atualizar os seus registos DNS dependerão do seu prestador de serviços DNS, mas se estiver a utilizar o Azure DNS para hospedar o seu nome DNS, pode consultar a documentação para [os passos atualizar um registo DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) e apontar para o nome anfitrião do AFD. 
 
-Uma coisa importante a notar aqui é que, se você precisa que os seus utilizadores naveguem para o seu website usando o ápice da zona, para exmaple, contoso.com, você tem que usar Azure DNS e é tipo de [gravação ALIAS](https://docs.microsoft.com/azure/dns/dns-alias) para hospedar o seu nome DNS. 
+Uma coisa importante a notar aqui é que, se você precisa que os seus utilizadores naveguem para o seu website usando o ápice da zona, por exemplo, contoso.com, você tem que usar Azure DNS e é [tipo de gravação ALIAS](https://docs.microsoft.com/azure/dns/dns-alias) para hospedar o seu nome DNS. 
 
 Além disso, também precisa atualizar a sua configuração AFD para [adicionar este domínio personalizado](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) ao mesmo para que a AFD compreenda este mapeamento.
 

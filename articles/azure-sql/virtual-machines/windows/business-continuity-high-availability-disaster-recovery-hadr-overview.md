@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: b81af3e89a3226757c5bf7668a06701c35831072
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3b18582cdb34708c379725d361d1fcc5e608ae38
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962718"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462773"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -148,7 +148,7 @@ Para obter mais informações sobre a conectividade do cliente, consulte:
 
 * [Utilização de palavras-chave de cadeia de ligação com cliente nativo do servidor SQL](https://msdn.microsoft.com/library/ms130822.aspx)
 * [Conecte os clientes a uma sessão de espelhamento de base de dados (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Conectar-se ao Ouvinte do Grupo disponibilidade em IT híbrido](https://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
+* [Conectar-se ao Ouvinte do Grupo disponibilidade em IT híbrido](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
 * [Disponibilidade De Ouvintes do Grupo, Conectividade do Cliente e Falha de Aplicação (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
 * [Utilização de cadeias de ligação de espelhamento de base de dados com grupos de disponibilidade](https://technet.microsoft.com/library/hh213417.aspx)
 

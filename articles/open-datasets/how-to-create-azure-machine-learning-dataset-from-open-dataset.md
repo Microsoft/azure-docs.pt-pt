@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998079"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461515"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure a partir de conjuntos de dados abertos do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,7 +111,7 @@ Também pode criar conjuntos de dados Azure Machine Learning a partir de Azure O
 
     ![Escolha conjunto de dados](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Escolha um nome para registar o conjunto de dados e filtra opcionalmente os dados utilizando os filtros disponíveis. Neste caso, para o conjunto **de dados de feriados públicos,** você filtra o período de tempo para um ano e o código do país apenas para os EUA. Consulte o [Catálogo de Conjuntos de Dados Azure Open](https://azure.microsoft.com/services/op[en-datasets/catalog/) para obter detalhes de dados, tais como descrições de campo e intervalos de datas. Selecione **Criar**.
+1. Escolha um nome para registar o conjunto de dados e filtra opcionalmente os dados utilizando os filtros disponíveis. Neste caso, para o conjunto **de dados de feriados públicos,** você filtra o período de tempo para um ano e o código do país apenas para os EUA. Consulte o [Catálogo de Conjuntos de Dados Azure Open](https://azure.microsoft.com/services/open-datasets/catalog) para obter detalhes de dados, tais como descrições de campo e intervalos de datas. Selecione **Criar**.
 
     ![Definir params de conjunto de dados e criar conjunto de dados](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 
@@ -126,7 +126,7 @@ Utilize os seus conjuntos de dados nas suas experiências de aprendizagem autom�
 
 Por exemplo, e demonstrações da funcionalidade Open Datasets, consulte estes [cadernos de amostras](samples.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Treine o seu primeiro modelo ML.](../machine-learning/tutorial-1st-experiment-sdk-train.md)
 

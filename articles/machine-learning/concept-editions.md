@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: fbe3f0109ca3af2cf9ff44061c7882e6bd72c8a6
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ab8a49f62735a47c4ccc9fa488eed60088cd9c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508607"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658603"
 ---
 # <a name="enterprise-preview-and-basic-editions-of-azure-machine-learning"></a>Empresa (pré-visualização) e Edições Básicas de Azure Machine Learning 
 
@@ -113,12 +113,12 @@ Saiba como [atualizar um espaço de trabalho básico para a edição Enterprise 
 | Capacidades     | Edição                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | [Suporte ao controlo de acesso baseado em funções Azure (Azure RBAC)](how-to-assign-roles.md)                                           | Todos                     |
-| [Suporte de Rede Virtual (VNet)](how-to-enable-virtual-network.md) para cálculo                                         | Todos                     |
+| [Suporte de Rede Virtual (VNet)](how-to-secure-training-vnet.md) para cálculo                                         | Todos                     |
 | Autenticação de ponto final de pontuação                                                    | Todos                     |
 | [Link privado espaço de trabalho](how-to-configure-private-link.md)                                                            | Todos                     |
 | [Gestão de quotas](how-to-manage-quotas.md) em espaços de trabalho                                                 | Edição empresarial apenas |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o que está disponível na página geral da edição Azure Machine Learning [e na página de preços.](https://azure.microsoft.com/pricing/details/machine-learning/) 
 

@@ -3,16 +3,16 @@ title: Criar uma oferta Dynamics 365 Business Central - Mercado comercial da Mic
 description: Conheça os passos e considerações para criar uma nova oferta Dynamics 365 Business Central no mercado comercial da Microsoft no Partner Center. Pode listar ou vender a sua oferta no Azure Marketplace ou através do programa Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 953d22e2dc41ca64af3793c8e0f67a203eb5ca7c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817056"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646852"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -280,7 +280,7 @@ Quando terminar de configurar o seu test drive, **selecione Guardar o rascunho**
 
 Esta página permite-lhe fornecer informações adicionais sobre a sua oferta para nos ajudar a validar a sua oferta. Esta informação não é mostrada aos clientes ou publicada no mercado.
 
-### <a name="target-release"></a>Lançamento do alvo
+### <a name="target-release"></a>Versão de destino
 
 Indicar qual o lançamento do Microsoft Dynamics Business Central os seus objetivos de solução: **Current**, **Next major**ou Next **minor**. Esta informação permite-nos testar a sua solução adequadamente.
 
@@ -315,6 +315,6 @@ Se é a sua primeira vez publicando esta oferta, você pode:
 - Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail quando estiver disponível uma versão de pré-visualização da oferta para que possa rever e aprovar. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

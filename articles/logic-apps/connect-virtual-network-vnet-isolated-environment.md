@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/10/2020
+ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816665"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647558"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conecte-se às redes virtuais Azure a partir de Azure Logic Apps utilizando um ambiente de serviço de integração (ISE)
 
@@ -44,7 +44,14 @@ Também pode criar um ISE utilizando o modelo de arranque rápido do [Azure Reso
   > [!IMPORTANT]
   > Aplicações lógicas, gatilhos incorporados, ações incorporadas e conectores que funcionam no seu ISE usam um plano de preços diferente do plano de preços baseado no consumo. Para aprender como os preços e a faturação funcionam para as ISEs, consulte o [modelo de preços de Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md#fixed-pricing) Para taxas de preços, consulte [os preços das Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md)
 
-* Uma [rede virtual Azure.](../virtual-network/virtual-networks-overview.md) A sua rede virtual necessita de ter quatro sub-redes *vazias,* que são necessárias para criar e implantar recursos no seu ISE e são utilizadas por componentes de Aplicações Lógicas internas, tais como conectores e caching para desempenho. Pode criar as sub-redes com antecedência ou esperar até criar o ise para que possa criar sub-redes ao mesmo tempo. No entanto, antes de criar as suas sub-redes, reveja os [requisitos da sub-rede](#create-subnet).
+* Uma [rede virtual Azure.](../virtual-network/virtual-networks-overview.md) A sua rede virtual precisa de ter quatro sub-redes *vazias,* que são necessárias para criar e implantar recursos no seu ISE e são utilizadas por estes componentes internos e ocultos:
+
+  * Cálculo de Apps Lógicas
+  * Ambiente de Serviço de Aplicações Internas (conectores)
+  * Gestão Interna da API (conectores)
+  * Redis Interno para caching e desempenho
+  
+  Pode criar as sub-redes com antecedência ou esperar até criar o ise para que possa criar sub-redes ao mesmo tempo. No entanto, antes de criar as suas sub-redes, reveja os [requisitos da sub-rede](#create-subnet).
 
   > [!IMPORTANT]
   >
@@ -276,7 +283,7 @@ Se não permitir o acesso a estas dependências, a sua implantação ise falha e
    > [!IMPORTANT]
    > Os conectores ISE geridos que ficam disponíveis depois de criar o seu ISE não aparecem automaticamente no conector no Logic App Designer. Antes de poder utilizar estes conectores ISE, tem de adicionar manualmente [esses conectores ao ISE para](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) que estes apareçam no Logic App Designer.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Adicionar recursos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Gerir ambientes do serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691399"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462586"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão virtual do Windows Desktop (clássico) com um modelo de Gestor de Recursos Azure
 
@@ -98,7 +98,7 @@ Depois de fornecer o consentimento para a organização ou para um utilizador es
 
 Siga estas instruções para lançar a ferramenta:
 
-1. Selecione o recurso Azure App Services com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue para o URL associado ao mesmo; por exemplo,  <https://rdmimgmtweb-210520190304.azurewebsites.net> . .
+1. Selecione o recurso Azure App Services com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue para o URL associado ao mesmo; por exemplo,  `https://rdmimgmtweb-210520190304.azurewebsites.net` . .
 2. Inscreva-se usando as suas credenciais de ambiente de trabalho virtual do Windows.
 3. Quando solicitado para escolher um Grupo de Inquilinos, selecione **O Grupo de Inquilinos Predefinidos** na lista de suspensos.
 4. Quando selecionar **o Grupo inquilino predefinido,** deve aparecer um menu no lado esquerdo da janela. Neste menu, encontre o nome do seu grupo de inquilinos e selecione-o.
@@ -110,6 +110,6 @@ Siga estas instruções para lançar a ferramenta:
 
 Se encontrar problemas com a ferramenta de gestão ou outras ferramentas de ambiente de trabalho virtual do Windows, siga as instruções nos [modelos do Gestor de Recursos Azure para serviços de ambiente de trabalho remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para os reportar no GitHub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a implantar e conectar-se à ferramenta de gestão, pode aprender a usar o Serviço Azure para monitorizar problemas de serviço e avisos de saúde. Para saber mais, consulte o nosso [serviço de alertas de serviço tutorial.](set-up-service-alerts-2019.md)

@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: circuitos e espreitar'
 description: Esta página fornece uma visão geral dos circuitos ExpressRoute e domínios de encaminhamento/observação.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: mialdrid
-ms.openlocfilehash: e2c730906e8dcb31c3365259088240c74e416855
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537025"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566505"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Circuitos e peering do ExpressRoute)
 
@@ -54,7 +54,7 @@ Pode ligar mais do que uma rede virtual ao domínio de observação privada. Rev
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-A conectividade com os serviços online da Microsoft (office 365 e Azure PaaS) ocorre através do persmo da Microsoft. Ativamos a conectividade biducional entre os seus serviços de nuvem WAN e Microsoft através do domínio de encaminhamento de encaminhamento da Microsoft. Tem de se ligar aos serviços de cloud da Microsoft apenas através de endereços IP públicos que são propriedade de si ou do seu fornecedor de conectividade e deve respeitar todas as regras definidas. Para mais informações, consulte a página [pré-requisitos do ExpressRoute.](expressroute-prerequisites.md)
+A conectividade com os serviços online da Microsoft (os serviços Microsoft 365 e Azure PaaS) ocorre através do persto da Microsoft. Ativamos a conectividade biducional entre os seus serviços de nuvem WAN e Microsoft através do domínio de encaminhamento de encaminhamento da Microsoft. Tem de se ligar aos serviços de cloud da Microsoft apenas através de endereços IP públicos que são propriedade de si ou do seu fornecedor de conectividade e deve respeitar todas as regras definidas. Para mais informações, consulte a página [pré-requisitos do ExpressRoute.](expressroute-prerequisites.md)
 
 Consulte a [página de PERGUNTAS Frequentes](expressroute-faqs.md) para obter mais informações sobre serviços suportados, custos e detalhes de configuração. Consulte a página [ExpressRoute Locations](expressroute-locations.md) para obter informações sobre a lista de fornecedores de conectividade que oferecem suporte para espreitar a Microsoft.
 

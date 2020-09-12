@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bce5e14db133ad55a2035c0c8074486ed1b8a6ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039029"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460512"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Resolução de problemas Synapse SQL em Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Este artigo lista problemas comuns de resolução de problemas no SQL da Sinapse
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Explorador de objetos do Estúdio Visual está desaparecido utilizadores de Azure AD           | Este é um problema conhecido.  Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Consulte [a Autenticação para Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre a utilização do Azure Ative Directory com piscina Synapse SQL. |
-| A scriptagem manual, utilizando o assistente de script, ou ligando via SSMS é lenta, não responde ou produz erros | Certifique-se de que os utilizadores foram criados na base de dados principal. Nas opções de script, certifique-se também de que a edição do motor está definida como "Microsoft Azure SQL Data Warehouse Edition" e o tipo de motor é "Microsoft Azure SQL Database". |
+| A scriptagem manual, utilizando o assistente de script, ou ligando via SSMS é lenta, não responde ou produz erros | Certifique-se de que os utilizadores foram criados na base de dados principal. Nas opções de script, certifique-se também de que a edição do motor está definida como "Microsoft Azure Synapse Analytics Edition" e o tipo de motor é "Microsoft Azure SQL Database". |
 | Gerar scripts falha em SSMS                               | Gerar um script para piscina Sinapse SQL falha se a opção "Gerar script para objetos dependentes" for definida como "Verdadeiro". Como uma solução alternativa, os utilizadores devem ir manualmente para **Ferramentas -> Opções ->SQL Server Object Explorer -> Gerar script para opções dependentes e definido para falso** |
 
 ## <a name="performance"></a>Desempenho

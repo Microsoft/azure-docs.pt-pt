@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 399689f3f7d07a6e77128037be6b7439e7bf5184
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88960025"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646611"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a aplicação numa rede virtual do Azure
 
@@ -80,7 +80,7 @@ Não pode utilizar a integração VNet exigida por gateways:
 
 Para criar uma porta de entrada:
 
-1. [Crie uma sub-rede de gateway][creategatewaysubnet] no seu VNet.  
+1. [Crie uma sub-rede de gateway][creategatewaysubnet] no seu VNet.
 
 1. [Crie o gateway VPN][creategateway]. Selecione um tipo VPN baseado em rota.
 
@@ -102,8 +102,8 @@ Não é necessária nenhuma configuração adicional para que a funcionalidade r
 
 > [!NOTE]
 > A funcionalidade de Integração VNet exigida por gateway não integra uma aplicação com um VNet que tenha um gateway ExpressRoute. Mesmo que o gateway ExpressRoute esteja configurado em [modo de coexistência,][VPNERCoex]a Integração VNet não funciona. Se precisar de aceder aos recursos através de uma ligação ExpressRoute, utilize a funcionalidade regional de Integração VNet ou um [Ambiente de Serviço de Aplicações][ASE], que funciona no seu VNet.
-> 
-> 
+>
+>
 
 ### <a name="peering"></a>Peering
 
@@ -177,26 +177,27 @@ O suporte powershell para a integração regional do VNet também está disponí
 
 ```azurepowershell
 # Parameters
-$sitename="myWebApp"
-$resourcegroupname="myRG"
-$VNetname="myVNet"
-$location="myRegion"
-$integrationsubnetname = "myIntegrationSubnet"
-$subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+$sitename = 'myWebApp'
+$resourcegroupname = 'myRG'
+$VNetname = 'myVNet'
+$location = 'myRegion'
+$integrationsubnetname = 'myIntegrationSubnet'
+$subscriptionID = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
 
 #Property array with the SubnetID
 $properties = @{
-      "subnetResourceId" = "/subscriptions/"+$subscriptionID+"/resourceGroups/"+$resourcegroupname+"/providers/Microsoft.Network/virtualNetworks/"+$VNetname+"/subnets/"+$integrationsubnetname;
-      }
-      
-#Creation of the VNet integration
-$resourceID = $sitename+"/VirtualNetwork"
-New-AzResource -ResourceName $resourceID `
--Location $location  `
--ResourceGroupName $resourcegroupname `
--ResourceType Microsoft.Web/sites/networkConfig `
--PropertyObject $properties 
+  subnetResourceId = "/subscriptions/$subscriptionID/resourceGroups/$resourcegroupname/providers/Microsoft.Network/virtualNetworks/$VNetname/subnets/$integrationsubnetname"
+}
 
+#Creation of the VNet integration
+$vNetParams = @{
+  ResourceName = "$sitename/VirtualNetwork"
+  Location = $location
+  ResourceGroupName = $resourcegroupname
+  ResourceType = 'Microsoft.Web/sites/networkConfig'
+  PropertyObject = $properties
+}
+New-AzResource @vNetParams
 ```
 
 

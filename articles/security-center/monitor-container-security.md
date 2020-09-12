@@ -8,19 +8,19 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8ec06fc23b147eb3e4a5922242aa922063f4172c
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038619"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514157"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Monitorize a segurança dos seus contentores
 
 Esta página explica como utilizar as funcionalidades de segurança do contentor descritas no [artigo de Segurança](container-security.md) do Contentor na nossa secção de conceitos.
 
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Digitalizar os registos de contentores baseados em ARM para vulnerabilidades 
+## <a name="scan-your-arm-based-container-registries-for-vulnerabilities"></a>Verifique os registos de contentores baseados na ARM para obter vulnerabilidades 
 
 1. Para permitir a verificação de vulnerabilidades das imagens do registo do seu contentor Azure:
 
@@ -30,13 +30,13 @@ Esta página explica como utilizar as funcionalidades de segurança do contentor
 
         O Centro de Segurança está agora pronto para digitalizar imagens que são empurradas para o registo. 
 
-        >[!NOTE]
-        >Esta funcionalidade é carregada por imagem.
+      >[!NOTE]
+      >Esta funcionalidade é carregada por imagem.
 
 
 1. Para ativar a digitalização de uma imagem, empurre-a para o seu registo. 
 
-    Quando a varredura termina (normalmente após aproximadamente 2 minutos, mas pode ser até 15 minutos), os resultados estão disponíveis como recomendações do Centro de Segurança como esta:
+    Quando a varredura termina (normalmente após aproximadamente 2 minutos, mas pode chegar a 15 minutos), os resultados estão disponíveis como recomendações do Centro de Segurança.
 
 1. Para ver os resultados, vá à página **de Recomendações.** Se os problemas forem encontrados, verá a seguinte recomendação:
 
@@ -86,7 +86,7 @@ Esta página explica como utilizar as funcionalidades de segurança do contentor
     1. Quando tiver a certeza de que a imagem atualizada foi empurrada, digitalizada e já não aparece na recomendação, elimine a imagem vulnerável "antiga" do seu registo.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Endurecendo os anfitriões do Docker dos seus contentores
+## <a name="harden-your-containers-docker-hosts"></a>Endureça os anfitriões do Docker dos seus contentores
 
 O Security Center monitoriza constantemente a configuração dos seus anfitriões Docker e gera recomendações de segurança que refletem os padrões da indústria.
 
@@ -124,7 +124,7 @@ Para ver as recomendações de segurança do Azure Security Center para os anfit
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar as funcionalidades de segurança do Security Center. 
 

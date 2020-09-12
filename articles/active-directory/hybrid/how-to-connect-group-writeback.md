@@ -11,21 +11,21 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385148"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660872"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect group writeback
 
-A writeback de grupos permite que os clientes aproveitem os grupos de nuvem para as suas necessidades híbridas. Se utilizar a funcionalidade Grupos do Office 365, pode ter estes grupos representados no Active Directory no local. Esta opção **só** está disponível se tiver o Exchange presente no seu Ative Directory no local.
+A writeback de grupos permite que os clientes aproveitem os grupos de nuvem para as suas necessidades híbridas. Se utilizar a funcionalidade Grupos Microsoft 365, pode ter estes grupos representados no seu Ative Directory no local. Esta opção **só** está disponível se tiver o Exchange presente no seu Ative Directory no local.
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 Devem ser cumpridos os seguintes requisitos para permitir a inscrição em grupo.
 - Licenças Azure Ative Directory Premium para o seu inquilino.
-- Uma implantação híbrida configurada entre a sua organização exchange on-in e Office 365 e verificou que está a funcionar corretamente.
+- Uma implementação híbrida configurada entre a sua organização Exchange on-in e Microsoft 365 e verificou que está a funcionar corretamente.
 - Instalou uma versão suportada do Exchange no local
 - Inscrição única configurada usando Azure Ative Directory Connect 
 
@@ -37,7 +37,7 @@ Para ativar a gravação do grupo, utilize os seguintes passos:
 3. Na página **'Ligar a AD' Azure,** insira as suas credenciais. Clique em **Seguinte**.
 4. Na página **de funcionalidades Opcionais,** verifique se as opções que configuraste anteriormente ainda estão selecionadas.
 5. Selecione **a gravação do Grupo** e, em seguida, clique em **Seguinte**.
-6. Na **página Writeback,** selecione uma unidade organizacional ative directory (OU) para armazenar objetos sincronizados do Office 365 para a sua organização no local e, em seguida, clique em **Seguinte**.
+6. Na **página Writeback,** selecione uma unidade organizacional ative directory (OU) para armazenar objetos sincronizados da Microsoft 365 para a sua organização no local e, em seguida, clique em **Seguinte**.
 7. Na página **Pronto** para configurar, clique em **Configurar**.
 8. Quando o assistente estiver completo, clique em **Sair** na página completa da Configuração.
 9. Abra o Windows PowerShell como administrador no servidor Azure Ative Directory Connect e execute os seguintes comandos.
@@ -48,14 +48,14 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Para obter informações adicionais sobre a configuração dos grupos Office 365 consulte [Configure Grupos Microsoft 365 com híbrido de troca no local](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
+Para obter informações adicionais sobre a configuração dos grupos Microsoft 365 consulte [Configure Grupos Microsoft 365 com híbrido exchange no local](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## <a name="disabling-group-writeback"></a>Desativar a gravação do grupo
 Para desativar o Writeback do Grupo, utilize os seguintes passos: 
 
 
 1. Lance o assistente de Ligação Azure Ative e navegue para a página Tarefas Adicionais. Selecione a tarefa **de personalização de opções de sincronização** e clique **em seguida**.
-2. Na página **Funcionalidades Opcionais,** desmarque a gravação do grupo.  Receberá um aviso informando-o de que os grupos serão eliminados.  Clique **em Sim**.
+2. Na página **Funcionalidades Opcionais,** desmarque a gravação do grupo.  Receberá um aviso informando-o de que os grupos serão eliminados.  Clique em **Sim**.
    >[!IMPORTANT]
    > Desativar o Writeback do Grupo fará com que quaisquer grupos que foram previamente criados por esta funcionalidade sejam eliminados do seu Diretório Ativo local no próximo ciclo de sincronização. 
 

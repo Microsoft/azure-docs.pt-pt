@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343123"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567129"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Autoria visual na Azure Data Factory
 
@@ -39,9 +39,17 @@ A experiência de autoria visual padrão está a trabalhar diretamente com o ser
 
 Para recursos de alto nível, tais como oleodutos, conjuntos de dados e fluxos de dados, propriedades de alto nível são editáveis no painel de propriedades no lado direito da tela. O painel de propriedades contém propriedades como nome, descrição, anotações e outras propriedades de alto nível. Subreufontes como atividades de pipeline e transformações de fluxo de dados são editados usando o painel na parte inferior da tela. 
 
-![Tela de Autoria](media/author-visually/properties-pane.png)
+![Painel Propriedades](media/author-visually/properties-pane.png)
 
 O painel de propriedades só abre por defeito na criação de recursos. Para editá-lo, clique no ícone do painel de propriedades localizado no canto superior direito da tela.
+
+### <a name="related-resources"></a>Recursos relacionados
+
+No painel de propriedades, pode ver quais os recursos que dependem do recurso selecionado selecionando o separador **Relacionado.** Qualquer recurso que faça referência ao recurso atual será listado aqui.
+
+![Recursos relacionados](media/author-visually/related-resources.png)
+
+Por exemplo, na imagem acima, um oleoduto e dois fluxos de dados utilizam o conjunto de dados atualmente selecionado.
 
 ## <a name="management-hub"></a>Hub de gestão
 
@@ -67,7 +75,7 @@ Para obter informações sobre a linguagem de expressão, consulte [Expressões 
 
 Selecione **Feedback** para comentar funcionalidades ou para notificar a Microsoft sobre problemas com a ferramenta:
 
-![Feedback](media/author-visually/provide-feedback.png)
+![Comentários](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Próximos passos
 

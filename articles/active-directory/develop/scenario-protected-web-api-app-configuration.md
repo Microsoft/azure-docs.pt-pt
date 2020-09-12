@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 50de800c94bd0a65fafcff3ef6613d6f063a3797
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5953e5d5f6bc50c913c3e92aa92775c34c0fd170
+ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855494"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89512339"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: configuração de código
 
@@ -156,9 +156,10 @@ também pode escrever o seguinte (que é equivalente)
 public void ConfigureServices(IServiceCollection services)
 {
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+             .AddMicrosoftIdentityWebApi(Configuration, "AzureAd");
 
- services.AddControllers();
+services.AddControllers();
 }
 ```
 
@@ -233,7 +234,7 @@ Também pode validar fichas de acesso recebidas em Funções Azure. Pode encontr
 - Node.js: [Azure-Samples/ms-identidade-nodejs-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)
 - Python: [Azure-Samples/ms-identity-python-webapi-azurefunctions)](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Verifique os âmbitos e as funções de aplicação no seu código](scenario-protected-web-api-verification-scope-app-roles.md)

@@ -3,7 +3,7 @@ title: Como funciona o Gestor de Tráfego da Azure Microsoft Docs
 description: Este artigo irá ajudá-lo a entender como o Traffic Manager encaminha o tráfego para um alto desempenho e disponibilidade das suas aplicações web
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: rohink
-ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 471895f1a615770521584a627e6bca850b87d0ac
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294858"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462637"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gestor de Tráfego
 
@@ -62,8 +62,8 @@ Continuando a partir do exemplo anterior, quando um cliente solicita a `https://
     - A saúde atual de cada ponto final, conforme determinado pelo Gestor de Tráfego de Verificação de Saúde. Para obter mais informações, consulte [a Monitorização endpoint do Gestor de Tráfego.](traffic-manager-monitoring.md)
     - O método de encaminhamento de tráfego escolhido. Para obter mais informações, consulte [os Métodos de Encaminhamento do Gestor de Tráfego](traffic-manager-routing-methods.md).
 
-5. O ponto final escolhido é devolvido como outro registo do DNS CNAME. Neste caso, suponhamos contoso-us.cloudapp.net é devolvido.
-6. Em seguida, o serviço DNS recursivo encontra os servidores de nome para o domínio 'cloudapp.net'. Contacta esses servidores de nomes para solicitar o registo DNS 'contoso-us.cloudapp.net'. É devolvido um registo DNS 'A' contendo o endereço IP do ponto final de serviço baseado nos EUA.
+5. O ponto final escolhido é devolvido como outro registo do DNS CNAME. Neste caso, suponhamos contoso-eu.cloudapp.net é devolvido.
+6. Em seguida, o serviço DNS recursivo encontra os servidores de nome para o domínio 'cloudapp.net'. Contacta esses servidores de nomes para solicitar o registo DNS 'contoso-eu.cloudapp.net'. É devolvido um registo "A" de DNS que contém o endereço IP do ponto final de serviço baseado na UE.
 7. O serviço DNS recursivo consolida os resultados e devolve uma única resposta dns ao cliente.
 8. O cliente recebe os resultados do DNS e conecta-se ao endereço IP dado. O cliente conecta-se diretamente ao ponto final do serviço de aplicação, não através do Gestor de Tráfego. Uma vez que se trata de um ponto final HTTPS, o cliente executa o aperto de mão SSL/TLS necessário e, em seguida, faz um pedido HTTP GET para a página '/login.aspx'.
 
@@ -93,7 +93,7 @@ O serviço DNS recursivo caches as respostas DNS que recebe. O DNS resolver no d
 
 * [Como posso entender o volume de consultas que chegam ao meu perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a monitorização do ponto final](traffic-manager-monitoring.md)do Traffic Manager e a falha automática.
 

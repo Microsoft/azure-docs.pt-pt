@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ca76ec5bef1d908ca3cea6ce0f58b1205c1676ca
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: da48b593b8f645566b2f9775fabc5d8e62e625b6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144095"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661564"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>Submeter uma corrida de formação a um alvo de computação
 
@@ -31,19 +31,19 @@ Tudo o que precisa de fazer é definir o ambiente para cada alvo de cálculo den
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
-* [O Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [O Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Um espaço de trabalho de aprendizagem automática Azure,](how-to-manage-workspace.md)`ws`
 * Um alvo computacional, `my_compute_target` .  Criar um alvo de computação com:
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Estúdio Azure Machine Learning](how-to-create-attach-compute-studio.md)
+  * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>O que é uma configuração de execução de script?
 
-Submetes a tua experiência de treino com um objeto [ScriptRunConfig.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py)  Este objeto inclui:
+Submetes a tua experiência de treino com um objeto [ScriptRunConfig.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)  Este objeto inclui:
 
 * **source_directory**: O diretório de origem que contém o seu roteiro de treino
 * **Script**: Identifique o roteiro de treino
-* **run_config**: A [configuração de execução,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py)que por sua vez define onde o treino ocorrerá. No `run_config` seu especifique o alvo do cálculo e o ambiente a utilizar ao executar o script de treino.  
+* **run_config**: A [configuração de execução,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true)que por sua vez define onde o treino ocorrerá. No `run_config` seu especifique o alvo do cálculo e o ambiente a utilizar ao executar o script de treino.  
 
 ## <a name="whats-an-environment"></a>O que é um ambiente?
 
@@ -164,10 +164,10 @@ Consulte estes cadernos para exemplos de formação com vários alvos de computa
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um alvo de computação gerido para treinar um modelo.
-* Aprenda a [sintonizar eficientemente os hiperparmetros](how-to-tune-hyperparameters.md) para construir modelos melhores.
+* Aprender a [sintonizar eficientemente os hiperparímetros](how-to-tune-hyperparameters.md) para construir modelos melhores.? view=azure-ml-py&preserve-view=true)
 * Uma vez treinado, aprenda [como e onde implementar modelos.](how-to-deploy-and-where.md)
-* Consulte a referência [SDK da classe RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py)
+* Consulte a referência [SDK da classe RunConfiguration.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true)
 * [Use a azure machine learning com redes virtuais Azure](how-to-enable-virtual-network.md)

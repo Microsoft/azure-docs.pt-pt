@@ -7,32 +7,48 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927209"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660306"
 ---
-# <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste a capacidade na Pesquisa Cognitiva Azure
+# <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Ajuste a capacidade de um serviço de Pesquisa Cognitiva Azure
 
-Antes [de fornecer um serviço de pesquisa](search-create-service-portal.md) e bloquear um nível de preços específico, desloque alguns minutos para entender o papel das réplicas e divisórias num serviço e como pode ajustar um serviço para acomodar picos e mergulhos na procura de recursos.
+Antes [de fornecer um serviço de pesquisa](search-create-service-portal.md) e bloquear um nível de preços específico, desloque alguns minutos para entender como funciona a capacidade e como pode ajustar réplicas e divisórias para acomodar a flutuação da carga de trabalho.
 
-A capacidade é uma função do [nível que escolhes](search-sku-tier.md) (os níveis determinam as características do hardware) e a combinação de replicação e partição necessária para cargas de trabalho projetadas. Dependendo do nível e do tamanho do ajuste, a adição ou redução da capacidade pode demorar entre 15 minutos e várias horas. 
+A capacidade é uma função do [nível que escolhes](search-sku-tier.md) (os níveis determinam as características do hardware) e a combinação de replicação e partição necessária para cargas de trabalho projetadas. Pode aumentar ou diminuir o número de réplicas ou divisórias individualmente. Dependendo do nível e do tamanho do ajuste, a adição ou redução da capacidade pode demorar entre 15 minutos e várias horas.
 
 Ao modificar a atribuição de réplicas e divisórias, recomendamos a utilização do portal Azure. O portal impõe limites às combinações admissíveis que se mantêm abaixo dos limites máximos de um nível. No entanto, se necessitar de uma abordagem de provisionamento baseada em scripts ou códigos, o [Azure PowerShell](search-manage-powershell.md) ou a [API Management REST](/rest/api/searchmanagement/services) são soluções alternativas.
 
-## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e divisórias
+## <a name="concepts-search-units-replicas-partitions-shards"></a>Conceitos: unidades de pesquisa, réplicas, divisórias, fragmentos
 
-|||
-|-|-|
-|*Partições* | Fornece armazenamento de índices e E/S para operações de leitura/escrita (por exemplo, ao reconstruir ou refrescar um índice). Cada divisória tem uma parte do índice total. Se atribuir três divisórias, o seu índice é dividido em terços. |
-|*Réplicas* | Casos do serviço de pesquisa, usado principalmente para carregar operações de consulta de equilíbrio. Cada réplica é uma cópia de um índice. Se atribuir três réplicas, terá três cópias de um índice disponível para pedidos de consulta.|
+A capacidade é expressa em *unidades de busca* que podem ser atribuídas em combinações de *divisórias* e *réplicas,* utilizando um mecanismo *de fragmentos* subjacente para suportar configurações flexíveis:
+
+| Conceito  | Definição|
+|----------|-----------|
+|*Unidade de pesquisa* | Um único incremento da capacidade total disponível (36 unidades). É também a unidade de faturação de um serviço de Pesquisa Cognitiva Azure. É necessário um mínimo de uma unidade para executar o serviço.|
+|*Réplica* | Casos do serviço de pesquisa, usado principalmente para carregar operações de consulta de equilíbrio. Cada réplica acolhe uma cópia de um índice. Se atribuir três réplicas, terá três cópias de um índice disponível para pedidos de consulta.|
+|*Partição* | Armazenamento físico e E/S para operações de leitura/escrita (por exemplo, ao reconstruir ou refrescar um índice). Cada divisória tem uma fatia do índice total. Se atribuir três divisórias, o seu índice é dividido em terços. |
+|*Fragmento* | Um pedaço de um índice. A Azure Cognitive Search divide cada índice em fragmentos para tornar o processo de adição de divisórias mais rápido (movendo fragmentos para novas unidades de pesquisa).|
+
+O diagrama seguinte mostra a relação entre réplicas, divisórias, fragmentos e unidades de busca. Mostra um exemplo de como um único índice é distribuído por quatro unidades de pesquisa num serviço com duas réplicas e duas divisórias. Cada uma das quatro unidades de pesquisa armazena apenas metade dos fragmentos do índice. As unidades de busca na coluna esquerda armazenam a primeira metade dos fragmentos, compreendendo a primeira divisória, enquanto as da coluna direita armazenam a segunda metade dos fragmentos, compreendendo a segunda divisória. Como há duas réplicas, há duas cópias de cada fragmento de índice. As unidades de pesquisa na primeira fila armazenam uma cópia, compreendendo a primeira réplica, enquanto as da linha inferior armazenam outra cópia, compreendendo a segunda réplica.
+
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentos através de divisórias.":::
+
+O diagrama acima é apenas um exemplo. Muitas combinações de divisórias e réplicas são possíveis, até um máximo de 36 unidades de pesquisa totais.
+
+Na Pesquisa Cognitiva, a gestão de fragmentos é um detalhe de implementação e não configurável, mas saber que um índice é fragmento ajuda a entender as anomalias ocasionais no ranking e comportamentos autocompletos:
+
++ Anomalias no ranking: As pontuações de pesquisa são calculadas primeiro no nível de fragmento e, em seguida, agregadas num único conjunto de resultados. Dependendo das características do conteúdo de fragmentos, os jogos de um fragmento podem ser classificados acima dos fósforos em outro. Se notar rankings não intuitivos nos resultados da pesquisa, é mais provável que seja devido aos efeitos do fragmento, especialmente se os índices forem pequenos. Pode evitar estas anomalias no ranking, optando por [calcular pontuações globais em todo o índice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), mas fazê-lo incorrerá numa penalidade de desempenho.
+
++ Anomalias autocompletas: Consultas autocompletas, onde os jogos são feitos nos primeiros vários caracteres de um termo parcialmente introduzido, aceitam um parâmetro difuso que perdoa pequenos desvios na ortografia. Para o autocompleto, a correspondência difusa é limitada aos termos dentro do fragmento atual. Por exemplo, se um fragmento contiver "Microsoft" e um termo parcial de "micor" for introduzido, o motor de busca corresponderá à "Microsoft" nesse fragmento, mas não em outros fragmentos que mantenham as partes restantes do índice.
 
 ## <a name="when-to-add-nodes"></a>Quando adicionar os nódes
 
-Inicialmente, é atribuído um serviço a um nível mínimo de recursos constituído por uma divisória e uma réplica. 
+Inicialmente, é atribuído um serviço a um nível mínimo de recursos constituído por uma divisória e uma réplica.
 
 Um único serviço deve ter recursos suficientes para lidar com todas as cargas de trabalho (indexação e consultas). Nenhuma carga de trabalho corre em segundo plano. Pode agendar a indexação para os horários em que os pedidos de consulta são naturalmente menos frequentes, mas o serviço não priorizará de outra forma uma tarefa em vez de outra. Além disso, uma certa quantidade de redundância suaviza o desempenho da consulta quando os serviços ou nós são atualizados internamente.
 
@@ -59,7 +75,7 @@ Regra geral, as aplicações de pesquisa tendem a necessitar de mais réplicas d
 
    ![Adicionar réplicas e divisórias](media/search-capacity-planning/2-add-2-each.png "Adicionar réplicas e divisórias")
 
-1. Clique **em Guardar** para confirmar as alterações.
+1. **Selecione Guardar** para confirmar as alterações.
 
    ![Confirmar alterações na escala e faturação](media/search-capacity-planning/3-save-confirm.png "Confirmar alterações na escala e faturação")
 
@@ -133,7 +149,7 @@ As aplicações de pesquisa que requerem uma atualização de dados em tempo rea
 
 Índices maiores demoram mais tempo a consultar. Como tal, pode descobrir que cada aumento incremental de divisórias requer um aumento menor, mas proporcional, de réplicas. A complexidade das suas consultas e volume de consultas terá em conta a rapidez com que a execução de consultas é virada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Escolha um nível de preços para Azure Cognitive Search](search-sku-tier.md)

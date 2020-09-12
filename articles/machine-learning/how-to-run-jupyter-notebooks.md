@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a59905c1d410ae0ffd4520f3b61fd37e649012e7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386457"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650921"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Veja como pode:
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
 * Um espaço de trabalho de aprendizagem automática. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md).
 
-## <a name="create-notebooks"></a><a name="create"></a>Criar cadernos
+## <a name="create-notebooks"></a><a name="create"></a> Criar cadernos
 
 No seu espaço de trabalho Azure Machine Learning, crie um novo caderno Jupyter e comece a trabalhar. O caderno recém-criado é armazenado no armazenamento padrão do espaço de trabalho. Este caderno pode ser partilhado com qualquer pessoa com acesso ao espaço de trabalho. 
 
@@ -48,7 +48,7 @@ Para criar um novo caderno:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Criar novo ficheiro":::
 
 1. Diga o nome do ficheiro. 
-1. Para ficheiros de cadernos Jupyter, selecione **Python Notebook** como o tipo de ficheiro.
+1. Para ficheiros de cadernos Jupyter, selecione **Notebook** como o tipo de ficheiro.
 1. Selecione um diretório de ficheiros.
 1. Selecione **Criar**.
 
@@ -65,7 +65,7 @@ O seu espaço de trabalho contém uma pasta **Samples** com cadernos concebidos 
 
 Por exemplo, consulte [Tutorial: Crie a sua primeira experiência ML](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a>Use ficheiros do Git e veri os meus ficheiros
+### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Use ficheiros do Git e veri os meus ficheiros
 
 Pode aceder a todas as operações do Git utilizando uma janela terminal. Todos os ficheiros e pastas Git serão armazenados no seu sistema de ficheiros do espaço de trabalho.
 
@@ -77,12 +77,12 @@ Para aceder ao terminal:
 1. Abra o seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com)
 1. Do lado esquerdo, selecione **Cadernos**.
 1. Selecione qualquer caderno localizado na secção **de ficheiros do Utilizador** no lado esquerdo.  Se não tem nenhum caderno lá, primeiro [crie um caderno](#create)
-1. Selecione um alvo **compute** ou crie um novo e espere até que esteja em funcionamento.
+1. Selecione um alvo **compute** ou crie um novo e espere até estar em funcionamento.
 1. Selecione o ícone **do terminal Aberto.**
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Terminal aberto":::
 
-1. Se não vir o ícone, selecione o **...** à direita do alvo do cálculo e, em seguida, selecione **Open terminal** .
+1. Se não vir o ícone, selecione o **...** à direita do alvo do cálculo e, em seguida, selecione **Open terminal**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Terminal aberto de ...":::
 
@@ -92,7 +92,7 @@ Saiba mais sobre [a clonagem de repositórios de Git no seu sistema de ficheiros
 
 ### <a name="share-notebooks-and-other-files"></a>Partilhar cadernos e outros ficheiros
 
-Copie e cole o URL para partilhar um caderno ou ficheiro.  Apenas outros utilizadores do espaço de trabalho poderão aceder a este URL.  Saiba mais sobre [a concessão de acesso ao seu espaço de trabalho.](how-to-assign-roles.md)
+Copie e cole o URL para partilhar um caderno ou ficheiro.  Apenas outros utilizadores do espaço de trabalho podem aceder a este URL.  Saiba mais sobre [a concessão de acesso ao seu espaço de trabalho.](how-to-assign-roles.md)
 
 ## <a name="edit-a-notebook"></a>Editar um caderno
 
@@ -109,6 +109,22 @@ Também pode lançar Jupyter ou JupyterLab a partir da barra de ferramentas Note
 [O IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) é um auxílio de conclusão de código que inclui uma série de funcionalidades: Membros da Lista, Informações de Parâmetros, Informações Rápidas e Palavra Completa. Estas funcionalidades ajudam-no a aprender mais sobre o código que está a usar, a acompanhar os parâmetros que está a digitar e a adicionar chamadas a propriedades e métodos com apenas algumas teclas.  
 
 Ao escrever código, utilize ctrl+Space para ativar o IntelliSense.
+
+### <a name="clean-your-notebook-preview"></a>Limpe o seu caderno (pré-visualização)
+
+> [!IMPORTANT]
+> A funcionalidade de recolha está atualmente em pré-visualização pública.
+> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Ao longo da criação de um caderno, normalmente acaba-se com células que utiliza para a exploração de dados ou depuragem. A funcionalidade *de recolha* irá ajudá-lo a produzir um caderno limpo sem estas células extra-antigas.
+
+1. Executar todas as suas celas de caderno.
+1. Selecione a célula que contém o código que deseja que o novo caderno possa ser executado. Por exemplo, o código que submete uma experiência, ou talvez o código que regista um modelo.
+1. Selecione o ícone **'Recolha'** que aparece na barra de ferramentas da célula.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: selecione o ícone 'Recolha', selecione":::
+1. Insira o nome do seu novo caderno "recolhido".  
+
+O novo caderno contém apenas células de código, com todas as células necessárias para produzir os mesmos resultados que a célula selecionada para recolha.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Guardar e checkpoint um caderno
 
@@ -141,7 +157,7 @@ Selecione **Checkpoints** no menu do portátil para criar um ponto de verificaç
 *Pode* eliminar **os ficheiros do Utilizador** de qualquer forma:
 
 * No estúdio, selecione o **...** no final de uma pasta ou arquivo.  Certifique-se de que utiliza um browser suportado (Microsoft Edge, Chrome ou Firefox).
-* A partir de qualquer barra de ferramentas Portátil, selecione [**Open terminal**](#terminal) para aceder à janela do terminal para a instância computacional.
+* A partir de qualquer barra de ferramentas Portátil, selecione [**Open terminal**](#terminal)  para aceder à janela do terminal para a instância computacional.
 * No Jupyter ou no JupyterLab com as suas ferramentas.
 
 ## <a name="run-an-experiment"></a>Fazer uma experiência
@@ -157,7 +173,7 @@ Só você pode ver e usar as instâncias de cálculo que cria.  Os **ficheiros d
 
 ### <a name="view-logs-and-output"></a>Ver registos e saída
 
-Utilize [widgets notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) para ver o progresso da execução e dos registos. Um widget é assíncronoso e fornece atualizações até que o treino termine. Os widgets Azure Machine Learning também são suportados no Jupyter e no JupterLab.
+Utilize [widgets notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) para ver o progresso da execução e dos registos. Um widget é assíncronoso e fornece atualizações até que o treino termine. Os widgets Azure Machine Learning também são suportados no Jupyter e no JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Alterar o ambiente do caderno
 
@@ -208,7 +224,7 @@ Qualquer um dos [Jupyter Kernels disponíveis](https://github.com/jupyter/jupyte
 
 Um indicador ao lado da queda do **Compute** mostra o seu estado.  O estado também é mostrado na própria queda.  
 
-|Cor |Estado do cálculo |
+|Color |Estado do cálculo |
 |---------|---------| 
 | Green | Execução de cálculo |
 | Red |O cálculo falhou | 
@@ -218,7 +234,7 @@ Um indicador ao lado da queda do **Compute** mostra o seu estado.  O estado tamb
 
 Um indicador ao lado da queda do **Kernel** mostra o seu estado.
 
-|Cor |Estatuto de kernel |
+|Color |Estatuto de kernel |
 |---------|---------|
 |  Green |Kernel conectado, ocioso, ocupado|
 |  Cinzento |Kernel não ligado |

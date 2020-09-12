@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 19d6a646df22e2f8c9bdfc03f15453a520e527a4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962830"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596044"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Azure App Service e Azure Functions
 
@@ -149,11 +149,11 @@ Com esta opção, não precisa de escrever nenhum código de autenticação na s
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Azure App Service (Windows)](tutorial-auth-aad.md)  
-[Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Serviço de Aplicações Azure para o Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
-[Personalizar autenticação e autorização no Serviço](app-service-authentication-how-to.md) 
- de Aplicações [.NET Integração central do Azure AppService EasyAuth (3º partido)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
- [Obtenção de autenticação do Azure App Service trabalhando com .NET Core (3º partido)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+* [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Azure App Service (Windows)](tutorial-auth-aad.md)  
+* [Tutorial: Autenticar e autorizar os utilizadores de ponta a ponta no Serviço de Aplicações Azure para o Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
+* [Personalizar autenticação e autorização no Serviço de Aplicações](app-service-authentication-how-to.md)
+* [.NET Integração central do Azure AppService EasyAuth (3º partido)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+* [Obtenção de autenticação do Azure App Service trabalhando com .NET Core (3º partido)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Guias específicos do fornecedor:
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225687"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594361"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -59,7 +59,7 @@ O ponto final privado utiliza um endereço IP privado na Rede Virtual gerida par
 > Recomenda-se que crie pontos finais privados geridos para se conectar a todas as suas fontes de dados Azure. 
  
 > [!WARNING]
-> Se uma loja de dados PaaS (Blob, ADLS Gen2, SQL DW) tiver um ponto final privado já criado contra ele, e mesmo que permita o acesso de todas as redes, a ADF só poderá aceder-lhe utilizando o ponto final privado gerido. Certifique-se de criar um ponto final privado nesses cenários. 
+> Se uma loja de dados PaaS (Blob, ADLS Gen2, Azure Synapse Analytics) tiver um ponto final privado já criado contra ele, e mesmo que permita o acesso de todas as redes, a ADF só poderá aceder-lhe utilizando o ponto final privado gerido. Certifique-se de criar um ponto final privado nesses cenários. 
 
 Uma ligação de ponto final privado é criada num estado "pendente" quando cria um ponto final privado gerido na Azure Data Factory. É iniciado um fluxo de trabalho de aprovação. O proprietário do recurso de ligação privada é responsável por aprovar ou rejeitar a ligação.
 
@@ -83,6 +83,23 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Serviço de Ligação Privada Azure
+- Azure Search
+- Base de Dados do Azure para MySQL
+- Base de Dados do Azure para PostgreSQL
+- Azure Database for MariaDB
+
+### <a name="supported-regions"></a>Regiões apoiadas
+- E.U.A. Leste
+- E.U.A. Leste 2
+- E.U.A. Centro-Oeste
+- E.U.A. Oeste 2
+- E.U.A. Centro-Sul
+- E.U.A. Central
+- Europa do Norte
+- Europa Ocidental
+- Sul do Reino Unido
+- Sudeste Asiático
+- Leste da Austrália
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída através de ponto final público da ADF Managed Virtual Network
 - Apenas a porta 443 está aberta para comunicações de saída.

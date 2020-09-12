@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efcf2df4e472d022fcdec0c9b7c69c73192c503f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518475"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658373"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Azure Ative Directory Connect cloud provisioning FAQ
 
@@ -74,7 +74,7 @@ Quando elimina a configuração, o provisionamento em nuvem não remove automati
 
 **P: O que significa que o híbrido Exchange não é suportado?**
 
-A funcionalidade Implementação Híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está a sincronizar um conjunto específico de atributos do Azure AD para o diretório no local.  O agente de provisionamento em nuvem não sincroniza estes atributos de volta ao seu diretório no local e, portanto, não é suportado como um substituto para Azure AD Connect.
+A funcionalidade De Implementação Híbrida exchange permite a coexistência de caixas de correio Exchange tanto no local como na Microsoft 365. O Azure AD Connect está a sincronizar um conjunto específico de atributos do Azure AD para o diretório no local.  O agente de provisionamento em nuvem não sincroniza estes atributos de volta ao seu diretório no local e, portanto, não é suportado como um substituto para Azure AD Connect.
 
 **P: Posso instalar o agente de provisão de nuvem no Núcleo do Servidor do Windows?**
 

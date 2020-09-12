@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 18397ef76a4503bf79c4aaf286035d222bd84ba0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068631"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460444"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Autenticação do legado do bloco
 
@@ -26,7 +26,7 @@ Devido ao risco acrescido associado aos protocolos de autenticação, a Microsof
 
 As seguintes etapas ajudarão a criar uma política de acesso condicional para bloquear pedidos de autenticação legado. Esta política é colocada no [modo report-only](howto-conditional-access-insights-reporting.md) para iniciar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores estão confortáveis que a política se aplica como pretendem, podem mudar para **Ligar** ou encenar a implementação adicionando grupos específicos e excluindo outros.
 
-1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Inicie sessão no **Portal do Azure** como administrador global.
 1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
@@ -37,14 +37,14 @@ As seguintes etapas ajudarão a criar uma política de acesso condicional para b
 1. Em **aplicativos ou ações cloud**, selecione **Todas as aplicações cloud**.
    1. Selecione **Concluído**.
 1. Em **Condições**  >  **As aplicações do Cliente**, definir **Configurar** para **Sim**.
-   1. Verifique apenas as caixas **Exchange ActiveSync clientes** e **outros clientes.** Para implementar a política de Acesso Condicional Do Exchange ActiveSync em Azure, o utilizador também deve ser um Administrador Global.
+   1. Verifique apenas as caixas **Exchange ActiveSync clientes** e **outros clientes.**
    1. Selecione **Concluído**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione **Acesso ao Bloco**.
    1. Selecione **Selecionar**.
 1. Confirme as suas definições e defina **Ativar** a política **apenas para reportar**.
 1. Selecione **Criar** para criar para ativar a sua política.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

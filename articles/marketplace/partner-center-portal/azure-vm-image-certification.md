@@ -3,16 +3,16 @@ title: Validação de imagem de máquina virtual Azure - Azure Marketplace
 description: Saiba como testar e submeter uma oferta de máquina virtual no mercado comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: fd8f41f88b6184eee15477c460dc9d2e521d25e6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144192"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647823"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Validação de imagem de máquina virtual Azure
 
@@ -31,7 +31,7 @@ Esta secção descreve como implementar uma imagem de disco rígido virtual gene
 
 Esta secção descreve como criar e implantar uma imagem de máquina virtual (VM) fornecida pelo utilizador. Pode fazê-lo fornecendo imagens VHD do sistema operativo e do disco de dados a partir de um disco rígido virtual implantado no Azure. Estes passos implantam o VM utilizando VHD generalizado.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Faça o upload do seu sistema operativo generalizado VHD e VHDs de disco de dados para a sua conta de Armazenamento Azure.
 3. Na página inicial, **selecione Criar um recurso,** procurar por "Implementação do Modelo", e selecione **Criar**.
 4. Escolha **Construir o seu próprio modelo no editor.**

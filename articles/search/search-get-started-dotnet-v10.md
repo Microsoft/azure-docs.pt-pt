@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a9cc1ebbe8cfea2548f61ee1d88180ed39a75eb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce676c8966f67aeb233b2b9daf3f8f1c57327e6a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002441"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462093"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Quickstart: Criar um índice de pesquisa utilizando a biblioteca cliente Microsoft.Azure.Search v10
 
@@ -27,7 +27,7 @@ Para novas soluções, recomendamos a nova biblioteca Azure.Search.Documents. Pa
 
 Crie uma aplicação de consola .NET Core em C# que cria, carrega e consulta um índice de Pesquisa Cognitiva Azure utilizando o Visual Studio e as [bibliotecas de clientes Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
 
-Este artigo explica como criar a aplicação. Também pode [descarregar e executar a aplicação completa.](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v10)
+Este artigo explica como criar a aplicação. Também pode [descarregar e executar a aplicação completa.](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10)
 
 > [!NOTE]
 > O código de demonstração deste artigo utiliza os métodos sincronizados da versão 10 .NET SDK para simplicidade. No entanto, para cenários de produção, recomendamos a utilização dos métodos assíncronos nas suas próprias aplicações para mantê-los escaláveis e responsivos. Por exemplo, pode usar `CreateAsync` e em vez de `DeleteAsync` `Create` `Delete` e. .
@@ -58,7 +58,7 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
 Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="set-up-your-environment"></a>Configurar o seu ambiente
+## <a name="set-up-your-environment"></a>Configurar o ambiente
 
 Comece por abrir o Visual Studio e criar um novo projeto de App de Consola que pode funcionar em .NET Core.
 
@@ -107,9 +107,9 @@ Este passo é necessário para produzir uma saída significativa na consola. Ao 
 
 1. Adicione duas definições de classe vazias ao seu projeto: Address.Methods.cs, Hotel.Methods.cs
 
-1. Em Address.Methods.cs, substitua o conteúdo predefinido com o seguinte código, [linhas 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
+1. Em Address.Methods.cs, substitua o conteúdo predefinido com o seguinte código, [linhas 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. Em Hotel.Methods.cs, copiar [linhas 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
+1. Em Hotel.Methods.cs, copiar [linhas 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
 
 ## <a name="1---create-index"></a>1 - Criar índice
 
@@ -559,7 +559,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido C#, trabalhou através de uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Em diferentes fases, tomamos atalhos para simplificar o código de legibilidade e compreensão. Se se sentir confortável com os conceitos básicos, recomendamos o próximo artigo para uma exploração de abordagens e conceitos alternativos que irão aprofundar o seu conhecimento. 
 

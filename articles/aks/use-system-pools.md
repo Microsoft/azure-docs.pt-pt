@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949784"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647499"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerir piscinas de nó de sistema no Serviço Azure Kubernetes (AKS)
 
@@ -46,6 +46,7 @@ As piscinas de nó de sistema têm as seguintes restrições:
 * As piscinas de nó do sistema requerem um VM SKU de pelo menos 2 vCPUs e memória de 4GB.
 * Os conjuntos de nós do sistema devem suportar pelo menos 30 cápsulas, conforme descrito pela [fórmula de valor mínimo e máximo para as cápsulas][maximum-pods].
 * Piscinas de nó no spot requerem piscinas de nó do utilizador.
+* Adicionar um conjunto adicional de nó de sistema ou alterar qual o conjunto de nós é um conjunto de nós do sistema *NÃO* moverá automaticamente as cápsulas do sistema. As cápsulas do sistema podem continuar a funcionar na mesma piscina de nós, mesmo que a altere para uma piscina de nó de utilizador. Se eliminar ou reduzir as cápsulas do sistema de funcionamento de uma piscina de nó de nó que era anteriormente uma piscina de nó de sistema, essas cápsulas de sistema são redistribuídas com agendamento preferido para o novo conjunto de nós do sistema.
 
 Pode fazer as seguintes operações com piscinas de nó:
 
@@ -179,7 +180,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a criar e gerir piscinas de nó de sistema em um cluster AKS. Para obter mais informações sobre como usar várias piscinas de nó, consulte [a utilização de várias piscinas de nó.][use-multiple-node-pools]
 

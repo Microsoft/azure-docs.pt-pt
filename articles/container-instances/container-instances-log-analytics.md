@@ -3,13 +3,12 @@ title: Colete & analisar registos de recursos
 description: Saiba como enviar registos de recursos e dados de eventos de grupos de contentores em instâncias de contentores Azure para registos do Azure Monitor
 ms.topic: article
 ms.date: 07/13/2020
-ms.author: danlep
-ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b39cf31dc28ece7d4e4f938dae21a4fbf6a1a832
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524017"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566675"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Grupo de contentores e registo de casos com registos do Monitor Azure
 
@@ -107,7 +106,7 @@ Para ver os registos do grupo de contentores na `ContainerInstanceLog_CL` tabela
 
 1. Navegue para a sua área de trabalho do Log Analytics no portal do Azure
 1. Em **Geral**, selecione **Registos**  
-1. Digite a seguinte consulta:`ContainerInstanceLog_CL | limit 50`
+1. Digite a seguinte consulta: `ContainerInstanceLog_CL | limit 50`
 1. Selecione **Run**
 
 Deverá ver vários resultados apresentados pela consulta. Se no início não vir nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **Executar** para executar novamente a consulta. Por predefinição, as entradas de registo são apresentadas no formato **Tabela.** Em seguida, pode expandir uma linha para ver os conteúdos de uma entrada de registo individual.
@@ -120,7 +119,7 @@ Também pode ver eventos para casos de contentores no portal Azure. Os eventos i
 
 1. Navegue para a sua área de trabalho do Log Analytics no portal do Azure
 1. Em **Geral**, selecione **Registos**  
-1. Digite a seguinte consulta:`ContainerEvent_CL | limit 50`
+1. Digite a seguinte consulta: `ContainerEvent_CL | limit 50`
 1. Selecione **Run**
 
 Deverá ver vários resultados apresentados pela consulta. Se no início não vir nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **Executar** para executar novamente a consulta. Por predefinição, as entradas são apresentadas no formato **Tabela.** Em seguida, pode expandir uma linha para ver o conteúdo de uma entrada individual.

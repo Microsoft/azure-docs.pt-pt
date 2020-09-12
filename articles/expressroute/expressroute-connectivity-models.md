@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: Modelos de conectividade'
-description: Este artigo descreve os diferentes modos de conectividade entre a rede do cliente e os serviços microsoft Azure e Office 365. Os clientes podem utilizar fornecedores de MPLS, trocas da cloud e fornecedores de Ethernet.
+description: Reveja a conectividade entre a rede do cliente, o Microsoft Azure e os serviços Microsoft 365. Os clientes podem usar fornecedores MPLS, trocas de nuvens e Ethernet.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: 375d2f9d3b455c0495c69f2b23d62b1ab6522710
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f2a15b63e11d8ad93672a93fee4f327c47dd6277
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710461"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566471"
 ---
 # <a name="expressroute-connectivity-models"></a>Modelos de conectividade do ExpressRoute
 Pode criar uma ligação entre a rede no local e a cloud da Microsoft de três formas diferentes, [Localização Conjunta do CloudExchange](#CloudExchange), [Ligação Ethernet Ponto a Ponto](#Ethernet) e [Ligação (IPVPN) Qualquer a Qualquer](#IPVPN). Os fornecedores de conectividade podem oferecer um ou mais modelos de conetividade. Pode trabalhar com o seu fornecedor de conectividade para escolher o modelo que funciona melhor para si.
@@ -26,7 +26,7 @@ Se estiver localizado conjuntamente num local com uma troca de nuvem, pode organ
 ## <a name="point-to-point-ethernet-connections"></a><a name="Ethernet"></a>Ligações de Ethernet ponto a ponto
 Pode ligar os seus centros de dados/escritórios no local à nuvem da Microsoft através de ligações de Ethernet ponto a ponto. Os fornecedores de Ethernet ponto a ponto podem oferecer ligações de Camada 2 ou ligações geridas de Camada 3 entre o seu site e a nuvem da Microsoft.
 
-## <a name="any-to-any-ipvpn-networks"></a><a name="IPVPN"></a>Redes qualquer a qualquer (VPN de IP)
+## <a name="any-to-any-ipvpn-networks"></a><a name="IPVPN"></a>Redes qualquer a qualquer (IPVPN)
 Pode integrar a sua WAN com a nuvem da Microsoft. Os fornecedores de VPN de IP (normalmente VPN de MPLS) oferecem uma conectividade qualquer a qualquer entre as suas sucursais e os centros de dados. A nuvem da Microsoft pode ser interligada à sua WAN para torná-la mais semelhante a qualquer outra sucursal. Os fornecedores de WAN oferecem normalmente uma conectividade gerida de Camada 3. As funcionalidades e capacidades do ExpressRoute são idênticas em todos os modelos de conetividade acima. 
 
 ## <a name="next-steps"></a>Próximos passos

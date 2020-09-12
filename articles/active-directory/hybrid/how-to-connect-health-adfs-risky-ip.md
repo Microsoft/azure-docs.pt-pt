@@ -16,15 +16,15 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98109199f489839253965bef3033d27935cff13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359353"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660847"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (pré-visualização pública)
-Os clientes do AD FS podem expor pontos finais de autenticação de palavras-passe à Internet para disponibilizar serviços de autenticação aos utilizadores finais, para que aqueles acedam a aplicações SaaS, como o Office 365. Neste caso, é possível que um ator indevido tente inícios de sessão no seu sistema do AD FS para adivinhar a palavra-passe de um utilizador final e obter acesso aos recursos das aplicações. O AD FS proporciona a funcionalidade de bloqueio de conta de extranet para evitar estes tipos de ataques a partir do AD FS no Windows Server 2012 R2. Se tiver uma versão inferior, recomendamos vivamente que atualize o sistema do AD FS para o Windows Server 2016. <br />
+Os clientes AD FS podem expor pontos finais de autenticação de palavra-passe na internet para fornecer serviços de autenticação para os utilizadores finais acederem a aplicações SaaS como a Microsoft 365. Neste caso, é possível que um ator indevido tente inícios de sessão no seu sistema do AD FS para adivinhar a palavra-passe de um utilizador final e obter acesso aos recursos das aplicações. O AD FS proporciona a funcionalidade de bloqueio de conta de extranet para evitar estes tipos de ataques a partir do AD FS no Windows Server 2012 R2. Se tiver uma versão inferior, recomendamos vivamente que atualize o sistema do AD FS para o Windows Server 2016. <br />
 
 Além disso, é possível que um único endereço IP tente vários inícios de sessão para vários utilizadores. Nesses casos, o número de tentativas por utilizador poderá estar abaixo do limiar da proteção de bloqueio de conta no AD FS. O Azure AD Connect Health oferece agora o “relatório de IP em Risco”, que deteta esta condição e notifica os administradores quando a mesma ocorre. Seguem-se as principais vantagens deste relatório: 
 - Deteção de endereços IP que excedem um limiar de inícios de sessão baseados em palavra-passe falhados
@@ -35,7 +35,7 @@ Além disso, é possível que um único endereço IP tente vários inícios de s
 
 > [!NOTE]
 > Para utilizar este relatório, tem de se certificar de que a auditoria do AD FS está ativada. Para obter mais informações, consulte [Ativar Auditoria do AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Para aceder à pré-visualização, precisa da permissão do Administrador Global ou do [Leitor de Segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader).  
+> Para aceder à pré-visualização, precisa da permissão do Administrador Global ou do [Leitor de Segurança](../../role-based-access-control/built-in-roles.md#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>O que está no relatório?
@@ -99,7 +99,7 @@ O limiar de alerta pode ser atualizado a partir das Definições do Limiar. Para
 
 ## <a name="faq"></a>FAQ
 **Por que razão estou a ver intervalos de endereços IP privados no relatório?**  <br />
-Os endereços IP privados (<i>10.x.x.x, 172.x.x.x e 192.168.x.x</i>) e os endereços IP do Exchange são filtrados e marcados como Verdadeiros na lista de permissões. Se vir intervalos de endereços IP privados, é altamente provável que o seu balanceador de carga externo não esteja a enviar o endereço IP cliente quando transmite o pedido para o servidor Proxy de Aplicação Web.
+Os endereços IP privados<i>(10.x.x.x, 172.x.x.x & 192.168.x.x)</i>e os endereços IP de troca são filtrados e marcados como Verdadeiros na lista aprovada pelo IP. Se vir intervalos de endereços IP privados, é altamente provável que o seu balanceador de carga externo não esteja a enviar o endereço IP cliente quando transmite o pedido para o servidor Proxy de Aplicação Web.
 
 **Porque estou a ver endereços IP do balanceador de carga no relatório?**  <br />
 Se vir endereços IP do balanceador de carga, é altamente provável que o seu balanceador de carga externo não esteja a enviar o endereço IP cliente quando transmite o pedido para o servidor Proxy de Aplicação Web. Configure o seu balanceador de carga corretamente para o reencaminhamento do endereço IP do cliente. 
@@ -113,9 +113,9 @@ Deve adicionar um endereço IP malicioso identificado à firewall ou bloqueá-lo
 - As auditorias não estão ativadas nos farms do AD FS.
 
 **Por que razão não estou a ver o acesso ao relatório?**  <br />
-É necessária a permissão Administrador Global ou [Leitor de Segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Contacte o administrador global para obter acesso.
+É necessária a permissão Administrador Global ou [Leitor de Segurança](../../role-based-access-control/built-in-roles.md#security-reader). Contacte o administrador global para obter acesso.
 
 
 ## <a name="next-steps"></a>Próximos passos
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)

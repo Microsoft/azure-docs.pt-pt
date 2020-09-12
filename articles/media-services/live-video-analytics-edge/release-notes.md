@@ -3,12 +3,12 @@ title: Live Video Analytics em notas de lançamento IoT Edge - Azure
 description: Este tópico fornece notas de lançamento de Live Video Analytics sobre lançamentos, melhorias, correções de bugs e problemas conhecidos.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 23c2362d46a0b9bfe2fc2fbe31e00d0a42f80cfa
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: feab7755dea69a932fe40df59e0dd35f3f826553
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055452"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645815"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Vídeo ao vivo analítico em notas de lançamento do IoT Edge
 
@@ -32,7 +32,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > Nos quickstarts e tutoriais, os manifestos de implantação usam uma etiqueta de 1 (live-video-analytics:1). Por isso, simplesmente a recolocação desses manifestos deve atualizar o módulo na sua borda > dispositivos.
 
-## <a name="new-features"></a>Novas funcionalidades 
+### <a name="new-features"></a>Novas funcionalidades 
 
 * Agora pode obter um desempenho de transferência de conteúdo de dados elevado entre o Live Video Analytics no IoT Edge e a sua extensão personalizada utilizando a estrutura gRPC. Vê [isto](analyze-live-video-use-your-grpc-model-quickstart.md) para começar.
 * Uma implementação regional mais ampla do Live Video Analytics e apenas o serviço de nuvem foi atualizado.  
@@ -40,7 +40,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 * A [criação](https://aka.ms/lva-edge/setup-resources-for-samples) para arranques rápidos foi também atualizada com o apoio de novas regiões.
     * Não há nenhuma chamada de ação para quem já tenha recursos de configuração
 
-## <a name="bug-fixes"></a>Correções de erros 
+### <a name="bug-fixes"></a>Correções de erros 
 
 * Remova o uso de uma extensão azul prevadida no script configurado
 
@@ -85,6 +85,6 @@ Este lançamento é o primeiro lançamento público de Video Analytics em IoT Ed
     *   GraphInstanceList
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Descrição Geral](overview.md)

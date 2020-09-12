@@ -3,12 +3,12 @@ title: Configure um recipiente Linux personalizado
 description: Saiba como configurar um recipiente Linux personalizado no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 2f26f1b041b2d369b68aeb11755c8e8053862b16
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9a27abe5457cf8adf2963db545c629134ae53709
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083022"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566981"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configure um recipiente Linux personalizado para o Serviço de Aplicações Azure
 
@@ -54,7 +54,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 O SSH permite a comunicação segura entre um contentor e um cliente. Para que um recipiente personalizado suporte o SSH, deve adicioná-lo ao próprio Dockerfile.
 
 > [!TIP]
-> Todos os recipientes Linux incorporados adicionaram as instruções do SSH nos seus repositórios de imagem. Pode consultar as seguintes instruções com o [repositórioNode.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como está ativado.
+> Todos os recipientes Linux incorporados adicionaram as instruções do SSH nos seus repositórios de imagem. Pode consultar as seguintes instruções com o [ repositórioNode.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como está ativado.
 
 - Utilize as instruções [RUN](https://docs.docker.com/engine/reference/builder/#run) para instalar o servidor SSH e definir a palavra-passe para a conta raiz para `"Docker!"` . Por exemplo, para uma imagem baseada em [Alpine Linux,](https://hub.docker.com/_/alpine)precisa dos seguintes comandos:
 
@@ -88,7 +88,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para que u
     /usr/sbin/sshd
     ```
 
-    Por exemplo, veja como o [recipiente padrãoNode.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) começa o servidor SSH.
+    Por exemplo, veja como o [ recipiente padrãoNode.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) começa o servidor SSH.
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 
@@ -147,6 +147,7 @@ O multi-contentor está atualmente em pré-visualização. As seguintes funciona
 
 - Autenticação / Autorização
 - Identidades geridas
+- CORS
 
 ### <a name="docker-compose-options"></a>Opções de Composição de Docker
 
@@ -176,7 +177,7 @@ As seguintes listas mostram opções de configuração de Composição de Docker
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Implantação do repositório de contentores privados](tutorial-custom-container.md?pivots=container-linux)

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903991"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566607"
 ---
 # <a name="translator-30-translate"></a>Tradutor 3.0: Traduzir
 
@@ -95,7 +95,7 @@ Os parâmetros de pedido passados na cadeia de consulta são:
   </tr>
   <tr>
     <td>permitir o Retorno</td>
-    <td><em>Parâmetro opcional.</em><br/>Especifica que o serviço é permitido recorrer a um sistema geral quando um sistema personalizado não existe. Os valores possíveis são: <code>true</code> (padrão) ou <code>false</code> .<br/><br/><code>allowFallback=false</code>especifica que a tradução deve utilizar apenas sistemas treinados para o <code>category</code> especificado pelo pedido. Se uma tradução para a linguagem X para a língua Y requer acorrentar através de uma linguagem pivô E, então todos os sistemas da cadeia (X->E e E->Y) terão de ser personalizados e ter a mesma categoria. Se não for encontrado nenhum sistema com a categoria específica, o pedido devolverá um código de estado de 400. <code>allowFallback=true</code>especifica que o serviço é autorizado a recorrer a um sistema geral quando um sistema personalizado não existe.
+    <td><em>Parâmetro opcional.</em><br/>Especifica que o serviço é permitido recorrer a um sistema geral quando um sistema personalizado não existe. Os valores possíveis são: <code>true</code> (padrão) ou <code>false</code> .<br/><br/><code>allowFallback=false</code> especifica que a tradução deve utilizar apenas sistemas treinados para o <code>category</code> especificado pelo pedido. Se uma tradução para a linguagem X para a língua Y requer acorrentar através de uma linguagem pivô E, então todos os sistemas da cadeia (X->E e E->Y) terão de ser personalizados e ter a mesma categoria. Se não for encontrado nenhum sistema com a categoria específica, o pedido devolverá um código de estado de 400. <code>allowFallback=true</code> especifica que o serviço é autorizado a recorrer a um sistema geral quando um sistema personalizado não existe.
 </td>
   </tr>
 </table> 
@@ -174,7 +174,7 @@ Uma resposta bem sucedida é uma matriz JSON com um resultado para cada cadeia n
 
     Os limites da frase só são incluídos quando o parâmetro de pedido `includeSentenceLength` é `true` .
 
-  * `sourceText`: Um objeto com uma única propriedade de corda denominada `text` , que dá o texto de entrada no script padrão do idioma de origem. `sourceText`a propriedade só está presente quando a entrada é expressa num script que não é o script habitual para a língua. Por exemplo, se a entrada fosse em árabe escrita em alfabeto latino, então `sourceText.text` seria o mesmo texto árabe convertido em script árabe.
+  * `sourceText`: Um objeto com uma única propriedade de corda denominada `text` , que dá o texto de entrada no script padrão do idioma de origem. `sourceText` a propriedade só está presente quando a entrada é expressa num script que não é o script habitual para a língua. Por exemplo, se a entrada fosse em árabe escrita em alfabeto latino, então `sourceText.text` seria o mesmo texto árabe convertido em script árabe.
 
 Exemplo das respostas do JSON são fornecidas na secção [de exemplos.](#examples)
 
@@ -280,7 +280,7 @@ O corpo de resposta é:
     }
 ]
 ```
-A resposta é semelhante à resposta do exemplo anterior. Uma vez que a deteção automática da língua foi solicitada, a resposta também inclui informações sobre a linguagem detetada para o texto de entrada. 
+A resposta é semelhante à resposta do exemplo anterior. Uma vez que a deteção automática da língua foi solicitada, a resposta também inclui informações sobre a linguagem detetada para o texto de entrada. A deteção automática do idioma funciona melhor com texto de entrada mais longo.
 
 ### <a name="translate-with-transliteration"></a>Traduzir com transliteração
 

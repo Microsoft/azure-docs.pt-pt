@@ -1,20 +1,20 @@
 ---
 title: Monitor Azure para redes (pré-visualização)
-description: Uma visão geral rápida para o Azure Monitor for Network que proporciona uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração.
+description: Uma visão geral rápida para o Azure Monitor for Network que fornece uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128680"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646567"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Monitor Azure para redes (pré-visualização)
-O Azure Monitor for Network fornece uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração. A capacidade avançada de pesquisa ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que estão hospedando o seu site simplesmente procurando o nome do site hospedado.
+O Azure Monitor for Network fornece uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração. A capacidade avançada de pesquisa ajuda a identificar dependências de recursos que permitem cenários como identificar recursos que estão hospedando o seu site, procurando o nome do site hospedado.
 
 A página Azure Monitor for Networks **Overview** fornece uma forma sem esforço de visualizar o inventário dos seus recursos de rede, juntamente com a saúde dos recursos e alertas. Divide-se em quatro áreas funcionais chave:
 
@@ -52,11 +52,11 @@ A visão **de Dependência** ajuda a visualizar como o recurso é configurado. A
 
 ![Vista gateway de aplicação](media/network-insights-overview/application-gateway.png)
 
-A visão **de Dependência** para o Gateway de Aplicação proporciona uma visão simplificada de como os IPs front-end estão ligados aos ouvintes, regras e piscina de backend. As bordas de ligação são codificadas por cores e fornecem detalhes adicionais baseados na saúde da piscina de backend. A vista também fornece uma visão detalhada das métricas e métricas do Gateway de Aplicação para todos os pools de backend relacionados, tais como vmss e vm instâncias.
+A visão **de Dependência** para o Gateway de Aplicação proporciona uma visão simplificada de como os IPs front-end estão ligados aos ouvintes, regras e piscina de backend. As bordas de ligação são codificadas por cores e fornecem detalhes adicionais baseados na saúde da piscina de backend. A vista também fornece uma visão detalhada das métricas e métricas do Gateway de Aplicação para todos os pools de backend relacionados, tais como conjunto de escala de máquina virtual e instâncias de máquina virtual.
 
 ![Vista de dependência](media/network-insights-overview/dependency-view.png)
 
-O gráfico de dependência permite uma fácil navegação às definições de configuração. Clique direito em uma piscina de backend para aceder a outra funcionalidade. Por exemplo, se o pool de backend for um VM, então pode aceder diretamente a VM Insights e à resolução de problemas de ligação do Observador de Rede para identificar problemas de conectividade.
+O gráfico de dependência permite uma fácil navegação às definições de configuração. Clique direito numa piscina traseira para aceder a outra funcionalidade. Por exemplo, se o pool back-end for uma máquina virtual, pode aceder diretamente a insights de máquinas virtuais e à ligação do Observador de Rede para resolver problemas e identificar problemas de conectividade.
 
 ![Menu de visualização de dependência](media/network-insights-overview/dependency-view-menu.png)
 
@@ -66,8 +66,8 @@ A barra de pesquisa e filtro na vista de dependência fornece uma forma sem esfo
 
 Filtros diferentes ajudam a reduzir-se a um caminho e estado específicos. Por exemplo, selecione *apenas Insalubre* do Estado de **Saúde** descer para mostrar todas as bordas onde o estado não é *saudável*.
 
-Clique em **Métrica Detalhada para** lançar um livro pré-configurado com métricas detalhadas para o gateway de aplicação, todos os recursos de backend pool e IPs frontais. 
+Clique em **Métrica Detalhada para** lançar um livro pré-configurado com métricas detalhadas para o gateway de aplicação, todos os recursos de backend pool e IPs front-end. 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - Saiba mais sobre a monitorização da rede no Que é [o Observador da Rede Azure?](../../network-watcher/network-watcher-monitoring-overview.md)

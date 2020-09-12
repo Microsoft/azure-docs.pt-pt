@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71122734"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460121"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Funções de Serviço de Nuvem de Resolução de Problemas que não começam
 Eis alguns problemas e soluções comuns relacionados com as funções dos Azure Cloud Services que não começam.
@@ -66,7 +66,7 @@ Pode utilizar o Remote Desktop para aceder à função e visualizar informaçõe
 3. No portal Microsoft Azure, uma vez que o caso mostra um estado de **Ready**, remotamente no caso. Para obter mais informações sobre a utilização do ambiente de trabalho remoto com [serviços cloud, consulte Remote em instâncias de função](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Inscreva-se na máquina virtual utilizando as credenciais especificadas durante a configuração do Ambiente de Trabalho Remoto.
 6. Abra uma janela de comando.
-7. Digite `IPconfig`.
+7. Escreva `IPconfig`.
 8. Note o valor do endereço IPV4.
 9. Abra o Internet Explorer.
 10. Digite o endereço e o nome da aplicação web. Por exemplo, `http://<IPV4 Address>/default.aspx`.
@@ -121,7 +121,7 @@ Para resolver os erros de DLL e de montagem em falta, siga estes passos:
 
 Uma vez verificado que todos os erros foram corrigidos, pode implementar o serviço sem verificar a caixa de verificação **de funções Enable IntelliTrace para .NET 4.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Veja mais [artigos de resolução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços na nuvem.
 
-Para aprender a resolver problemas de problemas de funções de serviço em nuvem utilizando dados de diagnóstico de computador Azure PaaS, consulte a [série de blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para aprender a resolver problemas de problemas de funções de serviço em nuvem utilizando dados de diagnóstico de computador Azure PaaS, consulte a [série de blogs de Kevin Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

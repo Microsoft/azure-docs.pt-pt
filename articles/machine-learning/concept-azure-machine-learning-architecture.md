@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146781"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651254"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -110,7 +110,7 @@ Por exemplo, executar configurações, ver [Utilize um alvo de computação para
 
 ### <a name="estimators"></a>Estimadores
 
-Para facilitar a formação de modelos com quadros populares, a classe de estimador permite-lhe construir facilmente configurações de execução. Pode criar e utilizar um [Estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para submeter scripts de formação que utilizem qualquer estrutura de aprendizagem que escolher (como o scikit-learn).
+Para facilitar a formação de modelos com quadros populares, a classe de estimador permite-lhe construir facilmente configurações de execução. Pode criar e utilizar um [Estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) genérico para submeter scripts de formação que utilizem qualquer estrutura de aprendizagem que escolher (como o scikit-learn).
 
 Para obter mais informações sobre os estimadores, consulte [os modelos Train ML com estimadores.](how-to-train-ml-models.md)
 
@@ -123,7 +123,9 @@ Quando submete uma execução, o Azure Machine Learning comprime o diretório qu
 
 ### <a name="logging"></a>Registo
 
-Quando desenvolver a sua solução, use o Azure Machine Learning Python SDK no seu script Python para registar métricas arbitrárias. Após a execução, questione as métricas para determinar se o funcionante produziu o modelo que pretende implementar.
+A Azure Machine Learning regista automaticamente as métricas padrão de execução para si. No entanto, também pode [utilizar o Python SDK para registar métricas arbitrárias.](how-to-track-experiments.md)
+
+Existem várias formas de visualizar os seus registos: monitorizar o estado da execução em tempo real ou visualizar resultados após a conclusão. Para obter mais informações, consulte [Monitor e veja registos de execução ML](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Se tiver ativado o dimensionamento automático, o Azure escala automaticamente a
 
 Para um exemplo de implantação de um modelo como serviço web, consulte [implementar um modelo de classificação de imagem em Instâncias de Contentores Azure](tutorial-deploy-models-with-aml.md).
 
+#### <a name="real-time-endpoints"></a>Pontos finais em tempo real
+
+Quando implementar um modelo treinado no designer (pré-visualização), pode [implementar o modelo como um ponto final em tempo real](tutorial-designer-automobile-price-deploy.md). Um ponto final em tempo real geralmente recebe um único pedido através do ponto final REST e devolve uma previsão em tempo real. Isto contrasta com o processamento de lotes, que processa vários valores ao mesmo tempo e guarda os resultados após a conclusão de uma datastore.
+
+#### <a name="pipeline-endpoints"></a>Pontos finais do gasoduto
+
+Os pontos finais do pipeline permitem-lhe ligar para os [seus Gasodutos ML](#ml-pipelines) programaticamente através de um ponto final REST. Os pontos finais do gasoduto permitem automatizar os fluxos de trabalho do gasoduto.
+
+Um ponto final de gasoduto é uma coleção de oleodutos publicados. Esta organização lógica permite-lhe gerir e chamar vários oleodutos usando o mesmo ponto final. Cada gasoduto publicado num ponto final de gasoduto é vertado. Pode selecionar um pipeline predefinido para o ponto final ou especificar uma versão na chamada REST.
+ 
+
 #### <a name="iot-module-endpoints"></a>Pontos finais do módulo IoT
 
 Um ponto final de módulo IoT implantado é um recipiente Docker que inclui o seu modelo e script ou aplicação associados e quaisquer dependências adicionais. Você implementa estes módulos utilizando Azure IoT Edge em dispositivos de borda.
@@ -212,12 +225,13 @@ Os passos do gasoduto são reutilizáveis e podem ser executados sem repetir os 
 
 ### <a name="studio"></a>Studio
 
-[O estúdio Azure Machine Learning](https://ml.azure.com) oferece uma visão web de todos os artefactos do seu espaço de trabalho.  Pode ver resultados e detalhes dos seus conjuntos de dados, experiências, oleodutos, modelos e pontos finais.  Também pode gerir recursos de computação e datastores no estúdio.
+[O estúdio Azure Machine Learning](overview-what-is-machine-learning-studio.md) oferece uma visão web de todos os artefactos do seu espaço de trabalho.  Pode ver resultados e detalhes dos seus conjuntos de dados, experiências, oleodutos, modelos e pontos finais.  Também pode gerir recursos de computação e datastores no estúdio.
 
-O Estúdio também é onde você acede às ferramentas interativas que fazem parte do Azure Machine Learning:
+O estúdio é também onde você acede às ferramentas interativas que fazem parte do Azure Machine Learning:
 
 + [Azure Machine Learning designer (pré-visualização)](concept-designer.md) para executar etapas de fluxo de trabalho sem código de escrita
 + Experiência web para [aprendizagem automática de máquinas](concept-automated-ml.md)
++ [Azure Machine Learning para](how-to-run-jupyter-notebooks.md) escrever e executar o seu próprio código em servidores de cadernos Jupyter integrados.
 + [Projetos de rotulagem de dados](how-to-create-labeling-projects.md) para criar, gerir e monitorizar projetos para rotular os seus dados
 
 ### <a name="programming-tools"></a>Ferramentas de programação
@@ -226,15 +240,15 @@ O Estúdio também é onde você acede às ferramentas interativas que fazem par
 > As ferramentas marcadas (pré-visualização) abaixo estão atualmente em visualização pública.
 > A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interaja com o serviço em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++  Interaja com o serviço em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
 + Interaja com o serviço em qualquer ambiente R com o [Azure Machine Learning SDK para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (pré-visualização).
 + Utilize [o CLI de aprendizagem automática Azure](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) para automatização.
 + O [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) (pré-visualização) baseia-se no Azure Machine Learning e permite-lhe treinar, operar e gerir centenas ou mesmo milhares de modelos de machine learning.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a Azure Machine Learning, consulte:
 
 * [O que é o Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Criar um espaço de trabalho para aprendizagem de máquinas Azure](how-to-manage-workspace.md)
+* [Criar uma área de trabalho do Azure Machine Learning](how-to-manage-workspace.md)
 * [Tutorial (parte 1): Treine um modelo](tutorial-train-models-with-aml.md)

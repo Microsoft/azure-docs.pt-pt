@@ -1,21 +1,22 @@
 ---
-title: Ligar à conta SFTP
-description: Automatizar tarefas e processos que monitorizem, criem, gerem, enviem e recebam ficheiros para um servidor SFTP através do SSH utilizando apps Azure Logic
+title: Ligar à conta SFTP (Deprecada)
+description: Automatizar tarefas e processos que monitorizem, criem, gerem, enviem e recebam ficheiros para um servidor SFTP utilizando apps Azure Logic
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: divswa, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ROBOTS: NOINDEX
+ms.openlocfilehash: 817c17b0e05180f5c7a616320a25c2bc3c21c5f8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789278"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651409"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com Azure Logic Apps
+# <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitore, crie e gere ficheiros SFTP em Azure Logic Apps
 
 > [!IMPORTANT]
 > Utilize o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md) à medida que o conector SFTP estiver prectado. Já não é possível selecionar gatilhos e ações SFTP no Logic App Designer.
@@ -113,10 +114,6 @@ Este gatilho inicia um fluxo de trabalho de aplicações lógicas quando um fich
 ### <a name="sftp-action-get-content"></a>Ação SFTP: Obter conteúdo
 
 Esta ação obtém o conteúdo de um ficheiro num servidor SFTP. Assim, por exemplo, pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do ficheiro deve cumprir. Se a condição for verdadeira, a ação que obtém o conteúdo pode ser executada.
-
-## <a name="connector-reference"></a>Referência do conector
-
-Para obter detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição openAPI (anteriormente Swagger) do conector, consulte a página de [referência](/connectors/sftpconnector/)do conector .
 
 ## <a name="next-steps"></a>Próximos passos
 

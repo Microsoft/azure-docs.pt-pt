@@ -2,13 +2,13 @@
 title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: 6c57f3523ca8f3f4ad1565d18791d24c0e698ad6
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.date: 09/04/2020
+ms.openlocfilehash: 34b2476b8194b8ad6f8e7e86e2644a1c0d0bbb4b
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808342"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484006"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
 
@@ -18,7 +18,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 
 | Espaço de nome do fornecedor de recursos | Serviço do Azure |
 | --------------------------- | ------------- |
-| Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
+| Microsoft.AAD | [Serviços de Domínio do Diretório Ativo Azure](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | núcleo |
 | Microsoft.ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Assistente do Azure](../../advisor/index.yml) |
@@ -86,6 +86,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [Serviço de Aplicações](../../app-service/index.yml) |
+| Microsoft.DynamicsLcs | [Serviços de ciclo de vida](https://lcs.dynamics.com/Logon/Index ) |
 | Microsoft.EnterpriseKnowledgeGraph | Gráfico de conhecimento da empresa |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Hubs de Eventos](../../event-hubs/index.yml) |
@@ -97,10 +98,12 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
+| Microsoft.HybridNetwork  | Suporte stack Edge |
 | Microsoft.ImportExport | [Importar/Exportar do Microsoft Azure](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
+| Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Cofre de Chaves](../../key-vault/index.yml) |
 | Microsoft.Kubernetes | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
 | Microsoft.KubernetesConfiguration | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
@@ -111,6 +114,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
 | Microsoft.Maintenance | [Manutenção Azure](../../virtual-machines/maintenance-control-cli.md) |
 | Microsoft.ManagedIdentity | [Identidades geridas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/index.yml) |
+| Microsoft.ManagedNetwork | Redes virtuais geridas pelos serviços PaaS |
 | Microsoft.ManagedServices | [Azure Lighthouse](../../lighthouse/index.yml) |
 | Microsoft.Management | [Grupos de Gestão](../../governance/management-groups/index.yml) |
 | Microsoft.Maps | [Azure Maps](../../azure-maps/index.yml) |
@@ -118,10 +122,12 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.MarketplaceApps | núcleo |
 | Microsoft.MarketplaceOrdering<sup>1</sup> | núcleo |
 | Microsoft.Media | [Serviços de Multimédia](../../media-services/index.yml) |
+| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Gateway de Aplicação](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Balanceador de Carga](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gestor de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Gateway de Aplicação](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Balanceador de Carga](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gestor de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft.NotificationHubs | [Hubs de Notificação](../../notification-hubs/index.yml) |
 | Microsoft.ObjectStore | Loja de Objetos |
 | Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-services-overview.md) |
@@ -133,6 +139,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.PowerPlatform | [Power Platform](/power-platform/) |
+| Microsoft.ProjectBabylon | [Catálogo de Dados do Azure](../../data-catalog/overview.md) |
 | Microsoft.Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.RedHatopenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
@@ -144,18 +151,20 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Centro de Segurança](../../security-center/index.yml) |
+| Microsoft.SecurityGraph | [Centro de Segurança](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
 | Microsoft.SerialConsole<sup>1</sup> | [Consola em série Azure para Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
 | Microsoft.Services | núcleo |
-| Microsoft.SignalRService | [Serviço Azure SignalR](../../azure-signalr/index.yml) |
+| Microsoft.SignalRService | [Serviço SignalR do Azure](../../azure-signalr/index.yml) |
 | Microsoft.SoftwarePlan | Licença |
 | Microsoft.Solutions | [Aplicações Geridas do Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Base de Dados SQL do Azure](../../azure-sql/database/index.yml)<br /> [Instância Gerida do SQL no Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [SQL Server nas Máquinas Virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.SqlVirtualMachine | [Servidor SQL em Máquinas Virtuais Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Armazenamento](../../storage/index.yml) |
+| Microsoft.StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
 | Microsoft.StorageSync | [Armazenamento](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
@@ -170,12 +179,13 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.Web | [Serviço de Aplicações](../../app-service/index.yml)<br />[Funções do Azure](../../azure-functions/index.yml) |
+| Microsoft.WindowsDefenderATP | [Proteção Avançada Contra Ameaças do Microsoft Defender](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Atualizações de segurança alargadas |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft.WorkloadMonitor<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
 
 <sup>1</sup> Registado por predefinição
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os fornecedores de recursos, incluindo como registar um fornecedor de recursos, consulte [os fornecedores e tipos de recursos da Azure](resource-providers-and-types.md)

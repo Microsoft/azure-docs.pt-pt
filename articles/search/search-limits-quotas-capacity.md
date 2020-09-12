@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926869"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462518"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -96,10 +96,26 @@ Os tempos máximos de funcionamento existem para proporcionar equilíbrio e esta
 
 <sup>4</sup> Máximo de 30 competências por skillset.
 
-<sup>5</sup> O enriquecimento e a análise de imagem da IA são computacionalmente intensivos e consomem quantidades desproporcionadas de poder de processamento disponível. O tempo de funcionamento destas cargas de trabalho foi encurtado para dar a outros empregos na fila mais oportunidades de correr.  
+<sup>5</sup> O enriquecimento e a análise de imagem da IA são computacionalmente intensivos e consomem quantidades desproporcionadas de poder de processamento disponível. O tempo de funcionamento destas cargas de trabalho foi encurtado para dar a outros empregos na fila mais oportunidades de correr.
 
 > [!NOTE]
 > Tal como indicado nos [limites](#index-limits)do Índice, os indexantes também aplicarão o limite superior de 3000 elementos em todas as coleções complexas por documento, começando com a versão mais recente da API ga que suporta tipos complexos ( `2019-05-06` ) em diante. Isto significa que se criou o seu indexante com uma versão API anterior, não estará sujeito a este limite. Para preservar a compatibilidade máxima, um indexante que foi criado com uma versão API anterior e depois atualizado com uma versão API `2019-05-06` ou posterior, continuará **a** ser excluído dos limites. Os clientes devem estar cientes do impacto adverso de ter coleções complexas muito grandes (como indicado anteriormente) e recomendamos vivamente a criação de novos indexadores com a versão mais recente da GA API.
+
+### <a name="shared-private-link-resource-limits"></a>Limites de recursos de ligação privada compartilhados
+
+> [!NOTE]
+> Os indexantes podem aceder de forma segura aos recursos privados geridos através do [recurso de ligação privada partilhado API,](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) conforme descrito [neste guia de como fazer](search-indexer-howto-access-private.md)
+
+| Recurso | Gratuito | Básico | S1 | S2 | S3 | S3 HD | L1 | L2
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Suporte do indexador de pontos finais privados | No | Yes | Yes | Yes | Yes | No | Yes | Yes |
+| Suporte de ponto final privado para indexadores com um skillset<sup>1</sup> | No | No | No | Yes | Yes | No | Yes | Yes |
+| Pontos finais máximos privados | N/D | 10 ou 30 | 100 | 400 | 400 | N/D | 20 | 20 |
+| Máximo distintos tipos de recursos<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
+
+<sup>1</sup> O enriquecimento e análise de imagem da IA são computacionalmente intensivos e consomem quantidades desproporcionadas de poder de processamento disponível, pelo que os níveis de serviço de pesquisa mais baixos que os definem para funcionar em ambiente privado podem ter um impacto adverso no desempenho e estabilidade do serviço de pesquisa.
+
+<sup>2</sup> O número de tipos de recursos distintos é calculado como o número de valores únicos `groupId` utilizados em todos os recursos de ligação privada partilhada para um determinado serviço de pesquisa, independentemente do estado do recurso.
 
 ## <a name="synonym-limits"></a>Limites de sinônio
 
@@ -116,7 +132,7 @@ As estimativas de QPS devem ser desenvolvidas independentemente por cada cliente
 
 As estimativas são mais previsíveis quando calculadas sobre os serviços em execução em recursos dedicados (níveis básicos e standard). Pode estimar o QPS mais de perto porque tem controlo sobre mais dos parâmetros. Para obter orientações sobre como abordar a estimativa, consulte [o desempenho e otimização da Pesquisa Cognitiva Azure.](search-performance-optimization.md)
 
-Para os níveis otimizados de armazenamento (L1 e L2), deverá esperar uma produção de consulta mais baixa e uma latência mais elevada do que os níveis Standard. 
+Para os níveis otimizados de armazenamento (L1 e L2), deverá esperar uma produção de consulta mais baixa e uma latência mais elevada do que os níveis Standard.
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de IA)
 

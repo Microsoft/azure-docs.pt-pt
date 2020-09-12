@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d889d0c13c911e02d73bb1de76b7c3d1aa240027
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0730148a3da41d0d72961ea521577fa370b183d
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806808"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596095"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicações com reorientação interna usando o Azure CLI
 
@@ -21,12 +21,11 @@ Pode utilizar o Azure CLI para configurar a [reorientação de tráfego web](mul
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação
-> * Adicione os ouvintes e a regra de redirecionamento
-> * Crie um conjunto de escala de máquina virtual com a piscina de backend
-> * Criar um registo CNAME no seu domínio
+* Configurar a rede
+* Criar um gateway de aplicação
+* Adicione os ouvintes e a regra de redirecionamento
+* Crie um conjunto de escala de máquina virtual com a piscina de backend
+* Criar um registo CNAME no seu domínio
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

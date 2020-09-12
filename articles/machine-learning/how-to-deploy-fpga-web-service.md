@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a5f56beb179f7c72fe66c7423999201f3460b143
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648790"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646285"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são matrizes de portão programáveis em campo (FPGA) e como implementar
 
@@ -78,7 +78,7 @@ A **PBS Family of Azure VMs** contém Intel Arria 10 FPGAs. Mostrará como "Stan
 
 ## <a name="deploy-models-on-fpgas"></a>Implementar modelos em FPGAs
 
-Pode implementar um modelo como serviço web em FPGAs com [modelos acelerados de hardware de aprendizagem de máquinas Azure.](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py) A utilização de FPGAs fornece inferência de latência ultra-baixa, mesmo com um único tamanho de lote. Inferência, ou pontuação de modelos, é a fase em que o modelo implantado é usado para previsão, mais frequentemente em dados de produção.
+Pode implementar um modelo como serviço web em FPGAs com [modelos acelerados de hardware de aprendizagem de máquinas Azure.](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true) A utilização de FPGAs fornece inferência de latência ultra-baixa, mesmo com um único tamanho de lote. Inferência, ou pontuação de modelos, é a fase em que o modelo implantado é usado para previsão, mais frequentemente em dados de produção.
 
 A implantação de um modelo para uma FPGA envolve os seguintes passos:
 
@@ -121,7 +121,7 @@ Nesta amostra, cria-se um gráfico TensorFlow para pré-processar a imagem de en
     ```
 ### <a name="1-define-the-tensorflow-model"></a>1. Definir o modelo TensorFlow
 
-Utilize o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) para criar uma definição de serviço. Uma definição de serviço é um ficheiro que descreve um pipeline de gráficos (entrada, aperitivo e classificador) com base no TensorFlow. O comando de implementação comprime automaticamente a definição e os gráficos num ficheiro ZIP e envia o ZIP para o armazenamento de Azure Blob. O DNN já está implantado para funcionar na FPGA.
+Utilize o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) para criar uma definição de serviço. Uma definição de serviço é um ficheiro que descreve um pipeline de gráficos (entrada, aperitivo e classificador) com base no TensorFlow. O comando de implementação comprime automaticamente a definição e os gráficos num ficheiro ZIP e envia o ZIP para o armazenamento de Azure Blob. O DNN já está implantado para funcionar na FPGA.
 
 1. Carregar espaço de trabalho de aprendizagem automática Azure
 
@@ -389,7 +389,7 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Elimine o seu serviço web, imagem e modelo (deve ser feito por esta ordem uma vez que existem dependências).
 
@@ -401,7 +401,7 @@ registered_model.delete()
 converted_model.delete()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira estes cadernos, vídeos e blogs:
 

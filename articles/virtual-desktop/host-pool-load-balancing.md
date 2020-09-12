@@ -3,15 +3,15 @@ title: Windows Virtual Desktop host pool load-balance - Azure
 description: Saiba mais sobre os métodos de equilíbrio de carga da piscina do anfitrião para um ambiente de ambiente de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 09/04/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007442"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461124"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga do agrupamento de anfitriões
 
@@ -34,7 +34,7 @@ Cada piscina hospedeira só pode configurar um tipo de carregamento específico.
 
 O método de equilíbrio de carga primeiro permite-lhe distribuir ligações de utilizador para otimizar este cenário. Este método é ideal para organizações que queiram proporcionar a melhor experiência para os utilizadores conectarem-se ao seu ambiente de ambiente de trabalho virtual em conjunto.
 
-O primeiro método de primeira consulta acolhe anfitriões que permitem novas ligações. Em seguida, o método seleciona o anfitrião da sessão com o menor número de sessões. Se houver um empate, o método seleciona o anfitrião da primeira sessão na consulta.
+O primeiro método de primeira consulta acolhe anfitriões que permitem novas ligações. Em seguida, o método seleciona um anfitrião de sessão aleatoriamente a partir de metade do conjunto de anfitriões de sessão com o menor número de sessões. Por exemplo, se houver nove máquinas com 11, 12, 13, 14, 15, 16, 17, 18 e 19 sessões, uma nova sessão que cria não vai automaticamente para a primeira máquina. Em vez disso, pode ir a qualquer uma das cinco primeiras máquinas com o menor número de sessões (11, 12, 13, 14, 15).
 
 ## <a name="depth-first-load-balancing-method"></a>Método de equilíbrio de carga de profundidade primeiro
 

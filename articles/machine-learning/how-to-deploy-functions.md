@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: 8d1ea9b0989a71268b98f0b2fd1d95d5671f996b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ff327372a0ec22ca6291615ca64f01a4aa5807be
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325802"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646219"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,9 +37,9 @@ Com a Azure Machine Learning, pode criar imagens Docker a partir de modelos de a
     > [!IMPORTANT]
     > Os códigos de corte neste artigo assumem que definiu as seguintes variáveis:
     >
-    > * `ws`- O seu espaço de trabalho para aprendizagem de máquinas Azure.
-    > * `model`- O modelo registado que será implantado.
-    > * `inference_config`- A configuração da inferência para o modelo.
+    > * `ws` - O seu espaço de trabalho para aprendizagem de máquinas Azure.
+    > * `model` - O modelo registado que será implantado.
+    > * `inference_config` - A configuração da inferência para o modelo.
     >
     > Para obter mais informações sobre a definição destas variáveis, consulte [implementar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -63,7 +63,7 @@ Para obter mais informações sobre o script de entrada, consulte [o código de 
 Estas entidades são encapsuladas numa __configuração de inferência.__ A configuração de inferência referencia o script de entrada e outras dependências.
 
 > [!IMPORTANT]
-> Ao criar uma configuração de inferência para utilização com Funções Azure, deve utilizar um objeto [Ambiente.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) Por favor, note que se estiver a definir um ambiente personalizado, deve adicionar azureml-padrão com >versão = 1.0.45 como dependência de pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web. O exemplo a seguir demonstra a criação de um objeto ambiental e a sua utilização com uma configuração de inferência:
+> Ao criar uma configuração de inferência para utilização com Funções Azure, deve utilizar um objeto [Ambiente.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) Por favor, note que se estiver a definir um ambiente personalizado, deve adicionar azureml-padrão com >versão = 1.0.45 como dependência de pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web. O exemplo a seguir demonstra a criação de um objeto ambiental e a sua utilização com uma configuração de inferência:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Para criar a imagem Docker que é implantada para funções Azure, utilize [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) ou a função de pacote específica para o gatilho que está interessado em utilizar. O seguinte corte de código demonstra como criar um novo pacote com um gatilho blob do modelo e configuração de inferência:
+Para criar a imagem Docker que é implantada para funções Azure, utilize [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) ou a função de pacote específica para o gatilho que está interessado em utilizar. O seguinte corte de código demonstra como criar um novo pacote com um gatilho blob do modelo e configuração de inferência:
 
 > [!NOTE]
 > O código de corte assume que `model` contém um modelo registado, e que contém `inference_config` a configuração para o ambiente de inferência. Para obter mais informações, consulte [implementar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
@@ -184,7 +184,7 @@ Quando `show_output=True` , a saída do processo de construção do Docker é mo
     ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
-    Grave esta cadeia de ligação para fornecer à aplicação de função. Vamos usá-lo mais tarde quando pedirmos`<triggerConnectionString>`
+    Grave esta cadeia de ligação para fornecer à aplicação de função. Vamos usá-lo mais tarde quando pedirmos `<triggerConnectionString>`
 
 1. Crie os recipientes para a entrada e saída na conta de armazenamento. `<triggerConnectionString>`Substitua-a pela cadeia de ligação devolvida anteriormente:
 
@@ -295,10 +295,10 @@ Uma vez que a imagem esteja carregada e a aplicação esteja disponível, use os
 
 Para obter mais informações sobre a utilização de gatilhos blob, consulte a [Função Criar uma função desencadeada pelo artigo de armazenamento Azure Blob.](/azure/azure-functions/functions-create-storage-blob-triggered-function)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda a configurar a sua App funções na documentação [funções.](/azure/azure-functions/functions-create-function-linux-custom-image)
 * Saiba mais sobre o armazenamento blob aciona [as ligações de armazenamento Azure Blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 * [Implemente o seu modelo no Azure App Service](how-to-deploy-app-service.md).
 * [Consumir um Modelo ML implantado como um serviço web](how-to-consume-web-service.md)
-* [Referência da API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)
+* [Referência da API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)

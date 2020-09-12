@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652105"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658565"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -204,9 +204,9 @@ Por exemplo, a construção de um modelo __para cada instância ou indivíduo__ 
 
 ## <a name="automl-in-azure-machine-learning"></a>AutoML em Aprendizagem automática Azure
 
-Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado
+A Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado:
 
-* Para clientes experientes em código, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* Para clientes experientes em código, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
 * Para clientes de experiência de código limitada/sem código, estúdio Azure Machine Learning em [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -267,7 +267,7 @@ Veja como converter para o formato ONNX [neste exemplo de caderno Jupyter](https
 
 O tempo de execução ONNX também suporta C#, para que possa utilizar o modelo construído automaticamente nas suas aplicações C# sem qualquer necessidade de recoding ou qualquer uma das latências de rede que os pontos finais REST introduzem. Saiba mais sobre [a inferencção dos modelos ONNX com o tempo de execução ONNX C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Existem vários recursos para te pôr a funcionar com o AutoML. 
 
@@ -289,9 +289,9 @@ Como fornecer artigos fornecem detalhes adicionais sobre a funcionalidade que o 
 
 Reveja exemplos de código detalhados e use casos no [repositório de cadernos GitHub para amostras automatizadas de aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)de máquinas .
 
-### <a name="python-sdk-reference"></a>Referência Python SDK 
+### <a name="python-sdk-reference"></a>Referência Python SDK
 
-Aprofundar a sua experiência em padrões de design SDK e especificações de classe com a [documentação de referência da classe AutoML.](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 
+Aprofundar a sua experiência em padrões de design SDK e especificações de classe com a [documentação de referência da classe AutoML.](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 
 
 > [!Note]
 > As capacidades automatizadas de aprendizagem automática também estão disponíveis noutras soluções da Microsoft, tais [como, ML.NET,](https://docs.microsoft.com/dotnet/machine-learning/automl-overview) [HDInsight,](../hdinsight/spark/apache-spark-run-machine-learning-automl.md) [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

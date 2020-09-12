@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806485"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595949"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Problemas no Serviço de Aplicações de Resolução de Problemas no Gateway de Aplicações
 
@@ -23,9 +23,8 @@ Saiba como diagnosticar e resolver problemas que poderá encontrar quando o Azur
 
 Neste artigo, você vai aprender a resolver problemas sobre as seguintes questões:
 
-> [!div class="checklist"]
-> * O URL do serviço de aplicações é exposto no navegador quando há uma reorientação.
-> * O domínio de cookies do serviço de aplicações ARRAffinity está definido para o nome do anfitrião do serviço de aplicações, example.azurewebsites.net, em vez do anfitrião original.
+* O URL do serviço de aplicações é exposto no navegador quando há uma reorientação.
+* O domínio de cookies do serviço de aplicações ARRAffinity está definido para o nome do anfitrião do serviço de aplicações, example.azurewebsites.net, em vez do anfitrião original.
 
 Quando uma aplicação de back-end envia uma resposta de redirecionamento, é melhor redirecionar o cliente para um URL diferente do especificado pela aplicação back-end. É melhor fazê-lo quando um serviço de aplicações está hospedado atrás de um gateway de aplicações e requer que o cliente faça uma reorientação para o seu caminho relativo. Um exemplo é um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2. 
 

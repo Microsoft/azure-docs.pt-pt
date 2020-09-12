@@ -10,12 +10,12 @@ ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 407853152d4f18d8f8daacd8ef7d19c878384076
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871161"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658584"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
 
@@ -29,7 +29,7 @@ Ao decidir qual a opção de despedimento melhor para o seu cenário, considere 
 
 ## <a name="redundancy-in-the-primary-region"></a>Redundância na região primária
 
-Os dados de uma conta de Armazenamento Azure são sempre replicados três vezes na região primária. O Azure Storage oferece duas opções para a replicação dos seus dados na região primária:
+Os dados de uma conta de Armazenamento Azure são sempre replicados três vezes na região primária. O Armazenamento do Microsoft Azure oferece duas opções para a forma como os dados são replicados na região primária:
 
 - **O armazenamento localmente redundante (LRS)** copia os seus dados de forma sincronizada três vezes num único local físico na região primária. O LRS é a opção de replicação menos dispendiosa, mas não é recomendado para aplicações que exijam elevada disponibilidade.
 - **O armazenamento redundante de zona (ZRS)** copia os seus dados de forma sincronizada em três zonas de disponibilidade de Azure na região primária. Para aplicações que requerem elevada disponibilidade, a Microsoft recomenda a utilização de ZRS na região primária e também a replicação para uma região secundária.
@@ -49,7 +49,7 @@ LRS é uma boa escolha para os seguintes cenários:
 
 ### <a name="zone-redundant-storage"></a>Armazenamento com redundância entre zonas
 
-O armazenamento redundante de zona (ZRS) replica os seus dados de armazenamento Azure sincronizados em três zonas de disponibilidade de Azure na região primária. Cada zona de disponibilidade é um local físico separado com potência, arrefecimento e networking independentes. A ZRS oferece durabilidade para objetos de dados de armazenamento Azure de pelo menos 99.9999999999999999999999999999 (12 9's) durante um determinado ano.
+O armazenamento redundante de zona (ZRS) replica os seus dados de armazenamento Azure sincronizados em três zonas de disponibilidade de Azure na região primária. Cada zona de disponibilidade é uma localização física separada com energia, refrigeração e rede independentes, A ZRS oferece durabilidade para objetos de dados de armazenamento Azure de pelo menos 99.9999999999999999999999999999 (12 9's) durante um determinado ano.
 
 Com o ZRS, os seus dados ainda estão acessíveis tanto para operações de leitura como para escrever, mesmo que uma zona fique indisponível. Se uma zona ficar indisponível, o Azure realiza atualizações de rede, como a repontagem de DNS. Estas atualizações podem afetar a sua aplicação se aceder a dados antes de as atualizações terem sido concluídas. Ao conceber aplicações para ZRS, siga práticas para o manuseamento transitório de falhas, incluindo implementar políticas de retrip com recuo exponencial.
 
@@ -64,8 +64,8 @@ O quadro que se segue mostra quais os tipos de contas de armazenamento que supor
 | Tipo de conta de armazenamento | Regiões suportadas | Serviços suportados |
 |--|--|--|
 | Finalidade geral v2<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> África do Sul Norte<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2 | Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (padrão)<br /> Tabelas<br /> Filas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Oeste 2| Bolhas de bloco premium apenas |
-| Arquitorage de arquivos | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Oeste 2 | Os ficheiros premium partilham apenas |
+| BlockBlobStorage<sup>1</sup> | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2| Bolhas de bloco premium apenas |
+| Arquitorage de arquivos | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> E.U.A Leste <br /> E.U.A. Leste 2 <br /> E.U.A. Oeste 2 | Os ficheiros premium partilham apenas |
 
 <sup>1</sup> O nível de arquivo não é suportado atualmente para contas ZRS.<br />
 <sup>2</sup> As contas de armazenamento que contêm discos geridos Azure para máquinas virtuais usam sempre LRS. Os discos não geridos Azure também devem utilizar LRS. É possível criar uma conta de armazenamento para discos não geridos Azure que usam GRS, mas não é recomendado devido a potenciais problemas com consistência sobre a geo-replicação assíncrona. Nem discos geridos nem não geridos suportam ZRS ou GZRS. Para obter mais informações sobre discos geridos, consulte [preços para discos geridos Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -80,8 +80,8 @@ Quando cria uma conta de armazenamento, seleciona a região primária para a con
 
 O Azure Storage oferece duas opções para copiar os seus dados para uma região secundária:
 
-- **O armazenamento geo-redundante (GRS)** copia os seus dados de forma sincronizada três vezes num único local físico na região primária utilizando LRS. Em seguida, copia os seus dados assíncronamente para um único local físico na região secundária.
-- **O armazenamento de zonas-redundantes geo-zona (GZRS)** copia os seus dados sincronizadamente em três zonas de disponibilidade de Azure na região primária utilizando zRS. Em seguida, copia os seus dados assíncronamente para um único local físico na região secundária.
+- O **armazenamento georredundante (GRS)** copia os dados de forma síncrona três vezes numa única localização física na região primária através do LRS. Em seguida, copia os dados de forma assíncrona para uma única localização física na região secundária.
+- **O armazenamento de zonas-redundantes geo-zona (GZRS)** copia os seus dados sincronizadamente em três zonas de disponibilidade de Azure na região primária utilizando zRS. Em seguida, copia os dados de forma assíncrona para uma única localização física na região secundária.
 
 A principal diferença entre GRS e GZRS é a forma como os dados são replicados na região primária. Dentro da região secundária, os dados são sempre replicados sincronizadamente três vezes utilizando LRS. O LRS na região secundária protege os seus dados contra falhas de hardware.
 
@@ -94,7 +94,7 @@ Se a região primária ficar indisponível, pode optar por falhar na região sec
 
 ### <a name="geo-redundant-storage"></a>Armazenamento georredundante
 
-O armazenamento geo-redundante (GRS) copia os seus dados de forma sincronizada três vezes num único local físico na região primária utilizando LRS. Em seguida, copia os seus dados assíncronamente para um único local físico numa região secundária que fica a centenas de milhas da região primária. A GRS oferece durabilidade para objetos de dados de armazenamento Azure de pelo menos 99.9999999999999999999999999999999999999999999 (16 9's) durante um determinado ano.
+O armazenamento georredundante (GRS) copia os dados de forma síncrona três vezes numa única localização física na região primária através do LRS. Em seguida, copia os seus dados assíncronamente para um único local físico numa região secundária que fica a centenas de milhas da região primária. A GRS oferece durabilidade para objetos de dados de armazenamento Azure de pelo menos 99.9999999999999999999999999999999999999999999 (16 9's) durante um determinado ano.
 
 Uma operação de escrita é inicialmente comprometida com a localização primária e replicada usando LRS. A atualização é então replicada assíncronamente para a região secundária. Quando os dados são escritos para a localização secundária, também é replicado dentro desse local usando LRS.
 
@@ -165,10 +165,10 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
-| Uma paralisação em toda a região ocorre na região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
-| Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
+| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
+| Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
+| Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](storage-disaster-recovery-guidance.md)
 
@@ -191,7 +191,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O Azure Storage verifica regularmente a integridade dos dados armazenados através de verificações cíclicas de redundância (CRCs). Se for detetada corrupção de dados, é reparada com dados redundantes. O Azure Storage também calcula os dados de verificação em todo o tráfego de rede para detetar a corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

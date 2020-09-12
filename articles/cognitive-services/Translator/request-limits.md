@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903412"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566590"
 ---
 # <a name="request-limits-for-translator"></a>Limites de pedido para Tradutor
 
@@ -29,9 +29,9 @@ A tabela que se segue enumera os limites de matriz e de caracteres para cada fun
 
 | Operação | Tamanho máximo do elemento matriz |    Número máximo de elementos de matriz |    Tamanho máximo do pedido (caracteres) |
 |:----|:----|:----|:----|
-| Traduzir | 10,000    | 100   | 10,000 |
+| Tradução | 10,000    | 100   | 10,000 |
 | Transliterar | 5000 | 10    | 5000 |
-| Detetar | 10,000 | 100 |   50 000 |
+| Detetar | 50 000 | 100 |   50 000 |
 | BreakSentence | 50 000    | 100 | 50 000 |
 | Pesquisa no Dicionário| 100 |  10  | 1,000 |
 | Exemplos do dicionário | 100 para texto e 100 para tradução (200 no total)| 10|   2.000 |
@@ -71,13 +71,13 @@ Ao utilizar a função [BreakSentence,](https://docs.microsoft.com/azure/cogniti
 | Italiano | que | 800 |
 | Japonês | ja | 166 |
 | Português | pt | 800 |
-| Espanhol | es | 800 |
+| Em espanhol | es | 800 |
 | Tailandês | th | 180 |
 
 > [!NOTE]
 > Este limite não se aplica às traduções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Disponibilidade regional](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

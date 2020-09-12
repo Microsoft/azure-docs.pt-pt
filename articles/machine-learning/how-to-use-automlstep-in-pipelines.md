@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0daa094a6d804cd8a40c4ba76b696e3c9b580f8a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: eb28ee0adb3c23a44936cbc940ee9bcddfd11141
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230352"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647417"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ A forma preferida de mover inicialmente os dados _para_ um oleoduto ML é com `D
 
 
 > [!TIP]
-> Uma experiência melhorada para a passagem de dados temporários entre etapas de gasoduto está disponível nas aulas públicas de pré-visualização,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) e [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  Estas aulas são funcionalidades [experimentais](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) de pré-visualização, e podem mudar a qualquer momento.
+> Uma experiência melhorada para a passagem de dados temporários entre etapas de gasoduto está disponível nas aulas públicas de pré-visualização,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) e [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) .  Estas aulas são funcionalidades [experimentais](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) de pré-visualização, e podem mudar a qualquer momento.
 
 O `AutoMLStep` é configurado através de um `AutoMLConfig` objeto. `AutoMLConfig` é uma classe flexível, como discutido em [Configure experiências automatizadas de ML em Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
@@ -251,7 +251,7 @@ dataprep_step = PythonScriptStep(
 O `prepped_data_path` objeto é do `PipelineOutputFileDataset` tipo. Note que está especificado tanto nos `arguments` `outputs` argumentos. Se rever o passo anterior, verá que dentro do código de preparação de dados, o valor do argumento é o caminho do `'--output_path'` ficheiro para o qual o ficheiro Parquet foi escrito. 
 
 > [!TIP]
-> Uma experiência melhorada para a passagem de dados intermédios entre etapas de gasoduto está disponível com a classe de pré-visualização pública, `OutputFileDatasetConfig` . Saiba mais sobre `OutputFileDatasetConfig` padrões e métodos de design [na documentação de referência SDK.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)
+> Uma experiência melhorada para a passagem de dados intermédios entre etapas de gasoduto está disponível com a classe de pré-visualização pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Para um exemplo de código utilizando a `OutputFileDatasetConfig` classe, consulte como [construir um gasoduto ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)de dois passos .
 
 ## <a name="train-with-automlstep"></a>Comboio com AutoMLStep
 
@@ -270,7 +270,7 @@ prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 O corte acima cria um alto desempenho `PipelineOutputTabularDataset` a partir da saída do passo de `PipelineOutputFileDataset` preparação de dados.
 
 > [!TIP]
-> A classe de pré-visualização pública `OutputFileDatasetConfig` também tem a capacidade de converter um para consumo em `OutputFileDatasetConfig` [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) corridas de AutoML. Saiba mais sobre `OutputFileDatasetConfig` padrões e métodos de design [na documentação de referência SDK.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)
+> A classe de pré-visualização [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) pública, contém o método [read_delimited_files()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py#&preserve-view=trueread-delimited-files-include-path-false--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none--path-glob-none--set-column-types-none-) que converte um `OutputFileDatasetConfig` para consumo em [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) funcionação autoML.
 
 Outra opção é utilizar `Dataset` objetos registados no espaço de trabalho:
 

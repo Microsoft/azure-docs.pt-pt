@@ -11,17 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d8bf3f087592a7d629a247b1c10721237699fdc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590069"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613539"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance é o serviço inteligente e escalável de base de dados de nuvem que combina a compatibilidade mais ampla do motor de base de dados sql server com todos os benefícios de uma plataforma totalmente gerida e verde como um serviço. A SQL Managed Instance tem quase 100% de compatibilidade com o mais recente motor de base de dados SQL Server (Enterprise Edition), fornecendo uma implementação de rede virtual nativa [(VNet)](../../virtual-network/virtual-networks-overview.md) que aborda preocupações de segurança comuns, e um modelo de [negócio](https://azure.microsoft.com/pricing/details/sql-database/) favorável aos clientes existentes do SQL Server. A SQL Managed Instance permite que os clientes existentes do SQL Server levantem e transloquem as suas aplicações no local para a nuvem com alterações mínimas de aplicação e de base de dados. Ao mesmo tempo, a SQL Managed Instance preserva todas as capacidades paaS (remendos automáticos e atualizações de versão, [backups automatizados,](../database/automated-backups-overview.md) [alta disponibilidade](../database/high-availability-sla.md)) que reduzem drasticamente a sobrecarga de gestão e tCO.
+
+Se você é novo em Azure SQL Managed Instance, confira o vídeo *Azure SQL Managed Instance* da nossa série de [vídeo Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61/player]
 
 > [!IMPORTANT]
 > Para obter uma lista das regiões onde o SQL Managed Instance está atualmente disponível, consulte [as regiões apoiadas.](resource-limits.md#supported-regions)
@@ -41,7 +44,7 @@ SQL Managed Instance combina as melhores funcionalidades que estão disponíveis
 
 | **Benefícios paaS** | **Continuidade do negócio** |
 | --- | --- |
-|Sem compra e gestão de hardware <br>Sem despesas gerais de gestão para a gestão de infraestruturas subjacentes <br>Dimensionamento rápido do fornecimento e do serviço <br>Patching automatizado e atualização de versão <br>Integração com outros serviços de dados PaaS |99,99% uptime SLA  <br>Alta [disponibilidade](../database/high-availability-sla.md) incorporada <br>Dados protegidos com [cópias de segurança automatizadas](../database/automated-backups-overview.md) <br>Período de retenção de backup configurável do cliente <br>[Backups iniciados](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) pelo utilizador <br>[Capacidade de restauro da base de dados pontual](../database/recovery-using-backups.md#point-in-time-restore) |
+|Sem compra e gestão de hardware <br>Sem despesas gerais de gestão para a gestão de infraestruturas subjacentes <br>Dimensionamento rápido do fornecimento e do serviço <br>Patching automatizado e atualização de versão <br>Integração com outros serviços de dados PaaS |99,99% uptime SLA  <br>Alta [disponibilidade](../database/high-availability-sla.md) incorporada <br>Dados protegidos com [cópias de segurança automatizadas](../database/automated-backups-overview.md) <br>Período de retenção de backup configurável do cliente <br>[Backups iniciados](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) pelo utilizador <br>[Capacidade de restauro da base de dados pontual](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Segurança e conformidade** | **Gestão**|
 |Ambiente isolado[(integração VNet,](connectivity-architecture-overview.md)serviço de inquilino único, computação e armazenamento dedicados) <br>[Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure Ative Directory (Azure AD),](../database/authentication-aad-overview.md)suporte único de inscrição <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Principais do servidor AD do Azure (logins)</a>  <br>Adere aos padrões de conformidade como a Base de Dados Azure SQL <br>[Auditoria SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |A API gestor de recursos Azure para automatizar o fornecimento e dimensionamento de serviços <br>Funcionalidade do portal Azure para o fornecimento e dimensionamento de serviços manuais <br>Serviço de Migração de Dados
 
@@ -182,7 +185,7 @@ SQL Managed Instance visa cenários de utilizadores com migração de bases de d
 
 ### <a name="backup-and-restore"></a>Cópia de segurança e restauro  
 
-A abordagem de migração aproveita os backups do SQL para o armazenamento da Azure Blob. As cópias de segurança armazenadas numa bolha de armazenamento Azure podem ser diretamente restauradas numa instância gerida utilizando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+A abordagem de migração aproveita os backups do SQL para o armazenamento da Azure Blob. As cópias de segurança armazenadas numa bolha de armazenamento Azure podem ser diretamente restauradas numa instância gerida utilizando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - Para obter um arranque rápido que mostre como restaurar o ficheiro de backup da base de dados Standard World Importers - Standard database, consulte [Restaurar um ficheiro de backup para uma instância gerida](restore-sample-database-quickstart.md). Este quickstart mostra que você tem que carregar um ficheiro de backup para o armazenamento Azure Blob e fixá-lo usando uma chave de assinatura de acesso compartilhado (SAS).
 - Para obter informações sobre a restauração do URL, consulte [Native RESTORE from URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
@@ -202,7 +205,7 @@ SQL Managed Instance suporta compatibilidade retrógrada nas bases de dados do S
   
 O diagrama que se segue descreve a compatibilidade da área da superfície em SQL Managed Instance:  
 
-![Migração](./media/sql-managed-instance-paas-overview/migration.png)
+![compatibilidade na área da superfície](./media/sql-managed-instance-paas-overview/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-sql-managed-instance"></a>Principais diferenças entre o SQL Server no local e o SQL Managed Instance
 
@@ -234,7 +237,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através da Transact-
 |`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica exclusivamente um caso gerido.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato: `<instanceName>` `<dnsPrefix>` . . database.windows.net, onde `<instanceName>` é o nome fornecido pelo cliente, enquanto é `<dnsPrefix>` autogerido parte do nome que garante a singularidade global do nome DNS ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a criar o seu primeiro exemplo gerido, consulte o [guia Quickstart](instance-create-quickstart.md).
 - Para obter uma lista de funcionalidades e comparação, consulte [as características comuns sql](../database/features-comparison.md).

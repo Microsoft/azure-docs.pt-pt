@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903328"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461549"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões da solução Azure Stream Analytics
 
@@ -102,7 +102,7 @@ A maioria das atividades de ciência de dados e análises ainda acontecem offlin
 
 ## <a name="use-reference-data-for-enrichment"></a>Utilizar dados de referência para enriquecimento
 
-O enriquecimento de dados é frequentemente um requisito para os motores ETL. O Azure Stream Analytics suporta o enriquecimento de dados com [dados](stream-analytics-use-reference-data.md) de referência tanto da Base de Dados SQL como do armazenamento de Azure Blob. O enriquecimento de dados pode ser feito para a aterragem de dados tanto no Lago de Dados Azure como no SQL Data Warehouse.
+O enriquecimento de dados é frequentemente um requisito para os motores ETL. O Azure Stream Analytics suporta o enriquecimento de dados com [dados](stream-analytics-use-reference-data.md) de referência tanto da Base de Dados SQL como do armazenamento de Azure Blob. O enriquecimento de dados pode ser feito para a aterragem de dados tanto no Azure Data Lake como no Azure Synapse Analytics.
 
 
 ![Análise offline da ASA com enriquecimento de dados](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
@@ -115,7 +115,7 @@ Se combinar o padrão de análise offline com o padrão de aplicação em tempo 
 
 ## <a name="how-to-monitor-asa-jobs"></a>Como monitorizar os empregos da ASA
 
-Um trabalho Azure Stream Analytics pode ser executado 24 horas por dia para processar eventos de entrada continuamente em tempo real. A sua garantia de uptime é crucial para a saúde da aplicação global. Embora o Stream Analytics seja o único serviço de streaming de análise na indústria que oferece uma [garantia de disponibilidade de 99,9%,](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/)ainda pode incorrer em algum nível de tempo de mente. Ao longo dos anos, a Stream Analytics introduziu métricas, registos e estados de trabalho para refletir a saúde dos trabalhos. Todos eles são emergidos através do serviço Azure Monitor e podem ser exportados para o OMS. Para obter mais informações, consulte a monitorização do trabalho do [Stream Analytics e como monitorizar as consultas.](stream-analytics-monitoring.md)
+Um trabalho Azure Stream Analytics pode ser executado 24 horas por dia para processar eventos de entrada continuamente em tempo real. A sua garantia de uptime é crucial para a saúde da aplicação global. Embora o Stream Analytics seja o único serviço de streaming de análise na indústria que oferece uma  [garantia de disponibilidade de 99,9%,](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/)ainda pode incorrer em algum nível de tempo de mente. Ao longo dos anos, a Stream Analytics introduziu métricas, registos e estados de trabalho para refletir a saúde dos trabalhos. Todos eles são emergidos através do serviço Azure Monitor e podem ser exportados para o OMS. Para obter mais informações, consulte a monitorização do trabalho do [Stream Analytics e como monitorizar as consultas.](stream-analytics-monitoring.md)
 
 ![Monitorização asa](media/stream-analytics-solution-patterns/monitoring.png)
 
@@ -180,7 +180,7 @@ Não é difícil imaginar que todos os padrões de solução acima mencionados p
 
 A chave é projetar o seu sistema em padrões compósíveis, para que cada subsistema possa ser construído, testado, atualizado e recuperado de forma independente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Já viu uma variedade de padrões de solução usando a Azure Stream Analytics. Em seguida, pode criar o seu primeiro trabalho do Stream Analytics e experimentá-lo na prática:
 

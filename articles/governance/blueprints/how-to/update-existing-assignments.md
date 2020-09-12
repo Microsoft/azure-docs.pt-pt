@@ -3,12 +3,12 @@ title: Atualizar uma atribuição existente a partir do portal
 description: Conheça o mecanismo de atualização de uma atribuição de plantas existente a partir do portal em Azure Blueprints.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051428"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651379"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de projeto existente
 
@@ -26,17 +26,17 @@ Quando uma planta é atribuída, a atribuição pode ser atualizada. Existem vá
 
 1. Na lista de plantas, selecione a atribuição do projeto. Em seguida, utilize o botão **de atribuição de atualização** OU clique à direita na atribuição de plantas e selecione **a atribuição de Atualização**.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Atualizar uma atribuição de projeto existente" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Screenshot da página de atribuição Blueprint com o botão 'Actualização' realçado." border="false":::
 
 1. A página **de planta Atribui** cargas pré-preenchidas com todos os valores da atribuição original. Pode alterar a **versão de definição de planta,** o estado **de Lock Assignment** e qualquer um dos parâmetros dinâmicos que existem na definição do projeto. Selecione **Atribuir** quando terminar a escoação.
 
 1. Na página de detalhes da atribuição atualizada, consulte o novo estado. Neste exemplo, adicionámos **Locking** à missão.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Atualizado uma atribuição de planta existente - modo de bloqueio alterado" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot de uma designação de planta atualizada mostrando o modo de bloqueio alterado." border="false":::
 
 1. Explore detalhes sobre outras **operações de atribuição** utilizando o drop-down. A tabela de atualizações de **recursos geridos** através de uma operação de atribuição selecionada.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Operações de atribuição de uma atribuição de projeto" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot de uma atribuição de planta atualizada mostrando as operações de atribuição e o seu estado." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regras de atualização das atribuições
 

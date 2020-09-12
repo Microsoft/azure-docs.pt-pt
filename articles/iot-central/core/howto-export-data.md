@@ -1,63 +1,85 @@
 ---
-title: Exporte os seus dados Azure IoT Central ! Microsoft Docs
-description: Como exportar dados da sua aplicação Azure IoT Central para Azure Event Hubs, Azure Service Bus e Azure Blob
+title: Dados de exportação da Azure IoT Central (pré-visualização) Microsoft Docs
+description: Como utilizar os novos dados exportam para exportar os seus dados IoT para destinos em nuvem Azure e personalizados.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 06/25/2020
+ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: iot-central
-manager: corywink
-ms.openlocfilehash: 1428df124272816927c6bbbc4a242170c7f46c00
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: contperfq1
+ms.openlocfilehash: 0a07d7e57ced5e2cd9457dc51ebcd355306fc48e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008530"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461940"
 ---
-# <a name="export-iot-data-to-destinations-in-azure-using-data-export-legacy"></a>Exportar dados de IoT para destinos em Azure utilizando exportação de dados (legado)
+# <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados (pré-visualização)
 
 > [!Note]
-> Há uma nova forma de exportar dados na IoT Central. Pode utilizar a nova exportação de dados para filtrar e enriquecer os seus dados exportados e exportá-lo para novos destinos como os pontos finais webhook. Pode conhecer aqui os novos dados [que](./howto-use-data-export.md)exportam. Para conhecer as diferenças entre as novas exportações de dados e a exportação de dados antigos, consulte a [tabela de comparação](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
+> Este artigo descreve as funcionalidades de exportação de dados de pré-visualização na IoT Central.
+>
+> - Para obter informações sobre as funcionalidades de exportação de dados antigos, consulte [os dados do Export IoT para destinos em nuvem utilizando a exportação de dados (legado)](./howto-export-data-legacy.md).
+> - Para saber mais sobre as diferenças entre as características de exportação de dados de pré-visualização e as características de exportação de dados legados, consulte o quadro de [comparação](#comparison-of-legacy-data-export-and-preview-data-export) abaixo.
 
-Este artigo descreve como utilizar a funcionalidade de exportação de dados na Azure IoT Central. Esta funcionalidade permite-lhe exportar os seus dados continuamente para **Azure Event Hubs,** **Azure Service Bus**ou **a azure Blob.** A exportação de dados utiliza o formato JSON e pode incluir informações sobre telemetria, informações do dispositivo e modelo do dispositivo. Utilize os dados exportados para:
+Este artigo descreve como utilizar a nova funcionalidade de pré-visualização da exportação de dados no Azure IoT Central. Utilize esta funcionalidade para exportar continuamente dados de IoT filtrados e enriquecidos da sua aplicação IoT Central. A exportação de dados impulsiona as mudanças em tempo quase real para outras partes da sua solução de nuvem para insights de caminhos quentes, análises e armazenamento.
 
-- Perspicácias e análises de caminhos quentes. Esta opção inclui o desencadear de regras personalizadas no Azure Stream Analytics, desencadear fluxos de trabalho personalizados em Azure Logic Apps ou passá-lo através de Funções Azure para serem transformados.
-- Análises de caminhos frios, como modelos de treinamento em Azure Machine Learning ou análise de tendências a longo prazo no Microsoft Power BI.
+Pode, por exemplo:
 
-> [!Note]
+- Exporte continuamente dados de telemetria e alterações de propriedade no formato JSON em tempo quase real.
+- Filtrar os fluxos de dados para exportar dados que correspondam às condições personalizadas.
+- Enriqueça os fluxos de dados com valores personalizados e valores de propriedade do dispositivo.
+- Envie os dados para destinos como Azure Event Hubs, Azure Service Bus, Azure Blob Storage e pontos finais webhook.
+
+> [!Tip]
 > Quando liga a exportação de dados, obtém-se apenas os dados a partir desse momento. Atualmente, os dados não podem ser recuperados por um tempo em que a exportação de dados estava desligada. Para reter mais dados históricos, ligue a exportação de dados mais cedo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve ser administrador na sua aplicação IoT Central ou ter permissões de exportação de Dados.
+Para utilizar as funcionalidades de exportação de dados de pré-visualização, tem de ter uma [aplicação V3,](howto-get-app-info.md)e tem de ter a permissão [de exportação de Dados.](howto-manage-users-roles.md)
 
 ## <a name="set-up-export-destination"></a>Configurar destino de exportação
 
-O seu destino de exportação deve existir antes de configurar a sua exportação de dados.
+O seu destino de exportação deve existir antes de configurar a sua exportação de dados. Os seguintes tipos de destino estão atualmente disponíveis:
 
-### <a name="create-event-hubs-namespace"></a>Criar o espaço de nomes dos Hubs de Eventos
+- Azure Event Hubs
+- Fila do Azure Service Bus
+- Tópico do Azure Service Bus
+- Armazenamento de Blobs do Azure
+- Webhook
+
+### <a name="create-an-event-hubs-destination"></a>Criar um destino de Centros de Eventos
 
 Se você não tem um espaço de nomes de Event Hubs existente para exportar, siga estes passos:
 
 1. Crie um [novo espaço de nomes de Centros de Eventos no portal Azure.](https://ms.portal.azure.com/#create/Microsoft.EventHub) Você pode aprender mais em [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
 
-2. Escolha uma subscrição. Pode exportar dados para outras subscrições que não estejam na mesma subscrição que a sua aplicação IoT Central. Conecte-se usando uma cadeia de ligação neste caso.
+1. Crie um centro de eventos no seu espaço de nomes Event Hubs. Vá ao seu espaço de nome e selecione **+ Event Hub** no topo para criar uma instância de centro de eventos.
 
-3. Crie um centro de eventos no seu espaço de nomes Event Hubs. Vá ao seu espaço de nome e selecione **+ Event Hub** no topo para criar uma instância de centro de eventos.
+1. Gere uma chave para usar quando configurar a exportação de dados na IoT Central:
 
-### <a name="create-service-bus-namespace"></a>Criar espaço de nomes de ônibus de serviço
+    - Selecione a instância do centro de eventos que criou.
+    - Selecione **Definições > Políticas de acesso partilhado**.
+    - Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
+    - Copie a cadeia de ligação primária ou secundária. Utilize esta cadeia de ligação para configurar um novo destino na IoT Central.
+
+### <a name="create-a-service-bus-queue-or-topic-destination"></a>Crie uma fila de ônibus de serviço ou destino tópico
 
 Se você não tem um espaço de nome de Service Bus existente para exportar para, siga estes passos:
 
 1. Crie um [novo espaço de nomes de Service Bus no portal Azure.](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) Pode saber mais em [docs de ônibus da Azure Service](../../service-bus-messaging/service-bus-create-namespace-portal.md).
-2. Escolha uma subscrição. Pode exportar dados para outras subscrições que não estejam na mesma subscrição que a sua aplicação IoT Central. Conecte-se usando uma cadeia de ligação neste caso.
 
-3. Para criar uma fila ou tópico para exportar, vá ao seu espaço de nomes de Service Bus e selecione **+ Fila** ou **+ Tópico**.
+1. Para criar uma fila ou tópico para exportar, vá ao seu espaço de nomes de Service Bus e selecione **+ Fila** ou **+ Tópico**.
 
-Ao escolher o Service Bus como destino de exportação, as filas e tópicos não devem ter Sessões ou Deteção Duplicada ativadas. Se alguma dessas opções estiver ativada, algumas mensagens não chegarão à sua fila ou tópico.
+1. Gere uma chave para usar quando configurar a exportação de dados na IoT Central:
 
-### <a name="create-storage-account"></a>Criar conta de armazenamento
+    - Selecione a fila ou tópico que criou.
+    - Selecione **Definições/Políticas de acesso partilhado**.
+    - Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
+    - Copie a cadeia de ligação primária ou secundária. Utilize esta cadeia de ligação para configurar um novo destino na IoT Central.
+
+### <a name="create-an-azure-blob-storage-destination"></a>Criar um destino de armazenamento Azure Blob
 
 Se não tiver uma conta de armazenamento Azure existente para exportar, siga estes passos:
 
@@ -70,687 +92,184 @@ Se não tiver uma conta de armazenamento Azure existente para exportar, siga est
     |Standard|Armazenamento de blobs|
     |Premium|Armazenamento Blob de bloco|
 
-2. Crie um recipiente na sua conta de armazenamento. Vá para a sua conta de armazenamento. No **serviço Blob**, **selecione Browse Blobs**. Selecione **+ Recipiente** na parte superior para criar um novo recipiente.
+1. Para criar um recipiente na sua conta de armazenamento, vá à sua conta de armazenamento. No **serviço Blob**, **selecione Browse Blobs**. Selecione **+ Recipiente** na parte superior para criar um novo recipiente.
+
+1. Gere uma cadeia de ligação para a sua conta de armazenamento indo para **as definições > teclas de acesso**. Copie uma das duas cordas de ligação.
+
+### <a name="create-a-webhook-endpoint"></a>Criar um ponto final webhook
+
+Pode exportar dados para um ponto final httphook disponível publicamente. Pode criar um ponto final de teste webhook utilizando [o RequestBin](https://requestbin.net/). PedidoAderbin solicita quando o limite de pedido é atingido:
+
+1. Open [RequestBin](https://requestbin.net/).
+2. Crie um novo RequestBin e copie o **URL do Bin.** Utilize este URL quando testa a exportação de dados.
 
 ## <a name="set-up-data-export"></a>Configurar exportação de dados
 
-Agora que tem um destino para exportar dados, siga estes passos para configurar a exportação de dados.
+Agora que tem um destino para exportar os seus dados, crie exportação de dados na sua aplicação IoT Central:
 
 1. Inscreva-se na sua aplicação IoT Central.
 
-2. No painel esquerdo, selecione **Data export**.
+1. No painel esquerdo, selecione **Data export (pré-visualização)**.
 
     > [!Tip]
-    > Se não vir **a exportação de Dados** no painel esquerdo, então não tem permissões para configurar a exportação de dados na sua app. Fale com um administrador para configurar a exportação de dados.
+    > Se não vir **a exportação de Dados (pré-visualização)** no painel esquerdo, então não tem permissões para configurar a exportação de dados na sua app. Fale com um administrador para configurar a exportação de dados.
 
-3. Selecione o botão **+ Novo.** Escolha um dos **Azure Blob Storage,** **Azure Event Hubs,** **Azure Service Bus Queue**ou **Azure Service Bus Topic** como destino da sua exportação. O número máximo de exportações por pedido é de cinco.
+1. **Selecione + Nova exportação.**
 
-4. Insira um nome para a exportação. Na caixa de lista de drop-down, selecione o seu **espaço de nome**ou **introduza uma cadeia de ligação**.
+1. Introduza um nome de exibição para a sua nova exportação e certifique-se de que a exportação de dados está **Ativada**.
 
-    - Só vê contas de armazenamento, espaços de nomes de Event Hubs e espaços de nomes de Service Bus na mesma subscrição que a sua aplicação IoT Central. Se pretender exportar para um destino fora desta subscrição, escolha Introduzir uma cadeia de **ligação** e ver o passo 6.
-    - Para aplicações criadas usando o plano de preços gratuitos, a única forma de configurar a exportação de dados é através de uma cadeia de conexão. As aplicações no plano de preços gratuitos não têm uma subscrição associada do Azure.
+1. Escolha o tipo de dados para exportar. O quadro que se segue enumera os tipos de exportação de dados suportados:
 
-    ![Criar novo Centro de Eventos](media/howto-export-data/export-event-hub.png)
+    | Tipo de dados | Descrição | Formato de dados |
+    | :------------- | :---------- | :----------- |
+    |  Telemetria | Exporte mensagens de telemetria de dispositivos em tempo quase real. Cada mensagem exportada contém todo o conteúdo da mensagem original do dispositivo, normalizada.   |  [Formato de mensagem de telemetria](#telemetry-format)   |
+    | Alterações de propriedade | Exportar alterações para propriedades de dispositivos e nuvem em tempo quase real. Para as propriedades do dispositivo apenas de leitura, são exportadas alterações aos valores reportados. Para propriedades de leitura-escrita, os valores relatados e desejados são exportados. | [Formato de mensagem de alteração de propriedade](#property-changes-format) |
 
-5. Escolha um centro de eventos, fila, tópico ou recipiente da caixa de lista de drop-down.
+1. Opcionalmente, adicione filtros para reduzir a quantidade de dados exportados. Existem diferentes tipos de filtro disponíveis para cada tipo de exportação de dados:
 
-6. (Opcional) Se escolheu **Introduzir uma cadeia de ligação,** aparece uma nova caixa para colar a sua cadeia de ligação. Para obter a cadeia de ligação para o seu:
+    Para filtrar a telemetria, utilize a:
 
-    - Event Hubs ou Service Bus, vá ao espaço de nomes no portal Azure:
-        - Para utilizar uma cadeia de ligação para todo o espaço de nome:
-            1. Em **Definições**, **selecione Políticas de Acesso Partilhado**
-            2. Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
-            3. Copie a cadeia de ligação primária ou secundária
-        - Para utilizar o string de ligação para uma instância específica do centro de eventos ou fila ou tópico do Service Bus, vá a **Entidades > Centros** de Eventos ou **Entidades > Filas** ou **Entidades > Tópicos**. Escolha uma instância específica e siga os mesmos passos acima para obter uma cadeia de ligação.
-    - Conta de armazenamento, vá à conta de armazenamento no portal Azure:
-        - Apenas as cadeias de ligação para toda a conta de armazenamento são suportadas. As cordas de ligação a um único recipiente não são suportadas.
-          1. Em **Definições**, selecione **teclas de acesso**
-          2. Copie a cadeia de ligação key1 ou a cadeia de ligação key2
+    - **Filtro de capacidade**: Se escolher um item de telemetria no dropdown **Name,** o fluxo exportado contém apenas telemetria que satisfaz a condição do filtro. Se escolher um item de propriedade de dispositivo ou nuvem no dropdown **Name,** o fluxo exportado contém apenas telemetria de dispositivos com propriedades correspondentes à condição do filtro.
+    - **Filtro de propriedade de mensagem**: Os dispositivos que utilizam o dispositivo SDKs podem enviar *propriedades de mensagens* ou *propriedades de aplicação* em cada mensagem de telemetria. As propriedades são um saco de pares de valores-chave que marcam a mensagem com identificadores personalizados. Para criar um filtro de propriedade de mensagem, insira a chave de propriedade de mensagem que procura e especifique uma condição. Apenas são exportadas mensagens de telemetria com propriedades que correspondam ao estado do filtro especificado. Os seguintes operadores de comparação de cordas são apoiados: iguais, não iguais, contém, não contém, existe, não existe. [Saiba mais sobre as propriedades da aplicação a partir de docs IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
-    Cole na corda de ligação. Digite o caso ou **o nome do recipiente,** tendo em conta que este é sensível a casos.
+    Para filtrar as alterações de propriedade, utilize um **filtro Capability**. Escolha um item de propriedade no dropdown. O fluxo exportado contém apenas alterações na propriedade selecionada que satisfaz a condição do filtro.
 
-7. Em **Dados para exportar,** escolha os tipos de dados para exportar, fixando o tipo para **On**.
+1. Opcionalmente, enriqueça mensagens exportadas com metadados de par de chaves adicionais. Estão disponíveis os seguintes enriquecimentos para a telemetria e alteram os tipos de exportação de dados:
 
-8. Para ativar a exportação de dados, certifique-se de que o toggle **ativado** está **ligado**. Selecione **Guardar**.
+    - **Cadeia personalizada**: Adiciona uma cadeia estática personalizada a cada mensagem. Introduza qualquer chave e introduza qualquer valor de cadeia.
+    - **Propriedade**: Adiciona o valor de propriedade ou propriedade reportada ao dispositivo atual a cada mensagem. Introduza qualquer chave e escolha um dispositivo ou propriedade na nuvem. Se a mensagem exportada for de um dispositivo que não tenha a propriedade especificada, a mensagem exportada não recebe o enriquecimento.
 
-9. Após alguns minutos, os seus dados aparecem no seu destino escolhido.
+1. Adicione um novo destino ou adicione um destino que já criou. Selecione o **Criar um novo** link de um e adicione as seguintes informações:
+
+    - **Nome do destino**: o nome de exposição do destino na IoT Central.
+    - **Tipo de destino**: escolha o tipo de destino. Se ainda não definiu o seu destino, consulte [o destino de exportação.](#set-up-export-destination)
+    - Para Azure Event Hubs, fila ou tópico do Azure Service Bus, cole a cadeia de ligação para o seu recurso.
+    - Para o armazenamento Azure Blob, cole o fio de ligação para o seu recurso e introduza o nome do recipiente sensível à caixa.
+    - Para webhook, cole o URL de retorno para o seu ponto final webhook.
+    - Selecione **Criar**.
+
+1. Selecione **+ Destino** e escolha um destino a partir do dropdown. Você pode adicionar até cinco destinos para uma única exportação.
+
+1. Quando terminar de configurar a sua exportação, **selecione Save**. Após alguns minutos, os seus dados aparecem nos seus destinos.
 
 ## <a name="export-contents-and-format"></a>Conteúdos de exportação e formato
 
-Os dados de telemetria exportados contêm a totalidade da mensagem que os seus dispositivos enviaram para a IoT Central, e não apenas os próprios valores de telemetria. Os dados dos dispositivos exportados contêm alterações nas propriedades e metadados de todos os dispositivos, e os modelos de dispositivos exportados contêm alterações em todos os modelos do dispositivo.
+### <a name="azure-blob-storage-destination"></a>Destino de armazenamento Azure Blob
 
-Para o Event Hubs e Service Bus, os dados são exportados em quase tempo real. Os dados `body` estão na propriedade e estão em formato JSON. Veja abaixo, por exemplo.
+Os dados são exportados uma vez por minuto, com cada ficheiro contendo o lote de alterações desde a exportação anterior. Os dados exportados são guardados no formato JSON. Os caminhos padrão para os dados exportados na sua conta de armazenamento são:
 
-Para o armazenamento blob, os dados são exportados uma vez por minuto, com cada ficheiro contendo o lote de alterações desde o último ficheiro exportado. Os dados exportados são colocados em três pastas no formato JSON. Os caminhos predefinidos na sua conta de armazenamento são:
+- Telemetria: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
+- Alterações de propriedade: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{filename}_
 
-- Telemetria: _{container}/{app-id}/telemetria/{YYYY}/{MM}/{dd}/{mm}/{filename}_
-- Dispositivos: _{container}/{app-id}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
-- Modelos de dispositivo: _{container}/{app-id}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{filename}_
+Para navegar nos ficheiros exportados no portal Azure, navegue para o ficheiro e **selecione Editar blob**.
 
-Para navegar nos ficheiros exportados no portal Azure, navegue para o ficheiro e selecione o **separador 'Edição' blob.**
+### <a name="azure-event-hubs-and-azure-service-bus-destinations"></a>Azure Event Hubs e destinos de ônibus da Azure Service
 
-## <a name="telemetry"></a>Telemetria
+Os dados são exportados em tempo real. Os dados estão no corpo da mensagem e estão em formato JSON codificados como UTF-8.
 
-Para o Event Hubs e Service Bus, a IoT Central exporta uma nova mensagem rapidamente depois de receber a mensagem de um dispositivo. Cada mensagem exportada contém a mensagem completa que o dispositivo enviou na propriedade do corpo em formato JSON.
+As anotações ou propriedades do sistema contêm o `iotcentral-device-id` , , e campos que têm os `iotcentral-application-id` `iotcentral-message-source` `iotcentral-message-type` mesmos valores que os campos correspondentes no corpo da mensagem.
 
-Para o armazenamento blob, as mensagens são em lotadas e exportadas uma vez por minuto. Os ficheiros exportados utilizam o mesmo formato que os ficheiros de mensagens exportados pelo [encaminhamento de mensagens IoT Hub](../../iot-hub/tutorial-routing.md) para o armazenamento de bolhas.
+### <a name="webhook-destination"></a>Destino Webhook
 
-> [!NOTE]
-> Para o armazenamento blob, certifique-se de que os seus dispositivos estão a enviar mensagens que têm `contentType: application/JSON` e `contentEncoding:utf-8` (ou `utf-16` , `utf-32` ). Consulte a documentação do [IoT Hub](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) para dar um exemplo.
+Para os destinos webhooks, os dados também são exportados em tempo real. Os dados no corpo da mensagem estão no mesmo formato que para Os Centros de Eventos e Autocarro de Serviço.
 
-O dispositivo que enviou a telemetria é representado pelo ID do dispositivo (ver as seguintes secções). Para obter os nomes dos dispositivos, exportar dados do dispositivo e correlacionar cada mensagem utilizando a **ligaçãoDeviceId** que corresponde ao **dispositivoId** da mensagem do dispositivo.
+### <a name="telemetry-format"></a>Formato de telemetria
 
-O exemplo a seguir mostra uma mensagem recebida de um centro de eventos ou fila de autocarros de serviço ou tópico:
+Cada mensagem exportada contém uma forma normalizada da mensagem completa que o dispositivo enviou no corpo da mensagem. A mensagem está no formato JSON e codificada como UTF-8. A informação em cada mensagem inclui:
 
-```json
-{
-  "temp":81.129693132351775,
-  "humid":59.488071477541247,
-  "EventProcessedUtcTime":"2020-04-07T09:41:15.2877981Z",
-  "PartitionId":0,
-  "EventEnqueuedUtcTime":"2020-04-07T09:38:32.7380000Z"
-}
-```
+- `applicationId`: Identificação da aplicação IoT Central.
+- `messageSource`: A fonte da mensagem - `telemetry` .
+- `deviceId`: A identificação do dispositivo que enviou a mensagem de telemetria.
+- `schema`: O nome e a versão do esquema de carga útil.
+- `templateId`: O ID do modelo do dispositivo associado ao dispositivo.
+- `enrichments`: Quaisquer enriquecimentos estabelecidos na exportação.
+- `messageProperties`: Propriedades adicionais que o dispositivo enviou com a mensagem. Estas propriedades são por vezes referidas como *propriedades de aplicação.* [Saiba mais com os docs do IoT Hub.](../../iot-hub/iot-hub-devguide-messages-construct.md)
 
-Esta mensagem não inclui a identificação do dispositivo do dispositivo de envio.
+Para o Event Hubs e Service Bus, a IoT Central exporta uma nova mensagem rapidamente depois de receber a mensagem de um dispositivo.
 
-Para recuperar o ID do dispositivo a partir dos dados da mensagem numa consulta Azure Stream Analytics, utilize a função [GetMetadataPropertyValue.](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) Por exemplo, consulte a consulta em [Extend Azure IoT Central com regras personalizadas usando Stream Analytics, Funções Azure e SendGrid](./howto-create-custom-rules.md).
+Para o armazenamento blob, as mensagens são em lotadas e exportadas uma vez por minuto.
 
-Para recuperar o ID do dispositivo num espaço de trabalho Azure Databricks ou Apache Spark, utilize [as propriedades do sistema](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md). Por exemplo, consulte o espaço de trabalho Databricks em [Extend Azure IoT Central com análises personalizadas utilizando Azure Databricks](./howto-create-custom-analytics.md).
-
-O exemplo a seguir mostra um registo exportado para o armazenamento de bolhas:
+O exemplo a seguir mostra uma mensagem de telemetria exportada:
 
 ```json
+
 {
-  "EnqueuedTimeUtc":"2019-09-26T17:46:09.8870000Z",
-  "Properties":{
-
-  },
-  "SystemProperties":{
-    "connectionDeviceId":"<deviceid>",
-    "connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-    "connectionDeviceGenerationId":"637051167384630591",
-    "contentType":"application/json",
-    "contentEncoding":"utf-8",
-    "enqueuedTime":"2019-09-26T17:46:09.8870000Z"
-  },
-  "Body":{
-    "temp":49.91322758395974,
-    "humid":49.61214852573155,
-    "pm25":25.87332214661367
-  }
-}
-```
-
-## <a name="devices"></a>Dispositivos
-
-Cada mensagem ou registo num instantâneo representa uma ou mais alterações num dispositivo e no seu dispositivo e propriedades na nuvem desde a última mensagem exportada. A mensagem inclui:
-
-- `id`do dispositivo na IoT Central
-- `displayName`do dispositivo
-- ID do modelo do dispositivo em`instanceOf`
-- `simulated`bandeira, verdade se o dispositivo é um dispositivo simulado
-- `provisioned`bandeira, verdade se o dispositivo foi a provisionado
-- `approved`bandeira, verdade se o dispositivo foi aprovado para enviar dados
-- Valores patrimoniais
-- `properties`incluindo valores de propriedades de dispositivos e nuvem
-
-Os dispositivos apagados não são exportados. Atualmente, não existem indicadores em mensagens exportadas para dispositivos eliminados.
-
-Para o Event Hubs e Service Bus, a IoT Central envia mensagens que contenham dados do dispositivo para o seu centro de eventos ou fila de autocarros de serviço ou tópico em tempo real.
-
-Para o armazenamento blob, um novo instantâneo contendo todas as alterações desde a última escrita é exportado uma vez por minuto.
-
-A seguinte mensagem de exemplo mostra informações sobre dispositivos e dados de propriedades num centro de eventos ou fila de autocarros de serviço ou tópico:
-
-```json
-{
-  "body":{
-    "id": "<device Id>",
-    "etag": "<etag>",
-    "displayName": "Sensor 1",
-    "instanceOf": "<device template Id>",
-    "simulated": false,
-    "provisioned": true,
-    "approved": true,
-    "properties": {
-        "sensorComponent": {
-            "setTemp": "30",
-            "fwVersion": "2.0.1",
-            "status": { "first": "first", "second": "second" },
-            "$metadata": {
-                "setTemp": {
-                    "desiredValue": "30",
-                    "desiredVersion": 3,
-                    "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
-                    "ackVersion": 3
-                },
-                "fwVersion": { "ackVersion": 3 },
-                "status": {
-                    "desiredValue": {
-                        "first": "first",
-                        "second": "second"
-                    },
-                    "desiredVersion": 2,
-                    "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
-                    "ackVersion": 2
-                }
-            },
-            
-        }
-    },
-    "installDate": { "installDate": "2020-02-01" }
-},
-  "annotations":{
-    "iotcentral-message-source":"devices",
-    "x-opt-partition-key":"<partitionKey>",
-    "x-opt-sequence-number":39740,
-    "x-opt-offset":"<offset>",
-    "x-opt-enqueued-time":1539274959654
-  },
-  "partitionKey":"<partitionKey>",
-  "sequenceNumber":39740,
-  "enqueuedTimeUtc":"2020-02-01T18:14:49.3820326Z",
-  "offset":"<offset>"
-}
-```
-
-Esta imagem é um exemplo que mostra os dados de dispositivos e propriedades no armazenamento blob. Os ficheiros exportados contêm uma única linha por registo.
-
-```json
-{
-  "id": "<device Id>",
-  "etag": "<etag>",
-  "displayName": "Sensor 1",
-  "instanceOf": "<device template Id>",
-  "simulated": false,
-  "provisioned": true,
-  "approved": true,
-  "properties": {
-      "sensorComponent": {
-          "setTemp": "30",
-          "fwVersion": "2.0.1",
-          "status": { "first": "first", "second": "second" },
-          "$metadata": {
-              "setTemp": {
-                  "desiredValue": "30",
-                  "desiredVersion": 3,
-                  "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
-                  "ackVersion": 3
-              },
-              "fwVersion": { "ackVersion": 3 },
-              "status": {
-                  "desiredValue": {
-                      "first": "first",
-                      "second": "second"
-                  },
-                  "desiredVersion": 2,
-                  "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
-                  "ackVersion": 2
-              }
-          },
-          
-      }
-  },
-  "installDate": { "installDate": "2020-02-01" }
-}
-```
-
-## <a name="device-templates"></a>Modelos de dispositivo
-
-Cada registo de mensagens ou instantâneos representa uma ou mais alterações num modelo de dispositivo publicado desde a última mensagem exportada. As informações enviadas em cada mensagem ou registo incluem:
-
-- `id`do modelo do dispositivo que corresponde ao `instanceOf` fluxo dos dispositivos acima
-- `displayName`do modelo de dispositivo
-- O dispositivo `capabilityModel` incluindo a sua `interfaces` , e a telemetria, propriedades e definições de comandos
-- `cloudProperties`definições
-- Sobreposições e valores iniciais, em linha com o`capabilityModel`
-
-Os modelos de dispositivos eliminados não são exportados. Atualmente, não existem indicadores em mensagens exportadas para modelos de dispositivos eliminados.
-
-Para os Centros de Eventos e Autocarro de Serviço, a IoT Central envia mensagens que contenham dados do modelo do dispositivo para o seu centro de eventos ou fila de autocarros de serviço ou tópico em tempo real.
-
-Para o armazenamento blob, um novo instantâneo contendo todas as alterações desde a última escrita é exportado uma vez por minuto.
-
-Este exemplo mostra uma mensagem sobre os dados dos modelos do dispositivo no centro de eventos ou na fila ou tópico do Service Bus:
-
-```json
-{
-  "body":{
-      "id": "<device template id>",
-      "etag": "<etag>",
-      "types": ["DeviceModel"],
-      "displayName": "Sensor template",
-      "capabilityModel": {
-          "@id": "<capability model id>",
-          "@type": ["CapabilityModel"],
-          "contents": [],
-          "implements": [
-              {
-                  "@id": "<component Id>",
-                  "@type": ["InterfaceInstance"],
-                  "name": "sensorComponent",
-                  "schema": {
-                      "@id": "<interface Id>",
-                      "@type": ["Interface"],
-                      "displayName": "Sensor interface",
-                      "contents": [
-                          {
-                              "@id": "<id>",
-                              "@type": ["Telemetry"],
-                              "displayName": "Humidity",
-                              "name": "humidity",
-                              "schema": "double"
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Telemetry", "SemanticType/Event"],
-                              "displayName": "Error event",
-                              "name": "error",
-                              "schema": "integer"
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Property"],
-                              "displayName": "Set temperature",
-                              "name": "setTemp",
-                              "writable": true,
-                              "schema": "integer",
-                              "unit": "Units/Temperature/fahrenheit",
-                              "initialValue": "30"
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Property"],
-                              "displayName": "Firmware version read only",
-                              "name": "fwversion",
-                              "schema": "string"
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Property"],
-                              "displayName": "Display status",
-                              "name": "status",
-                              "writable": true,
-                              "schema": {
-                                  "@id": "urn:testInterface:status:obj:ka8iw8wka:1",
-                                  "@type": ["Object"]
-                              }
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Command"],
-                              "commandType": "synchronous",
-                              "request": {
-                                  "@id": "<id>",
-                                  "@type": ["SchemaField"],
-                                  "displayName": "Configuration",
-                                  "name": "config",
-                                  "schema": "string"
-                              },
-                              "response": {
-                                  "@id": "<id>",
-                                  "@type": ["SchemaField"],
-                                  "displayName": "Response",
-                                  "name": "response",
-                                  "schema": "string"
-                              },
-                              "displayName": "Configure sensor",
-                              "name": "sensorConfig"
-                          }
-                      ]
-                  }
-              }
-          ],
-          "displayName": "Sensor capability model"
-      },
-      "solutionModel": {
-          "@id": "<id>",
-          "@type": ["SolutionModel"],
-          "cloudProperties": [
-              {
-                  "@id": "<id>",
-                  "@type": ["CloudProperty"],
-                  "displayName": "Install date",
-                  "name": "installDate",
-                  "schema": "dateTime",
-                  "valueDetail": {
-                      "@id": "<id>",
-                      "@type": ["ValueDetail/DateTimeValueDetail"]
-                  }
-              }
-          ]
-      }
-  },
-    "annotations":{
-      "iotcentral-message-source":"deviceTemplates",
-      "x-opt-partition-key":"<partitionKey>",
-      "x-opt-sequence-number":25315,
-      "x-opt-offset":"<offset>",
-      "x-opt-enqueued-time":1539274985085
-    },
-    "partitionKey":"<partitionKey>",
-    "sequenceNumber":25315,
-    "enqueuedTimeUtc":"2019-10-02T16:23:05.085Z",
-    "offset":"<offset>"
-  }
-}
-```
-
-Este instantâneo de exemplo mostra uma mensagem que contém dados de dispositivos e propriedades no armazenamento blob. Os ficheiros exportados contêm uma única linha por registo.
-
-```json
-{
-      "id": "<device template id>",
-      "etag": "<etag>",
-      "types": ["DeviceModel"],
-      "displayName": "Sensor template",
-      "capabilityModel": {
-          "@id": "<capability model id>",
-          "@type": ["CapabilityModel"],
-          "contents": [],
-          "implements": [
-              {
-                  "@id": "<component Id>",
-                  "@type": ["InterfaceInstance"],
-                  "name": "Sensor component",
-                  "schema": {
-                      "@id": "<interface Id>",
-                      "@type": ["Interface"],
-                      "displayName": "Sensor interface",
-                      "contents": [
-                          {
-                              "@id": "<id>",
-                              "@type": ["Telemetry"],
-                              "displayName": "Humidity",
-                              "name": "humidity",
-                              "schema": "double"
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Telemetry", "SemanticType/Event"],
-                              "displayName": "Error event",
-                              "name": "error",
-                              "schema": "integer"
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Property"],
-                              "displayName": "Set temperature",
-                              "name": "setTemp",
-                              "writable": true,
-                              "schema": "integer",
-                              "unit": "Units/Temperature/fahrenheit",
-                              "initialValue": "30"
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Property"],
-                              "displayName": "Firmware version read only",
-                              "name": "fwversion",
-                              "schema": "string"
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Property"],
-                              "displayName": "Display status",
-                              "name": "status",
-                              "writable": true,
-                              "schema": {
-                                  "@id": "urn:testInterface:status:obj:ka8iw8wka:1",
-                                  "@type": ["Object"]
-                              }
-                          },
-                          {
-                              "@id": "<id>",
-                              "@type": ["Command"],
-                              "commandType": "synchronous",
-                              "request": {
-                                  "@id": "<id>",
-                                  "@type": ["SchemaField"],
-                                  "displayName": "Configuration",
-                                  "name": "config",
-                                  "schema": "string"
-                              },
-                              "response": {
-                                  "@id": "<id>",
-                                  "@type": ["SchemaField"],
-                                  "displayName": "Response",
-                                  "name": "response",
-                                  "schema": "string"
-                              },
-                              "displayName": "Configure sensor",
-                              "name": "sensorconfig"
-                          }
-                      ]
-                  }
-              }
-          ],
-          "displayName": "Sensor capability model"
-      },
-      "solutionModel": {
-          "@id": "<id>",
-          "@type": ["SolutionModel"],
-          "cloudProperties": [
-              {
-                  "@id": "<id>",
-                  "@type": ["CloudProperty"],
-                  "displayName": "Install date",
-                  "name": "installDate",
-                  "schema": "dateTime",
-                  "valueDetail": {
-                      "@id": "<id>",
-                      "@type": ["ValueDetail/DateTimeValueDetail"]
-                  }
-              }
-          ]
-      }
-  }
-```
-
-## <a name="data-format-change-notice"></a>Aviso de alteração do formato de dados
-
-> [!Note]
-> O formato de dados de fluxo de telemetria não é afetado por esta alteração. Apenas os dispositivos e modelos de dispositivos fluxos de dados são afetados.
-
-Se tiver uma exportação de dados existente na sua aplicação de pré-visualização com os *fluxos de modelos* *de dispositivos* e dispositivos ligados, atualize a sua exportação até **30 de junho de 2020**. Este requisito aplica-se às exportações para o armazenamento Azure Blob, Azure Event Hubs e Azure Service Bus.
-
-A partir de 3 de fevereiro de 2020, todas as novas exportações em aplicações com modelos de Dispositivos e Dispositivos ativados terão o formato de dados acima descrito. Todas as exportações criadas antes desta data permanecem no antigo formato de dados até 30 de junho de 2020, altura em que estas exportações serão automaticamente migradas para o novo formato de dados. O novo formato de dados corresponde ao [dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devices/get), propriedade do [dispositivo,](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties) [propriedade da nuvem do dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)e objetos de modelo de [dispositivo](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) na API pública IoT Central.
-
-Para **dispositivos,** diferenças notáveis entre o antigo formato de dados e o novo formato de dados incluem:
-- `@id`para o dispositivo é removido, `deviceId` é renomeado para`id` 
-- `provisioned`bandeira é adicionada para descrever o estado de provisionamento do dispositivo
-- `approved`bandeira é adicionada para descrever o estado de aprovação do dispositivo
-- `properties`incluindo propriedades de dispositivos e nuvem, corresponde a entidades na API pública
-
-Para **os modelos do Dispositivo,** diferenças notáveis entre o antigo formato de dados e o novo formato de dados incluem:
-
-- `@id`para o modelo do dispositivo é renomeado para`id`
-- `@type`para o modelo do dispositivo é renomeado para `types` , e é agora uma matriz
-
-### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Dispositivos (formato precotado a partir de 3 de fevereiro de 2020)
-
-```json
-{
-  "@id":"<id-value>",
-  "@type":"Device",
-  "displayName":"Airbox",
-  "data":{
-    "$cloudProperties":{
-        "Color":"blue"
-    },
-    "EnvironmentalSensor":{
-      "thsensormodel":{
-        "reported":{
-          "value":"Neque quia et voluptatem veritatis assumenda consequuntur quod.",
-          "$lastUpdatedTimestamp":"2019-09-30T20:35:43.8478978Z"
-        }
-      },
-      "pm25sensormodel":{
-        "reported":{
-          "value":"Aut alias odio.",
-          "$lastUpdatedTimestamp":"2019-09-30T20:35:43.8478978Z"
-        }
-      }
-    },
-    "urn_azureiot_DeviceManagement_DeviceInformation":{
-      "totalStorage":{
-        "reported":{
-          "value":27900.9730905171,
-          "$lastUpdatedTimestamp":"2019-09-30T20:35:43.8478978Z"
-        }
-      },
-      "totalMemory":{
-        "reported":{
-          "value":4667.82916715811,
-          "$lastUpdatedTimestamp":"2019-09-30T20:35:43.8478978Z"
-        }
-      }
-    }
-  },
-  "instanceOf":"<template-id>",
-  "deviceId":"<device-id>",
-  "simulated":true
-}
-```
-
-### <a name="device-templates-format-deprecated-as-of-3-february-2020"></a>Modelos de dispositivo (formato preterido a partir de 3 de fevereiro de 2020)
-
-```json
-{
-  "@id":"<template-id>",
-  "@type":"DeviceModelDefinition",
-  "displayName":"Airbox",
-  "capabilityModel":{
-    "@id":"<id>",
-    "@type":"CapabilityModel",
-    "implements":[
-      {
-        "@id":"<id>",
-        "@type":"InterfaceInstance",
-        "name":"EnvironmentalSensor",
-        "schema":{
-          "@id":"<id>",
-          "@type":"Interface",
-          "comment":"Requires temperature and humidity sensors.",
-          "description":"Provides functionality to report temperature, humidity. Provides telemetry, commands and read-write properties",
-          "displayName":"Environmental Sensor",
-          "contents":[
-            {
-              "@id":"<id>",
-              "@type":"Telemetry",
-              "description":"Current temperature on the device",
-              "displayName":"Temperature",
-              "name":"temp",
-              "schema":"double",
-              "unit":"Units/Temperature/celsius",
-              "valueDetail":{
-                "@id":"<id>",
-                "@type":"ValueDetail/NumberValueDetail",
-                "minValue":{
-                  "@value":"50"
-                }
-              },
-              "visualizationDetail":{
-                "@id":"<id>",
-                "@type":"VisualizationDetail"
-              }
-            },
-            {
-              "@id":"<id>",
-              "@type":"Telemetry",
-              "description":"Current humidity on the device",
-              "displayName":"Humidity",
-              "name":"humid",
-              "schema":"integer"
-            },
-            {
-              "@id":"<id>",
-              "@type":"Telemetry",
-              "description":"Current PM2.5 on the device",
-              "displayName":"PM2.5",
-              "name":"pm25",
-              "schema":"integer"
-            },
-            {
-              "@id":"<id>",
-              "@type":"Property",
-              "description":"T&H Sensor Model Name",
-              "displayName":"T&H Sensor Model",
-              "name":"thsensormodel",
-              "schema":"string"
-            },
-            {
-              "@id":"<id>",
-              "@type":"Property",
-              "description":"PM2.5 Sensor Model Name",
-              "displayName":"PM2.5 Sensor Model",
-              "name":"pm25sensormodel",
-              "schema":"string"
-            }
-          ]
-        }
-      },
-      {
-        "@id":"<id>",
-        "@type":"InterfaceInstance",
-        "name":"urn_azureiot_DeviceManagement_DeviceInformation",
-        "schema":{
-          "@id":"<id>",
-          "@type":"Interface",
-          "displayName":"Device information",
-          "contents":[
-            {
-              "@id":"<id>",
-              "@type":"Property",
-              "comment":"Total available storage on the device in kilobytes. Ex. 20480000 kilobytes.",
-              "displayName":"Total storage",
-              "name":"totalStorage",
-              "displayUnit":"kilobytes",
-              "schema":"long"
-            },
-            {
-              "@id":"<id>",
-              "@type":"Property",
-              "comment":"Total available memory on the device in kilobytes. Ex. 256000 kilobytes.",
-              "displayName":"Total memory",
-              "name":"totalMemory",
-              "displayUnit":"kilobytes",
-              "schema":"long"
-            }
-          ]
-        }
-      }
-    ],
-    "displayName":"AAEONAirbox52"
-  },
-  "solutionModel":{
-    "@id":"<id>",
-    "@type":"SolutionModel",
-    "cloudProperties":[
-      {
-        "@id":"<id>",
-        "@type":"CloudProperty",
-        "displayName":"Color",
-        "name":"Color",
-        "schema":"string",
-        "valueDetail":{
-          "@id":"<id>",
-          "@type":"ValueDetail/StringValueDetail"
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@preview",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "Activity": "running",
+        "BloodPressure": {
+            "Diastolic": 7,
+            "Systolic": 71
         },
-        "visualizationDetail":{
-          "@id":"<id>",
-          "@type":"VisualizationDetail"
-        }
-      }
-    ]
-  }
+        "BodyTemperature": 98.73447010562934,
+        "HeartRate": 88,
+        "HeartRateVariability": 17,
+        "RespiratoryRate": 13
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="property-changes-format"></a>Formato de alterações de propriedade
 
-Agora que sabe exportar os seus dados para a Azure Event Hubs, Azure Service Bus e Azure Blob, continue para o próximo passo:
+Cada mensagem ou registo representa uma alteração para um dispositivo ou propriedade na nuvem. Para as propriedades do dispositivo, apenas as alterações no valor reportado são exportadas como uma mensagem separada. As informações na mensagem exportada incluem:
 
-> [!div class="nextstepaction"]
-> [Como executar análises personalizadas com Databricks](./howto-create-custom-analytics.md)
+- `applicationId`: Identificação da aplicação IoT Central.
+- `messageSource`: A fonte da mensagem - `properties` .
+- `messageType`: `cloudPropertyChange` `devicePropertyDesiredChange` Ou, ou `devicePropertyReportedChange` . .
+- `deviceId`: A identificação do dispositivo que enviou a mensagem de telemetria.
+- `schema`: O nome e a versão do esquema de carga útil.
+- `templateId`: O ID do modelo do dispositivo associado ao dispositivo.
+- `enrichments`: Quaisquer enriquecimentos estabelecidos na exportação.
+
+Para o Event Hubs e Service Bus, a IoT Central exporta novos dados de mensagens para o seu centro de eventos ou fila de autocarros de serviço ou tópico em tempo real.
+
+Para o armazenamento blob, as mensagens são em lotadas e exportadas uma vez por minuto.
+
+O exemplo a seguir mostra uma mensagem de mudança de propriedade exportada recebida no Azure Blob Storage.
+
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "properties",
+    "messageType": "cloudPropertyChange",
+    "deviceId": "18a985g1fta",
+    "schema": "default@preview",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:37:32.942Z",
+    "properties": [{
+        "fieldName": "MachineSerialNumber",
+        "value": "abc"
+    }],
+    "enrichments": {
+        "userSpecifiedKey" : "sampleValue"
+    }
+}
+```
+
+## <a name="comparison-of-legacy-data-export-and-preview-data-export"></a>Comparação da exportação de dados antigos e exportação de dados
+
+O quadro a seguir mostra as diferenças entre as características de exportação de [dados legados](howto-export-data-legacy.md) e de visualização:
+
+| Capacidades  | Exportação de dados antigos | Exportação de novos dados |
+| :------------- | :---------- | :----------- |
+| Tipos de dados disponíveis | Telemetria, Dispositivos, Modelos de Dispositivos | Telemetria, Alterações de Propriedade |
+| Filtragem | Nenhum | Depende do tipo de dados exportado. Para telemetria, filtragem por telemetria, propriedades de mensagens, valores de propriedade |
+| Enriquecimentos | Nenhum | Enriqueça com uma corda personalizada ou um valor de propriedade no dispositivo |
+| Destinos | Azure Event Hubs, filas e tópicos de autocarro da Azure Service, Azure Blob Storage | O mesmo que para a exportação de dados antigos mais webhooks|
+| Versões de aplicações suportadas | V2, V3 | Apenas V3 |
+| Limites notáveis | 5 exportações por app, 1 destino por exportação | 10 ligações exportações-destino por app |
+
+## <a name="next-steps"></a>Próximos passos
+
+Agora que sabe usar a nova exportação de dados, um próximo passo sugerido é aprender [a usar analítica na IoT Central](./howto-create-analytics.md)

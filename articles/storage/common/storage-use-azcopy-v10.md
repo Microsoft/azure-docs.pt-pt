@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b43b20023aa0d96dcaa3ce79b626d61ec6f6752d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a30ab4136b1d54e852ddb8fe3d0ed9a4e2bc9149
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423836"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485945"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -84,7 +84,7 @@ Se apenas pretender descarregar ficheiros, verifique se o [Leitor de Dados de Ar
 
 Se pretender fazer o upload de ficheiros, verifique se uma destas funções foi atribuída ao seu principal de segurança:
 
-- [Colaborador de dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
+- [Contribuinte de Dados do Armazenamento de Blobs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Proprietário de dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Estas funções podem ser atribuídas ao seu principal de segurança em qualquer um destes âmbitos:
@@ -158,7 +158,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 Em seguida, digite o seguinte comando e, em seguida, prima a tecla ENTER.
 
 ```azcopy
-azcopy login --service-principal --certificate-path path-to-certificate-file --application-id application-id --tenant-id=tenant-id
+azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
 Substitua o `<application-id>` espaço reservado pelo ID de aplicação do registo da aplicação do seu titular de serviço. Substitua o `<tenant-id>` espaço reservado pelo ID do inquilino da organização a que pertence a conta de armazenamento. Para encontrar o ID do inquilino, selecione **Azure Ative Directory > Properties > ID do Diretório** no portal Azure. 

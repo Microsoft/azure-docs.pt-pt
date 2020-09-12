@@ -3,12 +3,12 @@ title: Matriz de suporte DPM do MABS & System Center
 description: Este artigo resume o suporte de backup do Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup nas instalações e recursos VM Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 71f188ffca125bc13eb2e9a43f466aeb61c64b75
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182008"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506615"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Microsoft Azure Backup Server ou System Center DPM
 
@@ -114,10 +114,10 @@ Pode implementar o MABS num VM Azure Stack para que possa gerir a cópia de segu
 O servidor DPM/MABS necessita de acesso a estes URLs:
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- \*.windows.net
+- `*.Microsoft.com`
+- `*.WindowsAzure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 ### <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
 
@@ -146,11 +146,11 @@ Para obter mais informações, consulte os [requisitos de encaminhamento Express
 
 A conectividade com o serviço de backup Azure é necessária para que as cópias de segurança funcionem corretamente, e a subscrição do Azure deve estar ativa. A tabela seguinte mostra o comportamento se estas duas coisas não ocorrerem.
 
-**MABS para Azure** | **Subscrição** | **Cópia de Segurança/Restauro**
+**MABS para Azure** | **Subscrição** | **Cópia de segurança/Restauro**
 --- | --- | ---
-Ligada | Ativo | Volte ao disco DPM/MABS.<br/><br/> De volta a Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar de Azure.
+Ligada | Ativa | Volte ao disco DPM/MABS.<br/><br/> De volta a Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar de Azure.
 Ligada | Expirado/desprovisionado | Sem cópia de segurança no disco ou no Azure.<br/><br/> Se a subscrição expirar, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não poderá restaurar do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.
-Sem conectividade por mais de 15 dias | Ativo | Sem cópia de segurança no disco ou no Azure.<br/><br/> Pode restaurar do disco ou do Azure.
+Sem conectividade por mais de 15 dias | Ativa | Sem cópia de segurança no disco ou no Azure.<br/><br/> Pode restaurar do disco ou do Azure.
 Sem conectividade por mais de 15 dias | Expirado/desprovisionado | Sem cópia de segurança no disco ou no Azure.<br/><br/> Se a subscrição expirar, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não poderá restaurar do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.
 
 ## <a name="domain-and-domain-trusts-support"></a>Domínio e Domínio confia no suporte
@@ -190,7 +190,7 @@ Para obter informações sobre os vários servidores e cargas de trabalho que po
 - As cargas de trabalho agrupadas apoiadas pelo DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou num domínio infantil/fidedigno.
 - Pode utilizar a autenticação NTLM/certificado para fazer cópias de segurança em domínios não fidedvios ou grupos de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura MABS.
 - [Reveja](backup-support-matrix-mars-agent.md) o que é apoiado para o agente MARS.

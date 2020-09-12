@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e9e67dc0da7f81f73d8237769e7aea90f9bc1585
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 45d3ec8dc5d819464046e40bab22491a4bccde63
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833424"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461328"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -170,7 +170,7 @@ Após a configuração inicial e a aplicação das recomendações do Centro de 
 
 A Descrição Geral do Centro de Segurança proporciona uma vista unificada da segurança de todos os seus recursos do Azure e de eventuais recursos não Azure que tenha ligado. O exemplo abaixo mostra um ambiente com muitos problemas para resolver:
 
-![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
+![Dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > O Centro de Segurança não irá interferir com os seus procedimentos operacionais normais, irá monitorizar passivamente as implementações e facultar recomendações com base nas políticas de segurança que ativou.
@@ -230,11 +230,11 @@ No [Como Alavancar o Azure Security Center & Microsoft Operations Management Sui
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Monitorizar soluções de parceiros com o Azure Security Center](security-center-partner-solutions.md) — Saiba como monitorizar o estado de saúde das soluções do seu parceiro.
 * [Azure Security Center FAQ](faq-general.md) — Encontre perguntas frequentes sobre a utilização do serviço.
-* [Blog da Azure Security](https://blogs.msdn.com/b/azuresecurity/) — Encontre posts de blog sobre segurança e conformidade da Azure.
+* [Blog da Azure Security](https://docs.microsoft.com/archive/blogs/azuresecurity/) — Encontre posts de blog sobre segurança e conformidade da Azure.

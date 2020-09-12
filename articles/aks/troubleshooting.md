@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056515"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460325"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -82,7 +82,7 @@ A AKS dispõe de aviões de controlo HA que escalam verticalmente de acordo com 
     - https://github.com/helm/helm/issues/4543
 - **[O tráfego interno entre nós está a ser bloqueado?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
-## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Estou a `TCP timeouts` receber, tal como.`dial tcp <Node_IP>:10250: i/o timeout`
+## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Estou a `TCP timeouts` receber, tal como. `dial tcp <Node_IP>:10250: i/o timeout`
 
 Estes intervalos podem estar relacionados com o tráfego interno entre nós bloqueados. Verifique se este tráfego não está a ser bloqueado, como por exemplo por [grupos de segurança](concepts-security.md#azure-network-security-groups) de rede na sub-rede para os nós do seu cluster.
 
@@ -98,13 +98,17 @@ A razão para os avisos é que o cluster tem RBAC habilitado e o acesso ao paine
 
 Certifique-se de que as portas 22, 9000 e 1194 estão abertas para ligar ao servidor API. Verifique se o `tunnelfront` `aks-link` ou o casulo está a funcionar no espaço de nomes *do sistema kube* utilizando o `kubectl get pods --namespace kube-system` comando. Se não for, a eliminação forçada da cápsula e recomeçará.
 
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>Estou a receber `"tls: client offered only unsupported versions"` do meu cliente quando estou a ligar-me à AKS API. O que devo fazer?
+
+A versão TLS suportada mínima em AKS é TLS 1.2.
+
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estou a tentar melhorar ou escalar e estou a ter um `"Changing property 'imageReference' is not allowed"` erro. Como é que resolvo este problema?
 
 Podes estar a cometer este erro porque modificaste as etiquetas nos nós dos agentes dentro do cluster AKS. Modificar ou eliminar tags e outras propriedades de recursos no grupo de recursos MC_* pode levar a resultados inesperados. A alteração dos recursos no âmbito do grupo MC_* no cluster AKS quebra o objetivo de nível de serviço (SLO).
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou a receber erros de que o meu cluster está em estado de falha e que a atualização ou escala não funcionará até que seja corrigido.
 
-*Esta assistência de resolução de problemas é direcionada a partir dehttps://aka.ms/aks-cluster-failed*
+*Esta assistência de resolução de problemas é direcionada a partir de https://aka.ms/aks-cluster-failed*
 
 Este erro ocorre quando os clusters entram num estado falhado por múltiplas razões. Siga os passos abaixo para resolver o seu estado falhado do seu cluster antes de voltar a tentar a operação anteriormente falhada:
 
@@ -115,7 +119,7 @@ Este erro ocorre quando os clusters entram num estado falhado por múltiplas raz
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>Estou a receber erros ao tentar atualizar ou escalar o meu cluster está a ser atualizado ou falhou na atualização.
 
-*Esta assistência de resolução de problemas é direcionada a partir dehttps://aka.ms/aks-pending-upgrade*
+*Esta assistência de resolução de problemas é direcionada a partir de https://aka.ms/aks-pending-upgrade*
 
  Não pode ter um cluster ou piscina de nó simultaneamente upgrade e escala. Em vez disso, cada tipo de operação deve ser preenchido no recurso-alvo antes do próximo pedido sobre esse mesmo recurso. Como resultado, as operações são limitadas quando ocorrem ou se tentam operações de atualização ou escala ativas. 
 
@@ -176,9 +180,9 @@ Utilize as seguintes soluções alternativas para esta questão:
 * Se utilizar scripts de automatização, adicione atrasos de tempo entre a criação principal do serviço e a criação de clusterS AKS.
 * Se utilizar o portal Azure, volte às definições do cluster durante a criação e volte a tentar a página de validação após alguns minutos.
 
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Estou a receber quando estou a `"AADSTS7000215: Invalid client secret is provided."` usar a API da AKS. O que devo fazer?
 
-
-
+Isto deve-se geralmente à caducidade das principais credenciais de serviço. [Atualize as credenciais para um cluster AKS.](update-credentials.md)
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Estou a receber erros depois de restringir o tráfego de saídas.
 

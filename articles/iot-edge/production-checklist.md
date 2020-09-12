@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258795"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669602"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge na produção
 
@@ -41,7 +41,7 @@ Os dispositivos IoT Edge podem ser qualquer coisa, desde um Raspberry Pi até um
 Todos os dispositivos IoT Edge em produção precisam de um certificado de certificado de dispositivo (CA) instalado nele. Este certificado de CA é então declarado para o tempo de execução IoT Edge no ficheiro config.yaml. Para cenários de desenvolvimento e teste, o tempo de execução IoT Edge cria certificados temporários se não forem declarados certificados no ficheiro config.yaml. No entanto, estes certificados temporários expiram após três meses e não são seguros para cenários de produção. Para cenários de produção, deve fornecer o seu próprio certificado de AA do seu próprio dispositivo, seja a partir de uma autoridade de certificado auto-assinado ou adquirido a uma autoridade de certificados comerciais.
 
 > [!NOTE]
-> Atualmente, uma limitação no libiothsmo impede a utilização de certificados que expirem em ou após 1 de janeiro de 2050.
+> Atualmente, uma limitação no libiothsmo impede a utilização de certificados que expirem em ou após 1 de janeiro de 2038.
 
 Para compreender o papel do certificado CA do dispositivo, consulte [como a Azure IoT Edge utiliza certificados](iot-edge-certs.md).
 
@@ -182,7 +182,7 @@ Obtenha as imagens com o comando de puxar o Docker para colocar no seu registo p
 | Recipiente de tempo de execução IoT Edge | Estivador puxar comando |
 | --- | --- |
 | [Agente Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
-| [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
 Em seguida, certifique-se de atualizar as referências de imagem no deployment.template.jsem arquivo para os módulos do sistema edgeAgent e edgeHub. Substitua `mcr.microsoft.com` o nome do registo e o servidor por ambos os módulos.
 
@@ -194,7 +194,7 @@ Em seguida, certifique-se de atualizar as referências de imagem no deployment.t
 
     `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 * **Útil**
   * Revisão da configuração de saída/entrada
@@ -231,7 +231,7 @@ Esta lista de verificação é um ponto de partida para as regras de firewall:
 Algumas destas regras de firewall são herdadas do Registo de Contentores de Azure. Para obter mais informações, consulte [as regras de configuração para aceder a um registo de contentores Azure atrás de uma firewall](../container-registry/container-registry-firewall-access-rules.md).
 
 > [!NOTE]
-> Para fornecer uma FQDN consistente entre o REST e os pontos finais de dados, a partir **de 15 de junho de 2020,** o ponto final de dados do Registo de Contentores da Microsoft mudará de `*.cdn.mscr.io` para`*.data.mcr.microsoft.com`  
+> Para fornecer uma FQDN consistente entre o REST e os pontos finais de dados, a partir **de 15 de junho de 2020,** o ponto final de dados do Registo de Contentores da Microsoft mudará de `*.cdn.mscr.io` para `*.data.mcr.microsoft.com`  
 > Para obter mais informações, consulte a [configuração das regras de firewall do cliente do Microsoft Container Registry](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 Se não quiser configurar a sua firewall para permitir o acesso aos registos de contentores públicos, pode armazenar imagens no seu registo privado de contentores, conforme descrito nos recipientes de tempo de [funcionamento da Loja no seu registo privado.](#store-runtime-containers-in-your-private-registry)
@@ -321,9 +321,9 @@ Pode fazê-lo nas **opções de criação** de cada módulo. Por exemplo:
 
 ### <a name="consider-tests-and-cicd-pipelines"></a>Considere os testes e os gasodutos CI/CD
 
-Para o cenário de implementação IoT Edge mais eficiente, considere integrar a sua implantação de produção nos seus testes e oleodutos CI/CD. Azure IoT Edge suporta várias plataformas ci/CD, incluindo Azure DevOps. Para obter mais informações, consulte [integração contínua e implementação contínua para Azure IoT Edge](how-to-ci-cd.md).
+Para o cenário de implementação IoT Edge mais eficiente, considere integrar a sua implantação de produção nos seus testes e oleodutos CI/CD. Azure IoT Edge suporta várias plataformas ci/CD, incluindo Azure DevOps. Para obter mais informações, consulte [integração contínua e implementação contínua para Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [a implementação automática IoT Edge](module-deployment-monitoring.md).
-* Veja como o IoT Edge suporta [a integração contínua e a implementação contínua.](how-to-ci-cd.md)
+* Veja como o IoT Edge suporta [a integração contínua e a implementação contínua.](how-to-continuous-integration-continuous-deployment.md)

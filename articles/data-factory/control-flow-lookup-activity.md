@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: 7a0b4e52d729c3f13d5ac425627970d67b87979e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/09/2020
+ms.openlocfilehash: e75921e5ee5b148d81c637800f46403d3d410f42
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795886"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613484"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de procura na Fábrica de Dados Azure
 
@@ -29,7 +29,9 @@ A atividade de procura lê e devolve o conteúdo de um ficheiro ou tabela de con
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-As seguintes fontes de dados são suportadas para a atividade de Procura. O maior número de linhas que podem ser devolvidas pela atividade da Lookup é de 5.000, até 2 MB de tamanho. Atualmente, a duração mais longa para a atividade de Lookup antes do intervalo é de uma hora.
+As seguintes fontes de dados são suportadas para a atividade de Procura. 
+
+A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados contiver mais registos, as primeiras 5000 linhas serão devolvidas. A produção da atividade Do Lookup suporta até 2 MB de tamanho, a atividade falhará se o tamanho exceder o limite. Atualmente, a duração mais longa para a atividade de Lookup antes do intervalo é de uma hora.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -56,8 +58,8 @@ As seguintes fontes de dados são suportadas para a atividade de Procura. O maio
 
 Nome | Descrição | Tipo | Necessário?
 ---- | ----------- | ---- | --------
-conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Sim
-source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Sim
+conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Yes
+source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Yes
 firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas. | Booleano | Não. A predefinição é `true`.
 
 > [!NOTE]
@@ -387,7 +389,7 @@ Aqui estão algumas limitações da atividade de Lookup e soluções alternativa
 | A atividade de Lookup tem um máximo de 5.000 linhas, e um tamanho máximo de 2 MB. | Desenhe um oleoduto de dois níveis onde o gasoduto exterior itera sobre um gasoduto interior, que recupera dados que não excedam as linhas máximas ou o tamanho. |
 | | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Executar atividade de Pipeline](control-flow-execute-pipeline-activity.md)

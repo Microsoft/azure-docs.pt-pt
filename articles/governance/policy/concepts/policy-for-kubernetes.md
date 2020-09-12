@@ -3,12 +3,12 @@ title: Pré-visualização - Saiba a política do Azure para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local. Esta é uma funcionalidade em pré-visualização.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509880"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645588"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Compreender a política do Azure para os clusters Kubernetes (pré-visualização)
 
@@ -57,13 +57,13 @@ Antes de instalar o Add-on de Política Azure ou permitir qualquer uma das funci
 
      1. Registe-se os fornecedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights.** Para obter etapas, consulte [fornecedores e tipos de recursos.](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
 
-     1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
+     1. Lançar o serviço Azure Policy no portal Azure selecionando **todos os serviços,** procurando e selecionando **a Política**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Pesquisa de Política em Todos os Serviços" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Screenshot de pesquisa de Política em Todos os Serviços." border="false":::
 
      1. Selecione **'Sintolque' pré-visualização** no lado esquerdo da página Política Azure.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Junte-se à política de pré-visualização da AKS" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Screenshot do nó 'Join Preview' na página 'Política'." border="false":::
 
      1. Selecione a linha da subscrição que deseja adicionada à pré-visualização.
 
@@ -120,17 +120,17 @@ Uma vez concluídos os passos pré-requisitos acima, instale o Add-on de Políti
 
 - Portal do Azure
 
-  1. Lance o serviço AKS no portal Azure clicando em **todos os serviços,** procurando e selecionando **os serviços kubernetes.**
+  1. Inicie o serviço AKS no portal Azure selecionando **todos os serviços,** procurando e selecionando **os serviços kubernetes.**
 
   1. Selecione um dos seus clusters AKS.
 
   1. Selecione **Políticas (pré-visualização)** no lado esquerdo da página de serviço De Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definições políticas do cluster AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Screenshot do nó 'Políticas (pré-visualização)' na página de serviço de Kubernetes." border="false":::
 
   1. Na página principal, selecione o botão **de alimentação ativa.**
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Ativar a Política Azure para o add-on AKS":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Screenshot do botão 'Ativar o add-on' na página 'Onboard to Azure Policy for Azure Kubernetes Services (A K S).":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -460,17 +460,17 @@ Para remover o Add-on da Política Azure do seu cluster AKS, utilize o portal Az
 
 - Portal do Azure
 
-  1. Lance o serviço AKS no portal Azure clicando em **todos os serviços,** procurando e selecionando **os serviços kubernetes.**
+  1. Inicie o serviço AKS no portal Azure selecionando **todos os serviços,** procurando e selecionando **os serviços kubernetes.**
 
   1. Selecione o seu cluster AKS onde pretende desativar o Add-on de Política Azure.
 
   1. Selecione **Políticas (pré-visualização)** no lado esquerdo da página de serviço De Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definições políticas do cluster AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Screenshot do nó 'Políticas (pré-visualização)' na página de serviço de Kubernetes." border="false":::
 
   1. Na página principal, selecione o botão **de desativação para desativar.**
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Desative a Política de Azure para o addon AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Screenshot do botão 'Desativar o add-on' na página 'Onboard to Azure Policy for Azure Kubernetes Services (A K S)." border="false":::
 
 - CLI do Azure
 
@@ -535,7 +535,7 @@ A informação recolhida pelo addon não são dados pessoais. Os seguintes detal
 - Exceções/erros encontrados pelo Azure Policy Add-on durante a instalação do agente na avaliação de políticas
 - Número de definições de política gatekeeper não instaladas pelo Add-on da Política Azure
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Veja a [Estrutura de definição do Policy](definition-structure.md).

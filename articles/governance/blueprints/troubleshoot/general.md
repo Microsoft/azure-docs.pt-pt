@@ -3,12 +3,12 @@ title: Resolver erros comuns
 description: Aprenda a resolver problemas criando, atribuindo e removendo plantas como violações de políticas e funções de parâmetros de planta.
 ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557513"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651329"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Erros de resolução de problemas usando plantas Azure
 
@@ -22,9 +22,9 @@ Muitos erros serão o resultado da atribuição de uma planta a um âmbito. Quan
 
 1. Selecione **as plantas atribuídas** a partir da página à esquerda e use a caixa de pesquisa para filtrar as atribuições de planta para encontrar a atribuição falhada. Também pode classificar a tabela de atribuições pela coluna **Provisioning State** para ver todas as atribuições falhadas agrupadas.
 
-1. Clique no plano com o estado _falhado_ ou clique à direita e selecione **Ver detalhes da atribuição**.
+1. Selecione a planta com o estado _falhado_ ou clique à direita e selecione **Ver detalhes da atribuição**.
 
-1. Um aviso vermelho de que a atribuição falhou está no topo da página de atribuição de plantas. Clique em qualquer lugar do banner para obter mais detalhes.
+1. Um aviso vermelho de que a atribuição falhou está no topo da página de atribuição de plantas. Selecione qualquer lugar no banner para obter mais detalhes.
 
 É comum que o erro seja causado por um artefacto e não pela planta como um todo. Se um artefacto criar um Cofre-Chave e a Política Azure impedir a criação do Key Vault, toda a atribuição falhará.
 

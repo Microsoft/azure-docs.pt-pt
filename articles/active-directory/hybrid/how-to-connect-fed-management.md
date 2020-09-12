@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect - Gestão e personalização da AD FS Microsoft Docs
 description: Gestão de FS AD com Azure AD Connect e personalização da experiência de sind de súm em AD FS do utilizador com Azure AD Connect e PowerShell.
-keywords: AD FS, ADFS, gestão AD FS, AAD Connect, Connect, sign-in, Personalização AD FS, confiança de reparação, O365, federação, festa de confiança
+keywords: AD FS, ADFS, gestão AD FS, AAD Connect, Connect, sign-in, Personalização AD FS, confiança de reparação, M365, federação, festa de confiança
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830932"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661266"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os Serviços da Federação de Diretórios Ativos utilizando o Azure AD Connect
 Este artigo descreve como gerir e personalizar os Serviços da Federação de Diretório Ativo (AD FS) utilizando o Azure Ative Directory (Azure AD) Connect. Também inclui outras tarefas comuns de AD FS que você pode precisar fazer para uma configuração completa de uma fazenda AD FS.
@@ -31,7 +31,7 @@ Este artigo descreve como gerir e personalizar os Serviços da Federação de Di
 | Tópico | O que cobre |
 |:--- |:--- |
 | **Gerir AD FS** | |
-| [Reparar a confiança](#repairthetrust) |Como reparar a confiança da federação com o Escritório 365. |
+| [Reparar a confiança](#repairthetrust) |Como reparar a confiança da federação com a Microsoft 365. |
 | [Federate com AD AZure usando ID de login alternativo](#alternateid) | Federação de configuração usando iD de login alternativo  |
 | [Adicione um servidor AD FS](#addadfsserver) |Como expandir uma fazenda AD FS com um servidor AD FS adicional. |
 | [Adicione um servidor de procuração de aplicação web AD FS](#addwapserver) |Como expandir uma fazenda AD FS com um servidor adicional de Proxy de Aplicação Web (WAP). |
@@ -85,7 +85,7 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
     Para retificar a configuração em caso de falta de KB, instale o [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) necessário e, em seguida, repare o fundo utilizando [o Reparo AAD e o AD FS Trust](#repairthetrust).
 
 > [!NOTE]
-> Para obter mais informações sobre oID alternativo e os passos para configurar manualmente, leia [o ID de Login Alternativo Configurado](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
+> Para obter mais informações sobre oID alternativo e os passos para configurar manualmente, leia [o ID de Login Alternativo Configurado](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>Adicione um servidor AD FS 
 
@@ -174,7 +174,7 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
 
    ![Domínio AD AZure](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    Depois de escolher o domínio, o assistente fornece-lhe informações apropriadas sobre outras ações que o assistente irá tomar e o impacto da configuração. Em alguns casos, se selecionar um domínio que ainda não foi verificado no Azure AD, o assistente fornece-lhe informações para o ajudar a verificar o domínio. Consulte [o nome de domínio personalizado ao Azure Ative Directory](../active-directory-domains-add-azure-portal.md) para obter mais detalhes.
+    Depois de escolher o domínio, o assistente fornece-lhe informações apropriadas sobre outras ações que o assistente irá tomar e o impacto da configuração. Em alguns casos, se selecionar um domínio que ainda não foi verificado no Azure AD, o assistente fornece-lhe informações para o ajudar a verificar o domínio. Consulte [o nome de domínio personalizado ao Azure Ative Directory](../fundamentals/add-custom-domain.md) para obter mais detalhes.
 
 5. Clique em **Seguinte**. A página **Ready to Configure** mostra a lista de ações que o Azure AD Connect irá realizar. Clique **em Instalar** para terminar a configuração.
 
@@ -207,7 +207,7 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modificar as regras de reclamação da AD FS 
-A AD FS suporta uma linguagem de reivindicação rica que pode usar para criar regras de reivindicação personalizadas. Para mais informações, consulte [O Papel da Língua de Regra de Reclamação.](https://technet.microsoft.com/library/dd807118.aspx)
+A AD FS suporta uma linguagem de reivindicação rica que pode usar para criar regras de reivindicação personalizadas. Para mais informações, consulte [O Papel da Língua de Regra de Reclamação.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11))
 
 As secções seguintes descrevem como pode escrever regras personalizadas para alguns cenários relacionados com a Azure AD e a federação de FS AD.
 

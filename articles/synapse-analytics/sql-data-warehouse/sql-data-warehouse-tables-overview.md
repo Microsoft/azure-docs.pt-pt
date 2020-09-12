@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eaea80ae874b93a640c885e0d4b7afde2a165c16
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798572"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460552"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Mesas de design na piscina Synapse SQL
 
@@ -111,7 +111,7 @@ A categoria de tabela determina frequentemente qual a opção a escolher para di
 
 ## <a name="table-partitions"></a>Divisórias de mesa
 
-Uma mesa dividida armazena e realiza operações nas linhas de tabela de acordo com as gamas de dados. Por exemplo, uma mesa pode ser dividida por dia, mês ou ano. Pode melhorar o desempenho da consulta através da eliminação da partição, o que limita uma consulta aos dados dentro de uma partição. Também pode manter os dados através da comutação de divisórias. Uma vez que os dados no SQL Data Warehouse já estão distribuídos, muitas divisórias podem atrasar o desempenho da consulta. Para obter mais informações, consulte [a orientação de partição.](sql-data-warehouse-tables-partition.md)  Quando a partição mudar para divisórias que não estão vazias, considere utilizar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) se os dados existentes forem truncados. O código abaixo comuta nos dados diários transformados no SalesFact, sobressaltando quaisquer dados existentes.
+Uma mesa dividida armazena e realiza operações nas linhas de tabela de acordo com as gamas de dados. Por exemplo, uma mesa pode ser dividida por dia, mês ou ano. Pode melhorar o desempenho da consulta através da eliminação da partição, o que limita uma consulta aos dados dentro de uma partição. Também pode manter os dados através da comutação de divisórias. Uma vez que os dados em Azure Synapse Analytics já estão distribuídos, muitas divisórias podem atrasar o desempenho da consulta. Para obter mais informações, consulte [a orientação de partição.](sql-data-warehouse-tables-partition.md)  Quando a partição mudar para divisórias que não estão vazias, considere utilizar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) se os dados existentes forem truncados. O código abaixo comuta nos dados diários transformados no SalesFact, sobressaltando quaisquer dados existentes.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -295,9 +295,6 @@ FROM size
 ;
 ```
 
->[!TIP]
-> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
-
 ### <a name="table-space-summary"></a>Resumo do espaço de mesa
 
 Esta consulta devolve as linhas e o espaço por mesa.  Permite-lhe ver quais as mesas que são as suas maiores mesas e se são redondas, replicadas ou distribuídas por haxixe.  Para tabelas distribuídas por haxixe, a consulta mostra a coluna de distribuição.  
@@ -376,6 +373,6 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar as tabelas para a sua piscina SQL, o próximo passo é carregar dados na tabela.  Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina SQL.](load-data-wideworldimportersdw.md)

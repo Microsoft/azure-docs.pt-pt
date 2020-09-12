@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbbc86b44c95219677b520cc54fbad51be06104a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: abec780deb7834e67618c74e556a1bc20154b0b4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182416"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658547"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar estratégia híbrida de adoção de ciclo de vida
 Nesta tarefa, definirá a estratégia de gestão de identidade para a sua solução de identidade híbrida para satisfazer os requisitos de negócio definidos nas [tarefas de gestão de identidade híbrida.](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
@@ -38,7 +38,7 @@ As contas em empresas de TI sofisticadas incluem centenas de parâmetros que def
 
 | Fase de gestão do ciclo de vida | No local | Cloud | Híbrido |
 | --- | --- | --- | --- |
-| Gestão e Provisionamento de Contas |Ao utilizar a função de servidor dos Serviços de Domínio do Active Directory® (AD DS), pode criar uma infraestrutura escalável, segura e gerível para a gestão de recursos e utilizadores e fornecer o suporte para as aplicações com diretório ativado como o Microsoft Exchange Server. <br><br> [Você pode providenciar grupos em DS AD através de um gestor de identidade](https://technet.microsoft.com/library/ff686261.aspx) <br>[Pode providenciar utilizadores em DS AD](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Os administradores podem usar o controlo de acesso para gerir o acesso do utilizador a recursos partilhados para fins de segurança. No Ative Directory, o controlo de acesso é administrado ao nível do objeto, definindo diferentes níveis de acesso, ou permissões, a objetos como Controlo Total, Escrita, Leitura ou Sem Acesso. O controlo de acesso no Ative Directory define como diferentes utilizadores podem usar objetos ative directy. Por predefinição, as permissões em objetos no Ative Directory são definidas para a definição mais segura. |Tem de criar uma conta para todos os utilizadores que acedam a um serviço de cloud da Microsoft. Também pode alterar as contas dos utilizadores ou eliminá-las quando já não são necessárias. Por predefinição, os utilizadores não têm permissões de administrador, mas podem atribuí-las opcionalmente. <br><br> Dentro do Azure Ative Directory, uma das principais características é a capacidade de gerir o acesso aos recursos. Estes recursos podem fazer parte do diretório, como no caso de permissões para gerir objetos através de funções no diretório, ou dos recursos externos ao diretório, como aplicações SaaS, serviços do Azure e sites SharePoint ou recursos no local. <br><br> No centro da solução de gestão de acessos da Azure Ative Directory está o grupo de segurança. O proprietário do recurso (ou o administrador do diretório), pode atribuir um grupo para fornecer um determinado direito de acesso aos recursos que possui. Os membros do grupo terão acesso, e o titular do recurso pode delegar o direito de gerir a lista de membros de um grupo para outra pessoa – como um gerente de departamento ou um administrador de helpdesk<br> <br> Os grupos managing na secção AD Azure, fornecem mais informações sobre a gestão do acesso através de grupos. |Alargar as identidades do Diretório Ativo para a nuvem através da sincronização e da federação |
+| Gestão e Provisionamento de Contas |Ao utilizar a função de servidor dos Serviços de Domínio do Active Directory® (AD DS), pode criar uma infraestrutura escalável, segura e gerível para a gestão de recursos e utilizadores e fornecer o suporte para as aplicações com diretório ativado como o Microsoft Exchange Server. <br><br> [Você pode providenciar grupos em DS AD através de um gestor de identidade](/previous-versions/mim/ff686261(v=ws.10)) <br>[Pode providenciar utilizadores em DS AD](/previous-versions/mim/ff686263(v=ws.10)) <br><br> Os administradores podem usar o controlo de acesso para gerir o acesso do utilizador a recursos partilhados para fins de segurança. No Ative Directory, o controlo de acesso é administrado ao nível do objeto, definindo diferentes níveis de acesso, ou permissões, a objetos como Controlo Total, Escrita, Leitura ou Sem Acesso. O controlo de acesso no Ative Directory define como diferentes utilizadores podem usar objetos ative directy. Por predefinição, as permissões em objetos no Ative Directory são definidas para a definição mais segura. |Tem de criar uma conta para todos os utilizadores que acedam a um serviço de cloud da Microsoft. Também pode alterar as contas dos utilizadores ou eliminá-las quando já não são necessárias. Por predefinição, os utilizadores não têm permissões de administrador, mas podem atribuí-las opcionalmente. <br><br> Dentro do Azure Ative Directory, uma das principais características é a capacidade de gerir o acesso aos recursos. Estes recursos podem fazer parte do diretório, como no caso de permissões para gerir objetos através de funções no diretório, ou dos recursos externos ao diretório, como aplicações SaaS, serviços do Azure e sites SharePoint ou recursos no local. <br><br> No centro da solução de gestão de acessos da Azure Ative Directory está o grupo de segurança. O proprietário do recurso (ou o administrador do diretório), pode atribuir um grupo para fornecer um determinado direito de acesso aos recursos que possui. Os membros do grupo terão acesso, e o titular do recurso pode delegar o direito de gerir a lista de membros de um grupo para outra pessoa – como um gerente de departamento ou um administrador de helpdesk<br> <br> Os grupos managing na secção AD Azure, fornecem mais informações sobre a gestão do acesso através de grupos. |Alargar as identidades do Diretório Ativo para a nuvem através da sincronização e da federação |
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 O Azure role-based access control (Azure RBAC) usa papéis e políticas de provisionamento para avaliar, testar e impor os seus processos e regras de negócio para conceder acesso aos utilizadores. Os administradores-chave criam políticas de provisionamento e atribuem os utilizadores a funções e definem conjuntos de direitos aos recursos para estas funções. O Azure RBAC alarga a solução de gestão de identidade para utilizar processos baseados em software e reduzir a interação manual do utilizador no processo de provisionamento.
@@ -74,14 +74,14 @@ Os serviços Azure AD baseados em licença funcionam ativando uma subscrição n
 
 ## <a name="integration-with-other-3rd-party-providers"></a>Integração com outros fornecedores de terceiros
 
-O Azure Ative Directory fornece segurança de acesso a aplicações de assinatura única e reforçada a milhares de aplicações SaaS e aplicações web no local. Para mais informações, consulte [integrar aplicações com o Azure Ative Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+O Azure Ative Directory fornece segurança de acesso a aplicações de assinatura única e reforçada a milhares de aplicações SaaS e aplicações web no local. Para mais informações, consulte [integrar aplicações com o Azure Ative Directory](../develop/quickstart-register-app.md)
 
 ## <a name="define-synchronization-management"></a>Definir gestão de sincronização
 A integração dos diretórios no local com o Azure AD torna os utilizadores mais produtivos, ao fornecer-lhes uma identidade comum para acederem a recursos na nuvem e no local. Com esta integração, os utilizadores e organizações podem tirar partido do seguinte:
 
 * As organizações podem fornecer aos utilizadores uma identidade híbrida comum em todos os locais ou serviços baseados na nuvem, alavancando o Windows Server Ative Directory e, em seguida, conectando-se ao Azure Ative Directory.
 * Os administradores podem fornecer Acesso Condicional com base no recurso de aplicação, no dispositivo e identidade do utilizador, na localização da rede e na autenticação de vários fatores.
-* Os utilizadores podem aproveitar a sua identidade comum através de contas em Azure AD para Office 365, Intune, saaS e aplicações de terceiros.
+* Os utilizadores podem aproveitar a sua identidade comum através de contas em Azure AD para a Microsoft 365, Aplicações Intune, SaaS e aplicações de terceiros.
 * Os desenvolvedores podem construir aplicações que alavancam o modelo de identidade comum, integrando aplicações em Ative Directory no local ou Azure para aplicações baseadas na nuvem
 
 A figura a seguir tem um exemplo de uma visão de alto nível do processo de sincronização de identidade.
@@ -104,4 +104,3 @@ Reveja a tabela seguinte para comparar as opções de sincronização:
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)
-

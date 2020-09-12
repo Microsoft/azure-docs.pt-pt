@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319631"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661616"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Preparar novamente modelos com o Azure Machine Learning Designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Este artigo também assume que você tem conhecimento básico de construir oleod
 
 ### <a name="sample-pipeline"></a>Gasoduto de amostra
 
-O gasoduto utilizado neste artigo é uma versão alterada da [Amostra 3: Previsão do rendimento](samples-designer.md#classification). O pipeline utiliza o módulo [De Dados de Importação](algorithm-module-reference/import-data.md) em vez do conjunto de dados da amostra para mostrar como treinar modelos usando os seus próprios dados.
+O oleoduto utilizado neste artigo é uma versão alterada de um pipeline de amostra [Previsão de rendimento](samples-designer.md#classification) na página inicial do designer. O pipeline utiliza o módulo [De Dados de Importação](algorithm-module-reference/import-data.md) em vez do conjunto de dados da amostra para mostrar como treinar modelos usando os seus próprios dados.
 
 ![Screenshot que mostra o pipeline de amostra modificado com uma caixa realçando o módulo de dados de importação](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -83,7 +83,8 @@ O designer guarda toda a produção do pipeline, incluindo modelos treinados, pa
 1. Pode encontrar o seu modelo em **Outras saídas** juntamente com registos de execução.
 1. Em alternativa, selecione o ícone **de saída 'Ver'.** A partir daqui, pode seguir as instruções do diálogo para navegar diretamente na sua datastore. 
 
-![Screenshot que mostra como baixar o modelo treinado](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot que mostra como baixar o modelo treinado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicar um pipeline de formação
 
@@ -101,9 +102,9 @@ Publique um oleoduto num ponto final de gasoduto para reutilizar facilmente os s
 
 Agora que tem um pipeline de treino publicado, pode usá-lo para treinar o seu modelo em novos dados. Pode submeter corridas a partir de um ponto final do pipeline a partir do espaço de trabalho do estúdio ou programáticamente.
 
-### <a name="submit-runs-by-using-the-designer"></a>Submeter corridas usando o designer
+### <a name="submit-runs-by-using-the-studio-portal"></a>Submeter runs usando o portal do estúdio
 
-Utilize os seguintes passos para submeter um ponto final de gasoduto parametrizado do designer:
+Utilize os seguintes passos para submeter um ponto final de gasoduto parametrizado a partir do portal do estúdio:
 
 1. Vá à página **Endpoints** no seu espaço de trabalho do estúdio.
 1. Selecione o **separador pontos finais pipeline.** Em seguida, selecione o seu ponto final do gasoduto.
@@ -119,7 +120,7 @@ Pode encontrar o ponto final REST de um pipeline publicado no painel de visão g
 
 Para fazer uma chamada REST, precisa de um cabeçalho de autenticação do tipo portador OAuth 2.0. Para obter informações sobre a configuração da autenticação no seu espaço de trabalho e fazer uma chamada de REST parametrizada, consulte [Construir um pipeline de Aprendizagem automática Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a criar um ponto final de pipeline de treino parametrizado usando o designer.
 

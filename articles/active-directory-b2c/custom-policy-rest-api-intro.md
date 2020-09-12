@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc2b72779460c2b7e3999204ace50ca57388b9a2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388940"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594191"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrar as bolsas de reclamações da REST API na sua política personalizada Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Quadro de Experiência de Identidade, subjacente ao Azure Ative Directory B2C (Azure AD B2C), pode integrar-se com APIs RESTful dentro de uma viagem de utilizador. Este artigo mostra como criar uma viagem de utilizador que interage com um serviço RESTful utilizando um [perfil técnico RESTful](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster).
+O Quadro de Experiência de Identidade, subjacente ao Azure Ative Directory B2C (Azure AD B2C), pode integrar-se com APIs RESTful dentro de uma viagem de utilizador. Este artigo mostra como criar uma viagem de utilizador que interage com um serviço RESTful utilizando um [perfil técnico RESTful](restful-technical-profile.md).
 
 Utilizando o Azure AD B2C, pode adicionar a sua própria lógica de negócio a uma viagem de utilizador, chamando o seu próprio serviço RESTful. O Quadro de Experiência de Identidade pode enviar e receber dados do seu serviço RESTful para trocar reclamações. Pode, por exemplo:
 
@@ -125,9 +125,9 @@ As alegações de saída devem parecer seguintes:
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="contacts.0.person.name" />
-  <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="contacts.0.person.emails.0.email" />
-  <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="contacts.0.person.loyaltyNumber" />
+  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="contacts[0].person.name" />
+  <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="contacts[0].person.emails[0].email" />
+  <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="contacts[0].person.loyaltyNumber" />
 </OutputClaims>
 ```
 

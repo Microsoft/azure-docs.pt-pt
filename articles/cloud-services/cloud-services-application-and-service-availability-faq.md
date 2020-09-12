@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2596d4f6a8aa9fb4c95dfb5a3ccab7d7206f3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75386923"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461311"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de aplicação e disponibilidade de serviços para serviços em nuvem Azure: Perguntas frequentes (PERGUNTAS Frequentes)
 
@@ -33,7 +33,7 @@ Aproximadamente uma vez por mês, a Microsoft lança uma nova versão guest OS p
 
 Para obter detalhes completos sobre as recentes atualizações do Guest OS, consulte [os lançamentos do Azure Guest OS e a matriz de compatibilidade SDK](cloud-services-guestos-update-matrix.md).
 
-Para obter informações úteis sobre reinícios e ponteiros para detalhes técnicos das atualizações do Guest and Host OS, consulte o blog MSDN post [Role Instance Restarts Devido às atualizações do OS](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+Para obter informações úteis sobre reinícios e ponteiros para detalhes técnicos das atualizações do Guest and Host OS, consulte o blog MSDN post [Role Instance Restarts Devido às atualizações do OS](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Porque é que o primeiro pedido para o meu serviço de nuvem depois do serviço estar inativo há algum tempo demora mais do que o habitual?
 Quando o Web Server recebe o primeiro pedido, primeiro recompensa o código e, em seguida, processa o pedido. É por isso que o primeiro pedido demora mais do que os outros. Por padrão, o pool de aplicações é encerrado em casos de inatividade do utilizador. O pool de aplicações também recicla por padrão a cada 1.740 minutos (29 horas).

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589049"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658341"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
 
@@ -37,7 +37,7 @@ Seamless SSO é uma funcionalidade gratuita e você não precisa de edições pa
 
 **P: O SSO sem emenda está disponível na nuvem do [Microsoft Azure Germany](https://www.microsoft.de/cloud-deutschland) e na nuvem do [Governo Microsoft Azure](https://azure.microsoft.com/features/gov/)?**
 
-O SSO sem emenda está disponível para a nuvem do Governo Azure. Para mais detalhes, consulte [As Considerações de Identidade Híbrida para o Governo Azure](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+O SSO sem emenda está disponível para a nuvem do Governo Azure. Para mais detalhes, consulte [As Considerações de Identidade Híbrida para o Governo Azure](./reference-connect-government-cloud.md).
 
 **P: Que aplicações tiram partido ou capacidade de `domain_hint` `login_hint` parâmetro de SSO sem emenda?**
 
@@ -62,11 +62,11 @@ Se quiser outras aplicações utilizando a nossa experiência de inscrição sil
 
 **P: O SSO sem emenda suporta `Alternate ID` como nome de utilizador, em vez de `userPrincipalName` ?**
 
-Yes. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os pedidos do Office 365 suportam `Alternate ID` . Consulte a documentação específica do pedido para a declaração de apoio.
+Yes. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os suportes de aplicações da Microsoft 365. `Alternate ID` Consulte a documentação específica do pedido para a declaração de apoio.
 
-**P: Qual é a diferença entre a experiência de inscrição única fornecida pela [Azure AD Join](../active-directory-azureadjoin-overview.md) e pela Seamless SSO?**
+**P: Qual é a diferença entre a experiência de inscrição única fornecida pela [Azure AD Join](../devices/overview.md) e pela Seamless SSO?**
 
-[O Azure AD Join](../active-directory-azureadjoin-overview.md) fornece SSO aos utilizadores se os seus dispositivos estiverem registados no Azure AD. Estes dispositivos não têm necessariamente de ser unidos pelo domínio. SSO é fornecido usando *tokens* de atualização primária ou *PRTs*, e não Kerberos. A experiência do utilizador é ideal em dispositivos Windows 10. SSO acontece automaticamente no navegador Microsoft Edge. Também funciona no Chrome com o uso de uma extensão de navegador.
+[O Azure AD Join](../devices/overview.md) fornece SSO aos utilizadores se os seus dispositivos estiverem registados no Azure AD. Estes dispositivos não têm necessariamente de ser unidos pelo domínio. SSO é fornecido usando *tokens* de atualização primária ou *PRTs*, e não Kerberos. A experiência do utilizador é ideal em dispositivos Windows 10. SSO acontece automaticamente no navegador Microsoft Edge. Também funciona no Chrome com o uso de uma extensão de navegador.
 
 Você pode usar tanto Azure AD Join como Seamless SSO no seu inquilino. Estas duas características são complementares. Se ambas as funcionalidades estiverem ligadas, então o SSO da Azure AD Join tem precedência sobre o SSO sem emenda.
 
@@ -85,7 +85,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
    **Passo 1. Obtenha a lista de florestas de AD onde o SSO sem emenda foi ativado**
 
-   1. Primeiro, faça o download e instale [o Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primeiro, faça o download e instale [o Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
    4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
@@ -130,7 +130,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
    Execute os seguintes passos no servidor no local onde está a executar Azure AD Connect:
 
-   1. Primeiro, faça o download e instale [o Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primeiro, faça o download e instale [o Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
    4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
@@ -145,7 +145,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
    Siga as tarefas 1 a 4 abaixo se tiver desativado o Seamless SSO utilizando o Azure AD Connect. Se tiver desativado o Seamless SSO utilizando o PowerShell, avance para a tarefa 5 abaixo.
 
-   1. Primeiro, faça o download e instale [o Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primeiro, faça o download e instale [o Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importar o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
    4. Executar PowerShell como administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando deve dar-lhe um pop-up para inserir as credenciais de Administrador Global do seu inquilino.
@@ -153,7 +153,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
    **Passo 3. Elimine manualmente a `AZUREADSSO` conta do computador de cada floresta AD que vê listada.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [**Quickstart**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
 - [**Mergulho Profundo Técnico**](how-to-connect-sso-how-it-works.md) - Entenda como funciona esta funcionalidade.

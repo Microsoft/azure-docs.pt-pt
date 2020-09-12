@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 2888e46d26a58e8451f38accbb9073d657f8ea1b
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387069"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651454"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Chaves de acesso à conta de armazenamento regenerar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Por razões de segurança, poderá ter de alterar as chaves de acesso para uma c
 
 * Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte o [Artigo Criar um espaço de trabalho.](how-to-manage-workspace.md)
 
-* [O Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [O Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 
 * A [extensão CLI de aprendizagem automática Azure](reference-azure-machine-learning-cli.md).
 
@@ -141,4 +141,4 @@ Para atualizar a Azure Machine Learning para utilizar a nova chave, utilize os s
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o registo de datastores, consulte a [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) referência de classe.
+Para obter mais informações sobre o registo de datastores, consulte a [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py&preserve-view=true) referência de classe.

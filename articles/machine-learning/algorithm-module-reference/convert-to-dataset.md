@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df783f15280d9f5ba3330afaf504f3259aeccf3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456595"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646260"
 ---
 # <a name="convert-to-dataset"></a>Converter em Conjunto de Dados
 
@@ -35,13 +35,13 @@ Recomendamos que utilize o módulo [editar metadados](edit-metadata.md) para pre
 
 2. Conecte-o a qualquer módulo que produza um conjunto de dados.   
 
-    Enquanto os dados são [tabulares,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)pode convertê-lo num conjunto de dados. Isto inclui dados carregados através [de Dados de Importação,](import-data.md)dados criados através de [Introduzir Dados Manualmente,](enter-data-manually.md)ou conjuntos de dados transformados através da [Apply Transformation](apply-transformation.md).
+    Enquanto os dados são [tabulares,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true)pode convertê-lo num conjunto de dados. Isto inclui dados carregados através [de Dados de Importação,](import-data.md)dados criados através de [Introduzir Dados Manualmente,](enter-data-manually.md)ou conjuntos de dados transformados através da [Apply Transformation](apply-transformation.md).
 
 3.  Na lista de drop-down de **Ação,** indique se pretende fazer qualquer limpeza nos dados antes de guardar o conjunto de dados:  
   
     - **Nenhum:** Use os dados como está.  
   
-    - **SetMissingValue**: Defina um valor específico para um valor em falta no conjunto de dados. O espaço reservado padrão é o personagem de ponto de interrogação (?), mas pode usar a opção **de valor em falta** personalizada para introduzir um valor diferente. Por exemplo, se introduzir **Taxi** for **Custom missing value**, então todas as instâncias de **Taxi** no conjunto de dados serão alteradas para o valor em falta.
+    - **SetMissingValue**: Defina um valor específico para um valor em falta no conjunto de dados. O espaço reservado padrão é o personagem de ponto de interrogação (?), mas pode usar a opção  **de valor em falta** personalizada para introduzir um valor diferente. Por exemplo, se introduzir **Taxi** for **Custom missing value**, então todas as instâncias de **Taxi** no conjunto de dados serão alteradas para o valor em falta.
   
     - **Substituir Valores**: Utilize esta opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Pode substituir valores em falta ou valores personalizados definindo o método **Substituir:**
 

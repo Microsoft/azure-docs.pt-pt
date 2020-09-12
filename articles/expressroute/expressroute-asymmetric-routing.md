@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Encaminhamento assimétrico'
 description: Este artigo explica-lhe as questões que poderá enfrentar com o encaminhamento assimétrico numa rede que tem múltiplas ligações a um destino.
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: osamam
-ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: ee96abb51e03fb1dc567b66d180cb520de299d95
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74072146"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566539"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Encaminhamento assimétrico com vários caminhos de rede
 Este artigo explica como o tráfego de rede de encaminhamento e retorno poderá seguir rotas diferentes quando vários caminhos estão disponíveis entre a origem e o destino de rede.
@@ -64,5 +64,5 @@ Outra forma de resolver problemas de encaminhamento assimétrico é através da 
 ![Configuração de rede NAT baseada na origem](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>Deteção de encaminhamento assimétrico
-O Traceroute é a melhor forma de garantir que o tráfego de rede atravessa o caminho esperado. Se pretender que o tráfego do seu servidor SMTP no local para a Microsoft assuma o caminho da Internet, o traceroute esperado é do servidor SMTP para o Office 365. O resultado confirma se o tráfego está ou não a sair da rede para a Internet e não para o ExpressRoute.
+O Traceroute é a melhor forma de garantir que o tráfego de rede atravessa o caminho esperado. Se espera que o tráfego do seu servidor SMTP para a Microsoft tome o caminho da Internet, o rastreador esperado é do servidor SMTP para o Microsoft 365. O resultado confirma se o tráfego está ou não a sair da rede para a Internet e não para o ExpressRoute.
 

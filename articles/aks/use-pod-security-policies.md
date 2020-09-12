@@ -4,17 +4,17 @@ description: Saiba como controlar as admissões de pod usando PodSecurityPolicy 
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 3c8ec61666942fc74dcb64c03c0e3f06986e8c37
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987278"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669302"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - Proteja o seu cluster utilizando as políticas de segurança do pod no Serviço Azure Kubernetes (AKS)
 
 > [!WARNING]
-> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível após 15 de outubro de 2020 a** favor da [Política Azure para a AKS.](use-pod-security-on-azure-policy.md)
+> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível após 1 de fevereiro de 2021 a** favor da [Política Azure para a AKS.](use-pod-security-on-azure-policy.md) A data de depreciação foi prorrogada a partir da data anterior de 15 de outubro de 2020.
 >
 > Após a deprecação da política de segurança do pod (pré-visualização), tem de desativar a funcionalidade em quaisquer clusters existentes utilizando a funcionalidade prevadida para realizar futuras atualizações de clusters e permanecer dentro do suporte do Azure.
 >
@@ -392,7 +392,7 @@ Elimine o pod desprivilegiado NGINX utilizando o comando [de eliminação de kub
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para desativar a política de segurança da cápsula, utilize novamente o comando [de atualização az aks.][az-aks-update] O exemplo a seguir desativa a política de segurança do casulo no nome de cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
 
@@ -422,7 +422,7 @@ Por fim, elimine o espaço *de nomes psp-aks:*
 kubectl delete namespace psp-aks
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou-lhe como criar uma política de segurança de pod para impedir o uso de acesso privilegiado. Existem muitas funcionalidades que uma política pode impor, como o tipo de volume ou o utilizador RunAs. Para obter mais informações sobre as opções disponíveis, consulte os documentos de referência da [política de segurança da cápsula Kubernetes.][kubernetes-policy-reference]
 

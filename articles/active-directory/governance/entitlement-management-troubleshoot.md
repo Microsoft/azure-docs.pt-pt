@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783336"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460801"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure AD gestão de direitos
 
@@ -47,7 +47,7 @@ Este artigo descreve alguns itens que deve verificar para ajudá-lo a resolver p
 
 * Quando remove um membro de uma equipa, eles também são removidos do Grupo Microsoft 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](/microsoftteams/office-365-groups#group-membership)
 
-* Confirme que o seu diretório não está configurado para várias regiões. De momento, a gestão de direitos não suporta localizações de várias regiões no SharePoint Online. Os sites do SharePoint Online têm de estar na localização geográfica predefinida para serem regidos pela gestão de direitos. Para mais informações, consulte [multi-geo capabilities no OneDrive e SharePoint Online.](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)
+* Confirme que o seu diretório não está configurado para várias regiões. De momento, a gestão de direitos não suporta localizações de várias regiões no SharePoint Online. Os sites do SharePoint Online têm de estar na localização geográfica predefinida para serem regidos pela gestão de direitos. Para mais informações, consulte [multi-geo capabilities no OneDrive e SharePoint Online.](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)
 
 ## <a name="access-packages"></a>Pacotes de acesso
 
@@ -150,7 +150,7 @@ Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja 
     
     Se alguma política estiver numa categoria de prioridade mais elevada, as categorias de prioridades mais baixas são ignoradas. Para um exemplo de como são apresentadas várias políticas com a mesma prioridade ao solicitador, consulte [Selecione uma política](entitlement-management-request-access.md#select-a-policy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gerir o acesso dos utilizadores externos](entitlement-management-external-users.md)
 - [Ver relatórios de como os utilizadores tiveram acesso na gestão de direitos](entitlement-management-reports.md)

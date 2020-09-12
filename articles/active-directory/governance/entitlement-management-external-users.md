@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783863"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460869"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Reger o acesso dos utilizadores externos na gestão dos direitos da AD Azure
 
@@ -105,7 +105,7 @@ Para garantir que pessoas fora da sua organização podem solicitar pacotes de a
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Reveja as definições de partilha de grupos microsoft 365
 
-- Se pretender incluir os grupos Microsoft 365 nos seus pacotes de acesso a utilizadores externos, certifique-se de que **os utilizadores do Let adicionam novos hóspedes à organização** está definido para o **On** para permitir o acesso dos hóspedes. Para obter mais informações, consulte [Gerir o acesso dos hóspedes aos Grupos Microsoft 365.](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)
+- Se pretender incluir os grupos Microsoft 365 nos seus pacotes de acesso a utilizadores externos, certifique-se de que **os utilizadores do Let adicionam novos hóspedes à organização** está definido para o **On** para permitir o acesso dos hóspedes. Para obter mais informações, consulte [Gerir o acesso dos hóspedes aos Grupos Microsoft 365.](/Microsoft 365/admin/create-groups/manage-guest-access-in-groups?view=Microsoft 365-worldwide#manage-groups-guest-access)
 
 - Se pretender que os utilizadores externos possam aceder ao site e recursos do SharePoint Online associados a um grupo Microsoft 365, certifique-se de que liga a partilha externa do SharePoint Online. Para obter mais informações, consulte [Ligue ou desligue a partilha externa](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
@@ -145,7 +145,7 @@ Pode selecionar o que acontece quando um utilizador externo, que foi convidado p
 
 1. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicionar uma organização associada](entitlement-management-organization.md)
 - [Para utilizadores que não estão no seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

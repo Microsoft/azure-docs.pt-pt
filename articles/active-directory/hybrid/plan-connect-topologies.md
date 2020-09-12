@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509093"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658512"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve várias topologias no local e Azure Ative Directory (Azure AD) que utilizam a sincronização Azure AD Connect como a solução-chave de integração. Este artigo inclui configurações suportadas e não apoiadas.
@@ -117,15 +117,15 @@ Numa topologia florestal de recursos de conta, você tem uma ou mais florestas *
 
 Neste cenário, uma (ou mais) floresta de recursos confia em todas as florestas de contas. A floresta de recursos normalmente tem um esquema de Diretório Ativo alargado com Exchange e Lync. Todos os serviços de Exchange e Lync, juntamente com outros serviços partilhados, estão localizados nesta floresta. Os utilizadores têm uma conta de utilizador desativada nesta floresta, e a caixa de correio está ligada à floresta de conta.
 
-## <a name="office-365-and-topology-considerations"></a>Escritório 365 e considerações de topologia
-Algumas cargas de trabalho do Office 365 têm certas restrições às topologias apoiadas:
+## <a name="microsoft-365-and-topology-considerations"></a>Microsoft 365 e considerações de topologia
+Algumas cargas de trabalho da Microsoft 365 têm certas restrições em topologias suportadas:
 
 | Carga de trabalho | Restrições |
 | --------- | --------- |
-| Exchange Online | Para obter mais informações sobre as topologias híbridas suportadas pelo Exchange Online, consulte [implementações híbridas com múltiplas florestas de Diretório Ativo.](https://technet.microsoft.com/library/jj873754.aspx) |
-| Skype para Empresas | Quando se usa várias florestas no local, apenas a topologia florestal de recursos de conta é suportada. Para mais informações, consulte [os requisitos ambientais do Skype para Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Para obter mais informações sobre as topologias híbridas suportadas pelo Exchange Online, consulte [implementações híbridas com múltiplas florestas de Diretório Ativo.](/Exchange/hybrid-deployment/hybrid-with-multiple-forests) |
+| Skype para Empresas | Quando se usa várias florestas no local, apenas a topologia florestal de recursos de conta é suportada. Para mais informações, consulte [os requisitos ambientais do Skype para Business Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
-Se é uma organização maior, então deve considerar utilizar a funcionalidade [DeLocalização De Dados Preferenciais do Office 365.](how-to-connect-sync-feature-preferreddatalocation.md) Permite definir em que região de datacenter os recursos do utilizador estão localizados.
+Se é uma organização maior, então deve considerar utilizar a funcionalidade [DeLocalização de Dados Preferenciais da Microsoft 365.](how-to-connect-sync-feature-preferreddatalocation.md) Permite definir em que região de datacenter os recursos do utilizador estão localizados.
 
 ## <a name="staging-server"></a>Servidor de encenação
 ![Servidor de encenação em uma topologia](./media/plan-connect-topologies/MultiForestStaging.png)
@@ -165,7 +165,7 @@ Esta topologia tem as seguintes restrições em cenários apoiados de outra form
 * Os dispositivos Windows 10 podem ser associados apenas a um inquilino AZure AD.
 * A opção de inscrição única (SSO) para sincronização de hash de palavra-passe e autenticação pass-through pode ser usada com apenas um inquilino AZure AD.
 
-A exigência de um conjunto de objetos mutuamente exclusivos também se aplica à gravação. Algumas funcionalidades de writeback não são suportadas com esta topologia porque assumem uma única configuração no local. As funcionalidades incluem:
+A exigência de um conjunto de objetos mutuamente exclusivos também se aplica à gravação. Algumas funcionalidades de writeback não são suportadas com esta topologia porque assumem uma única configuração no local. Estas funcionalidades incluem:
 
 * Writeback de grupo com configuração predefinida.
 * Reversão do dispositivo.
@@ -197,7 +197,7 @@ Pode utilizar o FIM 2010 ou o MIM 2016 no local para sincronizar os utilizadores
 
 O servidor Azure Ative Directory Connect comunica com o Azure Ative Directory através do backend Azure Ative Directory Connect. O único software que pode ser usado para comunicar com este backend é o Azure Ative Directory Connect. Não é suportado para comunicar com o backend Azure Ative Directory Connect utilizando qualquer outro software ou método. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender a instalar o Azure AD Connect para estes cenários, consulte [a instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
 
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)

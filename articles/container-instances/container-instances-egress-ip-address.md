@@ -3,14 +3,12 @@ title: Configurar IP de saída estática
 description: Configure firewall Azure e rotas definidas pelo utilizador para cargas de trabalho de contentores Azure que utilizam o endereço IP público da firewall para entrada e saída
 ms.topic: article
 ms.date: 07/16/2020
-author: dlepow
-ms.author: danlep
-ms.openlocfilehash: d748e3e6239ba913afc5b8aadd7e85dcd1027c04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 497645b9fe7f908cc9b8b4d7ed0ba5e201570160
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023709"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566573"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>Configure um único endereço IP público para o tráfego de saída e de entrada para um grupo de contentores
 
@@ -280,7 +278,7 @@ A saída é semelhante a:
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 52.142.18.133</body></html>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você configura grupos de contentores numa rede virtual atrás de uma firewall Azure. Configuraste uma rota definida pelo utilizador e regras de NAT e aplicação na firewall. Ao utilizar esta configuração, configura um único endereço IP estático para entrada e saída de Instâncias de Contentores Azure.
 

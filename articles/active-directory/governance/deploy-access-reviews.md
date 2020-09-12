@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011349"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461039"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -93,7 +93,7 @@ Para avaliações de acesso, provavelmente incluirá representantes das seguinte
 
 * **A administração de TI** gere a sua infraestrutura de TI e administra os seus investimentos em nuvem e aplicações de Software como um Serviço (SaaS). Esta equipa vai:
 
-   * Reveja o acesso privilegiado a infraestruturas e aplicações, incluindo o Office 365 e a Azure AD.
+   * Reveja o acesso privilegiado a infraestruturas e aplicações, incluindo o Microsoft 365 e o Azure AD.
 
    * Agendar e executar Revisões de Acesso em grupos que são usados para manter listas de exceções ou projetos-piloto de TI, para manter listas de acesso atualizadas.
 
@@ -180,7 +180,7 @@ Os alvos típicos para revisão incluem:
 
 * [Aplicações integradas com Azure AD para single sign-on](../manage-apps/what-is-application-management.md) (como SaaS, linha de negócios).
 
-* Membro [do](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) grupo (sincronizado com Azure AD, ou criado em Azure AD ou Office 365, incluindo Microsoft Teams).
+* Membro [do](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) grupo (sincronizado com Azure AD, ou criado em AZure AD ou Microsoft 365, incluindo Microsoft Teams).
 
 * [Pacote de acesso](/azure/active-directory/governance/entitlement-management-overview) que agrupam recursos (grupos, apps e sites) num único pacote para gerir o acesso.
 
@@ -304,7 +304,7 @@ Abra o separador Ciclo de Vida para deslocar-se para baixo para avaliações de 
 
 ## <a name="plan-access-reviews-for-groups"></a>Análises de Acesso ao Plano para grupos
 
-Além dos Pacotes de Acesso, rever a adesão ao grupo é a forma mais eficaz de reger o acesso. Recomendamos que o acesso aos recursos seja atribuído através de [grupos de segurança ou grupos do Office 365](../fundamentals/active-directory-manage-groups.md), e que os utilizadores sejam adicionados a esses grupos para terem acesso.
+Além dos Pacotes de Acesso, rever a adesão ao grupo é a forma mais eficaz de reger o acesso. Recomendamos que o acesso aos recursos seja atribuído através de [grupos de segurança ou grupos Microsoft 365](../fundamentals/active-directory-manage-groups.md), e que os utilizadores sejam adicionados a esses grupos para terem acesso.
 
 Um único grupo pode ter acesso a todos os recursos adequados. Pode atribuir o acesso do grupo a recursos individuais ou a um Pacote de Acesso que agrupar aplicações e outros recursos. Com este método, pode rever o acesso ao grupo em vez do acesso de um indivíduo a cada aplicação. 
 
@@ -322,9 +322,9 @@ A adesão ao grupo pode ser revista por:
 
 Recomendamos que os donos do grupo revejam a adesão, uma vez que estão mais bem situados para saber quem precisa de acesso. A propriedade dos grupos difere com o tipo de grupo:
 
-Os grupos criados no Office 365 e no Azure AD têm um ou mais proprietários bem definidos. Na maioria dos casos, estes proprietários fazem revisores perfeitos para os seus próprios grupos, pois sabem quem deve ter acesso. 
+Os grupos criados na Microsoft 365 e Azure AD têm um ou mais proprietários bem definidos. Na maioria dos casos, estes proprietários fazem revisores perfeitos para os seus próprios grupos, pois sabem quem deve ter acesso. 
 
-Por exemplo, a Microsoft Teams utiliza os Grupos Office 365 como o modelo de autorização subjacente para garantir aos utilizadores o acesso a recursos que estão nos serviços SharePoint, Exchange, OneNote ou outros Serviços do Office 365. O criador da equipa torna-se automaticamente proprietário e deve ser responsável por atestar a adesão a esse grupo. 
+Por exemplo, o Microsoft Teams utiliza o Microsoft 365 Groups como o modelo de autorização subjacente para conceder aos utilizadores acesso a recursos que estão em SharePoint, Exchange, OneNote ou outros serviços Microsoft 365. O criador da equipa torna-se automaticamente proprietário e deve ser responsável por atestar a adesão a esse grupo. 
 
 Os grupos criados manualmente no portal AD Azure ou através da script através do Microsoft Graph podem não ter necessariamente os proprietários definidos. Recomendamos que os defina através do Portal AD Azure na secção "Proprietários" do grupo ou via Gráfico.
 
@@ -403,7 +403,7 @@ O Access Reviews permite que os revisores ateste se os utilizadores ainda precis
 
 * Administrador de Segurança
 
-* Todas as funções do Office 365 e da Administração de Serviços Dinâmicos
+* Todas as funções da Microsoft 365 e da Administração de Serviços Dinâmicos
 
 As funções aqui selecionadas incluem papel permanente e elegível. 
 
@@ -511,7 +511,7 @@ As atividades de Access Reviews são registadas e disponíveis nos [registos de 
 
 Para consultas mais avançadas e análise de Avaliações de Acesso, e para acompanhar as alterações e a conclusão de avaliações, recomendamos que exporte os seus Registos de Auditoria AZure AD para [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) ou Azure Event Hub. Quando armazenado no Azure Log Analytics, pode utilizar a [poderosa linguagem analítica](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) – e construir os seus próprios dashboards.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça as tecnologias abaixo relacionadas.
 

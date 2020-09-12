@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928569"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513950"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service
 
@@ -51,7 +51,9 @@ Para saber como criar um token autenticado, consulte a [Autenticação do Servi�
 
 Utilize a ligação *signalR Trigger* para manusear mensagens enviadas do Serviço SignalR. Pode ser acionado quando os clientes enviam mensagens ou os clientes ficam ligados ou desligados.
 
-Para obter mais informações, consulte a referência de ligação do [ *gatilho SignalR*](../azure-functions/functions-bindings-signalr-service-trigger.md)
+Para obter mais informações, consulte a referência de ligação do [ *gatilho SignalR* ](../azure-functions/functions-bindings-signalr-service-trigger.md).
+
+Também precisa configurar o ponto final da sua função como um ponto de terminamento a montante para que o serviço desencadeie a função onde há mensagem do cliente. Para obter mais informações sobre como configurar a montante, consulte este [doc](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Envio de mensagens e gestão da adesão ao grupo
 
@@ -69,7 +71,7 @@ A SignalR tem um conceito de "hubs". Cada ligação ao cliente e cada mensagem e
 
 O modelo baseado em classe é dedicado a C#. Com o modelo baseado em classe pode ter uma experiência consistente de programação do lado do servidor SignalR. Tem as seguintes características.
 
-* Menos trabalhos de configuração: O nome da classe é usado como `HubName` , o nome do método é usado como e o é decidido automaticamente de acordo com o `Event` nome do `Category` método.
+* Menos trabalho de configuração: O nome da classe é usado como `HubName` , o nome do método é usado como e o é decidido automaticamente de acordo com o `Event` nome do `Category` método.
 * Ligação de parâmetros automáticos: Nem `ParameterNames` o atributo `[SignalRParameter]` é necessário. Os parâmetros estão ligados automaticamente aos argumentos do método Azure Function por ordem.
 * Saída conveniente e experiência de negociação.
 
@@ -105,11 +107,11 @@ public class SignalRTestHub : ServerlessHub
 }
 ```
 
-Todas as funções que pretendem alavancar o modelo baseado na classe têm de ser o método de classe que herda do **ServerlessHub**. O nome da classe `SignalRTestHub` na amostra é o nome do centro.
+Todas as funções que queiram alavancar o modelo baseado na classe têm de ser o método de classe que herda do **ServerlessHub**. O nome da classe `SignalRTestHub` na amostra é o nome do centro.
 
 ### <a name="define-hub-method"></a>Definir método do hub
 
-Todos os métodos do hub **devem**  ter um `[SignalRTrigger]` atributo e **devem** utilizar um construtor sem parâmetros. Em seguida, o nome do **método** é tratado como **evento de**parâmetros .
+Todos os métodos do hub **devem** ter um argumento `InvocationContext` de decorado por atributo e usar um construtor sem `[SignalRTrigger]` parâmetros. Em seguida, o nome do **método** é tratado como **evento de**parâmetros .
 
 Por padrão, `category=messages` exceto o nome do método é um dos seguintes nomes:
 
@@ -202,7 +204,11 @@ Para obter mais informações sobre como utilizar o cliente SignalR SDK, consult
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>Envio de mensagens de um cliente para o serviço
 
-Embora o SignalR SDK permita que as aplicações do cliente invoquem lógica de backend num hub SignalR, esta funcionalidade ainda não é suportada quando utiliza o Serviço SignalR com Funções Azure. Utilize pedidos HTTP para invocar Funções Azure.
+Se tiver configurado [a montante](concept-upstream.md) para o seu recurso SignalR, pode enviar mensagens do cliente para as suas Funções Azure utilizando qualquer cliente SignalR. Aqui está um exemplo no JavaScript:
+
+```javascript
+connection.send('method1', 'arg1', 'arg2');
+```
 
 ## <a name="azure-functions-configuration"></a>Configuração de Funções Azure
 
@@ -319,6 +325,6 @@ public static Task SendMessage(
 
 Para obter informações sobre outros idiomas, consulte as [ligações do Serviço Azure SignalR](../azure-functions/functions-bindings-signalr-service.md) para referência às Funções Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a desenvolver e configurar aplicações de Serviço SignalR sem servidor usando Funções Azure. Tente criar uma aplicação utilizando um dos arranques rápidos ou tutoriais na [página de visão geral do Serviço SignalR](index.yml).

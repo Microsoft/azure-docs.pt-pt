@@ -1,6 +1,6 @@
 ---
 title: Striim arranque rápido
-description: Começa rapidamente com o Striim e o Azure SQL Data Warehouse.
+description: Começa rapidamente com a Striim e a Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b5fa1a42201479c5d426a5bbb9188d0cb8e03d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208557"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485979"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace Guia de instalação
+# <a name="striim-azure-synapse-analytics-marketplace-offering-install-guide"></a>Striim Azure Synapse Analytics Marketplace Guia de instalação
 
-Este quickstart pressupõe que já tem uma instância pré-existente do SQL Data Warehouse.
+Este quickstart assume que já tem um caso pré-existente de Azure Synapse Analytics.
 
-Procure por Striim no Mercado Azure e selecione o Striim for Data Integration to SQL Data Warehouse (Staged) 
+Procure por Striim no Azure Marketplace e selecione o Striim for Data Integration to Azure Synapse Analytics (Staged) 
 
 ![Instalar Striim][install]
 
@@ -32,7 +32,7 @@ Configure o Striim VM com propriedades especificadas, anotendo o nome do cluster
 
 Uma vez implementado, clique em \<VM Name> -masternode no portal Azure, clique em Connect e copie o Login usando a conta local VM 
 
-![Ligue striim ao Armazém de Dados SQL][connect]
+![Ligue Striim a Azure Synapse Analytics][connect]
 
 Descarregue o sqljdbc42.jar <https://www.microsoft.com/en-us/download/details.aspx?id=54671> para a sua máquina local. 
 

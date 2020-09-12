@@ -11,12 +11,14 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732566"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462042"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Trace Azure IoT mensagens dispositivo-nuvem com rastreio distribuído (pré-visualização)
 
@@ -38,8 +40,8 @@ Neste artigo, utilize o [dispositivo Azure IoT SDK para C](iot-hub-device-sdk-c-
 - A pré-visualização do rastreio distribuído é atualmente suportada apenas para os Hubs IoT criados nas seguintes regiões:
 
   - **Europa do Norte**
-  - **Ásia Sudeste**
-  - **E.U.A.Oeste 2**
+  - **Sudeste Asiático**
+  - **E.U.A. Oeste 2**
 
 - Este artigo pressupõe que está familiarizado com o envio de mensagens de telemetria para o seu centro de IoT. Certifique-se de que completou o [Envio de Telemetria C Quickstart](quickstart-send-telemetry-c.md).
 
@@ -249,8 +251,8 @@ Para atualizar a configuração de amostragem de rastreio distribuída para vár
 
 | Nome do elemento | Necessário | Tipo | Descrição |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sim | Número inteiro | Dois valores de modo são atualmente suportados para ligar e desligar a amostragem. `1`está ligado e, `2` está desligado. |
-| `sampling_rate` | Sim | Número inteiro | Este valor é uma percentagem. Apenas `0` `100` são permitidos valores de (inclusive) são permitidos.  |
+| `sampling_mode` | Sim | Número inteiro | Dois valores de modo são atualmente suportados para ligar e desligar a amostragem. `1` está ligado e, `2` está desligado. |
+| `sampling_rate` | Yes | Número inteiro | Este valor é uma percentagem. Apenas `0` `100` são permitidos valores de (inclusive) são permitidos.  |
 
 ## <a name="query-and-visualize"></a>Consulta e visualização
 
@@ -270,7 +272,7 @@ AzureDiagnostics
 
 Registos de exemplo como mostrado por Log Analytics:
 
-| TimeGenerated | OperationName | Categoria | Nível | CorrelationId | DuraçãoMs | Propriedades |
+| TimeGenerated | OperationName | Categoria | Nível | CorrelationId | DurationMs | Propriedades |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnósticoIotHubD2C | Tracagem distribuída | Informativo | 00-8cd869a412459a25f5b4f313123344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnósticoIoTHubIngress | Tracagem distribuída | Informativo | 00-8cd869a412459a25f5b4f31312344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"falso", "parentSpanId":"0144d2590aacd909"} |
@@ -307,10 +309,10 @@ Uma vez ativado, o suporte de rastreio distribuído para o IoT Hub seguirá este
 
 1. Uma mensagem é gerada no dispositivo IoT.
 1. O dispositivo IoT decide (com a ajuda da nuvem) que esta mensagem deve ser atribuída com um contexto de rastreamento.
-1. O SDK adiciona um `tracestate` à propriedade da aplicação de mensagens, contendo a estamp de tempo de criação de mensagens.
+1. O SDK adiciona um `tracestate` à propriedade da mensagem, contendo a estamp de tempo de criação de mensagens.
 1. O dispositivo IoT envia a mensagem para o IoT Hub.
 1. A mensagem chega ao portal do hub da IoT.
-1. O IoT Hub procura as `tracestate` propriedades da aplicação de mensagens e verifica se está no formato correto.
+1. O IoT Hub procura as `tracestate` propriedades da mensagem e verifica se está no formato correto.
 1. Em caso afirmativo, o IoT Hub gera um exclusivo global `trace-id` para a mensagem, a `span-id` para o "hop", e regista-os nos registos de diagnóstico do Azure Monitor no âmbito da operação `DiagnosticIoTHubD2C` .
 1. Uma vez terminado o processamento da mensagem, o IoT Hub gera outro `span-id` e regista-o juntamente com o existente `trace-id` no âmbito da operação `DiagnosticIoTHubIngress` .
 1. Se o encaminhamento estiver ativado para a mensagem, o IoT Hub escreve-a para o ponto final personalizado e regista outro `span-id` com o mesmo na categoria `trace-id` `DiagnosticIoTHubEgress` .

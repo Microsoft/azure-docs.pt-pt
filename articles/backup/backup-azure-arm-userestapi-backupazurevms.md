@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a configurar, iniciar e gerir operações de 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006300"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506632"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API
 
@@ -274,6 +274,35 @@ Uma vez concluída a operação, devolve 200 (OK) com o conteúdo do artigo prot
 
 Isto confirma que a proteção está ativada para o VM e que o primeiro backup será acionado de acordo com o calendário da política.
 
+### <a name="excluding-disks-in-azure-vm-backup"></a>Excluindo os discos na cópia de segurança Azure VM
+
+O Azure Backup também fornece uma forma de fazer uma cópia de segurança seletiva de um subconjunto de discos em Azure VM. Mais detalhes são fornecidos [aqui.](selective-disk-backup-restore.md) Se pretender fazer uma cópia de segurança seletiva de alguns discos durante a proteção, o seguinte corte de código deve ser o [órgão de pedido durante a proteção ativante](#example-request-body).
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+No órgão de pedido acima, a lista de discos a apoiar é fornecida na secção de propriedades estendidas.
+
+|Propriedade  |Valor  |
+|---------|---------|
+|diskLunList     | A lista LUN em disco é uma lista de *LUNs de discos de dados.* **O disco de so é sempre apoiado e não precisa de ser mencionado.**        |
+|IsInclusionList     | Deve ser **verdade** para os LUNs serem incluídos durante o backup. Se for **falso,** os REFERIDOS LUNs serão excluídos.         |
+
+Portanto, se a exigência é fazer backup apenas do disco de so, então _todos os_ discos de dados devem ser excluídos. Uma maneira mais fácil é dizer que nenhum disco de dados deve ser incluído. Assim, a lista lun disco estará vazia e a **IsInclusionList** será **verdadeira**. Da mesma forma, pense na forma mais fácil de selecionar um subconjunto: Alguns discos devem ser sempre excluídos ou alguns discos devem ser sempre incluídos. Escolha a lista LUN e o valor variável boolean em conformidade.
+
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Desencadear uma cópia de segurança a pedido de um Azure VM protegido
 
 Uma vez que um Azure VM é configurado para cópia de segurança, as cópias de segurança acontecem de acordo com o calendário da apólice. Pode esperar pelo primeiro backup programado ou desencadear uma cópia de segurança a pedido a qualquer momento. A retenção para cópias de segurança a pedido é separada da retenção da política de backup e pode ser especificada para uma determinada data. Se não for especificado, presume-se que esteja a 30 dias do dia do desencadeamento do backup a pedido.
@@ -389,7 +418,7 @@ Uma vez que o trabalho de backup é uma operação de longa duração, tem de se
 
 Para alterar a política com a qual o VM está protegido, pode utilizar o mesmo formato [que permitir a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a nova identificação de política [no órgão de pedido](#example-request-body) e apresentar o pedido. Por exemplo: Para alterar a política de testVM de 'DefaultPolicy' para 'ProdPolicy', forneça o ID 'ProdPolicy' no organismo de pedido.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -400,6 +429,15 @@ Para alterar a política com a qual o VM está protegido, pode utilizar o mesmo 
 ```
 
 A resposta seguirá o mesmo formato mencionado [para permitir a proteção](#responses-to-create-protected-item-operation)
+
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Excluindo os discos durante a proteção Azure VM
+
+Se o VM Azure já estiver apoiado, pode especificar a lista de discos a apoiar ou excluir alterando a política de proteção. Basta preparar o pedido no mesmo formato que [excluindo discos durante a proteção](#excluding-disks-in-azure-vm-backup)
+
+> [!IMPORTANT]
+> O órgão de pedido acima é sempre a cópia final dos discos de dados a excluir ou incluído. Isto não *aumenta* a configuração anterior. Por exemplo: Se atualizar a proteção como "excluir o disco de dados 1" e depois repetir com "excluir o disco de dados 2", apenas o *disco de dados 2 está excluído* nas cópias de segurança subsequentes e o disco de dados 1 será incluído. Esta é sempre a lista final que será incluída/excluída nas cópias de segurança subsequentes.
+
+Para obter a lista atual de discos excluídos ou incluídos, obtenha as informações de produto protegido, conforme [mencionado aqui.](https://docs.microsoft.com/rest/api/backup/protecteditems/get) A resposta fornecerá a lista de LUNs de disco de dados e indica se estão incluídas ou excluídas.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Parar a proteção, mas reter os dados existentes
 
@@ -466,7 +504,7 @@ A eliminação de desfazer é uma operação *PUT* muito semelhante a [alterar a
 
 A resposta seguirá o mesmo formato mencionado [para desencadear uma cópia de segurança a pedido](#example-responses-for-on-demand-backup). O trabalho resultante deve ser acompanhado, tal como explicado nos postos de controlo, utilizando o [documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Restaurar os dados de uma cópia de segurança da máquina Virtual Azure](backup-azure-arm-userestapi-restoreazurevms.md).
 

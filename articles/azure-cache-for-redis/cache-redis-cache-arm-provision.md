@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078423"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461243"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Crie uma cache Azure para Redis usando um modelo de gestor de recursos
 
@@ -27,7 +27,7 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Uma conta de armazenamento**: Para criar uma, consulte [criar uma conta de Armazenamento Azure](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). A conta de armazenamento é utilizada para dados de diagnóstico.
+* **Uma conta de armazenamento**: Para criar uma, consulte [criar uma conta de Armazenamento Azure](/azure/storage/common/storage-account-create?tabs=azure-portal). A conta de armazenamento é utilizada para dados de diagnóstico.
 
 ## <a name="review-the-template"></a>Rever o modelo
 
@@ -38,7 +38,7 @@ O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápid
 Os seguintes recursos são definidos no modelo:
 
 * [Microsoft.Cache/Redis](/azure/templates/microsoft.cache/redis)
-* [Microsoft.Insights/diagnósticos](/azure/templates/diagnosticsettings)
+* [Microsoft.Insights/diagnósticos](/azure/templates/microsoft.insights/diagnosticsettings)
 
 Os modelos de Gestor de Recursos para o novo [nível Premium](cache-overview.md#service-tiers) também estão disponíveis.
 
@@ -66,7 +66,7 @@ Para verificar os modelos mais recentes, consulte [os Modelos Azure Quickstart](
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Abra a cache Redis que criou.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
@@ -79,6 +79,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar um modelo de Gestor de Recursos Azure que implementa uma Cache Azure para Redis. Para aprender a criar um modelo de Gestor de Recursos Azure que implementa uma App Azure Web com Cache Azure para Redis, consulte [Criar uma Web App plus Azure Cache para Redis usando um modelo](./cache-web-app-arm-with-redis-cache-provision.md).
