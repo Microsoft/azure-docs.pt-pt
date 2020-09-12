@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 6badcedba7fa1e1b605fc5553e5c6eed52c4203b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 7e45537d0a9fbdd738d6a2142b9259a15498e9c9
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182076"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503810"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -170,9 +170,9 @@ O ficheiro de exemplo a seguir `host.json` adiciona o filtro de registo.
     "version": "2.0",
     "logging": {
         "applicationInsights": {
-            "samplingExcludedTypes": "Request",
             "samplingSettings": {
-                "isEnabled": true
+                "isEnabled": true,
+                "excludedTypes": "Request"
             }
         },
         "logLevel": {
@@ -186,7 +186,7 @@ O ficheiro de exemplo a seguir `host.json` adiciona o filtro de registo.
 
 O anfitrião da função regista muitos serviços. Os seguintes serviços são seguros para assumir como uma dependência na sua aplicação:
 
-|Tipo de Serviço|Vida útil|Description|
+|Tipo de Serviço|Vida útil|Descrição|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Rio Singleton|Configuração do tempo de execução|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Rio Singleton|Responsável por fornecer a ID da instância de anfitrião|
@@ -306,7 +306,7 @@ Por predefinição, ficheiros de configuração como *appsettings.jsligados* nã
 > [!IMPORTANT]
 > Para aplicações de funções em execução nos planos Consumption ou Premium, as modificações nos valores de configuração utilizados nos gatilhos podem causar erros de escala. Qualquer alteração a estas propriedades pela `FunctionsStartup` classe resulta num erro de arranque de aplicações de função.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja os seguintes recursos:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: damaerte
-ms.openlocfilehash: 766245dcfe42c16106df6beed938fe2f04af05cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286679"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468662"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
 
@@ -33,7 +33,7 @@ Pode aceder à Cloud Shell de três formas:
 
     ![Ícone para lançar a Cloud Shell a partir do portal Azure](media/overview/portal-launch-icon.png)
 
-- **Código snippets**: Em [docs.microsoft.com](https://docs.microsoft.com) e [Microsoft Learn,](https://docs.microsoft.com/learn/)selecione o botão **Try It** que aparece com os snippets de código Azure CLI e Azure PowerShell:
+- **Código snippets**: Em [docs.microsoft.com]() e [Microsoft Learn,](/learn/)selecione o botão **Try It** que aparece com os snippets de código Azure CLI e Azure PowerShell:
 
     ```azurecli-interactive
     az account show
@@ -87,8 +87,8 @@ Cloud Shell é uma ferramenta flexível que pode ser usada a partir de:
 
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure)
-* [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
+* [Documentação da CLI do Azure](/cli/azure)
+* [Documentação do Azure PowerShell](/powershell/azure/)
 * [Aplicação móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensão da conta visual Studio Code Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
@@ -111,13 +111,13 @@ Leia mais para saber como montar uma [conta de armazenamento nova ou existente](
 * Cloud Shell persiste $HOME usando uma imagem de 5 GB na sua partilha de ficheiros
 * As permissões são definidas como um utilizador normal do Linux em Bash
 
-Saiba mais sobre as funcionalidades em [Bash em Cloud Shell](features.md) e [PowerShell em Cloud Shell.](features-powershell.md)
+Saiba mais sobre as funcionalidades em [Bash em Cloud Shell](features.md) e [PowerShell em Cloud Shell.](./features.md)
 
 ## <a name="pricing"></a>Preços
 
 A máquina que hospeda a Cloud Shell é gratuita, com um pré-requisito de uma partilha de Ficheiros Azure montados. Aplicam-se custos regulares de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Bash em Cloud Shell quickstart](quickstart.md) <br>
 [PowerShell em Cloud Shell quickstart](quickstart-powershell.md)

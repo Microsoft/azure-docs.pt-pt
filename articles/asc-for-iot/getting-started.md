@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 452372f187e97a95b9eee88936b15a0409dd4fe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99936161039b05e5e6c00c129e81a35befaae961
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311378"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514463"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>Introdução ao Centro de Segurança do Azure para IoT
 
 Este artigo fornece uma explicação dos diferentes componentes do Centro de Segurança Azure para o serviço IoT e explica como começar com o serviço usando duas opções de implementação possíveis.
+
+À procura de começar com o Módulo de Segurança para Azure RTOS? Aceda ao [Módulo Quickstart for Security para a secção Azure RTOS.](quickstart-azure-rtos-security-module.md) 
 
 ## <a name="deployment-options"></a>Opções de implementação
 
@@ -43,7 +45,7 @@ Para melhorar as capacidades de segurança, a implementação do Azure Security 
 
 Inicie uma [implementação melhorada](security-agents.md) com uma solução de proteção abrangente de ameaças e de gestão de postura de segurança baseada em agentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Ativar [o Centro de Segurança Azure para IoT](quickstart-onboard-iot-hub.md)
 - Configure a sua [solução](quickstart-configure-your-solution.md)

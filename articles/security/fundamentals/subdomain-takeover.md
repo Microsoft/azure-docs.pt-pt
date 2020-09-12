@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: e378ffe00be9215c692a832e232fac7e866ab3c9
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890829"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514616"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar entradas de DNS pendentes e evitar a aquisição de subdomínios
 
@@ -27,27 +27,33 @@ Este artigo descreve a ameaça comum de segurança da aquisição de subdomínio
 
 ## <a name="what-is-subdomain-takeover"></a>O que é a aquisição de subdomínios?
 
-As aquisições de subdomínios são uma ameaça comum e de alta gravidade para organizações que criam regularmente e apagam muitos recursos. Uma aquisição de subdomínio pode ocorrer quando se tem um registo DNS que aponta para um recurso Azure deprovisionado. Estes registos DNS também são conhecidos como entradas "dNS pendentes". Os registos da CNAME são especialmente vulneráveis a esta ameaça.
+As aquisições de subdomínios são uma ameaça comum e de alta gravidade para organizações que criam regularmente e apagam muitos recursos. Uma aquisição de subdomínio pode ocorrer quando se tem um [registo DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) que aponta para um recurso Azure deprovisionado. Estes registos DNS também são conhecidos como entradas "dNS pendentes". Os registos da CNAME são especialmente vulneráveis a esta ameaça. As aquisições de subdomínio permitem que atores maliciosos redirecionem o tráfego destinado ao domínio de uma organização para um site que executa atividades maliciosas.
 
 Um cenário comum para uma aquisição de subdomínio:
 
-1. Um site é criado. 
+1. **CRIAÇÃO:**
 
-    Neste exemplo, `app-contogreat-dev-001.azurewebsites.net` .
+    1. Você disponibiliza um recurso Azure com um nome de domínio totalmente qualificado (FQDN) de `app-contogreat-dev-001.azurewebsites.net` .
 
-1. Uma entrada CNAME é adicionada ao DNS apontando para o site. 
+    1. Você atribui um registo CNAME na sua zona de DNS com o subdomínio que encaminha o `greatapp.contoso.com` tráfego para o seu recurso Azure.
 
-    Neste exemplo, foi criado o seguinte nome amigável: `greatapp.contoso.com` .
+1. **DESPROVISIONAMENTO:**
 
-1. Após alguns meses, o site já não é necessário, pelo que é apagado **sem** eliminar a entrada de DNS correspondente. 
+    1. O recurso Azure é desprovisionado ou eliminado depois de já não ser necessário. 
+    
+        Neste ponto, o registo CNAME `greatapp.contoso.com` *deve* ser removido da sua zona de DNS. Se o registo cname não for removido, é anunciado como um domínio ativo, mas não encaminha o tráfego para um recurso Azure ativo. Esta é a definição de um disco "pendente" de DNS.
 
-    A entrada do DNS CNAME está agora "pendurada".
+    1. O subdomínio `greatapp.contoso.com` pendente, está agora vulnerável e pode ser assumido ao ser atribuído a outro recurso de subscrição da Azure.
 
-1. Quase imediatamente após a apagar o site, um ator ameaça descobre o site desaparecido e cria o seu próprio website em `app-contogreat-dev-001.azurewebsites.net` .
+1. **AQUISIÇÃO:**
 
-    Agora, o tráfego destinado `greatapp.contoso.com` vai para o site Azure do ator ameaça, e o ator ameaça está no controlo do conteúdo que é exibido. 
+    1. Usando métodos e ferramentas geralmente disponíveis, um ator ameaça descobre o subdomínio pendente.  
 
-    O DNS pendente foi explorado e o subdomínio de Contoso "GreatApp" tem sido vítima da aquisição de subdomínios. 
+    1. O ator ameaça fornece um recurso Azure com o mesmo FQDN do recurso que você previamente controlou. Neste exemplo, `app-contogreat-dev-001.azurewebsites.net` .
+
+    1. O tráfego enviado para o subdomínio `myapp.contoso.com` é agora encaminhado para o recurso do ator malicioso onde controlam o conteúdo.
+
+
 
 ![Aquisição de subdomínio a partir de um site desprovisionado](./media/subdomain-takeover/subdomain-takeover.png)
 
@@ -63,17 +69,85 @@ As entradas de DNS pendentes tornam possível que os atores de ameaça assumam o
 
 - **Colheita de cookies de visitantes insuspeitos** - É comum que as aplicações web exponham cookies de sessão a subdomínios (*.contoso.com), consequentemente qualquer subdomínio pode aceder a eles. Os atores de ameaça podem usar a aquisição de subdomínio para construir uma página autêntica de aparência, enganar utilizadores insuspeitos para visitá-la e colher os seus cookies (até mesmo cookies seguros). Um equívoco comum é que a utilização de certificados SSL protege o seu site, e os cookies dos seus utilizadores, de uma aquisição. No entanto, um ator ameaça pode usar o subdomínio sequestrado para solicitar e receber um certificado SSL válido. Os certificados SSL válidos concedem-lhes acesso a cookies seguros e podem aumentar ainda mais a legitimidade percebida do site malicioso.
 
-- **Campanhas de phishing** - Subdomínios de aparência autêntica podem ser usados em campanhas de phishing. Isto é verdade para sites maliciosos e também para registos MX que permitiriam que o ator ameaçasse receber e-mails dirigidos a um subdomínio legítimo de uma marca conhecida e segura.
+- **Campanhas de phishing** - Subdomínios de aparência autêntica podem ser usados em campanhas de phishing. Isto é verdade para sites maliciosos e para registos MX que permitiriam que o ator ameaçasse receber e-mails dirigidos a um subdomínio legítimo de uma marca conhecida e segura.
 
 - **Riscos adicionais** - Sites maliciosos podem ser usados para escalar em outros ataques clássicos como XSS, CSRF, BYPASS CORS, e muito mais.
 
 
 
-## <a name="preventing-dangling-dns-entries"></a>Prevenção de entradas pendentes de DNS
+## <a name="identify-dangling-dns-entries"></a>Identificar entradas de DNS pendentes
+
+Para identificar as entradas de DNS dentro da sua organização que possam estar pendentes, utilize as ferramentas PowerShell da [Microsoft"Get-DanglingDnsRecords".](https://aka.ms/DanglingDNSDomains)
+
+Esta ferramenta ajuda os clientes Azure a listar todos os domínios com um CNAME associado a um recurso Azure existente que foi criado nas suas subscrições ou inquilinos.
+
+Se as suas CNAMEs estiverem noutros serviços DNS e apontarem para os recursos da Azure, forneça as CNAMEs num ficheiro de entrada para a ferramenta.
+
+A ferramenta suporta os recursos Azure listados na tabela seguinte. A ferramenta extrai, ou toma como entradas, todas as CNAMEs do inquilino.
+
+
+| Serviço                   | Tipo                                        | FQDNproperty                               | Exemplo                         |
+|---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
+| Azure Front Door          | microsoft.network/frontdoors                | propriedades.cName                           | `abc.azurefd.net`               |
+| Armazenamento de Blobs do Azure        | microsoft.storage/storageaccounts           | propriedades.primaryEndpoints.blob           | `abc. blob.core.windows.net`    |
+| CDN do Azure                 | microsoft.cdn/perfis/pontos finais            | propriedades.hostName                        | `abc.azureedge.net`             |
+| Endereços IP públicos       | microsoft.network/publicipaddresses         | properties.dnsSettings.fqdn                | `abc.EastUs.cloudapp.azure.com` |
+| Gestor de Tráfego do Azure     | microsoft.network/trafficmanagerprofils    | properties.dnsConfig.fqdn                  | `abc.trafficmanager.net`        |
+| Instância de Contentor do Azure  | microsoft.containerinstance/containergroups | propriedades.ipAddress.fqdn                  | `abc.EastUs.azurecontainer.io`  |
+| API Management do Azure      | microsoft.apimanagement/service             | propriedades.hostnameConfigurations.hostName | `abc.azure-api.net`             |
+| Serviço de Aplicações do Azure         | microsoft.web/sites                         | propriedades.defaultName                 | `abc.azurewebsites.net`         |
+| Serviço de Aplicações Azure - Slots | microsoft.web/sites/slots                   | propriedades.defaultName                 | `abc-def.azurewebsites.net`     |
+
+
+
+### <a name="prerequisites"></a>Pré-requisitos
+
+Executar a consulta como um utilizador que tem:
+
+- pelo menos o acesso ao nível do leitor às assinaturas Azure
+- ler o acesso ao gráfico de recursos Azure
+
+Se é administrador global do inquilino da sua organização, eleve a sua conta para ter acesso a toda a subscrição da sua organização usando a orientação no [acesso elevate para gerir todas as subscrições e grupos de gestão da Azure.](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin)
+
+
+> [!TIP]
+> O Azure Resource Graph tem limites de estrangulamento e paging que deve considerar se tem um grande ambiente Azure. [Saiba mais](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) sobre trabalhar com grandes conjuntos de dados de recursos Azure. 
+> 
+> A ferramenta utiliza lotes de subscrição para evitar estas limitações.
+
+### <a name="run-the-script"></a>Executar o script
+
+Existem duas versões do script, ambas têm os mesmos parâmetros de entrada e produzem saídas semelhantes:
+
+|Script  |Informações  |
+|---------|---------|
+|**Get-DanglingDnsRecordsPsCore.ps1**    |O modo paralelo é suportado apenas na versão 7 do PowerShell e superior, caso contrário, funcionará em modo de série.|
+|**Get-DanglingDnsRecordsPsDesktop.ps1** |Suportado apenas no ambiente de trabalho/versão PowerShell inferior a 6, uma vez que este script utiliza [o Fluxo de Trabalho do Windows](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
+
+Saiba mais e baixe os scripts PowerShell do GitHub: https://aka.ms/DanglingDNSDomains .
+
+## <a name="remediate-dangling-dns-entries"></a>Remediar as entradas de DNS pendentes 
+
+Reveja as suas zonas de DNS e identifique os registos cname que estão pendentes ou foram assumidos. Se se constatar que os subdomínios estão pendurados ou foram tomados, remova as subdomínios vulneráveis e atenue os riscos com as seguintes etapas:
+
+1. Da sua zona de DNS, remova todos os registos CNAME que apontam para FQDNs de recursos que já não são a provisionados.
+
+1. Para permitir que o tráfego seja encaminhado para recursos ao seu controlo, fornecendo recursos adicionais com as FQDNs especificadas nos registos CNAME dos subdomínios pendentes.
+
+1. Reveja o seu código de aplicação para referências a subdomínios específicos e atualize quaisquer referências de subdomínios incorretas ou desatualizadas.
+
+1. Investigue se houve algum compromisso e tome medidas de acordo com os procedimentos de resposta a incidentes da sua organização. Dicas e boas práticas para investigar este assunto podem ser encontrados abaixo.
+
+    Se a sua lógica de aplicação for tal que segredos como credenciais de OAuth foram enviados para o subdomínio pendente, ou informações sensíveis à privacidade foram enviadas para os subdomínios pendentes, esses dados podem ter sido expostos a terceiros.
+
+1. Compreenda porque é que o registo cname não foi removido da sua zona de DNS quando o recurso foi desprovisionado e tome medidas para garantir que os registos dns sejam atualizados adequadamente quando os recursos Azure forem desprovisionados no futuro.
+
+
+## <a name="prevent-dangling-dns-entries"></a>Evitar entradas penduradas no DNS
 
 Garantir que a sua organização implementou processos para evitar entradas de DNS pendentes e as aquisições de subdomínios resultantes é uma parte crucial do seu programa de segurança.
 
-As medidas preventivas de que hoje dispõem estão listadas abaixo.
+Alguns serviços da Azure oferecem funcionalidades de ajuda na criação de medidas preventivas e são detalhados abaixo. Outros métodos para prevenir este problema devem ser estabelecidos através das melhores práticas da sua organização ou dos procedimentos operacionais padrão.
 
 
 ### <a name="use-azure-dns-alias-records"></a>Use registos de pseudónimos Azure DNS
@@ -122,110 +196,6 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
 
     - Mantenha um catálogo de serviços do seu nome de domínio Azure totalmente qualificado (FQDN) e dos proprietários da aplicação. Para construir o seu catálogo de serviços, execute o seguinte script de consulta de gráfico de recursos Azure. Este script projeta a informação do ponto final da FQDN dos recursos a que tem acesso e produz-os num ficheiro CSV. Se tiver acesso a todas as subscrições do seu inquilino, o script considera todas essas subscrições como mostrado no seguinte script de amostra. Para limitar os resultados a um conjunto específico de subscrições, edite o script como mostrado.
 
-        >[!IMPORTANT]
-        > **Permissões** - Executar a consulta como um utilizador que tenha acesso a todas as suas subscrições Azure. 
-        >
-        > **Limitações** - O Azure Resource Graph tem limites de estrangulamento e paging que deve considerar se tem um grande ambiente Azure. [Saiba mais](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) sobre trabalhar com grandes conjuntos de dados de recursos Azure. O seguinte script de amostra utiliza o lote de subscrição para evitar estas limitações.
-
-        ```powershell
-        
-            # Fetch the full array of subscription IDs.
-            $subscriptions = Get-AzSubscription
-
-            $subscriptionIds = $subscriptions.Id
-                    # Output file path and names
-                    $date = get-date
-                    $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
-                    $fdate #log to console
-                    $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
-                    $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
-                    $fpath = $rpath + $rname
-                    $fpath #This is the output file of FQDN report.
-
-            # queries
-            $allTypesFqdnsQuery = "where type in ('microsoft.network/frontdoors',
-                                    'microsoft.storage/storageaccounts',
-                                    'microsoft.cdn/profiles/endpoints',
-                                    'microsoft.network/publicipaddresses',
-                                    'microsoft.network/trafficmanagerprofiles',
-                                    'microsoft.containerinstance/containergroups',
-                                    'microsoft.web/sites',
-                                    'microsoft.web/sites/slots')
-                        | extend FQDN = case(
-                            type =~ 'microsoft.network/frontdoors', properties['cName'],
-                            type =~ 'microsoft.storage/storageaccounts', parse_url(tostring(properties['primaryEndpoints']['blob'])).Host,
-                            type =~ 'microsoft.cdn/profiles/endpoints', properties['hostName'],
-                            type =~ 'microsoft.network/publicipaddresses', properties['dnsSettings']['fqdn'],
-                            type =~ 'microsoft.network/trafficmanagerprofiles', properties['dnsConfig']['fqdn'],
-                            type =~ 'microsoft.containerinstance/containergroups', properties['ipAddress']['fqdn'],
-                            type =~ 'microsoft.web/sites', properties['defaultHostName'],
-                            type =~ 'microsoft.web/sites/slots', properties['defaultHostName'],
-                            '')
-                        | project id, type, name, FQDN
-                        | where isnotempty(FQDN)";
-
-            $apiManagementFqdnsQuery = "where type =~ 'microsoft.apimanagement/service'
-                        | project id, type, name,
-                            gatewayUrl=parse_url(tostring(properties['gatewayUrl'])).Host,
-                            portalUrl =parse_url(tostring(properties['portalUrl'])).Host,
-                            developerPortalUrl = parse_url(tostring(properties['developerPortalUrl'])).Host,
-                            managementApiUrl = parse_url(tostring(properties['managementApiUrl'])).Host,
-                            gatewayRegionalUrl = parse_url(tostring(properties['gatewayRegionalUrl'])).Host,
-                            scmUrl = parse_url(tostring(properties['scmUrl'])).Host,
-                            additionaLocs = properties['additionalLocations']
-                        | mvexpand additionaLocs
-                        | extend additionalPropRegionalUrl = tostring(parse_url(tostring(additionaLocs['gatewayRegionalUrl'])).Host)
-                        | project id, type, name, FQDN = pack_array(gatewayUrl, portalUrl, developerPortalUrl, managementApiUrl, gatewayRegionalUrl, scmUrl,             
-                            additionalPropRegionalUrl)
-                        | mvexpand FQDN
-                        | where isnotempty(FQDN)";
-
-            $queries = @($allTypesFqdnsQuery, $apiManagementFqdnsQuery);
-
-            # Paging helper cursor
-            $Skip = 0;
-            $First = 1000;
-
-            # If you have large number of subscriptions, process them in batches of 2,000.
-            $counter = [PSCustomObject] @{ Value = 0 }
-            $batchSize = 2000
-            $response = @()
-
-            # Group the subscriptions into batches.
-            $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
-
-            foreach($query in $queries)
-            {
-                # Run the query for each subscription batch with paging.
-                foreach ($batch in $subscriptionsBatch)
-                { 
-                    $Skip = 0; #Reset after each batch.
-
-                    $response += do { Start-Sleep -Milliseconds 500;   if ($Skip -eq 0) {$y = Search-AzGraph -Query $query -First $First -Subscription $batch.Group ; } `
-                    else {$y = Search-AzGraph -Query $query -Skip $Skip -First $First -Subscription $batch.Group } `
-                    $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
-                }
-            }
-
-            # View the completed results of the query on all subscriptions
-            $response | Export-Csv -Path $fpath -Append  
-
-        ```
-
-        Lista de tipos e seus `FQDNProperty` valores conforme especificado na consulta de gráfico de recurso anterior:
-
-        |Nome do recurso  | `<ResourceType>`  | `<FQDNproperty>`  |
-        |---------|---------|---------|
-        |Azure Front Door|microsoft.network/frontdoors|propriedades.cName|
-        |Armazenamento de Blobs do Azure|microsoft.storage/storageaccounts|propriedades.primaryEndpoints.blob|
-        |CDN do Azure|microsoft.cdn/perfis/pontos finais|propriedades.hostName|
-        |Endereços IP públicos|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
-        |Gestor de Tráfego do Azure|microsoft.network/trafficmanagerprofils|properties.dnsConfig.fqdn|
-        |Instância de Contentor do Azure|microsoft.containerinstance/containergroups|propriedades.ipAddress.fqdn|
-        |Gestão de API do Azure|microsoft.apimanagement/service|propriedades.hostnameConfigurations.hostName|
-        |Serviço de Aplicações do Azure|microsoft.web/sites|propriedades.defaultName|
-        |Serviço de Aplicações Azure - Slots|microsoft.web/sites/slots|propriedades.defaultName|
-
 
 - **Criar procedimentos de reparação:**
     - Quando forem encontradas entradas de DNS pendentes, a sua equipa precisa de investigar se houve algum compromisso.
@@ -233,7 +203,7 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
     - Elimine o registo DNS se já não estiver em uso, ou aponte-o para o recurso Azure (FQDN) de propriedade da sua organização.
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre serviços relacionados e funcionalidades Azure que pode usar para se defender contra a aquisição de subdomínios, consulte as páginas seguintes.
 

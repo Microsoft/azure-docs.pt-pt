@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 015feac819467cf60bfb2faab27af769fadc3cfa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522878"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484957"
 ---
 # <a name="data-access-strategies"></a>Estratégias de acesso a dados
 
@@ -47,19 +47,19 @@ Isto deve funcionar em muitos cenários, e nós entendemos que um endereço IP e
 Para obter mais informações sobre mecanismos de segurança de rede suportados nas lojas de dados em Azure Integration Runtime e Self-hosted Integration Runtime, consulte abaixo de duas tabelas.  
 * **Tempo de execução da integração Azure**
 
-    | Arquivos de Dados                  | Mecanismo de Segurança da Rede Suportado nas Lojas de Dados | Ligação Privada     | Serviço de Confiança     | Gama IP estática | Etiquetas de Serviço | Permitir serviços Azure |
+    | Arquivos de Dados                  | Mecanismo de Segurança da Rede Suportado nas Lojas de Dados | Private Link     | Serviço de Confiança     | Gama IP estática | Etiquetas de Serviço | Permitir serviços Azure |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
-    | Lojas de dados Azure PaaS       | Azure Cosmos DB                                     | Sim              | -                   | Sim             | -            | Sim                  |
+    | Lojas de dados Azure PaaS       | Azure Cosmos DB                                     | Sim              | -                   | Yes             | -            | Yes                  |
     |                              | Azure Data Explorer                                 | -                | -                   | Sim*            | Sim*         | -                    |
-    |                              | Azure Data Lake Gen1                                | -                | -                   | Sim             | -            | Sim                  |
-    |                              | Base de Dados Azure para MariaDB, MySQL, PostgreSQL       | -                | -                   | Sim             | -            | Sim                  |
-    |                              | Armazenamento de Ficheiros do Azure                                  | Sim              | -                   | Sim             | -            | .                    |
-    |                              | Armazenamento Azure (Blob, ADLS Gen2)                     | Sim              | Sim (apenas MSI auth) | Sim             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL Ml  | Sim (apenas Azure SQL DB/DW)        | -                   | Sim             | -            | Sim                  |
-    |                              | Cofre de chave Azure (para obter segredos/ cadeia de conexão) | sim      | Sim                 | Sim             | -            | -                    |
-    | Outras lojas de dados PaaS/ SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Sim             | -            | -                    |
-    | Azure laaS                   | SQL Server, Oráculo, etc.                          | -                | -                   | Sim             | Sim          | -                    |
-    | LaaS no local              | SQL Server, Oráculo, etc.                          | -                | -                   | Sim             | -            | -                    |
+    |                              | Azure Data Lake Gen1                                | -                | -                   | Yes             | -            | Yes                  |
+    |                              | Base de Dados Azure para MariaDB, MySQL, PostgreSQL       | -                | -                   | Yes             | -            | Yes                  |
+    |                              | Armazenamento de Ficheiros do Azure                                  | Yes              | -                   | Yes             | -            | .                    |
+    |                              | Armazenamento Azure (Blob, ADLS Gen2)                     | Yes              | Sim (apenas MSI auth) | Yes             | -            | .                    |
+    |                              | Azure SQL DB, Azure Synapse Analytics), SQL Ml  | Sim (apenas Azure SQL DB/DW)        | -                   | Yes             | -            | Yes                  |
+    |                              | Cofre de chave Azure (para obter segredos/ cadeia de conexão) | sim      | Yes                 | Yes             | -            | -                    |
+    | Outras lojas de dados PaaS/ SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Yes             | -            | -                    |
+    | Azure laaS                   | SQL Server, Oráculo, etc.                          | -                | -                   | Yes             | Yes          | -                    |
+    | LaaS no local              | SQL Server, Oráculo, etc.                          | -                | -                   | Yes             | -            | -                    |
     
     **Aplicável apenas quando o Azure Data Explorer é injetado em rede virtual e o intervalo IP pode ser aplicado em NSG/Firewall.* 
 
@@ -69,14 +69,14 @@ Para obter mais informações sobre mecanismos de segurança de rede suportados 
     |--------------------------------|---------------------------------------------------------------|-----------|---------------------|
     | Lojas de dados Azure PaaS       | Azure Cosmos DB                                               | Sim       | -                   |
     |                                | Azure Data Explorer                                           | -         | -                   |
-    |                                | Azure Data Lake Gen1                                          | Sim       | -                   |
-    |                                | Base de Dados Azure para MariaDB, MySQL, PostgreSQL               | Sim       | -                   |
-    |                                | Armazenamento de Ficheiros do Azure                                            | Sim       | -                   |
-    |                                | Azure Storage (Blog, ADLS Gen2)                             | Sim       | Sim (apenas MSI auth) |
-    |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL Ml          | Sim       | -                   |
-    |                                | Cofre de chave Azure (para obter segredos/ cadeia de conexão) | Sim       | Sim                 |
-    | Outras lojas de dados PaaS/ SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.              | Sim       | -                   |
-    | Azure laaS                     | SQL Server, Oráculo, etc.                                  | Sim       | -                   |
+    |                                | Azure Data Lake Gen1                                          | Yes       | -                   |
+    |                                | Base de Dados Azure para MariaDB, MySQL, PostgreSQL               | Yes       | -                   |
+    |                                | Armazenamento de Ficheiros do Azure                                            | Yes       | -                   |
+    |                                | Azure Storage (Blog, ADLS Gen2)                             | Yes       | Sim (apenas MSI auth) |
+    |                                | Azure SQL DB, Azure Synapse Analytics), SQL Ml          | Yes       | -                   |
+    |                                | Cofre de chave Azure (para obter segredos/ cadeia de conexão) | Yes       | Yes                 |
+    | Outras lojas de dados PaaS/ SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.              | Yes       | -                   |
+    | Azure laaS                     | SQL Server, Oráculo, etc.                                  | Yes       | -                   |
     | LaaS no local              | SQL Server, Oráculo, etc.                                  | Sim       | -                   |    
 
 ## <a name="next-steps"></a>Próximos passos
@@ -85,4 +85,4 @@ Para obter mais informações, consulte os seguintes artigos relacionados:
 * [Arquivos de dados suportados](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
 * [Azure Key Vault 'Serviços fidedignos'](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
 * [Azure Storage 'Trusted Microsoft Services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Identidade gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Identidade gerida para fábrica de dados](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)

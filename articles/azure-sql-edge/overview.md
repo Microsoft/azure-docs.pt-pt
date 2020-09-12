@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 20e709db9e6992f52b04934cb0f6eb65d3dcb44c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642474"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489532"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>O que é Azure SQL Edge (Preview)?
 
@@ -67,10 +67,10 @@ O Azure SQL Edge torna o desenvolvimento e manutenção de aplicações mais fá
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) - Uma aplicação gratuita de cliente descarregada para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.
 - [SQL Server Data Tools in Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/) - Uma aplicação gratuita e transferível para o cliente para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados SQL, pacotes de Serviços de Integração, modelos de dados de serviços de análise e relatórios de Serviços de Relatórios.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/) - Uma ferramenta de base de dados gratuita, transferível e transversal para o profissional de dados utilizando a família Microsoft de plataformas de dados em nuvem no Windows, macOS e Linux.
-- [Visual Studio Code](https://code.visualstudio.com/docs) - Um editor de código gratuito, transferível e de código aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure SQL Data Warehouse.
+- [Visual Studio Code](https://code.visualstudio.com/docs) - Um editor de código gratuito, transferível e de código aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure Synapse Analytics.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implementar sql edge através do portal Azure](deploy-portal.md)
 - [Machine Learning e Inteligência Artificial com SqL Edge](onnx-overview.md)

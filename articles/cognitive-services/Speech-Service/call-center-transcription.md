@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636131"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462739"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
 
@@ -60,7 +60,7 @@ Não é incomum que 35% de um apelo de apoio seja o que chamamos de tempo de nã
 
 ### <a name="translation"></a>Tradução
 
-Algumas empresas estão a experimentar o fornecimento de transcrições traduzidas de chamadas de suporte de línguas estrangeiras para que os gestores de entregas possam compreender a experiência mundial dos seus clientes. As nossas capacidades de [tradução](translation.md) são insuperáveis. Podemos traduzir áudio-a-áudio ou áudio-a-texto para um grande número de locais.
+Algumas empresas estão a experimentar o fornecimento de transcrições traduzidas de chamadas de suporte de línguas estrangeiras para que os gestores de entregas possam compreender a experiência mundial dos seus clientes. As nossas capacidades de [tradução](/azure/cognitive-services/speech-service/speech-translation) são insuperáveis. Podemos traduzir áudio-a-áudio ou áudio-a-texto para um grande número de locais.
 
 ### <a name="text-to-speech"></a>Conversão de Texto em Voz
 
@@ -70,7 +70,7 @@ A nossa latência de ponta a ponta é consideravelmente baixa para as várias te
 
 As nossas novas vozes também são indistinguíveis das vozes humanas. Podes usar as nossas vozes para dar ao teu bot a sua personalidade única.
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Pesquisar
 
 Outro fundamento da análise é identificar interações onde ocorreu um evento ou experiência específico. Isto é normalmente feito com uma de duas abordagens; ou uma pesquisa ad hoc onde o utilizador simplesmente escreve uma frase e o sistema responde, ou uma consulta mais estruturada onde um analista pode criar um conjunto de declarações lógicas que identificam um cenário numa chamada, e então cada chamada pode ser indexada contra esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade ubíqua "esta chamada deve ser registada para fins de qualidade... ". Muitas empresas querem certificar-se de que os seus agentes estão a fornecer esta isenção de responsabilidade aos clientes antes de a chamada ser realmente gravada. A maioria dos sistemas de análise tem a capacidade de tendência para os comportamentos encontrados por algoritmos de consulta/pesquisa, e este relato de tendências é, em última análise, uma das funções mais importantes de um sistema de análise. Através do [diretório de serviços cognitivos,](https://azure.microsoft.com/services/cognitive-services/directory/search/) a sua solução final-final pode ser significativamente melhorada com capacidades de indexação e pesquisa.
 

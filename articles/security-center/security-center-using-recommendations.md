@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783236"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569055"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Use Azure Security Center recommendations to enhance security (Utilizar as recomendações do Centro de Segurança do Azure para melhorar a segurança)
+
 Você pode reduzir as chances de um evento de segurança significativo configurando uma política de segurança e, em seguida, implementando as recomendações fornecidas pelo Azure Security Center. Este artigo mostra-lhe como usar políticas de segurança e recomendações no Centro de Segurança para ajudar a mitigar um ataque de segurança. 
 
 O Centro de Segurança executa automaticamente exames contínuos para analisar o estado de segurança dos seus recursos Azure. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiam através do processo de configuração dos controlos de segurança necessários. O Security Center atualiza as suas recomendações dentro de 24 horas, com as seguintes exceções:
@@ -28,7 +29,7 @@ O Centro de Segurança executa automaticamente exames contínuos para analisar o
 - As recomendações de configuração de segurança do sistema operativo são atualizadas dentro de 48 horas
 - As recomendações de endpoint protection são atualizadas dentro de 8 horas
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 Este cenário mostra-lhe como usar o Centro de Segurança para ajudar a reduzir as chances de um incidente de segurança, monitorizando as recomendações do Centro de Segurança e tomando medidas. O cenário utiliza a empresa fictícia, Contoso, e as funções apresentadas no Guia de [Planeamento e Operações](security-center-planning-and-operations-guide.md#security-roles-and-access-controls)do Centro de Segurança. Neste cenário, estamos focados nos papéis das seguintes personalidades:
 
 ![Funções de cenário](./media/security-center-using-recommendations/scenario-roles.png)
@@ -66,6 +67,11 @@ Como parte das suas atividades diárias de monitorização, Jeff assina no Azure
 6. Jeff tem inúmeros VMs virados para a Internet, e como as suas portas estão expostas, estão preocupados que um intruso possa ganhar controlo sobre os servidores. Por isso, o Jeff opta por utilizar [**o acesso vm just-in-time**](security-center-just-in-time.md).
 
 Jeff continua a mover-se através das recomendações de alta prioridade e média prioridade, e toma decisões sobre a implementação. Para cada recomendação, Jeff olha para as informações detalhadas fornecidas pelo Security Center para entender quais os recursos afetados, qual é o impacto do Secure Score, o que cada recomendação significa e passos de reparação para como mitigar cada problema.
+
+### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>Impor recomendações para evitar configurações erradas de segurança
+
+Para garantir que os utilizadores não criam recursos que impactem negativamente a pontuação de Jeff, configuram as opções De Enforce e Deny nas recomendações mais importantes para eles. Saiba mais em [Prevenir configurações erradas com recomendações de Cumprir/Negar](prevent-misconfigurations.md).
+
 
 ## <a name="conclusion"></a>Conclusão
 As recomendações de monitorização no Centro de Segurança ajudam-no a eliminar vulnerabilidades de segurança antes de ocorrer um ataque. Quando remediar recomendações, o seu Resultado Seguro e a postura de segurança das suas cargas de trabalho melhoram. O Security Center descobre automaticamente novos recursos que implementa, avalia-os contra a sua política de segurança e fornece novas recomendações para os assegurar.

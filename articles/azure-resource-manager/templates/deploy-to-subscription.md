@@ -2,13 +2,13 @@
 title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002791"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468645"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível de subscrição
 
@@ -115,7 +115,7 @@ Para cada nome de implantação, a localização é imutável. Não é possível
 
 ## <a name="deployment-scopes"></a>Âmbitos de implantação
 
-Ao implementar uma subscrição, pode direcionar a subscrição ou quaisquer grupos de recursos dentro da subscrição. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+Ao implementar uma subscrição, pode direcionar uma subscrição e quaisquer grupos de recursos dentro da subscrição. Não é possível implantar uma subscrição diferente da subscrição-alvo. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
 
 Os recursos definidos na secção de recursos do modelo são aplicados à subscrição.
 
@@ -145,7 +145,7 @@ Para direcionar um grupo de recursos dentro da subscrição, adicione uma implem
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -154,15 +154,19 @@ Para direcionar um grupo de recursos dentro da subscrição, adicione uma implem
 }
 ```
 
+Neste artigo, você pode encontrar modelos que mostram como implementar recursos para diferentes âmbitos. Para um modelo que cria um grupo de recursos e implementa uma conta de armazenamento para ele, consulte [Criar grupo de recursos e recursos](#create-resource-group-and-resources). Para um modelo que cria um grupo de recursos, aplica-lhe um bloqueio e atribui-lhe uma função para o grupo de recursos, consulte o [controlo de acesso](#access-control).
+
 ## <a name="use-template-functions"></a>Use funções de modelo
 
 Para implementações de nível de subscrição, existem algumas considerações importantes ao utilizar funções de modelo:
 
 * A função [grupo de recursos()](template-functions-resource.md#resourcegroup) **não** é suportada.
 * As funções [de referência](template-functions-resource.md#reference) e [lista são](template-functions-resource.md#list) suportadas.
-* Utilize a função [subscriçãoResourceId()](template-functions-resource.md#subscriptionresourceid) para obter o ID de recursos que são implantados ao nível da subscrição.
+* Não utilize [recursosId()](template-functions-resource.md#resourceid) para obter o ID de recursos para recursos que são implantados ao nível da subscrição.
 
-  Por exemplo, para obter o ID de recurso para uma definição de política, use:
+  Em vez disso, utilize a função [subscriçãoResourceId().](template-functions-resource.md#subscriptionresourceid)
+
+  Por exemplo, para obter o ID de recurso para uma definição de política que é implantada numa subscrição, use:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -420,7 +424,7 @@ Pode [definir](../../governance/policy/concepts/definition-structure.md) e atrib
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]
@@ -479,7 +483,7 @@ O exemplo a seguir cria um grupo de recursos, aplica-lhe um bloqueio e atribui-l
 
 :::code language="json" source="~/quickstart-templates/subscription-deployments/create-rg-lock-role-assignment/azuredeploy.json":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para um exemplo de implantação de configurações de espaço de trabalho para o Centro de Segurança Azure, consulte [deployASCwithWorkspaceSettings.jsem](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Os modelos de amostra podem ser encontrados no [GitHub.](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments)

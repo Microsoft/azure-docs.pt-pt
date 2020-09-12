@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d9200b66d51292271f546eb111f3355649318b91
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254377"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462722"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com um PersistenteVolume no seu dispositivo Azure Stack Edge
 
@@ -55,7 +55,10 @@ Está pronto para implementar uma aplicação imponente no seu dispositivo Azure
 
 ## <a name="provision-a-static-pv"></a>Provisionamento de um PV estático
 
-Para provisões estáticas de um PV, é necessário criar uma parte no seu dispositivo. Siga estes passos para providenciar um PV contra a sua parte SMB ou NFS. 
+Para provisões estáticas de um PV, é necessário criar uma parte no seu dispositivo. Siga estes passos para providenciar um PV contra a sua parte SMB. 
+
+> [!NOTE]
+> O exemplo específico utilizado neste artigo de como fazer não funciona com ações da NFS. Em geral, as ações NFS podem ser acumuedadas no seu dispositivo Azure Stack Edge com aplicações não-base de dados.
 
 1. Escolha se deseja criar uma partilha Edge ou uma participação local edge. Siga as instruções em [Adicionar uma partilha](azure-stack-edge-manage-shares.md#add-a-share) para criar uma partilha. Certifique-se de selecionar a caixa de verificação para **utilizar a partilha com o cálculo Edge**.
 
@@ -71,7 +74,7 @@ Para provisões estáticas de um PV, é necessário criar uma parte no seu dispo
 
         ![Monte a quota local existente para PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. Tome nota do nome da partilha. Quando esta partilha é criada, um objeto de volume persistente é automaticamente criado no cluster Kubernetes correspondente ao SMB ou NFS partilha-o. 
+1. Tome nota do nome da partilha. Quando esta partilha é criada, um objeto de volume persistente é automaticamente criado no cluster Kubernetes correspondente à partilha SMB que criou. 
 
 ## <a name="deploy-mysql"></a>Implementar o MySQL
 
@@ -147,7 +150,7 @@ Todos os `kubectl` comandos que utiliza para criar e gerir implementações de a
               claimName: mysql-pv-claim
     ```
     
-2. Copie e guarde como `mysql-pv.yml` ficheiro para a mesma pasta onde guardou o `mysql-deployment.yml` . Para utilizar a partilha SMB ou NFS que criou `kubectl` anteriormente, defina o `volumeName` campo no objeto de PVC para o nome da partilha. 
+2. Copie e guarde como `mysql-pv.yml` ficheiro para a mesma pasta onde guardou o `mysql-deployment.yml` . Para utilizar a partilha SMB que criou `kubectl` anteriormente, defina o `volumeName` campo no objeto de PVC para o nome da partilha. 
 
     > [!NOTE] 
     > Certifique-se de que os ficheiros YAML têm um entalhe correto. Pode verificar com [o forto YAML](http://www.yamllint.com/) para validar e, em seguida, guardar.
@@ -158,8 +161,8 @@ Todos os `kubectl` comandos que utiliza para criar e gerir implementações de a
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
@@ -289,7 +292,6 @@ Todos os `kubectl` comandos que utiliza para criar e gerir implementações de a
 
 ## <a name="verify-mysql-is-running"></a>Verifique se o MySQL está a funcionar
 
-O ficheiro YAML anterior cria um serviço que permite a um Pod no cluster aceder à base de dados. O cluster de opções de serviço: Nenhum permite que o nome DNS do Serviço resolva diretamente o endereço IP do Pod. Isto é ideal quando você tem apenas um Pod atrás de um Serviço e você não pretende aumentar o número de Pods.
 
 Para executar um comando contra um contentor numa cápsula que está a executar o MySQL, escreva:
 
@@ -339,7 +341,7 @@ persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
 ```                                                                                         
 
-O PV já não está ligado ao PVC, uma vez que o PVC foi eliminado. Como o PV foi a provisionado quando a ação foi criada, terá de apagar a parte. Siga estes passos.
+O PV já não está ligado ao PVC, uma vez que o PVC foi eliminado. Como o PV foi a provisionado quando a ação foi criada, terá de apagar a parte. Siga estes passos:
 
 1. Desmontar a parte. No portal Azure, aceda ao seu **recurso Azure Stack Edge > Shares** e selecione e clique na partilha que pretende desmontar. Selecione **Desmonte** e confirme a operação. Espera até que a parte seja desmontada. A desmontagem liberta a parte (e, portanto, a persistentevolume associada) do cluster Kubernetes. 
 
@@ -350,6 +352,6 @@ O PV já não está ligado ao PVC, uma vez que o PVC foi eliminado. Como o PV fo
     ![Eliminar ações locais para PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/delete-edge-local-share-1.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para entender como armazenar dinamicamente, consulte [Implementar uma aplicação imponente através de um provisionamento dinâmico num dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)

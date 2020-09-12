@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 35a2be5c9f418bc423ae56c456db0062677a33c2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5e8cb5e062db5c66fc093bf67c97caba15f407a3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856120"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489124"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso de dados a um ambiente
 
@@ -120,8 +120,8 @@ Siga estes passos para conceder ao hóspede acesso a um ambiente Azure Time Seri
 
     [![O utilizador convidado seleciona o seu inquilino Azure a partir do drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia as etapas de registo de aplicações de [autenticação e autorização](time-series-insights-authentication-and-authorization.md) para o Azure Ative Directory.
 
-* Veja [o seu ambiente no Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md).
+* Veja [o seu ambiente no Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).

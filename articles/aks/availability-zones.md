@@ -4,13 +4,13 @@ description: Saiba como criar um cluster que distribui nós em zonas de disponib
 services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
-ms.date: 08/13/2020
-ms.openlocfilehash: f24351c5f77e6c00365497d5e6deeefea8271cb9
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.date: 09/04/2020
+ms.openlocfilehash: b6162249592bf470c3b8e52686abd44b813d5606
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871416"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489141"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -150,7 +150,8 @@ Name:       aks-nodepool1-28993262-vmss000004
 Temos agora dois nós adicionais nas zonas 1 e 2. Pode implementar uma aplicação composta por três réplicas. Usaremos o NGINX como exemplo:
 
 ```console
-kubectl run nginx --image=nginx --replicas=3
+kubectl create deployment nginx --image=nginx
+kubectl scale deployment nginx --replicas=3
 ```
 
 Ao visualizar nós onde as suas cápsulas estão a funcionar, vê que as cápsulas estão a correr nos nós correspondentes a três zonas de disponibilidade diferentes. Por exemplo, com o comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` numa concha bash obteria uma saída semelhante a esta:
@@ -166,7 +167,7 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 Como pode ver na saída anterior, a primeira cápsula está a funcionar no nó 0, que está localizado na zona de `eastus2-1` disponibilidade. A segunda cápsula está a funcionar no nó 2, que corresponde a `eastus2-3` , e a terceira no nó 4, em `eastus2-2` . Sem qualquer configuração adicional, a Kubernetes está a espalhar corretamente as cápsulas pelas três zonas de disponibilidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo detalhou como criar um cluster AKS que utiliza zonas de disponibilidade. Para obter mais considerações sobre clusters altamente disponíveis, consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres em AKS][best-practices-bc-dr].
 

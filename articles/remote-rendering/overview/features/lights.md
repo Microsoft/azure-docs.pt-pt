@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022151"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613651"
 ---
 # <a name="scene-lighting"></a>Iluminação da cena
 
@@ -69,6 +69,17 @@ Não há propriedades adicionais.
 ## <a name="performance-considerations"></a>Considerações de desempenho
 
 As fontes luminosas têm um impacto significativo no desempenho da renderização. Utilize-os cuidadosamente e apenas se for necessário pela aplicação. Qualquer condição de iluminação global estática, incluindo um componente direcional estático, pode ser alcançada com uma [textura de céu personalizada,](sky.md)sem custo adicional de renderização.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# Classe LightComponentBase](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [C# Classe PointLightComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [C# SpotLightComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [C# DirectionalLightComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [Classe C++ LightComponentBase](https://docs.microsoft.com/cpp/api/remote-rendering/lightcomponentbase)
+* [Classe C++ PointLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/pointlightcomponent)
+* [Classe C++ SpotLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
+* [Classe C++ DirectionalLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
 
 ## <a name="next-steps"></a>Próximos passos
 

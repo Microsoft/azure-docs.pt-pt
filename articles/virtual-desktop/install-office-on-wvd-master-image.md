@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e53d8bf8f7cb024b468983f596d3d1bd5c91ee7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1596dd8c03ba546c47429183e5d237579f1634f1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007306"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442927"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
 
@@ -56,7 +56,7 @@ Aqui está o que esta configuração de amostra XML não vai fazer:
 
 A Ferramenta de Implantação do Office contém setup.exe. Para instalar o Office, executar o seguinte comando numa linha de comando:
 
-```batch
+```cmd
 Setup.exe /configure configuration.xml
 ```
 
@@ -90,7 +90,7 @@ A amostra XML seguinte instalará o lançamento mensal do Canal Empresarial.
 
 Depois de instalar o Office, pode atualizar o comportamento padrão do Office. Executar os seguintes comandos individualmente ou num ficheiro de lote para atualizar o comportamento.
 
-```batch
+```cmd
 rem Mount the default user registry hive
 reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
 rem Must be executed with default registry hive mounted.
@@ -117,41 +117,41 @@ Eis como instalar o OneDrive no modo por máquina:
 
 1. Em primeiro lugar, crie uma localização para encenar o instalador OneDrive. Uma pasta de disco local ou a \\ \\ localização [unc] (file://unc) está bem.
 
-2. Faça o download OneDriveSetup.exe para a sua localização encenada com este link:<https://aka.ms/OneDriveWVD-Installer>
+2. Faça o download OneDriveSetup.exe para a sua localização encenada com este link: <https://aka.ms/OneDriveWVD-Installer>
 
 3. Se instalou um escritório com o OneDrive omitindo, **\<ExcludeApp ID="OneDrive" /\>** desinstale quaisquer instalações OneDrive por utilizador existentes a partir de um pedido de comando elevado executando o seguinte comando:
 
-    ```batch
+    ```cmd
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
 4. Executar este comando a partir de um pedido de comando elevado para definir o valor do registo **AllUsersInstall:**
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
 5. Executar este comando para instalar o OneDrive no modo por máquina:
 
-    ```batch
+    ```cmd
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Executar este comando para configurar o OneDrive para iniciar o início do súmis para todos os utilizadores:
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. Ativar **a conta de utilizador de configurar silenciosamente** executando o seguinte comando.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
 8. Redirecione e mova as pastas conhecidas do Windows para o OneDrive executando o seguinte comando.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
@@ -161,6 +161,6 @@ O Windows Virtual Desktop não suporta o Skype para o Negócios.
 
 Para obter ajuda na instalação do Microsoft Teams, consulte [utilizar as Equipas da Microsoft no ambiente de trabalho virtual do Windows](teams-on-wvd.md). A otimização dos meios de comunicação para equipas do Microsoft no Windows Virtual Desktop está disponível na pré-visualização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que adicionou o Office à imagem, pode continuar a personalizar a sua imagem principal de VHD. Consulte [Preparar e personalizar uma imagem master VHD](set-up-customize-master-image.md).

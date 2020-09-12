@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Configure peering'
 description: Este artigo documenta os passos para a criação e provisionamento do ExpressRoute privado e da Microsoft. Este artigo também demonstra como verificar o estado, atualizar ou eliminar os seus pares para um circuito.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
-ms.author: mialdrid
-ms.openlocfilehash: 6bcbe2bd038a3e27df86b281c51cf0a151c5b5af
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: duau
+ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542913"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395728"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar o peering de um circuito ExpressRoute
 
@@ -175,7 +175,7 @@ Pode remover a configuração de peering selecionando o ícone de eliminação, 
 ![apagar o espreitamento privado](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Próximo passo, [ligue um VNet a um circuito ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Para obter mais informações sobre o fluxo de trabalho do ExpressRoute, veja [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).

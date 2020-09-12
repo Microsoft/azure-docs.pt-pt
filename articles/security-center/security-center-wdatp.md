@@ -12,16 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089707"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569089"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada de ameaças do Microsoft Defender com Centro de Segurança Azure
 
 O Azure Security Center integra-se com [o Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) para fornecer capacidades abrangentes de Deteção e Resposta de Pontos De Final (EDR).
+
+
+## <a name="availability"></a>Disponibilidade
+
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|**Disponibilidade geral**|
+|Preços:|Escalão standard|
+|Máquinas suportadas:|![Yes](./media/icons/yes-icon.png) Máquinas Azure executando Janelas<br>![Yes](./media/icons/yes-icon.png) Máquinas Azure Arc executando janelas|
+|Funções e permissões necessárias:|Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais.<br>![No](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens públicas do Azure<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
+|||
+
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Funcionalidades ATP do Microsoft Defender no Security Center
 
@@ -55,7 +68,7 @@ Quando utiliza o Azure Security Center para monitorizar os servidores, é criado
 Uma vez configurados, não é possível alterar o local onde os seus dados são armazenados. Se precisar de mover os seus dados para outro local, contacte o Microsoft Support para redefinir o inquilino.
 
 
-## <a name="onboarding-servers-to-security-center"></a>Inclusão de servidores no Centro de Segurança 
+## <a name="onboard-servers-to-security-center"></a>Servidores a bordo do Centro de Segurança 
 
 Para servidores a bordo do Security Center, clique em **Ir ao Azure Security Center para servidores** a bordo do servidor ATP do Microsoft Defender no embarque.
 
@@ -112,7 +125,7 @@ Para gerar um alerta de teste ATP do Microsoft Defender benigno:
 
 1. A partir da janela de investigação, selecione o link para ir ao portal ATP do Microsoft Defender.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Plataformas e funcionalidades suportadas pelo Centro de Segurança do Azure](security-center-os-coverage.md)
 - [Definição de políticas de segurança no Azure Security Center](tutorial-security-policy.md): Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.

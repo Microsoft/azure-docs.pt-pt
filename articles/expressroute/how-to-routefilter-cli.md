@@ -2,18 +2,18 @@
 title: 'ExpressRoute: Filtros de rota - Microsoft peering:Azure CLI'
 description: Este artigo descreve como configurar filtros de rota para o Microsoft Peering usando O Azure CLI
 services: expressroute
-author: kumudD
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.author: kumud
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e4098d0f0e81ae2abe8146f0f8d5119173a04d8c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8fbce15b84371b7b7907deff361e2a2e706bec28
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504556"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567712"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configure filtros de rota para o estoiramento da Microsoft: Azure CLI
 
@@ -25,7 +25,7 @@ ms.locfileid: "87504556"
 
 Os filtros de rota são uma forma de consumir um subconjunto de serviços suportados através do peering da Microsoft. Os passos deste artigo ajudam-no a configurar e a gerir filtros de rota para circuitos ExpressRoute.
 
-Os serviços do Office 365, tais como Exchange Online, SharePoint Online e Skype for Business, estão acessíveis através do perscório da Microsoft. Quando o espreitamento da Microsoft é configurado num circuito ExpressRoute, todos os prefixos relacionados com estes serviços são anunciados através das sessões de BGP que são estabelecidas. Está anexado um valor da comunidade BGP a cada prefixo para identificar o serviço oferecido através do prefixo. Para obter uma lista dos valores comunitários do BGP e dos serviços a que mapeiam, consulte [as comunidades BGP.](expressroute-routing.md#bgp)
+Os serviços microsoft 365, como Exchange Online, SharePoint Online e Skype for Business, estão acessíveis através do perscíduo da Microsoft. Quando o espreitamento da Microsoft é configurado num circuito ExpressRoute, todos os prefixos relacionados com estes serviços são anunciados através das sessões de BGP que são estabelecidas. Está anexado um valor da comunidade BGP a cada prefixo para identificar o serviço oferecido através do prefixo. Para obter uma lista dos valores comunitários do BGP e dos serviços a que mapeiam, consulte [as comunidades BGP.](expressroute-routing.md#bgp)
 
 Se necessitar de conectividade a todos os serviços, um grande número de prefixos são anunciados através do BGP. Isto aumenta significativamente o tamanho das tabelas de rota mantidas pelos routers dentro da sua rede. Se planeia consumir apenas um subconjunto de serviços oferecidos através do espreitamento da Microsoft, pode reduzir o tamanho das suas tabelas de rotas de duas maneiras. Pode:
 
@@ -37,9 +37,9 @@ Se necessitar de conectividade a todos os serviços, um grande número de prefix
 
 Quando o espreguiçadeira da Microsoft está configurado no seu circuito ExpressRoute, os routers de borda da Microsoft estabelecem um par de sessões de BGP com os routers de borda (o seu ou o do seu fornecedor de conectividade). Não são anunciadas rotas à sua rede. Para ativar anúncios de rota para a sua rede, tem de associar um filtro de rota.
 
-Um filtro de rota permite-lhe identificar os serviços que deseja consumir através do peering da Microsoft do circuito do ExpressRoute. É essencialmente uma lista de permissões de todos os valores da comunidade BGP. Depois de um recurso de filtro de rota ser definido e anexado a um circuito do ExpressRoute, todos os prefixos que mapeiam para os valores da comunidade BGP são anunciados à sua rede.
+Um filtro de rota permite-lhe identificar os serviços que deseja consumir através do peering da Microsoft do circuito do ExpressRoute. É essencialmente uma lista permitida de todos os valores comunitários da BGP. Depois de um recurso de filtro de rota ser definido e anexado a um circuito do ExpressRoute, todos os prefixos que mapeiam para os valores da comunidade BGP são anunciados à sua rede.
 
-Para poder anexar filtros de rota com os serviços do Office 365, tem de ter autorização para consumir os serviços do Office 365 através do ExpressRoute. Se não estiver autorizado a consumir os serviços do Office 365 através do ExpressRoute, a operação para anexar filtros de rota falha. Para obter mais informações sobre o processo de autorização, consulte [a Azure ExpressRoute para o Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
+Para poder anexar filtros de rota com os serviços Microsoft 365, tem de ter autorização para consumir os serviços da Microsoft 365 através do ExpressRoute. Se não estiver autorizado a consumir os serviços microsoft 365 através do ExpressRoute, a operação para anexar filtros de rota falha. Para obter mais informações sobre o processo de autorização, consulte [a Azure ExpressRoute para a Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > O perspitamento da Microsoft nos circuitos ExpressRoute que foram configurados antes de 1 de agosto de 2017 terá todos os prefixos de serviço anunciados através do olho da Microsoft, mesmo que os filtros de rota não estejam definidos. O perspitamento da Microsoft dos circuitos ExpressRoute que estejam configurados em ou depois de 1 de agosto de 2017 não terá quaisquer prefixos anunciados até que um filtro de rota seja ligado ao circuito.

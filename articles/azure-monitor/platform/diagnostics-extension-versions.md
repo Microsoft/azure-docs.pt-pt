@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9fa0fbea9a6c0e95eb9bec2795ae12e5fae36bfb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305096"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568665"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Versões e histórico de esquemas de configuração do Windows Azure Diagnostics (WAD)
 Este artigo fornece o histórico da versão da [extensão Azure Diagnostics para versões](diagnostics-extension-overview.md) de esquema do Windows (WAD) enviadas como parte do Microsoft Azure SDK.  
@@ -21,8 +21,8 @@ Este artigo fornece o histórico da versão da [extensão Azure Diagnostics para
 
 |Versão Azure SDK | Versão de extensão de diagnóstico | Modelo|  
 |------------------|-------------------------------|------|  
-|1.x               |1,0                            |plug-in|  
-|2.0 - 2.4         |1,0                            |plug-in|  
+|1.x               |1.0                            |plug-in|  
+|2.0 - 2.4         |1.0                            |plug-in|  
 |2.5               |1.2                            |extensão|  
 |2,6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
@@ -160,7 +160,7 @@ Adicionou o elemento de sumidouros e a capacidade de enviar dados de diagnóstic
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 e extensão de diagnóstico 1.3
 Para os projetos do Cloud Service no Visual Studio, foram feitas as seguintes alterações. (Estas alterações aplicam-se também às versões posteriores do Azure SDK.)
 
-* O emulador local agora suporta diagnósticos. Esta alteração significa que pode recolher dados de diagnóstico e garantir que a sua aplicação está a criar os traços certos enquanto está a desenvolver e a testar no Visual Studio. A cadeia de ligação `UseDevelopmentStorage=true` permite a recolha de dados de diagnóstico enquanto executa o seu projeto de serviço em nuvem no Estúdio Visual, utilizando o emulador de armazenamento Azure. Todos os dados de diagnóstico são recolhidos na conta de armazenamento (Armazenamento de Desenvolvimento).
+* O emulador local agora suporta diagnósticos. Esta alteração significa que pode recolher dados de diagnóstico e garantir que a sua aplicação está a criar os traços certos enquanto está a desenvolver e a testar no Visual Studio. A cadeia de ligação `UseDevelopmentStorage=true` permite a recolha de dados de diagnóstico enquanto executa o seu projeto de serviço em nuvem no Estúdio Visual, utilizando o Emulador de Armazenamento Azure. Todos os dados de diagnóstico são recolhidos na conta de armazenamento (Armazenamento de Desenvolvimento).
 * A cadeia de ligação à conta de armazenamento de diagnóstico (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) é armazenada novamente no ficheiro de configuração de serviço (.cscfg). No Azure SDK 2.5 a conta de armazenamento de diagnósticos foi especificada no ficheiro diagnostics.wadcfgx.
 
 Existem algumas diferenças notáveis entre como a cadeia de ligação funcionou em Azure SDK 2.4 e mais cedo e como funciona em Azure SDK 2.6 e mais tarde.

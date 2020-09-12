@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 62df01a02feacb8311d14e0bae7ceccb44d47a5a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 78007c9f153267b72a94dc4b4024155dee6beb88
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497663"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442995"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
@@ -25,10 +25,10 @@ ms.locfileid: "86497663"
 
 Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e a utilizá-los para construir fluxos de dados completos e orientados por dados para os seus cenários de movimento de dados e processamento de dados.
 
-## <a name="overview"></a>Descrição Geral
-Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamentos lógicos de atividades que, em conjunto, realizam uma tarefa. Por exemplo, um pipeline poderia conter um conjunto de atividades que ingerem e limpam dados de registo, e, em seguida, iniciar um fluxo de dados de mapeamento para analisar os dados do registo. O oleoduto permite-lhe gerir as atividades como um conjunto em vez de cada um individualmente. Você implanta e agenda o oleoduto em vez das atividades de forma independente.
+## <a name="overview"></a>Descrição geral
+Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que, em conjunto, executam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerem e limpam dados de registos e, em seguida, iniciam um fluxo de dados de mapeamento para analisar os dados de registo. O pipeline permite-lhe gerir as atividades como um conjunto, em vez de cada uma individualmente. Implementa e agenda o pipeline, em vez das atividades de forma independente.
 
-As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para um Azure Blob Storage. Em seguida, utilize uma atividade de fluxo de dados ou uma atividade de Caderno databricks para processar e transformar dados do armazenamento de bolhas para um pool Azure Synapse Analytics em cima do qual são construídas soluções de relatório de inteligência empresarial.
+As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para um Azure Blob Storage. Em seguida, utilize uma atividade de fluxo de dados ou uma atividade de Caderno databricks para processar e transformar dados do armazenamento de bolhas para um pool Azure Synapse Analytics em cima do qual são construídas soluções de relatório de inteligência empresarial.
 
 A Data Factory tem três agrupamentos de atividades: atividades de movimento de [dados,](copy-activity-overview.md) [atividades de transformação de dados](transform-data.md)e [atividades de controlo.](control-flow-web-activity.md) Uma atividade pode ter zero ou mais [conjuntos de dados](concepts-datasets-linked-services.md) de entrada e produzir um ou mais [conjuntos de dados](concepts-datasets-linked-services.md) de saída. O diagrama seguinte mostra a relação entre pipelines, atividades e conjuntos de dados no Data Factory:
 
@@ -57,7 +57,7 @@ Atividade de transformação de dados | Ambiente de computação
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](transform-data-using-machine-learning.md) | VM do Azure
-[Procedimento armazenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
+[Procedimento armazenado](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (anteriormente SQL Data Warehouse), ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Atividade Personalizada](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
@@ -76,7 +76,7 @@ Atividade de controlo | Descrição
 [Filtro](control-flow-filter-activity.md) | Aplique uma expressão de filtro a uma matriz de entrada
 [Para cada um](control-flow-for-each-activity.md) | A atividade ForEach define um fluxo de controlo de repetição no seu pipeline. Esta atividade é utilizada para iterar uma coleção e executa atividades especificadas em ciclo. A implementação de ciclo desta atividade é semelhante à estrutura de ciclo Foreach nas linguagens de programação.
 [Obter Metadados](control-flow-get-metadata-activity.md) | A atividade Obter Metadados pode ser utilizada para obter os metadados de quaisquer dados no Azure Data Factory.
-[Atividade Se Condição](control-flow-if-condition-activity.md) | Se Condição pode ser utilizada com base em ramos numa condição que é avaliada como verdadeira ou falsa. A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição avalia `true` e outro conjunto de atividades quando a condição avalia`false.`
+[Atividade Se Condição](control-flow-if-condition-activity.md) | Se Condição pode ser utilizada com base em ramos numa condição que é avaliada como verdadeira ou falsa. A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição avalia `true` e outro conjunto de atividades quando a condição avalia `false.`
 [Atividade de Pesquisa](control-flow-lookup-activity.md) | A atividade de Pesquisa pode ser utilizada para ler ou procurar registos/nomes de tabelas/valores em qualquer origem externa. Este resultado pode ser ainda referenciado por atividades subsequentes.
 [Variável definida](control-flow-set-variable-activity.md) | Definir o valor de uma variável existente.
 [Até a Atividade](control-flow-until-activity.md) | Implementa o ciclo Do-Until que é semelhante à estrutura de ciclo Do-Until nas linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory.
@@ -108,12 +108,12 @@ Eis como os pipelines são definidos no formato JSON:
 
 Etiqueta | Descrição | Tipo | Necessário
 --- | ----------- | ---- | --------
-name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" </li></ul> | Cadeia | Sim
-descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | Cadeia | Não
-atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Matriz | Sim
-parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
-concurrency | O número máximo de execuções simultâneas que o gasoduto pode ter. Por padrão, não há máximo. Se o limite de concordância for atingido, os gasodutos adicionais são preenchidos até que os anteriores estejam completos | Número | Não 
-anotações | Uma lista de tags associadas ao oleoduto | Matriz | Não
+name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" </li></ul> | String | Yes
+descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | String | No
+atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Matriz | Yes
+parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | No
+concurrency | O número máximo de execuções simultâneas que o gasoduto pode ter. Por padrão, não há máximo. Se o limite de concordância for atingido, os gasodutos adicionais são preenchidos até que os anteriores estejam completos | Número | No 
+anotações | Uma lista de tags associadas ao oleoduto | Matriz | No
 
 ## <a name="activity-json"></a>JSON da Atividade
 A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Existem dois tipos principais de atividades: atividades de Execução e de Controlo.
@@ -143,13 +143,13 @@ A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
 Etiqueta | Descrição | Obrigatório
 --- | ----------- | ---------
-name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" | Sim</li></ul>
-descrição | Texto que descreve para o que é utilizada a atividade | Sim
-tipo | Tipo de atividade. Consulte as atividades de [movimento de dados,](#data-movement-activities) [atividades de transformação de dados](#data-transformation-activities)e [atividades de controlo](#control-flow-activities) para diferentes tipos de atividades. | Sim
+name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" | Yes</li></ul>
+descrição | Texto que descreve para o que é utilizada a atividade | Yes
+tipo | Tipo de atividade. Consulte as atividades de [movimento de dados,](#data-movement-activities) [atividades de transformação de dados](#data-transformation-activities)e [atividades de controlo](#control-flow-activities) para diferentes tipos de atividades. | Yes
 linkedServiceName | Nome do serviço ligado utilizado pela atividade.<br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. | Sim, para Atividade do HDInsight, Atividade de Classificação do Machine Learning, Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outras.
-typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
-política | Políticas que afetam o comportamento de runtime da atividade. Esta propriedade inclui um tempo limite e um comportamento relempor. Se não for especificado, são utilizados valores predefinidos. Para obter mais informações, veja a secção [Política das atividades](#activity-policy). | Não
-dependsOn | Esta propriedade é utilizada para definir as dependências de atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency) | Não
+typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | No
+política | Políticas que afetam o comportamento de runtime da atividade. Esta propriedade inclui um tempo limite e um comportamento relempor. Se não for especificado, são utilizados valores predefinidos. Para obter mais informações, veja a secção [Política das atividades](#activity-policy). | No
+dependsOn | Esta propriedade é utilizada para definir as dependências de atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency) | No
 
 ### <a name="activity-policy"></a>Política das atividades
 As políticas afetam o comportamento de runtime de uma atividade, proporcionando opções de configuração. As políticas das Atividades só estão disponíveis para as atividades de execução.
@@ -185,8 +185,8 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
 Nome JSON | Descrição | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
 tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.
-retry | Número máximo de repetições | Integer (Número inteiro) | Não. A predefinição é 0
-retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Integer (Número inteiro) | Não. O padrão é de 30 segundos
+retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
+retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | Não. O padrão é de 30 segundos
 secureOutput | Quando definido como verdadeiro, a saída da atividade é considerada segura e não é registada para monitorização. | Booleano | Não. A predefinição é falso.
 
 ### <a name="control-activity"></a>Atividade de controlo
@@ -208,11 +208,11 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 
 Etiqueta | Descrição | Obrigatório
 --- | ----------- | --------
-name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" | Sim</li><ul>
-descrição | Texto que descreve para o que é utilizada a atividade | Sim
-tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções sobre as [atividades de movimento de dados](#data-movement-activities), as [atividades de transformação de dados](#data-transformation-activities) e as [atividades de controlo](#control-flow-activities). | Sim
-typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
-dependsOn | Esta propriedade é utilizada para definir a Dependência da Atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para mais informações, consulte [a dependência da atividade.](#activity-dependency) | Não
+name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" | Yes</li><ul>
+descrição | Texto que descreve para o que é utilizada a atividade | Yes
+tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções sobre as [atividades de movimento de dados](#data-movement-activities), as [atividades de transformação de dados](#data-transformation-activities) e as [atividades de controlo](#control-flow-activities). | Yes
+typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | No
+dependsOn | Esta propriedade é utilizada para definir a Dependência da Atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para mais informações, consulte [a dependência da atividade.](#activity-dependency) | No
 
 ### <a name="activity-dependency"></a>Dependência das atividades
 A Dependência da Atividade define como as atividades subsequentes dependem de atividades anteriores, determinando a condição de continuar a executar a próxima tarefa. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.

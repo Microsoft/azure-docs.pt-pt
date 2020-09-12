@@ -1,6 +1,6 @@
 ---
-title: Suporte Azure RTOS
-description: Saiba mais sobre o suporte da Azure RTOS no Centro de Segurança Azure para o serviço IoT.
+title: Módulo de segurança para visão geral do Azure RTOS
+description: Saiba mais sobre o Módulo de Segurança para suporte e implementação de RTOS Azure como parte do Centro de Segurança Azure para o serviço IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2020
+ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: af4579d25b94fc12f67cfc91d0f6a5af4b35c810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bcf98f503b0f0c8bf76435d9884297d5f53d65e6
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097754"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514480"
 ---
-# <a name="azure-security-center-for-iot-security-solution-for-azure-rtos"></a>Centro de Segurança Azure para Solução de Segurança IoT para Azure RTOS 
+# <a name="overview-security-module-for-azure-rtos-preview"></a>Visão geral: Módulo de segurança para Azure RTOS (pré-visualização)
 
-O módulo de segurança Azure Security Center for IoT fornece uma solução de segurança abrangente para dispositivos Azure RTOS. Azure RTOS envia com um módulo de segurança incorporado que cobre ameaças comuns em dispositivos do sistema operativo em tempo real. 
+O módulo de segurança Azure Security Center for IoT RTOS fornece uma solução de segurança abrangente para dispositivos Azure RTOS. O Azure RTOS agora envia com o Módulo de Segurança Azure IoT incorporado e fornece cobertura para ameaças comuns e potenciais atividades maliciosas em dispositivos do sistema operativo em tempo real. 
 
 ![Centro de Segurança Azure para IoT Azure RTOS](./media/architecture/azure-rtos-security-monitoring.png)
 
 
-O Azure Security Center for IoT security module with Azure RTOS support oferece as seguintes funcionalidades: 
+Módulo de Segurança para Azure RTOS oferece as seguintes funcionalidades: 
 - Deteção maliciosa de atividades de rede
 - Baseamento de comportamento personalizado e personalizado do dispositivo
 - Melhorar a higiene de segurança do dispositivo
@@ -43,20 +43,18 @@ A base permite o agrupamento de dispositivos em grupos de segurança e a defini�
 
 ### <a name="improve-your-device-security-hygiene"></a>Melhore a higiene de segurança do seu dispositivo
 
-Aproveitando a infraestrutura recomendada, o Azure Security Center for IoT fornece, obtenha conhecimento e insights sobre questões no seu ambiente que impactem e danifiquem a postura de segurança dos seus dispositivos. A postura de segurança do dispositivo IoT pode permitir que potenciais ataques tenham sucesso se forem deixados inalterados, uma vez que a segurança é sempre medida pelo elo mais fraco dentro de qualquer organização. 
+Aproveitando a infraestrutura recomendada, o Azure Security Center for IoT fornece, obtenha conhecimento e insights sobre questões no seu ambiente que impactem e danifiquem a postura de segurança dos seus dispositivos. A fraca postura de segurança do dispositivo IoT pode permitir que potenciais ataques tenham sucesso se forem deixados inalterados, uma vez que a segurança é sempre medida pelo elo mais fraco dentro de qualquer organização. 
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Começar a proteger dispositivos Azure RTOS
 
-- O Azure Security Center for IoT security module for Azure RTOS é fornecido como um download gratuito para os seus dispositivos. O Azure Security Center for IoT cloud service está disponível com um teste de 30 dias por subscrição de Azure. Descarregue o [Azure Security Center para o módulo de segurança IoT para que o Azure RTOS](https://github.com/azure-rtos/iot-security-module-preview) possa começar. 
+O Módulo de Segurança para Azure RTOS é fornecido como um download gratuito para os seus dispositivos. O Azure Security Center for IoT cloud service está disponível com um teste de 30 dias por subscrição de Azure. Descarregue o [Módulo de Segurança para Azure RTOS](https://github.com/azure-rtos/iot-security-module-preview) para começar. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, você aprendeu sobre o Azure Security Center para suporte IoT Azure RTOS. Para aprender a iniciar e ativar a sua solução de segurança no IoT Hub, consulte os seguintes artigos:
+Neste artigo, você tomou conhecimento sobre o Módulo de Segurança para o serviço Azure RTOS. Para saber mais sobre o módulo de segurança e começar, consulte os seguintes artigos:
 
-- [Pré-requisitos do serviço](service-prerequisites.md)
-- [Introdução](getting-started.md)
-- [Configurar a sua solução](quickstart-configure-your-solution.md)
-- [Ativar a segurança no IoT Hub](quickstart-onboard-iot-hub.md)
-- [Centro de Segurança Azure para FAQ IoT](resources-frequently-asked-questions.md)
-- [Alertas de segurança do Centro de Segurança do Azure para IoT](concept-security-alerts.md)
+- [Conceitos de módulo de segurança Azure RTOS IoT](concept-rtos-security-module.md)
+- [Quickstart: Módulo de segurança Azure RTOS IoT](quickstart-azure-rtos-security-module.md)
+
+

@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013593"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613730"
 ---
 # <a name="debug-rendering"></a>Composição de Depuração
 
@@ -75,7 +75,11 @@ No entanto, os efeitos fornecidos não dão qualquer introspeção detalhada à 
 * Permitir que as sobreposições de texto incorre pouco ou nada sobre a sobrecarga de desempenho.
 * Ativar o modo de estrutura de arame incorre numa sobrecarga de desempenho não trivial, embora possa variar dependendo da cena. Para cenas complexas, este modo pode fazer com que a taxa de fotogramas baixe abaixo do alvo de 60-Hz.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C++ RemoteManager::DebugRenderingSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Modos de composição](../../concepts/rendering-modes.md)
 * [Consultas de desempenho do lado do servidor](performance-queries.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114664"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468543"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implementar a Cloud Shell numa rede virtual Azure
 > [!NOTE]
@@ -45,14 +45,14 @@ Uma rede virtual define o espaço de endereço no qual uma ou mais sub-redes sã
 
 A rede virtual desejada para ser usada para cloud Shell precisa de ser identificada. Esta será geralmente uma rede virtual existente que contém recursos que gostaria de gerir ou uma rede que pares com redes que contenham os seus recursos.
 
-### <a name="subnet"></a>Subrede
+### <a name="subnet"></a>Sub-rede
 Dentro da rede virtual selecionada, uma sub-rede dedicada deve ser utilizada para recipientes Cloud Shell. Esta sub-rede é delegada no serviço Azure Container Instances (ACI).  Quando um utilizador solicita um recipiente Cloud Shell numa rede virtual, a Cloud Shell utiliza o ACI para criar um contentor que se encontra nesta sub-rede delegada.  Não podem ser criados outros recursos nesta sub-rede.
 
 ### <a name="network-profile"></a>Perfil de rede
 Um perfil de rede é um modelo de configuração de rede para recursos Azure que especifica certas propriedades de rede para o recurso.
 
 ### <a name="azure-relay"></a>Reencaminhamento do Azure
-Um [Relé Azure](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) permite dois pontos finais que não são diretamente alcançáveis para comunicar. Neste caso, é utilizado para permitir que o navegador do administrador comunique com o contentor na rede privada.
+Um [Relé Azure](../azure-relay/relay-what-is-it.md) permite dois pontos finais que não são diretamente alcançáveis para comunicar. Neste caso, é utilizado para permitir que o navegador do administrador comunique com o contentor na rede privada.
 
 A instância Azure Relay utilizada para cloud Shell pode ser configurada para controlar quais as redes que podem aceder aos recursos dos contentores: 
 - Acessível a partir da internet pública: Nesta configuração, a Cloud Shell fornece uma forma de alcançar recursos internos de outra forma a partir de fora. 
@@ -66,7 +66,7 @@ Tal como na Cloud Shell padrão, é necessária uma conta de armazenamento duran
 
 * Durante a pré-visualização, menos regiões são suportadas para Cloud Shell numa rede virtual. Atualmente, este número limita-se a: WestUS e WestCentralUS.
 
-* [A Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) não é um serviço gratuito, por favor veja os seus [preços.](https://azure.microsoft.com/pricing/details/service-bus/) No cenário Cloud Shell, uma ligação híbrida é usada para cada administrador enquanto estão a usar a Cloud Shell. A ligação será automaticamente desligada após a sessão cloud Shell estar completa.
+* [A Azure Relay](../azure-relay/relay-what-is-it.md) não é um serviço gratuito, por favor veja os seus [preços.](https://azure.microsoft.com/pricing/details/service-bus/) No cenário Cloud Shell, uma ligação híbrida é usada para cada administrador enquanto estão a usar a Cloud Shell. A ligação será automaticamente desligada após a sessão cloud Shell estar completa.
 
 ## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
@@ -113,5 +113,5 @@ Ligue-se à Cloud Shell, será solicitado com a primeira experiência de execuç
 
 ![Ilustra as definições de experiência isoladas do Cloud Shell.](media/private-vnet/vnet-settings.png)
 
-## <a name="next-steps"></a>Passos seguintes
-[Saiba mais sobre as Redes Virtuais Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+## <a name="next-steps"></a>Próximos passos
+[Saiba mais sobre as Redes Virtuais Azure](../virtual-network/virtual-networks-overview.md)

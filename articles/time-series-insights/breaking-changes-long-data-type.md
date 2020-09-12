@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: dpalled
-ms.openlocfilehash: 8d9b166d4ac9290a0389eac23f9d6882f667e1a0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 43d3e80c66d54e3f7518246f7d75c5661995578c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856108"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489039"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adicionar suporte para um longo tipo de dados em Azure Time Series Insights Gen2
 
@@ -33,7 +33,7 @@ Se for afetado por algum dos seguintes casos, faça as alterações recomendadas
 
 Se algum dos casos se aplicar a si, faça alterações no seu modelo. Atualize a Expressão série de tempo (TSX) na sua definição variável com as alterações recomendadas. Atualizar ambos:
 
-- Azure Time Series Insights TSI Explorer
+- Azure Time Series Insights Explorer
 - Qualquer cliente personalizado que use os nossos APIs
 
 Dependendo da sua solução e restrições IoT, pode não ter visibilidade nos dados enviados para o seu ambiente Azure Time Series Insights Gen2. Se não tiver a certeza se os seus dados são apenas integrais ou integrais e não,tem algumas opções:
@@ -240,6 +240,6 @@ Se for afetado pelos casos 1 a 3 e construir aplicações personalizadas, tem de
 
 Se você é um utilizador da Warm Store com um grande número de propriedades e acredita que esta mudança iria empurrar o seu ambiente sobre o limite de 1.000 propriedade Warm Store, envie um bilhete de apoio através do portal Azure e mencione esta comunicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Veja a lista completa dos tipos de [dados suportados.](concepts-supported-data-types.md)

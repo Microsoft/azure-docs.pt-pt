@@ -3,12 +3,12 @@ title: Arquitetura de aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919748"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514577"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura de aplicação do Azure Migrate
 
@@ -62,15 +62,15 @@ Os dados recolhidos pelo cliente para todos os cenários de implantação são r
 
 ## <a name="discovery-and-collection-process"></a>Processo de descoberta e recolha
 
-![Arquitetura](./media/migrate-appliance-architecture/architecture.png)
+![Arquitetura](./media/migrate-appliance-architecture/architecture1.png)
 
 O aparelho comunica com servidores/agrupamentos vCenter e hiper-V utilizando o seguinte processo.
 
 1. **Iniciar a descoberta:**
-    - Quando inicia a descoberta no aparelho Hyper-V, comunica-se com os anfitriões Hiper-V nas portas WinRM 5985 (HTTP) e 5986 (HTTPS).
+    - Quando inicia a descoberta no aparelho Hyper-V, comunica-se com os anfitriões Hiper-V na porta WinRM 5985 (HTTP).
     - Quando começa a ser descoberto no aparelho VMware, comunica-se com o servidor vCenter na porta 443 da TCP por defeito. Se o servidor vCenter ouvir numa porta diferente, pode configurá-la na aplicação web do aparelho.
 2. **Recolha metadados e dados de desempenho:**
-    - O aparelho utiliza uma sessão de Modelo de Informação Comum (CIM) para recolher dados de VM hiper-V do anfitrião Hiper-V nas portas 5985 e 5986.
+    - O aparelho utiliza uma sessão de Modelo de Informação Comum (CIM) para recolher dados de VM hiper-V do hospedeiro Hyper-V na porta 5985.
     - O aparelho comunica com a porta 443 por predefinição, para recolher dados VMware VM do servidor vCenter.
 3. **Enviar dados**: O aparelho envia os dados recolhidos para a Avaliação do Servidor Azure Migrate e para a Migração do Servidor Azure Migrar sobre a porta SSL 443. O aparelho pode ligar-se ao Azure através da internet, ou pode utilizar o ExpressRoute com o olhar público/Microsoft.
     - Para os dados de desempenho, o aparelho recolhe dados de utilização em tempo real.
@@ -81,19 +81,14 @@ O aparelho comunica com servidores/agrupamentos vCenter e hiper-V utilizando o s
     - Para a migração do servidor, o aparelho começa a recolher dados VM e replica-os ao Azure.
 4. **Avaliar e migrar:** Pode agora criar avaliações a partir dos metadados recolhidos pelo aparelho utilizando a Avaliação do Servidor Azure Migrate. Além disso, também pode começar a migrar VMware VMs usando Azure Migrate Server Migration para orquestrar a replicação de VM sem agente.
 
-
-
-
-
 ## <a name="appliance-upgrades"></a>Atualizações de aparelhos
 
 O aparelho é atualizado à medida que os agentes Azure Migrate que estão a trabalhar no aparelho são atualizados. Isto acontece automaticamente porque a atualização automática é ativada no aparelho por predefinição. Pode alterar esta definição predefinida para atualizar os agentes manualmente.
 
 Desativar a atualização automática no registo definindo a tecla HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" para 0 (DWORD).
 
- 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Reveja](migrate-appliance.md) a matriz de suporte do aparelho.
 

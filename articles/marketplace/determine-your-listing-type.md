@@ -6,24 +6,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/30/2020
-ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.date: 09/04/2020
+ms.openlocfilehash: 7acfd5e1a1b1c44a9a109bb2b8bc38c7fcc57593
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705882"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484872"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
 A opção de publicação que escolhe para a sua oferta diz-se diretamente com os requisitos de elegibilidade e com os benefícios do mercado comercial GTM. Mais importante ainda, a seleção de opção de publicação e tipo de oferta define como os utilizadores irão interagir com a sua oferta de mercado comercial.
 
-Para configurar a sua oferta, terá de compreender os seguintes conceitos principais do mercado comercial: as opções de publicação, tipos de oferta e configuração, e chamadas para a ação que regem como e onde a sua oferta é apresentada nas lojas online do mercado comercial.
+Para configurar a sua oferta, terá de compreender os seguintes conceitos principais do mercado comercial: as opções de publicação, tipos de oferta e configuração, e opções de listagem que regem como e onde a sua oferta é apresentada nas lojas online do mercado comercial.
 
 Neste artigo, vai aprender:
 
 - Como determinar a loja online apropriada para a sua solução.
-- Quais as opções de publicação e chamadas para a ação estão disponíveis em cada loja online.
+- Quais opções de publicação e de listagem estão disponíveis em cada loja online.
 - Quais os tipos de oferta disponíveis para cada opção de publicação.
 
 ## <a name="commercial-marketplace-publishing-options"></a>Opções de publicação de mercado comercial
@@ -53,37 +53,37 @@ As opções de listagem disponíveis oferecem um envolvimento diferenciado do cl
 
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|
-| **Lista** | Simples listagem da sua aplicação ou serviço que permite a um utilizador comercial do mercado solicitar-lhe a ligação com o cliente através da chamada de chamada para ação **do Contact Me.** |
-| **Avaliação** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da experiência experimental da sua solução, permitindo aos potenciais utilizadores utilizarem a sua experiência de saaS, IaaS ou Microsoft na aplicação sem custos limitados antes de comprarem. As chamadas à ação utilizadas para a opção de publicação do ensaio são **de Teste Gratuito** ou Test **Drive**. |
-| **BYOL** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da sua solução e concluir a transação financeira separadamente. Os tipos de oferta BYOL são ideais para migrações em nuvem. O call-to-action é **Get it Now**.
-| **Transação** | As ofertas transactais são vendidas através do mercado comercial. A Microsoft é responsável pela faturação e cobranças. O call-to-action é **Get it Now**.|
+| **Lista** | Simples listagem da sua aplicação ou serviço que permite a um utilizador comercial do mercado solicitar-lhe a ligação com o cliente através das opções de listagem **Contacte-me.** |
+| **Avaliação** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da experiência experimental da sua solução, permitindo aos potenciais utilizadores utilizarem a sua experiência de saaS, IaaS ou Microsoft na aplicação sem custos limitados antes de comprarem. As opções de listagem utilizadas para a opção de publicação de ensaio são **free trial** ou **test drive**. |
+| **BYOL** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da sua solução e concluir a transação financeira separadamente. Os tipos de oferta BYOL são ideais para migrações em nuvem. A opção de listagem é **Get it Now**.
+| **Transação** | As ofertas transactais são vendidas através do mercado comercial. A Microsoft é responsável pela faturação e cobranças. A opção de listagem é **Get it Now**.|
 
 > [!Note]
 > Ao utilizar a opção de publicação Da Transact, é importante compreender os preços, faturação, faturação e considerações de pagamento antes de selecionar um tipo de oferta e criar a sua oferta. Para saber mais, reveja o artigo [Capacidades de transação comercial.](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 ## <a name="selecting-an-online-store"></a>Selecionando uma loja online
 
-Cada loja online serve requisitos exclusivos do cliente e direciona audiências específicas. O seu tipo de oferta, capacidades de transação e categoria determinará onde a sua oferta será publicada. As categorias e subcategorias são mapeadas para cada loja online com base no público-alvo:
+Cada loja online atende diferentes requisitos do cliente para soluções de negócios e TI. O seu tipo de oferta, capacidades de transação e categoria determinará onde a sua oferta será publicada. As categorias e subcategorias são mapeadas para cada loja online com base no tipo de solução que publica:
 
-**O Microsoft AppSource** tem como alvo utilizadores de negócios que procuram soluções de linha de negócios ou indústria e serviços de consultoria para a Dynamics 365, Microsoft 365 e Power Platform.
+**O Microsoft AppSource** oferece soluções de negócio, como soluções da indústria e serviços de consultoria, para a Dynamics 365, Microsoft 365 e Power Platform.
 
-**O Azure Marketplace** tem como alvo profissionais de TI e desenvolvedores que procuram soluções construídas para ou no Azure, bem como serviços de consultoria que acelerem o uso do Azure.
+**O Azure Marketplace** oferece soluções de TI construídas para ou em Azure, bem como serviços de consultoria que aceleram o uso do Azure pelos seus clientes.
 
-Selecione a categoria e a subcategoria que melhor se alinham com o seu público-alvo. Por exemplo, uma firewall de aplicação web deve ser publicada no Azure Marketplace, na categoria De Segurança, uma vez que o público pretendido são profissionais de TI. Em vez disso, uma aplicação de gestão de contratos deve ser publicada para appSource na categoria Vendas, uma vez que o público pretendido são utilizadores de negócios. A seleção da categoria ou subcategoria incorreta pode resultar na publicação da sua oferta na loja online errada.
+Selecione a categoria e a subcategoria que melhor se alinham com o seu tipo de solução. Por exemplo, uma firewall de aplicação web é uma solução de TI que deve ser publicada no Azure Marketplace, na categoria De Segurança. Uma aplicação de gestão de contratos é uma solução de negócio que deve ser publicada para appSource na categoria Vendas. A seleção da categoria ou subcategoria incorreta pode resultar na publicação da sua oferta na loja online errada.
 
 ### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publicação em ambas as lojas online (só o SaaS oferece)
 
-As ofertas da SaaS podem ser publicadas no Azure Marketplace ou no AppSource. Se a sua oferta SaaS se *destinar tanto* a um público técnico (Azure Marketplace) como a um público de negócios (AppSource), selecione uma categoria e/ou uma subcategoria aplicável a cada loja online. As ofertas publicadas em ambas as lojas online devem ter uma proposta de valor que se estende a profissionais de TI *e* utilizadores de negócios.
+As ofertas da SaaS podem ser publicadas no Azure Marketplace ou no AppSource. Se a sua oferta SaaS for *simultaneamente* uma solução de TI (Azure Marketplace) e uma solução de negócio (AppSource), selecione uma categoria e/ou uma subcategoria aplicável a cada loja online. As ofertas publicadas em ambas as lojas online devem ter uma proposta de valor como solução de TI *e* uma solução de negócio.
 
 > [!IMPORTANT]
-> As ofertas do SaaS com faturação medido estão disponíveis através do Azure Marketplace e do portal Azure. As ofertas do SaaS com apenas planos privados estão disponíveis através do portal Azure.
+> As ofertas do SaaS com [faturação medido](partner-center-portal/saas-metered-billing.md) estão disponíveis através do Azure Marketplace e do portal Azure. As ofertas do SaaS com apenas planos privados estão disponíveis através do portal Azure.
 
 | Faturação medido | Plano público | Plano privado | Disponível em: |
 |---|---|---|---|
-| Yes             | Sim         | No           | Azure Marketplace e portal Azure |
+| Yes             | Yes         | No           | Azure Marketplace e portal Azure |
 | Yes             | Yes         | Yes          | Azure Marketplace e portal Azure* |
-| Sim             | Não          | Yes          | Apenas portal Azure |
-| No              | Não          | Yes          | Apenas portal Azure |
+| Yes             | No          | Yes          | Apenas portal Azure |
+| No              | No          | Yes          | Apenas portal Azure |
 
 &#42; O plano privado da oferta só estará disponível através do portal Azure
 
@@ -91,15 +91,13 @@ Por exemplo, uma oferta com faturação medido e um plano privado apenas (sem pl
 
 ### <a name="categories"></a>Categorias
 
-As categorias e subcategorias são mapeadas para cada loja online com base no público-alvo. Selecione as categorias e subcategorias que melhor se alinham com a sua oferta e o público pretendido. Pode selecionar:
+As categorias e subcategorias são mapeadas para cada loja online com base no tipo de solução. Selecione as categorias e subcategorias que melhor se alinham com a sua solução. Pode selecionar:
 
-- Pelo menos uma e até duas categorias. Tem a opção de escolher uma categoria primária e secundária.
+- Pelo menos uma e até duas categorias. Pode escolher uma categoria primária e secundária.
 - Até duas subcategorias para cada categoria primária e/ou secundária. Se não selecionar nenhuma subcategoria, a sua oferta continuará a ser detetável na categoria selecionada.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Assim que decidir uma opção de publicação, está pronto para [selecionar o tipo de oferta](./publisher-guide-by-offer-type.md) que será usado para apresentar a sua oferta.
-- Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.
-- Reveja os padrões de publicação por loja online por exemplos sobre como a sua solução mapeia para um tipo de oferta e configuração.
+- Assim que decidir uma opção de publicação, reveja o [guia de publicação por tipo de oferta](./publisher-guide-by-offer-type.md).

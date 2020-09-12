@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/13/2020
-ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/03/2020
+ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539215"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462706"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funcionalidades suportadas do Azure SQL Edge (Pré-visualização) 
 
@@ -67,12 +67,12 @@ A lista seguinte inclui o SQL Server 2019 em funcionalidades linux que não são
 | Área | Funcionalidade ou serviço não suportado |
 |-----|-----|
 | **Design de base de dados** | Em memória OLTP, e comandos DDL relacionados e funções Transact-SQL, vistas de catálogo e vistas dinâmicas de gestão. |
-| &nbsp; | `HierarchyID`tipo de dados, e comandos DDL relacionados e funções Transact-SQL, vistas de catálogo e vistas dinâmicas de gestão. |
-| &nbsp; | `Spatial`tipo de dados, e comandos DDL relacionados e funções Transact-SQL, vistas de catálogo e vistas dinâmicas de gestão. |
+| &nbsp; | `HierarchyID` tipo de dados, e comandos DDL relacionados e funções Transact-SQL, vistas de catálogo e vistas dinâmicas de gestão. |
+| &nbsp; | `Spatial` tipo de dados, e comandos DDL relacionados e funções Transact-SQL, vistas de catálogo e vistas dinâmicas de gestão. |
 | &nbsp; | Stretch DB, e comandos DDL relacionados e funções Transact-SQL, vistas de catálogo e vistas dinâmicas de gestão. |
 | &nbsp; | Índices de texto completo e pesquisa, e comandos DDL relacionados e funções Transact-SQL, vistas de catálogo e vistas dinâmicas de gestão.|
 | &nbsp; | `FileTable`, `FILESTREAM` e comandos DDL relacionados e funções Transact-SQL, vistas de catálogo e vistas dinâmicas de gestão.|
-| **Motor de Base de Dados** | A replicação. Note que pode configurar o Azure SQL Edge como um subscritor de um push topology. |
+| **Motor de base de dados** | A replicação. Note que pode configurar o Azure SQL Edge como um subscritor de um push topology. |
 | &nbsp; | A polibase. Note que pode configurar a Borda SQL do Azure como um alvo para tabelas externas na Polybase. |
 | &nbsp; | Extensibilidade linguística através de Java e Faísca. |
 | &nbsp; | Integração do Diretório Ativo. |
@@ -89,10 +89,14 @@ A lista seguinte inclui o SQL Server 2019 em funcionalidades linux que não são
 | &nbsp; | Vistas, funções e cláusulas de consulta dependentes do CLR. |
 | &nbsp; | Extensão da piscina tampão. |
 | &nbsp; | Correio da base de dados. |
+| &nbsp; | Mediador de Serviço |
+| &nbsp; | Gestão Baseada em Políticas |
+| &nbsp; | Armazém de Dados de Gestão |
+| &nbsp; | Bases de Dados Contidas |
 | **Agente do SQL Server** |  Subsistemas: CmdExec, PowerShell, Queue Reader, SSIS, SSAS e SSRS. |
 | &nbsp; | Os alertas. |
 | &nbsp; | Conseguiu reforços. |
-| **Alta Disponibilidade** | Sempre em grupos de disponibilidade.  |
+| **Elevada Disponibilidade** | Sempre em grupos de disponibilidade.  |
 | &nbsp; | Grupos básicos de disponibilidade. |
 | &nbsp; | Sempre na instância de cluster de failover. |
 | &nbsp; | Espelhamento da base de dados. |

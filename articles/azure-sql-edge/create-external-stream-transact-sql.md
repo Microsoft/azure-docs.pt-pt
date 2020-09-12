@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: d4ad11d156fd3a672e93b5e039c82d16b2aebdc3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321739"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489549"
 ---
 # <a name="create-external-stream-transact-sql"></a>CRIAR FLUXO EXTERNO (Transact-SQL)
 
@@ -27,7 +27,7 @@ A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como ent
 | Tipo de fonte de dados | Input | Saída | Descrição |
 |------------------|-------|--------|------------------|
 | Hub Azure IoT Edge | Y | Y | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| SQL Database | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
+| Base de Dados SQL | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
 | Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico kafka. O suporte kafka não está disponível para a versão ARM64 do Azure SQL Edge.|
 
 
@@ -96,7 +96,7 @@ WITH  ( <with_options> )
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
 - **LOCALIZAÇÃO**: Especifica o nome para os dados reais ou localização na fonte de dados. 
    - Para objetos de fluxo Edge Hub ou Kafka, a localização especifica o nome do tópico Edge Hub ou Kafka para ler ou escrever para.
-   - Para objetos de fluxo SQL (SQL Server, Azure SQL Database ou Azure SQL Edge) a localização especifica o nome da tabela. Se o fluxo for criado na mesma base de dados e esquema que a tabela de destino, basta o nome da tabela. Caso contrário, tem de qualificar totalmente (<database_name.schema_name.table_name) o nome da mesa.
+   - Para objetos de fluxo SQL (SQL Server, Azure SQL Database ou Azure SQL Edge) a localização especifica o nome da tabela. Se o fluxo for criado na mesma base de dados e esquema que a tabela de destino, basta o nome da tabela. Caso contrário, tem de qualificar totalmente (<database_name.schema_name.table_name) o nome da tabela.
    - Para a localização do objeto de fluxo de armazenamento Azure Blob refere-se ao padrão do caminho a utilizar dentro do recipiente blob. Para obter mais informações sobre esta funcionalidade, consulte (/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2)
 
 - **INPUT_OPTIONS**: Especifique as opções como pares de valor-chave para serviços como Kafka, IoT Edge Hub que são entradas para consultas de streaming
@@ -141,7 +141,7 @@ WITH  ( <with_options> )
   - MAXIMUM_BATCH_COUNT:  
     O número máximo de eventos enviados para a função por chamada para a função Azure - o padrão é de 100. Para a Base de Dados SQL, este número representa o número máximo de registos enviados com cada transação de inserção a granel - o padrão é de 10.000. 
     - Aplica-se a todas as saídas baseadas em SQL 
-  - STAGING_AREA: DADOS EXTERNOS OBJETO FONTE DE DADOS para Armazenamento blob A área de paragem para ingestão de dados de alto rendimento no SQL Data Warehouse 
+  - STAGING_AREA: DADOS EXTERNOS FONTE DE DADOS Objeto ao Armazenamento blob A área de paragem para ingestão de dados de alto rendimento em Azure Synapse Analytics 
     - Reservado para uso futuro. Não se aplica ao Azure SQL Edge.
 
 

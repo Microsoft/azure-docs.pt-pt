@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/06/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783659"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505102"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicações em avaliações de acesso Azure AD
 
@@ -100,22 +100,31 @@ Para mais informações, consulte [os requisitos da Licença.](access-reviews-ov
 
 1. Para especificar o que acontece após a conclusão de uma revisão, expanda a secção **de definições de conclusão após conclusão.**
 
-    ![Criar uma revisão de acesso - Após definições de conclusão](./media/create-access-review/upon-completion-settings.png)
+    ![Criar uma revisão de acesso - Após definições de conclusão](./media/create-access-review/upon-completion-settings-new.png)
 
-1. Se pretender remover automaticamente o acesso a utilizadores negados, desaprote **de Resultados para o Recurso** **ativar**. Se pretender aplicar manualmente os resultados quando a revisão estiver concluída, desave o interruptor para **Desativar**.
+2. Se pretender remover automaticamente o acesso a utilizadores negados, desaprote **de Resultados para o Recurso** **ativar**. Se pretender aplicar manualmente os resultados quando a revisão estiver concluída, desave o interruptor para **Desativar**.
 
-1. Utilize a lista **De revisores de casos não responda** para especificar o que acontece para os utilizadores que não são revistos pelo revisor dentro do período de revisão. Esta definição não afeta os utilizadores que tenham sido revistos manualmente pelos revisores. Se a decisão do revisor final for Deny, então o acesso do utilizador será removido.
+3. Utilize a lista **Se os revisores não responderem** à lista para especificar o que acontece para os utilizadores que não são revistos pelo revisor dentro do período de revisão. Esta definição não afeta os utilizadores que tenham sido revistos manualmente pelos revisores. Se a decisão do revisor final for Deny, então o acesso do utilizador será removido.
 
     - **Nenhuma alteração** - Deixe o acesso do utilizador inalterado
     - **Remover acesso** - Remover o acesso do utilizador
     - **Aprovar acesso** - Aprovar o acesso do utilizador
     - **Tome recomendações** - Tome a recomendação do sistema sobre a negação ou aprovação do acesso continuado do utilizador
 
+4. (Pré-visualização) Utilize a Ação para aplicar aos utilizadores negados para especificar o que acontece aos utilizadores convidados se forem negados.
+    - **A opção 1** removerá o acesso negado do utilizador ao grupo ou à aplicação que está a ser revista, ainda assim poderá iniciar sedus ao arrendatário. 
+    - **A opção 2** impedirá os utilizadores recusados de se inscreverem no arrendatário, independentemente de terem acesso a outros recursos. Se houve um erro ou se um administrador decidir voltar a ativar o acesso de alguém, podem fazê-lo no prazo de 30 dias após o utilizador ter sido desativado. Se não houver medidas contra os utilizadores deficientes, serão eliminadas do arrendatário.
+
+Para saber mais sobre as melhores práticas para remover utilizadores convidados que já não têm acesso a recursos na sua organização, leia o artigo intitulado [Use Azure AD Identity Governance para rever e remover utilizadores externos que já não têm acesso](access-reviews-external-users.md)a recursos.
+
+>[!NOTE]
+> A ação a aplicar aos utilizadores recusados só funciona se previamente analisar apenas um reexame aos utilizadores convidados (Ver **Criar uma ou mais avaliações de acessos** passo 8)
+
 ### <a name="advanced-settings"></a>Definições avançadas
 
 1. Para especificar definições adicionais, expanda a secção **de definições Avançadas.**
 
-    ![Criar uma revisão de acesso - Configurações avançadas](./media/create-access-review/advanced-settings-preview.png)
+    ![Criar uma revisão de acesso - Configurações avançadas](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Definir **recomendações** para **Permitir** mostrar aos revisores as recomendações do sistema baseadas nas informações de acesso do utilizador.
 
@@ -160,7 +169,7 @@ Se você atribuiu os hóspedes como revisores e eles não aceitaram o convite, e
 
 Também pode criar comentários de acesso utilizando APIs. O que faz para gerir as análises de acesso de grupos e utilizadores de aplicações no portal Azure também pode ser feito usando APIs do Microsoft Graph. Para mais informações, consulte a referência API de acesso a [Azure AD](/graph/api/resources/accessreviews-root?view=graph-rest-beta). Para obter uma amostra de código, consulte [Exemplo de recuperação de comentários de acesso a AD do Azure através do Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Rever o acesso a grupos ou aplicações](perform-access-review.md)
 - [Reveja o acesso a grupos ou aplicações](review-your-access.md)

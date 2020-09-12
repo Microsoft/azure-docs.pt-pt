@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b92bfad99c854f75c945121d352a7122d8c6db89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d5de8374f58eaf8dc83f54f05557b0a125191c34
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011604"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613712"
 ---
 # <a name="cut-planes"></a>Cortar planos
 
@@ -56,7 +56,6 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 }
 ```
 
-
 ### <a name="cutplanecomponent-properties"></a>Propriedades CutPlaneComponent
 
 As seguintes propriedades são expostas num componente de plano cortado:
@@ -69,7 +68,12 @@ As seguintes propriedades são expostas num componente de plano cortado:
 
   Se o valor alfa do *FadeColor* não for zero, os pixels perto do plano cortado desaparecerão em direção à parte RGB do FadeColor. A força do canal alfa determina se irá desaparecer completamente em direção à cor desvanecendo-se ou apenas parcialmente. *FadeLength* define sobre a distância que este desvanecimento terá lugar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# CutPlaneComponent classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [Classe C++ CutPlaneComponent](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Renderização unilateral única](single-sided-rendering.md)
 * [Consultas espaciais](spatial-queries.md)

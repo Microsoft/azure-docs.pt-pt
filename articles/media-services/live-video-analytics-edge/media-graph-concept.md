@@ -3,12 +3,12 @@ title: Conceito de gráfico de mídia - Azure
 description: Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Este artigo apresenta uma descrição detalhada do conceito de gráfico mediático.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048432"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567945"
 ---
 # <a name="media-graph"></a>Grafo do suporte de dados
 
@@ -21,7 +21,8 @@ ms.locfileid: "89048432"
 
 Um gráfico mediático permite definir de onde os meios de comunicação devem ser capturados, como deve ser processado e onde os resultados devem ser entregues. Consegue-o ligando componentes, ou nós, da maneira desejada. O diagrama abaixo fornece uma representação gráfica de um gráfico mediático.  
 
-![Uma representação gráfica de um gráfico mediático](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Grafo do suporte de dados":::
 
 Live Video Analytics on IoT Edge suporta diferentes tipos de fontes, processadores e pias.
 
@@ -39,7 +40,8 @@ Os valores para os parâmetros na topologia são especificados quando cria inst�
 
 O ciclo de vida das topologias de gráficos e das instâncias de gráfico é mostrado no diagrama de estado seguinte.
 
-![Topologia de gráficos e gráfico exemplo ciclo de vida](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Topologia de gráficos e gráfico exemplo ciclo de vida":::
 
 Começa-se por [criar uma topologia de gráficos.](direct-methods.md#graphtopologyset) Em seguida, para cada vídeo em direto que pretende processar com esta topologia, [cria-se uma instância de gráfico](direct-methods.md#graphinstanceset). 
 
@@ -88,11 +90,11 @@ O nó do processador do filtro de taxa de fotogramas permite-lhe recolher os qua
 
 #### <a name="http-extension-processor"></a>Processador de extensão HTTP
 
-O nó do processador de extensão HTTP permite-lhe ligar o seu próprio módulo IoT Edge a um gráfico de mídia. Este nó leva quadros de vídeo descodificados como a entrada, e transmite tais quadros para um ponto final HTTP REST exposto pelo seu módulo. Este nó tem a capacidade de autenticar com o ponto final REST, se necessário. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final REST. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta os formatos JPEG, PNG ou BMP.
+O nó do processador de extensão HTTP permite-lhe ligar o seu próprio módulo IoT Edge a um gráfico de mídia. Este nó leva quadros de vídeo descodificados como a entrada, e transmite tais quadros para um ponto final HTTP REST exposto pelo seu módulo. Este nó tem a capacidade de autenticar com o ponto final REST, se necessário. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final REST. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta os formatos JPEG, PNG ou BMP. Saiba mais sobre o processador [aqui.](media-graph-extension-concept.md#http-extension-processor)
 
 #### <a name="grpc-extension-processor"></a>processador de extensão gRPC
 
-O nó do processador de extensão gRPC leva quadros de vídeo descodificados como entrada, e retransmite esses quadros para um ponto final [gRPC](terminology.md#grpc) exposto pelo seu módulo. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final gRPC. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta formatos jpeg, png ou bmp.
+O nó do processador de extensão gRPC leva quadros de vídeo descodificados como entrada, e retransmite esses quadros para um ponto final [gRPC](terminology.md#grpc) exposto pelo seu módulo. O nó suporta a transferência de dados utilizando [memória partilhada](https://en.wikipedia.org/wiki/Shared_memory) ou incorporando diretamente o conteúdo no corpo de mensagens gRPC. Além disso, o nó tem um formato de imagem incorporado para dimensionamento e codificação de quadros de vídeo antes de serem retransmitidos para o ponto final gRPC. O scaler tem opções para que a relação de aspeto de imagem seja preservada, acolchoada ou esticada. O codificadores de imagem suporta formatos jpeg, png ou bmp. Saiba mais sobre o processador [aqui.](media-graph-extension-concept.md#grpc-extension-processor)
 
 #### <a name="signal-gate-processor"></a>Processador do portão de sinal  
 
@@ -124,6 +126,6 @@ Utilizando uma combinação das fontes, processadores e pias acima definidas, po
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 * [Live Video Analytics sem gravação de vídeo](analyze-live-video-concept.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para ver como pode executar a deteção de movimentos num feed de vídeo ao vivo, consulte [Quickstart: Run Live Video Analytics com o seu próprio modelo](use-your-model-quickstart.md).

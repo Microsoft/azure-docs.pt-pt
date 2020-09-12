@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009414"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568698"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop
 
@@ -39,19 +39,19 @@ As tabelas que se seguem comparam as soluções de armazenamento que o Azure Sto
 |Funcionalidades|Ficheiros do Azure|Azure NetApp Files|Direto de Espaços de Armazenamento|
 |--------|-----------|------------------|---------------------|
 |Access|Nuvem, no local e híbrido (sincronização de ficheiros Azure)|Nuvem, no local (via ExpressRoute)|Nuvem, no local|
-|Cópia de segurança|Integração de instantâneo de backup Azure|Fotos de ficheiros Azure NetApp|Integração de instantâneo de backup Azure|
+|Backup|Integração de instantâneo de backup Azure|Fotos de ficheiros Azure NetApp|Integração de instantâneo de backup Azure|
 |Segurança e conformidade|[Todos os certificados suportados pela Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO concluído|[Todos os certificados suportados pela Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Integração do Azure Active Directory|[Diretório Ativo Nativo e Serviços de Domínio do Diretório Ativo Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Serviços de domínio do diretório ativo Azure e diretório ativo nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Diretório Ativo Nativo ou Suporte de Serviços de Domínio de Diretório Ativo Azure apenas|
 
 Assim que tiver escolhido o seu método de armazenamento, consulte [os preços do Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) para obter informações sobre os nossos planos de preços.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os recipientes de perfil FSLogix, discos de perfil do utilizador e outras tecnologias de perfil de utilizador, consulte a tabela em [recipientes de perfil FSLogix e ficheiros Azure](fslogix-containers-azure-files.md).
 
 Se estiver pronto para criar os seus próprios recipientes de perfil FSLogix, iniciou-se com um destes tutoriais:
 
-- [Começando com recipientes de perfil FSLogix em ficheiros Azure no Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Começando com recipientes de perfil FSLogix em ficheiros Azure no Windows Virtual Desktop](create-file-share.md)
 - [Crie um recipiente de perfil FSLogix para uma piscina hospedeira utilizando ficheiros Azure NetApp](create-fslogix-profile-container.md)
 - As instruções em [Implementar um bloco de armazenamento de dois sentidos Servidor de ficheiro de escala direta para armazenamento UPD em Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) também se aplica quando utiliza um recipiente de perfil FSLogix em vez de um disco de perfil de utilizador
 

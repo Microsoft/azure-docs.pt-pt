@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077984"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299971"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Reveja o acesso a grupos e aplicações em avaliações de acesso a Azure AD
 
@@ -33,7 +33,7 @@ Pode iniciar o processo de Revisão de Acesso a partir do e-mail de notificaçã
 - **E-mail:**
 
 >[!IMPORTANT]
-> Pode haver atrasos na receção de e-mail e alguns casos podem demorar até 24 horas. Whitelist azure-noreply@microsoft.com para ter certeza de que está a receber todos os e-mails.
+> Pode haver atrasos na receção de e-mail e alguns casos podem demorar até 24 horas. Adicione azure-noreply@microsoft.com à sua lista de destinatários seguros para se certificar de que está a receber todos os e-mails.
 
 1. Procure um e-mail da Microsoft pedindo-lhe para rever o acesso. Aqui está um e-mail de exemplo para rever o acesso de um grupo.
 
@@ -129,7 +129,7 @@ Pode aceder à nova experiência do revisor com a interface de utilizador atuali
 ### <a name="email"></a>E-mail
 
   >[!IMPORTANT]
-> Pode haver atrasos na receção de e-mail e alguns casos podem demorar até 24 horas. Whitelist azure-noreply@microsoft.com para ter certeza de que está a receber todos os e-mails.
+> Pode haver atrasos na receção de e-mail e alguns casos podem demorar até 24 horas. Adicione azure-noreply@microsoft.com à sua lista de destinatários seguros para se certificar de que está a receber todos os e-mails.
 
    1. Procure um e-mail da Microsoft pedindo-lhe para rever o acesso. Pode ver uma mensagem de e-mail de exemplo abaixo:
 
@@ -144,7 +144,7 @@ Pode aceder à nova experiência do revisor com a interface de utilizador atuali
 
 Também pode ver os comentários de acesso pendentes utilizando o seu navegador para abrir o My Access.
 
-1. Inscreva-se no My Access emhttps://myaccess.microsoft.com/
+1. Inscreva-se no My Access em https://myaccess.microsoft.com/
 
 2. Selecione **avaliações** de Acesso do menu na barra lateral esquerda para ver uma lista de avaliações de acesso pendentes atribuídas a si.
 
@@ -206,4 +206,3 @@ Para aceitar recomendações para todos os utilizadores certifique-se de que nin
 ## <a name="next-steps"></a>Próximos passos
 
 - [Complete uma revisão de acesso de grupos ou aplicações](complete-access-review.md)
-

@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 9beb617ed8626b1fda1c9db98d626ca70ee01755
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042922"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569140"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de remediação no Centro de Segurança do Azure
 
 As recomendações dão-lhe sugestões sobre como garantir melhor os seus recursos. Implementa uma recomendação seguindo as medidas de reparação previstas na recomendação.
 
-## <a name="remediation-steps"></a>Medidas de reparação<a name="remediation-steps"></a>
+## <a name="remediation-steps"></a>Medidas de reparação <a name="remediation-steps"></a>
 
 Depois de rever todas as recomendações, decida qual delas deve remediar primeiro. Recomendamos que utilize o [impacto Secure Score](security-center-recommendations.md#monitor-recommendations) para ajudar a priorizar o que fazer primeiro.
 
@@ -65,34 +65,10 @@ Para implementar a reparação da Quick Fix:
 
 1. Uma vez concluída, aparece uma notificação informando-o se a reparação foi bem sucedida.
 
-## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Reparação rápida registação no registo de atividade<a name="activity-log"></a>
+## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Reparação rápida registação no registo de atividade <a name="activity-log"></a>
 
 A operação de remediação utiliza uma implementação de modelo ou chamada API REST PATCH para aplicar a configuração no recurso. Estas operações estão registadas no [registo de atividades do Azure](../azure-resource-manager/management/view-activity-logs.md).
 
-
-## <a name="recommendations-with-quick-fix-remediation"></a>Recomendações com reparação de Quick Fix
-
-|Recomendação|Implicação|
-|---|---|
-|A auditoria na Base de Dados SQL deve ser ativada|Esta ação permitirá a auditoria da SQL nestes servidores e nas suas bases de dados. <br>**Nota:** <ul><li>Para cada região da base de dados SQL selecionada, será criada e partilhada uma conta de armazenamento para guardar registos de auditoria por todos os servidores dessa região.</li><li>Para garantir uma auditoria adequada, não elimine ou mude o nome do grupo de recursos ou das contas de armazenamento.</li></ul>|
-|A segurança avançada dos dados deve ser ativada em SqL Managed Instance|Esta ação permitirá a SQL Advanced Data Security (ADS) nas instâncias geridas sql selecionadas. <br>**Nota:** <ul><li>Para cada região e grupo de recursos da 222CL Managed Instance selecionada, será criada e partilhada uma conta de armazenamento para a poupança de resultados da verificação por todos os casos nessa região.</li><li> A ADS é cobrada a $15 por SQL Managed Instance.</li></ul>|
-|A avaliação da vulnerabilidade deve ser ativada em casos geridos pela SQL|Esta ação permitirá a avaliação da vulnerabilidade do SQL na ocorrência gerida pelo SQL selecionado. <br>**Nota:**<ul><li>A SqL Vulnerability Assessment faz parte do pacote SQL Advanced Data Security (ADS). Se o ADS ainda não estiver ativado, será automaticamente ativado na instância gerida.</li><li>Para cada região e grupo de recursos da 222CL Managed Instance selecionada, será criada e partilhada uma conta de armazenamento para armazenar resultados de digitalização por todas as instâncias daquela região.</li><li>A ADS é cobrada a $15 por Base de Dados SQL.</li></ul>||
-|A Segurança Avançada de Dados deve ser ativada na sua Base de Dados SQL|Esta ação permitirá a Segurança Avançada de Dados (ADS) nestes servidores selecionados e nas suas bases de dados. <br>**Nota:**<ul><li>Para cada região e grupo de recursos da base de dados SQL selecionada, será criada e partilhada por todos os servidores dessa região.<</li><li>A ADS é cobrada a $15 por Base de Dados SQL.</li></ul>||
-|A Avaliação de Vulnerabilidades deve ser ativada na sua Base de Dados SQL|Esta ação permitirá a Avaliação de Vulnerabilidades SQL nestes servidores selecionados e nas suas bases de dados. <br>**Nota:**<ul><li>A SqL Vulnerability Assessment faz parte do pacote SQL Advanced Data Security (ADS). Se o ADS ainda não estiver ativado, será automaticamente ativado na Base de Dados SQL.</li><li>Para cada região e grupo de recursos da base de dados SQL selecionada, será criada e partilhada uma conta de armazenamento para armazenar resultados de digitalização por todas as instâncias dessa região.</li><li>A ADS é cobrada a $15 por Base de Dados SQL.</li></ul>||
-|A encriptação transparente de dados na Base de Dados SQL deve ser ativada|Esta ação permite a encriptação de dados transparentes da base de dados SQL (TDE) nas bases de dados selecionadas. <br>**Nota:** Por predefinição, serão utilizadas teclas TDE geridas pelo serviço.
-|A transferência segura para contas de armazenamento deve ser ativada|Esta ação atualiza a segurança da sua conta de armazenamento para permitir apenas pedidos através de ligações seguras. (HTTPS). <br>**Nota:**<ul><li>Quaisquer pedidos que utilizem HTTP serão rejeitados.</li><li>Quando estiver a utilizar o serviço de ficheiros Azure, a ligação sem encriptação falhará, incluindo cenários que utilizem SMB 2.1, SMB 3.0 sem encriptação e alguns sabores do cliente Linux SMB. Mais informações.</li></ul>|
-|A Aplicação Web só deve ser acessível em HTTPS|Esta ação irá redirecionar todo o tráfego de HTTP para HTTPS, sobre os recursos selecionados. <br>**Nota:**<ul><li>Um ponto final HTTPS que não tenha um certificado SSL aparecerá no navegador com um 'Erro de Privacidade'. Assim, os utilizadores que tenham um domínio personalizado precisam de verificar se criaram um certificado SSL.</li><li>Certifique-se de que as firewalls de pacotes e aplicações web protegem o serviço de aplicações, permita o encaminhamento de sessões HTTPS.</li></ul>|
-|A App de função só deve estar acessível através do HTTPS|Esta ação irá redirecionar todo o tráfego de HTTP para HTTPS, sobre os recursos selecionados. <br>**Nota:**<ul><li>Um ponto final HTTPS que não tenha um certificado SSL aparecerá no navegador com um 'Erro de Privacidade'. Assim, os utilizadores que tenham um domínio personalizado precisam de verificar se criaram um certificado SSL.</li><li>Certifique-se de que as firewalls de pacotes e aplicações web protegem o serviço de aplicações, permita o encaminhamento de sessões HTTPS.</li></ul>|
-|A API App só deve estar acessível em HTTPS|Esta ação irá redirecionar todo o tráfego de HTTP para HTTPS, sobre os recursos selecionados. <br>**Nota:**<ul><li>Um ponto final HTTPS que não tenha um certificado SSL aparecerá no navegador com um 'Erro de Privacidade'. Assim, os utilizadores que tenham um domínio personalizado precisam de verificar se criaram um certificado SSL.</li><li>Certifique-se de que as firewalls de pacotes e aplicações web protegem o serviço de aplicações, permita o encaminhamento de sessões HTTPS.</li></ul>|
-|Depuragem remota deve ser desligada para aplicação web|Esta ação desativa a depuração remota.|
-|Depuragem remota deve ser desligada para a App de Função|Esta ação desativa a depuração remota.|
-|Depuragem remota deve ser desligada para app API|Esta ação desativa a depuração remota.|
-|O CORS não deve permitir que todos os recursos acedam à sua Aplicação Web|Esta ação bloqueia outros domínios de aceder à sua Aplicação Web. Para permitir domínios específicos, insira-os no campo de origens permitidas (separados por vírgulas). <br>**Nota:** Deixar o campo vazio bloqueará todas as chamadas de origem cruzada.'Título de campo param: 'Origens permitidas'|
-|O CORS não deve permitir que todos os recursos acedam à sua App de Função|Esta ação bloqueia outros domínios de aceder à sua Aplicação de Função. Para permitir domínios específicos, insira-os no campo de origens permitidas (separados por vírgulas). <br>**Nota:** Deixar o campo vazio bloqueará todas as chamadas de origem cruzada.'Título de campo param: 'Origens permitidas'|
-|O CORS não deve permitir que todos os recursos acedam à sua App API|Esta ação impede que outros domínios acedam à sua Aplicação API. Para permitir domínios específicos, insira-os no campo de origens permitidas (separados por vírgulas). <br>**Nota:** Deixar o campo vazio bloqueará todas as chamadas de origem cruzada.'Título de campo param: 'Origens permitidas'|
-|O agente de monitorização deve ser ativado nas suas máquinas virtuais|Esta ação instala um agente de monitorização nas máquinas virtuais selecionadas. Selecione um espaço de trabalho para o agente se apresentar.<ul><li>Se a sua política de atualização for definida como automática, irá implementar em novas instâncias existentes.</li><li>Se a sua política de atualização estiver definida como manual e pretender instalar o agente em instâncias existentes, selecione a opção caixa de verificação. [Saiba mais](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
-|Os registos de diagnóstico no Cofre de Chaves devem ser ativados|Esta ação permite registos de diagnóstico em cofres-chave. Registos e métricas de diagnóstico são guardados no espaço de trabalho selecionado.|
-|Os registos de diagnóstico no autocarro de serviço devem ser ativados|Esta ação permite registos de diagnóstico no autocarro de serviço. Registos e métricas de diagnóstico são guardados no espaço de trabalho selecionado.|
 
 ## <a name="next-steps"></a>Próximos passos
 

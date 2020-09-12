@@ -1,18 +1,18 @@
 ---
 title: Ligue-se aos VMs do Azure no local com a Recuperação do Local de Azure
 description: Descreve como ligar-se aos VMs do Azure após a falha de passagem de instalações para Azure usando a recuperação do site Azure
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: mayg
-ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770497"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568783"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Ligue-se aos VMs Azure após a queda do local 
 
@@ -103,12 +103,12 @@ Vejamos um exemplo.
 - A Woodgrove está a usar a Recuperação do Local para replicar máquinas no local para o Azure.
 - As suas aplicações no local utilizam endereços IP codificados por código rígido, pelo que pretendem manter os mesmos endereços IP no Azure.
 - No local, as máquinas que executam as aplicações estão a funcionar em três sub-redes:
-    - 192.168.1.0/24.
+    - 192.168.1.0/24
     - 192.168.2.0/24
     - 192.168.3.0/24
 - As suas aplicações em execução em Azure estão localizadas na Rede Azure **Azure Azure** em duas sub-redes:
-- 172.16.1.0/24
-- 172.16.2.0/24.
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 Para reter os endereços, eis o que fazem.
 

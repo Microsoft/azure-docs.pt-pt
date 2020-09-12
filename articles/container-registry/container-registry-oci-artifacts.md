@@ -4,14 +4,14 @@ description: Empurre e puxe artefactos da Iniciativa de Contentores Abertos (OCI
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 08/12/2020
 ms.author: stevelas
-ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371057"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485008"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Empurre e puxe um artefacto OCI usando um registo de contentores Azure
 
@@ -54,7 +54,7 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login`usa o cliente Docker para definir um token Azure Ative Directory no `docker.config` ficheiro. O cliente Docker deve ser instalado e em execução para completar o fluxo de autenticação individual.
+> `az acr login` usa o cliente Docker para definir um token Azure Ative Directory no `docker.config` ficheiro. O cliente Docker deve ser instalado e em execução para completar o fluxo de autenticação individual.
 
 ## <a name="push-an-artifact"></a>Empurre um artefacto
 
@@ -148,6 +148,36 @@ Para remover o artefacto do seu registo de contentores Azure, utilize o comando 
 az acr repository delete \
     --name myregistry \
     --image samples/artifact:1.0
+```
+
+## <a name="example-build-docker-image-from-oci-artifact"></a>Exemplo: Construa a imagem de Docker a partir de artefactos OCI
+
+Código fonte e binários para construir uma imagem de contentor pode ser armazenado como artefactos OCI em um registo de contentores Azure. Pode referir um artefacto de origem como o contexto de construção para uma [tarefa ACR](container-registry-tasks-overview.md). Este exemplo mostra como armazenar um Dockerfile como um artefacto OCI e, em seguida, referenciar o artefacto para construir uma imagem de recipiente.
+
+Por exemplo, criar um Dockerfile de uma linha:
+
+```bash
+echo "FROM hello-world" > hello-world.dockerfile
+```
+
+Faça login no registo do contentor de destino.
+
+```azurecli
+az login
+az acr login --name myregistry
+```
+
+Crie e empurre um novo artefacto OCI para o registo de destino utilizando o `oras push` comando. Este exemplo define o tipo de mídia padrão para o artefacto.
+
+```bash
+oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+```
+
+Executar o [comando de construção az acr](/cli/azure/acr#az-acr-build) para construir a imagem do mundo da olá usando o novo artefacto como contexto de construção:
+
+```azurecli
+az acr build --registry myregistry --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/hello-world:1.0
 ```
 
 ## <a name="next-steps"></a>Próximos passos
