@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8a1c61b77ab799cead319bfaf6cfa7ebd6af431b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230338"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295410"
 ---
 # <a name="blob-snapshots"></a>Snapshots blob
 
@@ -90,25 +90,25 @@ Os seguintes cenários demonstram como os encargos acumulam-se para uma bolha de
 
 No cenário 1, a bolha de base não foi atualizada após a tomada do instantâneo, pelo que as cargas são incorridos apenas para blocos únicos 1, 2 e 3.
 
-![Diagrama 1 mostrando faturação para blocos únicos em bolha de base e instantâneo](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
+![Diagrama 1 mostrando faturação para blocos únicos em bolha de base e instantâneo.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Cenário 2
 
 No cenário 2, a bolha de base foi atualizada, mas o instantâneo não. O Bloco 3 foi atualizado, e apesar de conter os mesmos dados e o mesmo ID, não é o mesmo que o bloco 3 no instantâneo. Como resultado, a conta é cobrada por quatro blocos.
 
-![Diagrama 2 mostrando faturação para blocos únicos em blob base e instantâneo](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
+![Diagrama 2 mostrando faturação para blocos únicos em bolha de base e instantâneo.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Cenário 3
 
 No cenário 3, a bolha base foi atualizada, mas o instantâneo não. O bloco 3 foi substituído pelo bloco 4 na bolha da base, mas o instantâneo ainda reflete o bloco 3. Como resultado, a conta é cobrada por quatro blocos.
 
-![Diagrama 3 mostrando faturação para blocos únicos em bolha de base e instantâneo](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
+![Diagrama 3 mostrando faturação para blocos únicos em bolha de base e instantâneo.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Cenário 4
 
 No cenário 4, a bolha de base foi completamente atualizada e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada para todos os oito blocos únicos.
 
-![Diagrama 4 mostrando faturação para blocos únicos em bolha de base e instantâneo](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+![Diagrama 4 mostrando faturação para blocos únicos em bolha de base e instantâneo.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
 > [!TIP]
 > Evite ligar métodos que substituam toda a bolha e, em vez disso, atualize os blocos individuais para manter os custos baixos.
@@ -128,6 +128,10 @@ A tabela seguinte descreve o comportamento de faturação para uma bolha ou inst
 | Um instantâneo | O instantâneo no novo nível e a bolha de base no nível original, além de quaisquer blocos únicos em outros instantâneos. <sup>1</sup> |
 
 <sup>1</sup> Se existirem outras versões ou instantâneos anteriores que não tenham sido retirados do seu nível original, essas versões ou instantâneos são carregados com base no número de blocos únicos que contêm, como descrito em [Billing quando o nível de bolhas não foi explicitamente definido](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+O diagrama seguinte ilustra como os objetos são faturados quando uma bolha com instantâneos é movida para um nível diferente.
+
+:::image type="content" source="media/snapshots-overview/snapshot-billing-tiers.png" alt-text="Diagrama mostrando como os objetos são faturados quando uma bolha com instantâneos é explicitamente nivelada.":::
 
 Definir explicitamente o nível para uma bolha, versão ou instantâneo não pode ser desfeito. Se mover uma bolha para um novo nível e depois movê-la de volta para o seu nível original, é cobrado o comprimento total do conteúdo do objeto, mesmo que partilhe blocos com outros objetos no nível original.
 
@@ -149,7 +153,7 @@ A tabela seguinte descreve o comportamento de faturação de uma bolha que é ap
 | Se a eliminação suave e a versão macias estão ativadas | Todas as versões existentes com o comprimento total do conteúdo, independentemente do nível. |
 | Se a eliminação suave blob estiver ativada, mas a versão é desativada | Todos os instantâneos de exclusão suave existentes com todo o comprimento do conteúdo, independentemente do nível. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Versão blob](versioning-overview.md)
 - [Criar e gerir um instantâneo blob em .NET](snapshots-manage-dotnet.md)

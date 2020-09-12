@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245482"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279317"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect sync: Understanding Users, Groups e Contacts
 Existem várias razões diferentes para que você tenha várias florestas de Diretório Ativo e existem várias topologias de implantação diferentes. Os modelos comuns incluem uma implantação de recursos de conta e florestas de sincronização gal após uma fusão & aquisição. Mas mesmo que existam modelos puros, os modelos híbridos também são comuns. A configuração padrão no Azure AD Connect não assume nenhum modelo em particular, mas dependendo da forma como a correspondência do utilizador foi selecionada no guia de instalação, podem ser observados diferentes comportamentos.
@@ -39,9 +39,9 @@ Pontos importantes a ter em conta quando sincronizar grupos do Ative Directory p
 
 * O Azure AD Connect exclui grupos de segurança incorporados da sincronização do diretório.
 
-* O Azure AD Connect não suporta a sincronização [de membros do Grupo Primário](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) para a Azure AD.
+* O Azure AD Connect não suporta a sincronização [de membros do Grupo Primário](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) para a Azure AD.
 
-* O Azure AD Connect não suporta [associações](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) sincronizadas do Dynamic Distribution Group ao Azure AD.
+* O Azure AD Connect não suporta [associações](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) sincronizadas do Dynamic Distribution Group ao Azure AD.
 
 * Para sincronizar um grupo de Diretório Ativo para Azure AD como um grupo habilitado por correio:
 
@@ -76,4 +76,3 @@ Quando um objeto tiver sido exportado para Azure AD, então não é permitido mu
 ## <a name="additional-resources"></a>Recursos Adicionais
 * [Azure AD Connect Sync: Personalizar opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
-

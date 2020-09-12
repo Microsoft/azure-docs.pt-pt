@@ -3,12 +3,12 @@ title: Use Azure DevTest Labs para treinar Microsoft Docs
 description: Este artigo fornece passos detalhados que pode seguir para criar um laboratório para treino em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a4b39d104d2ffdb45c23db2ad16cc4ee4627fb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2de9550c62f04286a4f9ad42238bfefb9846477
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484150"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294854"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Use Azure DevTest Labs para treinar
 A azure DevTest Labs pode ser usado para implementar muitos cenários chave para além de dev/teste. Um desses cenários é criar um laboratório para treinar. A Azure DevTest Labs permite-lhe criar um laboratório onde pode fornecer modelos personalizados que cada estagiário pode usar para criar ambientes idênticos e isolados para treinar. Pode aplicar políticas para garantir que os ambientes de formação só estejam disponíveis para cada estagiário quando estes necessitem e contenham recursos suficientes - como máquinas virtuais - necessários para a formação. Finalmente, pode facilmente partilhar o laboratório com os estagiários, aos quais podem aceder num clique.
@@ -44,7 +44,7 @@ Neste artigo, você aprende sobre várias funcionalidades da Azure DevTest Labs 
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode branquear imagens do Azure Marketplace; disponibilizando apenas para seleção as imagens que deseja para o treino. |
+   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode permitir imagens do Azure Marketplace; disponibilizando apenas para seleção as imagens que deseja para o treino. |
    | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada pré-instalando o software de que necessita para o treino para que os formandos possam criar rapidamente um VM utilizando a imagem personalizada. |
 3. **Criar modelos reutilizáveis para máquinas de treino** 
    
@@ -91,4 +91,3 @@ Neste artigo, você aprende sobre várias funcionalidades da Azure DevTest Labs 
    | [Criar um laboratório usando um modelo de gestor de recursos](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Crie laboratórios em Azure DevTest Labs utilizando modelos de Gestor de Recursos. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

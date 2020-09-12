@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537185"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288972"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -70,8 +70,8 @@ Consulte a tabela seguinte para as portas de saída que precisa de abrir para ut
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | Ver [Use Event Hubs a partir de aplicações kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Que endereços IP preciso para a lista branca?
-Para encontrar os endereços IP certos para lista branca para as suas ligações, siga estes passos:
+### <a name="what-ip-addresses-do-i-need-to-allow"></a>Que endereços IP preciso de permitir?
+Para encontrar os endereços IP certos para adicionar à lista permitida para as suas ligações, siga estes passos:
 
 1. Executar o seguinte comando a partir de um pedido de comando: 
 
@@ -270,5 +270,5 @@ Para saber mais sobre o nosso SLA, consulte a página [De Acordos de Nível de S
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs](./event-hubs-about.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Criar um Centro de Eventos](event-hubs-create.md)
 * [Hubs de eventos Auto-insuflado](event-hubs-auto-inflate.md)

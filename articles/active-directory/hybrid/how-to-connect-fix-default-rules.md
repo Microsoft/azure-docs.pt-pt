@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359760"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279946"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras padrão modificadas no Azure AD Connect
 
@@ -89,7 +89,7 @@ Mantenha **o filtro de scoping** vazio. Isto significa que a regra se aplica a t
 
 Mantenha **as regras de junção vazias.** Isto significa que esta regra utiliza a condição de junção definida na regra padrão padrão. Esta é mais uma razão para não desativar ou eliminar a regra padrão padrão. Se não houver nenhuma condição de união, o atributo não fluirá. 
 
-Adicione transformações apropriadas para o seu atributo. Pode atribuir uma constante, para fazer um fluxo de valor constante para o seu atributo alvo. Pode utilizar o mapeamento direto entre o atributo de origem ou alvo. Ou pode usar uma expressão para o atributo. Aqui estão [várias funções de expressão](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) que pode usar.
+Adicione transformações apropriadas para o seu atributo. Pode atribuir uma constante, para fazer um fluxo de valor constante para o seu atributo alvo. Pode utilizar o mapeamento direto entre o atributo de origem ou alvo. Ou pode usar uma expressão para o atributo. Aqui estão [várias funções de expressão](./reference-connect-sync-functions-reference.md) que pode usar.
 
 #### <a name="add-an-outbound-sync-rule"></a>Adicione uma regra de sincronização de saída
 Para ligar o atributo ao directório-alvo, é necessário criar uma regra de saída. Isto significa que a fonte é o metaverso, e o alvo é o sistema ligado. Para criar uma regra de saída, lance o **Editor de Regras de Sincronização,** altere a **Direção** para **Saída**e selecione Adicionar **nova regra**. 
@@ -102,7 +102,7 @@ Tal como com a regra de entrada, podes usar a tua própria convenção de nomea�
 
 Mantenha **o filtro de scoping** e junte as **regras vazias.** Preencha a transformação como constante, direta ou expressão. 
 
-Agora sabe como fazer um novo atributo para um objeto de utilizador fluir do Ative Directory para o Azure Ative Directory. Pode utilizar estes passos para mapear qualquer atributo de qualquer objeto para fonte e alvo. Para obter mais informações, consulte [criar regras de sincronização personalizadas](how-to-connect-create-custom-sync-rule.md) e [Prepare-se para obter utilizadores](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Agora sabe como fazer um novo atributo para um objeto de utilizador fluir do Ative Directory para o Azure Ative Directory. Pode utilizar estes passos para mapear qualquer atributo de qualquer objeto para fonte e alvo. Para obter mais informações, consulte [criar regras de sincronização personalizadas](how-to-connect-create-custom-sync-rule.md) e [Prepare-se para obter utilizadores](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Sobrepor o valor de um atributo existente
 Talvez queira anular o valor de um atributo que já foi mapeado. Por exemplo, se quiser sempre definir um valor nulo a um atributo em Ad Azure, basta criar uma regra de entrada. Faça o valor `AuthoritativeNull` constante, fluir para o atributo alvo. 
@@ -194,6 +194,3 @@ Para corrigir as suas regras para alterá-las de volta para as definições pred
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições expressas](how-to-connect-install-express.md)
 - [Definições personalizadas](how-to-connect-install-custom.md)
-
-
-

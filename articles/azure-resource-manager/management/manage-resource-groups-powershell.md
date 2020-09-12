@@ -3,14 +3,14 @@ title: Gerir grupos de recursos - Azure PowerShell
 description: Utilize o Azure PowerShell para gerir os seus grupos de recursos através do Azure Resource Manager. Mostra como criar, listar e eliminar grupos de recursos.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: 8457925479e3c28e062f87dbb830969d66523ec7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9519b9a5dec898a0905310de02ef9fad3d282a65
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827081"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290536"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerir os grupos de recursos do Azure Resource Manager utilizando o Azure PowerShell
 
@@ -31,15 +31,10 @@ O grupo de recursos armazena metadados sobre os recursos. Quando especificar uma
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-O seguinte script PowerShell cria um grupo de recursos e, em seguida, mostra o grupo de recursos.
+O seguinte script PowerShell cria um grupo de recursos.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-
-Get-AzResourceGroup -Name $resourceGroupName
+New-AzResourceGroup -Name demoResourceGroup -Location westus
 ```
 
 ## <a name="list-resource-groups"></a>Grupos de recursos de lista
@@ -219,7 +214,7 @@ Para obter mais informações, consulte [exportação única e multi-recursos pa
 
 [O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber o Gestor de Recursos Azure, consulte [a visão geral do Azure Resource Manager](overview.md).
 - Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../templates/template-syntax.md).

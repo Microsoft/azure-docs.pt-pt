@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 79bf6c50c1b0b1c8454999cbefa8c933a73eae8e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267212"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289376"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
@@ -55,8 +55,8 @@ Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas
 | **FourCC**<br />Necessário | Código de vídeo Código FourCC que é reportado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1"`|
 | **Perfil** |Perfil H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Profile": "High"` |
 | **Nível** |Nível H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Level": "3.2"`|
-| **Width**<br />Necessário |Largura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Height**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **Largura**<br />Necessário |Largura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
+| **Altura**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Necessário|Numerador de aspeto de visualização de vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominador**<br />Necessário |Denominador de rácio de aspeto do visualização de vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **Taxa de fotogramas**<br />Necessário |Taxa de fotogramas de vídeo medida em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|
@@ -260,6 +260,6 @@ Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercala
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md)

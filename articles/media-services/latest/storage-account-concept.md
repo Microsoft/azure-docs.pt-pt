@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 120bd403d84f9912bd309f965f3b69306fabcc24
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267076"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291199"
 ---
 # <a name="azure-storage-accounts"></a>Contas de Armazenamento do Azure
 
@@ -70,6 +70,6 @@ Seguem-se os cenários principais que poderão resultar numa conta de Serviços 
 
 A Azure Media Services não suporta contas de armazenamento com a firewall de armazenamento Azure ou [private endpoints](../../storage/common/storage-network-security.md) ativados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber como anexar uma conta de armazenamento na sua conta de Serviços de Mídia, consulte [Criar uma conta](./create-account-howto.md).

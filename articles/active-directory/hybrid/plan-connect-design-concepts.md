@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698602"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279657"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
 O objetivo deste documento é descrever áreas que devem ser pensadas durante o desenho de implementação do Azure AD Connect. Este documento é um profundo mergulho em certas áreas e estes conceitos são brevemente descritos em outros documentos também.
@@ -119,7 +119,7 @@ Ao instalar o Azure AD Connect com o modo Personalizado, o assistente Azure AD C
 
 ![Instalação personalizada - configuração sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 | --- | --- |
 | Permitir que seja o Azure a gerir a âncora de por mim | Selecione esta opção se pretender que o Azure AD escolha o atributo por si. Se selecionar esta opção, o assistente Azure AD Connect aplica a mesma [lógica de seleção de atributos de fonte utilizada durante a instalação express](#express-installation). Semelhante à instalação Express, o assistente informa-o qual atributo foi escolhido como o atributo Âncora de Origem após a conclusão da instalação Personalizada. |
 | Um atributo específico | Selecione esta opção se pretender especificar um atributo do AD existente como o atributo sourceAnchor. |
@@ -140,7 +140,7 @@ Para mudar de objectGUID para ConsistencyGuid como o atributo Âncora de Origem:
 
 3. Insira as suas credenciais de Administrador AD Azure e clique em **Seguinte**.
 
-4. O assistente Azure AD Connect analisa o estado do atributo ms-DS-ConsistencyGuid no seu Ative Directory no local. Se o atributo não estiver configurado em nenhum objeto do diretório, o Azure AD Connect conclui que nenhuma outra aplicação está atualmente a utilizar o atributo e é segura para usá-lo como atributo Source Anchor. Clique **em seguida** para continuar.
+4. O assistente Azure AD Connect analisa o estado do atributo ms-DS-ConsistencyGuid no seu Ative Directory no local. Se o atributo não estiver configurado em nenhum objeto do diretório, o Azure AD Connect conclui que nenhuma outra aplicação está atualmente a utilizar o atributo e é segura para usá-lo como atributo Source Anchor. Clique em **Next** (Seguinte) para continuar.
 
    ![Ativar o YGuid para a implantação existente - passo 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -165,7 +165,7 @@ Durante a análise (passo 4), se o atributo estiver configurado num ou mais obje
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>Impacto na configuração da FS AD ou da federação de terceiros
 Se estiver a utilizar o Azure AD Connect para gerir a implementação de AD FS no local, o Azure AD Connect atualiza automaticamente as regras de reclamação para utilizar o mesmo atributo AD que fonteAnchor. Isto garante que a alegação ImutávelID gerada pela ADFS é consistente com os valores de origemAnchor exportados para Azure AD.
 
-Se estiver a gerir o AD FS fora do Azure AD Connect ou estiver a utilizar servidores de federação de terceiros para autenticação, deve atualizar manualmente as regras de reclamação para imutávelID alegando ser consistente com os valores de origemAnchor exportados para Azure AD como descrito na secção artigo [Modificar as regras de reclamação da AD FS](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). O assistente retorna o seguinte aviso após a conclusão da instalação:
+Se estiver a gerir o AD FS fora do Azure AD Connect ou estiver a utilizar servidores de federação de terceiros para autenticação, deve atualizar manualmente as regras de reclamação para imutávelID alegando ser consistente com os valores de origemAnchor exportados para Azure AD como descrito na secção artigo [Modificar as regras de reclamação da AD FS](./how-to-connect-fed-management.md#modclaims). O assistente retorna o seguinte aviso após a conclusão da instalação:
 
 ![Configuração da federação de terceiros](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
@@ -193,7 +193,7 @@ John é um utilizador em contoso.com. Você quer que John use o upn no local joh
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Domínios não roteáveis nas instalações e UPN para Azure AD
 Algumas organizações têm domínios não-encaminháveis, como contoso.local, ou domínios simples de rótulo único como contoso. Não é possível verificar um domínio não-encaminhável em Azure AD. O Azure AD Connect pode sincronizar apenas um domínio verificado em Azure AD. Quando cria um diretório AD Azure, cria um domínio de encaminhamento que se torna domínio predefinido para o seu AD Azure, por exemplo, contoso.onmicrosoft.com. Portanto, torna-se necessário verificar qualquer outro domínio de encaminhamento em tal cenário, caso não queira sincronizar com o domínio de onmicrosoft.com padrão.
 
-Leia [Adicione o seu nome de domínio personalizado ao Azure Ative Directory](../active-directory-domains-add-azure-portal.md) para obter mais informações sobre a adição e verificação de domínios.
+Leia [Adicione o seu nome de domínio personalizado ao Azure Ative Directory](../fundamentals/add-custom-domain.md) para obter mais informações sobre a adição e verificação de domínios.
 
 O Azure AD Connect deteta se estiver a funcionar num ambiente de domínio não roteado e avisa-o adequadamente de avançar com as definições expressas. Se estiver a operar num domínio não-encaminhável, é provável que a UPN, dos utilizadores, também tenha sufixos não-roteáveis. Por exemplo, se estiver a funcionar sob contoso.local, o Azure AD Connect sugere que utilize definições personalizadas em vez de utilizar definições expressas. Utilizando definições personalizadas, é possível especificar o atributo que deve ser usado como UPN para iniciar sação no Azure depois de os utilizadores serem sincronizados com a Azure AD.
 

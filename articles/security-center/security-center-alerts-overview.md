@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519612"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278144"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
@@ -23,7 +23,7 @@ No Centro de Segurança Azure, existem uma variedade de alertas para vários tip
 
 Os alertas de segurança são desencadeados por deteções avançadas e estão disponíveis apenas no nível padrão do Azure Security Center. Está disponível uma avaliação gratuita. Pode atualizar a partir da página **de definições & de preços.** Saiba mais sobre [os preços do Security Center.](https://azure.microsoft.com/pricing/details/security-center/)
 
-## <a name="responding-to-todays-threats"></a>Respondendo às ameaças <a name="respond-threats"> </a> de hoje
+## <a name="respond-to-todays-threats"></a>Responda às ameaças <a name="respond-threats"> </a> de hoje
 
 Nos últimos 20 anos, ocorreram alterações significativas no campo das ameaças. No passado, as empresas normalmente só tinham de se preocupar com o desfiguramento do site por parte de agressores individuais que estavam maioritariamente interessados em ver "o que podiam fazer". Os agressores de hoje são muito mais sofisticados e organizados. Têm, muitas vezes, objetivos financeiros e estratégicos específicos. Também têm mais recursos disponíveis, uma vez que podem ser financiados por Estados ou pelo crime organizado.
 
@@ -88,7 +88,7 @@ Estes esforços combinados culminam em novas e melhoradas deteções, das quais 
 
 ## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, veja:
+Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, consulte:
 
 * [Proteção contra ameaças no Centro de Segurança Azure](threat-protection.md) - Para uma breve descrição das fontes dos alertas de segurança exibidos pelo Centro de Segurança Azure 
 * **Alertas de segurança no Registo de Atividades do Azure** - Além de estarem disponíveis no portal Azure ou programáticamente, os alertas de segurança e incidentes são auditados como eventos no [Diário de Atividades do Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) Para obter mais informações sobre o esquema do evento, consulte [alertas de segurança no registo de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)

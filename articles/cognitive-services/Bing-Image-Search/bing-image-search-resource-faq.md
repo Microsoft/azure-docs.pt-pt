@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 2d919640431ce014d34372812d9c07bb84d750b2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 19c5c5280b8ff4fb997366375b4300958d694d6c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184060"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293664"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Perguntas frequentes (FAQ) sobre a API de Pesquisa de Imagem de Bing
 
@@ -35,7 +35,7 @@ Podem ocorrer os seguintes cabeçalhos em respostas da API de Pesquisa de Imagem
 
 No entanto, quando liga para a API de Pesquisa de Imagem Bing do JavaScript, as funcionalidades de segurança incorporadas do seu navegador (CORS) podem impedir-lhe de aceder aos valores destes cabeçalhos.
 
-Para obter acesso aos cabeçalhos, pode escorrê-lo através de um representante da CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
+Para obter acesso aos cabeçalhos, pode escorrê-lo através de um representante da CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que filtra cabeçalhos de resposta e os coloca disponíveis para JavaScript.
 
 É fácil instalar um proxy CORS para permitir que a nossa [aplicação tutorial](tutorial-bing-image-search-single-page-app.md) aceda aos cabeçalhos opcionais do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, insira o seguinte comando num pedido de comando.
 
@@ -62,7 +62,7 @@ Num ambiente de produção, no entanto, deve hospedar um script do lado do servi
 
 Esta abordagem também protege a sua chave API da exposição ao público, uma vez que apenas o script do lado do servidor precisa dela. O script pode usar outro método (como o remetente HTTP) para se certificar de que o pedido é autorizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A sua pergunta é sobre uma funcionalidade ou funcionalidade em falta? Considere solicitar ou votar no nosso [site user Voice](https://cognitive.uservoice.com/forums/555907-bing-search).
 

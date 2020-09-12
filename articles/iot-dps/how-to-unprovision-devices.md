@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 8a3677ba285f5b02407ca3d176979bf6c016ef9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974841"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294395"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desprovisionar dispositivos que foram previamente auto-aprovisionados 
 
@@ -57,22 +57,10 @@ Para ver uma lista de dispositivos que foram a provisionados através de um grup
 Com os grupos de inscrições, há dois cenários a considerar:
 
 - Para desprovisionar todos os dispositivos que foram aprovisionados através de um grupo de inscrições:
-  1. Desative o grupo de inscrição para a lista negra do seu certificado de assinatura. 
+  1. Desative o grupo de inscrição para não permitir o seu certificado de assinatura. 
   2. Utilize a lista de dispositivos a provisionados para que esse grupo de inscrição desative ou elimine cada dispositivo do registo de identidade do respetivo hub IoT. 
   3. Depois de desativar ou eliminar todos os dispositivos dos respetivos centros IoT, pode eliminar opcionalmente o grupo de inscrição. Esteja ciente, no entanto, que, se eliminar o grupo de inscrição e houver um grupo de inscrição habilitado para um certificado de assinatura mais alto na cadeia de certificados de um ou mais dispositivos, esses dispositivos podem reinscrever-se. 
 
 - Para desprovisionar um único dispositivo de um grupo de matrículas:
   1. Crie uma inscrição individual desativada para o seu certificado de folha (dispositivo). Isto revoga o acesso ao serviço de fornecimento para esse dispositivo, permitindo ainda o acesso a outros dispositivos que possuam o certificado de assinatura do grupo de matrícula na sua cadeia. Não elimine a inscrição individual desativada para o aparelho. Ao fazê-lo, o dispositivo irá reinscrevê-lo através do grupo de inscrição. 
   2. Utilize a lista de dispositivos a provisionados para esse grupo de inscrição para encontrar o hub IoT a que o dispositivo foi a provisionado e desativado ou eliminá-lo do registo de identidade desse centro. 
-  
-  
-
-
-
-
-
-
-
-
-
-

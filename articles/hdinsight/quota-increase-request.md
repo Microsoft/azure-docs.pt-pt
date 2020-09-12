@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 4de32bad763c0bbf0e143a7ce639efec8c9c41ae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079620"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291675"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Pedido de aumento de quota para Azure HDInsight
 
@@ -65,7 +65,7 @@ Para solicitar um aumento de quota, faça as seguintes etapas:
 1. No **separador 'Rever + criar',** selecione **Criar.**
 
 > [!NOTE]  
-> Se precisar de aumentar a quota-base HDInsight numa região privada, [apresente um pedido de lista branca](https://aka.ms/canaryintwhitelist).
+> Se precisar de aumentar a quota-base HDInsight numa região privada, [apresente um pedido de lista aprovado.](https://aka.ms/canaryintwhitelist)
 
 Pode [contactar o suporte para solicitar um aumento de quota.](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)
 

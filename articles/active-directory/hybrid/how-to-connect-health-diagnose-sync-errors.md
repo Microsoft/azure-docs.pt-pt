@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d48483697970333c542f140567ca6a6d3fcf7d2
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179152"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278688"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnose and remediate duplicated attribute sync errors (Diagnosticar e resolver erros de sincronização de atributos duplicados)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Dando um passo mais longe para destacar erros de sincronização, o Azure Ative Directory (Azure AD) Connect Health introduz a remediação do autosserviço. Resolve os problemas duplicados atribuem erros de sincronização de atributos e corrige objetos órfãos do Azure AD.
 A funcionalidade de diagnóstico tem estes benefícios:
 - Fornece um procedimento de diagnóstico que reduz os erros de sincronização de atributos duplicados. E dá correções específicas.
@@ -133,7 +133,7 @@ Após os passos anteriores, o utilizador pode aceder ao recurso original, que é
 
 ## <a name="failures-and-error-messages"></a>Falhas e mensagens de erro
 **O utilizador com atributo conflituoso é eliminado suavemente no Diretório Ativo Azure. Certifique-se de que o utilizador é duramente eliminado antes de voltar a tentar.**  
-O utilizador com atributo conflituoso no Azure AD deve ser limpo antes de poder aplicar a correção. Verifique [como eliminar o utilizador permanentemente no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de voltar a tentar a correção. O utilizador também será eliminado automaticamente permanentemente após 30 dias em estado de apagação suave. 
+O utilizador com atributo conflituoso no Azure AD deve ser limpo antes de poder aplicar a correção. Verifique [como eliminar o utilizador permanentemente no Azure AD](../fundamentals/active-directory-users-restore.md) antes de voltar a tentar a correção. O utilizador também será eliminado automaticamente permanentemente após 30 dias em estado de apagação suave. 
 
 **A atualização da âncora de origem para o utilizador baseado na nuvem no seu inquilino não é suportada.**  
 O utilizador baseado em nuvem em Azure AD não deve ter âncora de origem. Neste caso, a atualização da âncora de origem não é suportada. A correção manual é necessária a partir do local. 

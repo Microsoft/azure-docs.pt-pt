@@ -8,15 +8,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
-ms.openlocfilehash: 529d27a831945123e1d2eda225e40864a81ee18e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9ecb4e0b8a74a163632967781c84d1a110ab3a9a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89257573"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297217"
 ---
 # <a name="streaming-policies"></a>Políticas de Transmissão em Fluxo
 
@@ -83,7 +83,7 @@ Resposta:
 
 Ver [Filtragem, encomenda, paging de entidades de Serviços de Comunicação](entities-overview.md)Social.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](protect-with-aes128.md)

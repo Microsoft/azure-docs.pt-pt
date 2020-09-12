@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500d226fcb60646becc49144f206dcb0dee49bd8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60381166"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278399"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinar os requisitos de sincronização do diretório
 A sincronização tem tudo a ver com fornecer aos utilizadores uma identidade na nuvem com base na sua identidade no local. Quer utilizem ou não uma conta sincronizada para autenticação ou autenticação federada, os utilizadores ainda terão de ter uma identidade na nuvem.  Esta identidade terá de ser mantida e atualizada periodicamente.  As atualizações podem assumir muitas formas, desde alterações de títulos a alterações de palavras-passe.  
@@ -64,7 +64,7 @@ Também precisa determinar os requisitos de segurança e a sincronização do di
   * Poderá abrir as portas de firewall necessárias para suportar a sincronização?
 * Tem um plano de recuperação de desastres para o servidor de sincronização?
 * Tem uma conta com as permissões corretas para todas as florestas com as que pretende sincronizar?
-  * Se a sua empresa não sabe a resposta para esta pergunta, reveja a secção "Permissões para sincronização de passwords" no artigo [Instale o Serviço de Sincronização de Diretório Ativo Azure](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) e determine se já tem uma conta com estas permissões ou se precisa de criar uma.
+  * Se a sua empresa não sabe a resposta para esta pergunta, reveja a secção "Permissões para sincronização de passwords" no artigo [Instale o Serviço de Sincronização de Diretório Ativo Azure](/previous-versions/azure/azure-services/dn757602(v=azure.100)#BKMK_CreateAnADAccountForTheSyncService) e determine se já tem uma conta com estas permissões ou se precisa de criar uma.
 * Se tiver sincronização de floresta mutli é capaz de chegar a cada floresta?
 
 > [!NOTE]
@@ -72,9 +72,8 @@ Também precisa determinar os requisitos de segurança e a sincronização do di
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Determinar requisitos de autenticação de vários fatores](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)
-

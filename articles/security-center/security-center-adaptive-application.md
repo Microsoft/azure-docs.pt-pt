@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691484"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276767"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -76,7 +76,7 @@ Selecione a recomendação ou abra a página de controlos de aplicações adapta
     - **Recomendado** - Grupos de máquinas que executam consistentemente as mesmas aplicações, e não têm uma lista de permitis configuradas. Recomendamos que permita controlos de aplicação adaptativos para estes grupos.
     
       > [!TIP]
-      > Se vir um nome de grupo com o prefixo "REVIEWGROUP", contém máquinas com uma lista parcialmente consistente de aplicações. O Security Center não consegue ver um padrão, mas recomenda a revisão deste grupo para ver _se_ pode definir manualmente algumas regras de controlo de aplicações adaptativas, conforme descrito na [Edição da regra de controlos de aplicação adaptativa de um grupo.](#editing-a-groups-adaptive-application-controls-rule)
+      > Se vir um nome de grupo com o prefixo "REVIEWGROUP", contém máquinas com uma lista parcialmente consistente de aplicações. O Security Center não consegue ver um padrão, mas recomenda a revisão deste grupo para ver _se_ pode definir manualmente algumas regras de controlo de aplicações adaptativas, conforme descrito na [Edição da regra de controlos de aplicação adaptativa de um grupo.](#edit-a-groups-adaptive-application-controls-rule)
       >
       > Também pode mover máquinas deste grupo para outros grupos, conforme descrito no [Move uma máquina de um grupo para outro](#move-a-machine-from-one-group-to-another).
 
@@ -115,7 +115,7 @@ Selecione a recomendação ou abra a página de controlos de aplicações adapta
 
 
 
-## <a name="editing-a-groups-adaptive-application-controls-rule"></a>Editar a regra de controlos de aplicação adaptativa de um grupo
+## <a name="edit-a-groups-adaptive-application-controls-rule"></a>Editar a regra de controlos de aplicação adaptativa de um grupo
 
 Pode decidir editar a lista de autorizações para um grupo de máquinas devido a alterações conhecidas na sua organização. 
 
@@ -150,7 +150,7 @@ Para editar as regras para um grupo de máquinas:
 
 
 
-## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Responder à recomendação "Allowlist na sua política de controlo de aplicações adaptativas deve ser atualizado"
+## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Responder à recomendação "Allowlist na sua política de controlo de aplicações adaptativas deve ser atualizada"
 
 Verá esta recomendação quando a aprendizagem automática do Centro de Segurança identificar um comportamento potencialmente legítimo que não tenha sido permitido anteriormente. A recomendação sugere novas regras para as suas definições existentes para reduzir o número de alertas falsos positivos.
 
@@ -167,7 +167,7 @@ Para remediar as questões:
 
 
 
-## <a name="auditing-alerts-and-violations"></a>Auditoria de alertas e violações
+## <a name="audit-alerts-and-violations"></a>Alertas de auditoria e violações
 
 1. A partir do menu do Security Center, selecione **controlos de aplicação adaptáveis**.
 
@@ -199,7 +199,7 @@ Quando se desloca uma máquina de um grupo para outro, a política de controlo d
 
 
 
-## <a name="managing-application-controls-via-the-rest-api"></a>Gestão dos controlos de aplicações através da API REST 
+## <a name="manage-application-controls-via-the-rest-api"></a>Gerir os controlos de aplicações através da API REST 
 
 Para gerir os controlos de aplicação adaptativas, utilize a nossa API REST. 
 
@@ -221,7 +221,7 @@ Algumas das funções que estão disponíveis na API REST:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativas no Azure Security Center para definir as listas de aplicações em execução nas suas máquinas Azure e não-Azure. Para saber mais sobre algumas das outras funcionalidades de proteção da carga de trabalho em nuvem do Security Center, consulte:
 
 * [Compreensão do acesso ao VM just-in-time (JIT)](just-in-time-explained.md)

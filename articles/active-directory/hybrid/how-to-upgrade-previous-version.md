@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356632"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277209"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualizar de uma versão anterior para a mais recente
 Este tópico descreve os diferentes métodos que pode utilizar para atualizar o seu Diretório Ativo Azure (Azure AD) Ligar a instalação à mais recente versão. Recomendamos que se mantenha atual com as versões do Azure AD Connect. Também utiliza os passos na secção [de migração swing](#swing-migration) quando faz uma alteração substancial de configuração.
@@ -54,7 +54,7 @@ Se tiver feito alterações às regras de sincronização fora de caixa, então 
 
 Durante a atualização no local, podem ser introduzidas alterações que exigem que atividades específicas de sincronização (incluindo passo de Importação Completa e passo de Sincronização Completa) sejam executadas após a conclusão do upgrade. Para adiar tais atividades, consulte a secção [Como adiar a sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
 
-Se estiver a utilizar o Azure AD Connect com um conector não padrão (por exemplo, Conector LDAP Genérico e Conector SQL Genérico), deve atualizar a configuração correspondente do conector no Gestor de Serviço de [Sincronização](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização no local. Para obter mais informações sobre como refrescar a configuração do conector, consulte a secção de [artigos Connector Version Release History - Troubleshooting](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se não atualizar a configuração, as etapas de importação e de exportação não funcionarão corretamente para o conector. Receberá o seguinte erro no registo do evento de aplicação com a mensagem *"Assembléia versão na configuração do Conector AAD ("X.X.XXX. X") é mais cedo do que a versão real ("X.X.XXX. X") de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
+Se estiver a utilizar o Azure AD Connect com um conector não padrão (por exemplo, Conector LDAP Genérico e Conector SQL Genérico), deve atualizar a configuração correspondente do conector no Gestor de Serviço de [Sincronização](./how-to-connect-sync-service-manager-ui-connectors.md) após a atualização no local. Para obter mais informações sobre como refrescar a configuração do conector, consulte a secção de [artigos Connector Version Release History - Troubleshooting](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Se não atualizar a configuração, as etapas de importação e de exportação não funcionarão corretamente para o conector. Receberá o seguinte erro no registo do evento de aplicação com a mensagem *"Assembléia versão na configuração do Conector AAD ("X.X.XXX. X") é mais cedo do que a versão real ("X.X.XXX. X") de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## <a name="swing-migration"></a>Migração rotativa
 Se tiver uma implementação complexa ou muitos objetos, pode ser impraticável fazer uma atualização no local do sistema ao vivo. Para alguns clientes, este processo pode demorar vários dias -- e durante este tempo, não são processadas alterações delta. Também pode usar este método quando planeia fazer alterações substanciais na sua configuração e pretende experimentá-las antes de serem empurradas para a nuvem.
@@ -108,7 +108,7 @@ Pode haver situações em que não queira que estas sobreposições ocorram imed
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
-2. Após a atualização concluída, execute o seguinte cmdlet para saber quais as sobreposições adicionadas:`Get-ADSyncSchedulerConnectorOverride | fl`
+2. Após a atualização concluída, execute o seguinte cmdlet para saber quais as sobreposições adicionadas: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > As sobreposições são específicas do conector. No exemplo seguinte, o passo full import e full synchronization foram adicionados tanto ao conector AD no local como ao conector AD AZure.
@@ -117,7 +117,7 @@ Pode haver situações em que não queira que estas sobreposições ocorram imed
 
 3. Note as sobreposições existentes que foram adicionadas.
    
-4. Para eliminar as sobreposições tanto para a importação completa como para a sincronização completa num conector arbitrário, executar o seguinte cmdlet:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Para eliminar as sobreposições tanto para a importação completa como para a sincronização completa num conector arbitrário, executar o seguinte cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Para remover as sobreposições em todos os conectores, execute o seguinte script PowerShell:
 
@@ -128,12 +128,12 @@ Pode haver situações em que não queira que estas sobreposições ocorram imed
    }
    ```
 
-5. Para retomar o programador, executar o seguinte cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Para retomar o programador, executar o seguinte cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > Lembre-se de executar os passos de sincronização necessários o mais rápido possível. Pode executar manualmente estes passos utilizando o Gestor de Serviço de Sincronização ou adicionar as substituições de volta utilizando o cmdlet Set-ADSyncSchedulerConnectorOverride.
 
-Para adicionar as sobreposições tanto para a importação completa como para a sincronização completa num conector arbitrário, executar o seguinte cmdlet:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Para adicionar as sobreposições tanto para a importação completa como para a sincronização completa num conector arbitrário, executar o seguinte cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 A secção seguinte contém resolução de problemas e informações que pode utilizar se encontrar um problema que adure AD Connect.
@@ -144,7 +144,7 @@ Quando atualizar o Azure AD Connect a partir de uma versão anterior, poderá ac
 
 ![Erro](./media/how-to-upgrade-previous-version/error1.png)
 
-Este erro ocorre porque o conector Azure Ative Directory com identificador, b891884f-051e-4a83-95af-2544101c9083, não existe na configuração atual do Azure AD Connect. Para verificar se este é o caso, abra uma janela PowerShell, corra Cmdlet`Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+Este erro ocorre porque o conector Azure Ative Directory com identificador, b891884f-051e-4a83-95af-2544101c9083, não existe na configuração atual do Azure AD Connect. Para verificar se este é o caso, abra uma janela PowerShell, corra Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

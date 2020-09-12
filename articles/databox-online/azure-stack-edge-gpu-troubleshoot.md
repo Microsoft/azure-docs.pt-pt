@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 22f0c63c2b60b6c72ad297492045df17e10dd06c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 92b82631ca78826dd927c6773c47072038eb4ab1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268327"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290128"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-gpu-device"></a>Problemas de resolução de problemas no seu dispositivo GPU Azure Stack Edge 
 
@@ -189,17 +189,17 @@ Aqui estão os erros relacionados com o armazenamento de bolhas no dispositivo A
 |Incapaz de recuperar recursos infantis. O valor de um dos cabeçalhos HTTP não está no formato correto.| No menu **Editar,** selecione **ApIs target Azure Stack**. Em seguida, reinicie o Explorador de Armazenamento Azure.|
 |getaddrinfo <accountname> ENOTFOUND.blob. <serialnumber> . . microsoftdatabox.com|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões neste caminho: no Windows ou no `C:\Windows\System32\drivers\etc\hosts` `/etc/hosts` Linux.|
 |Incapaz de recuperar recursos infantis.<br> Detalhes: certificado auto-assinado |Importe o certificado SSL para o seu dispositivo no Azure Storage Explorer: <ol><li>Faça o download do certificado do portal Azure. Para mais informações, consulte [Descarregar o certificado.](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)</li><li>No menu **Editar,** selecione Certificados SSL e, em seguida, selecione **Certificados de Importação**.</li></ol>|
-|O comando AzCopy parece estar pendurado durante um minuto antes de exibir este erro:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `C:\Windows\System32\drivers\etc\hosts` .|
-|O comando AzCopy parece estar pendurado durante um minuto antes de exibir este erro:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Importe o certificado SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, consulte [Descarregar o certificado.](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)|
-|O comando AzCopy parece estar pendurado durante 20 minutos antes de exibir este erro:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`. |Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `/etc/hosts` .|
-|O comando AzCopy parece estar pendurado durante 20 minutos antes de exibir este erro:<br>`Error parsing source location… The SSL connection could not be established`. |Importe o certificado SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, consulte [Descarregar o certificado.](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)|
-|O comando AzCopy parece estar pendurado durante 20 minutos antes de exibir este erro:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `/etc/hosts` .|
-|O comando AzCopy parece estar pendurado durante 20 minutos antes de apresentar este erro: `Error parsing source location… The SSL connection could not be established` .|Importe o certificado SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, consulte [Descarregar o certificado.](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)|
+|O comando AzCopy parece parar de responder durante um minuto antes de exibir este erro:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `C:\Windows\System32\drivers\etc\hosts` .|
+|O comando AzCopy parece parar de responder durante um minuto antes de exibir este erro:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Importe o certificado SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, consulte [Descarregar o certificado.](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)|
+|O comando AzCopy parece parar de responder durante 20 minutos antes de exibir este erro:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`. |Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `/etc/hosts` .|
+|O comando AzCopy parece parar de responder durante 20 minutos antes de exibir este erro:<br>`Error parsing source location… The SSL connection could not be established`. |Importe o certificado SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, consulte [Descarregar o certificado.](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)|
+|O comando AzCopy parece parar de responder durante 20 minutos antes de exibir este erro:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Verifique se o nome do ponto final `<accountname>.blob.<serialnumber>.microsoftdatabox.com` é adicionado ao ficheiro dos anfitriões em: `/etc/hosts` .|
+|O comando AzCopy parece parar de responder durante 20 minutos antes de exibir este erro: `Error parsing source location… The SSL connection could not be established` .|Importe o certificado SSL para o seu dispositivo na loja de certificados do sistema. Para mais informações, consulte [Descarregar o certificado.](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)|
 |O valor de um dos cabeçalhos HTTP não está no formato correto.|A versão instalada da Microsoft Azure Storage Library for Python não é suportada pela Data Box. Consulte os requisitos de armazenamento da Caixa de Dados Azure para versões suportadas.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Antes de executar python, desafie a variável ambiente REQUESTS_CA_BUNDLE para o caminho do certificado SSL codificado base64 (ver como [descarregar o certificado](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Por exemplo:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Em alternativa, adicione o certificado à loja de certificados do sistema e, em seguida, coloque esta variável ambiental no caminho dessa loja. Por exemplo, no Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |A ligação está fora.|Inscreva-se no Azure Stack Edge e verifique se está desbloqueado. Sempre que o dispositivo reinicia, fica bloqueado até alguém entrar.|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os [problemas conhecidos nesta versão](azure-stack-edge-gpu-2008-release-notes.md).

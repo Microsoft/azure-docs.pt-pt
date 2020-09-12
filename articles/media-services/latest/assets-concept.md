@@ -9,16 +9,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 3507d3f0ac978c6f7c2f5fc29fc563eaba79d98a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 99101f31ec955c822c784180dd8b04bfb8e5f73c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258865"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291607"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Ativos em Azure Media Services v3
 
@@ -42,10 +42,10 @@ Os nomes do Ativo devem ser únicos. Os nomes de recursos dos Media Services v3 
 
 Os nomes de ficheiros/bolhas dentro de um ativo devem seguir tanto os requisitos de [nome blob](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) como os requisitos de [nome NTFS](/windows/win32/fileio/naming-a-file). A razão para estes requisitos é que os ficheiros podem ser copiados do armazenamento de bolhas para um disco NTFS local para processamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Visão geral dos serviços de mídia](media-services-overview.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Diferenças entre os Serviços de Comunicação Social v2 e v3](migrate-from-v2-to-v3.md)

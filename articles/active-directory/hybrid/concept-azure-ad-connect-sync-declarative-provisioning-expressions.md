@@ -16,19 +16,19 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245510"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280218"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect sync: Understanding Declarative Provisioning Expressions
 A azure AD Connect baseia-se no provisionamento declarativo introduzido pela primeira vez no Forefront Identity Manager 2010. Permite-lhe implementar a sua lógica de negócio de integração de identidade completa sem a necessidade de escrever código compilado.
 
 Uma parte essencial do provisionamento declarativo é a linguagem de expressão utilizada nos fluxos de atributos. O idioma utilizado é um subconjunto de ® Visual Basic ® Microsoft para aplicações (VBA). Este idioma é utilizado no Microsoft Office e os utilizadores com experiência de VBScript também o reconhecerão. A Linguagem de Expressão Declarativa está apenas a usar funções e não é uma língua estruturada. Não há métodos nem declarações. As funções são, em vez disso, aninhadas para expressar o fluxo do programa.
 
-Para mais detalhes, consulte [Welcome to the Visual Basic for Applications language reference for Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+Para mais detalhes, consulte [Welcome to the Visual Basic for Applications language reference for Office 2013](/office/vba/api/overview/language-reference).
 
 Os atributos são fortemente dactilografados. Uma função só aceita atributos do tipo correto. É também sensível a casos. Ambos os nomes de funções e nomes de atributos devem ter invólucro adequado ou um erro é lançado.
 
@@ -83,11 +83,11 @@ Os operadores são avaliados da esquerda para a direita e têm a mesma prioridad
 As funções podem funcionar em atributos de valor único e multi-valor. Para atributos multi-valorizados, a função opera sobre cada valor e aplica a mesma função a cada valor.
 
 Por exemplo:  
-`Trim([proxyAddresses])`Faça uma guarnição de todos os valores no atributo ProxyAddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Por cada valor por um @-sign , substitua o domínio por @contoso.com .  
-`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Procure o endereço SIP e retire-o dos valores.
+`Trim([proxyAddresses])` Faça uma guarnição de todos os valores no atributo ProxyAddress.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` Por cada valor por um @-sign , substitua o domínio por @contoso.com .  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e retire-o dos valores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Leia mais sobre o modelo de configuração na [Compreensão declarativa.](concept-azure-ad-connect-sync-declarative-provisioning.md)
 * Veja como é utilizada a provisão declarativa fora da caixa na [compreensão da configuração padrão](concept-azure-ad-connect-sync-default-configuration.md).
 * Veja como fazer uma alteração prática utilizando provisionamento declarativo em [Como fazer uma alteração na configuração padrão](how-to-connect-sync-change-the-configuration.md).
@@ -100,4 +100,3 @@ Por exemplo:
 **Tópicos de referência**
 
 * [Azure AD Connect Sync: Funções Referência](reference-connect-sync-functions-reference.md)
-

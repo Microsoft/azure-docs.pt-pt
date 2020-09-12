@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423155"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279504"
 ---
 # <a name="azure-operational-security-best-practices"></a>Melhores práticas de Segurança Operacional da Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos em Azure.
@@ -116,7 +116,7 @@ A pontuação segura, que se baseia nos controlos do Center for Internet Securit
 **Detalhe**: Siga as [recomendações de segurança](../../security-center/security-center-recommendations.md) no Centro de Segurança a partir de início, com os itens de maior prioridade.
 
 **Melhores práticas**: Integrar alertas do Centro de Segurança na sua solução de informação de segurança e gestão de eventos (SIEM).   
-**Detalhe**: A maioria das organizações com um SIEM usam-na como centro de compensação para alertas de segurança que requerem uma resposta analista. Os eventos processados produzidos pelo Security Center são publicados no Registo de Atividades do Azure, um dos registos disponíveis através do Azure Monitor. O Azure Monitor oferece um oleoduto consolidado para encaminhar qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Consulte [alertas de segurança de exportação e recomendações](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) para instruções.. Se estiver a utilizar o Azure Sentinel, consulte [o Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detalhe**: A maioria das organizações com um SIEM usam-na como centro de compensação para alertas de segurança que requerem uma resposta analista. Os eventos processados produzidos pelo Security Center são publicados no Registo de Atividades do Azure, um dos registos disponíveis através do Azure Monitor. O Azure Monitor oferece um oleoduto consolidado para encaminhar qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Consulte [alertas de segurança de exportação e recomendações](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) para instruções.. Se estiver a utilizar o Azure Sentinel, consulte [o Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Melhores práticas**: Integre os registos Azure com o seu SIEM.   
 **Detalhe**: Utilize [o Monitor Azure para recolher e exportar dados](/azure/azure-monitor/overview#integrate-and-export-data). Esta prática é fundamental para permitir a investigação de incidentes de segurança, e a retenção de registos on-line é limitada. Se estiver a utilizar o Azure Sentinel, consulte [as fontes de dados do Connect](../../sentinel/connect-data-sources.md).
@@ -149,7 +149,7 @@ Use as seguintes devOps para garantir que a sua empresa e equipas são produtiva
 Pode utilizar [o Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) para forrê-lo utilizando um modelo declarativo. Num único modelo, pode implementar vários serviços, bem como as respetivas dependências. Utilize o mesmo modelo para implementar repetidamente a sua aplicação em todas as fases do ciclo de vida da aplicação.
 
 **Melhores práticas**: Construa e implemente automaticamente para aplicações web Azure ou serviços na nuvem.  
-**Detalhe**: Pode configurar os seus Projetos Azure DevOps para [construir e implementar automaticamente](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) para aplicações web Azure ou serviços na nuvem. O Azure DevOps implanta automaticamente os binários depois de fazer uma construção para a Azure após cada check-in de código. O processo de construção de pacotes é equivalente ao comando Package em Visual Studio, e os passos de publicação são equivalentes ao comando Publicar em Visual Studio.
+**Detalhe**: Pode configurar os seus Projetos Azure DevOps para  [construir e implementar automaticamente](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) para aplicações web Azure ou serviços na nuvem. O Azure DevOps implanta automaticamente os binários depois de fazer uma construção para a Azure após cada check-in de código. O processo de construção de pacotes é equivalente ao comando Package em Visual Studio, e os passos de publicação são equivalentes ao comando Publicar em Visual Studio.
 
 **Melhores práticas**: Gestão de lançamentos automatizada.  
 **Detalhe**: [A azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) é uma solução para automatizar a implantação em várias fases e gerir o processo de libertação. Crie oleodutos de implantação contínua geridos para libertar rapidamente, facilmente e com frequência. Com a Azure Pipelines, pode automatizar o seu processo de libertação e pode ter fluxos de trabalho de aprovação predefinidos. Implementar no local e na nuvem, estender e personalizar conforme necessário.
@@ -226,4 +226,4 @@ Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de s
 
 Estão disponíveis os seguintes recursos para fornecer informações mais gerais sobre a segurança da Azure e serviços relacionados com a Microsoft:
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - para informações atualizadas sobre as últimas informações em Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail parasecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com

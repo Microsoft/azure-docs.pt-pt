@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 300a11c36b11230d2bd75534f152a0a5955743ed
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181799"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280031"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -80,7 +80,7 @@ Na página seguinte *de atribuição de funções Adicionar,* preencha os valore
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Preenchendo os campos listados no diálogo Adicionar função":::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Preenchendo os campos listados no diálogo "Adicionar função"":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -146,7 +146,7 @@ Também é possível verificar a ligação com a Azure Digital Twins dentro do *
 
 Para isso, *selecione Manifesto* no menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure estes campos sob `requiredResourceAccess` . Os valores devem corresponder aos da imagem abaixo:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Vista do portal do manifesto para o registo da aplicação Azure AD. Aninhado em RequeredResourceAccess, há um valor 'resourceAppId' de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, e um valor 'resourceAccess > id' de 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Vista do portal do manifesto para o registo da aplicação Azure AD. Aninhado em "RequeredResourceAccess", há um valor 'resourceAppId' de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, e um valor 'resourceAccess > id' de 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
 ### <a name="collect-important-values"></a>Recolher valores importantes
 
@@ -160,7 +160,11 @@ Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado n
 
 [!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:
+Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI dos Gémeos Digitais Azure: 
+* [az dt referência](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)
+
+Ou, veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:
 * [*Como fazer: Escrever código de autenticação de aplicativos*](how-to-authenticate-client.md)

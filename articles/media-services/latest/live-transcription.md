@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 698aa849a82e7c9f9a630ca7040f9d449b3765b3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264968"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291420"
 ---
 # <a name="live-transcription-preview"></a>Transcrição ao vivo (pré-visualização)
 
@@ -201,6 +201,6 @@ Para pré-visualização, são conhecidos os seguintes problemas com transcriç�
 - As aplicações precisam de utilizar as APIs de pré-visualização, descritas na [Especificação Do OpenAPI dos Serviços de Mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
 - A proteção da gestão de direitos digitais (DRM) não se aplica à faixa de texto, apenas a encriptação do envelope AES é possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral dos Serviços de Mídia](media-services-overview.md)

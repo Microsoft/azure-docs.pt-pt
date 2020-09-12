@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416507"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290196"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar uma rede virtual de espreitar
 
@@ -126,11 +126,12 @@ Se quiser que as redes virtuais se comuniquem às vezes, mas nem sempre, em vez 
   - *Iniciado:* Quando cria o espreitamento para a segunda rede virtual a partir da primeira rede virtual, o estado de observação é *iniciado*. 
   - *Ligado:* Quando cria o espreitamento da segunda rede virtual para a primeira rede virtual, o seu estado de observação está *ligado*. Se visualizar o estado de observação da primeira rede virtual, vê o seu estado alterado de *Iniciado* para *Conectado*. O espreitamento não é estabelecido com sucesso até que o estado de observação de ambos os espreiteiros de rede virtuais esteja *ligado*.
 - Ao espreitar uma rede virtual criada através do Resource Manager com uma rede virtual criada através do modelo de implementação clássico, basta configurar um espremiamento para a rede virtual implantada através do Resource Manager. Não é possível configurar olhando para uma rede virtual (clássica), ou entre duas redes virtuais implantadas através do modelo de implementação clássico. Quando cria o espreitamento da rede virtual (Gestor de Recursos) para a rede virtual (Classic), o estado de observação é *atualizado,* em seguida, altera-se em breve para *Connected*.
-- Um espreitante é estabelecido entre duas redes virtuais. Os seus olhos não são transitórios. Se criar espreitamentos entre:
-  - VirtualNetwork1 & VirtualNetwork2
-  - VirtualNetwork2 & VirtualNetwork3
+- Um espreitante é estabelecido entre duas redes virtuais. Os seus olhares por si só não são transitórios. Se criar espreitamentos entre:
+  - VirtualNetwork1 & VirtualNetwork2 - VirtualNetwork1 & VirtualNetwork2
+  - VirtualNetwork2 & VirtualNetwork3 - VirtualNetwork2 & VirtualNetwork3
 
-  Não existe um espreitamento entre virtualNetwork1 e VirtualNetwork3 através da VirtualNetwork2. Se pretender criar uma rede virtual entre VirtualNetwork1 e VirtualNetwork3, tem de criar um espreitamento entre virtualNetwork1 e VirtualNetwork3.
+
+  Não existe um espreitamento entre virtualNetwork1 e VirtualNetwork3 através da VirtualNetwork2. Se pretender criar uma rede virtual entre VirtualNetwork1 e VirtualNetwork3, tem de criar um espreitamento entre virtualNetwork1 e VirtualNetwork3. Não existe um espreitamento entre virtualNetwork1 e VirtualNetwork3 através da VirtualNetwork2. Se pretender que a VirtualNetwork1 e a VirtualNetwork3 se comuniquem diretamente, tem de criar um espremia explícito entre virtualNetwork1 e VirtualNetwork3 ou passar por um NVA na rede Hub.  
 - Não é possível resolver nomes em redes virtuais com vista a uma resolução de nomeS Azure padrão. Para resolver nomes noutras redes virtuais, tem de utilizar [o Azure DNS para domínios privados](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou um servidor DNS personalizado. Para aprender a configurar o seu próprio servidor DNS, consulte [a resolução Name utilizando o seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Os recursos em redes virtuais espreitadas na mesma região podem comunicar entre si com a mesma largura de banda e latência como se estivessem na mesma rede virtual. No entanto, cada tamanho de máquina virtual tem a sua própria largura de banda de rede máxima. Para saber mais sobre a largura de banda máxima da rede para diferentes tamanhos de máquinas virtuais, consulte os tamanhos de máquina virtual [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Uma rede virtual pode ser espreitada para outra rede virtual, e também estar ligada a outra rede virtual com um gateway de rede virtual Azure. Quando as redes virtuais são ligadas através de um espreitante e de um gateway, o tráfego entre as redes virtuais flui através da configuração de espreitar, em vez do gateway.
@@ -146,7 +147,7 @@ As contas que utiliza para trabalhar com o espreguite de rede virtual devem ser 
 
 Se a sua conta não for atribuída a uma das funções anteriores, deve ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída a partir do quadro seguinte:
 
-| Ação                                                          | Nome |
+| Ação                                                          | Name |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necessário para criar um espreitamento da rede virtual A para a rede virtual B. A rede virtual A deve ser uma rede virtual (Gestor de Recursos)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necessário para criar um espreitamento da rede virtual B (Gestor de Recursos) para a rede virtual A                                                       |

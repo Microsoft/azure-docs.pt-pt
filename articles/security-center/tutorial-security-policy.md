@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519359"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277668"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -40,7 +40,7 @@ O Centro de Segurança oferece as seguintes opções para trabalhar com polític
 * **Adicionar políticas de conformidade regulamentar** - O painel de conformidade regulamentar do Centro de Segurança mostra o estado de todas as avaliações dentro do seu ambiente no contexto de uma determinada norma ou regulamento (como Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). Para obter mais informações, consulte [Melhorar a sua conformidade regulamentar.](security-center-compliance-dashboard.md)
 
 
-## <a name="managing-your-security-policies"></a>Gerir as suas políticas de segurança
+## <a name="manage-your-security-policies"></a>Gerir as suas políticas de segurança
 
 Para ver as suas políticas de segurança no Centro de Segurança:
 
@@ -54,7 +54,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
 1. Aparece a página de política de segurança para esse grupo de subscrição ou gestão. Mostra as políticas disponíveis e atribuídas.
 
-   ![tela de política](./media/tutorial-security-policy/security-policy-page.png)
+   ![página de política](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > Se houver um rótulo "MG Herdado" ao lado da sua política de incumprimento, significa que a apólice foi atribuída a um grupo de gestão e herdada pela subscrição que está a ver.
@@ -111,11 +111,11 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
 
 1. **Selecione Ver política eficaz**.
 
-   ![política de desativação](./media/tutorial-security-policy/view-effective-policy.png)
+   ![ver política](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Selecione a política atribuída.
 
-   ![política de desativação](./media/tutorial-security-policy/security-policy.png)
+   ![selecionar política](./media/tutorial-security-policy/security-policy.png)
 
 1. Na secção **PARÂMETROS,** procure a política que invoca a recomendação que pretende desativar, e da lista de abandono, selecione **Disabled**
 

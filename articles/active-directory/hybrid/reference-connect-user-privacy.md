@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f1d1bf35d03f0f7c4d11e4cc7e9b6f98f38d8ab
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60455789"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279572"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Privacidade do utilizador e Azure AD Connect 
 
@@ -43,7 +43,7 @@ Um servidor de sincronização AZure AD Connect armazena os seguintes dados de p
 
 Os clientes Azure AD Connect devem utilizar as seguintes diretrizes ao remover os dados do utilizador:
 1.  Elimine o conteúdo da pasta que contém os ficheiros de registo de instalação Azure AD Connect regularmente – pelo menos a cada 48 horas
-2.  Este produto também pode criar Registos de Eventos.  Para saber mais sobre os registos de registos de eventos, consulte [a documentação aqui.](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx)
+2.  Este produto também pode criar Registos de Eventos.  Para saber mais sobre os registos de registos de eventos, consulte [a documentação aqui.](/windows/win32/wes/windows-event-log)
 
 Os dados sobre uma pessoa são automaticamente removidos da base de dados Azure AD Connect quando os dados dessa pessoa são removidos do sistema de origem de onde se originou. Não é necessária qualquer ação específica por parte dos administradores para ser compatível com o RGPD.  No entanto, requer que os dados do Azure AD Connect esteja sincronizado com a sua fonte de dados pelo menos de dois em dois dias.
 
@@ -82,6 +82,6 @@ Utilize os seguintes passos para agendar o script a cada 48 horas.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Reveja a política de privacidade da Microsoft no Trust Center](https://www.microsoft.com/trustcenter)
 * [Azure AD Connect Saúde e Privacidade do Utilizador](reference-connect-health-user-privacy.md)

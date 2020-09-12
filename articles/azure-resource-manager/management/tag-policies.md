@@ -3,12 +3,12 @@ title: Políticas de marcação de recursos
 description: Descreve as Políticas Azure que pode atribuir para garantir o cumprimento da etiqueta.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6867bc01306ac3c08a9797ece0567a45e060af2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82147855"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293745"
 ---
 # <a name="assign-policies-for-tag-compliance"></a>Atribuir políticas para o cumprimento da etiqueta
 
@@ -16,9 +16,9 @@ Usa [a Política Azure](../../governance/policy/overview.md) para impor regras e
 
 ## <a name="policies"></a>Políticas
 
-[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a marcar recursos, consulte [use tags para organizar os seus recursos Azure.](tag-resources.md)
 * Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte [o suporte da Tag para os recursos do Azure.](tag-support.md)

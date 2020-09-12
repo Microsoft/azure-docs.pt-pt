@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7025b091b83a56b7b3df18c3f42cb84b163560bb
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77914811"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277770"
 ---
 # <a name="threat-protection-for-azure-key-vault-preview"></a>Proteção contra ameaças para cofre de chave Azure (pré-visualização)
 
@@ -21,7 +21,7 @@ A proteção avançada de ameaças para o Azure Key Vault fornece uma camada adi
 
 Quando o Centro de Segurança deteta atividade anómala, apresenta alertas. Envia também um e-mail ao administrador de subscrição com detalhes da atividade suspeita e recomendações para como investigar e remediar as ameaças identificadas.
 
-## <a name="configuring-threat-protection-from-security-center"></a>Configurar a proteção contra ameaças do Centro de Segurança
+## <a name="configure-threat-protection-from-security-center"></a>Configure a proteção contra ameaças do Centro de Segurança
 
 Por predefinição, a proteção avançada de ameaças está ativada para todas as suas contas Key Vault quando subscreve o nível de preços padrão do Security Center. Para mais informações, consulte [a Fixação de Preços.](security-center-pricing.md)
 

@@ -16,12 +16,12 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1983b5090604516265ea8e041ac68200ca2dc7b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 451b50e70b98849dfc4654566d09a5a961abe451
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359590"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279912"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado TLS/SSL para uma exploração de Serviços da Federação de Diretórios Ativos (AD FS)
 
@@ -34,7 +34,7 @@ Pode executar toda a operação de atualização do certificado TLS/SSL para a f
 
 
 >[!NOTE]
->Para saber mais sobre certificados utilizados pela AD FS, consulte [certificados de compreensão utilizados pela AD FS](https://technet.microsoft.com/library/cc730660.aspx).
+>Para saber mais sobre certificados utilizados pela AD FS, consulte [certificados de compreensão utilizados pela AD FS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730660(v=ws.11)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -99,7 +99,7 @@ Depois de concluir a configuração, o Azure AD Connect apresenta a mensagem que
 
 * **Posso atualizar um subconjunto dos meus servidores agrícolas com o novo certificado TLS/SSL?**
 
-    Sim. Pode sempre executar novamente o **Certificado SSL de atualização** de tarefas para atualizar os restantes servidores. Na página de atualização de **certificados Select para SSL,** pode classificar a lista de servidores na **data de expiração do SSL** para aceder facilmente aos servidores que ainda não foram atualizados.
+    Yes. Pode sempre executar novamente o **Certificado SSL de atualização** de tarefas para atualizar os restantes servidores. Na página de atualização de **certificados Select para SSL,** pode classificar a lista de servidores na **data de expiração do SSL** para aceder facilmente aos servidores que ainda não foram atualizados.
 
 * **Removi o servidor na execução anterior, mas ainda está a ser mostrado como offline e listado na página dos Servidores FS da AD. Porque é que o servidor offline ainda lá está mesmo depois de o ter removido?**
 
@@ -109,4 +109,3 @@ Depois de concluir a configuração, o Azure AD Connect apresenta a mensagem que
 
 - [Azure AD Connect e federação](how-to-connect-fed-whatis.md)
 - [Gestão e personalização de Serviços da Federação de Diretórios Ativos com Azure AD Connect](how-to-connect-fed-management.md)
-

@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a725831efe6b92ba522900fac67b317e42bc959
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182382"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276206"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health frequentemente fez perguntas
 Este artigo inclui respostas a perguntas frequentes (FAQs) sobre O Diretório Ativo Azure (Azure AD) Connect Health. Estas FAQs cobrem questões sobre como usar o serviço, que inclui o modelo de faturação, capacidades, limitações e suporte.
@@ -190,18 +190,18 @@ CheckForMS17-010
 
 **P: Porque é que o cmdlet PowerShell <i>Get-MsolDirSyncProvisioningError</i> mostra menos erros de sincronização no resultado?**
 
-<i>A Get-MsolDirSyncProvisioningError</i> só devolverá erros de provisões dirSync. Além disso, o portal Connect Health também mostra outros tipos de erros de sincronização, como erros de exportação. Isto é consistente com o resultado delta Azure AD Connect. Leia mais sobre [erros do Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+<i>A Get-MsolDirSyncProvisioningError</i> só devolverá erros de provisões dirSync. Além disso, o portal Connect Health também mostra outros tipos de erros de sincronização, como erros de exportação. Isto é consistente com o resultado delta Azure AD Connect. Leia mais sobre [erros do Azure AD Connect Sync](./tshoot-connect-sync-errors.md).
 
 **P: Porque é que as minhas auditorias da ADFS não estão a ser geradas?**
 
-Utilize o PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> para garantir que os registos de auditoria não estão em estado de desativado. Leia mais sobre [os registos de auditoria da ADFS.](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016) Note que se houver definições de auditoria avançadas empurradas para o servidor ADFS, quaisquer alterações com auditpol.exe serão substituídas (evento se a Aplicação Gerada não estiver configurada). Neste caso, por favor, desa esta medida, desa um por favor, desateia a política de segurança local para registar falhas geradas pela aplicação e sucesso.
+Utilize o PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> para garantir que os registos de auditoria não estão em estado de desativado. Leia mais sobre [os registos de auditoria da ADFS.](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016) Note que se houver definições de auditoria avançadas empurradas para o servidor ADFS, quaisquer alterações com auditpol.exe serão substituídas (evento se a Aplicação Gerada não estiver configurada). Neste caso, por favor, desa esta medida, desa um por favor, desateia a política de segurança local para registar falhas geradas pela aplicação e sucesso.
 
 **P: Quando é que o certificado de agente será renovado automaticamente antes do termo?**
 A certificação do agente será renovada automaticamente **6 meses** antes da data de validade. Se não for renovado, certifique-se de que a ligação de rede do agente está estável. Reiniciar os serviços do agente ou atualizar para a versão mais recente também pode resolver o problema.
 
 
 ## <a name="related-links"></a>Ligações relacionadas
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente de Saúde Azure AD Connect](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Operações de Saúde](how-to-connect-health-operations.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)

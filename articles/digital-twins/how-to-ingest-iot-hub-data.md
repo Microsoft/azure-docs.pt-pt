@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 47e4bb291d031c41c89c88435a795004490e20a1
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8d720d77773e506a13f176723ab4583613f1e625
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505330"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291760"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -63,14 +63,20 @@ O modelo é assim:
 ```
 
 Para **fazer o upload deste modelo para a sua instância gémea,** abra o CLI Azure e execute o seguinte comando:
+
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 Em seguida, terá de **criar um gémeo utilizando este modelo.** Utilize o seguinte comando para criar um gémeo e definir 0.0 como um valor de temperatura inicial.
+
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 A saída de um comando de criação de gémeos bem sucedido deve ser assim:
 ```json
@@ -213,6 +219,8 @@ No tutorial de ponta a ponta, complete os seguintes passos:
 
 Enquanto executa o simulador do dispositivo acima, o valor de temperatura do seu gémeo digital será alterado. No CLI Azure, executar o seguinte comando para ver o valor da temperatura.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli-interactive
 az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
 ```
@@ -243,7 +251,7 @@ A sua saída deve conter um valor de temperatura como este:
 
 Para ver a mudança de valor, executar repetidamente o comando de consulta acima.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia sobre a entrada de dados e saída com a Azure Digital Twins:
 * [*Conceitos: Integração com outros serviços*](concepts-integration.md)

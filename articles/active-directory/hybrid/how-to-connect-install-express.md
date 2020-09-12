@@ -15,12 +15,12 @@ ms.date: 09/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714fe5d1bdaddac2873194ab066f304e72bdde67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a655f355bb77d937f4daff2f8987769416ebd8c
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358876"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279674"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect utilizando as definições rápidas
 Utilizam-se as **Definições Rápidas** do Azure AD Connect se tiver uma topologia de floresta única e a [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) para autenticação. **Definições Rápidas** é a opção predefinida e é utilizada para o cenário de implementação mais comum. Estará a apenas alguns cliques da expansão do seu diretório no local para a nuvem.
@@ -42,13 +42,13 @@ Pode ver estes passos em ação na secção [vídeos](#videos).
    Se receber um erro e tiver problemas com a conectividade, veja [Resolver problemas de conectividade](tshoot-connect-connectivity.md).
 6. No ecrã Ligar ao AD DS, introduza o nome de utilizador e palavra-passe para uma conta de administrador da empresa. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrator ou fabrikam.com\administrator. Clique em **Seguinte**.  
    ![Ligar ao AD DS](./media/how-to-connect-install-express/connectad.png)
-7. A página [**Configuração do início de sessão do Azure AD**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) só é mostrada caso não tenha concluído a [verificação dos domínios](../active-directory-domains-add-azure-portal.md) nos [pré-requisitos](how-to-connect-install-prerequisites.md).
+7. A página [**Configuração do início de sessão do Azure AD**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) só é mostrada caso não tenha concluído a [verificação dos domínios](../fundamentals/add-custom-domain.md) nos [pré-requisitos](how-to-connect-install-prerequisites.md).
    ![Domínios não verificados](./media/how-to-connect-install-express/unverifieddomain.png)  
    Se esta página for apresentada, reveja todos os domínios marcados como **Não Adicionado** e **Não Verificado**. Certifique-se de que os domínios que utiliza foram verificados no Azure AD. Quando tiver verificado os domínios, clique no símbolo de atualização.
 8. No ecrã Preparado para configurar, clique em **Instalar**.
    * Opcionalmente, na página Preparado para configurar, pode desmarcar a caixa de verificação **Inicie o processo de sincronização assim que a configuração for concluída**. Deve desmarcar esta caixa de verificação se pretender efetuar qualquer configuração adicional, como [filtragem](how-to-connect-sync-configure-filtering.md). Se desmarcar esta opção, o assistente configura a sincronização, mas deixa o agendador desativado. Não é executado até que o ative manualmente, [voltando a executar o assistente de instalação](how-to-connect-installation-wizard.md).
    * Deixar a caixa de verificação **Iniciar o processo de sincronização logo que a configuração termine** aciona imediatamente uma sincronização completa para o Azure AD de todos os utilizadores, grupos e contactos.
-   * Se tiver o Exchange no Active Directory no local, terá também uma opção para ativar a [**Implementação Híbrida do Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Ative esta opção se planear ter caixas de correio do Exchange simultaneamente na nuvem e no local.
+   * Se tiver o Exchange no Active Directory no local, terá também uma opção para ativar a [**Implementação Híbrida do Exchange**](/exchange/exchange-hybrid). Ative esta opção se planear ter caixas de correio do Exchange simultaneamente na nuvem e no local.
      ![Pronto para configurar o Azure AD Connect](./media/how-to-connect-install-express/readytoconfigure.png)
 9. Quando concluir a instalação, clique em **Sair**.
 10. Uma vez concluída a instalação, termine e inicie novamente sessão antes de utilizar o Synchronization Service Manager ou Editor de Regras de Sincronização.

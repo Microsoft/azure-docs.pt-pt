@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ef202bb3ba82b48aca75c7f934aecb3f5fbe0a0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0287bc8a11c359acce5fbf12d3a51e99a9f5420e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070771"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297149"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Ligue uma base de dados Azure para a sua aplicação Azure Spring Cloud 
 
@@ -24,7 +24,7 @@ Com a Azure Spring Cloud, pode ligar os serviços Azure às suas aplicações au
 * Uma base de dados Azure para a conta MySQL
 * CLI do Azure
 
-Se não tiver uma instância Azure Spring Cloud implantada, siga as instruções em [Quickstart: Lance uma aplicação Azure Spring Cloud utilizando o portal Azure](spring-cloud-quickstart-launch-app-portal.md) para implementar a sua primeira aplicação Cloud spring.
+Se não tiver uma instância Azure Spring Cloud implantada, siga as instruções em [Quickstart: Lance uma aplicação Azure Spring Cloud utilizando o portal Azure](spring-cloud-quickstart.md) para implementar a sua primeira aplicação Cloud spring.
 
 ## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Ligue a sua aplicação à sua Base de Dados Azure para o caso MySQL
 
@@ -60,6 +60,6 @@ Se não tiver uma instância Azure Spring Cloud implantada, siga as instruções
     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a ligar uma aplicação Azure Spring Cloud a uma Base de Dados Azure para o caso MySQL. Para saber mais sobre serviços vinculativos a uma aplicação, consulte [uma base de dados DB da Azure Cosmos para uma aplicação Azure Spring Cloud](spring-cloud-tutorial-bind-cosmos.md).

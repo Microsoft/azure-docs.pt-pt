@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358128"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279521"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do Utilizador e Autenticação Pass-through do Azure Active Directory
 
@@ -67,7 +67,7 @@ Para saber mais sobre os requisitos relacionados com o RGPD Azure AD, consulte [
 
 ### <a name="delete-authentication-agent-event-logs"></a>Apagar registos de eventos do Agente de Autenticação
 
-Este produto também pode criar **Registos de Eventos do Windows.** Para saber mais, leia [este artigo.](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx)
+Este produto também pode criar **Registos de Eventos do Windows.** Para saber mais, leia [este artigo.](/windows/win32/wes/windows-event-log)
 
 Para visualizar registos relacionados com o Agente de Autenticação Pass-through, abra a aplicação **do Observador de Eventos** no servidor e verifique em **Registos de Aplicação e Serviço\Microsoft\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
@@ -103,7 +103,7 @@ Para agendar este roteiro para correr a cada 48 horas siga estes passos:
  
 ### <a name="note-about-domain-controller-logs"></a>Nota sobre registos de controlador de domínio
 
-Se o registo de auditoria estiver ativado, este produto poderá gerar registos de segurança para os seus Controladores de Domínio. Para saber mais sobre a configuração das políticas de auditoria, leia este [artigo.](https://technet.microsoft.com/library/dd277403.aspx)
+Se o registo de auditoria estiver ativado, este produto poderá gerar registos de segurança para os seus Controladores de Domínio. Para saber mais sobre a configuração das políticas de auditoria, leia este [artigo.](/previous-versions/tn-archive/dd277403(v=technet.10))
 
 ## <a name="next-steps"></a>Próximos passos
 * [Reveja a política de privacidade da Microsoft no Trust Center](https://www.microsoft.com/trustcenter)

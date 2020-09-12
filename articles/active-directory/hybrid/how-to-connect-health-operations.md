@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdcf5ded2f2cf49048b70dedb11f25e67766e938
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 4a83d1a4bdc2496f874a963b8858192273260cc8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177623"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276274"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Ative Directory Connect Health operações
 Este tópico descreve as várias operações que pode realizar utilizando o Azure Ative Directory (Azure AD) Connect Health.
@@ -112,7 +112,7 @@ A Azure AD Connect Health suporta as seguintes funções incorporadas:
 | Função | Permissões |
 | --- | --- |
 | Proprietário |Os proprietários podem gerir o *acesso* (por exemplo, atribuir uma função a um utilizador ou grupo), *ver todas as informações* (por exemplo, ver alertas) a partir do portal e *alterar definições* (por exemplo, notificações de email) dentro do Azure AD Connect Health. <br>Por padrão, os administradores globais da Azure AD são atribuídos a esta função, e isso não pode ser alterado. |
-| Contribuinte |Os contribuintes podem *visualizar todas as informações* (por exemplo, ver alertas) a partir do portal e *alterar definições* (por exemplo, notificações de e-mail) dentro do Azure AD Connect Health. |
+| Contribuidor |Os contribuintes podem *visualizar todas as informações* (por exemplo, ver alertas) a partir do portal e *alterar definições* (por exemplo, notificações de e-mail) dentro do Azure AD Connect Health. |
 | Leitor |Os leitores podem *ver todas as informações* (por exemplo, ver alertas) a partir do portal dentro do Azure AD Connect Health. |
 
 Todas as outras funções (como Administradores de Acesso ao Utilizador ou Utilizadores de Laboratórios DevTest) não têm qualquer impacto no acesso dentro do Azure AD Connect Health, mesmo que as funções estejam disponíveis na experiência do portal.
@@ -166,8 +166,8 @@ Pode remover um utilizador ou um grupo adicionado à Azure AD Connect Health e a
 
 [//]: # (Fim da secção RBAC)
 
-## <a name="next-steps"></a>Passos seguintes
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+## <a name="next-steps"></a>Próximos passos
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente de Saúde Azure AD Connect](how-to-connect-health-agent-install.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Usando Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)

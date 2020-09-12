@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356173"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275781"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect sync: Handling LargeObject erros causados pelo atributo userCertificate
 
@@ -30,28 +30,28 @@ A Azure AD impõe um limite máximo de **15** valores de certificado no atributo
 
 >*"O objeto provisionado é muito grande. Corte o número de valores de atributos neste objeto. A operação será novamente julgada no próximo ciclo de sincronização..."*
 
-O erro do LargeObject pode ser causado por outros atributos AD. Para confirmar que é realmente causado pelo atributo userCertificate, é necessário verificar contra o objeto, quer no local, quer no Serviço de [Sincronização Metaverse Search](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
+O erro do LargeObject pode ser causado por outros atributos AD. Para confirmar que é realmente causado pelo atributo userCertificate, é necessário verificar contra o objeto, quer no local, quer no Serviço de [Sincronização Metaverse Search](./how-to-connect-sync-service-manager-ui-mvsearch.md).
 
 Para obter a lista de objetos no seu inquilino com erros do LargeObject, utilize um dos seguintes métodos:
 
- * Se o seu inquilino estiver habilitado para sincronização Azure AD Connect Health, pode consultar o Relatório de Erro de [Sincronização](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) fornecido.
+ * Se o seu inquilino estiver habilitado para sincronização Azure AD Connect Health, pode consultar o Relatório de Erro de [Sincronização](./how-to-connect-health-sync.md) fornecido.
  
  * O e-mail de notificação para erros de sincronização de diretórios que é enviado no final de cada ciclo de sincronização tem a lista de objetos com erros do LargeObject. 
- * O [separador De Operações do Gestor de Serviços de Sincronização](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) apresenta a lista de objetos com erros do LargeObject se clicar na última operação Export to AD Azure.
+ * O [separador De Operações do Gestor de Serviços de Sincronização](./how-to-connect-sync-service-manager-ui-operations.md) apresenta a lista de objetos com erros do LargeObject se clicar na última operação Export to AD Azure.
  
 ## <a name="mitigation-options"></a>Opções de mitigação
 Até que o erro do LargeObject seja resolvido, outras alterações de atributos no mesmo objeto não podem ser exportadas para Azure AD. Para resolver o erro, pode considerar as seguintes opções:
 
- * Atualize o Azure AD Connect para construir 1.1.524.0 ou depois. No Azure AD Connect constroem 1.1.524.0, as regras de sincronização fora da caixa foram atualizadas para não exportar atributos do utilizadorCertificado e utilizadorSMIMECertificam se os atributos tiverem mais de 15 valores. Para obter mais informações sobre como atualizar o Azure AD Connect, consulte o artigo [Azure AD Connect: Upgrade de uma versão anterior para a mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Atualize o Azure AD Connect para construir 1.1.524.0 ou depois. No Azure AD Connect constroem 1.1.524.0, as regras de sincronização fora da caixa foram atualizadas para não exportar atributos do utilizadorCertificado e utilizadorSMIMECertificam se os atributos tiverem mais de 15 valores. Para obter mais informações sobre como atualizar o Azure AD Connect, consulte o artigo [Azure AD Connect: Upgrade de uma versão anterior para a mais recente](./how-to-upgrade-previous-version.md).
 
  * Implementar uma **regra de sincronização de saída** no Azure AD Connect que exporta um valor **nulo em vez dos valores reais para objetos com mais de 15 valores de certificado**. Esta opção é adequada se não necessitar que nenhum dos valores do certificado seja exportado para Azure AD para objetos com mais de 15 valores. Para obter mais informações sobre como implementar esta regra de sincronização, consulte a secção seguinte [Implementando a regra de sincronização para limitar a exportação do atributo userCertificate](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
  * Reduza o número de valores de certificado no objeto AD no local (15 ou menos) removendo valores que já não estão a ser utilizados pela sua organização. Isto é adequado se o atributo inchar for causado por certificados caducados ou não utilizados. Pode utilizar o [script PowerShell disponível aqui](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) para ajudar a encontrar, fazer backup e eliminar certificados expirados no seu AD no local. Antes de apagar os certificados, recomenda-se que verifique com os administradores da Infraestrutura de Chave Pública na sua organização.
 
  * Configure Azure AD Connect para excluir o atributo userCertificate de ser exportado para Azure AD. Em geral, não recomendamos esta opção, uma vez que o atributo pode ser utilizado pelos Serviços Online da Microsoft para permitir cenários específicos. Em particular:
-    * O atributo userCertificate no objeto Utilizador é utilizado pelos clientes Exchange Online e Outlook para a assinatura de mensagens e encriptação. Para saber mais sobre esta funcionalidade, consulte o artigo [S/MIME para a assinatura de mensagens e encriptação.](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx)
+    * O atributo userCertificate no objeto Utilizador é utilizado pelos clientes Exchange Online e Outlook para a assinatura de mensagens e encriptação. Para saber mais sobre esta funcionalidade, consulte o artigo [S/MIME para a assinatura de mensagens e encriptação.](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide)
 
-    * O atributo userCertificate no objeto Computador é utilizado pela Azure AD para permitir que os dispositivos ligados ao domínio do Windows 10 se conectem ao Azure AD. Para saber mais sobre esta funcionalidade, consulte o artigo [Conecte dispositivos ligados ao domínio para Azure AD para experiências com o Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
+    * O atributo userCertificate no objeto Computador é utilizado pela Azure AD para permitir que os dispositivos ligados ao domínio do Windows 10 se conectem ao Azure AD. Para saber mais sobre esta funcionalidade, consulte o artigo [Conecte dispositivos ligados ao domínio para Azure AD para experiências com o Windows 10](../devices/hybrid-azuread-join-plan.md).
 
 ## <a name="implementing-sync-rule-to-limit-export-of-usercertificate-attribute"></a>Implementação da regra de sincronização para limitar a exportação do atributo userCertate
 Para resolver o erro do LargeObject causado pelo atributo userCertificate, pode implementar uma regra de sincronização de saída no Azure AD Connect que exporta um **valor nulo em vez dos valores reais para objetos com mais de 15 valores de certificado**. Esta secção descreve os passos necessários para implementar a regra de sincronização dos objetos **do Utilizador.** Os passos podem ser adaptados para objetos **de contacto** e **computador.**
@@ -74,7 +74,7 @@ Os passos podem ser resumidos como:
 Certifique-se de que não ocorre sincronização enquanto estiver a implementar uma nova regra de sincronização para evitar que alterações não intencionais sejam exportadas para a AZure AD. Para desativar o programador de sincronização incorporado:
 1. Iniciar sessão PowerShell no servidor Azure AD Connect.
 
-2. Desative a sincronização programada executando o cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $false`
+2. Desative a sincronização programada executando o cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
 > Os passos anteriores só são aplicáveis às versões mais recentes (1.1.xxx.x) do Azure AD Connect com o programador incorporado. Se estiver a utilizar versões mais antigas (1.0.xxx.x) do Azure AD Connect que utiliza o Windows Task Scheduler, ou se estiver a utilizar o seu próprio programador personalizado (não comum) para desencadear uma sincronização periódica, tem de as desativar em conformidade.
@@ -122,7 +122,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de deteção** e **pre
     | Sistema Conectado | *Selecione o Conector AD Azure* |
     | Tipo de objeto de sistema conectado | **utilizador** | |
     | Tipo de objeto metaverso | **pessoa** | |
-    | Tipo de ligação | **Aderir** | |
+    | Tipo de ligação | **Join** | |
     | Precedência | *Escolha um número entre 1 e 99* | O número escolhido não deve ser utilizado por qualquer regra de sincronização existente e tem um valor mais baixo (e, portanto, precedência superior) do que a regra de sincronização existente. |
 
 3. Vá ao **separador filtro de deteção** e implemente o mesmo filtro de deteção que a regra de sincronização existente está a utilizar.
@@ -137,7 +137,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de deteção** e **pre
     
 6. Clique no botão **Adicionar** para criar a regra de sincronização.
 
-### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Passo 4. Verifique a nova regra de sincronização de um objeto existente com erro do LargeObject
+### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Passo 4: Verifique a nova regra de sincronização de um objeto existente com erro do LargeObject
 Isto é para verificar se a regra de sincronização criada está a funcionar corretamente num objeto AD existente com erro LargeObject antes de a aplicar a outros objetos:
 1. Aceda ao separador **Operações** no Gestor de Serviços de Sincronização.
 2. Selecione a mais recente operação Export to AD Azure e clique num dos objetos com erros do LargeObject.
@@ -176,11 +176,10 @@ Para exportar as alterações para Azure AD:
 ### <a name="step-8-re-enable-sync-scheduler"></a>Passo 8. Re-ativar o programador de sincronização
 Agora que a questão está resolvida, reecamia o programador de sincronização incorporado:
 1. Inicie a sessão PowerShell.
-2. Re-activar a sincronização programada executando o cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Re-activar a sincronização programada executando o cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
 > Os passos anteriores só são aplicáveis às versões mais recentes (1.1.xxx.x) do Azure AD Connect com o programador incorporado. Se estiver a utilizar versões mais antigas (1.0.xxx.x) do Azure AD Connect que utiliza o Windows Task Scheduler, ou se estiver a utilizar o seu próprio programador personalizado (não comum) para desencadear uma sincronização periódica, tem de as desativar em conformidade.
 
 ## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
-

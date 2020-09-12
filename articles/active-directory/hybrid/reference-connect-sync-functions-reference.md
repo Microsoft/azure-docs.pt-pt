@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550191"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279776"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: Funções Referência
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -117,7 +117,7 @@ As funções com os tipos **mvbin**, **mvstr**e **mvref** só podem funcionar em
   * [Contagem](#count)
   * [Item](#item)
   * [ItemOrNull](#itemornull)
-  * [Aderir](#join)
+  * [Join](#join)
   * [Removeduplicates](#removeduplicates)
   * [Divisão](#split)
 * **Fluxo de Programas**
@@ -141,7 +141,7 @@ As funções com os tipos **mvbin**, **mvstr**e **mvref** só podem funcionar em
   * [PCase](#pcase)
   * [Substituir](#replace)
   * [SubstituirChars](#replacechars)
-  * [Certo](#right)
+  * [Direita](#right)
   * [RTrim](#rtrim)
   * [Guarnição](#trim)
   * [UCase](#ucase)
@@ -426,9 +426,9 @@ A função CGuid converte a representação de cordas de um GUID para a sua repr
 A função Contém encontra uma corda dentro de um atributo multi-valor
 
 **Sintaxe:**  
-`num Contains (mvstring attribute, str search)`- sensível a casos  
+`num Contains (mvstring attribute, str search)` - sensível a casos  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)`- sensível a casos
+`num Contains (mvref attribute, str search)` - sensível a casos
 
 * atributo: o atributo multi-valor para a pesquisa.
 * pesquisa: corda para encontrar no atributo.
@@ -450,7 +450,7 @@ Se o atributo proxyAddresses tiver um endereço de e-mail primário (indicado po
 A função ConvertFromBase64 converte o valor codificado base 64 especificado para uma cadeia regular.
 
 **Sintaxe:**  
-`str ConvertFromBase64(str source)`- assume o Unicode para codificação  
+`str ConvertFromBase64(str source)` - assume o Unicode para codificação  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * fonte: Base64 cadeia codificada  
@@ -509,7 +509,7 @@ O formato de saída desta função é utilizado pelo Azure Ative Directory como 
 Devoluções 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>Contagem
+### <a name="count"></a>de palavras
 **Description:**  
 A função Contagem devolve o número de elementos num atributo multi-valor
 
@@ -660,7 +660,7 @@ A função FormatDateTime é usada para formatar uma DataTime para uma cadeia co
 * formato: uma cadeia que representa o formato a converter.
 
 **Observações:**  
-Os valores possíveis para o formato podem ser consultados aqui: [Formatos de data e hora personalizados para a função FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+Os valores possíveis para o formato podem ser consultados aqui: [Formatos de data e hora personalizados para a função FORMAT](/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exemplo:**  
 
@@ -1224,7 +1224,7 @@ A função RTrim remove espaços brancos de uma corda.
 Devoluções "Teste".
 
 ---
-### <a name="select"></a>Selecionar
+### <a name="select"></a>Selecione
 **Description:**  
 Processar todos os valores num atributo multi-valor (ou saída de uma expressão) com base na função especificada.
 

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 07/09/2020
+ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a0f06c2db0a5bf196ae610efadd85ef1df8defe8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 459189c699b9c48f090d55df98f4618d9e515aaa
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691314"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279980"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utilize a Azure Machine Learning com o pacote fairlearn open-source para avaliar a equidade dos modelos ML (pré-visualização)
 
@@ -142,7 +142,7 @@ O exemplo a seguir mostra como usar o pacote de equidade para carregar insights 
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
+    lr_reg_id = register_model("fairness_logistic_regression", lr_predictor)
     ```
 
 3. Métricas de justiça pré-computação.
@@ -235,7 +235,7 @@ Se estiver interessado em comparar vários modelos e ver como as suas avaliaçõ
     ```python
     model_dict = {}
 
-    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
+    lr_reg_id = register_model("fairness_logistic_regression", lr_predictor)
     model_dict[lr_reg_id] = lr_predictor
 
     svm_reg_id = register_model("fairness_svm", svm_predictor)
@@ -321,7 +321,7 @@ Carregar os conhecimentos de equidade de vários modelos num único Run permitir
 [![Painel de comparação de modelo Fairlearn](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
     
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais sobre a equidade do modelo](concept-fairness-ml.md)
 

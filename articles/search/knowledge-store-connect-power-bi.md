@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5be97414a2e4270870d976a9922415b227c66e27
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924355"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289176"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Ligue uma loja de conhecimento com o Power BI
 
@@ -68,7 +68,7 @@ Clique em **Obter O Modelo DE BI de Potência** na página Adicionar **habilidad
 
 1. Clique no ícone com setas opostas no lado superior direito da tabela para expandir o *Conteúdo*. Quando a lista de colunas aparecer, selecione todas as colunas e, em seguida, desmarcar colunas que começam com 'metadados'. Clique **em OK** para mostrar as colunas selecionadas.
 
-   ![Editar tabelas](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expandir conteúdo")
+   ![Expandir conteúdo](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expandir conteúdo")
 
 1. Altere o tipo de dados para as seguintes colunas clicando no ícone ABC-123 na parte superior esquerda da coluna.
 
@@ -116,7 +116,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a explorar esta loja de conhecimentos utilizando o Storage Explorer, consulte o seguinte artigo.
 

@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071436"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280167"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação pass-through do Azure Ative Directory: Perguntas frequentes
 
@@ -29,7 +29,7 @@ Este artigo aborda perguntas frequentes sobre a autenticação pass-through do A
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Qual dos métodos para iniciar sedutação em Azure AD, Autenticação Pass-through, sincronização de hash de palavra-passe e Serviços da Federação de Diretório Ativo (AD FS), devo escolher?
 
-[Reveja este guia](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para uma comparação dos vários métodos de inscrição Azure AD e como escolher o método de inscrição certo para a sua organização.
+[Reveja este guia](./choose-ad-authn.md) para uma comparação dos vários métodos de inscrição Azure AD e como escolher o método de inscrição certo para a sua organização.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>A Autenticação Pass-through é uma funcionalidade gratuita?
 
@@ -39,7 +39,7 @@ A autenticação pass-through é uma funcionalidade gratuita. Não precisa de ed
 
 Não. A autenticação pass-through só está disponível no caso mundial do Azure AD.
 
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com autenticação pass-through?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../conditional-access/overview.md) funciona com autenticação pass-through?
 
 Yes. Todas as capacidades de Acesso Condicional, incluindo a autenticação multi-factor Azure, funcionam com a autenticação pass-through.
 
@@ -148,7 +148,7 @@ Não, este cenário _não_ é apoiado.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que preciso de uma conta de Administrador Global só em nuvem para ativar a autenticação pass-through?
 
-Recomenda-se que ative ou desative a autenticação pass-through utilizando uma conta de Administrador Global apenas na nuvem. Saiba mais [sobre a adição de uma conta de Administrador Global apenas na nuvem.](../active-directory-users-create-azure-portal.md) Fazê-lo desta forma garante que não fiques trancado fora do teu inquilino.
+Recomenda-se que ative ou desative a autenticação pass-through utilizando uma conta de Administrador Global apenas na nuvem. Saiba mais [sobre a adição de uma conta de Administrador Global apenas na nuvem.](../fundamentals/add-users-azure-active-directory.md) Fazê-lo desta forma garante que não fiques trancado fora do teu inquilino.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Como posso desativar a autenticação pass-through?
 
@@ -174,7 +174,7 @@ Os inquilinos criados após 15 de junho de 2015 têm o comportamento padrão de 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários que são apoiados e quais não são.
 - [Início rápido](how-to-connect-pta-quick-start.md): Levante-se e corra na Autenticação Pass-through Azure.
 - [Migrar de AD FS para Autenticação Pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.
@@ -184,4 +184,3 @@ Os inquilinos criados após 15 de junho de 2015 têm o comportamento padrão de 
 - [Mergulho profundo de](how-to-connect-pta-security-deep-dive.md)segurança : Obtenha informações técnicas profundas sobre a função de autenticação pass-through.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Saiba mais sobre esta característica complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Azure Ative Directory Forum para apresentar novos pedidos de funcionalidades.
-

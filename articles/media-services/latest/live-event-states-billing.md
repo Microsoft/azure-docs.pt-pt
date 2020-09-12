@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 37098b8268d5a451935c925114fb762c574fa55c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1b058eefe22238b60c3482c55b5ae340f4e597f0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265311"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296741"
 ---
 # <a name="live-event-states-and-billing"></a>Estados do Evento Ao Vivo e faturação
 
@@ -45,7 +45,7 @@ O Live Event pode estar num dos seguintes estados.
 
 Pode optar por ativar transcrições ao vivo quando criar o Evento Ao Vivo. Se o fizer, será cobrado para transcrições ao vivo sempre que o Evento Ao Vivo estiver no estado **de Corrida.** Note que será cobrado mesmo que não haja áudio fluindo através do Evento Ao Vivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral do streaming ao vivo](live-streaming-overview.md)
 - [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

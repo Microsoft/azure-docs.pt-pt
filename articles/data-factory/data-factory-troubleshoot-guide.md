@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522861"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279555"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Resolver Problemas do Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -226,7 +226,7 @@ A tabela a seguir aplica-se ao U-SQL.
 
 - **Causa**: A função Azure que foi chamada não devolveu uma carga JSON na resposta. A atividade de função Azure Data Factory (ADF) Azure suporta apenas o conteúdo de resposta JSON.
 
-- **Recomendação**: Atualizar a função Azure para devolver uma carga útil válida do JSON, tal como uma função C# pode voltar`(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
+- **Recomendação**: Atualizar a função Azure para devolver uma carga útil válida do JSON, tal como uma função C# pode voltar `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
 ### <a name="error-code-3606"></a>Código de erro: 3606
 
@@ -440,7 +440,7 @@ A tabela a seguir aplica-se ao U-SQL.
 
 - **Recomendação**: Valide que o ponto final que está a tentar atingir está a responder aos pedidos. Pode usar ferramentas como Fiddler/Carteiro.
 
-## <a name="custom"></a>Personalizar
+## <a name="custom"></a>Personalizado
 
 A tabela a seguir aplica-se ao Azure Batch.
  
@@ -476,7 +476,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Recomendação:** Remova ficheiros desnecessários ou feche-os e adicione um comando de unzip para os extrair.
    
-   Por exemplo, usar`powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
+   Por exemplo, usar `powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
 
 ### <a name="error-code-2505"></a>Código de erro: 2505
 
@@ -502,13 +502,13 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Recomendação**: Atividades personalizadas achatam a estrutura da pasta em pastaPata. Se necessitar de preservar a estrutura da pasta, feche os ficheiros e extraia-os em Azure Batch utilizando um comando unzip.
    
-   Por exemplo, usar`powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
+   Por exemplo, usar `powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
 
 ### <a name="error-code-2509"></a>Código de erro: 2509
 
 - **Mensagem:**`Batch url ... is invalid; it must be in Uri format.`
 
-- **Causa:** Os URLs de lote devem ser semelhantes a`https://mybatchaccount.eastus.batch.azure.com`
+- **Causa:** Os URLs de lote devem ser semelhantes a `https://mybatchaccount.eastus.batch.azure.com`
 
 - **Recomendação**: Consulte a descrição do erro.
 
@@ -809,7 +809,7 @@ A tabela a seguir aplica-se ao Azure Batch.
     1. Verifique se as credenciais estão corretas abrindo o Ambari UI do cluster HDInsight num browser.
     1. Se o cluster estiver na Rede Virtual (VNet) e estiver a ser utilizado um IR auto-hospedado, o URL HDI deve ser o URL privado em VNets, e deve ter 'int' listado após o nome do cluster.
     
-       Por exemplo, mudar `https://mycluster.azurehdinsight.net/` para `https://mycluster-int.azurehdinsight.net/` . Note o `-int` `mycluster` depois, mas antes`.azurehdinsight.net`
+       Por exemplo, mudar `https://mycluster.azurehdinsight.net/` para `https://mycluster-int.azurehdinsight.net/` . Note o `-int` `mycluster` depois, mas antes `.azurehdinsight.net`
     1. Se o cluster estiver no VNet, o IR auto-alojado está a ser utilizado, e o URL privado foi usado, e no entanto a ligação ainda falhou, então o VM onde o IR é instalado teve problemas de ligação ao HDI. 
     
        Ligue-se ao VM onde o IR está instalado e abra o UI Ambari num browser. Utilize o URL privado para o cluster. Esta ligação deve funcionar a partir do navegador. Se não o fizer, contacte a equipa de apoio da HDInsight para mais assistência.
@@ -821,7 +821,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Mensagem:**`User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Causa:** Ou o nome de utilizador ou a palavra-passe estão vazios.
+- **Causa:** O nome de utilizador ou a palavra-passe estão vazios.
 
 - **Recomendação**: Forneça as credenciais corretas para ligar ao HDI e tentar novamente.
 
@@ -1053,6 +1053,11 @@ Utilizar **o Fiddler** para criar uma sessão HTTP da aplicação web monitoriza
 1. Ir para: **Arquivar**  >  **Guardar**  >  **todas as sessões**.
 
 Para mais informações, consulte [Começar com o Violinista.](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
+
+## <a name="general"></a>Geral
+
+### <a name="activity-stuck-issue"></a>Problema de atividade preso
+Quando observa que a atividade está a correr muito mais tempo do que o normal, sem progressos, pode estar presa. Pode tentar cancelá-lo e tentar novamente para ver se ajuda. Se for uma atividade de cópia, pode aprender sobre a monitorização de desempenho e resolução de problemas do desempenho da atividade da cópia de resolução de [problemas;](copy-activity-performance-troubleshooting.md) se for um fluxo de dados, aprenda com [o mapeamento de dados flui desempenho](concepts-data-flow-performance.md) e guia de afinação.
 
 ## <a name="next-steps"></a>Próximos passos
 

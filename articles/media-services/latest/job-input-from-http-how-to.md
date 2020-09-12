@@ -8,15 +8,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c6ab5051b436d12ca86501e4c71bbbea0a8d3107
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e440e4393065d2bc1cad1a96b4f8c975624faa11
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269068"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295517"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Criar uma entrada de trabalho a partir de um URL HTTPS
 
@@ -37,6 +37,6 @@ O código que se segue mostra como criar um trabalho com uma entrada URL HTTPS.
 
 Ver [códigos de erro](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Crie uma entrada de trabalho a partir de um ficheiro local.](job-input-from-local-file-how-to.md)

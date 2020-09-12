@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 38ef1188503d0076cfd98843f6f68c990fba7463
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 665d508a7d95e177d0db09ad86e2a5f0ee4d605b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762382"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291301"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor Config da Nuvem de primavera para o seu serviço
 
@@ -22,7 +22,7 @@ O Spring Cloud Config fornece suporte ao servidor e ao cliente para uma configur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-* Um serviço Azure Spring Cloud já a provisionado e em funcionamento. Para configurar e lançar um serviço Azure Spring Cloud, consulte [Quickstart: Lançar uma aplicação Java Spring utilizando o Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
+* Um serviço Azure Spring Cloud já a provisionado e em funcionamento. Para configurar e lançar um serviço Azure Spring Cloud, consulte [Quickstart: Lançar uma aplicação Java Spring utilizando o Azure CLI](spring-cloud-quickstart.md).
 
 ## <a name="restriction"></a>Restrição
 
@@ -216,7 +216,7 @@ A Azure Spring Cloud pode aceder a repositórios de Git que são públicos, prot
 
 1. Selecione o serviço para configurar.
 
-1. No painel esquerdo da página de serviço, em **Definições,** selecione o separador **Config Server.** Configure o repositório que criamos anteriormente:
+1. No painel esquerdo da página de serviço, em **Definições,** selecione o **separador Servidor Config.** Configure o repositório que criamos anteriormente:
    - Adicione o URL repositório que guardou da secção anterior
    - Clique `Authentication` e selecione `HTTP Basic`
    - O __nome de utilizador__ é o nome de utilizador guardado na secção anterior
@@ -227,10 +227,10 @@ A Azure Spring Cloud pode aceder a repositórios de Git que são públicos, prot
 
 ## <a name="delete-your-app-configuration"></a>Elimine a configuração da sua aplicação
 
-Depois de ter guardado um ficheiro de configuração, o botão **de configuração** da aplicação Delete aparece no separador **Configuração.** Deve selecioná-lo se pretender ligar a sua instância do Config Server a outra fonte, como mudar-se de GitHub para Azure DevOps.
+Depois de ter guardado um ficheiro de configuração, o botão **de configuração** da aplicação Delete aparece no **separador Configuração.** A seleção deste botão apagará completamente as definições existentes. Deve selecioná-lo se pretender ligar a sua instância do Config Server a outra fonte, como mudar-se de GitHub para Azure DevOps.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a ativar e configurar a sua instância do Servidor Config da Nuvem de primavera. Para saber mais sobre a gestão da sua aplicação, consulte [Escala uma aplicação em Azure Spring Cloud.](spring-cloud-tutorial-scale-manual.md)

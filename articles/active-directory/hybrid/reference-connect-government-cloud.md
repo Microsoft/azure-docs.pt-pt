@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080186"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276189"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbridas para a nuvem do Governo do Azure
 
@@ -25,7 +25,7 @@ Este artigo descreve considerações para integrar um ambiente híbrido com a nu
 > [!NOTE]
 > Para integrar um ambiente no local microsoft Azure Ative Directory (Azure AD) com a nuvem do Governo Azure, você precisa atualizar para o mais recente lançamento do [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-Para obter uma lista completa dos pontos finais do Departamento de Defesa do Governo dos Estados Unidos, consulte a [documentação](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints).
+Para obter uma lista completa dos pontos finais do Departamento de Defesa do Governo dos Estados Unidos, consulte a [documentação](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
 ## <a name="azure-ad-pass-through-authentication"></a>Autenticação pass-through Azure AD
 
@@ -100,7 +100,7 @@ Se tiver ultrapassado as  `AuthNegotiateDelegateAllowlist`   definições ou
 
 Se tiver ultrapassado as  `AuthNegotiateDelegateWhitelist`   definições ou `AuthServerWhitelist`   definições de política no seu ambiente, certifique-se de que lhe adiciona o URL AD `https://autologon.microsoft.us` Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Autenticação pass-through](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)
 - [Único sign-on](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 065c6661ffc9f618a5dfd32a9f45d26569a56003
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559564"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278178"
 ---
 # <a name="using-custom-security-policies"></a>Usando políticas de segurança personalizadas
 
@@ -40,7 +40,7 @@ Como discutido na [documentação da Política Azure,](https://docs.microsoft.co
 
     [![Clique Em Adicionar uma iniciativa personalizada](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
-    A seguinte página aparece:
+    É apresentada a seguinte página:
 
     ![Criar ou adicionar uma política](media/custom-security-policies/create-or-add-custom-policy.png)
 
@@ -69,7 +69,7 @@ Como discutido na [documentação da Política Azure,](https://docs.microsoft.co
 
     [![Recomendações personalizadas](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
-## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Melhorar as suas recomendações personalizadas com informações detalhadas
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Melhore as suas recomendações personalizadas com informações detalhadas
 
 As recomendações incorporadas fornecidas com o Azure Security Center incluem detalhes como níveis de gravidade e instruções de reparação. Se pretender adicionar este tipo de informação às suas recomendações personalizadas para que apareça no portal Azure ou onde quer que aceda às suas recomendações, terá de utilizar a API REST. 
 

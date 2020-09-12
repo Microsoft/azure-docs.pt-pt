@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1e3579f79f9daa80c3d3f2206be7a76cc5505e80
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ff76c38031ac367bf81f6d152642a4d9a209bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037024"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294004"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Use rastreio distribuído com Azure Spring Cloud
 
@@ -28,7 +28,7 @@ Neste artigo, saiba como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir estes procedimentos, precisa de um serviço Azure Spring Cloud que já esteja a ser a provisionado e em funcionamento. Complete o [quickstart na implementação de uma aplicação através do CLI Azure](spring-cloud-quickstart-launch-app-cli.md) para provisões e executar um serviço Azure Spring Cloud.
+Para seguir estes procedimentos, precisa de um serviço Azure Spring Cloud que já esteja a ser a provisionado e em funcionamento. Complete o [quickstart na implementação de uma aplicação através do CLI Azure](spring-cloud-quickstart.md) para provisões e executar um serviço Azure Spring Cloud.
     
 ## <a name="add-dependencies"></a>Adicionar dependências
 
@@ -101,6 +101,6 @@ O Application Insights fornece capacidades de monitorização para além do mapa
 1. No **Monitor,** selecione **Distributed Tracing**.
 1. Selecione **Desativar** para desativar insights de aplicações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a ativar e a compreender o rastreio distribuído em Azure Spring Cloud. Para saber mais sobre serviços de ligação a uma aplicação, consulte [uma base de dados DB da Azure Cosmos para uma aplicação Azure Spring Cloud](spring-cloud-tutorial-bind-cosmos.md).

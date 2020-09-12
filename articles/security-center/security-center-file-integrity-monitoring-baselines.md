@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d336c58971b16875d9861f85dde9529de8c734e2
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73664414"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278090"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base com a Monitorização d a Integridade dos Ficheiros (FIM)
 
@@ -41,7 +41,7 @@ Os predefinições da colmeia de registo FIM fornecem uma forma conveniente de m
 >[!NOTE]
 > Os controlos recursivos aplicam-se apenas às colmeias de segurança recomendadas e não aos caminhos de registo personalizados.  
 
-## <a name="adding-a-custom-registry-check"></a>Adicionar uma verificação de registo personalizado
+## <a name="add-a-custom-registry-check"></a>Adicione uma verificação de registo personalizado
 
 As linhas de base FIM começam por identificar características de um estado de bem-estar conhecido para o sistema operativo e aplicação de suporte.  Para este exemplo, vamos focar-nos nas configurações de política de palavra-passe para o Windows Server 2008 e mais alto.
 
@@ -73,14 +73,14 @@ As linhas de base FIM começam por identificar características de um estado de 
 
       ![Ativar o FIM num registo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Rastreio de alterações nos ficheiros do Windows
+## <a name="track-changes-to-windows-files"></a>Rastrear alterações nos ficheiros do Windows
 
 1. Na janela 'Adicionar ficheiro **do Windows' para alterar o rastreio,** na caixa de texto **do caminho 'Introduzir',** introduza a pasta que contém os ficheiros que pretende rastrear. No exemplo na seguinte figura, a **Contoso Web App** reside no D:\ unidade dentro da estrutura da pasta **ContosWebApp.**  
 1. Crie uma entrada personalizada de ficheiros Windows fornecendo um nome da classe de definição, permitindo a recursão e especificando a pasta superior com um sufixo wildcard (*).
 
     ![Ativar o FIM num ficheiro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Recuperação de dados de alteração
+## <a name="retrieve-change-data"></a>Recuperar dados de alteração
 
 Os dados de monitorização da integridade do ficheiro residem dentro do conjunto de tabelaS Azure Log Analytics / ConfigurationChange.  
 

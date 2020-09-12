@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa54bc6b8b0912158a5dcd369b12801d51ca7141
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256502"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297200"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origem) em Azure Media Services
 
@@ -68,11 +68,11 @@ Funcionalidade|Standard|Premium
 Débito |Até 600 Mbps e pode fornecer uma produção eficaz muito maior quando um CDN é usado.|200 Mbps por unidade de streaming (SU). Pode fornecer uma produção eficaz muito maior quando um CDN é usado.
 CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem CDN.
 A faturação é prostimada| Diário|Diário
-Encriptação dinâmica|Sim|Sim
-Empacotamento dinâmico|Sim|Sim
+Encriptação dinâmica|Yes|Yes
+Empacotamento dinâmico|Yes|Yes
 Escala|A escala automática sobe até à produção visada.|SUs adicionais
-Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Sim|Sim
-Download progressivo|Sim|Sim
+Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Yes|Yes
+Download progressivo|Yes|Yes
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.
 
 <sup>1</sup> Apenas utilizado diretamente no Ponto de Final de Streaming quando o CDN não estiver ativado no ponto final.<br/>
@@ -165,10 +165,10 @@ Consulte os seguintes artigos:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Empacotamento dinâmico](dynamic-packaging-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gerir pontos finais de transmissão em fluxo](manage-streaming-endpoints-howto.md)

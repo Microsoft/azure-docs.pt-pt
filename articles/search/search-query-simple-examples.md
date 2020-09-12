@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918031"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294871"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Crie uma consulta simples na Pesquisa Cognitiva Azure
 
@@ -37,13 +37,13 @@ O que precisa é do Carteiro ou de uma ferramenta equivalente para emitir pedido
 
 Depois de especificar o cabeçalho do pedido, pode reutilizá-lo para todas as consultas neste artigo, trocando apenas a **cadeia search=.** 
 
-  ![Cabeçalho de pedido do Postman](media/search-query-lucene-examples/postman-header.png)
+  ![Carteiro solicitam parâmetros definidos](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Definir o URL de pedido
 
 O pedido é um comando GET emparelhado com um URL que contém o ponto final de pesquisa cognitiva do Azure e a cadeia de pesquisa.
 
-  ![Cabeçalho de pedido do Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Cabeçalho de pedido do carteiro GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 A composição url tem os seguintes elementos:
 
@@ -285,7 +285,7 @@ Para obter os próximos 5, salte o primeiro lote:
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Tente especificar consultas no seu código. Os seguintes links explicam como configurar consultas de pesquisa tanto para .NET como para a API REST utilizando a sintaxe simples padrão.
 
 * [Consultar o seu índice utilizando o .NET SDK](./search-get-started-dotnet.md)

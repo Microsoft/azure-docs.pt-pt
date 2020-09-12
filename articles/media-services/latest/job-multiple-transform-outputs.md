@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 63e6da53e542172d474f9ca5de9ab136f38f42f5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e5fe12b02503aff625a1cc2c39a71abcdf3dab0b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265546"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296792"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Criar um trabalho com múltiplas saídas de transformação
 
@@ -136,6 +136,6 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 Ver [códigos de erro](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Azure Media Services v3 amostras usando .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 

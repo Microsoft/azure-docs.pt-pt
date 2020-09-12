@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6efff54d2c28659af27161ab4cd4753302210006
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358417"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280201"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação pass-through do Diretório Ativo Azure: Limitações atuais
 
@@ -43,9 +43,9 @@ São apoiados os seguintes cenários:
 
 Os seguintes cenários _não_ são suportados:
 
-- Deteção de utilizadores com [credenciais vazadas.](../reports-monitoring/concept-risk-events.md#leaked-credentials)
+- Deteção de utilizadores com [credenciais vazadas.](../identity-protection/overview-identity-protection.md)
 - Os Serviços de Domínio Azure AD precisam da sincronização de password Hash para ser ativado no inquilino. Portanto, os inquilinos que usam a Autenticação Pass-through _apenas_ não funcionam para cenários que precisam de Serviços de Domínio AD AZure.
-- A autenticação pass-through não está integrada com [a Azure AD Connect Health](whatis-hybrid-identity-health.md).
+- A autenticação pass-through não está integrada com [a Azure AD Connect Health](./whatis-azure-ad-connect.md).
 
 > [!IMPORTANT]
 > Como uma solução alternativa _apenas_ para cenários não suportados (exceto a integração Azure AD Connect Health), permitir a sincronização de password hash na página [de funcionalidades opcionais](how-to-connect-install-custom.md#optional-features) no assistente Azure AD Connect.

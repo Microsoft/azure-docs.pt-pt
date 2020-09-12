@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 024136ab6f660ecc5b6c5c7c0ecae62c83238659
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5ceff9eba0363ea2784c48e026807c53447f1e32
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269544"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296907"
 ---
 # <a name="creating-filters-with-cli"></a>Criar filtros com CLI
 
@@ -132,6 +132,6 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 [Stream vídeos](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)

@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183639"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294718"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configure mPIO em um anfitrião StorSimple executando CentOS
 Este artigo explica os passos necessários para configurar o IO Multipating (MPIO) no servidor anfitrião Centos 6.6. O servidor anfitrião está ligado ao seu dispositivo Microsoft Azure StorSimple para uma elevada disponibilidade através de iniciadores iSCSI. Descreve em detalhe a descoberta automática de dispositivos multipatas e a configuração específica apenas para volumes StorSimple.
@@ -352,7 +352,7 @@ Também valeria a pena verificar se pode realmente ver alguns discos depois de s
 
 * Utilize o seguinte comando para rescanar o autocarro SCSI:
   
-    `$ rescan-scsi-bus.sh`(parte do pacote sg3_utils)
+    `$ rescan-scsi-bus.sh` (parte do pacote sg3_utils)
 * Digite os seguintes comandos:
   
     `$ dmesg | grep sd*`
@@ -377,9 +377,9 @@ Repita este comando para todas as interfaces de rede ligadas no alvo iSCSI, que 
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-P. Não sei se o meu dispositivo está na lista branca.
+P. Não sei se o meu dispositivo é permitido.
 
-A. Para verificar se o seu dispositivo está na lista branca, utilize o seguinte comando interativo de resolução de problemas:
+A. Para verificar se o seu dispositivo é permitido, utilize o seguinte comando interativo de resolução de problemas:
 
 ```console
 multipathd -k
@@ -441,12 +441,11 @@ Para mais informações, vá à [resolução de problemas para multipatar.](http
 | &nbsp; |`chkconfig multipathd on` </br> OU </br> `mpathconf -with_chkconfig y` |Permitir que o daemon multi-path comece na hora do arranque |
 | &nbsp; |`multipathd -k` |Inicie a consola interativa para resolução de problemas |
 | &nbsp; |`multipath -l` |Listar ligações e dispositivos multipatas |
-| &nbsp; |`mpathconf --enable` |Criar um ficheiro mulitpath.conf de amostra em`/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Criar um ficheiro mulitpath.conf de amostra em `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Como está a configurar o MPIO no anfitrião Linux, também poderá ter de consultar os seguintes documentos CentoS 6.6:
 
 * [Criação do MPIO no CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Guia de Treino linux](http://linux-training.be/linuxsys.pdf)
-

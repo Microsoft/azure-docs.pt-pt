@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358145"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279487"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação passativa do Azure Ative Directory: Atualizar agentes de autenticação de pré-visualização
 
@@ -60,7 +60,7 @@ Para verificar as versões dos seus Agentes de Autenticação, em cada servidor 
 
 Antes de atualizar, certifique-se de que tem os seguintes itens no lugar:
 
-1. **Criar uma conta global de administrador apenas**na nuvem : Não atualize sem ter uma conta de Administrador Global apenas na nuvem para usar em situações de emergência em que os seus Agentes de Autenticação Pass-through não estejam a funcionar corretamente. Saiba mais [sobre a adição de uma conta de Administrador Global apenas na nuvem.](../active-directory-users-create-azure-portal.md) Fazer este passo é fundamental e garante que não fique trancado fora do seu inquilino.
+1. **Criar uma conta global de administrador apenas**na nuvem : Não atualize sem ter uma conta de Administrador Global apenas na nuvem para usar em situações de emergência em que os seus Agentes de Autenticação Pass-through não estejam a funcionar corretamente. Saiba mais [sobre a adição de uma conta de Administrador Global apenas na nuvem.](../fundamentals/add-users-azure-active-directory.md) Fazer este passo é fundamental e garante que não fique trancado fora do seu inquilino.
 2.  **Garantir uma elevada disponibilidade**: Se não estiver concluído anteriormente, instale um segundo Agente de Autenticação Autónomo para fornecer alta disponibilidade para pedidos de inscrição, utilizando estas [instruções](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Atualizar o Agente de Autenticação no seu servidor AD AD Ad

@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.subservice: ''
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2b20668ea08186f42eed89f82fb1ae8d85cf090d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c3aaba6939f9e5e3f5d7c169cd3a199cc93f527d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267705"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296782"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Alta Disponibilidade com Serviços de Mídia e Vídeo a Pedido (VOD)
 
@@ -85,6 +85,6 @@ Este diagrama de alto nível mostra a arquitetura da amostra fornecida para come
     * Se tiver empregos no estado programado que não tenham avançado para o estado de processamento num determinado período de tempo para uma determinada região, retire essa região da sua lista de contas atualmente utilizadas. Dependendo dos requisitos do seu negócio, pode decidir cancelar esses postos de trabalho imediatamente e reencando-os para a outra região. Ou pode dar-lhes mais tempo para se mudarem para o próximo estado.
     * Se uma região foi removida da lista de conta, monitorize-a para recuperação antes de a adicionar de volta à lista. A saúde regional pode ser monitorizada através dos postos de trabalho existentes na região (se não foram cancelados e reenviados), adicionando a conta de volta à lista após um período de tempo, e pelos operadores que monitorizam as comunicações da Azure sobre falhas que podem estar a afetar a Azure Media Services.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Confira as [amostras de código](/samples/browse/?products=azure-media-services)

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 91f485d03717ab80bac26abd16da165d7b0dead7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816495"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291930"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize chaves geridas pelo cliente para encriptar imagens
 
@@ -149,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize  [a az image gallery criar versão de imagem](/cli/azure/sig/image-version#az-sig-image-version-create) com o `--target-region-encryption` parâmetro. O formato `--target-region-encryption` é uma lista de chaves separadas pelo espaço para encriptar o SISTEMA e os discos de dados. Devia ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>` . 
+Para especificar um conjunto de encriptação de disco para uma versão de imagem, utilize  [a az image gallery criar versão de imagem](/cli/azure/sig/image-version#az-sig-image-version-create) com o `--target-region-encryption` parâmetro. O formato é uma lista de chaves separadas por `--target-region-encryption` vírgulas para encriptar o SISTEMA e os discos de dados. Devia ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>` . 
 
 Se a fonte do disco DE for um disco gerido ou um VM, utilize `--managed-image` para especificar a fonte para a versão de imagem. Neste exemplo, a fonte é uma imagem gerida que tem um disco DE, bem como um disco de dados na LUN 0. O disco OS será encriptado com DiskEncryptionSet1 e o disco de dados será encriptado com DiskEncryptionSet2.
 
@@ -205,7 +205,7 @@ Quando criar a sua versão de imagem no portal, pode utilizar o **separador Encr
 
 Pode criar um VM a partir de uma versão de imagem e utilizar chaves geridas pelo cliente para encriptar os discos. Quando criar o VM no portal, no separador **Discos,** selecione **encriptação em repouso com teclas geridas pelo cliente** ou **encriptação dupla com chaves geridas pela plataforma e geridas pelo cliente** para o tipo de **encriptação**. Em seguida, pode selecionar o conjunto de encriptação a partir do drop-down.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a encriptação do disco do lado do servidor.](./windows/disk-encryption.md)
 

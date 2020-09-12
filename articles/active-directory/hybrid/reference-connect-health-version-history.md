@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abc0417fc6f97501566f03d7eae0e4274d1dbced
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182348"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279419"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
 A equipa do Azure Ative Directory atualiza regularmente o Azure AD Connect Health com novas funcionalidades e funcionalidades. Este artigo lista as versões e funcionalidades que foram lançadas.  
@@ -30,7 +30,7 @@ A equipa do Azure Ative Directory atualiza regularmente o Azure AD Connect Healt
 > Os agentes da Connect Health são atualizados automaticamente quando a nova versão é lançada. Certifique-se de que as definições de atualização automática estão ativadas a partir do portal Azure.
 >
 
-Azure AD Connect Health for Sync está integrado com a instalação Azure AD Connect. Leia mais sobre [o histórico de lançamentos do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) Para obter feedback da funcionalidade, vote no canal Connect Health User [Voice](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+Azure AD Connect Health for Sync está integrado com a instalação Azure AD Connect. Leia mais sobre [o histórico de lançamentos do Azure AD Connect](./reference-connect-version-history.md) Para obter feedback da funcionalidade, vote no canal Connect Health User [Voice](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
 ## <a name="april-2020"></a>Abril de 2020
 **Atualização do Agente**
@@ -259,5 +259,5 @@ Azure AD Connect Health for Sync está integrado com a instalação Azure AD Con
 * Tendências no pedido falhado nos servidores AD FS agrupados por Aplicações, Tipos de Erro, etc.
 * Implementação de agente mais simples usando credenciais de administração global da Azure AD.  
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre [a sua infraestrutura de identidade no local e serviços de sincronização na nuvem.](whatis-hybrid-identity-health.md)
+## <a name="next-steps"></a>Próximos passos
+Saiba mais sobre [a sua infraestrutura de identidade no local e serviços de sincronização na nuvem.](./whatis-azure-ad-connect.md)

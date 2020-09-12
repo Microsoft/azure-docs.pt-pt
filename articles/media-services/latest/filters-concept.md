@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8cc3bc176798efda46f03c80fe9cce2edd7daf6b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bb5561ced93c3f5a899c6e48fdab0f14e52914bb
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262639"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291556"
 ---
 # <a name="filters"></a>Filtros
 
@@ -156,7 +156,7 @@ Não é aconselhável atualizar a definição de filtros associados a um **local
 
 Se a definição do filtro tiver de ser alterada, considere criar um novo filtro e adicioná-lo ao URL **do localizador de streaming** ou publicar um novo **Localizador de Streaming** que faz referência direta ao filtro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os seguintes artigos mostram como criar filtros programáticamente.  
 

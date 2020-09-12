@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447091"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279266"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Ativar a gravação do dispositivo
 > [!NOTE]
@@ -31,10 +31,10 @@ ms.locfileid: "87447091"
 
 A documentação que se segue fornece informações sobre como ativar a funcionalidade de desativação do dispositivo no Azure AD Connect. O Writeback do dispositivo é utilizado nos seguintes cenários:
 
-* Ativar [o Windows Hello for Business utilizando a implementação híbrida do certificado trust](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Ativar [o Windows Hello for Business utilizando a implementação híbrida do certificado trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Ativar o Acesso Condicional com base em dispositivos para aplicações protegidas ADFS (2012 R2 ou superior) (confianças de partes).
 
-Isto fornece segurança adicional e garantia de que o acesso a aplicações é concedido apenas a dispositivos fidedignos. Para obter mais informações sobre o Acesso Condicional, consulte [o Risco de Gestão com Acesso Condicional](../active-directory-conditional-access-azure-portal.md) e [Configuração de Acesso Condicional utilizando o Registo do Dispositivo de Diretório Ativo Azure](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Isto fornece segurança adicional e garantia de que o acesso a aplicações é concedido apenas a dispositivos fidedignos. Para obter mais informações sobre o Acesso Condicional, consulte [o Risco de Gestão com Acesso Condicional](../conditional-access/overview.md) e [Configuração de Acesso Condicional utilizando o Registo do Dispositivo de Diretório Ativo Azure](../devices/overview.md).
 
 > [!IMPORTANT]
 > <li>Os dispositivos devem estar situados na mesma floresta que os utilizadores. Uma vez que os dispositivos devem ser reensiem para uma única floresta, esta funcionalidade não suporta atualmente uma implantação com várias florestas de utilizadores.</li>
@@ -83,7 +83,7 @@ A reversão do dispositivo deve estar a funcionar corretamente. Tenha em atenç�
    ![Lista de dispositivos registados do Ative Directory Admin Center](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Ativar o acesso condicional
-Instruções detalhadas para permitir este cenário estão disponíveis na [Configuração do Acesso Condicional usando o Registo do Dispositivo de Diretório Ativo Azure](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Instruções detalhadas para permitir este cenário estão disponíveis na [Configuração do Acesso Condicional usando o Registo do Dispositivo de Diretório Ativo Azure](../devices/overview.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>A caixa de verificação de reprodução ainda está desativada
@@ -126,9 +126,8 @@ Verifique a configuração no Ative Directory:
 ![Resolução de problemas, verificar permissões na configuração de registo do dispositivo](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
 ## <a name="additional-information"></a>Informações adicionais
-* [Gestão de risco com acesso condicional](../active-directory-conditional-access-azure-portal.md)
-* [Criação de Acesso Condicional no local utilizando o registo de dispositivos de diretório ativo Azure](../../active-directory/active-directory-device-registration-on-premises-setup.md)
+* [Gestão de risco com acesso condicional](../conditional-access/overview.md)
+* [Criação de Acesso Condicional no local utilizando o registo de dispositivos de diretório ativo Azure](../devices/overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
-

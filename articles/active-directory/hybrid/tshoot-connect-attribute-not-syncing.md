@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a16e989a6da8daa4a290c7eaa4363eef09c9749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1111b56a08343f1e12c3b2d582e350907ab37b46
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356343"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276036"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Resolução de problemas um atributo não sincronizado em Azure AD Connect
 
@@ -80,13 +80,13 @@ Antes de investigar os problemas de sincronização de atributos, vamos entender
 * Da mesma forma, pode ver o objeto **Azure Ative Directory Connector Space** e pode gerar o **Preview** para visualizar o fluxo do atributo do **Metaverse** para o **Espaço do Conector** e vice-versa, desta forma pode investigar por que um atributo não está a sincronizar.
 
 ## <a name="recommended-documents"></a>**Documentos Recomendados**
-* [Azure AD Connect Sync: Conceitos Técnicos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
-* [Azure AD Connect sync: Understanding the architecture](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
-* [Azure AD Connect sync: Understanding Declarative Provisioning](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Azure AD Connect sync: Understanding Declarative Provisioning Expressions](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
-* [Sincronização do Azure AD Connect: entender a configuração predefinida](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
-* [Azure AD Connect sync: Understanding Users, Groups e Contacts](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Azure AD Connect Sync: Shadow atributos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Azure AD Connect Sync: Conceitos Técnicos](./how-to-connect-sync-technical-concepts.md)
+* [Azure AD Connect sync: Understanding the architecture](./concept-azure-ad-connect-sync-architecture.md)
+* [Azure AD Connect sync: Understanding Declarative Provisioning](./concept-azure-ad-connect-sync-declarative-provisioning.md)
+* [Azure AD Connect sync: Understanding Declarative Provisioning Expressions](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+* [Sincronização do Azure AD Connect: entender a configuração predefinida](./concept-azure-ad-connect-sync-default-configuration.md)
+* [Azure AD Connect sync: Understanding Users, Groups e Contacts](./concept-azure-ad-connect-sync-user-and-contacts.md)
+* [Azure AD Connect Sync: Shadow atributos](./how-to-connect-syncservice-shadow-attributes.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

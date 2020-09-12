@@ -2,13 +2,13 @@
 title: Criar ficheiro de parâmetros
 description: Crie um ficheiro de parâmetros para passar em valores durante a implementação de um modelo de Gestor de Recursos Azure
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: ff5fa74f8b4b7f0ce7dfe2164a369cfd5eedb4d9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/01/2020
+ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179628"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276665"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar ficheiro de parâmetro do Gestor de Recursos
 
@@ -148,6 +148,8 @@ Finalmente, olhe para os valores permitidos e quaisquer restrições como o comp
 }
 ```
 
+O seu ficheiro de parâmetros só pode conter valores para parâmetros definidos no modelo. Se o seu ficheiro de parâmetros contiver parâmetros extras que não correspondem aos parâmetros do modelo, recebe um erro.
+
 ## <a name="parameter-type-formats"></a>Formatos de tipo de parâmetro
 
 O exemplo a seguir mostra os formatos de diferentes tipos de parâmetros.
@@ -226,7 +228,7 @@ Pode utilizar parâmetros inline e um ficheiro de parâmetro local na mesma oper
 Se o seu modelo incluir um parâmetro com o mesmo nome que um dos parâmetros do comando PowerShell, o PowerShell apresenta o parâmetro do seu modelo com o pós-fixação **FromTemplate**. Por exemplo, um parâmetro chamado **ResourceGroupName** no seu modelo entra em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) É-lhe solicitado que forneça um valor para **o ResourceGroupNameFromTemplate**. Pode evitar esta confusão utilizando nomes de parâmetros que não são utilizados para comandos de implantação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para entender como definir parâmetros no seu modelo, consulte [parâmetros nos modelos do Gestor de Recursos Azure](template-parameters.md).
 - Para obter mais informações sobre a utilização de valores a partir de um cofre de chaves, consulte [use Azure Key Vault para passar o valor do parâmetro seguro durante a implementação](key-vault-parameter.md).

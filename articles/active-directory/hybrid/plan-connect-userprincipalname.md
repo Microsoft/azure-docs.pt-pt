@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680030"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279606"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>População UserPrincipalName do Azure AD
 
@@ -56,7 +56,7 @@ Para ativar o ID de login alternativo com Azure AD, não são necessários passo
 
 ![Domínios não verificados](./media/plan-connect-userprincipalname/altloginid.png)  
 
-Para obter mais informações, consulte [configurar configuração de ID de login alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração de login AD Azure](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
+Para obter mais informações, consulte [configurar configuração de ID de login alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração de login AD Azure](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>Sufixo upn não verificado
 Se o atributo UserPrincipalName do Utilizador no local não for verificado com o Azure AD Tenant, então o valor do atributo AZURE AD UserPrincipalName é definido como MOERA. A Azure AD calcula o MOERA a partir do atributo Azure AD MailNickName e do domínio inicial Azure AD como &lt; MailNickName &gt;&#64;domínio inicial &lt; &gt; .
@@ -92,17 +92,17 @@ Seguem-se cenários de exemplo de como a UPN é calculada com base no cenário d
 Objeto de utilizador no local:
 - mailNickName : &lt; não definido&gt;
 - ProxyAddresses : { SMTP:us1@contoso.com }
-- Correio:us2@contoso.com
-- nome do utilizadorPrincipal:us3@contoso.com
+- Correio: us2@contoso.com
+- nome do utilizadorPrincipal: us3@contoso.com
 
 Sincronizado o objeto do utilizador para Azure AD Tenant pela primeira vez
 - Desajuste O prefixo do Correio Ad Azure Atribua ao prefixo primário do endereço SMTP.
-- Desabine o MOERA ao &lt; MailNickName &gt;&#64;domínio inicial &lt; &gt; .
+- Desabine o MOERA ao  &lt; MailNickName &gt;&#64;domínio inicial &lt; &gt; .
 - Desconte o atributo Azure AD UserPrincipalName ao MOERA.
 
 Objeto de utilizador Azure AD Tenant:
 - MailNickName : us1           
-- Nome do UtilizadorPrincipal:us1@contoso.onmicrosoft.com
+- Nome do UtilizadorPrincipal: us1@contoso.onmicrosoft.com
 
 
 ### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Cenário 2: Sufixo upn não verificado – definido no local e-mail AtributoNickName
@@ -112,8 +112,8 @@ Objeto de utilizador Azure AD Tenant:
 Objeto de utilizador no local:
 - mailNickName : us4
 - ProxyAddresses : { SMTP:us1@contoso.com }
-- Correio:us2@contoso.com
-- nome do utilizadorPrincipal:us3@contoso.com
+- Correio: us2@contoso.com
+- nome do utilizadorPrincipal: us3@contoso.com
 
 Sincronizar atualização no correio de NickName atribuído ao Azure AD Tenant
 - Atualizar A azure AD MailNickName atributo com atributo de Correio no local NickName.
@@ -121,7 +121,7 @@ Sincronizar atualização no correio de NickName atribuído ao Azure AD Tenant
 
 Objeto de utilizador Azure AD Tenant:
 - MailNickName : us4
-- Nome do UtilizadorPrincipal:us1@contoso.onmicrosoft.com
+- Nome do UtilizadorPrincipal: us1@contoso.onmicrosoft.com
 
 ### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Cenário 3: Sufixo UPN não verificado – atributo de utilizador de atualização no local
 
@@ -130,8 +130,8 @@ Objeto de utilizador Azure AD Tenant:
 Objeto de utilizador no local:
 - mailNickName : us4
 - ProxyAddresses : { SMTP:us1@contoso.com }
-- Correio:us2@contoso.com
-- nome do utilizadorPrincipal:us5@contoso.com
+- Correio: us2@contoso.com
+- nome do utilizadorPrincipal: us5@contoso.com
 
 Sincronizar atualização no utilizador no local Atribua o Nome Azure AD
 - A atualização no atributo Do utilizador No-In-In-InsPrincipalName desencadeia um recálculo do atributo MOERA e Azure AD UserPrincipalName.
@@ -140,7 +140,7 @@ Sincronizar atualização no utilizador no local Atribua o Nome Azure AD
 
 Objeto de utilizador Azure AD Tenant:
 - MailNickName : us4
-- Nome do UtilizadorPrincipal:us4@contoso.onmicrosoft.com
+- Nome do UtilizadorPrincipal: us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Cenário 4: Sufixo UPN não verificado – atualizar endereço SMTP primário e atributo de correio no local
 
@@ -149,15 +149,15 @@ Objeto de utilizador Azure AD Tenant:
 Objeto de utilizador no local:
 - mailNickName : us4
 - ProxyAddresses : { SMTP:us6@contoso.com }
-- Correio:us7@contoso.com
-- nome do utilizadorPrincipal:us5@contoso.com
+- Correio: us7@contoso.com
+- nome do utilizadorPrincipal: us5@contoso.com
 
 Sincronizar atualização no atributo de correio no local e endereço SMTP primário para Azure AD Tenant
 - Após a sincronização inicial do objeto do utilizador, as atualizações ao atributo de correio no local e ao endereço SMTP primário não afetarão o Azure AD MailNickName ou o atributo UserPrincipalName.
 
 Objeto de utilizador Azure AD Tenant:
 - MailNickName : us4
-- Nome do UtilizadorPrincipal:us4@contoso.onmicrosoft.com
+- Nome do UtilizadorPrincipal: us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Cenário 5: Sufixo verificado da UPN – atualização no local do utilizadorPrincipalName atribui sufixo
 
@@ -166,8 +166,8 @@ Objeto de utilizador Azure AD Tenant:
 Objeto de utilizador no local:
 - mailNickName : us4
 - ProxyAddresses : { SMTP:us6@contoso.com }
-- Correio:us7@contoso.com
-- nome do utilizadorPrincipal:us5@verified.contoso.com
+- Correio: us7@contoso.com
+- nome do utilizadorPrincipal: us5@verified.contoso.com
 
 Sincronizar atualização no utilizador no local Atribua o Nome principal ao Azure AD Tenant
 - A atualização no utilizador No local O atributo Do Nome Principal do Utilizador aciona um recálculo do atributo Azure AD UserPrincipalName.
@@ -175,7 +175,7 @@ Sincronizar atualização no utilizador no local Atribua o Nome principal ao Azu
 
 Objeto de utilizador Azure AD Tenant:
 - MailNickName : us4     
-- Nome do UtilizadorPrincipal:us5@verified.contoso.com
+- Nome do UtilizadorPrincipal: us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Integrar os diretórios no local com o Azure Active Directory](whatis-hybrid-identity.md)

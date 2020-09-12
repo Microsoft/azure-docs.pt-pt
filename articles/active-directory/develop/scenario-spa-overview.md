@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3ead0ea58c6860519f027eb6a7450df37396bd89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885179"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291960"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
 
@@ -35,11 +35,17 @@ Pode criar a sua primeira aplicação seguindo o arranque rápido do JavaScript 
 
 ## <a name="overview"></a>Descrição geral
 
-Muitas aplicações web modernas são construídas como aplicações de página única do lado do cliente. Os desenvolvedores escrevem-nos utilizando o JavaScript ou uma estrutura SPA como angular, Vue.js e React.js. Estas aplicações são executadas num navegador web e têm características de autenticação diferentes das aplicações tradicionais do lado do servidor. 
+Muitas aplicações web modernas são construídas como aplicações de página única do lado do cliente. Os desenvolvedores escrevem-nos utilizando o JavaScript ou uma estrutura SPA como Angular, Vue e React. Estas aplicações são executadas num navegador web e têm características de autenticação diferentes das aplicações tradicionais do lado do servidor. 
 
-A plataforma de identidade da Microsoft permite que aplicações de uma página única assinem nos utilizadores e obtenham fichas para aceder a serviços de back-end ou APIs web utilizando o [fluxo implícito OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). O fluxo implícito permite que a aplicação obtenha fichas de identificação para representar o utilizador autenticado e também acesso a fichas necessárias para chamar APIs protegidas.
+A plataforma de identidade da Microsoft fornece **duas** opções para permitir que aplicações de uma página única assinem nos utilizadores e obtenham fichas para aceder a serviços de back-end ou APIs web:
 
-![Aplicações de uma página única](./media/scenarios/spa-app.svg)
+- [OAuth 2.0 Fluxo de código de autorização (com PKCE)](./v2-oauth2-auth-code-flow.md). O fluxo de código de autorização permite que a aplicação troque um código de autorização para fichas **de identificação** para representar o utilizador autenticado e fichas de **acesso** necessárias para chamar APIs protegidas. Além disso, devolve tokens **Refresh** que fornecem acesso a longo prazo aos recursos em nome dos utilizadores sem necessidade de interação com esses utilizadores. Esta é a abordagem **recomendada.**
+
+![Aplicações de uma só página-auth](./media/scenarios/spa-app-auth.svg)
+
+- [OAuth 2.0 fluxo implícito](./v2-oauth2-implicit-grant-flow.md). O fluxo de subvenção implícita permite que a aplicação obtenha **ID** e tokens de **acesso.** Ao contrário do fluxo de código de autorização, o fluxo de subvenção implícita não devolve um **token Refresh**.
+
+![Aplicações de uma página única implícitas](./media/scenarios/spa-app.svg)
 
 Este fluxo de autenticação não inclui cenários de aplicação que utilizem quadros javaScript de plataforma cruzada, tais como Electrn e React-Native. Exigem mais capacidades de interação com as plataformas nativas.
 
@@ -47,9 +53,9 @@ Este fluxo de autenticação não inclui cenários de aplicação que utilizem q
 
 Para ativar este cenário para a sua aplicação, precisa:
 
-* Inscrição de candidatura no Azure Ative Directory (Azure AD). Este registo envolve permitir o fluxo implícito e definir um URI de redirecionamento para o qual os tokens são devolvidos.
-* Configuração de aplicação com as propriedades de aplicação registada, como iD de aplicação.
-* Utilizar a Microsoft Authentication Library (MSAL) para fazer o fluxo de autenticação para iniciar súblio e adquirir fichas.
+* Inscrição de candidatura no Azure Ative Directory (Azure AD). As etapas de registo diferem entre o fluxo implícito de concessão e o fluxo de código de autorização.
+* Configuração de aplicação com as propriedades de aplicação registada, como o ID da aplicação.
+* Utilizar a Microsoft Authentication Library para JavaScript (MSAL.js) para fazer o fluxo de autenticação para iniciar súblio e adquirir fichas.
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269126"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279708"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreensão e utilização do Agente Azure Linux
 
@@ -53,7 +53,7 @@ O Agente Linux (waagent) da Microsoft Azure gere o fornecimento de & Livre e a i
 * **Extensão VM**
   
   * Componente injetado da microsoft e parceiros no Linux VM (IaaS) para permitir automatização de software e configuração
-  * Implementação de referência de extensão VM[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementação de referência de extensão VM [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicação
 O fluxo de informação da plataforma para o agente ocorre através de dois canais:
@@ -61,7 +61,7 @@ O fluxo de informação da plataforma para o agente ocorre através de dois cana
 * Um DVD anexado para implantações iaaS. Este DVD inclui um ficheiro de configuração compatível com OVF que inclui todas as informações de fornecimento que não os elementos-chave SSH reais.
 * Um ponto final TCP expondo uma API REST usada para obter configuração de implantação e topologia.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 Os seguintes sistemas foram testados e são conhecidos por trabalhar com o Agente Azure Linux:
 
 > [!NOTE]
@@ -92,6 +92,9 @@ O agente Linux depende de alguns pacotes do sistema para funcionar corretamente:
 * Ferramentas de processamento de texto: sed, grep
 * Ferramentas de rede: via ip
 * Suporte kernel para a montagem de sistemas de ficheiros UDF.
+
+Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para mais informações, consulte [o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+
 
 ## <a name="installation"></a>Instalação
 A instalação utilizando um RPM ou uma embalagem DEB do repositório de pacotes da sua distribuição é o método preferido para instalar e atualizar o Agente Azure Linux. Todos os [fornecedores de distribuição endossados](../linux/endorsed-distros.md) integram o pacote de agente Azure Linux nas suas imagens e repositórios.

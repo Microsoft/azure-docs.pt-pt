@@ -1,7 +1,7 @@
 ---
 title: Replicação transacional
 titleSuffix: Azure SQL Managed Instance
-description: Saiba como utilizar a replicação transacional do SQL Server com a Azure SQL Managed Instance.
+description: Saiba como utilizar a replicação transacional do SQL Server com Azure SQL Managed Instance (Preview).
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -12,14 +12,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 95fc877636fe1d3dac466dc32fc49cee56f35185
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920131"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290519"
 ---
-# <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicação transacional com Azure SQL Caso Gerido
+# <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com Azure SQL Gestded Instance (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 A replicação transacional é uma característica do Azure SQL Managed Instance e do SQL Server que lhe permite replicar dados de uma tabela em Azure SQL Managed Instance ou uma instância do SQL Server para tabelas colocadas em bases de dados remotas. Esta funcionalidade permite sincronizar várias tabelas em diferentes bases de dados. 
@@ -45,10 +45,10 @@ Os componentes-chave na replicação transacional são o **Editor,** **Distribui
 
 | Função | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| **Publisher** | Não | Sim |
-| **Distribuidor** | Não | Sim|
-| **Puxe o assinante** | Não | Sim|
-| **Empurre o assinante**| Sim | Sim|
+| **Publisher** | No | Yes |
+| **Distribuidor** | No | Yes|
+| **Puxe o assinante** | No | Yes|
+| **Empurre o assinante**| Yes | Yes|
 | &nbsp; | &nbsp; | &nbsp; |
 
 A **Editora** publica alterações feitas em algumas tabelas (artigos) enviando as atualizações para o Distribuidor. O editor pode ser um Azure SQL Managed Instance ou uma instância sql Server.
@@ -74,12 +74,12 @@ Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relat
 
 | Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim |
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
-| [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
-| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes |
+| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|
+| [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
+| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
+| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
+| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Matriz de Apoio
@@ -88,12 +88,12 @@ Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relat
   
 | **Publisher**   | **Distribuidor** | **Assinante** |
 | :------------   | :-------------- | :------------- |
-| SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
-| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
-| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
-| SQL Server 2014 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
+| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="when-to-use"></a>Quando utilizar
@@ -138,7 +138,7 @@ Editor e distribuidor são configurados em duas instâncias geridas. Existem alg
 
 Nesta configuração, uma base de dados na Base de Dados Azure SQL ou Azure SQL Managed Instance é um assinante. Esta configuração suporta a migração de instalações para Azure. Se um assinante for uma base de dados na Base de Dados Azure SQL, deve estar no modo de pressão.  
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 - Utilize a autenticação SQL para conectividade entre os participantes da replicação.
 - Utilize uma parte da Conta de Armazenamento Azure para o diretório de trabalho utilizado por replicação.
@@ -190,7 +190,7 @@ Se a geo-replicação for ativada numa instância **de assinante** num grupo de 
 - Para uma falha com a perda de dados, a replicação também funcionará. Vai replicar as mudanças perdidas novamente.
 - Para uma falha com a perda de dados, mas a perda de dados está fora do período de retenção da base de dados de distribuição, o administrador da SQL Managed Instance terá de reinitializar a base de dados de subscrição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a configuração da replicação transacional, consulte os seguintes tutoriais:
 

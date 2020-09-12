@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 28b6a70297efb8d8237f085e1f5b08dbb6a09072
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32ee0135d4d991a9afe229747f8cb66916a12e7f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522611"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277447"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões no seu painel de conformidade regulamentar
 
@@ -46,7 +46,7 @@ Além disso, pode adicionar **Azure Security Benchmark**, as diretrizes específ
 As normas adicionais serão suportadas no painel de instrumentos à medida que se tornarem disponíveis. 
 
 
-## <a name="adding-a-regulatory-standard-to-your-dashboard"></a>Adicionar um padrão regulamentar ao seu painel de instrumentos
+## <a name="add-a-regulatory-standard-to-your-dashboard"></a>Adicione um padrão regulamentar ao seu painel de instrumentos
 
 Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cumprimento a uma das normas regulamentares suportadas.
 
@@ -85,7 +85,7 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
 
     [![Painel de conformidade regulamentar mostrando o antigo e novo Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a **adicionar pacotes de conformidade** para monitorizar o cumprimento de normas adicionais. 
 

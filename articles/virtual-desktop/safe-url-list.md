@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135866"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291114"
 ---
 # <a name="safe-url-list"></a>Lista de URLs seguros
 
@@ -60,7 +60,7 @@ A tabela que se segue lista URLs opcionais aos que as suas máquinas virtuais Az
 >
 >1. Registe as suas máquinas virtuais na piscina de anfitriões virtual do Windows Desktop.
 >2. Espectador **de Evento Aberto**, em seguida, vá ao Windows **logs**  >  **Application**  >  **WVD-Agent** e procure o ID do evento 3701.
->3. Whitelist os URLs que encontrar no âmbito do Evento ID 3701. Os URLs no âmbito do ID 3701 do evento são específicos da região. Terá de repetir o processo de desbloqueio com os URLs relevantes para cada região em que pretende implantar as suas máquinas virtuais.
+>3. Desbloqueie os URLs que encontrar no âmbito do Evento ID 3701. Os URLs no âmbito do ID 3701 do evento são específicos da região. Terá de repetir o processo de desbloqueio com os URLs relevantes para cada região em que pretende implantar as suas máquinas virtuais.
 
 ## <a name="remote-desktop-clients"></a>Clientes de Ambiente de Trabalho Remoto
 

@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253499"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279589"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
 
@@ -30,7 +30,7 @@ A Azure AD Connect sincroniza o seu Ative Directory para Azure AD. Este servidor
 | Escala| O número de objetos como os utilizadores, grupos e OUs, a ser gerido pelo Azure AD Connect. |
 | Hardware| O hardware (físico ou virtual) para o Azure AD Connect e a capacidade de desempenho dependente de cada componente de hardware, incluindo CPU, memória, rede e configuração de disco rígido. |
 | Configuração| Como a Azure AD Connect processa os diretórios e informações. |
-| Carregar| A frequência das mudanças de objetos. As cargas podem variar durante uma hora, dia ou semana. Dependendo do componente, poderá ter de desenhar para a carga máxima ou para a carga média. |
+| Carregamento| A frequência das mudanças de objetos. As cargas podem variar durante uma hora, dia ou semana. Dependendo do componente, poderá ter de desenhar para a carga máxima ou para a carga média. |
 
 O objetivo deste documento é descrever os fatores que influenciam o desempenho do motor de provisionamento Azure AD Connect. Organizações grandes ou complexas (organizações que aforem mais de 100.000 objetos) podem usar as recomendações para otimizar a sua implementação Azure AD Connect, se experimentarem quaisquer problemas de desempenho delineados aqui. Os outros componentes do Azure AD Connect, como [o Azure AD Connect health](how-to-connect-health-agent-install.md) e os agentes não estão cobertos aqui.
 
@@ -43,7 +43,7 @@ O diagrama seguinte mostra uma arquitetura de alto nível de motor de provisiona
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-O motor de provisionamento liga-se a cada floresta ative de Diretório e a Azure AD. O processo de leitura de informação de cada diretório chama-se Import. Exportação refere-se à atualização dos diretórios do motor de avisão. O Sync avalia as regras de como os objetos fluirão dentro do motor de provisionamento. Para um mergulho mais profundo, pode consultar a [sincronização Azure AD Connect: Compreender a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+O motor de provisionamento liga-se a cada floresta ative de Diretório e a Azure AD. O processo de leitura de informação de cada diretório chama-se Import. Exportação refere-se à atualização dos diretórios do motor de avisão. O Sync avalia as regras de como os objetos fluirão dentro do motor de provisionamento. Para um mergulho mais profundo, pode consultar a [sincronização Azure AD Connect: Compreender a arquitetura](./concept-azure-ad-connect-sync-architecture.md).
 
 O Azure AD Connect utiliza as seguintes áreas de preparação, regras e processos para permitir a sincronização do Ative Directory para a Azure AD:
 
@@ -52,7 +52,7 @@ O Azure AD Connect utiliza as seguintes áreas de preparação, regras e process
 * **Regras de sincronização** - Decidem quais os objetos que serão criados (projetados) ou ligados (unidos) a objetos no MV. As regras de sincronização também decidem quais os valores de atributos que serão copiados ou transformados de e para os diretórios.
 * **Executar perfis** - Agrega as etapas de processo de copiar objetos e os seus valores de atributos de acordo com as regras de sincronização entre as áreas de preparação e diretórios conectados.
 
-Existem diferentes perfis de execução para otimizar o desempenho do motor de provisionamento. A maioria das organizações usará os horários padrão e executará perfis para operações normais, mas algumas organizações podem ter que [alterar o horário](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) ou desencadear outros perfis de execução para atender a situações incomuns. Estão disponíveis os seguintes perfis de execução:
+Existem diferentes perfis de execução para otimizar o desempenho do motor de provisionamento. A maioria das organizações usará os horários padrão e executará perfis para operações normais, mas algumas organizações podem ter que [alterar o horário](./how-to-connect-sync-feature-scheduler.md) ou desencadear outros perfis de execução para atender a situações incomuns. Estão disponíveis os seguintes perfis de execução:
 
 ### <a name="initial-sync-profile"></a>Perfil de sincronização inicial
 
@@ -109,7 +109,7 @@ O tempo de execução do processo de sincronização tem as seguintes caracterí
 
 A dimensão da topologia do Ative Directory que pretende importar é o fator número um que influencia o desempenho e o tempo geral que os componentes internos do motor de avisão tomarão.
 
-[A filtragem](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) deve ser utilizada para reduzir os objetos para a sincronização. Evitará que objetos desnecessários sejam processados e exportados para Azure AD. Por ordem de preferência, estão disponíveis as seguintes técnicas de filtragem:
+[A filtragem](./how-to-connect-sync-configure-filtering.md) deve ser utilizada para reduzir os objetos para a sincronização. Evitará que objetos desnecessários sejam processados e exportados para Azure AD. Por ordem de preferência, estão disponíveis as seguintes técnicas de filtragem:
 
 
 
@@ -130,7 +130,7 @@ Muitos objetos de [desconexão persistentes](concept-azure-ad-connect-sync-archi
 
 ### <a name="attribute-flows"></a>Fluxos de atributos
 
-Os fluxos de atributos são o processo de cópia ou transformação dos valores de atributos de objetos de um diretório ligado a outro diretório ligado. São definidos como parte das regras de sincronização. Por exemplo, quando o número de telefone de um utilizador for alterado no seu Diretório Ativo, o número de telefone em Azure AD será atualizado. As organizações podem [modificar os fluxos de atributos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-change-the-configuration) para suíte de vários requisitos. Recomenda-se que copie os fluxos de atributos existentes antes de os alterar.
+Os fluxos de atributos são o processo de cópia ou transformação dos valores de atributos de objetos de um diretório ligado a outro diretório ligado. São definidos como parte das regras de sincronização. Por exemplo, quando o número de telefone de um utilizador for alterado no seu Diretório Ativo, o número de telefone em Azure AD será atualizado. As organizações podem [modificar os fluxos de atributos](./how-to-connect-sync-change-the-configuration.md) para suíte de vários requisitos. Recomenda-se que copie os fluxos de atributos existentes antes de os alterar.
 
 Redirecionamentos simples, como fluir um valor de atributo para um atributo diferente não tem impacto material no desempenho. Um exemplo de um redirecionamento é o fluxo de um número de telemóvel no Ative Directory para o número de telefone do escritório em Azure AD.
 
@@ -181,7 +181,7 @@ Para otimizar o desempenho da sua implementação Azure AD Connect, considere as
 
 
 - Utilize a [configuração de hardware recomendada](how-to-connect-install-prerequisites.md) com base no tamanho da sua implementação para o servidor Azure AD Connect.
-- Ao atualizar o Azure AD Connect em implementações em larga escala, considere utilizar o [método de migração do baloiço,](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration)para se certificar de que tem o menor tempo de inatividade e a melhor fiabilidade. 
+- Ao atualizar o Azure AD Connect em implementações em larga escala, considere utilizar o [método de migração do baloiço,](./how-to-upgrade-previous-version.md#swing-migration)para se certificar de que tem o menor tempo de inatividade e a melhor fiabilidade. 
 - Utilize SSD para a base de dados SQL para obter um melhor desempenho de escrita.
 - Filtrar o âmbito do Diretório Ativo apenas para incluir objetos que precisam de ser a provisionados em AZure AD, utilizando domínio, OU ou filtragem de atributos.
 - Se necessitar de alterar as regras de fluxo de atributos predefinidos, primeiro copie a regra, em seguida, altere a cópia e desative a regra original. Lembre-se de refazer uma sincronização completa.

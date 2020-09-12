@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7d16b0755fae91979802e50cb2ebbf4324ce2c45
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3aa8d691eb62b94c5784d8a6efc35b53a3762d7f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921135"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294123"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envio de pedidos para a Bing Autosuggest API.
 
@@ -23,7 +23,7 @@ Se a sua aplicação enviar consultas para qualquer uma das APIs de Pesquisa de 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Bing Autosuggest API Endpoint
 
-A **Bing Autosuggest API** inclui um ponto final, que devolve uma lista de consultas sugeridas a partir de um termo de pesquisa parcial.
+A **Bing Autosuggest API**  inclui um ponto final, que devolve uma lista de consultas sugeridas a partir de um termo de pesquisa parcial.
 
 Para obter consultas sugeridas usando a API Bing, envie um `GET` pedido para o seguinte ponto final. Utilize os cabeçalhos e os parâmetros URL para definir especificações adicionais.
 
@@ -64,7 +64,7 @@ Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeça
 > [!NOTE]
 > Quando liga para a API Bing Autosuggest do JavaScript, as funcionalidades de segurança incorporadas do seu navegador podem impedir que você aceda aos valores destes cabeçalhos.
 
-Para resolver isto, pode fazer o pedido de API Bing Autosuggest através de um representante cors. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que os cabeças-de-resposta whitelists e os coloca à disposição do JavaScript.
+Para resolver isto, pode fazer o pedido de API Bing Autosuggest através de um representante cors. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que filtra cabeçalhos de resposta e os coloca à disposição do JavaScript.
 
 É fácil instalar um proxy CORS para permitir que a nossa [aplicação tutorial](../tutorials/autosuggest.md) aceda aos cabeçalhos opcionais do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, insira o seguinte comando num pedido de comando.
 

@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9e8625724f67caac99ae799674f9db9399e11ad8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922893"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294259"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configure uma ligação de um indexante de pesquisa cognitiva Azure para SQL Gerenciada Instância
 
@@ -27,7 +27,7 @@ Crie uma sql Managed Instance com a opção **de ponto final público Enable** s
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Ativar o ponto final público da Instância Gerida Azure SQL
 Também pode ativar o ponto final público numa ocorrência gerida pelo SQL existente na rede virtual **de segurança**  >  **Virtual network**  >  **Public endpoint**  >  **Ative**.
 
-   ![Permitir o ponto final público](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Permitir o ponto final público")
+   ![Permitir o ponto final público utilizando o VNET de instância gerida](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Permitir o ponto final público")
 
 ## <a name="verify-nsg-rules"></a>Verificar as regras do NSG
 Verifique se o Grupo de Segurança da Rede dispõe das **regras de segurança de entrada** corretas que permitem ligações a partir dos serviços Azure.
@@ -49,5 +49,5 @@ Certifique-se de que utiliza a cadeia de ligação para o **ponto final público
 
    ![Cadeia de ligação de ponto final público](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-connection-string.png "Cadeia de ligação de ponto final público")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Com a configuração fora do caminho, pode agora especificar uma SqL Managed Instance como a fonte de dados para um indexante de Pesquisa Cognitiva Azure usando o portal ou a API REST. Consulte [a Base de Dados Azure SQL de Ligação à Pesquisa Cognitiva Azure utilizando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.

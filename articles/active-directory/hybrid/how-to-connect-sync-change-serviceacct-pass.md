@@ -17,19 +17,19 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385097"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278042"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterar a senha de conta de serviço ADSync
 Se alterar a palavra-passe da conta de serviço ADSync, o Serviço de Sincronização não poderá iniciar-se corretamente até ter abandonado a chave de encriptação e reiniciado a palavra-passe da conta de serviço ADSync. 
 
 O Azure AD Connect, como parte dos Serviços de Sincronização, utiliza uma chave de encriptação para armazenar as palavras-passe da conta AD DS Connector e da conta de serviço ADSync.  Estas contas são encriptadas antes de serem armazenadas na base de dados. 
 
-A chave de encriptação utilizada é protegida através da [Proteção de Dados do Windows (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). O DPAPI protege a chave de encriptação utilizando a **conta de serviço ADSync.** 
+A chave de encriptação utilizada é protegida através da [Proteção de Dados do Windows (DPAPI)](/previous-versions/ms995355(v=msdn.10)). O DPAPI protege a chave de encriptação utilizando a **conta de serviço ADSync.** 
 
 Se precisar de alterar a palavra-passe da conta de serviço, pode utilizar os procedimentos no [abandono da chave de encriptação da conta de serviço ADSync](#abandoning-the-adsync-service-account-encryption-key) para o conseguir.  Estes procedimentos também devem ser utilizados se precisar de abandonar a chave de encriptação por qualquer motivo.
 
@@ -84,9 +84,9 @@ Abandone a chave de encriptação existente para que possa ser criada nova chave
 
 2. Inicie uma nova sessão powerShell.
 
-3. Navegue para a pasta:`'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
+3. Navegue para a pasta: `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
-4. Executar o comando:`./miiskmu.exe /a`
+4. Executar o comando: `./miiskmu.exe /a`
 
 ![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 

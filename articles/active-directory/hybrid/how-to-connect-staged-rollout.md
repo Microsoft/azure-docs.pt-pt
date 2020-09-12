@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053229"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278586"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -25,7 +25,7 @@ O lançamento encenado permite testar seletivamente grupos de utilizadores com c
 -  Estás a usar cartões inteligentes para autenticação. 
 -  O seu servidor atual oferece certas funcionalidades apenas da federação.
 
-Antes de experimentar esta funcionalidade, sugerimos que reveja o nosso guia sobre a escolha do método de autenticação certo. Para obter mais informações, consulte a tabela "Comparar métodos" na [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Antes de experimentar esta funcionalidade, sugerimos que reveja o nosso guia sobre a escolha do método de autenticação certo. Para obter mais informações, consulte a tabela "Comparar métodos" na [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](./choose-ad-authn.md#comparing-methods).
 
 Para uma visão geral da funcionalidade, veja este "Azure Ative Directory: What is staged rollout?" vídeo:
 
@@ -91,7 +91,7 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 
 Para testar o *sômin de sincronização de hash da palavra-passe* utilizando o lançamento encenado, siga as instruções de pré-trabalho na secção seguinte.
 
-Para obter informações sobre quais os cmdlets PowerShell a utilizar, consulte [a pré-visualização Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Para obter informações sobre quais os cmdlets PowerShell a utilizar, consulte [a pré-visualização Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pré-trabalhar para sincronização de haxixe de palavra-passe
 
@@ -225,7 +225,7 @@ Para testar o *sso sem costura:*
 
 1. Certifique-se de que o sinal de inscrição aparece com sucesso no [relatório de atividade de inscrição AD AZure,](../reports-monitoring/concept-sign-ins.md) filtrando com o Nome Do UtilizadorPrincipal.
 
-   Para acompanhar os logins do utilizador que ainda ocorrem nos Serviços da Federação de Diretórios Ativos (AD FS) para utilizadores de lançamentos encenados selecionados, siga as instruções na [resolução de problemas da AD FS: Eventos e registos](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consulte a documentação do fornecedor sobre como verificar isto em fornecedores de federação de terceiros.
+   Para acompanhar os logins do utilizador que ainda ocorrem nos Serviços da Federação de Diretórios Ativos (AD FS) para utilizadores de lançamentos encenados selecionados, siga as instruções na [resolução de problemas da AD FS: Eventos e registos](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consulte a documentação do fornecedor sobre como verificar isto em fornecedores de federação de terceiros.
 
 ## <a name="remove-a-user-from-staged-rollout"></a>Remova um utilizador do lançamento encenado
 
@@ -243,7 +243,7 @@ R: Não, esta funcionalidade foi concebida para migrar da autenticação federad
 
 **P: Posso usar o PowerShell para executar o lançamento encenado?**
 
-R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Passos seguintes
-- [Pré-visualização Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+## <a name="next-steps"></a>Próximos passos
+- [Pré-visualização Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
