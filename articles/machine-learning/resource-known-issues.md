@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230386"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651652"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -173,7 +173,9 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
 > [!WARNING]
 > Mover o seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou mover a subscrição proprietária para um novo inquilino, não é suportado. Fazê-lo pode causar erros.
 
-* **Portal Azure**: Se for diretamente ver o seu espaço de trabalho a partir de um link de partilha a partir do SDK ou do portal, não poderá ver a página **geral** normal com informações de subscrição na extensão. Também não poderá mudar para outro espaço de trabalho. Se precisar de ver outro espaço de trabalho, vá diretamente ao [estúdio Azure Machine Learning](https://ml.azure.com) e procure o nome do espaço de trabalho.
+* **Portal Azure:** 
+  * Se for diretamente para o seu espaço de trabalho a partir de um link de partilha do SDK ou do portal Azure, não pode ver a página **geral** padrão que tem informações de subscrição na extensão. Neste cenário, também não pode mudar para outro espaço de trabalho. Para ver outro espaço de trabalho, vá diretamente ao [estúdio Azure Machine Learning](https://ml.azure.com) e procure o nome do espaço de trabalho.
+  * Todos os ativos (Datasets, Experiments, Computes, e assim por diante) estão disponíveis apenas no [estúdio Azure Machine Learning](https://ml.azure.com). Não *estão* disponíveis no portal Azure.
 
 * **Browsers suportados no portal web do estúdio Azure Machine Learning**: Recomendamos que utilize o navegador mais atualizado que seja compatível com o seu sistema operativo. Os seguintes navegadores são suportados:
   * Microsoft Edge (O novo Microsoft Edge, versão mais recente. Não o legado da Microsoft Edge)
@@ -239,7 +241,7 @@ Limitações e questões conhecidas para monitores de deriva de dados:
     1. No **separador Dataset Monitors,** selecione o link de experiência para verificar o estado da execução.  Esta ligação está na extrema direita da mesa.
     1. Se o funcionado for concluído com sucesso, verifique os registos do controlador para ver quantas métricas foram geradas ou se há alguma mensagem de aviso.  Encontre registos de controlador no **separador Saída + registos** depois de clicar numa experiência.
 
-* Se a função SDK `backfill()` não gerar a saída esperada, poderá ser devido a um problema de autenticação.  Quando criar o cálculo para passar para esta função, não utilize `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, utilize [a Concessão de ServiçoPrincipal,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) como a seguinte, para criar o cálculo que passa para essa `backfill()` função: 
+* Se a função SDK `backfill()` não gerar a saída esperada, poderá ser devido a um problema de autenticação.  Quando criar o cálculo para passar para esta função, não utilize `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, utilize [a Concessão de ServiçoPrincipal,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) como a seguinte, para criar o cálculo que passa para essa `backfill()` função: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -251,7 +253,7 @@ Limitações e questões conhecidas para monitores de deriva de dados:
    compute = ws.compute_targets.get("xxx")
    ```
 
-## <a name="azure-machine-learning-designer"></a>Designer de aprendizagem de máquinas Azure
+## <a name="azure-machine-learning-designer"></a>Estruturador do Azure Machine Learning
 
 * **Tempo de preparação de computação longa:**
 
@@ -294,7 +296,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     A Azure ML também fornece estimativas específicas do quadro para TensorFlow, PyTorch, Chainer e SKLearn. A utilização destes estimadores certificar-se-á de que as dependências de quadros fundamentais são instaladas em seu nome no ambiente utilizado para a formação. Tem a opção de especificar dependências extras como descrito acima. 
  
     A Azure ML manteve imagens de estivadores e o seu conteúdo pode ser visto em [Recipientes AzureML](https://github.com/Azure/AzureML-Containers).
-    As dependências específicas do quadro estão listadas na respetiva documentação-quadro - [Chainer,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks) [PyTorch,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks) [TensorFlow,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks) [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+    As dependências específicas do quadro estão listadas na respetiva documentação-quadro - [Chainer,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks) [PyTorch,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks) [TensorFlow,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks) [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
 
     > [!Note]
     > Se você acha que um determinado pacote é comum o suficiente para ser adicionado em imagens e ambientes mantidos Azure ML por favor levante um problema gitHub em [recipientes AzureML](https://github.com/Azure/AzureML-Containers). 
@@ -303,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod foi encerrado**: Na maioria dos casos, se encontrar "AbortedError: Horovod foi encerrado" esta exceção significa que houve uma exceção subjacente num dos processos que fez Com que Horovod fosse encerrado. Cada posto no trabalho de MPI obtém-no próprio ficheiro de registo dedicado em Azure ML. Estes registos são `70_driver_logs` nomeados. Em caso de treino distribuído, os nomes de registo são sufixados `_rank` para facilitar a diferenciação dos registos. Para encontrar o erro exato que fez a Horovod desligar, procure todos os ficheiros de registo e procure `Traceback` no final dos ficheiros driver_log. Um destes ficheiros vai dar-lhe a verdadeira exceção subjacente. 
 
-* **Execução ou eliminação de experiências**: As experiências podem ser arquivadas utilizando o método [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) ou a partir da vista do separador Experiment em Azure Machine Learning cliente através do botão "Archive experiment". Esta ação esconde a experiência de consultas e pontos de vista de listas, mas não a apaga.
+* **Execução ou eliminação de experiências**: As experiências podem ser arquivadas utilizando o método [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) ou a partir da vista do separador Experiment em Azure Machine Learning cliente através do botão "Archive experiment". Esta ação esconde a experiência de consultas e pontos de vista de listas, mas não a apaga.
 
     A eliminação permanente de experiências ou execuções individuais não é suportada atualmente. Para obter mais informações sobre a eliminação dos ativos do Espaço de Trabalho, consulte [exportação ou elimine os dados do seu espaço de trabalho do serviço Machine Learning](how-to-export-delete-data.md).
 
@@ -337,6 +339,8 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
+ 
+* **Previsão da pontuação R2 é sempre zero**: Esta questão surge se os dados de formação fornecidos mentem séries temporárias que contêm o mesmo valor para os `n_cv_splits`  +  `forecasting_horizon` últimos pontos de dados. Se este padrão for esperado na sua série de tempo, pode mudar a sua métrica primária para erro médio normalizado ao quadrado.
  
 * **TensorFlow**: A partir da versão 1.5.0 do SDK, a aprendizagem automática de máquinas não instala modelos TensorFlow por predefinição. Para instalar o TensorFlow e utilizá-lo com as suas experiências automatizadas de ML, instale tensorflow==1.12.0 via CondaDependecies. 
  
@@ -471,7 +475,7 @@ O controlo de acesso baseado em funções Azure pode ser usado para restringir a
 
 Para obter mais informações, consulte [Gerir os utilizadores e as funções.](how-to-assign-roles.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ver mais artigos de resolução de problemas para Azure Machine Learning:
 

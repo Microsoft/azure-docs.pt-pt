@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179408"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023844"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
@@ -242,7 +242,10 @@ A funcionalidade _IPs Fidedigna_ da Autenticação Multi-Factor Azure contorna a
 
 Se a sua organização implementar a extensão NPS para fornecer MFA a aplicações no local, note que o endereço IP de origem sempre parecerá ser o servidor NPS que a tentativa de autenticação flui através.
 
-| Tipo de inquilino Azure AD / Opções de recurso IP confiáveis [ [:--- ]:--- [ dois passos ] Gerido / **Gama específica de endereços IP**: Os administradores especificam uma gama de endereços IP que podem contornar a autenticação de vários fatores para os utilizadores que se inscrevam na intranet da empresa. Um máximo de 50 gamas ip fidedignas podem ser configuradas./ | Federado **Todos os Utilizadores Federados**: Todos os utilizadores federados que inserem súmis a partir do interior da organização podem contornar a autenticação de vários fatores. Os utilizadores contornam a verificação utilizando uma alegação emitida pelos Serviços da Federação de Diretórios Ativos (AD FS).<br/>**Gama específica de endereços IP**: Os administradores especificam uma gama de endereços IP que podem contornar a autenticação de vários fatores para os utilizadores que se inscrevam na intranet da empresa. |
+| Tipo de inquilino Azure AD | Opções de recurso IP fidedignas |
+|:--- |:--- |
+| Gerido |**Gama específica de endereços IP**: Os administradores especificam uma gama de endereços IP que podem contornar a autenticação de vários fatores para os utilizadores que se inscrevam na intranet da empresa. Um máximo de 50 gamas IP fidedignas podem ser configuradas.|
+| Federados |**Todos os Utilizadores Federados**: Todos os utilizadores federados que inserem súmis a partir do interior da organização podem contornar a autenticação de vários fatores. Os utilizadores contornam a verificação utilizando uma alegação emitida pelos Serviços da Federação de Diretórios Ativos (AD FS).<br/>**Gama específica de endereços IP**: Os administradores especificam uma gama de endereços IP que podem contornar a autenticação de vários fatores para os utilizadores que se inscrevam na intranet da empresa. |
 
 O bypass IP fidedigno funciona apenas a partir do interior da intranet da empresa. Se selecionar a opção **Todos os Utilizadores Federados** e um utilizador entrar na intranet da empresa, o utilizador tem de autenticar utilizando a autenticação multi-factor. O processo é o mesmo mesmo se o utilizador apresentar uma reclamação de FS AD.
 
@@ -371,6 +374,6 @@ Para permitir e configurar a opção de os utilizadores se lembrarem do seu esta
 
 Depois de ativar a funcionalidade de autenticação multi-factor de ressaltação, os utilizadores podem marcar um dispositivo como confiável quando iniciarem sação selecionando a opção para **Não voltar a perguntar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os métodos disponíveis para utilização na Autenticação Multi-Factor Azure, consulte que métodos de [autenticação e verificação estão disponíveis no Diretório Ativo Azure?](concept-authentication-methods.md)

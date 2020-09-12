@@ -1,5 +1,5 @@
 ---
-title: Criar recursos computativos com Python SDK
+title: Criar formação & implementar computas (Python)
 titleSuffix: Azure Machine Learning
 description: Utilize o Azure Machine Learning Python SDK para criar recursos de formação e implementação de computação (metas de computação) para a aprendizagem automática
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 96aa6839fe51bb8a8c26f411c1a1f9df6b8c5a7f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147630"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662541"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Criar metas de computação para formação de modelos e implantação com Python SDK
 
@@ -31,8 +31,12 @@ Neste artigo, use o Azure Machine Learning Python SDK para criar e gerir alvos d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree)
-* [O Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [O Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md)
+
+## <a name="limitations"></a>Limitações
+
+Alguns dos cenários listados neste documento são marcados como __pré-visualização__. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>O que é um alvo computacional?
 
@@ -55,16 +59,33 @@ Utilize as secções abaixo para configurar estes alvos de cálculo:
 * [Máquinas virtuais remotas](#vm)
 * [Azure HDInsight](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>Metas de cálculo para inferência
+
+Ao realizar inferência, a Azure Machine Learning cria um recipiente Docker que acolhe o modelo e os recursos associados necessários para a sua utilização. Este recipiente é então utilizado num dos seguintes cenários de implantação:
+
+* Como um __serviço web__ que é usado para inferência em tempo real. As implementações de serviço web utilizam um dos seguintes alvos de computação:
+
+    * [Computador local](#local)
+    * [Instância de computação do Azure Machine Learning](#instance)
+    * [Azure Container Instances](#aci)
+    * [Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
+    * Funções Azure (pré-visualização). A implementação para as funções Azure depende apenas da Aprendizagem automática Azure para construir o recipiente Docker. A partir daí, é implantado utilizando funções Azure. Para obter mais informações, consulte [Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)](how-to-deploy-functions.md).
+
+* Como um ponto final __de inferência de lote__ que é usado periodicamente para processar lotes de dados. As inferências do lote utilizam [o cluster de cálculo Azure Machine Learning](#amlcompute).
+
+* Para um __dispositivo IoT__ (pré-visualização). A implantação num dispositivo IoT depende apenas da Azure Machine Learning para construir o recipiente Docker. A partir daí, é implantado utilizando a Azure IoT Edge. Para obter mais informações, consulte [implementar como um módulo IoT Edge (pré-visualização)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="local-computer"></a><a id="local"></a>Computador local
 
-Quando utiliza o computador local para treinar, não há necessidade de criar um alvo de computação.  Basta [submeter o treino](how-to-set-up-training-targets.md) da sua máquina local.
+Quando utiliza o computador local para **treinar,** não há necessidade de criar um alvo de computação.  Basta [submeter o treino](how-to-set-up-training-targets.md) da sua máquina local.
+
+Quando utilizar o computador local para **inferência,** deve instalar o Docker. Para efetuar a implementação, utilize [LocalWebservice.deploy_configuration para](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) definir a porta que o serviço web utilizará. Em seguida, utilize o processo de implantação normal, conforme descrito nos [modelos Deploy com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Aglomerado de computação Azure Machine Learning
 
 O cluster compute Azure Machine Learning é uma infraestrutura de computação gerida que permite criar facilmente um único ou multi-nó compute. O cálculo é criado dentro da sua região do espaço de trabalho como um recurso que pode ser partilhado com outros utilizadores no seu espaço de trabalho. O cálculo aumenta automaticamente quando um trabalho é submetido e pode ser colocado numa Rede Virtual Azure. O cálculo executa num ambiente contentorizado e embala as dependências do seu modelo num [recipiente Docker.](https://www.docker.com/why-docker)
 
-Você pode usar Azure Machine Learning Compute para distribuir o processo de treino através de um conjunto de nós de cálculo CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos de VM que incluem GPUs, consulte [os tamanhos de máquinas virtuais otimizadas pela GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 
+Você pode usar Azure Machine Learning Compute para distribuir um processo de treino ou inferência de lote através de um conjunto de nós de cálculo cpu ou GPU na nuvem. Para obter mais informações sobre os tamanhos de VM que incluem GPUs, consulte [os tamanhos de máquinas virtuais otimizadas pela GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 
 
 O Azure Machine Learning Compute tem limites predefinidos, como o número de núcleos que podem ser atribuídos. Para obter mais informações, consulte [Gerir e solicitar quotas para recursos Azure.](how-to-manage-quotas.md)
 
@@ -87,7 +108,7 @@ O Azure Machine Learning Compute pode ser reutilizado através de corridas. O c�
 
     Ou pode criar e anexar um recurso persistente Azure Machine Learning Compute no [estúdio Azure Machine Learning](how-to-create-attach-compute-studio.md#portal-create).
 
-Agora que ligou o cálculo, o próximo passo é [submeter a corrida de treino.](how-to-set-up-training-targets.md)
+Agora que ligou o cálculo, o próximo passo é [submeter a corrida](how-to-set-up-training-targets.md) de treino ou executar [inferência de lote.](how-to-use-parallel-run-step.md)
 
  ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Reduza o custo do seu cluster de cálculo
 
@@ -201,8 +222,15 @@ As instâncias computacional podem executar empregos de forma segura num [ambien
         instance.wait_for_completion(show_output=True)
     ```
 
-Agora que ligou o cálculo e configura o seu percurso, o próximo passo é [submeter a corrida de treino.](how-to-set-up-training-targets.md)
+Agora que ligou o cálculo e configura o seu percurso, o próximo passo é [submeter o treino](how-to-set-up-training-targets.md) ou implementar um modelo de [inferência.](how-to-deploy-local-container-notebook-vm.md)
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Instância de Contentor do Azure
+
+As instâncias do recipiente Azure (ACI) são criadas dinamicamente quando se implementa um modelo. Não é possível criar ou anexar OCI ao seu espaço de trabalho de outra forma. Para obter mais informações, consulte [implementar um modelo para Azure Container Instances](how-to-deploy-azure-container-instance.md).
+
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+O Serviço Azure Kubernetes (AKS) permite uma variedade de opções de configuração quando usado com Azure Machine Learning. Para mais informações, consulte [Como criar e anexar o Serviço Azure Kubernetes](how-to-create-attach-kubernetes.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuais remotas
 
@@ -437,7 +465,7 @@ except ComputeTargetException:
 Para um exemplo mais detalhado, consulte um [caderno de exemplo](https://aka.ms/pl-adla) no GitHub.
 
 > [!TIP]
-> Os oleodutos Azure Machine Learning só podem funcionar com dados armazenados na loja de dados predefinida da conta Data Lake Analytics. Se os dados com os qual precisa trabalhar estiverem numa loja não padrão, pode utilizar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar os dados antes do treino.
+> Os oleodutos Azure Machine Learning só podem funcionar com dados armazenados na loja de dados predefinida da conta Data Lake Analytics. Se os dados com os qual precisa trabalhar estiverem numa loja não padrão, pode utilizar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) para copiar os dados antes do treino.
 
 ## <a name="notebook-examples"></a>Exemplos de cadernos
 
@@ -447,7 +475,7 @@ Consulte estes cadernos para exemplos de formação com vários alvos de computa
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Utilize o recurso computacional para [submeter uma formação](how-to-set-up-training-targets.md).
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um alvo de computação gerido para treinar um modelo.

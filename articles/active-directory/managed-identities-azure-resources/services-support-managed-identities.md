@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: e62fc34ad02303f61214f754f6506c39af76fc94
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 207b4a926e77ff55faad388b6eeaeb221ec252a8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267450"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006785"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -225,7 +225,7 @@ Consulte a seguinte lista para configurar a identidade gerida para a Política A
 - [Portal do Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [CLI do Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-- [Modelos do Azure Resource Manager](/azure/templates/microsoft.authorization/policyassignments)
+- [Modelos de gestor de recursos Azure](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
 
@@ -265,7 +265,7 @@ Consulte a seguinte lista para configurar a identidade gerida para conjuntos de 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Modelos de gestor de recursos Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 
@@ -282,8 +282,9 @@ Consulte a seguinte lista para configurar a identidade gerida para as máquinas 
 - [Portal do Azure](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](qs-configure-cli-windows-vm.md)
-- [Modelos do Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Modelos de gestor de recursos Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
+- [SDKs do Azure](qs-configure-sdk-windows-vm.md)
 
 
 ### <a name="azure-vm-image-builder"></a>Construtor de imagem Azure VM

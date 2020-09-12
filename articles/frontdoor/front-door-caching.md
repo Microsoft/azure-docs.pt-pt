@@ -3,20 +3,20 @@ title: Azure Front Door - caching / Microsoft Docs
 description: Este artigo ajuda-o a entender como a Porta Frontal Azure monitoriza a saúde dos seus backends
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056963"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024286"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com Azure Front Door
 O documento que se segue especifica o comportamento para a Porta frontal com regras de encaminhamento que permitiram o caching. Front Door é uma moderna Rede de Entrega de Conteúdos (CDN) e assim, juntamente com a aceleração dinâmica do site e o equilíbrio de carga, também suporta comportamentos de caching como qualquer outro CDN.
@@ -88,13 +88,22 @@ Com a Porta Frontal, pode controlar como os ficheiros são cached para um pedido
 - **Cache cada URL único**: Neste modo, cada pedido com um URL único, incluindo a cadeia de consulta, é tratado como um ativo único com a sua própria cache. Por exemplo, a resposta do backend para um pedido `www.example.ashx?q=test1` de pedido é em cache no ambiente da porta da frente e devolvida para caches subsequentes com a mesma cadeia de consulta. Um pedido `www.example.ashx?q=test2` é em cache como um ativo separado com a sua própria definição de tempo-a-vida.
 
 ## <a name="cache-purge"></a>Purga de cache
-A Porta frontal cache ativos até que o tempo de vida do ativo (TTL) expire. Após o termo do TTL do ativo, quando um cliente solicita o ativo, o ambiente front door recuperará uma nova cópia atualizada do ativo para servir o pedido do cliente e armazenar a cache.
-</br>A melhor prática para garantir que os seus utilizadores obtenham sempre a cópia mais recente dos seus ativos é ver versão dos seus ativos para cada atualização e publicá-los como novos URLs. A Porta da Frente irá imediatamente recuperar os novos ativos para os próximos pedidos do cliente. Por vezes, pode querer expurgar o conteúdo em cache de todos os nós de borda e forçá-los a todos a recuperar novos ativos atualizados. Isto pode ser devido a atualizações para a sua aplicação web, ou para atualizar rapidamente ativos que contenham informações incorretas.
 
-</br>Selecione quais os ativos que deseja purgar dos nós de borda. Se desejar limpar todos os ativos, clique na caixa de verificação Purgar. Caso contrário, digite o caminho de cada ativo que pretende purgar na caixa de texto Path. Os formatos abaixo são suportados no caminho.
-1. **Purga de caminho único**: Purpurar os ativos individuais especificando o caminho completo do ativo (sem o protocolo e domínio), com a extensão do ficheiro, por exemplo, /imagens/strasbourg.png;
-2. **A purga wildcard**: Asterisco \* pode ser usado como um wildcard. Purgue todas as pastas, sub-dobradeiras e ficheiros sob um ponto final \* com/no caminho ou purgue todas as sub-dobradeiras e ficheiros sob uma pasta específica especificando a pasta seguida por / \* , por exemplo, /imagens/ \* .
-3. **Purga do domínio raiz**: Purgue a raiz do ponto final com "/" no caminho.
+Porta frontal caches ativos até que o tempo de vida do ativo (TTL) expire. Após o TTL do ativo expirar, quando um cliente solicita o ativo, o ambiente Front Door recupera uma nova cópia atualizada do ativo para servir o pedido do cliente e armazenar a cache.
+
+A melhor prática para garantir que os seus utilizadores obtenham sempre a cópia mais recente dos seus ativos é ver versão dos seus ativos para cada atualização e publicá-los como novos URLs. A Porta da Frente irá imediatamente recuperar os novos ativos para os próximos pedidos do cliente. Por vezes, pode querer expurgar o conteúdo em cache de todos os nós de borda e forçá-los a todos a recuperar novos ativos atualizados. Isto pode ser devido a atualizações para a sua aplicação web, ou para atualizar rapidamente ativos que contenham informações incorretas.
+
+Selecione os ativos que pretende purgar dos nós de borda. Para limpar todos os ativos, **selecione Purgar todos**. Caso contrário, em **Caminho,** entre no caminho de cada ativo que pretende purgar.
+
+Estes formatos são suportados nas listas de caminhos para purgar:
+
+- **Purga de caminho único**: Purgar os ativos individuais especificando o percurso completo do ativo (sem o protocolo e domínio), com a extensão do ficheiro, por exemplo, /imagens/strasbourg.png;
+- **A purga wildcard**: Asterisco \* pode ser usado como um wildcard. Purgue todas as pastas, sub-dobradeiras e ficheiros sob um ponto final \* com/no caminho ou purgue todas as sub-dobradeiras e ficheiros sob uma pasta específica especificando a pasta seguida por / \* , por exemplo, /imagens/ \* .
+- **Purga do domínio raiz**: Purgue a raiz do ponto final com "/" no caminho.
+
+> [!NOTE]
+> **Purgar domínios wildcard**: Especificar caminhos em cache para purgar como discutido nesta secção não se aplica a quaisquer domínios wildcard que estejam associados à Porta da Frente. Atualmente, não apoiamos a purga direta de domínios wildcard. Pode purgar caminhos de subdomínios específicos especificando o subdomínio specfic e o caminho de purga. Por exemplo, se a minha Porta da Frente `*.contoso.com` tiver, posso purgar os bens do meu subdomínio `foo.contoso.com` `foo.contoso.com/path/*` digitando. Atualmente, especificar os nomes dos anfitriões na trajetória do conteúdo da purga é imiado a subdomínios de domínios wildcard, se aplicável.
+>
 
 As purgas de cache na porta da frente são insensíveis. Além disso, são agnósticos de cadeia de consulta, o que significa que purgar um URL irá purgar todas as variações de cadeias de consulta do mesmo. 
 
@@ -102,7 +111,7 @@ As purgas de cache na porta da frente são insensíveis. Além disso, são agnó
 É utilizada a seguinte ordem de cabeçalhos para determinar quanto tempo um item será armazenado na nossa cache:</br>
 1. Cache-Control: s-maxage=\<seconds>
 2. Cache-Control: max-age=\<seconds>
-3. Expira:\<http-date>
+3. Expira: \<http-date>
 
 Cabeçalhos de resposta cache-Control que indicam que a resposta não será em cache como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: não há loja é honrada. No entanto, se houver vários pedidos a bordo de um POP para o mesmo URL, podem partilhar a resposta. Se não houver cache-control o comportamento padrão é que o AFD cache o recurso por X quantidade de tempo onde X é escolhido aleatoriamente entre 1 a 3 dias.
 
@@ -118,7 +127,7 @@ A duração da cache pode ser configurada tanto no Front Door Designer como no R
 
 A duração da cache definida através do Rules Engine é uma verdadeira sobreposição de cache, o que significa que utilizará o valor de substituição independentemente do que é o cabeçalho de resposta de origem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

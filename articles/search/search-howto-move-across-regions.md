@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
-ms.openlocfilehash: 71846b8e26efb3853705fabff78831e746727191
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/10/2020
+ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926954"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007048"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mude o seu serviço de Pesquisa Cognitiva Azure para outra região do Azure
 
@@ -23,7 +23,13 @@ Ocasionalmente, os clientes perguntam sobre a mudança de um serviço de pesquis
 > [!NOTE]
 > No portal Azure, todos os serviços têm um comando **de modelo de exportação.** No caso da Pesquisa Cognitiva Azure, este comando produz uma definição básica de serviço (nome, localização, nível, réplica e contagem de divisórias), mas não reconhece o conteúdo do seu serviço, nem transporta chaves, funções ou registos. Embora o comando exista, não recomendamos usá-lo para mover um serviço de pesquisa.
 
-## <a name="guidance-for-moving-a-service"></a>Orientação para a movimentação de um serviço
+## <a name="prerequisites"></a>Pré-requisitos
+
++ Garanta que os serviços e as funcionalidades que a conta utiliza são suportados na região de destino.
+
++ Para as funcionalidades de pré-visualização, garanta que a subscrição está na lista de permissões da região de destino.
+
+## <a name="prepare-and-move"></a>Preparar e mover
 
 1. Identifique dependências e serviços relacionados para entender o impacto total da deslocalização de um serviço, caso precise mover mais do que apenas a Azure Cognitive Search.
 
@@ -41,9 +47,11 @@ Ocasionalmente, os clientes perguntam sobre a mudança de um serviço de pesquis
 
 1. Atualize as aplicações do cliente e as suítes de teste para usar o novo nome de serviço e as chaves API, e testar todas as aplicações.
 
-1. Elimine o serviço antigo assim que o novo serviço estiver totalmente testado e operacional.
+## <a name="discard-or-clean-up"></a>Eliminar ou limpar
 
-## <a name="next-steps"></a>Passos seguintes
+Elimine o serviço antigo assim que o novo serviço estiver totalmente testado e operacional. A eliminação automática do serviço elimina automaticamente todos os conteúdos associados ao serviço.
+
+## <a name="next-steps"></a>Próximos passos
 
 Os seguintes links podem ajudá-lo a localizar mais informações ao completar os passos acima descritos.
 

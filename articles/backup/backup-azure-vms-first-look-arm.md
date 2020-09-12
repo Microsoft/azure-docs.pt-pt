@@ -3,12 +3,12 @@ title: Apoie um VM Azure a partir das definições de VM
 description: Neste artigo, aprenda a apoiar um VM Azure singular ou vários VMs Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: a8d1c29c894663da76b5882ef7ba249356ba3e6d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 55b71d2a2901cdde984df3ebfd68a2a643b78b74
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531851"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667512"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Apoie um VM Azure a partir das definições de VM
 
@@ -49,7 +49,7 @@ Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em f
 
        ![Selecionar política de cópia de segurança](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. Selecione **Ativar Cópia de Segurança**. Isto associa a política de backup com o VM.
+7. Selecione **Ativar Backup**. Isto associa a política de backup com o VM.
 
     ![Botão Ativar cópia de segurança](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
@@ -76,9 +76,9 @@ Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em f
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Voltar do cofre dos Serviços de Recuperação
 
-Siga as instruções deste artigo para permitir a cópia de segurança para os VMs Azure, criando um cofre Azure Backup Recovery Services e permitindo a cópia de segurança no cofre.
+Siga as instruções [deste artigo](backup-azure-arm-vms-prepare.md) para permitir a cópia de segurança para os VMs Azure, criando um cofre Azure Backup Recovery Services e permitindo a cópia de segurança no cofre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se tiver dificuldades com algum dos procedimentos deste artigo, consulte o [guia de resolução de problemas](backup-azure-vms-troubleshoot.md).
 - [Saiba como](backup-azure-manage-vms.md) gerir os seus backups.

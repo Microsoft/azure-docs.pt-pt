@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 7e59229f6664dc8966aa491e9d2ded1abbd5536f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323048"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019568"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais IoT Hub
 
@@ -26,7 +26,7 @@ ms.locfileid: "87323048"
 
 ## <a name="iot-hub-names"></a>Nomes do IoT Hub
 
-Pode encontrar o nome de anfitrião do hub IoT que hospeda os seus pontos finais no portal na página **geral** do seu hub. Por padrão, o nome DNS de um hub IoT parece: `{your iot hub name}.azure-devices.net` .
+Pode encontrar o nome de anfitrião do hub IoT que hospeda os seus pontos finais no portal na página  **geral** do seu hub. Por padrão, o nome DNS de um hub IoT parece: `{your iot hub name}.azure-devices.net` .
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos finais do IoT Hub incorporados
 
@@ -55,6 +55,8 @@ A lista que se segue descreve os pontos finais:
   * *Recupere e atualize as propriedades gémeas do dispositivo*. Um dispositivo utiliza este ponto final para aceder às propriedades do seu [dispositivo Twin.](iot-hub-devguide-device-twins.md) HTTPS não é suportado.
 
   * *Receba pedidos de métodos diretos.* Um dispositivo utiliza este ponto final para ouvir os pedidos do [método direto.](iot-hub-devguide-direct-methods.md) HTTPS não é suportado.
+
+  [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 * **Pontos finais de serviço**. Cada hub IoT expõe um conjunto de pontos finais para a sua solução traseira para comunicar com os seus dispositivos. Com uma exceção, estes pontos finais só são expostos utilizando os protocolos [AMQP](https://www.amqp.org/) e AMQP sobre webSockets. O ponto final de invocação do método direto está exposto sobre o protocolo HTTPS.
   
@@ -95,7 +97,7 @@ Numa solução IoT, fica um *gateway de campo* entre os seus dispositivos e os s
 
 Você pode usar [Azure IoT Edge](/azure/iot-edge/) para implementar um gateway de campo. O IoT Edge oferece funcionalidades como comunicações multiplexing de vários dispositivos para a mesma ligação IoT Hub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Outros tópicos de referência neste guia de desenvolvimento do IoT Hub incluem:
 

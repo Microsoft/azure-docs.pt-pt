@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 73cb8396876a5baad74190ec9a86237362037c36
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1449114ad14ebbd064f95ad2853b516893ba4b12
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908905"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661685"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuragem interativa com código de estúdio visual
 
@@ -37,7 +37,7 @@ Em alguns casos, poderá ser necessário depurar interativamente o código Pytho
   * Uma instância computacional de VM de caderno na rede virtual
   * Uma máquina cliente que tem conectividade de rede privada com a rede virtual, seja por VPN ou via ExpressRoute.
 
-Para obter mais informações sobre a utilização de uma Rede Virtual Azure com Azure Machine Learning, consulte [trabalhos de experimentação e inferência Secure Azure ML dentro de uma Rede Virtual Azure](how-to-enable-virtual-network.md).
+Para obter mais informações sobre a utilização de uma Rede Virtual Azure com Azure Machine Learning, consulte [o isolamento da rede virtual e a visão geral da privacidade.](how-to-network-security-overview.md)
 
 > [!TIP]
 > Embora possa trabalhar com recursos de Aprendizagem automática Azure que não estão por trás de uma rede virtual, é recomendado usar uma rede virtual.
@@ -281,7 +281,7 @@ Poupe o `ip_address` valor. É usado na secção seguinte.
 Em alguns casos, poderá ser necessário depurar interativamente o código Python contido na sua implementação de modelo. Por exemplo, se o script de entrada estiver a falhar e a razão não puder ser determinada por registo adicional. Utilizando o Código VS e o depuratório, pode anexar-se ao código que está a funcionar dentro do contentor Docker.
 
 > [!IMPORTANT]
-> Este método de depuração não funciona quando se utiliza `Model.deploy()` e implanta um modelo `LocalWebservice.deploy_configuration` localmente. Em vez disso, deve criar uma imagem utilizando o método [Modelo.pacote().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)
+> Este método de depuração não funciona quando se utiliza `Model.deploy()` e implanta um modelo `LocalWebservice.deploy_configuration` localmente. Em vez disso, deve criar uma imagem utilizando o método [Modelo.pacote().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)
 
 As implementações de serviços web locais requerem uma instalação de Docker funcionando no seu sistema local. Para obter mais informações sobre a utilização do Docker, consulte a Documentação do [Docker.](https://docs.docker.com/) Note que ao trabalhar com casos de computação, Docker já está instalado.
 
@@ -426,7 +426,7 @@ Para parar o recipiente, utilize o seguinte comando:
 docker stop debug
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que configuraste o Visual Studio Code Remote, podes usar uma instância de computação como computação remota do Código do Estúdio Visual para depurar interativamente o teu código. 
 

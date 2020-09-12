@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548871"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661864"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: entender a configuração predefinida
 Este artigo explica as regras de configuração fora da caixa. Documenta as regras e como estas regras impactam a configuração. Também o percorre através da configuração padrão da sincronização Azure AD Connect. O objetivo é que o leitor compreenda como o modelo de configuração, chamado provisionamento declarativo, está a funcionar num exemplo do mundo real. Este artigo pressupõe que já instalou e configurar a sincronização Azure AD Connect utilizando o assistente de instalação.
@@ -223,7 +223,7 @@ Agora sabemos o suficiente sobre as Regras de Sincronização para sermos capaze
 | Name | Comentário |
 |:--- |:--- |
 | In from AD – User Join |Regra para unir objetos espaciais do conector com metaverso. |
-| In a partir de AD – UserAccount Enabled |Atributos necessários para o sedudo AD e Office 365. Queremos estes atributos a partir da conta ativada. |
+| In a partir de AD – UserAccount Enabled |Atributos necessários para o sômin de S.A. e Microsoft 365. Queremos estes atributos a partir da conta ativada. |
 | In from AD – User Common from Exchange |Atributos encontrados na Lista Global de Endereços. Assumimos que a qualidade dos dados é a melhor na floresta onde encontramos a caixa de correio do utilizador. |
 | In from AD – User Common |Atributos encontrados na Lista Global de Endereços. Caso não tenhamos encontrado uma caixa de correio, qualquer outro objeto associado pode contribuir com o valor do atributo. |
 | In from AD – User Exchange |Só existe se o Exchange tiver sido detetado. Flui todos os atributos de intercâmbio de infraestruturas. |

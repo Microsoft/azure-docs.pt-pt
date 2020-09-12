@@ -1,25 +1,25 @@
 ---
-title: Configure a replicação do objeto (pré-visualização)
+title: Configurar a replicação de objetos
 titleSuffix: Azure Storage
 description: Aprenda a configurar a replicação de objetos para copiar assíncronamente bolhas de blocos de um recipiente numa conta de armazenamento para outra.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228329"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018837"
 ---
-# <a name="configure-object-replication-for-block-blobs-preview"></a>Configure a replicação do objeto para as bolhas de bloco (pré-visualização)
+# <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação do objeto para bolhas de bloco
 
-A replicação de objetos (pré-visualização) assíncroneamente copia blobs de bloco entre uma conta de armazenamento de origem e uma conta de destino. Para obter mais informações sobre a replicação do objeto, consulte [a replicação do objeto (pré-visualização)](object-replication-overview.md).
+A replicação de objetos assíncroneamente copia blobs de bloco entre uma conta de armazenamento de origem e uma conta de destino. Para obter mais informações sobre a replicação [de objetos, consulte a replicação do Objeto.](object-replication-overview.md)
 
 Ao configurar a replicação de objetos, cria uma política de replicação que especifica a conta de armazenamento de origem e a conta de destino. Uma política de replicação inclui uma ou mais regras que especificam um contentor de origem e um contentor de destino e indicam quais as bolhas de bloqueio no recipiente de origem que serão replicadas.
 
@@ -31,17 +31,23 @@ Este artigo descreve como configurar a replicação de objetos para a sua conta 
 
 Antes de configurar a replicação de objetos, crie as contas de armazenamento de origem e destino se elas ainda não existirem. Ambas as contas devem ser contas de armazenamento v2 para fins gerais. Para obter mais informações, consulte [Criar uma conta de Armazenamento Azure](../common/storage-account-create.md).
 
-Uma conta de armazenamento pode servir como a conta de origem de até duas contas de destino. E uma conta de destino pode não ter mais do que duas contas de origem. As contas de origem e de destino podem estar todas em regiões diferentes. Pode configurar políticas de replicação separadas para replicar dados em cada uma das contas de destino.
+A replicação do objeto requer que a versão blob esteja ativada tanto para a conta de origem como para destino, e que o feed de alteração de blob está ativado para a conta de origem. Para saber mais sobre a versão blob, consulte [a versão Blob](versioning-overview.md). Para saber mais sobre a mudança de feed, consulte [o suporte de feed change no Azure Blob Storage](storage-blob-change-feed.md). Tenha em mente que permitir estas funcionalidades pode resultar em custos adicionais.
 
-Antes de começar, certifique-se de que se registou para as seguintes pré-visualizações do recurso:
+Uma conta de armazenamento pode servir como a conta de origem de até duas contas de destino. As contas de origem e destino podem estar na mesma região ou em diferentes regiões. Podem também residir em diferentes subscrições e em diferentes inquilinos do Azure Ative Directory (Azure AD). Apenas uma política de replicação pode ser criada para cada par de contas.
 
-- [Replicação de objetos (pré-visualização)](object-replication-overview.md)
-- [Versão blob](versioning-overview.md)
-- [Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)](storage-blob-change-feed.md)
+Ao configurar a replicação de objetos, cria uma política de replicação na conta de destino através do fornecedor de recursos de armazenamento Azure. Após a criação da política de replicação, o Azure Storage atribui-lhe um ID de política. Em seguida, deve associar essa política de replicação à conta de origem utilizando o ID da política. A identificação da política nas contas de origem e de destino deve ser a mesma para que a replicação ocorra.
+
+Para configurar uma política de replicação de objetos para uma conta de armazenamento, deve ser-lhe atribuída a função **de Contribuinte de** Gestor de Recursos Azure, alargada ao nível da conta de armazenamento ou superior. Para obter mais informações, consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md) na documentação do Controlo de Acesso Baseado em Papéis (RBAC) do Azure.
+
+### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configure a replicação do objeto quando tiver acesso a ambas as contas de armazenamento
+
+Se tiver acesso às contas de armazenamento de origem e destino, então pode configurar a política de replicação de objetos em ambas as contas.
+
+Antes de configurar a replicação de objetos no portal Azure, crie os recipientes de origem e destino nas respetivas contas de armazenamento, caso já não existam. Além disso, ative a versão blob e altere o feed na conta de origem e permita a versão blob na conta de destino.
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Antes de configurar a replicação de objetos no portal Azure, crie os recipientes de origem e destino nas respetivas contas de armazenamento, caso já não existam. Além disso, ativou a versão blob e alterou o feed na conta de origem e permitiu a versão blob na conta de destino.
+O portal Azure cria automaticamente a política na conta de origem depois de a configurar para a conta de destino.
 
 Para criar uma política de replicação no portal Azure, siga estes passos:
 
@@ -63,39 +69,19 @@ Para criar uma política de replicação no portal Azure, siga estes passos:
 
 1. Por predefinição, o âmbito de cópia está definido para copiar apenas novos objetos. Para copiar todos os objetos do recipiente ou copiar objetos a partir de uma data e hora personalizadas, selecione o link **de alteração** e configuure o âmbito de cópia do par do recipiente.
 
-    A imagem a seguir mostra um âmbito de cópia personalizado.
+    A imagem a seguir mostra um âmbito de cópia personalizado que copia objetos a partir de uma data e hora especificadas.
 
     :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot mostrando o alcance de cópia personalizado para a replicação do objeto":::
 
 1. **Selecione Guardar e aplicar** para criar a política de replicação e começar a replicar dados.
 
+Depois de configurar a replicação de objetos, o portal Azure apresenta a política e regras de replicação, como mostra a imagem seguinte.
+
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot mostrando a política de replicação de objetos no portal Azure":::
+
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para criar uma política de replicação com o PowerShell, instale pela primeira vez a versão [2.0.1 ou](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) posterior do módulo Az.Storage PowerShell. Siga estes passos para instalar o módulo de pré-visualização:
-
-1. Desinstalar quaisquer instalações anteriores do Azure PowerShell a partir do Windows utilizando as **funcionalidades & aplicações** em **Definições**.
-
-1. Certifique-se de que tem a versão mais recente do PowerShellGet instalada. Abra uma janela Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
-
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-    Feche e reabra a janela PowerShell depois de instalar o PowerShellGet.
-
-1. Instale a versão mais recente do Azure PowerShell:
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Instale o módulo de pré-visualização Az.Storage:
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.0.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
-Para obter mais informações sobre a instalação do Azure PowerShell, consulte [instalar a Azure PowerShell com o PowerShellGet](/powershell/azure/install-az-ps).
+Para criar uma política de replicação com o PowerShell, instale pela primeira vez a versão [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) ou posterior do módulo Az.Storage PowerShell. Para obter mais informações sobre a instalação do Azure PowerShell, consulte [instalar a Azure PowerShell com o PowerShellGet](/powershell/azure/install-az-ps).
 
 O exemplo a seguir mostra como criar uma política de replicação nas contas de origem e destino. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
 
@@ -162,32 +148,22 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para criar uma política de replicação com o Azure CLI, instale primeiro a extensão de pré-visualização para Azure Storage.:
+Para criar uma política de replicação com o Azure CLI, instale primeiro a versão 2.11.1 ou posterior do Azure CLI. Para mais informações, consulte [Começar com o Azure CLI.](/cli/azure/get-started-with-azure-cli)
+
+Em seguida, ative a versão blob nas contas de armazenamento de origem e destino e permita alterar o feed na conta de origem. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
 
 ```azurecli
-az extension add -n storage-or-preview
-```
-
-Em seguida, inscreva-se com as suas credenciais Azure:
-
-```azurecli
-az login
-```
-
-Ativar a versão blob nas contas de armazenamento de origem e destino e ativar o feed de alteração na conta de origem. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
-
-```azurecli
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
@@ -242,12 +218,110 @@ Crie a política na conta de origem utilizando o ID da política.
 ```azurecli
 az storage account or-policy show \
     --resource-group <resource-group> \
-    --name <dest-storage-account> \
+    --account-name <dest-storage-account> \
     --policy-id <policy-id> |
-    --az storage account or-policy create --resource-group <resource-group> \
-    --name <source-storage-account> \
+    az storage account or-policy create --resource-group <resource-group> \
+    --account-name <source-storage-account> \
     --policy "@-"
 ```
+
+---
+
+### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Configurar a replicação do objeto quando tiver acesso apenas à conta de destino
+
+Se não tiver permissões na conta de armazenamento de origem, pode configurar a replicação de objetos na conta de destino e fornecer um ficheiro JSON que contenha a definição de política a outro utilizador para criar a mesma política na conta de origem. Por exemplo, se a conta de origem estiver num inquilino AD AZure diferente da conta de destino, use esta abordagem para configurar a replicação de objetos. 
+
+Tenha em mente que deve ser atribuída a função **de Contribuinte** de Recursos Azure, ao nível da conta de armazenamento de destino ou superior, a fim de criar a política. Para obter mais informações, consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md) na documentação do Controlo de Acesso Baseado em Papéis (RBAC) do Azure.
+
+A tabela seguinte resume quais os valores a utilizar para o ID de política no ficheiro JSON em cada cenário.
+
+| Quando estiver a criar o ficheiro JSON para esta conta... | Desa estada a definição de política para este valor... |
+|-|-|
+| Conta de destino | O *padrão de*valor de cadeia . O Azure Storage irá criar a identificação da apólice para si. |
+| Conta fonte | O ID da apólice devolveu quando descarrega um ficheiro JSON contendo as regras definidas na conta de destino. |
+
+O exemplo a seguir define uma política de replicação na conta de destino com uma única regra que corresponde ao prefixo *b* e define o tempo mínimo de criação para as bolhas que devem ser replicadas. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
+
+```json
+{
+  "properties": {
+    "policyId": "default",
+    "sourceAccount": "<source-account>",
+    "destinationAccount": "<dest-account>",
+    "rules": [
+      {
+        "ruleId": "default",
+        "sourceContainer": "<source-container>",
+        "destinationContainer": "<destination-container>",
+        "filters": {
+          "prefixMatch": [
+            "b"
+          ],
+          "minCreationTime": "2020-08-028T00:00:00Z"
+        }
+      }
+    ]
+  }
+}
+```
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+Para configurar a replicação de objetos na conta de destino com um ficheiro JSON no portal Azure, siga estes passos:
+
+1. Crie um ficheiro JSON local que defina a política de replicação na conta de destino. Defina o campo **policyId** por **defeito** para que o Azure Storage defina o ID da política.
+
+    Uma forma fácil de criar um ficheiro JSON que defina uma política de replicação é primeiro criar uma política de replicação de teste entre duas contas de armazenamento no portal Azure. Em seguida, pode descarregar as regras de replicação e modificar o ficheiro JSON conforme necessário.
+
+1. Navegue para as definições **de replicação do Objeto** para a conta de destino no portal Azure.
+1. Selecione **regras de replicação do upload**.
+1. Faça o upload do ficheiro JSON. O portal Azure exibe a política e as regras que serão criadas, como mostra a imagem seguinte.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot mostrando como carregar um ficheiro JSON para definir uma política de replicação":::
+
+1. Selecione **Upload** para criar a política de replicação na conta de destino.
+
+Em seguida, pode descarregar um ficheiro JSON contendo a definição de política que pode fornecer a outro utilizador para configurar a conta de origem. Para descarregar este ficheiro JSON, siga estes passos:
+
+1. Navegue para as definições **de replicação do Objeto** para a conta de destino no portal Azure.
+1. Selecione o botão **Mais** ao lado da política que deseja descarregar e, em seguida, selecione **Baixar as regras**, como mostrado na imagem seguinte.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot mostrando como baixar regras de replicação para um ficheiro JSON":::
+
+1. Guarde o ficheiro JSON no seu computador local para partilhar com outro utilizador para configurar a política na conta de origem.
+
+O ficheiro JSON descarregado inclui o ID de política que o Azure Storage criou para a política na conta de destino. Deve utilizar o mesmo ID de política para configurar a replicação de objetos na conta de origem.
+
+Tenha em mente que o upload de um ficheiro JSON para criar uma política de replicação para a conta de destino através do portal Azure não cria automaticamente a mesma política na conta de origem. Outro utilizador deve criar a política na conta de origem antes de o Azure Storage começar a replicar objetos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para descarregar um ficheiro JSON que contenha a definição de política de replicação para a conta de destino da PowerShell, ligue para o comando [Get-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/get-azstorageobjectreplicationpolicy) para devolver a apólice. Em seguida, converta a política para JSON e guarde-a como um ficheiro local, como mostra o exemplo seguinte. Lembre-se de substituir valores nos suportes angulares e no caminho do ficheiro pelos seus próprios valores:
+
+```powershell
+$rgName = "<resource-group>"
+$destAccountName = "<destination-storage-account>"
+
+$destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName
+$destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
+```
+
+Para utilizar o ficheiro JSON para definir a política de replicação na conta de origem com o PowerShell, recupere o ficheiro local e converta-o de JSON para um objeto. Em seguida, ligue para o comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar a política na conta de origem, como mostra o exemplo seguinte. Lembre-se de substituir valores nos suportes angulares e no caminho do ficheiro pelos seus próprios valores:
+
+```powershell
+$object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $object.PolicyId `
+    -SourceAccount $object.SourceAccount `
+    -DestinationAccount $object.DestinationAccount `
+    -Rule $object.Rules
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+N/D
 
 ---
 
@@ -298,6 +372,8 @@ az storage account or-policy delete \
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Visão geral da replicação do objeto (pré-visualização)](object-replication-overview.md)
+- [Visão geral da replicação do objeto](object-replication-overview.md)
+- [Ativar e gerir a versão blob](versioning-enable.md)
+- [Alterar o feed de mudança de processo no armazenamento do Azure Blob](storage-blob-change-feed-how-to.md)

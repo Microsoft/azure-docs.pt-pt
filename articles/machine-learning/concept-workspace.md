@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e765422ebfce1a4328bac9a17edb8b581f87e6f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890919"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661706"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho de aprendizagem automática Azure?
 
@@ -54,7 +54,7 @@ Pode interagir com o seu espaço de trabalho das seguintes formas:
 + Na web:
     + [Estúdio Azure Machine Learning ](https://ml.azure.com) 
     + [Azure Machine Learning designer (pré-visualização)](concept-designer.md) - Disponível apenas em espaços de trabalho [da edição enterprise.](overview-what-is-azure-ml.md#sku)
-+ Em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ Em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
 + Em qualquer ambiente R com o [Azure Machine Learning SDK para R (pré-visualização)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Na linha de comando utilizando a [extensão CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) de aprendizagem da máquina Azure
 + [Extensão de código VS de aprendizagem de máquina de Azure](how-to-manage-resources-vscode.md#workspaces)
@@ -94,7 +94,7 @@ Quando cria um espaço de trabalho, decide-se se o cria com [edição Basic ou E
 Existem várias formas de criar um espaço de trabalho:  
 
 * Utilize o [portal Azure](how-to-manage-workspace.md) para uma interface de ponto e clique para o acompanhar através de cada passo.
-* Use o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) para criar um espaço de trabalho em movimento a partir de scripts python ou cadernos de Júpiter
+* Use o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#&preserve-view=trueworkspace) para criar um espaço de trabalho em movimento a partir de scripts python ou cadernos de Júpiter
 * Utilize um [modelo de Gestor de Recursos Azure](how-to-create-workspace-template.md) ou o [CLI de Aprendizagem de Máquinas Azure](reference-azure-machine-learning-cli.md) quando precisar de automatizar ou personalizar a criação com padrões de segurança corporativos.
 * Se trabalhar no Código do Estúdio Visual, utilize a [extensão vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
@@ -128,7 +128,7 @@ Se quiser utilizar uma conta de Armazenamento Azure existente, não pode ser uma
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a Azure Machine Learning, consulte:
 

@@ -3,25 +3,25 @@ title: Relatórios de pagamento - Mercado comercial da Microsoft
 description: Os relatórios do Payout mostram-lhe detalhes sobre o dinheiro que ganhou com a sua oferta, incluindo o valor do pagamento e quando será pago.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: a013dd875fc5a97e5e2e619553cdeb8c6d729298
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 09/09/2020
+ms.openlocfilehash: 62de9380578ca5a97f7b72f9939d5c2dd7392c0d
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502635"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004226"
 ---
 # <a name="payout-summaries"></a>Resumos de dividendos
 
 O resumo do Payout mostra-lhe detalhes sobre o dinheiro que ganhou com a Microsoft. Também lhe permite saber quando receberá pagamentos e quanto será pago.
 
-Se vender produtos no Azure Marketplace, também verá informações sobre pagamentos bem-sucedidos no resumo do Payout. Para mais detalhes, consulte [as políticas de participação do Microsoft Azure Marketplace e](https://docs.microsoft.com/legal/marketplace/participation-policy) o Microsoft [Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+Se vender produtos no Azure Marketplace, também verá informações sobre pagamentos bem-sucedidos no resumo do Payout. Para obter mais informações sobre [o](./get-paid.md) pagamento do Azure Marketplace, consulte ser pago no mercado comercial e no Microsoft Publisher [Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Para ser elegível para pagamento, as suas receitas devem atingir o limiar de [pagamento](payment-thresholds-methods-timeframes.md) de $50. Para mais detalhes sobre o limiar de pagamento consulte esta página e reveja o acordo de desenvolvedor de aplicações.
+> Para ser elegível para pagamento, as suas receitas devem atingir o limiar de pagamento de $50. Para mais informações, consulte o [Microsoft Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > Se procura apoio em relação a pagamentos, incluindo configurar contas de pagamento, pagamentos em falta, colocar pagamentos em espera, ou qualquer outra coisa, apoio de contato [aqui.](https://developer.microsoft.com/windows/support)
@@ -31,22 +31,14 @@ Se vender produtos no Azure Marketplace, também verá informações sobre pagam
 Para abrir uma das páginas de resumo do pagamento:
 
 1. Selecione o ícone Payout no canto superior direito.
-2. Selecione o histórico de transações, pagamentos ou dados de exportação.
-
-## <a name="transaction-history-page"></a>Página de histórico de transações
-
-Esta página exibe todos os seus ganhos individuais, incluindo a data, o tipo e o ganho para cada um. Pode selecionar um período de tempo para visualizar, e também pode filtrar por ID de Inscrição, Programa, ID de Pagamento, Tipo de Ganho, Alavanca e Estado. Os dados estão disponíveis para o exercício em curso (1 de julho a 30 de junho) e para os dois exercícios anteriores.
-
-Para ver mais detalhes sobre um ganho, selecione a seta para baixo no lado direito da página. Isto mostrará a alavanca, o valor das receitas e o produto. Se algum destes dados não estiver disponível, mas necessitar de acesso aos mesmos, contacte [o suporte](https://developer.microsoft.com/windows/support). Se o ganho for o resultado de um ajustamento e não de uma transação, os campos de produto não serão apresentados.
-
-Para exportar qualquer um dos dados de transação nesta página, utilize a página **de dados de Exportação.**
+2. Selecione **o histórico de transações,** **pagamentos**ou **dados de exportação.**
 
 ## <a name="payments-page"></a>Página de pagamentos
 
 Os totais desta página representam todos os programas em que participa. Pode filtrar por ID do Participante, Programa, ID de Pagamento e Tipo de ganhos. Os montantes estão em dólares americanos. O valor pago também é apresentado no pagamento na moeda.
 
-| Área                   | Descrição                                                                                |
-|------------------------|---------------------------------------------------------------------------------------------|
+| Área  | Descrição |
+| --- | --- |
 | Total pago este ano   | O total combinado pago a você este ano, em dólares americanos, para todos os seus programas       |
 | Próximo pagamento estimado | O único próximo pagamento que vem até si (mesmo que haja outros em breve), em dólares americanos |
 | Último pagamento           | O valor (em dólares americanos), nome do programa e programa do seu pagamento mais recente           |
@@ -60,26 +52,26 @@ Para exportar qualquer um dos dados desta página, selecione **Export** e siga a
 
 Esta página exibe todos os seus ganhos individuais, incluindo a data, o tipo e o ganho para cada um. Pode selecionar um período de tempo para visualizar e pode filtrar por ID de Inscrição, Programa, ID de Pagamento, Tipo de Ganho, Alavanca e Estado. Os dados estão disponíveis para o exercício em curso (1 de julho a 30 de junho) e para os dois exercícios anteriores.
 
-Para ver mais detalhes sobre um ganho, selecione a seta para baixo no lado direito da página. Isto mostrará a alavanca, o valor das receitas e o produto. Se algum destes dados não estiver disponível, mas necessitar de acesso aos mesmos, [contacte o suporte](https://developer.microsoft.com/windows/support)]. Se o ganho for o resultado de um ajustamento e não de uma transação, os campos de produto não serão apresentados.
+Para ver mais detalhes sobre um ganho, selecione a seta para baixo no lado direito da página. Isto mostrará a alavanca, o valor das receitas e o produto. Se algum destes dados não estiver disponível, mas necessitar de acesso aos mesmos, contacte [o suporte](https://developer.microsoft.com/windows/support). Se o ganho for o resultado de um ajustamento e não de uma transação, os campos de produto não serão apresentados.
 
 Para exportar qualquer um dos dados de transação nesta página, selecione **Export** e siga as instruções na página de dados de Exportação. Os ficheiros exportados da página De Histórico de Transações mostram dados em moeda de transação, ganhos tanto em moeda de transação como em dólares dos EUA, e o valor pago em pagamento à moeda.
 
 ## <a name="payment-status"></a>Estado dos pagamentos
 
-| Estado de ganho           | Razão                                                                                                                                      | A ação do parceiro é necessária?                                   |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| Não processado              | O ganho é elegível para pagamento. Permanece neste estado por um período de arrefecimento, conforme definido no guia do programa para o programa Incentivo. | Não                                                         |
-| A seguir                 | Ordem de pagamento gerada até revisões internas pendentes antes do pagamento ser processado                                                               | Não                                                         |
+| Estado de ganho | Razão | A ação do parceiro é necessária? |
+| --- | --- | --- |
+| Não processado              | O ganho é elegível para pagamento. Permanece neste estado por um período de arrefecimento, conforme definido no guia do programa para o programa Incentivo. | No                                                         |
+| A seguir                 | Ordem de pagamento gerada até revisões internas pendentes antes do pagamento ser processado                                                               | No                                                         |
 | Fatura fiscal pendente      | A sua fatura fiscal é incompleta ou inválida                                                                                                  | Precisa atualizar a sua fatura fiscal antes de poder ser paga |
 | Rejeitado durante a revisão   | O pagamento foi rejeitado durante a revisão                                                                                                     | Contacte [o suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais detalhes                      |
-| Com falhas                   | O pagamento falhou devido a um erro no sistema da Microsoft                                                                                         | Contacte [o suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais detalhes                      |
-| Em curso              | O pagamento está em curso.                                                                                                                 | Não                                                         |
-| Pagamento incorreto        | A recuperação do pagamento está em andamento                                                                                                       | Não                                                         |
-| Enviados                     | O pagamento foi enviado para o seu banco.                                                                                                     | Não                                                         |
-| Reprocessamento             | O pagamento encontrou um erro no sistema da Microsoft e está a ser reprocessado                                                                  | Não                                                         |
-| Invertido                 | O pagamento foi invertido pelo seu banco e será enviado novamente no próximo ciclo de pagamentos                                                     | Não                                                         |
-| Fatura fiscal rejeitada     | A sua fatura fiscal foi rejeitada durante a revisão. Todos os pagamentos pendentes estarão suspensos até que a revisão da fatura fiscal esteja completa.                 | Contacte [o suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais detalhes                      |
-| Fatura fiscal em análise | A sua fatura fiscal está a ser revista. O seu pagamento será liberado assim que a fatura do imposto tiver sido aprovada.                                   | Não                                                         |
+| Com falhas                   | O pagamento falhou devido a um erro no sistema da Microsoft                                                                                         | Contacte [o suporte da Microsoft](https://developer.microsoft.com/windows/support)  para obter mais detalhes                      |
+| Em curso              | O pagamento está em curso.                                                                                                                 | No                                                         |
+| Pagamento incorreto        | A recuperação do pagamento está em andamento                                                                                                       | No                                                         |
+| Enviados                     | O pagamento foi enviado para o seu banco.                                                                                                     | No                                                         |
+| Reprocessamento             | O pagamento encontrou um erro no sistema da Microsoft e está a ser reprocessado                                                                  | No                                                         |
+| Invertido                 | O pagamento foi invertido pelo seu banco e será enviado novamente no próximo ciclo de pagamentos                                                     | No                                                         |
+| Fatura fiscal rejeitada     | A sua fatura fiscal foi rejeitada durante a revisão. Todos os pagamentos pendentes estarão suspensos até que a revisão da fatura fiscal esteja completa.                 | Contacte [o suporte da Microsoft](https://developer.microsoft.com/windows/support)  para obter mais detalhes                      |
+| Fatura fiscal em análise | A sua fatura fiscal está a ser revista. O seu pagamento será liberado assim que a fatura do imposto tiver sido aprovada.                                   | No                                                         |
 | Rejeitado                 | O pagamento foi rejeitado pelo seu banco.                                                                                                      | Contacte o seu banco para obter mais detalhes.                             |
 |||
 
@@ -97,8 +89,8 @@ O seu filtro pode resultar num erro **de não dados disponíveis.** Isto provave
 
 Esta opção fornece um download dos pagamentos que recebeu no seu banco para um determinado programa, o imposto associado e o valor agregado de ganhos. Este relatório é usado para muitos programas do Partner Center, por isso algumas colunas podem ser inaplicáveis ao seu relatório. As colunas estão marcadas abaixo.
 
-| Nome da coluna              | Descrição                                                                                                                               |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------  |
+| Nome da coluna | Descrição |
+| --- | --- |
 | id participante            | A identidade primária do parceiro que ganha ao abrigo do programa                                                                             |
 | IDType participante        | Normalmente programa ID para programas de incentivo e ID do vendedor para programas de loja                                                                |
 | nome participante          | Nome do parceiro de ganhos                                                                                                               |
@@ -123,8 +115,8 @@ Esta opção fornece um download dos pagamentos que recebeu no seu banco para um
 
 Esta opção fornece um download de cada item de linha de ganho que vê na página de histórico de Transação, tipo de ganho, data, valor de transação associado, cliente, produto e outros detalhes transacionais aplicáveis aos seus programas.
 
-| Nome da coluna                    | Descrição                                                                                                                              | Aplicabilidade para Incentivos/Loja/Mercado Azure           |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Nome da coluna | Descrição | Aplicabilidade para Incentivos/Loja/Mercado Azure |
+| --- | --- | --- |
 | earningId                      | Identificador único para cada ganho                                                                                                       | Todos                                                            |
 | participanteId                  | A identidade primária do parceiro que ganha ao abrigo do programa                                                                            | Todos                                                            |
 | ParticipanteIdType              | Principalmente iD de programa para programas de incentivo e vendedor IF para programas de loja e Azure Marketplace                                          | Todos                                                            |
@@ -209,8 +201,8 @@ O histórico de transações de antes de 1 de julho de 2019 é tratado separadam
 > [!NOTE]
 > Filtros como 3M, 6M ou 12M não se aplicam à secção **de declarações históricas.**
 
-| Nome do campo              | Descrição                                                                                                                                                             |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nome do campo | Descrição |
+| --- | --- |
 | Fonte de Receitas          | A fonte das suas receitas com base no local onde ocorreu a transação, como a Microsoft Store, Windows Phone Store, Windows Store 8 ou publicidade                  |
 | ID da Encomenda                | Identificador de ordem único. Este ID permite identificar transações de compra com as respetivas transações não-compra, tais como reembolsos ou reembolsos. Ambos terão a mesma identificação de encomenda. Além disso, no caso de uma taxa dividida em que foram utilizados vários métodos de pagamento para uma única compra, permite-lhe ligar as transações de compra. |
 | ID de Transação          | Identificador de transações único.                                                                                                                                          |
@@ -241,6 +233,6 @@ O histórico de transações de antes de 1 de julho de 2019 é tratado separadam
 | Cobranças                 | Apresenta uma repartição de todos os detalhes de cobrança agregados na coluna Transaction Amount (apenas incluído para O Mercado Azure; não incluído no ficheiro CSV **reservado).** |
 |||
 
-## <a name="next-step"></a>Próximo passo
+## <a name="next-step"></a>Passo seguinte
 
 - [Detalhes da política de dividendos](./payout-policy-details.md)

@@ -6,19 +6,19 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 420ff7ed838bc9fa14c1276ae0a70220fc7e11a9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003529"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024065"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Utilizar as APIs de Front-end do Azure para autenticação
 
 Nesta secção, descreveremos como utilizar a API para autenticação e gestão de sessão.
 
 > [!CAUTION]
-As funções descritas neste capítulo problema REST chama o servidor internamente. No que diz respeito a todas as chamadas REST, o envio demasiado frequente destes comandos fará com que o servidor se ausse e retornará eventualmente. O valor do `SessionGeneralContext.HttpResponseCode` membro neste caso é de 429 ("pedidos a mais"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
+> As funções descritas neste capítulo problema REST chama o servidor internamente. No que diz respeito a todas as chamadas REST, o envio demasiado frequente destes comandos fará com que o servidor se ausse e retornará eventualmente. O valor do `SessionGeneralContext.HttpResponseCode` membro neste caso é de 429 ("pedidos a mais"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
 
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo
@@ -482,7 +482,7 @@ void ConnectToArrInspector(ApiHandle<AzureSession> session, std::string hostname
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma conta](create-an-account.md)
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

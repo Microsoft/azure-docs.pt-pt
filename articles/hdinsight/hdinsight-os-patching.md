@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: ddc70ccbbb5c964f16b078470517ce667bc878f1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082646"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019670"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configure o calendário de remendos de SISTEMA para clusters HDInsight baseados em Linux
 
@@ -22,8 +22,8 @@ ms.locfileid: "86082646"
 
 O HDInsight fornece suporte para que execute tarefas comuns no seu cluster, tais como a instalação de patches de SISTEMA, atualizações de segurança e nól de reinicialização. Estas tarefas são realizadas utilizando os seguintes dois scripts que podem ser executados como [ações de script](hdinsight-hadoop-customize-cluster-linux.md), e configurados com parâmetros:
 
-- `schedule-reboots.sh`- Reinicie imediatamente ou agende um reinício dos nós do cluster.
-- `install-updates-schedule-reboots.sh`- Instale todas as atualizações, apenas atualizações de kernel + de segurança, ou apenas atualizações de kernel.
+- `schedule-reboots.sh` - Reinicie imediatamente ou agende um reinício dos nós do cluster.
+- `install-updates-schedule-reboots.sh` - Instale todas as atualizações, apenas atualizações de kernel + de segurança, ou apenas atualizações de kernel.
 
 > [!NOTE]  
 > As ações do script não aplicarão automaticamente atualizações para todos os ciclos de atualização futuros. Executar os scripts cada vez que novas atualizações devem ser aplicadas para instalar as atualizações e, em seguida, reiniciar o VM.
@@ -32,11 +32,16 @@ O HDInsight fornece suporte para que execute tarefas comuns no seu cluster, tais
 
 Remendar um ambiente representativo não produtivo antes da sua colocação na produção. Desenvolva um plano para testar adequadamente o seu sistema antes da sua remendação real.
 
-De tempos a tempos, de uma sessão de ssh com o seu cluster, poderá receber uma mensagem de que está disponível uma atualização. A mensagem pode parecer algo como:
+De tempos a tempos, de uma sessão de ssh com o seu cluster, poderá receber uma mensagem de que as atualizações de segurança estão disponíveis. A mensagem pode parecer algo como:
 
 ```
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade it
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
 ```
 
 Remendar é opcional e ao seu critério.
@@ -64,6 +69,9 @@ O `install-updates-schedule-reboots` guião aceita dois parâmetros numéricos, 
 
 > [!NOTE]
 > Deve marcar um guião como persistido depois de o aplicar a um cluster existente. Caso contrário, quaisquer novos nós criados através de operações de escala utilizarão o calendário de remendos predefinido. Se aplicar o script como parte do processo de criação de cluster, ele persiste automaticamente.
+
+> [!NOTE]
+> A opção 'Restart' programado faz um reinício automático dos nós de cluster remendados durante um período de 12 a 24 horas e tem em conta considerações de elevado domínio de disponibilidade, de atualização e de domínio de avaria. O Programado Restart não termina as cargas de trabalho de funcionamento, mas pode retirar a capacidade do cluster interinamente quando os nós não estiverem disponíveis, levando a tempos de processamento mais longos. 
 
 ## <a name="next-steps"></a>Próximos passos
 

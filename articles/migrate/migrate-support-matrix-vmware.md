@@ -3,12 +3,12 @@ title: Suporte de avaliação VMware em Azure Migrate
 description: Saiba mais sobre o suporte para a avaliação de VMware VM com avaliação do servidor Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4f724297f216267dadda31be4bd548eb241b9845
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266974"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660282"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação de VMware 
 
@@ -33,7 +33,7 @@ Se quiser migrar VMware VMs para Azure, reveja a matriz de suporte à [migraçã
 
 **VMware** | **Detalhes**
 --- | ---
-**vCenter Server** | As máquinas que pretende descobrir e avaliar devem ser geridas pela versão 5.5, 6.0, 6.5 ou 6.7 do vCenter Server.
+**vCenter Server** | As máquinas que pretende descobrir e avaliar devem ser geridas pela versão 5.5, 6.0, 6.5, 6.7 ou 7.0 do vCenter Server.<br/><br/> A descoberta de VMware VMs fornecendo detalhes do anfitrião ESXi no aparelho não é suportada.
 **Permissões** | A Avaliação do Servidor necessita de uma conta de leitura do vCenter Server apenas para a descoberta e avaliação.<br/><br/> Se pretender fazer a descoberta de aplicações ou visualização de dependência, a conta necessita de privilégios para operações **de hóspedes de máquinas virtuais.**  >  **Guest Operations**
 
 ## <a name="vm-requirements"></a>Requisitos de VM
@@ -89,7 +89,7 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 **credenciais vCenter Server** | A visualização de dependência necessita de uma conta vCenter Server com acesso apenas de leitura e privilégios habilitados para Máquinas Virtuais > Operações de Hóspedes.
 **Permissões do Windows VM** |  Para análise de dependência, o aparelho Azure Migrate necessita de uma conta de administrador de domínio, ou uma conta de administração local, para aceder aos VMs do Windows.
 **VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oráculo Linux 6, 7<br/> CentOS 5, 6, 7.
-**Conta Linux** | Para análise de dependência, nas máquinas Linux o aparelho Azure Migrate necessita de uma conta de utilizador com privilégio Root.<br/><br/> Em alternativa, a conta de utilizador necessita destas permissões em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
+**Conta Linux** | Para análise de dependência, nas máquinas Linux o aparelho Azure Migrate necessita de uma conta de utilizador com privilégio Root.<br/><br/> Em alternativa, a conta de utilizador necessita destas permissões em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Desardene estas capacidades utilizando os seguintes comandos: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
 **Agentes necessários** | Não é necessário nenhum agente nas máquinas que queira analisar.
 **Ferramentas VMware** | As Ferramentas VMware (mais tarde de 10.2) devem ser instaladas e em funcionamento em cada VM que pretende analisar.
 
@@ -115,7 +115,7 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Reveja as](best-practices-assessment.md) melhores práticas para criar avaliações.
 - Prepare-se para a avaliação [da VMware.](tutorial-prepare-vmware.md)

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185405"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660432"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +69,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
     1. Selecione **Seguinte** para abrir o **formulário de seleção de datastore e ficheiros**. Neste formulário seleciona para onde carregar o conjunto de dados; o recipiente de armazenamento predefinido que é automaticamente criado com o seu espaço de trabalho, ou escolha um recipiente de armazenamento que deseja usar para a experiência. 
     
-        1. Se os seus dados estiverem por detrás de uma rede virtual, tem de ativar **a função de validação** para garantir que o espaço de trabalho pode aceder aos seus dados. Saiba mais sobre [o isolamento da rede e a privacidade.](how-to-enable-virtual-network.md#machine-learning-studio) 
+        1. Se os seus dados estiverem por detrás de uma rede virtual, tem de ativar **a função de validação** para garantir que o espaço de trabalho pode aceder aos seus dados. Para obter mais informações, consulte [o estúdio Use Azure Machine Learning numa rede virtual Azure.](how-to-enable-studio-virtual-network.md) 
     
     1. **Selecione Procurar** para carregar o ficheiro de dados para o seu conjunto de dados. 
 
@@ -104,7 +104,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
     Campo|Descrição
     ---|---
-    Nome computacional| Insira um nome único que identifique o seu contexto de computação.
+    Nome da computação| Insira um nome único que identifique o seu contexto de computação.
     Prioridade da máquina virtual| As máquinas virtuais de baixa prioridade são mais baratas, mas não garantem os nós de computação. 
     Tipo de máquina virtual| Selecione CPU ou GPU para o tipo de máquina virtual.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual para o seu cálculo.
@@ -120,11 +120,14 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. No tipo de Tarefa e no formulário **de definições,** selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [os tipos de tarefas suportados](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) para obter mais informações.
 
-    1. Para **a classificação,** também pode permitir uma aprendizagem profunda que é usada para ações de texto.
+    1. Para **classificação,** também pode permitir uma aprendizagem profunda.
+    
+        Se a aprendizagem profunda estiver ativada, a validação limita-se a _train_validation divisão_. [Saiba mais sobre opções de validação.](how-to-configure-cross-validation-data-splits.md)
+
 
     1. Para **a previsão** que pode, 
     
-        1. Permitir a aprendizagem profunda
+        1. Permitir uma aprendizagem profunda.
     
         1. Selecione *coluna de tempo*: Esta coluna contém os dados de tempo a utilizar.
 
@@ -132,13 +135,13 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. (Opcional) Ver definições de configuração de adição: definições adicionais que pode utilizar para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados. 
 
-    Configurações adicionais|Description
+    Configurações adicionais|Descrição
     ------|------
     Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#primary-metric)
-    Explicar o melhor modelo | Selecione para ativar ou desativar, de modo a mostrar a explicabilidade do melhor modelo recomendado.
-    Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de treino.
+    Explicar o melhor modelo | Selecione para ativar ou desativar, de modo a mostrar explicações para o melhor modelo recomendado. <br> Esta funcionalidade não está atualmente disponível para [certos algoritmos de previsão.](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model) 
+    Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de treino. <br><br> Permitir algoritmos só está disponível para [experiências SDK.](how-to-configure-auto-train.md#supported-models) <br> Consulte os [modelos suportados para cada tipo de tarefa](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
     Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> *Tempo de formação (horas)*: Quanto tempo para permitir que o trabalho de formação corra. <br> *Limiar de pontuação métrica*: Pontuação métrica mínima para todos os oleodutos. Isto garante que se tiver uma métrica de destino definida que deseja alcançar, não gasta mais tempo no trabalho de formação do que o necessário.
-    Validação| Selecione uma das opções de validação cruzada para utilizar no trabalho de treino. [Saiba mais sobre validação cruzada.](how-to-configure-cross-validation-data-splits.md#prerequisites)
+    Validação| Selecione uma das opções de validação cruzada para utilizar no trabalho de treino. <br> [Saiba mais sobre validação cruzada.](how-to-configure-cross-validation-data-splits.md#prerequisites)<br> <br>A previsão suporta apenas a validação cruzada k-fold.
     Simultaneidade| *Iterações máximas simultâneas*: Número máximo de condutas (iterações) para testar no trabalho de formação. O trabalho não funcionará mais do que o número especificado de iterações.
 
 1. (Opcional) Ver definições de visualização: se optar por ativar a **caracterização automática** no formulário **configurações de configuração adicionais,** aplicam-se as técnicas de apri metragem de atenção predefinidos. Nas **definições** de visualização do View pode alterar estas padrão e personalizar em conformidade. Saiba como [personalizar as ações.](#customize-featurization) 
@@ -154,7 +157,7 @@ Pode obter uma grande variedade de estatísticas sumárias através do seu conju
 >[!NOTE]
 > As entradas em branco aparecem para funcionalidades com tipos irrelevantes.
 
-Estatística|Description
+Estatística|Descrição
 ------|------
 Funcionalidade| Nome da coluna que está a ser resumida.
 Perfil| Visualização em linha com base no tipo inferido. Por exemplo, cordas, booleanas e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isto permite-lhe obter uma compreensão rápida da distribuição dos dados.
@@ -179,7 +182,7 @@ A tabela seguinte resume as personalizações atualmente disponíveis através d
 
 Coluna| Personalização
 ---|---
-Incluídos | Especifica quais as colunas a incluir para o treino.
+Incluída | Especifica quais as colunas a incluir para o treino.
 Tipo de recurso| Altere o tipo de valor para a coluna selecionada.
 Impute com| Selecione com que valor imputar valores em falta nos seus dados.
 
@@ -205,9 +208,9 @@ Desa cosar em qualquer um dos modelos concluídos para ver detalhes de treino, c
 
 ## <a name="deploy-your-model"></a>Implemente o seu modelo
 
-Uma vez que tenha o melhor modelo à mão, é hora de implantá-lo como um serviço web para prever novos dados.
+Quando tem o melhor modelo em mãos, é o momento de o implementar como um serviço Web para prever novos dados.
 
-O ML automatizado ajuda-o a implementar o modelo sem código de escrita:
+O ML automatizado ajuda-o a implementar o modelo sem escrever código:
 
 1. Tem algumas opções para a implantação. 
 
@@ -217,7 +220,7 @@ O ML automatizado ajuda-o a implementar o modelo sem código de escrita:
         1. **Selecione Desdobre-se** na parte superior esquerda da janela. 
 
     + Opção 2: Implementar uma iteração específica deste modelo a partir desta experiência.
-        1. Selecione o modelo desejado a partir do separador **Modelos**
+        1. Selecione o modelo desejado no separador **Modelos**
         1. **Selecione Desdobre-se** na parte superior esquerda da janela.
 
 1. Povoar o **painel de modelos de implantação.**
@@ -225,23 +228,23 @@ O ML automatizado ajuda-o a implementar o modelo sem código de escrita:
     Campo| Valor
     ----|----
     Nome| Insira um nome único para a sua implantação.
-    Description| Introduza uma descrição para identificar melhor para que é esta implantação.
+    Descrição| Introduza uma descrição para identificar melhor para que é esta implantação.
     Tipo de computação| Selecione o tipo de ponto final que pretende implantar: *Serviço Azure Kubernetes (AKS)* ou *Instância de Contentores Azure (ACI)*.
-    Nome computacional| *Aplica-se apenas a AKS:* Selecione o nome do cluster AKS para o quais pretende implementar.
-    Ativar a autenticação | Selecione para permitir a autenticação baseada em símbolos ou em teclas.
-    Utilize ativos de implantação personalizados| Ative esta funcionalidade se quiser carregar o seu próprio script de pontuação e ficheiro ambiente. [Saiba mais sobre a pontuação dos scripts.](how-to-deploy-and-where.md)
+    Nome da computação| *Aplica-se apenas a AKS:* Selecione o nome do cluster AKS para o quais pretende implementar.
+    Ative a autenticação | Selecione para permitir a autenticação baseada em símbolos ou em teclas.
+    Utilize ativos de implantação personalizados| Ative esta funcionalidade se quiser carregar o seu próprio script de pontuação e ficheiro ambiente. [Saiba mais sobre os scripts de classificação](how-to-deploy-and-where.md).
 
     >[!Important]
-    > Os nomes dos ficheiros devem ter menos de 32 caracteres e devem começar e terminar com alfanuméricos. Pode incluir traços, sublinhados, pontos e alfanuméricos entre. Espaços não são permitidos.
+    > Os nomes dos ficheiros devem ter menos de 32 caracteres e devem começar e terminar com alfanuméricos. Podem incluir traços, carateres de sublinhado, pontos e carateres alfanuméricos. Não são permitidos espaços.
 
-    O menu *Advanced* oferece funcionalidades de implementação predefinidos, tais como [configurações de recolha de dados](how-to-enable-app-insights.md) e utilização de recursos. Se desejar anular estas predefinições, faça-o neste menu.
+    O menu *Avançado* oferece funcionalidades de implementação predefinidas, como definições de utilização de recursos e [recolha de dados](how-to-enable-app-insights.md). Se quiser substituir estas predefinições, poderá fazê-lo neste menu.
 
-1. Selecione **Implementar**. A implantação pode demorar cerca de 20 minutos a ser concluída.
-    Assim que a implementação começar, aparece o separador **resumo do Modelo.** Consulte o progresso da implantação na secção **'Implementar'.** 
+1. Selecione **Implementar**. A conclusão da implementação pode demorar cerca de 20 minutos.
+    Assim que a implementação for iniciada, o separador **Resumo do modelo** é apresentado. Veja o progresso da implementação na secção **Estado da implementação**. 
 
-Agora tem um serviço web operacional para gerar previsões! Pode testar as previsões consultando o serviço a partir do suporte de [aprendizagem automática Azure.](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+Agora, tem um serviço Web operacional para gerar predições! Pode testar as predições ao consultar o serviço no [Suporte do Azure Machine Learning integrado no Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como consumir um serviço web.](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)
 * [Compreenda os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)

@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121175"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015811"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicações para plataforma de identidade microsoft
 
@@ -42,9 +42,9 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Aplicativos de página única (JavaScript)
 
-Muitas aplicações modernas têm uma primeira página de aplicações escritas principalmente em JavaScript, muitas vezes com uma estrutura como Angular, React ou Vue. O ponto final da plataforma de identidade da Microsoft suporta estas aplicações utilizando o [fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Muitas aplicações modernas têm uma primeira página de aplicações escritas principalmente em JavaScript, muitas vezes com uma estrutura como Angular, React ou Vue. O ponto final da plataforma de identidade da Microsoft suporta estas aplicações utilizando o protocolo [OpenID Connect](v2-protocols-oidc.md) para autenticação e ou [o fluxo de subvenção implícita OAuth 2.0](v2-oauth2-implicit-grant-flow.md) ou o mais recente [código de autorização OAuth 2.0 + fluxo de autorização PKCE](v2-oauth2-auth-code-flow.md) para autorização (ver abaixo).
 
-Neste fluxo, a aplicação recebe um código a partir do ponto final da plataforma de identidade da `authorize` Microsoft, e resgata-o para tokens e tokens de atualização usando pedidos de web cross-site. O token de atualização expira a cada 24 horas, e a aplicação deve solicitar outro código.
+O diagrama de fluxo abaixo demonstra a concessão de código de autorização OAuth 2.0 (com detalhes em torno do PKCE omitidos), onde a aplicação recebe um código a partir do ponto final da plataforma de identidade da `authorize` Microsoft, e resgata-o para tokens e tokens de atualização usando pedidos de web de sites trans-sites. O token de atualização expira a cada 24 horas, e a aplicação deve solicitar outro código. Além do token de acesso, um `id_token` que representa o utilizador inscrito na aplicação do cliente é normalmente solicitado através do mesmo fluxo e/ou de um pedido separado do OpenID Connect (não apresentado aqui).
 
 ![Fluxo de código para aplicativos SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
@@ -128,6 +128,6 @@ Neste fluxo, a app interage diretamente com o `/token` ponto final para obter ac
 
 Para construir uma app Daemon, consulte a [documentação](v2-oauth2-client-creds-grant-flow.md)das credenciais do cliente, ou experimente uma [aplicação de amostra .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que está familiarizado com os tipos de aplicações suportadas pela plataforma de identidade da Microsoft, saiba mais sobre [o OAuth 2.0 e o OpenID Connect](active-directory-v2-protocols.md) para obter uma compreensão dos componentes do protocolo utilizados pelos diferentes cenários.

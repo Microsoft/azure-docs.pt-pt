@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758242"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016848"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Ligue um dispositivo de gateway Rigado Cascade 500 à sua aplicação Azure IoT Central
 
-*Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
+*Este artigo aplica-se aos construtores de soluções.*
 
 Este artigo descreve como, como construtor de soluções, pode ligar um dispositivo de gateway Rigado Cascade 500 à sua aplicação Microsoft Azure IoT Central. 
 
@@ -51,7 +51,7 @@ Para adicionar um modelo de dispositivo Cascade 500:
 
 Terá agora de recuperar o **ID** de âmbito e **a chave primária** para a sua aplicação Azure IoT Central para ligar o dispositivo Cascade 500. 
 
-1. Navegue para a **Administração** no painel esquerdo e clique na **ligação do dispositivo**. 
+1. Navegue para a **Administração**  no painel esquerdo e clique na **ligação do dispositivo**. 
 2. Tome nota do **ID do âmbito** para a sua aplicação IoT Central.
 ![ID de âmbito de aplicação](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
 3. Agora clique em **Ver Chaves** e tome nota da **chave** 
@@ -65,7 +65,7 @@ Uma vez que o dispositivo esteja ligado à internet, Rigado será capaz de empur
 
 Esta atualização aplicará os detalhes da ligação IoT Central no dispositivo Cascade 500 e aparecerá na lista de dispositivos. 
 
-![Chave Primária](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
+![Lista de dispositivos](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
 Está agora pronto para usar o seu dispositivo C500 na sua aplicação IoT Central!
 

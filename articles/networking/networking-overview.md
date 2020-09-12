@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037257"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651726"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de networking do Azure
 
@@ -31,14 +31,14 @@ Esta secção descreve serviços que fornecem conectividade entre recursos Azure
 
 |Serviço|Por que usar?|Cenários|
 |---|---|---|
-|[Rede virtual](#vnet)|Permite que os recursos da Azure se comuniquem de forma segura entre si, a internet e as redes no local.| <p>[Filtrar o tráfego de rede](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Encaminhar o tráfego de rede](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Restrinja o acesso da rede aos recursos](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Ligar redes virtuais](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
+|[Rede virtual](#vnet)|Permite que os recursos da Azure se comuniquem de forma segura entre si, a internet e as redes no local.| <p>[Filtre o tráfego de rede](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Encaminhe o tráfego de rede](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Restrinja o acesso da rede aos recursos](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Ligar redes virtuais](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
 |[ExpressRoute](#expressroute)|Estende as suas redes no local para a nuvem da Microsoft sobre uma ligação privada facilitada por um fornecedor de conectividade.|<p>[Criar e modificar um circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Criar e modificar o peering de um circuito ExpressRoute](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[Ligar uma VNet a um circuito do ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Configurar e gerir filtros de rota para circuitos ExpressRoute](../expressroute/how-to-routefilter-portal.md)</p>|
 |[Gateway de VPN](#vpngateway)|Envia tráfego encriptado entre uma rede virtual Azure e um local no local através da Internet pública.|<p>[Ligações site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Ligações VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Ligações ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[WAN Virtual](#virtualwan)|Otimiza e automatiza a conectividade do ramo para, e através, Azure. As regiões de Azure servem como centros aos quais pode escolher ligar os seus ramos.|<p>[Ligações site-to-site](../virtual-wan/virtual-wan-site-to-site-portal.md), [Ligações ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[DNS do Azure](#dns)|Acolhe domínios DNS que fornecem resolução de nomes utilizando a infraestrutura Microsoft Azure.|<p>[Aloje o seu domínio no DNS do Azure](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Crie registos DNS para uma aplicação web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Criar um registo de pseudónimo para o Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Criar um registo de pseudónimo para endereço IP público](../dns/tutorial-alias-pip.md)</p> <p>[Criar um registo de pseudónimos para registo de recursos de zona](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|Configure a conectividade RDP/SSH segura e sem costura com as suas máquinas virtuais diretamente no portal Azure sobre o TLS. Quando se conecta através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público|<p>[Criar um anfitrião do Azure Bastion](../bastion/bastion-create-host-portal.md)</p><p>[Ligue usando SSH a um Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[Ligue usando RDP a um VM do Windows](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[Rede virtual NAT Gateway](#nat)|Crie uma porta DE NAT para fornecer conectividade de saída para uma máquina virtual.|<p>[Criar um PORTAL NAT](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
-|[Serviço de Peering Azure (Pré-visualização)](#azurepeeringservice)|Colabore com os fornecedores de serviços para um encaminhamento ideal e fiável para a nuvem da Microsoft sobre a rede pública.|<p>[Registre o serviço de peering Azure](../peering-service/azure-portal.md)</p>|
+|[Azure Peering Service](#azurepeeringservice)|Colabore com os fornecedores de serviços para um encaminhamento ideal e fiável para a nuvem da Microsoft sobre a rede pública.|<p>[Registre o serviço de peering Azure](../peering-service/azure-portal.md)</p>|
 ||||
 
 
@@ -83,14 +83,14 @@ O VIRTUAL Network NAT (tradução de endereços de rede) simplifica a conectivid
 
 ![Gateway NAT de rede virtual](./media/networking-overview/flow-map.png)
 
-### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a>Serviço de Peering Azure
+### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Serviço de Peering Azure
 O serviço Azure Peering melhora a conectividade do cliente com os serviços na nuvem da Microsoft, tais como o Office 365, Dynamics 365, software como serviço (SaaS), Azure, ou quaisquer serviços da Microsoft acessíveis através da internet pública. Para mais informações, veja [o que é o Serviço de Espreitamento Azure?](../peering-service/about.md)
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Serviços de proteção de aplicações
 
 Esta secção descreve serviços de networking em Azure que ajudam a proteger os seus recursos de rede - Proteja as suas aplicações utilizando qualquer ou uma combinação destes serviços de rede em Azure - Private Link, proteção DDoS, Firewall, Grupos de Segurança de Rede, Firewall de Aplicação Web e Pontos Finais de Rede Virtual.
 
-|Serviço|Por que usar?|Scenario|
+|Serviço|Por que usar?|Cenário|
 |---|---|---|
 |[Proteção DDoS](#ddosprotection) |Alta disponibilidade para as suas aplicações com proteção contra taxas de tráfego IP em excesso|[Gerir a proteção Azure DDoS](../virtual-network/manage-ddos-protection.md)|
 |[Firewall de Aplicações Web](#waf)|<p>[Azure WAF com Application Gateway](../web-application-firewall/ag/ag-overview.md) fornece proteção regional a entidades em espaço de endereço público e privado</p><p>[A Azure WAF com Porta Frontal](../web-application-firewall/afds/afds-overview.md) fornece proteção na borda da rede para os pontos finais públicos.</p>|<p>[Configurar regras de proteção de bots](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Configurar código de resposta personalizado](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Configurar regras de restrição ip](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Regra limite de taxa de configuração](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
@@ -99,7 +99,7 @@ Esta secção descreve serviços de networking em Azure que ajudam a proteger os
 |[Pontos finais de serviço de rede virtual](#serviceendpoints)|Permite-lhe limitar o acesso à rede a alguns recursos de serviço Azure a uma sub-rede de rede virtual|[Restrict network access to PaaS resources](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md) (Restringir o acesso de rede a recursos de PaaS)|
 [Ligação Privada](#privatelink)|Permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e a Azure acolheu serviços de propriedade do cliente/parceiro sobre um ponto final privado na sua rede virtual.|<p>[Criar um ponto final privado](../private-link/create-private-endpoint-portal.md)</p><p>[Criar um serviço de Ligação Privada](../private-link/create-private-link-service-portal.md)</p>|
 |||
-### <a name="ddos-protection"></a><a name="ddosprotection"></a>Proteção contra DDOS 
+### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDos Proteção 
 [A Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) fornece contramedidas contra as ameaças mais sofisticadas do DDoS. O serviço fornece capacidades de mitigação de DDoS melhoradas para a sua aplicação e recursos implantados nas suas redes virtuais. Além disso, os clientes que usam a Azure DDoS Protection têm acesso ao suporte DDoS Rapid Response para envolver especialistas em DDoS durante um ataque ativo.
 
 ![Proteção contra DDOS](./media/networking-overview/ddos-protection.png)
@@ -139,7 +139,7 @@ O tráfego entre a sua rede virtual e o serviço percorre a rede de espinha dors
 
 Esta secção descreve os serviços de networking em Azure que ajudam a entregar aplicações - Rede de Entrega de Conteúdos, Serviço de Porta Frontal Azure, Gestor de Tráfego, Balanceador de Carga e Gateway de Aplicações.
 
-|Serviço|Por que usar?|Scenario|
+|Serviço|Por que usar?|Cenário|
 |---|---|---|
 |[Rede de Entrega de Conteúdos](#cdn)|Fornece conteúdo de largura de banda alta aos utilizadores. Os CDNs armazenam conteúdo em cache em servidores de borda em locais de ponto de presença (POP) que estão perto dos utilizadores finais, para minimizar a latência|<p>[Adicione CDN a uma aplicação web](../cdn/cdn-add-to-web-app.md)</p> <p>[- Aceder a bolhas de armazenamento utilizando um domínio personalizado Azure CDN sobre HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Adicionar um domínio personalizado ao seu ponto final da CDN do Azure](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Configurar HTTPS num domínio personalizado da CDN do Azure](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
 |[Azure Front Door Service](#frontdoor)|Permite-lhe definir, gerir e monitorizar o encaminhamento global para o seu tráfego web, otimizando para o melhor desempenho e falha global instantânea para uma elevada disponibilidade.|<p>[Adicionar um domínio personalizado ao Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Configurar HTTPS num domínio personalizado do Front Door](../frontdoor/front-door-custom-domain-https.md)</p><p>[Configurar a política de firewall de aplicação web de geo filtragem](../frontdoor/front-door-tutorial-geo-filtering.md)|
@@ -185,7 +185,7 @@ O diagrama seguinte mostra o encaminhamento baseado em url path com o Applicatio
 ## <a name="network-monitoring-services"></a><a name="monitor"></a>Serviços de monitorização da rede
 Esta secção descreve os serviços de networking em Azure que ajudam a monitorizar os recursos da sua rede - Monitor de Rede, Monitor ExpressRoute, Monitor Azure e Virtual Network TAP.
 
-|Serviço|Por que usar?|Scenario|
+|Serviço|Por que usar?|Cenário|
 |---|---|---|
 |[Observador de Rede](#networkwatcher)|Ajuda a monitorizar e resolver problemas de conectividade, ajuda a diagnosticar problemas de VPN, NSG e encaminhamento, captura pacotes no seu VM, automatiza ferramentas de diagnóstico usando funções Azure e Aplicações Lógicas|<p>[Diagnosticar problema de filtragem de tráfego de VM](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[Diagnosticar problema de encaminhamento de VM](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[Monitorizar comunicações entre VMs](../network-watcher/connection-monitor.md)</p><p>[Diagnosticar problemas de comunicação entre redes](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[Registar tráfego de rede de e para uma VM](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
 |[ExpressRoute Monitor](#expressroutemonitor)|Fornece monitorização em tempo real do desempenho, disponibilidade e utilização da rede, ajuda na auto-descoberta da topologia da rede, proporciona um isolamento mais rápido de falhas, deteta problemas de rede transitórios, ajuda a analisar características históricas de desempenho da rede, suporta multi-subscrição|<p>[Configurar o Monitor de Desempenho de Rede para o ExpressRoute](../expressroute/how-to-npm.md)</p><p>[Monitorização, métricas e alertas do ExpressRoute](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
@@ -208,7 +208,7 @@ A imagem que se segue mostra como funciona a rede virtual TAP.
 
 Para mais informações, consulte [O que é a Rede Virtual TAP.](../virtual-network/virtual-network-tap-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie o seu primeiro VNet e conecte alguns VMs ao mesmo, completando os passos no Create o seu primeiro artigo [de rede virtual.](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 - Ligue o computador a um VNet completando os passos no [Configure um artigo de ligação ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c0031b09dbb3335113cb52c9b3ec5e4fd4fa2758
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8be53838f6262eaafc643bc78fd08b6f02d9bac6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011584"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660261"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar autocompleto e sugestões a aplicativos clientes
 
@@ -139,9 +139,11 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Sugerir função
 
-Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
+Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet). Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](./search-howto-dotnet-sdk.md).
 
-O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](./search-howto-dotnet-sdk.md).
+O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. As propriedades na classe [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) determinam quais os campos que são pesquisados e devolvidos nos resultados, no número de partidas e na utilização de correspondências difusas. 
+
+Para o autocompleto, a correspondência difusa é limitada a uma distância de edição (um carácter omitido ou extraviado). Note que a correspondência difusa em consultas autocompletas pode por vezes produzir resultados inesperados dependendo do tamanho do índice e de como é fragmento. Para mais informações, consulte [os conceitos de partição e de fragmentos.](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -245,10 +247,10 @@ public ActionResult AutoComplete(string term)
 
 A função Autocomplete requer a entrada do termo de pesquisa. O método cria um [objeto AutoCompleteParameters](/rest/api/searchservice/autocomplete). Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga estes links para instruções ou códigos de ponta a ponta que demonstrem ambas as experiências de pesquisa como você. Ambos os exemplos de código incluem implementações híbridas de sugestões e autocompleto em conjunto.
 
 + [Tutorial: Crie a sua primeira aplicação em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [Amostra de código C#: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [Amostra de código C#: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
 + [C# e JavaScript com amostra de código REST lado a lado](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

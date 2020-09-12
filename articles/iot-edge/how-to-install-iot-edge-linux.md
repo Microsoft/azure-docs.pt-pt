@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 09/04/2020
 ms.author: kgremban
-ms.openlocfilehash: 4078d7e6c20571db2387cfd138ecb325fc3469e7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 21fde76dc5791030a7afa280e00642119cbe464c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022093"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660034"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian
 
@@ -25,7 +25,7 @@ Este artigo lista os passos para instalar o tempo de funcionamento do Azure IoT 
 > [!NOTE]
 > Os pacotes nos repositórios de software Linux estão sujeitos aos termos de licença localizados em cada pacote (/usr/share/doc/*nome do pacote).* Leia os termos da licença antes de utilizar a embalagem. A sua instalação e utilização do pacote constitui a sua aceitação destes termos. Se não concordar com os termos da licença, não utilize a embalagem.
 
-## <a name="install-iot-edge-and-container-runtimes"></a>Instalar ioT Edge e tempos de execução do recipiente
+## <a name="install-container-runtime-and-iot-edge"></a>Instale o tempo de funcionação do contentor e o IoT Edge
 
 Utilize as seguintes secções para instalar a versão mais recente do tempo de funcionamento do Azure IoT Edge no seu dispositivo.
 
@@ -272,7 +272,7 @@ Precisa de privilégios elevados para executar os comandos `iotedge`. Depois de 
 
 Nos dispositivos com restrições de recursos, recomenda-se vivamente que desempeciu a variável do ambiente *OptimizeForPerformance* para *falso,* de acordo com as instruções do [guia de resolução de problemas](troubleshoot.md).
 
-Se a sua rede tiver um servidor proxy, siga os passos no [Configure o seu dispositivo IoT Edge para comunicar através de um servidor de procuração](how-to-configure-proxy-support.md).
+Se o seu dispositivo não conseguir ligar-se ao IoT Hub e a sua rede tiver um servidor proxy, siga os passos no [Configure o seu dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md).
 
 ### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Verifique o seu núcleo Linux para compatibilidade moby
 
@@ -290,13 +290,15 @@ Este comando fornece uma saída detalhada que contém o estado das funcionalidad
 
 Utilize os passos nesta secção se pretender instalar uma versão específica do tempo de execução Azure IoT Edge que não está disponível através `apt-get install` de . A lista de pacotes da Microsoft contém apenas um conjunto limitado de versões recentes e suas sub-versões, pelo que estes passos são para quem pretenda instalar uma versão mais antiga ou uma versão candidata ao lançamento.
 
-Utilizando comandos curl, pode direcionar os ficheiros componentes diretamente do repositório IoT Edge GitHub. Utilize os seguintes passos para instalar o libiothsm e o daemon de segurança IoT Edge. Instale o motor Moby e o CLI utilizando os passos na instalação de uma secção [de tempo de funcionação do contentor.](#install-a-container-runtime)
+Utilizando comandos curl, pode direcionar os ficheiros componentes diretamente do repositório IoT Edge GitHub. Utilize os seguintes passos para instalar o libiothsm e o daemon de segurança IoT Edge.
 
-1. Navegue para as [versões Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases)e encontre a versão de lançamento que pretende atingir.
+1. Prepare o seu dispositivo com um motor de contentores instalado. Se não tiver um motor de contentor, siga os passos para registar o repositório da Microsoft e instale o Moby na secção de tempo de funcionação do [contentor Install e IoT Edge](#install-container-runtime-and-iot-edge) deste artigo.
 
-2. Expandir a secção **Ativos** para esta versão.
+2. Navegue para as [versões Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases)e encontre a versão de lançamento que pretende atingir.
 
-3. Cada versão deve ter novos ficheiros para o daemon de segurança IoT Edge e para o hsmlib. Utilize os seguintes comandos para atualizar estes componentes.
+3. Expandir a secção **Ativos** para esta versão.
+
+4. Cada versão deve ter novos ficheiros para o daemon de segurança IoT Edge e para o hsmlib. Utilize os seguintes comandos para atualizar estes componentes.
 
    1. Encontre o ficheiro **libiothsm-std** que corresponde à arquitetura do seu dispositivo IoT Edge. Clique com o botão direito no link do ficheiro e copie o endereço de link.
 
@@ -345,7 +347,7 @@ sudo apt-get remove --purge moby-cli
 sudo apt-get remove --purge moby-engine
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem um dispositivo IoT Edge alojotado com o tempo de funcionaamento instalado, pode [implantar módulos IoT Edge](how-to-deploy-modules-portal.md).
 

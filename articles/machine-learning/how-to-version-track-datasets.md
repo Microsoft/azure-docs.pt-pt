@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d57122ee98eb6612f43d09ecff4797038ceaf5f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fe56427e93650fbaca397bbbb27d32f730b1f7f3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654094"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651768"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de dados de versão e rastreio em experiências
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Cenários típicos de ver versão:
 
 Para este tutorial, você precisa:
 
-- [Azure Machine Learning SDK para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Este SDK inclui o pacote [de conjuntos de dados azureml.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py)
+- [Azure Machine Learning SDK para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Este SDK inclui o pacote [de conjuntos de dados azureml.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py&preserve-view=true)
     
 - Um [espaço de trabalho de aprendizagem automática Azure.](concept-workspace.md) Recupere um existente executando o seguinte código ou [crie um novo espaço de trabalho](how-to-manage-workspace.md).
 
@@ -63,7 +63,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>Recuperar um conjunto de dados pelo nome
 
-Por predefinição, o método [get_by_name](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) na `Dataset` classe devolve a versão mais recente do conjunto de dados registado no espaço de trabalho. 
+Por predefinição, o método [get_by_name](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) na `Dataset` classe devolve a versão mais recente do conjunto de dados registado no espaço de trabalho. 
 
 O seguinte código obtém a versão 1 do conjunto de `titanic_ds` dados.
 
@@ -158,7 +158,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 Para cada experiência de Machine Learning, pode rastrear facilmente os conjuntos de dados utilizados como entrada através do objeto de `Run` experiência.
 
-O seguinte código utiliza o [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) método para rastrear quais os conjuntos de dados de entrada utilizados com a execução da experiência:
+O seguinte código utiliza o [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueget-details--) método para rastrear quais os conjuntos de dados de entrada utilizados com a execução da experiência:
 
 ```Python
 # get input datasets
@@ -189,7 +189,7 @@ A seguinte vista é do painel **de conjuntos de dados** em **Ativos**. Selecione
 
 ![Modelos de conjuntos de dados de entrada](./media/how-to-version-track-datasets/dataset-models.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Preparar com conjuntos de dados](how-to-train-with-datasets.md)
 * [Mais cadernos de conjuntos de dados de amostra](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: d425953b278a98af35a172d8777ab758db52709e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0b3e1b3bc296676c44eddf34b35a0d4e06d3b8c4
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89257760"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007337"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de arranque Azure
 
@@ -24,7 +24,7 @@ Ao criar um VM no portal Azure, o Boot Diagnostics é ativado por padrão. A exp
 Uma experiência alternativa de Diagnóstico de Boot é utilizar uma conta de armazenamento gerida pelo utilizador. Um utilizador pode criar uma nova conta de armazenamento ou utilizar uma já existente.
 
 > [!IMPORTANT]
-> Os clientes da Azure não serão cobrados pelos custos de armazenamento associted com diagnósticos de boot usando uma conta de armazenamento gerida até outubro de 2020.
+> Os clientes da Azure não serão cobrados pelos custos de armazenamento associados aos diagnósticos de arranque utilizando uma conta de armazenamento gerida até outubro de 2020.
 
 ## <a name="boot-diagnostics-view"></a>Vista de diagnóstico de arranque
 Localizada na lâmina da máquina virtual, a opção de diagnóstico de arranque encontra-se na secção *de Suporte e Resolução de Problemas* no portal Azure. A seleção de diagnósticos de arranque apresentará uma imagem e informações de registo em série. O registo em série contém mensagens de kernel e a imagem é uma imagem do seu estado atual dos VMs. Baseado em se o VM está a executar Windows ou Linux determina como seria a imagem esperada. Para o Windows, os utilizadores irão ver um fundo de ambiente de trabalho e, para o Linux, os utilizadores irão ver uma solicitação de login.
@@ -36,8 +36,9 @@ Localizada na lâmina da máquina virtual, a opção de diagnóstico de arranque
 ## <a name="limitations"></a>Limitações
 - O diagnóstico de arranque só está disponível para VMs do Azure Resource Manager. 
 - Os diagnósticos de arranque não suportam contas de armazenamento premium, se uma conta de armazenamento premium for utilizada para diagnósticos de arranque os utilizadores receberão um `StorageAccountTypeNotSupported` erro ao iniciar o VM. 
+- As contas de armazenamento geridas são suportadas na versão API do Gestor de Recursos "2020-06-01" e posteriormente.
 - A Azure Serial Console é atualmente incompatível com uma conta de armazenamento gerida para o Boot Diagnostics. Saiba mais sobre [a Consola Em Série Azure.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a [Consola em Série Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview) e como utilizar diagnósticos de arranque para [resolver problemas em máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics).

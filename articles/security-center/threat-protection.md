@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: e2f72cc0ea6851caaf5d0db2f17f8e16473d420e
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272506"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667555"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
@@ -25,7 +25,7 @@ A proteção contra ameaças do Azure Security Center fornece defesas abrangente
 
 * **Proteção contra ameaças para recursos de computação Azure**: máquinas Windows, máquinas Linux, Serviço de Aplicações Azure e contentores Azure
 
-* **Proteção contra ameaças para recursos de dados Azure**: SQL Database e SQL Data Warehouse, Azure Storage e Azure Cosmos DB
+* **Proteção contra ameaças para recursos de dados Azure**: SQL Database e Azure Synapse Analytics (anteriormente SQL Data Warehouse), Azure Storage e Azure Cosmos DB
 
 * **Proteção contra ameaças para camadas de serviço Azure**: Camada de rede Azure, camada de gestão Azure (Gestor de Recursos Azure) (Preview) e Cofre de Chaves Azure (Pré-visualização)
 
@@ -119,7 +119,7 @@ Para obter mais informações sobre os planos do Serviço de Aplicações, consu
 |Estado de libertação:|Geralmente disponível|
 |Preços:|Escalão standard|
 |Funções e permissões necessárias:|**O administrador de segurança** pode dispensar alertas.<br>**O leitor de segurança** pode ver as descobertas.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
@@ -131,19 +131,19 @@ Para obter mais informações sobre os planos do Serviço de Aplicações, consu
 
 
 
-## <a name="threat-protection-for-sql-database-and-sql-data-warehouse"></a>Proteção contra ameaças para base de dados SQL e Armazém de Dados SQL <a name="data-sql"></a>
+## <a name="threat-protection-for-sql-database-and-azure-synapse-analytics-formerly-sql-data-warehouse"></a>Proteção contra ameaças para a Base de Dados SQL e Azure Synapse Analytics (anteriormente SQL Data Warehouse) <a name="data-sql"></a>
 
 A Advanced Threat Protection for Azure SQL Database deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados.
 
 Você verá alertas quando há atividades de base de dados suspeitas, potenciais vulnerabilidades, ou ataques de injeção DE SQL, e padrões anómalos de acesso e consulta de bases de dados.
 
-A Advanced Threat Protection for Azure SQL Database and SQL faz parte do pacote unificado de Segurança avançada de [Dados (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para capacidades avançadas de segurança SQL, abrangendo a Base de Dados Azure SQL, Instâncias Geridas Azure SQL, bases de dados do Armazém de Dados Azure SQL e servidores SQL em Máquinas Virtuais Azure.
+A Advanced Threat Protection for Azure SQL Database and SQL faz parte do pacote unificado [de Segurança avançada de Dados (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para capacidades avançadas de segurança SQL, abrangendo a Base de Dados Azure SQL, Instâncias Geridas Azure SQL, Azure Synapse Analytics (anteriormente SQL Data Warehouse) e servidores SQL em Máquinas Virtuais Azure.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Como permitir a Proteção Avançada de Ameaças para Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [Como permitir a proteção avançada de ameaças para servidores SQL em Máquinas Virtuais Azure](security-center-iaas-advanced-data.md)
-* [A lista de alertas de proteção de ameaças para a Base de Dados SQL e o SqL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+* [A lista de alertas de proteção de ameaças para a Base de Dados SQL e a Azure Synapse Analytics (antigo Armazém de Dados SQL)](alerts-reference.md#alerts-sql-db-and-warehouse)
 
 
 
@@ -155,7 +155,7 @@ Para obter mais informações, veja:
 |----|:----|
 |Estado de libertação:|[Armazenamento blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)<br>[Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (pré-visualização)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (pré-visualização)|
 |Preços:|Escalão standard|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 
@@ -164,8 +164,6 @@ Para obter mais informações, veja:
 A proteção contra ameaças para o Armazenamento Azure deteta atividade potencialmente prejudicial nas suas contas de Armazenamento Azure. Os seus dados podem ser protegidos quer sejam armazenados como recipientes blob, partilhas de ficheiros ou lagos de dados.
 
 Esta camada de proteção permite-lhe lidar com ameaças *sem* exigir que seja um perito em segurança e ajuda-o a gerir os seus sistemas de monitorização de segurança.
-
-As suas contas de armazenamento estão protegidas 
 
 ### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Que tipo de alertas a proteção contra ameaças para o Armazenamento Azure fornece?
 
@@ -185,11 +183,11 @@ Quando se suspeita que um ficheiro contenha malware, o Security Center apresenta
 
 
 
-### <a name="next-steps"></a>Passos seguintes 
+### <a name="next-steps"></a>Próximos passos 
 
 Para obter detalhes sobre os preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Como permitir a proteção avançada de ameaças para armazenamento de Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [A lista de alertas de proteção contra ameaças para o Armazenamento Azure](alerts-reference.md#alerts-azurestorage)
@@ -204,11 +202,11 @@ Para obter mais informações, veja:
 
 
 
-## <a name="threat-protection-for-azure-cosmos-db"></a>Proteção contra ameaças para Azure Cosmos DB <a name="cosmos-db"></a>
+## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Proteção contra ameaças para Azure Cosmos DB (Pré-visualização) <a name="cosmos-db"></a>
 
 Os alertas DB do Azure Cosmos são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar contas DB do Azure Cosmos.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Proteção avançada de ameaças para Azure Cosmos DB (Pré-visualização)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [A lista de alertas de proteção contra ameaças para Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)
@@ -302,7 +300,7 @@ Para se defender dos ataques do DDoS, compre uma licença para a Azure DDoS Prot
 Para obter uma lista dos alertas de Proteção DDoS Azure, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-azureddos).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre os alertas de segurança destes recursos de proteção contra ameaças, consulte os seguintes artigos:
 
 * [Tabela de referência para todos os alertas do Centro de Segurança Azure](alerts-reference.md)

@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 772521a8d3181721270d7fe4dbd11b7807c8d90e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: device-developer
+ms.openlocfilehash: 2025b127a428afa478cfe839c7619df2d7d688d3
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583663"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015964"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo do dispositivo
 
@@ -132,7 +133,7 @@ Pode criar várias versões do modelo do dispositivo. Com o tempo, terá vários
 
 ![Como migrar um dispositivo](media/howto-version-device-template/pick-version.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se é um operador ou construtor de soluções, um próximo passo sugerido é [aprender a gerir os seus dispositivos](./howto-manage-devices.md).
 

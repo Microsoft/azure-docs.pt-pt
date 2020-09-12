@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386134"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660478"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -33,7 +33,7 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
   * A sua conta Azure tem de ser uma conta de trabalho ou uma conta escolar, que `username@contoso.com` parece. Não pode utilizar contas Azure B2B (convidados) ou contas pessoais da Microsoft, tais como @hotmail.com @outlook.com .
 
     > [!NOTE]
-    > Se se inscreveu numa oferta do Office 365 e não forneceu o seu endereço de e-mail de trabalho, o seu endereço poderá parecer `username@domain.onmicrosoft.com` . Sua conta está guardada num inquilino da AD Azure. Na maioria dos casos, o Nome Principal do Utilizador (UPN) para a sua conta Azure é o mesmo que o seu endereço de e-mail.
+    > Se se inscreveu para uma oferta microsoft 365 e não forneceu o seu endereço de e-mail de trabalho, o seu endereço pode parecer `username@domain.onmicrosoft.com` . Sua conta está guardada num inquilino da AD Azure. Na maioria dos casos, o Nome Principal do Utilizador (UPN) para a sua conta Azure é o mesmo que o seu endereço de e-mail.
 
     Para utilizar uma [subscrição Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/) que esteja associada a uma conta Microsoft, [primeiro crie um inquilino AD Azure](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório predefinido. Adicione um utilizador com uma palavra-passe ao diretório e, em seguida, dê a esse utilizador acesso à sua subscrição Azure. Em seguida, pode iniciar seduca durante a instalação gateway com este nome de utilizador e senha.
 
@@ -142,7 +142,7 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
 O gateway de dados no local depende do [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para a conectividade na nuvem e estabelece as conexões de saída correspondentes à região de Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para aceder à internet, esta restrição pode impedir que o portal de dados no local se conecte ao serviço de cloud gateway e ao Azure Service Bus. O gateway tem várias definições de comunicação, que pode ajustar. Para obter mais informações, veja estes tópicos:
 
-* [Ajustar as definições de comunicação para o portal de dados no local](/data-integration/gateway/service-gateway-communication)
+* [Ajustar as definições de comunicação do gateway de dados no local](/data-integration/gateway/service-gateway-communication)
 * [Configurar as definições de proxy do gateway de dados no local](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
@@ -268,4 +268,4 @@ Aqui estão as formas de combinar as suas contas de Ative Directory no local com
 
 * [Conecte-se aos dados no local a partir de aplicações lógicas](../logic-apps/logic-apps-gateway-connection.md)
 * [Funcionalidades de integração empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Conectores do Azure Logic Apps](../connectors/apis-list.md)
+* [Conectores para o Azure Logic Apps](../connectors/apis-list.md)

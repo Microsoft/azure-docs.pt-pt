@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507523"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004277"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,14 @@ Os clientes serão notificados via e-mail e no portal Azure com muita antecedên
 ## <a name="status-updates"></a>Atualizações de estado
 
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
+### <a name="october-2020"></a>outubro de 2020
+
+Novos Gateways SQL estão a ser adicionados às seguintes regiões:
+
+- Alemanha Centro Oeste: 51.116.240.0, 51.116.248.0
+
+Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 12 de outubro de 2020. 
+
 ### <a name="september-2020"></a>Setembro de 2020
 Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **15 de setembro de 2020:**
 
@@ -66,7 +74,7 @@ Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiõ
 
 As seguintes migrações de gateway estão completas: 
 
-### <a name="august-2020"></a>agosto de 2020
+### <a name="august-2020"></a>Agosto de 2020
 
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 
@@ -116,6 +124,6 @@ As ligações efetuadas a partir de aplicações que utilizam o Controlador Micr
 
 Se a mitigação acima não funcionar, arquive um pedido de suporte para a Base de Dados SQL ou para a SQL Gestão de Instâncias utilizando o seguinte URL: https://aka.ms/getazuresupport
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Azure SQL Connectivity Architecture](connectivity-architecture.md)

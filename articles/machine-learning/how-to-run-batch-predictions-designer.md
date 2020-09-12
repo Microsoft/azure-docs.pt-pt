@@ -5,17 +5,17 @@ description: Aprenda a treinar um modelo e crie um pipeline de previsão de lote
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319614"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661553"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar predições em lote com o Azure Machine Learning Designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,9 +71,12 @@ Nesta secção, cria-se um parâmetro de conjunto de dados para especificar um c
    
     Introduza um nome para o parâmetro ou aceite o valor predefinido.
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>Publique o seu pipeline de inferenculação de lote
+    > [!div class="mx-imgBorder"]
+    > ![Conjunto de dados como parâmetro de pipeline](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
 
-Agora estás pronto para implantar o oleoduto de inferencing. Isto irá implantar o gasoduto e disponibilizá-lo para que outros utilizem.
+## <a name="publish-your-batch-inference-pipeline"></a>Publique o seu pipeline de inferência de lote
+
+Agora está pronto para implantar o oleoduto de inferência. Isto irá implantar o gasoduto e disponibilizá-lo para que outros utilizem.
 
 1. Selecione o botão **Publicar**.
 
@@ -126,9 +129,7 @@ Pode encontrar informações sobre como consumir pontos finais de gasodutos e ga
 
 Pode encontrar o ponto final REST de um ponto final do gasoduto no painel de visão geral de execução. Ao ligar para o ponto final, está a consumir o seu oleoduto publicado por defeito.
 
-Também pode consumir um oleoduto publicado na página de **gasodutos Publicados.** Selecione um oleoduto publicado e encontre o ponto final REST do mesmo. 
-
-![Detalhes do ponto final de descanso](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+Também pode consumir um oleoduto publicado na página de **gasodutos Publicados.** Selecione um pipeline publicado e poderá encontrar o ponto final REST do mesmo no painel **de visão geral** do gasoduto publicado à direita do gráfico. 
 
 Para fazer uma chamada REST, necessitará de um cabeçalho de autenticação do tipo portador OAuth 2.0. Consulte a [seguinte secção tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para obter mais detalhes sobre a configuração da autenticação no seu espaço de trabalho e fazer uma chamada de REST parametrizada.
 
@@ -142,9 +143,9 @@ Ao publicar um oleoduto, pode optar por torná-lo o novo pipeline padrão para e
 
 Também pode definir um novo pipeline padrão no **separador de gasodutos Publicado do** seu ponto final.
 
-![Definir o gasoduto predefinido](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Desafine o gasoduto predefinido na página de pipeline publicada](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implementar um modelo de regressão.
 ''

@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357873"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662581"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: Faça uma alteração na configuração padrão
 O objetivo deste artigo é interprir como fazer alterações na configuração padrão no Azure Ative Directory (Azure AD) Conecte a sincronização. Fornece passos para alguns cenários comuns. Com este conhecimento, deverá ser capaz de fazer alterações simples na sua própria configuração com base nas suas próprias regras de negócio.
@@ -113,7 +113,7 @@ Se tudo estiver como esperado, pode voltar a ativar o programador. Da PowerShell
 A secção anterior descreveu como fazer alterações num fluxo de atributos. Nesta secção, são fornecidos alguns exemplos adicionais. Os passos para criar a regra de sincronização são abreviados, mas pode encontrar todos os passos na secção anterior.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>Use um atributo diferente do padrão
-Neste cenário de Fabrikam, há uma floresta onde o alfabeto local é usado para nome, apelido e nome de exibição. A representação latina destes atributos pode ser encontrada nos atributos de extensão. Para a construção de uma lista global de endereços em Azure AD e Office 365, a organização quer usar estes atributos em vez disso.
+Neste cenário de Fabrikam, há uma floresta onde o alfabeto local é usado para nome, apelido e nome de exibição. A representação latina destes atributos pode ser encontrada nos atributos de extensão. Para a construção de uma lista global de endereços em AZure AD e Microsoft 365, a organização quer usar estes atributos em vez disso.
 
 Com uma configuração padrão, um objeto da floresta local é assim:  
 ![Fluxo de atributo 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
@@ -200,7 +200,7 @@ Por predefinição, o atributo UserType não está ativado para sincronização 
 
 - A Azure AD só aceita dois valores para o atributo UserType: **Membro** e **Convidado**.
 - Se o atributo UserType não estiver habilitado para sincronização no Azure AD Connect, os utilizadores de AD Azure criados através da sincronização de diretórios teriam o atributo UserType definido para **o Membro**.
-- Antes da versão 1.5.30.0, a Azure AD não permitiu que o atributo UserType nos utilizadores AD Azure existentes fosse alterado pelo Azure AD Connect. Nas versões mais antigas, só poderia ser definido durante a criação dos utilizadores AD Azure e [alterado via Powershell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Antes da versão 1.5.30.0, a Azure AD não permitiu que o atributo UserType nos utilizadores AD Azure existentes fosse alterado pelo Azure AD Connect. Nas versões mais antigas, só poderia ser definido durante a criação dos utilizadores AD Azure e [alterado via PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Antes de permitir a sincronização do atributo UserType, deve primeiro decidir como o atributo é derivado do Ative Directory no local. Seguem-se as abordagens mais comuns:
 
@@ -269,7 +269,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Sistema Conectado | *Escolha o conector AD no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
-    | Tipo de ligação | **Aderir** |  |
+    | Tipo de ligação | **Join** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Vá ao **separador filtro de scoping** e adicione um **único grupo de filtro de scoping** com a seguinte cláusula:
@@ -311,7 +311,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | Sistema Conectado | *Selecione o conector AAD* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||
-    | Tipo de ligação | **Aderir** ||
+    | Tipo de ligação | **Join** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Vá ao **separador filtro de scoping** e adicione um **único grupo de filtro de scoping** com duas cláusulas:

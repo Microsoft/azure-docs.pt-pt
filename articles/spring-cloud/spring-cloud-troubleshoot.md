@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b34bd51e9d84629682565592c733b23a320597aa
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083689"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669758"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Resolução de problemas problemas comuns da Nuvem de primavera de Azure
 
@@ -52,14 +52,19 @@ Quando estiver a depurar falhas de aplicação, comece por verificar o estado de
 
   - `AppMemoryMax`_(jvm.memory.max):_ A quantidade máxima de memória disponível para a aplicação. A quantidade pode ser indefinida, ou pode mudar ao longo do tempo se for definida. Se for definida, a quantidade de memória usada e comprometida é sempre inferior ou igual ao máximo. No entanto, uma atribuição de memória pode falhar com uma `OutOfMemoryError` mensagem se a atribuição tentar aumentar a memória usada tal que *a utilização > cometida*, mesmo que usada <= *max* ainda é verdadeira. Em tal situação, tente aumentar o tamanho máximo da pilha usando o `-Xmx` parâmetro.
 
-  - `AppMemoryUsed`(_jvm.memory.used):_ A quantidade de memória em bytes que é atualmente utilizada pela aplicação. Para uma aplicação java de carga normal, esta série métrica forma um padrão *de dentes de serra,* onde o uso da memória aumenta e diminui constantemente em pequenos incrementos e de repente cai muito, e então o padrão repete-se. Esta série métrica ocorre devido à recolha de lixo dentro da máquina virtual java, onde as ações de recolha representam gotas no padrão sawtooth.
+  - `AppMemoryUsed` (_jvm.memory.used):_ A quantidade de memória em bytes que é atualmente utilizada pela aplicação. Para uma aplicação java de carga normal, esta série métrica forma um padrão *de dentes de serra,* onde o uso da memória aumenta e diminui constantemente em pequenos incrementos e de repente cai muito, e então o padrão repete-se. Esta série métrica ocorre devido à recolha de lixo dentro da máquina virtual java, onde as ações de recolha representam gotas no padrão sawtooth.
     
     Esta métrica é importante para ajudar a identificar problemas de memória, tais como:
     * Uma explosão de memória no início.
     * A alocação de memória de pico para um caminho lógico específico.
     * Fugas de memória graduais.
-
   Para mais informações, consulte [Métricas.](spring-cloud-concept-metrics.md)
+  
+* Se a aplicação não arrancar, verifique se a aplicação tem parâmetros jvm válidos. Se a memória jvm estiver demasiado alta, pode aparecer nos registos a seguinte mensagem de erro:
+
+  >"memória necessária 2728741K é superior a 2000M disponível para alocação"
+
+
 
 Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
@@ -138,7 +143,7 @@ Se a consulta for interrompida, ainda poderá utilizar o seguinte comando para o
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-No entanto, note que uma instância de serviço Azure Spring Cloud pode desencadear apenas um trabalho de construção para um pacote de origem de uma vez. Para obter mais informações, consulte [implementar uma aplicação](spring-cloud-quickstart-launch-app-portal.md) e [configurar um ambiente de preparação na Nuvem de primavera de Azure.](spring-cloud-howto-staging-environment.md)
+No entanto, note que uma instância de serviço Azure Spring Cloud pode desencadear apenas um trabalho de construção para um pacote de origem de uma vez. Para obter mais informações, consulte [implementar uma aplicação](spring-cloud-quickstart.md) e [configurar um ambiente de preparação na Nuvem de primavera de Azure.](spring-cloud-howto-staging-environment.md)
 
 ### <a name="my-application-cant-be-registered"></a>O meu pedido não pode ser registado.
 
@@ -193,7 +198,7 @@ As variáveis ambientais informam o quadro Azure Spring Cloud, garantindo que a 
 Procure o nó da criança chamado `systemEnvironment` .  Este nó contém variáveis ambientais da sua aplicação.
 
 > [!IMPORTANT]
-> Lembre-se de inverter a exposição das variáveis ambientais antes de tornar a sua aplicação acessível ao público.  Vá ao portal Azure, procure a página de configuração da sua aplicação e elimine esta variável ambiental: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
+> Lembre-se de inverter a exposição das variáveis ambientais antes de tornar a sua aplicação acessível ao público.  Vá ao portal Azure, procure a página de configuração da sua aplicação e elimine esta variável ambiental:  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Não consigo encontrar métricas ou registos para a minha candidatura.
 

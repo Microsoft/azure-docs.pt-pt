@@ -3,12 +3,12 @@ title: Suporte para avaliação do servidor físico em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação do servidor físico com a Avaliação do Servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 2b96bff7468f0705f2b80f60dcd5248960495f16
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640128"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660351"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -24,7 +24,7 @@ Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a fer
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto Azure Migrate](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Além dos servidores físicos, um projeto pode incluir VMware VMs e Hiper-VMs, até os limites de avaliação para cada um.
-**Deteção** | O aparelho Azure Migrate pode descobrir até 1000 servidores físicos.
+**Descoberta** | O aparelho Azure Migrate pode descobrir até 1000 servidores físicos.
 **Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Pode avaliar até 35.000 máquinas numa única avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
@@ -34,8 +34,8 @@ Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a fer
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Implementação de servidor físico**       | O servidor físico pode ser autónomo ou implantado num cluster. |
-| **Permissões**           | **Janelas:** Utilize uma conta de domínio para máquinas unidas a domínios e uma conta local para máquinas que não estejam unidas ao domínio. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores de Monitores de Desempenho e Utilizadores de Registos de Desempenho. <br/><br/> **Linux:** Precisa de uma conta raiz nos servidores Linux que pretende descobrir. <br/> Em alternativa, certifique-se de que as capacidades necessárias são definidas utilizando os seguintes comandos. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk não estiver presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode <br/> chmod a+r /sys/class/dmi/id/product_uuid
-| **Sistema operativo** | Todos os sistemas operativos, com exceção do Windows Server 2003 e do SUSE Linux, podem ser avaliados para migração. |
+| **Permissões**           | **Windows:** utilize uma conta de domínio para os computadores associados a um domínio e uma conta local para os computadores que não estão associados a um domínio. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores do Monitor de Desempenho e Utilizadores do Registo de Desempenho. <br/><br/> **Linux:** precisa de uma conta de raiz nos servidores Linux que quer detetar. <br/> Em alternativa, certifique-se de que as capacidades necessárias são definidas utilizando os seguintes comandos. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk não estiver presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode <br/> chmod a+r /sys/class/dmi/id/product_uuid
+| **Sistema operativo** | Todos os sistemas operativos Windows e Linux podem ser avaliados para migração. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de aplicação do Azure Migrate
@@ -72,6 +72,6 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 **Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar o gateway Do Log Analytics nelas.
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Prepare-se para a avaliação do servidor físico.](tutorial-prepare-physical.md)

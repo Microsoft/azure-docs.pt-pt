@@ -3,12 +3,12 @@ title: Gerir espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerir eficazmente o Azure Sentinel em recursos de clientes delegados.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050816"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019738"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerir espaços de trabalho do Azure Sentinel em escala
 
@@ -65,7 +65,7 @@ Se você está gerindo recursos Azure Sentinel para vários clientes, você pode
 
 [Os livros de trabalho do Azure Monitor em Azure Sentinel ajudam-no](../../sentinel/overview.md#workbooks) a visualizar e a monitorizar dados das suas fontes de dados ligadas para obter informações. Pode utilizar os modelos de livro incorporados no Azure Sentinel ou criar livros de trabalho personalizados para os seus cenários.
 
-Você pode implementar livros de trabalho no seu inquilino gerente e criar dashboards à escala para monitorizar e consultar dados através dos inquilinos do cliente. Para obter mais informações, consulte [a monitorização do espaço de trabalho.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks) Note que algumas capacidades não são [suportadas em vários espaços de trabalho.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces)
+Você pode implementar livros de trabalho no seu inquilino gerente e criar dashboards à escala para monitorizar e consultar dados através dos inquilinos do cliente. Para obter mais informações, consulte [a monitorização do espaço de trabalho.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks) 
 
 Também pode implementar livros diretamente num inquilino individual que gere para cenários específicos desse cliente.
 
@@ -77,8 +77,6 @@ Crie e guarde as consultas de Log Analytics para deteção de ameaças centralme
 
 Você pode usar a automatização para gerir vários espaços de trabalho do Azure Sentinel e configurar [consultas de caça,](../../sentinel/hunting.md)playbooks e livros de trabalho. Para obter mais informações, consulte [a gestão do espaço de trabalho transversal utilizando a automação.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation)
 
-Note que algumas capacidades não são [suportadas atualmente em vários espaços de trabalho.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces)
-
 ## <a name="manage-security-of-office-365-environments"></a>Gerir a segurança dos ambientes do Office 365
 
 Use o Farol Azure em conjunto com a Azure Sentinel para gerir a segurança do Office 365 ambientes entre os inquilinos. Em primeiro lugar, os conectores de dados fora da caixa [Office 365 devem ser ativados no inquilino gerido](../../sentinel/connect-office-365.md) para que as informações sobre as atividades de utilizador e administração em Exchange and SharePoint (incluindo o OneDrive) possam ser ingeridas num espaço de trabalho do Azure Sentinel dentro do inquilino gerido. Isto inclui detalhes sobre ações como transferências de ficheiros, pedidos de acesso enviados, alterações em eventos de grupo e operações de caixa de correio, juntamente com informações sobre os utilizadores que realizaram as ações. [Os alertas DLP do Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) também são suportados como parte do conector incorporado do Office 365.
@@ -87,7 +85,7 @@ Pode ativar o [conector Microsoft Cloud App Security (MCAS)](../../sentinel/conn
 
 Depois de configurar os conectores de dados do Office 365, pode utilizar as capacidades do inquilino Azure Sentinel, como visualizar e analisar os dados em livros, utilizando consultas para criar alertas personalizados e configurar livros de jogadas para responder a ameaças.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [Azure Sentinel.](../../sentinel/overview.md)
 - Reveja a [página de preços do Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).

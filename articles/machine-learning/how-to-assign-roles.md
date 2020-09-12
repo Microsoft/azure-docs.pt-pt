@@ -11,14 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079591"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661929"
 ---
-# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure
+# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, aprende-se a gerir o acesso a um espaço de trabalho de Aprendizagem automática Azure. [O controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/overview) é utilizado para gerir o acesso aos recursos Azure. Os utilizadores do seu Diretório Ativo Azure são atribuídos a funções específicas, que concedem acesso a recursos. O Azure fornece papéis incorporados e a capacidade de criar papéis personalizados.
@@ -46,7 +46,7 @@ Se você é proprietário de um espaço de trabalho, você pode adicionar e remo
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
 - [API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Modelos do Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Modelos de gestor de recursos Azure](/azure/role-based-access-control/role-assignments-template)
 
 Se tiver instalado o [CLI de Aprendizagem de Máquinas Azure,](reference-azure-machine-learning-cli.md)pode utilizar comandos CLI para atribuir funções aos utilizadores:
 
@@ -135,16 +135,16 @@ O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azu
 | Atividade | Âmbito de nível de subscrição | Âmbito de grupo de recursos | Âmbito ao nível do espaço de trabalho |
 | ----- | ----- | ----- | ----- |
 | Criar novo espaço de trabalho | não é necessário | Proprietário ou colaborador | N/A (torna-se Proprietário ou herda um papel de âmbito superior após a criação) |
-| Atualizar a Edição do espaço de trabalho | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`/workspaces/write` |
-| Solicitar nível de subscrição Quota Amlcompute ou quota de nível de espaço de trabalho definido | Proprietário, colaborador ou papel personalizado </br>permitindo`/locations/updateQuotas/action`</br> no âmbito de subscrição | Não Autorizado | Não Autorizado |
-| Criar novo cluster computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`/workspaces/computes/write` |
-| Criar nova instância computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`/workspaces/computes/write` |
-| Submeter qualquer tipo de execução | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publicação de um ponto final do gasoduto | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| Implantação de um modelo registado num recurso AKS/ACI | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Atualizar a Edição do espaço de trabalho | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/write` |
+| Solicitar nível de subscrição Quota Amlcompute ou quota de nível de espaço de trabalho definido | Proprietário, colaborador ou papel personalizado </br>permitindo `/locations/updateQuotas/action`</br> no âmbito de subscrição | Não Autorizado | Não Autorizado |
+| Criar novo cluster computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/computes/write` |
+| Criar nova instância computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/computes/write` |
+| Submeter qualquer tipo de execução | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Publicação de um ponto final do gasoduto | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Implantação de um modelo registado num recurso AKS/ACI | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Pontuação contra um ponto final AKS implantado | não é necessário | não é necessário | Titular, colaborador ou papel personalizado que permite: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando não estiver a utilizar auth Azure Ative Directory) OR `"/workspaces/read"` (quando estiver a utilizar auth token) |
-| Acesso ao armazenamento usando cadernos interativos | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
-| Criar novo papel personalizado | Titular, colaborador ou papel personalizado permitindo`Microsoft.Authorization/roleDefinitions/write` | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`/workspaces/computes/write` |
+| Acesso ao armazenamento usando cadernos interativos | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Criar novo papel personalizado | Titular, colaborador ou papel personalizado permitindo `Microsoft.Authorization/roleDefinitions/write` | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/computes/write` |
 
 > [!TIP]
 > Se receber uma falha ao tentar criar um espaço de trabalho pela primeira vez, certifique-se de que o seu papel permite `Microsoft.MachineLearningServices/register/action` . Esta ação permite-lhe registar o fornecedor de recursos Azure Machine Learning com a sua assinatura Azure.
@@ -426,9 +426,9 @@ Sim, pode definir um papel que impede a atualização da edição do espaço de 
 Precisa de permissões de nível de subscrição para realizar qualquer operação relacionada com quotas no espaço de trabalho. Isto significa que definir a quota de nível de subscrição ou a quota de nível de espaço de trabalho para os seus recursos de computação geridos só pode acontecer se tiver permissões de escrita no âmbito de subscrição. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da segurança empresarial](concept-enterprise-security.md)
-- [Executar de forma segura experiências e inferência/pontuação dentro de uma rede virtual](how-to-enable-virtual-network.md)
+- [Isolamento de rede virtual e visão geral da privacidade](how-to-network-security-overview.md)
 - [Tutorial: Modelos de comboio](tutorial-train-models-with-aml.md)
 - [Operações do fornecedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

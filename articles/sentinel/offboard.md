@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: yelevin
-ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77581689"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662005"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Remova Azure Sentinel do seu espaço de trabalho
 
@@ -48,13 +48,13 @@ Após a desconexão ser identificada, o processo de embarque começa.
 
 -   AWS
 
--   Alertas de segurança dos serviços da Microsoft (Azure ATP, Microsoft Cloud App Security, incluindo cloud discovery shadow it reportando, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
+-   Alertas de segurança dos serviços da Microsoft: Microsoft Defender for Identity *(anteriormente Azure ATP),* Microsoft Cloud App Security incluindo cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint *(anteriormente Microsoft Defender ATP*), Azure Defender *(anteriormente Azure Security Center)*
 
 -   Informações sobre Ameaças
 
--   Registos de segurança comuns (incluindo registos baseados em CEF, Barracuda e Syslog) (Se tiver o Azure Security Center, estes registos continuarão a ser recolhidos.)
+-   Registos de segurança comuns (incluindo registos baseados em CEF, Barracuda e Syslog) (Se tiver a Azure Defender, estes registos continuarão a ser recolhidos.)
 
--   Eventos de Segurança do Windows (Se tiver o Azure Security Center, estes registos continuarão a ser recolhidos.)
+-   Eventos de Segurança do Windows (Se tiver o Azure Defender, estes registos continuarão a ser recolhidos.)
 
 Nas primeiras 48 horas, os dados e as regras analíticas (incluindo a configuração da automatização em tempo real) deixarão de ser acessíveis ou consultais no Azure Sentinel.
 

@@ -5,17 +5,17 @@ description: Saiba como importar dados para o designer de Aprendizagem automáti
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495376"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006989"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Dados de importação para o designer de aprendizagem automática Azure (pré-visualização)
 
@@ -38,19 +38,28 @@ Também pode registar a saída de qualquer módulo de design como conjunto de da
 
 1. Selecione o módulo que produz os dados que pretende registar.
 
-1. No painel de propriedades, selecione **Outputs**  >  **Register dataset**.
+1. No painel de propriedades, selecione **Outputs + logs**  >  **Registar conjunto de dados**.
 
     ![Screenshot mostrando como navegar para a opção Conjunto de Dados do Registo](media/how-to-designer-import-data/register-dataset-designer.png)
 
+Se os dados de saída do módulo estiverem num formato tabular, deve optar por registar a saída como conjunto de dados de **ficheiros** ou **conjunto de dados tabulares**.
+
+ - **O conjunto de dados de ficheiros** regista a pasta de saída do módulo como conjunto de dados de ficheiros. A pasta de saída contém um ficheiro de dados e ficheiros de meta que o designer utiliza internamente. Selecione esta opção se pretender continuar a utilizar o conjunto de dados registado no designer. 
+
+ - **O conjunto de dados tabular** regista apenas o ficheiro de dados de saída do módulo como um conjunto de dados tabular. Este formato é facilmente consumido por outras ferramentas, por exemplo, em Machine Learning automatizado ou no Python SDK. Selecione esta opção se pretender utilizar o conjunto de dados registado fora do designer.  
+
+
+
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados
 
-Os seus conjuntos de dados registados podem ser encontrados na paleta de **módulos,** nos conjuntos de  >  **dados My Datasets**. Para utilizar um conjunto de dados, arraste-o e jogue-o sobre a tela do gasoduto. Em seguida, ligue a porta de saída do conjunto de dados a outros módulos na paleta.
+Os seus conjuntos de dados registados podem ser encontrados na paleta de **módulos, em Conjuntos de Dados**. Para utilizar um conjunto de dados, arraste-o e jogue-o sobre a tela do gasoduto. Em seguida, ligue a porta de saída do conjunto de dados a outros módulos na tela. 
 
 ![Screenshot mostrando a localização de conjuntos de dados guardados na paleta de designers](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> Atualmente, o designer apenas suporta o processamento [de conjuntos de dados tabulares.](how-to-create-register-datasets.md#dataset-types) Se pretender utilizar [conjuntos de dados de ficheiros,](how-to-create-register-datasets.md#dataset-types)utilize o Azure Machine Learning SDK disponível para Python e R.
+> O designer suporta [a versão do conjunto de dados.](how-to-version-track-datasets.md) Especifique a versão do conjunto de dados no painel de propriedade do módulo de conjunto de dados.
+
 
 ## <a name="import-data-using-the-import-data-module"></a>Dados de importação utilizando o módulo de dados de importação
 
@@ -80,8 +89,8 @@ O designer suporta conjuntos de dados tabulares criados a partir das seguintes f
 
 O designer reconhece internamente os seguintes tipos de dados:
 
-* Cadeia
-* Integer (Número inteiro)
+* String
+* Número inteiro
 * Decimal
 * Booleano
 * Date
@@ -94,8 +103,8 @@ Os módulos no designer são limitados pelo tamanho do alvo do cálculo. Para co
 
 ## <a name="access-data-in-a-virtual-network"></a>Aceder a dados numa rede virtual
 
-Se o seu espaço de trabalho estiver numa rede virtual, deve executar etapas de configuração adicionais para visualizar dados no designer. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o isolamento da Rede durante o treino & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#machine-learning-studio).
+Se o seu espaço de trabalho estiver numa rede virtual, deve executar etapas de configuração adicionais para visualizar dados no designer. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o estúdio Use Azure Machine Learning numa rede virtual Azure](how-to-enable-studio-virtual-network.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda o básico do designer com [Tutorial: Predict automobile price with the designer.](tutorial-designer-automobile-price-train-score.md)

@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aafaeb1143049b14f0a2fe2d867a951355d1ba61
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501019"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667598"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador ao nível do inquilino a uma aplicação
 
@@ -32,15 +32,12 @@ A concessão do consentimento administrativo ao inquilinos requer que se inscrev
 > [!IMPORTANT]
 > Quando uma aplicação tiver recebido o consentimento administrativo do arrendatário, todos os utilizadores poderão inscrever-se na app a menos que tenha sido configurada para exigir a atribuição do utilizador. Para restringir quais os utilizadores que podem iniciar sessão numa aplicação, exija a atribuição do utilizador e, em seguida, atribua utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
 >
-> A função de Administrador Global é necessária para fornecer o consentimento administrativo para a API do Gráfico microsoft.
->
-
+> A função de Administrador Global é necessária para fornecer consentimento administrativo para permissões de aplicação para a API do Gráfico microsoft.
 
 > [!WARNING]
 > A concessão do consentimento administrativo a uma aplicação concederá à app e ao editor da app acesso aos dados da sua organização. Reveja cuidadosamente as permissões que o pedido solicita antes de conceder o consentimento.
 >
-> A função de Administrador Global é necessária para fornecer o consentimento administrativo para a API do Gráfico microsoft.
->
+> A função de Administrador Global é necessária para fornecer consentimento administrativo para permissões de aplicação para a API do Gráfico microsoft.
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Conceder consentimento administrativo do portal Azure
 
@@ -56,6 +53,9 @@ Para conceder o consentimento administrativo do arrendatário a uma aplicação 
 4. Selecione **Permissões** e, em seguida, clique em **Conceder o consentimento de administração**.
 5. Reveja cuidadosamente as permissões que a aplicação requer.
 6. Se concordar com as permissões que o pedido requer, conceda o consentimento. Caso contrário, clique em **Cancelar** ou feche a janela.
+
+> [!WARNING]
+> A concessão do consentimento administrativo através de **aplicações enterprise** revogará quaisquer permissões que tivessem sido previamente concedidas a todo o inquilino. As permissões que tenham sido previamente concedidas pelos utilizadores em seu próprio nome não serão afetadas. 
 
 ### <a name="grant-admin-consent-in-app-registrations"></a>Conceder consentimento administrativo nos registos da App
 
@@ -82,12 +82,15 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 
 em que:
 
-* `{client-id}`é o ID do cliente da aplicação (também conhecido como ID da aplicação).
-* `{tenant-id}`é o ID do inquilino da sua organização ou qualquer nome de domínio verificado.
+* `{client-id}` é o ID do cliente da aplicação (também conhecido como ID da aplicação).
+* `{tenant-id}` é o ID do inquilino da sua organização ou qualquer nome de domínio verificado.
 
 Como sempre, reveja cuidadosamente as permissões que um pedido de pedido antes de conceder o consentimento.
 
-## <a name="next-steps"></a>Passos seguintes
+> [!WARNING]
+> A concessão do consentimento administrativo através desta URL revogará quaisquer permissões que tivessem sido previamente concedidas a todo o inquilino. As permissões que tenham sido previamente ensanguizadas pelos utilizadores em seu próprio nome não serão afetadas. 
+
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
 

@@ -16,29 +16,29 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1754456873e464e4bd624f47c5ea98e4fb88827
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542234"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016083"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que são sincronizados pela sincronização Azure AD Connect.  
 Os atributos são agrupados pela aplicação AZure AD relacionada.
 
 ## <a name="attributes-to-synchronize"></a>Atributos para sincronizar
-Uma questão comum é *qual é a lista de atributos mínimos para sincronizar.* A abordagem padrão e recomendada é manter os atributos predefinidos para que um GAL completo (Global Address List) possa ser construído na nuvem e obter todas as funcionalidades no Office 365 cargas de trabalho. Em alguns casos, existem alguns atributos que a sua organização não quer sincronizado na nuvem uma vez que estes atributos contêm dados sensíveis ou PII (informações pessoalmente identificáveis), como neste exemplo:  
+Uma questão comum é *qual é a lista de atributos mínimos para sincronizar.* A abordagem predefinida e recomendada é manter os atributos predefinidos para que um GAL completo (Global Address List) possa ser construído na nuvem e obter todas as funcionalidades nas cargas de trabalho da Microsoft 365. Em alguns casos, existem alguns atributos que a sua organização não quer sincronizado na nuvem uma vez que estes atributos contêm dados pessoais sensíveis, como neste exemplo:  
 ![maus atributos](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-Neste caso, comece com a lista de atributos neste tópico e identifique os atributos que contêm dados sensíveis ou PII e não podem ser sincronizados. Em seguida, desseleccione esses atributos durante a instalação utilizando [a aplicação AD Azure e atribua a filtragem](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering)de atributos .
+Neste caso, comece com a lista de atributos neste tópico e identifique os atributos que contêm dados pessoais e não podem ser sincronizados. Em seguida, desseleccione esses atributos durante a instalação utilizando [a aplicação AD Azure e atribua a filtragem](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering)de atributos .
 
 > [!WARNING]
 > Ao desselecionar atributos, deve ser cauteloso e apenas dessele esses atributos absolutamente não possível sincronizar. Não seleção de outros atributos pode ter um impacto negativo nas funcionalidades.
 >
 >
 
-## <a name="office-365-proplus"></a>Office 365 ProPlus
+## <a name="microsoft-365-apps-for-enterprise"></a>Microsoft 365 Apps para empresa
 | Nome do atributo | Utilizador | Comentário |
 | --- |:---:| --- |
 | accountEnabled |X |Define se uma conta está ativada. |
@@ -52,7 +52,7 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacto | Group | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | assistente |X |X | | |
@@ -175,7 +175,7 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacto | Group | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | authOrig |X |X |X | |
@@ -257,7 +257,7 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>Equipas e Skype para Business Online
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacto | Group | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
@@ -305,7 +305,7 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacto | Group | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | cn |X | |X |Nome comum ou pseudónimo. Na maioria das vezes, o prefixo do valor [do correio]. |
@@ -320,7 +320,7 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X | | |Este UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="intune"></a>Intune
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacto | Group | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ Neste caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X | | |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacto | Group | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
@@ -375,9 +375,9 @@ Este grupo é um conjunto de atributos usados como os atributos mínimos necess�
 * Yammer (apenas o Utilizador é consumido)
 * [Cenários de colaboração trans-org híbridos (B2B) oferecidos por recursos como o SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Este grupo é um conjunto de atributos que podem ser usados se o diretório AD Azure não for usado para apoiar o Office 365, Dynamics ou Intune. Tem um pequeno conjunto de atributos principais. Note que o único sign-on ou provisioning a algumas aplicações de terceiros requer a sincronização configurada de atributos para além dos atributos descritos aqui. Os requisitos de aplicação são descritos no tutorial da [aplicação SaaS](../saas-apps/tutorial-list.md) para cada aplicação.
+Este grupo é um conjunto de atributos que podem ser usados se o diretório AD Azure não for usado para suportar Microsoft 365, Dynamics ou Intune. Tem um pequeno conjunto de atributos principais. Note que o único sign-on ou provisioning a algumas aplicações de terceiros requer a sincronização configurada de atributos para além dos atributos descritos aqui. Os requisitos de aplicação são descritos no tutorial da [aplicação SaaS](../saas-apps/tutorial-list.md) para cada aplicação.
 
-| Nome do atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do atributo | Utilizador | Contacto | Group | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | cn |X | |X | |
@@ -397,7 +397,7 @@ Este grupo é um conjunto de atributos que podem ser usados se o diretório AD A
 | userPrincipalName |X | | |UPN é o ID de login para o utilizador. Na maioria das vezes, o mesmo valor que o valor [do correio]. |
 
 ## <a name="windows-10"></a>Windows 10
-Um computador (dispositivo) associado a domínio do Windows 10 sincroniza alguns atributos do AZure AD. Para obter mais informações sobre os cenários, consulte [dispositivos ligados ao domínio do Azure para experiências com o Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Estes atributos sincronizam-se sempre e o Windows 10 não aparece como uma aplicação que pode desmarcar. Um computador de domínio do Windows 10 é identificado por ter o atributo userCertificate preenchido.
+Um computador (dispositivo) associado a domínio do Windows 10 sincroniza alguns atributos do AZure AD. Para obter mais informações sobre os cenários, consulte [dispositivos ligados ao domínio do Azure para experiências com o Windows 10](../devices/hybrid-azuread-join-plan.md). Estes atributos sincronizam-se sempre e o Windows 10 não aparece como uma aplicação que pode desmarcar. Um computador de domínio do Windows 10 é identificado por ter o atributo userCertificate preenchido.
 
 | Nome do atributo | Dispositivo | Comentário |
 | --- |:---:| --- |
@@ -422,7 +422,7 @@ Estes atributos para **o utilizador** são além das outras aplicações que sel
 ## <a name="exchange-hybrid-writeback"></a>Troca de writeback híbrido
 Estes atributos são redigidos de Azure AD para o Ative Directory no local quando selecionar para ativar **o Exchange hybrid**. Dependendo da sua versão Exchange, menos atributos podem ser sincronizados.
 
-| Nome do Atributo (AD no local) | Nome do atributo (Connect UI) | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo (AD no local) | Nome do atributo (Connect UI) | Utilizador | Contacto | Group | Comentário |
 | --- |:---:|:---:|:---:| --- |---|
 | MSDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivado da nuvemAnchor em Azure AD. Este atributo é novo no Exchange 2016 e no Windows Server 2016 AD. |
 | msExchArchiveStatus| Sra. Exch-ArchiveStatus |X | | |Arquivo Online: Permite que os clientes arquivam o correio. |
@@ -470,7 +470,7 @@ Os objetos do dispositivo são criados no Ative Directory. Estes objetos podem s
 * Ao utilizar um ID Alternativo, o utilizador no local atribui o NomePrincipal é sincronizado com o atributo AZure AD no NomePrincipal DoMises. O atributo De ID Alternativo, por exemplo, por correio, é sincronizado com o utilizador de atributo AZure ADPrincipalName.
 * Nas listas acima, o tipo de objeto **O utilizador** também se aplica ao tipo de objeto **iNetOrgPerson**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

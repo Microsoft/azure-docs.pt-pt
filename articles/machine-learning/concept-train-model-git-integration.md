@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 154d28e4df9bad68f3c5e93208ccf62ba2721663
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 6d9d9f2d7363217ef4e9b13b44d3665af33cb8ef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144826"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661786"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração de Git para Azure Machine Learning
 
@@ -98,7 +98,7 @@ As informações registadas contêm texto semelhante ao seguinte JSON:
 
 ### <a name="python-sdk"></a>SDK Python
 
-Depois de submeter uma corrida de treino, um objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) é devolvido. O `properties` atributo deste objeto contém a informação do git registado. Por exemplo, o seguinte código recupera o haxixe do compromisso:
+Depois de submeter uma corrida de treino, um objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) é devolvido. O `properties` atributo deste objeto contém a informação do git registado. Por exemplo, o seguinte código recupera o haxixe do compromisso:
 
 ```python
 run.properties['azureml.git.commit']
@@ -114,6 +114,6 @@ az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup
 
 Para mais informações, consulte a documentação de referência [az ml run.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilize alvos de computação para a formação de modelos](how-to-set-up-training-targets.md)

@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157947"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017103"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação Azure IoT Central
 
-
-
-Este artigo descreve como, como operador, gerir dispositivos na sua aplicação Azure IoT Central. Como operador, pode:
+Este artigo descreve como, como operador, gere dispositivos na sua aplicação Azure IoT Central. Como operador, pode:
 
 - Utilize a página **dispositivos** para visualizar, adicionar e eliminar dispositivos ligados à sua aplicação Azure IoT Central.
 - Mantenha um inventário atualizado dos seus dispositivos.
@@ -71,7 +69,7 @@ Para os dispositivos de registo a granel na sua aplicação:
     > [!NOTE]
     > Se ainda não tiver um modelo de dispositivo, poderá importar dispositivos em todos os dispositivos e **registá-los** sem um modelo. Depois de importados os dispositivos, pode em seguida emigrá-los para um modelo.
 
-1. Selecione **Importar**.
+1. Selecione **Import** (Importar).
 
     ![Ação de Importação](./media/howto-manage-devices/bulkimport1a.png)
 
@@ -174,7 +172,7 @@ As propriedades da nuvem são os metadados do dispositivo associados ao disposit
 1. Escolha **guardar**. Se guardar propriedades escritas, os valores são enviados para o seu dispositivo. Quando o dispositivo confirmar a alteração da propriedade escrita, o estado volta a **ser sincronizado**. Se guardou uma propriedade na nuvem, o valor é atualizado.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a gerir dispositivos na sua aplicação Azure IoT Central, aqui está o próximo passo sugerido:
 

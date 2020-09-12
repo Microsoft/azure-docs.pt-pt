@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3b2807ccd6d83511dd0c9a32a177ea9fe2c4b642
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075312"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662105"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utilizar o Corretor de ID (pré-visualização) para gestão credencial
 
@@ -38,7 +38,7 @@ O ID Broker permite-lhe iniciar sedutação nos clusters ESP utilizando a Autent
 
 Para criar um cluster ESP com corretor de ID habilitado, tome os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Siga os passos básicos de criação para um cluster ESP. Para obter mais informações, consulte [Criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Selecione **Ative HdInsight ID Broker**.
 
@@ -111,10 +111,10 @@ Na configuração do corretor de ID, as aplicações personalizadas e os cliente
 Depois de aquípar o token OAuth, pode usá-lo no cabeçalho de autorização para o pedido HTTP para o gateway de cluster (por <clustername> exemplo, -int.azurehdinsight.net). Por exemplo, um comando de caracóis de amostra para livy API pode ser assim:
     
 ```bash
-curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure um cluster HDInsight com pacote de segurança empresarial utilizando os serviços de domínio do diretório ativo Azure](apache-domain-joined-configure-using-azure-adds.md)
 * [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

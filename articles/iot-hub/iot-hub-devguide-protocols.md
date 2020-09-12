@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 619bc7cec2f8a79a656cf3a7ad1f86d1e5786abb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1792535fab79ed20bdf77f96b4fc39f13b0c7bbb
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322997"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016010"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referência - escolha um protocolo de comunicação
 
@@ -55,6 +55,8 @@ Considere os seguintes pontos quando escolher o seu protocolo para comunicaçõe
 > [!WARNING]
 > Ao utilizar o HTTPS, cada dispositivo deve sondar mensagens nuvem-dispositivo não mais do que uma vez a cada 25 minutos. Em desenvolvimento, cada dispositivo pode sondar com mais frequência, se desejar.
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
 ## <a name="port-numbers"></a>Números portuários
 
 Os dispositivos podem comunicar com o IoT Hub em Azure utilizando vários protocolos. Normalmente, a escolha do protocolo é impulsionada pelos requisitos específicos da solução. A tabela que se segue lista as portas de saída que devem estar abertas para que um dispositivo possa utilizar um protocolo específico:
@@ -69,6 +71,6 @@ Os dispositivos podem comunicar com o IoT Hub em Azure utilizando vários protoc
 
 Depois de ter criado um hub IoT numa região de Azure, o hub IoT mantém o mesmo endereço IP para a vida daquele hub IoT. No entanto, se a Microsoft mudar o hub IoT para uma unidade de escala diferente para manter a qualidade do serviço, então é atribuído um novo endereço IP.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como o IoT Hub implementa o protocolo MQTT, consulte [Comunicar com o seu hub IoT utilizando o protocolo MQTT](iot-hub-mqtt-support.md).

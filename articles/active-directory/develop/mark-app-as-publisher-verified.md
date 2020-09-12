@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3c3bed20b5fd60b9323dada617fb1302efc41d2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477690"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006949"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Marcar a sua aplicação como verificada pelo publicador (pré-visualização)
+# <a name="mark-your-app-as-publisher-verified"></a>Marcar a sua aplicação como verificada pelo publicador
 
 Quando uma aplicação é marcada como editora verificada, significa que o editor verificou a sua identidade utilizando a sua conta Microsoft Partner Network (MPN) e associou esta conta MPN ao seu registo de candidatura. Este artigo descreve como completar o processo de verificação do [editor (pré-visualização).](publisher-verification-overview.md)
 
 ## <a name="quickstart"></a>Início Rápido
 Se já está inscrito na Microsoft Partner Network (MPN) e cumpriu os [requisitos prévios,](publisher-verification-overview.md#requirements)pode começar imediatamente: 
 
-1. Navegue para o portal de [registo de aplicações](https://aka.ms/PublisherVerificationPreview)de pré-visualização.
+1. Navegue para o [portal de Registo de Aplicações.](https://aka.ms/PublisherVerificationPreview)
 
 1. Escolha uma aplicação e clique em **Branding.** 
 
@@ -37,7 +37,7 @@ Se já está inscrito na Microsoft Partner Network (MPN) e cumpriu os [requisito
 Para obter mais detalhes sobre benefícios específicos, requisitos e perguntas frequentes consulte a [visão geral.](publisher-verification-overview.md)
 
 
-## <a name="mark-your-app-as-publisher-verified"></a>Marque a sua app como editora verificada
+## <a name="mark-your-app-as-publisher-verified"></a>Marcar a sua aplicação como verificada pelo publicador
 Certifique-se de que cumpriu os [requisitos prévios,](publisher-verification-overview.md#requirements)em seguida, siga estes passos para marcar as suas aplicações como Editor Verificado.  
 
 1. Certifique-se de que está assinado com uma conta organizacional (Azure AD) que está autorizada a fazer alterações nas aplicações que pretende marcar como Editora Verificada e na Conta MPN no Partner Center. 
@@ -46,7 +46,7 @@ Certifique-se de que cumpriu os [requisitos prévios,](publisher-verification-ov
 
     - No Partner Center este utilizador deve ter as seguintes funções: MPN Admin, Accounts Admin ou um Administrador Global (este é um papel partilhado dominado no Azure AD). 
 
-1. Navegue para a versão de pré-visualização do portal de Registo de Aplicações:  
+1. Navegue para o portal de Registo de Aplicações:  
 
 1. Clique numa aplicação que gostaria de marcar como Editora Verificada e abra a lâmina de marcação. 
 

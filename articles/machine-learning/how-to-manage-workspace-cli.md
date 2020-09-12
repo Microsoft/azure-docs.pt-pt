@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167645"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661644"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -155,7 +155,7 @@ Se pretender restringir o acesso ao seu espaço de trabalho a uma rede virtual, 
 * `--pe-vnet-name`: A rede virtual existente para criar o ponto final privado em.
 * `--pe-subnet-name`: O nome da sub-rede para criar o ponto final privado em. O valor predefinido é `default`.
 
-Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento e privacidade da Rede.](how-to-enable-virtual-network.md)
+Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento da rede virtual e a visão geral da privacidade.](how-to-network-security-overview.md)
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Chave gerida pelo cliente e espaço de trabalho de alto impacto do negócio
 
@@ -414,6 +414,6 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a extensão do Azure CLI para machine learning, consulte a documentação [az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest)

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 33c878b2af64a72212a8aac060e9ccac83b79a53
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2289ff37a0e524bc765163047608eb604c02372e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326516"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019806"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação do Dispositivo com Certificados AC X.509
 
@@ -27,6 +27,8 @@ Este artigo descreve como utilizar certificados X.509 Certificate Authority (CA)
 * Como registar o certificado X.509 CA para ioT Hub
 * Como assinar dispositivos utilizando certificados X.509 CA
 * Como os dispositivos assinados com X.509 CA são autenticados
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Descrição geral
 
@@ -84,7 +86,7 @@ Uma ligação bem sucedida do dispositivo ao IoT Hub completa o processo de aute
 
 Saiba aqui como [completar este passo de ligação](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)do dispositivo .
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [o valor da autenticação X.509 CA](iot-hub-x509ca-concept.md) em IoT.
 

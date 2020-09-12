@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a1c3828a4b1899ff4b22c0a9520f676add21fe02
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a1fca14035dd4a9af00ecfb8d1d01dc27ab0b8d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420129"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658167"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adicione e execute os snippets de código usando código inline em Azure Logic Apps
 
@@ -29,7 +29,7 @@ Quando pretender executar um código dentro da sua aplicação lógica, pode adi
 
 Esta ação executa o código e devolve a saída desse corte como um símbolo chamado **Resultado**, que pode utilizar em ações subsequentes na sua aplicação lógica. Para outros cenários em que pretende criar uma função para o seu código, tente [criar e chamar uma função Azure](../logic-apps/logic-apps-azure-functions.md) na sua aplicação lógica.
 
-Neste artigo, a aplicação lógica de exemplo dispara quando um novo e-mail chega numa conta do Office 365 Outlook. O código extrai e devolve quaisquer endereços de e-mail que apareçam no corpo de e-mail.
+Neste artigo, a aplicação lógica de exemplo dispara quando um novo e-mail chega numa conta de trabalho ou escola. O código extrai e devolve quaisquer endereços de e-mail que apareçam no corpo de e-mail.
 
 ![Visão geral do exemplo](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
@@ -129,7 +129,7 @@ O `workflowContext` objeto tem esta estrutura, que inclui as `actions` `trigger`
 
 Esta tabela contém mais informações sobre estas subpropriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 |----------|------|-------|
 | `actions` | Coleção de objetos | Resulte em objetos de ações que correm antes do corte de código. Cada objeto tem um par *de valores-chave* onde a chave é o nome de uma ação, e o valor é equivalente a chamar a [função de ações](../logic-apps/workflow-definition-language-functions-reference.md#actions) com `@actions('<action-name>')` . O nome da ação usa o mesmo nome de ação que é usado na definição de fluxo de trabalho subjacente, que substitui espaços (" ") no nome de ação por sublinhados (_). Este objeto fornece acesso aos valores de propriedade de ação a partir da série de fluxo de trabalho atual executada. |
 | `trigger` | Objeto | Resultado objeto do gatilho e equivalente à [função de gatilho.).](../logic-apps/workflow-definition-language-functions-reference.md#trigger) Este objeto fornece acesso aos valores de propriedade desencadeados a partir da execução atual do fluxo de trabalho. |

@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291806"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667493"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -181,7 +181,7 @@ O modelo a seguir tem um recurso definido com o `Microsoft.Resources/deploymentS
 > [!NOTE]
 > Como os scripts de implementação inline são incluídos em citações duplas, as cordas dentro dos scripts de implementação precisam de ser escapados usando um **&#92;** ou incluído em citações únicas. Também pode considerar a utilização da substituição de cordas tal como é mostrada na amostra JSON anterior.
 
-O script requer um parâmetro e produz o valor do parâmetro. **ImplementaçõesScriptOuts** são utilizados para armazenar saídas.  Na secção de saídas, a linha de **valor** mostra como aceder aos valores armazenados. `Write-Output`é usado para depurar propósito. Para aprender a aceder ao ficheiro de saída, consulte [os scripts de implementação de resolução de problemas do Monitor e da resolução de problemas](#monitor-and-troubleshoot-deployment-scripts).  Para as descrições da propriedade, consulte [os modelos de amostra.](#sample-templates)
+O script requer um parâmetro e produz o valor do parâmetro. **ImplementaçõesScriptOuts** são utilizados para armazenar saídas.  Na secção de saídas, a linha de **valor** mostra como aceder aos valores armazenados. `Write-Output` é usado para depurar propósito. Para aprender a aceder ao ficheiro de saída, consulte [os scripts de implementação de resolução de problemas do Monitor e da resolução de problemas](#monitor-and-troubleshoot-deployment-scripts).  Para as descrições da propriedade, consulte [os modelos de amostra.](#sample-templates)
 
 Para executar o script, selecione **Experimente-o** para abrir a Cloud Shell e, em seguida, cole o seguinte código no painel de conchas.
 
@@ -217,7 +217,7 @@ Os ficheiros de script externos devem estar acessíveis.  Para proteger os seus 
 
 ## <a name="use-supporting-scripts"></a>Use scripts de suporte
 
-Pode separar lógicas complicadas em um ou mais ficheiros de scripts de suporte. A `supportingScriptURI` propriedade permite fornecer uma variedade de URIs para os ficheiros de script de suporte, se necessário:
+Pode separar lógicas complicadas em um ou mais ficheiros de scripts de suporte. A `supportingScriptUris` propriedade permite fornecer uma variedade de URIs para os ficheiros de script de suporte, se necessário:
 
 ```json
 "scriptContent": "
@@ -588,7 +588,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 | ImplementaçãoScriptContainerGroupInNonterminalState | Ao criar a instância do recipiente Azure (ACI), outro script de implantação está a utilizar o mesmo nome ACI no mesmo âmbito (mesma subscrição, nome de grupo de recursos e nome de recurso). |
 | ImplementaçãoScriptContainerGroupNameInvalid | O nome de instância do contentor Azure (ACI) especificado não satisfaz os requisitos de ACI. Consulte [questões comuns de resolução de problemas em instâncias de contentores Azure](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implementação:
 

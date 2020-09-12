@@ -1,27 +1,27 @@
 ---
-title: Resumo do pagamento - Azure Marketplace
+title: Resumo do pagamento, Azure Marketplace
 description: O resumo do pagamento mostra-lhe detalhes sobre o dinheiro que ganhou com a sua oferta. Também lhe permite saber quando receberá pagamentos e quanto será pago.
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 09/09/2020
+ms.openlocfilehash: 708fc2c0783bdefa4ac4fa4b73f10733bba0bc04
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479817"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006929"
 ---
 # <a name="payout-summary-overview"></a>Descrição geral do resumo de dividendos
 
 O [resumo do Payout](./payout-summary.md) mostra-lhe detalhes sobre o dinheiro que ganhou com a Microsoft. Também lhe permite saber quando receberá pagamentos e quanto será pago.
 
-Se vender ofertas no Azure Marketplace, também verá informações sobre pagamentos bem-sucedidos no resumo do Payout. Para obter mais informações sobre o pagamento do Azure Marketplace, consulte [as políticas de participação do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e o Microsoft [Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+Se vender ofertas no Azure Marketplace, também verá informações sobre pagamentos bem sucedidos no resumo do Payout. Para obter mais informações sobre [o](./get-paid.md) pagamento do Azure Marketplace, consulte ser pago no mercado comercial e no Microsoft Publisher [Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Para ser elegível para pagamento, as suas receitas devem atingir o limiar de [pagamento](./payment-thresholds-methods-timeframes.md) de $50. Para obter mais informações sobre o limiar de pagamento, consulte o [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+> Para ser elegível para pagamento, as suas receitas devem atingir o limiar de pagamento de $50. Para mais informações, consulte o [Microsoft Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Para ver os detalhes do pagamento, inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home) e selecione o ícone de pagamento no canto superior direito do ecrã:
 
@@ -29,7 +29,7 @@ Para ver os detalhes do pagamento, inscreva-se no [Partner Center](https://partn
 
 ## <a name="roles-and-permissions"></a>Funções e permissões
 
-Estas são papéis e permissões para aceder ao relatório de pagamento:
+Estas são as funções e permissões de acesso ao relatório de pagamento:
 
 | Relatórios/Páginas | Proprietário de Conta | Gestor | Programador | Contribuinte de negócios | Contribuinte financeiro | Marketer |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Estas são papéis e permissões para aceder ao relatório de pagamento:
 
 ## <a name="payment-schedules"></a>Horários de pagamento
 
-Para uma discussão dos horários de pagamento, incluindo períodos de detenção, visibilidade do parceiro, e quando o cliente utilizar um cartão de crédito ou fatura, consulte a secção de [horários](./payout-policy-details.md#payment-schedules) de pagamento do tópico **de detalhes do Payout.**
+Para uma discussão dos horários de pagamento, incluindo períodos de detenção, visibilidade do parceiro, e quando o cliente utilizar um cartão de crédito ou fatura, consulte a secção de [horários](./payout-policy-details.md#payment-schedules) de Pagamento do artigo de detalhes do **Pagamento.**
 
 ## <a name="transaction-history-download-export"></a>Exportação de download de histórico de transações
 
@@ -129,6 +129,6 @@ Esta opção fornece um download de cada item de linha de ganho que vê na pági
 ## <a name="billing-questions-and-support"></a>Perguntas de faturação e apoio
 Para suporte à faturação, contacte o suporte de [editores](https://partner.microsoft.com/support/v2/?stage=1)de marketplace comercial.
 
-## <a name="next-step"></a>Próximo passo
+## <a name="next-step"></a>Passo seguinte
 
 - [Resumos de dividendos](./payout-summary.md)

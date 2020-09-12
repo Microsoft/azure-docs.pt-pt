@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660913"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024148"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -18,8 +18,8 @@ Pode utilizar a Gestão de Atualização na Azure Automation para gerir as atual
 
 Pode ativar a Gestão de Atualização de VMs das seguintes formas:
 
-* Da sua [conta Azure Automation para](update-mgmt-enable-automation-account.md) uma ou mais máquinas Azure.
-* Manualmente para máquinas não-Azure.
+* Da sua [Azure Automation conta](update-mgmt-enable-automation-account.md) para uma ou mais máquinas Azure e não-Azure.
+* Manualmente para máquinas não-Azure, incluindo máquinas ou servidores registados com [servidores ativados Azure Arc](../../azure-arc/servers/overview.md) (pré-visualização).
 * Para um único Azure VM da página da máquina Virtual no portal Azure. Este cenário está disponível para [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
 * Para [vários VMs Azure](update-mgmt-enable-portal.md) selecionando-os a partir da página de máquinas Virtuais no portal Azure.
 
@@ -40,21 +40,17 @@ As máquinas que são geridas pela Atualização De Gestão utilizam as seguinte
 * Função de Trabalho de Runbook Híbrida da Automatização
 * Microsoft Update ou Serviços de Atualização do Servidor do Windows (WSUS) para máquinas Windows
 
-O diagrama que se segue ilustra como a Gestão de Atualização avalia e aplica atualizações de segurança a todas as máquinas conectadas do Windows Server e Linux num espaço de trabalho:
+O diagrama a seguir ilustra como a Gestão de Atualização avalia e aplica atualizações de segurança a todos os servidores windows server e Linux conectados num espaço de trabalho:
 
 ![Fluxo de trabalho de gestão de atualização](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
-A Gestão de Atualização pode ser usada para implantar máquinas de várias subscrições no mesmo inquilino.
+A Gestão de Atualização pode ser usada para implantar de forma nativa em máquinas em várias subscrições no mesmo inquilino.
 
-Depois de um pacote ser lançado, leva 2 a 3 horas para que o patch apareça para as máquinas Linux para avaliação. Para as máquinas Windows, leva 12 a 15 horas para o patch aparecer para avaliação depois de ter sido lançado.
-
-Depois de uma máquina completar uma verificação para a conformidade com a atualização, o agente reencaminha a informação a granel para os registos do Azure Monitor. Numa máquina Windows, a verificação de conformidade é executada a cada 12 horas por defeito.
+Depois de um pacote ser lançado, leva 2 a 3 horas para que o patch apareça para as máquinas Linux para avaliação. Para as máquinas Windows, leva 12 a 15 horas para o patch aparecer para avaliação depois de ter sido lançado. Quando uma máquina completa uma verificação para a conformidade da atualização, o agente reencam a informação a granel para os registos do Azure Monitor. Numa máquina Windows, a verificação de conformidade é executada a cada 12 horas por defeito. Para uma máquina Linux, a verificação de conformidade é efetuada de hora em hora por defeito. Se o agente Log Analytics for reiniciado, iniciar-se-á uma verificação de conformidade dentro de 15 minutos.
 
 Além do calendário de digitalização, a verificação para conformidade de atualização é iniciada dentro de 15 minutos após o reinício do agente Log Analytics, antes da instalação de atualização e após a instalação da atualização.
 
-Para uma máquina Linux, a verificação de conformidade é efetuada de hora em hora por defeito. Se o agente Log Analytics for reiniciado, iniciar-se-á uma verificação de conformidade dentro de 15 minutos.
-
-A Atualização A Gestão informa como a máquina está atualizada com base na fonte com que está configurada para sincronizar. Se a máquina do Windows estiver configurada para reportar à WSUS, dependendo da última sincronização da WSUS com o Microsoft Update, os resultados poderão diferir do que o Microsoft Update mostra. Este comportamento é o mesmo para as máquinas Linux que são configuradas para reportar a um repo local em vez de a um repo público.
+A Atualização A Gestão informa como a máquina está atualizada com base na fonte com que está configurada para sincronizar. Se a máquina do Windows estiver configurada para reportar aos Serviços de [Atualização do Windows Server](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), dependendo da última sincronização do WSUS com o Microsoft Update, os resultados poderão diferir do que o Microsoft Update mostra. Este comportamento é o mesmo para as máquinas Linux que são configuradas para reportar a um repo local em vez de a um repo público.
 
 > [!NOTE]
 > Para informar adequadamente o serviço, a Gestão de Atualização requer que certos URLs e portas sejam ativados. Para saber mais sobre estes requisitos, consulte [a configuração da Rede](../automation-hybrid-runbook-worker.md#network-planning).
@@ -176,13 +172,13 @@ A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão supo
 
 A Atualização Gestão verifica máquinas geridas para dados utilizando as seguintes regras. Pode demorar entre 30 minutos e 6 horas para o painel de instrumentos apresentar dados atualizados de máquinas geridas.
 
-* Cada máquina Do Windows - A Gestão de Atualização faz uma verificação duas vezes por dia para cada máquina. A cada 15 minutos, consulta a API do Windows pela última vez para determinar se o estado mudou. Se o estado tiver sido alterado, a Atualização de Gestão inicia uma verificação de conformidade.
+* Cada máquina Do Windows - A Gestão de Atualização faz uma verificação duas vezes por dia para cada máquina.
 
 * Cada máquina Linux - Update Management faz uma varredura a cada hora.
 
 A utilização média de dados por registos do Azure Monitor para uma máquina que utiliza a Atualização é de aproximadamente 25 MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que monitorize o seu ambiente para acompanhar a sua utilização exata. Para obter mais informações sobre a análise da utilização dos dados do Azure Monitor Logs, consulte [Gerir a utilização e o custo.](../../azure-monitor/platform/manage-cost-storage.md)
 
-## <a name="network-planning"></a><a name="ports"></a>Planeamento de rede
+## <a name="network-planning"></a><a name="ports"></a>Planeamento da rede
 
 São necessários os seguintes endereços especificamente para a Gestão de Atualização. A comunicação a estes endereços ocorre sobre o porto 443.
 
@@ -256,11 +252,12 @@ Um modelo [de Gestor de Recursos](update-mgmt-enable-template.md) Azure está di
 
 Aqui estão as formas de permitir a gestão de atualização e selecionar máquinas para ser gerido:
 
-* [De uma máquina virtual](update-mgmt-enable-vm.md)
-* [De navegar em várias máquinas](update-mgmt-enable-portal.md)
+* [De uma máquina virtual Azure](update-mgmt-enable-vm.md)
+* [Da navegação de várias máquinas virtuais Azure](update-mgmt-enable-portal.md)
 * [De uma conta de Automação Azure](update-mgmt-enable-automation-account.md)
+* Para as máquinas ativadas pelo Arc (pré-visualização) ou não-Azure, instale o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) e, em seguida, ative as [máquinas no espaço de trabalho](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) para atualizar a Gestão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter detalhes sobre o trabalho com a Gestão de Atualização, consulte [Gerir as atualizações para os seus VMs](update-mgmt-manage-updates-for-vm.md).
 
