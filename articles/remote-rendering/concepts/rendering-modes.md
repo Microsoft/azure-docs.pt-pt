@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6d7a895f3b565fdd4ec4659045034d0200355a60
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e61ea423cb94dc1192d6b189a95e5a5da3b38ad
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021872"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613903"
 ---
 # <a name="rendering-modes"></a>Modos de composição
 
@@ -72,7 +72,14 @@ async void ExampleConnect(AzureSession session)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# AzureSession.ConnectToRuntime()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession.connecttoruntime)
+* [C# ConnectToRuntimeParams struct](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.connecttoruntimeparams)
+* [C++ AzureSssion::ConnectToRuntime()](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession#connecttoruntime)
+* [C++ ConnectToRuntimeParams estrutura](https://docs.microsoft.com/cpp/api/remote-rendering/connecttoruntimeparams)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Sessões](../concepts/sessions.md)
 * [Componente hierárquico de sobreposição de estado](../overview/features/override-hierarchical-state.md)

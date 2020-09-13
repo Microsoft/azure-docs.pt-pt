@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 288cebc4d4097ff40b618e2f1976039359458ecf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 98f9bf02b910749a98ae8cd6e409ee733c2e2dcc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719024"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595755"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -31,9 +31,8 @@ Recuperação de desastres de servidores físicos | Replicação dos servidores 
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-vCenter Server | Versão 7.0, 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter na sua implementação de recuperação de desastres.
-vSphere anfitriões | Versão 7.0, 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que os anfitriões vSphere e servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por predefinição, o servidor de processo funciona no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
-
+vCenter Server | Versão 7.0 & atualizações subsequentes nesta versão, 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter na sua implementação de recuperação de desastres.
+vSphere anfitriões | Versão 7.0 & atualizações subsequentes nesta versão, 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que os anfitriões vSphere e servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por predefinição, o servidor de processo funciona no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
 
 ## <a name="site-recovery-configuration-server"></a>Servidor de configuração de recuperação de site
 
@@ -177,16 +176,16 @@ Adicione o disco em VM replicado | Não suportado.<br/> Desative a replicação 
 **Componente** | **Suportado**
 --- | ---
 Equipa NIC de rede de anfitriões | Suportado para VMware VMs. <br/><br/>Não suportado para a replicação da máquina física.
-Rede de anfitriões VLAN | Sim.
-Rede de anfitriões IPv4 | Sim.
+Rede de anfitriões VLAN | Yes.
+Rede de anfitriões IPv4 | Yes.
 Rede de anfitriões IPv6 | Não.
 Rede de hóspedes/servidor NIC Teaming | Não.
-Rede de hóspedes/servidores IPv4 | Sim.
+Rede de hóspedes/servidores IPv4 | Yes.
 Rede de hóspedes/servidores IPv6 | Não.
-IP estático de rede de hóspedes/servidor (Windows) | Sim.
-IP estático de rede de hóspedes/servidor (Linux) | Sim. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
-Rede de hóspedes/servidores múltiplos NICs | Sim.
-Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
+IP estático de rede de hóspedes/servidor (Windows) | Yes.
+IP estático de rede de hóspedes/servidor (Linux) | Yes. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
+Rede de hóspedes/servidores múltiplos NICs | Yes.
+Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## <a name="azure-vm-network-after-failover"></a>Rede Azure VM (após falha)
@@ -258,7 +257,7 @@ Dupla encriptação em repouso | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Yes
 Opção de transferência segura | Yes
 Serviço de importação/exportação | No
-Firewalls de armazenamento Azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
+Firewalls de armazenamento Azure para VNets | Yes.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
 Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (Os custos de transação são substancialmente mais elevados para o V2 em comparação com v1)
 
 ## <a name="azure-compute"></a>Azure compute
@@ -279,7 +278,7 @@ Os VMs no local replicados ao Azure devem satisfazer os requisitos Azure VM resu
 Sistema operativo convidado | Verifique os [sistemas operativos suportados](#replicated-machines) para máquinas replicadas. | A verificação falha se não for apoiada.
 Arquitetura do sistema operativo convidado | 64-bit. | A verificação falha se não for apoiada.
 Tamanho do disco do sistema operativo | Até 2.048 GB. | A verificação falha se não for apoiada.
-Contagem de discos do sistema operativo | 1 | A verificação falha se não for apoiada.
+Contagem de discos do sistema operativo | 1 </br> arranque e divisão do sistema em diferentes discos não é suportado | A verificação falha se não for apoiada.
 Contagem de discos de dados | 64 ou menos. | A verificação falha se não for apoiada.
 Tamanho do disco de dados | Até 8.192 GB ao replicar o disco gerido (versão 9.26 em diante)<br></br>Até 4.095 GB ao replicar-se na conta de armazenamento| A verificação falha se não for apoiada.
 Placas de rede | Vários adaptadores são suportados. |
@@ -338,7 +337,7 @@ Serviço de Mobilidade | Instalado em VMware VM ou servidores físicos que prete
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Saiba como](tutorial-prepare-azure.md) preparar o Azure para a recuperação de desastres de VMware VMs.
 
 [9.32 UR]: https://support.microsoft.com/en-in/help/4538187/update-rollup-44-for-azure-site-recovery

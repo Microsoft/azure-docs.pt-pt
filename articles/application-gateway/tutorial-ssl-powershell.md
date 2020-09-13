@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 21e242d0a6a5aa2efa011289200654e71bd58662
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 67d22535f44d4d1b39b6c305fa0670d2d08be0c3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071453"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595806"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Criar um gateway de aplicações com terminação TLS usando Azure PowerShell
 
@@ -22,11 +22,10 @@ Pode utilizar o Azure PowerShell para criar um gateway de [aplicações](overvie
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
-> * Criar um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicação com o certificado
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
+* Criar um certificado autoassinado
+* Configurar uma rede
+* Criar um gateway de aplicação com o certificado
+* Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -297,6 +296,6 @@ Quando já não for necessário, remova o grupo de recursos, o gateway de aplica
 Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um gateway de aplicação que aloja vários sites](./tutorial-multiple-sites-powershell.md)

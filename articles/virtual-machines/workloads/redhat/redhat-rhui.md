@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 641ac1f6a2cc98e48694c42ec1531f679621640d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: dadfd3abfad0c588f53d47cb7ab1eb138d4f90ac
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869223"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612516"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização de chapéu vermelho para red hat enterprise Linux VMs em Azure
  [A Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de nuvem, como o Azure, espelham o conteúdo do repositório apresentado pelo Chapéu Vermelho, criem repositórios personalizados com conteúdo específico do Azure e disponibilizem-no para os VMs do utilizador final.
@@ -89,11 +89,11 @@ No momento desta redação, o apoio da UE terminou para a <DAR = 7.4. Consulte a
 * Apoio DA REL 7.6 EUS termina em 31 de maio de 2021
 * Apoio DA REL 7.7 EUS termina a 30 de agosto de 2021
 
-### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Mude um RHEL VM para EUS (versão-lock para uma versão menor específica)
-Utilize as seguintes instruções para bloquear um VM RHEL a uma libertação menor (executar como raiz):
+### <a name="switch-a-rhel-vm-7x-to-eus-version-lock-to-a-specific-minor-version"></a>Mude um RHEL VM 7.x para EUS (versão-lock para uma versão menor específica)
+Utilize as seguintes instruções para bloquear um REL 7.x VM a uma libertação menor (executar como raiz):
 
 >[!NOTE]
-> Isto aplica-se apenas às versões RHEL para as quais a EUS está disponível. No momento desta escrita, isto inclui RHEL 7.2-7.7. Mais detalhes estão disponíveis na página [Red Hat Enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)
+> Isto aplica-se apenas às versões RHEL 7.x para as quais a EUS está disponível. No momento desta escrita, isto inclui RHEL 7.2-7.7. Mais detalhes estão disponíveis na página [Red Hat Enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)
 
 1. Desativar os repos não comunitários:
     ```bash
@@ -111,14 +111,52 @@ Utilize as seguintes instruções para bloquear um VM RHEL a uma libertação me
     ```
 
     >[!NOTE]
-    > A instrução acima bloqueada bloqueia a libertação ligeira do RHEL para a libertação de menores atuais. Introduza uma versão menor específica se estiver a tentar atualizar e bloquear para uma versão posterior que não seja a mais recente. Por exemplo, `echo 7.5 > /etc/yum/vars/releasever` irá bloquear a sua versão RHEL para RHEL 7.5
+    > A instrução acima bloqueada bloqueia a libertação ligeira do RHEL para a libertação de menores atuais. Introduza uma versão menor específica se estiver a tentar atualizar e bloquear para uma versão posterior que não seja a mais recente. Por exemplo, `echo 7.5 > /etc/yum/vars/releasever` bloqueará a sua versão RHEL para RHEL 7.5.
 
 1. Atualize o seu RHEL VM
     ```bash
     sudo yum update
     ```
 
-### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Mude um RHEL VM de volta para não-EUS (remover um bloqueio de versão)
+### <a name="switch-a-rhel-vm-8x-to-eus-version-lock-to-a-specific-minor-version"></a>Mude um RHEL VM 8.x para EUS (versão-lock para uma versão menor específica)
+Utilize as seguintes instruções para bloquear um REL 8.x VM a uma determinada libertação menor (executar como raiz):
+
+>[!NOTE]
+> Isto aplica-se apenas às versões RHEL 8.x para as quais a EUS está disponível. No momento desta escrita, isto inclui RHEL 8.1-8.2. Mais detalhes estão disponíveis na página [Red Hat Enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)
+
+1. Desativar os repos não comunitários:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8'
+    ```
+
+1. Obtenha o ficheiro deconfig de repousos EUS:
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+    ```
+
+1. Adicionar repos EUS:
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
+    ```
+
+1. Bloqueie a `releasever` variável (corra como raiz):
+    ```bash
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > A instrução acima bloqueada bloqueia a libertação ligeira do RHEL para a libertação de menores atuais. Introduza uma versão menor específica se estiver a tentar atualizar e bloquear para uma versão posterior que não seja a mais recente. Por exemplo, `echo 8.1 > /etc/yum/vars/releasever` bloqueará a sua versão RHEL para RHEL 8.1.
+
+    >[!NOTE]
+    > Se houver problemas de permissão para aceder ao releasever, pode editar o ficheiro utilizando 'nano/etc/yum/vars/releaseve' e adicionar os detalhes da versão de imagem e guardar ('Ctrl+o' então prima entrar e depois 'Ctrl+x').  
+
+1. Atualize o seu RHEL VM
+    ```bash
+    sudo yum update
+    ```
+
+
+### <a name="switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock"></a>Mude um RHEL 7.x VM de volta para não-EUS (remover um bloqueio de versão)
 Executar o seguinte como raiz:
 1. Remova o `releasever` ficheiro:
     ```bash
@@ -135,6 +173,33 @@ Executar o seguinte como raiz:
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
     ```
 
+1. Atualize o seu RHEL VM
+    ```bash
+    sudo yum update
+    ```
+
+### <a name="switch-a-rhel-8x-vm-back-to-non-eus-remove-a-version-lock"></a>Mude um RHEL 8.x VM de volta para não-EUS (remover um bloqueio de versão)
+Executar o seguinte como raiz:
+1. Remova o `releasever` ficheiro:
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. Desativar os repos da UE:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   ```
+
+1. Obtenha o ficheiro regular deconfig repos:
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+    ```
+
+1. Adicionar repos EUS:
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
+    ```
+    
 1. Atualize o seu RHEL VM
     ```bash
     sudo yum update
@@ -245,7 +310,7 @@ Este procedimento está previsto apenas para referência. As imagens RHEL PAYG j
         ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para criar um Red Hat Enterprise Linux VM a partir de uma imagem Azure Marketplace PAYG e para usar o RHUI hospedado no Azure, vá ao [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * Para saber mais sobre as imagens do Chapéu Vermelho em Azure, aceda à página de [documentação.](./redhat-images.md)
 * As informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Red Hat Enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)

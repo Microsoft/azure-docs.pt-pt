@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 099b0175b906e48034e663b575517e49bce7e753
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bd2b1026f69b5ec5814124a92d6a78d7f0225143
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021855"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613817"
 ---
 # <a name="object-bounds"></a>Limites dos objetos
 
@@ -59,6 +59,11 @@ void GetBounds(ApiHandle<Entity> entity)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# Entidade.QueryLocalBoundsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
+* [Entidade C++::QueryLocalBoundsAsync](https://docs.microsoft.com/cpp/api/remote-rendering/entity#querylocalboundsasync)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Consultas espaciais](../overview/features/spatial-queries.md)

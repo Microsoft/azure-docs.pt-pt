@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135832"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612905"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projetar redes virtuais com recursos de gateway NAT
 
@@ -217,7 +217,7 @@ Se o seu cenário requer pontos finais de entrada, tem duas opções:
 
 Não é possível alcançar uma promessa zonal com recursos de gateway NAT quando as instâncias de máquinas virtuais são implantadas em várias zonas dentro da mesma sub-rede.   E mesmo que houvesse vários gateways zonais NAT ligados a uma sub-rede, a instância da máquina virtual não saberia qual recurso de gateway NAT para selecionar.
 
-Uma promessa zonal não existe quando a) a zona de uma instância de máquina virtual e as zonas de um gateway nat zonal não estão alinhadas, ou b) um recurso regional de gateway NAT é usado com instâncias de máquina virtual zonal.
+Uma promessa zonal não existe quando a) a zona de uma instância de máquina virtual e a zona de um gateway nat zonal não estão alinhadas, ou b) um recurso regional de gateway NAT é usado com instâncias de máquina virtual zonais.
 
 Embora o cenário pareça funcionar, o seu modelo de saúde e modo de falha é indefinido do ponto de vista da zona de disponibilidade. Considere ir com pilhas zonais ou todas regionais.
 

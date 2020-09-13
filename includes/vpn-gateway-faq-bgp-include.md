@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 608b148dc3929065df44530da65e695df19be03e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fa4e94d6ec4c3e612d5a8a29db76e023957d583
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79485950"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89644338"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP é suportado em todos os SKUs do VPN Gateway do Azure?
 O BGP é suportado em todos os SKUs Azure VPN Gateawy, exceto basic SKU.
@@ -55,13 +55,13 @@ O gateway de VPN do Azure irá anunciar as seguintes rotas para os seus disposit
 
 * Os seus prefixos de endereços VNet
 * Prefixos de endereços para cada Gateway de Rede Local ligado ao gateway de VPN do Azure
-* Rotas aprendidas de outras sessões de peering de BGP ligadas ao gateway de VPN do Azure, **exceto a rota ou as rotas predefinidas que se sobreponham a um prefixo VNet**.
+* Rotas aprendidas a partir de outras sessões de observação BGP ligadas ao gateway Azure VPN, **exceto rotas ou rotas padrão sobrepostas a qualquer prefixo VNet**.
 
 ### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Quantos prefixos posso anunciar ao gateway Azure VPN?
 Apoiamos até 4000 prefixos. A sessão de BGP é ignorada se o número de prefixos exceder o limite.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Posso anunciar a rota predefinida (0.0.0.0/0) para gateways de VPN do Azure?
-Sim.
+Yes.
 
 Tenha em atenção de que esta ação irá forçar todo o tráfego de saída VNet no seu site no local e irá impedir que as VMs de VNet aceitem comunicação pública na Internet diretamente, essas RDP ou SSH da Internet para as VMs.
 
@@ -89,7 +89,7 @@ Por exemplo, se tiver dois túneis redundantes entre o gateway de VPN do Azure e
 Sim, mas pelo menos um dos gateways de rede virtual tem de estar na configuração de ativo-ativo.
 
 ### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>Posso utilizar o BGP para VPN S2S numa configuração de coexistência ExpressRoute/VPN S2S?
-Sim. 
+Yes. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Que endereço utiliza o gateway de VPN do Azure para o IP do Elemento de Rede BGP?
 O gateway Azure VPN irá atribuir um único endereço IP da gama GatewaySubnet para gateways VPN de standby ativo, ou dois endereços IP para gateways VPN ativos. Pode obter o endereço IP real (es) atribuído utilizando o PowerShell (Get-AzVirtualNetworkGateway, procure a propriedade "bgpPeeringAddress"), ou no portal Azure (sob a propriedade "Configuração BGP ASN" na página de Configuração gateway).

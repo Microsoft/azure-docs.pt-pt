@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808096"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595715"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configure o Serviço de Aplicações com Gateway de Aplicações
 
@@ -23,10 +23,8 @@ O Application Gateway fornece um interruptor chamado `Pick host name from backen
 
 Neste artigo, vai aprender a:
 
-> [!div class="checklist"]
->
-> - Crie uma piscina de backend e adicione-lhe um Serviço de Aplicações
-> - Criar definições HTTP e sonda personalizada com comutadores "Escolha o nome anfitrião" ativados
+- Crie uma piscina de backend e adicione-lhe um Serviço de Aplicações
+- Criar definições HTTP e sonda personalizada com comutadores "Escolha o nome anfitrião" ativados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +41,7 @@ Neste artigo, vai aprender a:
 
 4. Em **'Alvos'**, clique no dropdown e escolha **os Serviços de Aplicação** como opção.
 
-5. Aparecerá uma retirada imediatamente abaixo do dropdown targets que conterá uma lista dos seus **Serviços** de Aplicações. A partir deste dropdown, escolha o Serviço de Aplicações que pretende adicionar como membro de pool backend e clique em Adicionar.
+5. Aparecerá uma retirada imediatamente abaixo do dropdown targets que conterá uma lista dos seus **Serviços**  de Aplicações. A partir deste dropdown, escolha o Serviço de Aplicações que pretende adicionar como membro de pool backend e clique em Adicionar.
 
    ![Backend do serviço de aplicações](./media/configure-web-app-portal/backendpool.png)
    
@@ -61,9 +59,9 @@ Neste artigo, vai aprender a:
    > [!NOTE]
    > Se selecionar HTTPS, não precisa de carregar nenhum certificado de autenticação ou certificado de raiz fidedigno para permitir o backend do serviço de aplicações, uma vez que o serviço de aplicações é um serviço Azure de confiança.
 
-4. Verifique a caixa de **utilização para o Serviço de Aplicações.** Note que os interruptores `Create a probe with pick host name from backend address` e `Pick host name from backend address` serão automaticamente ativados.`Pick host name from backend address` irá anular o cabeçalho do anfitrião no pedido com o nome de anfitrião do back-end quando o pedido for encaminhado do Gateway de Aplicação para o backend.  
+4. Verifique a caixa de **utilização para o Serviço de Aplicações.** Note que os interruptores  `Create a probe with pick host name from backend address` e `Pick host name from backend address` serão automaticamente ativados.`Pick host name from backend address` irá anular o cabeçalho do anfitrião no pedido com o nome de anfitrião do back-end quando o pedido for encaminhado do Gateway de Aplicação para o backend.  
 
-   `Create a probe with pick host name from backend address`irá automaticamente criar uma sonda de saúde e associá-la a esta Definição HTTP. Não é necessário criar nenhuma outra sonda de saúde para esta definição HTTP. Pode verificar se uma nova sonda com o nome <HTTP Setting name> <Unique GUID> foi adicionada na lista de sondas health e já tem o interruptor `Pick host name from backend http settings enabled` .
+   `Create a probe with pick host name from backend address` irá automaticamente criar uma sonda de saúde e associá-la a esta Definição HTTP. Não é necessário criar nenhuma outra sonda de saúde para esta definição HTTP. Pode verificar se uma nova sonda com o nome <HTTP Setting name> <Unique GUID> foi adicionada na lista de sondas health e já tem o interruptor `Pick host name from backend http settings enabled` .
 
    Se já tiver uma ou mais definições HTTP que estão a ser utilizadas para o serviço de Aplicações e se essas definições HTTP utilizarem o mesmo protocolo que está a utilizar no que está a criar, então em vez do `Create a probe with pick host name from backend address` comutador, receberá um dropdown para selecionar uma das sondas personalizadas. Isto porque já existe uma definição HTTP com o serviço de aplicações, portanto, também existiria uma sonda de saúde que tem o `Pick host name from backend http settings enabled` interruptor. Escolha a sonda personalizada do dropdown.
 

@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74fae6a8aa0c59043db0ab816e09b16affb63580
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2e7f441a727bea8d1a5d401fb5e9757dee1044fc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021838"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613803"
 ---
 # <a name="remote-rendering-sessions"></a>Sessões do Remote Rendering
 
@@ -31,7 +31,7 @@ Uma vez *ligado* a uma sessão ativa, operações como [carregar modelos](models
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>Gerir várias sessões simultaneamente
 
-Não é possível *ligar-se* totalmente a várias sessões a partir de um dispositivo. No entanto, pode criar, observar e encerrar quantas sessões quiser de uma única aplicação. Desde que a aplicação não seja feita para se ligar a uma sessão, também não precisa de ser executada num dispositivo como o HoloLens 2. Um caso de utilização para tal implementação pode ser se você quiser controlar sessões através de um mecanismo central. Por exemplo, pode-se construir uma aplicação web, onde vários tablets e HoloLenses podem entrar. Em seguida, a aplicação pode apresentar opções nos tablets, como o modelo CAD a exibir. Se um utilizador fizer uma seleção, esta informação é comunicada a todos os HoloLenses para criar uma experiência partilhada.
+Não é possível *ligar-se* totalmente a várias sessões a partir de um dispositivo. No entanto, pode criar, observar e encerrar quantas sessões quiser de uma única aplicação. Desde que a aplicação não seja feita para se ligar a uma sessão, também não precisa de ser executada num dispositivo como o HoloLens 2. Um caso de utilização para tal implementação pode ser se você quiser controlar sessões através de um mecanismo central. Por exemplo, pode-se construir uma aplicação web, onde vários tablets e dispositivos HoloLens podem entrar. Em seguida, a aplicação pode apresentar opções nos tablets, como o modelo CAD a exibir. Se um utilizador fizer uma seleção, esta informação é comunicada a todos os dispositivos HoloLens para criar uma experiência partilhada.
 
 ## <a name="session-phases"></a>Fases de sessão
 
@@ -147,7 +147,16 @@ O ID da sessão persistente pode ser consultado através `AzureSession.SessionUU
 
 Quando `AzureSession.IsConnected` é verdade, `AzureSession.Actions` devolve um exemplo de , que contém as `RemoteManager` funções para carregar [modelos](models.md), manipular [entidades](entities.md)- e [consultar informações](../overview/features/spatial-queries.md) sobre a cena renderizada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# Classe AzureSssion](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C# AzureFrontend.CreateNewRenderingSessionAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [C# AzureFrontend.OpenRenderingSession()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [Classe C++ AzureSssion](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession)
+* [C++ AzureFrontend::CreateNewRenderingSessionAsync](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [C++ AzureFrontend::OpenRenderingSession](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Entidades](entities.md)
 * [Modelos](models.md)

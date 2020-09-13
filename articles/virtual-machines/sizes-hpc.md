@@ -6,21 +6,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/01/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 8870c83506b1d962b94cd4d671bd3acd3e96c17c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905368"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595738"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
 As máquinas virtuais da série Azure H (VMs) são projetadas para proporcionar desempenho de classe de liderança, escalabilidade de MPI e eficiência de custos para uma variedade de cargas de trabalho de HPC no mundo real.
 
-[Série HBv2](hbv2-series.md) Os VMs apresentam 200 Gb/sec Mellanox HDR InfiniBand, enquanto tanto os VMs da série HB como os VMs da série HC apresentam 100 Gb/sec Mellanox EDR InfiniBand. Cada um destes tipos de VM está ligado numa árvore de gordura não bloqueada para um desempenho RDMA otimizado e consistente. Os HBv2 VMs suportam o Encaminhamento Adaptativo e o Transporte Conectado Dinâmico (DCT, em adicional aos transportes RC e UD padrão). Estas funcionalidades aumentam o desempenho da aplicação, escalabilidade e consistência, e a sua utilização é fortemente recomendada.
+[Série HBv2](hbv2-series.md) Os VMs são otimizados para aplicações impulsionadas pela largura de banda da memória, tais como dinâmica de fluidos, análise de elementos finitos e simulação do reservatório. Os VMs HBv2 dispõem de 120 núcleos de processador AMD EPYC 7742, 4 GB de RAM por núcleo CPU e sem multi-leitura simultânea. Cada HBv2 VM fornece até 340 GB/seg de largura de banda de memória, e até 4 teraFLOPS de FP64 compute.
+
+Os VMs HBv2 apresentam 200 Gb/sec Mellanox HDR InfiniBand, enquanto os VMs da série HB e HC apresentam 100 Gb/sec Mellanox EDR InfiniBand. Cada um destes tipos de VM está ligado numa árvore de gordura não bloqueada para um desempenho RDMA otimizado e consistente. Os HBv2 VMs suportam o Encaminhamento Adaptativo e o Transporte Conectado Dinâmico (DCT, em adicional aos transportes RC e UD padrão). Estas funcionalidades aumentam o desempenho da aplicação, escalabilidade e consistência, e a sua utilização é fortemente recomendada.
 
 [Série HB](hb-series.md) Os VMs são otimizados para aplicações impulsionadas pela largura de banda da memória, tais como dinâmica de fluidos, análise explícita de elementos finitos e modelação meteorológica. Os VMs HB dispõem de 60 núcleos de processador AMD EPYC 7551, 4 GB de RAM por núcleo CPU e sem hiperligação. A plataforma AMD EPYC fornece mais de 260 GB/seg de largura de banda de memória.
 
@@ -35,7 +37,7 @@ As máquinas virtuais da série Azure H (VMs) são projetadas para proporcionar 
 
 A maioria dos tamanhos HPC VM (HBv2, HB, HC, H16r, H16mr, A8 e A9) apresentam uma interface de rede para acesso remoto à memória direta (RDMA). Os tamanhos de [série N](./nc-series.md) selecionados designados com 'r' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 e NC24r) também são capazes de RDMA. Esta interface é além da interface de rede Azure padrão disponível nos outros tamanhos VM.
 
-Esta interface permite que as instâncias com capacidade RDMA se comuniquem através de uma rede InfiniBand (IB), operando a taxas HDR para HBv2, taxas EDR para hb, HC, NDv2, FDR para H16r, H16mr e outras máquinas virtuais de série N capazes de RDMA, e taxas QDR para A8 e A9 VMs. Estas capacidades de RDMA podem aumentar a escalabilidade e desempenho de certas aplicações de Interface de Passagem de Mensagens (MPI). Para obter mais informações sobre a velocidade, consulte os detalhes nas tabelas desta página.
+Esta interface permite que as instâncias com capacidade RDMA se comuniquem através de uma rede InfiniBand (IB), operando a taxas HDR para HBv2, taxas EDR para hb, HC, NDv2, FDR para H16r, H16mr e outras máquinas virtuais de série N capazes de RDMA, e taxas QDR para A8 e A9 VMs. Estas capacidades de RDMA podem aumentar a escalabilidade e desempenho de certas aplicações de Interface de Passagem de Mensagens (MPI).
 
 > [!NOTE]
 > Em Azure HPC, existem duas classes de VMs dependendo se são SR-IOV habilitados para InfiniBand. Atualmente, o SR-IOV para VMs ativados pela InfiniBand são: HBv2, HB, HC, NCv3 e NDv2. O resto dos VMs ativados pela InfiniBand não estão ativados atualmente pelo SR-IOV.
@@ -60,7 +62,7 @@ Esta interface permite que as instâncias com capacidade RDMA se comuniquem atra
 
 O Azure oferece várias opções para criar clusters de VMs Windows HPC que podem comunicar através da rede RDMA, incluindo: 
 
-- **Máquinas virtuais** - Implementar os VMS HPC com capacidade RDMA no mesmo conjunto de escala ou disponibilidade (quando utilizar o modelo de implementação do Gestor de Recursos Azure). Se utilizar o modelo de implementação clássico, inserte os VMs no mesmo serviço de nuvem.
+- **Máquinas virtuais**  - Implementar os VMS HPC com capacidade RDMA no mesmo conjunto de escala ou disponibilidade (quando utilizar o modelo de implementação do Gestor de Recursos Azure). Se utilizar o modelo de implementação clássico, inserte os VMs no mesmo serviço de nuvem.
 
 - **Conjuntos de escala de máquina virtual** - Num conjunto de escala de máquina virtual, certifique-se de que limita a colocação a um único grupo de colocação para a comunicação InfiniBand dentro do conjunto de escala. Por exemplo, num modelo de Gestor de Recursos, desaprote a `singlePlacementGroup` propriedade para `true` . Note que o tamanho máximo definido que pode ser fiado com `singlePlacementGroup` propriedade é limitado a `true` 100 VMs por padrão. Se as suas necessidades de escala de emprego HPC forem superiores a 100 VMs num único inquilino, poderá solicitar um aumento, [abrir um pedido de apoio](../azure-portal/supportability/how-to-create-azure-support-request.md) ao cliente online gratuitamente. O limite do número de VMs num conjunto de escala única pode ser aumentado para 300. Note que ao implementar VMs usando Conjuntos de Disponibilidade, o limite máximo é de 200 VMs por Conjunto de Disponibilidade.
 
@@ -97,7 +99,7 @@ O Azure oferece várias opções para criar clusters de VMs Windows HPC que pode
 - [Com otimização de GPU](sizes-gpu.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a configuração dos seus VMs,](./workloads/hpc/configure.md) [permitindo a InfiniBand,](./workloads/hpc/enable-infiniband.md) [configurando MPI](./workloads/hpc/setup-mpi.md) e otimizando as aplicações HPC para Azure na [HPC Workloads](./workloads/hpc/overview.md).
 - Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).

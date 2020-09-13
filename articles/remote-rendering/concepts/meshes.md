@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b800272a538243d39a89e4eed64bc5cbc2d53ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eea43f48abef5e2b258251d46eca1061a2263519
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681769"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613837"
 ---
 # <a name="meshes"></a>Malhas
 
@@ -37,6 +37,13 @@ A `MeshComponent` classe é usada para colocar um exemplo de um recurso de malha
 * **Materiais:** A matriz de materiais especificados no próprio componente da malha. A matriz terá sempre o mesmo comprimento que a matriz *de Materiais* no recurso de malha. Os materiais que não devem ser ultrapassados do predefinido da malha, são definidos como *nulos* nesta matriz.
 
 * **Materiais Usados:** A matriz de materiais realmente usados para cada submesh. Será idêntico aos dados da matriz *de Materiais,* para valores não nulos. Caso contrário, contém o valor da matriz *de materiais* na placa de malha.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Classe C# Malha](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
+* [C# Classe MeshComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
+* [Classe C++ malha](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
+* [Classe C++ MeshComponent](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
 
 ## <a name="next-steps"></a>Próximos passos
 

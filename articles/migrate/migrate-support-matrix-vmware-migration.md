@@ -3,12 +3,12 @@ title: Suporte à migração de VMware em Azure Migrate
 description: Saiba mais sobre o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4c9ae6a5c3ed0d38b6abc952458422c7789fef8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 430b491780e10840274f16315b159a8095c11889
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051122"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612529"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração VMware
 
@@ -41,7 +41,7 @@ A tabela resume os requisitos do hipervisor VMware.
 --- | ---
 **VMware vCenter Server** | Versão 5.5, 6.0, 6.5 ou 6.7.
 **VMware vSphere ESXI anfitrião** | Versão 5.5, 6.0, 6.5 ou 6.7.
-**permissões vCenter Server** | A migração sem agentes utiliza o [Aparelho Migratório](migrate-appliance.md). O aparelho necessita destas permissões no servidor vCenter:<br/><br/> - **Datastore.Browse**: Permitir a navegação de ficheiros de registo VM para resolver problemas na criação e eliminação de instantâneos.<br/><br/> - **Datastore.LowLevelFileOperations**: Permitir operações de leitura/escrita/exclusão/renome no navegador datastore, para resolver problemas na criação e eliminação de instantâneos.<br/><br/> - **VirtualMachine.Configuration. DiskChangeTracking**: Permitir ativar ou desativar o rastreio de alterações dos discos VM, para puxar blocos de dados alterados entre instantâneos.<br/><br/> - **VirtualMachine.Configuration. DiskLease**: Permitir operações de aluguer de discos para um VM, para ler o disco utilizando o VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**: (especificamente para vSphere 6.0 e superior) Permitir a abertura de um disco num VM para acesso de leitura aleatória no disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.ReadOnlyDiskAccess**: Permita abrir um disco num VM, para ler o disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess**: Permita abrir um disco num VM, para ler o disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.VirtualMachineDownload**: Permite ler operações em ficheiros associados a um VM, para descarregar os registos e resolução de problemas em caso de falha.<br/><br/> - **VirtualMachine.SnapshotManagement: \* **Permitir a criação e gestão de instantâneos VM para replicação.<br/><br/> - **Máquina virtual.Interaction.Desligar**: Permitir que o VM seja desligado durante a migração para Azure.
+**permissões vCenter Server** | A migração sem agentes utiliza o [Aparelho Migratório](migrate-appliance.md). O aparelho necessita destas permissões no servidor vCenter:<br/><br/> - **Datastore.Browse**: Permitir a navegação de ficheiros de registo VM para resolver problemas na criação e eliminação de instantâneos.<br/><br/> - **Datastore.FileManagement**: Permitir operações de leitura/escrita/exclusão/renome no navegador datastore, para resolver problemas na criação e eliminação de instantâneos.<br/><br/> - **VirtualMachine.Config. ChangeTracking**: Permitir ativar ou desativar o rastreio de alterações dos discos VM, para puxar blocos de dados alterados entre instantâneos.<br/><br/> - **VirtualMachine.Config. DiskLease**: Permitir operações de aluguer de discos para um VM, para ler o disco utilizando o VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**: (especificamente para vSphere 6.0 e superior) Permitir a abertura de um disco num VM para acesso de leitura aleatória no disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead**: Permitir a abertura de um disco num VM, para ler o disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess**: Permita abrir um disco num VM, para ler o disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles**: Permite ler operações em ficheiros associados a um VM, para descarregar os registos e resolução de problemas em caso de falha.<br/><br/> - **VirtualMachine.State. \* **: Permitir a criação e gestão de instantâneos VM para replicação.<br/><br/> - **Máquina Virtual.Interact.PowerOff**: Permitir que o VM seja desligado durante a migração para Azure.
 
 
 
@@ -68,7 +68,7 @@ A tabela resume os requisitos de migração sem agente para VMware VMs.
 **Armazenamento vMotion** | Não suportado. A replicação não funcionará se um VM utilizar o armazenamento vMotion.
 **NICs em equipa** | Não suportado.
 **IPv6** | Não suportado.
-**Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD premium) em Azure.
+**Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD padrão, SSD premium) em Azure.
 **Replicação simultânea** | 300 VMs por vCenter Server. Se tiver mais, migra-os em lotes de 300.
 
 
@@ -118,7 +118,7 @@ A tabela resume o suporte VMware VM para VMware VMs que pretende migrar usando m
 **Serviço de mobilidade** | O agente de serviço de mobilidade deve ser instalado em cada VM que pretende migrar.
 **Bota UEFI** | Suportado.
 **UEFI - Arranque seguro**         | Não apoiado para a migração.
-**Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD premium) em Azure.
+**Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD padrão, SSD premium) em Azure.
 **Tamanho do disco** | 2 Disco de SO TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.
 **Discos/volumes encriptados** | VMs com discos/volumes encriptados não são suportados para migração.
@@ -173,6 +173,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/><br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/><br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada.<br/><br/> Além disso, adicione um endereço IP público para o VM.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Selecione](server-migrate-overview.md) uma opção de migração VMware.
