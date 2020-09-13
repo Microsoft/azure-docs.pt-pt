@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: d982cc94a9ab0517d6453a30371635c1e3100676
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835602"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488512"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho Azure Stream Analytics para aumentar a produção
 Este artigo mostra-lhe como sintonizar uma consulta stream Analytics para aumentar a produção para trabalhos de Streaming Analytics. Pode utilizar o seguinte guia para escalar o seu trabalho para lidar com cargas mais elevadas e tirar partido de mais recursos do sistema (como mais largura de banda, mais recursos de CPU, mais memória).
@@ -23,7 +23,7 @@ Como pré-requisito, poderá ter de ler os seguintes artigos:
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1 - A sua consulta é inerentemente totalmente paralestozável através de divisórias de entrada
 Se a sua consulta for inerentemente totalmente paralizável entre divisórias de entrada, pode seguir os seguintes passos:
 1.  Autore a sua consulta para ser embaraçosamente paralela utilizando **a palavra-chave PARTITION BY.** Veja mais detalhes na secção de trabalhos paralelos [embaraçosos nesta página.](stream-analytics-parallelization.md)
-2.  Dependendo dos tipos de saída utilizados na sua consulta, alguma saída pode não ser paralesticamente, ou precisar de configuração adicional para ser embaraçosamente paralela. Por exemplo, a saída do PowerBI não é paralessível. As saídas são sempre fundidas antes de enviar para o lavatório de saída. Blobs, Tabelas, ADLS, Service Bus e Azure Function são automaticamente paralelos. As saídas SQL e SQL DW têm uma opção para a paralelização. O Event Hub precisa de ter a configuração PartitionKey definida para combinar com o campo **PARTITION BY** (normalmente PartitionId). Para o Event Hub, também prestem mais atenção para corresponder ao número de divisórias para todas as entradas e todas as saídas para evitar o cruzamento entre divisórias. 
+2.  Dependendo dos tipos de saída utilizados na sua consulta, alguma saída pode não ser paralesticamente, ou precisar de configuração adicional para ser embaraçosamente paralela. Por exemplo, a saída do PowerBI não é paralessível. As saídas são sempre fundidas antes de enviar para o lavatório de saída. Blobs, Tabelas, ADLS, Service Bus e Azure Function são automaticamente paralelos. As saídas SQL e Azure Synapse Analytics têm uma opção para a paralelização. O Event Hub precisa de ter a configuração PartitionKey definida para combinar com o campo **PARTITION BY** (normalmente PartitionId). Para o Event Hub, também prestem mais atenção para corresponder ao número de divisórias para todas as entradas e todas as saídas para evitar o cruzamento entre divisórias. 
 3.  Faça a sua consulta com **6 SU** (que é a capacidade total de um único nó de computação) para medir o máximo de rendimento alcançável, e se estiver a usar **o GRUPO BY,** meça quantos grupos (cardinalidade) o trabalho pode suportar. Os sintomas gerais do trabalho que atinge os limites de recursos do sistema são os seguintes.
     - A métrica de utilização su % é superior a 80%. Isto indica que o uso da memória é elevado. Os fatores que contribuem para o aumento desta métrica são [aqui](stream-analytics-streaming-unit-consumption.md)descritos. 
     -   O tempo de saída está a ficar para trás no que diz respeito à hora do relógio de parede. Dependendo da sua lógica de consulta, o tempo de saída pode ter uma lógica compensada a partir da hora do relógio de parede. No entanto, deverão progredir aproximadamente ao mesmo ritmo. Se o tempo de saída estiver a ficar cada vez mais para trás, é um indicador de que o sistema está a trabalhar em excesso. Pode ser resultado de um estrangulamento da pia de saída a jusante, ou de uma elevada utilização do CPU. Não fornecemos métrica de utilização de CPU neste momento, por isso pode ser difícil diferenciar os dois.

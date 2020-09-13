@@ -2,19 +2,18 @@
 title: Criptografe discos de SISTEMA utilizando chaves geridas pelo cliente em Azure DevTest Labs
 description: Saiba como encriptar os discos do sistema operativo (OS) utilizando chaves geridas pelo cliente em Azure DevTest Labs.
 ms.topic: article
-ms.date: 07/28/2020
-ms.openlocfilehash: 241f53f0c8f289b43b8de465eb7509489345b955
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/01/2020
+ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815926"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489857"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Criptografe discos do sistema operativo (OS) utilizando chaves geridas pelo cliente em Azure DevTest Labs
 A encriptação do lado do servidor (SSE) protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. A SSE encripta automaticamente os seus dados armazenados em discos geridos em Azure (OS e discos de dados) em repouso por padrão quando os persiste na nuvem. Saiba mais sobre [encriptação de disco](../virtual-machines/windows/disk-encryption.md) no Azure. 
 
 Dentro da DevTest Labs, todos os discos de SO e discos de dados criados como parte de um laboratório são encriptados usando chaves geridas pela plataforma. No entanto, como dono de laboratório, pode optar por encriptar os discos de SISTEMA de máquinas virtuais de laboratório usando as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, pode especificar uma **chave gerida pelo cliente** para encriptar dados em discos de sistema OPERATIVO. Para saber mais sobre encriptação do lado do Servidor (SSE) com teclas geridas pelo cliente e outros tipos de encriptação de discos geridos, consulte [as teclas geridas pelo Cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Além disso, consulte [as restrições com a utilização de chaves geridas pelo cliente](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
-
 
 > [!NOTE]
 > - Atualmente, a encriptação do disco com uma chave gerida pelo cliente é suportada apenas para discos OS em DevTest Labs. 
@@ -29,8 +28,11 @@ A seguinte secção mostra como um proprietário de laboratório pode configurar
 
     - O conjunto de encriptação de disco tem de estar **na mesma região e subscrição que o seu laboratório.** 
     - Certifique-se de que você (proprietário do laboratório) tem pelo menos um acesso ao **nível** do leitor ao conjunto de encriptação do disco que será usado para encriptar discos de sistema OPERATIVO. 
-2. Para os laboratórios criados antes de 8/1/2020, o dono do laboratório terá de garantir que a identidade atribuída ao sistema de laboratório está ativada. Para tal, o proprietário do laboratório pode ir ao seu laboratório, clicar em **Configuração e políticas,** clicar na lâmina **identidade (preview),** alterar o **Estado** de identidade atribuída do sistema para **on** e clicar em **Guardar**. Para novos laboratórios criados após o sistema de laboratório 8/1/2020, a identidade atribuída será ativada por padrão. 
-3. Para que o laboratório manuseie a encriptação de todos os discos de sistema, o proprietário do laboratório precisa de conceder explicitamente o papel de leitor **de identidade atribuído** ao sistema do laboratório no conjunto de encriptação do disco, bem como o papel de contribuinte de máquina virtual na subscrição do Azure subjacente. O proprietário do laboratório pode fazê-lo completando os seguintes passos:
+1. Para os laboratórios criados antes de 8/1/2020, o dono do laboratório terá de garantir que a identidade atribuída ao sistema de laboratório está ativada. Para tal, o proprietário do laboratório pode ir ao seu laboratório, clicar em **Configuração e políticas,** clicar na lâmina **identidade (preview),** alterar o **Estado** de identidade atribuída do sistema para **on** e clicar em **Guardar**. Para novos laboratórios criados após o sistema de laboratório 8/1/2020, a identidade atribuída será ativada por padrão. 
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Chaves geridas":::
+1. Para que o laboratório manuseie a encriptação de todos os discos de sistema, o proprietário do laboratório precisa de conceder explicitamente o papel de leitor **de identidade atribuído** ao sistema do laboratório no conjunto de encriptação do disco, bem como o papel de contribuinte de máquina virtual na subscrição do Azure subjacente. O proprietário do laboratório pode fazê-lo completando os seguintes passos:
 
    
     1. Certifique-se de que é membro da função de [Administração](../role-based-access-control/built-in-roles.md#user-access-administrator) do Acesso ao Utilizador ao nível da subscrição do Azure para que possa gerir o acesso do utilizador aos recursos do Azure. 
@@ -71,8 +73,24 @@ A seguinte secção mostra como um proprietário de laboratório pode configurar
 1. Na caixa de mensagens com o seguinte texto: *Esta definição aplicar-se-á a máquinas recém-criadas em laboratório. O disco antigo do SO permanecerá encriptado com o conjunto de encriptação do disco antigo*, selecione **OK**. 
 
     Uma vez configurados, os discos de sistema OS serão encriptados com a chave gerida pelo cliente, fornecida utilizando o conjunto de encriptação do disco. 
+   
+## <a name="how-to-validate-if-disks-are-being-encrypted"></a>Como validar se os discos estão a ser encriptados
 
-## <a name="next-steps"></a>Passos seguintes
+1. Vá a uma máquina virtual de laboratório criada depois de permitir a encriptação do disco com uma chave gerida pelo cliente no laboratório.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="VM com encriptação de disco ativada":::
+1. Clique no grupo de recursos do VM e clique no disco oss.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Grupo de recursos VM":::
+1. Vá à Encriptação e valide se a encriptação estiver definida para a chave gerida pelo cliente com o Conjunto de Encriptação de Disco selecionado.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Validar encriptação":::
+  
+## <a name="next-steps"></a>Próximos passos
+
 Consulte os seguintes artigos: 
 
 - [Encriptação do disco Azure](../virtual-machines/windows/disk-encryption.md). 

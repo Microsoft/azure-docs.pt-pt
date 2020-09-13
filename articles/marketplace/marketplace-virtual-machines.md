@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2020
-ms.openlocfilehash: 9f408174b9a8dff925a9c834ea75bf725ec6f913
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 09/04/2020
+ms.openlocfilehash: cc6b040731cbeb7271d7a7c0de1c32fa2d007013
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837349"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484193"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guia de publicação para ofertas de máquinas virtuais
 
 Publicar imagens de máquinas virtuais (VM) é uma das principais formas de publicar uma solução para o Azure Marketplace. Utilize este guia para compreender os requisitos para este tipo de oferta. 
 
-Ofertas de máquinas virtuais são ofertas de transações que são implementadas e faturadas através do Azure Marketplace. A chamada à ação que um utilizador vê é *Get It Now*.
+Ofertas de máquinas virtuais são ofertas de transações que são implementadas e faturadas através do Azure Marketplace. A opção de listagem que um utilizador vê é *Get It Now*.
 
 ## <a name="free-trial"></a>Avaliação gratuita 
 
@@ -59,7 +59,7 @@ Utilize o tipo de oferta *de máquina virtual* quando colocar um aparelho virtua
 >[!Note]
 >O opt-in do canal parceiro Cloud Solution Provider (CSP) já está disponível. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](./cloud-solution-providers.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

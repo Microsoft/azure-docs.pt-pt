@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/04/2020
+ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921389"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488614"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Construa a página de aterragem para a sua oferta saas gratuita ou experimental no mercado comercial
 
@@ -21,13 +21,13 @@ Este artigo guia-o através do processo de construção de uma página de aterra
 
 ## <a name="overview"></a>Descrição geral
 
-Pode pensar na página de aterragem como o "lobby" do seu software como uma oferta de serviço (SaaS). Depois de o cliente optar por obter a sua app, o mercado comercial direciona-os para a página de aterragem para ativar e configurar a sua subscrição para a sua aplicação SaaS. Quando cria um software como oferta de serviço (SaaS), no Partner Center, pode escolher se deve ou não [vender através da Microsoft.](partner-center-portal/create-new-saas-offer.md) Se quiser apenas listar a sua oferta no mercado comercial da Microsoft e não vender através da Microsoft, pode especificar como os potenciais clientes podem interagir com a oferta. Quando ativa a opção de listagem **de testes Get-lo agora (Grátis)** ou **Grátis,** tem de especificar um URL da página de aterragem para o qual o utilizador pode aceder à subscrição ou teste gratuito.
+Pode pensar na página de aterragem como o "lobby" do seu software como uma oferta de serviço (SaaS). Depois de o cliente optar por obter a sua app, o mercado comercial direciona-os para a página de aterragem para ativar e configurar a sua subscrição para a sua aplicação SaaS. Quando cria um software como oferta de serviço (SaaS), no Partner Center, pode escolher se deve ou não [vender através da Microsoft.](plan-saas-offer.md#listing-options) Se quiser apenas listar a sua oferta no mercado comercial da Microsoft e não vender através da Microsoft, pode especificar como os potenciais clientes podem interagir com a oferta. Quando ativa a opção de listagem **de testes Get-lo agora (Grátis)** ou **Grátis,** tem de especificar um URL da página de aterragem para o qual o utilizador pode aceder à subscrição ou teste gratuito.
 
 O objetivo da página de aterragem é simplesmente receber o utilizador para que possa ativar o teste gratuito ou a subscrição gratuita. Utilizando o Azure Ative Directory (AZure AD) e o Microsoft Graph, irá ativar um único sign-on (SSO) para o utilizador e obter detalhes importantes sobre o utilizador que pode utilizar para ativar o seu teste gratuito ou subscrição gratuita, incluindo o seu nome, endereço de e-mail e organização.
 
 Uma vez que as informações necessárias para ativar a subscrição são limitadas e fornecidas pelo Azure AD e pelo Microsoft Graph, não deverá haver necessidade de solicitar informações que exijam mais do que o consentimento básico. Se necessitar de detalhes do utilizador que exijam consentimento adicional para a sua aplicação, deverá solicitar estas informações após a ativação da subscrição estar concluída. Isto permite a ativação de subscrição sem atrito para o utilizador e diminui o risco de abandono.
 
-A página de aterragem normalmente inclui as seguintes informações e chamadas à ação:
+A página de aterragem normalmente inclui as seguintes opções de informação e listagem:
 
 - Apresente o nome e detalhes do teste gratuito ou subscrição gratuita. Por exemplo, especifique os limites de utilização ou a duração de um ensaio.
 - Apresente os detalhes da conta do utilizador, incluindo o primeiro e o último nome, organização e e-mail.
@@ -38,12 +38,12 @@ As seguintes secções deste artigo irão guiá-lo através do processo de const
 
 1. [Crie um registo de aplicativo AD AZure](#create-an-azure-ad-app-registration) para a página de aterragem.
 2. [Utilize uma amostra de código como ponto de partida](#use-a-code-sample-as-a-starting-point) para a sua aplicação.
-3. [Leia as informações de reclamações codificadas no token de ID,](#read-information-from-claims-encoded-in-the-id-token)recebidas da Azure AD após a entrada em dia, que foram enviadas com o pedido.
+3. [Leia as informações de reclamações codificadas no token de identificação,](#read-information-from-claims-encoded-in-the-id-token)recebidas da Azure AD após o sinal, que foram enviadas com o pedido.
 4. [Utilize a API do Gráfico microsoft](#use-the-microsoft-graph-api) para recolher informações adicionais, conforme necessário.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Criar um registo de aplicativo AD Azure
 
-O mercado comercial está totalmente integrado com a Azure AD. Os utilizadores chegam ao mercado autenticados com uma [conta AD Azure ou com a conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Depois de adquirir uma subscrição de teste gratuita ou gratuita através da sua oferta apenas de lista, o utilizador vai do mercado comercial para o URL da sua página de aterragem para ativar e gerir a sua subscrição à sua aplicação SaaS. Deve deixar o utilizador iniciar súpido na sua aplicação com Azure AD SSO. (O URL da página de aterragem é especificado na página de [configuração técnica](partner-center-portal/offer-creation-checklist.md#technical-configuration-page)da oferta).
+O mercado comercial está totalmente integrado com a Azure AD. Os utilizadores chegam ao mercado autenticados com uma [conta AD Azure ou com a conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Depois de adquirir uma subscrição de teste gratuita ou gratuita através da sua oferta apenas de lista, o utilizador vai do mercado comercial para o URL da sua página de aterragem para ativar e gerir a sua subscrição à sua aplicação SaaS. Deve deixar o utilizador iniciar súpido na sua aplicação com Azure AD SSO. (O URL da página de aterragem é especificado na página de [configuração técnica](plan-saas-offer.md#technical-information) da oferta.
 
 O primeiro passo para usar a identidade é certificar-se de que a sua página de aterragem está registada como uma aplicação AD AZure. O registo da aplicação permite-lhe utilizar a Azure AD para autenticar os utilizadores e solicitar o acesso aos recursos dos utilizadores. Pode ser considerada a definição da aplicação, que permite ao serviço saber como emitir fichas para a app com base nas definições da app.
 
@@ -102,5 +102,5 @@ A maioria das aplicações registadas com Azure AD concedem permissões delegada
 > [!NOTE]
 > As contas do inquilino da MSA (com identificação do `9188040d-6c67-4c5b-b112-36a304b66dad` inquilino) não devolverão mais informações do que já foram recolhidas com o token de identificação. Para que possa ignorar esta chamada para a API do Gráfico para estas contas.
 
-## <a name="next-steps"></a>Passos seguintes
-- [Criar uma oferta SaaS no mercado comercial](./partner-center-portal/create-new-saas-offer.md)
+## <a name="next-steps"></a>Próximos passos
+- [Como criar uma oferta SaaS no mercado comercial](create-new-saas-offer.md)

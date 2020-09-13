@@ -1,19 +1,19 @@
 ---
 title: Extrato, transformação e carga (ETL) em escala - Azure HDInsight
 description: Saiba como extrair, transformar e carregar é usado em HDInsight com Apache Hadoop.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e048365ca589d452385607b902ee6b285de8165f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb3c45c01b2e3ca1761e86f3ac991d67f7813856
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084125"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504320"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -48,7 +48,7 @@ Utilize a Fábrica de Dados Azure para:
 
 1. Criar e agendar fluxos de trabalho baseados em dados. Estes oleodutos ingerem dados de lojas de dados diferentes.
 1. Processe e transforme os dados utilizando serviços de computação como HDInsight ou Hadoop. Você também pode usar Spark, Azure Data Lake Analytics, Azure Batch ou Azure Machine Learning para este passo.
-1. Publique dados de saída em lojas de dados, como o Azure SQL Data Warehouse, para aplicações de BI para consumir.
+1. Publique dados de saída em lojas de dados, como a Azure Synapse Analytics, para aplicações de BI consumir.
 
 Para obter mais informações sobre a Azure Data Factory, consulte a [documentação.](../../data-factory/introduction.md)
 
@@ -84,11 +84,11 @@ Para o upload de conjuntos de dados na gama terabyte, a latência da rede pode s
 
 - **Upload de dados a partir de discos rígidos:** Pode utilizar [o serviço Azure Import/Export](../../storage/common/storage-import-export-service.md) para enviar discos rígidos com os seus dados para um datacenter Azure. Os seus dados são enviados pela primeira vez para o armazenamento da Azure Blob. Em seguida, pode utilizar a Azure Data Factory ou a ferramenta AdlCopy para copiar dados do armazenamento de Azure Blob para o Armazenamento do Lago de Dados.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-O Azure SQL Data Warehouse é uma escolha adequada para armazenar resultados preparados. Você pode usar Azure HDInsight para executar esses serviços para SQL Data Warehouse.
+A Azure Synapse Analytics é uma escolha apropriada para armazenar resultados preparados. Você pode usar Azure HDInsight para executar esses serviços para Zure Synapse Analytics.
 
-O Azure SQL Data Warehouse é uma loja de dados relacional otimizada para cargas de trabalho analíticas. Escamas baseadas em mesas divididas. As mesas podem ser divididas através de múltiplos nós. Os nós são selecionados no momento da criação. Podem escalar depois do facto, mas é um processo ativo que pode requerer movimento de dados. Para obter mais informações, consulte [Manage compute in SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+A Azure Synapse Analytics é uma loja de dados relacional otimizada para cargas de trabalho analíticas. Escamas baseadas em mesas divididas. As mesas podem ser divididas através de múltiplos nós. Os nós são selecionados no momento da criação. Podem escalar depois do facto, mas é um processo ativo que pode requerer movimento de dados. Para obter mais informações, consulte [Manage compute in Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 
@@ -107,7 +107,7 @@ A adaptabilidade da base h depende do número de nós no cluster HDInsight.
 A Azure oferece três bases de dados relacionais PaaS:
 
 * [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) é uma implementação do Microsoft SQL Server. Para obter mais informações sobre o desempenho, consulte [a Afinação do Desempenho na Base de Dados Azure SQL](../../azure-sql/database/performance-guidance.md).
-* [Azure Database for MySQL](../../mysql/overview.md) é uma implementação da Oracle MySQL.
+* [Azure Database for MySQL](../../mysql/overview.md)  é uma implementação da Oracle MySQL.
 * [A Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) é uma implementação do PostgreSQL.
 
 Adicione mais CPU e memória para escalar estes produtos.  Também pode optar por utilizar discos premium com os produtos para um melhor desempenho de I/S.

@@ -1,15 +1,15 @@
 ---
 title: Tipos de recursos suportados do Gestor de Recursos Azure
 description: Forneça uma lista dos tipos de recursos do Azure Resource Manager suportados pelo Azure Resource Graph e Change History.
-ms.date: 08/10/2020
+ms.date: 09/04/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 91b8a88fd056db2fd8495c85dccbcc08f4a94fda
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: b81ffcdde074978a9a72c5ab651ec2c5556870bd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066003"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488325"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
 
@@ -25,6 +25,10 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 ## <a name="alertsmanagementresources"></a>alertasmanagementresources
 
 - microsoft.alertsmanagement/alerts
+
+## <a name="guestconfigurationresources"></a>recursos de configuração de convidados
+
+- microsoft.guestconfiguration/guestconfigurationasssignments
 
 ## <a name="healthresources"></a>recursos sanitários
 
@@ -56,6 +60,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - livearena.broadcast/services
 - mailjet.email/serviços
 - microsoft.aad/serviços de domínio
+- microsoft.aadiam/azureadmetrics
 - microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/inquilinos
 - microsoft.aisupercomputador/contas
@@ -69,6 +74,9 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.appplatform/spring
 - microsoft.archive/collections
 - microsoft.attestation/attestationproviders
+- microsoft.authorization/resourcemanagementprivatelinks
+- microsoft.automanage/accounts
+- microsoft.automanage/configurationprofilepreferences
 - microsoft.automation/automation
 - microsoft.automation/automationaccounts/configurações
 - microsoft.automation/automationaccounts/runbooks
@@ -76,6 +84,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.avs/privateclouds
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
+- microsoft.azureactivedirectory/guestusages
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -84,6 +93,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.azuredata/sqlmanagedinstances
 - microsoft.azuredata/sqlserverinstances
 - microsoft.azuredata/sqlserverregistrations
+- microsoft.azurestack/edgesubscriptions
 - microsoft.azurestack/registos
 - microsoft.azurestackhci/clusters
 - microsoft.baremetal/consolas
@@ -114,6 +124,10 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.classicstorage/storageaccounts
 - microsoft.cloudes/contas
 - microsoft.cloudsearch/indexes
+- microsoft.cloudtest/accounts
+- microsoft.cloudtest/images
+- microsoft.cloudtest/pools
+- microsoft.codespaces/planos
 - microsoft.cognition/syntheticsaccounts
 - microsoft.cognitiveservices/contas
 - microsoft.compute/availabilitysets
@@ -141,6 +155,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.compute/virtualmachines/extensões
 - microsoft.compute/virtualmachines/runcommands
 - microsoft.compute/virtualmachinescalesets
+- microsoft.confluente/organizações
+- microsoft.connectedcache/cachenodes
 - microsoft.containerinstance/containergroups
 - microsoft.containerregistry/registries
 - microsoft.containerregistry/registries/agentpools
@@ -155,11 +171,13 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.contoso/empregados
 - microsoft.costmanagement/conectores
 - microsoft.customproviders/resourceproviders
+- microsoft.d365customerinsights/instances
 - microsoft.databox/jobs
 - microsoft.databoxedge/databoxedgedevices
 - microsoft.databricks/workspaces
 - microsoft.datacatalog/catálogos
 - microsoft.datacatalog/datacatalogs
+- microsoft.datacollaboration/workspaces
 - microsoft.datadog/monitores
 - microsoft.datafactory/datafactories
 - microsoft.datafactory/fábricas
@@ -169,9 +187,12 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.datamigration/services/projects
 - microsoft.datamigration/slots
 - microsoft.dataprotection/backupvaults
+- microsoft.dataprotection/resourceoperationgatekeepers
 - microsoft.datashare/accounts
 - microsoft.dbformariadb/servidores
+- microsoft.dbformysql/flexibleservers
 - microsoft.dbformysql/servidores
+- microsoft.dbforpostgresql/flexibleservers
 - microsoft.dbforpostgresql/servergroups
 - microsoft.dbforpostgresql/servidores
 - microsoft.dbforpostgresql/serversv2
@@ -189,6 +210,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.devices/elasticpools/iothubtenants
 - microsoft.devices/iothubs
 - microsoft.devices/serviços de provisionamento
+- microsoft.deviceupdate/accounts
+- microsoft.deviceupdate/accounts/instances
 - microsoft.devops/pipelines
 - microsoft.devspaces/controladores
 - microsoft.devtestlab/labcenters
@@ -209,7 +232,9 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.eventhub/clusters
 - microsoft.eventhub/namespaces
 - microsoft.experimentation/experimentworkspaces
+- microsoft.extendedlocation/customlocations
 - microsoft.falcon/namespaces
+- microsoft.footprintmonitoring/profiles
 - microsoft.gaming/títulos
 - microsoft.geómica/contas
 - microsoft.guestconfiguration/automanagedaccounts
@@ -222,8 +247,13 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.hybridcompute/máquinas
 - microsoft.hybridcompute/máquinas/extensões
 - microsoft.hybriddata/datamanagers
+- microsoft.hybridnetwork/dispositivos
+- microsoft.hybridnetwork/virtualnetworkfunctions
 - microsoft.importexport/jobs
+- microsoft.industrydatalifecycle/custódiadiancollaboratives
 - microsoft.industrydatalifecycle/modelos derivados
+- microsoft.industrydatalifecycle/membercollaboratives
+- microsoft.industrydatalifecycle/pipelinesets
 - microsoft.insights/actiongroups
 - microsoft.insights/activitylogalerts
 - microsoft.insights/alertars
@@ -239,9 +269,11 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.insights/webtests
 - microsoft.insights/livros de trabalho
 - microsoft.insights/workbooktemplates
+- microsoft.intelligentitdigitaltwin/digitaltwins
 - microsoft.iotcentral/iotapps
 - microsoft.iotspaces/gráfico
 - microsoft.keyvault/hsmpools
+- microsoft.keyvault/managedhsms
 - microsoft.keyvault/vaults
 - microsoft.kubernetes/connectedclusters
 - microsoft.kusto/clusters
@@ -256,6 +288,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.machinelearning/workspaces
 - microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/workspaces
+- microsoft.machinelearningservices/workspaces/inferenceendpoints
+- microsoft.machinelearningservices/workspaces/inferenceendpoints/deployments
 - microsoft.maintenance/maintenanceconfigurations
 - microsoft.maintenance/manutençãopolicias
 - microsoft.managedidentity/groups
@@ -294,9 +328,11 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.network/azurefirewalls
 - microsoft.network/bastionhosts
 - microsoft.network/connections
+- microsoft.network/customipprefixes
 - microsoft.network/ddoscustompolicias
 - microsoft.network/ddosprotectionplans
 - microsoft.network/dnszones
+- microsoft.network/dscpconfigurations
 - microsoft.network/expressroutecircuits
 - microsoft.network/expressroutecrossconnections
 - microsoft.network/expressroutegateways
@@ -308,6 +344,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.network/ipgroups
 - microsoft.network/loadbalancers
 - microsoft.network/localnetworkgateways
+- microsoft.network/mastercustomipprefixs
 - microsoft.network/natgateways
 - microsoft.network/networkexperimentprofils
 - microsoft.network/networkintentpolicies
@@ -346,6 +383,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.network/vpnsites
 - microsoft.notificationhubs/namespaces
 - microsoft.notificationhubs/namespaces/notificationhubs
+- microsoft.nutanix/interfaces
+- microsoft.nutanix/nós
 - microsoft.objectstore/osnamespaces
 - microsoft.offazure/hipervsites
 - microsoft.offazure/importsites
@@ -359,6 +398,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.peering/peeringservices
 - microsoft.portal/dashboards
 - microsoft.portalsdk/rootresources
+- microsoft.powerbi/privatelinkservicesforpowerbi
+- microsoft.powerbi/inquilinos
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
 - microsoft.projectbabylon/contas
@@ -412,9 +453,13 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.storagesyncdev/storagesyncservices
 - microsoft.storagesyncint/storagesyncservices
 - microsoft.storsimple/managers
+- microsoft.streamanalytics/clusters
 - microsoft.streamanalytics/streamingjobs
+- microsoft.swiftlet/virtualmachines
+- microsoft.synapse/privatelinkhubs
 - microsoft.synapse/workspaces
 - microsoft.synapse/workspaces/bigdatapools
+- microsoft.synapse/workspaces/sqldatabases
 - microsoft.synapse/workspaces/sqlpools
 - microsoft.terraformoss/providerregistrations
 - microsoft.timeseriesinsights/ambientes
@@ -439,6 +484,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.vmwarevirtustream/privateclouds
 - microsoft.vsonline/contas
 - microsoft.vsonline/planos
+- microsoft.web/apimanagementaccounts
 - microsoft.web/apimanagementaccounts/apis
 - microsoft.web/certificados
 - microsoft.web/connectiongateways
@@ -453,6 +499,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.web/staticsites
 - microsoft.windowsesu/multipleactivationkeys
 - microsoft.windowsiot/deviceservices
+- microsoft.workloadbuilder/workloads
 - myget.packagemanagement/services
 - paraleap.cloudmonix/serviços
 - pokitdok.platform/services
@@ -481,12 +528,15 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments
+- microsoft.security/locations/alerts
 - microsoft.security/pricings
 - microsoft.security/regulaycompliancestandards
 - microsoft.security/regulatórios padrões/regulatórios
 - microsoft.security/regulamentstandards/regulatorycompliancecontrols/regulatórios
+- microsoft.security/securescores
+- microsoft.security/securescores/securescorecontrols
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [língua de consulta.](../concepts/query-language.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)

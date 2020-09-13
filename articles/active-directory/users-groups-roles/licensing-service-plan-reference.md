@@ -16,12 +16,12 @@ ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 505b42c9dae5c3ddf6e5621b13e29f15520604b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29542af04109e545423b9391ebc04222c3551264
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975916"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504371"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 
@@ -118,7 +118,7 @@ Ao gerir licenças no [portal Azure](https://portal.azure.com/#blade/Microsoft_A
 | PROJETO ONLINE COM PROJETO PARA ESCRITÓRIO 365    | PROJECTONLINE_PLAN_2  | f82a60b8-1ee3-4cfb-a4fe-1c6a53c2656c  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) | FORMULÁRIOS MICROSOFT (PLANO E1) (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINT ONLINE (PLANO 2) (5dbe027f-2339-4123-9542-606e4d348a72)<br/>OFFICE ONLINE (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
 | SHAREPOINT ONLINE (PLANO 1)    | SHAREPOINTSTANDARD    | 1fc08a02-8b3d-43b9-831e-f76859e04e1a  | SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1) | SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1) |
 | SHAREPOINT ONLINE (PLANO 2)    | SHAREPOINTENTERPRISE  | a9732ec9-17d9-494c-a51c-d6b45b384dcb  | SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72) | SHAREPOINT ONLINE (PLANO 2) (5dbe027f-2339-4123-9542-606e4d348a72) |
-| SKYPE PARA BUSINESS CLOUD PBX  | MCOEV | e43b5b99-8dfb-405f-9987-dc307f34bcbd  | MCOEV (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) | SISTEMA TELEFÓNICO (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) |
+| SISTEMA TELEFÓNICO MICROSOFT 365    | MCOEV | e43b5b99-8dfb-405f-9987-dc307f34bcbd  | MCOEV (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) | SISTEMA TELEFÓNICO (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) |
 | SKYPE PARA NEGÓCIOS ONLINE (PLANO 1)    | MCOIMP    | b8b749f8-a4ef-4887-9539-c95b1eaa5db7  | MCOIMP (afc06cb0-b4f4-4473-8286-d644f70d8faf) | SKYPE PARA NEGÓCIOS ONLINE (PLANO 1) (afc06cb0-b4f4-4473-8286-d644f70d8faf) |
 | SKYPE PARA NEGÓCIOS ONLINE (PLANO 2)    | MCOSTANDARD   | d42c793f-6c78-4f43-92ca-e8f6a02b035f  | MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c) | SKYPE PARA NEGÓCIOS ONLINE (PLANO 2) (0feaeb32-d00e-4d66-bd5a-43b5b83db82c) |
 | SKYPE PARA NEGÓCIOS PSTN CHAMADA DOMÉSTICA E INTERNACIONAL    | MCOPSTN2  | d3b4fe1f-9992-4930-8acb-ca6ec609365e  | MCOPSTN2 (5a10155d-f5c1-411a-a8ec-e99aae125390) | PLANO DE CHAMADA NACIONAL E INTERNACIONAL (5a10155d-f5c1-411a-a8ec-e99aaae125390) |

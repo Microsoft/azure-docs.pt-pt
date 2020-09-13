@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418257"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484549"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados da Amazon Redshift usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -57,13 +57,13 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Amazon Redshift:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **AmazonRedshift** | Yes |
 | servidor |Endereço IP ou nome de anfitrião do servidor Amazon Redshift. |Yes |
 | porta |O número da porta TCP que o servidor Amazon Redshift utiliza para ouvir as ligações dos clientes. |Não, o padrão é 5439 |
 | base de dados |Nome da base de dados Amazon Redshift. |Yes |
-| o nome de utilizador |Nome do utilizador que tem acesso à base de dados. |Yes |
+| nome de utilizador |Nome do utilizador que tem acesso à base de dados. |Yes |
 | palavra-passe |Senha para a conta de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
 | connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
@@ -99,11 +99,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Amazon Redshift, as seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AmazonRedshiftTable** | Yes |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
-| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| mesa | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -134,7 +134,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Amazon Redshift, desa um tipo de fonte na atividade de cópia para **o AmazonRedshiftSource.** As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AmazonRedshiftSource** | Yes |
 | consulta |Utilize a consulta personalizada para ler dados. Por exemplo: selecione * do MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
@@ -164,11 +164,11 @@ Saiba mais sobre como usar o UNLOAD para copiar dados da Amazon Redshift de form
 
 [O UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) é um mecanismo fornecido pela Amazon Redshift, que pode descarregar os resultados de uma consulta a um ou mais ficheiros sobre o Amazon Simple Storage Service (Amazon S3). É a forma recomendada pela Amazon para copiar grandes conjuntos de dados da Redshift.
 
-**Exemplo: copiar dados da Amazon Redshift para O Azure SQL Data Warehouse usando UNLOAD, cópia encenada e PolyBase**
+**Exemplo: copiar dados da Amazon Redshift para Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando UNLOAD, cópia encenada e PolyBase**
 
-Para este caso de utilização de amostras, a atividade de cópia descarrega dados da Amazon Redshift para o Amazon S3 configurados em "redshiftUnloadSettings", e depois copiar dados da Amazon S3 para Azure Blob como especificado em "stagingSettings", por último, usar o PolyBase para carregar dados no SQL Data Warehouse. Todo o formato provisório é manuseado corretamente pela atividade de cópia.
+Para este caso de utilização de amostras, a atividade de cópia descarrega dados da Amazon Redshift para o Amazon S3 configurados em "redshiftUnloadSettings", e depois copiar dados da Amazon S3 para Azure Blob conforme especificado em "stagingSettings", por último, usar o PolyBase para carregar dados em Azure Synapse Analytics (ex-SQL Data Warehouse). Todo o formato provisório é manuseado corretamente pela atividade de cópia.
 
-![Redshift para SQL DW copy workflow](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![Redshift para Azure Synapse Analytics copy workflow](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -223,19 +223,19 @@ Ao copiar dados da Amazon Redshift, os seguintes mapeamentos são usados desde o
 | BIGINT |Int64 |
 | BOOLEANA |String |
 | CHAR |String |
-| DATA |DateTime |
+| DATA |Data e Hora |
 | DECIMAL |Decimal |
-| DUPLA PRECISÃO |Double |
+| DUPLA PRECISÃO |Double (Duplo) |
 | INTEGER |Int32 |
 | REAL |Único |
 | SMALLINT |Int16 |
 | TEXT |String |
-| TIMETAMP |DateTime |
+| TIMETAMP |Data e Hora |
 | RIO VARCHAR |String |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

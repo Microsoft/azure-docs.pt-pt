@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6fb7a6654f5917c0651ffba6e672b41d14fdbe20
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798436"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489651"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir permissões de acesso a hóspedes (pré-visualização) no Azure Ative Directory
 
@@ -40,10 +40,7 @@ Deve estar na função de Administrador Global para configurar as definições d
 
 Fizemos alterações nos controlos existentes do portal Azure para permissões de utilizadores convidados.
 
-> [!IMPORTANT]
-> Por pouco tempo, os novos controlos do portal para permissões do utilizador convidado só serão visíveis utilizando o URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . O PowerShell e o Microsoft Graph ainda podem ser utilizados para definir os controlos e as alterações serão honradas pelo portal.
-
-1. Inscreva-se no [centro de administração Azure AD](https://aka.ms/AADRestrictedGuestAccess) com permissões de administrador global.
+1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com permissões de administrador global.
 1. Na página geral do **Azure Ative Directory** para a sua organização, selecione **as definições do Utilizador**.
 1. Em **utilizadores externos,** **selecione Gerir as definições de colaboração externa**.
 1. Na página **de definições de colaboração externa,** o acesso ao utilizador do hóspede é restrito a propriedades e membros da sua própria opção **de objetos de diretório.**
@@ -165,7 +162,7 @@ As minhas permissões de hóspedes existentes serão alteradas no meu inquilino?
 Estas permissões serão definidas por defeito? | Não. As permissões por defeito existentes permanecem inalteradas. Pode configurar opcionalmente as permissões para serem mais restritivas.
 Existem requisitos de licença para esta funcionalidade? | Não, não há novos requisitos de licenciamento com esta funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre as permissões existentes no Azure AD, veja [quais são as permissões padrão do utilizador no Azure Ative Directory?](../fundamentals/users-default-permissions.md)
 - Para ver os métodos da Microsoft Graph API para restringir o acesso dos hóspedes, consulte [o tipo de recurso de autorização](/graph/api/resources/authorizationpolicy).

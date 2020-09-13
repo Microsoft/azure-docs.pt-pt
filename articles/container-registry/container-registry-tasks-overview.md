@@ -2,13 +2,13 @@
 title: Descrição geral das Tarefas do ACR
 description: Uma introdução ao ACR Tasks, um conjunto de funcionalidades no Registo de Contentores Azure que proporciona uma construção, gestão e remendos de imagem de contentores seguros e automatizados na nuvem.
 ms.topic: article
-ms.date: 01/22/2020
-ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087282"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488648"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar a imagem do contentor constrói e manutenção com tarefas ACR
 
@@ -58,8 +58,8 @@ A ACR Tasks suporta os seguintes gatilhos quando define um git repo como o conte
 
 | Acionador | Ativado por predefinição |
 | ------- | ------------------ |
-| Consolidação | Sim |
-| Pedido Pull | Não |
+| Consolidação | Yes |
+| Pedido Pull | No |
 
 Para configurar um gatilho de atualização de código fonte, é necessário fornecer à tarefa um token de acesso pessoal (PAT) para definir o webhook no repo do GitHub ou do Azure DevOps.
 
@@ -100,7 +100,7 @@ Saiba mais sobre tarefas em várias etapas em [Executar tarefas de construção,
 
 ## <a name="context-locations"></a>Localizações de contexto
 
-A tabela a seguir mostra alguns exemplos de locais de contexto suportados para tarefas ACR:
+A tabela que se segue mostra exemplos de locais de contexto suportados para tarefas ACR:
 
 | Localização de contexto | Descrição | Exemplo |
 | ---------------- | ----------- | ------- |
@@ -111,6 +111,7 @@ A tabela a seguir mostra alguns exemplos de locais de contexto suportados para t
 | GitHub compromete-se | Compromisso específico num repo GitHub público ou privado. O exemplo mostra a combinação de um haxixe comprometido (SHA) e especificação de sub-dobra. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Subpagadora Azure DevOps | Ficheiros dentro de uma sub-página num repo Azure público ou privado. O exemplo mostra a combinação de ramificação e especificação de sub-dobragem. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball remoto | Ficheiros num arquivo comprimido num webserver remoto. | `http://remoteserver/myapp.tar.gz` |
+| Artefacto no registo de contentores | [Arquivos de artefactos OCI](container-registry-oci-artifacts.md) num repositório de registo de contentores. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
 > Ao utilizar um git repo privado como um contexto para uma tarefa, você precisa fornecer um token de acesso pessoal (PAT).

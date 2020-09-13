@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833900"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488852"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
@@ -124,7 +124,7 @@ Estes pré-requisitos aplicam-se quando as suas aplicações lógicas funcionam 
 
 ### <a name="sap-client-library-prerequisites"></a>Pré-requisitos da biblioteca de clientes SAP
 
-* Certifique-se de que instala a versão mais recente, [SAP Connector (NCo 3.0) para o Microsoft .NET 3.0.22.0 compilado com .NET Framework 4.0 - Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Versões anteriores podem resultar em problemas de compatibilidade. Para mais informações, consulte as [versões da biblioteca de clientes SAP.](#sap-library-versions)
+* Certifique-se de que instala a versão mais recente, [SAP Connector (NCo 3.0) para o Microsoft .NET 3.0.22.0 compilado com .NET Framework 4.0 - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Versões anteriores podem resultar em problemas de compatibilidade. Para mais informações, consulte as [versões da biblioteca de clientes SAP.](#sap-library-versions)
 
 * Por predefinição, o instalador SAP coloca os ficheiros de montagem na pasta de instalação predefinido. Tem de copiar estes ficheiros de montagem para outro local, com base no seu cenário da seguinte forma:
 
@@ -396,7 +396,7 @@ Este exemplo utiliza uma aplicação lógica que desencadeia quando a aplicaçã
 
    Ou, pode especificar manualmente uma ação:
 
-   ![Introduza manualmente a ação SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Introduza manualmente a ação SAP que pretende utilizar](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Aqui está um exemplo que mostra como a ação aparece quando configura o gatilho para receber mais do que uma mensagem.
 
@@ -808,12 +808,12 @@ Para gerar um esquema simples SAP IDoc XML, utilize a aplicação **SAP Logon** 
 
 Este exemplo declara o nó raiz e os espaços de nome. O URI no código de amostra, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send` declara a seguinte configuração:
 
-* `/IDoc`é a nota de raiz para todos os IDocs
-* `/3`é a versão dos tipos de registo para definições comuns de segmento
-* `/ORDERS05`é o tipo IDoc
-* `//`é um segmento vazio, porque não há extensão IDoc
-* `/700`é a versão SAP
-* `/Send`é a ação para enviar a informação para o SAP
+* `/IDoc` é a nota de raiz para todos os IDocs
+* `/3` é a versão dos tipos de registo para definições comuns de segmento
+* `/ORDERS05` é o tipo IDoc
+* `//` é um segmento vazio, porque não há extensão IDoc
+* `/700` é a versão SAP
+* `/Send` é a ação para enviar a informação para o SAP
 
 ```xml
 
@@ -1190,7 +1190,7 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ligue-se aos sistemas no local](../logic-apps/logic-apps-gateway-connection.md) a partir de Azure Logic Apps.
 * Saiba como validar, transformar e utilizar outras operações de mensagens com o [Pacote de Integração Empresarial.](../logic-apps/logic-apps-enterprise-integration-overview.md)

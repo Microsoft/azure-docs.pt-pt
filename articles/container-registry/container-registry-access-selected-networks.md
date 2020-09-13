@@ -3,12 +3,12 @@ title: Configurar o acesso ao registo público
 description: Configurar regras IP para permitir o acesso a um registo de contentores Azure a partir de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660930"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488767"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar regras públicas de rede IP
 
@@ -17,6 +17,8 @@ Um registo de contentores Azure por padrão aceita ligações através da intern
 As regras da rede IP estão configuradas no ponto final do registo público. As regras da rede IP não se aplicam a pontos finais privados configurados com [Ligação Privada](container-registry-private-link.md)
 
 As regras de acesso IP configurantes estão disponíveis no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites do serviço de registo, consulte [os níveis de registo do contentor Azure](container-registry-skus.md).
+
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="access-from-selected-public-network---cli"></a>Acesso a partir de rede pública selecionada - CLI
 
@@ -109,7 +111,7 @@ Se uma regra de rede pública for definida, ou o acesso público ao registo for 
 Estes erros também podem ocorrer se utilizar um proxy HTTPS que é permitido por uma regra de acesso à rede, mas o proxy não está devidamente configurado no ambiente do cliente. Verifique se tanto o seu cliente Docker como o daemon do Docker estão configurados para comportamento de procuração. Para mais informações, consulte [http/HTTPS proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) na documentação do Docker.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para restringir o acesso a um registo utilizando um ponto final privado numa rede virtual, consulte o [Link Privado Configure Azure para um registo de contentores Azure](container-registry-private-link.md).
 * Se precisar de configurar regras de acesso ao registo por detrás de uma firewall do cliente, consulte [as regras de Configuração para aceder a um registo de contentores Azure atrás de uma firewall](container-registry-firewall-access-rules.md).

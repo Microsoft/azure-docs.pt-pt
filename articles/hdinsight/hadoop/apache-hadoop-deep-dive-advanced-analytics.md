@@ -1,19 +1,19 @@
 ---
 title: Mergulho profundo - análise avançada - Azure HDInsight
 description: Saiba como a análise avançada utiliza algoritmos para processar grandes dados em Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: fa2909055259d7832942f9f47434963f7bbb2aa1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079365"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504354"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo - análise avançada
 
@@ -42,7 +42,7 @@ Além de selecionar os algoritmos mais adequados, tem de considerar se precisa o
 * Sem supervisão - algoritmo não requer dados de treino
 * Reforço - algoritmo usa agentes de software para determinar o comportamento ideal dentro de um contexto específico (muitas vezes usado em robótica)
 
-| Categoria algoritmo| Utilizar | Tipo de Aprendizagem | Algoritmos |
+| Categoria algoritmo| Utilização | Tipo de Aprendizagem | Algoritmos |
 | --- | --- | --- | -- |
 | Classificação | Classificar pessoas ou coisas em grupos | Supervisionado | Árvores de decisão, regressão logística, redes neuronais |
 | Clustering | Dividir um conjunto de exemplos em grupos homogéneos | Sem supervisão | K-significa agrupamento |
@@ -67,7 +67,7 @@ Existem três bibliotecas de machine learning escaláveis que trazem capacidades
 
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html) - MLlib contém a API original construída em cima de RDDs spark.
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) - SparkML é um pacote mais recente que fornece uma API de nível superior construída em cima de Spark DataFrames para a construção de oleodutos ML.
-* [**MMLSpark**](https://github.com/Azure/mmlspark) - A biblioteca microsoft machine learning para Apache Spark (MMLSpark) foi projetada para tornar os cientistas de dados mais produtivos em Spark, aumentar a taxa de experimentação, e alavancar técnicas de aprendizagem automática de ponta, incluindo aprendizagem profunda, em conjuntos de dados muito grandes. A biblioteca MMLSpark simplifica tarefas comuns de modelação para modelos de construção em PySpark.
+* [**MMLSpark**](https://github.com/Azure/mmlspark)  - A biblioteca microsoft machine learning para Apache Spark (MMLSpark) foi projetada para tornar os cientistas de dados mais produtivos em Spark, aumentar a taxa de experimentação, e alavancar técnicas de aprendizagem automática de ponta, incluindo aprendizagem profunda, em conjuntos de dados muito grandes. A biblioteca MMLSpark simplifica tarefas comuns de modelação para modelos de construção em PySpark.
 
 ### <a name="r-and-ml-services"></a>Serviços R e ML
 

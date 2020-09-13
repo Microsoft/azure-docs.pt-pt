@@ -1,19 +1,19 @@
 ---
-title: Conectores do Azure Logic Apps
+title: Conectores para o Azure Logic Apps
 description: Automatizar fluxos de trabalho com conectores para apps Azure Logic, tais como incorporados, geridos, no local, conta de integração, ISE e conectores empresariais
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 1bd3cb1c18d1bac078ac1344f574914dba73d07b
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871569"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488835"
 ---
-# <a name="connectors-for-azure-logic-apps"></a>Conectores do Azure Logic Apps
+# <a name="connectors-for-azure-logic-apps"></a>Conectores para o Azure Logic Apps
 
 Os conectores proporcionam um acesso rápido a partir do Azure Logic Apps a eventos, dados e ações noutros serviços, aplicações, sistemas, protocolos e plataformas. Ao utilizar conectores nas suas aplicações lógicas, expande as capacidades das aplicações na cloud e locais para executarem tarefas com os dados que cria e já tem.
 
@@ -308,7 +308,7 @@ Para aplicações lógicas que cria e execute num ambiente de serviço de integr
         [![Ônibus ise de ônibus ][azure-service-bus-icon]<br> **Azure <br> **][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Azure SQL Data Warehouse ISE connector ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> Warehouse**][azure-sql-data-warehouse-doc]
+        [![Azure Synapse Analytics ISE conector ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> Warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
         [![Armazenamento de mesa Azure ISE connector ][azure-table-storage-icon]<br> **Azure Table <br> Storage**][azure-table-storage-doc]
@@ -412,7 +412,7 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 
 Embora crie ligações a partir de uma aplicação lógica, as ligações são recursos Azure separados com as suas próprias definições de recursos. Para rever estas definições de recursos de conexão, [baixe a sua aplicação lógica do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a forma mais fácil de criar um modelo de aplicação lógica parametrizada válido que esteja maioritariamente pronto para ser implantado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Ver a [lista completa do conector](/connectors)
 * [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -572,7 +572,7 @@ Embora crie ligações a partir de uma aplicação lógica, as ligações são r
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Executar consultas contra registos do Monitor Azure em espaços de trabalho do Log Analytics e componentes de Insights de Aplicação"
 [azure-queues-doc]: /connectors/azurequeues/ "Conecte-se à sua conta de Armazenamento Azure para que possa criar e gerir filas e mensagens"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Envie mensagens de Service Bus Queues and Topics e receba mensagens de Filas e Assinaturas de Autocarros de Serviço"
-[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Ligue-se ao Armazém de Dados Azure SQL para que possa ver os seus dados"
+[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Ligue-se ao Azure Synapse Analytics para que possa ver os seus dados"
 [azure-table-storage-doc]: /connectors/azuretables/ "Conecte-se à sua conta de Armazenamento Azure para que possa criar, atualizar e consultar tabelas e muito mais"
 [biztalk-server-doc]: /connectors/biztalk/ "Conecte-se ao seu Servidor BizTalk para que possa executar aplicações baseadas no BizTalk lado a lado com as Aplicações Azure Logic"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Ligue a um sistema de ficheiros no local"

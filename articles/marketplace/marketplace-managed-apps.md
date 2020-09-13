@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
-ms.date: 04/22/2020
-ms.openlocfilehash: 70922b80139015226445ca62026ec6f5a59b751c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: 10ca7602dd3cf5a80e371ceda845977bcd8f218a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119825"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484244"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guia de publicação de aplicações geridas pela Azure
 
-Uma oferta *de aplicação gerida pela* Azure é uma forma de publicar uma aplicação Azure no Azure Marketplace. As aplicações geridas são ofertas de transação que são implementadas e faturadas através do Azure Marketplace. A chamada à ação que um utilizador vê é *Get It Now*.
+Uma oferta *de aplicação gerida pela* Azure é uma forma de publicar uma aplicação Azure no Azure Marketplace. As aplicações geridas são ofertas de transação que são implementadas e faturadas através do Azure Marketplace. A opção de listagem que um utilizador vê é *Get It Now*.
 
 Este artigo explica os requisitos para o tipo de oferta de aplicação gerida.
 
@@ -32,7 +32,7 @@ Utilize o tipo de oferta de aplicação gerida nas seguintes condições:
 
 |Requisitos |Detalhes  |
 |---------|---------|
-|Uma subscrição do Azure. | As aplicações geridas devem ser implementadas na subscrição de um cliente, mas podem ser geridas por terceiros. |
+|Uma subscrição do Azure | As aplicações geridas devem ser implementadas na subscrição de um cliente, mas podem ser geridas por terceiros. |
 |Faturação e medição    |  Os recursos são fornecidos na subscrição Azure de um cliente. Os VMs que utilizam o modelo de pagamento pay-as-you-go são transacionados com o cliente através da Microsoft e faturados através da subscrição Azure do cliente. <br><br> Para os VMs de sua própria licença, a Microsoft fatura quaisquer custos de infraestrutura que sejam incorridos na subscrição do cliente, mas você transaciona diretamente as taxas de licenciamento de software com o cliente.        |
 |Um disco rígido virtual compatível com Azure (VHD)    |   Os VMs devem ser construídos em Windows ou Linux.<br><br>Para obter mais informações sobre a criação de um Linux VHD, consulte [as distribuições linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para obter mais informações sobre a criação de um VHD do Windows, consulte [criar uma oferta de aplicação Azure.](./partner-center-portal/create-new-azure-apps-offer.md) |
 

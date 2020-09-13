@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1dc9c39192dc478a4ffeba64983a498191417ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c3793daa820d0cb5b5b6900402704756f206425
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213589"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488393"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestão da carga de trabalho com classes de recursos em Azure Synapse Analytics
 
@@ -133,7 +133,7 @@ As seguintes declarações estão isentas de classes de recursos e são sempre e
 - DBCC
 
 <!--
-Removed as these two are not confirmed / supported under SQL DW
+Removed as these two are not confirmed / supported under Azure Synapse Analytics
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
@@ -192,7 +192,7 @@ Recomendamos a criação de um utilizador que se dedique a executar um tipo espe
 
 ### <a name="resource-classes-for-load-users"></a>Classes de recursos para utilizadores de carga
 
-`CREATE TABLE`utiliza índices de loja de colunas agrupados por padrão. Comprimir dados num índice de colunas é uma operação intensiva de memória, e a pressão da memória pode reduzir a qualidade do índice. A pressão da memória pode levar a uma classe de recursos mais elevada ao carregar dados. Para garantir que as cargas têm memória suficiente, pode criar um utilizador designado para executar cargas e atribuir esse utilizador a uma classe de recursos mais elevada.
+`CREATE TABLE` utiliza índices de loja de colunas agrupados por padrão. Comprimir dados num índice de colunas é uma operação intensiva de memória, e a pressão da memória pode reduzir a qualidade do índice. A pressão da memória pode levar a uma classe de recursos mais elevada ao carregar dados. Para garantir que as cargas têm memória suficiente, pode criar um utilizador designado para executar cargas e atribuir esse utilizador a uma classe de recursos mais elevada.
 
 A memória necessária para processar cargas de forma eficiente depende da natureza da tabela carregada e do tamanho dos dados. Para obter mais informações sobre os requisitos de memória, consulte [maximizar a qualidade do grupo de remo.](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 
@@ -243,9 +243,9 @@ Aqui está o propósito deste procedimento armazenado:
 Sintaxe:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU:Ou fornece um parâmetro NU PARA extrair o DWU atual do DWB ou fornecer qualquer DWU suportado sob a forma de 'DW100c'
-2. @SCHEMA_NAME:Fornecer um nome de esquema da mesa
-3. @TABLE_NAME:Fornecer um nome de mesa dos juros
+1. @DWU: Ou fornece um parâmetro NU PARA extrair o DWU atual do DWB ou fornecer qualquer DWU suportado sob a forma de 'DW100c'
+2. @SCHEMA_NAME: Fornecer um nome de esquema da mesa
+3. @TABLE_NAME: Fornecer um nome de mesa dos juros
 
 Exemplos de execução deste proc armazenado:
 
