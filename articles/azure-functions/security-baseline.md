@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5609df554e78996e50dcc57e200bb1dc1282cfb0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230505"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394096"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de segurança Azure para Funções Azure
 
@@ -541,7 +541,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. As aplicações Azure Function devem ser separadas por rede virtual (VNet)/sub-rede e marcadas adequadamente.
 
-Também pode utilizar Pontos Finais Privados para realizar o isolamento da rede. Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço (por exemplo: Azure Functions app HTTPs endpoint) alimentado pela Azure Private Link. O Private Endpoint utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. Os pontos finais privados estão em (Pré-visualização) para aplicações de função em execução no plano Premium. Certifique-se de que os pontos finais privados já não estão em (Pré-visualização) antes de os utilizar com cargas de trabalho de produção.
+Também pode utilizar Pontos Finais Privados para realizar o isolamento da rede. Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço (por exemplo: Azure Functions app HTTPs endpoint) alimentado pela Azure Private Link. O Ponto Final Privado utiliza um endereço IP privado na VNet e leva de forma eficaz o serviço até à VNet. Os pontos finais privados estão em (Pré-visualização) para aplicações de função em execução no plano Premium. Certifique-se de que os pontos finais privados já não estão em (Pré-visualização) antes de os utilizar com cargas de trabalho de produção.
 
 - [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
@@ -960,7 +960,9 @@ Como criar um ASE interno:
 
 - [Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure](../app-service/overview-managed-identity.md)
 
-- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](../key-vault/general/managed-identity.md)
+* [Como autenticar para o Cofre de Chaves](../key-vault/general/authentication.md)
+
+* [Como atribuir uma política de acesso ao Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md)
 
 - [Utilize referências de Cofre de Chaves para Serviço de Aplicações e Funções Azure](../app-service/app-service-key-vault-references.md)
 
@@ -1179,7 +1181,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)
