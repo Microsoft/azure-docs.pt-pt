@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2020
+ms.date: 09/10/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959158"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015454"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -147,7 +147,7 @@ Se estiver a construir uma aplicação que suporte uma API de gestão de utiliza
 Dentro da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.info/#Specification)a sua aplicação deve satisfazer estes requisitos:
 
 * Suporta a criação de utilizadores, e opcionalmente também grupos, de acordo com a secção [3.3 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
-* Suporta modificar utilizadores ou grupos com pedidos PATCH, de acordo com [a secção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Suporta modificar utilizadores ou grupos com pedidos PATCH, de acordo com [a secção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2). O apoio garante que os grupos e utilizadores são a provisionados de forma performante. 
 * Suporta a recuperação de um recurso conhecido para um utilizador ou grupo criado anteriormente, de acordo com [a secção 3.4.1 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
 * Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores são recuperados pelos seus `id` `username` `externalId` e, e os grupos são questionados por `displayName` .  
 * Suporta consulta do utilizador por ID e por gestor, de acordo com a secção 3.4.2 do protocolo SCIM.  
@@ -746,7 +746,7 @@ Barra mínima TLS 1.2 Cipher Suites:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Gamas IP
-O serviço de fornecimento de AD Azure opera atualmente ao abrigo dos intervalos IP para AzureActiveDirectory e AzureActiveDirectoryDomainServices listados [aqui](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Estão em curso trabalhos para consolidar apenas as gamas IP no âmbito do AzureActiveDirectory. 
+O serviço de prestação de AD Azure opera atualmente ao abrigo dos Intervalos IP para AzureActiveDirectory, conforme [listado aqui.](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) Pode adicionar as gamas IP listadas na tag AzureActiveDirectory para permitir o tráfego do serviço de fornecimento AZure AD na sua aplicação. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final SCIM
 
@@ -1175,7 +1175,7 @@ Se estiver a construir uma aplicação que será usada por mais de um inquilino,
 Siga a lista de verificação abaixo para garantir que a sua aplicação está a bordo rapidamente e os clientes têm uma experiência de implementação suave. A informação será recolhida de si quando embarcar na galeria. 
 > [!div class="checklist"]
 > * Suporte um utilizador [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) e ponto final de grupo (Apenas um é necessário, mas ambos são recomendados)
-> * Apoio pelo menos 25 pedidos por segundo por inquilino (Obrigatório)
+> * Apoiar pelo menos 25 pedidos por segundo por inquilino para garantir que os utilizadores e grupos sejam aprovisionados e desprovisionados sem demora (Obrigatório)
 > * Estabelecer contactos de engenharia e apoio para orientar os clientes post gallery onboarding (Obrigatório)
 > * 3 Credenciais de teste não expiradas para a sua aplicação (Requerida)
 > * Apoiar a concessão do código de autorização OAuth ou um símbolo de longa duração, conforme descrito abaixo (Obrigatório)

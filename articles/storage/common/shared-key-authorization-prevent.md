@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3d46df8847a5865c42438ea36245ead0f1e6e528
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: f65bf2bbe174ff90d5a0b962768833b8668f6400
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951122"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019721"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
 
@@ -213,7 +213,7 @@ Algumas ferramentas Azure oferecem a opção de usar a autorização Azure AD pa
 
 | Ferramenta Azure | Autorização da AD AD para o Armazenamento Azure |
 |-|-|
-| Portal do Azure | Suportado. Para obter informações sobre a autorização da sua conta Azure AD a partir do portal Azure, consulte [Escolha como autorizar o acesso a dados de blob ou fila no portal Azure](storage-access-blobs-queues-portal.md). |
+| Portal do Azure | Suportado. Para obter informações sobre a autorização da sua conta Azure AD a partir do portal Azure, consulte [Escolha como autorizar o acesso aos dados blob no portal Azure.](../blobs/authorize-blob-access-portal.md) |
 | AzCopy | Suportado para armazenamento Blob. Para obter informações sobre a autorização de operações da AzCopy, consulte [Escolha como irá fornecer credenciais](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) de autorização na documentação da AzCopy. |
 | Explorador do Storage do Azure | Suportado apenas para armazenamento blob e Azure Data Lake Storage Gen2. O acesso a AD AD ao armazenamento da fila não é suportado. Certifique-se de selecionar o inquilino AD Azure correto. Para mais informações, consulte [Começar com o Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Suportado. Para obter informações sobre como autorizar comandos PowerShell com Azure AD para acesso a dados de blob e fila, consulte [comandos Run PowerShell com credenciais AD AD para aceder a dados de bolhas ou filas](authorize-active-directory-powershell.md). |
@@ -245,7 +245,7 @@ Quando estiver a avaliar o tráfego na sua conta de armazenamento, tenha em ment
 
 Quando o acesso da Chave Partilhada é proibido para a conta de armazenamento durante a pré-visualização, as assinaturas de acesso partilhada que os recursos de fila, tabela ou ficheiros Azure continuam a ser permitidas. Esta limitação aplica-se tanto aos tokens SAS de serviço como aos tokens SAS da conta. Ambos os tipos de SAS são autorizados com Chave Partilhada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Autorizar o acesso aos dados no Azure Storage](storage-auth.md)
 - [Autorizar o acesso a bolhas e filas utilizando o Azure Ative Directory](storage-auth-aad.md)

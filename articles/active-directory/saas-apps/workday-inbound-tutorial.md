@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 51ab05a995ba5b620b759f419fb5b4594873d2f5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527813"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018106"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
 
@@ -31,13 +31,13 @@ O objetivo deste tutorial é mostrar os passos que você precisa para executar p
 
 O [serviço de prestação de serviços de atendimento ao utilizador Azure Ative Directory](../app-provisioning/user-provisioning.md) integra-se com a API de Recursos Humanos do [Workday,](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) a fim de prestar contas de utilizadores. O serviço de fornecimento de utilizadores do Workday suportado pelo serviço de fornecimento de utilizadores Azure AD permite automatizar os seguintes recursos humanos e cenários de gestão do ciclo de vida da identidade:
 
-* **Contratação de novos colaboradores** - Quando um novo empregado é adicionado ao Workday, uma conta de utilizador é criada automaticamente em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e [outras aplicações SaaS suportadas pela Azure AD,](../app-provisioning/user-provisioning.md)com a write-back de informações de contacto geridas por TI para o Workday.
+* **Contratação de novos colaboradores** - Quando um novo empregado é adicionado ao Workday, uma conta de utilizador é criada automaticamente em Ative Directory, Azure Ative Directory, e opcionalmente Microsoft 365 e [outras aplicações SaaS suportadas pela Azure AD,](../app-provisioning/user-provisioning.md)com a write-back de informações de contacto geridas por TI para o Workday.
 
-* **Atribuição de colaboradores e atualizações de perfis** - Quando um registo de empregados é atualizado no Workday (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada no Ative Directory, Azure Ative Directory, e opcionalmente office 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Atribuição de colaboradores e atualizações de perfis** - Quando um registo de empregados é atualizado no Workday (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada no Ative Directory, no Azure Ative Directory e opcionalmente no Microsoft 365 e [noutras aplicações SaaS suportadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Rescisões de funcionários** - Quando um empregado é encerrado no Workday, a sua conta de utilizador é automaticamente desativada em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Rescisões de funcionários** - Quando um empregado é encerrado no Workday, a sua conta de utilizador é automaticamente desativada em Ative Directory, Azure Ative Directory, e opcionalmente Microsoft 365 e [outras aplicações SaaS suportadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Recontrações de empregados** - Quando um empregado é recontratado no Workday, a sua conta antiga pode ser automaticamente reativada ou re provisionada (dependendo da sua preferência) para o Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Recontrações de empregados** - Quando um empregado é recontratado no Workday, a sua conta antiga pode ser automaticamente reativada ou re provisionada (dependendo da sua preferência) para o Ative Directory, Azure Ative Directory, e opcionalmente Microsoft 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="whats-new"></a>Novidades
 Esta secção captura melhorias recentes da integração do Workday. Para obter uma lista de atualizações completas, alterações e arquivos planeados, visite a página [O que há de novo no Diretório Ativo do Azure?](../fundamentals/whats-new.md) 
@@ -60,7 +60,7 @@ Esta solução de a provisionamento do utilizador workday é ideal para:
 
 * Organizações que exigem a adesão, mudança e deixar os utilizadores sincronizados com uma ou mais Florestas de Diretórios Ativos, Domínios e OUs com base apenas em informações de alteração detetadas no módulo HCM workday (ver [Get_Workers)](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)
 
-* Organizações que usam o Office 365 para e-mail
+* Organizações que usam o Microsoft 365 para e-mail
 
 ## <a name="solution-architecture"></a>Arquitetura de Soluções
 
@@ -373,7 +373,7 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
 1. Verifique a instalação do Agente e certifique-se de que está a funcionar abrindo o Snap-In "Serviços" e procure o Serviço denominado "Microsoft Azure AD Connect Provisioning Agent"
 
    >[!div class="mx-imgBorder"]
-   >![Serviços](./media/workday-inbound-tutorial/services.png)
+   >![Screenshot do Agente de Provisionamento de Ligação AD da Microsoft Azure em execução em Serviços](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: Na aplicação de provisionamento, configurar a conectividade ao Workday e ao Ative Directory
 Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no portal Azure. 
@@ -1152,7 +1152,7 @@ O serviço de fornecimento de Azure AD enquadra-se na categoria de processador d
 
 No que diz respeito à retenção de dados, o serviço de fornecimento de Ad Azure não gera relatórios, realiza análises ou fornece insights para além de 30 dias. Por isso, o serviço de fornecimento AZURE AD não armazena, processa ou retém quaisquer dados para além de 30 dias. Este design está em conformidade com os regulamentos do RGPD, os regulamentos de conformidade com a privacidade da Microsoft e as políticas de retenção de dados AZure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)

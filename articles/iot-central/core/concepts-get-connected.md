@@ -7,15 +7,17 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+- device-developer
+ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337097"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018198"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -147,10 +149,10 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos usam fichas SAS 
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Chave primária do grupo SAS-IoT-Devices":::
 
-1. Utilize a ferramenta [dps-keygen](https://www.npmjs.com/package/dps-keygen) para gerar as teclas SAS do dispositivo. Utilize a chave primária do grupo a partir do passo anterior. As iDs do dispositivo devem ser minúsculas:
+1. Utilize o `az iot central device compute-device-key` comando para gerar as teclas SAS do dispositivo. Utilize a chave primária do grupo a partir do passo anterior. As iDs do dispositivo devem ser minúsculas:
 
-    ```cmd
-    dps-keygen -mk:<group primary key> -di:<device ID>
+    ```azurecli
+    az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
 1. O OEM pisca cada dispositivo com um ID do dispositivo, uma chave SAS do dispositivo gerado e o valor de **alcance de identificação** da aplicação.
@@ -195,12 +197,12 @@ A IoT Central apoia os seguintes mecanismos de atestação para as matrículas i
 - **Atestado de chave simétrica:** A tecla de teclas simétricas é uma abordagem simples para autenticar um dispositivo com a instância DPS. Para criar uma inscrição individual que utilize chaves simétricas, abra a página **de Ligação** do Dispositivo, selecione **a inscrição individual** como método de ligação e assinatura de acesso partilhado **(SAS)** como mecanismo. Introduza as teclas primárias e secundárias codificadas da base64 e guarde as suas alterações. Utilize o **âmbito de identificação,** **o ID do dispositivo**e a chave primária ou secundária para ligar o dispositivo.
 
     > [!TIP]
-    > Para testes, pode utilizar **o OpenSSL** para gerar chaves codificadas base64:`openssl rand -base64 64`
+    > Para testes, pode utilizar **o OpenSSL** para gerar chaves codificadas base64: `openssl rand -base64 64`
 
 - **Certificados X.509:** Para criar uma inscrição individual com certificados X.509, abra a página **de Ligação** do Dispositivo, selecione **a inscrição individual** como método de ligação e **Certificados (X.509)** como mecanismo. Os certificados do dispositivo utilizados com uma entrada individual de inscrição têm a obrigação de que o emitente e o assunto CN estejam definidos para o ID do dispositivo.
 
     > [!TIP]
-    > Para testes, pode utilizar [ferramentas para o dispositivo de provisionamento do dispositivo Azure IoT SDK para Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) gerar um certificado auto-assinado:`node create_test_cert.js device "mytestdevice"`
+    > Para testes, pode utilizar [ferramentas para o dispositivo de provisionamento do dispositivo Azure IoT SDK para Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) gerar um certificado auto-assinado: `node create_test_cert.js device "mytestdevice"`
 
 - **Atestado de Módulo de Plataforma Fidedigna (TPM):** Um [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) é um tipo de módulo de segurança de hardware. A utilização de um TPM é uma das formas mais seguras de ligar um dispositivo. Este artigo pressupõe que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados por software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que tPMs discretos, firmware ou TPMs integrados. Não utilize TPMs de software em produção. Para criar uma inscrição individual que utilize um TPM, abra a página **de Ligação** do Dispositivo, selecione **a inscrição individual** como método de ligação e **TPM** como mecanismo. Introduza a chave de endosso TPM e guarde as informações de ligação do dispositivo.
 
@@ -297,7 +299,7 @@ Se o seu dispositivo não puder utilizar nenhum dos protocolos suportados, pode 
 
 Todos os dados trocados entre dispositivos e o seu Azure IoT Central estão encriptados. O IoT Hub autentica todos os pedidos de um dispositivo que se conecta a qualquer um dos pontos finais do IoT Hub virado para o dispositivo. Para evitar a troca de credenciais por cima do fio, um dispositivo utiliza fichas assinadas para autenticar. Para mais informações, consulte, [Controle o acesso ao IoT Hub](../../iot-hub/iot-hub-devguide-security.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se você é um desenvolvedor de dispositivos, alguns passos sugeridos seguintes são:
 

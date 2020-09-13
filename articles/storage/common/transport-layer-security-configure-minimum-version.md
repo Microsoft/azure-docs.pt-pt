@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755913"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018582"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima exigida de Segurança da Camada de Transporte (TLS) para pedidos a uma conta de armazenamento
 
@@ -92,11 +92,13 @@ Quando estiver confiante de que o tráfego de clientes que usam versões mais an
 Para configurar a versão TLS mínima para uma conta de armazenamento, desafie a versão **Mínima de Versão** para a conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para obter mais informações sobre o modelo de implementação do Gestor de Recursos Azure, consulte [a visão geral da conta de Armazenamento](storage-account-overview.md).
 
 > [!NOTE]
-> A propriedade **mínima TlsVersion** não é definida por padrão e não devolve um valor até que o desafine explicitamente. A conta de armazenamento permite pedidos enviados com a versão 1.0 ou superior da TLS se o valor da propriedade for **nulo.**
+> A propriedade **MinimumTlsVersion** está atualmente disponível apenas para contas de armazenamento na nuvem pública Azure.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para configurar a versão mínima TLS para uma conta de armazenamento com o portal Azure, siga estes passos:
+Quando cria uma conta de armazenamento com o portal Azure, a versão mínima TLS é definida para 1.2 por padrão.
+
+Para configurar a versão mínima TLS para uma conta de armazenamento existente com o portal Azure, siga estes passos:
 
 1. Navegue para a sua conta de armazenamento no portal do Azure.
 1. Selecione a **definição de configuração.**
@@ -108,6 +110,8 @@ Para configurar a versão mínima TLS para uma conta de armazenamento com o port
 
 Para configurar a versão TLS mínima para uma conta de armazenamento com a PowerShell, instale [a versão 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) ou posterior da Azure PowerShell. Em seguida, configurar a propriedade **MinimumTLSVersion** para uma conta de armazenamento nova ou existente. Valores **válidos** para a MínimaVersão `TLS1_0` `TLS1_1` são, e `TLS1_2` .
 
+A propriedade **MinimumTlsVersion** não é definida por padrão quando cria uma conta de armazenamento com o PowerShell. Esta propriedade não devolve um valor até que você explicitamente defini-lo. A conta de armazenamento permite pedidos enviados com a versão 1.0 ou superior da TLS se o valor da propriedade for **nulo.**
+
 O exemplo a seguir cria uma conta de armazenamento e define a **Versão Mínima TTLS** para TLS 1.1, em seguida, atualiza a conta e define a **Versão Mínima TTLSvers para** TLS 1.2. O exemplo também recupera o valor da propriedade em cada caso. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
 ```powershell
@@ -116,18 +120,18 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
-    -Location $location \
-    -SkuName Standard_GRS \
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.
@@ -137,6 +141,8 @@ Set-AzStorageAccount -ResourceGroupName $rgName \
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para configurar a versão TLS mínima para uma conta de armazenamento com o Azure CLI, instale a versão 2.9.0 do Azure CLI ou posterior. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Em seguida, configurar a propriedade **mínima TlsVersion** para uma conta de armazenamento nova ou existente. Valores **válidos** para a mínima Aversão `TLS1_0` `TLS1_1` é, e `TLS1_2` .
+
+A propriedade **mínima TlsVersion** não é definida por padrão quando cria uma conta de armazenamento com a Azure CLI. Esta propriedade não devolve um valor até que você explicitamente defini-lo. A conta de armazenamento permite pedidos enviados com a versão 1.0 ou superior da TLS se o valor da propriedade for **nulo.**
 
 O exemplo a seguir cria uma conta de armazenamento e define o **mínimo de versão TTLS** para TLS 1.1. Em seguida, atualiza a conta e define a propriedade **mínima TTLSVersion** para TLS 1.2. O exemplo também recupera o valor da propriedade em cada caso. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
@@ -343,7 +349,7 @@ A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazena
 
 Quando um cliente envia um pedido para a conta de armazenamento, o cliente estabelece uma ligação com o ponto final público da conta de armazenamento primeiro, antes de processar quaisquer pedidos. A definição mínima da versão TLS é verificada após a ligação ser estabelecida. Se o pedido utilizar uma versão anterior do TLS do que a especificada pela definição, a ligação continuará a ter sucesso, mas o pedido acabará por falhar. Para obter mais informações sobre os pontos finais públicos para o Armazenamento Azure, consulte [a sintaxe URI de recurso](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configure a Segurança da Camada de Transporte (TLS) para uma aplicação ao cliente](transport-layer-security-configure-client-version.md)
 - [Recomendações de segurança para armazenamento blob](../blobs/security-recommendations.md)

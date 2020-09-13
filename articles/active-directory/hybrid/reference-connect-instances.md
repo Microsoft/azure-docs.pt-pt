@@ -16,15 +16,15 @@ ms.date: 05/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c4d8b0a33763a967550453d8a205258f7583084
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66298818"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015267"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerações especiais para casos
-Azure AD Connect é mais comumente usado com o exemplo mundial de Azure AD e Office 365. Mas há também outros casos e estes têm requisitos diferentes para URLs e outras considerações especiais.
+O Azure AD Connect é mais utilizado com o exemplo mundial de Azure AD e Microsoft 365. Mas há também outros casos e estes têm requisitos diferentes para URLs e outras considerações especiais.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Alemanha
 A [Microsoft Cloud Germany](https://www.microsoft.de/cloud-deutschland) é uma nuvem soberana operada por um administrador de dados alemão.
@@ -67,5 +67,5 @@ Os seguintes passos de configuração manual são utilizados para garantir que o
 3. Inicie o regedit e altere a chave de registo `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` para o valor `4` .
 4. Volte para o assistente de instalação Azure AD Connect, aceite o EULA e continue. Durante a instalação, certifique-se de que utiliza o caminho de instalação de **configuração personalizada** (e não a instalação Do Expresso), e continue a instalação como de costume.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

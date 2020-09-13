@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540971"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015488"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutorial: Configurar o Workday para o provisionamento do utilizador Azure AD
 O objetivo deste tutorial é mostrar os passos necessários para a disponibilização de dados dos trabalhadores do Workday para o Azure Ative Directory. 
@@ -27,13 +27,13 @@ O objetivo deste tutorial é mostrar os passos necessários para a disponibiliza
 
 O [serviço de prestação de serviços de atendimento ao utilizador Azure Ative Directory](../app-provisioning/user-provisioning.md) integra-se com a API de Recursos Humanos do [Workday,](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) a fim de prestar contas de utilizadores. O serviço de fornecimento de utilizadores do Workday suportado pelo serviço de fornecimento de utilizadores Azure AD permite automatizar os seguintes recursos humanos e cenários de gestão do ciclo de vida da identidade:
 
-* **Contratação de novos colaboradores** - Quando um novo colaborador é adicionado ao Workday, uma conta de utilizador é criada automaticamente no Azure Ative Directory e opcionalmente Office 365 e [outras aplicações SaaS suportadas pela Azure AD,](../app-provisioning/user-provisioning.md)com a desativação do endereço de e-mail para Workday.
+* **Contratação de novos colaboradores** - Quando um novo empregado é adicionado ao Workday, uma conta de utilizador é criada automaticamente no Azure Ative Directory e opcionalmente microsoft 365 e [outras aplicações SaaS suportadas pela Azure AD,](../app-provisioning/user-provisioning.md)com a desativação do endereço de e-mail para Workday.
 
-* **Atribuição de colaboradores e atualizações de perfis** - Quando um registo de empregados é atualizado no Workday (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada Azure Ative Directory e opcionalmente Office 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Atribuição de colaboradores e atualizações de perfis** - Quando um registo de empregados é atualizado no Workday (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada Azure Ative Directory e opcionalmente Microsoft 365 e [outras aplicações SaaS suportadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Rescisões de funcionários** - Quando um empregado é encerrado no Workday, a sua conta de utilizador é automaticamente desativada no Azure Ative Directory e opcionalmente Office 365 e [outras aplicações SaaS suportadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Rescisões de funcionários** - Quando um empregado é encerrado no Workday, a sua conta de utilizador é automaticamente desativada no Azure Ative Directory e opcionalmente microsoft 365 e [outras aplicações SaaS suportadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Recontrações de empregados** - Quando um empregado é recontratado no Workday, a sua conta antiga pode ser automaticamente reativada ou re provisionada (dependendo da sua preferência) para o Azure Ative Directory e opcionalmente Office 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Recontrações de empregados** - Quando um empregado é recontratado no Workday, a sua conta antiga pode ser automaticamente reativada ou re provisionada (dependendo da sua preferência) para o Azure Ative Directory e opcionalmente microsoft 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Para quem é a solução de provisionamento do utilizador mais adequada?
 
@@ -45,7 +45,7 @@ Esta solução de acumento do utilizador do Azure Ative Directory é ideal para:
 
 * Organizações que exigem que os utilizadores sejam a provisionados usando dados obtidos a partir do Dia do Trabalho
 
-* Organizações que usam o Office 365 para e-mail
+* Organizações que usam o Microsoft 365 para e-mail
 
 ## <a name="solution-architecture"></a>Arquitetura de soluções
 
@@ -206,7 +206,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
    > [!div class="mx-imgBorder"]
    > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre atributos de trabalho suportados para o provisionamento de entrada](../app-provisioning/workday-attribute-reference.md)
 * [Saiba como configurar o Writeback workday](workday-writeback-tutorial.md)

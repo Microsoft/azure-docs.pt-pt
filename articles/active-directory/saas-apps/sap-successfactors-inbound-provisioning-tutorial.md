@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: c03459a86f521cafd792b9bf86b2b6b46bf3da9c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62716d5061d7c5e6ed8c64a0ce00a780f35c10be
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534110"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018004"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o provisionamento do utilizador do Ative Directory 
 O objetivo deste tutorial é mostrar os passos que você precisa para executar para os utilizadores de SuccessFactors Employee Central em Ative Directory (AD) e Azure AD, com a write-back opcional de endereço de e-mail para SuccessFactors. 
@@ -30,13 +30,13 @@ O [serviço de prestação de utilizadores do Azure Ative Directory](../app-prov
 
 O serviço de fornecimento de utilizadores SuccessFactors suportado pelo serviço de fornecimento de utilizadores Azure AD permite automatizar os seguintes recursos humanos e cenários de gestão do ciclo de vida da identidade:
 
-* **Contratação de novos colaboradores** - Quando um novo colaborador é adicionado aos SuccessFactors, uma conta de utilizador é criada automaticamente em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e [outras aplicações SaaS apoiadas pela Azure AD,](../app-provisioning/user-provisioning.md)com a desativação do endereço de e-mail para SuccessFactors.
+* **Contratação de novos colaboradores** - Quando um novo empregado é adicionado ao SuccessFactors, uma conta de utilizador é criada automaticamente em Ative Directory, Azure Ative Directory, e opcionalmente Microsoft 365 e [outras aplicações SaaS suportadas pela Azure AD,](../app-provisioning/user-provisioning.md)com a desativação do endereço de e-mail para SuccessFactors.
 
-* **Atribuição de colaboradores e atualizações de perfis** - Quando um registo de empregados é atualizado em SuccessFactors (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada no Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Atributos dos colaboradores e atualizações de perfis** - Quando um registo de empregados é atualizado em SuccessFactors (como o seu nome, título ou gestor), a sua conta de utilizador será automaticamente atualizada no Ative Directory, Azure Ative Directory e opcionalmente microsoft 365 e [outras aplicações SaaS suportadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Rescisões de empregados** - Quando um empregado é encerrado em SuccessFactors, a sua conta de utilizador é automaticamente desativada em Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Rescisões de empregados** - Quando um empregado é encerrado em SuccessFactors, a sua conta de utilizador é automaticamente desativada em Ative Directory, Azure Ative Directory, e opcionalmente Microsoft 365 e [outras aplicações SaaS suportadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Recontrações de empregados** - Quando um empregado é recontratado em SuccessFactors, a sua conta antiga pode ser automaticamente reativada ou re provisionada (dependendo da sua preferência) para o Ative Directory, Azure Ative Directory, e opcionalmente Office 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
+* **Recontrações de empregados** - Quando um empregado é recontratado em SuccessFactors, a sua conta antiga pode ser automaticamente reativada ou re provisionada (dependendo da sua preferência) para o Ative Directory, Azure Ative Directory, e opcionalmente Microsoft 365 e [outras aplicações SaaS apoiadas pela Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Para quem é a solução de provisionamento do utilizador mais adequada?
 
@@ -50,7 +50,7 @@ Esta solução de provisionamento de utilizadores do Ative Directory é ideal pa
 
 * Organizações que exigem a adesão, mudança e deixar os utilizadores sincronizados com uma ou mais Florestas de Diretórios Ativos, Domínios e OUs com base apenas em informações de alteração detetadas no [SuccessFactors Employee Central (CE)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html)
 
-* Organizações que usam o Office 365 para e-mail
+* Organizações que usam o Microsoft 365 para e-mail
 
 ## <a name="solution-architecture"></a>Arquitetura de Soluções
 
@@ -234,7 +234,7 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
    
 1. Verifique a instalação do Agente e certifique-se de que está a funcionar abrindo o Snap-In "Serviços" e procure o Serviço denominado "Microsoft Azure AD Connect Provisioning Agent"
   
-   ![Serviços](./media/workday-inbound-tutorial/services.png)
+   ![Screenshot do Agente de Provisionamento de Ligação AD da Microsoft Azure em execução em Serviços](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Parte 3: Na app de provisionamento, configurar a conectividade com os SuccessFactors e o Ative Directory
 Neste passo, estabelecemos conectividade com o SuccessFactors e Diretório Ativo no portal Azure. 
@@ -353,7 +353,7 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
    > [!div class="mx-imgBorder"]
    > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre atributos de Sucessos suportados para o provisionamento de entrada](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Saiba como configurar a gravação de email para o SuccessFactors](sap-successfactors-writeback-tutorial.md)

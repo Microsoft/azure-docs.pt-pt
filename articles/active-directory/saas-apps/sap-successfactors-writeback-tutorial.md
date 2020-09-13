@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534001"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017936"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configure atribui write-back de Azure AD a SAP SuccessFactors
 O objetivo deste tutorial é mostrar os passos para anular atributos de Azure AD a SAP SuccessFactors Employee Central. 
@@ -40,7 +40,7 @@ Pode configurar a app SAP SuccessFactors Writeback para escrever atributos espec
 
 Esta solução de provisionamento do utilizador SuccessFactors Writeback é ideal para:
 
-* Organizações que usam o Office 365 que desejam rescrever atributos autoritários geridos por TI (como endereço de e-mail, telefone, nome de utilizador) de volta à SuccessFactors Employee Central.
+* Organizações que usam o Microsoft 365 que desejam rescrever atributos autoritários geridos por TI (como endereço de e-mail, telefone, nome de utilizador) de volta à SuccessFactors Employee Central.
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configurar o SucessoFactors para a integração
 
@@ -181,7 +181,7 @@ A aplicação de provisionamento de writeback SuccessFactors utiliza certos valo
 
 1. O separador "Autorização" herdará a auth configurada para a coleção. 
 1. Clique em "Enviar" para invocar a chamada da API. 
-1. No organismo Resposta, veja o conjunto de resultados JSON e procure o *id* correspondente ao `externalCode = B` e `externalCode = C` . 
+1. No organismo Resposta, veja o conjunto de resultados JSON e procure o *ID* correspondente ao `externalCode = B` e `externalCode = C` . 
 
    > [!div class="mx-imgBorder"]
    > ![Carteiro-Telefone](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)
@@ -310,7 +310,7 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 
 Consulte a [secção de cenários writeback](../app-provisioning/sap-successfactors-integration-reference.md#writeback-scenarios) do guia de referência de integração SAP SuccessFactors. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Mergulho profundo na Azure AD e NAUS SuccessFactors referência de integração](../app-provisioning/sap-successfactors-integration-reference.md)
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

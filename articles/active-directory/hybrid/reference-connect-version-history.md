@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Versão de lançamento histórico / Microsoft Docs'
-description: Este artigo lista todos os lançamentos de Azure AD Connect e Azure AD Sync
+description: Este artigo lista todos os lançamentos de Azure AD Connect e Azure AD Sync.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b0b0a98e80fb7f343411b49ff2ccd11046bcdc5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1570f4a8c4fb23b885c1de68c2c8d2440c4f6aae
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88052934"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018446"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -48,7 +48,7 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 >
 >Se tiver ativado o Azure AD Connect para sincronização, em breve começará automaticamente a receber notificações de Saúde que o avisam sobre as próximas depreciações quando estiver a executar uma das versões mais antigas.
 >
->Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
+>Consulte [este artigo](./how-to-upgrade-previous-version.md) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
 >
 >Para obter informações sobre o histórico da versão em versões prepretadas, consulte [o arquivo histórico de versão Azure AD Connect](reference-connect-version-history-archive.md)
 
@@ -74,7 +74,7 @@ Isto é uma correção de erros. Não há alterações funcionais nesta versão.
 ### <a name="functional-changes"></a>Alterações funcionais
 Esta versão inclui uma pré-visualização pública da funcionalidade para exportar a configuração de um servidor AZure AD Connect existente para um . Ficheiro JSON que pode ser utilizado ao instalar um novo servidor Azure AD Connect para criar uma cópia do servidor original.
 
-Uma descrição detalhada desta nova característica pode ser encontrada [neste artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+Uma descrição detalhada desta nova característica pode ser encontrada [neste artigo](./how-to-connect-import-export-config.md)
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 - Corrigi um bug onde haveria um aviso falso sobre o tamanho do DB local nas construções localizadas durante a atualização.
@@ -244,7 +244,7 @@ Corrigimos um bug no utilitário de compressão de erros de sincronização que 
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->Existe um problema conhecido com a atualização do Azure AD Connect de uma versão anterior para 1.3.21.0 onde o portal O365 não reflete a versão atualizada, apesar de o Azure AD Connect ter sido atualizado com sucesso.
+>Existe um problema conhecido com a atualização do Azure AD Connect de uma versão anterior para 1.3.21.0 onde o portal Microsoft 365 não reflete a versão atualizada, apesar de o Azure AD Connect ter atualizado com sucesso.
 >
 > Para resolver isto, é necessário importar o módulo **AdSync** e, em seguida, executar o `Set-ADSyncDirSyncConfiguration` cmdlet PowerShell no servidor Azure AD Connect.  Pode utilizar os seguintes passos:
 >
@@ -261,5 +261,5 @@ Corrigimos um bug no utilitário de compressão de erros de sincronização que 
 - Fixou uma vulnerabilidade de elevação de privilégios que existe no Microsoft Azure Ative Directory Connect construir 1.3.20.0.  Esta vulnerabilidade, sob determinadas condições, pode permitir que um intruso execute dois cmdlets PowerShell no contexto de uma conta privilegiada, e execute ações privilegiadas.  Esta atualização de segurança aborda o problema desativando estes cmdlets. Para mais informações consulte [a atualização de segurança](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

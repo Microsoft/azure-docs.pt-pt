@@ -9,16 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 572b5328a433839dafbfe23eb7207dfaeb9ea309
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017860"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018202"
 ---
-# <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender a Azure IoT Central com regras personalizadas usando Stream Analytics, Funções Azure e SendGrid
-
-
+# <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Expandir o Azure IoT Central com regras personalizadas através do Stream Analytics, das Funções do Azure do SendGrid
 
 Este guia de como fazer mostra-lhe, como desenvolvedor de soluções, como estender a sua aplicação IoT Central com regras e notificações personalizadas. O exemplo mostra o envio de uma notificação a um operador quando um dispositivo deixa de enviar telemetria. A solução utiliza uma consulta [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) para detetar quando um dispositivo deixou de enviar telemetria. O trabalho stream Analytics utiliza [funções Azure](https://docs.microsoft.com/azure/azure-functions/) para enviar e-mails de notificação usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
@@ -48,7 +46,7 @@ Crie uma aplicação IoT Central no site do [gestor de aplicações Azure IoT Ce
 | URL | Aceite o prefixo padrão ou escolha o seu próprio prefixo URL único |
 | Diretório | Seu inquilino do Diretório Ativo Azure |
 | Subscrição do Azure | A sua subscrição do Azure |
-| Região | A sua região mais próxima |
+| Region | A sua região mais próxima |
 
 Os exemplos e imagens deste artigo utilizam a região **dos Estados Unidos.** Escolha um local próximo de si e certifique-se de criar todos os seus recursos na mesma região.
 
@@ -321,8 +319,8 @@ No site do [gestor de aplicações Azure IoT Central,](https://aka.ms/iotcentral
     | Espaço de nomes dos Event Hubs | O nome do seu espaço de nome do Event Hubs |
     | Hub de eventos | centralexport |
     | Medições | Ativado |
-    | Dispositivos | Desativada |
-    | Modelos de dispositivo | Desativada |
+    | Dispositivos | Desativado |
+    | Modelos de dispositivo | Desativado |
 
 ![Configuração contínua da exportação de dados](media/howto-create-custom-rules/cde-configuration.png)
 
@@ -349,7 +347,7 @@ Para arrumar depois deste como fazer e evitar custos desnecessários, elimine o 
 
 Pode eliminar a aplicação IoT Central da página **Gestão** dentro da aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia de como guiar, aprendeu a:
 
