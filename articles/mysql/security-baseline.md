@@ -1,32 +1,32 @@
 ---
-title: Linha de Base de Segurança Azure para Base de Dados Azure para MySQL
-description: Linha de Base de Segurança Azure para Base de Dados Azure para MySQL
+title: Linha de segurança Azure para Azure Database para MySQL
+description: A Base de Dados Azure para a linha de base de segurança MySQL fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
-ms.service: security
+ms.service: mysql
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 414c8dc0a9e6c7aa47287fe49a3f21ee28605f78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 80a7067b1d8d5417a6a448ee8a3be563344e9a72
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244709"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420256"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Linha de Base de Segurança Azure para Base de Dados Azure para MySQL
+# <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Linha de segurança Azure para Azure Database para MySQL
 
 A Linha de Base de Segurança Azure para a Base de Dados Azure para o MySQL contém recomendações que o ajudarão a melhorar a postura de segurança da sua implementação.
 
-A linha de base para este serviço é extraída da [versão 1.0 do Azure Security Benchmark,](https://docs.microsoft.com/azure/security/benchmarks/overview)que fornece recomendações sobre como pode garantir as suas soluções em nuvem no Azure com a nossa orientação de boas práticas.
+A linha de base para este serviço é extraída da [versão 1.0 do Azure Security Benchmark,](../security/benchmarks/overview.md)que fornece recomendações sobre como pode garantir as suas soluções em nuvem no Azure com a nossa orientação de boas práticas.
 
-Para obter mais informações, consulte [a visão geral da Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, consulte [a visão geral da Azure Security Baselines](../security/benchmarks/security-baselines-overview.md).
 
-## <a name="network-security"></a>Segurança de Rede
+## <a name="network-security"></a>Segurança da rede
 
-*Para obter mais informações, consulte [Controlo de Segurança: Segurança da Rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Segurança da rede](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos utilizando grupos de segurança de rede ou firewall Azure na sua Rede Virtual
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteger os recursos do Azure nas redes virtuais
 
 **Orientação**: Configurar link privado para base de dados Azure para MySQL com pontos finais privados. O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através de um ponto final privado. O Azure Private Link essencialmente traz serviços Azure dentro da sua Rede Virtual privada (VNet). O tráfego entre a sua rede virtual e o caso MySQL percorre a rede de espinha dorsal da Microsoft.
 
@@ -34,25 +34,25 @@ Em alternativa, poderá utilizar pontos finais de serviço de rede virtual para 
 
 Também pode proteger a sua Base de Dados Azure para o servidor MySQL com regras de firewall. A firewall do servidor impede todo o acesso ao servidor de base de dados até especificar quais os computadores que têm permissão. Para configurar a firewall, crie as regras de firewall que especificam intervalos de endereços IP aceitáveis. Pode criar regras de firewall ao nível do servidor.
 
-Como configurar o Link Privado para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal
+- [Como configurar link privado para base de dados Azure para MySQL](howto-configure-privatelink-portal.md)
 
-Como criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
+- [Como criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para o MySQL](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
-Como configurar a Base de Dados Azure para as regras de firewall mySQL: https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal
+- [Como configurar a base de dados Azure para as regras de firewall mySQL](howto-manage-firewall-using-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Monitorar e registar a configuração e o tráfego de Vnets, Subnetas e NICs
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2: Monitorizar e registar a configuração e o tráfego de redes virtuais, sub-redes e interfaces de rede
 
 **Orientação**: Quando a sua base de dados Azure para a instância MySQL estiver protegida a um ponto final privado, pode implantar máquinas virtuais na mesma rede virtual. Pode utilizar um grupo de segurança de rede (NSG) para reduzir o risco de exfiltração de dados. Ativar os registos de fluxo NSG e enviar registos para uma conta de armazenamento para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho do Log Analytics e utilizar o Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens do Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender padrões de fluxo de tráfego e identificar configurações erradas da rede.
 
-Como configurar o Link Privado para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal
+- [Como configurar link privado para base de dados Azure para MySQL](howto-configure-privatelink-portal.md)
 
-Como ativar os registos de fluxo NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+- [Como ativar registos de fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-Como Ativar e utilizar a Análise de Tráfego: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+- [Como Ativar e utilizar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -72,21 +72,21 @@ Como Ativar e utilizar a Análise de Tráfego: https://docs.microsoft.com/azure/
 
 Ativar a Norma de Proteção DDoS nas Redes Virtuais associadas à sua Base de Dados Azure para instâncias MySQL para proteger contra ataques de DDoS. Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados.
 
-Como configurar a Proteção Avançada de Ameaças para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Como configurar a Proteção Avançada de Ameaças para Base de Dados Azure para o MySQL](howto-database-threat-protection-portal.md)
 
-Como configurar a proteção DDoS: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+- [Como configurar a proteção DDoS](../virtual-network/manage-ddos-protection.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Pacotes de rede de registos e registos de fluxo
+### <a name="15-record-network-packets"></a>1.5: Pacotes de rede de registos
 
 **Orientação**: Quando a sua base de dados Azure para a instância MySQL estiver protegida a um ponto final privado, pode implantar máquinas virtuais na mesma rede virtual. Em seguida, pode configurar um grupo de segurança de rede (NSG) para reduzir o risco de exfiltração de dados. Ativar os registos de fluxo NSG e enviar registos para uma conta de armazenamento para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho do Log Analytics e utilizar o Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens do Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender padrões de fluxo de tráfego e identificar configurações erradas da rede.
 
-Como ativar os registos de fluxo NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+- [Como ativar registos de fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-Como Ativar e utilizar a Análise de Tráfego: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+- [Como Ativar e utilizar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -96,7 +96,7 @@ Como Ativar e utilizar a Análise de Tráfego: https://docs.microsoft.com/azure/
 
 **Orientação**: Utilize proteção de ameaças avançadas para base de dados Azure para o MySQL. A Advanced Threat Protection deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados.
 
-Como configurar a Proteção Avançada de Ameaças para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Como configurar a Proteção Avançada de Ameaças para Base de Dados Azure para o MySQL](howto-database-threat-protection-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -116,9 +116,9 @@ Como configurar a Proteção Avançada de Ameaças para a Base de Dados Azure pa
 
 Nota: A Azure Database for MySQL utiliza as tags de serviço "Microsoft.Sql".
 
-Para mais informações sobre a utilização de etiquetas de serviço: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+- [Para mais informações sobre a utilização de tags de serviço](../virtual-network/service-tags-overview.md)
 
-Compreender a utilização da Etiqueta de Serviço para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet#terminology-and-description
+- [Compreender o uso da etiqueta de serviço para a base de dados Azure para o MySQL](concepts-data-access-and-security-vnet.md#terminology-and-description)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -132,11 +132,11 @@ Compreender a utilização da Etiqueta de Serviço para a Base de Dados Azure pa
 
 - A ligação SSL da Aplicação deve ser ativada para servidores de base de dados MySQL
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-Amostras da Política Azure para networking: https://docs.microsoft.com/azure/governance/policy/samples/
+- [Amostras da Política Azure para networking](/azure/governance/policy/samples/)
 
-Como criar uma Planta Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+- [Como criar uma Planta Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -146,11 +146,11 @@ Como criar uma Planta Azure: https://docs.microsoft.com/azure/governance/bluepri
 
 **Orientação**: Utilize etiquetas para recursos relacionados com a segurança da rede e fluxo de tráfego para a sua Base de Dados Azure para instâncias MySQL para fornecer metadados e organização lógica.
 
-Utilize qualquer uma das definições de Política Azure incorporadas relacionadas com a marcação, tais como, "Exigir etiqueta e seu valor", para garantir que todos os recursos são criados com etiquetas e para notificá-lo dos recursos existentes não marcados.
+Utilize qualquer uma das definições de Política Azure incorporadas relacionadas com a marcação, tais como **a etiqueta Require e o seu valor** para garantir que todos os recursos são criados com etiquetas e para notificá-lo dos recursos existentes não marcados.
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar ações em recursos baseados nas suas etiquetas.
 
-Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -160,17 +160,17 @@ Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com a sua Base de Dados Azure para instâncias MySQL. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-Como visualizar e recuperar eventos de Registo de Atividades Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log-view)
 
-Como criar alertas no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-## <a name="logging-and-monitoring"></a>Início de sessão e Monitorização
+## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
 
-*Para obter mais informações, consulte [Controlo de Segurança: Registo e monitorização](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Registar e monitorizar](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Utilizar fontes de sincronização de tempo aprovadas
 
@@ -184,9 +184,9 @@ Como criar alertas no Azure Monitor: https://docs.microsoft.com/azure/azure-moni
 
 **Orientação**: Ative as definições de diagnóstico e registos de servidores e ingere registos para agregar dados de segurança gerados pela sua Base de Dados Azure para instâncias MySQL. Dentro do Azure Monitor, utilize o Log Analytics Workspace(s) para consultar e realizar análises, e utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo. Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-Compreenda os registos de servidores para a base de dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-monitoring#server-logs
+- [Compreender registos de servidores para base de dados Azure para o MySQL](concepts-monitoring.md#server-logs)
 
-Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
@@ -196,13 +196,13 @@ Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicksta
 
 **Orientação**: Ativar as definições de diagnóstico na sua Base de Dados Azure para os casos mySQL para acesso a registos de auditoria, consulta lenta e registos de métricas MySQL. Certifique-se de que ativa especificamente o registo de auditoria mySQL. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, marcação de tempo, endereços de origem, endereços de destino e outros elementos úteis. Pode também ativar as Definições de Diagnóstico do Registo de Atividade do Azure e enviar os registos para o mesmo espaço de trabalho ou conta de armazenamento do Log Analytics.
 
-Compreenda os registos de servidores para a base de dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-monitoring#server-logs
+- [Compreender registos de servidores para base de dados Azure para o MySQL](concepts-monitoring.md#server-logs)
 
-Como configurar e aceder a registos de consulta lenta para Azure Database para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-server-logs-in-portal
+- [Como configurar e aceder a registos de consulta lenta para Azure Database for MySQL](howto-configure-server-logs-in-portal.md)
 
-Como configurar e aceder aos registos de auditoria da Azure Database para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-audit-logs-portal
+- [Como configurar e aceder a registos de auditoria para Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-Como configurar definições de diagnóstico para o registo de atividades azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+- [Como configurar definições de diagnóstico para o registo de atividades azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
@@ -220,45 +220,45 @@ Como configurar definições de diagnóstico para o registo de atividades azure:
 
 **Orientação**: No âmbito do Monitor Azure, para o espaço de trabalho Log Analytics utilizado para manter a sua Base de Dados Azure para registos MySQL, desagure o período de retenção de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-Como definir parâmetros de retenção de registos para os espaços de trabalho do Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+- [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Armazenar registos de recursos numa conta de armazenamento Azure: https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
+- [Armazenar registos de recursos numa conta de armazenamento Azure](/azure/azure-monitor/platform/resource-logs-collect-storage)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="26-monitor-and-review-logs"></a>2.6: Monitor e revisão de Registos
+### <a name="26-monitor-and-review-logs"></a>2.6: Registos de monitorização e revisão
 
 **Orientação**: Analise e monitorize registos da sua Base de Dados Azure para casos de MySQL para comportamento anómalo. Utilize o Azure Monitor's Log Analytics para rever registos e efetuar consultas nos dados de registo. Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-Para mais informações sobre o Log Analytics: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+- [Para mais informações sobre o Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-Como realizar consultas personalizadas no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Permitir alertas para atividades anómalas
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Permitir alertas para atividades anómalas
 
 **Orientação**: Permitir a proteção avançada de ameaças para a base de dados Azure para o MySQL. A Advanced Threat Protection deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados.
 
 Além disso, pode ativar registos de servidores e definições de diagnóstico para o MySQL e enviar registos para um espaço de trabalho do Log Analytics. A bordo do seu espaço de trabalho Log Analytics para Azure Sentinel, uma vez que fornece uma solução de resposta automatizada de orquestração de segurança (SOAR). Isto permite criar playbooks (soluções automatizadas) e ser usados para remediar problemas de segurança.
 
-Como permitir a proteção avançada de ameaças para base de dados de azure para o MySQL (pré-visualização): https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Como permitir a proteção avançada de ameaças para base de dados de azure para o MySQL (pré-visualização)](howto-database-threat-protection-portal.md)
 
-Compreenda os registos de servidores para a base de dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-monitoring#server-logs
+- [Compreender registos de servidores para base de dados Azure para o MySQL](concepts-monitoring.md#server-logs)
 
-Como configurar e aceder a registos de consulta lenta para Azure Database para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-server-logs-in-portal
+- [Como configurar e aceder a registos de consulta lenta para Azure Database for MySQL](howto-configure-server-logs-in-portal.md)
 
-Como configurar e aceder aos registos de auditoria da Azure Database para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-audit-logs-portal
+- [Como configurar e aceder a registos de auditoria para Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-Como configurar definições de diagnóstico para o registo de atividades azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+- [Como configurar definições de diagnóstico para o registo de atividades azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -288,9 +288,9 @@ Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicksta
 
 **Responsabilidade**: N/A
 
-## <a name="identity-and-access-control"></a>Identidade e Controlo de Acesso
+## <a name="identity-and-access-control"></a>Identidade e controlo de acesso
 
-*Para mais informações, consulte [Controlo de Segurança: Identidade e Controlo de Acesso.](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)*
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Identidade e controlo de acessos](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
@@ -298,11 +298,11 @@ Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicksta
 
 A Azure Database for MySQL não suporta o controlo de acesso baseado em funções incorporado, mas pode criar funções personalizadas baseadas em opções específicas de fornecedores de recursos.
 
-Compreenda as funções personalizadas para a subscrição do Azure: https://docs.microsoft.com/azure/role-based-access-control/custom-roles 
+- [Compreenda as funções personalizadas para a subscrição do Azure](../role-based-access-control/custom-roles.md) 
 
-Compreender a base de dados Azure para as operações do fornecedor de recursos MySQL: https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbformysql
+- [Compreender a base de dados Azure para as operações do fornecedor de recursos MySQL](../role-based-access-control/resource-provider-operations.md#microsoftdbformysql)
 
-Compreender a gestão de acessos para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-security#access-management
+- [Compreender a gestão de acessos para a Base de Dados Azure para o MySQL](concepts-security.md#access-management)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -314,9 +314,9 @@ Compreender a gestão de acessos para a Base de Dados Azure para o MySQL: https:
 
 Após a criação da Base de Dados Azure para o próprio recurso MySQL, o Azure força a criação de um utilizador administrativo com uma senha forte. No entanto, uma vez criado o caso MySQL, poderá utilizar a primeira conta de administração do servidor que criou para criar utilizadores adicionais e conceder acesso administrativo aos mesmos. Ao criar estas contas, certifique-se de que configura uma senha diferente e forte para cada conta.
 
-Como criar contas adicionais para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
+- [Como criar contas adicionais para a Base de Dados Azure para o MySQL](howto-create-users.md)
 
-Como atualizar a palavra-passe de administrador: https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password
+- [Como atualizar a palavra-passe de administrador](howto-create-manage-server-portal.md#update-admin-password)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -326,57 +326,57 @@ Como atualizar a palavra-passe de administrador: https://docs.microsoft.com/azur
 
 **Orientação**: Crie procedimentos operacionais padrão em torno da utilização de contas administrativas dedicadas que tenham acesso à sua Base de Dados Azure para instâncias MySQL. Utilize a identidade do Centro de Segurança Azure e a gestão de acessos para monitorizar o número de contas administrativas.
 
-Compreenda a identidade e o acesso do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+- [Compreender a identidade e o acesso do Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
-Entenda como criar utilizadores administrativos na Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
+- [Compreender como criar utilizadores administrativos na Base de Dados Azure para o MySQL](howto-create-users.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Utilize um único sinal de sso com o Azure Ative Directory
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: Utilize o Azure Ative Directory single sign-on (SSO)
 
 **Orientação**: A assinatura na Base de Dados Azure para o MySQL é suportada tanto através do nome de utilizador/palavra-passe configurado diretamente na base de dados, como utilizando uma identidade do Diretório Ativo Azure (AD) e utilizando um token AD Azure para ligar. Ao utilizar um token AD Azure, são suportados diferentes métodos, tais como um utilizador AD Azure, um grupo AD Azure ou uma aplicação AD AZure conectando-se à base de dados.
 
 Separadamente, o acesso do avião de controlo para o MySQL está disponível através da REST API e suporta sSO. Para autenticar, desacorda o cabeçalho de Autorização para os seus pedidos num Token Web JSON que obtenha do Azure Ative Directory.
 
-Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-sign-in-azure-ad-authentication
+- [Utilize o Azure Ative Directy para autenticar com base de dados Azure para o MySQL](howto-configure-sign-in-azure-ad-authentication.md)
 
-Compreenda a Base de Dados Azure para a MySQL REST API: https://docs.microsoft.com/rest/api/mysql/
+- [Compreender a base de dados Azure para MySQL REST API](/rest/api/mysql/)
 
-Compreender SSO com Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+- [Compreender SSO com Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Utilize a autenticação multi-factor para todos os acessos baseados no Azure Ative Directory
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Utilizar a autenticação de vários fatores para todos os acessos baseados no Diretório Ativo Azure
 
 **Orientação**: Ativar a autenticação multi-factor do Diretório Ativo Azure (MFA) e seguir as recomendações do Azure Security Center Identity and Access Management. Ao utilizar fichas AD Azure para iniciar sessão na sua base de dados, isto permite-lhe requerer autenticação multi-factor para iniciar sessão de base de dados.
 
-Como permitir o MFA em Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+- [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-sign-in-azure-ad-authentication
+- [Utilize o Azure Ative Directy para autenticar com base de dados Azure para o MySQL](howto-configure-sign-in-azure-ad-authentication.md)
 
-Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+- [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (Estações de acesso privilegiadas) para todas as tarefas administrativas
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6: Utilizar estações de trabalho seguras e geridas pelo Azure para tarefas administrativas
 
 **Orientação**: Utilize estações de trabalho de acesso privilegiada (PAWs) com autenticação multi-factor (MFA) configuradas para iniciar sessão e configurar recursos Azure.
 
-Saiba mais sobre estações de acesso privilegiadas: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+- [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-Como permitir o MFA em Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+- [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registar e alertar sobre atividades suspeitas a partir de contas administrativas
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registar e alertar sobre atividades suspeitas a partir de contas administrativas
 
 **Orientação**: Permitir a Proteção Avançada de Ameaças para a Base de Dados de Azure para o MySQL gerar alertas para atividades suspeitas.
 
@@ -384,11 +384,11 @@ Além disso, pode utilizar a Azure AD Privileged Identity Management (PIM) para 
 
 Utilize deteções de risco Azure AD para visualizar alertas e relatórios sobre o comportamento do utilizador de risco.
 
-Como configurar a Proteção Avançada de Ameaças para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Como configurar a Proteção Avançada de Ameaças para Base de Dados Azure para o MySQL](howto-database-threat-protection-portal.md)
 
-Como implementar a Gestão de Identidade Privilegiada (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+- [Como implementar gestão de identidade privilegiada (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-Compreenda as deteções de risco da AD Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+- [Compreender deteções de risco Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -398,7 +398,7 @@ Compreenda as deteções de risco da AD Azure: https://docs.microsoft.com/azure/
 
 **Orientação**: Utilize locais nomeados de acesso condicional para permitir o acesso do portal e do Gestor de Recursos Azure a partir de apenas agrupamentos lógicos específicos de intervalos de endereços IP ou países/regiões.
 
-Como configurar localizações nomeadas em Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+- [Como configurar localizações nomeadas em Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -412,7 +412,7 @@ Para iniciar sessão na Base de Dados Azure para o MySQL é aconselhável utiliz
 
 As credenciais AD do AZure também podem ser utilizadas para a administração a nível do plano de gestão (por exemplo, o portal Azure) para controlar as contas de administração do MySQL.
 
-Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-sign-in-azure-ad-authentication
+- [Utilize o Azure Ative Directy para autenticar com base de dados Azure para o MySQL](howto-configure-sign-in-azure-ad-authentication.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -422,29 +422,29 @@ Utilize o Diretório Ativo Azure para autenticar com base de dados Azure para o 
 
 **Orientação**: Reveja os registos do Azure Ative Directory para ajudar a descobrir contas velhas que podem incluir as que têm Base de Dados Azure para funções administrativas do MySQL. Além disso, utilize a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais que possam ser usadas para aceder à Base de Dados Azure para o MySQL e atribuições de funções. O acesso ao utilizador deve ser revisto regularmente, como a cada 90 dias, para garantir que apenas os Utilizadores certos tenham acesso continuado.
 
-Compreenda a Azure Ad Reporting https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+- [Compreenda a Azure Ad Reporting](/azure/active-directory/reports-monitoring/)
 
-Como utilizar comentários sobre o acesso à identidade do Azure: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+- [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: Monitorização das tentativas de acesso a contas desativadas
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Monitorização tenta aceder a credenciais desativadas
 
 **Orientação**: Ativar as definições de diagnóstico da Base de Dados Azure para o MySQL e o Azure Ative Directory, enviando todos os registos para um espaço de trabalho log analytics. Configure os alertas desejados (tais como tentativas de autenticação falhada) no Log Analytics.
 
-Como configurar e aceder a registos de consulta lenta para Azure Database para o MySQL: https://docs.microsoft.com/Azure/mysql/howto-configure-server-logs-in-portal
+- [Como configurar e aceder a registos de consulta lenta para Azure Database for MySQL](/Azure/mysql/howto-configure-server-logs-in-portal)
 
-Como configurar e aceder aos registos de auditoria da Azure Database para o MySQL: https://docs.microsoft.com/Azure/mysql/howto-configure-audit-logs-portal
+- [Como configurar e aceder a registos de auditoria para Azure Database for MySQL](/Azure/mysql/howto-configure-audit-logs-portal)
 
-Como integrar os Registos de Atividade do Azure no Monitor Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+- [Como integrar os Registos de Atividades do Azure no Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
 **Responsabilidade**: Cliente
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: Alerta sobre desvio de comportamento de login de conta
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre desvio de comportamento de inscrição na conta
 
 **Orientação**: Permitir a Proteção Avançada de Ameaças para a Base de Dados de Azure para o MySQL gerar alertas para atividades suspeitas.
 
@@ -452,13 +452,13 @@ Utilize as funcionalidades de Proteção de Identidade do Azure Ative Directory 
 
 Você também pode ingerir troncos em Azure Sentinel para mais investigação.
 
-Como configurar a Proteção Avançada de Ameaças para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Como configurar a Proteção Avançada de Ameaças para Base de Dados Azure para o MySQL](howto-database-threat-protection-portal.md)
 
-Visão geral da Proteção de Identidade AZure AD: https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection
+- [Visão geral da Proteção de Identidade AD AZure](../active-directory/identity-protection/overview-identity-protection.md)
 
-Como ver a Azure AD a iniciar súmis arriscados: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+- [Como ver a Azure AD a entrar em risco](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
@@ -468,21 +468,21 @@ Como embarcar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicksta
 
 **Orientação**: Não aplicável; O Lockbox do cliente ainda não está suportado para a Base de Dados Azure para o MySQL.
 
-Lista de serviços suportados pelo Customer Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+- [Lista de serviços suportados pelo Bloqueio do Cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: N/A
 
-## <a name="data-protection"></a>Proteção de Dados
+## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte [Controlo de Segurança: Proteção de Dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informação sensível
 
 **Orientação**: Utilize etiquetas para ajudar a rastrear a Base de Dados Azure para instâncias MySQL ou recursos relacionados que armazenam ou processam informações sensíveis.
 
-Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -492,16 +492,15 @@ Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. Utilize uma combinação de regras private link, endpoints de serviço e/ou firewall para isolar e limitar o acesso à rede à sua Base de Dados Azure para instâncias MySQL.
 
-Como criar subscrições adicionais do Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
+- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
 
-Como criar Grupos de Gestão: https://docs.microsoft.com/azure/governance/management-groups/create
+- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
 
-Como configurar o Link Privado para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link
+- [Como configurar link privado para base de dados Azure para MySQL](concepts-data-access-security-private-link.md)
 
-Como criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
+- [Como criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para o MySQL](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
-Como configurar a Base de Dados Azure para as regras de firewall mySQL: https://docs.microsoft.com/azure/mysql/concepts-firewall-rules
-
+- [Como configurar a base de dados Azure para as regras de firewall mySQL](concepts-firewall-rules.md)
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
@@ -513,9 +512,9 @@ Como configurar a Base de Dados Azure para as regras de firewall mySQL: https://
 
 A Microsoft gere a infraestrutura subjacente para a Azure Database para o MySQL e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-Como mitigar a exfiltração de dados para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link#data-exfiltration-prevention
+- [Como mitigar a exfiltração de dados para a base de dados Azure para o MySQL](concepts-data-access-security-private-link.md#data-exfiltration-prevention)
 
-Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -527,7 +526,7 @@ Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.co
 
 Atualmente, a versão TLS suportada para Azure Database for MySQL são TLS 1.0, TLS 1.1, TLS 1.2.
 
-Como configurar a encriptação em trânsito para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-ssl-connection-security
+- [Como configurar a encriptação em trânsito para a Base de Dados Azure para o MySQL](concepts-ssl-connection-security.md)
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
@@ -539,19 +538,19 @@ Como configurar a encriptação em trânsito para a Base de Dados Azure para o M
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure**: Não disponível
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
+### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
 
 **Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso à Base de Dados Azure para o plano de controlo MySQL (por exemplo, portal Azure). Para o acesso a um plano de dados (dentro da própria base de dados), utilize consultas SQL para criar utilizadores e configurar permissões do utilizador. O Azure RBAC não afeta as permissões do utilizador dentro da base de dados.
 
-Como configurar o Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+- [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-Como configurar o acesso do utilizador com o SQL para Azure Database para o MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
+- [Como configurar o acesso do utilizador com SQL para Azure Database para o MySQL](howto-create-users.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -563,7 +562,7 @@ Como configurar o acesso do utilizador com o SQL para Azure Database para o MySQ
 
 A Microsoft gere a infraestrutura subjacente para a Azure Database para o MySQL e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+- [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -577,9 +576,9 @@ A encriptação de dados com chaves geridas pelo cliente da Base de Dados do Azu
 
 AskAzureDBforMySQL@service.microsoft.com
 
-Compreenda a encriptação em repouso para a Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-security
+- [Compreenda a encriptação em repouso para a Base de Dados Azure para o MySQL](concepts-security.md)
 
-Como configurar chaves geridas pelo cliente para a base de dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-data-encryption-mysql
+- [Como configurar chaves geridas pelo cliente para a base de dados Azure para o MySQL](concepts-data-encryption-mysql.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -589,25 +588,29 @@ Como configurar chaves geridas pelo cliente para a base de dados Azure para o My
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações nas instâncias de produção da Base de Dados Azure para o MySQL e outros recursos críticos ou relacionados.
 
-Como criar alertas para eventos de Registo de Atividades Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-## <a name="vulnerability-management"></a>Gestão de Vulnerabilidades
+## <a name="vulnerability-management"></a>Gestão de vulnerabilidades
 
-*Para obter mais informações, consulte [Controlo de Segurança: Gestão de Vulnerabilidades.](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Gestão de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas automatizadas de digitalização de vulnerabilidades
 
-**Orientação**: Atualmente não disponível; O Azure Security Center ainda não suporta a avaliação de vulnerabilidade para a Base de Dados Azure para o MySQL.
+**Orientação**: Siga as recomendações do Azure Security Center sobre a garantia da sua Base de Dados Azure para o MySQL e recursos conexos.
 
-Cobertura de recursos para os serviços Azure PaaS no Azure Security Center: https://docs.microsoft.com/azure/security-center/features-paas
+A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que suportam a Base de Dados Azure para o MySQL.
+
+- [Compreenda as recomendações do Centro de Segurança Azure](../security-center/recommendations-reference.md)
+
+- [Cobertura de recursos para serviços Azure PaaS no Azure Security Center](../security-center/features-paas.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
-**Responsabilidade**: Cliente
+**Responsabilidade**: Compartilhado
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implementar solução automatizada de gestão de correção do sistema operativo
 
@@ -617,7 +620,7 @@ Cobertura de recursos para os serviços Azure PaaS no Azure Security Center: htt
 
 **Responsabilidade**: N/A
 
-### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implementar solução automatizada de gestão de patchs de software de terceiros
+### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3: Implementar solução automatizada de gestão de patchs para títulos de software de terceiros
 
 **Orientação**: Não aplicável; esta orientação destina-se a recursos computacional.
 
@@ -637,24 +640,23 @@ Cobertura de recursos para os serviços Azure PaaS no Azure Security Center: htt
 
 **Orientação**: A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que suportam a Base de Dados Azure para o MySQL.
 
-
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Microsoft
 
-## <a name="inventory-and-asset-management"></a>Gestão de Recursos e Inventário
+## <a name="inventory-and-asset-management"></a>Gestão de recursos e inventário
 
-*Para mais informações, consulte [Controlo de Segurança: Inventário e Gestão de Ativos.](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)*
+*Para mais informações, consulte o [Azure Security Benchmark: Inventário e gestão de ativos.](../security/benchmarks/security-control-inventory-asset-management.md)*
 
-### <a name="61-use-azure-asset-discovery"></a>6.1: Use a Azure Asset Discovery
+### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Utilize uma solução automatizada de descoberta de ativos
 
-**Orientação**: Utilize o Azure Resource Graph para consultar e descobrir todos os recursos (incluindo a Base de Dados Azure para instâncias MySQL) dentro da sua subscrição. Certifique-se de que tem permissões (de leitura) adequadas no seu inquilino e é capaz de enumerar todas as subscrições da Azure, bem como recursos dentro das suas subscrições.
+**Orientação**: Utilize o Azure Resource Graph para consultar e descobrir todos os recursos (incluindo a Base de Dados Azure para instâncias MySQL) dentro das suas subscrições. Certifique-se de que tem permissões (de leitura) adequadas no seu inquilino e é capaz de enumerar todas as subscrições da Azure, bem como recursos dentro das suas subscrições.
 
-Como criar consultas com gráfico de recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+- [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-Como ver as suas Subscrições Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+- [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-Compreenda Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
+- [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -664,7 +666,7 @@ Compreenda Azure RBAC: https://docs.microsoft.com/azure/role-based-access-contro
 
 **Orientação**: Aplicar etiquetas na Base de Dados Azure para instâncias MySQL e outros recursos relacionados que dão metadados para organizá-los logicamente numa taxonomia.
 
-Como criar e utilizar Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Como criar e usar Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -674,17 +676,17 @@ Como criar e utilizar Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Orientação**: Utilize a marcação, grupos de gestão e assinaturas separadas, se for caso disso, para organizar e rastrear a Base de Dados Azure para instâncias MySQL e recursos relacionados. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição em tempo útil.
 
-Como criar subscrições adicionais do Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
+- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
 
-Como criar Grupos de Gestão: https://docs.microsoft.com/azure/governance/management-groups/create
+- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
 
-Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Manter um inventário dos recursos aprovados da Azure e dos títulos de software
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4: Definir e manter o inventário dos recursos aprovados da Azure
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional e a Azure como um todo.
 
@@ -694,17 +696,17 @@ Como criar e utilizar tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para recursos Azure não aprovados
 
-**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados na subscrição(s) de subscrição de clientes, utilizando as seguintes definições de política incorporada:
+**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados em subscrições de clientes utilizando as seguintes definições de política incorporada:
 
 - Tipos de recursos não permitidos
 
 - Tipos de recursos permitidos
 
-Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da(s) subscrição.
+Além disso, utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro das subscrições.
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+- [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -736,21 +738,21 @@ Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/gove
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas serviços Azure aprovados
 
-**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados na subscrição(s) de subscrição de clientes, utilizando as seguintes definições de política incorporada:
+**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados em subscrições de clientes utilizando as seguintes definições de política incorporada:
 
 - Tipos de recursos não permitidos
 
 - Tipos de recursos permitidos
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+- [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="610-implement-approved-application-list"></a>6.10: Implementar lista de candidaturas aprovada
+### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10: Manter um inventário de títulos de software aprovados
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
@@ -758,11 +760,11 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 
 **Responsabilidade**: N/A
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6.11: Limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure através de scripts
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure
 
 **Orientação**: Utilize o Acesso Condicional Azure para limitar a capacidade dos utilizadores de interagirem com o Azure Resource Manager, configurando o "Acesso ao Bloco" para a app "Microsoft Azure Management". Isto pode impedir a criação e alterações de recursos num ambiente de alta segurança, como casos de Azure Database for MySQL contendo informações confidenciais.
 
-Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+- [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -784,19 +786,19 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recurso
 
 **Responsabilidade**: N/A
 
-## <a name="secure-configuration"></a>Configuração Segura
+## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte [Controlo de Segurança: Configuração Segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos da Azure
 
-**Orientação**: Defina e implemente configurações de segurança padrão para a sua Base de Dados Azure para instâncias MySQL com Azure Policy. Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.DBforMySQL" para criar políticas personalizadas para auditar ou impor a configuração de rede da sua Base de Dados Azure para instâncias MySQL. Pode também utilizar definições de políticas incorporadas relacionadas com a sua Base de Dados Azure para instâncias MySQL, tais como:
+**Orientação**: Defina e implemente configurações de segurança padrão para a sua Base de Dados Azure para instâncias MySQL com Azure Policy. Utilize pseudónimos da Azure Policy no espaço de nomes **Microsoft.DBforMySQL** para criar políticas personalizadas para auditar ou impor a configuração de rede da sua Base de Dados Azure para instâncias MySQL. Também pode utilizar definições de políticas incorporadas relacionadas com a sua Base de Dados Azure para instâncias MySQL, tais como:
 
 A ligação SSL da Aplicação deve ser ativada para servidores de base de dados MySQL
 
-Como visualizar pseudónimos disponíveis da Política Azure: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+- [Como ver pseudónimos disponíveis da Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -814,9 +816,9 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 **Orientação**: Use a Política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-Compreenda os efeitos da política do Azure: https://docs.microsoft.com/azure/governance/policy/concepts/effects
+- [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -834,9 +836,9 @@ Compreenda os efeitos da política do Azure: https://docs.microsoft.com/azure/go
 
 **Orientação**: Se utilizar definições personalizadas da Política Azure para a sua Base de Dados Azure para instâncias MySQL e recursos relacionados, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
 
-Como armazenar código em Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-Documentação Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+- [Documentação de Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -850,17 +852,17 @@ Documentação Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?
 
 **Responsabilidade**: N/A
 
-### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implementar ferramentas de gestão de configuração do sistema
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Implementar ferramentas de gestão de configuração para recursos Azure
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.DBforMySQL" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Além disso, desenvolva um processo e um oleoduto para gerir exceções políticas.
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: Implementar ferramentas de gestão de configuração do sistema para sistemas operativos
+### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8: Implementar ferramentas de gestão de configuração para sistemas operativos
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
@@ -868,11 +870,11 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 **Responsabilidade**: N/A
 
-### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para serviços Azure
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Implementar monitorização automatizada de configuração para recursos Azure
 
-**Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.DBforMySQL" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Utilize a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente configurações para a sua Base de Dados Azure para instâncias MySQL e recursos relacionados.
+**Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes **Microsoft.DBforMySQL** para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Utilize a Política Azure [auditoria], [negar], e [implementar se não existir] para impor automaticamente configurações para a sua Base de Dados Azure para instâncias MySQL e recursos relacionados.
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -890,11 +892,11 @@ Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/g
 
 **Orientação**: Para máquinas virtuais Azure ou aplicações web em execução no Azure App Service sendo usado para aceder à sua Base de Dados Azure para instâncias MySQL, utilize a Identidade de Serviço Gerido em conjunto com o Azure Key Vault para simplificar e proteger a Base de Dados Azure para a gestão secreta do MySQL. Certifique-se de que o cofre da chave é excluído suave.
 
-Como integrar-se com identidades geridas aZure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+- [Como integrar-se com identidades geridas aZure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-Como criar um Cofre chave: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+- [Como criar um Cofre-Chave](../key-vault/general/quick-create-portal.md)
 
-Como fornecer a autenticação do Cofre-Chave com uma identidade gerida: https://docs.microsoft.com/azure/key-vault/managed-identity
+- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](/azure/key-vault/general/managed-identity)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -908,9 +910,9 @@ Para máquinas virtuais Azure ou aplicações web em execução no Azure App Ser
 
 Utilize identidades geridas para fornecer serviços Azure com uma identidade gerida automaticamente no Azure Ative Directory (AD). Identidades geridas permite-lhe autenticar qualquer serviço que suporte a autenticação AZURE AD, incluindo o Key Vault, sem quaisquer credenciais no seu código.
 
-Como configurar identidades geridas: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+- [Como configurar identidades geridas](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-Como integrar-se com identidades geridas aZure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+- [Como integrar-se com identidades geridas aZure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -920,17 +922,17 @@ Como integrar-se com identidades geridas aZure: https://docs.microsoft.com/azure
 
 **Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
 
-Como configurar o Scanner Credencial: https://secdevtools.azurewebsites.net/helpcredscan.html
+- [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-## <a name="malware-defense"></a>Defesa contra Software maligno
+## <a name="malware-defense"></a>Defesa contra malware
 
-*Para mais informações, consulte [Controlo de Segurança: Defesa de Malware.](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)*
+*Para mais informações, consulte o [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Utilize software anti-malware gerido centralmente
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Utilizar software anti-malware gerido centralmente
 
 **Orientação**: Não aplicável; esta recomendação destina-se a recursos computacional.
 
@@ -960,17 +962,17 @@ O anti-malware da Microsoft está ativado no anfitrião subjacente que suporta o
 
 **Responsabilidade**: N/A
 
-## <a name="data-recovery"></a>Recuperação de Dados
+## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte [Controlo de Segurança: Recuperação de Dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir back ups automáticos regulares
+### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir cópias de back-ups automáticas regulares
 
 **Orientação**: A Azure Database for MySQL requer cópias de segurança dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (4 servidores de armazenamento máximo de TB) ou cópias de segurança instantâneas (até 16-TB máximo de armazenamento). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
 
-Compreenda as cópias de segurança da Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-backup
+- [Compreenda as cópias de segurança da Base de Dados Azure para o MySQL](concepts-backup.md)
 
-Compreenda a base de dados Azure para a configuração inicial do MySQL: https://docs.microsoft.com/azure/mysql/tutorial-design-database-using-portal
+- [Compreenda a base de dados Azure para a configuração inicial do MySQL](tutorial-design-database-using-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -982,16 +984,15 @@ Compreenda a base de dados Azure para a configuração inicial do MySQL: https:/
 
 Se utilizar o Cofre de Chaves Azure para armazenar credenciais para a sua Base de Dados Azure para instâncias MySQL, certifique-se de cópias de segurança automáticas regulares das suas chaves. 
 
-Compreenda as cópias de segurança da Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/howto-restore-server-portal 
+- [Compreenda as cópias de segurança da Base de Dados Azure para o MySQL](howto-restore-server-portal.md) 
 
-Como apoiar chaves do cofre chave:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
-
+- [Como apoiar chaves do cofre](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Compartilhado
 
-### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validar todas as cópias de segurança, incluindo as chaves geridas pelo cliente
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validar todas as cópias de segurança, incluindo chaves geridas pelo cliente
 
 **Orientação**: Na Base de Dados Azure para o MySQL, executar uma restauração cria um novo servidor a partir das cópias de segurança do servidor original. Existem dois tipos de restauro disponíveis: restauro pontual e restauro georrefero. O restauro pontual está disponível com a opção de redundância de backup e cria um novo servidor na mesma região que o seu servidor original. O geo-restauro só está disponível se configurar o seu servidor para armazenamento geo-redundante e permitir-lhe restaurar o seu servidor numa região diferente.
 
@@ -999,7 +1000,7 @@ O tempo estimado de recuperação depende de vários fatores, incluindo os taman
 
 Teste periodicamente a restauração da sua Base de Dados Azure para instâncias MySQL.
 
-Compreenda a cópia de segurança e a restauração na Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-backup
+- [Compreenda a cópia de segurança e a restauração na Base de Dados Azure para o MySQL](concepts-backup.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1009,27 +1010,27 @@ Compreenda a cópia de segurança e a restauração na Base de Dados Azure para 
 
 **Orientação**: A base de dados Azure para o MySQL requer cópias de segurança completas, diferenciais e de registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits. Certifique-se de que o cofre da chave é excluído suave.
 
-Compreenda a cópia de segurança e a restauração na Base de Dados Azure para o MySQL: https://docs.microsoft.com/azure/mysql/concepts-backup
+- [Compreenda a cópia de segurança e a restauração na Base de Dados Azure para o MySQL](concepts-backup.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
 **Responsabilidade**: Cliente
 
-## <a name="incident-response"></a>Resposta a Incidentes
+## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte [Controlo de Segurança: Resposta a incidentes.](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)*
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
 **Orientação**: Crie um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções de pessoal, bem como fases de tratamento/gestão de incidentes, desde a deteção até à revisão pós-incidente.
 
-Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+- [Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure](../security-center/security-center-planning-and-operations-guide.md)
 
-Orientação para a construção do seu próprio processo de resposta a incidentes de segurança: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+- [Orientação para a construção do seu próprio processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-Anatomia de um incidente do Microsoft Security Response Center: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+- [Anatomia de um incidente do Microsoft Security Response Center](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+- [O cliente também pode aproveitar o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1049,7 +1050,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário.
 
-Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+- [Consulte a publicação do NIST: Guia para testar, treinar e exercitar programas para planos e capacidades de TI](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1059,7 +1060,7 @@ Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for
 
 **Orientação**: As informações de contacto com incidentes de segurança serão utilizadas pela Microsoft para o contactar se o Microsoft Security Response Center (MSRC) descobrir que os dados do cliente foram acedidos por uma parte ilegal ou não autorizada.  Reveja os incidentes após o facto de garantir que as questões sejam resolvidas.
 
-Como definir o Contacto de Segurança do Centro de Segurança Azure: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+- [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1069,9 +1070,9 @@ Como definir o Contacto de Segurança do Centro de Segurança Azure: https://doc
 
 **Orientação**: Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a função exportação contínua. A Exportação Contínua permite-lhe exportar alertas e recomendações manualmente ou de forma contínua e contínua. Pode utilizar o conector de dados do Azure Security Center para transmitir os alertas Sentinel.
 
-Como configurar a exportação contínua: https://docs.microsoft.com/azure/security-center/continuous-export
+- [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
-Como transmitir alertas para Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+- [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1081,27 +1082,27 @@ Como transmitir alertas para Azure Sentinel: https://docs.microsoft.com/azure/se
 
 **Orientação**: Utilize a função de automatização do fluxo de trabalho no Centro de Segurança Azure para desencadear automaticamente respostas através de "Aplicações Lógicas" em alertas e recomendações de segurança.
 
-Como configurar a automatização do fluxo de trabalho e as aplicações lógicas: https://docs.microsoft.com/azure/security-center/workflow-automation
+- [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-## <a name="penetration-tests-and-red-team-exercises"></a>Testes de Penetração e Exercícios de Red Team
+## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios da Red Team
 
-*Para obter mais informações, consulte [Controlo de Segurança: Testes de penetração e exercícios da equipa vermelha.](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Testes de penetração e exercícios de equipa vermelha](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todos os resultados críticos de segurança no prazo de 60 dias
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todas as conclusões críticas de segurança
 
 **Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Pode encontrar mais informações sobre a estratégia e execução da Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridas pela Microsoft em nuvem, aqui:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+- [Você pode encontrar mais informações sobre a estratégia da Microsoft e execução de Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridas pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
+- Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

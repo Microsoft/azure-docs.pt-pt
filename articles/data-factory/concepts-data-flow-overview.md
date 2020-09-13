@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/12/2020
-ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/02/2020
+ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212068"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419985"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeamento de fluxos de dados na Azure Data Factory
 
@@ -41,7 +41,7 @@ O fluxo de dados de mapeamento tem uma tela de autoria única projetada para tor
 
 ### <a name="graph"></a>Graph
 
-O gráfico mostra o fluxo de transformação. Mostra a linhagem de dados de origem à medida que flui para um ou mais sumidouros. Para adicionar uma nova fonte, **selecione Adicionar fonte**. Para adicionar uma nova transformação, selecione o sinal de mais no canto inferior direito de uma transformação existente.
+O gráfico mostra o fluxo de transformação. Mostra a linhagem de dados de origem à medida que flui para um ou mais sumidouros. Para adicionar uma nova fonte, **selecione Adicionar fonte**. Para adicionar uma nova transformação, selecione o sinal de mais no canto inferior direito de uma transformação existente. Saiba mais sobre como [gerir o gráfico de fluxo de dados.](concepts-data-flow-manage-graph.md)
 
 ![Telas](media/data-flow/canvas2.png "Telas")
 
@@ -109,7 +109,7 @@ Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
 | Sudeste da Austrália   | ✓ | ✓ |
 | Sul do Brasil  | ✓ |  |
 | Canadá Central | ✓ |  |
-| Central India | ✓ |   ✓ |
+| Índia Central | ✓ |   ✓ |
 | E.U.A. Central    | ✓ |   ✓ |
 | Leste da China |      | ✓ |
 | China Leste 2  |   |    |
@@ -157,7 +157,7 @@ Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
 | E.U.A. Oeste   | ✓ |   |
 | E.U.A. Oeste 2 | ✓ |   ✓ | 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda a criar uma [transformação de origem.](data-flow-source.md)
 * Saiba como construir os fluxos de dados no [modo de depuragem](concepts-data-flow-debug-mode.md).

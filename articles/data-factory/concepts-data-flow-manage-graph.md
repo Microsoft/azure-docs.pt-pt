@@ -1,51 +1,64 @@
 ---
-title: Gráficos de fluxo de dados
-description: Como trabalhar com gráficos de fluxo de dados de fábrica de dados
+title: Gestão do gráfico de fluxo de dados de mapeamento
+description: Como gerir e editar eficazmente o gráfico de fluxo de dados de mapeamento
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 0d357c4c671070a5c5e9d4587e2f90b6628996f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/02/2020
+ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605360"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420116"
 ---
-# <a name="mapping-data-flow-graphs"></a>Gráficos de fluxo de dados de mapeamento
+# <a name="managing-the-mapping-data-flow-graph"></a>Gestão do gráfico de fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A superfície de design de dados de mapeamento é uma superfície de "construção" onde se constrói fluxos de dados de cima para baixo, da esquerda para a direita. Há uma caixa de ferramentas anexada a cada transformação com um símbolo mais (+). Concentre-se na sua lógica de negócio em vez de ligar nós através de bordas em um ambiente DAG de forma livre.
+Os fluxos de dados de mapeamento são da autoria usando uma superfície de design conhecido como o gráfico de fluxo de dados. No gráfico, a lógica de transformação é construída da esquerda para a direita e os fluxos de dados adicionais são adicionados de cima para baixo. Para adicionar uma nova transformação, selecione o sinal de mais no canto inferior direito de uma transformação existente.
 
-Abaixo estão os mecanismos incorporados para gerir o gráfico de fluxo de dados.
+![Telas](media/data-flow/canvas2.png "Telas")
 
-## <a name="move-nodes"></a>Mover nós
+À medida que os fluxos de dados se advogem mais complexos, utilize os seguintes mecanismos para navegar e gerir eficazmente o gráfico de fluxo de dados. 
 
-![Opções de Transformação Agregada](media/data-flow/agghead.png "cabeçalho agregador")
+## <a name="moving-transformations"></a>Transformações em movimento
 
-Sem um paradigma de arrastar e largar, a forma de "mover" um nó de transformação, é mudar o fluxo de entrada. Em vez disso, move-se-á transformando-se mudando o "fluxo de entrada".
+No mapeamento dos fluxos de dados, um conjunto de lógicas de transformação conectadas é conhecido como um **fluxo**. O campo **de fluxo de entrada** dita qual o fluxo de dados que alimenta a transformação atual. Cada transformação tem um ou dois fluxos de entrada dependendo da sua função e representa um fluxo de saída. O esquema de saída dos fluxos de entrada determina quais os metadados da coluna que podem ser referenciados pela transformação atual.
 
-## <a name="streams-of-data-inside-of-data-flow"></a>Fluxos de dados dentro do fluxo de dados
+![Nó de movimento](media/data-flow/move-nodes.png "nó movimento")
 
-No Fluxo de Dados da Fábrica de Dados Azure, os fluxos representam o fluxo de dados. No painel de definições de transformação, verá um campo "Incoming Stream". Isto diz-lhe qual o fluxo de dados que está a alimentar essa transformação. Pode alterar a localização física do seu nó de transformação no gráfico clicando no nome Incoming Stream e selecionando outro fluxo de dados. A transformação atual, juntamente com todas as transformações subsequentes naquele fluxo, irá então mudar-se para o novo local.
-
-Se estiver a mover uma transformação com uma ou mais transformações depois dela, então a nova localização no fluxo de dados será unida através de um novo ramo.
-
-Se não tiver transformações subsequentes após o nó que selecionou, só essa transformação se deslocará para o novo local.
+Ao contrário da tela do gasoduto, as transformações do fluxo de dados não são editadas usando um modelo de arrasto e queda. Para alterar o fluxo de entrada ou "mover" uma transformação, escolha um valor diferente da queda do **fluxo de entrada.** Quando o fizeres, todas as transformações a jusante vão mover-se ao lado da transformação editada. O gráfico atualiza-se automaticamente para mostrar o novo fluxo lógico. Se alterar o fluxo de entrada para uma transformação que já tem transformação a jusante, será criado um novo ramo ou fluxo de dados paralelo. Saiba mais sobre [novos ramos no fluxo de dados de mapeamento.](data-flow-new-branch.md)
 
 ## <a name="hide-graph-and-show-graph"></a>Esconda gráfico e mostre gráfico
 
-Existe um botão na extrema-direita do painel de configuração inferior onde pode expandir o painel inferior para o ecrã completo ao trabalhar em configurações de transformação. Isto permitir-lhe-á utilizar botões "anteriores" e "seguintes" para navegar através das configurações do gráfico. Para voltar à vista do gráfico, clique no botão para baixo e volte ao ecrã dividido.
+Ao editar a sua transformação, pode expandir o painel de configuração para ocupar toda a tela, escondendo o gráfico. Clique no chevron virado para cima localizado no lado direito da tela.
 
-## <a name="search-graph"></a>Gráfico de pesquisa
+![Ocultar gráfico](media/data-flow/hide-graph.png "esconder gráfico")
 
-Pode pesquisar o gráfico com o botão de pesquisa na superfície de design.
+Quando o gráfico está escondido, pode mover-se entre transformações dentro de um fluxo clicando **em Seguinte** ou **Anterior**. Clique no chevron virado para baixo para mostrar o gráfico.
 
-![Pesquisa](media/data-flow/search001.png "Gráfico de pesquisa")
+![Mostrar gráfico](media/data-flow/show-graph.png "mostrar gráfico")
+
+## <a name="searching-for-transformations"></a>Procurando transformações
+
+Para encontrar rapidamente uma transformação no seu gráfico, clique no ícone **'Procurar'** acima da definição de zoom.
+
+![Pesquisa](media/data-flow/search-1.png "Gráfico de pesquisa")
+
+Você pode pesquisar por nome de transformação ou descrição para localizar uma transformação.
+
+![Pesquisa](media/data-flow/search-2.png "Gráfico de pesquisa")
+
+## <a name="hide-reference-nodes"></a>Ocultar os nosdes de referência
+
+Se o seu fluxo de dados tiver alguma junção, procura, existe ou transformações sindicais, o fluxo de dados mostra nós de referência para todos os fluxos de entrada. Se desejar minimizar a quantidade de espaço vertical tomado, pode minimizar os seus nós de referência. Para tal, clique corretamente na tela e selecione **Ocultar nós de referência**.
+
+![Ocultar os nosdes de referência](media/data-flow/hide-reference-nodes.png "Ocultar os nosdes de referência")
 
 ## <a name="next-steps"></a>Próximos passos
 
-Depois de completar o seu design de Fluxo de Dados, ligue o botão de depuração e teste-o no modo de depuração, quer diretamente no designer de fluxo de [dados,](concepts-data-flow-debug-mode.md) quer no [depurar do gasoduto](control-flow-execute-data-flow-activity.md).
+Depois de completar a lógica de fluxo de dados, ligue o [modo de depurar](concepts-data-flow-debug-mode.md) e teste-o numa pré-visualização de dados.
