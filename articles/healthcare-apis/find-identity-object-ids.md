@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 5b42d61d59a3c816c3b664297470cfbf91f17439
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 706d7e081743f2bab1f593e00dc792f218a000ea
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851771"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033630"
 ---
 # <a name="find-identity-object-ids-for-authentication-configuration"></a>Encontre iDs de objeto de identidade para configuração de autenticação
 
@@ -21,16 +21,16 @@ Neste artigo, você vai aprender como encontrar iDs de objeto de identidade nece
 
 ## <a name="find-user-object-id"></a>Encontre iD de objeto de utilizador
 
-Se tiver um utilizador com o nome de `myuser@consoso.com` utilizador, pode localizar os utilizadores `ObjectId` utilizando o seguinte comando PowerShell:
+Se tiver um utilizador com o nome de `myuser@contoso.com` utilizador, pode localizar os utilizadores `ObjectId` utilizando o seguinte comando PowerShell:
 
 ```azurepowershell-interactive
-$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
+$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").ObjectId
 ```
 
 ou pode utilizar o Azure CLI:
 
 ```azurecli-interactive
-az ad user show --id myuser@consoso.com --query objectId --out tsv
+az ad user show --id myuser@contoso.com --query objectId --out tsv
 ```
 
 ## <a name="find-service-principal-object-id"></a>Encontre iD de objeto principal de serviço
@@ -68,7 +68,7 @@ Se estiver a utilizar o Azure CLI, pode utilizar:
 az ad group show --group "mygroup" --query objectId --out tsv
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu como encontrar iDs de objeto de identidade necessários para configurar a API Azure para fHIR para usar um inquilino externo ou secundário do Azure Ative Directory. Leia em seguida como usar os IDs do objeto para configurar as definições locais de RBAC:
  

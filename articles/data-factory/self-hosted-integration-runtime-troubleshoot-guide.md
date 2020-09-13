@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/10/2020
 ms.author: abnarain
-ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800718"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033664"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -190,7 +190,7 @@ Para mais informações sobre o GAC, consulte [este artigo.](https://docs.micros
 
 #### <a name="symptoms"></a>Sintomas
 
-O tempo de execução de integração auto-hospedado de repente vai para offline sem chave, abaixo a mensagem de erro mostra no Registo de Eventos:`Authentication Key is not assigned yet`
+O tempo de execução de integração auto-hospedado de repente vai para offline sem chave, abaixo a mensagem de erro mostra no Registo de Eventos: `Authentication Key is not assigned yet`
 
 ![Chave de autenticação em falta](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
@@ -351,7 +351,7 @@ O botão **Registar** não foi encontrado na UI do Gestor de Configuração ao r
 
 #### <a name="cause"></a>Causa
 
-Desde o lançamento do Tempo de Execução de *Integração 3.0,* o botão **registar-se** num nó de tempo de execução de integração existente foi removido para permitir um ambiente mais limpo e seguro. Se um nó tiver sido registado em algum Tempo de Execução de Integração (online ou não), para reinscrever novamente para outro Tempo de Execução de Integração, deve desinstalar o nó anterior e, em seguida, instalar e registar o nó.
+Desde o lançamento do Tempo de Execução de *Integração 3.0,* o botão **registar-se** num nó de tempo de execução de integração existente foi removido para permitir um ambiente mais limpo e seguro. Se um nó tiver sido registado em algum Integration Runtime (online ou não), para o registar novamente noutro Integration Runtime, deverá desinstalar o nó anterior e, em seguida, instalar e registar o nó.
 
 #### <a name="resolution"></a>Resolução
 
@@ -366,7 +366,7 @@ Desde o lançamento do Tempo de Execução de *Integração 3.0,* o botão **reg
 1. Instale o MSI e registe o tempo de execução da integração.
 
 
-### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Incapaz de registar o IR auto-hospedado devido a localidade    
+### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Não é possível registar o IR Autoalojado devido a localhost    
 
 #### <a name="symptoms"></a>Sintomas
 
@@ -519,7 +519,7 @@ Este comportamento ocorre quando os nós não conseguem comunicar uns com os out
 
 ### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Problema de conectividade entre a Infra-fábrica de infravermelhos auto-acolôda e a fábrica de dados ou o IR auto-alojado e a fonte de dados/pia
 
-Para resolver o problema de conectividade da rede, deve saber [recolher os vestígios da rede,](#how-to-collect-netmon-trace)entender como usá-lo e [analisar o traço netmon](#how-to-analyze-netmon-trace) antes de aplicar as Ferramentas Netmon em casos reais a partir de IR auto-hospedado.
+Para resolver o problema de conectividade da rede, deve saber recolher os vestígios da rede, entender como usá-lo e [analisar o traço netmon](#how-to-analyze-netmon-trace) antes de aplicar as Ferramentas Netmon em casos reais a partir de IR auto-hospedado.
 
 #### <a name="symptoms"></a>Sintomas
 
@@ -577,7 +577,7 @@ Pegue o traço de netmon e analise mais.
 
 ### <a name="how-to-collect-netmon-trace"></a>Como recolher vestígios de netmon
 
-1.  Descarregue as Ferramentas Netmon a partir [deste website](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)e instale-as na sua Máquina de Servidor (qualquer que seja o servidor que tenha o problema) e no Cliente (como IR auto-hospedado).
+1.  Descarregue as Ferramentas Netmon a partir [deste website](https://cnet-downloads.com/network-monitor)e instale-as na sua Máquina de Servidor (qualquer que seja o servidor que tenha o problema) e no Cliente (como IR auto-hospedado).
 
 2.  Criar uma pasta, por exemplo, no seguinte caminho: *D:\netmon*. Certifique-se de que tem espaço suficiente para guardar o tronco.
 
@@ -621,7 +621,10 @@ Pegue o traço de netmon e analise mais.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Como analisar vestígios de netmon
 
-Quando se tenta teletar **8.8.8.8.888** com vestígios de netmon acima recolhidos, é suposto ver abaixo o rastreio:
+> [!NOTE] 
+> A instrução abaixo é aplicável ao traço netmon. Uma vez que o traço de netmon está fora de suporte, pode alavancar o tubarão-fio como o mesmo.
+
+Quando se tenta teletar **8.8.8.8.8 888** com vestígios de netmon recolhidos, é suposto ver abaixo o rastreio:
 
 ![traço netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 
@@ -670,13 +673,13 @@ Você pode notar outras fábricas de dados (em diferentes inquilinos) enquanto t
 O IR auto-hospedado não pode ser partilhado entre inquilinos cruzados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum para data factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)

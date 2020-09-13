@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 08/14/2020
+ms.date: 09/11/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 48c18e08943e170fdd53f04b49b517424b511c62
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 74b5014b6590fc501291355ee4d142c52ceff129
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246185"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90045147"
 ---
 >[!NOTE]
 >Estamos a trabalhar arduamente para acrescentar regiões adicionais. Quando uma região é adicionada, vamos adicioná-la a esta lista.
@@ -51,7 +51,7 @@ ms.locfileid: "88246185"
 * Coreia do Sul Central
 * Sul da Coreia do Sul
 * Sudeste Asiático
-* Central India
+* Índia Central
 * Oeste da Índia
 
 **Médio Oriente e África**
@@ -66,4 +66,5 @@ ms.locfileid: "88246185"
 * US Gov - Virginia
 
 **Azure China**
+* China Leste 2
 * China Norte 2
