@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81422079"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570015"
 ---
 A colocação de VMs numa única região reduz a distância física entre os casos. Colocá-los dentro de uma única zona de disponibilidade também os aproximará fisicamente. No entanto, à medida que a pegada Azure cresce, uma única zona de disponibilidade pode abranger vários centros de dados físicos, o que pode resultar numa latência de rede com impacto na sua aplicação. 
 
@@ -34,7 +34,7 @@ Um grupo de colocação de proximidade é um agrupamento lógico usado para gara
 
 Um grupo de colocação de proximidade é um novo tipo de recurso em Azure. É preciso criar um antes de o utilizar com outros recursos. Uma vez criado, pode ser usado com máquinas virtuais, conjuntos de disponibilidade ou conjuntos de escala de máquina virtual. Especifica um grupo de colocação de proximidade ao criar recursos de computação que fornecem o ID do grupo de colocação de proximidade. 
 
-Também pode mover um recurso existente para um grupo de colocação de proximidade. Ao mover um recurso para um grupo de colocação de proximidade, deve parar (deallocate) o ativo primeiro, uma vez que será redistribuído potencialmente para um centro de dados diferente na região para satisfazer a restrição de colocação. 
+Também pode mover um recurso existente para um grupo de colocação de proximidade. Ao mover um recurso para um grupo de colocação de proximidade, deve parar (deallocate) o ativo primeiro, uma vez que será redistribuído potencialmente em um centro de dados diferente na região para satisfazer a restrição de colocação. 
 
 No caso de conjuntos de disponibilidade e conjuntos de escala de máquinas virtuais, deve definir o grupo de colocação de proximidade ao nível dos recursos e não às máquinas virtuais individuais. 
 

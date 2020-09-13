@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933669"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595656"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com registos do Monitor Azure    
 
@@ -160,13 +160,16 @@ Também é possível especificar diferentes definições de retenção para tipo
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Note que o tipo de dados (tabela) é sensível a casos.  Para obter a corrente por tipo de dados de retenção de um determinado tipo de dados (neste exemplo SecurityEvent), utilize:
+Note que o tipo de dados (tabela) é sensível a casos.  Para obter as definições atuais de retenção por dados de um determinado tipo de dados (neste exemplo SecurityEvent), utilize:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
 ```
 
-Para obter a corrente por tipo de dados de retenção para todos os tipos de dados no seu espaço de trabalho, apenas omita o tipo de dados específico, por exemplo:
+> [!NOTE]
+> A retenção só é devolvida para um tipo de dados se a retenção tiver sido explicitamente definida para o mesmo.  Os tipos de dados que não tiveram a retenção explicitamente definida (e assim herdarão a retenção do espaço de trabalho) não devolverão nada desta chamada. 
+
+Para obter as definições atuais de retenção por dados para todos os tipos de dados no seu espaço de trabalho que tiveram o seu conjunto de retenção por dados, apenas omite o tipo de dados específico, por exemplo:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
@@ -575,9 +578,9 @@ Para alertar se o volume de dados faturado nas últimas 24 horas foi superior a 
 - **Definir condição de alerta** especifique a sua área de trabalho do Log Analytics como o destino de recursos.
 - **Critérios de alerta** especifique o seguinte:
    - **Nome do Sinal** selecione **Pesquisa de registos personalizada**
-   - **Consulta de pesquisa** para `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
+   - **Consulta de pesquisa** para `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se quiser uma divergência 
    - A **Lógica de alerta** é **Baseada no** *número de resultados* e a **Condição** é *Maior do que* um **Limiar** de *0*
-   - **Período** de tempo de *1440* minutos e **frequência de alerta** a cada *1440* minutos para ser executado uma vez por dia.
+   - **Período** de tempo de *1440* minutos e **frequência de alerta** a cada *1440* minutos para correr uma vez por dia.
 - **Definir detalhes do alerta** especifique o seguinte:
    - **Nome** para *volume de dados fatural superior a 50 GB em 24 horas*
    - A **gravidade** como *Aviso*
@@ -604,7 +607,7 @@ Quando a recolha de dados para, o OperationStatus apresenta **Aviso**. Quando a 
 |A coleção reason para| Solução| 
 |-----------------------|---------|
 |A tampa diária do seu espaço de trabalho foi alcançada|Aguarde que a recolha reinicie automaticamente ou aumente o limite diário de volume de dados descrito na gestão do volume máximo de dados diários. O tempo de reset da tampa diária é mostra-se na página **Daily Cap.** |
-| O seu espaço de trabalho atingiu a [Taxa de Volume de Ingestão de Dados](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Um limiar de taxa de volume de ingestão predefinido de 500 MB (comprimido) aplica-se aos espaços de trabalho, que é aproximadamente **6 GB/min** não comprimido -- o tamanho real pode variar entre os tipos de dados dependendo do comprimento do tronco e da sua relação de compressão. Este limiar aplica-se a todos os dados ingeridos, quer sejam enviados a partir de recursos Azure utilizando definições de [Diagnóstico,](diagnostic-settings.md) [API do Colecionador de Dados](data-collector-api.md) ou agentes. Quando envia dados para um espaço de trabalho a uma taxa de volume superior a 80% do limiar configurado no seu espaço de trabalho, é enviado um evento para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Quando a taxa de volume ingerida é superior ao limiar, alguns dados são eliminados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se a sua taxa de volume de ingestão continuar a exceder o limiar ou se espera alcançá-lo em breve, pode solicitar um aumento no seu espaço de trabalho abrindo um pedido de apoio. Para ser notificado em tal evento no seu espaço de trabalho, crie uma [regra de alerta de registo](alerts-log.md) utilizando a seguinte consulta com lógica de alerta com base no número de resultados superior a zero, período de avaliação de 5 minutos e frequência de 5 minutos. A taxa de volume de ingestão atingiu 80% do limiar: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . A taxa de volume de ingestão atingiu o limiar: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
+| O seu espaço de trabalho atingiu a [Taxa de Volume de Ingestão de Dados](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | O limite da taxa de volume de ingestão predefinido para os dados enviados dos recursos do Azure através das definições de diagnóstico é de aproximadamente 6 GB/min por área de trabalho. Este é um valor aproximado, pois o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do registo e da taxa de compressão. Este limite não se aplica aos dados enviados a partir de agentes ou da API do Recoletor de Dados. Se enviar dados a uma taxa mais alta para uma única área de trabalho, alguns dados serão removidos e um evento será enviado para a tabela Operação na área de trabalho a cada 6 horas enquanto o limiar continuar a ser excedido. Se o volume de ingestão continuar a exceder o limite da taxa ou se estiver à espera de o atingir em breve, poderá pedir um aumento na área de trabalho ao enviar um e-mail para LAIngestionRate@microsoft.com ou ao abrir um pedido de suporte. O evento que deve procurar e que indica um limite da taxa de ingestão de dados pode ser encontrado pela consulta `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
 |Limite diário do legado Nível de preços gratuitos atingido |Aguarde até ao dia seguinte para que a recolha reinicie automaticamente ou mude para um nível de preços pagos.|
 |A subscrição da Azure encontra-se em estado suspenso devido a:<br> Julgamento gratuito terminou<br> Passe de Azure expirou<br> Limite de gastos mensais alcançado (por exemplo, numa subscrição da MSDN ou do Visual Studio)|Converter numa subscrição paga<br> Remover o limite, ou esperar até que o limite reinicie|
 
@@ -615,7 +618,7 @@ Para ser notificado quando a recolha de dados parar, utilize os passos descritos
 Existem alguns limites adicionais de Log Analytics, alguns dos quais dependem do nível de preços do Log Analytics. Estes estão documentados nos [limites de subscrição e serviço da Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [as pesquisas de Registo em Registos monitores Azure](../log-query/log-query-overview.md) para aprender a usar o idioma de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 - Utilize os passos descritos em [create a new log alert](alerts-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.

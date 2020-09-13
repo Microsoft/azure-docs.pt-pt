@@ -3,12 +3,12 @@ title: Monitorização e exploração madeireira - Azure
 description: Este artigo fornece uma visão geral do Live Video Analytics na monitorização e registo de IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934298"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567559"
 ---
 # <a name="monitoring-and-logging"></a>Monitorização e registos
 
@@ -20,7 +20,8 @@ Também aprenderá como pode controlar os registos que o módulo gera.
 
 Live Video Analytics on IoT Edge emite eventos ou dados de telemetria de acordo com a taxonomia seguinte.
 
-![Análise de vídeo ao vivo no esquema de telemetria IoT Edge](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomia dos eventos":::
 
 * Operacionais: eventos que são gerados no âmbito de ações tomadas por um utilizador, ou durante a execução de um [gráfico de mídia](media-graph-concept.md).
    
@@ -71,6 +72,7 @@ Live Video Analytics on IoT Edge emite eventos ou dados de telemetria de acordo 
    * Exemplos:
       
       Movimento detetado (abaixo), Resultado da inferência.
+
    ```      
    {
      "body": {
@@ -98,15 +100,19 @@ Live Video Analytics on IoT Edge emite eventos ou dados de telemetria de acordo 
      }
    }
    ```
+
 Os eventos emitidos pelo módulo são enviados para o [IoT Edge Hub,](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)e a partir daí pode ser encaminhado para outros destinos. 
 
 ### <a name="timestamps-in-analytic-events"></a>Timetamps em eventos analíticos
+
 Como indicado acima, os eventos gerados como parte da análise de vídeo têm um timetamp associado a eles. Se [gravou o vídeo ao vivo](video-recording-concept.md) como parte da sua topologia de gráficos, então este timetamp ajuda-o a localizar onde no vídeo gravado ocorreu esse evento em particular. Seguem-se as diretrizes sobre como mapear a data num evento analítico à linha temporal do vídeo gravado num [ativo do Azure Media Service](terminology.md#asset).
 
 Primeiro, extrair o `eventTime` valor. Utilize este valor num [filtro de intervalo](playback-recordings-how-to.md#time-range-filters) de tempo para recuperar uma parte adequada da gravação. Por exemplo, é melhor que queira ir buscar um vídeo que começa 30 segundos antes `eventTime` e termina 30 segundos depois. Com o exemplo acima, onde `eventTime` está 2020-05-12T23:33:09.381Z, um pedido de manifesto HLS para a janela +/- 30s seria o seguinte:
+
 ```
 https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
 ```
+
 O URL acima devolveria uma chamada lista de [reprodução principal,](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming)contendo URLs para listas de reprodução de mídia. A lista de reprodução de mídia conteria entradas como as seguintes:
 
 ```
@@ -262,6 +268,6 @@ Em seguida, o módulo escreverá registos de depuração num formato binário pa
 
 [FAQs](faq.md#monitoring-and-metrics)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gravação de vídeo contínua](continuous-video-recording-tutorial.md)

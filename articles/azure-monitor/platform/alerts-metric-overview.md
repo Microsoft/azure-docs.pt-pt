@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que pode fazer com alertas métricos e 
 ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258425"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595568"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -137,13 +137,15 @@ Esta funcionalidade é atualmente suportada para métricas de plataforma (não m
 
 | Serviço | Azure Público | Administração Pública | China |
 |:--------|:--------|:--------|:--------|
-| Máquinas virtuais  | **Sim** | Não | Não |
+| Máquinas virtuais<sup>1</sup>  | **Sim** | No | No |
 | Bases de dados de servidores SQL | **Sim** | **Sim** | **Sim** |
 | Piscinas elásticas do servidor SQL | **Sim** | **Sim** | **Sim** |
 | NetApp arquiva grupos de capacidade | **Sim** | **Sim** | **Sim** |
 | Volumes de ficheiros NetApp | **Sim** | **Sim** | **Sim** |
 | Cofres de chaves | **Sim** | **Sim** | **Sim** |
 | Dispositivos de borda de caixa de dados | **Sim** | **Sim** | **Sim** |
+
+<sup>1</sup> Não suportado para métricas de rede de máquinas virtuais (Rede No Total, Rede out Total, Fluxos de Entrada, Fluxos de Saída, Taxa máxima de criação de fluxos de entrada, taxa máxima de criação de fluxos de saída).
 
 Pode especificar o âmbito de monitorização através de uma única regra de alerta métrico de uma de três maneiras. Por exemplo, com máquinas virtuais pode especificar o âmbito como:  
 
@@ -170,7 +172,7 @@ Para alertas métricos, normalmente será notificado em menos de 5 minutos se de
 Pode encontrar a lista completa de tipos de recursos suportados neste [artigo.](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba como criar, ver e gerir alertas métricos em Azure](alerts-metric.md)
 - [Saiba como implementar alertas métricos usando modelos do Gestor de Recursos Azure](./alerts-metric-create-templates.md)

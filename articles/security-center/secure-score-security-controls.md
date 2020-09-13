@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 9594e1ed14b017591ea2c4ddda59ba61feb81b0c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 91935e8c052a9130d0a40ed292ca466bc1ab5427
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272285"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567629"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Pontuação garantida reforçada no Azure Security Center
 
@@ -45,17 +45,17 @@ A página de pontuação segura do Centro de Segurança inclui:
 > Versões anteriores do Security Center premiaram pontos ao nível da recomendação: quando remediado uma recomendação para um único recurso, a sua pontuação segura melhorou. Hoje, a sua pontuação só melhora se remediar *todas as* recomendações para um único recurso dentro de um controlo. Portanto, a tua pontuação só melhora quando melhoras a segurança de um recurso.
 
 
-## <a name="accessing-your-secure-score"></a>Aceder à sua pontuação segura
+## <a name="access-your-secure-score"></a>Aceda à sua pontuação segura
 
 Pode encontrar a sua pontuação total segura, bem como a sua pontuação por subscrição, através do portal Azure ou programaticamente com o AZure Security Center REST API.
 
-### <a name="getting-your-secure-score-from-the-portal"></a>Obter a sua pontuação segura a partir do portal
+### <a name="get-your-secure-score-from-the-portal"></a>Obtenha a sua pontuação segura a partir do portal
 
 O Centro de Segurança exibe a sua pontuação de forma proeminente no portal: é a primeira coisa mostrada na página de Visão Geral. Se clicar na página de pontuação segura dedicada, verá a pontuação desabatada por subscrição. Clique numa única subscrição para ver a lista detalhada de recomendações prioritárias e o impacto potencial que a sua reparação terá na pontuação da subscrição.
 
 ![Pontuação máxima segura, como mostrado no portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
 
-### <a name="getting-your-secure-score-from-the-rest-api"></a>Obter a sua pontuação segura da API REST
+### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenha a sua pontuação segura na API REST
 
 Pode aceder à sua pontuação através da [pontuação segura API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a API **de Pontuações Seguras** para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a API **de Controlos de Pontuação Segura** para listar os controlos de segurança e a pontuação atual das suas subscrições.
 
@@ -91,13 +91,22 @@ A pontuação máxima para este controlo, Aplicar atualizações do sistema, é 
 |**Classificação de segurança**<br>Múltiplas subscrições|<br>As pontuações atuais para todos os recursos em todas as subscrições são adicionadas e o cálculo é então o mesmo que para uma única subscrição<br><br>Ao visualizar várias subscrições, a pontuação segura avalia todos os recursos dentro de todas as políticas ativadas e agrupam o seu impacto combinado na pontuação máxima de cada controlo de segurança.<br>![Pontuação segura para várias subscrições com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>A pontuação combinada **não** é uma média; em vez disso, é a postura avaliada do estado de todos os recursos em todas as subscrições.<br>Também aqui, se for à página de recomendações e somar os pontos potenciais disponíveis, verá que é a diferença entre a pontuação atual (24) e a pontuação máxima disponível (60).|
 ||||
 
-## <a name="improving-your-secure-score"></a>Melhorando a sua pontuação segura
+### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Que recomendações estão incluídas nos cálculos de pontuação segura?
+
+Só as recomendações incorporadas têm impacto na pontuação segura.
+
+Além disso, as recomendações assinaladas como **Preview** não estão incluídas nos cálculos da sua pontuação segura. Devem continuar a ser remediados sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação.
+
+Um exemplo de uma recomendação de pré-visualização:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com a bandeira de pré-visualização":::
+
+
+## <a name="improve-your-secure-score"></a>Melhorar a sua pontuação segura
 
 Para melhorar a sua pontuação segura, remedia as recomendações de segurança da sua lista de recomendações. Pode remediar manualmente cada recomendação para cada recurso, ou utilizando a **Quick Fix!** opção (quando disponível) aplicar uma remediação para uma recomendação a um grupo de recursos rapidamente. Para obter mais informações, consulte [recomendações corretivas.](security-center-remediate-recommendations.md)
 
->[!IMPORTANT]
-> Só as recomendações incorporadas têm impacto na pontuação segura.
-
+Outra forma de melhorar a sua pontuação e garantir que os seus utilizadores não criam recursos que impactem negativamente a sua pontuação é configurar as opções Depor e Negar nas recomendações relevantes. Saiba mais em [Prevenir configurações erradas com recomendações de Cumprir/Negar](prevent-misconfigurations.md).
 
 ## <a name="security-controls-and-their-recommendations"></a>Controlos de segurança e suas recomendações
 
@@ -144,7 +153,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Remediar configurações de segurança (pontuação máxima 4)</p></strong>Os ativos de TI mal configurados têm um maior risco de serem atacados. As ações básicas de endurecimento são muitas vezes esquecidas quando os ativos estão a ser implantados e os prazos devem ser cumpridos. As configurações erradas de segurança podem estar em qualquer nível na infraestrutura: desde os sistemas operativos e aparelhos de rede, até aos recursos em nuvem.<br>O Azure Security Center compara continuamente a configuração dos seus recursos com requisitos em padrões, regulamentos e referências da indústria. Quando configurar os "pacotes de conformidade" relevantes (padrões e linhas de base) que interessam à sua organização, quaisquer lacunas resultarão em recomendações de segurança que incluam o CCEID e uma explicação do impacto potencial na segurança.<br>Os pacotes comumente utilizados são <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security Benchmark</a> e <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations Benchmark versão 1.1.0</a></td>
-    <td class="tg-lboi"; width=55%>- As Políticas de Segurança da Pod devem ser definidas nos Serviços Kubernetes<br>- As vulnerabilidades nas configurações de segurança dos contentores devem ser remediadas<br>- As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas<br>- As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas<br>- O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>- O agente de monitorização deve ser instalado nas suas máquinas<br>- O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>- O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)<br>- O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>- Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas</td>
+    <td class="tg-lboi"; width=55%>- As vulnerabilidades nas configurações de segurança dos contentores devem ser remediadas<br>- As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas<br>- As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas<br>- O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>- O agente de monitorização deve ser instalado nas suas máquinas<br>- O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>- O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)<br>- O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>- Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Restringir o acesso não autorizado à rede (pontuação máxima 4)</p></strong>Os pontos finais dentro de uma organização fornecem uma ligação direta da sua rede virtual aos serviços Azure suportados. Máquinas virtuais numa sub-rede podem comunicar com todos os recursos. Para limitar a comunicação de e para os recursos dentro de uma sub-rede, crie um grupo de segurança de rede e associe-o à sub-rede. As organizações podem limitar e proteger contra o tráfego não autorizado, criando regras de entrada e saída.</td>
@@ -204,7 +213,7 @@ Yes. Recomendamos desativar recomendações quando são inaplicáveis no seu amb
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controlo de segurança me oferece zero pontos para a minha pontuação segura, devo ignorá-la?
 Em alguns casos, verá uma pontuação máxima de controlo superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Melhores Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança geral.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu a pontuação segura e os controlos de segurança que introduz. Para obter material relacionado, consulte os seguintes artigos:
 

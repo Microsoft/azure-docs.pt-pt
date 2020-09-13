@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 072f13f5a0884cf95fe760e17ff0d770111f4da0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ed918c841989cb50efa362251d09c0b655b7fc4
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204498"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570231"
 ---
 | Recurso | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -42,6 +42,6 @@ ms.locfileid: "82204498"
 <sup>5</sup> Este limite aplica-se aos níveis Básico, Standard e Premium. No nível de consumo, o tamanho do documento de política é limitado a 4 KiB.<br/>
 <sup>6</sup> Vários domínios personalizados são suportados apenas nos níveis Developer e Premium.<br/>
 <sup>7</sup> Os certificados de CA não são suportados no nível de Consumo.<br/>
-<sup>8</sup> Este recurso aplica-se apenas ao nível de Consumo.<br/>
+<sup>8</sup> Este limite aplica-se apenas ao nível de Consumo. Não há limites nestas categorias para outros níveis.<br/>
 <sup>9</sup> Aplica-se apenas ao nível de consumo. Inclui uma cadeia de consultas até 2048.<br/>
 <sup>10</sup> Gateways auto-hospedados são suportados apenas nos níveis Developer e Premium. O limite aplica-se ao número de [recursos de gateway auto-hospedados.](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway) Para elevar este limite contacte [o suporte.](https://azure.microsoft.com/support/options/) Note-se que o número de nós (ou réplicas) associados a um recurso de gateway auto-hospedado é ilimitado no nível Premium e limitado a um único nó no nível de Desenvolvedor.

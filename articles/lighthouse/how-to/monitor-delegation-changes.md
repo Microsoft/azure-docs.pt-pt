@@ -1,14 +1,14 @@
 ---
 title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589746"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567610"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
@@ -48,6 +48,9 @@ Por se trata de um amplo nível de acesso, recomendamos que atribua esta funçã
 - Certifique-se de que este diretor de serviço não tem acesso a quaisquer recursos delegados do cliente.
 - [Utilize um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) e [armazená-lo de forma segura no Cofre da Chave Azure](../../key-vault/general/best-practices.md).
 - Limitar os utilizadores que tenham acesso a agir em nome do diretor de serviço.
+
+> [!NOTE]
+> Também pode atribuir o papel incorporado ao Monitor reader Azure no âmbito raiz aos utilizadores individuais ou aos grupos de utilizadores. Isto pode ser útil se pretender que um utilizador possa [ver as informações da delegação diretamente no portal Azure.](#view-delegation-changes-in-the-azure-portal) Se o fizer, esteja ciente de que se trata de um amplo nível de acesso que deve limitar-se ao menor número possível de utilizadores.
 
 Utilize um dos seguintes métodos para fazer as atribuições de âmbito de raiz.
 
@@ -165,7 +168,16 @@ else {
 > [!TIP]
 > Embora nos refiramos a prestadores de serviços e clientes neste tópico, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar os mesmos processos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Ver alterações de delegação no portal Azure
+
+Os utilizadores a quem foi atribuído o papel incorporado no Monitoring Reader Azure no âmbito raiz podem ver as alterações da delegação diretamente no portal Azure.
+
+1. Navegue na página **Dos Meus clientes** e, em seguida, selecione registo de **atividade** a partir do menu de navegação à esquerda.
+1. Certifique-se de que a **Atividade do Diretório** é selecionada no filtro perto da parte superior do ecrã.
+
+Aparecerá uma lista de alterações de delegação. Pode selecionar **colunas Editar** para mostrar ou ocultar o Estado , **Categoria** **evento**, **Tempo**, **Hora, Assinatura,** **Evento iniciado por,** Grupo **de Recursos,** **Tipo de Recurso**e Valores de **Recursos.** **Subscription**
+
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como embarcar clientes no [Farol Azure.](../concepts/azure-delegated-resource-management.md)
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md).

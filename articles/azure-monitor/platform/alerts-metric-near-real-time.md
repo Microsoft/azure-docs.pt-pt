@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661321"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595585"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos apoiados para alertas métricos no Azure Monitor
 
@@ -30,89 +30,89 @@ Aqui está a lista completa de fontes métricas do monitor Azure apoiadas pelos 
 
 |Tipo de recurso  |Dimensões Suportadas |Alertas multi-recursos| Métricas disponíveis|
 |---------|---------|-----|----------|
-|Microsoft.Aadiam/azureADMetrics | Sim | No | |
-|Microsoft.ApiManagement/service | Sim | No | [Gestão de API](./metrics-supported.md#microsoftapimanagementservice) |
-|Microsoft.AppConfiguration/configurationStores |Sim | No | [App Configuration](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
-|Microsoft.AppPlatform/primavera | Sim | No | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
-|Microsoft.Automation/automation | Sim| No | [Contas de Automatização](./metrics-supported.md#microsoftautomationautomationaccounts) |
+|Microsoft.Aadiam/azureADMetrics | Yes | No | |
+|Microsoft.ApiManagement/service | Yes | No | [Gestão de API](./metrics-supported.md#microsoftapimanagementservice) |
+|Microsoft.AppConfiguration/configurationStores |Yes | No | [App Configuration](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
+|Microsoft.AppPlatform/primavera | Yes | No | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
+|Microsoft.Automation/automation | Yes| No | [Contas de Automatização](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | No | No | |
-|Microsoft.Batcontas ch/batch | Sim | No | [Contas do Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | Sim | No | [Cache do Azure para Redis](./metrics-supported.md#microsoftcacheredis) |
-|Microsoft.ClassicStorage/storageAcontas | Sim | No | [Contas de Armazenamento (clássicas)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
-|Microsoft.ClassicStorage/storageAccounts/blobServices | Sim | No | |
-|Microsoft.ClassicStorage/storageAcons/fileServices | Sim | No | |
-|Microsoft.ClassicStorage/storageAccounts/queueServices | Sim | No | |
-|Microsoft.ClassicStorage/storageAccounts/tableServices | Sim | No | |
-|Microsoft.CognitiveServices/contas | Sim | No | [Serviços Cognitivos](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
+|Microsoft.Batcontas ch/batch | Yes | No | [Contas do Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
+|Microsoft.Cache/Redis | Yes | No | [Cache do Azure para Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.ClassicStorage/storageAcontas | Yes | No | [Contas de Armazenamento (clássicas)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
+|Microsoft.ClassicStorage/storageAccounts/blobServices | Yes | No | |
+|Microsoft.ClassicStorage/storageAcons/fileServices | Yes | No | |
+|Microsoft.ClassicStorage/storageAccounts/queueServices | Yes | No | |
+|Microsoft.ClassicStorage/storageAccounts/tableServices | Yes | No | |
+|Microsoft.CognitiveServices/contas | Yes | No | [Serviços Cognitivos](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/virtualMachines | Yes | Sim<sup>1</sup> | [Máquinas Virtuais](./metrics-supported.md#microsoftcomputevirtualmachines) |
-|Microsoft.Compute/virtualMachineScaleSets | Sim | No |[Conjuntos de dimensionamento de máquinas virtuais](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
-|Microsoft.ContainerInstance/containerGroups | Sim| No | [Grupos de contentores](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
+|Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Conjuntos de escala de máquina virtual](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.ContainerInstance/containerGroups | Yes| No | [Grupos de contentores](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | No | No | [Registos de Contentores](./metrics-supported.md#microsoftcontainerregistryregistries) |
-|Microsoft.ContainerService/managedClusters | Sim | No | [Clusters Geridos](./metrics-supported.md#microsoftcontainerservicemanagedclusters) |
+|Microsoft.ContainerService/managedClusters | Yes | No | [Clusters Geridos](./metrics-supported.md#microsoftcontainerservicemanagedclusters) |
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Yes | Yes | [Data Box](./metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
-|Microsoft.DataFactory/datafactories| Sim| No | [Fábricas de Dados V1](./metrics-supported.md#microsoftdatafactorydatafactories) |
-|Microsoft.DataFactory/fábricas |Sim | No | [Fábricas de Dados V2](./metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft.DataShare/contas | Sim | No | |
+|Microsoft.DataFactory/datafactories| Yes| No | [Fábricas de Dados V1](./metrics-supported.md#microsoftdatafactorydatafactories) |
+|Microsoft.DataFactory/fábricas |Yes | No | [Fábricas de Dados V2](./metrics-supported.md#microsoftdatafactoryfactories) |
+|Microsoft.DataShare/contas | Yes | No | |
 |Microsoft.DBforMariaDB/servidores | No | No | [DB para MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servidores | No | No |[DB para MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/flexibleServers | Sim | No | |
+|Microsoft.DBforPostgreSQL/flexibleServers | Yes | No | |
 |Microsoft.DBforPostgreSQL/servidores | No | No | [DB para PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [DB para PostgreSQL V2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
 |Microsoft.DBforPostgreSQL/singleservers | No | No | [DB para PostgreSQL (servidores individuais)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
-|Microsoft.Devices/IotHubs | Sim | No |[Hub IoT](./metrics-supported.md#microsoftdevicesiothubs) |
-|Microsoft.Devices/provisioningServices| Sim | No | [Serviços de prestação de dispositivos](./metrics-supported.md#microsoftdevicesprovisioningservices) |
-|Microsoft.DigitalTwins/digitalTwinsInstances | Sim | No | |
-|Microsoft.DocumentDB/base de dadosAcontas | Sim | No | [BD do Cosmos](./metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
-|Microsoft.EventGrid/domínios | Sim | No | [Domínios do Event Grid](./metrics-supported.md#microsofteventgriddomains) |
-|Microsoft.EventGrid/systemTopics | Sim | No | [Tópicos do sistema de grelha de eventos](./metrics-supported.md#microsofteventgridsystemtopics) |
-|Microsoft.EventGrid/tópicos |Sim | No | [Tópicos do Event Grid](./metrics-supported.md#microsofteventgridtopics) |
-|Microsoft.EventHub/clusters |Sim| No | [Clusters hubs de eventos](./metrics-supported.md#microsofteventhubclusters) |
-|Microsoft.EventHub/espaços de nome |Sim| No | [Hubs de Eventos](./metrics-supported.md#microsofteventhubnamespaces) |
-|Microsoft.HDInsight/clusters | Sim | No | [Clusters do HDInsight](./metrics-supported.md#microsofthdinsightclusters) |
-|Microsoft.Insights/Componentes | Sim | No | [Application Insights](./metrics-supported.md#microsoftinsightscomponents) |
+|Microsoft.Devices/IotHubs | Yes | No |[Hub IoT](./metrics-supported.md#microsoftdevicesiothubs) |
+|Microsoft.Devices/provisioningServices| Yes | No | [Serviços de prestação de dispositivos](./metrics-supported.md#microsoftdevicesprovisioningservices) |
+|Microsoft.DigitalTwins/digitalTwinsInstances | Yes | No | |
+|Microsoft.DocumentDB/base de dadosAcontas | Yes | No | [BD do Cosmos](./metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
+|Microsoft.EventGrid/domínios | Yes | No | [Domínios do Event Grid](./metrics-supported.md#microsofteventgriddomains) |
+|Microsoft.EventGrid/systemTopics | Yes | No | [Tópicos do sistema de grelha de eventos](./metrics-supported.md#microsofteventgridsystemtopics) |
+|Microsoft.EventGrid/tópicos |Yes | No | [Tópicos do Event Grid](./metrics-supported.md#microsofteventgridtopics) |
+|Microsoft.EventHub/clusters |Yes| No | [Clusters hubs de eventos](./metrics-supported.md#microsofteventhubclusters) |
+|Microsoft.EventHub/espaços de nome |Yes| No | [Hubs de Eventos](./metrics-supported.md#microsofteventhubnamespaces) |
+|Microsoft.HDInsight/clusters | Yes | No | [Clusters do HDInsight](./metrics-supported.md#microsofthdinsightclusters) |
+|Microsoft.Insights/Componentes | Yes | No | [Application Insights](./metrics-supported.md#microsoftinsightscomponents) |
 |Microsoft.KeyVault/cofres | Yes |Yes |[Cofres](./metrics-supported.md#microsoftkeyvaultvaults)|
-|Microsoft.Kusto/Clusters | Sim |No |[Clusters de Exploradores de Dados](./metrics-supported.md#microsoftkustoclusters)|
-|Microsoft.Logic/integrationServiceEnvironments | Sim | No |[Ambientes de Serviço de Integração](./metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
+|Microsoft.Kusto/Clusters | Yes |No |[Clusters de Exploradores de Dados](./metrics-supported.md#microsoftkustoclusters)|
+|Microsoft.Logic/integrationServiceEnvironments | Yes | No |[Ambientes de Serviço de Integração](./metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft.Logic/workflows | No | No |[Logic Apps](./metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft.MachineLearningServices/workspaces | Sim | No | [Aprendizagem automática](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
-|Microsoft.Maps/contas | Sim | No | [Contas de Mapas](./metrics-supported.md#microsoftmapsaccounts) |
+|Microsoft.MachineLearningServices/workspaces | Yes | No | [Machine Learning](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft.Maps/contas | Yes | No | [Contas de Mapas](./metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft.Media/mediaservices | No | No | [Serviços de Multimédia](./metrics-supported.md#microsoftmediamediaservices) |
-|Microsoft.Media/mediaservices/streamingEndpoints | Sim | No | [Pontos finais de streaming de serviços de mídia](./metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |
+|Microsoft.Media/mediaservices/streamingEndpoints | Yes | No | [Pontos finais de streaming de serviços de mídia](./metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |
 |Microsoft.NetApp/netAppAccounts/capacityPools | Yes | Yes | [Piscinas de capacidade Azure NetApp](./metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
 |Microsoft.NetApp/netAppAccounts/capacityPools/volumes | Yes | Yes | [Azure NetApp Volumes](./metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
-|Microsoft.Network/applicationGateways | Sim | No | [Gateways de aplicação](./metrics-supported.md#microsoftnetworkapplicationgateways) |
-|Microsoft.Network/azurefirewalls | Sim | No | [Firewalls](./metrics-supported.md#microsoftnetworkazurefirewalls) |
+|Microsoft.Network/applicationGateways | Yes | No | [Gateways de aplicação](./metrics-supported.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/azurefirewalls | Yes | No | [Firewalls](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | No | No | [Zonas DNS](./metrics-supported.md#microsoftnetworkdnszones) |
 |Microsoft.Network/expressRouteCircuits | N/D | No |[Circuitos do ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
-|Microsoft.Network/loadBalancers (apenas para SKUs padrão)| Sim| No | [Balançadores de Carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
+|Microsoft.Network/loadBalancers (apenas para SKUs padrão)| Yes| No | [Balançadores de Carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/natGateways| No | No | |
 |Microsoft.Network/privateEndpoints| No | No | |
 |Microsoft.Network/privateLinkServices| No | No |
 |Microsoft.Network/publicipaddresss | No | No |[Endereços IP públicos](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.Network/trafficManagerProfiles | Sim | No | [Perfis do Gestor de Tráfego](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
-|Microsoft.OperationalInsights/workspaces| Sim | No | [Áreas de trabalho do Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
-|Microsoft.Peering/peerings | Sim | No | [Peerings](./metrics-supported.md#microsoftpeeringpeerings) |
-|Microsoft.Peering/peeringServices | Sim | No | [Peering Services](./metrics-supported.md#microsoftpeeringpeeringservices) |
+|Microsoft.Network/trafficManagerProfiles | Yes | No | [Perfis do Gestor de Tráfego](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.OperationalInsights/workspaces| Yes | No | [Áreas de trabalho do Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft.Peering/peerings | Yes | No | [Peerings](./metrics-supported.md#microsoftpeeringpeerings) |
+|Microsoft.Peering/peeringServices | Yes | No | [Peering Services](./metrics-supported.md#microsoftpeeringpeeringservices) |
 |Microsoft.PowerBIDedicated/capacities | No | No | [Capacidades](./metrics-supported.md#microsoftpowerbidedicatedcapacities) |
-|Microsoft.Relay/namespaces | Sim | No | [Reencaminhamentos](./metrics-supported.md#microsoftrelaynamespaces) |
+|Microsoft.Relay/namespaces | Yes | No | [Reencaminhamentos](./metrics-supported.md#microsoftrelaynamespaces) |
 |Microsoft.Search/searchServices | No | No | [Serviços de pesquisa](./metrics-supported.md#microsoftsearchsearchservices) |
-|Microsoft.ServiceBus/namespaces | Sim | No | [Service Bus](./metrics-supported.md#microsoftservicebusnamespaces) |
-|Microsoft.Sql/managedInstances | Não | Yes | [Instâncias Geridas SQL](./metrics-supported.md#microsoftsqlmanagedinstances) |
-|Microsoft.Sql/servidores/bases de dados | Não | Yes | [Bases de Dados SQL](./metrics-supported.md#microsoftsqlserversdatabases) |
-|Microsoft.Sql/servidores/elásticos | Não | Yes | [Piscinas Elásticas SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
-|Microsoft.Storage/storageAcontas |Sim | No | [Contas de armazenamento](./metrics-supported.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAcontas/serviços | Sim| No | [Serviços Blob](./metrics-supported.md#microsoftstoragestorageaccountsblobservices), [Serviços de Arquivo,](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) [Serviços de Fila](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de Mesa](./metrics-supported.md#microsoftstoragestorageaccountstableservices)|
-|Microsoft.StorageCache/caches | Sim | No | |
-|Microsoft.StorageSync/storageSyncServices | Sim | No | [Serviços de Sincronização de Armazenamento](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
-|Microsoft.StreamAnalytics/streamingjobs | Sim | No | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
-|Microsoft.VMWareCloudSimple/virtualMachines | Sim | No | [Máquinas Virtuais do CloudSimple](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
-|Microsoft.Web/hostingEnvironments/multiRolePools | Sim | No | [Piscinas multi-role de ambiente de serviço de aplicativos](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
-|Microsoft.Web/hostingEnvironments/workerPools | Sim | No | [Piscinas de trabalhadores do ambiente do serviço de aplicações](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
-|Microsoft.Web/serverfarms | Sim | No | [Planos de Serviço de Aplicações](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Sim | No | [Serviços](./metrics-supported.md#microsoftwebsites-excluding-functions) e [Funções de Aplicativos](./metrics-supported.md#microsoftwebsites-functions)|
-|Microsoft.Web/sites/slots | Sim | No | [Slots do Serviço de Aplicações](./metrics-supported.md#microsoftwebsitesslots)|
+|Microsoft.ServiceBus/namespaces | Yes | No | [Service Bus](./metrics-supported.md#microsoftservicebusnamespaces) |
+|Microsoft.Sql/managedInstances | No | Yes | [Instâncias Geridas SQL](./metrics-supported.md#microsoftsqlmanagedinstances) |
+|Microsoft.Sql/servidores/bases de dados | No | Yes | [Bases de Dados SQL](./metrics-supported.md#microsoftsqlserversdatabases) |
+|Microsoft.Sql/servidores/elásticos | No | Yes | [Piscinas Elásticas SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
+|Microsoft.Storage/storageAcontas |Yes | No | [Contas de Armazenamento](./metrics-supported.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAcontas/serviços | Yes| No | [Serviços Blob](./metrics-supported.md#microsoftstoragestorageaccountsblobservices), [Serviços de Arquivo,](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) [Serviços de Fila](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de Mesa](./metrics-supported.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.StorageCache/caches | Yes | No | |
+|Microsoft.StorageSync/storageSyncServices | Yes | No | [Serviços de Sincronização de Armazenamento](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
+|Microsoft.StreamAnalytics/streamingjobs | Yes | No | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.VMWareCloudSimple/virtualMachines | Yes | No | [Máquinas Virtuais do CloudSimple](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
+|Microsoft.Web/hostingEnvironments/multiRolePools | Yes | No | [Piscinas multi-role de ambiente de serviço de aplicativos](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
+|Microsoft.Web/hostingEnvironments/workerPools | Yes | No | [Piscinas de trabalhadores do ambiente do serviço de aplicações](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
+|Microsoft.Web/serverfarms | Yes | No | [Planos de Serviço de Aplicações](./metrics-supported.md#microsoftwebserverfarms)|
+|Microsoft.Web/sites | Yes | No | [Serviços](./metrics-supported.md#microsoftwebsites-excluding-functions) e [Funções de Aplicativos](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites/slots | Yes | No | [Slots do Serviço de Aplicações](./metrics-supported.md#microsoftwebsitesslots)|
 
-<sup>1</sup> Suportado apenas para métricas de plataforma (não métricas personalizadas)
+<sup>1</sup> Não suportado para métricas de rede de máquinas virtuais (Rede Total, Rede Fora Total, Fluxos de Entrada, Fluxos de Saída, Fluxos de Entrada Taxa máxima de criação, Taxa máxima de criação de fluxos de saída) e métricas personalizadas.
 
 ## <a name="payload-schema"></a>Esquema de carga útil
 
@@ -173,7 +173,7 @@ A operação POST contém a seguinte carga útil e esquema JSON para todos os al
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a nova [experiência Alertas.](./alerts-overview.md)
 * Saiba mais sobre [os alertas de registo em Azure](./alerts-unified-log.md).
