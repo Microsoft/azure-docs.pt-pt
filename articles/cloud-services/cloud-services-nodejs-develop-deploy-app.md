@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 489025d9cfdd6f1bdbc950e2bd1e7e4d835a4fff
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c2d76ccd0c2e81147c39f81568fd1394cc1868b6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079215"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032882"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure
 
@@ -36,8 +36,8 @@ A aplicação é uma aplicação “olá, mundo” simples:
 > [!NOTE]
 > Este tutorial utiliza o Azure PowerShell, que requer o Windows.
 
-* Instale e configuure [Azure Powershell].
-* Transfira e instale o [Azure SDK para .NET 2.7]. Na configuração da instalação, selecione:
+* Instale e configuure [Azure PowerShell].
+* Faça o download e instale o [Azure SDK para .NET 2.7]. Na configuração da instalação, selecione:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
 
@@ -172,7 +172,7 @@ Depois de implementar a aplicação, poderá pretender desativá-la, para evitar
    > [!NOTE]
    > A eliminação do serviço não elimina a conta do Storage que foi criada quando o serviço foi inicialmente publicado. por isso, continuará a ser-lhe cobrado o armazenamento utilizado. Se mais nada estiver a utilizar o armazenamento, poderá querer eliminá-lo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para mais informações, consulte o [Centro de Programadores de Node.js].
 
 <!-- URL List -->
@@ -180,7 +180,7 @@ Para mais informações, consulte o [Centro de Programadores de Node.js].
 [Comparação de Web Sites, Cloud Services e Virtual Machines do Azure]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [utilização de uma aplicação Web simples]: ../app-service/quickstart-nodejs.md
 [Azure PowerShell]: /powershell/azure/
-[Azure SDK para .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
+[Azure SDK for .NET 3.0]: https://www.microsoft.com/download/details.aspx?id=54917
 [Ligue o PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
 [Descrição Geral da Criação de um Serviço Alojado do Azure]: https://azure.microsoft.com/documentation/services/cloud-services/

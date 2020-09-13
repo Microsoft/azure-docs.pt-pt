@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b14dd4aa44620f2b13891a18fc473acbcb0f3245
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086517"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033035"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Como resolver as recomendações do Azure Advisor
 
@@ -34,7 +34,7 @@ Para permitir um ambiente de validação:
 
 2. Em seguida, selecione a piscina hospedeira que pretende mudar de um ambiente de produção para um ambiente de validação.
 
-3. Na sua piscina de anfitrião, selecione o **separador Propriedades** na coluna do lado direito do ecrã. Em seguida, desça até ver "Ambiente de validação". Selecione **Sim**e, em seguida, selecione **Aplicar**.
+3. Na sua piscina de anfitriões, selecione **Propriedades** na coluna esquerda. Em seguida, desça até ver "Ambiente de validação". Selecione **Sim**e, em seguida, selecione **Aplicar**.
 
 >[!div class="mx-imgBorder"]
 >![Uma imagem do menu Propriedades. "Ambiente de validação" é realçado a vermelho, e a bolha "Sim" é selecionada.](media/validation-yes.png)
@@ -77,6 +77,6 @@ Para resolver esta recomendação, certifique-se de desbloquear todos os URLs na
 
 Pode ajudar-nos a melhorar o Azure Advisor, apresentando ideias para recomendações. A sua recomendação pode ajudar outro utilizador a sair de uma situação difícil. Para submeter uma sugestão, vá ao [nosso fórum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) e preencha o formulário de submissão. Quando preencher o formulário, certifique-se de nos dar o máximo de detalhes possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se procura guias mais aprofundados sobre como resolver problemas comuns, consulte a [visão geral da resolução de problemas, o feedback e o suporte para o Windows Virtual Desktop](troubleshoot-set-up-overview.md).

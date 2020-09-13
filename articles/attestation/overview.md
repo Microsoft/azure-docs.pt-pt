@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: ad164f8af3e5506ae5ac9121010b99303286dd1f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320601"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033001"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (pré-visualização)
 
@@ -85,7 +85,7 @@ Os aglomerados implantados em duas regiões funcionarão de forma independente e
 - O [Gestor de Tráfego da Azure](../traffic-manager/index.yml) para a região irá detetar que a sonda de saúde está degradada e mudar o ponto final para a região emparelhada
 - As ligações existentes não funcionarão e receberão erros internos do servidor ou problemas de tempo limite
 - Todas as operações do avião de controlo serão bloqueadas. Os clientes não serão capazes de criar fornecedores de atestados e atualizar políticas na região primária
-- Todas as operações de avião de dados, incluindo atesta, as chamadas continuarão a funcionar na região primária
+- Todas as operações de avião de dados, incluindo chamadas atestais, continuarão a trabalhar na região primária
 
 ## <a name="next-steps"></a>Próximos passos
 - Conheça os [conceitos básicos do Azure Attestation](basic-concepts.md)

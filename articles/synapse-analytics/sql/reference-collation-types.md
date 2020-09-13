@@ -4,16 +4,16 @@ description: Tipos de colagem suportados no Azure Synapse SQL
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ef9d0eb3dd97795f3b6757759679351f857891ab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496207"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032865"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Suporte de colagem de base de dados para Sinaapse SQL
 
@@ -111,7 +111,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 Quando passou 'Collation' como parâmetro de propriedade, a função DatabasePropertyEx devolve a atual colagem para a base de dados especificada. Pode saber mais sobre a função DatabasePropertyEx na MSDN.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Informações adicionais sobre as melhores práticas para piscina SQL e SQL on-demand podem ser encontradas nos seguintes artigos:
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206850"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031403"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de construção
 
@@ -143,7 +143,7 @@ As opções disponíveis incluem:
 >
 >   Se a nova tarefa for executado no mesmo agente que a tarefa original, a saída da nova tarefa substitui a saída da tarefa original na pasta *de fontes.* Embora a produção de construção seja a mesma, aconselhamos que você execute MSBuild, copie a saída para o diretório de encenação de artefactos, e depois executar Roslyn Analyzers.
 
-Para obter recursos adicionais para a tarefa roslyn Analyzers, confira [os Analisadores baseados em Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/) no Microsoft Docs.
+Para obter recursos adicionais para a tarefa roslyn Analyzers, confira [os Analisadores baseados em Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) no Microsoft Docs.
 
 Pode encontrar o pacote de analisador instalado e utilizado por esta tarefa de construção na página NuGet [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
@@ -195,7 +195,7 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
 
 Para obter informações sobre a configuração YAML para esta tarefa, consulte as nossas [opções DE PÓS-Análise YAML](yaml-configuration.md#post-analysis-task)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre a configuração baseada em YAML, consulte o nosso [guia de configuração YAML](yaml-configuration.md).
 

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3d9caabe3dfde34964f662dbf01316b2cbb0bcab
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543015"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031250"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Sobre a Análise do Código de Segurança da Microsoft
 
@@ -73,7 +73,7 @@ As palavras-passe e outros segredos armazenados no código-fonte são um problem
 
 ### <a name="roslyn-analyzers"></a>Analisadores Roslyn
 
-Roslyn Analyzers é a ferramenta integrada no compilador da Microsoft para analisar esteticamente o código C# e Visual Basic gerido. Para mais informações, consulte [os analisadores baseados em Roslyn.](https://docs.microsoft.com/dotnet/standard/analyzers/)
+Roslyn Analyzers é a ferramenta integrada no compilador da Microsoft para analisar esteticamente o código C# e Visual Basic gerido. Para mais informações, consulte [os analisadores baseados em Roslyn.](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer)
 
 ### <a name="tslint"></a>TSLint
 
@@ -104,7 +104,7 @@ Pode configurar esta tarefa para quebrar a construção para problemas encontrad
 >[!NOTE]
 >Por design, cada tarefa de construção tem sucesso se a tarefa terminar com sucesso. Isto é verdade se uma ferramenta encontra ou não problemas, para que a construção possa ser concluída permitindo que todas as ferramentas sejam executadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter instruções sobre como embarcar e instalar a Microsoft Security Code Analysis, consulte o nosso [guia de embarque e instalação](security-code-analysis-onboard.md).
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387251"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033188"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados 
 
@@ -33,16 +33,16 @@ No Azure Synapse Analytics, um serviço ligado é onde define as suas informaç�
 
 1. Abra o Azure Synapse Studio e vá ao **separador Gerir.**
 1. Em **ligações externas**, selecione **serviços Linked**.
-1. Para adicionar um serviço ligado, clique em **New**.
-1. Selecione o azulejo Azure Data Lake Storage Gen2 da lista e clique em **Continuar**.
+1. Para adicionar um serviço ligado, selecione **New**.
+1. Selecione o azulejo Azure Data Lake Storage Gen2 da lista e selecione **Continue**.
 1. Certifique-se de que ativa **a Autoria Interativa.** Pode levar cerca de 1 minuto para ser ativado. 
-1. Insira as suas credenciais de autenticação. A chave de conta, o principal do serviço e a identidade gerida são atualmente tipos de autenticação suportados. Clique na ligação de teste para verificar se as suas credenciais estão corretas.
+1. Insira as suas credenciais de autenticação. A chave de conta, o principal do serviço e a identidade gerida são atualmente tipos de autenticação suportados. Selecione a ligação de teste para verificar se as suas credenciais estão corretas.
 1. Selecione **a ligação de teste,** deve falhar porque a Conta de Armazenamento não permite o acesso à sua sem a criação e aprovação de um Ponto Final Privado. Na mensagem de erro, deverá ver um link para criar um **ponto final privado** que pode seguir para ir à próxima parte. Se seguires esse link, salta a próxima parte.
 1. Quando terminar, selecione **Criar**.
 
 ## <a name="create-a-managed-private-endpoint"></a>Criar um ponto final privado gerido
 
-Caso não tenha clicando na hiperligação ao testar a ligação acima, siga o seguinte caminho. Agora precisa de criar um ponto final privado gerido que irá ligar ao serviço ligado acima.
+Se não selecionou para a hiperligação ao testar a ligação acima, siga o seguinte caminho. Crie um ponto final privado gerido que irá ligar ao serviço ligado acima.
 
 1. Vá ao **separador Gerir.**
 1. Aceda à secção **Redes Virtuais Geridas.**
@@ -55,7 +55,7 @@ Caso não tenha clicando na hiperligação ao testar a ligação acima, siga o s
 ## <a name="private-link-approval"></a>Aprovação de ligação privada
 1. Selecione o Ponto Final Privado que criou acima. Pode ver uma hiperligação que lhe permitirá aprovar o Ponto Final Privado ao nível da Conta de Armazenamento. *Uma alternativa é ir diretamente para a Conta de Armazenamento do portal Azure e entrar na lâmina **de ligações de ponto final privado.***
 1. Marque o ponto final privado que criou no Estúdio e selecione **Aprovar**.
-1. Adicione uma descrição e clique **em sim**
+1. Adicione uma descrição e selecione **sim**
 1. Volte para o Synapse Studio sob a secção **Redes Virtuais Geridas** do **separador Managed.**
 1. Deve levar cerca de 1 minuto para que a aprovação seja refletida para o seu ponto final privado.
 
@@ -64,7 +64,7 @@ Caso não tenha clicando na hiperligação ao testar a ligação acima, siga o s
 1. Certifique-se de que **a autoria interativa** está ativa.
 1. Selecione **Testar ligação**. Devia ver se a ligação tinha sucesso.
 
-Estabeleceu agora uma ligação segura e privada entre a Synapse e o seu serviço ligado!
+Estabeleceu agora uma ligação segura e privada entre a Synapse e o seu serviço ligado.
 
 ## <a name="next-steps"></a>Próximos passos
 

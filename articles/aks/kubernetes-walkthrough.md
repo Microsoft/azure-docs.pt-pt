@@ -3,7 +3,7 @@ title: 'Quickstart: Implementar um cluster AKS utilizando o Azure CLI'
 description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma aplicação e monitorizar o desempenho no Serviço Azure Kubernetes (AKS) utilizando o CLI Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 09/11/2020
 ms.custom:
 - H1Hack27Feb2017
 - mvc
@@ -13,12 +13,12 @@ ms.custom:
 - seo-python-october2019
 - devx-track-azurecli
 - contperfq1
-ms.openlocfilehash: 975f32872cd5fcdf00fb9e394920a7a50ba898ce
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: c5198f4ed838e653ed2eab15fa26493075a56d8a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89482828"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032610"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Quickstart: Implementar um cluster de serviço Azure Kubernetes utilizando o Azure CLI
 
@@ -187,7 +187,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -274,7 +274,7 @@ Neste início rápido, imagens de contentores pré-criadas foram usadas para cri
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo. Também pode [aceder ao painel web kubernetes][kubernetes-dashboard] para o seu cluster AKS.
 

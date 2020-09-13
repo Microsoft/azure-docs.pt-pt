@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: 57830ae14c5d6653f6a2225924160fcb75646c12
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d4df4ea96f8dafa2f0eb26e27fcc08ab4ec89003
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590765"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033579"
 ---
 # <a name="run-experiments-using-azure-automated-ml-and-apache-spark"></a>Executar experiências usando Azure Automated ML e Apache Spark
 
@@ -341,6 +341,6 @@ Por último, também pode aceder aos resultados das iterações navegando para a
 
 ![Screenshot do espaço de trabalho da AML.](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-aml-workspace.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 - [Apache Spark MLlib Tutorial](./apache-spark-machine-learning-mllib-notebook.md)

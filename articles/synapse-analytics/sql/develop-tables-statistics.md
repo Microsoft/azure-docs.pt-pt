@@ -6,17 +6,17 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 25c92437b350d7329c340fe1ea13b3df40e231ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f30e9c30f1067595fc502bf3ea349cd6b7630ae1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020604"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032685"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
@@ -57,7 +57,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Estas declarações desencadearão a criação automática de estatísticas:
 
-- SELECIONAR
+- SELECT
 - INSIRA-SELECÇÃO
 - CTAS
 - UPDATE
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() diferenças
 
-`DBCC SHOW_STATISTICS()`é mais rigorosamente implementado na piscina SQL em comparação com o SQL Server:
+`DBCC SHOW_STATISTICS()` é mais rigorosamente implementado na piscina SQL em comparação com o SQL Server:
 
 - As funcionalidades não documentadas não são suportadas.
 - Não posso usáStats_stream.
@@ -556,7 +556,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Não se pode usar nomes de colunas para identificar objetos estatísticos.
 - O erro personalizado 2767 não é suportado.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 Para melhorar ainda mais o desempenho da consulta, consulte [Monitorar a sua carga de trabalho](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
@@ -814,6 +814,6 @@ CREATE STATISTICS sState
     WITH FULLSCAN, NORECOMPUTE
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter melhorias no desempenho da consulta, consulte [as melhores práticas para a piscina SQL](best-practices-sql-pool.md#maintain-statistics).

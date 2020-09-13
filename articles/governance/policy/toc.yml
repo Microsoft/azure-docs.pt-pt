@@ -184,9 +184,9 @@
     - name: Azure PowerShell
       items:
         - name: Política
-          href: /powershell/module/az.resources/#policies
+          href: /powershell/module/az.resources#policy
         - name: Informações da Política
-          href: /powershell/module/az.policyinsights#policy_insights
+          href: /powershell/module/az.policyinsights
         - name: Configuração de Convidado
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: SDK do Azure para .NET

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c8212af727a47ab05936c8b59c781cd49c5b0ba6
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: f2050bf671af35df4faec8b0b1d53f4c10a9075e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669692"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031675"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-release-notes"></a>Notas de lançamento do Azure Synapse Analytics (pré-visualização de espaços de trabalho)
 
@@ -32,7 +32,7 @@ Este artigo descreve limitações e problemas com a Azure Synapse Analytics (esp
   3.    Adicione espaço de trabalho como função à conta de armazenamento executando ` az role assignment create --role "Storage Blob Data Contributor" --assignee-object-id {identity } --scope {storage account resource id}` .
   4.    Adicione a regra da firewall executando ` az synapse firewall-rule create --name allowAll --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255 ` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é Azure Synapse](overview-what-is.md)
 * [Introdução](get-started.md)

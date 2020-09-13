@@ -1,39 +1,39 @@
 ---
-title: CETAS em Synapse SQL
-description: Utilização cetas com SqL synapse
+title: CETAS em Sinaapse SQL
+description: Utilização de CETAS com SQL de Sinapse
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3e53ac189e0d612b09c362e82ba5bc2fe5fec8d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 18f472da30b34fcacd70bba9ea7371b56f1a7abf
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696823"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032916"
 ---
-# <a name="cetas-with-synapse-sql"></a>CETAS com Synapse SQL
+# <a name="cetas-with-synapse-sql"></a>CETAS com Sinaapse SQL
 
-Em conjunto SQL ou SQL a pedido (pré-visualização), pode utilizar a CREATE EXTERNAL TABLE AS SELECT (CETAS) para completar as seguintes tarefas:  
+Na piscina SQL ou no SQL on demand (pré-visualização), pode utilizar CREATE EXTERNAL TABLE AS SELECT (CETAS) para completar as seguintes tarefas:  
 
 - Criar uma tabela externa
-- Exportar, paralelamente, os resultados de uma declaração da Transact-SQL SELECT para
+- Exportar, paralelamente, os resultados de uma declaração seleta Transact-SQL para
 
   - Hadoop
-  - Blob de armazenamento azure
+  - Azure Storage Blob
   - Armazenamento do Azure Data Lake Ger2
 
-## <a name="cetas-in-sql-pool"></a>CETAS em piscina SQL
+## <a name="cetas-in-sql-pool"></a>CETAS na piscina SQL
 
-Para piscina SQL, utilização cetas e sintaxe, consulte a [tabela EXTERNA CREATE AS SELECT.](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Além disso, para orientação sobre CTAS utilizando piscina SQL, consulte o artigo [CREATE TABLE AS SELECT.](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+Para a piscina SQL, utilização e sintaxe CETAS, verifique a tabela externa CREATE COMO ARTIGO [SELECT.](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Além disso, para obter orientação sobre ctas utilizando piscina SQL, consulte o artigo [SELECT TABELA CREATE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) AS.
 
 ## <a name="cetas-in-sql-on-demand"></a>CETAS em SQL a pedido
 
-Ao utilizar o recurso SQL on-demand, o CETAS é utilizado para criar uma tabela externa e resultados de consulta de exportação para o Azure Storage Blob ou azure Data Lake Storage Gen2.
+Ao utilizar o recurso a pedido do SQL, o CETAS é utilizado para criar uma tabela externa e resultados de consulta de exportação para a Azure Storage Blob ou Azure Data Lake Storage Gen2.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -54,47 +54,47 @@ CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] 
 
 ## <a name="arguments"></a>Argumentos
 
-*[ *database_name.* *[schema_name]* . ] | *schema_name.* ] *table_name**
+*[database_name *database_name* . *[schema_name* ] . ] | *schema_name.* ] *table_name**
 
-O nome de uma a três partes da mesa para criar. Para uma tabela externa, a SQL a pedido armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado em SQL a pedido.
+O nome de uma a três partes da mesa para criar. Para uma tabela externa, a SQL armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado em SQL on demand.
 
 LOCALIZAÇÃO = *'path_to_folder'*
 
-Especifica onde escrever os resultados da declaração SELECT na fonte de dados externos. A pasta raiz é a localização de dados especificada na origem de dados externa. Localização deve apontar para uma pasta e ter um trailing /. Exemplo: aggregated_data/
+Especifica onde escrever os resultados da declaração SELECT na fonte de dados externos. A pasta raiz é a localização de dados especificada na origem de dados externa. A LOCALIZAÇÃO deve apontar para uma pasta e ter um trailing /. Exemplo: aggregated_data/
 
 DATA_SOURCE = *external_data_source_name*
 
-Especifica o nome do objeto de origem de dados externo que contém a localização onde os dados externos serão armazenados. Para criar uma fonte externa de dados, utilize a [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](develop-tables-external-tables.md#create-external-data-source).
+Especifica o nome do objeto de origem de dados externo que contém o local onde os dados externos serão armazenados. Para criar uma fonte de dados externa, utilize [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](develop-tables-external-tables.md#create-external-data-source).
 
 FILE_FORMAT = *external_file_format_name*
 
-Especifica o nome do objeto de formato de ficheiro externo que contém o formato para o ficheiro de dados externo. Para criar um formato de ficheiro externo, utilize o [FORMATO DE FICHEIRO EXTERNO (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Atualmente, apenas são suportados formatos de ficheiros externos com FORMAT='PARQUET'.
+Especifica o nome do objeto de formato de ficheiro externo que contém o formato do ficheiro de dados externo. Para criar um formato de ficheiro externo, utilize [o FORMATO DE FICHEIRO EXTERNO CREATE (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Apenas os formatos de ficheiros externos com FORMATO='PARQUET' são atualmente suportados.
 
 COM *<common_table_expression>*
 
-Especifica um conjunto de resultados nomeado temporário, conhecido como expressão de mesa comum (CTE). Para mais informações, consulte [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Especifica um conjunto de resultados nomeado temporário, conhecido como uma expressão de mesa comum (CTE). Para obter mais informações, consulte [with common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 SELECIONE <select_criteria>
 
-Povoa a nova tabela com os resultados de uma declaração SELECT. *select_criteria* é o corpo da declaração SELECT que determina quais os dados a copiar para a nova tabela. Para obter informações sobre as declarações SELECT, consulte [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Povoa a nova tabela com os resultados de uma declaração SELECT. *select_criteria* é o corpo da declaração SELECT que determina quais os dados a copiar para a nova tabela. Para obter informações sobre declarações SELECT, consulte [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 > [!NOTE]
-> A cláusula ORDER BY em SELECT parte do CETAS não é suportada.
+> ENCOMENDA POR cláusula na parte SELECT do CETAS não é suportado.
 
 ## <a name="permissions"></a>Permissões
 
-É necessário ter permissões para listar o conteúdo das pastas e escrever para a pasta LOCATION para o CETAS funcionar.
+É necessário ter permissões para listar o conteúdo da pasta e escrever na pasta LOCATION para o CETAS funcionar.
 
 ## <a name="examples"></a>Exemplos
 
-Estes exemplos usam o CETAS para salvar a população total agregada por ano e afirmam a uma pasta aggregated_data que está localizada na fonte de dados population_ds.
+Estes exemplos utilizam o CETAS para salvar a população total agregada por ano e o estado para uma pasta aggregated_data que está localizada na population_ds fonte de dados.
 
-Esta amostra baseia-se na credencial, fonte de dados e formato de ficheiro externo criado anteriormente. Consulte o documento das [tabelas externas.](develop-tables-external-tables.md) Para guardar os resultados da consulta para uma pasta diferente na mesma fonte de dados, altere o argumento DE LOCALIZAÇÃO. 
+Esta amostra baseia-se na credencial, fonte de dados e formato de ficheiro externo criado anteriormente. Consulte o documento das [tabelas externas.](develop-tables-external-tables.md) Para guardar os resultados da consulta para uma pasta diferente na mesma fonte de dados, altere o argumento LOCALIZAÇÃO. 
 
-Para guardar resultados para uma conta de armazenamento diferente, crie e use uma fonte de dados diferente para DATA_SOURCE argumento.
+Para guardar resultados para uma conta de armazenamento diferente, crie e utilize uma fonte de dados diferente para DATA_SOURCE argumento.
 
 > [!NOTE]
-> As amostras que se seguem utilizam uma conta pública de armazenamento de Dados Abertos Azure. É só para ler. Para executar estas consultas, precisa fornecer a fonte de dados para a qual tem permissões de escrita.
+> As amostras que se seguem utilizam uma conta pública de armazenamento de dados abertos. É só leitura. Para executar estas consultas, precisa fornecer a fonte de dados para a qual tem permissões de escrita.
 
 ```sql
 -- use CETAS to export select statement with OPENROWSET result to  storage
@@ -116,7 +116,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-A amostra seguinte utiliza uma tabela externa como fonte para o CETAS. Baseia-se na credencial, fonte de dados, formato de ficheiro externo e tabela externa criada anteriormente. Consulte o documento das [tabelas externas.](develop-tables-external-tables.md)
+A amostra a seguir utiliza uma tabela externa como fonte para o CETAS. Baseia-se na credencial, fonte de dados, formato de ficheiro externo e tabela externa criada anteriormente. Consulte o documento das [tabelas externas.](develop-tables-external-tables.md)
 
 ```sql
 -- use CETAS with select from external table
@@ -141,10 +141,10 @@ SELECT * FROM population_by_year_state
 O CETAS pode ser utilizado para armazenar conjuntos de resultados com os seguintes tipos de dados SQL:
 
 - binary
-- varbinary
+- varbinário
 - char
 - varchar
-- data
+- date
 - hora
 - datetime2
 - decimal
@@ -158,19 +158,19 @@ O CETAS pode ser utilizado para armazenar conjuntos de resultados com os seguint
 - bit
 
 > [!NOTE]
-> Os LOBs não podem ser utilizados com CETAS.
+> LoBs não podem ser utilizados com CETAS.
 
-Os seguintes tipos de dados não podem ser utilizados em parte SELECT do CETAS:
+Os seguintes tipos de dados não podem ser utilizados na parte SELECT do CETAS:
 
 - nchar
 - nvarchar
 - datetime
-- tempo de data pequena
-- datacompensação
+- hora pequena
+- datatimeoffoff
 - dinheiro
-- dinheiro pequeno
+- pequeno dinheiro
 - uniqueidentifier
 
 ## <a name="next-steps"></a>Próximos passos
 
-Você pode experimentar consultar [Apache Spark para mesas externas Azure Synapse](develop-storage-files-spark-tables.md).
+Pode tentar consultar o [Apache Spark para as tabelas externas da Azure Synapse.](develop-storage-files-spark-tables.md)

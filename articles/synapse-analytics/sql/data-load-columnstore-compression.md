@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fa3bee706049bbeaed0a01cb4f3f5c0422050fa2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 25ab7d275957aff03ad76bf2e946a98fc6cd8821
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797586"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032967"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do grupo de linha para o desempenho do índice de loja de colunas
 
@@ -68,9 +68,6 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
 select *
 from cte;
 ```
-
->[!TIP]
-> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
 
 O trim_reason_desc diz se o grupo de linha foi aparado (trim_reason_desc = NO_TRIM implica que não houve aparar e o grupo de linha é de ótima qualidade). As seguintes razões de corte indicam o corte prematuro do grupo de linha:
 
@@ -142,7 +139,7 @@ O tamanho do DWU e a classe de recursos do utilizador em conjunto determinam a q
 - Para aumentar os DWUs, veja [como dimensionar o desempenho?](../sql-data-warehouse/quickstart-scale-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - Para alterar a classe de recursos para uma consulta, consulte [Alterar um exemplo de classe de recursos do utilizador](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#change-a-users-resource-class).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para encontrar mais formas de melhorar o desempenho no Synapse SQL, consulte a [visão geral](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)do Desempenho .
 

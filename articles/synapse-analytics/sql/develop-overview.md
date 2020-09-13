@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070055"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032950"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para características do SQL da Sinapse no Azure Synapse Analytics
 Neste artigo, você encontrará uma lista de recursos para piscina SQL e sql on-demand (pré-visualização) funções de Synapse SQL. Os artigos recomendados dividem-se em duas secções: decisões de conceção chave e técnicas de desenvolvimento e codificação.
@@ -27,17 +27,17 @@ Os artigos abaixo destacam conceitos e decisões de design para o desenvolviment
 
 | Artigo | Conjunto de SQL | SQL a pedido |
 | ------- | -------- | ------------- |
-| [Ligações](connect-overview.md)                    | Yes | Sim |
-| [Classes de recursos e concuência](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | Não |
-| [Transações](develop-transactions.md)              | Yes | Não |
-| [Esquemas definidos pelo utilizador](develop-user-defined-schemas.md) | Yes | Sim |
-| [Distribuição da tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Yes | Não |
-| [Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Yes | Não |
-| [Divisórias de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Yes | Não |
-| [Estatísticas](develop-tables-statistics.md)            | Yes | Sim |
-| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Yes | Não |
-| [Tabelas externas](develop-tables-external-tables.md) | Yes | Sim |
-| [CETAS](develop-tables-cetas.md)                     | Yes | Sim |
+| [Ligações](connect-overview.md)                    | Yes | Yes |
+| [Classes de recursos e concuência](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | No |
+| [Transações](develop-transactions.md)              | Yes | No |
+| [Esquemas definidos pelo utilizador](develop-user-defined-schemas.md) | Yes | Yes |
+| [Distribuição da tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Yes | No |
+| [Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Yes | No |
+| [Divisórias de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Yes | No |
+| [Estatísticas](develop-tables-statistics.md)            | Yes | Yes |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Yes | No |
+| [Tabelas externas](develop-tables-external-tables.md) | Yes | Yes |
+| [CETAS](develop-tables-cetas.md)                     | Yes | Yes |
 
 
 ## <a name="recommendations"></a>Recomendações
@@ -46,13 +46,13 @@ Abaixo encontrará artigos essenciais que enfatizam técnicas específicas de co
 
 | Artigo | Conjunto de SQL | SQL a pedido |
 | ------- | -------- | ------------- |
-| [Procedimentos armazenados](develop-stored-procedures.md)  | Yes                | Não                      |
-| [Etiquetas](develop-label.md)                           | Yes                | Não                      |
-| [Vistas](develop-views.md)                             | Yes                | Sim                     |
-| [Tabelas temporárias](develop-tables-temporary.md)       | Yes                | Sim                     |
-| [Dynamic SQL](develop-dynamic-sql.md)                 | Yes                | Sim                     |
-| [Executar ciclos](develop-loops.md)                         | Yes                | Sim                     |
-| [Agrupar por opções](develop-group-by-options.md)       | Yes                | Não                      |
+| [Procedimentos armazenados](develop-stored-procedures.md)  | Yes                | No                      |
+| [Etiquetas](develop-label.md)                           | Yes                | No                      |
+| [Vistas](develop-views.md)                             | Yes                | Yes                     |
+| [Tabelas temporárias](develop-tables-temporary.md)       | Yes                | Yes                     |
+| [Dynamic SQL](develop-dynamic-sql.md)                 | Yes                | Yes                     |
+| [Executar ciclos](develop-loops.md)                         | Yes                | Yes                     |
+| [Agrupar por opções](develop-group-by-options.md)       | Yes                | No                      |
 | [Atribuição de variáveis](develop-variable-assignment.md) | Yes                | Sim                     |
 
 ## <a name="next-steps"></a>Próximos passos

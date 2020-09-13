@@ -1,19 +1,19 @@
 ---
-title: Implementar monitor de Azure
+title: Implementar o Azure Monitor
 description: Descreve os diferentes passos necessários para uma implementação completa do Azure Monitor para monitorizar todos os recursos na sua subscrição Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 34a048c702b62caeecaf21e710a9dcd9156e4aea
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801775"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033477"
 ---
-# <a name="deploy-azure-monitor"></a>Implementar monitor de Azure
+# <a name="deploy-azure-monitor"></a>Implementar o Azure Monitor
 Permitir que o Azure Monitor monitorize todos os seus recursos Azure é uma combinação de configurar componentes do Monitor Azure e configurar recursos Azure para gerar dados de monitorização para o Azure Monitor recolher. Este artigo descreve os diferentes passos necessários para uma implementação completa do Azure Monitor utilizando uma configuração comum para monitorizar todos os recursos na sua subscrição Azure. Descrições básicas para cada passo são fornecidas com ligações a outra documentação para requisitos de configuração detalhada.
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ As seguintes funcionalidades do Azure Monitor estão ativadas sem necessidade de
 
 
 ### <a name="create-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
-Necessita de pelo menos um espaço de trabalho log Analytics para ativar [registos do Monitor Azure](platform/data-platform-logs.md), que é necessário para recolher dados como registos a partir de recursos Azure, recolher dados do sistema operativo convidado de máquinas virtuais Azure, e para a maioria dos insights do Azure Monitor. Outros serviços como O Azure Sentinel e o Azure Security Center também usam um espaço de trabalho Log Analytics e podem partilhar o mesmo que você usa para O Azure Monitor. Pode começar com um único espaço de trabalho para suportar esta monitorização, mas consulte [a implementação de Registos do Monitor Azure](platform/design-logs-deployment.md) para obter orientação sobre quando utilizar vários espaços de trabalho.
+Necessita de pelo menos um espaço de trabalho log Analytics para ativar [registos do Monitor Azure](platform/data-platform-logs.md), que é necessário para recolher dados como registos a partir de recursos Azure, recolher dados do sistema operativo convidado de máquinas virtuais Azure, e para a maioria dos insights do Azure Monitor. Outros serviços como O Azure Sentinel e o Azure Security Center também usam um espaço de trabalho Log Analytics e podem partilhar o mesmo que você usa para O Azure Monitor. Pode começar com um único espaço de trabalho para suportar esta monitorização, mas consulte  [a implementação de Registos do Monitor Azure](platform/design-logs-deployment.md) para obter orientação sobre quando utilizar vários espaços de trabalho.
 
 Não há custo para a criação de um espaço de trabalho Log Analytics, mas existe uma carga potencial uma vez que configura os dados a serem recolhidos no mesmo. Consulte [Gerir a utilização e os custos com os Registos do Monitor Azure](platform/manage-cost-storage.md) para obter mais detalhes.  
 
@@ -118,9 +118,9 @@ Consulte [instalar e configurar a extensão de diagnóstico do Windows Azure (WA
 O Azure Monitor monitoriza as suas aplicações personalizadas utilizando [o Application Insights](app/app-insights-overview.md), que tem de configurar para cada aplicação que pretende monitorizar. O processo de configuração variará consoante o tipo de aplicação que está a ser monitorizado e o tipo de monitorização que pretende realizar. Os dados recolhidos pela Application Insights são armazenados em Métricas do Monitor Azure, Registos monitores Azure e armazenamento de blob Azure, dependendo da funcionalidade. Os dados de desempenho são armazenados tanto em Métricas do Monitor Azure como em Registos monitores Azure sem necessidade de configuração adicional.
 
 ### <a name="create-an-application-resource"></a>Criar um recurso de aplicação
-Tem de criar um recurso no Application Insights para cada aplicação que vai monitorizar. Os dados de registo recolhidos pela Application Insights são armazenados em Registos monitores do Azure, mas estão separados do seu espaço de trabalho Log Analytics, tal como descrito em [Como os dados em Registos do Monitor Azure são estruturados?](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured) Atualmente em pré-visualização é a capacidade de armazenar os dados da sua aplicação diretamente num espaço de trabalho do Log Analytics com os seus outros dados. Isto simplifica a sua configuração e permite que a sua aplicação tire partido de todas as funcionalidades de um espaço de trabalho Log Analytics.
+Tem de criar um recurso no Application Insights para cada aplicação que vai monitorizar. Os dados de registo recolhidos pela Application Insights são armazenados em Registos monitores do Azure para uma aplicação baseada no espaço de trabalho. Os dados de registo de aplicações clássicas são armazenados separados do seu espaço de trabalho Log Analytics, conforme descrito na [Estrutura de dados.](platform/data-platform-logs.md#structure-of-data)
 
- Ao criar a aplicação, tem de selecionar se utiliza um espaço de trabalho clássico ou baseado no espaço de trabalho (pré-visualização). Consulte [criar um recurso Application Insights](app/create-new-resource.md) para criar uma aplicação clássica. Consulte [os recursos de Insights de Aplicação baseados no Espaço de Trabalho (pré-visualização)](app/create-workspace-resource.md) para criar uma aplicação baseada no espaço de trabalho.
+ Ao criar a aplicação, tem de selecionar se utiliza um espaço de trabalho clássico ou baseado no espaço de trabalho. Consulte [criar um recurso Application Insights](app/create-new-resource.md) para criar uma aplicação clássica. Consulte [os recursos de Insights de Aplicação baseados no Espaço de Trabalho (pré-visualização)](app/create-workspace-resource.md) para criar uma aplicação baseada no espaço de trabalho.
 
 ### <a name="configure-codeless-or-code-based-monitoring"></a>Configurar uma monitorização codificada ou baseada em códigos
 Para permitir a monitorização de uma aplicação, tem de decidir se utilizará uma monitorização codificada ou baseada em códigos. O processo de configuração variará dependendo desta decisão e do tipo de aplicação que irá monitorizar.
@@ -192,6 +192,6 @@ Existem vários tipos de regras de alerta definidas pelo tipo de dados que utili
 - [Os alertas](app/monitor-web-app-availability.md) de aplicação permitem-lhe realizar testes proactivos de desempenho e disponibilidade da sua aplicação web. Você pode realizar um teste de ping simples sem custos, mas há um custo para testes mais complexos. Consulte [o Monitor a disponibilidade de qualquer website](app/monitor-web-app-availability.md) para uma descrição dos diferentes testes e detalhes sobre a sua criação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [o Monitor Azure em escala utilizando a política Azure](deploy-scale.md).

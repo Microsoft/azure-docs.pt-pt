@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 63e83e69e5e09c17b2a2ddb5ca7bee6474e2fddd
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 02efaf3f0382a7af63717e777036637de2bbec25
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386678"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033205"
 ---
 # <a name="ingest-data-into-a-sql-pool"></a>Ingerir dados numa piscina SQL
 
-Neste artigo você aprenderá a ingerir dados de uma conta de armazenamento Azure Data Lake Gen 2 em uma piscina SQL usando Azure Synapse Analytics.
+Neste artigo, você aprenderá a ingerir dados de uma conta de armazenamento Azure Data Lake Gen 2 em uma piscina SQL usando Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,24 +32,24 @@ No Azure Synapse Analytics, um serviço ligado é onde define as suas informaç�
 
 1. Abra o Azure Synapse Analytics UX e vá ao **separador Gerir.**
 1. Em **ligações externas**, selecione **serviços Linked**.
-1. Para adicionar um serviço ligado, clique em **New**.
-1. Selecione o azulejo Azure Data Lake Storage Gen2 da lista e clique em **Continuar**.
-1. Insira as suas credenciais de autenticação. A chave de conta, o principal do serviço e a identidade gerida são atualmente tipos de autenticação suportados. Clique na ligação de teste para verificar se as suas credenciais estão corretas. Clique em **Criar** quando terminar.
+1. Para adicionar um serviço ligado, selecione **New**.
+1. Selecione o azulejo Azure Data Lake Storage Gen2 da lista e selecione **Continue**.
+1. Insira as suas credenciais de autenticação. A chave de conta, o principal do serviço e a identidade gerida são atualmente tipos de autenticação suportados. Selecione a ligação de teste para verificar se as suas credenciais estão corretas. Quando terminar, selecione **Criar**.
 1. Repita os passos 3-5, mas em vez de Azure Data Lake Storage Gen2, selecione o azulejo Azure Synapse Analytics e introduza nas credenciais de conexão correspondentes. Para a Azure Synapse Analytics, a autenticação SQL, a identidade gerida e o principal de serviço são atualmente suportados.
 
 ## <a name="create-pipeline"></a>Criar pipeline
 
 Um oleoduto contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta secção, você vai criar um pipeline contendo uma atividade de cópia que ingere dados da ADLS Gen2 em uma piscina SQL.
 
-1. Vá ao **separador Orquestrar.** Clique no ícone mais ao lado do cabeçalho dos gasodutos e selecione **Pipeline**.
+1. Vá ao **separador Orchestrate.** Selecione no ícone mais ao lado do cabeçalho dos gasodutos e selecione **Pipeline**.
 1. Em **Movimento e Transforme** no painel de atividades, **arraste os dados do Copy** para a tela do gasoduto.
-1. Clique na atividade da cópia e vá ao separador **'Fonte.'** Clique **em Novo** para criar um novo conjunto de dados de origem.
-1. Selecione Azure Data Lake Storage gen2 como a sua loja de dados e clique em continuar.
-1. Selecione DelimitedText como o seu formato e clique em continuar.
-1. No painel de propriedades definidas, selecione o serviço ligado ADLS que criou. Especifique o caminho do ficheiro dos seus dados de origem e especifique se a primeira linha tem um cabeçalho. Pode importar o esquema da loja de ficheiros ou de um ficheiro de amostra. Clique em OK quando terminar.
-1. Vá ao **separador Sink.** Clique em **Novo** para criar um novo conjunto de dados da pia.
-1. Selecione Azure Synapse Analytics como a sua loja de dados e clique em continuar.
-1. No painel de propriedades definidas, selecione o serviço Azure Synapse Analytics ligado que criou. Se estiver a escrever para uma mesa existente, selecione-a a partir do dropdown. Caso contrário, verifique **editar** e insira o seu novo nome de mesa. Clique em OK quando terminar
+1. Selecione na atividade da cópia e vá para o separador **Fonte.** Selecione **Novo** para criar um novo conjunto de dados de origem.
+1. Selecione Azure Data Lake Storage gen2 como a sua loja de dados e selecione continue.
+1. Selecione DelimitedText como o seu formato e selecione continue.
+1. No painel de propriedades definidas, selecione o serviço ligado ADLS que criou. Especifique o caminho do ficheiro dos seus dados de origem e especifique se a primeira linha tem um cabeçalho. Pode importar o esquema da loja de ficheiros ou de um ficheiro de amostra. Selecione OK quando terminar.
+1. Vá para a conta **de Afundar.** Selecione **Novo** para criar um novo conjunto de dados de pia.
+1. Selecione Azure Synapse Analytics como a sua loja de dados e selecione continue.
+1. No painel de propriedades definidas, selecione o serviço Azure Synapse Analytics ligado que criou. Se estiver a escrever para uma mesa existente, selecione-a a partir do dropdown. Caso contrário, verifique **editar** e insira o seu novo nome de mesa. Selecione OK quando terminar
 1. Se estiver a criar uma tabela, ative **a tabela Auto no** campo de opções de tabela.
 
 ## <a name="debug-and-publish-pipeline"></a>Debug e publicar pipeline
@@ -58,7 +58,7 @@ Uma vez terminada a configuração do seu oleoduto, pode executar uma corrida de
 
 1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída**, na parte inferior da janela. 
 1. Uma vez que o gasoduto possa funcionar com sucesso, na barra de ferramentas superior, **selecione Publicar Tudo**. Esta ação publica entidades (conjuntos de dados e oleodutos) que criou para o serviço Synapse Analytics.
-1. Aguarde até ver a mensagem **Publicação com êxito**. Para ver as mensagens de notificação, clique no botão de campainha no topo direito. 
+1. Aguarde até ver a mensagem **Publicação com êxito**. Para ver as mensagens de notificação, selecione o botão de campainha no topo direito. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>Dispare e monitorize o gasoduto

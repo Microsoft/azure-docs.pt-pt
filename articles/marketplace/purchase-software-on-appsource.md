@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 5c5f690fd5fefbd67180ea04d5ca1d269676f7b7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6ea96f23f6d8c6a2e95a6217522f23545d49e9df
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180818"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032848"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como adquirir software no Microsoft AppSource
 
@@ -59,10 +59,10 @@ Depois de receber o pedido, pode levar vários segundos para ser confirmado. Rec
 
 ## <a name="contact-support"></a>Contactar o suporte
 
-[Pode-se submeter um bilhete de apoio](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) através do Microsoft 365 Admin Center.
+[Pode-se submeter um bilhete de apoio](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) através do centro de administração Microsoft 365.
 
-Para produtos empresariais, [contacte aqui.](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone)
+Para produtos empresariais, [contacte aqui.](/office365/admin/contact-support-for-business-products?tabs=phone)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [documentação do Mercado Comercial](partner-center-portal/commercial-marketplace-overview.md) para obter mais informações.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: fb58728e005ad70ac5392aa9e3e6a254ed317276
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016342"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032525"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 O agente Azure Log Analytics recolhe telemetria a partir de máquinas virtuais Windows e Linux em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/) e envia-os dados recolhidos para o seu espaço de trabalho Log Analytics no Azure Monitor. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, como [o Azure Monitor para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center,](../../security-center/index.yml)e [Azure Automation.](../../automation/automation-intro.md) Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede e dos métodos de implantação.
@@ -63,7 +63,7 @@ Consulte [o agente configurar para apresentar-se a um grupo de gestão de Gestor
 
 ## <a name="security-limitations"></a>Limitações de segurança
 
-* O agente Windows suporta a [norma FIPS 140,](/windows/security/threat-protection/fips-140-validation)enquanto o agente Linux não o suporta.  
+* Os agentes Windows e Linux suportam a [norma FIPS 140,](/windows/security/threat-protection/fips-140-validation)mas [outros tipos de endurecimento podem não ser suportados](agent-linux.md#supported-linux-hardening).
 
 
 ## <a name="installation-options"></a>Opções de instalação
@@ -98,7 +98,7 @@ Independentemente do método de instalação utilizado, irá requerer o ID do es
 
 Para garantir a segurança dos dados em trânsito para os registos do Azure Monitor, encorajamo-lo a configurar o agente para utilizar pelo menos a Segurança da Camada de Transporte (TLS) 1.2. Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**.  Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="network-requirements"></a>Requisitos de rede
 O agente do Linux e do Windows comunica a saída do serviço Azure Monitor sobre a porta TCP 443. Se a máquina ligar através de uma firewall ou servidor proxy para comunicar através da Internet, rever os requisitos abaixo para entender a configuração de rede necessária. Se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à Internet, pode configurar um [gateway Log Analytics](gateway.md) e, em seguida, configurar o agente para ligar através do gateway para o Azure Monitor. O agente pode então receber informações de configuração e enviar dados recolhidos.
 
 ![Diagrama de comunicação do agente do Log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
@@ -109,10 +109,10 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porto 443 |Saída|Sim |
-|*.azure-automation.net |Porto 443 |Saída|Sim |
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.blob.core.windows.net |Porto 443 |Saída|Yes |
+|*.azure-automation.net |Porto 443 |Saída|Yes |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
@@ -141,7 +141,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja [as fontes de dados](agent-data-sources.md) para entender as fontes de dados disponíveis para recolher dados do seu sistema Windows ou Linux. 
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 

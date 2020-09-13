@@ -8,6 +8,7 @@
   items:
     - name: Criar um circuito do ExpressRoute - Modelo do ARM
       href: quickstart-create-expressroute-vnet-template.md
+  expanded: true
 - name: Tutoriais
   items:
     - name: Criar e modificar um circuito

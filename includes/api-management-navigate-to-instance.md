@@ -2,14 +2,14 @@
 author: vladvino
 ms.service: api-management
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/08/2020
 ms.author: vlvinogr
-ms.openlocfilehash: 52c2768605fa50f82029511b50bfd313fe325026
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 9f430e38fa25f2a8fab972f106333973a41dac4e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "73471958"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033366"
 ---
 ## <a name="go-to-your-api-management-instance"></a>Vá para a sua instância de Gestão de API
 
@@ -17,7 +17,7 @@ ms.locfileid: "73471958"
 
    ![Selecione serviços de Gestão API](media/api-management-navigate-to-instance/view-apim1.png)
 
-1. No ecrã de Gestão da **API,** selecione a sua instância de Gestão de API.
+1. Na página de **serviços de Gestão da API,** selecione a sua instância de Gestão de API.
 
    ![Selecione a sua instância de Gestão de API](media/api-management-navigate-to-instance/view-apim2.png)
 

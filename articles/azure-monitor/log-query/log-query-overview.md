@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539606"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033171"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de registo no Azure Monitor
 As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados recolhidos nos [Registos do Monitor Azure](../platform/data-platform-logs.md). Uma linguagem de consulta poderosa permite-lhe juntar dados de várias tabelas, agregar grandes conjuntos de dados e realizar operações complexas com código mínimo. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte sejam recolhidos, e você entende como construir a consulta correta.
@@ -38,10 +38,7 @@ Consulte [Começar com consultas de log no Azure Monitor](get-started-queries.md
 Consulte [as diferenças linguísticas de consulta de registo do Azure Monitor](data-explorer-difference.md) para pequenas diferenças na versão do KQL utilizada pelo Azure Monitor.
 
 ## <a name="what-data-is-available-to-log-queries"></a>Que dados estão disponíveis para registar consultas?
-Todos os dados recolhidos nos Registos do Monitor Azure estão disponíveis para recuperar e analisar em consultas de registo. Diferentes fontes de dados escreverão os seus dados em diferentes tabelas, mas pode incluir várias tabelas numa única consulta para analisar dados em várias fontes. Quando constrói uma consulta, começa por determinar quais as tabelas que procura, pelo que deve ter pelo menos uma compreensão básica de como os dados nos Registos do Monitor Azure são estruturados.
-
-Consulte [os Registos de Monitores Azure,](../platform/data-platform-logs.md#sources-of-azure-monitor-logs)para obter uma lista de diferentes fontes de dados que povoam os Registos do Monitor Azure.<br>
-Consulte [os Registos de Monitores Azure](logs-structure.md) para obter uma explicação de como os dados são estruturados.
+Todos os dados recolhidos nos Registos do Monitor Azure estão disponíveis para recuperar e analisar em consultas de registo. Diferentes fontes de dados escreverão os seus dados em diferentes tabelas, mas pode incluir várias tabelas numa única consulta para analisar dados em várias fontes. Quando se constrói uma consulta, começa-se por determinar quais as tabelas que tem os dados que procura. Consulte [os Registos de Monitores Azure](logs-structure.md) para obter uma explicação de como os dados são estruturados.
 
 ## <a name="what-does-a-log-query-look-like"></a>Como é uma consulta de registo?
 Uma consulta pode ser tão simples como um único nome de mesa para recuperar todos os registos daquela tabela:

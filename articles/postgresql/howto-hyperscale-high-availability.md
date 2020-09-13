@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/04/2019
-ms.openlocfilehash: 0c7702c8832e22d889a5d785dad845430bfb7d17
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: f08fb01cf26ddf73d31b575242b27d7d8b4017d9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116884"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033285"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurar Alta disponibilidade de Hiperescala (Citus)
 
@@ -21,7 +21,7 @@ A base de dados Azure para PostgreSQL - Hiperescala (Citus) fornece alta disponi
 > [!IMPORTANT]
 > Como o HA duplica o número de servidores do grupo, também duplicará o custo.
 
-Ativar HA é possível durante a criação do grupo do servidor, ou depois no separador **Configurar** para o seu grupo de servidor no portal Azure. A interface do utilizador é semelhante em qualquer dos casos. Arraste o slider para **alta disponibilidade** para SIM:
+Ativar HA é possível durante a criação do grupo do servidor, ou depois no separador **de armazenamento Compute +** para o seu grupo de servidor no portal Azure. A interface do utilizador é semelhante em qualquer dos casos. Arraste o slider para **alta disponibilidade** de NÃO para SIM:
 
 ![ha slider](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 

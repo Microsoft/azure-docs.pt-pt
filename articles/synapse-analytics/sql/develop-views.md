@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 84cd5c2de0b1a6d0909a31071506d98627966775
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500747"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032729"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Vistas T-SQL usando O SQL de Sinapse
 Neste artigo, encontrará dicas para usar vistas T-SQL e desenvolver soluções com o Synapse SQL. 
@@ -77,7 +77,7 @@ As vistas no Synapse SQL são armazenadas apenas como metadados. Consequentement
 * Não há suporte para as dicas EXPAND / NOEXPAND
 * Não existem pontos de vista indexados no SQL de Sinaapse
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, consulte a visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)
 

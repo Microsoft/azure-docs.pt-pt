@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 2a0c95e45dc529d779d6b06e1e5bdb32ba80b241
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 48d233dee063d8f9049e6e54baa2d744e1b8b058
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007541"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033460"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -79,7 +79,7 @@ O [agente Do Log Analytics](log-analytics-agent.md) recolhe dados de monitoriza�
 Utilize o agente Log Analytics se for necessário:
 
 * Recolher registos e dados de desempenho de máquinas virtuais ou físicas dentro ou fora de Azure. 
-* Envie dados para um espaço de trabalho log analytics para tirar partido das funcionalidades suportadas por [Registos do Monitor Azure,](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) tais como [consultas de registo .](../log-query/log-query-overview.md)
+* Envie dados para um espaço de trabalho log analytics para tirar partido das funcionalidades suportadas por [Registos do Monitor Azure,](data-platform-logs.md) tais como [consultas de registo .](../log-query/log-query-overview.md)
 * Utilize [o Azure Monitor para VMs](../insights/vminsights-overview.md) que lhe permite monitorizar as suas máquinas virtuais em escala e monitorizar os seus processos e dependências de outros recursos e processos externos..  
 * Gerencie a segurança das suas máquinas virtuais utilizando o [Azure Security Center](../../security-center/security-center-intro.md)  ou [o Azure Sentinel](../../sentinel/overview.md).
 * Utilize [a gestão de Azure Automation Update](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking.md) para fornecer uma gestão abrangente dos seus VMs Azure

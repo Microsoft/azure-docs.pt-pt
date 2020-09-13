@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4e7d8c5c518e4ba4a2a9116898be2bba7df0b06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022450"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031182"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT do dispositivo e módulos duplos, tarefas e encaminhamento de mensagens
 
@@ -234,7 +234,7 @@ O objeto de consulta expõe vários valores **Seguintes,** dependendo da opção
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso no que diz respeito aos valores mais recentes em gémeos do dispositivo. Se consultar os gémeos individuais do dispositivo por ID, utilize a [API REST twin get twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir diretamente a API REST ou utilizar a funcionalidade equivalente num dos [SDKs de serviço Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Os resultados da consulta podem ter alguns minutos de atraso no que diz respeito aos valores mais recentes em gémeos do dispositivo. Se consultar os gémeos individuais do dispositivo por ID, utilize a [API REST twin get twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir diretamente a API REST ou utilizar a funcionalidade equivalente num dos [SDKs de serviço Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Atualmente, as comparações são suportadas apenas entre tipos primitivos (sem objetos), por `... WHERE properties.desired.config = properties.reported.config` exemplo, só são suportadas se essas propriedades tiverem valores primitivos.
 
@@ -450,7 +450,7 @@ São apoiados os seguintes operadores:
 
 | Família | Operadores |
 | --- | --- |
-| Aritmética |+, -, *, /, % |
+| Aritmético |+, -, *, /, % |
 | Lógico |E, OU, NÃO |
 | Comparação |=, !=, <, >, <=, >=, <> |
 
@@ -503,6 +503,6 @@ Nas condições de rotas, suportam-se as seguintes funções de corda:
 | ENDS_WITH(x, y) | Devolve um Boolean indicando se a primeira expressão de corda termina com a segunda. |
 | CONTÉM (x,y) | Devolve um Boolean indicando se a primeira expressão de corda contém a segunda. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como executar consultas nas suas apps utilizando [SDKs Azure IoT](iot-hub-devguide-sdks.md).

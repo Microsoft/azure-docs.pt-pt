@@ -3,14 +3,14 @@ title: Quickstart - Criar um cluster de serviço Azure Kubernetes (AKS)
 description: Saiba como criar rapidamente um cluster Kubernetes utilizando um modelo de Gestor de Recursos Azure e implementar uma aplicação no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 09/11/2020
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: bf77d1b4297c62e71f4fc227162ba2f6d1a387bd
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3966a8c21d33601a939adccef21a5c16cf3bfc9c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654400"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032695"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Quickstart: Implementar um cluster de serviço Azure Kubernetes (AKS) usando um modelo ARM
 
@@ -203,7 +203,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -271,7 +271,7 @@ Para ver a aplicação Azure Vote em ação, abra um navegador web para o endere
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o cluster já não for necessário, utilize o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
@@ -288,7 +288,7 @@ Neste início rápido, imagens de contentores pré-criadas foram usadas para cri
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo. [Aceda ao painel web Kubernetes][kubernetes-dashboard] para o cluster que criou.
 

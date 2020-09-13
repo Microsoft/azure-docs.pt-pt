@@ -1,17 +1,17 @@
 ---
-title: Âmbito de consulta de registo no Azure Monitor Log Analytics Microsoft Docs
+title: Âmbito de consulta de registo no Azure Monitor Log Analytics
 description: Descreve o alcance e o intervalo de tempo para uma consulta de registo no Azure Monitor Log Analytics.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/01/2020
-ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/09/2020
+ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199016"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031947"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Log consulta e intervalo de tempo em Azure Monitor Log Analytics
 Quando executa uma [consulta de registo](log-query-overview.md) no Log Analytics no portal [Azure,](get-started-portal.md)o conjunto de dados avaliados pela consulta depende do âmbito e do intervalo de tempo que seleciona. Este artigo descreve o âmbito e o intervalo de tempo e como pode definir cada um dependendo dos seus requisitos. Também descreve o comportamento de diferentes tipos de âmbitos.
@@ -22,17 +22,17 @@ O âmbito de consulta define os registos que são avaliados pela consulta. Isto 
 
 O âmbito é sempre apresentado na parte superior esquerda da janela Log Analytics. Um ícone indica se o âmbito é um espaço de trabalho Log Analytics ou uma aplicação Application Insights. Nenhum ícone indica outro recurso Azure.
 
-![Âmbito](media/scope/scope.png)
+![Âmbito exibido no portal](media/scope/scope.png)
 
 O âmbito é determinado pelo método que utiliza para iniciar o Log Analytics e, em alguns casos, pode alterar o âmbito clicando nele. A tabela que se segue lista os diferentes tipos de âmbito utilizados e diferentes detalhes para cada um.
 
 > [!IMPORTANT]
-> Se estiver a utilizar a APM 2.1, então as aplicações Application Insights são armazenadas num espaço de trabalho do Log Analytics com todos os outros dados de registo, e o âmbito de Insights de Aplicação não está disponível. Se selecionar **Registos** no menu Application Insights, então age da mesma forma que o âmbito **de recursos de Outro Azure,** e apenas os dados fro que a aplicação nas tabelas De Insights de Aplicação está disponível.
+> Se estiver a utilizar uma aplicação baseada no espaço de trabalho no Application Insights, os seus dados são armazenados num espaço de trabalho do Log Analytics com todos os outros dados de registo. Para retrocompatibilidade, obtém-se a experiência clássica de Application Insights quando selecionar a aplicação como âmbito. Para ver estes dados no espaço de trabalho Log Analytics, desapasse o âmbito do espaço de trabalho.
 
 | Âmbito de consulta | Registos no âmbito | Como selecionar | Mudança de Âmbito |
 |:---|:---|:---|:---|
 | Área de trabalho do Log Analytics | Todos os registos no espaço de trabalho do Log Analytics. | Selecione **Logs** do menu **Azure Monitor** ou do menu **de espaços de trabalho Log Analytics.**  | Pode alterar o âmbito para qualquer outro tipo de recurso. |
-| Aplicação de Insights de Aplicação | Todos os registos da aplicação Application Insights. | Selecione **Analytics** a partir da página **de visão** geral de Insights de aplicações. | Só pode alterar o âmbito para outra aplicação Application Insights. |
+| Aplicação de Insights de Aplicação | Todos os registos da aplicação Application Insights. | Selecione **Registos** do menu **'Insights de Aplicação'** para a aplicação. | Só pode alterar o âmbito para outra aplicação Application Insights. |
 | Grupo de recursos | Registos criados por todos os recursos do grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **Registos** do menu do grupo de recursos. | Não pode mudar de âmbito.|
 | Subscrição | Registos criados por todos os recursos na subscrição. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **Registos** do menu de subscrição.   | Não pode mudar de âmbito. |
 | Outros recursos Azure | Registos criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **Registos** do menu de recursos.<br>OU<br>Selecione **Logs** do menu **Azure Monitor** e, em seguida, selecione um novo âmbito. | Só pode alterar o âmbito para o mesmo tipo de recurso. |
@@ -66,9 +66,9 @@ A sua consulta será impedida de funcionar se o âmbito incluir espaços de trab
 
 
 ## <a name="time-range"></a>Intervalo de tempo
-O intervalo de tempo especifica o conjunto de registos que são avaliados para a consulta com base na altura em que o registo foi criado. Isto é definido por uma propriedade padrão em cada registo no espaço de trabalho ou aplicação conforme especificado na tabela seguinte.
+O intervalo de tempo especifica o conjunto de registos que são avaliados para a consulta com base na altura em que o registo foi criado. Isto é definido por uma coluna padrão em cada registo no espaço de trabalho ou aplicação conforme especificado no quadro seguinte.
 
-| Localização | Propriedade |
+| Localização | Coluna |
 |:---|:---|
 | Área de trabalho do Log Analytics          | TimeGenerated |
 | Aplicação de Insights de Aplicação | carimbo de data/hora     |
@@ -77,17 +77,17 @@ Desacione o intervalo de tempo selecionando-o a partir do seletor de tempos na p
 
 ![Apanhador de tempo](media/scope/time-picker.png)
 
-Se definir um filtro na consulta que utiliza a propriedade de tempo padrão como mostrado na tabela acima, o apanhador de tempo muda para **Definir em consulta**, e o selecionador de tempo é desativado. Neste caso, é mais eficiente colocar o filtro no topo da consulta para que qualquer processamento subsequente apenas precise de funcionar com os registos filtrados.
+Se definir um filtro na consulta que utiliza a coluna de tempo padrão, como indicado na tabela acima, o apanhador de tempo muda para **set in consulta**, e o selecionador de tempo está desativado. Neste caso, é mais eficiente colocar o filtro no topo da consulta para que qualquer processamento subsequente apenas precise de funcionar com os registos filtrados.
 
 ![Consulta filtrada](media/scope/query-filtered.png)
 
-Se utilizar o [espaço de trabalho](workspace-expression.md) ou o comando da [aplicação](app-expression.md) para recuperar dados de outro espaço de trabalho ou aplicação, o selecionador de tempo pode comportar-se de forma diferente. Se o âmbito for um espaço de trabalho do Log Analytics e utilizar **uma aplicação**, ou se o âmbito for uma aplicação Application Insights e utilizar **espaço de trabalho,** então o Log Analytics pode não entender que a propriedade utilizada no filtro deve determinar o filtro de tempo.
+Se utilizar o [espaço de trabalho](workspace-expression.md) ou o comando da [aplicação](app-expression.md) para recuperar dados de outro espaço de trabalho ou aplicação, o selecionador de tempo pode comportar-se de forma diferente. Se o âmbito for um espaço de trabalho do Log Analytics e utilizar **uma aplicação**, ou se o âmbito for uma aplicação Application Insights e utilizar **espaço de trabalho,** então o Log Analytics pode não entender que a coluna utilizada no filtro deve determinar o filtro de tempo.
 
-No exemplo seguinte, o âmbito é definido para um espaço de trabalho Log Analytics.  A consulta utiliza **espaço de trabalho** para obter dados de outro espaço de trabalho do Log Analytics. O apanhador de tempo muda para **Definir em consulta** porque vê um filtro que utiliza a propriedade **timeGenerated** esperada.
+No exemplo seguinte, o âmbito é definido para um espaço de trabalho Log Analytics.  A consulta utiliza **espaço de trabalho** para obter dados de outro espaço de trabalho do Log Analytics. O apanhador de tempo muda para **Definir em consulta** porque vê um filtro que utiliza a coluna **TimeGenerated** esperada.
 
 ![Consulta com espaço de trabalho](media/scope/query-workspace.png)
 
-Se a consulta utilizar a **app** para obter dados de uma aplicação Application Insights, o Log Analytics não reconhece a propriedade do **relógio** no filtro e o selecionador permanece inalterado. Neste caso, ambos os filtros são aplicados. No exemplo, apenas os registos criados nas últimas 24 horas estão incluídos na consulta, mesmo que especifique 7 dias na cláusula **onde.**
+Se a consulta utilizar a **aplicação** para obter dados de uma aplicação Application Insights, o Log Analytics não reconhece a coluna de **relógios** no filtro e o selecionador permanece inalterado. Neste caso, ambos os filtros são aplicados. No exemplo, apenas os registos criados nas últimas 24 horas estão incluídos na consulta, mesmo que especifique 7 dias na cláusula **onde.**
 
 ![Consulta com app](media/scope/query-app.png)
 

@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3bf180c2b70a686879082888e45e67936cdbec67
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d225511bb78a5773ce4ed5866f6ffc1257921e96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799235"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032168"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Tabelas de design usando Synapse SQL
 
@@ -27,27 +27,27 @@ A tabela a seguir enumera os tópicos relevantes para a piscina SQL vs. SQL on-d
 
 | Tópico                                                        | Conjunto de SQL | SQL a pedido |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [Determinar categoria de tabela](#determine-table-category)        | Sim                | Não                      |
-| [Nomes de schema](#schema-names)                                | Sim                | Sim                     |
-| [Nomes de tabelas](#table-names)                                  | Sim                | Não                      |
-| [Persistência da tabela](#table-persistence)                      | Sim                | Não                      |
-| [Tabela regular](#regular-table)                              | Sim                | Não                      |
-| [Tabela temporária](#temporary-table)                          | Sim                | Sim                     |
-| [Tabela externa](#external-table)                            | Sim                | Sim                     |
-| [Tipos de dados](#data-types)                                    | Sim                | Sim                     |
-| [Tabelas distribuídas](#distributed-tables)                    | Sim                | Não                      |
-| [Tabelas distribuídas com hash](#hash-distributed-tables)          | Sim                | Não                      |
-| [Tabelas replicadas](#replicated-tables)                      | Sim                | Não                      |
-| [Mesas de rodapé](#round-robin-tables)                    | Sim                | Não                      |
-| [Métodos de distribuição comuns para tabelas](#common-distribution-methods-for-tables) | Sim                | Não                      |
-| [Partições](#partitions)                                    | Sim                | Sim                     |
-| [Índices Columnstore](#columnstore-indexes)                  | Sim                | Não                      |
-| [Estatísticas](#statistics)                                    | Sim                | Sim                     |
-| [Chave primária e chave única](#primary-key-and-unique-key)    | Sim                | Não                      |
-| [Comandos para criar tabelas](#commands-for-creating-tables) | Sim                | Não                      |
-| [Alinhamento dos dados de origem com o armazém de dados](#align-source-data-with-the-data-warehouse) | Sim                | Não                      |
-| [Características da tabela não suportadas](#unsupported-table-features)    | Sim                | Não                      |
-| [Consultas de tamanho de mesa](#table-size-queries)                    | Sim                | Não                      |
+| [Determinar categoria de tabela](#determine-table-category)        | Yes                | No                      |
+| [Nomes de schema](#schema-names)                                | Yes                | Yes                     |
+| [Nomes de tabelas](#table-names)                                  | Yes                | No                      |
+| [Persistência da tabela](#table-persistence)                      | Yes                | No                      |
+| [Tabela regular](#regular-table)                              | Yes                | No                      |
+| [Tabela temporária](#temporary-table)                          | Yes                | Yes                     |
+| [Tabela externa](#external-table)                            | Yes                | Yes                     |
+| [Tipos de dados](#data-types)                                    | Yes                | Yes                     |
+| [Tabelas distribuídas](#distributed-tables)                    | Yes                | No                      |
+| [Tabelas distribuídas com hash](#hash-distributed-tables)          | Yes                | No                      |
+| [Tabelas replicadas](#replicated-tables)                      | Yes                | No                      |
+| [Mesas de rodapé](#round-robin-tables)                    | Yes                | No                      |
+| [Métodos de distribuição comuns para tabelas](#common-distribution-methods-for-tables) | Yes                | No                      |
+| [Partições](#partitions)                                    | Yes                | Yes                     |
+| [Índices Columnstore](#columnstore-indexes)                  | Yes                | No                      |
+| [Estatísticas](#statistics)                                    | Yes                | Yes                     |
+| [Chave primária e chave única](#primary-key-and-unique-key)    | Yes                | No                      |
+| [Comandos para criar tabelas](#commands-for-creating-tables) | Yes                | No                      |
+| [Alinhamento dos dados de origem com o armazém de dados](#align-source-data-with-the-data-warehouse) | Yes                | No                      |
+| [Características da tabela não suportadas](#unsupported-table-features)    | Yes                | No                      |
+| [Consultas de tamanho de mesa](#table-size-queries)                    | Yes                | No                      |
 
 ## <a name="determine-table-category"></a>Determinar categoria de tabela
 
@@ -361,9 +361,6 @@ FROM size
 ;
 ```
 
->[!TIP]
-> Para melhorar o desempenho no Synapse SQL, considere usar **sys.pdw_permanent_table_mappings** em vez de **sys.pdw_table_mappings** em tabelas de utilizadores permanentes. Consulte **[sys.pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** para obter mais informações.
-
 ### <a name="table-space-summary"></a>Resumo do espaço de mesa
 
 Esta consulta devolve as linhas e o espaço por mesa.  O resumo do espaço de mesa permite-lhe ver quais as mesas que são as suas maiores mesas. Também verá se são rodadas, replicadas ou distribuídas por haxixe.  Para tabelas distribuídas por haxixe, a consulta mostra a coluna de distribuição.  
@@ -442,6 +439,6 @@ ORDER BY    distribution_id
 ;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar as tabelas para o seu armazém de dados, o próximo passo é carregar dados na tabela.  Para um tutorial de carregamento, consulte [os dados de carregamento na piscina SQL](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).

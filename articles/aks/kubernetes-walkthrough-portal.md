@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma aplicação e monitorizar o desempenho no Serviço Azure Kubernetes (AKS) utilizando o portal Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 09/11/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: cd3fd41d281708f4c1d9616db47f751f60e055cd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b6f6d0e941737eb1e8d3a8a1fa3b9a68e42a1b02
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589916"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032657"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) utilizando o portal Azure
 
@@ -153,7 +153,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -257,7 +257,7 @@ Neste início rápido, imagens de contentores pré-criadas foram usadas para cri
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo.
 

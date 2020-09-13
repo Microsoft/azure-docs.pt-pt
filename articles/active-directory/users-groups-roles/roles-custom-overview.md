@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/22/2020
+ms.date: 09/11/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 915098130c7a8462bc0e009be04a61b5b0a7985d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e962bea893e8a658b876aabf417e64b11a31dfc1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795597"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033511"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Funções de administrador personalizado no Azure Ative Directory (pré-visualização)
 
@@ -89,7 +89,7 @@ Um âmbito é a restrição de ações permitidas a um determinado recurso AD Az
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Crie atribuições de funções personalizadas utilizando [o portal Azure AD PowerShell e API de gráficos](roles-create-custom.md)
 - [Ver as atribuições para um papel personalizado](roles-view-assignments.md#view-assignments-of-single-application-scope)

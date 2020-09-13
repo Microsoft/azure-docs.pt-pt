@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462008"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031488"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -220,7 +220,7 @@ A Biblioteca do Cliente de Armazenamento para .NET permite-lhe recolher dados de
 Pode capturar o tráfego entre o cliente e o servidor para fornecer informações detalhadas sobre os dados que o cliente e o servidor estão a trocar e as condições de rede subjacentes. As ferramentas úteis de registo de rede incluem:
 
 * [O Fiddler](https://www.telerik.com/fiddler) é um proxy de depurador de web gratuito que lhe permite examinar os cabeçalhos e dados de carga útil de mensagens de pedido e resposta HTTPS e HTTPS. Para obter mais informações, consulte [o Apêndice 1: Utilizar o violinista para capturar o tráfego HTTP e HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](https://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que lhe permitem visualizar informações detalhadas de pacotes para uma ampla gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[Apêndice 2: Utilização de Arame para capturar o tráfego da rede](#appendix-2)".
+* [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) e [Wireshark](https://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que lhe permitem visualizar informações detalhadas de pacotes para uma ampla gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[Apêndice 2: Utilização de Arame para capturar o tráfego da rede](#appendix-2)".
 * O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que, além de capturar dados de pacotes de rede, ajuda-o a visualizar e analisar os dados de registo capturados de outras ferramentas. Para obter mais informações, consulte "[Apêndice 3: Utilizar o Analisador de Mensagens do Microsoft para capturar o tráfego da rede](#appendix-3)".
 * Se pretender realizar um teste básico de conectividade para verificar se a sua máquina cliente pode ligar-se ao serviço de armazenamento Azure através da rede, não poderá fazê-lo utilizando a ferramenta de **ping** padrão do cliente. No entanto, pode utilizar a ferramenta [ **tcping** ](https://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
 
@@ -409,7 +409,7 @@ Se estiver a sentir um atraso entre o momento em que uma aplicação adiciona um
 
 * Verifique se a aplicação está a adicionar com sucesso as mensagens à fila. Verifique se a aplicação não está a voltar a tentar o método **AddMessage várias vezes** antes de ser bem sucedida. Os registos da Biblioteca do Cliente de Armazenamento mostrarão quaisquer retrações repetidas de operações de armazenamento.
 * Verifique se não há um desvio de relógio entre a função do trabalhador que adiciona a mensagem à fila e a função do trabalhador que lê a mensagem da fila que faz com que pareça que há um atraso no processamento.
-* Verifique se o papel do trabalhador que lê as mensagens da fila está a falhar. Se um cliente de fila ligar para o método **GetMessage** mas não responder com um aviso, a mensagem permanecerá invisível na fila até que o período **de invisibilidadeTimeout** expire. Neste ponto, a mensagem torna-se disponível para processamento novamente.
+* Verifique se o papel do trabalhador que lê as mensagens da fila está a falhar. Se um cliente de fila ligar para o método **GetMessage** mas não responder com um reconhecimento, a mensagem permanecerá invisível na fila até que o período **de invisibilidadeTimeout** expire. Neste ponto, a mensagem torna-se disponível para processamento novamente.
 * Verifique se o comprimento da fila está a crescer ao longo do tempo. Isto pode ocorrer se não tiver trabalhadores suficientes disponíveis para processar todas as mensagens que outros trabalhadores estão colocando na fila. Verifique também as métricas para ver se os pedidos de eliminação estão a falhar e a contagem deques em mensagens, o que pode indicar tentativas falhadas repetidas de apagar a mensagem.
 * Examine os registos de registo de armazenamento para quaisquer operações de fila que tenham valores **de E2ELatency** e **ServerLatency** mais elevados do que o habitual.
 
@@ -617,9 +617,9 @@ Os detalhes da exceção no cliente incluem o ID do pedido (7e84f12d...) atribu�
 
 O registo do lado do servidor também inclui outra entrada com o mesmo valor **de id de pedido de cliente** (813ea74f...) para uma operação de eliminação bem sucedida para a mesma entidade, e do mesmo cliente. Esta operação de eliminação bem sucedida ocorreu pouco antes do pedido de eliminação falhado.
 
-A causa mais provável deste cenário é que o cliente enviou um pedido de eliminação da entidade para o serviço de mesa, que conseguiu, mas não recebeu um aviso do servidor (talvez devido a um problema temporário de rede). Em seguida, o cliente voltou automaticamente a tentar a operação (utilizando o mesmo **id de pedido de cliente),** e esta nova tentativa falhou porque a entidade já tinha sido eliminada.
+A causa mais provável deste cenário é que o cliente enviou um pedido de eliminação da entidade para o serviço de mesa, que conseguiu, mas não recebeu um reconhecimento do servidor (talvez devido a um problema temporário de rede). Em seguida, o cliente voltou automaticamente a tentar a operação (utilizando o mesmo **id de pedido de cliente),** e esta nova tentativa falhou porque a entidade já tinha sido eliminada.
 
-Se este problema ocorrer com frequência, deverá investigar por que razão o cliente não está a receber avisos do serviço de mesa. Se o problema for intermitente, deve prender o erro "HTTP (404) Não Encontrado" e registar no cliente, mas permitir que o cliente continue.
+Se este problema ocorrer com frequência, deverá investigar por que razão o cliente não está a receber agradecimentos do serviço de mesa. Se o problema for intermitente, deve prender o erro "HTTP (404) Não Encontrado" e registar no cliente, mas permitir que o cliente continue.
 
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>O cliente está a receber mensagens de HTTP 409 (Conflito)
 A tabela a seguir mostra um extrato do registo do lado do servidor para duas operações do cliente: **DeleteIfExists** seguido imediatamente por **CreateIfNotExists** usando o mesmo nome de recipiente blob. Cada operação do cliente resulta em dois pedidos enviados para o servidor, primeiro um pedido **getContainerProperties** para verificar se o recipiente existe, seguido do pedido **DeleteContainer** ou **CreateContainer.**
@@ -777,7 +777,7 @@ O traço de **procuração web** incorporado no Microsoft Message Analyzer basei
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnosticar problemas de rede usando o Analisador de Mensagens do Microsoft
 Além de utilizar o traço de **procuração web** do Microsoft Message Analyzer para capturar detalhes do tráfego HTTP/HTTPs entre a aplicação do cliente e o serviço de armazenamento, também pode utilizar o traço **de Camada de Ligação Local** incorporado para capturar informações de pacotes de rede. Isto permite-lhe capturar dados semelhantes aos que pode capturar com o Wireshark, e diagnosticar problemas de rede como pacotes abandonados.
 
-A imagem que se segue mostra um exemplo de traço **de camada de ligação local** com algumas mensagens **informativas** na coluna **DiagnosticsTypes.** Clicar num ícone na coluna **DiagnosticsTypes** mostra os detalhes da mensagem. Neste exemplo, a mensagem retransmitida do servidor #305 porque não recebeu um aviso do cliente:
+A imagem que se segue mostra um exemplo de traço **de camada de ligação local** com algumas mensagens **informativas** na coluna **DiagnosticsTypes.** Clicar num ícone na coluna **DiagnosticsTypes** mostra os detalhes da mensagem. Neste exemplo, a mensagem retransmitida do servidor #305 porque não recebeu um reconhecimento do cliente:
 
 ![Screenshot que mostra um exemplo traço de camada de ligação local com algumas mensagens informativas na coluna DeTypes de Diagnóstico][9]
 

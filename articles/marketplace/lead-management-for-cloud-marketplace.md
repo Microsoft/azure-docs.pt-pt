@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3924e609091f4d0975901024f20db74efb6aac5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606885"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032712"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Gestão de chumbo para o mercado comercial
 
 Os clientes são o centro de qualquer bom negócio. Na transformação das aquisições de produtos de hoje, os marketers precisam de se concentrar em conectar-se diretamente com os clientes e construir uma relação. É por isso que gerar cabos de alta qualidade é uma ferramenta vital para o seu ciclo de vendas. Depois de enumerar a sua oferta no [Partner Center,](https://partner.microsoft.com/)existem ferramentas habilitadas para que possa receber programáticamente as informações de contacto do cliente imediatamente após um cliente manifestar interesse ou implementar o seu produto no mercado. 
 
-## <a name="what-are-leads-in-the-marketplace"></a>Quais são as pistas no mercado?
+## <a name="what-are-leads-in-the-commercial-marketplace"></a>Quais são as pistas no mercado comercial?
 
-Os leads são de clientes interessados ou implantando os seus produtos a partir do Marketplace. Quer o seu produto esteja listado no Azure Marketplace ou no AppSource, poderá receber leads dos clientes assim que este estiver configurado corretamente do seu CRM para a sua(s) listing(s) no Partner Center. 
+Os leads são de clientes interessados ou implantando os seus produtos a partir do mercado comercial. Assim que ligar o seu CRM com a sua(s) listing(s) no Partner Center, poderá receber leads dos clientes Azure Marketplace e AppSource.
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Como ligar o seu sistema CRM ao Partner Center
 
-Para começar a obter leads, o conector Lead Management no Partner Center foi concebido para que possa ser facilmente ligado com as informações de CRM a uma lista de sistemas CRM disponíveis. Agora pode facilmente aproveitar os leads gerados pelo mercado sem um esforço significativo de engenharia para se integrar com um sistema externo.
+O conector lead Management no Partner Center foi concebido de modo a que possa ser facilmente ligado com as informações de CRM a uma lista de sistemas CRM disponíveis. Agora pode facilmente aproveitar os leads gerados pelo mercado sem um esforço significativo de engenharia para se integrar com um sistema externo.
 
 Aqui estão instruções passo a passo sobre como ligar cada um dos possíveis destinos de chumbo:
 
@@ -38,25 +38,25 @@ Aqui estão instruções passo a passo sobre como ligar cada um dos possíveis d
 
 **Https Endpoint** - Consulte a gestão do chumbo de [configuração utilizando um ponto final HTTPS](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) para obter instruções sobre a configuração do seu Https Endpoint para obter leads.
 
-Uma vez configurado o seu destino principal corretamente e tiver atingido a Publicação na sua oferta, validaremos a ligação e enviar-lhe-emos um lead de teste. Ao visualizar a oferta antes de ir ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização. É importante certificar-se de que as definições de chumbo se mantêm atualizadas para que não perca nenhuma pista, por isso certifique-se de atualizar estas ligações sempre que algo tiver mudado na sua parte.
+Uma vez configurado o seu destino principal corretamente e solicitando a publicação da sua oferta, validaremos a ligação e enviar-lhe-emos um lead de teste. Ao visualizar a oferta antes de ir ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização. É importante certificar-se de que as definições de chumbo se mantêm atualizadas para que não perca nenhuma pista, por isso certifique-se de atualizar estas ligações sempre que algo tiver mudado na sua parte.
 
 ### <a name="what-are-the-next-steps"></a>Quais são os próximos passos?
 
-Uma vez que a configuração técnica esteja em vigor, você deve incorporar estes leads nas suas vendas correntes & estratégia de marketing e processos operacionais. Estamos interessados em compreender melhor o seu processo global de vendas e queremos trabalhar em estreita colaboração consigo no fornecimento de leads de alta qualidade e dados suficientes para o tornar bem sucedido. Congratulamo-nos com o seu feedback sobre como podemos otimizar e melhorar os leads que lhe enviamos com dados adicionais para ajudar a tornar estes clientes bem sucedidos. Informe-nos se estiver interessado em fornecer feedback e sugestões para que a sua equipa de vendas tenha mais sucesso com a Marketplace Leads.
+Uma vez que a configuração técnica esteja em vigor, você deve incorporar estes leads nas suas vendas correntes & estratégia de marketing e processos operacionais. Estamos interessados em compreender o seu processo global de vendas e queremos trabalhar em estreita colaboração consigo no fornecimento de leads de alta qualidade e dados suficientes para o tornar bem sucedido. Congratulamo-nos com o seu feedback sobre como podemos otimizar e melhorar os leads que lhe enviamos com dados adicionais para ajudar a tornar estes clientes bem sucedidos. Informe-nos se estiver interessado em fornecer feedback e sugestões para que a sua equipa de vendas tenha mais sucesso com os líderes comerciais do mercado.
 
 ## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Erros comuns de configuração de chumbo durante a publicação no Partner Center
 
 **Não consegui guardar a vantagem para a Dynamics CRM. Verifique as definições da conta CrM Dynamics. LastCRMError: Incapaz de iniciar sposição na Dynamics CRM, LastCRMException:** 
 
-> Se a autenticação O365 foi selecionada, verifique se a conta de utilizador e a palavra-passe são válidas. Se a AAD foi selecionada, verifique se o ID do inquilino, iD de aplicação e chave secreta da aplicação correspondem ao que foi criado na AAD. Siga as instruções [aqui.](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) Se o nome de utilizador/palavra-passe da conta for válido, certifique-se de que tem acesso à Dynamics 365 e tem uma licença atribuída (Passos 11-15 se utilizar o Azure Ative Directory ou Configurações de Segurança se utilizar um utilizador do Office). 
+> Se a autenticação do Microsoft 365 foi selecionada, verifique se a conta de utilizador e a palavra-passe são válidas. Se o Azure Ative Directory foi selecionado, verifique se o ID do inquilino, iD de aplicação e chave secreta de aplicação correspondem ao que foi criado no Diretório Ativo Azure. Siga as instruções [aqui.](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) Se o nome de utilizador/palavra-passe da conta for válido, certifique-se de que tem acesso à Dynamics 365 e tem uma licença atribuída (Passos 11-15 se utilizar o Azure Ative Directory ou Configurações de Segurança se utilizar um utilizador do Office). 
 
 **Não consegui guardar a vantagem para a Dynamics CRM. O utilizador não tem permissões para o atributo de código de chumbo na entidade líder** 
 
-> A aplicação/utilizador está a perder funções de segurança para o escritor principal do Microsoft Marketplace. Siga os passos 11-15 se utilizar o Azure Ative Directory ou as Definições de Segurança se utilizar um utilizador do Office [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+> A aplicação/utilizador está a perder funções de segurança para o escritor principal do Microsoft Marketplace. Siga os passos 11-15 se utilizar o Azure Ative Directory ou definições de segurança se utilizar um utilizador do Office [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Não foi possível guardar o chumbo para a Dynamics CRM utilizando o AAD. Exceção:: Inquilino não encontrado. Este caso pode acontecer se não houver assinaturas ativas para o inquilino.**  
 
-> O Diretório Id fornecido na secção de gestão de chumbo não é um diretório válido. Por favor, obtenha o ID do Diretório com base nas instruções do Passo 2 (sob o Diretório Azure Ative, a partir [daqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+> O Diretório Id fornecido na secção de gestão de chumbo não é um diretório válido. Por favor, obtenha o ID do Diretório com base nas instruções do Passo 2 (sob diretório ativo Azure) [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Não consegui guardar a vantagem para a Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser falhou - nenhuma função é atribuída ao utilizador.**  
 
@@ -76,7 +76,7 @@ Uma vez que a configuração técnica esteja em vigor, você deve incorporar est
 
 **Não consegui guardar a vantagem para a Dynamics CRM. LastCRMError: O canal de pedido foi cronometrado enquanto aguarda uma resposta depois das 00:02:00. Aumente o valor de tempo limite passado para a chamada para Pedir ou aumente o valor sendTimeout na Ligação. O tempo atribuído a esta operação pode ter sido uma parte de um tempo mais longo.**  
 
-> Resolução: Inscreva-se no Partner Center, consulte os detalhes da Storefront >> destino lead >> URL, verifique se é uma instância de CRM dinâmica válida.
+> Resolução: Inscreva-se no Partner Center, verifique a configuração da Oferta >> o cliente conduz >> URL, verifique se é uma instância de CRM dinâmica válida.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -139,7 +139,7 @@ Cada chumbo terá dados passados em campos no seu destino de chumbo selecionado,
 - *Ações:*
   - "INS" - Significa Instalação. Isto está no Azure Marketplace ou AppSource sempre que um cliente carregar no botão para adquirir o seu produto.
   - "PLT" - Significa Julgamento Liderado por Parceiros. Isto está no AppSource sempre que um cliente toca no botão Contacte-me.
-  - "DNC" - Significa Não Contactar. Isto está no AppSource sempre que um Parceiro que estava cruzado listado na sua página de aplicações é solicitado para ser contactado. Estamos a partilhar os avisos de que este cliente estava listado na sua app, mas não precisam de ser contactados.
+  - "DNC" - Significa Não Contactar. Isto está no AppSource sempre que um Parceiro que estava cruzado listado na sua página de aplicações é solicitado para ser contactado. Estamos a partilhar a cabeça de que este cliente estava listado na sua app, mas eles não precisam de ser contactados.
   - "Create" - Isto é apenas dentro do portal Azure e é sempre que um cliente compra a sua oferta à sua conta.
   - "StartTestDrive" - Isto é apenas para Test Drives e é sempre que um cliente inicia o seu test drive.
 
@@ -190,4 +190,4 @@ Devido às políticas de privacidade, não podemos partilhar informações de ch
 
 **Configurei o Azure Storage (BLOB/Table) como o meu destino principal, quanto vai custar?** 
 
-Os dados da gen de chumbo são baixos (<1 GB para quase todos os editores). O custo dependerá do número de leads recebidos, se 1.000 leads forem recebidos num mês, custa cerca de 50 cêntimos. 
+Os dados de geração de chumbo são baixos (<1 GB para quase todos os editores). O custo dependerá do número de leads recebidos, se 1.000 leads forem recebidos num mês, custa cerca de 50 cêntimos. 

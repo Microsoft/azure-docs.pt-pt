@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475248"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032032"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Use modelos IoT Plug e Play numa solução IoT
 
@@ -40,7 +40,7 @@ Uma solução pode obter o ID do modelo do dispositivo IoT Plug and Play utiliza
 
 ### <a name="get-device-twin-api"></a>Obter Dispositivo Twin API
 
-A solução pode utilizar o [Get Device Twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) API para recuperar o ID do modelo do dispositivo IoT Plug and Play.
+A solução pode utilizar o [Get Device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) API para recuperar o ID do modelo do dispositivo IoT Plug and Play.
 
 No seguinte corte de resposta dupla do dispositivo, `modelId` contém o ID do modelo de um dispositivo IoT Plug and Play:
 
@@ -136,10 +136,10 @@ Depois de identificar o ID do modelo para uma nova ligação ao dispositivo, sig
 
 1. Utilizando as capacidades enumeradas do dispositivo, pode permitir que os utilizadores [interajam com o dispositivo](quickstart-service-node.md).  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a integrar os modelos IoT Plug e Play numa solução IoT, alguns dos próximos passos sugeridos são:
 
-- [Interaja com um dispositivo a partir da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo a partir da sua solução](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Explorador de Azure IoT](howto-use-iot-explorer.md)

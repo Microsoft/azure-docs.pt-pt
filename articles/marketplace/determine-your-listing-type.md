@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 7acfd5e1a1b1c44a9a109bb2b8bc38c7fcc57593
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484872"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032389"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
@@ -45,7 +45,7 @@ A tabela seguinte mostra as opções de publicação para os tipos de oferta no 
 
 &#42; aplicação SaaS As ofertas transact no Microsoft AppSource são atualmente apenas cartão de crédito.
 
-&#42;&#42; as ofertas da Microsoft 365 são gratuitas e podem ser rentabilizadas através da oferta saaS como um serviço de licenciamento. Para mais informações, consulte [Monetize o seu add-in Office 365 através do mercado comercial da Microsoft.](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)
+&#42;&#42; as ofertas da Microsoft 365 são gratuitas e podem ser rentabilizadas através da oferta saaS como um serviço de licenciamento. Para mais informações, consulte [Monetize o seu add-in Microsoft 365 através do mercado comercial da Microsoft.](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)
 
 ## <a name="choose-a-listing-option"></a>Escolha uma opção de listagem
 

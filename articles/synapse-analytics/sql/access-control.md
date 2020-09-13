@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6dc0bb08e3d824c1d3fea155d1b3d4c52e1af4a6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499845"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031318"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
@@ -32,8 +32,8 @@ Para uma implantação de produção num espaço de trabalho Azure Synapse, suge
 
 ### <a name="step-1-set-up-security-groups-with-names-following-this-pattern"></a>Passo 1: Criar grupos de segurança com nomes seguindo este padrão
 
-1. Criar grupo de segurança chamado`Synapse_WORKSPACENAME_Users`
-2. Criar grupo de segurança chamado`Synapse_WORKSPACENAME_Admins`
+1. Criar grupo de segurança chamado `Synapse_WORKSPACENAME_Users`
+2. Criar grupo de segurança chamado `Synapse_WORKSPACENAME_Admins`
 3. Adicione `Synapse_WORKSPACENAME_Admins` a `Synapse_WORKSPACENAME_Users`
 
 > [!NOTE]
@@ -52,10 +52,10 @@ Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azur
 3. Navegue para o contentor (sistema de ficheiros) que escolheu para o espaço de trabalho Azure Synapse
 4. Clique no **Controlo de Acesso (IAM)**
 5. Atribuir as seguintes funções:
-   1. **Papel** do leitor para:`Synapse_WORKSPACENAME_Users`
-   2. **Papel do Proprietário de Dados blob de armazenamento** para:`Synapse_WORKSPACENAME_Admins`
-   3. **Papel de contribuinte de dados blob de armazenamento** para:`Synapse_WORKSPACENAME_Users`
-   4. **Papel do Proprietário de Dados blob de armazenamento** para:`WORKSPACENAME`
+   1. **Papel** do leitor para:  `Synapse_WORKSPACENAME_Users`
+   2. **Papel do Proprietário de Dados blob de armazenamento** para:  `Synapse_WORKSPACENAME_Admins`
+   3. **Papel de contribuinte de dados blob de armazenamento** para: `Synapse_WORKSPACENAME_Users`
+   4. **Papel do Proprietário de Dados blob de armazenamento** para:  `WORKSPACENAME`
 
 > [!NOTE]
 > WORKSPACENAME - deve substituir esta peça pelo nome real do espaço de trabalho.
@@ -64,7 +64,7 @@ Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azur
 
 1. Vá ao [ **Azure Synapse Web UI**](https://web.azuresynapse.net)
 2. Ir para **gerir o**controlo de acesso   >  **Security**  >  **à** segurança
-3. Clique **em Adicionar Administrador**e selecione`Synapse_WORKSPACENAME_Admins`
+3. Clique **em Adicionar Administrador**e selecione `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Passo 4: Configurar o acesso a administradores sql para o espaço de trabalho
 
@@ -81,8 +81,8 @@ Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azur
 
 ### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>Passo 5: Adicionar e remover utilizadores e administradores a grupos de segurança
 
-1. Adicione utilizadores que precisam de acesso administrativo a`Synapse_WORKSPACENAME_Admins`
-2. Adicione todos os outros utilizadores a`Synapse_WORKSPACENAME_Users`
+1. Adicione utilizadores que precisam de acesso administrativo a `Synapse_WORKSPACENAME_Admins`
+2. Adicione todos os outros utilizadores a `Synapse_WORKSPACENAME_Users`
 
 > [!NOTE]
 > Saiba como adicionar o utilizador como membro a um grupo de segurança [neste artigo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal)
@@ -198,6 +198,6 @@ REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
 DROP USER [<workspacename>];
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral da identidade gerida pelo espaço de trabalho da Synapse, consulte a identidade gerida pelo espaço de [trabalho Azure Synapse.](../security/synapse-workspace-managed-identity.md) Para saber mais sobre os principais da base de dados, consulte [os principais.](https://msdn.microsoft.com/library/ms181127.aspx) Informações adicionais sobre funções de base de dados podem ser encontradas no artigo [de funções de Base de Dados.](https://msdn.microsoft.com/library/ms189121.aspx)

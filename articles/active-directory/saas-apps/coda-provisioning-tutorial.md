@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: d5748b9d374a33e0aa3c52d9623f4e73d3bace1c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1013e7f7fa824a7fef0535b8ab599e2a4e786b40
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89302926"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032338"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Tutorial: Configure Coda para o fornecimento automático de utilizadores
 
@@ -133,7 +133,7 @@ Esta operação inicia o ciclo inicial de sincronização de todos os utilizador
 Depois de configurar o provisionamento, utilize os seguintes recursos para monitorizar a sua implantação:
 
 1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
 3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
 ## <a name="additional-resources"></a>Recursos adicionais

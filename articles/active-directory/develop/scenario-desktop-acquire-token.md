@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 0d1946862ec8af6a107ca4f5f963efbcb8912a5e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: ab6842fe6787b9e1a61b3c25fabb6c64c2597b9a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440937"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032814"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de desktop que chama APIs web: Adquirir um token
 
@@ -183,7 +183,7 @@ No Android, também é necessário especificar a atividade dos pais utilizando `
 
 #### <a name="withparentactivityorwindow"></a>ComParentActivityOrWindow
 
-A UI é importante porque é interativa. `AcquireTokenInteractive` tem um parâmetro opcional específico que pode especificar, para plataformas que o suportam, a UI principal. Quando usado numa aplicação de desktop, `.WithParentActivityOrWindow` tem um tipo diferente, que depende da plataforma.
+A UI é importante porque é interativa. `AcquireTokenInteractive` tem um parâmetro opcional específico que pode especificar, para plataformas que o suportam, a UI principal. Quando usado numa aplicação de desktop, `.WithParentActivityOrWindow` tem um tipo diferente, que depende da plataforma. Em alternativa, pode omitir o parâmetro opcional da janela dos pais para criar uma janela, se não quiser controlar onde o diálogo de entrada aparece no ecrã. Isto seria aplicável para aplicações baseadas em linha de comando , usadas para passar chamadas para qualquer outro serviço de backend e não precisam de janelas para a interação do utilizador. 
 
 ```csharp
 // net45

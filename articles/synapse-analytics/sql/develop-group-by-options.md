@@ -6,17 +6,17 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad2b13fbfbd9871a55efb1826fa1e978d4eeb453
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429047"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032304"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>OPÇÕES GRUPO A EM Sinapse SQL
 O Sinaapse SQL permite desenvolver soluções implementando diferentes opções group by. 
@@ -58,7 +58,7 @@ Utilizando o ROLLUP, o exemplo anterior solicita as seguintes agregações:
 
 * País e Região
 * País
-* Grand Total
+* Total Geral
 
 Para substituir o ROLLUP e devolver os mesmos resultados, pode utilizar a UNION ALL e especificar explicitamente as agregações necessárias:
 
@@ -186,6 +186,6 @@ ORDER BY 1,2,3
 
 Ao dividir o código em secções e gerar uma construção em loop, o código torna-se mais manejável e manejável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](develop-overview.md)

@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de esquema
 description: Índice de exemplos de conformidade e normas para a implementação de ambientes, políticas e fundações do Framework de Adoção da Cloud com o Azure Blueprints.
-ms.date: 07/10/2020
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: cf8109dc8446fe1e3625e4f7c6fd0b5493c352d6
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488359"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031879"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -18,7 +18,7 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 
 | Sample | Descrição |
 |---------|---------|
-| [ISM PROTECTED da Administração Australiana](./ism-protected/control-mapping.md) | Fornece proteções para garantir a conformidade com o ISM PROTECTED da Administração Australiana. |
+| [ISM PROTECTED da Administração Australiana](./ism-protected/index.md) | Fornece proteções para garantir a conformidade com o ISM PROTECTED da Administração Australiana. |
 | [Referência de Segurança do Azure](./azure-security-benchmark.md) | Fornece proteções para garantir a conformidade com a [Referência de Segurança do Azure](../../../security/benchmarks/overview.md). |
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Fornece proteções para garantir a conformidade com o Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Fornece um conjunto de políticas para ajudar a cumprir as recomendações do CIS Microsoft Azure Foundations Benchmark. |

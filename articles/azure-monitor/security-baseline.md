@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a4b0cb9b53adbf6362d79766fcd7bce57f5441ac
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fd68f720f372ee61f7c441ea83bd365bc2a6f36a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322995"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032746"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Linha de segurança Azure para O Monitor Azure
 
@@ -80,7 +80,7 @@ Ao utilizar o Azure Monitor com Private Link, obtém acesso ao registo de rede, 
 
 - [Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor](platform/gateway.md) 
 
-- [Ver a começar com a Application Insights](//azure/azure-monitor/app/app-insights-overview#get-started)
+- [Ver a começar com a Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
 
 - [Como configurar testes web de disponibilidade](app/monitor-web-app-availability.md)
 

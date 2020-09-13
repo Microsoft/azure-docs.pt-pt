@@ -6,14 +6,14 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 38678c795b0ce7534de0ca8602c1198bc35f0e05
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a9e5660e6fbf1e1329af8622e982d44a4da3d86b
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206181"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033613"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar definição de emprego apache spark no Estúdio Synapse
 
@@ -187,7 +187,7 @@ Nesta secção, adicione uma definição de trabalho apache spark em pipeline.
 
      ![adicionar ao oleoduto](./media/apache-spark-job-definitions/add-to-pipeline02.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este tutorial demonstra como usar o Azure Synapse Studio para criar definições de emprego apache spark, e depois submetê-los a uma piscina Apache Spark. Em seguida, pode utilizar o Azure Synapse Studio para criar conjuntos de dados Power BI e gerir dados do Power BI.
 

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 070d933394b19ea38a9632f25909812943f7bff8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c0373e8a476e65a61ef4b3ea945b98e0763c0a22
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255835"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032933"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
@@ -96,7 +96,7 @@ data_source_name
 Especifica o nome definido pelo utilizador para a fonte de dados. O nome deve ser único na base de dados.
 
 #### <a name="location"></a>Localização
-LOCALIZAÇÃO = `'<prefix>://<path>'` - Fornece o protocolo de conectividade e o caminho para a fonte de dados externa. Os seguintes padrões podem ser usados no local:
+LOCALIZAÇÃO = `'<prefix>://<path>'`   - Fornece o protocolo de conectividade e o caminho para a fonte de dados externa. Os seguintes padrões podem ser usados no local:
 
 | Fonte de Dados Externos        | Prefixo de localização | Caminho de localização                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
@@ -105,7 +105,7 @@ LOCALIZAÇÃO = `'<prefix>://<path>'` - Fornece o protocolo de conectividade e o
 | Azure Data Lake Store Gen 1 | `http[s]`       | `<storage_account>.azuredatalakestore.net/webhdfs/v1` |
 | Azure Data Lake Store Gen 2 | `http[s]`       | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
 
-`https:`o prefixo permite-lhe utilizar a sub-dobragem no caminho.
+`https:` o prefixo permite-lhe utilizar a sub-dobragem no caminho.
 
 #### <a name="credential"></a>Credencial
 CREDENCIAL = `<database scoped credential>` é credencial opcional que será usada para autenticar no armazenamento Azure. Fonte externa de dados sem credencial pode aceder à conta de armazenamento público. 
@@ -374,6 +374,6 @@ A tabela externa é agora criada, para futura exploração do conteúdo desta ta
 > [!div class="mx-imgBorder"]
 >![externa5](./media/develop-tables-external-tables/external-table-5.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Verifique o artigo [CETAS](develop-tables-cetas.md) sobre como guardar os resultados da consulta para uma tabela externa no Azure Storage. Ou pode começar a consultar o [Apache Spark para as tabelas externas do Azure Synapse.](develop-storage-files-spark-tables.md)

@@ -1,25 +1,25 @@
 ---
-title: Fluxos de dados de resolução de problemas
+title: Fluxos de dados de mapeamento de resolução de problemas
 description: Saiba como resolver problemas de fluxo de dados na Azure Data Factory.
 services: data-factory
 ms.author: makromer
 author: kromerm
-manager: anandsub
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/08/2020
-ms.openlocfilehash: 6f2bf98e1c527be27ba0f08a43785ae7d3aea726
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.date: 09/11/2020
+ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594156"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031862"
 ---
-# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Fluxos de dados de resolução de problemas na Azure Data Factory
+# <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo explora métodos comuns de resolução de problemas para fluxos de dados na Azure Data Factory.
+Este artigo explora métodos comuns de resolução de problemas para mapear fluxos de dados na Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Erros e mensagens comuns
 
@@ -43,10 +43,10 @@ Este artigo explora métodos comuns de resolução de problemas para fluxos de d
 ### <a name="error-code-df-executor-broadcasttimeout"></a>Código de erro: DF-Executor-BroadcastTimeout
 
 - **Mensagem**: Transmita erro de tempo limite, certifique-se de que o fluxo de transmissão produz dados dentro de 60 segundos em depuração e 300 segundos em execuções de trabalho
-- **Causas**: A transmissão tem um tempo limite de 60 segundos em depuração e 300 segundos em execuções de emprego. O fluxo escolhido para transmissão parece ser grande para produzir dados dentro deste limite.
-- **Recomendação**: Verifique o separador Otimize sobre as transformações do fluxo de dados para Join, Exists e Lookup. A opção padrão para transmissão é "Auto". Se isto estiver definido, ou se estiver a definir manualmente o lado esquerdo ou direito para transmitir em "Fixo", então pode definir uma configuração de runtime de integração Azure maior ou desligar a transmissão. A abordagem recomendada para o melhor desempenho nos fluxos de dados é permitir que a Spark transmita usando "Auto" e utilize um Azure IR otimizado de memória.
+- **Causas**: A transmissão tem um tempo limite de 60 segundos em depuração e 300 segundos em execuções de trabalho. O fluxo escolhido para transmissão parece demasiado grande para produzir dados dentro deste limite.
+- **Recomendação**: Verifique o separador Otimize sobre as transformações do fluxo de dados para Join, Exists e Lookup. A opção padrão para transmissão é "Auto". Se "Auto" estiver definido, ou se estiver a definir manualmente o lado esquerdo ou direito para transmitir em "Fixo", então pode definir uma configuração de runtime de integração Azure maior ou desligar a transmissão. A abordagem recomendada para o melhor desempenho nos fluxos de dados é permitir que a Spark transmita usando "Auto" e utilize um Azure IR otimizado de memória.
 
-Se estiver a executar o fluxo de dados numa execução de teste de depuragem a partir de uma corrida de gasoduto de depuragem, poderá encontrar-se com mais frequência nesta condição. Isto porque a ADF acelera o tempo limite de transmissão para 60 segundos, a fim de manter uma experiência de depuração mais rápida. Se quiser estender isso ao intervalo de 300 segs de uma execução desencadeada, pode utilizar a opção Debug > Use Activity Runtime para utilizar o Azure IR definido na sua atividade de pipeline Executar fluxo de dados.
+Se estiver a executar o fluxo de dados numa execução de teste de depuragem a partir de uma corrida de gasoduto de depuragem, poderá encontrar-se com mais frequência nesta condição. Isto porque a ADF acelera o tempo limite de transmissão para 60 segundos, a fim de manter uma experiência de depuração mais rápida. Se quiser estender isso ao intervalo de 300 segundos de uma execução desencadeada, pode utilizar a opção Debug > Use Activity Runtime para utilizar o Azure IR definido na sua atividade de pipeline Executar fluxo de dados.
 
 ### <a name="error-code-df-executor-conversion"></a>Código de erro: DF-Executor-Conversão
 
@@ -59,6 +59,46 @@ Se estiver a executar o fluxo de dados numa execução de teste de depuragem a p
 - **Mensagem**: O nome da coluna tem de ser especificado na consulta, definir um pseudónimo se utilizar uma função SQL
 - **Causas**: Nenhum nome de coluna foi especificado
 - **Recomendação**: Desaver um pseudónimo se utilizar uma função SQL como min()/max(), etc.
+
+ ### <a name="error-code-df-executor-drivererror"></a>Código de erro: DF-Executor-DriverError
+- **Mensagem**: INT96 é o tipo de timetamp legado que não é suportado por ADF Dataflow. Por favor, considere atualizar o tipo de coluna para os tipos mais recentes.
+- **Causas**: Erro do condutor
+- **Recomendação**: INT96 é o tipo de timetamp legacy, que não é suportado pelo Fluxo de Dados ADF. Considere atualizar o tipo de coluna para os tipos mais recentes.
+
+ ### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Código de erro: DF-Executor-BlockCountExceedsLimitError
+- **Mensagem**: A contagem de blocos não comprometida não pode exceder o limite máximo de 100.000 blocos. Verifique a configuração do blob.
+- **Causas**: Pode haver um máximo de 100.000 blocos não comprometidos numa bolha.
+- **Recomendação**: Contacte a equipa de produtos da Microsoft sobre este problema para obter mais detalhes
+
+ ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Código de erro: DF-Executor-PartitionDirectoryError
+- **Mensagem**: O caminho de origem especificado tem ou vários diretórios divididos (por <Source Path> exemplo/<Diretório raiz de partição 1>/a=10/b=20, <Source Path> /<Diretório raiz de partição 2>/c=10/d=30) ou diretório dividido com outro ficheiro ou diretório não dividido (por exemplo <Source Path> /<Diretório raiz de partição 1>/a=10/b=20, <Source Path> /Diretório 2/1), remover o diretório de raiz de partição da via de origem e lê-lo através de uma transformação de fonte separada.
+- **Causas**: O caminho de origem tem vários diretórios divididos ou diretórios divididos com outro ficheiro ou diretório não dividido.
+- **Recomendação**: Retire o diretório de raiz partido do caminho da origem e leia-o através de uma transformação separada da fonte.
+
+ ### <a name="error-code-df-executor-outofmemoryerror"></a>Código de erro: DF-Executor-OutOfMemoryError
+- **Mensagem**: O cluster escorria para o problema de memória durante a execução, por favor, recava o tempo de integração com maior contagem de núcleos e/ou tipo de computação otimizada da memória
+- **Causas**: O cluster está a ficar sem memória
+- **Recomendação**: Os agrupamentos de depurg destinam-se a fins de desenvolvimento. Alavancar a amostragem de dados, o tipo de computação apropriado e o tamanho para executar a carga útil. Consulte o guia de desempenho do [fluxo de dados de mapeamento](concepts-data-flow-performance.md) para obter o melhor desempenho.
+
+ ### <a name="error-code-df-executor-illegalargument"></a>Código de erro: DF-Executor-ilegalArgument
+- **Mensagem**: Certifique-se de que a chave de acesso no seu Serviço Linked está correta
+- **Causas**: Nome da conta ou chave de acesso incorreta
+- **Recomendação**: Certifique-se de que o nome da conta ou a chave de acesso especificada no seu serviço ligado está correto. 
+
+ ### <a name="error-code-df-executor-invalidtype"></a>Código de erro: DF-Executor-InvalidType
+- **Mensagem**: Certifique-se de que o tipo de parâmetro coincide com o tipo de valor transmitido. A passagem de parâmetros flutuantes dos oleodutos não está suportada atualmente.
+- **Causas**: Tipos de dados incompatíveis entre o tipo declarado e o valor do parâmetro real
+- **Recomendação**: Verifique se os valores dos seus parâmetros passados num fluxo de dados correspondem ao tipo declarado.
+
+ ### <a name="error-code-df-executor-columnunavailable"></a>Código de erro: DF-Executor-ColumnUn disponível
+- **Mensagem**: Nome da coluna utilizado na expressão não está disponível ou inválido
+- **Causas**: Nome de coluna inválido ou indisponível utilizado em expressões
+- **Recomendação**: Verificar nomes de colunas utilizados em expressões
+
+ ### <a name="error-code-df-executor-parseerror"></a>Código de erro: DF-Executor-ParseError
+- **Mensagem**: A expressão não pode ser analisada
+- **Causas**: A expressão tem erros de análise devido à formatação
+- **Recomendação**: Verificar formatação em expressão
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Código de erro: GetCommand OutputAsync falhou
 
