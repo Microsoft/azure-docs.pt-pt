@@ -2,13 +2,13 @@
 title: Implementar recursos com PowerShell e modelo
 description: Utilize o Azure Resource Manager e a Azure PowerShell para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 64993b526b67430266a8b3e85e3bcc233a3e28a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: ef2ff71430f0dcaca660666bb9a6c015c923da3f
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079524"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536077"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementar recursos com modelos ARM e Azure PowerShell
 
@@ -122,6 +122,30 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 O exemplo anterior requer um URI acessível ao público para o modelo, que funciona para a maioria dos cenários porque o seu modelo não deve incluir dados sensíveis. Se precisar de especificar dados sensíveis (como uma palavra-passe de administração), passe esse valor como parâmetro seguro. No entanto, se não quiser que o seu modelo seja acessível ao público, pode protegê-lo armazenando-o num recipiente de armazenamento privado. Para obter informações sobre a implementação de um modelo que requer um token de assinatura de acesso partilhado (SAS), consulte [implementar o modelo privado com o token SAS](secure-template-with-sas-token.md). Para passar por um tutorial, consulte [Tutorial: Integre o Cofre da Chave Azul na implementação do modelo ARM](template-tutorial-use-key-vault.md).
 
+## <a name="deploy-template-spec"></a>Implementar especificação de modelo
+
+Em vez de implementar um modelo local ou remoto, pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso na sua subscrição Azure que contém um modelo ARM. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções (RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
+
+Os exemplos a seguir mostram como criar e implementar uma especificação de modelo. Estes comandos só estão disponíveis se se [ter inscrito para a pré-visualização](https://aka.ms/templateSpecOnboarding).
+
+Em primeiro lugar, cria-se a especificação do modelo fornecendo o modelo ARM.
+
+```azurepowershell
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
+```
+
+Em seguida, obtém-se o ID para especificação de modelo e implemente-o.
+
+```azurepowershell
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName demoRG `
+  -TemplateSpecId $id
+```
+
+Para obter mais informações, consulte [as especificações do modelo do Gestor de Recursos Azure (Preview)](template-specs.md).
+
 ## <a name="preview-changes"></a>Pré-visualizar alterações
 
 Antes de implementar o seu modelo, pode visualizar as alterações que o modelo irá fazer para o seu ambiente. Utilize a [operação "e se"](template-deploy-what-if.md) para verificar se o modelo faz as alterações que espera. E se também valida o modelo para erros.
@@ -204,7 +228,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Modificar um circuito: PowerShell'
 description: Criar, providenciar, verificar, atualizar, eliminar e desprovisionar um circuito ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/08/2020
-ms.author: cherylmc
-ms.openlocfilehash: aba29c46a781c8e687c79a197d37758699a9acf5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.author: duau
+ms.openlocfilehash: e9bf9dbe0f4146101513ab9786b298ac6b43b6a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984470"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566302"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute através do PowerShell
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Certifique-se de que especifica o nível SKU e a família SKU corretas:
 
-* O nível SKU determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Pode especificar *Local,* *Standard* ou *Premium.*
+* O nível SKU determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Pode especificar *Local,* *Standard* ou *Premium.* Não é possível alterar o SKU de *Standard/Premium* para *Local.*
 * A família SKU determina o tipo de faturação. Pode especificar *os dados medidos* para um plano de dados medido e *dados ilimitados* para um plano de dados ilimitado. Pode alterar o tipo de faturação de *Metereddata* para *Unlimiteddata,* mas não pode alterar o tipo de *dados ilimitados* para *Metereddata*. Um circuito *local* é sempre *dados ilimitados.*
 
 > [!IMPORTANT]
@@ -306,7 +306,7 @@ Pode modificar certas propriedades de um circuito ExpressRoute sem afetar a cone
 
 Pode fazer as seguintes tarefas sem tempo de inatividade:
 
-* Ative ou desative um addon premium ExpressRoute para o seu circuito ExpressRoute.
+* Ative ou desative um addon premium ExpressRoute para o seu circuito ExpressRoute. A alteração do SKU de *Standard/Premium* para *Local* não é suportada.
 * Aumente a largura de banda do seu circuito ExpressRoute desde que haja capacidade disponível na porta. A redução da largura de banda de um circuito não é suportada.
 * Altere o plano de medição de Dados Medidos para Dados Ilimitados. A alteração do plano de medição de Dados Ilimitados para Dados Medidos não é suportada.
 * Pode ativar e desativar *permitir operações clássicas.*

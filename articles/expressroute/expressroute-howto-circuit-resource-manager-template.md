@@ -2,17 +2,17 @@
 title: 'Modelo Azure ExpressRoute: Criar um circuito ExpressRoute'
 description: Aprenda a criar um circuito Azure ExpressRoute implantando um modelo de Gestor de Recursos Azure utilizando a Azure PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: charwen
-ms.openlocfilehash: 78318726a658b6e0dc966288f386c65ee4c6f0e4
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 3428f092c4b2356e9ea6afa54d1a03fc8b4f9f05
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190451"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566182"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Crie um circuito ExpressRoute utilizando o modelo de Gestor de Recursos Azure
 
@@ -63,7 +63,7 @@ Para criar um Circuito ExpressRoute implantando um modelo:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **O nível SKU** determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Pode especificar *Local,**Standard ou *Premium.*
+   * **O nível SKU** determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Pode especificar *Local,**Standard ou *Premium.* Não é possível alterar o SKU de *Standard/Premium* para *Local.*
    * **A família SKU** determina o tipo de faturação. Pode especificar *os dados medidos* para um plano de dados medido e *dados ilimitados* para um plano de dados ilimitado. Pode alterar o tipo de faturação de *Metereddata* para *Unlimiteddata,* mas não pode alterar o tipo de *dados ilimitados* para *Metereddata*. Um circuito *local* é *apenas dados ilimitados.*
    * **O Local de Observação** é o local físico onde está a espreitar com a Microsoft.
 
@@ -100,7 +100,7 @@ $resourceGroupName = "${circuitName}rg"
 Remove-AzExpressRouteCircuit -ResourceGroupName $resourceGroupName -Name $circuitName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar o seu circuito, continue com os seguintes passos:
 

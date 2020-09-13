@@ -2,18 +2,18 @@
 title: 'ExpressRoute: Filtros de rota- Microsoft peering:Azure PowerShell'
 description: Este artigo descreve como configurar filtros de rota para o Microsoft Peering usando o PowerShell
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: f5a294a051350c4b08b34356abcd883b7580164e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4ca4362f10ea6ed2fa7cc39370fc9b4c764ff3b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729307"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566199"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configure filtros de rota para o espreomador da Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "84729307"
 
 Os filtros de rota são uma forma de consumir um subconjunto de serviços suportados através do peering da Microsoft. Os passos deste artigo ajudam-no a configurar e a gerir filtros de rota para circuitos ExpressRoute.
 
-Os serviços do Office 365, tais como Exchange Online, SharePoint Online e Skype for Business, e serviços públicos Azure, como armazenamento e DB SQL são acessíveis através do espreitamento da Microsoft. Os serviços públicos do Azure são selecionáveis por região e não podem ser definidos por serviço público.
+Os serviços microsoft 365, tais como Exchange Online, SharePoint Online e Skype for Business, e serviços públicos Azure, como armazenamento e DB SQL são acessíveis através do espreitamento da Microsoft. Os serviços públicos do Azure são selecionáveis por região e não podem ser definidos por serviço público.
 
 Quando o espreitamento da Microsoft é configurado num circuito ExpressRoute e um filtro de rota é anexado, todos os prefixos que são selecionados para estes serviços são anunciados através das sessões BGP que são estabelecidas. Está anexado um valor da comunidade BGP a cada prefixo para identificar o serviço oferecido através do prefixo. Para obter uma lista dos valores comunitários do BGP e dos serviços a que mapeiam, consulte [as comunidades BGP.](expressroute-routing.md#bgp)
 
@@ -40,7 +40,7 @@ Quando o espreguiçadeira da Microsoft está configurado no seu circuito Express
 
 Um filtro de rota permite-lhe identificar os serviços que deseja consumir através do peering da Microsoft do circuito do ExpressRoute. É essencialmente uma lista de todos os valores comunitários da BGP. Depois de um recurso de filtro de rota ser definido e anexado a um circuito do ExpressRoute, todos os prefixos que mapeiam para os valores da comunidade BGP são anunciados à sua rede.
 
-Para poder anexar filtros de rota com os serviços do Office 365, tem de ter autorização para consumir os serviços do Office 365 através do ExpressRoute. Se não estiver autorizado a consumir os serviços do Office 365 através do ExpressRoute, a operação para anexar filtros de rota falha. Para obter mais informações sobre o processo de autorização, consulte [a Azure ExpressRoute para o Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
+Para poder anexar filtros de rota com os serviços Microsoft 365, tem de ter autorização para consumir os serviços da Microsoft 365 através do ExpressRoute. Se não estiver autorizado a consumir os serviços microsoft 365 através do ExpressRoute, a operação para anexar filtros de rota falha. Para obter mais informações sobre o processo de autorização, consulte [a Azure ExpressRoute para a Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > O perspitamento da Microsoft nos circuitos ExpressRoute que foram configurados antes de 1 de agosto de 2017 terá todos os prefixos de serviço anunciados através do olho da Microsoft, mesmo que os filtros de rota não estejam definidos. O perspitamento da Microsoft dos circuitos ExpressRoute que estejam configurados em ou depois de 1 de agosto de 2017 não terá quaisquer prefixos anunciados até que um filtro de rota seja ligado ao circuito.

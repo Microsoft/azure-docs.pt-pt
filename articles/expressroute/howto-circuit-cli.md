@@ -2,18 +2,18 @@
 title: 'Criar e modificar um circuito ExpressRoute: Azure CLI'
 description: Este artigo mostra como criar, providenciar, verificar, atualizar, eliminar e desprovisionar um circuito ExpressRoute utilizando o CLI.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5f3270bbed5042ef89d5818523005dfc31589945
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503587"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566148"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Criar e modificar um circuito do ExpressRoute através da CLI
 
@@ -24,7 +24,7 @@ Este artigo descreve como criar um circuito Azure ExpressRoute utilizando a Inte
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
-> * [Modelo de gestor de recursos Azure](expressroute-howto-circuit-resource-manager-template.md)
+> * [Modelo Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
@@ -142,7 +142,7 @@ O exemplo a seguir mostra como criar um circuito ExpressRoute de 200-Mbps atrav�
 
 Certifique-se de que especifica o nível SKU e a família SKU corretas:
 
-* O nível SKU determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Pode especificar *Local,* *Standard* ou *Premium.*
+* O nível SKU determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Pode especificar *Local,* *Standard* ou *Premium.* Não é possível alterar o SKU de *Standard/Premium* para *Local.*
 * A família SKU determina o tipo de faturação. Pode especificar *os dados medidos* para um plano de dados medido e *dados ilimitados* para um plano de dados ilimitado. Pode alterar o tipo de faturação de *Metereddata* para *Unlimiteddata,* mas não pode alterar o tipo de *dados ilimitados* para *Metereddata*. Um circuito *local* é *apenas dados ilimitados.*
 
 
@@ -280,7 +280,7 @@ Em seguida, ligue uma rede virtual ao seu circuito ExpressRoute. Utilize as rede
 
 Pode modificar certas propriedades de um circuito ExpressRoute sem afetar a conectividade. Pode es fazer as seguintes alterações sem tempo de inatividade:
 
-* Pode ativar ou desativar um addon premium ExpressRoute para o seu circuito ExpressRoute.
+* Pode ativar ou desativar um addon premium ExpressRoute para o seu circuito ExpressRoute. A alteração do SKU de *Standard/Premium* para *Local* não é suportada.
 * Pode aumentar a largura de banda do seu circuito ExpressRoute desde que haja capacidade disponível na porta. No entanto, não é suportada a redução da largura de banda de um circuito.
 * Pode alterar o plano de medição de Dados Medidos para Dados Ilimitados. No entanto, a alteração do plano de medição de Dados Ilimitados para Dados Medidos não é suportada.
 * Pode ativar e desativar *permitir operações clássicas.*
@@ -360,7 +360,7 @@ Pode eliminar o seu circuito ExpressRoute executando o seguinte comando:
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar o seu circuito, certifique-se de que faz as seguintes tarefas:
 
