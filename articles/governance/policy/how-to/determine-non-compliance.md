@@ -3,12 +3,12 @@ title: Determinar as causas da não conformidade
 description: Quando um recurso não é conforme, existem muitas razões possíveis. Aprenda a descobrir o que causou o incumprimento.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: ee027ff0f2936dc3eb7153869c52d4e70c83918b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512032"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648576"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -30,17 +30,17 @@ Quando um recurso não está em conformidade, os detalhes de conformidade desse 
 
 Para ver os detalhes de conformidade, siga estes passos:
 
-1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
+1. Lançar o serviço Azure Policy no portal Azure selecionando **todos os serviços,** procurando e selecionando **a Política**.
 
 1. Na página **'Visão Geral'** ou **Compliance,** selecione uma política num estado de **conformidade** que _não esteja em conformidade_.
 
 1. No separador **de conformidade de recursos** da página de conformidade da **Política,** clique à direita ou selecione a elipse de um recurso num estado de **conformidade** que não está _em conformidade._ Em seguida, **selecione Ver detalhes de conformidade**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Ver opção de detalhes de conformidade" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot do link 'Ver detalhes de conformidade' no separador de conformidade de recursos." border="false":::
 
 1. O painel **de detalhes do Compliance** exibe informações da última avaliação do recurso à atribuição de políticas em curso. Neste exemplo, o campo **Microsoft.Sql/servidors/versão** é encontrado como _sendo 12.0,_ enquanto a definição de política esperava _14.0_. Se o recurso não for conforme por várias razões, cada um está listado neste painel.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Painel de detalhes de conformidade e razões para incumprimento" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Screenshot do painel de detalhes de conformidade e razões para o incumprimento que o valor atual é doze e o valor-alvo é de catorze." border="false":::
 
    Para uma **auditoriaIfNotExists** ou implementar a definição de **políticaifNotExists,** os detalhes incluem os **detalhes.digitar** propriedade e quaisquer propriedades opcionais. Para obter uma lista, consulte [as propriedades auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [implementar propriedadesIfNotExists](../concepts/effects.md#deployifnotexists-properties). **O último recurso avaliado** é um recurso relacionado a partir da secção de **detalhes** da definição.
 
@@ -69,7 +69,7 @@ Para ver os detalhes de conformidade, siga estes passos:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Painel de detalhes de conformidade - *ifNotExists" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Screenshot of Compliance details pane for ifNotExists including evaluated resource count." border="false":::
 
 > [!NOTE]
 > Para proteger os dados, quando um valor de propriedade é _um segredo,_ o valor atual exibe asteriscos.
@@ -114,13 +114,13 @@ Também pode não ter acesso ao acesso diretamente ao VM, mas tem de informar po
 
 Comece por seguir os mesmos passos na secção acima para visualizar detalhes de conformidade da política.
 
-Na vista de detalhes de Conformidade, clique no link **Último recurso avaliado.**
+Na vista de detalhes da Conformidade, selecione o link **Último recurso avaliado.**
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Ver detalhes de definição de auditIfNotExists" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Screenshot de visualização da auditoriaIfNotExists definiu detalhes de conformidade." border="false":::
 
 A página **de Atribuição de Hóspedes** exibe todos os detalhes de conformidade disponíveis. Cada linha na vista representa uma avaliação que foi realizada dentro da máquina. Na coluna **Reason,** é mostrada uma frase que descreve por que a atribuição de hóspedes não _é compatível_. Por exemplo, se estiver a auditar políticas de palavra-passe, a coluna **Reason** apresentaria texto, incluindo o valor atual para cada definição.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Ver detalhes de conformidade" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot dos detalhes de conformidade da atribuição de hóspedes." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +191,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 Como parte de uma nova **pré-visualização pública,** os últimos 14 dias de história da mudança estão disponíveis para todos os recursos Azure que suportam [a eliminação completa do modo](../../../azure-resource-manager/templates/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma mudança foi detetada e um _diff visual_ para cada mudança. Uma deteção de alterações é desencadeada quando as propriedades do Gestor de Recursos Azure são adicionadas, removidas ou alteradas.
 
-1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
+1. Lançar o serviço Azure Policy no portal Azure selecionando **todos os serviços,** procurando e selecionando **a Política**.
 
 1. Na página **'Visão Geral'** ou **Compliance,** selecione uma política em qualquer **estado de conformidade**.
 
@@ -199,11 +199,11 @@ Como parte de uma nova **pré-visualização pública,** os últimos 14 dias de 
 
 1. Selecione o separador Alterar Histórico **(pré-visualização)** na página **'Conformidade com recursos'.** É apresentada uma lista de alterações detetadas, caso existam.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Azure Policy Change History tab na página de Conformidade de Recursos" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Screenshot do separador Alterar Histórico e detetado tempos de alteração na página de Conformidade de Recursos." border="false":::
 
 1. Selecione uma das alterações detetadas. O _diff visual_ para o recurso é apresentado na página **de história da Mudança.**
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Azure Policy Change History Visual Diff na página de história change" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Screenshot do Diff Visual Change History do estado de propriedades antes e depois da página de história da Mudança." border="false":::
 
 Os assessores _de difusão visual_ na identificação de alterações a um recurso. As alterações detetadas podem não estar relacionadas com o estado de conformidade atual do recurso.
 

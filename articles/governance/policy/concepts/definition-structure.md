@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079035"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648731"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -17,7 +17,7 @@ Saiba mais sobre [as condições.](#conditions)
 
 Ao definir convenções, pode controlar os custos e gerir mais facilmente os seus recursos. Por exemplo, pode especificar que apenas certos tipos de máquinas virtuais são permitidos. Ou pode exigir que os recursos tenham uma etiqueta particular. As atribuições políticas são herdadas por recursos infantis. Se uma atribuição de política for aplicada a um grupo de recursos, é aplicável a todos os recursos desse grupo de recursos.
 
-O esquema de definição de política encontra-se aqui: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+A política de definição _de políticaRule_ schema é encontrada aqui: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Usas o JSON para criar uma definição de política. A definição de política contém elementos para:
 
@@ -619,7 +619,7 @@ A lista de pseudónimos está sempre a crescer. Para encontrar os pseudónimos a
 
   Utilize a [extensão da Política Azure para o Código do Estúdio Visual](../how-to/extension-for-vscode.md) para visualizar e descobrir pseudónimos para propriedades de recursos.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Extensão da política Azure para Código do Estúdio Visual" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot da extensão da Política Azure para Visual Studio Code pairando sobre uma propriedade para exibir os nomes de pseudónimos." border="false":::
 
 - Azure Resource Graph
 
@@ -711,7 +711,7 @@ Esta regra da amostra verifica quaisquer correspondências de **ipRules \[ \* \]
 
 Para mais informações, consulte [a avaliação do \* pseudónimo.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a estrutura de [definição de iniciativa](./initiative-definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
