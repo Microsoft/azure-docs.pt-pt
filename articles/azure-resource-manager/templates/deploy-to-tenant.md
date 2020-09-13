@@ -2,13 +2,13 @@
 title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002768"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468560"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -151,7 +151,7 @@ Para direcionar um grupo de gestão dentro do inquilino, adicione uma implantaç
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-mg
                 }
             }
         }
@@ -167,9 +167,11 @@ Para as implementações de inquilinos, existem algumas considerações importan
 * A função [grupo de recursos()](template-functions-resource.md#resourcegroup) **não** é suportada.
 * A função [de subscrição()](template-functions-resource.md#subscription) **não** é suportada.
 * As funções [de referência](template-functions-resource.md#reference) e [lista são](template-functions-resource.md#list) suportadas.
-* Utilize a função [tenantResourceId()](template-functions-resource.md#tenantresourceid) para obter o ID de recursos que são implantados ao nível do inquilino.
+* Não utilize [recursosId()](template-functions-resource.md#resourceid) para obter o ID de recursos para recursos que são implantados ao nível do inquilino.
 
-  Por exemplo, para obter o ID de recurso para uma definição de política, use:
+  Em vez disso, utilize a função [TenantResourceId().](template-functions-resource.md#tenantresourceid)
+
+  Por exemplo, para obter o ID de recurso para uma definição de política incorporada, use:
 
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
@@ -249,7 +251,7 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender sobre a atribuição de funções, consulte atribuições de [funções Add Azure utilizando modelos do Gestor de Recursos Azure](../../role-based-access-control/role-assignments-template.md).
 * Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) ou [ao nível do grupo de gestão.](deploy-to-management-group.md)

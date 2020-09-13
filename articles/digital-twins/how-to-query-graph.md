@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055639"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468713"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -175,6 +175,42 @@ Pode **combinar** qualquer um dos tipos de consulta acima, utilizando operadores
 | Arranja gémeos que têm uma relação chamada *Contém* com outro gémeo que tem uma ID de *id1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
 | Obtenha todos os quartos deste modelo de quarto que são contidos pelo *piso 11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
 
+## <a name="reference-expressions-and-conditions"></a>Referência: Expressões e condições
+
+Esta secção contém referência para os operadores e funções disponíveis ao escrever consultas Azure Digital Twins.
+
+### <a name="operators"></a>Operadores
+
+São apoiados os seguintes operadores:
+
+| Família | Operadores |
+| --- | --- |
+| Lógico |E, OU, NÃO |
+| Comparação |=, !=, <, >, <=, >= |
+| Contains | IN, NIN |
+
+### <a name="functions"></a>Funções
+
+São suportadas as seguintes funções de verificação e fundição:
+
+| Função | Descrição |
+| -------- | ----------- |
+| IS_DEFINED | Devolve um Boolean indicando se a propriedade foi atribuída um valor. Isto só é suportado quando o valor é um tipo primitivo. Os tipos primitivos incluem cordas, booleanos, numéricos, ou `null` . DataTime, os tipos de objetos e as matrizes não são suportados. |
+| IS_OF_MODEL | Devolve um valor Boolean que indica se o gémeo especificado corresponde ao tipo de modelo especificado |
+| IS_BOOL | Devolve um valor Boolean que indica se o tipo de expressão especificada é um Boolean. |
+| IS_NUMBER | Devolve um valor Boolean que indica se o tipo de expressão especificada é um número. |
+| IS_STRING | Devolve um valor Boolean que indica se o tipo de expressão especificada é uma corda. |
+| IS_NULL | Devolve um valor Boolean que indica se o tipo de expressão especificada é nulo. |
+| IS_PRIMITIVE | Devolve um valor Boolean que indica se o tipo de expressão especificada é primitivo (corda, booleana, numérico ou `null` . |
+| IS_OBJECT | Devolve um valor Boolean que indica se o tipo de expressão especificada é um objeto JSON. |
+
+As seguintes funções de corda são suportadas:
+
+| Função | Descrição |
+| -------- | ----------- |
+| STARTS_WITH(x, y) | Devolve um Boolean indicando se a primeira expressão de corda começa com a segunda. |
+| ENDS_WITH(x, y) | Devolve um Boolean indicando se a primeira expressão de corda termina com a segunda. |
+
 ## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada de API
 
 Uma vez decidido uma cadeia de consulta, executa-a fazendo uma chamada para a **API de Consulta**.
@@ -251,6 +287,6 @@ Abaixo estão algumas dicas para consulta com Azure Digital Twins.
         ```
 * Os nomes e valores dos imóveis são sensíveis ao caso, por isso tenha cuidado para usar os nomes exatos definidos nos modelos. Se os nomes dos imóveis estiverem mal escritos ou mal arquivados, o conjunto de resultados está vazio sem erros devolvidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as [APIs e SDKs das Gémeas Digitais Azure,](how-to-use-apis-sdks.md)incluindo a API de Consulta, que é usada para executar as consultas deste artigo.

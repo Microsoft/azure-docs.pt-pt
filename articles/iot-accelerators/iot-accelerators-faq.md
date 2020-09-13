@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75647718"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462552"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas mais frequentes sobre aceleradores de soluções do IoT
 
@@ -78,7 +78,7 @@ Sim, a nova Monitorização Remota está disponível nas mesmas regiões geográ
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Posso continuar a alavancar os meus investimentos existentes em aceleradores de solução Azure IoT?
 
-Sim. Qualquer solução que exista hoje continua a funcionar na sua subscrição Azure e o código fonte permanece disponível no GitHub.
+Yes. Qualquer solução que exista hoje continua a funcionar na sua subscrição Azure e o código fonte permanece disponível no GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT é possível aprovisionar numa subscrição?
 
@@ -101,7 +101,7 @@ Atualmente, não é possível criar um acelerador de soluções com uma conta [M
 
 ### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Como apago um inquilino da AD Azure?
 
-Veja o post de Eric Golpe no blog [Walkthrough of Deleting a Azure AD Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
+Veja o post de Eric Golpe no blog [Walkthrough of Deleting a Azure AD Tenant](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant).
 
 ### <a name="next-steps"></a>Próximos passos
 

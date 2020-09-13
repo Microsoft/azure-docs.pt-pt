@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025885"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468611"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de Atualização Primário?
 
@@ -86,6 +86,10 @@ Um PRT é renovado em dois métodos diferentes:
 * **Plugin Azure AD WAM durante os pedidos de ficha de aplicação**: O plugin WAM permite sSO em dispositivos Windows 10, permitindo pedidos de token silenciosos para aplicações. O plugin WAM pode renovar o PRT durante estes pedidos simbólicos de duas maneiras diferentes:
    * Uma aplicação solicita ao WAM um token de acesso silenciosamente, mas não há nenhum token de atualização disponível para essa aplicação. Neste caso, a WAM usa o PRT para solicitar um token para a app e recebe de volta um novo PRT na resposta.
    * Uma aplicação solicita ao WAM um token de acesso, mas o PRT é inválido ou a AZure AD requer autorização adicional (por exemplo, Autenticação Multi-Factor Azure). Neste cenário, a WAM inicia uma logon interativa que exige ao utilizador a reauthenticação ou a prestação de verificação adicional e é emitido um novo PRT sobre a autenticação bem sucedida.
+
+Num ambiente ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação do PRT requer apenas /adfs/serviços/trust/2005/usernamemixed e /adfs/services/trust/13/usernamemixed endpoints habilitados no proxy através do protocolo WS-Trust.
+
+Os pontos finais de transporte do Windows são necessários para a autenticação de senha apenas quando uma palavra-passe é alterada, e não para renovação de PRT.
 
 ### <a name="key-considerations"></a>Considerações principais
 
@@ -196,6 +200,6 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 | E | O anfitrião do cliente nativo devolverá este cookie PRT ao navegador, que o incluirá como parte do cabeçalho de pedido chamado x-ms-RefreshTokenCredential e solicitará fichas da Azure AD. |
 | F | O Azure AD valida a assinatura da chave Sessão no cookie PRT, valida o nonce, verifica se o dispositivo é válido no inquilino, e emite um token de ID para a página web e um cookie de sessão encriptado para o navegador. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre problemas relacionados com o PRT, consulte o artigo [O Diretório híbrido Azure Ative de resolução de problemas juntou-se aos dispositivos Windows 10 e Windows Server 2016](troubleshoot-hybrid-join-windows-current.md).

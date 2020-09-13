@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0f1e7789c0cebdd1cb5b22f21151020a0be09c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855119"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483274"
 ---
 # <a name="data-storage"></a>Armazenamento de Dados
 
@@ -24,7 +24,7 @@ Quando cria um ambiente Azure Time Series Insights Gen2, cria-se dois recursos A
 * Um ambiente Azure Time Series Insights Gen2 que pode ser configurado para armazenamento de dados quente.
 * Uma conta de armazenamento Azure para armazenamento de dados frios.
 
-Os dados na sua loja quente só estão disponíveis através de [APIs de Consulta de Séries tempores](./time-series-insights-update-tsq.md) e do [Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md). A sua loja quente conterá dados recentes dentro do [período de retenção](./time-series-insights-update-plan.md#the-preview-environment) selecionado ao criar o ambiente Azure Time Series Insights Gen2.
+Os dados na sua loja quente só estão disponíveis através de [APIs de Consulta de Séries temporizadas](./time-series-insights-update-tsq.md) e do [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md). A sua loja quente conterá dados recentes dentro do [período de retenção](./time-series-insights-update-plan.md#the-preview-environment) selecionado ao criar o ambiente Azure Time Series Insights Gen2.
 
 Azure Time Series Insights Gen2 guarda os seus dados de cold store para o armazenamento Azure Blob no [formato de ficheiro Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 gere estes dados do cold store exclusivamente, mas está disponível para você ler diretamente como ficheiros parquet padrão.
 
@@ -58,7 +58,7 @@ Para garantir o desempenho da consulta e a disponibilidade de dados, não edite 
 
 #### <a name="accessing-cold-store-data"></a>Acesso aos dados do cold store
 
-Além de aceder aos seus dados a partir do [Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md) e [time Series Consultas APIs,](./time-series-insights-update-tsq.md)também pode querer aceder aos seus dados diretamente a partir dos ficheiros Parquet armazenados no cold store. Por exemplo, pode ler, transformar e limpar dados num caderno Jupyter e depois usá-lo para treinar o seu modelo de Aprendizagem automática Azure no mesmo fluxo de trabalho spark.
+Além de aceder aos seus dados a partir do [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) e da Time Series Consultas [APIs,](./time-series-insights-update-tsq.md)também pode querer aceder aos seus dados diretamente a partir dos ficheiros Parquet armazenados no cold store. Por exemplo, pode ler, transformar e limpar dados num caderno Jupyter e depois usá-lo para treinar o seu modelo de Aprendizagem automática Azure no mesmo fluxo de trabalho spark.
 
 Para aceder aos dados diretamente da sua conta de Armazenamento Azure, precisa de ler o acesso à conta utilizada para armazenar os seus dados Azure Time Series Insights Gen2. Pode então ler dados selecionados com base no tempo de criação do ficheiro Parquet localizado na `PT=Time` pasta descrita abaixo na secção [de formato de ficheiro Parquet.](#parquet-file-format-and-folder-structure)  Para obter mais informações sobre como permitir o acesso à sua conta de armazenamento, consulte [Gerir o acesso aos recursos da sua conta de armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
 
@@ -102,7 +102,7 @@ Os eventos da Azure Time Series Insights Gen2 estão mapeados para os conteúdos
 * Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_bool` (boolean), `_datetime` (carimbo de `_long` tempo), `_double` (longo), `_string` (duplo), (cadeia) ou `dynamic` (dinâmico), dependendo do tipo de propriedade.  Para mais informações, leia sobre [os tipos de dados suportados.](./concepts-supported-data-types.md)
 * Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1** e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia sobre [modelação de dados.](./time-series-insights-update-tsm.md)
 
