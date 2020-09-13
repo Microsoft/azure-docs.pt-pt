@@ -1,5 +1,5 @@
 ---
-title: Como aumentar a resiliência
+title: Resiliência & alta disponibilidade
 titleSuffix: Azure Machine Learning
 description: Aprenda a tornar os seus recursos de Aprendizagem de Máquinas Azure mais resistentes a interrupções utilizando uma configuração de alta disponibilidade.
 services: machine-learning
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/16/2020
-ms.openlocfilehash: 9b298e10d3eb95bcb0ef525eb973259a3ab1dbbb
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/16/2020
+ms.openlocfilehash: abb24ef1cc6a693acbaf6561a185fd5ae536a66d
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852549"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668794"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Aumentar a resiliência da aprendizagem automática do Azure
 
@@ -50,15 +50,15 @@ A tabela que se segue mostra quais os serviços Azure geridos pela Microsoft, qu
 
 | Serviço | Gerido por | Alta disponibilidade por padrão |
 | ----- | ----- | ----- |
-| **Infraestrutura de aprendizagem automática Azure** | Peering da Microsoft | |
+| **Infraestrutura de aprendizagem automática Azure** | Microsoft | |
 | **Recursos associados** |
 | Storage do Azure | O utilizador | |
 | Key Vault | O utilizador | ✓ |
 | Container Registry | O utilizador | |
 | Application Insights | O utilizador | ND |
 | **Recursos de cálculo** |
-| Instância de computação | Peering da Microsoft |  |
-| Cluster computacional | Peering da Microsoft |  |
+| Instância de computação | Microsoft |  |
+| Cluster computacional | Microsoft |  |
 | Outros recursos computacional, tais como AKS, <br>Azure Databricks, Container Instances, HDInsight | O utilizador |  |
 | **Lojas de dados adicionais** como Azure Storage, SQL Database,<br> Base de Dados Azure para PostgreSQL, Base de Dados Azure para MySQL, <br>Sistema de ficheiros Azure Databricks | O utilizador | |
 
@@ -100,6 +100,6 @@ Certifique-se de configurar as definições de alta disponibilidade de cada recu
 
 Se fornecer a sua própria chave gerida pelo cliente para implementar um espaço de trabalho Azure Machine Learning, a Azure Cosmos DB também está alojada dentro da sua subscrição. Nesse caso, é responsável por configurar as suas definições de alta disponibilidade. Ver [Alta disponibilidade com Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para implementar a Azure Machine Learning com recursos associados às suas definições de alta disponibilidade, utilize um [modelo de Gestor de Recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced).

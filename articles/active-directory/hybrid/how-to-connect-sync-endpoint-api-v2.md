@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357584"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662472"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync V2 endpoint API (pré-visualização pública) 
 A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que melhora o desempenho das operações de serviço de sincronização para o Azure Ative Directory. Utilizando o novo ponto final V2, irá experimentar ganhos de desempenho notáveis na exportação e importação para a Azure AD. Este novo ponto final suporta o seguinte:
@@ -26,14 +26,14 @@ A Microsoft implementou um novo ponto final (API) para o Azure AD Connect que me
  - ganhos de desempenho na exportação e importação para a Azure AD
  
 > [!NOTE]
-> Atualmente, o novo ponto final não tem um limite de tamanho de grupo configurado para grupos O365 que são reensuívados. Isto pode ter um efeito no seu Diretório Ativo e latências de ciclo sincronizado.  Recomenda-se aumentar gradualmente os tamanhos do grupo.  
+> Atualmente, o novo ponto final não tem um limite de tamanho de grupo configurado para os grupos Microsoft 365 que estão reensitados. Isto pode ter um efeito no seu Diretório Ativo e latências de ciclo sincronizado. Recomenda-se aumentar gradualmente os tamanhos do grupo.  
 
 
 ## <a name="pre-requisites"></a>Pré-requisitos  
 Para utilizar o novo ponto final V2, terá de utilizar a [versão 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou posterior do Azure AD Connect e seguir os passos de implementação abaixo fornecidos para ativar o ponto final V2 para o seu servidor Azure AD Connect.   
 
 >[!NOTE]
->Atualmente, esta pré-visualização pública só está disponível na nuvem global do Azure e não está disponível para [nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)
+>Atualmente, esta pré-visualização pública só está disponível na nuvem global do Azure e não está disponível para [nuvens nacionais.](../develop/authentication-national-cloud.md)
 
 ### <a name="public-preview-limitations"></a>Limitações da pré-visualização pública  
 Embora esta versão tenha sido submetida a testes extensivos, ainda pode encontrar problemas. Um dos objetivos deste lançamento de pré-visualização pública é encontrar e corrigir tais problemas.  
@@ -44,14 +44,14 @@ Embora esta versão tenha sido submetida a testes extensivos, ainda pode encontr
 ## <a name="deployment-guidance"></a>Orientação de implantação 
 Terá de implantar a [versão 1.5.30.0 do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) ou mais tarde para utilizar o ponto final V2. Utilize o link fornecido para descarregar. 
 
-Recomenda-se que siga o método [de migração do baloiço](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) para lançar o novo ponto final no seu ambiente. Isto proporcionará um plano de contingência claro no caso de ser necessário um grande revés. O exemplo a seguir ilustra como uma migração de balanço pode ser usada neste cenário. Para obter mais informações sobre o método de implementação da migração do balanço, consulte o link fornecido. 
+Recomenda-se que siga o método [de migração do baloiço](./how-to-upgrade-previous-version.md#swing-migration) para lançar o novo ponto final no seu ambiente. Isto proporcionará um plano de contingência claro no caso de ser necessário um grande revés. O exemplo a seguir ilustra como uma migração de balanço pode ser usada neste cenário. Para obter mais informações sobre o método de implementação da migração do balanço, consulte o link fornecido. 
 
 ### <a name="swing-migration-for-deploying-v2-endpoint"></a>Migração de balanço para implantação do ponto final V2
 Os seguintes passos irão guiá-lo através da implantação do ponto final v2 utilizando o método de balanço.
 
 1. Insiu o ponto de terminação V2 no servidor de paragem atual. Este servidor será conhecido como o **servidor V2** nos degraus abaixo. O servidor ativo atual continuará a processar a carga de trabalho de produção utilizando o ponto final V1, que será chamado de **servidor V1** abaixo.
 1. Validar que o **servidor V2** ainda está a processar as importações como esperado. Nesta fase, grandes grupos não serão a provisionados para Azure AD ou AD on-prem, mas você será capaz de verificar que a atualização não resultou em qualquer outro impacto inesperado para o processo de sincronização existente. 
-2. Uma vez concluída a validação, altere o **servidor V2** para ser o servidor ativo e o **servidor V1** para ser o servidor de paragem. Neste momento, grandes grupos que estão em âmbito de sincronização serão a provisionados à Azure AD, bem como aos grandes grupos unificados O365 serão a provisionados à AD, se a redução do grupo estiver ativada.
+2. Uma vez concluída a validação, altere o **servidor V2** para ser o servidor ativo e o **servidor V1** para ser o servidor de paragem. Neste momento, grandes grupos que estão em âmbito de sincronização serão a provisionados ao Azure AD, bem como aos grandes grupos unificados da Microsoft 365 serão a provisionados para AD, se a redução do grupo estiver ativada.
 3. Validar que o **servidor V2** está a executar e processar grandes grupos com sucesso. Pode optar por ficar neste passo e monitorizar o processo de sincronização durante um período.
   >[!NOTE]
   > Se precisar de voltar à sua configuração anterior, pode efetuar uma migração do **servidor V2** para o **servidor V1**. Uma vez que o ponto final V1 não apoia grupos com mais de 50mil membros, qualquer grupo grande que tenha sido a provisionado pelo Azure AD Connect, em Azure AD ou em AD on-prem, será posteriormente eliminado. 
@@ -153,7 +153,7 @@ Durante os aumentos subsequentes ao limite de membro do grupo na regra **out to 
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> Se tiver grupos unificados O365 que tenham mais de 50 mil membros, os grupos serão lidos no Azure AD Connect, e se a gravação em grupo estiver ativada, serão escritas para o seu AD no local. 
+> Se tiver o Microsoft 365 grupos unificados que tenham mais de 50 mil membros, os grupos serão lidos no Azure AD Connect, e se a gravação do grupo estiver ativada, serão escritas para o seu AD no local. 
 
 ## <a name="rollback"></a>Recuo 
 Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos: 
@@ -181,9 +181,9 @@ Se tiver ativado o ponto final v2 e precisar de ser revoado, siga estes passos:
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> Ao voltar dos pontos finais V2 para V1, os grupos sincronizados com mais de 50k membros serão eliminados após a execução de uma sincronização completa, para ambos os grupos AD a provisionados a Azure AD e O365 grupos unificados a provisionados a AD. 
+> Ao mudar de ponto final V2 para V1, grupos sincronizados com mais de 50k membros serão eliminados após a execução de uma sincronização completa, tanto para os grupos AD a provisionados a Azure AD como para os grupos unificados microsoft 365 a provisionados a AD. 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes  
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes  
 **P: Pode um cliente utilizar esta funcionalidade em produção?**  
 </br>Sim, isto pode ser usado em ambientes de produção, com a ressalva como mencionado anteriormente.
  

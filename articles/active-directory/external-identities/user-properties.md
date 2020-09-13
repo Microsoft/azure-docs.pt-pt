@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908918"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668962"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração Azure Ative Directory B2B
 
@@ -71,7 +71,7 @@ Esta propriedade indica a relação do utilizador com o arrendamento do anfitri�
   > [!NOTE]
   > O UserType não tem qualquer relação com a forma como o utilizador se inscreve, o papel do diretório do utilizador, e assim por diante. Esta propriedade simplesmente indica a relação do utilizador com a organização anfitriã e permite que a organização aplique políticas que dependem desta propriedade.
 
-### <a name="source"></a>Fonte
+### <a name="source"></a>Origem
 Esta propriedade indica como o utilizador assina.
 
 - Utilizador Convidado: Este utilizador foi convidado mas ainda não resgatou um convite.
@@ -104,13 +104,13 @@ Pode haver casos em que queira dar aos seus utilizadores convidados privilégios
 ![Screenshot mostrando a opção de utilizadores externos nas definições do utilizador](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Posso tornar os utilizadores convidados visíveis na Lista de Endereços Globais do Exchange?
-Sim. Por predefinição, os objetos convidados não estão visíveis na lista global de endereços da sua organização, mas pode utilizar o Azure Ative Directory PowerShell para os tornar visíveis. Para mais informações, consulte **posso tornar os objetos convidados visíveis na lista global de endereços?** [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups)
+Yes. Por predefinição, os objetos convidados não estão visíveis na lista global de endereços da sua organização, mas pode utilizar o Azure Ative Directory PowerShell para os tornar visíveis. Para mais informações, consulte **posso tornar os objetos convidados visíveis na lista global de endereços?** [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups)
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de e-mail de um utilizador convidado?
 
-Se um utilizador convidado aceitar o seu convite e posteriormente alterar o seu endereço de e-mail, o novo e-mail não sincroniza automaticamente o objeto do utilizador convidado no seu diretório. A propriedade de correio é criada através da [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Pode atualizar a propriedade de correio através do centro de administração Exchange ou [Do Exchange Online PowerShell,](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)e a alteração será refletida no objeto de utilizador do Azure AD.
+Se um utilizador convidado aceitar o seu convite e posteriormente alterar o seu endereço de e-mail, o novo e-mail não sincroniza automaticamente o objeto do utilizador convidado no seu diretório. A propriedade de correio é criada através da [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Pode atualizar a propriedade de correio através da Microsoft Graph API, do centro de administração Exchange ou [do Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). A alteração será refletida no objeto de utilizador convidado Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Fichas de utilização de colaboração B2B](user-token.md)

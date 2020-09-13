@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Configurar a localização de dados preferenciais para os recursos do Office 365'
-description: Descreve como colocar os recursos do utilizador do Office 365 perto do utilizador com a sincronização do Azure Ative Directory Connect.
+title: 'Azure AD Connect: Configurar a localização de dados preferenciais para os recursos da Microsoft 365'
+description: Descreve como colocar os recursos do utilizador Microsoft 365 perto do utilizador com a sincronização do Azure Ative Directory Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,29 +16,29 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357414"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662501"
 ---
-# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Ative Directory Connect sync: Configurar a localização de dados preferenciais para os recursos do Office 365
-O objetivo deste tópico é interpor como configurar o atributo para localização de dados preferenciais no Azure Ative Directory (Azure AD) Connect sync. Quando alguém utiliza capacidades Multi-Geo no Office 365, utiliza este atributo para designar a geolocalização dos dados do Office 365 do utilizador. (Os termos *região* e *geo* são utilizados intercambiavelmente.)
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Ative Directory Connect sync: Configurar a localização de dados preferenciais para os recursos da Microsoft 365
+O objetivo deste tópico é interpor como configurar o atributo para localização de dados preferenciais no Azure Ative Directory (Azure AD) Connect sync. Quando alguém utiliza capacidades Multi-Geo no Microsoft 365, utiliza este atributo para designar a geolocalização dos dados microsoft 365 do utilizador. (Os termos *região* e *geo* são utilizados intercambiavelmente.)
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Permitir a sincronização da localização de dados preferenciais
-Por padrão, os recursos do Office 365 para os seus utilizadores estão localizados no mesmo geo que o seu inquilino AZure AD. Por exemplo, se o seu inquilino estiver localizado na América do Norte, então as caixas de correio de troca dos utilizadores também estão localizadas na América do Norte. Para uma organização multinacional, isto pode não ser o ideal.
+Por padrão, os recursos da Microsoft 365 para os seus utilizadores estão localizados no mesmo geo que o seu inquilino AZure AD. Por exemplo, se o seu inquilino estiver localizado na América do Norte, então as caixas de correio de troca dos utilizadores também estão localizadas na América do Norte. Para uma organização multinacional, isto pode não ser o ideal.
 
-Ao definir o atributo **PreferredDataLocation,** pode definir o geo de um utilizador. Pode ter os recursos do Gabinete 365 do utilizador, como a caixa de correio e o OneDrive, no mesmo geo que o utilizador, e ainda ter um inquilino para toda a sua organização.
+Ao definir o atributo **PreferredDataLocation,** pode definir o geo de um utilizador. Pode ter os recursos Microsoft 365 do utilizador, como a caixa de correio e o OneDrive, no mesmo geo que o utilizador, e ainda ter um inquilino para toda a sua organização.
 
 > [!IMPORTANT]
-> A Multi-Geo está atualmente disponível para clientes com um Acordo Empresarial ativo e um mínimo de 500 subscrições de Serviços office 365. Por favor, fale com o seu representante da Microsoft para mais detalhes.
+> A Multi-Geo está atualmente disponível para clientes com um Acordo Empresarial ativo e um mínimo de 250 subscrições de Serviços Microsoft 365. Por favor, fale com o seu representante da Microsoft para mais detalhes.
 >
 >
 
-Uma lista de todos os geos do Office 365 pode ser encontrada em [Onde estão os seus dados localizados?](https://aka.ms/datamaps)
+Uma lista de todos os geos para o Microsoft 365 pode ser encontrada em [Onde estão os seus dados localizados?](https://aka.ms/datamaps)
 
-Os geos do Office 365 disponíveis para Multi-Geo são:
+Os geos da Microsoft 365 disponíveis para Multi-Geo são:
 
 | Área Geográfica | valor preferencial DataLocation |
 | --- | --- |
@@ -58,16 +58,16 @@ Os geos do Office 365 disponíveis para Multi-Geo são:
 
 * Se um geo não estiver listado nesta tabela (por exemplo, América do Sul), então não pode ser utilizado para multi-geo.
 
-* Nem todas as cargas de trabalho do Office 365 suportam a utilização da definição do geo de um utilizador.
+* Nem todas as cargas de trabalho da Microsoft 365 suportam a utilização da definição do geo de um utilizador.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Suporte AZURE AD Connect para sincronização
 
-O Azure AD Connect suporta a sincronização do atributo **DataLocation preferido** para objetos **do Utilizador** na versão 1.1.524.0 e posterior. Mais concretamente:
+O Azure AD Connect suporta a sincronização do atributo **DataLocation preferido** para objetos **do Utilizador** na versão 1.1.524.0 e posterior. Especificamente:
 
 * O esquema do tipo de objeto **Utilizador** no Conector AZURE AD é estendido para incluir o atributo **DataLocation preferido.** O atributo é do tipo, corda de valor único.
 * O esquema do tipo de objeto **Pessoa** no metaverso é estendido para incluir o atributo **DataLocation preferido.** O atributo é do tipo, corda de valor único.
 
-Por predefinição, **a PreferredDataLocation** não está ativada para sincronização. Esta funcionalidade destina-se a organizações maiores. O esquema de Diretório Ativo no Windows Server 2019 tem um atributo **de MsDS-preferredDataLocation** que deve utilizar para este fim. Se não atualizou o esquema do Ative Directory e não o pode fazer, então deve identificar um atributo para manter o Geo Office 365 para os seus utilizadores. Isto vai ser diferente para cada organização.
+Por predefinição, **a PreferredDataLocation** não está ativada para sincronização. Esta funcionalidade destina-se a organizações maiores. O esquema de Diretório Ativo no Windows Server 2019 tem um atributo **de MsDS-preferredDataLocation** que deve utilizar para este fim. Se não atualizou o esquema do Ative Directory e não o pode fazer, então deve identificar um atributo para manter o microsoft 365 geo para os seus utilizadores. Isto vai ser diferente para cada organização.
 
 > [!IMPORTANT]
 > O Azure AD permite que o atributo **DataLocation preferido** nos **objetos do Utilizador** na nuvem seja configurado diretamente utilizando o Azure AD PowerShell. Para configurar este atributo em **objetos do Utilizador sincronizados,** tem de utilizar o Azure AD Connect.
@@ -147,7 +147,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Sistema Conectado | *Escolha o conector ative de diretório no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
-    | Tipo de ligação | **Aderir** |  |
+    | Tipo de ligação | **Join** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Mantenha o **filtro de escotagem** vazio, para incluir todos os objetos. Pode ser necessário ajustar o filtro de deteção de acordo com a sua implementação Azure AD Connect.
@@ -176,7 +176,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | Sistema Conectado | *Selecione o Conector AD Azure* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||
-    | Tipo de ligação | **Aderir** ||
+    | Tipo de ligação | **Join** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Vá ao **separador filtro de scoping** e adicione um único grupo de filtro de digitalização com duas cláusulas:
@@ -250,7 +250,7 @@ Em geral, é necessário um ciclo completo de sincronização. Isto porque adici
 Re-activar o programador de sincronização incorporado:
 
 1. Inicie uma sessão PowerShell.
-2. Re-activar a sincronização programada executando este cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Re-activar a sincronização programada executando este cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 ## <a name="step-9-verify-the-result"></a>Passo 9: Verificar o resultado
 É agora altura de verificar a configuração e de a capacitar para os seus utilizadores.
@@ -264,7 +264,7 @@ Assumindo que o seu inquilino foi marcado para poder usar esta funcionalidade, a
 
 ## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o Multi-Geo no Office 365:
+Saiba mais sobre o Multi-Geo na Microsoft 365:
 
 * [Sessões multi-geo em Ignite](https://aka.ms/MultiGeoIgnite)
 * [Multi-Geo em OneDrive](https://aka.ms/OneDriveMultiGeo)

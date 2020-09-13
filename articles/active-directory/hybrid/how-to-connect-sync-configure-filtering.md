@@ -16,20 +16,20 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c539fd37116f8c55f336aecf1e8979355a40d61c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88061511"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662551"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
-Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Diretório Ativo Azure (AD) a partir do seu diretório no local. A configuração padrão leva todos os objetos em todos os domínios nas florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, beneficiam de uma lista completa de endereços globais para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.
+Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Diretório Ativo Azure (AD) a partir do seu diretório no local. A configuração padrão leva todos os objetos em todos os domínios nas florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam cargas de trabalho microsoft 365, como Exchange Online e Skype for Business, beneficiam de uma lista completa de endereços globais para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.
 
 Em alguns casos, no entanto, é necessário fazer algumas alterações na configuração padrão. Eis alguns exemplos:
 
 * Você planeia usar a [topologia de diretório ad multi-Azure.](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant) Em seguida, é necessário aplicar um filtro para controlar quais objetos são sincronizados num determinado diretório AD Azure.
-* Você dirige um piloto para Azure ou Office 365 e você só quer um subconjunto de utilizadores em Azure AD. No pequeno piloto, não é importante ter uma Lista de Endereços Globais completa para demonstrar a funcionalidade.
+* Você dirige um piloto para Azure ou Microsoft 365 e você só quer um subconjunto de utilizadores em Azure AD. No pequeno piloto, não é importante ter uma Lista de Endereços Globais completa para demonstrar a funcionalidade.
 * Tem muitas contas de serviço e outras contas não pessoais que não quer no Azure AD.
 * Por razões de conformidade, não elimina nenhuma conta de utilizador no local. Só os desativa. Mas no Azure AD, só quer que as contas ativas estejam presentes.
 
@@ -217,7 +217,7 @@ A filtragem de entrada utiliza a configuração padrão, onde os objetos que vã
 Na filtragem de entrada, utiliza-se o poder de **mira** para determinar quais os objetos que sincronizam ou não sincronizam. É aqui que faz ajustes que se adequam às exigências da sua própria organização. O módulo de âmbito tem um **grupo** e uma **cláusula** para determinar quando uma regra de sincronização está no âmbito. Um grupo contém uma ou muitas cláusulas. Há um "E" lógico entre várias cláusulas, e um "OR" lógico entre vários grupos.
 
 Vejamos um exemplo:  
-![Âmbito](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Uma imagem mostrando um exemplo de adicionar filtros de scoping](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Isto deve ser lido como **(departamento = TI) OU (departamento = Vendas E c = EUA)**.
 
 Nas seguintes amostras e passos, utiliza o objeto do utilizador como exemplo, mas pode usá-lo para todos os tipos de objetos.
@@ -328,6 +328,6 @@ Ao sincronizar várias florestas de AD, pode configurar a filtragem baseada em g
 * Tem um utilizador numa floresta que tem um contacto de correio correspondente noutra floresta. Além disso, configura o Azure AD Connect para ligar o utilizador ao contacto de correio. Ambos os objetos devem estar dentro do âmbito de filtragem baseado em grupo. Caso contrário, o utilizador não será sincronizado com a Azure AD.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre a configuração [de sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 - Saiba mais sobre [a integração das suas identidades no local com a Azure AD.](whatis-hybrid-identity.md)

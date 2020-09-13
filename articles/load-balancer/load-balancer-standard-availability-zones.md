@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420316"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669177"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
 
 O Azure Standard Load Balancer suporta cenários de zonas de disponibilidade. Pode utilizar o balanceador de carga padrão para aumentar a disponibilidade em todo o seu cenário, alinhando recursos e distribuindo por zonas. As zonas de disponibilidade em combinação com o balanceador de carga padrão são um conjunto de funcionalidades expansivas e flexíveis que podem criar muitos cenários diferentes.  Reveja este documento para compreender estes [conceitos](#concepts) e [orientação](#design)de design de cenários fundamentais.
 
-## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a>Conceitos de Zonas de Disponibilidade aplicados ao Balanceador de Carga
+## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a> Conceitos de Zonas de Disponibilidade aplicados ao Balanceador de Carga
 
 Um equilibrador de carga herda a configuração da zona a partir dos seus componentes: 
 
@@ -67,7 +67,7 @@ Adicionalmente, é suportada a utilização de frontends zonais diretamente para
   <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Rede Virtual NAT">
 </p>
 
-*Figura: Balanceador de carga redundante zonal*
+*Figura: Balanceador de carga zonal*
 
 Se desejar misturar estes conceitos (zona redundante e zonal para o mesmo backend), reveja [vários frontends para Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -101,7 +101,7 @@ Ao utilizar frontends redundantes de zona, o balançador de carga expande a sua 
 
 Outras zonas que podem chegar a este VM podem continuar a servir o VM a partir dos respetivos frontends. Durante os eventos de falha, cada zona pode ter diferentes distribuições de novos fluxos, protegendo ao mesmo tempo a saúde geral do seu serviço.
 
-## <a name="design-considerations"></a><a name="design"></a>Considerações de design
+## <a name="design-considerations"></a><a name="design"></a> Considerações de design
 
 O equilibrador de carga é flexível no contexto das zonas de disponibilidade. Pode optar por alinhar-se com zonas ou ser redundante em zona para cada regra. O aumento da disponibilidade pode vir ao preço do aumento da complexidade. Design para disponibilidade para um desempenho ideal.
 
@@ -113,7 +113,7 @@ A redundância de zona não implica datapath ou avião de controlo sem impacto; 
 
 Os fluxos de tráfego que utilizam uma zona no momento da avaria do fuso podem ser afetados, mas as aplicações podem recuperar. O tráfego continua nas zonas saudáveis da região após a retransmissão quando Azure convergiu em torno da falha da zona.
 
-### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a>Fronteiras de zonas cruzadas
+### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a> Fronteiras de zonas cruzadas
 
 É importante entender que sempre que um serviço cruza zonas, você compartilha o destino com não uma zona, mas potencialmente várias zonas. Como resultado, o seu serviço pode não ter obtido qualquer disponibilidade sobre implementações não zonais.
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606524"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669228"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar máquina de origem para a instalação de push de agente de mobilidade
 
@@ -25,8 +25,12 @@ Em cada máquina Windows que pretende proteger, faça o seguinte:
 1. Crie uma conta que possa ser utilizada pelo servidor de processos para aceder ao computador. A conta deve ter direitos de administrador, locais ou domínios. Utilize esta conta apenas para a instalação push e para atualizações do agente.
 2. Se não utilizar uma conta de domínio, desative o controlo de acesso ao utilizador remoto no computador local da seguinte forma:
     - Em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: **LocalAccountTokenFilterPolicy**. Desa um valor para **1**.
-    -  Para fazê-lo num pedido de comando, executar o seguinte comando:  
-   'REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+    -  Para fazê-lo num pedido de comando, executar o seguinte comando:
+    
+       ```
+       REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+       ```
+
 3. No Windows Firewall na máquina que pretende proteger, selecione **Deixe uma aplicação ou funcionalidade através do Firewall**. Ativar a **partilha de ficheiros e impressoras** e **a instrumentação de gestão do Windows (WMI)**. Para computadores que pertencem a um domínio, pode configurar as definições de firewall utilizando um objeto de Política de Grupo (GPO).
 
    ![Definições de firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
@@ -65,7 +69,7 @@ Em cada máquina Linux que pretende proteger, faça o seguinte:
 
 Se as máquinas que pretende replicar tiverem um software antivírus ativo em funcionamento, certifique-se de que exclui a pasta de instalação do serviço mobility das operações antivírus *(C:\ProgramData\ASR\agent*). Isto garante que a replicação funciona como esperado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de instalado o Serviço de Mobilidade, no portal Azure, selecione **+ Replicar** para começar a proteger estes VMs. Saiba mais sobre a replicação de [VMware VMware](vmware-azure-enable-replication.md) e [servidores físicos](physical-azure-disaster-recovery.md#enable-replication).
 

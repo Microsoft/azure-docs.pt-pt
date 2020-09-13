@@ -1,6 +1,6 @@
 ---
-title: Problemas conhecidos com série HB e VMs da série HC - Azure Virtual Machines Microsoft Docs
-description: Conheça os problemas conhecidos com tamanhos VM da série HB em Azure.
+title: Resolução de problemas conhecidos com HPC e GPU VMs - Azure Virtual Machines Microsoft Docs
+description: Saiba mais sobre problemas conhecidos com tamanhos de HPC e GPU VM em Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -10,19 +10,47 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/19/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 42a27092a87488e39d1195dba5fb64173cf52af7
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660100"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004209"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conhecidos relacionados com as VMs da série H e série N
 
-Este artigo fornece as questões e soluções mais comuns ao utilizar os VMs da [série H](../../sizes-hpc.md) e da [série N.](../../sizes-gpu.md)
+Este artigo fornece as questões e soluções mais comuns ao utilizar os [VMs da série Hpc](../../sizes-hpc.md) e [N-série HPC](../../sizes-gpu.md) e GPU.
+
+## <a name="infiniband-driver-installation-on-n-series-vms"></a>Instalação do condutor InfiniBand em VMs da série N
+
+NC24r_v3 e ND40r_v2 estão ativados pela SR-IOV, enquanto o NC24r e o NC24r_v2 não estão ativados pela SR-IOV. Alguns detalhes sobre a bifurcação [aqui.](../../sizes-hpc.md#rdma-capable-instances)
+O InfiniBand (IB) pode ser configurado nos tamanhos VM ativados pela SR-IOV com os condutores OFED, enquanto os tamanhos VM não-SR-IOV requerem condutores de ND. Este suporte IB está disponível adequadamente em [VMIs CentOS-HPC](configure.md). Para ubuntu, consulte aqui as [instruções](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) para a instalação dos controladores OFED e ND, conforme descrito nos [documentos](enable-infiniband.md#vm-images-with-infiniband-drivers).
+
+## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplicar MAC com cloud-init com Ubuntu na série H e VMs da série N
+
+Há um problema conhecido com a inição de nuvem nas imagens Ubuntu VM enquanto tenta trazer a interface IB. Isto pode acontecer no reboot de VM ou ao tentar criar uma imagem VM após a generalização. Os registos de arranque VM podem mostrar um erro semelhante: "Iniciar o Serviço de Rede... RuntimeError: duplicado mac encontrado! tanto 'eth1' como 'ib0' têm mac".
+
+Este MAC duplicado com cloud-init em Ubuntu é uma questão conhecida. A solução é:
+1) Implementar a imagem VM do mercado (Ubuntu 18.04)
+2) Instale os pacotes de software necessários para permitir o IB[(instrução aqui)](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)
+3) Editar waagent.conf para alterar EnableRDMA=y
+4) Desativar a rede em nuvem
+    ```console
+    echo network: {config: disabled} | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+    ```
+5) Editar o ficheiro de configuração de rede do Netplan gerado por cloud-init para remover o MAC
+    ```console
+    sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
+    network:
+        ethernets:
+        eth0:
+            dhcp4: true
+        version: 2
+    EOF
+    ```
 
 ## <a name="dram-on-hb-series"></a>DRAM na série HB
 
@@ -30,7 +58,7 @@ Os VMs da série HB só podem expor 228 GB de RAM a VMs convidados neste momento
 
 ## <a name="accelerated-networking"></a>Redes Aceleradas
 
-O Azure Accelerated Networking não está ativado neste momento, mas irá avançar à medida que progredimos durante o período de pré-visualização. Notificaremos os clientes quando esta funcionalidade for suportada.
+A azure Accelerated Networking em HPC e VMs gpu ativados por IB não está ativado neste momento. Notificaremos os clientes quando esta funcionalidade for suportada.
 
 ## <a name="qp0-access-restriction"></a>restrição de acesso qp0
 
@@ -48,7 +76,7 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 
 Nos sistemas HPC, é frequentemente útil limpar a memória depois de um trabalho ter terminado antes de o próximo utilizador ser atribuído o mesmo nó. Depois de executar aplicações no Linux, poderá descobrir que a sua memória disponível reduz enquanto a memória do tampão aumenta, apesar de não ter execução de nenhuma aplicação.
 
-![Screenshot do pedido de comando](./media/known-issues/cache-cleaning-1.png)
+![Screenshot do pedido de comando antes da limpeza](./media/known-issues/cache-cleaning-1.png)
 
 A utilização `numactl -H` mostrará com que NUMAnode a memória é tamponada (possivelmente todas). No Linux, os utilizadores podem limpar as caches de três formas de devolver a memória tamponada ou em cache para 'grátis'. Tens de ser raiz ou ter permissões de sudo.
 
@@ -58,11 +86,11 @@ echo 2 > /proc/sys/vm/drop_caches [frees slab objects e.g. dentries, inodes]
 echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ```
 
-![Screenshot do pedido de comando](./media/known-issues/cache-cleaning-2.png)
+![Screenshot do pedido de comando após a limpeza](./media/known-issues/cache-cleaning-2.png)
 
 ## <a name="kernel-warnings"></a>Avisos de kernel
 
-Pode ver as seguintes mensagens de aviso de núcleo ao iniciar um VM da série HB em Linux.
+Pode ignorar as seguintes mensagens de aviso de núcleo ao iniciar um VM da série HB em Linux. Isto deve-se a uma conhecida limitação do hipervisor Azure que será abordado ao longo do tempo.
 
 ```console
 [  0.004000] WARNING: CPU: 4 PID: 0 at arch/x86/kernel/smpboot.c:376 topology_sane.isra.3+0x80/0x90
@@ -82,17 +110,9 @@ Pode ver as seguintes mensagens de aviso de núcleo ao iniciar um VM da série H
 [  0.004000] ---[ end trace 73fc0e0825d4ca1f ]---
 ```
 
-Pode ignorar este aviso. Isto deve-se a uma conhecida limitação do hipervisor Azure que será abordado ao longo do tempo.
 
-
-## <a name="infiniband-driver-installation-on-infiniband-enabled-n-series-vm-sizes"></a>Instalação do controlador InfiniBand em tamanhos VM da série N ativados
-
-NC24r_v3 e ND40r_v2 estão ativados pela SR-IOV, enquanto o NC24r e o NC24r_v2 não estão ativados pela SR-IOV. Alguns detalhes sobre a bifurcação [aqui.](../../sizes-hpc.md#rdma-capable-instances)
-O InfiniBand (IB) pode ser configurado nos tamanhos VM ativados pela SR-IOV com os condutores OFED, enquanto os tamanhos VM não-SR-IOV requerem condutores de ND. Este suporte IB está disponível adequadamente em [VMIs CentOS-HPC](configure.md). Para ubuntu, consulte aqui as [instruções](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) para a instalação dos controladores OFED e ND, conforme descrito nos [documentos](enable-infiniband.md#vm-images-with-infiniband-drivers).
-
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja a [visão geral](hb-series-overview.md) da série HB e [a visão geral da série HC](hc-series-overview.md) para aprender sobre a configuração ideal das cargas de trabalho para desempenho e escalabilidade.
 - Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).
+- Para uma visão arquitetónica de nível superior da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).
