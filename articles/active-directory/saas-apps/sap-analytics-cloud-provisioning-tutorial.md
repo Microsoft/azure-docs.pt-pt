@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 03764dc9999b233153588f4908a2c10587697e40
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f56aac256407b179dae2ef421217658ac102bbb4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88861059"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458863"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Tutorial: Configurar a Nuvem Analítica SAP para o fornecimento automático de utilizadores
 
@@ -123,12 +123,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    |Atributo|Tipo|Suportado para filtragem|
    |---|---|---|
-   |userName|Cadeia|&check;|
-   |nome.dado Nome|Cadeia|
-   |nome.famíliaName|Cadeia|
+   |userName|String|&check;|
+   |nome.dado Nome|String|
+   |nome.famíliaName|String|
    |ativo|Booleano|
-   |e-mails[tipo eq "work"].value|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Cadeia|
+   |e-mails[tipo eq "work"].value|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -150,7 +150,7 @@ Esta operação inicia o ciclo inicial de sincronização de todos os utilizador
 Depois de configurar o provisionamento, utilize os seguintes recursos para monitorizar a sua implantação:
 
 1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
 3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -158,6 +158,6 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

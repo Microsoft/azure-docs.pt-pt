@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542964"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458625"
 ---
 # <a name="azure-encryption-overview"></a>Descrição geral da encriptação do Azure
 
@@ -83,7 +83,7 @@ Finalmente, também pode utilizar a Biblioteca do Cliente de Armazenamento Azure
 
 #### <a name="transparent-data-encryption"></a>Encriptação de Dados Transparente
 
-[O TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é utilizado para encriptar ficheiros de dados [DO SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL e](../../azure-sql/database/sql-database-paas-overview.md) [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real, utilizando uma Chave de Encriptação de Bases de Dados (DEK), que é armazenada no registo de arranque da base de dados para disponibilidade durante a recuperação.
+[O TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é utilizado para encriptar ficheiros de dados [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL](../../azure-sql/database/sql-database-paas-overview.md)e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real, utilizando uma Chave de Encriptação de Bases de Dados (DEK), que é armazenada no registo de arranque da base de dados para disponibilidade durante a recuperação.
 
 O TDE protege os ficheiros de dados e registos, utilizando algoritmos de encriptação padrão de encriptação de dados AES e Triple Data (3DES). A encriptação do ficheiro de base de dados é realizada ao nível da página. As páginas de uma base de dados encriptada são encriptadas antes de serem escritas para o disco e são desencriptadas quando são lidas na memória. O TDE está agora ativado por padrão nas bases de dados Azure SQL recém-criadas.
 
@@ -179,7 +179,7 @@ Pode utilizar uma ligação de gateway VPN local para ligar a sua rede de entrad
 
 Pode configurar uma ligação VPN site-to-site a uma rede virtual utilizando o portal Azure, PowerShell ou Azure CLI.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 [Criar uma ligação site-a-local no portal Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
@@ -199,11 +199,11 @@ Sem proteção e gestão adequadas das chaves, a encriptação torna-se inútil.
 
 Key Vault alivia as organizações da necessidade de configurar, corrigir e manter módulos de segurança de hardware (HSMs) e software de gestão de chaves. Quando se usa o Cofre de Chaves, mantém-se o controlo. A Microsoft nunca vê as suas chaves e as aplicações não têm acesso direto às mesmos. Também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança da rede Azure](network-overview.md)
 - [Visão geral da segurança da base de dados Azure](database-security-overview.md)
 - [Visão geral de segurança das máquinas virtuais Azure](virtual-machines-overview.md)
-- [Encriptação de dados inativa](encryption-atrest.md)
+- [Encriptação de dados inativos](encryption-atrest.md)
 - [Melhores práticas de segurança e encriptação de dados](data-encryption-best-practices.md)

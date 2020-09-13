@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: b-juche
-ms.openlocfilehash: f176e8fceb4d3e2e07398e6cb878180c8fe2321b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 141b19ca73c3465e59d8c94a3bdc3657d0900b8d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533160"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458927"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -87,7 +87,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
     
         ![Criar sub-rede](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Se pretender aplicar uma política de instantâneo existente no volume, clique em **Mostrar secção avançada** para expandi-la e selecione uma política de instantâneo no menu pull-down. 
+    * Se pretender aplicar uma política de instantâneo existente no volume, clique em **Mostrar secção avançada** para expandi-la, especificar se pretende ocultar o caminho do instantâneo e selecionar uma política de instantâneo no menu pull-down. 
 
         Para obter informações sobre a criação de uma política de instantâneo, consulte [Gerir as políticas de instantâneo](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
@@ -118,10 +118,10 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
     Um volume herda a subscrição, grupo de recursos e atributos de localização do seu conjunto de capacidade. Para monitorizar o estado da implementação do volume, pode utilizar o separador Notificações.
 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Configurar o domínio predefinido do NFSv 4.1 para o Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* [Configurar encriptação NFSv4.1 Kerberos](configure-kerberos-encryption.md)
+* [Configurar a encriptação Kerberos NFSv4.1](configure-kerberos-encryption.md)
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurar a política de exportação para um volume NFS](azure-netapp-files-configure-export-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63872f3d62bcf62562cef7fd4ee02e9a0535da67
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3050d0c61b6278b32b8e9272f228a863c9a0a244
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756882"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458693"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -365,7 +365,7 @@ O ponto de entrada para a carga de trabalho sap na documentação do Azure [enco
 
 As seguintes Notas SAP estão relacionadas com o tema da SAP sobre Azure:
 
-| Número de nota | Title |
+| Número de nota | Título |
 | --- | --- |
 | [1928533] |Aplicações SAP em Azure: Produtos suportados e Dimensionamento |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -1255,7 +1255,9 @@ Veja a diferença de arquitetura entre modelo clássico e ARM como descrito [nes
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuração do Sistema SAP e conectividade SAP GUI através da internet
 
-Consulte este artigo, que descreve detalhes sobre este tópico: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Consulte este artigo, que descreve detalhes sobre este tópico:
+
+<https://docs.microsoft.com/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Alterar definições de firewall dentro de VM
 
@@ -1980,7 +1982,7 @@ Outros VMs dentro do sistema SAP podem ser apoiados utilizando a funcionalidade 
 
 Desde meados de 2014, as extensões a vários componentes em torno do Hyper-V, System Center e Azure permitem o uso do Azure como dr site para VMs que executam no local com base no Hyper-V.
 
-Um blog que detalha como implementar esta solução está documentado aqui: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx> .
+Um blog que detalha como implementar esta solução está documentado aqui: <https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery> .
 
 ## <a name="summary"></a>Resumo
 
@@ -1997,7 +1999,7 @@ Os pontos-chave da Alta Disponibilidade para sistemas SAP em Azure são:
 * O backup das instâncias de diálogo SAP faz pouco sentido, uma vez que é geralmente mais rápido para recolocar instâncias de diálogo simples.
 * O backup do VM, que contém o diretório global do sistema SAP e com ele todos os perfis das diferentes instâncias, faz sentido e deve ser realizado com o Windows Backup ou, por exemplo, alcatrão no Linux. Uma vez que existem diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2), que facilitam o back up utilizando as versões mais recentes do Windows Server, recomendamos executar o Windows Server 2012 (R2) como sistema operativo para hóspedes do Windows.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia os artigos:
 
 - [Implementação de máquinas virtuais Azure para SAP NetWeaver](./deployment-guide.md)

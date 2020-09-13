@@ -5,21 +5,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/25/2020
-ms.openlocfilehash: cb38dcba2f61a432decb56164b816688ad3192d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.date: 09/03/2020
+ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893750"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458642"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Consultas de auditoria em Registos do Monitor Azure (pré-visualização)
 Os registos de auditoria de consulta de registo fornecem telemetria sobre consultas de registo executadas no Azure Monitor. Isto inclui informações como quando uma consulta foi executada, quem a executou, que ferramenta foi usada, o texto de consulta, e estatísticas de desempenho descrevendo a execução da consulta.
-
-## <a name="current-limitations"></a>Limitações atuais
-As seguintes limitações aplicam-se durante a visualização pública:
-
-- Apenas consultas centradas no espaço de trabalho serão registadas. As consultas são executadas no modo centrado em recursos ou correm contra um Application Insights não configurado, uma vez que o espaço de trabalho não será registado.
 
 
 ## <a name="configure-query-auditing"></a>Auditoria de consulta de configuração
@@ -55,10 +50,11 @@ Um registo de auditoria é criado cada vez que uma consulta é executada. Se env
 | ConsultaTimeRangeEnd     | Fim do intervalo de tempo selecionado para a consulta. Isto pode não ser povoado em certos cenários, como quando a consulta é iniciada a partir de Log Analytics, e o intervalo de tempo é especificado dentro da consulta e não no tempo escolhidor.  |
 | Texto de consulta             | Texto da consulta que foi executada. |
 | RequestTarget         | A API URL foi usada para submeter a consulta.  |
-| PedidoContexto        | Lista de recursos que a consulta foi solicitada para concorrer. Contém até três matrizes de cordas: espaços de trabalho, aplicações e recursos. As consultas de subscrição ou de grupo de recursos mostrarão como *recursos*. Inclui o alvo implícito pelo RequestTarget. |
+| PedidoContexto        | Lista de recursos que a consulta foi solicitada para concorrer. Contém até três matrizes de cordas: espaços de trabalho, aplicações e recursos. As consultas de subscrição ou de grupo de recursos mostrarão como *recursos*. Inclui o alvo implícito pelo RequestTarget.<br>O ID de recursos para cada recurso será incluído se puder ser resolvido. Pode não ser resolvido se um erro for devolvido no acesso ao recurso. Neste caso, será utilizado o texto específico da consulta.<br>Se a consulta usar um nome ambíguo, como um nome de espaço de trabalho existente em várias subscrições, este nome ambíguo será usado. |
 | PedidoContextFiltros | Conjunto de filtros especificados como parte da invocação de consulta. Inclui até três possíveis arrays de cordas:<br>- RecursosTipos - tipo de recurso para limitar o âmbito da consulta<br>- Workspaces - lista de espaços de trabalho para limitar a consulta<br>- WorkspaceRegions - lista de regiões do espaço de trabalho para limitar a consulta |
 | Código de Resposta          | Código de resposta HTTP devolvido quando a consulta foi submetida. |
 | RespostaDurationMs    | Hora da resposta ser devolvida.  |
+| ResponseRowCount     | Número total de linhas devolvidas pela consulta. |
 | StatsCPUTimeMs       | Tempo total de computação utilizado para computação, análise e recolha de dados. Só povoado se a consulta voltar com o código de estado 200. |
 | StatsDataProcessedkB | Quantidade de dados que foram acedidos para processar a consulta. Influenciado pelo tamanho da tabela-alvo, o tempo de utilização, os filtros aplicados e o número de colunas referenciadas. Só povoado se a consulta voltar com o código de estado 200. |
 | StatsDataProcessedStart | Tempo dos dados mais antigos que foram acedidos para processar a consulta. Influenciado pelo tempo explícito de consulta e filtros aplicados. Isto pode ser maior do que o tempo explícito devido à divisão de dados. Só povoado se a consulta voltar com o código de estado 200. |
@@ -66,9 +62,13 @@ Um registo de auditoria é criado cada vez que uma consulta é executada. Se env
 | StatsWorkspace | Número de espaços de trabalho acedidos pela consulta. Só povoado se a consulta voltar com o código de estado 200. |
 | StatsRegionCount | Número de regiões acedidas pela consulta. Só povoado se a consulta voltar com o código de estado 200. |
 
+## <a name="considerations"></a>Considerações
 
+- As estatísticas de desempenho não estão disponíveis para consultas provenientes do proxy Azure Data Explorer. Todos os outros dados para estas consultas continuarão a ser preenchidos.
+- A dica *h* sobre cordas que [obfusca as cordas literais](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) não terá um efeito nos registos de auditoria de consulta. As consultas serão capturadas exatamente como submetidas sem que a corda seja obfundada. Deve garantir que apenas os utilizadores que tenham direitos de conformidade para ver estes dados são capazes de o fazer utilizando os vários modos RBAC disponíveis nos espaços de trabalho do Log Analytics.
+- Para consultas que incluam dados de vários espaços de trabalho, a consulta só será captada nos espaços de trabalho a que o utilizador tem acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [as definições de diagnóstico](../platform/diagnostic-settings.md).
 - Saiba mais sobre [a otimização de consultas de registo.](query-optimization.md)

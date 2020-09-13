@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: d681c79cb3c7874cbcd75d03db08721dd4b25f4d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6fc0add55caccd7721f3ee2c72db68fbcf6bc0dc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835464"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458506"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utilizar regras e pontos finais de serviço da Rede Virtual para o Azure Database for MariaDB
 
@@ -52,7 +52,7 @@ Uma regra de rede virtual diz ao seu Azure Database para o servidor MariaDB acei
 
 Até tomar medidas, os VMs nas suas sub-redes não podem comunicar com a sua Base de Dados Azure para o servidor MariaDB. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A razão para escolher a abordagem da regra VNet requer uma discussão de comparação e contraste envolvendo as opções de segurança concorrentes oferecidas pela firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Permitir o acesso aos serviços do Azure
+### <a name="a-allow-access-to-azure-services"></a>A. Permitir acesso aos serviços do Azure
 
 O painel de segurança Connection tem um botão **ON/OFF** com a etiqueta **Permitir o acesso aos serviços Azure**. A definição **ON** permite comunicações a partir de todos os endereços Azure IP e de todas as sub-redes Azure. Estes IPs ou sub-redes Azure podem não ser propriedade de si. Esta definição **ON** é provavelmente mais aberta do que pretende que a sua Base de Dados Azure para a Base de Dados MariaDB seja. A funcionalidade de regra de rede virtual oferece um controlo granular muito mais fino.
 
@@ -112,7 +112,7 @@ Para a Base de Dados Azure para MariaDB, a funcionalidade de regras de rede virt
 
 - As regras de rede virtuais aplicam-se apenas às redes virtuais do Azure Resource Manager; e não para redes [de modelos de implantação clássicas.][resource-manager-deployment-model-568f]
 
-- Ligar os pontos finais do serviço de rede virtual ON para Azure Database for MariaDB utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database e Azure SQL Data Warehouse.
+- Ligar os pontos finais do serviço de rede virtual ON para Azure Database for MariaDB utilizando a tag de serviço **Microsoft.Sql** também permite os pontos finais para todos os serviços de Base de Dados Azure: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database e Azure Synapse Analytics (ex-SQL Data Warehouse).
 
 - O suporte para os pontos finais do serviço VNet é apenas para servidores otimizados para fins gerais e memória.
 
@@ -138,7 +138,7 @@ Pode definir a bandeira **IgnoreMissingServiceEndpoint** utilizando o Azure CLI 
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para artigos sobre a criação de regras VNet, consulte:
 - [Criar e gerir a Base de Dados de Azure para as regras MariaDB VNet utilizando o portal Azure](howto-manage-vnet-portal.md)
  
