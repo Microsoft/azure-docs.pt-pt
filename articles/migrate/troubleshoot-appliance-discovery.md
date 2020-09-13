@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640587"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296520"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -38,7 +38,7 @@ Se receber o erro "O ficheiro manifesto fornecido é inválido: Entrada manifest
 
 Isto pode acontecer se a máquina do aparelho estiver por detrás de um representante.
 
-- Certifique-se de fornecer as credenciais de autorização se o representante precisar delas.
+- Confirme que introduz as credenciais de autorização, se o proxy assim o exigir.
 - Se estiver a usar um representante de firewall baseado em URL para controlar a conectividade de saída, adicione [estes URLs](migrate-appliance.md#url-access) a uma lista de indicações.
 - Se estiver a utilizar um representante de interceção para ligar à internet, importe o certificado de procuração para o VM do aparelho utilizando [estes passos](./migrate-appliance.md).
 
@@ -98,7 +98,7 @@ Erro 60028: "A descoberta não pôde ser iniciada por causa de um erro. A opera�
 - Se houver um erro de validação, reveja a orientação de remediação para corrigir os erros e, em seguida, tente a opção **Salvar e iniciar novamente** a opção de descoberta.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: A operação AD Azure falhou 
-Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação AZure AD" ocorre quando a conta de utilizador Azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Faça um dos seguintes:
+Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação AZure AD" ocorre quando a conta de utilizador Azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Execute um dos seguintes procedimentos:
 
 - Certifique-se de que a conta de utilizador que inicia a descoberta é a mesma que foi utilizada para registar o aparelho.
 - Fornecer permissões de acesso à aplicação Azure Ative para a conta do utilizador para as quais a operação de descoberta está a falhar.
@@ -151,7 +151,7 @@ Se esperar e o estado não mudar, **selecione Refresh** no **separador Servidore
 Se isto não funcionar e estiver a descobrir servidores VMware:
 
 - Verifique se a conta vCenter especificada tem permissões corretamente definidas, com acesso a pelo menos um VM.
-- A Azure Migrate não pode descobrir VMware VMs se a conta vCenter tiver acesso concedido ao nível da pasta VM do vCenter. [Saiba mais](set-discovery-scope.md) sobre a descoberta de scoping.
+- O Azure Migrate não consegue descobrir VMware VMs se a conta vCenter tiver acesso concedido ao nível da pasta VM do vCenter. [Saiba mais](set-discovery-scope.md) sobre a descoberta de scoping.
 
 ## <a name="vm-data-not-in-portal"></a>Dados VM não no portal
 
@@ -248,5 +248,5 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Configurar um aparelho para [VMware,](how-to-set-up-appliance-vmware.md) [Hiper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77964eed6960a79920f359a03c65102ad949a210
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004668"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300005"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: Autorização / Mitigações 
 | Produto/Serviço | Artigo |
@@ -205,7 +205,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Visão geral do modelo de autenticação e segurança do Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Passos** | Um sinal que concede acesso direto ao centro de eventos não deve ser dado ao dispositivo. Usar um símbolo menos privilegiado para o dispositivo que dá acesso apenas a um editor ajudaria a identificá-lo e a colocar na lista negra se se encontrasse um dispositivo fraudulento ou comprometido.|
+| **Passos** | Um sinal que concede acesso direto ao centro de eventos não deve ser dado ao dispositivo. A utilização de um símbolo menos privilegiado para o dispositivo que dê acesso apenas a uma editora ajudaria a identificá-lo e a despromudê-lo se se encontrasse um dispositivo fraudulento ou comprometido.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Ligue ao Centro de Eventos usando chaves SAS que tenham as permissões mínimas necessárias
 

@@ -3,12 +3,12 @@ title: Use Azure DevTest Labs para programadores Microsoft Docs
 description: Conheça as funcionalidades da Azure DevTest Labs que podem ser usadas para satisfazer os requisitos do desenvolvedor e os passos detalhados que pode seguir para configurar um laboratório.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b4f195f843e30ad1a56bad7d5b9ca9e73888783b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293024"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296248"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Use Azure DevTest Labs para desenvolvedores
 O Azure DevTest Labs pode ser utilizado para implementar vários cenários-chave, mas apenas os cenários principais envolvem a utilização do DevTest Labs para alojar computadores de desenvolvimento para programadores. Neste cenário, o DevTest Labs fornece estas vantagens:
@@ -43,7 +43,7 @@ Neste artigo, você aprende sobre várias funcionalidades da Azure DevTest Labs 
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode branquear imagens do Azure Marketplace, disponibilizando apenas para seleção as imagens que deseja para os desenvolvedores.|
+   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode permitir imagens do Azure Marketplace, disponibilizando apenas para seleção as imagens que pretende para os desenvolvedores.|
    | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada pré-instalando o software de que necessita para que os desenvolvedores possam criar rapidamente um VM utilizando a imagem personalizada.|
    | [Conheça a fábrica de imagem](./devtest-lab-faq.md#blog-post) |Veja um vídeo que descreve como configurar e usar uma fábrica de imagens.|
 

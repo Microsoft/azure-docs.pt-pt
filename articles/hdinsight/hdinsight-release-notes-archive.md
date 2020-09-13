@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
-ms.openlocfilehash: 29caccd666294add98882d080a2a0fd3bd9dd660
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 827871bdac689d1f5e8acb64d3565ca3c6da39be
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036628"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292525"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
@@ -779,7 +779,7 @@ Esta versão fornece a Colmeia 1.2.1 e a Hive 2.1.0, além dos seguintes patches
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): As configurações do sítio da colmeia são ignoradas durante o cálculo dividido do HCatInputFormat.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Tenha uma lista branca/lista negra config para permitir o cache seletivo de mesas/divisórias e permitir a leitura durante o pré-passeio.
+-   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Tenha um config aprovado/não aprovado para permitir o cache seletivo de mesas/divisórias e permitir a leitura durante o pré-awarming.
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Adicione \_ vários testes de agg.q para blobstores.
 
@@ -1167,7 +1167,7 @@ Esta versão fornece Spark 2.3.0 e os seguintes patches Apache:
 
 Esta versão fornece sqoop 1.4.6 sem patches Apache adicionais.
 
-#### <a name="storm"></a>Tempestade
+#### <a name="storm"></a>Storm
 
 Esta versão fornece a Tempestade 1.1.1 e os seguintes patches Apache:
 
@@ -1570,7 +1570,7 @@ As questões fixas representam problemas selecionados que foram previamente regi
 | BUG-97864              | [HIVE-18833](https://issues.apache.org/jira/browse/HIVE-18833)   | Auto Merge falha quando "insira no diretório como orcfile"                                      |
 | BUG-98814              | [HDFS-13314](https://issues.apache.org/jira/browse/HDFS-13314)   | NameNode deve sair opcionalmente se detetar corrupção FsImage                              |
 
-**Upgrade**
+**Atualizar**
 
 | **Hortonworks Bug ID** | **Apache JIRA**                                                                                                                | **Resumo**                                                                 |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -1692,7 +1692,7 @@ As questões fixas representam problemas selecionados que foram previamente regi
 
 |**Componente Apache**|**Apache JIRA**|**Resumo**|**Detalhes**|
 |--|--|--|--|
-|**Faísca 2.3** |**N/D** |**Alterações como documentado nas notas de lançamento do Apache Spark** |- Há um documento de "depreciação" e um guia de "Mudança de Comportamento",https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- Para a parte SQL, há outro guia detalhado "Migração" (de 2,2 a 2,3),https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Faísca 2.3** |**N/D** |**Alterações como documentado nas notas de lançamento do Apache Spark** |- Há um documento de "depreciação" e um guia de "Mudança de Comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- Para a parte SQL, há outro guia detalhado "Migração" (de 2,2 a 2,3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |O trabalho de faísca completa com sucesso, mas há um erro completo da quota de disco HDFS |**Cenário:** O **encaixe de execução substitui** quando uma quota é definida na pasta lixo do utilizador que dirige o comando.<br /><br />**Comportamento anterior:** O trabalho tem sucesso mesmo que não consiga mover os dados para o Lixo. O resultado pode conter erradamente alguns dos dados anteriormente presentes na tabela.<br /><br />**Novo Comportamento:** Quando a mudança para a pasta Lixo falha, os ficheiros são permanentemente eliminados.|
 |**Kafka 1.0**|**N/D**|**Alterações como documentado nas notas de lançamento do Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Colmeia/ Ranger** | |Políticas adicionais de colmeias de rangers necessárias para inserir OVERWRITE |**Cenário:** Políticas adicionais de colmeias de rangers necessárias para **inserir OVERWRITE**<br /><br />**Comportamento anterior:** As consultas de SUBSTITUIÇÃO DE HIVE **INWRITE** têm sucesso, como de costume.<br /><br />**Novo comportamento:** As consultas **de HIVE INSERT OVERWRITE** estão a falhar inesperadamente após a atualização para HDP-2.6.x com o erro:<br /><br />Erro ao compilar declaração: FAILed: HiveAccessControlException Permissão negada: jdoe utilizador não tem privilégio WRITE em /tmp/ \* (estado=42000,código=40000)<br /><br />A partir de HDP-2.6.0, as consultas **de HIVE INSERT OVERWRITE** requerem uma política Ranger URI para permitir operações de escrita, mesmo que o utilizador tenha privilégios de escrita concedidos através da política HDFS.<br /><br />**Solução alternativa/esperada ação do cliente:**<br /><br />1. Criar uma nova política no âmbito do repositório da Colmeia.<br />2. No dropdown onde vê a Base de Dados, selecione URI.<br />3. Atualizar o caminho (Exemplo: /tmp/*)<br />4. Adicione os utilizadores e agrupe e guarde.<br />5. Volte a tentar a consulta de inserção.|
