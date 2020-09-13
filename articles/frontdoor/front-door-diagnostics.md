@@ -3,20 +3,20 @@ title: Métricas de monitorização e registos na Porta frontal do Azure. Micros
 description: Este artigo descreve as diferentes métricas e registos de acesso que a Porta Frontal Azure suporta
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sharadag
-ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056436"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399757"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Métricas de monitorização e troncos na Porta frontal de Azure
 
@@ -105,7 +105,7 @@ A Porta frontal fornece atualmente registos de diagnóstico (lotados por hora). 
 | Regra de encaminhamento com caching ativado. Cache falha tanto na borda como na cache dos pais POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Nome de anfitrião POP da cache dos pais</br>2. Backend que ajuda a preencher cache | 1. Verdade</br>2. Falso | 1. MISS</br>2. MISS |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar um perfil da porta da frente](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

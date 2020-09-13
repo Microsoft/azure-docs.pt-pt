@@ -3,20 +3,20 @@ title: Backends e piscinas de backend na Porta frontal Azure/ Microsoft Docs
 description: Este artigo descreve o que os backends e as piscinas de backend estão na configuração da porta da frente.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80293473"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399927"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Backends e piscinas de backend na Porta frontal Azure
 Este artigo descreve conceitos sobre como mapear a implementação da sua aplicação com a Porta Frontal Azure. Também explica os diferentes termos na configuração da Porta Frontal em torno de backends de aplicações.
@@ -93,7 +93,7 @@ As definições de equilíbrio de carga para o pool de backend definem como aval
 
 Para obter mais informações, consulte [o método de encaminhamento menos baseado em latência](front-door-routing-methods.md#latency).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar um perfil da porta da frente](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

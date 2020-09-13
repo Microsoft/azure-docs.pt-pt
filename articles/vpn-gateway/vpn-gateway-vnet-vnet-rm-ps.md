@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/15/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b1cd0adb8581c7aa94f0de85a9f8beab38da112
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009497"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398567"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com o PowerShell
 
@@ -481,7 +481,7 @@ Neste exemplo, uma vez que os gateways estão em subscrições diferentes, divid
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Consulte a [documentação das Máquinas Virtuais](https://docs.microsoft.com/azure/) para obter mais informações.
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

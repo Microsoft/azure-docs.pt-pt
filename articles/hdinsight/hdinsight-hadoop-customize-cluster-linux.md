@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
-ms.openlocfilehash: 383c64c585f05869e1d01b5c99693fcf560cdedc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/02/2020
+ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006676"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400862"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalize os clusters Azure HDInsight utilizando ações de script
 
@@ -66,13 +66,15 @@ Uma ação de script é o script Bash que corre nos nós num cluster HDInsight. 
 
     As ações de scripts persistires devem ter um nome único. Scripts persistidos são usados para personalizar novos nós de trabalhador adicionados ao cluster através de operações de escala. Um script persistido também pode aplicar alterações a outro tipo de nó quando ocorrem operações de escala. Um exemplo é um nó na cabeça.
 
-    `Ad hoc`os guiões não persistem. As ações de script utilizadas durante a criação do cluster são automaticamente persistidas. Não são aplicados aos nós dos trabalhadores adicionados ao cluster depois do guião ter sido executado. Em seguida, você pode promover um `ad hoc` script para um script persistido ou despromu-lo um script persistido para um `ad hoc` script. Os scripts que falham não persistem, mesmo que indiques especificamente que deveriam ser.
+    `Ad hoc` os guiões não persistem. As ações de script utilizadas durante a criação do cluster são automaticamente persistidas. Não são aplicados aos nós dos trabalhadores adicionados ao cluster depois do guião ter sido executado. Em seguida, você pode promover um `ad hoc` script para um script persistido ou despromu-lo um script persistido para um `ad hoc` script. Os scripts que falham não persistem, mesmo que indiques especificamente que deveriam ser.
 
 * Pode aceitar parâmetros que são usados pelo script durante a execução.
 
 * Corra com privilégios de nível de raiz nos nós do cluster.
 
 * Pode ser utilizado através do portal Azure PowerShell, Azure CLI ou HDInsight .NET SDK.
+
+* As ações de script que removem ou modificam ficheiros de serviço no VM podem ter impacto na saúde e disponibilidade do serviço.
 
 O cluster mantém uma história de todos os scripts que foram executados. A história ajuda quando precisa de encontrar a identificação de um script para operações de promoção ou despromoção.
 
@@ -335,7 +337,7 @@ Para um exemplo de utilização do .NET SDK para recuperar o histórico de scrip
 > [!NOTE]  
 > Este exemplo também demonstra como instalar uma aplicação HDInsight utilizando o .NET SDK.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Adicione armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md)

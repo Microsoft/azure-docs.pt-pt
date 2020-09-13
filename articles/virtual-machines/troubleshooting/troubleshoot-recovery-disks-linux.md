@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: f05804785435824970d90410d9a1c9490a3d6c06
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 191ea575ed8ce84d2d96227bf93cc4890edd00de
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654723"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400488"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o CLI Azure
 Se a sua máquina virtual Linux (VM) encontrar um erro de arranque ou disco, poderá ter de executar etapas de resolução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida `/etc/fstab` que impede o VM de ser capaz de arrancar com sucesso. Este artigo detalha como utilizar o CLI Azure para ligar o seu disco rígido virtual a outro Linux VM para corrigir eventuais erros e, em seguida, recriar o seu VM original. 
@@ -76,28 +76,25 @@ Este script cria um disco gerido com o nome `myOSDisk` a partir do instantâneo 
 
 ```azurecli
 #Provide the name of your resource group
-$resourceGroup=myResourceGroup
+$resourceGroup="myResourceGroup"
 
 #Provide the name of the snapshot that will be used to create Managed Disks
-$snapshot=mySnapshot
+$snapshot="mySnapshot"
 
 #Provide the name of the Managed Disk
-$osDisk=myNewOSDisk
+$osDisk="myNewOSDisk"
 
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize=128
 
 #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
-$storageType=Premium_LRS
+$storageType="Premium_LRS"
 
 #Provide the OS type
-$osType=linux
-
-#Provide the name of the virtual machine
-$virtualMachine=myVM
+$osType="linux"
 
 #Get the snapshot Id 
-$snapshotId=(az snapshot show --name $snapshot --resource-group $resourceGroup --query [id] -o tsv)
+$snapshotId=(az snapshot show --name $snapshot --resource-group $resourceGroup --query id -o tsv)
 
 # Create a new Managed Disks using the snapshot Id.
 
@@ -116,10 +113,10 @@ Este script anexa o disco `myNewOSDisk` ao `MyTroubleshootVM` VM:
 
 ```azurecli
 # Get ID of the OS disk that you just created.
-$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+$myNewOSDiskid=(az disk show -g $resourceGroup -n $osDisk --query id -o tsv)
 
 # Attach the disk to the troubleshooting VM
-az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 --sku Standard_LRS --vm-name MyTroubleshootVM
+az vm disk attach --disk $myNewOSDiskid --resource-group $resourceGroup --size-gb $diskSize --sku $storageType --vm-name MyTroubleshootVM
 ```
 ## <a name="mount-the-attached-data-disk"></a>Monte o disco de dados anexado
 
@@ -196,7 +193,7 @@ Este exemplo para o nome VM `myVM` e atribui o disco nomeado como o novo disco `
 az vm stop -n myVM -g myResourceGroup
 
 # Get ID of the OS disk that is repaired.
-$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+$myNewOSDiskid=(az vm show -g $resourceGroup -n $osDisk --query id -o tsv)
 
 # Change the OS disk of the affected VM to "myNewOSDisk"
 az vm update -g myResourceGroup -n myVM --os-disk $myNewOSDiskid
@@ -205,6 +202,6 @@ az vm update -g myResourceGroup -n myVM --os-disk $myNewOSDiskid
 az vm start -n myVM -g myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se tiver problemas de ligação ao seu VM, consulte [as ligações SSH de resolução de problemas a um VM Azure](troubleshoot-ssh-connection.md). Para problemas com o acesso a aplicações em execução no seu VM, consulte [problemas de conectividade da aplicação Troubleshoot num Linux VM](troubleshoot-app-connection.md).
 

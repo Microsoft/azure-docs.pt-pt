@@ -1,21 +1,21 @@
 ---
 title: Validar a produção VPN para uma Rede Virtual Microsoft Azure
-description: O objetivo deste documento é ajudar um utilizador a validar a produção da rede dos seus recursos no local para uma máquina virtual Azure.
+description: Este artigo ajuda-o a validar o rendimento da rede dos seus recursos no local para uma máquina virtual Azure.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 05/29/2019
+ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998481"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398512"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>How to validate VPN throughput to a virtual network (Como validar o débito da VPN para uma rede virtual)
 
@@ -127,7 +127,7 @@ Baixar [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para 
 
 Descarregue a versão mais recente do [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Considere colocar Latte.exe em pasta separada, como`c:\tools`
+Considere colocar Latte.exe em pasta separada, como `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Permitir Latte.exe através da firewall do Windows
 
@@ -217,7 +217,7 @@ A instalação é rápida
 
 > [!Note]
 > Certifique-se de que não existem lúpulos intermédios (por exemplo, aparelho virtual) durante os testes de produção entre o VM e o Gateway.
-> Se houver maus resultados (em termos de produção global) provenientes dos testes iPERF/NTTTCP acima, consulte o seguinte artigo para compreender os factores-chave por detrás das possíveis causas fundamentais do problema:https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> Se houver maus resultados (em termos de produção global) provenientes dos testes iPERF/NTTTCP acima, consulte o seguinte artigo para compreender os factores-chave por detrás das possíveis causas fundamentais do problema: https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
 
 Em particular, a análise dos vestígios de captura de pacotes (Wireshark/Network Monitor) recolhidos paralelamente ao cliente e ao servidor durante esses testes ajudará nas avaliações de mau desempenho. Estes vestígios podem incluir perda de pacote, alta latência, tamanho MTU. fragmentação, Janela TCP 0, fragmentos fora da ordem, e assim por diante.
 
@@ -253,7 +253,7 @@ Pode verificar a latência utilizando as seguintes ferramentas:
 
 * WinMTR
 * TCPTraceroute
-* `ping`e `psping` (Estas ferramentas podem fornecer uma boa estimativa de RTT, mas não podem ser usadas em todos os casos.)
+* `ping` e `psping` (Estas ferramentas podem fornecer uma boa estimativa de RTT, mas não podem ser usadas em todos os casos.)
 
 ![Verificar Latência](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
@@ -261,7 +261,7 @@ Se notar um pico elevado de latência em qualquer um dos saltos antes de entrar 
 
 Se um grande pico de latência incomum for notado a partir de lúpulo dentro de "msn.net", contacte o apoio dos Estados-Membros para mais investigações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações ou ajuda, confira o seguinte link:
 

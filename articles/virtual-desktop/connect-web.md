@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2ca5a591d168e18181a29cf1c00a7d1fead54595
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226051"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400641"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente web
 
@@ -49,6 +49,25 @@ Num browser, navegue para a versão integrada do Azure Resource Manager do clien
 
 Depois de iniciar sessão, deve agora ver uma lista de recursos. Pode lançar recursos selecionando-os como se fosse uma aplicação normal no separador **Todos os Recursos.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="using-an-input-method-editor"></a>Usando um editor de método de entrada
+
+O cliente web suporta a utilização de um Editor de Método de Entrada (IME) na sessão remota na versão **1.0.21.16 ou posterior**. O pacote de idiomas para o teclado que pretende utilizar na sessão remota deve ser instalado na máquina virtual do anfitrião. Para saber mais sobre a configuração de pacotes de idiomas na sessão remota, consulte [os pacotes de idiomas add a uma imagem multi-sessão do Windows 10](language-packs.md).
+
+Para ativar a entrada do IME utilizando o cliente web:
+
+1. Antes de ligar à sessão remota, aceda ao painel **de Definições** do cliente web.
+
+2. Alternar a definição **do Enable Input Method Editor** para **On**.
+
+3. No menu suspenso, selecione o teclado que utilizará na sessão remota.
+
+4. Ligue-se à sessão remota.
+
+O cliente web suprimirá a janela IME local quando estiver focado na sessão remota. A alteração das definições do IME uma vez que já tenha ligado à sessão remota não terá qualquer efeito.
+
+>[!NOTE]
+>Se o pacote de idiomas não for instalado na máquina virtual do anfitrião, a sessão remota será padrão para o teclado inglês (Estados Unidos).
+
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como usar o cliente web, confira [Consulte o cliente web.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client)

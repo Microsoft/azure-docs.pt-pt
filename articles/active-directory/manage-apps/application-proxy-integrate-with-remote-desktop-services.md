@@ -1,6 +1,6 @@
 ---
 title: Publicar Desktop Remoto com App AD AZure Proxy / Microsoft Docs
-description: Cobre o básico sobre conectores proxy de aplicação AD Azure.
+description: Cobre como configurar app Proxy com RDS
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019527"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396765"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar desktop remoto com Proxy de aplicação AD Azure
 
@@ -135,7 +135,7 @@ A configuração descrita neste artigo é para acesso a RDS via RD Web ou ao Cli
 
 | Método de autenticação | Configuração de cliente suportado |
 | --------------------- | ------------------------------ |
-| Pré-autenticação    | RD Web- Windows 7/10 usando o internet Explorer + RDS ActiveX add-on |
+| Pré-autenticação    | RD Web- Windows 7/10 utilizando o internet Explorer ou [o modo Edge Chromium IE](https://docs.microsoft.com/deployedge/edge-ie-mode) + add-on RDS ActiveX |
 | Pré-autenticação    | RD Web Client- HTML5-compatível com navegador web como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v55.0 e mais tarde) |
 | Passthrough | Qualquer outro sistema operativo que suporte a aplicação Microsoft Remote Desktop |
 
@@ -145,7 +145,7 @@ Para utilizar a autenticação passthrough, existem apenas duas modificações n
 1. Em Publicar o ponto [final do anfitrião RD](#publish-the-rd-host-endpoint) passo 1, definir o método de pré-autorização para **Passthrough**.
 2. No [tráfego RDS direto para Application Proxy,](#direct-rds-traffic-to-application-proxy)salte completamente o passo 8.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Permitir o acesso remoto ao SharePoint com Proxy de aplicações AD Azure](application-proxy-integrate-with-sharepoint-server.md) 
  [Considerações de segurança para aceder remotamente a apps através da utilização de Proxy de Aplicação AD AZure](application-proxy-security.md)

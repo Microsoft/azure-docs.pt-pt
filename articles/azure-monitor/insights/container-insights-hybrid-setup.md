@@ -3,12 +3,12 @@ title: Configure Híbrido Kubernetes clusters com Monitor Azure para contentores
 description: Este artigo descreve como pode configurar o Azure Monitor para contentores para monitorizar os aglomerados de Kubernetes alojados em Azure Stack ou em outro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498904"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398386"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure híbrido Kubernetes clusters com Monitor Azure para contentores
 
@@ -38,7 +38,7 @@ As seguintes configurações são oficialmente suportadas com o Azure Monitor pa
 
 Antes de começar, certifique-se de que tem o seguinte:
 
-- Um [espaço de trabalho Log Analytics](../platform/design-logs-deployment.md).
+- Uma [área de trabalho do Log Analytics](../platform/design-logs-deployment.md).
 
     O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../platform/template-workspace-configuration.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
 
@@ -71,9 +71,11 @@ Antes de começar, certifique-se de que tem o seguinte:
 
 Permitir o Azure Monitor para contentores para o cluster híbrido Kubernetes consiste em executar os seguintes passos em ordem.
 
-1. Configure o seu espaço de trabalho Log Analytics com a solução Container Insights.
+1. Configure o seu espaço de trabalho Log Analytics com a solução Container Insights.   
 
 2. Ativar o Monitor Azure para contentores HELM chart com log analytics espaço de trabalho.
+
+Para obter informações adicionais sobre soluções de monitorização no Azure Monitor consulte [aqui](../../azure-monitor/insights/solutions.md).
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Como adicionar a solução Azure Monitor Containers
 
@@ -92,7 +94,7 @@ Este método inclui dois modelos JSON. Um modelo especifica a configuração par
 - **workspaceResourceId** - o ID completo do seu espaço de trabalho Log Analytics.
 - **workspaceRegion** - a região em que o espaço de trabalho é criado, que também é referido como **Localização** nas propriedades do espaço de trabalho ao visualizar a partir do portal Azure.
 
-Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics necessário para o valor do `workspaceResourceId` parâmetro nocontainerSolutionParams.js**no** ficheiro, execute os seguintes passos e, em seguida, execute o comando PowerShell cmdlet ou Azure CLI para adicionar a solução.
+Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics necessário para o valor do `workspaceResourceId` parâmetro nocontainerSolutionParams.js** no** ficheiro, execute os seguintes passos e, em seguida, execute o comando PowerShell cmdlet ou Azure CLI para adicionar a solução.
 
 1. Listar todas as subscrições a que tem acesso utilizando o seguinte comando:
 
@@ -334,7 +336,7 @@ Depois de ter implementado com sucesso o gráfico, pode rever os dados do seu cl
 
 Começando pela versão 2.7.1 do gráfico, o gráfico irá suportar especificar o ponto final de procuração com o parâmetro da `omsagent.proxy` tabela. Isto permite-lhe comunicar através do seu servidor proxy. A comunicação entre o Azure Monitor para o agente de contentores e o Azure Monitor pode ser um servidor de procuração HTTP ou HTTPS, e a autenticação anónima e básica (nome de utilizador/palavra-passe) são suportadas.
 
-O valor de configuração proxy tem a seguinte sintaxe:`[protocol://][user:password@]proxyhost[:port]`
+O valor de configuração proxy tem a seguinte sintaxe: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Se o seu servidor proxy não necessitar de autenticação, ainda precisa de especificar um nome de utilizador/palavra-passe psuedo. Este pode ser qualquer nome de utilizador ou senha.

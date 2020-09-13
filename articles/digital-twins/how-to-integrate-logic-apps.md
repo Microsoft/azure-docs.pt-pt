@@ -8,18 +8,18 @@ ms.date: 8/14/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 2fc2db54217756ba0f4f7d643b1bc12ad2668209
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 20959709854f8366cc067437fe86c245fcbc3ef0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88848835"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401066"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) é um serviço de cloud que o ajuda a automatizar fluxos de trabalho através de apps e serviços. Ao ligar as Aplicações Lógicas às APIs das Gémeas Digitais Azure, pode criar fluxos automatizados em torno das Gémeas Digitais Azure e dos seus dados.
 
-A Azure Digital Twins não tem atualmente um conector certificado (pré-construído) para aplicações lógicas. Em vez disso, o processo atual de utilização de Apps Lógicas com Gémeos Digitais Azure é criar um [**conector de Aplicações Lógicas personalizado**](../logic-apps/custom-connector-overview.md), utilizando um [ficheiro Azure Digital Twins Swagger](https://github.com/Azure-Samples/digital-twins-custom-swaggers/blob/main/LogicApps/preview/2020-05-31-preview/digitaltwins.json) que foi modificado para funcionar com as Aplicações Lógicas.
+A Azure Digital Twins não tem atualmente um conector certificado (pré-construído) para aplicações lógicas. Em vez disso, o processo atual de utilização de Apps Lógicas com Gémeos Digitais Azure é criar um [**conector de Aplicações Lógicas personalizado**](../logic-apps/custom-connector-overview.md), utilizando um [Azure Digital Twins Swagger](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que foi modificado para trabalhar com apps lógicas.
 
 Neste artigo, você usará o [portal Azure](https://portal.azure.com) para **criar um conector personalizado** que pode ser usado para ligar Apps Lógicas a uma instância Azure Digital Twins. Em seguida, **irá criar uma aplicação lógica** que utiliza esta ligação para um cenário de exemplo, no qual os eventos desencadeados por um temporizador irão atualizar automaticamente um gémeo na sua instância Azure Digital Twins. 
 
@@ -77,9 +77,9 @@ Serão levados para a página de implantação do conector. Quando terminar a im
 
 Em seguida, configurará o conector que criou para chegar às Gémeas Digitais Azure.
 
-Primeiro, faça o download de um Azure Digital Twins Swagger que foi modificado para trabalhar com as Aplicações Lógicas. Faça *o downloaddigitaltwins.jsa* partir deste [link.](https://github.com/Azure-Samples/digital-twins-custom-swaggers/blob/main/LogicApps/preview/2020-05-31-preview/digitaltwins.json)
+Primeiro, faça o download de um Azure Digital Twins Swagger que foi modificado para trabalhar com as Aplicações Lógicas. Descarregue a amostra **Azure Digital Twins Custom Swaggers** a partir [deste link,](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) premindo o botão *Download ZIP.* Navegue para a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* descarregada e desaperte-a. O Swagger personalizado para este tutorial está localizado em *Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.js.*
 
-Em seguida, a partir da página geral do seu conector no portal Azure, *adve-o editar*.
+Em seguida, vá à página geral do seu conector no [portal Azure](https://portal.azure.com) e atinja *editar*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="A página 'Visão Geral' para o conector criado no passo anterior. Destaque em torno do botão 'Editar'":::
 
@@ -87,7 +87,7 @@ Na página de *Conector Personalizado de Aplicações Lógicas* de Edição que 
 * **Conectores personalizados**
     - Ponto final da API: REST (padrão de licença)
     - Modo de importação: Ficheiro OpenAPI (padrão de licença)
-    - Arquivo: Este será o ficheiro Swagger personalizado que descarregou anteriormente. Hit *Import,* localizar o ficheiro na sua máquina e acertar *Open*.
+    - Arquivo: Este será o ficheiro Swagger personalizado que descarregou anteriormente. Hit *Import*, localizar o ficheiro na sua máquina* (Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.jsligado*) e acertar Em *Aberto*.
 * **Informações gerais**
     - Ícone, cor de fundo do ícone, descrição: Preencha os valores que quiser.
     - Regime: HTTPS (incumprimento de licença)
@@ -178,7 +178,7 @@ Na nova caixa *DigitalTwinsAdd,* preencha os campos da seguinte forma:
 
 Hit *Save* in the Logic Apps Designer.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista acabada da aplicação no Connector De Aplicação Lógica. A caixa DigitalTwinsAdd está preenchida com os valores acima descritos, incluindo uma amostra do corpo de Patch JSON. Destaca-se o botão Guardar para a janela.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista acabada da aplicação no Connector De Aplicação Lógica. A caixa DigitalTwinsAdd está preenchida com os valores acima descritos, incluindo uma amostra do corpo de Patch JSON. Destaca-se o botão "Guardar" para a janela.":::
 
 ## <a name="query-twin-to-see-the-update"></a>Consulta twin para ver a atualização
 
@@ -188,7 +188,7 @@ Pode consultar o seu gémeo através do seu método de escolha (como uma [aplica
 
 Para saber mais sobre a consulta do seu exemplo de Gémeos Digitais Azure, consulte [*Como fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, criou uma aplicação lógica que atualiza regularmente um gémeo na sua instância Azure Digital Twins com um patch que forneceu. Pode experimentar a seleção de outras APIs no conector personalizado para criar Aplicações Lógicas para uma variedade de ações no seu caso.
 

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987217"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400012"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Cenário: Tráfego de rotas através de NVAs - personalizado (Pré-visualização)
 
 Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Neste cenário NVA (Network Virtual Appliance), o objetivo é encaminhar o tráfego através de um NVA para comunicação entre VNets e ramos, e usar um NVA diferente para tráfego ligado à Internet. Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Conceção
+## <a name="design"></a><a name="design"></a>Design
 
 Neste cenário, utilizaremos a convenção de nomeação:
 
@@ -40,7 +40,7 @@ A seguinte matriz de conectividade resume os fluxos suportados neste cenário:
 | **DMZ VNet** | &#8594;|       X |            X |      X    |      X       |
 | **Ramos** | &#8594;|  Estático |            X |      X    |      X       |
 
-Cada uma das células da matriz de conectividade descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico) para um fluxo de tráfego específico. Vamos em detalhe sobre as diferentes linhas:
+Cada uma das células da matriz de conectividade descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida nativamente por VIRTUAL WAN, e "Estática" significa que a conectividade é fornecida por WAN virtual usando rotas estáticas. Vamos em detalhe sobre as diferentes linhas:
 
 * Porta-vozes da NVA:
   * Os porta-vozes chegarão a outros porta-vozes diretamente sobre os centros virtuais de WAN.
@@ -131,7 +131,7 @@ Para configurar o encaminhamento via NVA, aqui estão os passos a considerar:
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

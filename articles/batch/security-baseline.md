@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 959a88335c581b998e9cf9c2e6df26354e2a5dc3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226374"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400981"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança Azure para lote
 
@@ -1014,13 +1014,17 @@ Como integrar-se com identidades geridas aZure:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um Cofre de Chaves Azure:
+Como criar um Cofre chave:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer a autenticação do Cofre-Chave com uma identidade gerida:
+Como autenticar o Cofre de Chaves:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Como atribuir uma política de acesso ao Cofre chave:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1233,7 +1237,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o [Azure Security Benchmark](../security/benchmarks/overview.md)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](../security/benchmarks/security-baselines-overview.md)

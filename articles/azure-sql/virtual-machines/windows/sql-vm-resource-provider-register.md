@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3f1a9a2756d81765d82938651672e5a83edc48ed
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 11e8a2fd709b40c68b90e5ed139f18997e4cb29e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078695"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396986"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registar um SQL Server VM em Azure com o fornecedor de recursos SQL VM (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -241,7 +241,7 @@ Para atualizar o modo agente para a totalidade:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Vá ao seu recurso [de máquinas virtuais SQL.](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) 
 1. Selecione o seu SQL Server VM e **selecione A Visão Geral**. 
 1. Para VMs do servidor SQL com o modo IaaS noAgent ou leve, selecione as **atualizações do tipo de licença Única e as atualizações de edição estão disponíveis com a mensagem de extensão SQL IaaS.**
@@ -282,7 +282,7 @@ Pode verificar se o seu SQL Server VM já foi registado no fornecedor de recurso
 
 ### <a name="azure-portal"></a>Portal do Azure 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Vá para os seus [VMs do seu servidor SQL](manage-sql-vm-portal.md).
 1. Selecione o seu SQL Server VM da lista. Se o seu SQL Server VM não estiver listado aqui, provavelmente não foi registado no fornecedor de recursos SQL VM. 
 1. Ver o valor em **Estado**. Se **o Status** for Bem **sucedido,** então o SQL Server VM foi registado com sucesso no fornecedor de recursos SQL VM. 
@@ -353,7 +353,7 @@ az sql vm delete
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Para desregistralr o seu SQL Server VM do fornecedor de recursos com o Azure CLI, utilize o comando [New-AzSqlVM.](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) Isto removerá o *recurso* VM do Servidor SQL, mas não eliminará a máquina virtual. 
+Para desregralar o seu SQL Server VM do fornecedor de recursos com o PowerShell, utilize o comando [Remove-AzSqlVM.](/powershell/module/az.sqlvirtualmachine/remove-azsqlvm) Isto removerá o *recurso* VM do Servidor SQL, mas não eliminará a máquina virtual. 
 
 ```powershell-interactive
 Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>

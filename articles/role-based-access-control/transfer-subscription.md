@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227037"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400549"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente (Preview)
 
@@ -31,7 +31,7 @@ Este artigo descreve os passos básicos que pode seguir para transferir uma subs
 > [!NOTE]
 > Para as subscrições Azure Cloud Service Providers (CSP), a alteração do diretório AZure AD para a subscrição não é suportada.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Transferir uma subscrição do Azure para um diretório AD Azure diferente é um processo complexo que deve ser cuidadosamente planeado e executado. Muitos serviços da Azure exigem que os princípios de segurança (identidades) operem normalmente ou mesmo gerem outros recursos da Azure. Este artigo tenta cobrir a maioria dos serviços da Azure que dependem fortemente dos princípios de segurança, mas não é abrangente.
 
@@ -74,14 +74,14 @@ Vários recursos Azure têm uma dependência de uma subscrição ou de um diret�
 | Identidades geridas atribuídas pelo sistema | Yes | Yes | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve desativar e reativar as identidades geridas. Tens de recriar as atribuições de papéis. |
 | Identidades geridas atribuídas pelo utilizador | Yes | Yes | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve eliminar, recriar e anexar as identidades geridas ao recurso apropriado. Tens de recriar as atribuições de papéis. |
 | Azure Key Vault | Yes | Yes | [Políticas de acesso ao cofre de chaves de lista](#list-key-vaults) | Tem de atualizar a identificação do inquilino associada aos cofres das chaves. Tem de remover e adicionar novas políticas de acesso. |
-| Bases de dados Azure SQL com integração de autenticação AD AZure habilitados | Sim | No | [Consulte as bases de dados do Azure SQL com a autenticação AZure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Bases de dados Azure SQL com integração de autenticação AD AZure habilitados | Yes | No | [Consulte as bases de dados do Azure SQL com a autenticação AZure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage e Azure Data Lake Storage Gen2 | Yes | Yes |  | Tens de recriar quaisquer ACLs. |
 | Azure Data Lake Storage Gen1 | Sim | Yes |  | Tens de recriar quaisquer ACLs. |
 | Ficheiros do Azure | Yes | Yes |  | Tens de recriar quaisquer ACLs. |
 | Azure File Sync | Yes | Yes |  |  |
 | Managed Disks do Azure | Yes | N/D |  |  |
 | Serviços de Contentores Azure para Kubernetes | Yes | Yes |  |  |
-| Azure Active Directory Domain Services | Sim | No |  |  |
+| Azure Active Directory Domain Services | Yes | No |  |  |
 | Registos de aplicações | Yes | Yes |  |  |
 
 > [!WARNING]
@@ -224,7 +224,7 @@ Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azur
 > [!WARNING]
 > Se estiver a usar encriptação em repouso para um recurso, como uma conta de armazenamento ou uma base de dados SQL, que tenha uma dependência de um cofre chave que **não** esteja na mesma subscrição que está a ser transferida, pode levar a um cenário irrecuperável. Se tiver esta situação, deve tomar medidas para utilizar um cofre de chave diferente ou desativar temporariamente as chaves geridas pelo cliente para evitar este cenário irrecuperável.
 
-- Se tiver um cofre chave, use [o show az keyvault](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) para listar as políticas de acesso. Para obter mais informações, consulte [a autenticação do Cofre de Chaves com uma política de controlo de acesso.](../key-vault/key-vault-group-permissions-for-apps.md)
+- Se tiver um cofre chave, use [o show az keyvault](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) para listar as políticas de acesso. Para obter mais informações, consulte [a política de acesso a um cofre de chaves.](../key-vault/general/assign-access-policy-cli.md)
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -382,7 +382,7 @@ Se a sua intenção é remover o acesso dos utilizadores no diretório de origem
 
 1. Para os recursos que utilizam certificados, atualize o certificado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Transferir a propriedade de faturação de uma subscrição do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transferir subscrições do Azure entre subscritores e CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)

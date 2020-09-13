@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dc53eacf456d1e7c1926c6d7f20e343b3a84340d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078049"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398328"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -693,7 +693,8 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 - [Configurar identidade gerida para implantar ambientes do Gestor de Recursos Azure em Laboratórios DevTest](use-managed-identities-environments.md)
 - [Configurar identidade gerida para implantar máquinas virtuais em Laboratórios DevTest](enable-managed-identities-lab-vms.md)
 - [Como criar um cofre chave](../key-vault/quick-create-portal.md)
-- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](../key-vault/managed-identity.md)
+- [Como autenticar para o Cofre de Chaves](../key-vault/general/authentication.md)
+- [Como atribuir uma política de acesso ao Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitorização do Centro de Segurança Azure:** Sim, é o seu
 
@@ -885,7 +886,7 @@ Monitorização do Centro de Segurança Azure:**** Não aplicável
 
 **Responsabilidade:** Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o seguinte artigo:
 
 - [Alertas de segurança para ambientes em Azure DevTest Labs](environment-security-alerts.md)

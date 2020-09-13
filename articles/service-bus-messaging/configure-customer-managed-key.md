@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Service B
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067244"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400590"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure
 A Azure Service Bus Premium fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Service Bus Premium conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
@@ -28,7 +28,7 @@ Pode utilizar o Azure Key Vault para gerir as suas chaves e auditar o uso da cha
 Este artigo mostra como configurar um cofre-chave com chaves geridas pelo cliente utilizando o portal Azure. Para aprender a criar um cofre-chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault using the Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> A utilização de chaves geridas pelo cliente com o Azure Service Bus requer que o cofre-chave tenha duas propriedades necessárias configuradas. São: **Soft Delete** and **Do Not Purpur**. Estas propriedades são ativadas por padrão quando cria um novo cofre chave no portal Azure. No entanto, se necessitar de ativar estas propriedades num cofre de chaves existente, deve utilizar o PowerShell ou o Azure CLI.
+> A utilização de chaves geridas pelo cliente com o Azure Service Bus requer que o cofre-chave tenha duas propriedades necessárias configuradas. São:  **Soft Delete** and **Do Not Purpur**. Estas propriedades são ativadas por padrão quando cria um novo cofre chave no portal Azure. No entanto, se necessitar de ativar estas propriedades num cofre de chaves existente, deve utilizar o PowerShell ou o Azure CLI.
 
 ## <a name="enable-customer-managed-keys"></a>Ativar chaves geridas pelo cliente
 Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
@@ -82,12 +82,12 @@ Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida 
     > 
     >   * Se [a recuperação de desastres geo](service-bus-geo-dr.md) já estiver ativada para o espaço de nomes do Service Bus e você estiver procurando ativar a chave gerida pelo cliente, então 
     >     * Quebre o emparelhamento
-    >     * [Estabeleça a política de acesso](../key-vault/general/managed-identity.md) para a identidade gerida tanto para os espaços de nome primário como secundário para o cofre de chaves.
+    >     * [Estabeleça a política de acesso](../key-vault/general/assign-access-policy-portal.md) para a identidade gerida tanto para os espaços de nome primário como secundário para o cofre de chaves.
     >     * Configurar encriptação no espaço de nome primário.
     >     * Reassundi os espaços de nome primário e secundário.
     > 
     >   * Se procura ativar o Geo-DR num espaço de nomes de autocarros de serviço onde já está configurada a chave gerida pelo cliente, então -
-    >     * [Estabeleça a política de acesso](../key-vault/general/managed-identity.md) para a identidade gerida para o espaço de nome secundário para o cofre de chaves.
+    >     * [Estabeleça a política de acesso](../key-vault/general/assign-access-policy-portal.md) para a identidade gerida para o espaço de nome secundário para o cofre de chaves.
     >     * Emparelhar os espaços de nome primário e secundário.
 
 
@@ -164,8 +164,8 @@ Esta secção mostra-lhe como criar um espaço de nome do Azure Service Bus com 
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<ServiceBusNamespaceName>`- Nome do seu espaço de nomes de ônibus de serviço
-    > - `<Location>`- Localização do seu espaço de nomes de ônibus de serviço
+    > - `<ServiceBusNamespaceName>` - Nome do seu espaço de nomes de ônibus de serviço
+    > - `<Location>` - Localização do seu espaço de nomes de ônibus de serviço
 
     ```json
     {
@@ -287,10 +287,10 @@ Neste passo, irá atualizar o espaço de nomes do Service Bus com informações 
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<ServiceBusNamespaceName>`- Nome do seu espaço de nomes de ônibus de serviço
-    > - `<Location>`- Localização do seu espaço de nomes de ônibus de serviço
-    > - `<KeyVaultName>`- Nome do seu cofre
-    > - `<KeyName>`- Nome da chave no cofre da chave  
+    > - `<ServiceBusNamespaceName>` - Nome do seu espaço de nomes de ônibus de serviço
+    > - `<Location>` - Localização do seu espaço de nomes de ônibus de serviço
+    > - `<KeyVaultName>` - Nome do seu cofre
+    > - `<KeyName>` - Nome da chave no cofre da chave  
 
     ```json
     {
@@ -319,7 +319,7 @@ Neste passo, irá atualizar o espaço de nomes do Service Bus com informações 
     ```
     
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 - [Visão geral do ônibus de serviço](service-bus-messaging-overview.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)

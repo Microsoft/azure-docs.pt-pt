@@ -5,18 +5,18 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77188725"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397037"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live [TTL] no Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live [TTL] no Azure Cosmos DB
 
-Com **o Time to Live** ou TTL, o Azure Cosmos DB fornece a capacidade de eliminar automaticamente os itens de um recipiente após um determinado período de tempo. Por predefinição, pode definir a hora para viver ao nível do recipiente e sobrepor o valor numa base por item. Depois de definir o TTL num recipiente ou a um nível de item, a Azure Cosmos DB removerá automaticamente estes itens após o período de tempo, desde a última modificação. O tempo de vida do valor é configurado em segundos. Quando configurar a TTL, o sistema eliminará automaticamente os itens caducados com base no valor TTL, sem necessidade de uma operação de eliminação que seja explicitamente emitida pela aplicação do cliente.
+Com **o Time to Live** ou TTL, o Azure Cosmos DB fornece a capacidade de eliminar automaticamente os itens de um recipiente após um determinado período de tempo. Por predefinição, pode definir a hora para viver ao nível do recipiente e sobrepor o valor numa base por item. Depois de definir o TTL num recipiente ou a um nível de item, a Azure Cosmos DB removerá automaticamente estes itens após o período de tempo, desde a última modificação. O tempo de vida do valor é configurado em segundos. Quando configurar a TTL, o sistema eliminará automaticamente os itens caducados com base no valor TTL, sem necessidade de uma operação de eliminação que seja explicitamente emitida pela aplicação do cliente. O valor máximo para TTL é 2147483647.
 
 A eliminação de itens caducados é uma tarefa de fundo que consome [Unidades de Pedido](request-units.md)sobrantes, ou seja, Unidades de Pedido que não tenham sido consumidas por solicitações do utilizador. Mesmo depois de expirado o TTL, se o contentor estiver sobrecarregado com pedidos e se não houver RU suficiente disponível, a eliminação de dados é retardada. Os dados são eliminados uma vez que existam RUs suficientes disponíveis para executar a operação de eliminação. Embora a eliminação de dados seja adiada, os dados não são devolvidos por quaisquer consultas (por qualquer API) depois de expirado o TTL.
 
