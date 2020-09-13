@@ -1,28 +1,25 @@
 ---
-title: Aceleração da consulta de armazenamento do lago de dados Azure (pré-visualização)
-description: A aceleração de consultas (pré-visualização) é uma nova capacidade para o Azure Data Lake Storage que permite que aplicações e quadros de análise otimizem dramaticamente o processamento de dados, recuperando apenas os dados necessários para uma operação de processamento.
+title: Aceleração da consulta de armazenamento do lago de dados Azure
+description: A aceleração de consultas permite que aplicações e quadros de análise otimizem dramaticamente o processamento de dados, recuperando apenas os dados necessários para uma operação de processamento.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176707"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657645"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Aceleração da consulta de armazenamento do lago de dados Azure (pré-visualização)
+# <a name="azure-data-lake-storage-query-acceleration"></a>Aceleração da consulta de armazenamento do lago de dados Azure
 
-A aceleração de consultas (pré-visualização) é uma nova capacidade para o Azure Data Lake Storage que permite que aplicações e quadros de análise otimizem dramaticamente o processamento de dados, recuperando apenas os dados necessários para executar uma determinada operação. Isto reduz o tempo e o poder de processamento necessários para obter informações críticas sobre os dados armazenados.
+A aceleração de consultas permite que aplicações e quadros de análise otimizem dramaticamente o processamento de dados, recuperando apenas os dados que necessitam para realizar uma determinada operação. Isto reduz o tempo e o poder de processamento necessários para obter informações críticas sobre os dados armazenados.
 
-> [!NOTE]
-> A funcionalidade de aceleração de consulta está em visualização pública, e está disponível nas regiões Central e Francesa do Canadá. Para rever as limitações, consulte o artigo [questões conhecidas.](data-lake-storage-known-issues.md) Para se inscrever na pré-visualização, consulte [este formulário](https://aka.ms/adls/qa-preview-signup).  
-
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A aceleração da consulta aceita a filtragem *de predicados* e *projeções de colunas* que permitem às aplicações filtrar linhas e colunas no momento em que os dados são lidos a partir do disco. Apenas os dados que satisfaçam as condições de um predicado são transferidos pela rede para a aplicação. Isto reduz a latência da rede e o custo do cálculo.  
 
@@ -65,7 +62,7 @@ A aceleração de consultas é projetada para quadros de análise distribuídos 
 
 Quadros de análise distribuídos, tais como Apache Spark e Apache Hive, incluem uma camada de abstração de armazenamento dentro do quadro. Estes motores também incluem otimizadores de consulta que podem incorporar conhecimento das capacidades do serviço de E/S subjacente ao determinar um plano de consulta ideal para consultas de utilizador. Estes quadros estão a começar a integrar a aceleração da consulta. Como resultado, os utilizadores destes quadros verão uma maior latência de consulta e um menor custo total de propriedade sem ter de fazer quaisquer alterações às consultas. 
 
-A aceleração da consulta também é projetada para aplicações de processamento de dados. Estes tipos de aplicações normalmente realizam transformações de dados em larga escala que podem não levar diretamente a insights analíticos para que nem sempre utilizem quadros de análise distribuídos estabelecidos. Estas aplicações têm muitas vezes uma relação mais direta com o serviço de armazenamento subjacente para que possam beneficiar diretamente de funcionalidades como a aceleração da consulta. 
+A aceleração da consulta também é projetada para aplicações de processamento de dados. Estes tipos de aplicações normalmente realizam transformações de dados em larga escala que podem não levar diretamente a insights de análise para que nem sempre utilizem quadros de análise distribuídos estabelecidos. Estas aplicações têm muitas vezes uma relação mais direta com o serviço de armazenamento subjacente para que possam beneficiar diretamente de funcionalidades como a aceleração da consulta. 
 
 Para um exemplo de como uma aplicação pode integrar a aceleração da consulta, consulte [os dados do Filtro utilizando a aceleração da consulta de armazenamento do Lago de Dados Azure](data-lake-storage-query-acceleration-how-to.md).
 
@@ -75,10 +72,9 @@ Devido ao aumento da carga de cálculo dentro do serviço de armazenamento de da
 
 Apesar da alteração do modelo de faturação, o modelo de preços da Query Acceleration foi concebido para reduzir o custo total de propriedade para uma carga de trabalho, dada a redução dos custos de VM muito mais caros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Formulário de inscrição de aceleração de consulta](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrar dados utilizando a aceleração da consulta de armazenamento do lago de dados Azure (pré-visualização)](data-lake-storage-query-acceleration-how-to.md)
-- [Referência linguística SQL de aceleração de consulta (pré-visualização)](query-acceleration-sql-reference.md)
+- [Filtrar dados utilizando a aceleração da consulta de armazenamento do lago de dados Azure](data-lake-storage-query-acceleration-how-to.md)
+- [Referência linguística SQL de aceleração de consulta](query-acceleration-sql-reference.md)
 
 

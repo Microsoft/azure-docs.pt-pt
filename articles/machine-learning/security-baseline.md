@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 168aec49dc9b14af57df98ebc4c997f8dfb27c9e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228363"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657356"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de segurança Azure para Azure Machine Learning
 
@@ -28,7 +28,7 @@ A Linha de Base de Segurança Azure para o Microsoft Azure Machine Learning cont
 
 O Azure Firewall pode ser usado para controlar o acesso ao seu espaço de trabalho Azure Machine Learning e à internet pública.
 
-- [Como executar de forma segura experiências e inferência numa rede virtual isolada](how-to-enable-virtual-network.md)
+- [Isolamento de rede virtual e visão geral da privacidade](how-to-network-security-overview.md)
 
 - [Use espaço de trabalho atrás do Azure Firewall para a aprendizagem de máquinas Azure](how-to-access-azureml-behind-firewall.md)
 
@@ -58,7 +58,7 @@ Ativar os registos de fluxo do grupo de segurança da rede e enviar os registos 
 
 - [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Isolamento de rede durante inferência de treino &amp; com redes virtuais privadas](how-to-enable-virtual-network.md)
+- [Isolamento de rede virtual e visão geral da privacidade](how-to-network-security-overview.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -122,7 +122,7 @@ O serviço Azure Machine Learning documenta uma lista de tags de serviço para o
 
 - [Para mais informações sobre a utilização de tags de serviço](../virtual-network/service-tags-overview.md)
 
-- [Para a rede virtual Azure Machine Learning](how-to-enable-virtual-network.md)
+- [Isolamento de rede virtual e visão geral da privacidade](how-to-network-security-overview.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -326,7 +326,7 @@ Também pode utilizar o módulo Azure AD PowerShell para realizar consultas de a
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Utilizar contas administrativas dedicadas
 
-**Orientação**: A azure Machine Learning vem com três funções predefinidas quando um novo espaço de trabalho é criado, criar procedimentos operacionais padrão em torno da utilização de contas do proprietário.
+**Orientação**: A azure Machine Learning vem com três funções predefinidas quando um novo espaço de trabalho é criado, criando procedimentos operacionais padrão em torno da utilização de contas do proprietário.
 
 Também pode permitir um acesso just-in-time às contas administrativas utilizando a Azure AD Privileged Identity Management e a Azure Resource Manager. 
 
@@ -402,7 +402,7 @@ Também pode permitir um acesso just-in-time às contas administrativas utilizan
  
 O acesso a funções pode ser alargado a vários níveis em Azure. Para machine learning, as funções podem ser geridas ao nível do espaço de trabalho, por exemplo, você tem acesso do proprietário a um espaço de trabalho pode não ter acesso do proprietário ao grupo de recursos que contém o espaço de trabalho. Isto fornece mais controlos de acesso granular a funções separadas dentro do mesmo grupo de recursos. 
 
-- [Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure](how-to-assign-roles.md) 
+- [Gerir o acesso a uma área de trabalho do Azure Machine Learning](how-to-assign-roles.md) 
  
 - [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -527,7 +527,7 @@ Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata to
 
 **Orientação**: Azure Machine Learning suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos de machine learning. Com a Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação.
 
-- [Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure](how-to-assign-roles.md)
+- [Gerir o acesso a uma área de trabalho do Azure Machine Learning](how-to-assign-roles.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -979,7 +979,9 @@ Use o Cofre de Chaves Azure para passar segredos para execuções remotas em vez
 
 - [Como criar um Cofre-Chave](/azure/key-vault/quick-create-portal)
 
-- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](/azure/key-vault/managed-identity)
+- [Como autenticar para o Cofre de Chaves](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [Como atribuir uma política de acesso ao Cofre de Chaves](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -990,7 +992,7 @@ Use o Cofre de Chaves Azure para passar segredos para execuções remotas em vez
 **Orientação**: A azure Machine Learning suporta papéis incorporados e a capacidade de criar funções personalizadas. Utilize identidades geridas para fornecer aos serviços Azure uma identidade gerida automaticamente em Azure AD. As identidades geridas permitem-lhe autenticar qualquer serviço que suporte a autenticação AZURE AD, incluindo o Key Vault, sem quaisquer credenciais no seu código.
 
  
-- [Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure](how-to-assign-roles.md)
+- [Gerir o acesso a uma área de trabalho do Azure Machine Learning](how-to-assign-roles.md)
 
 - [Como configurar identidades geridas para os recursos da Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
@@ -1190,7 +1192,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 900d5cd435a913c0859c862d176fd30130e0a079
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321501"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650722"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configure as divisões de dados e a validação cruzada na aprendizagem automática de máquinas
 
@@ -24,7 +24,7 @@ Neste artigo, aprende-se as diferentes opções para configurar divisões de dad
 
 No Azure Machine Learning, quando utiliza o AutoML para construir vários modelos ML, cada corrida infantil precisa de validar o modelo relacionado calculando as métricas de qualidade para esse modelo, como precisão ou AUC ponderado. Estas métricas são calculadas comparando as previsões feitas com cada modelo com rótulos reais de observações anteriores nos dados de validação. 
 
-As experiências autoML realizam a validação do modelo automaticamente. As seguintes secções descrevem como pode personalizar ainda mais as definições de validação com o [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+As experiências autoML realizam a validação do modelo automaticamente. As seguintes secções descrevem como pode personalizar ainda mais as definições de validação com o [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 Para obter uma experiência de baixo código ou sem código, consulte [Criar as suas experiências automatizadas de aprendizagem automática de máquinas no estúdio Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ Para este artigo que precisa,
 
 ## <a name="default--data-splits-and-cross-validation"></a>Os dados predefinidos dividem-se e validam-se cruzadas
 
-Utilize o objeto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) para definir as definições de experiência e treino. No seguinte corte de código, note que apenas os parâmetros necessários são definidos, que são os parâmetros para `n_cross_validation` ou `validation_ data` **não** estão incluídos.
+Utilize o objeto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) para definir as definições de experiência e treino. No seguinte corte de código, note que apenas os parâmetros necessários são definidos, que são os parâmetros para `n_cross_validation` ou `validation_ data` **não** estão incluídos.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -93,7 +93,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>Fornecer tamanho de conjunto de validação
 
-Neste caso, apenas um conjunto de dados é fornecido para a experiência. Ou seja, o `validation_data` parâmetro **não** é especificado, e o conjunto de dados fornecido é atribuído ao `training_data` parâmetro.  No seu `AutoMLConfig` objeto, pode definir o `validation_size` parâmetro para reter uma parte dos dados de treino para validação. Isto significa que o conjunto de validação será dividido por AutoML a partir do `training_data` fornecido inicial. Este valor deve ser entre 0,0 e 1.0 não inclusivo (por exemplo, 0,2 significa que 20% dos dados são guardados para dados de validação).
+Neste caso, apenas um conjunto de dados é fornecido para a experiência. Ou seja, o `validation_data` parâmetro **não** é especificado, e o conjunto de dados fornecido é atribuído ao  `training_data` parâmetro.  No seu `AutoMLConfig` objeto, pode definir o `validation_size` parâmetro para reter uma parte dos dados de treino para validação. Isto significa que o conjunto de validação será dividido por AutoML a partir do `training_data` fornecido inicial. Este valor deve ser entre 0,0 e 1.0 não inclusivo (por exemplo, 0,2 significa que 20% dos dados são guardados para dados de validação).
 
 Consulte o seguinte exemplo de código:
 
@@ -156,7 +156,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 > [!NOTE]
 > Para utilizar `cv_split_column_names` `training_data` `label_column_name` e, por favor, atualize a sua versão Azure Machine Learning Python SDK 1.6.0 ou mais tarde. Para versões SDK anteriores, consulte a utilização `cv_splits_indices` , mas note que é utilizado apenas com a entrada de conjunto de `X` `y` dados. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Evitar dados desequilibrados e sobremontagem](concept-manage-ml-pitfalls.md).
 * [Tutorial: Utilize machine learning automatizado para prever tarifas de táxi - Secção de dados divididos](tutorial-auto-train-models.md#split-the-data-into-train-and-test-sets).

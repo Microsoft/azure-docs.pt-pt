@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a6e603ad5698e7a6a57799def8a0f2de28e0cada
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144894"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650836"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configure um ambiente de desenvolvimento para a aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,7 +81,7 @@ Utilizar o DSVM como ambiente de desenvolvimento:
 
     * O portal Azure:
 
-        * [Criar uma Máquina Virtual de Ciência de Dados do Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+        * [Criar uma máquina virtual de ciência de dados Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
         * [Criar uma Máquina Virtual de Ciência de Dados do Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
@@ -185,7 +185,7 @@ Quando estiver a utilizar um computador local (que também pode ser uma máquina
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   Levará vários minutos para instalar o SDK. Para obter mais informações sobre as opções de instalação, consulte o [guia de instalação](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+   Levará vários minutos para instalar o SDK. Para obter mais informações sobre as opções de instalação, consulte o [guia de instalação](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 1. Instale outros pacotes para a sua experimentação de machine learning.
 
@@ -361,7 +361,7 @@ Para utilizar este ficheiro a partir do seu código, utilize `ws=Workspace.from_
 
 Pode criar o ficheiro de configuração de três formas:
 
-* **Utilize  [ws.write_config:](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** para escrever um *config.jsno* ficheiro. O ficheiro contém as informações de configuração para o seu espaço de trabalho. Você pode baixar ou copiar o *config.jsem* outros ambientes de desenvolvimento.
+* **Utilize  [ws.write_config:](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)** para escrever um *config.jsno* ficheiro. O ficheiro contém as informações de configuração para o seu espaço de trabalho. Você pode baixar ou copiar o *config.jsem* outros ambientes de desenvolvimento.
 
 * **Descarregue o ficheiro**: No [portal Azure,](https://ms.portal.azure.com)selecione  **Descarregue config.jsna** secção **'Visão Geral'** do seu espaço de trabalho.
 
@@ -386,7 +386,7 @@ Pode criar o ficheiro de configuração de três formas:
 
     Este código escreve o ficheiro de configuração para o *ficheiro .azureml/config.js.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Treine um modelo](tutorial-train-models-with-aml.md) em Azure Machine Learning com o conjunto de dados MNIST
-- Ver o [Azure Machine Learning SDK para](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) referência Python
+- Ver o [Azure Machine Learning SDK para](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) referência Python

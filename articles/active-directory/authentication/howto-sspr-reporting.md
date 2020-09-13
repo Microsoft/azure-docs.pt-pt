@@ -9,14 +9,14 @@ ms.date: 02/01/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8557457e3a1dc7d0ed1e50da3070360b1fd76f
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 9118a99f285dedfe0b76e890db001627e4f85969
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717732"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657127"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opções para os relatórios da gestão de palavras-passe do Azure AD)
 
@@ -169,7 +169,7 @@ A seguinte lista explica esta atividade em detalhe:
      >[!NOTE]
      >Falha não significa que um utilizador seja incapaz de redefinir a sua própria palavra-passe. Significa que não terminaram o processo de registo. Se houver dados não verificados na sua conta que estejam corretos, como um número de telefone que não seja validado, mesmo que não tenham verificado este número de telefone, ainda podem usá-lo para redefinir a sua palavra-passe.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilização e informação sobre informações sobre o uso e informações sobre o uso da SSPR e do MFA](howto-authentication-methods-usage-insights.md)
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)

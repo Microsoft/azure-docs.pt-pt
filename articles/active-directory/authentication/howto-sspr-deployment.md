@@ -9,14 +9,14 @@ ms.date: 01/31/2020
 ms.author: baselden
 author: barbaraselden
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9f59c7bb9b3977bdff7e3fd1ab78ed6fa2e412
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717749"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657217"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de autosserviço do Azure Ative Directory
 
@@ -56,7 +56,7 @@ Os principais benefícios de permitir a SSPR são:
 
 * **Auditoria robusta e rastreio de utilização.** Uma organização pode garantir que os sistemas de negócio se mantenham seguros enquanto os seus utilizadores reiniciam as suas próprias palavras-passe. Os registos de auditoria robustos incluem informações de cada passo do processo de reset da palavra-passe. Estes registos estão disponíveis a partir de uma API e permitem ao utilizador importar os dados para um sistema de monitorização de incidentes de segurança e monitorização de eventos (SIEM).
 
-### <a name="licensing"></a>Licensing
+### <a name="licensing"></a>Licenciamento
 
 O Azure Ative Directory é licenciado por utilizador, o que significa que cada utilizador necessita de uma licença adequada para as funcionalidades que utiliza. Recomendamos licenças baseadas em grupo para a SSPR. 
 
@@ -341,7 +341,7 @@ Os registos de auditoria para o registo e o reset da palavra-passe estão dispon
 
 * [O que é o Writeback da Palavra-Passe?](./concept-sspr-writeback.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para começar a implementar sSPR, consulte o reset da [palavra-passe de autosserviço do Enable Azure AD](tutorial-enable-sspr.md)
 

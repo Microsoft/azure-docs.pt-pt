@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: 34ddea1445ef8a8eb8554add3ee8920078a6e573
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/10/2020
+ms.openlocfilehash: 883c88386e4796f8d0cd2631b7754c06ce13d141
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182571"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657265"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Azure Blob utilizando a Azure Data Factory
 
@@ -67,7 +67,7 @@ Este conector de armazenamento Blob suporta os seguintes tipos de autenticação
 - [Identidades geridas para autenticação de recursos Azure](#managed-identity)
 
 >[!NOTE]
->Quando estiver a utilizar o PolyBase para carregar dados no Armazém de Dados Azure SQL, se a sua origem ou encenação O armazenamento blob estiver configurado com um ponto final da Rede Virtual Azure, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase. Também deve utilizar o tempo de integração auto-hospedado com a versão 3.18 ou mais tarde. Consulte a secção [de autenticação de identidade gerida](#managed-identity) para obter mais pré-requisitos de configuração.
+>Quando estiver a utilizar o PolyBase para carregar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse), se a sua fonte ou encenação De armazenamento blob estiver configurado com um ponto final da Rede Virtual Azure, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase. Também deve utilizar o tempo de integração auto-hospedado com a versão 3.18 ou mais tarde. Consulte a secção [de autenticação de identidade gerida](#managed-identity) para obter mais pré-requisitos de configuração.
 
 >[!NOTE]
 >As atividades Azure HDInsight e Azure Machine Learning apenas suportam a autenticação que utiliza chaves de conta de armazenamento Azure Blob.
@@ -234,6 +234,7 @@ Estas propriedades são suportadas para um serviço ligado ao armazenamento Azur
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **AzureBlobStorage**. |Yes |
 | serviceEndpoint | Especifique o ponto final do serviço de armazenamento Azure Blob com o padrão de `https://<accountName>.blob.core.windows.net/` . |Yes |
+| contaAndo | Especifique o tipo da sua conta de armazenamento. Os valores permitidos são: **Armazenamento** (finalidade geral v1), **ArmazenamentoV2** (finalidade geral v2), **BlobStorage**ou **BlockBlobStorage**. <br/> Quando se utiliza o serviço ligado a Azure Blob no fluxo de dados, a autenticação principal de identidade ou serviço gerida não é suportada quando o tipo de conta é vazio ou "Armazenamento". Especifique o tipo de conta adequada, escolha uma autenticação diferente ou atualize a sua conta de armazenamento para fins gerais v2. |No |
 | servicePrincipalId | Especifique a identificação do cliente da aplicação. | Yes |
 | servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
 | inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recuperá-lo pairando sobre o canto superior direito do portal Azure. | Yes |
@@ -252,6 +253,7 @@ Estas propriedades são suportadas para um serviço ligado ao armazenamento Azur
         "type": "AzureBlobStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -281,7 +283,7 @@ Para obter informações gerais sobre a autenticação do Armazenamento Azure, c
     - **Como sink**, in **Access control (IAM)**, concede pelo menos a função de Contribuinte de **Dados blob de armazenamento.**
 
 >[!IMPORTANT]
->Se utilizar o PolyBase para carregar dados do armazenamento blob (como fonte ou como encenação) no SQL Data Warehouse, quando estiver a utilizar a autenticação de identidade gerida para armazenamento blob, certifique-se de que também segue os passos 1 e 2 [nesta orientação.](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) Esses passos registarão o seu servidor com Azure AD e atribuirão a função de Contribuinte de Dados de Armazenamento blob ao seu servidor. A Fábrica de Dados trata do resto. Se configurar o armazenamento blob com um ponto final da Rede Virtual Azure, para utilizar o PolyBase para carregar os dados a partir dele, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase.
+>Se utilizar o PolyBase para carregar dados do armazenamento blob (como fonte ou como encenação) no Azure Synapse Analytics (antigo ARMAZÉM DE DADOS SQL), quando estiver a utilizar a autenticação de identidade gerida para armazenamento blob, certifique-se de que também segue os passos 1 e 2 [nesta orientação.](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) Esses passos registarão o seu servidor com Azure AD e atribuirão a função de Contribuinte de Dados de Armazenamento blob ao seu servidor. A Fábrica de Dados trata do resto. Se configurar o armazenamento blob com um ponto final da Rede Virtual Azure, para utilizar o PolyBase para carregar os dados a partir dele, deve utilizar a autenticação de identidade gerida conforme exigido pela PolyBase.
 
 Estas propriedades são suportadas para um serviço ligado ao armazenamento Azure Blob:
 
@@ -289,6 +291,7 @@ Estas propriedades são suportadas para um serviço ligado ao armazenamento Azur
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **AzureBlobStorage**. |Yes |
 | serviceEndpoint | Especifique o ponto final do serviço de armazenamento Azure Blob com o padrão de `https://<accountName>.blob.core.windows.net/` . |Yes |
+| contaAndo | Especifique o tipo da sua conta de armazenamento. Os valores permitidos são: **Armazenamento** (finalidade geral v1), **ArmazenamentoV2** (finalidade geral v2), **BlobStorage**ou **BlockBlobStorage**. <br/> Quando se utiliza o serviço ligado a Azure Blob no fluxo de dados, a autenticação principal de identidade ou serviço gerida não é suportada quando o tipo de conta é vazio ou "Armazenamento". Especifique o tipo de conta adequada, escolha uma autenticação diferente ou atualize a sua conta de armazenamento para fins gerais v2. |No |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |No |
 
 > [!NOTE]
@@ -302,7 +305,8 @@ Estas propriedades são suportadas para um serviço ligado ao armazenamento Azur
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2" 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -742,6 +746,6 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Excluir](de
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista de lojas de dados que a atividade Copy na Data Factory suporta como fontes e sumidouros, consulte [lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

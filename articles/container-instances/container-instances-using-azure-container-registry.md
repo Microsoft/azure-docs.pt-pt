@@ -4,14 +4,13 @@ description: Saiba como implantar contentores em instâncias de contentores Azur
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927441"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656993"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar no Azure Container Instances a partir do Azure Container Registry
 
@@ -31,6 +30,9 @@ O Registo de Contentores Azure oferece opções de [autenticação](../container
 
 > [!NOTE]
 > Não é possível autenticar o Registo de Contentores Azure para retirar imagens durante a colocação do grupo de contentores utilizando uma [identidade gerida](container-instances-managed-identity.md) configurada no mesmo grupo de contentores.
+
+> [!NOTE]
+> Não é possível extrair imagens do Registo de [Contentores Azure](../container-registry/container-registry-vnet.md) implantados numa Rede Virtual Azure neste momento.
 
 Na secção seguinte, você cria um cofre de chaves Azure e um diretor de serviço, e armazena as credenciais do diretor de serviço no cofre. 
 
@@ -160,7 +162,7 @@ Se mantiver imagens de contentores num registo de contentores Azure, pode facilm
 
     ![Vista de detalhes para o grupo de contentores Azure Container Instances][aci-detailsview]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a autenticação do Registo do Contentor Azure, consulte [Authenticate com um registo de contentores Azure](../container-registry/container-registry-authentication.md).
 

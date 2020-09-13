@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066527"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658211"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade de negócios e recuperação de desastres para Azure Logic Apps
 
@@ -69,7 +69,7 @@ Este exemplo mostra as instâncias de aplicações lógicas primárias e secund�
 
 ## <a name="connections-to-resources"></a>Ligações aos recursos
 
-A Azure Logic Apps fornece [gatilhos e ações incorporados, além de centenas de conectores geridos](../connectors/apis-list.md) que a sua aplicação lógica pode usar para trabalhar com outras aplicações, serviços, sistemas e outros recursos, como contas de Armazenamento Azure, bases de dados do SQL Server, contas de e-mail do Office 365 Outlook, e assim por diante. Se a sua aplicação lógica necessitar de acesso a estes recursos, cria ligações que autenticam o acesso a estes recursos. Cada ligação é um recurso Azure separado que existe num local específico e não pode ser usado por recursos em outros locais.
+A Azure Logic Apps fornece [gatilhos e ações incorporados, além de centenas de conectores geridos](../connectors/apis-list.md) que a sua aplicação lógica pode usar para trabalhar com outras aplicações, serviços, sistemas e outros recursos, como contas de Armazenamento Azure, bases de dados do SQL Server, contas de e-mail de trabalho ou escola, e assim por diante. Se a sua aplicação lógica necessitar de acesso a estes recursos, cria ligações que autenticam o acesso a estes recursos. Cada ligação é um recurso Azure separado que existe num local específico e não pode ser usado por recursos em outros locais.
 
 Para a sua estratégia de recuperação de desastres, considere as localizações onde existem recursos dependentes em relação às suas instâncias de aplicações lógicas:
 
@@ -102,8 +102,8 @@ Pode configurar as suas localizações primárias e secundárias para que as ins
 
 | Papel primário-secundário | Descrição |
 |------------------------|-------------|
-| *Ativo ativo* | As instâncias de aplicações lógicas primárias e secundárias em ambos os locais lidam ativamente com os pedidos seguindo qualquer um destes padrões: <p><p>- *Equilíbrio de carga*: Pode fazer com que ambas as instâncias ouçam um ponto final e carreguem o tráfego de equilíbrio para cada instância, se necessário. <p>- *Consumidores concorrentes*: Pode fazer com que ambas as instâncias atuem como consumidores concorrentes para que os casos concorram por mensagens de uma fila. Se um caso falhar, o outro caso assume a carga de trabalho. |
-| *Ativo-passivo* | A instância da aplicação lógica primária lida ativamente com toda a carga de trabalho, enquanto a instância secundária é passiva (desativada ou inativa). O secundário aguarda um sinal de que o primário está indisponível ou não funciona devido a perturbação ou falha e assume a carga de trabalho como o caso ativo. |
+| *Ativa-ativa* | As instâncias de aplicações lógicas primárias e secundárias em ambos os locais lidam ativamente com os pedidos seguindo qualquer um destes padrões: <p><p>- *Equilíbrio de carga*: Pode fazer com que ambas as instâncias ouçam um ponto final e carreguem o tráfego de equilíbrio para cada instância, se necessário. <p>- *Consumidores concorrentes*: Pode fazer com que ambas as instâncias atuem como consumidores concorrentes para que os casos concorram por mensagens de uma fila. Se um caso falhar, o outro caso assume a carga de trabalho. |
+| *Ativa-passiva* | A instância da aplicação lógica primária lida ativamente com toda a carga de trabalho, enquanto a instância secundária é passiva (desativada ou inativa). O secundário aguarda um sinal de que o primário está indisponível ou não funciona devido a perturbação ou falha e assume a carga de trabalho como o caso ativo. |
 | Combinação | Algumas aplicações lógicas desempenham um papel ativo, enquanto outras aplicações lógicas desempenham um papel ativo-passivo. |
 |||
 
@@ -346,7 +346,7 @@ Pode configurar o registo para a sua aplicação lógica e enviar os dados de di
   * [Recuperação de desastres de armazenamento Azure Blob e falha na conta](../storage/common/storage-disaster-recovery-guidance.md)
   * [Azure Event Hubs recuperação de geo-desastres](../event-hubs/event-hubs-geo-dr.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral da resiliência para Azure](/azure/architecture/framework/resiliency/overview)
 * [Lista de verificação de resiliência para serviços específicos do Azure](/azure/architecture/checklist/resiliency-per-service)

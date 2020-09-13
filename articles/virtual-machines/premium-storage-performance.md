@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a13fa7c819dcccc101c23015214bac55d2ab26c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855539"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650720"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 
@@ -127,10 +127,10 @@ Os contadores PerfMon estão disponíveis para processador, memória e cada disc
 | **Latência** |Tempo total para completar um pedido de IO do disco. |Média de disco/leitura <br> Média de disco/Escrita |aguardar <br> svctm |
 | **Tamanho IO** |O tamanho dos pedidos de E/O para os discos de armazenamento. |Bytes médios de disco/leitura <br> Bytes médios de disco/escrita |avgrq-sz |
 | **Profundidade da fila** |Número de pedidos de E/S pendentes à espera de serem lidos ou escritos para o disco de armazenamento. |Comprimento atual da fila do disco |avgqu-sz |
-| **Max, max. Memória** |Quantidade de memória necessária para executar a aplicação sem problemas |% dos Bytes Consolidados em Utilização |Use vmstat |
-| **Max, max. CPU** |Valor CPU necessário para executar a aplicação sem problemas |% tempo de processador |%util |
+| **Már. Memória** |Quantidade de memória necessária para executar a aplicação sem problemas |% dos Bytes Consolidados em Utilização |Use vmstat |
+| **Max. CPU** |Valor CPU necessário para executar a aplicação sem problemas |% tempo de processador |%util |
 
-Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [PerfMon.](https://msdn.microsoft.com/library/aa645516.aspx)
+Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [PerfMon.](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal)
 
 
 
@@ -410,7 +410,7 @@ Para um volume listrado, mantenha uma profundidade de fila suficientemente alta 
 
 As disposições de Armazenamento Azure Premium especificaram o número de IOPS e Depute dependendo dos tamanhos de VM e dos tamanhos do disco que escolher. Sempre que a sua aplicação tentar conduzir IOPS ou Produção acima destes limites do que o VM ou o disco podem manusear, o Premium Storage irá estrangulá-lo. Isto manifesta-se sob a forma de desempenho degradado na sua aplicação. Isto pode significar maior latência, menor produção ou iops mais baixo. Se o Armazenamento Premium não acelerar, a sua aplicação poderá falhar completamente excedendo o que os seus recursos são capazes de alcançar. Assim, para evitar problemas de desempenho devido a estrangulamento, sempre fornecendo recursos suficientes para a sua aplicação. Tome em consideração o que discutimos nas secções de tamanhos de VM e tamanhos de disco acima. O benchmarking é a melhor maneira de descobrir quais os recursos necessários para hospedar a sua aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se procura comparar o seu disco, consulte os nossos artigos sobre o benchmarking de um disco:
 

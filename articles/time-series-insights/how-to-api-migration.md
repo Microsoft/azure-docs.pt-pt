@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d68323bb72779ec5978c721b5258d4c8a8d4940d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163956"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650792"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrando para novas versões Azure Time Series Insights Gen2 API
 
@@ -39,7 +39,7 @@ Para ajudar os utilizadores a migrar as suas [variáveis de Modelo de Séries de
 
 1. O Explorer irá solicitar que atualize a sintaxe utilizada pelas variáveis do Modelo série de tempo e que guarde as consultas.
 
-    [![Prompt](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
+    [![Solicitação](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
 
     Se fechar acidentalmente a notificação, pode ser encontrada no painel de notificação.
 
@@ -56,7 +56,7 @@ Para ajudar os utilizadores a migrar as suas [variáveis de Modelo de Séries de
 
     [![Atualizar variáveis](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Clique **em Atualização para consultas guardadas**. A ferramenta irá notificá-lo quando as variáveis tiverem sido atualizadas.
+1. Clique **em Atualização para consultas guardadas**. A ferramenta irá notificá-lo quando as consultas guardadas tiverem sido atualizadas.
 
     [![Atualizar consultas guardadas](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -99,7 +99,7 @@ Para os seguintes pontos finais REST, deve atualizar a versão API para `2020-07
 
 - Tipos APIs
   - [Colocar operação](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
-- APIs de consulta
+- APIs de Consulta
   - [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
   - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateseries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)

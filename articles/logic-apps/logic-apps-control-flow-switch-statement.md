@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: d2c8271f0bc33bc47e64c85846061a9b77bbe66f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066219"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657450"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar declarações de switch que executam ações de fluxo de trabalho com base em valores específicos em Azure Logic Apps
 
@@ -27,7 +27,7 @@ Por exemplo, suponha que quer uma aplicação lógica que tome diferentes passos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Para seguir o exemplo neste artigo, [crie esta aplicação lógica de amostra](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta Outlook.com ou Office 365 Outlook.
+* Para seguir o exemplo neste artigo, [crie esta app lógica de amostra](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta Outlook.com ou uma conta de trabalho ou escola.
 
   1. Quando adicionar a ação para enviar e-mail, encontre e selecione esta ação em vez disso: **Envie um e-mail de aprovação**
 
@@ -124,7 +124,7 @@ Agora que criou uma aplicação lógica usando uma declaração de comutação, 
 * Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades ou sugestões, visite o site de feedback do [utilizador do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar e repetir passos (laços)](../logic-apps/logic-apps-control-flow-loops.md)

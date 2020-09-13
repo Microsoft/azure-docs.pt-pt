@@ -1,25 +1,22 @@
 ---
 title: Permitir a replicação de pontos finais privados na Recuperação do Local de Azure
 description: Este artigo descreve como configurar a replicação de VMs com pontos finais privados de uma região de Azure para outra, utilizando a Recuperação do Local.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 16cde1cf43c6463cbbe640d9e0a80a9ea88f1f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097894"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658248"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Máquinas de replicar com pontos finais privados
 
-A Azure Site Recovery permite-lhe utilizar pontos finais privados [do Azure Private Link](../private-link/private-endpoint-overview.md) para replicar as suas máquinas a partir de uma rede virtual isolada. O apoio ao acesso privado a um cofre de recuperação é suportado para as seguintes regiões:
-
-- Comercial Azure: South Central US, West US 2, East US
-- Governo de Azure: EUA Gov Virginia, EUA Gov Arizona, US Gov Texas, US Dod East, US Dod Central
+A Azure Site Recovery permite-lhe utilizar pontos finais privados [do Azure Private Link](../private-link/private-endpoint-overview.md) para replicar as suas máquinas a partir de uma rede virtual isolada. O acesso privado a um cofre de recuperação é suportado em todas as regiões do Governo comercial & Azure.
 
 Este artigo fornece instruções para que execute os seguintes passos:
 
@@ -140,7 +137,7 @@ Antes de permitir a replicação de máquinas virtuais, a identidade gerida do c
 
 - Contas de armazenamento baseadas em gestores de recursos (Tipo Padrão):
   - [Contribuinte](../role-based-access-control/built-in-roles.md#contributor)
-  - [Colaborador de dados blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+  - [Contribuinte de Dados do Armazenamento de Blobs](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - Contas de armazenamento baseadas em gestores de recursos (Tipo Premium):
   - [Contribuinte](../role-based-access-control/built-in-roles.md#contributor)
   - [Proprietário de dados blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
@@ -176,7 +173,7 @@ Crie uma zona privada de DNS para permitir ao agente de mobilidade resolver nome
 
    1. Procure "Zona privada de DNS" na barra de pesquisa **de todos os serviços** e selecione "Zonas PRIVADAs de DNS" a partir do drop-down.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a procura de zona privada de dns na página de novos recursos no portal Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a procura de "zona privada de dns" na página de novos recursos no portal Azure.":::
 
    1. Uma vez na página "Zonas DNS Privadas", selecione o botão ** \+ Adicionar** para começar a criar uma nova zona.
 
@@ -209,16 +206,16 @@ Crie uma zona privada de DNS para permitir ao agente de mobilidade resolver nome
 
    1. Na página "Adicionar conjunto de registos" que abre, adicione uma entrada para cada nome de domínio totalmente qualificado e IP privado como um registo tipo _A._ A lista de nomes de domínios e IPs totalmente qualificados pode ser obtida a partir da página "Private Endpoint" em **Visão Geral**. Como mostrado no exemplo abaixo, o primeiro nome de domínio totalmente qualificado do ponto final privado é adicionado ao recorde estabelecido na zona privada de DNS.
 
-      Estes nomes de domínio totalmente qualificados correspondem ao padrão:`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      Estes nomes de domínio totalmente qualificados correspondem ao padrão: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Mostra a página para adicionar um registo tipo DNS A para o nome de domínio totalmente qualificado ao ponto final privado no portal Azure.":::
 
    > [!NOTE]
    > Depois de permitir a replicação, são criados mais dois nomes de domínio totalmente qualificados nos pontos finais privados de ambas as regiões. Certifique-se de que adiciona os registos DNS para estes nomes de domínio recentemente criados e totalmente qualificados também.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que ativou pontos finais privados para a sua replicação de máquinas virtuais, consulte estas outras páginas para obter informações adicionais e relacionadas:
 
-- [Replicar VMs Azure para outra região do Azure](./azure-to-azure-how-to-enable-replication.md)
+- [Replicar VMs do Azure para outra região do Azure](./azure-to-azure-how-to-enable-replication.md)
 - [Tutorial: Criar recuperação de desastres para VMs Azure](./azure-to-azure-tutorial-enable-replication.md)

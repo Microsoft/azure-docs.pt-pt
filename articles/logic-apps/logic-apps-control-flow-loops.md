@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495612"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657475"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
 
@@ -40,12 +40,12 @@ Um "Loop Foreach" repete uma ou mais ações em cada item de matriz e funciona a
 
 * Para obter resultados previsíveis das operações em variáveis durante cada iteração em loop, executar esses loops sequencialmente. Por exemplo, quando um loop em execução simultâneo termina, o incremento, decremento e apego às operações variáveis devolvem resultados previsíveis. No entanto, durante cada iteração no ciclo de funcionamento simultâneo, estas operações podem devolver resultados imprevisíveis. 
 
-* Ações em um loop "Foreach" usar o[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+* Ações em um loop "Foreach" usar o [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 expressão à referência e processar cada item na matriz. Se especificar dados que não estão num array, o fluxo de trabalho da aplicação lógica falha. 
 
 Esta aplicação lógica de exemplo envia um resumo diário para um feed RSS do site. A aplicação usa um loop "Foreach" que envia um e-mail para cada novo item.
 
-1. [Crie esta aplicação lógica de amostra](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta Outlook.com ou Office 365 Outlook.
+1. [Crie esta aplicação lógica de amostra](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta Outlook.com ou uma conta de trabalho ou escola.
 
 2. Entre o gatilho RSS e enviar ação de e-mail, adicione um loop "Foreach". 
 
@@ -338,7 +338,7 @@ Este exemplo "Até" chama um ponto final HTTP, que cria um recurso. O loop para 
 * Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, [o site de feedback do utilizador da Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Passos de execução com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)

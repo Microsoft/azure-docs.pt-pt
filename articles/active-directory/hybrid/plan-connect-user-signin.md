@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80331273"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657145"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect opções de inscrição do utilizador
 O Azure Ative Directory (Azure AD) Connect permite que os seus utilizadores entrem em súmia e recursos no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos-chave para cada modelo de identidade para ajudá-lo a escolher a identidade que pretende usar para iniciar sessão no Azure AD.
@@ -47,9 +47,9 @@ A Azure AD suporta os seguintes métodos de autenticação:
    * **Autenticação pass-through (PTA)** - Esta opção é semelhante à sincronização de haxixe de palavra-passe, mas fornece uma validação simples de senha usando agentes de software no local para organizações com políticas de segurança e conformidade fortes.
 * **Autenticação federada** - Quando escolher este método de autenticação, o Azure AD entregará o processo de autenticação a um sistema de autenticação de confiança independente, como o AD FS ou um sistema de federação de terceiros, para validar a inscrição do utilizador. 
 
-Para a maioria das organizações que apenas pretendem ativar o acesso ao Office 365, aplicações SaaS e outros recursos baseados em AD Azure, recomendamos a opção de sincronização de hash de palavra-passe padrão.
+Para a maioria das organizações que apenas pretendem ativar o acesso do utilizador ao Microsoft 365, aplicações SaaS e outros recursos baseados em AD Azure, recomendamos a opção de sincronização de hash de palavra-passe padrão.
  
-Para obter informações detalhadas sobre a escolha de um método de autenticação, consulte [Escolha o método de autenticação adequado para a sua solução de identidade híbrida Azure Ative Directory](../../security/fundamentals/choose-ad-authn.md)
+Para obter informações detalhadas sobre a escolha de um método de autenticação, consulte [Escolha o método de autenticação adequado para a sua solução de identidade híbrida Azure Ative Directory](./choose-ad-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Sincronização de hash de palavra-passe
 Com a sincronização de hash de palavra-passe, as hashes das palavras-passe do utilizador são sincronizadas desde o Ative Directory até ao Azure AD. Quando as palavras-passe são alteradas ou reiniciadas no local, as novas hashes de palavra-passe são sincronizadas imediatamente com a AZure AD para que os seus utilizadores possam sempre usar a mesma palavra-passe para recursos na nuvem e recursos no local. As palavras-passe nunca são enviadas para Azure AD ou armazenadas em Azure AD em texto claro. Pode utilizar a sincronização de hash de palavra-passe juntamente com a gravação de password para permitir a redefinição da palavra-passe de autosserviço no AZure AD.
@@ -139,12 +139,12 @@ A página de inscrição AZure AD lista os sufixos UPN que são definidos para o
 Pode clicar no botão de atualização para reencambar o estado mais recente dos domínios personalizados a partir do Azure AD.
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Selecionando o atributo para o nome principal do utilizador em Azure AD
-O utilizador do atributoPrincipalName é o atributo que os utilizadores usam quando fazem sedudo AD e Office 365. Deve verificar os domínios (também conhecidos como sufixos UPN) que são utilizados em Azure AD antes de os utilizadores serem sincronizados.
+O utilizador do atributoPrincipalName é o atributo que os utilizadores usam quando fazem súmico a AD e Microsoft 365. Deve verificar os domínios (também conhecidos como sufixos UPN) que são utilizados em Azure AD antes de os utilizadores serem sincronizados.
 
 Recomendamos vivamente que mantenha o nome de utilizador predefinidoPrincipal. Se este atributo não for exequível e não puder ser verificado, então é possível selecionar outro atributo (e-mail, por exemplo) como o atributo que detém o ID de inscrição. Isto é conhecido como o ID Alternativo. O valor do atributo ID alternativo deve seguir a norma RFC 822. Pode utilizar um ID alternativo com a palavra-passe SSO e a federação SSO como solução de entrada.
 
 > [!NOTE]
-> A utilização de um ID alternativo não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, consulte o artigo [Configurar um ID de Início de Sessão Alternativo](https://technet.microsoft.com/library/dn659436.aspx).
+> A utilização de um ID alternativo não é compatível com todas as cargas de trabalho do Microsoft 365. Para obter mais informações, consulte o artigo [Configurar um ID de Início de Sessão Alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 
@@ -190,6 +190,6 @@ Na página **de insusição do Utilizador,** selecione o pedido de inscrição d
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [a integração das suas identidades no local com o Azure Ative Directory](whatis-hybrid-identity.md).
 - Saiba mais sobre [os conceitos de design Azure AD Connect](plan-connect-design-concepts.md).
