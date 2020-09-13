@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857636"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438454"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformação com o Azure Databricks
 
@@ -28,7 +28,7 @@ Neste tutorial, cria-se um pipeline de ponta a ponta que contém as **atividades
 
 - **Os dados** de cópia duplicam o conjunto de dados de origem para o armazenamento da pia, que é montado como DBFS no caderno Azure Databricks. Desta forma, o conjunto de dados pode ser diretamente consumido pela Spark.
 
-- **O notebook** aciona o caderno Databricks que transforma o conjunto de dados. Adiciona também o conjunto de dados a uma pasta processada ou ao Armazém de Dados Azure SQL.
+- **O notebook** aciona o caderno Databricks que transforma o conjunto de dados. Adiciona também o conjunto de dados a uma pasta processada ou a Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 Para simplificar, o modelo neste tutorial não cria um gatilho programado. Pode adicionar um, se necessário.
 

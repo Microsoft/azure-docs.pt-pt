@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132828"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434474"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -30,7 +30,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões Azu
 
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** *(Microsoft.Storage):* Geralmente disponível em todas as regiões Azure.
 - **[Base de Dados Azure SQL](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql):* Geralmente disponível em todas as regiões do Azure.
-- **[Azure SQL Data Warehouse](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível em todas as regiões do Azure.
+- **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql):* Geralmente disponível em todas as regiões do Azure.
 - **[Base de Dados Azure para servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
 - **[Base de Dados Azure para servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
 - **[Base de Dados Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** *(Microsoft.Sql):* Geralmente disponível nas regiões de Azure onde o serviço de base de dados está disponível.
@@ -40,6 +40,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões Azu
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.EventHub*): Geralmente disponível em todas as regiões do Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Geralmente disponível em todas as regiões do Azure onde a ADLS Gen1 está disponível.
 - **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** *(Microsoft.Web*): Geralmente disponível em todas as regiões Azure onde o serviço de aplicações está disponível.
+- **[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** *(Microsoft.CognitiveServices*): Geralmente disponível em todas as regiões do Azure onde os serviços cognitivos estão disponíveis.
 
 **Pré-visualização pública**
 
@@ -143,12 +144,12 @@ As políticas de ponto final do serviço VNet permitem filtrar o tráfego de red
 
 Para perguntas frequentes, consulte [as FAQs de endpoint do serviço de rede virtual.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar pontos finais de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
 - [Garantir uma conta de Armazenamento Azure a uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Garantir uma Base de Dados Azure SQL a uma rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Garantir um Armazém de Dados Azure SQL a uma rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Garantir um Azure Synapse Analytics a uma rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integração de serviços Azure em redes virtuais](virtual-network-for-azure-services.md)
 - [Políticas de ponto final de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

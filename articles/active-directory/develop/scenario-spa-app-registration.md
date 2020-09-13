@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311573"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434542"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicação de uma página única: Registo de aplicações
 
@@ -32,7 +32,7 @@ Para aplicações com base em MSAL.js 1.0 e 2.0, comece por completar as seguint
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se a sua conta tiver acesso a vários inquilinos, selecione o filtro **Diretório + Subscrição** no menu superior e, em seguida, selecione o inquilino que deve conter o registo de aplicações que está prestes a criar.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gerir**, selecione **Registos de aplicações**.
-1. Selecione **Novo registo,** introduza um **Nome** para a candidatura e escolha os **tipos de conta suportado** para a aplicação. **NÃO** introduza um **URI de redirecionamento**. Para obter uma descrição dos diferentes tipos de conta, consulte o [Registo de uma nova aplicação utilizando o portal Azure.](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)
+1. Selecione **Novo registo,** introduza um **Nome** para a candidatura e escolha os **tipos de conta suportado** para a aplicação. **NÃO** introduza um **URI de redirecionamento**. Para obter uma descrição dos diferentes tipos de conta, consulte o [Registo de uma nova aplicação utilizando o portal Azure.](quickstart-register-app.md)
 1. Selecione **Registar-se** para criar o registo da aplicação.
 
 Em seguida, configurar o registo da aplicação com um **Redirect URI** para especificar onde a plataforma de identidade da Microsoft deve redirecionar o cliente juntamente com quaisquer fichas de segurança. Utilize os passos adequados para a versão de MSAL.js que está a utilizar na sua aplicação:
@@ -79,7 +79,7 @@ Como mencionado anteriormente, as aplicações de uma página única que utiliza
 
 Quando todas as aplicações de produção de uma página única representadas por um registo de aplicações estiverem a utilizar MSAL.js 2.0 e o fluxo de código de autorização, desmarque as definições implícitas do painel de **autenticação** do registo da aplicação no portal Azure. As aplicações que utilizam MSAL.js 1.x e o fluxo implícito podem continuar a funcionar, no entanto, se deixar o fluxo implícito ativado (verificado).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, configurar o código da sua aplicação para utilizar o registo de aplicações que criou nos passos anteriores:.
 

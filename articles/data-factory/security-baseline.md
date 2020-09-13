@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57786aa343fd2ea863b17f65253e5d4a4a6b88ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226833"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437943"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de segurança Azure para Azure Data Factory
 
@@ -542,7 +542,7 @@ Utilize a funcionalidade de descoberta e classificação de dados da Base de Dad
 
 **Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. Integração Os tempos de funcionação devem ser separados por rede virtual (VNet)/sub-rede e marcados adequadamente.
 
- Também pode utilizar Pontos Finais Privados para realizar o isolamento da rede. Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O Private Endpoint utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet.
+ Também pode utilizar Pontos Finais Privados para realizar o isolamento da rede. Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O Ponto Final Privado utiliza um endereço IP privado na VNet e leva de forma eficaz o serviço até à VNet.
 
 * [Como criar subscrições adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -578,7 +578,7 @@ Onde o Private Link estiver disponível, utilize pontos finais privados para gar
 
 **Orientação**: Se a loja de dados em nuvem suportar HTTPS ou TLS, todas as transferências de dados entre os serviços de movimento de dados na Data Factory e uma loja de dados em nuvem são através de um canal seguro HTTPS ou TLS. A versão TLS utilizada é 1.2.
 
-Todas as ligações à Base de Dados Azure SQL e ao Armazém de Dados Azure SQL requerem encriptação (SSL/TLS) enquanto os dados estão em trânsito de e para a base de dados. Quando estiver a ser autor de um oleoduto utilizando o JSON, adicione a propriedade de encriptação e desacri-a para ser verdadeira na cadeia de ligação. Para o armazenamento Azure, pode utilizar HTTPS na cadeia de ligação.
+Todas as ligações à Base de Dados Azure SQL e à Azure Synapse Analytics (anteriormente SQL Data Warehouse) requerem encriptação (SSL/TLS) enquanto os dados estão em trânsito de e para a base de dados. Quando estiver a ser autor de um oleoduto utilizando o JSON, adicione a propriedade de encriptação e desacri-a para ser verdadeira na cadeia de ligação. Para o armazenamento Azure, pode utilizar HTTPS na cadeia de ligação.
 
 * [Compreender a encriptação em trânsito na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 
@@ -896,7 +896,7 @@ Note que isto só se aplica se o seu tempo de execução de integração estiver
 
 * [O que é o Azure Firewall?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [O que é a Firewall de Aplicações Web do Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [O que é Azure Web Application Firewall?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
@@ -1050,7 +1050,9 @@ Também pode armazenar credenciais ou valores secretos num Cofre de Chaves Azure
 
 * [Como criar um Cofre-Chave](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Como autenticar para o Cofre de Chaves](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Como atribuir uma política de acesso ao Cofre de Chaves](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 * [Utilizar segredos do Azure Key Vault em atividades de pipeline](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 
@@ -1268,7 +1270,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

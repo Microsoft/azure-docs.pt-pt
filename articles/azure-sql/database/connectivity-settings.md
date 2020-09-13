@@ -3,18 +3,18 @@ title: Definições de conectividade para Azure SQL Database e Data Warehouse
 description: Este documento explica a escolha da versão de Segurança da Camada de Transporte (TLS) e a definição de Proxy vs. Redirecionamento para Azure SQL Database e Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 6297f7797758069ee75fe14960d72f9c497b0fe6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f664ffbfc9aa38dcf8eb7736b28613efb95bde63
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132981"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438182"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de Conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -217,7 +217,7 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral de como a conectividade funciona na Base de Dados Azure SQL, consulte a [Arquitetura de Conectividade](connectivity-architecture.md)
 - Para obter informações sobre como alterar a política de ligação de um servidor, consulte [a política de conn](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).

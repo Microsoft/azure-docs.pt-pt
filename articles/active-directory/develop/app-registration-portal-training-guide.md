@@ -13,12 +13,12 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13242a41e1d10b0df031bf10fd646d9ec3cf47c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478166"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437773"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registo de aplicações do portal Azure
 
@@ -77,12 +77,12 @@ Na nova experiência, os **segredos da aplicação** foram renomeados para **Cer
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plataformas/Autenticação: URLs de resposta/URIs de redirecionamento
 Na experiência antiga, uma aplicação tinha secções de Plataformas para Web, native e Web API para configurar URLs de redirecionamento, URL de logout e fluxo implícito.
 
-Na nova experiência, os URLs de resposta podem ser encontrados numa \' secção de autenticação de aplicações. Além disso, são referidos como URIs de redirecionamento e o formato para URIs de redirecionamento mudou. São obrigados a ser associados a um tipo de aplicação (web ou cliente público - mobile e desktop). [Saiba mais](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Na nova experiência, os URLs de resposta podem ser encontrados numa \' secção de autenticação de aplicações. Além disso, são referidos como URIs de redirecionamento e o formato para URIs de redirecionamento mudou. São obrigados a ser associados a um tipo de aplicação (web ou cliente público - mobile e desktop). [Saiba mais](quickstart-register-app.md#add-a-redirect-uri)
 
 As APIs web estão configuradas na página Expor uma API.
 
 > [!NOTE]
-> Experimente a experiência das novas definições de autenticação onde pode configurar as definições para a sua aplicação com base na plataforma ou dispositivo que pretende direcionar. [Saiba mais](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Experimente a experiência das novas definições de autenticação onde pode configurar as definições para a sua aplicação com base na plataforma ou dispositivo que pretende direcionar. [Saiba mais](quickstart-register-app.md#configure-platform-settings)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Permissões microsoft Graph/API
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b8e66ad2c907815b8395ab47059db92e57ad4cf
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707689"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438062"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HC
 
@@ -35,7 +35,7 @@ Vários testes de desempenho foram realizados em tamanhos da série HC. Seguem-s
 
 Mellanox Perftest.
 
-```azure-cli
+```bash
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
@@ -48,7 +48,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 32              | 1000            | 1.80            | 6.82            | 1.84            | 1.85            | 0.24            |
 | 64              | 1000            | 1.85            | 5.47            | 1.88            | 1.86            | 0,12            |
 | 128             | 1000            | 1.88            | 5.61            | 1.93            | 1.89            | 0,25            |
-| 256             | 1000            | 2.24            | 6.39            | 2.28            | 2.02            | 0.18            |
+| 256             | 1000            | 2.24            | 6.39            | 2.28            | 2.02            | 0,18            |
 | 512             | 1000            | 2.32            | 5.42            | 2.36            | 2.30            | 0.17            |
 | 1024            | 1000            | 2.43            | 6.22            | 2.48            | 2.38            | 0.21            |
 | 2048            | 1000            | 2.68            | 6.14            | 2.75            | 2.52            | 0,20            |
@@ -58,7 +58,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 Teste de latência MPI DA OSU v5.4.3.
 
-```azure-cli
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
@@ -81,7 +81,7 @@ Teste de latência MPI DA OSU v5.4.3.
 
 Teste de largura de banda OSU MPI v5.4.3.
 
-```azure-cli
+```bash
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
