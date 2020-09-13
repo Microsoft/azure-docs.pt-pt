@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205934"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030315"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações URI (URL de resposta)
 
@@ -66,6 +66,8 @@ Do ponto de vista do desenvolvimento, isto significa algumas coisas:
 * Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não `http://127.0.0.1/MyNativeApp` corresponde.
 * Por orientação RFC, não deve ser utilizado `localhost` no URI de redirecionamento. Em vez disso, utilize o endereço IP de retorno real, `127.0.0.1` . Isto impede que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas.
 
+    Para utilizar o `http` esquema com o endereço loopback (127.0.0.1) em vez de local, deve editar o manifesto de [aplicação](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
+
     O endereço de backback IPv6 `[::1]` não está atualmente suportado.
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrições em wildcards em URIs de redirecionamento
@@ -93,6 +95,6 @@ Nesta abordagem:
 > [!WARNING]
 > Esta abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro do estado, redirecionando assim o utilizador para um URL diferente, que é a [ameaça de redirecionamento aberto](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrita no RFC 6819. Portanto, o cliente deve proteger estes parâmetros encriptando o estado ou verificando-o por outros meios, como validar o nome de domínio no URI redirecionado contra o token.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça o [manifesto de inscrição](reference-app-manifest.md)da aplicação.

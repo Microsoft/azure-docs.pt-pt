@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
-ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 09/11/2020
+ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475605"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030605"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeamento do fluxo de dados Modo Debug
 
@@ -41,13 +41,15 @@ Quando terminar a depuração, desligue o depurador Debug para que o seu cluster
 
 ## <a name="debug-settings"></a>Definições de depurar
 
-As definições de depurar podem ser editadas clicando em "Definições de Depurg" na barra de ferramentas de tela de fluxo de dados. Pode selecionar o limite de linha ou a fonte de ficheiro para utilizar para cada uma das suas transformações De Origem aqui. Os limites de linha neste ajuste são apenas para a sessão de depuragem atual. Também pode selecionar o serviço ligado à encenação a ser utilizado para uma fonte DW SQL. 
+Assim que ligar o modo de depurar, pode editar como um fluxo de dados pré-visualiza os dados. As definições de depurar podem ser editadas clicando em "Definições de Depurg" na barra de ferramentas de tela de fluxo de dados. Pode selecionar o limite de linha ou a fonte de ficheiro para utilizar para cada uma das suas transformações De Origem aqui. Os limites de linha neste ajuste são apenas para a sessão de depuragem atual. Também pode selecionar o serviço ligado à encenação a ser utilizado para uma fonte Azure Synapse Analytics. 
 
 ![Definições de depurar](media/data-flow/debug-settings.png "Definições de depurar")
 
 Se tiver parâmetros no seu Fluxo de Dados ou em qualquer um dos seus conjuntos de dados referenciados, pode especificar quais os valores a utilizar durante a depuragem selecionando o separador **Parâmetros.**
 
 ![Parâmetros de definição de depurar](media/data-flow/debug-settings2.png "Parâmetros de definição de depurar")
+
+O IR predefinido utilizado para o modo de depuração nos fluxos de dados ADF é um pequeno nó de trabalhador único de 4 núcleos com um nó de condutor único de 4 núcleos. Isto funciona bem com amostras menores de dados ao testar a sua lógica de fluxo de dados. Se expandir os limites de linha nas definições de depuração durante a pré-visualização de dados ou definir um maior número de linhas amostradas na sua fonte durante o depuração do gasoduto, então poderá considerar a possibilidade de definir um ambiente de computação maior num novo Tempo de Execução de Integração Azure. Em seguida, pode reiniciar a sua sessão de depurar utilizando um ambiente de computação maior.
 
 ## <a name="data-preview"></a>Pré-visualização dos dados
 
@@ -59,6 +61,8 @@ Com o depurg ligado, o separador de pré-visualização de dados acende-se no pa
 > As fontes de ficheiros limitam apenas as linhas que vê, não as filas que estão a ser lidas. Para conjuntos de dados muito grandes, recomenda-se que pegue uma pequena parte desse ficheiro e o utilize para os seus testes. Pode selecionar um ficheiro temporário em Definições de Debug para cada fonte que seja um tipo de conjunto de dados de ficheiro.
 
 Ao executar o modo Debug no Fluxo de Dados, os seus dados não serão escritos para a transformação da Pia. Uma sessão de Debug destina-se a servir de arnês de teste para as suas transformações. Os lavatórios não são necessários durante a depurada e são ignorados no fluxo de dados. Se desejar testar a escrita dos dados na pia, execute o Fluxo de Dados a partir de um Pipeline da Fábrica de Dados Azure e utilize a execução de Depurg a partir de um oleoduto.
+
+Data Preview é uma imagem instantânea dos seus dados transformados usando limites de linha e amostragem de dados a partir de quadros de dados na memória Spark. Por conseguinte, os condutores de lavatórios não são utilizados ou testados neste cenário.
 
 ### <a name="testing-join-conditions"></a>Testes juntam condições de união
 
@@ -87,7 +91,7 @@ Selecionar uma coluna no seu separador de pré-visualização de dados e clicar 
 
 ![Estatísticas da coluna](media/data-flow/stats.png "Estatísticas da coluna")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Assim que terminar de construir e depurar o fluxo de dados, [execute-o a partir de um oleoduto.](control-flow-execute-data-flow-activity.md)
 * Ao testar o seu pipeline com um fluxo de dados, utilize a [opção de execução de execução do pipeline Debug.](iterative-development-debugging.md)

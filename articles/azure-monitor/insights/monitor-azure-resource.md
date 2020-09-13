@@ -6,24 +6,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326176"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030349"
 ---
-# <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorização dos recursos do Azure com o Azure Monitor
+# <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorizar os recursos do Azure com o Azure Monitor
 Quando você tem aplicações críticas e processos de negócio contando com recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pelos recursos da Azure e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.
 
 > [!IMPORTANT]
 > Este artigo aplica-se a todos os serviços em Azure que utilizam o Azure Monitor. Os recursos compute, incluindo VMs e App Service, geram os mesmos dados de monitorização descritos aqui, mas também têm um sistema operativo de hóspedes que também pode gerar registos e métricas. Consulte a documentação de monitorização destes serviços para obter mais informações sobre como recolher e analisar estes dados.
 
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
-O Azure Monitor é um serviço completo de monitorização de stacks em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure, além de recursos em outras nuvens e no local. A [plataforma de dados Azure Monitor](../platform/data-platform.md) recolhe dados em [registos](../platform/data-platform-logs.md) e [métricas](../platform/data-platform-metrics.md) onde podem ser analisados em conjunto usando um conjunto completo de ferramentas de monitorização, conforme descrito nas seguintes secções.
-
-- [O que se pode fazer com as Métricas do Monitor Azure?](../platform/data-platform-metrics.md#what-can-you-do-with-azure-monitor-metrics)
-- [O que pode fazer com os registos do Monitor Azure?](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
+O Azure Monitor é um serviço completo de monitorização de stacks em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure, além de recursos em outras nuvens e no local. A [plataforma de dados Azure Monitor](../platform/data-platform.md) recolhe dados em [registos](../platform/data-platform-logs.md) e [métricas](../platform/data-platform-metrics.md) onde podem ser analisados em conjunto usando um conjunto completo de ferramentas de monitorização. Veja a lista completa de aplicações e serviços que podem ser monitorizados pelo Azure Monitor no [What is monitored by Azure Monitor?](../monitor-reference.md)
 
 Assim que criar um recurso Azure, o Azure Monitor está ativado e começa a recolher métricas e registos de atividade que pode [ver e analisar no portal Azure](#monitoring-in-the-azure-portal). Com alguma configuração, pode recolher dados de monitorização adicionais e ativar funcionalidades adicionais. Consulte [os dados de monitorização](#monitoring-data) abaixo para obter mais informações sobre quaisquer requisitos de configuração.
 
@@ -100,7 +97,7 @@ Alguns serviços fornecerão ferramentas para além das características padrão
 
 Se um serviço tiver uma visão do Azure Monitor, pode aceder-lhe a partir da **Monitorização** no menu de cada recurso. Aceda a todos os insights e soluções do menu **Azure Monitor.**
 
-![Informações](media/monitor-azure-resource/insights.png)
+![Insights no portal Azure](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Métricas
 Analise as métricas no portal Azure utilizando o [explorador de métricas](../platform/metrics-getting-started.md) que está disponível no item do menu **Métricas** para a maioria dos serviços. Esta ferramenta permite-lhe trabalhar com métricas individuais ou combinar múltiplos para identificar correlações e tendências. 
@@ -108,7 +105,7 @@ Analise as métricas no portal Azure utilizando o [explorador de métricas](../p
 - Veja [como começar com o Azure Metrics Explorer](../platform/metrics-getting-started.md) para o básico de usar o explorador de métricas.
 - Consulte [funcionalidades avançadas do Azure Metrics Explorer](../platform/metrics-charts.md) para funcionalidades avançadas do explorador de métricas, tais como usar várias métricas e aplicar filtros e dividir.
 
-![Métricas](media/monitor-azure-resource/metrics.png)
+![Explorador de métricas no portal Azure](media/monitor-azure-resource/metrics.png)
 
 
 ### <a name="activity-log"></a>Registo de atividades 
@@ -129,7 +126,7 @@ O Azure Monitor Logs consolida registos e métricas de vários serviços e outra
 - Consulte [o modo de recolha](../platform/resource-logs.md#send-to-log-analytics-workspace) para obter uma explicação de como os dados de registo de recursos são estruturados em Registos do Monitor Azure.
 - Consulte a documentação de cada serviço Azure para obter detalhes sobre a sua tabela nos Registos do Monitor Azure.
 
-![Registos](media/monitor-azure-resource/logs.png)
+![Log Analytics no portal Azure](media/monitor-azure-resource/logs.png)
 
 ## <a name="monitoring-from-command-line"></a>Monitorização da linha de comando
 Pode aceder aos dados de monitorização recolhidos a partir de uma linha de comando ou incluir num script utilizando a interface de linha [de comando Azure PowerShell](/powershell/azure/) ou [Azure Command Line Interface](/cli/azure/). 
@@ -161,7 +158,7 @@ Utilize **alertas** do menu de um recurso para visualizar alertas e gerir as reg
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte [serviços, esquemas e categorias de Registos de Recursos Azure](../platform/resource-logs-schema.md) para obter detalhes de registos de recursos para diferentes serviços Azure.  
 

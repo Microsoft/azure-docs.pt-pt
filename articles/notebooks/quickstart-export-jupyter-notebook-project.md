@@ -3,12 +3,12 @@ title: Exportar um projeto Jupyter Notebook a partir da Pré-visualização de C
 description: Exporte rapidamente um projeto jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: a2e76f2c1956df4d0de59cfb429dc1c9dce85a62
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892104"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030451"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Quickstart: Export a Jupyter Notebook project in Azure Notebooks Preview
 
@@ -34,7 +34,7 @@ Um projeto de Cadernos Azure existente.
 
 Depois de descarregar os seus ficheiros do projeto, pode usá-los com outras soluções Jupyter Notebook. Algumas opções descritas nas secções abaixo incluem: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
-- [Espaços de código do estúdio visual](#use-notebooks-in-visual-studio-codespaces)
+- [Espaçoes de código GitHub](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
@@ -58,14 +58,13 @@ Depois de [descarregar](#export-an-azure-notebooks-project) os seus ficheiros de
 
 Também pode utilizar o [script ambiente Azure Notebooks](#create-an-environment-for-notebooks) com Visual Studio Code para criar um ambiente que corresponda à pré-visualização dos Cadernos Azure.
 
-## <a name="use-notebooks-in-visual-studio-codespaces"></a>Use cadernos em espaços de código do estúdio visual
+## <a name="use-notebooks-in-github-codespaces"></a>Use cadernos em espaço de código GitHub
 
-O Visual Studio Codespaces fornece ambientes hospedados na nuvem onde pode editar os seus cadernos usando o Código do Estúdio Visual ou o seu navegador web. Oferece a mesma grande experiência Jupyter que o VS Code, mas sem necessidade de instalar nada no seu dispositivo. Se você não quer configurar um ambiente local e preferir uma solução apoiada por nuvens, então criar um espaço de código é uma ótima opção. Para começar:
-
+O GitHub Codespaces fornece ambientes hospedados em nuvem onde pode editar os seus cadernos usando o Código do Estúdio Visual ou no seu navegador web. Oferece a mesma grande experiência Jupyter que o VS Code, mas sem necessidade de instalar nada no seu dispositivo. Se você não quer configurar um ambiente local e preferir uma solução apoiada por nuvens, então criar um espaço de código é uma ótima opção. Para começar:
 1. [Descarregue](#export-an-azure-notebooks-project) os seus ficheiros de projeto.
-1. [Crie um repositório GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) para armazenar os seus cadernos. 
+1. [Crie um repositório GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) para armazenar os seus cadernos.   
 1. [Adicione os seus ficheiros](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) ao repositório.
-1. Configurar os codespaces do estúdio visual no [navegador,](https://docs.microsoft.com/visualstudio/online/how-to/browser) [Visual Studio](https://docs.microsoft.com/visualstudio/online/how-to/vside)ou Visual [Studio Code](https://docs.microsoft.com/visualstudio/online/how-to/vscode).
+1. [Solicitar acesso à pré-visualização de codespaces do GitHub](https://github.com/features/codespaces)
 
 ## <a name="use-notebooks-with-azure-machine-learning"></a>Use cadernos com aprendizagem automática Azure
 
@@ -93,16 +92,16 @@ Para obter informações adicionais sobre Azure ML e executar cadernos Jupyter, 
 
 ## <a name="use-github"></a>Use GitHub
 
-O GitHub fornece uma forma gratuita e apoiada por controlo de fontes para armazenar cadernos (e outros ficheiros), partilhar os seus cadernos com outros e trabalhar colaborativamente. Se procura uma forma de partilhar os seus projetos e colaborar com outros, o GitHub é uma ótima opção e pode ser combinado com [o Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces) para uma grande experiência de desenvolvimento. Para começar com GitHub
+O GitHub fornece uma forma gratuita e apoiada por controlo de fontes para armazenar cadernos (e outros ficheiros), partilhar os seus cadernos com outros e trabalhar colaborativamente. Se procura uma forma de partilhar os seus projetos e colaborar com outros, o GitHub é uma ótima opção e pode ser combinado com [o GitHub Codespaces](#use-notebooks-in-github-codespaces) para uma grande experiência de desenvolvimento. Para começar com GitHub
 
 1. [Descarregue](#export-an-azure-notebooks-project) os seus ficheiros de projeto.
 1. [Crie um repositório GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) para armazenar os seus cadernos. 
 1. [Adicione os seus ficheiros](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) ao repositório.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre Python no Código do Estúdio Visual](https://code.visualstudio.com/docs/python/python-tutorial)
 - [Saiba mais sobre Azure Machine Learning e Jupyter Notebooks](../machine-learning/how-to-run-jupyter-notebooks.md)
-- [Saiba mais sobre o Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Saiba mais sobre o GitHub Codespaces](https://github.com/features/codespaces)
 - [Saiba mais sobre os Serviços Azure Lab](https://azure.microsoft.com/services/lab-services/)
 - [Saiba mais sobre o GitHub](https://help.github.com/github/getting-started-with-github/)

@@ -1,5 +1,5 @@
 ---
-title: Inscrição no telefone e inscrição com políticas personalizadas (Pré-visualização)
+title: Inscrição no telefone e inscrição com políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Envie senhas únicas (OTP) em mensagens de texto para os telefones dos utilizadores da sua aplicação com políticas personalizadas no Azure Ative Directory B2C.
 services: active-directory-b2c
@@ -8,27 +8,85 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/25/2020
+ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d432912cb0442744061500fc01bdd86a4c5d97ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385353"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029167"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configurar inscrição no telefone e iniciar sôm-in com políticas personalizadas em Azure AD B2C (Pré-visualização)
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurar inscrição no telefone e iniciar sôm-in com políticas personalizadas em Azure AD B2C
 
 A inscrição telefónica e a inscrição no Azure Ative Directory B2C (Azure AD B2C) permitem que os seus utilizadores se inscrevam e inscrevam-se nas suas aplicações utilizando uma senha única (OTP) enviada numa mensagem de texto para o seu telemóvel. As senhas únicas podem ajudar a minimizar o risco de os seus utilizadores esquecerem ou terem as suas palavras-passe comprometidas.
 
 Siga os passos deste artigo para utilizar as políticas personalizadas para permitir que os seus clientes se inscrevam e inscrevam-se nas suas aplicações utilizando uma senha única enviada para o seu telemóvel.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="pricing"></a>Preços
 
 As palavras-passe únicas são enviadas para os seus utilizadores utilizando mensagens de texto SMS e pode ser cobrada por cada mensagem enviada. Para obter informações sobre preços, consulte a secção **de Encargos Separados** do [Azure Ative Directory B2C .](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+
+## <a name="user-experience-for-phone-sign-up-and-sign-in"></a>Experiência do utilizador para inscrição no telefone e inscrição
+
+Com a inscrição no telefone e o registo, o utilizador pode inscrever-se na aplicação usando um número de telefone como identificador principal. A experiência do utilizador final durante a inscrição e a inscrição é descrita abaixo.
+
+> [!NOTE]
+> Sugerimos vivamente que inclua informações de consentimento na sua experiência de inscrição e inscrição semelhante ao texto da amostra abaixo. Este texto de amostra é apenas para fins informativos. Consulte o Manual de Monitorização do Código Curto no site da [CTIA](https://www.ctia.org/programs) e consulte os seus próprios especialistas legais ou de conformidade para obter orientações sobre o seu texto final e configuração de funcionalidades para atender às suas próprias necessidades de conformidade:
+>
+> *Ao fornecer o seu número de telefone, consente em receber uma senha única enviada por mensagem de texto para o ajudar a iniciar sing para * &lt; inserir: o nome &gt; da sua aplicação*. Podem aplicar-se as taxas padrão de mensagem e dados.*
+>
+> *&lt;inserir: um link para a sua Declaração de Privacidade&gt;*<br/>*&lt;inserir: um link para os seus Termos de Serviço&gt;*
+
+Para adicionar as suas próprias informações de consentimento, personalize a seguinte amostra e inclua-a nas Fontes Locais para a Definição de Conteúdo utilizada pela página autoafirmada com o controlo de visualização (o ficheiro Phone-Email-Base.xml no pacote de arranque de inscrição do telefone &)
+
+```xml
+<LocalizedResources Id="phoneSignUp.en">        
+    <LocalizedStrings>
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString>          
+    <LocalizedString ElementType="UxElement" StringId="initial_intro">Please verify your country code and phone number</LocalizedString>        
+    </LocalizedStrings>      
+</LocalizedResources>
+   ```
+
+### <a name="phone-sign-up-experience"></a>Experiência de inscrição no telefone
+
+Se o utilizador ainda não tiver uma conta para a sua aplicação, pode criar uma, escolhendo a ligação **'Iniciar sessão'.** Aparece uma página de inscrição, onde o utilizador seleciona o seu **País,** introduz o seu número de telefone e seleciona **Código de Envio**.
+
+![O utilizador inicia a inscrição no telefone](media/phone-authentication/phone-signup-start.png)
+
+Um código de verificação único é enviado para o número de telefone do utilizador. O utilizador introduz o **Código de Verificação** na página de inscrição e, em seguida, seleciona **Código de Verificação**. (Se o utilizador não conseguir recuperar o código, pode selecionar **Enviar Novo Código**.)
+
+![Utilizador verifica código durante a inscrição no telefone](media/phone-authentication/phone-signup-verify-code.png)
+
+ O utilizador introduz qualquer outra informação solicitada na página de inscrição, por exemplo, Nome de **Exibição, Nome** **Dado**, e **Apelido** (País e número de telefone permanecem povoados). Se o utilizador quiser utilizar um número de telefone diferente, pode escolher **o número de alteração** para reiniciar a inscrição. Quando terminar, o utilizador seleciona **Continuar**.
+
+![O utilizador fornece informações adicionais](media/phone-authentication/phone-signup-additional-info.png)
+
+Em seguida, o utilizador é solicitado a fornecer um e-mail de recuperação. O utilizador introduz o seu endereço de e-mail e, em seguida, seleciona **Enviar código de verificação**. É enviado um código para a caixa de entrada de e-mail do utilizador, que pode recuperar e introduzir na caixa **de códigos de Verificação.** Em seguida, o utilizador **seleciona Verificar o código**. 
+
+Uma vez verificado o código, o utilizador seleciona **criar** para criar a sua conta. Ou se o utilizador quiser utilizar um endereço de e-mail diferente, pode escolher **o e-mail Change**.
+
+![Utilizador cria conta](media/phone-authentication/email-verification.png)
+
+### <a name="phone-sign-in-experience"></a>Experiência de inscrição no telefone
+
+Se o utilizador tiver uma conta existente com o número de telefone como identificador, o utilizador introduz o seu número de telefone e seleciona **Continuar**. Confirmam o país e o número de telefone selecionando **Continue**, e um código de verificação único é enviado para o seu telefone. O utilizador introduz o código de verificação e seleciona **Continuar** a iniciar sção.
+
+![Experiência do utilizador de inscrição no telefone](media/phone-authentication/phone-signin-screens.png)
+
+## <a name="deleting-a-user-account"></a>Apagar uma conta de utilizador
+
+Em certos casos, poderá necessitar de eliminar um utilizador e dados associados do seu diretório Azure AD B2C. Para obter mais informações sobre como eliminar uma conta de utilizador através do portal Azure, consulte [estas instruções](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,12 +152,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 
 ## <a name="next-steps"></a>Próximos passos
 
-Pode encontrar o pacote de arranque de política personalizado (e outros pacotes de arranque) no GitHub:
-
-[Azure-Samples/active-directy-b2c-custom-policy-starterpack/scenarios/phone-number-password][starter-pack-phone]
-
-Os ficheiros de política de pacote de iniciação utilizam perfis técnicos de autenticação de vários fatores e as transformações de pedidos de número de telefone:
-
+Pode encontrar o pacote de arranque de política personalizado (e outros pacotes de arranque) do telefone no GitHub: [Azure-Samples/active-directy-b2c-custom-policy-starterpack/scenarios/phone-number-password][starter-pack-phone] Os ficheiros de política de arranque utilizam perfis técnicos de autenticação de vários fatores e transformações de reclamações de números de telefone:
 * [Defina um perfil técnico de autenticação multi-factor Azure](multi-factor-auth-technical-profile.md)
 * [Definir número de telefone reclama transformações](phone-number-claims-transformations.md)
 

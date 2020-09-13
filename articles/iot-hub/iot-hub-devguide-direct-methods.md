@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 55472f16cefeca3b00bea79e71aee5d6588528d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 516b3bac5da2e078217d5c12f1efdf527b7c83a1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323065"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029074"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos a partir do Hub IoT
 
@@ -38,7 +38,7 @@ Consulte a [orientação de comunicação Nuvem-a-dispositivo](iot-hub-devguide-
 Os métodos diretos são implementados no dispositivo e podem exigir zero ou mais entradas na carga útil do método para instantanear corretamente. Invoca um método direto através de um URI virado para o serviço ( `{iot hub}/twins/{device id}/methods/` ). Um dispositivo recebe métodos diretos através de um tópico MQTT específico do dispositivo ( `$iothub/methods/POST/{method name}/` ) ou através de ligações AMQP (as propriedades e `IoThub-methodname` `IoThub-status` aplicações).
 
 > [!NOTE]
-> Quando invoca um método direto num dispositivo, os nomes e valores de propriedade só podem conter alfanumérico imprimível US-ASCII, exceto qualquer um no seguinte conjunto:``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
+> Quando invoca um método direto num dispositivo, os nomes e valores de propriedade só podem conter alfanumérico imprimível US-ASCII, exceto qualquer um no seguinte conjunto: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
 Os métodos diretos são sincronizados e sucedem ou falham após o período de tempo limite (padrão: 30 segundos, padrão entre 5 e 300 segundos). Os métodos diretos são úteis em cenários interativos onde pretende que um dispositivo aja se e somente se o dispositivo estiver online e receber comandos. Por exemplo, acender uma luz de um telefone. Nestes cenários, pretende-se um sucesso ou falha imediato para que o serviço de cloud possa atuar o mais rapidamente possível. O dispositivo pode devolver algum corpo de mensagem como resultado do método, mas não é necessário para o método fazê-lo. Não há garantias sobre a ordem ou qualquer semântica de conucção em chamadas metódãs.
@@ -55,7 +55,7 @@ Agora, invoque um método direto a partir de uma aplicação de back-end.
 
 Invocações de métodos diretos num dispositivo são chamadas HTTPS que são compostas pelos seguintes itens:
 
-* O *pedido URI* específico para o dispositivo juntamente com a [versão API:](/rest/api/iothub/service/devicemethod/invokedevicemethod)
+* O *pedido URI* específico para o dispositivo juntamente com a [versão API:](https://docs.aws.amazon.com/cli/latest/reference/iot1click-devices/invoke-device-method.html)
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
@@ -220,7 +220,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a usar métodos diretos, poderá estar interessado no seguinte artigo de guia de desenvolvimento do IoT Hub:
 

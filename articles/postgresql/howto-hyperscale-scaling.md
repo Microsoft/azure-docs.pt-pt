@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 10d253b3e470ea009944d4ccd756d4bbbe3766e7
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134530"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029822"
 ---
-# <a name="server-group-size"></a>Tamanho do grupo do servidor
+# <a name="server-group-size"></a>Tamanho do grupo de servidores
 
 A opção de implementação hyperscale (Citus) utiliza servidores de base de dados cooperantes para paralelizar a execução de consultas e armazenar mais dados. O "tamanho" do grupo do servidor refere-se tanto ao número de servidores como aos recursos de hardware de cada um.
 
@@ -40,7 +40,7 @@ A Azure Database for PostgreSQL - Hyperscale (Citus) fornece escala de autosserv
 
 ### <a name="add-worker-nodes"></a>Adicione os nó de trabalhador
 
-Para adicionar nós, vá ao **separador Configurar** no seu grupo de servidor Hyperscale (Citus).  Arrastar o slider para **a contagem de nóiros** altera o valor.
+Para adicionar nós, vá ao separador **de armazenamento Compute +** no seu grupo de servidor Hyperscale (Citus).  Arrastar o slider para **a contagem de nóiros** altera o valor.
 
 ![Sliders de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
@@ -66,7 +66,7 @@ A `rebalance_table_shards` função reequilibra todas as tabelas do grupo de [co
 
 Além de adicionar novos nós, pode aumentar as capacidades dos nós existentes. Ajustar a capacidade de computação para cima e para baixo pode ser útil para experiências de desempenho, bem como alterações a curto ou longo prazo nas exigências de tráfego.
 
-Para alterar os vCores para todos os nós dos trabalhadores, ajuste o slider **vCores** em **Configuração (por nó de trabalhador)**. Os vCores do nó coordenador podem ser ajustados de forma independente. Ajuste o slider **vCores** na **Configuração (nó coordenador)**.
+Para alterar os vCores para todos os nós dos trabalhadores, ajuste o slider **vCores** em **Configuração (por nó de trabalhador)**. Os vCores do nó coordenador podem ser ajustados de forma independente. Ajuste o slider **vCores** na  **Configuração (nó coordenador)**.
 
 ## <a name="next-steps"></a>Próximos passos
 

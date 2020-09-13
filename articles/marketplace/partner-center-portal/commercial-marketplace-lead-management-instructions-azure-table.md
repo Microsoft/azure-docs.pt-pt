@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855705"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030802"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento da Mesa Azure para gerir os leads de marketplace comercial
 
@@ -135,7 +135,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
    Nos próximos passos, você configura a ação a tomar com base no resultado da condição:
 
    * Se a condição resolver **se não,** não faça nada.
-   * Se a condição resolver **se sim,** desencadeie uma ação que ligue a sua conta Office 365 para enviar um e-mail.
+   * Se a condição resolver **se sim,** desencadeie uma ação que ligue o seu trabalho ou conta escolar para enviar um e-mail. 
 
 1. **Selecione Adicione uma ação** em Se **sim**.
 

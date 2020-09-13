@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 41f7b1309a9c7fa9a5f2abb3e2e59f08ef31382d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c9239196d26bcd4967b685fa7970c4d3bd706d4
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124855"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030536"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados, baseados em horários e recorrentes utilizando apps Azure Logic
 
@@ -36,7 +36,7 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se para uma conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-* Uma conta de e-mail de um fornecedor de e-mail que é suportado por Aplicações Lógicas, como Office 365 Outlook, Outlook.com ou Gmail. Para outros fornecedores, [consulte a lista de conectores aqui](/connectors/). Este quickstart utiliza uma conta Office 365 Outlook. Se utilizar uma conta de e-mail diferente, os passos gerais permanecem os mesmos, mas a sua UI pode diferir ligeiramente.
+* Uma conta de e-mail de um fornecedor de e-mail que é suportado por Aplicações Lógicas, como Office 365 Outlook, Outlook.com ou Gmail. Para outros fornecedores, [consulte a lista de conectores aqui](/connectors/). Este quickstart usa uma conta de trabalho ou escola. Se utilizar uma conta de e-mail diferente, os passos gerais permanecem os mesmos, mas a sua UI pode diferir ligeiramente.
 
   > [!IMPORTANT]
   > Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -92,8 +92,8 @@ Em seguida, adicione o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Intervalo** | Sim | 1 | O número de intervalos de espera entre verificações |
-   | **Frequência** | Sim | Semana | A unidade de tempo a utilizar para a periodicidade |
+   | **Intervalo** | Yes | 1 | O número de intervalos de espera entre verificações |
+   | **Frequência** | Yes | Semana | A unidade de tempo a utilizar para a periodicidade |
    |||||
 
 1. Em **Intervalo** e **Frequência,** abra a nova lista **de parâmetros add** e selecione estas propriedades para adicionar ao gatilho.
@@ -141,8 +141,8 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome de conexão** | Sim | BingMapsConnection | Indique um nome para a ligação. Este exemplo utiliza "BingMapsConnection". |
-   | **Chave de API** | Sim | <*sua-Bing-Maps-chave*> | Introduza a chave do Mapas Bing que recebeu anteriormente. Se não tiver uma chave do Mapas Bing, saiba [como obtê-la](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
+   | **Nome de conexão** | Yes | BingMapsConnection | Indique um nome para a ligação. Este exemplo utiliza "BingMapsConnection". |
+   | **Chave de API** | Yes | <*sua-Bing-Maps-chave*> | Introduza a chave do Mapas Bing que recebeu anteriormente. Se não tiver uma chave do Mapas Bing, saiba [como obtê-la](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Mude o nome da ação com a descrição `Get route and travel time with traffic`
@@ -161,11 +161,11 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Waypoint 1** | Sim | <*localização inicial*> | A origem do percurso |
-   | **Waypoint 2** | Sim | <*localização final*> | O destino do percurso |
-   | **Otimizar** | Não | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o parâmetro "timeWithTraffic". |
-   | **Distance unit** | Não | <*sua preferência*> | A unidade de distância do percurso. Este exemplo usa "Mile" como unidade. |
-   | **Travel mode** | Não | Driving | O modo de deslocação para o percurso. Selecione o modo "Condução". |
+   | **Waypoint 1** | Yes | <*localização inicial*> | A origem do percurso |
+   | **Waypoint 2** | Yes | <*localização final*> | O destino do percurso |
+   | **Otimizar** | No | timeWithTraffic | Um parâmetro para otimizar o percurso, por exemplo, a distância, o tempo de deslocação com o tráfego atual e assim sucessivamente. Selecione o parâmetro "timeWithTraffic". |
+   | **Distance unit** | No | <*sua preferência*> | A unidade de distância do percurso. Este exemplo usa "Mile" como unidade. |
+   | **Travel mode** | No | Driving | O modo de deslocação para o percurso. Selecione o modo "Condução". |
    ||||
 
    Para obter mais informações sobre estes parâmetros, veja [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Calcular um percurso).
@@ -192,9 +192,9 @@ Por predefinição, a ação de **rota Get** anterior devolve o tempo de viagem 
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome** | Sim | travelTime | O nome para a sua variável. Este exemplo utiliza "TravelTime". |
-   | **Tipo** | Sim | Número inteiro | O tipo de dados da variável |
-   | **Valor** | Não| Uma expressão que converte o tempo de deslocação atual de segundos em minutos (ver os passos nesta tabela). | O valor iniciar da variável |
+   | **Nome** | Yes | travelTime | O nome para a sua variável. Este exemplo utiliza "TravelTime". |
+   | **Tipo** | Yes | Número inteiro | O tipo de dados da variável |
+   | **Valor** | No| Uma expressão que converte o tempo de deslocação atual de segundos em minutos (ver os passos nesta tabela). | O valor iniciar da variável |
    ||||
 
    1. Para criar a expressão para a propriedade **Valor,** clique dentro da caixa para que a lista de conteúdos dinâmicos apareça. Se necessário, alargue o browser até que a lista apareça. Na lista de conteúdos dinâmicos, selecione **Expression**.
@@ -248,7 +248,7 @@ Em seguida, adicione uma condição que verifica se o tempo de deslocação atua
 
    1. Na caixa de comparação média, selecione o **é maior do que** o operador.
 
-   1. Na **caixa de valor escolha uma** caixa de valor no lado direito da condição, insira este limite:`15`
+   1. Na **caixa de valor escolha uma** caixa de valor no lado direito da condição, insira este limite: `15`
 
       Quando terminar, a condição parece este exemplo:
 

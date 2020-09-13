@@ -12,19 +12,74 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510169"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024303"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
 
-## <a name="august-2020-guest-os"></a>Os convidados de agosto de 2020
+## <a name="september-2020-guest-os"></a>Os convidados de setembro de 2020
 >[!NOTE]
->O August Guest OS está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de agosto. Esta lista está sujeita a alterações.
+>O Os Hóspedes de setembro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de setembro. Esta lista está sujeita a alterações.
+
+
+| Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2.102, 3.89, 4.82 | 8 de set, 2020 |
+|  Rel 20-09 |  [4561600]  |  Atualização flash | 3.89, 4.82, 5.47, 6.23 | 8 de set, 2020 |
+|  Rel 20-09 |  [4577015]  |  Última atualização cumulativa (LCU) | 5.47 | 8 de set, 2020 |
+|  Rel 20-09 |  [4570333]  |  Última atualização cumulativa (LCU) | 6.23 | 8 de set, 2020 |
+|  Rel 20-09 |  [4570673]  |  Atualização de Stack de Manutenção | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4577051]  |  Rollup mensal | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4569767]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4569780]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4566426]  |  Atualização de Stack de Manutenção | 3.89 | 8 de set, 2020 |
+|  Rel 20-09 |  [4577038]  |  Rollup mensal | 3.89 | 8 de set, 2020 |
+|  Rel 20-09 |  [4569765]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.89 | 8 de set, 2020 |
+|  Rel 20-09 |  [4569779]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.89 | 8 de set, 2020 |
+|  Rel 20-09 |  [4566425]  |  Atualização de Stack de Manutenção | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4577066]  |  Rollup mensal | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4569768]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4569778]  |  Quadro NET 4.5.2 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4578013]  |  Atualização de Segurança | 2.102 | 8 de set, 2020 |
+|  Rel 20-09 |  [4576750]  |  Atualização de Stack de Manutenção | 5.47 | 8 de set, 2020 |
+|  Rel 20-09 |  [4576479]  |  Quadro NET 4.8 Rollup de segurança e qualidade | 5.47 | 8 de set, 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcódigo | 5.47 | 8 de set, 2020 |
+|  Rel 20-09 |  [4570332]  |  Atualização de Stack de Manutenção | 6.23 | 8 de set, 2020 |
+|  Rel 20-09 |  [4570720]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.23 | 8 de set, 2020 |
+|  Rel 20-09 |  [4576483]  |  .NET Quadro 4.8 Rollup de segurança e qualidade | 6.23 | 8 de set, 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcódigo | 6.23 | 8 de set, 2020 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4576479]: https://support.microsoft.com/kb/4576479
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4576483]: https://support.microsoft.com/kb/4576483
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## <a name="august-2020-guest-os"></a>Os convidados de agosto de 2020
 
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |

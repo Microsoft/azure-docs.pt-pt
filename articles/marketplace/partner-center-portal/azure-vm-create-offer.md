@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816529"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029707"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -27,7 +27,7 @@ Antes de começar, [Crie uma conta de marketplace comercial no Partner Center.](
 Ao publicar as suas ofertas no Azure Marketplace, pode:
 
 - Promova a sua empresa com a ajuda da marca Microsoft.
-- Alcance mais de 100 milhões de utilizadores do Office 365 e Dynamics 365 e mais de 200.000 organizações.
+- Alcance mais de 100 milhões de utilizadores microsoft 365 e Dynamics 365 e mais de 200.000 organizações.
 - Obtenha pistas de alta qualidade destes mercados.
 - Obtenha os seus serviços promovidos pelas equipas de vendas e televendas da Microsoft.
 
@@ -162,7 +162,7 @@ Deve fornecer condições e condições de oferta aos seus clientes. Tem duas op
 
        a. Insira os seus termos de emenda na caixa de **termos de emenda personalizada.** Pode introduzir um número ilimitado de caracteres. Apenas os clientes dos IDs do inquilino que especifique para estes termos personalizados os verão no fluxo de compra da oferta no portal Azure.
 
-       b. (Obrigatório) Fornecer **IDs de inquilino.** Cada emenda personalizada pode ser direcionada até 20 IDs de inquilino. Se adicionar uma emenda personalizada, deve fornecer pelo menos uma identificação de inquilino, que identifica o seu cliente em Azure. O seu cliente pode encontrá-lo em Azure selecionando **Azure Ative Directory**  >  **Properties**. O valor de ID do diretório é o ID do inquilino (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Também pode encontrar a identificação do inquilino do seu cliente através do endereço web do seu nome de domínio no Qual é o meu ID de [inquilino microsoft Azure e Office 365?](https://www.whatismytenantid.com/)
+       b. (Obrigatório) Fornecer **IDs de inquilino.** Cada emenda personalizada pode ser direcionada até 20 IDs de inquilino. Se adicionar uma emenda personalizada, deve fornecer pelo menos uma identificação de inquilino, que identifica o seu cliente em Azure. O seu cliente pode encontrá-lo em Azure selecionando **Azure Ative Directory**  >  **Properties**. O valor de ID do diretório é o ID do inquilino (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Também pode encontrar a identificação do inquilino do seu cliente através do endereço web do seu nome de domínio no [What is my Microsoft Azure and Microsoft 365 Tenant ID?](https://www.whatismytenantid.com/)
 
        c. (Opcional) Forneça uma **descrição** amigável para o ID do inquilino, que o ajude a identificar o cliente que está a visar com a emenda.
 

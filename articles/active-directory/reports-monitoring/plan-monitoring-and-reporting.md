@@ -1,6 +1,6 @@
 ---
 title: Relatórios do plano & monitorização da implementação - Azure AD
-description: Descreve como planear e executar a implmentação de relatórios e monitorização.
+description: Descreve como planear e executar a implementação de relatórios e monitorização.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b83291dc37c6248761214654f99d3ce214b551
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229757"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030995"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
 
@@ -99,7 +99,7 @@ O reporte e monitorização são usados para satisfazer os requisitos do seu neg
 * É bom ter de atender às necessidades do negócio
 * Não aplicável
 
-|Área |Description |
+|Área |Descrição |
 |-|-|
 |Retenção| **Retenção de registos superiores a 30 dias**. Devido a requisitos legais ou empresariais, é necessário armazenar registos de auditoria e assinar em registos de Azure AD por mais de 30 dias. |
 |Análise| **Os registos têm de ser pesmáveis.** Os registos armazenados devem ser pescêjáveis com ferramentas analíticas. |
@@ -133,7 +133,7 @@ Saiba como [instalar e utilizar vistas de análise de registos para registos de 
 
 Os registos de encaminhamento para um centro de eventos Azure permitem a integração com ferramentas SIEM de terceiros. Esta integração permite-lhe combinar dados de registo de atividade Azure AD com outros dados geridos pelo seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. 
 
-Saiba como [transmitir registos a um hub de eventos](//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Saiba como [transmitir registos a um hub de eventos](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Plan Operations and Security for Azure AD reporting and monitoring
 
@@ -189,7 +189,7 @@ Dependendo das decisões que tomou anteriormente usando a orientação de design
 
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Considere implementar a [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) 
 

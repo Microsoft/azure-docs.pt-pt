@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013185"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024371"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de combate Z
 
@@ -21,9 +21,9 @@ Quando duas superfícies se sobrepõem, não é claro qual deve ser renderizado 
 
 |Situação                        | Resultado                               |
 |---------------------------------|:-------------------------------------|
-|Luta z regular               |![Luta z](./media/zfighting-0.png)|
-|Mitigação de luta z habilitada    |![Luta z](./media/zfighting-1.png)|
-|Destaque de tabuleiro de verificação ativado|![Luta z](./media/zfighting-2.png)|
+|Luta z regular               |![Nenhuma precedência determinística entre quads vermelhos e verdes](./media/zfighting-0.png)|
+|Mitigação de luta z habilitada    |![Quad vermelho tem precedência](./media/zfighting-1.png)|
+|Destaque de tabuleiro de verificação ativado|![Preferência de alternância quad vermelho e verde no padrão de tabuleiro de xadrez](./media/zfighting-2.png)|
 
 O seguinte código permite a mitigação do combate ao z:
 
@@ -53,7 +53,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > A mitigação do combate ao Z é um cenário global que afeta todas as malhas renderizadas.
 
@@ -77,7 +76,12 @@ A mitigação proporcionada de luta z é um grande esforço. Não há garantias 
 * Permitir a mitigação do combate z incorre pouco a nenhuma sobrecarga de desempenho.
 * Além disso, permitir a sobreposição de luta de z incorrerá numa sobrecarga de desempenho não trivial, embora possa variar dependendo da cena.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# RemoteManager.ZFightingMitigationSettings propriedade](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [C++ RemoteManager::ZFightingMitigationSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Modos de composição](../../concepts/rendering-modes.md)
 * [Reprojeção da última fase](late-stage-reprojection.md)

@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4da2e9120b9bfee78c9fa832d9a477a42493834c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607471"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030468"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Comparando o Microsoft AppSource e o Azure Marketplace
 
-O mercado comercial da Microsoft inclui [o Microsoft AppSource](https://appsource.microsoft.com) e [o Azure Marketplace.](https://azuremarketplace.microsoft.com) Cada loja online serve requisitos exclusivos do cliente e diferentes públicos-alvo, para que possa certificar-se de que a sua solução ou serviço está disponível para os clientes certos.
+O mercado comercial da Microsoft inclui [o Microsoft AppSource](https://appsource.microsoft.com) e [o Azure Marketplace.](https://azuremarketplace.microsoft.com) Cada loja online oferece diferentes tipos de soluções com cenários únicos, para que possa certificar-se de que a sua solução ou serviço está disponível para os clientes certos.
 
 ## <a name="understanding-the-differences-between-online-stores"></a>Compreender as diferenças entre lojas online
 
-Para escolher uma loja online, identifique primeiro o público-alvo para a sua oferta. Se estiver a direcionar o público em várias lojas online, pode publicar uma vez para vender em várias lojas.
+Para escolher uma loja online, primeiro identifique o tipo de solução que está a oferecer. Se a sua oferta for simultaneamente uma solução de TI e negócio, pode publicar uma vez para vender em várias lojas.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
-| Profissionais e Desenvolvedores de TI | Utilizadores empresariais e decisores empresariais |
+| Soluções de TI | Soluções de negócio |
 
 A tabela que se segue descreve os benefícios da utilização de uma loja online:
 
@@ -34,8 +34,8 @@ A tabela que se segue descreve os benefícios da utilização de uma loja online
 |**Ligações com outros parceiros**  | Atualmente, não pode ligar um prestador de serviços ou parceiros de entrega à sua oferta. | Liga fornecedores de software independentes, integradores de sistemas e prestadores de serviços geridos a cenários específicos de implementação. Pode vender colaborativamente a novos clientes. |
 | **Automatização** | Atualmente, não pode ligar um prestador de serviços ou parceiros de entrega à sua oferta. Aproveite o software automatizado como um serviço (SaaS) com provisão de complemento. Utilize as aplicações Azure: A opção de publicação de modelos de solução para automatizar cenários de recolha e implementação de dados baseados em SaaS. | Liga fornecedores de software independentes, integradores de sistemas e prestadores de serviços geridos a cenários específicos de implementação. Pode vender colaborativamente a novos clientes. |
 | **Vários tipos de nuvens** | Publique soluções para a nuvem pública e para as instalações utilizando os seguintes tipos:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nuvens regionais, incluindo a China e a Alemanha</li></ul> | Atualmente, não apoia Azure Stack, Governo Azure, ou nuvens regionais. |
-| **Apresentação em contexto aos clientes** | Disponibilize a sua solução na experiência Azure in-portal para pesquisa contextual. Utilize as aplicações Virtual machine e Azure: Opções de publicação de modelos de solução. | Contacte mais clientes através da experiência in-app para produtos da Microsoft como Dynamics 365, Power BI e Office 365. |
+| **Apresentação em contexto aos clientes** | Disponibilize a sua solução na experiência Azure in-portal para pesquisa contextual. Utilize as aplicações Virtual machine e Azure: Opções de publicação de modelos de solução. | Contacte mais clientes através da experiência in-app para produtos da Microsoft como Dynamics 365, Power BI e Microsoft 365. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Reveja o [guia de publicação do mercado comercial.](./marketplace-publishers-guide.md)
+* [Guia de publicação de mercado comercial](marketplace-publishers-guide.md)

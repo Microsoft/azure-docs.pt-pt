@@ -1,7 +1,7 @@
 ---
 title: Desenvolvimento iterativo e depuração na Azure Data Factory
 description: Aprenda a desenvolver e depurar os oleodutos da Data Factory iterativamente no ADF UX
-ms.date: 08/28/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: 7e27a9c11f6470a48f20d54ebbd32c06824940de
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079351"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031012"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e de depuração com o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -87,6 +87,6 @@ A utilização do tempo de funcionação da atividade criará um novo cluster ut
 
 ![Executar um oleoduto com um fluxo de dados](media/iterative-development-debugging/iterative-development-dataflow.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de testar as suas alterações, promova-as para ambientes mais elevados utilizando [integração contínua e implantação na Azure Data Factory](continuous-integration-deployment.md).

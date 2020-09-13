@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c6c0e86bc372790cda2de4ff4c1274f414a01ab0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4559c72481dfa0cefb2ce84cab56a50d0bf182ef
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503213"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030332"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabelas temporárias em Synapse SQL
 
@@ -94,12 +94,12 @@ GROUP BY
 ```
 
 > [!NOTE]
-> `CTAS`é um comando poderoso e tem a vantagem adicional de ser eficiente na sua utilização do espaço de log de transações. 
+> `CTAS` é um comando poderoso e tem a vantagem adicional de ser eficiente na sua utilização do espaço de log de transações. 
 > 
 > 
 
 ### <a name="drop-temporary-tables"></a>Deixe cair as tabelas temporárias
-Quando uma nova sessão é criada, não devem existir mesas temporárias.  No entanto, se estiver a ligar para o mesmo procedimento armazenado que cria um temporário com o mesmo nome, para garantir que as suas `CREATE TABLE` declarações são bem sucedidas, utilize uma verificação simples de pré-existência `DROP` com: 
+Quando uma nova sessão é criada, não devem existir mesas temporárias.  No entanto, se estiver a ligar para o mesmo procedimento armazenado que cria um temporário com o mesmo nome, para garantir que as suas `CREATE TABLE` declarações são bem sucedidas, utilize uma verificação simples de pré-existência  `DROP` com: 
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -230,7 +230,7 @@ As tabelas temporárias em SQL a pedido são suportadas, mas a sua utilização 
 
 Por exemplo, não é possível aderir a uma tabela temporária com dados de ficheiros armazenados. O número de tabelas temporárias é limitado a 100, e o seu tamanho total é limitado a 100MB.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o desenvolvimento de tabelas, consulte as tabelas de Design utilizando o artigo [de recursos Synapse SQL.](develop-tables-overview.md)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 0fc9139e9456a62bf3586fb358046e7c868b834a
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005229"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030832"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente do Azure Monitor (pré-visualização)
 O agente Azure Monitor (AMA) recolhe dados de monitorização do sistema operativo convidado de máquinas virtuais e entrega-os ao Azure Monitor. Estes artigos fornecem uma visão geral do agente Azure Monitor, incluindo como instalá-lo e como configurar a recolha de dados.
@@ -99,6 +99,8 @@ Os seguintes sistemas operativos são atualmente suportados pelo agente Azure Mo
 ## <a name="security"></a>Segurança
 O agente Azure Monitor não necessita de chaves, mas requer uma [identidade gerida atribuída pelo sistema.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) Deve ter uma identidade gerida atribuída ao sistema ativada em cada máquina virtual antes de implantar o agente.
 
+## <a name="networking"></a>Rede
+O agente Azure Monitor suporta tags de serviço Azure (são necessárias tags AzureMonitor e AzureResourceManager) mas ainda não funciona com Azure Monitor Private Link Scopes ou proxies diretos.
 
 ## <a name="install-the-azure-monitor-agent"></a>Instale o agente Azure Monitor
 O Agente monitor Azure é implementado como uma [extensão Azure VM](../../virtual-machines/extensions/overview.md) com os detalhes na tabela seguinte. 

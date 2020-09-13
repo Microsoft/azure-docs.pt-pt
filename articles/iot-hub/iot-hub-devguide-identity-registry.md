@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327757"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029839"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu hub IoT
 
@@ -84,7 +84,7 @@ Utilize operações assíncronos no ponto final do [fornecedor de recursos IoT H
 
 Para obter mais informações sobre as APIs de importação e exportação, consulte [o fornecedor de recursos IoT Hub REST APIs](/rest/api/iothub/iothubresource). Para saber mais sobre a gestão de postos de trabalho de importação e exportação, consulte [a gestão a granel das identidades dos dispositivos IoT Hub.](iot-hub-bulk-identity-mgmt.md)
 
-As identidades do dispositivo também podem ser exportadas e importadas de um Hub IoT através da API de serviço através da [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) ou de um dos [SDKs de serviço IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)Hub .
+As identidades do dispositivo também podem ser exportadas e importadas de um Hub IoT através da API de serviço através da [API REST](/rest/api/iothub/service/jobs/createimportexportjob) ou de um dos [SDKs de serviço IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)Hub .
 
 ## <a name="device-provisioning"></a>Provisão de dispositivos
 
@@ -112,7 +112,7 @@ Propriedades: As propriedades do sistema de mensagens estão prefixadas com o `$
 
 Mensagem de notificação para o dispositivo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 |$content tipo | application/json |
 |$iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -148,7 +148,7 @@ Corpo: Esta secção está no formato JSON e representa o gémeo da identidade d
 ```
 Mensagem de notificação para módulo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 $content tipo | application/json |
 $iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -244,7 +244,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a usar o registo de identidade do IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

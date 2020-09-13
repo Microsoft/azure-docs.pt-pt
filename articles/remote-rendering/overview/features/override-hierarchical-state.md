@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f57c212dfc44d84640224b1526ab770fe97230
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009462"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024405"
 ---
 # <a name="hierarchical-state-override"></a>Substituição do estado hierárquico
 
-Em muitos casos, é necessário alterar dinamicamente o aparecimento de partes de um [modelo](../../concepts/models.md), por exemplo, ocultar subgrafias ou trocar peças para renderização transparente. Mudar os materiais de cada parte envolvida não é prático, uma vez que requer iterar ao longo de todo o gráfico de cena, e gerir a clonagem e atribuição de materiais em cada nó.
+Em muitos casos, é necessário alterar dinamicamente o aparecimento de partes de um [modelo](../../concepts/models.md), por exemplo, ocultar subgramas ou trocar peças para renderização transparente. Mudar os materiais de cada parte envolvida não é prático, uma vez que requer iterar ao longo de todo o gráfico de cena, e gerir a clonagem e atribuição de materiais em cada nó.
 
 Para realizar este caso de utilização com o mínimo de despesas possíveis, utilize o `HierarchicalStateOverrideComponent` . Este componente implementa atualizações hierárquicas de estado em ramos arbitrários do gráfico de cena. Isto significa que um estado pode ser definido em qualquer nível no gráfico de cena e escorre pela hierarquia até que seja ultrapassado por um estado novo, ou aplicado a um objeto de folha.
 
@@ -31,20 +31,23 @@ O conjunto fixo de estados que podem ser ultrapassados são:
 * **`Hidden`**: As respetivas malhas no gráfico de cena são ocultas ou mostradas.
 * **`Tint color`**: Um objeto renderizado pode ser colorido com a sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra a cor da borda de uma roda.
   
-  ![Cor Tint](./media/color-tint.png)
+  ![Cor de tonalidade usada para tornar um objeto verde](./media/color-tint.png)
 
 * **`See-through`**: A geometria é tornada semi-transparente, por exemplo, para revelar as partes interiores de um objeto. A imagem a seguir mostra todo o carro a ser renderizado em modo see-through, com exceção da pinça do travão vermelho:
 
-  ![See-Through](./media/see-through.png)
+  ![Modo transparente utilizado para tornar os objetos selecionados transparentes](./media/see-through.png)
 
   > [!IMPORTANT]
   > O efeito see-through só funciona quando o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* é utilizado.
 
 * **`Selected`**: A geometria é prestada com um [esboço de seleção](outlines.md).
 
-  ![Contorno de seleção](./media/selection-outline.png)
+  ![Opção de contorno usada para destacar uma parte selecionada](./media/selection-outline.png)
 
 * **`DisableCollision`**: A geometria está isenta de [consultas espaciais.](spatial-queries.md) A **`Hidden`** bandeira não afeta a bandeira do estado de colisão, por isso estas duas bandeiras são muitas vezes colocadas juntas.
+
+> [!TIP]
+> Como alternativa para desligar a visibilidade e as consultas espaciais para um gráfico completo, o `enabled` estado de um objeto de jogo pode ser alternado. Se uma hierarquia for desativada, esta tem preferência sobre qualquer `HierarchicalStateOverrideComponent` .
 
 ## <a name="hierarchical-overrides"></a>Sobreposições hierárquicas
 
@@ -96,7 +99,12 @@ Um caso por `HierarchicalStateOverrideComponent` si só não acrescenta muito te
 
 A renderização transparente coloca mais carga de trabalho nas GPUs do servidor do que a renderização padrão. Se grandes partes do gráfico de cena forem trocadas para *see-through,* com muitas camadas de geometria visíveis, pode tornar-se um estrangulamento de desempenho. O mesmo é válido para objetos com [contornos de seleção.](../../overview/features/outlines.md#performance)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# Classe HierarchicalStateOverrideComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C++ Classe HierarchicalStateOverrideComponent](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Contornos](../../overview/features/outlines.md)
 * [Modos de composição](../../concepts/rendering-modes.md)

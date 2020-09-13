@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: a08c6abe52801e1fbafd517adcb8fd9a8b8b4aee
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4de6d4ba019af75b0f6179b2794ddb6c1e35e0c1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462297"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030077"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar os seus dados no local ou na nuvem para Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Os seguintes fatores determinam a escolha da ferramenta de migração:
 |Offline|[Conector Azure Cosmos DB Spark](spark-connector.md)|Azure Cosmos DB SQL API. <br/><br/>Pode utilizar outras fontes com conectores adicionais do ecossistema Spark.| Azure Cosmos DB SQL API. <br/><br/>Pode utilizar outros alvos com conectores adicionais do ecossistema Spark.| &bull; Faz uso da biblioteca de executor a granel Azure Cosmos. <br/>&bull; Adequado para grandes conjuntos de dados. <br/>&bull; Precisa de uma configuração personalizada da Spark. <br/>&bull; A faísca é sensível às inconsistências do esquema e isso pode ser um problema durante a migração. |
 |Offline|[Ferramenta personalizada com biblioteca de executor a granel Cosmos DB](migrate-cosmosdb-data.md)| A fonte depende do seu código personalizado | API SQL do Azure Cosmos DB| &bull; Fornece capacidades de checkpoint, letras mortas, o que aumenta a resiliência da migração. <br/>&bull; Adequado para conjuntos de dados muito grandes (10 TB+).  <br/>&bull; Requer a configuração personalizada desta ferramenta funcionando como um Serviço de Aplicações. |
 |Online|[Funções Cosmos DB + ChangeFeed API](change-feed-functions.md)| API SQL do Azure Cosmos DB | API SQL do Azure Cosmos DB| &bull; Fácil de montar. <br/>&bull; Funciona apenas se a fonte for um contentor Azure Cosmos DB. <br/>&bull; Não é adequado para grandes conjuntos de dados. <br/>&bull; Não captura as eliminações do recipiente de origem. |
-|Online|[Serviço de Migração Personalizada usando ChangeFeed](https://github.com/nomiero/CosmosDBLiveETLSample)| API SQL do Azure Cosmos DB | API SQL do Azure Cosmos DB| &bull; Fornece rastreio de progresso. <br/>&bull; Funciona apenas se a fonte for um contentor Azure Cosmos DB. <br/>&bull; Funciona para conjuntos de dados maiores também.<br/>&bull; Requer que o utilizador crie um Serviço de Aplicações para hospedar o processador Change feed. <br/>&bull; Não captura as eliminações do recipiente de origem.|
+|Online|[Serviço de Migração Personalizada usando ChangeFeed](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| API SQL do Azure Cosmos DB | API SQL do Azure Cosmos DB| &bull; Fornece rastreio de progresso. <br/>&bull; Funciona apenas se a fonte for um contentor Azure Cosmos DB. <br/>&bull; Funciona para conjuntos de dados maiores também.<br/>&bull; Requer que o utilizador crie um Serviço de Aplicações para hospedar o processador Change feed. <br/>&bull; Não captura as eliminações do recipiente de origem.|
 |Online|[Striim](cosmosdb-sql-api-migrate-data-striim.md)| &bull;Oracle <br/>&bull;Apache Cassandra<br/><br/> Consulte o [site da Striim](https://www.striim.com/sources-and-targets/) para outras fontes apoiadas. |&bull;API SQL do Azure Cosmos DB <br/>&bull; Azure Cosmos DB Cassandra API<br/><br/> Consulte o [site Striim](https://www.striim.com/sources-and-targets/) para outros alvos suportados. | &bull; Funciona com uma grande variedade de fontes como Oracle, DB2, SQL Server.<br/>&bull; Fácil de construir gasodutos ETL e fornece um dashboard para monitorização. <br/>&bull; Suporta conjuntos de dados maiores. <br/>&bull; Uma vez que esta é uma ferramenta de terceiros, precisa de ser comprada no mercado e instalada no ambiente do utilizador.|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo API

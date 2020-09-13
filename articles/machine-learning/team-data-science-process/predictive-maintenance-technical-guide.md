@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 9520369861623e60a0118baa20a7871437433a4b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6677f9275d3b6f0569216eb16046d096c574beab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290720"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030906"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução para manutenção preditiva em aeroespacial
 
@@ -170,7 +170,7 @@ Os passos a seguir guiam-no sobre como ligar o ficheiro pbix à Base de Dados SQ
    * Uma vez que **'Azure SQL Database'** no seu diagrama de modelo de solução fique verde, clique nele e clique em **'Open'**.
    * Verá um novo separador/janela do navegador que exibe a página do portal Azure. Clique em **"Grupos de recursos"** no painel esquerdo.
    * Selecione a subscrição que está a utilizar para implementar a solução e, em seguida, selecione **'YourSolutionName \_ ResourceGroup'.**
-   * No novo painel pop out, clique no ícone do ![ ícone SQL ](./media/predictive-maintenance-technical-guide/icon-sql.png) para aceder à sua base de dados. O nome da sua base de dados está ao lado deste ícone (por exemplo, **'pmaintenancedb'**), e o nome do **servidor de base de dados** está listado na propriedade do nome do Servidor e deve ser semelhante a **YourSolutionName.database.windows.net**.
+   * No novo painel pop out, clique no ícone do  ![ ícone SQL ](./media/predictive-maintenance-technical-guide/icon-sql.png) para aceder à sua base de dados. O nome da sua base de dados está ao lado deste ícone (por exemplo, **'pmaintenancedb'**), e o nome do **servidor de base de dados** está listado na propriedade do nome do Servidor e deve ser semelhante a **YourSolutionName.database.windows.net**.
    * O **nome de utilizador** e **a palavra-passe** da sua base de dados são os mesmos que o nome de utilizador e a palavra-passe anteriormente registados durante a implementação da solução.
 2. Atualize a fonte de dados do ficheiro de relatório de caminhos frios com o Power BI Desktop.
    
@@ -182,7 +182,7 @@ Os passos a seguir guiam-no sobre como ligar o ficheiro pbix à Base de Dados SQ
    * Na próxima janela pop out, você verá duas opções no painel esquerdo **(Windows** and **Database).** Clique em **'Base de Dados',** preencha o seu **'Nome de Utilizador'** e **'Password'** (o nome de utilizador e a palavra-passe que introduziu quando implementou a solução pela primeira vez e criou uma Base de Dados Azure SQL). Em ***Selecione qual o nível para aplicar estas definições,*** verifique a opção de nível de base de dados. Em seguida, clique em **'Connect'.**
    * Clique na segunda tabela **PMResult,** em seguida, clique no ![ ícone de Navegação ](./media/predictive-maintenance-technical-guide/icon-navigation.png) ao lado de **'Fonte'** em **'PASSOS APLICADOS'** no painel **'Definições de consulta'** à direita e atualize os nomes do servidor e da base de dados como nos passos acima e clique em OK.
    * Uma vez que seja guiado de volta para a página anterior, feche a janela. Uma mensagem aparece - clique em **Aplicar**. Por último, clique no botão **Guardar** para guardar as alterações. O seu ficheiro Power BI estabeleceu agora a ligação ao servidor. Se as suas visualizações estiverem vazias, certifique-se de que limpa as seleções das visualizações para visualizar todos os dados clicando no ícone de borracha no canto superior direito das lendas. Utilize o botão de atualização para refletir novos dados sobre as visualizações. Inicialmente, só se vê os dados de sementes nas suas visualizações, uma vez que a fábrica de dados está programada para atualizar a cada 3 horas. Após 3 horas, verá novas previsões refletidas nas suas visualizações quando atualizar os dados.
-3. (Opcional) Publique o painel de instrumentos de caminho frio para [o Power BI online.](https://www.powerbi.com/) Este passo necessita de uma conta Power BI (ou conta Office 365).
+3. (Opcional) Publique o painel de instrumentos de caminho frio para [o Power BI online.](https://www.powerbi.com/) Este passo necessita de uma conta Power BI (ou uma conta de trabalho ou escola).
    
    * Clique em **'Publicar'** e poucos segundos depois aparece uma janela que mostra "Publishing to Power BI Success!" com uma marca de verificação verde. Clique no link abaixo "Open PredictiveMaintenanceAerospace.pbix in Power BI". Para obter instruções detalhadas, consulte [a publicação do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Para criar um novo painel de instrumentos: clique no **+** sinal ao lado da secção **Dashboards** no painel esquerdo. Introduza o nome "Demonstração de Manutenção Preditiva" para este novo painel de instrumentos.
@@ -208,7 +208,7 @@ Os seguintes passos guiam-no como visualizar a produção de dados a partir de t
 1. Adicione a saída power BI em Azure Stream Analytics (ASA).
    
    * Deve seguir as instruções no [Azure Stream Analytics & Power BI: Um dashboard de análise para visibilidade em tempo real dos dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho Azure Stream Analytics como o seu painel Power BI.
-   * A consulta da ASA tem três saídas que são **o planetário,** **o aircraftalert,** e **os voos por hora.** Pode ver a consulta clicando no separador de consulta. Correspondente a cada uma destas tabelas, tem de adicionar uma saída à ASA. Quando adicionar a primeira saída **(aircraftmonitor)** certifique-se de que o **Alias de Saída,** o Nome do Conjunto de **Dados** e o Nome da **Tabela** são os mesmos **(porta-aviões).** Repita os passos para adicionar saídas para **aviões,** e **voos por hora.** Depois de ter adicionado as três tabelas de saída e iniciado o trabalho asa, deverá receber uma mensagem de confirmação ("Starting Stream Analytics job maintenancesa02asapbi conseguiu").
+   * A consulta da ASA tem três saídas que são **o planetário,** **o aircraftalert,** e **os voos por hora.** Pode ver a consulta clicando no separador de consulta. Correspondendo a cada uma destas tabelas, é necessário adicionar uma saída à ASA. Quando adicionar a primeira saída **(aircraftmonitor)** certifique-se de que o **Alias de Saída,** o Nome do Conjunto de **Dados** e o Nome da **Tabela** são os mesmos **(porta-aviões).** Repita os passos para adicionar saídas para **aviões,** e **voos por hora.** Depois de ter adicionado as três tabelas de saída e iniciado o trabalho asa, deverá receber uma mensagem de confirmação ("Starting Stream Analytics job maintenancesa02asapbi conseguiu").
 2. Faça login no [Power BI online](https://www.powerbi.com)
    
    * Na secção datasets do painel esquerdo no Meu Espaço de Trabalho, o ***DATASET*** denomina **o painel de aviões**, **aircraftalert**e **o voobyhour.** Estes são os dados de streaming que empurrou do Azure Stream Analytics no passo anterior. O **dataset voos por hora** pode não aparecer ao mesmo tempo que os outros dois conjuntos de dados devido à natureza da consulta SQL por trás. No entanto, deve aparecer depois de uma hora.

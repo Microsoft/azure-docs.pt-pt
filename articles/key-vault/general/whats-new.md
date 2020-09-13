@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 07/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b469ea0d0a91cc4ca7f0602dffbcc63b31c60855
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: dc7417cafc2a9d6f1abca31da884d55bfac42b75
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588369"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90028938"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>O que há de novo para Azure Key Vault
 
@@ -36,6 +36,7 @@ A Microsoft está a atualizar os serviços da Azure para utilizar certificados T
 - Os serviços do Azure Ative Directory (Azure AD) iniciaram esta transição a 7 de julho de 2020.
 - Todos os pontos finais Azure TLS/SSL recentemente criados contêm certificados atualizados acorrentados aos novos CAs raiz. 
 - Os pontos finais do Azure existentes vão transitar de forma faseada a partir de 13 de agosto de 2020 e completar-se-ão até 26 de outubro de 2020.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) e [DPS](/azure/iot-dps/) permanecerão na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456)
 
 > [!IMPORTANT]
 > Os clientes poderão ter de atualizar as suas aplicações após esta alteração para evitar falhas de conectividade ao tentarem ligar-se aos serviços Azure. 
@@ -125,7 +126,7 @@ Novas funcionalidades e integrações lançadas este ano:
 Novas funcionalidades lançadas este ano:
 
 - Chaves de conta de armazenamento geridas. Recurso De Chaves de Conta de Armazenamento acrescentou uma integração mais fácil com o Azure Storage. Consulte o tópico geral para obter mais informações, [visão geral das chaves de conta de armazenamento geridos](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Apagar suavemente. A função de eliminação suave melhora a proteção de dados dos cofres e dos objetos chave do cofre. Consulte o tópico geral para obter mais informações, eliminar a visão geral do [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Eliminação recuperável. A função de eliminação suave melhora a proteção de dados dos cofres e dos objetos chave do cofre. Consulte o tópico geral para obter mais informações, eliminar a visão geral do [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
 
 ## <a name="2015"></a>2015
 
@@ -157,6 +158,6 @@ A segunda versão de pré-visualização (versão 2015-02-01)foi anunciada a 20 
  
 A primeira versão de pré-visualização (versão 2014-12-08)foi anunciada a 8 de janeiro de 2015.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver dúvidas adicionais, contacte-nos através [do suporte.](https://azure.microsoft.com/support/options/)  

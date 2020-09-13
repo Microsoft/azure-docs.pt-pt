@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120385"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030757"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configure a gestão de chumbo para a Dynamics 365 Customer Engagement
 
@@ -27,7 +27,7 @@ São necessárias as seguintes permissões do utilizador para completar os passo
 
 * Direitos de administrador na sua instância de Envolvimento ao Cliente Dynamics 365 para poder instalar uma solução.
 * Direitos de administração de inquilinos para criar uma nova conta de serviço para o serviço de chumbo usado para enviar pistas de ofertas de mercado comercial.
-* Acesso ao portal de administração do Office 365.
+* Acesso ao portal de administração.
 * Acesso ao portal Azure.
 
 ## <a name="install-the-solution"></a>Instale a solução
@@ -157,7 +157,7 @@ O passo final é permitir que o utilizador que criou escreva os leads.
 
     ![Painel de Papéis de Segurança](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-1. Na função de segurança, selecione o separador **Core Records.** Procure o **item Configurações UI da Entidade utilizadora.** Ativar as permissões de Criar, Ler e Escrever ao Utilizador (1/4 círculo amarelo) para essa entidade clicando uma vez em cada um dos círculos correspondentes.
+1. Na função de segurança, selecione o **separador Core Records.** Procure o item de **Configurações UI da Entidade utilizadora.** Ativar as permissões de Criar, Ler e Escrever ao Utilizador (1/4 círculo amarelo) para essa entidade clicando uma vez em cada um dos círculos correspondentes.
 
     ![Separador Core Records do Escritor Líder do Microsoft Marketplace](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 

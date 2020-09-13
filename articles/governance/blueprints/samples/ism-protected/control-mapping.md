@@ -1,14 +1,14 @@
 ---
-title: Visão geral da amostra de amostra do governo australiano ISM PROTECTED
-description: Visão geral da amostra de planta protegida do governo australiano ISM. Esta amostra de planta ajuda os clientes a avaliar controlos ism protected específicos.
-ms.date: 08/03/2020
+title: Controlos de amostras de amostras do Governo australiano ISM PROTECTED
+description: Controlo do mapeamento da amostra de planta PROTEGIDA do Governo Australiano ISM. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760435"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030111"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Controlo do mapeamento da amostra de planta protegida do Governo australiano ISM PROTECTED
 
@@ -347,9 +347,13 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Artigos adicionais sobre esquemas e como os utilizar:
+
+> [!div class="nextstepaction"]
+> [SUM PROTECTED blueprint - Visão geral](./index.md) 
+>  [Projeto ISM PROTECTED - Implementar etapas](./deploy.md)
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

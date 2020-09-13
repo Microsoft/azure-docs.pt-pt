@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798113"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031097"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de aplicações no portal My Apps
 
@@ -28,9 +28,9 @@ Quando utiliza aplicações organizacionais no portal **My Apps,** muitas vezes 
 >[!Important]
 >Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](../manage-apps/access-panel-collections.md)
 
-## <a name="manage-app-permissions"></a>Gerir permissões de aplicações
+## <a name="manage-app-accounts"></a>Gerir contas de aplicativos
 
-Para visualizar as permissões consentidas por **...** si ou pelo seu administrador, selecione... quando pairar sobre uma aplicação no portal **My Apps,** em seguida, selecione **Gerir a sua aplicação**:
+Para ver as aplicações consentidas por **...** si ou pelo seu administrador, selecione... quando pairar sobre uma aplicação no portal **My Apps,** em seguida, selecione **Gerir a sua aplicação**:
 
 ![Gerir uma aplicação no portal My Apps](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 
@@ -42,7 +42,7 @@ Pode revogar qualquer uma das permissões a que consentiu ao selecionar **Permis
 
 A parte inferior da janela de permissões mostra o que o seu administrador consentiu em seu nome. Esta secção não é mostrada se não há permissões consentidas com a administração. Não pode revogar estas permissões porque o administrador consentiu com elas, e muitas vezes são necessárias para a política da sua organização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de gerir permissões de aplicações e contas guardadas no portal **My Apps,** pode:
 
