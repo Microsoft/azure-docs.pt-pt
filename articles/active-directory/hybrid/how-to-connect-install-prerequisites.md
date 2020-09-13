@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1f77d6189e5b32ca771d17ae9902341bcaa1871
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688135"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662163"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -33,11 +33,11 @@ Antes de instalar o Azure AD Connect, há algumas coisas que precisa.
 * Precisa de um inquilino da AD AZure. Arranja-se um com um [julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) Pode utilizar um dos seguintes portais para gerir o Azure AD Connect:
   * O [portal Azure.](https://portal.azure.com)
   * O [portal do Escritório.](https://portal.office.com)
-* [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que pretende utilizar no Azure AD. Por exemplo, se planeia utilizar contoso.com para os seus utilizadores, certifique-se de que este domínio foi verificado e que não está a utilizar apenas o domínio contoso.onmicrosoft.com predefinido.
-* Um inquilino da AD Azure permite, por defeito, 50.000 objetos. Quando verifica o seu domínio, o limite aumenta para 300.000 objetos. Se precisar de ainda mais objetos em Azure AD, abra um caso de suporte para aumentar ainda mais o limite. Se precisar de mais de 500.000 objetos, precisa de uma licença, como o Office 365, Azure AD Premium ou Enterprise Mobility + Security.
+* [Adicione e verifique o domínio](../fundamentals/add-custom-domain.md) que pretende utilizar no Azure AD. Por exemplo, se planeia utilizar contoso.com para os seus utilizadores, certifique-se de que este domínio foi verificado e que não está a utilizar apenas o domínio contoso.onmicrosoft.com predefinido.
+* Um inquilino da AD Azure permite, por defeito, 50.000 objetos. Quando verifica o seu domínio, o limite aumenta para 300.000 objetos. Se precisar de ainda mais objetos em Azure AD, abra um caso de suporte para aumentar ainda mais o limite. Se precisar de mais de 500.000 objetos, precisa de uma licença, como o Microsoft 365, Azure AD Premium ou Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Prepare os seus dados no local
-* Utilize [o IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros como duplicados e problemas de formatação no seu diretório antes de sincronizar com a AD E o Office 365.
+* Utilize [o IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros como duplicados e problemas de formatação no seu diretório antes de sincronizar com a AD E Microsoft 365.
 * Reveja [as funcionalidades de sincronização opcionais que pode ativar em Ad Azure](how-to-connect-syncservice-features.md)e avalie quais as funcionalidades que deve ativar.
 
 ### <a name="on-premises-active-directory"></a>Active Directory no local
@@ -48,11 +48,11 @@ Antes de instalar o Azure AD Connect, há algumas coisas que precisa.
 * Recomendamos que [ative o caixote de reciclagem ative directory](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Servidor Azure Ad Connect
-O servidor Azure AD Connect contém dados de identidade críticos. É importante que o acesso administrativo a este servidor seja devidamente assegurado. Siga as orientações para [garantir o acesso privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) 
+O servidor Azure AD Connect contém dados de identidade críticos. É importante que o acesso administrativo a este servidor seja devidamente assegurado. Siga as orientações para [garantir o acesso privilegiado.](/windows-server/identity/securing-privileged-access/securing-privileged-access) 
 
-O servidor Azure AD Connect deve ser tratado como um componente de Nível 0, conforme documentado no [modelo de nível administrativo](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) do Diretório Ativo 
+O servidor Azure AD Connect deve ser tratado como um componente de Nível 0, conforme documentado no [modelo de nível administrativo](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) do Diretório Ativo 
 
-Para ler mais sobre a segurança do seu ambiente de Diretório Ativo, consulte [as melhores práticas para garantir o Ative Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Para ler mais sobre a segurança do seu ambiente de Diretório Ativo, consulte [as melhores práticas para garantir o Ative Directory](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 #### <a name="installation-prerequisites"></a>Pré-requisitos de instalação
 
@@ -62,25 +62,25 @@ Para ler mais sobre a segurança do seu ambiente de Diretório Ativo, consulte [
 - O servidor Azure AD Connect não deve ter a Política do Grupo de Transcrição powerShell ativada se utilizar o assistente Azure AD Connect para gerir a configuração de Serviços da Federação de Diretórios Ativos (AD FS). Pode ativar a transcrição powerShell se utilizar o assistente Azure AD Connect para gerir a configuração de sincronização. 
 - Se a AD FS estiver a ser implantada: 
     - Os servidores onde estão instalados O FS ou o Proxy da Aplicação Web devem ser o Windows Server 2012 R2 ou mais tarde. A gestão remota do Windows deve ser ativada nestes servidores para instalação remota. 
-    - Tem de configurar os certificados TLS/SSL. Para obter mais informações, consulte [os protocolos SSL/TLS de Gestão e suítes de cifra para](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) certificados AD FS e Managing [SSL em AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
+    - Tem de configurar os certificados TLS/SSL. Para obter mais informações, consulte [os protocolos SSL/TLS de Gestão e suítes de cifra para](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) certificados AD FS e Managing [SSL em AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - Tem de configurar a resolução do nome. 
 - Se os seus administradores globais tiverem MFA ativado, o URL https://secure.aadcdn.microsoftonline-p.com *deve* estar na lista de sites fidedignos. É-lhe pedido que adicione este site à lista de sites fidedignos quando é solicitado para um desafio de MFA e não foi adicionado antes. Pode utilizar o Internet Explorer para o adicionar aos seus sites de confiança.
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Endureça o servidor AZure AD Connect 
 Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfície de ataque de segurança para este componente crítico do seu ambiente de TI. Seguir estas recomendações ajudará a mitigar alguns riscos de segurança para a sua organização.
 
-- Trate o Azure AD Connect o mesmo que um controlador de domínio e outros recursos tier 0. Para obter mais informações, consulte [o modelo de nível administrativo ative diretório.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
+- Trate o Azure AD Connect o mesmo que um controlador de domínio e outros recursos tier 0. Para obter mais informações, consulte [o modelo de nível administrativo ative diretório.](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
 - Restringir o acesso administrativo ao servidor Azure AD Connect apenas a administradores de domínio ou a outros grupos de segurança bem controlados.
-- Crie uma [conta dedicada para todo o pessoal com acesso privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) Os administradores não devem estar a navegar na web, a verificar o seu email e a fazer tarefas de produtividade diárias com contas altamente privilegiadas.
-- Siga as orientações fornecidas na [Garantia de acesso privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) 
-- Negar a utilização da autenticação NTLM com o servidor AADConnect. Eis algumas formas de o fazer: [Restringir o NTLM no Servidor AADConnect](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) e [restringir a NTLM num domínio](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Certifique-se de que cada máquina tem uma senha de administrador local única. Para obter mais informações, consulte [a Solução de Senha do Administrador Local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias únicas em cada estação de trabalho e servidor armazená-las em Ative Directory protegida por um ACL. Apenas os utilizadores autorizados elegíveis podem ler ou solicitar o reset destas senhas de conta de administrador local. Pode obter o LAPS para utilização em estações de trabalho e servidores a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Orientações adicionais para operar um ambiente com LAPS e postos de trabalho privilegiados de acesso (PAWs) podem ser encontrados em [normas operacionais baseadas no princípio da fonte limpa.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle) 
-- Implementar estações de [trabalho privilegiadas dedicadas](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) para todos os funcionários com acesso privilegiado aos sistemas de informação da sua organização. 
-- Siga estas [diretrizes adicionais](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente ative Directory.
+- Crie uma [conta dedicada para todo o pessoal com acesso privilegiado.](/windows-server/identity/securing-privileged-access/securing-privileged-access) Os administradores não devem estar a navegar na web, a verificar o seu email e a fazer tarefas de produtividade diárias com contas altamente privilegiadas.
+- Siga as orientações fornecidas na [Garantia de acesso privilegiado.](/windows-server/identity/securing-privileged-access/securing-privileged-access) 
+- Negar a utilização da autenticação NTLM com o servidor AADConnect. Eis algumas formas de o fazer: [Restringir o NTLM no Servidor AADConnect](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) e [restringir a NTLM num domínio](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
+- Certifique-se de que cada máquina tem uma senha de administrador local única. Para obter mais informações, consulte [a Solução de Senha do Administrador Local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias únicas em cada estação de trabalho e servidor armazená-las em Ative Directory protegida por um ACL. Apenas os utilizadores autorizados elegíveis podem ler ou solicitar o reset destas senhas de conta de administrador local. Pode obter o LAPS para utilização em estações de trabalho e servidores a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Orientações adicionais para operar um ambiente com LAPS e postos de trabalho privilegiados de acesso (PAWs) podem ser encontrados em [normas operacionais baseadas no princípio da fonte limpa.](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle) 
+- Implementar estações de [trabalho privilegiadas dedicadas](/windows-server/identity/securing-privileged-access/privileged-access-workstations) para todos os funcionários com acesso privilegiado aos sistemas de informação da sua organização. 
+- Siga estas [diretrizes adicionais](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente ative Directory.
 
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server used by Azure AD Connect (SQL Server utilizado pelo Azure AD Connect)
-* O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (uma versão luminosa do SQL Server Express). O SQL Server Express tem um limite de tamanho de 10 GB que lhe permite gerir aproximadamente 100.000 objetos. Se necessitar de gerir um volume mais elevado de objetos de diretório, aponte o assistente de instalação para uma instalação diferente do SQL Server. O tipo de instalação do SQL Server pode ter impacto no [desempenho do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (uma versão luminosa do SQL Server Express). O SQL Server Express tem um limite de tamanho de 10 GB que lhe permite gerir aproximadamente 100.000 objetos. Se necessitar de gerir um volume mais elevado de objetos de diretório, aponte o assistente de instalação para uma instalação diferente do SQL Server. O tipo de instalação do SQL Server pode ter impacto no [desempenho do Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).
 * Se utilizar uma instalação diferente do SQL Server, estes requisitos aplicam-se:
   * O Azure AD Connect suporta todas as versões do SQL Server desde 2012 (com o mais recente pacote de serviços) até ao SQL Server 2019. A base de dados Azure SQL *não é suportada* como base de dados.
   * Deve usar uma colagem SQL insensível. Estas colagens são identificadas com um \_ CI_ em seu nome. A utilização de uma colagem sensível a casos identificada por \_ CS_ em seu nome não é *suportada.*
@@ -126,13 +126,13 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
         </system.net>
     ```
 
-* Se a configuração proxy estiver a ser feita numa configuração existente, o **serviço Microsoft Azure AD Sync** precisa de ser reiniciado uma vez para que o Azure AD Connect leia a configuração de procuração e atualize a visonse. 
+* Se a configuração proxy estiver a ser feita numa configuração existente, o **serviço Microsoft Azure AD Sync** precisa de ser reiniciado uma vez para que o Azure AD Connect leia a configuração de procuração e atualize o comportamento. 
 * Quando o Azure AD Connect envia um pedido web para a Azure AD como parte da sincronização do diretório, o Azure AD pode demorar até 5 minutos para responder. É comum que os servidores proxy tenham uma configuração de tempo de intervalo de ligação. Certifique-se de que a configuração está definida para pelo menos 6 minutos ou mais.
 
-Para obter mais informações, consulte a MSDN sobre o [elemento proxy predefinido](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
+Para obter mais informações, consulte a MSDN sobre o [elemento proxy predefinido](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Opcional: Utilize uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes
@@ -148,9 +148,9 @@ O Azure AD Connect depende do Microsoft PowerShell e do .NET Framework 4.5.1. Pr
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Ativar TLS 1.2 para Azure AD Connect
-Antes da versão 1.1.614.0, o Azure AD Connect por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o servidor do motor de sincronização e o Ad AZure. Pode configurar aplicações .NET para utilizar o TLS 1.2 por predefinição no servidor. Para obter mais informações sobre o TLS 1.2, consulte [o Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Antes da versão 1.1.614.0, o Azure AD Connect por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o servidor do motor de sincronização e o Ad AZure. Pode configurar aplicações .NET para utilizar o TLS 1.2 por predefinição no servidor. Para obter mais informações sobre o TLS 1.2, consulte [o Microsoft Security Advisory 2960358](/security-updates/SecurityAdvisories/2015/2960358).
 
-1. Certifique-se de que tem o hotfix .NET 4.5.1 instalado para o seu sistema operativo. Para mais informações, consulte [o Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Pode ter este hotfix ou um desbloqueio posterior já instalado no seu servidor.
+1. Certifique-se de que tem o hotfix .NET 4.5.1 instalado para o seu sistema operativo. Para mais informações, consulte [o Microsoft Security Advisory 2960358](/security-updates/SecurityAdvisories/2015/2960358). Pode ter este hotfix ou um desbloqueio posterior já instalado no seu servidor.
 
 1. Para todos os sistemas operativos, esta tecla de registo e reinicie o servidor.
     ```
@@ -221,5 +221,5 @@ Os requisitos mínimos para computadores que executam servidores de procuração
 * Memória: 2 GB ou superior
 * Azure VM: Configuração A2 ou superior
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

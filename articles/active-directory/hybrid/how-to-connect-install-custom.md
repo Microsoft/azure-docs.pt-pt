@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850167"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662348"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -50,10 +50,10 @@ Depois de instalar os componentes necessários, é-lhe pedido que selecione o m�
 
 | Opção Início de Sessão Único | Descrição |
 | --- | --- |
-| Sincronização hash de palavra-passe |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](how-to-connect-password-hash-synchronization.md). |
-|Autenticação pass-through|Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  A palavra-passe dos utilizadores é transmitida para o controlador de domínio do Active Directory no local para ser validada.
-| Federação com o AD FS |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  Os utilizadores serão redirecionados para a respetiva instância do AD FS no local para iniciarem sessão e a autenticação ocorre no local. |
-| Federação com o PingFederate|Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  Os utilizadores serão redirecionados para a respetiva instância do PingFederate no local para iniciarem sessão, e a autenticação ocorre no local. |
+| Sincronização hash de palavra-passe |Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](how-to-connect-password-hash-synchronization.md). |
+|Autenticação pass-through|Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso.  A palavra-passe dos utilizadores é transmitida para o controlador de domínio do Active Directory no local para ser validada.
+| Federação com o AD FS |Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso.  Os utilizadores serão redirecionados para a respetiva instância do AD FS no local para iniciarem sessão e a autenticação ocorre no local. |
+| Federação com o PingFederate|Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso.  Os utilizadores serão redirecionados para a respetiva instância do PingFederate no local para iniciarem sessão, e a autenticação ocorre no local. |
 | Não configurar |Nenhuma funcionalidade de início de sessão de utilizador é instalada e configurada. Escolha esta opção se já tiver instalado um servidor de federação de terceiros ou outra solução existente. |
 |Ativar o Início de sessão Único|Esta opção está disponível com sincronização de hash de palavras-passe e autenticação pass-through, e proporciona uma experiência de início de sessão único para utilizadores de ambiente de trabalho na rede da empresa. Veja [Início de sessão único](how-to-connect-sso.md) para obter mais informações. </br>Nota para clientes do AD FS: esta opção não está disponível porque o AD FS já oferece o mesmo nível de início de sessão único.</br>
 
@@ -95,15 +95,15 @@ A partir da construção 1.4.18.0 já não é suportado para usar uma conta Ente
 Esta página permite-lhe rever os domínios UPN presentes no AD DS no local e que foram verificados no Azure AD. Esta página também lhe permite configurar o atributo a utilizar para userPrincipalName.
 
 ![Domínios não verificados](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
-Reveja todos os domínios marcados como **Não Adicionado** e **Não Verificado**. Certifique-se de que os domínios que utiliza foram verificados no Azure AD. Quando tiver verificado os domínios, clique no símbolo de atualização. Para obter mais informações, consulte [Adicionar e verificar o domínio](../active-directory-domains-add-azure-portal.md)
+Reveja todos os domínios marcados como **Não Adicionado** e **Não Verificado**. Certifique-se de que os domínios que utiliza foram verificados no Azure AD. Quando tiver verificado os domínios, clique no símbolo de atualização. Para obter mais informações, consulte [Adicionar e verificar o domínio](../fundamentals/add-custom-domain.md)
 
-**UserPrincipalName** -o atributo userPrincipalName é o atributo que os utilizadores utilizam quando iniciam sessão no Azure AD e no Office 365. O domínio utilizado, também conhecido como sufixo UPN, deve ser verificado no Azure AD para que os utilizadores possam ser sincronizados. A Microsoft recomenda que mantenha o atributo predefinido userPrincipalName. Se este atributo não for encaminhável e não puder ser verificado, é possível selecionar outro atributo. Pode, por exemplo, selecionar o correio eletrónico como o atributo que contém o ID de início de sessão. A utilização de um atributo diferente de userPrincipalName é conhecida como **ID Alternativo**. O valor do atributo ID Alternativo tem de seguir a norma RFC822. Pode ser utilizado um ID alternativo na sincronização de hash de palavra-passe, autenticação pass-through e federação. O atributo não pode ser definido no Active Directory como com múltiplos valores, mesmo se tiver apenas um valor único. Para obter mais informações sobre o ID Alternativo, consulte o tópico [de perguntas frequentemente questionado.](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
+**UserPrincipalName** - O utilizador do atributoPrincipalName é o atributo que os utilizadores usam quando fazem súmico a AD e Microsoft 365. O domínio utilizado, também conhecido como sufixo UPN, deve ser verificado no Azure AD para que os utilizadores possam ser sincronizados. A Microsoft recomenda que mantenha o atributo predefinido userPrincipalName. Se este atributo não for encaminhável e não puder ser verificado, é possível selecionar outro atributo. Pode, por exemplo, selecionar o correio eletrónico como o atributo que contém o ID de início de sessão. A utilização de um atributo diferente de userPrincipalName é conhecida como **ID Alternativo**. O valor do atributo ID Alternativo tem de seguir a norma RFC822. Pode ser utilizado um ID alternativo na sincronização de hash de palavra-passe, autenticação pass-through e federação. O atributo não pode ser definido no Active Directory como com múltiplos valores, mesmo se tiver apenas um valor único. Para obter mais informações sobre o ID Alternativo, consulte o tópico [de perguntas frequentemente questionado.](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
 
 >[!NOTE]
 > Ao ativar a Autenticação Pass-through tem de ter, pelo menos, um domínio verificado para continuar através do assistente.
 
 > [!WARNING]
-> A utilização de um ID Alternativo não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, veja [Configurar ID de Início de Sessão Alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+> A utilização de um ID alternativo não é compatível com todas as cargas de trabalho do Microsoft 365. Para obter mais informações, veja [Configurar ID de Início de Sessão Alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 
@@ -127,7 +127,7 @@ A funcionalidade Correspondência entre florestas permite-lhe definir o modo com
 
 ![Exclusivo](./media/how-to-connect-install-custom/unique2.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 | --- | --- |
 | [Os utilizadores são representados apenas uma vez em todas as florestas](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Todos os utilizadores são criados como objetos individuais no Azure AD. Os objetos não estão associados no metaverso. |
 | [Atributo de correio](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opção associa utilizadores e contactos se o atributo de correio tiver o mesmo valor em florestas diferentes. Utilize esta opção quando os contactos foram criados utilizando GALSync. Se esta opção for escolhida, os objetos de Utilizador cujo atributo Mail não estiver preenchido não será sincronizados com o Azure AD. |
@@ -138,7 +138,7 @@ A funcionalidade Correspondência entre florestas permite-lhe definir o modo com
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Selecione a forma como os utilizadores devem ser identificados com o Azure AD - Âncora de Origem
 O atributo sourceAnchor é imutável durante o ciclo de vida de um objeto de utilizador. É a chave primária da ligação do utilizador no local com o utilizador no Azure AD.
 
-| Definição | Descrição |
+| Definições | Descrição |
 | --- | --- |
 | Permitir que seja o Azure a gerir a âncora de por mim | Selecione esta opção se pretender que o Azure AD escolha o atributo por si. Se selecionar esta opção, o assistente do Azure AD Connect aplica a lógica de seleção do atributo sourceAnchor descrita na secção do artigo [Azure AD Connect: Criar conceitos com o ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). O assistente apresenta o atributo que foi escolhido como o atributo de Âncora de Origem depois de a Instalação personalizada estar concluída. |
 | Um atributo específico | Selecione esta opção se pretender especificar um atributo do AD existente como o atributo sourceAnchor. |
@@ -176,12 +176,12 @@ Este ecrã permite-lhe selecionar as funcionalidades opcionais para os seus cen�
 
 | Funcionalidades Opcionais | Descrição |
 | --- | --- |
-| Implementação Híbrida do Exchange |A funcionalidade Implementação Híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está a sincronizar um conjunto específico de [atributos](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD para o diretório no local. |
+| Implementação Híbrida do Exchange |A funcionalidade De Implementação Híbrida exchange permite a coexistência de caixas de correio Exchange tanto no local como na Microsoft 365. O Azure AD Connect está a sincronizar um conjunto específico de [atributos](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD para o diretório no local. |
 | Pastas Públicas de Correio do Exchange | A funcionalidade Pastas Públicas de Correio do Exchange permite-lhe sincronizar objetos de Pastas Públicas ativadas para correio do seu Active Directory no local para o Azure AD. |
 | Aplicação Azure AD e filtragem de atributos |Ao ativar a aplicação Azure AD e a filtragem de atributos, o conjunto de atributos sincronizados pode ser personalizado. Esta opção adiciona mais duas páginas de configuração ao assistente. Para obter mais informações, consulte [Aplicação Azure AD e filtragem de atributos](#azure-ad-app-and-attribute-filtering). |
 | Sincronização de hash de palavra-passe |Se tiver selecionado a federação como solução de início de sessão, poderá ativar esta opção. A sincronização de hash de palavras-passe pode ser utilizada como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de hash de palavras-passe](how-to-connect-password-hash-synchronization.md). </br></br>Se tiver selecionado a Autenticação Pass-through, esta opção também poderá ser ativada para assegurar o suporte para clientes legados e como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de hash de palavras-passe](how-to-connect-password-hash-synchronization.md).|
-| Repetição de escrita de palavras-passe |Ao ativar a repetição de escrita de palavras-passe, as alterações de palavras-passe com origem no Azure AD são reescritas no diretório no local. Para mais informações, consulte [Introdução à gestão de palavras-passe](../authentication/quickstart-sspr.md) |
-| Repetição de escrita do grupo |Se utilizar a funcionalidade **Grupos do Office 365**, pode ter estes grupos representados no Active Directory no local. Esta opção só está disponível se tiver o Exchange presente no Active Directory no local. Para mais informações consulte [o writeback do grupo Azure AD Connect](how-to-connect-group-writeback.md)|
+| Repetição de escrita de palavras-passe |Ao ativar a repetição de escrita de palavras-passe, as alterações de palavras-passe com origem no Azure AD são reescritas no diretório no local. Para mais informações, consulte [Introdução à gestão de palavras-passe](../authentication/tutorial-enable-sspr.md) |
+| Repetição de escrita do grupo |Se utilizar a funcionalidade **Grupos Microsoft 365,** pode ter estes grupos representados no seu Ative Directory no local. Esta opção só está disponível se tiver o Exchange presente no Active Directory no local. Para mais informações consulte [o writeback do grupo Azure AD Connect](how-to-connect-group-writeback.md)|
 | Repetição de escrita do dispositivo |Permite-lhe escrever objetos de dispositivo em Azure AD para o seu Diretório Ativo no local para cenários de acesso condicional. Para mais informações, consulte [Ativar a repetição de escrita do dispositivo no Azure AD Connect](how-to-connect-device-writeback.md). |
 | Sincronização de atributos de extensões de diretórios |Ao ativar a sincronização de atributos de extensões de diretórios, os atributos especificados são sincronizados com o Azure AD. Para obter mais informações, consulte [Extensões de diretórios](how-to-connect-sync-feature-directory-extensions.md). |
 
@@ -303,7 +303,7 @@ Esta configuração é utilizada para configurar a relação de federação entr
 ![Domínio do Azure AD](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Verificar o domínio do Azure AD selecionado para federação
-Quando seleciona o domínio a ser federado, o Azure AD Connect fornece-lhe as informações necessárias para verificar um domínio não verificado. Consulte [Adicionar e verificar o domínio](../active-directory-domains-add-azure-portal.md) para saber como utilizar estas informações.
+Quando seleciona o domínio a ser federado, o Azure AD Connect fornece-lhe as informações necessárias para verificar um domínio não verificado. Consulte [Adicionar e verificar o domínio](../fundamentals/add-custom-domain.md) para saber como utilizar estas informações.
 
 ![Domínio do Azure AD](./media/how-to-connect-install-custom/verifyfeddomain.png)
 
@@ -314,7 +314,7 @@ Quando seleciona o domínio a ser federado, o Azure AD Connect fornece-lhe as in
 
 ## <a name="configuring-federation-with-pingfederate"></a>Configurar a federação com o PingFederate
 Configurar o PingFederate com o Azure AD Connect é simples e exige apenas alguns cliques. No entanto, são precisos os seguintes pré-requisitos.
-- PingFederate 8.4 ou superior.  Para obter mais informações veja [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- PingFederate 8.4 ou superior.  Para mais informações consulte [a Integração pingFederate com o Azure Ative Directory e o Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
 - Um certificado TLS/SSL para o nome de serviço da federação que pretende utilizar (por exemplo, sts.contoso.com)
 
 ### <a name="verify-the-domain"></a>Verificar o domínio
@@ -379,7 +379,7 @@ O Azure AD Connect verifica as definições de DNS quando clica no botão Verifi
 
 ![Concluído](./media/how-to-connect-install-custom/completed.png)
 
-![Verificar](./media/how-to-connect-install-custom/adfs7.png)
+![Verificação](./media/how-to-connect-install-custom/adfs7.png)
 
 Para validar a autenticação ponto a ponto com êxito, deve efetuar manualmente um, ou mais, dos seguintes testes:
 

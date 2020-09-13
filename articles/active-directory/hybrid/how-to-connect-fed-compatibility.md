@@ -16,18 +16,18 @@ ms.date: 08/23/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3ca659535c225ca6736fe7bba8aa5b0120c684c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 895e7347feea3190ba9bdc273200d2985dfaa0d1
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359828"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661830"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidades de federação do Azure AD
-O Azure Ative Directory fornece segurança de acesso a aplicações única e melhorada para o Office 365 e outros serviços Microsoft Online para implementações híbridas e apenas na nuvem sem precisar de qualquer solução de terceiros. O Office 365, tal como a maioria dos serviços online da Microsoft, está integrado com o Azure Ative Directory para serviços de diretório, autenticação e autorização. O Azure Ative Directory também fornece um único sign-on a milhares de aplicações SaaS e aplicações web no local. Consulte a galeria de [aplicações](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) do Azure Ative Directory para aplicações saaS suportadas. 
+O Azure Ative Directory fornece uma única segurança de acesso a aplicações para o Microsoft 365 e outros serviços Microsoft Online para implementações híbridas e apenas na nuvem sem necessitar de qualquer solução de terceiros. O Microsoft 365, tal como a maioria dos serviços online da Microsoft, está integrado com o Azure Ative Directory para serviços de diretório, autenticação e autorização. O Azure Ative Directory também fornece um único sign-on a milhares de aplicações SaaS e aplicações web no local. Consulte a galeria de [aplicações](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) do Azure Ative Directory para aplicações saaS suportadas. 
 
 ## <a name="idp-validation"></a>Validação do IDP
-Se a sua organização utilizar uma solução de federação de terceiros, pode configurar um único sinal para os seus utilizadores do Ative Directory com serviços Microsoft Online, como o Office 365, desde que a solução de federação de terceiros seja compatível com o Azure Ative Directory.  Para questões de compatibilidade, contacte o seu fornecedor de identidade.  Se quiser ver uma lista de fornecedores de identidade que já foram testados para compatibilidade com a Azure AD, pela Microsoft, clique [aqui](https://www.microsoft.com/download/details.aspx?id=56843). 
+Se a sua organização utilizar uma solução de federação de terceiros, pode configurar um único sinal para os seus utilizadores do Ative Directory com serviços Microsoft Online, como o Microsoft 365, desde que a solução de federação de terceiros seja compatível com o Azure Ative Directory.  Para questões de compatibilidade, contacte o seu fornecedor de identidade.  Se quiser ver uma lista de fornecedores de identidade que já foram testados para compatibilidade com a Azure AD, pela Microsoft, consulte [os docs de compatibilidade do fornecedor de identidade Azure AD](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 >[!NOTE]
 >A Microsoft já não fornece testes de validação a fornecedores independentes de identidade para compatibilidade com o Azure Ative Directory. Se pretender testar o seu produto para interoperabilidade, consulte estas [diretrizes.](https://www.microsoft.com/download/details.aspx?id=56843) 

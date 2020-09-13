@@ -1,6 +1,6 @@
 ---
 title: Design de identidade híbrida - estratégia de adoção Azure / Microsoft Docs
-description: Com o controlo de Acesso Condicional, o Azure Ative Directory verifica as condições específicas que escolhe ao autenticar o utilizador e antes de permitir o acesso à aplicação. Uma vez cumpridas essas condições, o utilizador é autenticado e autorizado a aceder à aplicação.
+description: Com o controlo de acesso condicional, a Azure AD verifica as condições específicas que escolhe ao autenticar o utilizador e antes de permitir o acesso à aplicação.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555388"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659533"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia híbrida de adoção de identidade
 Nesta tarefa, define a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida para satisfazer os requisitos de negócio que foram discutidos em:
@@ -32,7 +32,7 @@ Nesta tarefa, define a estratégia de adoção de identidade híbrida para a sua
 * [Determinar requisitos de autenticação de vários fatores](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definir estratégia de necessidades de negócio
-A primeira tarefa aborda a determinação das necessidades empresariais das organizações.  Isto pode ser muito amplo e pode ocorrer se não tiver cuidado.  No início, mantenha-o simples mas lembre-se sempre de planear um design que irá acomodar e facilitar a mudança no futuro.  Independentemente de se ser um design simples ou um design extremamente complexo, o Azure Ative Directory é a plataforma Microsoft Identity que suporta aplicações do Office 365, Microsoft Online Services e cloud aware.
+A primeira tarefa aborda a determinação das necessidades empresariais das organizações.  Isto pode ser muito amplo e pode ocorrer se não tiver cuidado.  No início, mantenha-o simples mas lembre-se sempre de planear um design que irá acomodar e facilitar a mudança no futuro.  Independentemente de se ser um design simples ou um design extremamente complexo, o Azure Ative Directory é a plataforma Microsoft Identity que suporta aplicações microsoft 365, Microsoft Online e cloud aware.
 
 ## <a name="define-an-integration-strategy"></a>Definir uma estratégia de integração
 A Microsoft tem três cenários principais de integração que são identidades em nuvem, identidades sincronizadas e identidades federadas.  Devias planear adotar uma destas estratégias de integração.  A estratégia que escolhe pode variar e as decisões na escolha podem incluir, que tipo de experiência de utilizador quer fornecer, tem uma infraestrutura existente e qual é a mais rentável.  
@@ -171,7 +171,7 @@ O seguinte não é apoiado e não deve ser escolhido como uma implementação:
 * Os diretórios AD Azure são por design isolado. Não é suportado para alterar a configuração da sincronização Azure AD Connect para ler dados de outro diretório AD Azure numa tentativa de construir uma GAL comum e unificada entre os diretórios. Também não é suportado para exportar utilizadores como contactos para outro AD no local usando a sincronização Azure AD Connect.
 
 > [!NOTE]
-> Se a sua organização restringir os computadores da sua rede de ligação à Internet, este artigo lista os pontos finais (intervalos de endereços FQDNs, IPv4 e IPv6) que deve incluir nas listas de saída e na Internet Explorer Trusted Sites Zone de computadores clientes para garantir que os seus computadores podem utilizar com sucesso o Office 365. Para mais informações leia [os intervalos de endereços URLs e IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> Se a sua organização restringir os computadores da sua rede de ligação à Internet, este artigo lista os pontos finais (intervalos de endereços FQDNs, IPv4 e IPv6) que deve incluir nas listas de saída e na Internet Explorer Trusted Sites Zone de computadores clientes para garantir que os seus computadores podem utilizar com sucesso o Microsoft 365. Para mais informações leia [os intervalos de endereços URLs e IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 

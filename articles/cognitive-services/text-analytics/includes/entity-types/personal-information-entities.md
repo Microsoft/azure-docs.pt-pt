@@ -8,25 +8,25 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2349c92fb74b546eaa929752f3d2343b9c97e6d1
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: c50beef5c9c5dcae7edd487e8bf3d192ba557865
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011027"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662777"
 ---
 > [!NOTE]
-> Para detetar `PHI` (informações de saúde protegidas), utilize o `domain=phi` parâmetro e a versão do modelo ou `2020-04-01` posteriormente.
+> Para detetar informações de saúde protegidas (PHI), utilize o `domain=phi` parâmetro e a versão do modelo ou `2020-04-01` posteriormente.
 >
 > Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
-As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/v3.1-preview.1/entities/recognition/pii` ponto final.
+As seguintes categorias de entidades são devolvidas quando envia pedidos para o `/v3.1-preview.1/entities/recognition/pii` ponto final.
 
 | Categoria   | Subcategoria | Descrição                          | Versão do modelo inicial | Notas |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Pessoa     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também devolvido `domain=phi` com. |
 | PersonType | N/D         | Tipos de emprego ou funções detidas por uma pessoa. | `2020-02-01` | |
-| PhoneNumber | N/D | Números de telefone (apenas números de telefone dos EUA e da UE). | `2019-10-01` | Também devolvido com`domain=phi` |
+| PhoneNumber | N/D | Números de telefone (apenas números de telefone dos EUA e da UE). | `2019-10-01` | Também devolvido `domain=phi` com. |
 |Organização  | N/D | Empresas, grupos políticos, bandas musicais, clubes desportivos, organismos governamentais e organizações públicas.  | `2019-10-01` | As nacionalidades e religiões não estão incluídas neste tipo de entidade.  |
 |Organização | Médico | Empresas médicas e grupos. | `2020-04-01` |  |
 |Organização | Bolsa de valores | Grupos de bolsa. | `2020-04-01` |  |
@@ -36,8 +36,8 @@ As seguintes categorias de entidades são devolvidas ao enviar pedidos para o `/
 | E-mail | N/D | Endereços de e-mail. | `2019-10-01` | Também devolvido `domain=phi` com.   |
 | URL | N/D | URLs para sites. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | IP | N/D | Endereços IP de rede. | `2019-10-01` | Também devolvido `domain=phi` com. |
-| DateTime | N/D | Datas e horas do dia. | `2019-10-01` |  | 
-| DateTime | Date | Datas de Calender. | `2019-10-01` | Também devolvido `domain=phi` com. |
+| Data e Hora | N/D | Datas e horas do dia. | `2019-10-01` |  | 
+| Data e Hora | Data | Datas de Calender. | `2019-10-01` | Também devolvido `domain=phi` com. |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
 | Quantidade | Idade | Idades. | `2019-10-01` | | |
 
@@ -47,17 +47,17 @@ Esta categoria de entidade inclui informações identificáveis do Azure, inclui
 
 | Subcategoria                           | Descrição                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| Chave Azure DocumentDB Auth             | Chave de autorização para um servidor Azure DocumentDB.                           |
-| Cadeia de conexão de base de dados Azure IAAS e cadeia de conexão Azure SQL | Cadeia de ligação para uma Infraestrutura Azure como base de dados de serviço (IaaS) e cadeia de conexão SQL. |
+| Chave Azure DocumentDB Auth             | Chave de autorização para um servidor DB Azure Cosmos.                           |
+| Cadeia de conexão de base de dados Azure IAAS e cadeia de conexão Azure SQL | Cadeia de ligação para uma infraestrutura Azure como base de dados de serviço (IaaS) e cadeia de conexão SQL. |
 | Cadeia de conexão Azure SQL           | Cadeia de ligação para uma base de dados na Base de Dados Azure SQL.                                |
-| Cadeia de conexão Azure IoT           | Cadeia de ligação para Azure Internet das coisas (IoT).                        |
-| Azure Publicar Senha de Definição        | Palavra-passe para as definições de Azure Publish.                                        |
-| Cadeia de conexão Azure Redis Cache   | Fio de ligação para uma cache Azure para Redis.                             |
-| Azure SAS                             | Cadeia de ligação para Azure Software como um Serviço (SAS).                     |
+| Cadeia de conexão Azure IoT           | Fio de ligação para Azure IoT.                        |
+| Azure Publicar Senha de Definição        | Palavra-passe para as definições de publicação do Azure.                                        |
+| Cadeia de conexão Azure Redis Cache   | Fio de ligação para uma cache Redis.                             |
+| Azure SAS                             | Cadeia de ligação para software Azure como serviço (SaaS).                     |
 | Cadeia de conexão de ônibus de serviço Azure   | Fio de ligação para um ônibus de serviço Azure.                                 |
 | Chave da conta de armazenamento Azure             | Chave de conta para uma conta de armazenamento Azure.                                   |
 | Chave da conta de armazenamento Azure (genérico)   | Chave de conta genérica para uma conta de armazenamento Azure.                           |
-| Cadeia de conexão do servidor SQL          | Cadeia de ligação para um servidor SQL.                                         |
+| Cadeia de conexão do servidor SQL          | Cadeia de ligação para um computador que executa o SQL Server.                                         |
 
 ## <a name="identification"></a>Identificação
 

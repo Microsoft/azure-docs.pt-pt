@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e0798f75aaa79031ca7cc03814282daa049fbfe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011031"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662969"
 ---
 Esta categoria de entidade inclui informação financeira e formas oficiais de identificação. Disponível a partir da versão `2019-10-01` modelo. Os subtipos estão listados abaixo. 
 
-### <a name="financial-account-identification"></a>Identificação da Conta Financeira
+### <a name="financial-account-identification"></a>Identificação de conta financeira
 
 | Nome do subtipo               | Descrição                                                                |
 |----------------------------|----------------------------------------------------------------------------|
@@ -34,7 +34,7 @@ Esta categoria de entidade inclui informação financeira e formas oficiais de i
 > * Números de passaporte
 > * IDs de impostos
 
-As entidades abaixo estão agrupadas e listadas por país:
+As seguintes entidades são agrupadas e listadas por país:
 
 Argentina
 * Número de Identidade Nacional argentina (DNI)
@@ -116,7 +116,7 @@ França
 * Cartão de identidade nacional da França (CNI)
 * Número do passaporte da França
 * Número de Segurança Social da França (INSEE)
-* Número de identificação fiscal da França (numéro SPI.)
+* Número de identificação fiscal da França (Numéro SPI)
 * Número de imposto sobre o valor acrescentado da França
 
 Alemanha
@@ -127,7 +127,7 @@ Alemanha
 * Número do Imposto sobre o Valor Acrescentado da Alemanha
 
 Grécia 
-* Número do cartão de identidade nacional da Grécia
+* Número de cartão de identidade nacional da Grécia
 * Número de identificação fiscal da Grécia
 
 RAE de Hong Kong
@@ -268,7 +268,7 @@ Ucrânia
 * Número do passaporte da Ucrânia (Internacional)
 
 Reino Unido
-* Reino Unido Número da carta de condução
+* Reino Unido Número da Carta de Condução
 * Reino Unido Número do Caderno Eleitoral
 * Reino Unido Número do Serviço Nacional de Saúde (SNS)
 * Reino Unido Número do Seguro Nacional (NINO)

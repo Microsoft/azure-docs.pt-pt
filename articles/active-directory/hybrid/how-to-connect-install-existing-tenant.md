@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640655"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662253"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Quando tiver um inquilino existente
 A maioria dos tópicos para como usar o Azure AD Connect assume que você começa com um novo inquilino AD AZure e que não há utilizadores ou outros objetos lá. Mas se você começou com um inquilino AZure AD, povoou-o com utilizadores e outros objetos, e agora quer usar Connect, então este tópico é para você.
@@ -41,7 +41,7 @@ A partida só é avaliada para novos objetos vindos do Connect. Se alterar um ob
 Se a Azure AD encontrar um objeto onde os valores do atributo são os mesmos para um objeto proveniente do Connect e que já está presente no Azure AD, então o objeto em Azure AD é assumido pela Connect. O objeto anteriormente gerido pela nuvem é sinalizado como gerido no local. Todos os atributos em AD Azure com um valor em AD no local são substituídos com o valor no local. A exceção é quando um atributo tem um valor **NULO** no local. Neste caso, o valor em Azure AD permanece, mas ainda assim só pode mudá-lo no local para outra coisa.
 
 > [!WARNING]
-> Uma vez que todos os atributos em AD Azure serão substituídos pelo valor no local, certifique-se de que tem bons dados no local. Por exemplo, se só geriu o endereço de e-mail no Office 365 e não o manteve atualizado no local AD DS, então perde quaisquer valores em Azure AD/Office 365 que não esteja presente em DS AD.
+> Uma vez que todos os atributos em AD Azure serão substituídos pelo valor no local, certifique-se de que tem bons dados no local. Por exemplo, se apenas geriu o endereço de e-mail no Microsoft 365 e não o manteve atualizado em DS AD no local, então perde quaisquer valores em Azure AD/Microsoft 365 que não esteja presente em DS AD.
 
 > [!IMPORTANT]
 > Se utilizar a sincronização de palavra-passe, que é sempre utilizada por definições expressas, então a palavra-passe em Azure AD é substituída com a palavra-passe no AD no local. Se os seus utilizadores estiverem habituados a gerir diferentes palavras-passe, então tem de informá-los de que devem utilizar a palavra-passe no local quando tiver instalado o Connect.
@@ -74,5 +74,5 @@ Alguns clientes começam com uma solução apenas em nuvem com Azure AD e não t
 
 Se a única razão pela qual planeia adicionar AD no local é para suportar LOBs (aplicações Line-of-Business), então talvez deva considerar usar os serviços de [domínio AD AZure](../../active-directory-domain-services/index.yml) em vez disso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

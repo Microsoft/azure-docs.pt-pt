@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: d980764b7151183b61657434afa6c472e5058d18
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924491"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662270"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Semelhança e pontuação na Pesquisa Cognitiva Azure
 
@@ -40,7 +40,7 @@ Um perfil de pontuação faz parte da definição de índice, composto por campo
 
 ## <a name="scoring-statistics-and-sticky-sessions"></a>Estatísticas de pontuação e sessões pegajosas
 
-Para a escalabilidade, a Azure Cognitive Search distribui cada índice horizontalmente através de um processo de fragmento, o que significa que porções de um índice são fisicamente separadas.
+Para a escalabilidade, a Azure Cognitive Search distribui cada índice horizontalmente através de um processo de fragmento, o que significa que [porções de um índice são fisicamente separadas](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 Por predefinição, a pontuação de um documento é calculada com base nas propriedades estatísticas dos dados *dentro de um fragmento*. Esta abordagem geralmente não é um problema para um grande corpus de dados, e proporciona um melhor desempenho do que ter que calcular a pontuação com base em informações em todos os fragmentos. Dito isto, usar esta otimização de desempenho poderia fazer com que dois documentos muito semelhantes (ou mesmo documentos idênticos) acabassem com pontuações de relevância diferentes se acabassem em fragmentos diferentes.
 
@@ -105,7 +105,7 @@ Para uma consulta que vise os campos de "descrição" e "título", uma resposta 
 Pode consumir estes pontos de dados em [soluções de pontuação personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial) ou utilizar a informação para depurar problemas de relevância de pesquisa.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
  [Perfis de pontuação](index-add-scoring-profiles.md) [REST Referência API](/rest/api/searchservice/)   
  [Documentos de Pesquisa API](/rest/api/searchservice/search-documents)   

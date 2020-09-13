@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255783"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662337"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
@@ -55,7 +55,7 @@ Além destas três contas utilizadas para executar o Azure AD Connect, também n
 > [!NOTE]
 > É apoiado para gerir as contas administrativas utilizadas no Azure AD Connect a partir de uma Floresta Administrativa ESAE (também conhecido como "Floresta Vermelha").
 > As florestas administrativas dedicadas permitem que as organizações alojem contas administrativas, estações de trabalho e grupos num ambiente com controlos de segurança mais fortes do que o ambiente de produção.
-> Para saber mais sobre florestas administrativas dedicadas, consulte a [ESAE Administrative Forest Design Approach](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+> Para saber mais sobre florestas administrativas dedicadas, consulte a [ESAE Administrative Forest Design Approach](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
 > A função de Administrador Global não é necessária após a configuração inicial e a única conta necessária será a conta de **função de Conta sincronização do Diretório.** Isso não significa necessariamente que irá querer apenas remover a conta com o papel de Administrador Global. É melhor mudar o papel para um papel menos poderoso, já que remover totalmente a conta pode introduzir problemas se precisar de voltar a executar o assistente. Ao reduzir o privilégio do papel, pode sempre re-elevar os privilégios se tiver de utilizar novamente o assistente Azure AD Connect. 
@@ -147,9 +147,9 @@ Quais as permissões que necessita dependem das funcionalidades opcionais que at
 | Sincronização de haxixe de palavra-passe |<li>Alterar o diretório de replicação</li>  <li>Replicar mudanças de diretório tudo |
 | Implementação híbrida de troca |Escreva permissões para os atributos documentados na [writeback híbrida Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para utilizadores, grupos e contactos. |
 | Troca de Correio Público Pasta |Leia as permissões dos atributos documentados na [Pasta Pública do Correio da Manhã](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| Repetição de escrita de palavras-passe |Escreva permissões para os atributos documentados em [Começar com a gestão de passwords](../authentication/howto-sspr-writeback.md) para os utilizadores. |
+| Repetição de escrita de palavras-passe |Escreva permissões para os atributos documentados em [Começar com a gestão de passwords](../authentication/tutorial-enable-sspr-writeback.md) para os utilizadores. |
 | Repetição de escrita do dispositivo |Permissões concedidas com um script PowerShell como descrito na [gravação do dispositivo](how-to-connect-device-writeback.md). |
-| Repetição de escrita do grupo |Permite-lhe escrever office **365 Grupos** para uma floresta com Exchange instalado.|
+| Repetição de escrita do grupo |Permite-lhe escrever os **Grupos Microsoft 365** para uma floresta com o Exchange instalado.|
 
 ## <a name="upgrade"></a>Atualizar
 Quando atualiza de uma versão do Azure AD Connect para uma nova versão, precisa das seguintes permissões:
@@ -197,10 +197,10 @@ Legenda:
 - Não-arrojado - Opção suportada
 - Conta local - Conta de utilizador local no servidor
 - Conta de domínio - Conta de utilizador de domínio
-- sMSA - [conta de Serviço Gerido Autónomo](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA - [conta de serviço gerido do grupo](https://technet.microsoft.com/library/hh831782.aspx)
+- sMSA - [conta de Serviço Gerido Autónomo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [conta de serviço gerido do grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
 
-| | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizar | SQL remoto</br>Personalizar |
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina unida ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA,gMSA | **gMSA**</br>Conta do domínio |
 | **Controlador de domínio** | **Conta do domínio** | *gMSA*</br>**Conta do domínio**</br>sMSA| *gMSA*</br>**Conta do domínio**|
@@ -215,11 +215,11 @@ O VSA destina-se a ser utilizado com cenários em que o motor de sincronização
 Esta funcionalidade requer o Windows Server 2008 R2 ou mais tarde. Se instalar o Azure AD Connect no Windows Server 2008, a instalação volta a utilizar uma [conta de utilizador.](#user-account)
 
 #### <a name="group-managed-service-account"></a>Conta de serviço gerida pelo grupo
-Se utilizar um servidor SQL remoto, recomendamos a utilização de uma **conta de serviço gerida pelo grupo.** Para obter mais informações sobre como preparar o seu Diretório Ativo para a conta de Serviço Gerido pelo Grupo, consulte a Visão Geral das [Contas de Serviço Geridas pelo Grupo](https://technet.microsoft.com/library/hh831782.aspx).
+Se utilizar um servidor SQL remoto, recomendamos a utilização de uma **conta de serviço gerida pelo grupo.** Para obter mais informações sobre como preparar o seu Diretório Ativo para a conta de Serviço Gerido pelo Grupo, consulte a Visão Geral das [Contas de Serviço Geridas pelo Grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
 
 Para utilizar esta opção, na página [de componentes necessários,](how-to-connect-install-custom.md#install-required-components) selecione **Utilize uma conta de serviço existente**e selecione Conta de Serviço **Gerido**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-Também é suportado para utilizar uma conta de [serviço gerida autónoma](https://technet.microsoft.com/library/dd548356.aspx). No entanto, estes apenas podem ser utilizados na máquina local e não há qualquer benefício em usá-los sobre a conta de serviço virtual padrão.
+Também é suportado para utilizar uma conta de [serviço gerida autónoma](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). No entanto, estes apenas podem ser utilizados na máquina local e não há qualquer benefício em usá-los sobre a conta de serviço virtual padrão.
 
 Esta funcionalidade requer o Windows Server 2012 ou mais tarde. Se precisar de utilizar um sistema operativo mais antigo e utilizar o SQL remoto, então tem de utilizar uma [conta de utilizador](#user-account).
 
@@ -247,12 +247,12 @@ O nome do servidor em que a conta é utilizada pode ser identificado na segunda 
 
 A conta é criada com uma senha complexa e longa que não expira. É-lhe concedida uma função especial Contas de Sincronização de **Diretórios** que tem apenas permissões para executar tarefas de sincronização de diretórios. Esta função especial incorporada não pode ser concedida fora do assistente Azure AD Connect. O portal Azure mostra esta conta com a função **Utilizador**.
 
-Existe um limite de 20 contas de serviço sincronizado no Azure AD. Para obter a lista das contas de serviço AZure AD existentes no seu AD Azure, execute o seguinte cmdlet Azure AD PowerShell:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Existe um limite de 20 contas de serviço sincronizado no Azure AD. Para obter a lista das contas de serviço AZure AD existentes no seu AD Azure, execute o seguinte cmdlet Azure AD PowerShell: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Para remover as contas de serviço Azure AD não reutilizadas, execute o seguinte cmdlet Azure AD PowerShell:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Para remover as contas de serviço Azure AD não reutilizadas, execute o seguinte cmdlet Azure AD PowerShell: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Antes de poder utilizar os comandos PowerShell acima, terá de instalar o [PowerShell do Diretório Ativo Azure para módulo Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e ligar-se à sua instância de Azure AD utilizando [o Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Antes de poder utilizar os comandos PowerShell acima, terá de instalar o [PowerShell do Diretório Ativo Azure para módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e ligar-se à sua instância de Azure AD utilizando [o Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
 Para obter informações adicionais sobre como gerir ou redefinir a palavra-passe da conta Azure AD Connector ver [Gerir a conta Azure AD Connect](how-to-connect-azureadaccount.md)
 
@@ -267,5 +267,5 @@ Se não leu a documentação sobre [a integração das suas identidades no local
 |Atualização do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md)|
 |Após a instalação | [Verificar a instalação e atribuir licenças](how-to-connect-post-installation.md)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

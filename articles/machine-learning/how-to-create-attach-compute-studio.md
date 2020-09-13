@@ -1,5 +1,5 @@
 ---
-title: Criar recursos computacional em estúdio
+title: Criar formação & implementar computas (estúdio)
 titleSuffix: Azure Machine Learning
 description: Utilize o estúdio para criar recursos de formação e implementação de cálculo (metas de computação) para a aprendizagem automática
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 2e32eb9a2a13b8e247388e8da80dd5f5967fdc6d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 37253ccfb249eb8b510af5e314c3167ddd979a87
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147607"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661955"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar metas de computação para formação de modelos e implantação no estúdio Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -120,6 +120,9 @@ Durante a criação do cluster ou ao editar detalhes do cluster compute, nas **d
 
 ### <a name="inference-clusters"></a>Aglomerados de inferência
 
+> [!IMPORTANT]
+> A utilização do Serviço Azure Kubernetes com Azure Machine Learning tem várias opções de configuração. Alguns cenários, como o networking, requerem configuração e configuração adicionais. Para obter mais informações sobre a utilização da AKS com Azure ML, consulte [Criar e anexar um cluster de serviço Azure Kubernetes](how-to-create-attach-kubernetes.md).
+
 Crie ou anexe um cluster Azure Kubernetes Service (AKS) para inferenização em larga escala. Utilize os [passos acima](#portal-create) para criar o cluster AKS.  Em seguida, preencha o formulário da seguinte forma:
 
 
@@ -127,7 +130,7 @@ Crie ou anexe um cluster Azure Kubernetes Service (AKS) para inferenização em 
 |---------|---------|
 |Nome da computação     |  <li>O nome é necessário. O nome deve ter entre 2 a 16 caracteres. </li><li>Os caracteres válidos são letras maiúsculas e minúsculas, dígitos e o  **-** personagem.</li><li>O nome deve começar com uma carta</li><li>O nome tem de ser único em todos os cálculos existentes dentro de uma região de Azure. Verá um alerta se o nome que escolher não for único</li><li>Se **-**  o caráter é usado, então precisa ser seguido por pelo menos uma letra mais tarde no nome</li>     |
 |Kubernetes Service | Selecione **Create New** e preencha o resto do formulário.  Ou selecione **Use existente** e, em seguida, selecione um cluster AKS existente a partir da sua subscrição.
-|Região |  Selecione a região onde o cluster será criado |
+|Region |  Selecione a região onde o cluster será criado |
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Finalidade do cluster  | Selecione **Produção** ou **Teste de Dev** |
 |Número de nós | O número de nós multiplicados pelo número de núcleos (vCPUs) da máquina virtual deve ser superior ou igual a 12. |
@@ -158,7 +161,7 @@ Utilize os [passos acima](#portal-create) para anexar um cálculo.  Em seguida, 
 1. __Selecione Anexar__. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de um alvo ser criado e ligado ao seu espaço de trabalho, utiliza-o na [configuração de execução](how-to-set-up-training-targets.md) com um `ComputeTarget` objeto:
 
