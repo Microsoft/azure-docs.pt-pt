@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f056b34df0a70374e8bae909f210bfabf107ed4a
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795326"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005943"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir etiquetas de sensibilidade a grupos Microsoft 365 no Azure Ative Directory
 
@@ -68,7 +68,7 @@ Para aplicar rótulos publicados em grupos, tem primeiro de ativar a funcionalid
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Já está! Ativou a funcionalidade e pode aplicar rótulos publicados em grupos.
+Também terá de sincronizar as suas etiquetas de sensibilidade com o Azure AD. Para obter instruções, consulte [como permitir etiquetas de sensibilidade para recipientes e sincronizar etiquetas](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribua um rótulo a um novo grupo no portal Azure
 
@@ -113,7 +113,8 @@ Depois de ativar esta funcionalidade, as classificações "clássicas" para grup
 A opção de etiqueta de sensibilidade só é apresentada para grupos quando todas as seguintes condições estiverem satisfeitas:
 
 1. As etiquetas são publicadas no Microsoft 365 Compliance Center para esta organização AZure AD.
-1. A funcionalidade está ativada, o EnableMIPLabels está definido para True in PowerShell.
+1. A funcionalidade está ativada, o EnableMIPLabels está definido para True a partir do módulo Azure AD PowerShell.
+1. Os Lables são sincronizados com o AD Azure com o cmdlet Execut-AzureAdLabelSync no módulo PowerShell de conformidade & de segurança.
 1. O grupo é um grupo Microsoft 365.
 1. A organização tem uma licença ativa do Azure Ative Directory Premium P1.
 1. O atual utilizador inscrito tem privilégios suficientes para atribuir etiquetas. O utilizador deve ser administrador global, administrador de grupo ou proprietário do grupo.
@@ -143,7 +144,7 @@ Como uma boa prática, não recomendamos que altere as definições de grupo par
 
 Se tiver de fazer uma alteração, utilize um [script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) para aplicar manualmente atualizações aos grupos impactados. Este método assegura que todos os grupos existentes impõem a nova definição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilize etiquetas de sensibilidade com as equipas da Microsoft, grupos Microsoft 365 e sites SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Atualizar grupos após a alteração da política do rótulo manualmente com o script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)

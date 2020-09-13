@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526404"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006096"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar o Local de Trabalho pelo Facebook para o fornecimento automático de utilizadores
 
@@ -125,8 +125,16 @@ O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a p
    |números de telefone[tipo eq "fax"].valor|String|
    |externoId|String|
    |preferiuLanguage|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.manager|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.department|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.division|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.employeeNumber|String|
+   |urn:scim:schemas:extensão:facebook:auth_method:1.0:auth_method|String|
+   |urn:scim:schemas:extension:facebook:frontline:1.0.is_frontline|Booleano|
+   |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Número inteiro|
+
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -154,11 +162,15 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 ## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 *  Se vir um utilizador criado sem sucesso e houver um evento de registo de auditoria com o código "1789003" significa que o utilizador é de um domínio não verificado.
 
+## <a name="change-log"></a>Change log
+
+* 09/10/2020 - Apoio adicional aos atributos empresariais "divisão", "organização", "costCenter" e "employeeNumber". Suporte adicionado para atributos personalizados "startDate", "auth_method" e "linha da frente"
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

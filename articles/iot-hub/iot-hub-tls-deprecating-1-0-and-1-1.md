@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 5c717a02c2008436617d16f08625a1cecc204340
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcf7620f53c9bfdb51eb62598f2c8b441574eca6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849523"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006085"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Depreciação de TLS 1.0 e 1.1 no IoT Hub
 
@@ -38,10 +38,10 @@ O IoT Hub continuará a apoiar o TLS 1.0/1.1 até novo aviso. No entanto, recome
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-## <a name="tls-12-ciphers"></a>TLS 1.2 cifras
+## <a name="tls-12-cipher-suites"></a>Suítes TLS 1.2 cifra
 
-Ver [cifras recomendadas IoT Hub TLS 1.2](iot-hub-tls-support.md#recommended-ciphers).
+Ver [suítes IoT Hub TLS 1.2 cifras](iot-hub-tls-support.md#cipher-suites).
  
-## <a name="customer-feedback"></a>Feedback do cliente
+## <a name="customer-feedback"></a>Comentários dos clientes
 
 Embora a aplicação do TLS 1.2 seja uma escolha de encriptação de primeira classe em toda a indústria e seja ativada como planeado, ainda gostaríamos de ouvir os clientes sobre as suas implementações específicas e dificuldades na adoção de TLS 1.2. Para o efeito, pode enviar os seus comentários para [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com) .

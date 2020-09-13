@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 333f2317fcc834a10b7336bbda9a43ba16a7ad38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8700bbfe697a6b5fb81380831950d704fcb1f5ff
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84317483"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90012793"
 ---
 As tabelas a seguir fornecem quotas e limites específicos aos [Hubs de Eventos Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços dos Event Hubs, consulte [os preços do Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -39,8 +39,8 @@ Os seguintes limites são comuns em níveis básicos e padrão.
 | Número de grupos de consumidores por centro de eventos |Entidade | &nbsp; |1 |20 |
 | Número de ligações AMQP por espaço de nome |Espaço de Nomes |Os pedidos subsequentes de ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |100 |5000|
 | Período máximo de retenção dos dados do evento |Entidade | &nbsp; |1 dia |1-7 dias |
-|Apache Kafka viabilizar espaço de nome|Espaço de Nomes |Aplicações de streams de espaço de nome de centros de eventos usando o protocolo Kafka |Não | Sim |
-|Captura |Entidade | Quando ativados, micro-lotes no mesmo fluxo |Não |Sim |
+|Apache Kafka viabilizar espaço de nome|Espaço de Nomes |Aplicações de espaço de nome do Event Hubs usando o protocolo Kafka. Para mais informações, consulte [Use Azure Event Hubs a partir de aplicações Apache Kafka](../articles/event-hubs/event-hubs-for-kafka-ecosystem-overview.md). |No | Yes |
+|Recolha |Entidade | Quando ativados, micro-lotes no mesmo fluxo. Para mais informações, consulte [eventos de captura através de Azure Event Hubs no Azure Blob Storage ou no Azure Data Lake Storage](../articles/event-hubs/event-hubs-capture-overview.md). |No |Yes |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Centros de Eventos Dedicados - quotas e limites
@@ -51,10 +51,10 @@ A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mín
 | Largura de banda |  20 CUs |
 | Espaços de nomes | 50 por CU |
 | Hubs de Eventos |  1000 por espaço de nome |
-| Eventos ingressos | Incluídos |
+| Eventos ingressos | Incluída |
 | Tamanho da mensagem | 1 MB |
 | Partições | 2000 por CU |
 | Grupos de consumidores | Sem limite por CU, 1000 por centro de eventos |
 | Conexões intermediadas | 100 K incluído |
 | Retenção de mensagens | 90 dias, 10 TB incluídos por CU |
-| Captura | Incluídos |
+| Recolha | Incluída |
