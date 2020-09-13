@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Saiba como migrar para o Monitor de Ligação (Pré-visualização) a partir do Monitor de Ligação.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: vinynigam
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
@@ -12,50 +12,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: ddf6e326df876229d32ef15983f76879836f1fca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 05b42024529b8d9de3590488ecafbdf83283e007
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701840"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441821"
 ---
 # <a name="migrate-to-connection-monitor-preview-from-connection-monitor"></a>Migrar para o Monitor de Ligação (Pré-visualização) do Monitor de Ligação
 
-Pode migrar os monitores de ligação existentes para o novo e melhorado Monitor de Ligação (Preview) num clique e com zero tempo de inatividade. Para saber mais sobre os benefícios, pode ler [o Monitor de Ligação (Pré-visualização)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
+Pode migrar os monitores de ligação existentes para um novo monitor de ligação melhorado (Preview) com apenas alguns cliques e com zero tempo de inatividade. Para saber mais sobre os benefícios, consulte [o Connection Monitor (Preview)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
 
 ## <a name="key-points-to-note"></a>Pontos-chave a notar
 
-* Agentes e definições de firewall funcionarão como está (sem necessidade de toque) 
-* Os monitores de ligação existentes serão mapeados para o grupo de teste de > ->->. Os utilizadores podem clicar em *Editar* para visualizar e modificar propriedades do novo Monitor de Ligação e modelo de descarregamento para escoar alterações no Monitor de Ligação e submetê-lo através do Azure Resource Manager. 
-* As máquinas virtuais Azure com extensão do Network Watcher enviam dados tanto para o espaço de trabalho como para as métricas. Os Monitores de Ligação disponibilizarão os dados através das novas métricas (ChecksFailedPercent (Preview) e RoundTripTimeMs (Preview)) em vez das métricas antigas de stop (ProbesFailedPercent e AverageRoundtripMs) 
-* Monitorizar dados
-    * Alertas – Será migrado para novas métricas como parte da migração
-    * Dashboards e Integrações – Terá de editar manualmente as métricas definidas. 
+A migração ajuda a produzir os seguintes resultados:
+
+* Agentes e definições de firewall funcionam como está. Não são necessárias alterações. 
+* Os monitores de ligação existentes estão mapeados para o monitor de ligação (pré-visualização) > formato de teste do Grupo de Teste >. Ao selecionar **Editar,** pode visualizar e modificar as propriedades do novo Monitor de Ligação, descarregar um modelo para escoar alterações no Monitor de Ligação e submetê-lo através do Azure Resource Manager. 
+* As máquinas virtuais Azure com a extensão do Observador de Rede enviam dados tanto para o espaço de trabalho como para as métricas. O Monitor de Ligação disponibiliza os dados através das novas métricas (ChecksFailedPercent [Preview] e RoundTripTimeMs [Preview]) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). 
+* Monitorização de dados:
+   * **Alertas**: Migrar automaticamente para as novas métricas.
+   * **Dashboards e integrações**: Requerer a edição manual do conjunto de métricas. 
     
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se utilizar espaço de trabalho personalizado, certifique-se de que o Observador de Rede está ativado na subscrição e na região do espaço de trabalho Log Analytics 
+Se estiver a utilizar um espaço de trabalho personalizado, certifique-se de que o Network Watcher está ativado na sua subscrição e na região do seu espaço de trabalho Log Analytics. 
 
-## <a name="steps-to-migrate-from-connection-monitor-to-connection-monitor-preview"></a>Passos para migrar do Monitor de Ligação para o Monitor de Ligação (Pré-visualização)
+## <a name="migrate-the-connection-monitors"></a>Migrar os monitores de ligação
 
-1. Clique em "Monitor de Ligação", navegue em "Migrar monitores de ligação" para migrar monitores de ligação de solução mais antiga para mais recente.
+1. Para migrar os monitores de ligação mais antigos para o mais recente, selecione **Connection Monitor**e, em seguida, selecione **Monitores de Ligação Migrar**.
 
-    ![Screenshot mostrando monitores de ligação migração para visualização do monitor de ligação](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
+    ![Screenshot mostrando a migração de monitores de ligação para Monitor de Ligação (Pré-visualização).](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
     
-1. Selecione monitores de subscrição e de ligação e clique em "Migrar selecionado". Num clique migrar os monitores de ligação existentes para o Monitor de Ligação (Pré-visualização) 
-1. Pode personalizar propriedades do monitor de ligação, alterar o espaço de trabalho predefinido, o modelo de descarregamento e verificar o estado da migração. 
-1. Uma vez que a migração começa, as mudanças acontecem: 
-    1. Alterações de recursos do Azure Resource Manager no monitor de ligação mais recente
-        1. O nome, a região e a subscrição do monitor de ligação permanecem inalterados. Portanto, não há impacto na identificação de recursos.
-        1. A menos que seja personalizado, é criado um espaço de trabalho log analytics predefinido na região e subscrição do monitor de ligação. Este espaço de trabalho é onde os dados de monitorização serão armazenados. Os dados dos resultados do teste também serão armazenados em métricas.
-        1. Cada teste é migrado para um grupo de teste chamado * DefaultTestGroup*
-        1.  Os pontos finais de origem e destino são criados e utilizados no grupo de teste criado. Os nomes predefinidos são *padrãoSourceEndpoint* e *padrãoDestinationEndpoint*
-        1. A porta de destino e o intervalo de sondagem são movidos para a configuração de teste chamada *Configuração padrão do Teste*. Com base nos valores da porta, o protocolo está definido. Os limiares de sucesso e outras propriedades opcionais ficam em branco.
-    1. Os alertas métricos são migrados para alertas métricos do Monitor de Ligação (Pré-visualização). As métricas são <link to metric section in the doc> diferentes, daí a mudança
-    1. Os monitores de ligação migrados não aparecerão na solução de monitor de ligação mais antiga, estando agora apenas disponíveis para utilização no Monitor de Ligação (Pré-visualização)
-    1. Quaisquer integrações externas como dashboards no Power BI, Grafana, integrações com sistemas SIEM, terão de ser migradas diretamente pelo utilizador. Este é o único passo manual que o utilizador precisa de realizar para migrar a sua configuração.
+1. Selecione a sua subscrição e os monitores de ligação que pretende migrar e, em seguida, **selecione Migrar selecionado**. 
 
-## <a name="next-steps"></a>Passos seguintes
+Com apenas alguns cliques, emigrou os monitores de ligação existentes para o Monitor de Ligação (Preview). 
 
-* Saiba [como migrar do Monitor de Desempenho da Rede para o Monitor de Ligação (Pré-visualização)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
-* Saiba [como criar o Monitor de Ligação (Pré-visualização) utilizando o portal Azure](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)
+Agora pode personalizar as propriedades do Connection Monitor (Preview), alterar o espaço de trabalho predefinido, baixar modelos e verificar o estado da migração. 
+
+Após o início da migração, ocorrem as seguintes alterações: 
+* O recurso Azure Resource Manager altera o monitor de ligação mais recente.
+    * O nome, região e subscrição do monitor de ligação permanecem inalterados. A identificação do recurso não é afetada.
+    * A menos que o monitor de ligação seja personalizado, um espaço de trabalho padrão do Log Analytics é criado na subscrição e na região do monitor de ligação. Este espaço de trabalho é onde os dados de monitorização são armazenados. Os dados dos resultados do teste também são armazenados nas métricas.
+    * Cada teste é migrado para um grupo de teste chamado *DefaultTestGroup*.
+    * Os pontos finais de origem e destino são criados e utilizados no novo grupo de teste. Os nomes predefinidos são *padrãoSourceEndpoint* e *padrãoDestinationEndpoint*.
+    * A porta de destino e o intervalo de sondagem são movidos para uma configuração de teste chamada *Configuração padrão do Teste*. O protocolo é definido com base nos valores portuários. Os limiares de sucesso e outras propriedades opcionais ficam em branco.
+* Os alertas de métricas são migrados para alertas de métricas do Monitor de Ligação (Pré-visualização). As métricas são diferentes, daí a mudança. Para obter mais informações, consulte [a monitorização da conectividade da rede com o Monitor de Ligação (Pré-visualização)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
+* Os monitores de ligação migrados deixaram de ser apresentados como a solução de monitor de ligação mais antiga. Estão agora disponíveis para utilização apenas no Monitor de Ligação (Pré-visualização).
+* Quaisquer integrações externas, como dashboards no Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM), devem ser migradas manualmente. Este é o único passo manual que precisa de ser acionado para migrar a sua configuração.
+
+## <a name="next-steps"></a>Próximos passos
+
+Para saber mais sobre o Monitor de Ligação (Pré-visualização), consulte:
+* [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação (Pré-visualização)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
+* [Criar Monitor de Conexão (Pré-visualização) utilizando o portal Azure](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)

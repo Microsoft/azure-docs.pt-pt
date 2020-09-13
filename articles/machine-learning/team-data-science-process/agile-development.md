@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722106"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440291"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento ágil de projetos de ciência de dados
 
@@ -51,7 +51,7 @@ Aqui estão as definições para os tipos de artigos de trabalho:
   
 - **Tarefa**: As tarefas são itens de trabalho atribuíveis que precisam de ser feitos para completar uma história específica do utilizador. Por exemplo, as tarefas no User Story *Obter dados* podem ser:
   - Obtenha credenciais de servidor SQL
-  - Faça upload de dados para o SQL Data Warehouse
+  - Faça upload de dados para a Azure Synapse Analytics
   
 - **Bug**: Bugs são problemas no código ou documentos existentes que devem ser corrigidos para completar uma Tarefa. Se os Bugs forem causados por itens de trabalho em falta, podem escalar para serem Histórias de Utilizador ou Tarefas. 
 

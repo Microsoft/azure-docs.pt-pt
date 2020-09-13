@@ -5,14 +5,14 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612644"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441753"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da unidade de processamento gráfico (GPU) para o Windows Virtual Desktop
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
@@ -67,7 +67,7 @@ O Ambiente de Trabalho Remoto codifica todos os gráficos renderizados por apps 
 
 2. Agora que as políticas de grupo foram editadas, forcem uma atualização da política de grupo. Abra a solicitação de comando e escreva:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -80,7 +80,7 @@ Se utilizar frequentemente aplicações que produzam um conteúdo de alta taxa d
 1. Selecione a política **Priorização H.264/AVC 444 O modo gráfico para ligações de ambiente de trabalho remoto** e define esta política para **Ativar** o código H.264/AVC 444 na sessão remota.
 2. Agora que as políticas de grupo foram editadas, forcem uma atualização da política de grupo. Abra a solicitação de comando e escreva:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -108,7 +108,7 @@ Para verificar se o Remote Desktop está a utilizar a codificação de vídeo so
 2. Lançar o Observador de Eventos e navegar para o seguinte nó: **Aplicações e Serviços Regista**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operacional**
 3. Para determinar se a codificação de vídeo de ecrã completo é utilizada, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado AVC 444.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Estas instruções devem tê-lo a funcionar com a aceleração da GPU num anfitrião de uma sessão (um VM). Algumas considerações adicionais para permitir a aceleração da GPU através de um pool de hospedeiro maior:
 

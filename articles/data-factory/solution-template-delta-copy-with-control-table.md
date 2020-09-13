@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 4da54318bea21daf9ec363be61bea18adaa2ce63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629036"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442008"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia delta de uma base de dados com uma tabela de controlo
 
@@ -140,11 +140,11 @@ O modelo define os seguintes parâmetros:
 
     Verá que apenas novas filas foram copiadas para o destino.
 
-15. (Opcional:) Se selecionar a Azure Synapse Analytics (anteriormente SQL DW) como destino de dados, também deve fornecer uma ligação ao armazenamento Azure Blob para a realização, o que é exigido pela SQL Data Warehouse Polybase. O modelo gerará um caminho de contentor para si. Após o funcionaamento do gasoduto, verifique se o recipiente foi criado no armazenamento blob.
+15. (Opcional:) Se selecionar a Azure Synapse Analytics (anteriormente SQL DW) como destino de dados, também deve fornecer uma ligação ao armazenamento Azure Blob para a realização, o que é exigido pela Azure Synapse Analytics (anteriormente SQL Data Warehouse) Polybase. O modelo gerará um caminho de contentor para si. Após o funcionaamento do gasoduto, verifique se o recipiente foi criado no armazenamento blob.
     
     ![Configure a Base Polidisóia](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Cópia a granel de uma base de dados usando uma tabela de controlo com Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 - [Copiar ficheiros de vários contentores com Azure Data Factory](solution-template-copy-files-multiple-containers.md)

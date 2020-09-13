@@ -11,12 +11,12 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 515de0fed987f412adb060a3ba58978f0400ae0d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628951"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441970"
 ---
 # <a name="templates"></a>Modelos
 
@@ -56,7 +56,7 @@ A Data Factory utiliza modelos do Gestor de Recursos Azure para guardar modelos 
 
     -   [Cópia delta da Base de Dados](solution-template-delta-copy-with-control-table.md)
 
-    -   Cópia \<source\> de\<destination\>
+    -   Cópia \<source\> de \<destination\>
 
         -   [Da Amazon S3 à Azure Data Lake Store Gen 2](solution-template-migration-s3-azure.md)
 
@@ -68,9 +68,9 @@ A Data Factory utiliza modelos do Gestor de Recursos Azure para guardar modelos 
 
         -   Do SQL Server nas instalações até à Base de Dados Azure SQL
 
-        -   Do SQL Server nas instalações até ao Armazém de Dados Azure SQL
+        -   Do SQL Server nas instalações para a Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 
-        -   Da Oracle nas instalações para o Armazém de Dados Azure SQL
+        -   Da Oracle nas instalações para a Azure Synapse Analytics (antiga SQL Data Warehouse)
 
 -   Modelos SSIS
 

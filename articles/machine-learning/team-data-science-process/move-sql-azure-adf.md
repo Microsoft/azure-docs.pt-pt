@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 18ded2713ec89a9a0666cd00221d437c1c9ef090
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f2e0b9a797edb2d5529bb0645ed56c44df3121c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092427"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440026"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Mover dados de uma base de dados do SQL Server para a Base de Dados SQL com Azure Data Factory
 
@@ -60,12 +60,12 @@ Este tutorial pressupõe que tem:
 >
 >
 
-## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a>Faça o upload dos dados para a sua instância do SQL Server
+## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a> Faça o upload dos dados para a sua instância do SQL Server
 Usamos o [conjunto de dados do Táxi de NYC](https://chriswhong.com/open-data/foil_nyc_taxi/) para demonstrar o processo de migração. O conjunto de dados do Táxi nyc está disponível, como indicado nesse post, no armazenamento de blob Azure [NYC .](https://www.andresmh.com/nyctaxitrips/) Os dados têm dois ficheiros, o ficheiro trip_data.csv, que contém detalhes da viagem, e o ficheiro trip_far.csv, que contém detalhes da tarifa paga por cada viagem. Uma amostra e descrição destes ficheiros são fornecidas na Descrição do Conjunto de [Datas de Viagens de Táxi de NYC](sql-walkthrough.md#dataset).
 
 Pode adaptar o procedimento fornecido aqui a um conjunto dos seus próprios dados ou seguir os passos descritos utilizando o conjunto de dados do Táxi de NYC. Para enviar o conjunto de dados do NYC Taxi para a sua base de dados do SQL Server, siga o procedimento descrito em [Dados de Importação a Granel para a base de dados do SQL Server](sql-walkthrough.md#dbload).
 
-## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Criar uma Fábrica de Dados Azure
+## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a> Criar uma Fábrica de Dados Azure
 As instruções para a criação de uma nova Fábrica de Dados Azure e um grupo de recursos no [portal Azure](https://portal.azure.com/) são fornecidas [Criar uma Fábrica de Dados Azure](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Nomeie o novo *adf instance adfdsp* e nome o grupo de recursos criou *adfdsprg*.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalar e configurar o tempo de integração da fábrica de dados Azure
@@ -232,7 +232,7 @@ Utilizando as definições de tabela fornecidas anteriormente, a definição de 
     "name": "AMLDSProcessPipeline",
     "properties":
     {
-        "description" : "This pipeline has one Copy activity that copies data from SQL Server to Azure blob",
+        "description" : "This pipeline has two activities: the first one copies data from SQL Server to Azure Blob, and the second one copies from Azure Blob to Azure Database Table",
         "activities":
         [
             {
