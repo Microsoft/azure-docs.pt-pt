@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd02f2dbb7666ba9f2134ffba4cf683e1e9ac67b
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d90384644c58938bfc8a37ec1231b0d12fd60057
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039140"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058705"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Linha de segurança Azure para Azure Public IP
 
-Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure Security Benchmark](../security/benchmarks/overview.md) para Azure Public IP. O Azure Security Benchmark fornece recomendações sobre como pode proteger as suas soluções em nuvem no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável ao Azure Public IP. Foram excluídos **os controlos** não aplicáveis ao Azure Public IP.
+Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure Security Benchmark](../security/benchmarks/overview.md) para Azure Public IP. O Azure Security Benchmark fornece recomendações sobre como pode proteger as suas soluções em nuvem no Azure. O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável ao Azure Public IP. Foram excluídos **os controlos** não aplicáveis ao Azure Public IP.  Nota Azure Public IPs não armazenam dados do cliente.
 
 Para ver como o Azure Public IP mapeia completamente para o Azure Security Benchmark, consulte o ficheiro completo de [mapeamento de base de segurança IP do Azure.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
 
@@ -46,7 +46,7 @@ O Azure PowerShell ou o Azure CLI podem ser usados para procurar ou executar aç
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configurar a gestão central dos registos de segurança
 
-**Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações e detetar alterações nas suas instâncias IP públicas. Para além do plano de controlo (por exemplo, portal Azure), o próprio IP público não gera registos relacionados com o tráfego de rede. 
+**Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações e detetar alterações nas suas instâncias IP públicas. Para além do plano de controlo (por exemplo, portal Azure), o próprio IP público não gera registos relacionados com o tráfego de rede.
 
 O IP público fornece ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure.
 

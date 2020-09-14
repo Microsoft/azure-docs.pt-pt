@@ -2,13 +2,13 @@
 title: Anexar ou destacar uma galeria de imagens partilhada nos Serviços de Laboratório Azure Microsoft Docs
 description: Este artigo descreve como anexar uma galeria de imagens partilhada a um laboratório de sala de aula em Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: e0b29bcabe1cfb234b422982c0f8faab49c30796
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/11/2020
+ms.openlocfilehash: 08d2a97138633a43e9acd69575c4b44e245d4faa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445360"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056477"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou destacar uma galeria de imagens partilhada nos Serviços do Laboratório Azure
 Este artigo mostra-lhe como anexar ou separar uma galeria de imagens partilhada numa conta de laboratório. 
@@ -25,6 +25,9 @@ Aqui estão os dois cenários apoiados por esta característica:
 - Uma conta de laboratório anexa uma galeria de imagens partilhada à conta do laboratório. Um criador de laboratório (instrutor) guarda a imagem personalizada do seu laboratório para a galeria de imagens partilhada. Em seguida, outros criadores de laboratório podem selecionar esta imagem a partir da galeria de imagens partilhada para criar um modelo para os seus laboratórios. 
 
     Quando uma imagem é guardada numa galeria de imagens partilhada, a Azure Lab Services replica a imagem guardada para outras regiões disponíveis na mesma [geografia.](https://azure.microsoft.com/global-infrastructure/geographies/) Garante que a imagem está disponível para laboratórios criados noutras regiões na mesma geografia. Guardar imagens para uma galeria de imagens partilhadas incorre num custo adicional, que inclui o custo de todas as imagens replicadas. Este custo é separado do custo de utilização dos Serviços Azure Lab. Para obter mais informações sobre os preços da Galeria de Imagens Partilhadas, consulte [a Galeria de Imagens Partilhadas – Billing](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+
+> [!IMPORTANT]
+> Durante a utilização de uma Galeria de Imagens Partilhadas, a Azure Lab Services suporta apenas imagens com menos de 128 GB de ESPAÇO DISCO OS. Imagens com mais de 128 GB de espaço em disco ou vários discos não serão mostradas na lista de imagens de máquinas virtuais durante a criação de laboratório.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação de conta de laboratório
 Quando estiver a criar uma conta de laboratório, pode anexar uma galeria de imagens partilhada à conta do laboratório. Pode selecionar uma galeria de imagens partilhada existente a partir da lista de drop-down ou criar uma nova. Para criar e anexar uma galeria de imagens partilhada à conta do laboratório, selecione **Criar novo,** insira um nome para a galeria e introduza **OK**. 

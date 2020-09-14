@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 0403fe3cf0bf8cfaf9c722edadbecd2fee61cb46
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782486"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056290"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que não pode gerir na Gestão de Identidade Privilegiada
 
@@ -35,14 +35,14 @@ Não é possível gerir as seguintes funções clássicas de administrador de su
 
 Para obter mais informações sobre as funções clássicas de administrador de subscrição, consulte [as funções de administrador de subscrição clássica, funções de administrador da Azure e administradora AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="what-about-office-365-admin-roles"></a>E os papéis de administrador do Office 365?
+## <a name="what-about-microsoft-365-admin-roles"></a>E os papéis de administração da Microsoft 365?
 
-Apoiamos todas as funções do Office365 na experiência do portal AD Roles e Administradores do Azure, como o Administrador de Câmbio e o Administrador SharePoint, mas não apoiamos funções específicas dentro do RBAC de Câmbio ou do SharePoint RBAC. Para mais informações sobre estes serviços do Office 365, consulte [as funções de administrador do Office 365](/office365/admin/add-users/about-admin-roles).
+Apoiamos todas as funções da Microsoft 365 na experiência do portal AD Roles e Administradores Azure, como O Administrador de Câmbio e Administrador sharePoint, mas não suportamos funções específicas dentro do RBAC de Exchange ou Do SharePoint RBAC. Para obter mais informações sobre estes serviços Microsoft 365, consulte [as funções de administração da Microsoft 365](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Os utilizadores elegíveis para a função de administrador do SharePoint, a função de administrador do dispositivo e quaisquer funções que tentem aceder ao Microsoft Security and Compliance Center podem sofrer atrasos de até algumas horas após a ativação da sua função. Estamos a trabalhar com essas equipas para resolver os problemas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

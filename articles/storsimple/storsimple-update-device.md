@@ -3,7 +3,7 @@ title: Atualize o seu dispositivo StorSimple / Microsoft Docs
 description: Explica como utilizar a função de atualização StorSimple para instalar atualizações e ajustes de modo de manutenção regulares.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
-ms.author: twooley
-ms.openlocfilehash: e591a6c1fbf91bb034ec57673f79c549bbec4672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: dec354767875d91c6062cdfbb0009e857dbe2636
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170091"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056556"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualize o seu dispositivo StorSimple 8000 Series
 > [!NOTE]
@@ -84,22 +84,22 @@ Se precisar de aplicar atualizações do modo manutenção, receberá um alerta 
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console"></a>Passo 1: Ligar-se à consola em série<a name="step1"></a>
+### <a name="step-1-connect-to-the-serial-console"></a>Passo 1: Ligar-se à consola em série <a name="step1"></a>
 Primeiro, utilize uma aplicação como a PuTTY para aceder à consola em série. O procedimento a seguir explica como utilizar o PuTTY para ligar à consola em série.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode"></a>Passo 2: Entrar no modo de manutenção<a name="step2"></a>
+### <a name="step-2-enter-maintenance-mode"></a>Passo 2: Entrar no modo de manutenção <a name="step2"></a>
 Depois de ligar à consola, determine se existem atualizações para instalar e introduza o modo Manutenção para as instalar.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates"></a>Passo 3: Instale as suas atualizações<a name="step3"></a>
+### <a name="step-3-install-your-updates"></a>Passo 3: Instale as suas atualizações <a name="step3"></a>
 Em seguida, instale as suas atualizações.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode"></a>Passo 4: Modo de manutenção de saída<a name="step4"></a>
+### <a name="step-4-exit-maintenance-mode"></a>Passo 4: Modo de manutenção de saída <a name="step4"></a>
 Finalmente, saída Modo manutenção.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

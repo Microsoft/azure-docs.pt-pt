@@ -2,18 +2,18 @@
 title: Especificações técnicas do cabo de alimentação Microsoft Azure Stack Edge com base na localização Microsoft Docs
 description: Saiba mais sobre as especificações técnicas dos cabos de alimentação Azure Stack Edge.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: twooley
-ms.openlocfilehash: 8248f0a8e003351449186638fd4914c6b6fe4bed
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 34f5b578581c5a11b3dbfba76f68819c2ed706d0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783982"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055933"
 ---
 # <a name="azure-stack-edge-power-cord-specifications"></a>Especificações do cabo de alimentação Azure Stack Edge
 
@@ -156,6 +156,6 @@ Pode utilizar a seguinte tabela para encontrar as especificações corretas do c
 |Zâmbia|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Zimbabué|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Especificações técnicas do Azure Stack Edge](data-box-edge-technical-specifications-compliance.md)

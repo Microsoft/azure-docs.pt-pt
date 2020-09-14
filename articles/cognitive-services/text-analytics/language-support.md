@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/12/2020
 ms.author: aahi
-ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932972"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056596"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
@@ -31,7 +31,7 @@ ms.locfileid: "88932972"
 | Chinês-Tradicional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
 | Dinamarquês               |     `da`      |     ✓      |            |                            |                    |
 | Neerlandês                 |     `nl`      |     ✓      |            |                            |                    |
-| Em inglês               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Inglês               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Finlandês               |     `fi`      |     ✓      |            |                            |                    |
 | Francês                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Alemão                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
@@ -51,7 +51,7 @@ ms.locfileid: "88932972"
 
 | Linguagem              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
-| Em inglês               |     `en`      |              2020-04-01              |                    |
+| Inglês               |     `en`      |              2020-04-01              |                    |
 
 
 #### <a name="named-entity-recognition-ner"></a>[Reconhecimento de Entidades Nomeadas (NER)](#tab/named-entity-recognition)
@@ -68,7 +68,7 @@ ms.locfileid: "88932972"
 | Chinês-Tradicional   |   `zh-hant`   |     ✓      |            |                                 |                    |
 | Dinamarquês                |     `da`      |     ✓      |            |                                 |                    |
 | Neerlandês                 |     `nl`      |     ✓      |            |                                 |                    |
-| Em inglês                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
+| Inglês                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
 | Finlandês               |     `fi`      |     ✓      |            |                                 |                    |
 | Francês                 |     `fr`      |     ✓      |            |                                 |                    |
 | Alemão                 |     `de`      |     ✓      |            |                                 |                    |
@@ -86,12 +86,15 @@ ms.locfileid: "88932972"
 | Sueco               |     `sv`      |     ✓      |            |                                 |                    |
 | Turco               |     `tr`      |     ✓      |            |                                 |                    |
 
-#### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extração de expressões-chave](#tab/key-phrase-extraction)
+
+> [!NOTE]
+> As versões de modelo de Extração de Frase-Chave antes de 2020-07-01 têm um limite de caracteres de 64. Este limite não está presente nas versões posteriores do modelo.
 
 | Linguagem              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Neerlandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Em inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Finlandês               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Francês                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Alemão                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -110,7 +113,7 @@ ms.locfileid: "88932972"
 
 | Linguagem | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
-| Em inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
+| Inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Espanhol  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
 
 #### <a name="language-detection"></a>[Deteção de Idioma](#tab/language-detection)
@@ -123,6 +126,6 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 
 ---
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é a API de Análise de Texto?](overview.md)   

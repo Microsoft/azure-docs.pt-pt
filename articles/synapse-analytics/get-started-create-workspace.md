@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 949afc00b12b1238973f832270d57fff3c2db5f9
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 46116fd7157b6a1cf8112613703aa2388b3ba7d3
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669532"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056188"
 ---
 # <a name="create-a-synapse-workspace"></a>Criar uma área de trabalho do Synapse
 
@@ -33,8 +33,9 @@ Neste tutorial, você aprenderá a criar um espaço de trabalho Synapse, uma pis
 
 1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples para criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
-    1. Em **Select Data Lake Storage Gen 2,** clique em Criar **Novo** e nomeie-o **contosolake**.
-    1. Em **Select Data Lake Storage Gen 2**, clique no Sistema de **Ficheiros** e nomeie os **utilizadores**.
+    1. Navegue para **selecionar data lake storage Gen 2**. 
+    1. Clique **em Criar Novo** e nomeie-o **contosolake**.
+    1. Clique no **Sistema de Ficheiros** e nomeie os **utilizadores.**
 1. OPÇÃO 2 Utilizando uma conta ADLSGEN2 existente. Consulte as instruções **da Conta de Armazenamento ADLSGEN2** na parte inferior deste documento.
 1. O seu espaço de trabalho Azure Synapse utilizará esta conta de armazenamento como a conta de armazenamento "primária" e o recipiente para armazenar dados do espaço de trabalho. O espaço de trabalho armazena dados em tabelas Apache Spark. Armazena registos de aplicações Spark sob uma pasta chamada **/sinapse/workspacename**.
 1. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
@@ -120,7 +121,7 @@ Configure o acesso à conta de armazenamento a partir do seu espaço de trabalho
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Analise usando uma piscina SQL](get-started-analyze-sql-pool.md)

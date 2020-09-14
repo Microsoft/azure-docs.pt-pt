@@ -13,12 +13,12 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8c6a9304927f5d4bcad895b725955c522b60207a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266241"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056086"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicativos para verificação em duas etapas
 
@@ -44,7 +44,7 @@ Pode criar e eliminar palavras-passe de aplicações, com base na forma como uti
 
 - **A sua organização utiliza a verificação de dois fatores e a página adicional de verificação de segurança.** Se estiver a utilizar o seu trabalho ou conta escolar (como, por exemplo, alain@contoso.com ) com verificação de dois fatores na sua organização, pode gerir as suas palavras-passe da aplicação a partir da página adicional de verificação de [segurança.](https://account.activedirectory.windowsazure.com/Proofup.aspx) Para obter instruções detalhadas, consulte [Criar e eliminar palavras-passe de aplicações utilizando a página adicional de verificação de segurança](#create-and-delete-app-passwords-from-the-additional-security-verification-page) neste artigo.
 
-- **A sua organização utiliza a verificação de dois fatores e o portal Office 365.** Se estiver a utilizar o seu trabalho ou conta escolar (como, por exemplo, alain@contoso.com verificação de dois fatores e aplicações do Office 365 na sua organização, pode gerir as suas palavras-passe da aplicação a partir da página do [portal do Office 365](https://www.office.com). Para obter instruções detalhadas, consulte [Criar e eliminar palavras-passe de aplicações utilizando o portal Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) neste artigo.
+- **A sua organização utiliza a verificação de dois fatores e o portal Office 365.** Se estiver a utilizar o seu trabalho ou conta escolar (como, por exemplo, alain@contoso.com a verificação de dois fatores e as aplicações microsoft 365 na sua organização, pode gerir as suas palavras-passe da aplicação a partir da página do [portal do Office 365](https://www.office.com). Para obter instruções detalhadas, consulte [Criar e eliminar palavras-passe de aplicações utilizando o portal Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) neste artigo.
 
 - **Está a usar a verificação de dois fatores com uma conta pessoal da Microsoft.** Se estiver a utilizar uma conta pessoal da Microsoft (como, por exemplo, alain@outlook.com ) com verificação de dois fatores, pode gerir as suas palavras-passe da aplicação a partir da [página básica de Segurança](https://account.microsoft.com/security/). Para obter instruções detalhadas, consulte [utilizar palavras-passe de aplicações com aplicações que não suportem a verificação em duas etapas.](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification)
 
@@ -82,11 +82,11 @@ Pode criar e eliminar palavras-passe de aplicações a partir da página adicion
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Criar e eliminar senhas de aplicação utilizando o portal Office 365
 
-Se utilizar a verificação em duas etapas com o seu trabalho ou conta escolar e as suas aplicações Office 365, pode criar e eliminar as suas palavras-passe de aplicação utilizando o portal Office 365.
+Se utilizar a verificação em duas etapas com o seu trabalho ou conta escolar e as suas aplicações Microsoft 365, pode criar e eliminar as suas palavras-passe de aplicação utilizando o portal Office 365.
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Criar palavras-passe de aplicativos utilizando o portal Office 365
 
-1. Inscreva-se no Office 365 e, em seguida, vá para a [página minha conta](https://portal.office.com), selecione Segurança & **privacidade**, e, em seguida, expanda **a verificação adicional de segurança**.
+1. Faça o sômis à sua conta de trabalho ou escola, vá à [página minha conta,](https://portal.office.com)selecione **Segurança & privacidade,** e depois expanda **a verificação adicional de segurança**.
 
     ![Portal do office mostrando área de verificação de segurança adicional expandida](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
 

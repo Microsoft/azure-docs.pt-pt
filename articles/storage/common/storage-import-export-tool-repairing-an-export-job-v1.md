@@ -1,19 +1,19 @@
 ---
 title: Reparação de uma empresa de exportação Azure Import/Export - v1 ! Microsoft Docs
 description: Saiba como reparar um trabalho de exportação que foi criado e executado utilizando o serviço Azure Import/Export.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0731848e1ff187afb6e9f607516dd74b6c16de9b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520486"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056344"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de uma tarefa de exportação
 Após a conclusão de uma missão de exportação, pode executar a Ferramenta de Importação/Exportação do Microsoft Azure no local para:  
@@ -150,7 +150,7 @@ G:\pictures\wild\canyon.jpg.properties
 
 Qualquer componente que falhe a verificação será descarregado pela ferramenta e reescrito para o mesmo ficheiro na unidade.  
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
  
 * [Criação da ferramenta de importação/exportação Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

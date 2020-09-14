@@ -3,17 +3,16 @@ title: Saúde de Recursos para Serviços em Nuvem (Clássico)
 description: Este artigo fala sobre o Suporte ao Controlo de Saúde de Recursos (RHC) para os Serviços de Nuvem do Microsoft Azure (Clássico)
 services: cloud-services
 author: tanmaygore
-manager: vashan
 ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: 969390b0988c59940cb210c14821cbee42edfa7a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665125"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056064"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte para serviços de cloud Azure (Clássico)
 Este artigo fala sobre o Suporte ao Controlo de Saúde de Recursos (RHC) para [os Serviços de Nuvem do Microsoft Azure (Clássico)](https://azure.microsoft.com/services/cloud-services)
@@ -22,6 +21,7 @@ Este artigo fala sobre o Suporte ao Controlo de Saúde de Recursos (RHC) para [o
 
 Relatórios de estado do Azure sobre problemas que afetam um vasto conjunto de clientes da Azure. A Resource Health dá-lhe um dashboard personalizado da saúde dos seus recursos. A Resource Health mostra todas as vezes que os seus recursos não estiveram disponíveis devido a problemas de serviço da Azure. Estes dados facilitam-lhe a mente ver se um SLA foi violado.
 
+:::image type="content" source="media/cloud-services-allocation-failure/rhc-blade-cloud-services.png" alt-text="A imagem mostra a lâmina de verificação de saúde de recursos no portal Azure.":::
 
 ## <a name="how-health-is-checked-and-reported"></a>Como a saúde é verificada e reportada?
 A saúde dos recursos é reportada a um nível de implantação ou de função. O exame de saúde acontece ao nível da instância de função, agregamos o estatuto e reportamos-no ao nível da função. Por exemplo, Se todas as instâncias de papel estiverem disponíveis, então o estatuto de papel está disponível. Do mesmo modo, agregamos o estado de saúde de todas as funções e reportamos-no a nível de implantação. Por exemplo, Se todas as funções estiverem disponíveis, o estado de implantação fica disponível. 

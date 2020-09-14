@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795427"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056307"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar um inquilino no Azure Ative Directory
 
@@ -27,12 +27,12 @@ Quando uma organização AZure AD (inquilino) é eliminada, todos os recursos qu
 
 ## <a name="prepare-the-organization"></a>Preparar a organização
 
-Não pode excluir uma organização em Azure AD até passar vários cheques. Estes controlos reduzem o risco de a eliminação de uma organização Azure AD ter um impacto negativo no acesso dos utilizadores, como a capacidade de iniciar sedumento no Office 365 ou aceder a recursos em Azure. Por exemplo, se a organização associada a uma subscrição for eliminada involuntariamente, então os utilizadores não podem aceder aos recursos Azure para essa subscrição. Verificam-se as seguintes condições:
+Não pode excluir uma organização em Azure AD até passar vários cheques. Estes controlos reduzem o risco de que a eliminação de uma organização Azure AD tenha um impacto negativo no acesso dos utilizadores, como a capacidade de iniciar sing no Microsoft 365 ou aceder a recursos em Azure. Por exemplo, se a organização associada a uma subscrição for eliminada involuntariamente, então os utilizadores não podem aceder aos recursos Azure para essa subscrição. Verificam-se as seguintes condições:
 
 * Não pode haver utilizadores na organização Azure AD (inquilino) exceto um administrador global que deve apagar a organização. Qualquer outro utilizadores deve ser eliminado antes de a organização poder ser eliminada. Se os utilizadores estiverem sincronizados a partir das instalações, a sincronização deve primeiro ser desligada e os utilizadores devem ser eliminados na organização da nuvem utilizando o portal Azure ou os cmdlets Azure PowerShell.
 * Não pode haver aplicações na organização. Quaisquer aplicações devem ser removidas antes de a organização poder ser eliminada.
 * Não pode haver fornecedores de autenticação multi-factor ligados à organização.
-* Não pode haver subscrições para quaisquer Serviços Microsoft Online como Microsoft Azure, Office 365 ou Azure AD Premium associados à organização. Por exemplo, se uma organização AZure AD padrão foi criada para si em Azure, não poderá eliminar esta organização se a sua subscrição Azure ainda depender desta organização para autenticação. Da mesma forma, não é possível excluir uma organização se outro utilizador tiver associado uma subscrição com ela.
+* Não pode haver subscrições para quaisquer Serviços Microsoft Online como Microsoft Azure, Microsoft 365 ou Azure AD Premium associados à organização. Por exemplo, se uma organização AZure AD padrão foi criada para si em Azure, não poderá eliminar esta organização se a sua subscrição Azure ainda depender desta organização para autenticação. Da mesma forma, não é possível excluir uma organização se outro utilizador tiver associado uma subscrição com ela.
 
 ## <a name="delete-the-organization"></a>Apagar a organização
 
@@ -52,16 +52,16 @@ Não pode excluir uma organização em Azure AD até passar vários cheques. Est
 
 ## <a name="if-you-cant-delete-the-organization"></a>Se não puder apagar a organização
 
-Ao configurar a sua organização Azure AD, poderá também ter ativado subscrições baseadas em licenças para a sua organização como a Azure AD Premium P2, Office 365 Business Premium ou Enterprise Mobility + Security E5. Para evitar perda acidental de dados, não é possível eliminar uma organização até que as subscrições sejam totalmente eliminadas. As subscrições devem estar num estado **desprovisionado** para permitir a eliminação da organização. Uma subscrição **expirada** ou **cancelada** move-se para o estado **desativado,** e a fase final é o estado **desprovisionado.**
+Quando configurar a sua organização Azure AD, poderá também ter ativado subscrições baseadas em licenças para a sua organização como Azure AD Premium P2, Microsoft 365 Business Standard ou Enterprise Mobility + Security E5. Para evitar perda acidental de dados, não é possível eliminar uma organização até que as subscrições sejam totalmente eliminadas. As subscrições devem estar num estado **desprovisionado** para permitir a eliminação da organização. Uma subscrição **expirada** ou **cancelada** move-se para o estado **desativado,** e a fase final é o estado **desprovisionado.**
 
-Para o que esperar quando uma assinatura do Escritório 365 expirar (sem incluir parceiro/CSP pago, Acordo de Empresa ou Licenciamento de Volume), consulte a tabela seguinte. Para obter mais informações sobre o ciclo de vida de retenção de dados e subscrição do Office [365, veja o que acontece aos meus dados e acesso quando o meu Office 365 para subscrição de negócios termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3) 
+Para o que esperar quando um teste a subscrição da Microsoft 365 expirar (sem incluir o Parceiro/CSP pago, o Enterprise Agreement ou o Volume De licenciamento), consulte a tabela seguinte. Para obter mais informações sobre a retenção de dados do Microsoft 365 e o ciclo de vida da subscrição, consulte [o que acontece aos meus dados e acesso quando o meu Microsoft 365 para subscrição de negócios termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3) 
 
 Estado de subscrição | Dados | Acesso aos dados
 ----- | ----- | -----
-Ativo (30 dias para julgamento) | Dados acessíveis a todos | Os utilizadores têm acesso normal aos ficheiros do Office 365 ou apps<br>Os administradores têm acesso normal ao Centro de Administração microsoft 365 e recursos 
-Expirado (30 dias) | Dados acessíveis a todos| Os utilizadores têm acesso normal aos ficheiros do Office 365 ou apps<br>Os administradores têm acesso normal ao Centro de Administração microsoft 365 e recursos
-Deficiente (30 dias) | Dados acessíveis apenas a administradores | Os utilizadores não podem aceder a ficheiros do Office 365 ou apps<br>Os administradores podem aceder ao centro de administração microsoft 365, mas não podem atribuir licenças ou atualizar utilizadores
-Desprovisionado (30 dias após desativação) | Dados eliminados (eliminados automaticamente se não houver outros serviços em uso) | Os utilizadores não podem aceder a ficheiros do Office 365 ou apps<br>Os administradores podem aceder ao centro de administração microsoft 365 para comprar e gerir outras subscrições
+Ativo (30 dias para julgamento) | Dados acessíveis a todos | Os utilizadores têm acesso normal aos ficheiros microsoft 365 ou apps<br>Os administradores têm acesso normal ao Centro de Administração microsoft 365 e recursos 
+Expirado (30 dias) | Dados acessíveis a todos| Os utilizadores têm acesso normal aos ficheiros microsoft 365 ou apps<br>Os administradores têm acesso normal ao Centro de Administração microsoft 365 e recursos
+Deficiente (30 dias) | Dados acessíveis apenas a administradores | Os utilizadores não podem aceder a ficheiros ou apps do Microsoft 365<br>Os administradores podem aceder ao centro de administração microsoft 365, mas não podem atribuir licenças ou atualizar utilizadores
+Desprovisionado (30 dias após desativação) | Dados eliminados (eliminados automaticamente se não houver outros serviços em uso) | Os utilizadores não podem aceder a ficheiros ou apps do Microsoft 365<br>Os administradores podem aceder ao centro de administração microsoft 365 para comprar e gerir outras subscrições
 
 ## <a name="delete-a-subscription"></a>Excluir uma subscrição
 
@@ -97,7 +97,7 @@ Pode colocar uma subscrição no estado **Deprovisionado** a ser eliminada em tr
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Tenho uma assinatura de teste que bloqueia a eliminação.
 
-Existem [produtos de inscrição de self-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como o Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, cada um dos utilizadores pode inscrever-se através do Office 365, o que também cria um utilizador convidado para autenticação na sua organização Azure AD. Estes produtos de self-service bloqueiam as eliminações do diretório até que os produtos sejam totalmente eliminados da organização, para evitar a perda de dados. Só podem ser eliminados pelo administrador Azure AD se o utilizador se inscreveu individualmente ou foi designado o produto.
+Existem [produtos de inscrição de self-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como o Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, cada um dos utilizadores pode inscrever-se através do Microsoft 365, o que também cria um utilizador convidado para autenticação na sua organização Azure AD. Estes produtos de self-service bloqueiam as eliminações do diretório até que os produtos sejam totalmente eliminados da organização, para evitar a perda de dados. Só podem ser eliminados pelo administrador Azure AD se o utilizador se inscreveu individualmente ou foi designado o produto.
 
 Existem dois tipos de produtos de autosserviço de inscrição na forma como são atribuídos: 
 
@@ -108,7 +108,7 @@ Quando inicia a eliminação do produto de inscrição de autosserviço, a açã
 
 Para obter mais informações sobre produtos e serviços de autosserviço disponíveis, consulte os [programas de self-service disponíveis.](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)
 
-Para o que esperar quando uma assinatura do Escritório 365 expirar (sem incluir parceiro/CSP pago, Acordo de Empresa ou Licenciamento de Volume), consulte a tabela seguinte. Para obter mais informações sobre o ciclo de vida de retenção de dados e subscrição do Office [365, veja o que acontece aos meus dados e acesso quando o meu Office 365 para subscrição de negócios termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)
+Para o que esperar quando um teste a subscrição da Microsoft 365 expirar (sem incluir o Parceiro/CSP pago, o Enterprise Agreement ou o Volume De licenciamento), consulte a tabela seguinte. Para obter mais informações sobre a retenção de dados do Microsoft 365 e o ciclo de vida da subscrição, consulte [o que acontece aos meus dados e acesso quando o meu Microsoft 365 para subscrição de negócios termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)
 
 Estado do produto | Dados | Acesso aos dados
 ------------- | ---- | --------------
@@ -141,6 +141,6 @@ Pode colocar um produto de inscrição de autosserviço como o Microsoft Power B
 
     ![o nome de utilizador é mal assinalado ou não encontrado](./media/directory-delete-howto/delete-organization.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Documentação do Azure Active Directory](../index.yml)

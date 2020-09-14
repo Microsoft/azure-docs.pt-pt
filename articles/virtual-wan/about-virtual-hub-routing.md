@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5116b3dfd53c5272ef7bb11d1719b7ee62416c4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762322"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055797"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca do encaminhamento do hub virtual
 
@@ -30,7 +30,7 @@ As secções seguintes descrevem os conceitos-chave no encaminhamento de hubs vi
 
 Uma tabela de rota de hub virtual pode conter uma ou mais rotas. Uma rota inclui o seu nome, uma etiqueta, um tipo de destino, uma lista de prefixos de destino, e próxima informação de lúpulo para um pacote a ser encaminhado. Uma **Ligação** normalmente terá uma configuração de encaminhamento que associou ou se propaga a uma tabela de rotas
 
-### <a name="connection"></a><a name="connection"></a>Conexão
+### <a name="connection"></a><a name="connection"></a>Ligação
 
 As ligações são recursos do Gestor de Recursos que têm uma configuração de encaminhamento. Os quatro tipos de ligações são:
 
@@ -87,8 +87,9 @@ Por favor, considere o seguinte ao configurar o encaminhamento VIRTUAL WAN:
 * Ao utilizar o Azure Firewall em várias regiões, todas as redes virtuais faladas devem estar associadas à mesma tabela de rotas. Por exemplo, não é possível ter um subconjunto dos VNets a passar pela Firewall do Azure, enquanto outros VNets contornam o Azure Firewall no mesmo hub virtual.
 * Um único IP de lúpulo seguinte pode ser configurado por ligação VNet.
 * O Virtual Hub não suporta a rota estática para 0.0.0.0/0 e próxima ligação de rede virtual de lúpulo (ou um IP de um aparelho na ligação VNet)
+* Todas as informações relativas à rota 0.0.0.0/0 estão confinadas à tabela de rotas de um centro local. Esta rota não se propaga através dos centros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar o encaminhamento, consulte [Como configurar o encaminhamento do hub virtual](how-to-virtual-hub-routing.md).
 

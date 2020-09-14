@@ -8,34 +8,48 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 883042c94576014c3bdeabd38516d9531c8fd3dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82606862"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058619"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introdução de referência de segurança Azure
 
-Pode ter vários anos ou mesmo décadas de experiência com computação no local. Sabe como assegurar esses destacamentos; mas a nuvem é diferente. Como sabe se as suas implementações em nuvem estão seguras? Quais são as diferenças entre as práticas de segurança para sistemas no local e implantações em nuvem?
+Novos serviços e funcionalidades são lançados diariamente no Azure, os desenvolvedores estão rapidamente a publicar novas aplicações em nuvem construídas sobre estes serviços, e os atacantes estão sempre à procura de novas formas de explorar recursos mal configurados. A nuvem move-se rapidamente, os desenvolvedores movem-se rápido, e os atacantes estão sempre em movimento. Como se mantém e certifica-se de que as suas implementações em nuvem estão seguras? Como é que as práticas de segurança para sistemas de nuvem são diferentes dos sistemas no local? Como monitorizar a consistência em muitas equipas de desenvolvimento independentes?
 
-Há uma grande coleção de livros brancos, boas práticas, arquiteturas de referência, orientação web, ferramentas de código aberto, soluções comerciais, feeds de inteligência, e muito mais, que podem ser usados para ajudar a proteger a nuvem. Que opção deve usar? O que se pode fazer para obter um nível aceitável de segurança na nuvem? 
+A Microsoft descobriu que usar *referências de segurança* pode ajudá-lo a proteger rapidamente as implementações na nuvem. Recomendações de benchmark do seu fornecedor de serviços na nuvem dão-lhe um ponto de partida para selecionar definições específicas de configuração de segurança no seu ambiente e permitem-lhe reduzir rapidamente o risco para a sua organização.
 
-Uma das melhores formas de proteger as suas implementações em nuvem é focar-se em recomendações de referência de segurança na nuvem. Recomendações de referência, para garantir qualquer serviço, começam com uma compreensão fundamental do risco de cibersegurança e como geri-lo. Em seguida, pode utilizar este entendimento adotando recomendações de segurança de referência do seu fornecedor de serviços na nuvem para ajudar a selecionar configurações específicas de configuração de segurança no seu ambiente. 
+O Azure Security Benchmark inclui uma coleção de recomendações de segurança de alto impacto que pode usar para ajudar a proteger os serviços que utiliza no Azure:
 
-O Azure Security Benchmark inclui uma coleção de recomendações de segurança de alto impacto que pode usar para ajudar a garantir a maioria dos serviços que utiliza no Azure. Pode pensar nestas recomendações como "gerais" ou "organizacionais" como são aplicáveis à maioria dos serviços da Azure. As recomendações do Azure Security Benchmark são então personalizadas para cada serviço Azure, e esta orientação personalizada está contida em artigos de recomendações de serviço. 
+- Controlos de segurança: Estas recomendações são geralmente aplicáveis em todos os seus serviços Azure e Azure. Cada recomendação identifica uma lista de partes interessadas que estão tipicamente envolvidas no planeamento, aprovação ou implementação do benchmark. 
+- Linhas de base de serviço: Estes aplicam os controlos a serviços individuais da Azure para fornecer recomendações sobre a configuração de segurança desse serviço.
 
-A documentação Azure Security Benchmark especifica controlos de segurança e recomendações de serviço.
+## <a name="implement-the-azure-security-benchmark"></a>Implementar o Azure Security Benchmark
+- **Planeie** a sua implementação de Benchmark de Segurança Azure, revendo a [documentação](overview.md) para os controlos da empresa e linhas de base específicas do serviço para planear o seu quadro de controlo e como mapeia para orientações como o quadro cis (Controls v7.1) e NIST (SP800-53).
+- **Monitorize** a sua conformidade com o estado de benchmark de segurança Azure (e outros conjuntos de controlo) utilizando o [painel de conformidade regulamentar](../../security-center/security-center-compliance-dashboard.md)do Azure Security Center .
+- **Estabeleça guarda-costas** para automatizar configurações seguras e impor o cumprimento do Benchmark de Segurança Azure (e outros requisitos na sua organização) com a Azure Blueprints e a Azure Policy.
+ 
+Note que o Azure Security Benchmark v2 está alinhado com [as Melhores Práticas de Segurança](/security/compass/microsoft-security-compass-introduction) da Microsoft (anteriormente Azure Security Compass) de modo que o Azure Security Benchmark fornece uma única visão consolidada das recomendações de segurança Azure da Microsoft.
 
-- **Controlos de**Segurança : As recomendações do Azure Security Benchmark são categorizadas por controlos de segurança. Os controlos de segurança representam requisitos de segurança agnósticos de alto nível do fornecedor, tais como a segurança da rede e a proteção de dados. Cada controlo de segurança tem um conjunto de recomendações de segurança e instruções que o ajudam a implementar essas recomendações. 
-- **Recomendações de serviço**: Quando disponível, as recomendações de referência para os serviços Azure incluirão recomendações de Benchmark de Segurança Azure que são adaptadas especificamente para esse serviço. 
+## <a name="common-use-cases"></a>Casos de Uso Comum
 
-Os termos "Control", "Benchmark" e "Baseline" são usados frequentemente na documentação do Benchmark de Segurança Azure e é importante entender como a Azure utiliza esses termos. 
+O Azure Security Benchmark é frequentemente utilizado para enfrentar estes desafios comuns para clientes ou parceiros de serviço que são:
+- Novo em Azure e estão à procura de boas práticas de segurança para garantir uma implementação segura.
+- Melhorar a postura de segurança das implementações existentes do Azure para priorizar os riscos e mitigações de topo.
+- Aprovação de serviços Azure para uso por tecnologia e uso de negócios para cumprir orientações de segurança específicas.
+- Cumprir os requisitos regulamentares para clientes que são de indústrias governamentais ou altamente regulamentadas, como finanças e cuidados de saúde (ou fornecedores de serviços que precisam de construir sistemas para estes clientes). Estes clientes precisam de garantir que a sua configuração do Azure satisfaz as capacidades de segurança especificadas num quadro da indústria como o CIS, o NIST ou o PCI. O Azure Security Benchmark fornece uma abordagem eficiente com os controlos já pré-mapeados para estes critérios de referência da indústria.
+
+## <a name="terminology"></a>Terminologia
+
+Os termos "controle", "benchmark" e "linha de base" são usados frequentemente na documentação do Azure Security Benchmark e é importante entender como a Azure usa esses termos.
+
 
 | Termo | Descrição | Exemplo |
 |--|--|--|
-| Controlar | Um **controlo** é uma descrição de alto nível de uma característica ou atividade que precisa de ser abordada e não é específica de uma tecnologia ou implementação. | A Proteção de Dados é um dos controlos de segurança. Este controlo contém ações específicas que precisam de ser abordadas para ajudar a garantir a proteção dos dados. |
-| Referência | Um **benchmark** contém recomendações de segurança para uma tecnologia específica, como a Azure. As recomendações são categorizadas pelo controlo a que pertencem. | O benchmark da Azure Security compreende as recomendações de segurança específicas da plataforma Azure  |
-| Linha de base | Uma **linha de base** são os requisitos de segurança para uma organização. Os requisitos de segurança baseiam-se em recomendações de referência. Cada organização decide quais as recomendações de referência a incluir na sua linha de base. | A empresa Contoso cria a sua linha de base de segurança, optando por exigir recomendações específicas no Azure Security Benchmark. |
+| Controlo | Um controlo é uma descrição de alto nível de uma característica ou atividade que precisa de ser abordada e não é específica de uma tecnologia ou implementação. | A Proteção de Dados é um dos controlos de segurança. Este controlo contém ações específicas que devem ser endereçadas para ajudar a garantir a proteção dos dados. |
+| Referência | Um benchmark contém recomendações de segurança para uma tecnologia específica, como a Azure. As recomendações são categorizadas pelo controlo a que pertencem. | O Azure Security Benchmark compreende as recomendações de segurança específicas da plataforma Azure |
+| Linha de base | Uma linha de base é a implementação do benchmark no serviço Azure individual. Cada organização decide a recomendação de referência e as configurações correspondentes são necessárias no âmbito de implementação do Azure. | A empresa Contoso procura ativar as funcionalidades de segurança Azure SQL seguindo a configuração recomendada na linha de base de segurança Azure SQL.
 
-Congratulamo-nos com o seu feedback sobre o Azure Security Benchmark! Encorajamo-lo a fornecer comentários na área de comentários abaixo. Se preferir partilhar a sua entrada de forma mais privada com a equipa de Benchmark de Segurança Azure, é bem-vindo a preencher o formulário emhttps://aka.ms/AzSecBenchmark 
+Congratulamo-nos com o seu feedback sobre o Azure Security Benchmark! Encorajamo-lo a fornecer comentários na área de comentários abaixo. Se preferir partilhar a sua entrada de forma mais privada com a equipa de Benchmark de Segurança Azure, é bem-vindo a preencher o formulário em https://aka.ms/AzSecBenchmark

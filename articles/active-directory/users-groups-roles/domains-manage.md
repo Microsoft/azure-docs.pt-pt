@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12193b469b6e1f014e6c948da7b2adb370e78d4b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795334"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056256"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no seu Diretório Ativo Azure
 
@@ -55,7 +55,7 @@ Se já adicionou um domínio contoso.com a um inquilino da AD Azure, também pod
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>O que fazer se alterar o registo DNS para o seu nome de domínio personalizado
 
-Se alterar os registos DNS, não existem tarefas de configuração adicionais no Azure AD. Pode continuar a utilizar o nome de domínio com Azure AD sem interrupção. Se utilizar o seu nome de domínio personalizado com o Office 365, Intune ou outros serviços que dependam de nomes de domínio personalizados em Azure AD, consulte a documentação para esses serviços.
+Se alterar os registos DNS, não existem tarefas de configuração adicionais no Azure AD. Pode continuar a utilizar o nome de domínio com Azure AD sem interrupção. Se utilizar o seu nome de domínio personalizado com o Microsoft 365, Intune ou outros serviços que se baseiem em nomes de domínio personalizados em AZure AD, consulte a documentação para esses serviços.
 
 ## <a name="delete-a-custom-domain-name"></a>Excluir um nome de domínio personalizado
 
@@ -75,7 +75,7 @@ Pode **forçar o Nome de** Domínio no [Azure AD Admin Center](https://aad.porta
 
 Para ligar para o **ForceDelete** no portal Azure, deve certificar-se de que existem menos de 1000 referências ao nome de domínio, e quaisquer referências em que o Exchange é o serviço de fornecimento devem ser atualizadas ou removidas no [Centro de Administração de Intercâmbio.](https://outlook.office365.com/ecp/) Isto inclui grupos de segurança ativados por correio e listas distribuídas; para obter mais informações, consulte [remover grupos de segurança via correio](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). Além disso, a operação **ForceDelete** não terá sucesso se um dos seguintes for verdadeiro:
 
-* Adquiriu um domínio através dos serviços de subscrição de domínio do Office 365
+* Adquiriu um domínio através dos serviços de subscrição de domínio microsoft 365
 * Você é um parceiro que administra em nome de outra organização de clientes
 
 As seguintes ações são realizadas no âmbito da operação **ForceDelete:**
@@ -113,7 +113,7 @@ A maioria das tarefas de gestão para nomes de domínio no Azure Ative Directory
 * [Utilizar o PowerShell para gerir nomes de domínio em Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Tipo de recurso de domínio](/graph/api/resources/domain?view=graph-rest-1.0)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Adicionar nomes de domínio personalizados](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 * [Remova grupos de segurança habilitados por correio de Exchange no Exchange Admin Center em um nome de domínio personalizado em Azure AD](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794559"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056222"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Ative Directory versão 2 cmdlets para gestão de grupos
 
@@ -53,7 +53,7 @@ Para verificar se o módulo está pronto a ser utilizado, utilize o seguinte com
 Agora pode começar a utilizar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo AD Azure, consulte a documentação de referência on-line para a versão 2 do [Azure Ative Directory PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 > [!NOTE]
-> Os cmdlets Azure AD PowerShell não funcionam com o novo Powershell 7, uma vez que se baseia em .net Core. Estamos cientes e isso está em vias de ser atualizado. A partir de agora, sugerimos a utilização do Módulo Windows Powershell 5.x para ser utilizado para operações de powershell AD Azure. 
+> Os cmdlets Azure AD PowerShell não funcionam com o novo Powershell 7, uma vez que se baseia em .net Core. Estamos cientes e isso está em vias de ser atualizado. A partir de agora, sugerimos a utilização do Módulo Windows PowerShell 5.x para ser utilizado para operações de powershell AD Azure. 
 
 
 ## <a name="connect-to-the-directory"></a>Ligue-se ao diretório
@@ -328,15 +328,15 @@ Quando um grupo é criado, certos pontos finais permitem ao utilizador final esp
 
 ## <a name="group-writeback-to-on-premises-preview"></a>Recuo do grupo para as instalações (pré-visualização)
 
-Hoje, muitos grupos ainda são geridos no Ative Directory. Para responder a pedidos de sincronização de grupos de nuvem de volta ao local, a funcionalidade de writeback de grupos do Office 365 para Azure AD já está disponível para pré-visualização.
+Hoje, muitos grupos ainda são geridos no Ative Directory. Para responder a pedidos de sincronização de grupos de nuvem de volta ao local, a funcionalidade de writeback de grupos microsoft 365 para Azure AD já está disponível para pré-visualização.
 
-Os grupos do Office 365 são criados e geridos na nuvem. A capacidade de writeback permite-lhe escrever de volta o Office 365 grupos como grupos de distribuição para uma floresta de Diretório Ativo com o Exchange instalado. Os utilizadores com caixas de correio no local podem então enviar e receber e-mails destes grupos. A funcionalidade de writeback do grupo não suporta grupos de segurança Azure AD ou grupos de distribuição.
+Os grupos Microsoft 365 são criados e geridos na nuvem. A capacidade de writeback permite-lhe escrever de volta os grupos Microsoft 365 como grupos de distribuição para uma floresta de Diretório Ativo com o Exchange instalado. Os utilizadores com caixas de correio no local podem então enviar e receber e-mails destes grupos. A funcionalidade de writeback do grupo não suporta grupos de segurança Azure AD ou grupos de distribuição.
 
 Para mais detalhes, consulte a documentação para o [serviço de sincronização Azure AD Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-O office 365 group writeback é uma funcionalidade de pré-visualização pública do Azure Ative Directory (Azure AD) e está disponível com qualquer plano de licença AZure AD pago. Para obter algumas informações legais sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+A writeback do grupo Microsoft 365 é uma funcionalidade de pré-visualização pública do Azure Ative Directory (Azure AD) e está disponível com qualquer plano de licença AZure AD pago. Para obter algumas informações legais sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode encontrar mais documentação do Azure Ative Directory PowerShell na [Azure Ative Directory Cmdlets](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 

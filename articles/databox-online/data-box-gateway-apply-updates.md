@@ -2,17 +2,17 @@
 title: Instalar Atualização no dispositivo da série Azure Data Box Gateway / Microsoft Docs
 description: Descreve como aplicar atualizações utilizando o portal Azure e o UI web local para o dispositivo da série Azure Data Box Gateway
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: twooley
-ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 1b3f0faa2b5f67a23317935f0ad868e3872cf86e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783880"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055968"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Atualize o seu Gateway de Caixa de Dados Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve os passos necessários para instalar a atualização no seu
 >
 > - A atualização **1911** corresponde à versão de software **1.6.1049.786** no seu dispositivo. Para obter informações sobre esta atualização, aceda às [notas de lançamento](data-box-gateway-1911-release-notes.md).
 >
-> - Tenha em mente que instalar uma atualização ou um hotfix reinicia o seu dispositivo. Dado que o Data Box Gateway é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta um tempo de inatividade de até 30 minutos para a atualização do software do dispositivo.
+> - Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Dado que o Data Box Gateway é um dispositivo de nó único, qualquer E/S em curso é interrompida e o dispositivo sofrerá um período de inatividade que poderá demorar até30 minutos para a atualização do software do dispositivo.
 
 Cada um destes passos é descrito nas seguintes secções.
 
@@ -39,7 +39,7 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
 2. Na lâmina de atualização do **Dispositivo,** verifique se reviu os termos da licença associados a novas funcionalidades nas notas de lançamento.
 
-    Pode optar por **descarregar e instalar** as atualizações ou simplesmente **descarregar** as atualizações. Em seguida, pode optar por instalar estas atualizações mais tarde.
+    Pode optar por **descarregar e instalar** as atualizações ou simplesmente **descarregar** as atualizações. Pode optar por instalar estas atualizações mais tarde.
 
     ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-02.png)
 
@@ -63,7 +63,7 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
     ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
-    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Install** (Instalar).
+    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Instalar**.
   
     ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
 
@@ -152,6 +152,6 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 
    ![atualizar o dispositivo](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a administração do seu Gateway Azure Data Box](data-box-gateway-manage-users.md).

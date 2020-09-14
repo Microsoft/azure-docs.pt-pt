@@ -2,18 +2,18 @@
 title: Tutorial para encomendar Caixa de Dados Azure / Microsoft Docs
 description: Neste tutorial, conheça a Azure Data Box, uma solução híbrida que permite importar dados no local para o Azure e como encomendar a Azure Data Box.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
-ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/09/2020
+ms.author: alkohli
+ms.openlocfilehash: 2ab74b87b287296c4ff975d5af75714c89001004
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783574"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055721"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -123,7 +123,7 @@ Se a extensão for instalada com sucesso, verá a seguinte saída:
 
 Você pode usar [Azure Cloud Shell](https://shell.azure.com/), um ambiente de concha interativa azure hospedado, através do seu navegador para executar comandos CLI. A Azure Cloud Shell suporta os serviços Bash ou Windows PowerShell com os serviços Azure. O Azure CLI está pré-instalado e configurado para ser utilizado com a sua conta. Selecione o botão Cloud Shell no menu na secção superior direita do portal Azure:
 
-![Cloud Shell,](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 O botão lança uma concha interativa que pode usar para executar os passos descritos neste artigo de como fazer.
 
@@ -138,7 +138,7 @@ Antes de começar, certifique-se de que:
 * Instale o Windows PowerShell 6.2.4 ou superior.
 * Instale o módulo Azure PowerShell (AZ).
 * Instale o módulo Azure Data Box (Az.DataBox).
-* Inscreva-se no Azure.
+* Inicie sessão no Azure.
 
 #### <a name="install-azure-powershell-and-modules-locally"></a>Instale a Azure PowerShell e módulos localmente
 
@@ -237,7 +237,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
     ![Selecione Data Box opção 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. Em **Ordem**, vá ao separador **Básicos.** Insira ou selecione as seguintes informações e selecione **Seguinte: Destino de dados>**.
+6. Em **Ordem,** vá ao separador **Básico.** Introduza ou selecione as seguintes informações e selecione **Seguinte: Destino de dados>**.
 
     |Definição  |Valor  |
     |---------|---------|
@@ -269,7 +269,18 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
     A conta de armazenamento especificada para os discos geridos é utilizada como uma conta de armazenamento de teste. O serviço Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de teste antes de os converter em discos geridos e de os mover para os grupos de recursos. Para obter mais informações, veja [Verificar o carregamento de dados no Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-    Selecione **Seguinte: Contacte os dados** para continuar.
+    Selecione **Seguinte: Segurança** para continuar.
+
+1. Em **Segurança**, se pretender ativar a dupla encriptação baseada em software, selecione **Ative double encryption para a encomenda**. 
+
+   A encriptação baseada em software é realizada para além da encriptação bit AES-256 dos dados na Caixa de Dados.
+
+   > [!NOTE]
+   > Permitir esta opção poderia fazer com que o processamento de encomendas e a cópia de dados demorasse mais tempo. Não pode alterar esta opção depois de criar o seu pedido.
+
+   ![Tela de segurança para importação de caixa de dados, encriptação dupla](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   Selecione **Seguinte: Contacte os dados** para continuar.
 
 8. Em **detalhes de contato**, selecione **+ Adicionar endereço de envio**.
 
@@ -795,7 +806,7 @@ PS C:\Windows>
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu sobre artigos da Azure Data Box tais como:
 
