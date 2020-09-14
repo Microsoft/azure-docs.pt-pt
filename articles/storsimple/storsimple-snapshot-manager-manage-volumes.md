@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager e volumes Microsoft Docs
 description: Descreve como utilizar o snap-in do StorSimple Snapshot Manager MMC para visualizar e gerir volumes e configurar backups.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
-ms.author: twooley
-ms.openlocfilehash: b27cf605c978e15d81a43db3371a71b0ccc48c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 79a239def70f0455f63c18d86397ec8d927f244c
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508925"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054912"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager para visualizar e gerir volumes
 ## <a name="overview"></a>Descrição geral
@@ -93,7 +93,7 @@ Utilize o seguinte procedimento para visualizar informações sobre volumes loca
    
    | Coluna de resultados | Descrição |
    |:--- |:--- |
-   |  Name |A coluna **Nome** contém a letra de unidade atribuída a cada volume descoberto. |
+   |  Nome |A coluna **Nome** contém a letra de unidade atribuída a cada volume descoberto. |
    |  Dispositivo |A coluna **dispositivo** contém o endereço IP do dispositivo ligado ao computador anfitrião. |
    |  Nome do volume do dispositivo |A coluna **Nome do Volume** do Dispositivo contém o nome do volume do dispositivo ao qual pertence o volume selecionado. Este é o nome de volume definido no portal Azure para esse volume específico. |
    |  Caminhos de acesso |A coluna **Caminhos de Acesso** apresenta o caminho de acesso ao volume. Esta é a letra de acionamento ou ponto de montagem em que o volume está acessível no computador anfitrião. |
@@ -183,7 +183,7 @@ A Disk Management é uma utilidade do sistema para gerir discos rígidos e os vo
 6. Na página **'Atribuir a letra de unidade ou o caminho',** aceite as predefinições e, em seguida, clique em **Seguinte**. 
 7. Na página **volume de formato,** na caixa de tamanho da unidade de **atribuição,** selecione **64K**. Selecione a caixa de verificação **de formato rápido** e, em seguida, clique em **Seguinte**. 
 8. Na página 'Completar a página **Novo Volume Espelhado',** reveja as definições e, em seguida, clique em **Terminar**. 
-9. Uma mensagem parece indicar que o disco básico será convertido para um disco dinâmico. Clique **em Sim**.
+9. Uma mensagem parece indicar que o disco básico será convertido para um disco dinâmico. Clique em **Sim**.
    
     ![Mensagem de conversão dinâmica do disco](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
 10. Na Gestão do Disco, verifique se o Disco 1 e o Disco 2 são apresentados como volumes dinâmicos espelhados. **(Dinâmica** deve aparecer na coluna de estado, e a cor da barra de capacidade deve mudar para vermelho, indicando um volume espelhado.) 

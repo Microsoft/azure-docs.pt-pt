@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377204"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052779"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -39,7 +39,7 @@ Um utilizador pode reiniciar ou alterar a sua palavra-passe utilizando o [portal
 
 Quando um utilizador seleciona o link **'Não pode aceder'** a uma aplicação ou página a partir de uma aplicação ou página, ou vai diretamente [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) para, o idioma utilizado no portal SSPR baseia-se nas seguintes opções:
 
-* Por padrão, o local do navegador é utilizado para exibir o SSPR no idioma apropriado. A experiência de reset da palavra-passe está localizada nas mesmas línguas que o [Office 365 suporta.](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec)
+* Por padrão, o local do navegador é utilizado para exibir o SSPR no idioma apropriado. A experiência de reset da palavra-passe está localizada nos mesmos idiomas que o [Microsoft 365 suporta.](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec)
 * Se pretender ligar ao SSPR num idioma localizado específico, `?mkt=` apenda-se ao final do URL de reset da palavra-passe juntamente com o local necessário.
     * Por exemplo, para especificar a localidade espanhola *es-us,* use `?mkt=es-us`  -  [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) .
 
@@ -77,7 +77,7 @@ Antes de os utilizadores poderem redefinir ou alterar a sua palavra-passe utiliz
 
 Pode ativar a opção de exigir que um utilizador preencha o registo SSPR se iniciar súm em quaisquer aplicações usando Azure AD. Este fluxo de trabalho inclui as seguintes aplicações:
 
-* Office 365
+* Microsoft 365
 * Portal do Azure
 * Painel de Acesso
 * Candidaturas federadas
@@ -226,7 +226,7 @@ A SSPR executa o equivalente a uma redefinição de senha iniciada por administr
 
 O reset e a alteração da palavra-passe são totalmente suportados em todas as configurações business-to-business (B2B). O reset da palavra-passe do utilizador B2B é suportado nos seguintes três casos:
 
-* **Utilizadores de uma organização parceira com um inquilino Azure AD existente**: Se a organização com quem se associa tem um inquilino AZure AD existente, respeitamos quaisquer políticas de reset de palavra-passe que estejam habilitadas nesse inquilino. Para que a palavra-passe seja reposta para funcionar, a organização parceira apenas precisa de se certificar de que o Azure AD SSPR está ativado. Não há qualquer custo adicional para os clientes do Office 365.
+* **Utilizadores de uma organização parceira com um inquilino Azure AD existente**: Se a organização com quem se associa tem um inquilino AZure AD existente, respeitamos quaisquer políticas de reset de palavra-passe que estejam habilitadas nesse inquilino. Para que a palavra-passe seja reposta para funcionar, a organização parceira apenas precisa de se certificar de que o Azure AD SSPR está ativado. Não existe qualquer custo adicional para os clientes microsoft 365.
 * **Utilizadores que se inscrevem através** de inscrição de self-service: Se a organização com quem se associa usou a função [de inscrição de self-service](../users-groups-roles/directory-self-service-signup.md) para entrar num inquilino, deixamos que repusessem a palavra-passe com o e-mail que registaram.
 * **Utilizadores B2B**: Quaisquer novos utilizadores B2B criados através da utilização das novas [capacidades Azure AD B2B](../external-identities/what-is-b2b.md) também podem redefinir as suas palavras-passe com o e-mail que registaram durante o processo de convite.
 

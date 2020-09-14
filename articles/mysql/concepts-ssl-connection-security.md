@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ad255b2e03cdecd9a87f1af3ce780ae64535bfa2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 641ff13ec440bb8267e546c54b684ab4453f91a7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495085"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052941"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Conectividade SSL/TLS na Base de Dados Azure para o MySQL
 
@@ -19,6 +19,9 @@ A Azure Database for MySQL suporta ligar o seu servidor de base de dados a aplic
 
 > [!NOTE]
 > A atualização do valor do parâmetro do `require_secure_transport` servidor não afeta o comportamento do serviço MySQL. Utilize as funcionalidades de execução SSL e TLS descritas neste artigo para garantir ligações à sua base de dados.
+
+> [!IMPORTANT] 
+> O certificado de raiz SSL está previsto expirar a partir de 26 de outubro de 2020 (10/26/2020). Por favor, atualize a sua aplicação para utilizar o [novo certificado.](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) Para saber mais, consulte [as atualizações de certificados planeadas](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>Definições padrão SSL
 
@@ -59,7 +62,7 @@ Por exemplo, definir o valor da versão mínima de definição de TLS para TLS 1
 
 Para saber como definir a definição de TLS para a sua Base de Dados Azure para o MySQL, consulte como [configurar a definição de TLS](howto-tls-configurations.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Bibliotecas de conexão para Azure Database para MySQL](concepts-connection-libraries.md)
 - Saiba como configurar o [SSL](howto-configure-ssl.md)

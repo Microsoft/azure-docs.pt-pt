@@ -11,19 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf50a8f58978a010fe3d8228ace8579fcf52eb38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7e4772ba2b3d8adf163d6f2932461e1e939ed84
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81309907"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052448"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando utilizar um Fornecedor de Autenticação Multi-Factor Azure
 
 > [!IMPORTANT]
 > A partir de 1 de setembro de 2018, novos fornecedores de auth já não podem ser criados. Os fornecedores de auth existentes podem continuar a ser utilizados e atualizados, mas a migração já não é possível. A autenticação multi-factor continuará a estar disponível como recurso nas licenças Azure AD Premium.
 
-A verificação de dois passos está disponível por predefinição para os administradores globais que tenham utilizadores do Azure Active Directory e do Office 365. No entanto, se pretender tirar partido das [funcionalidades avançadas](howto-mfa-mfasettings.md), deverá comprar a versão completa do Multi-Factor Authentication (MFA) do Azure.
+A verificação em duas etapas está disponível por padrão para administradores globais que têm Azure Ative Directory e utilizadores microsoft 365. No entanto, se pretender tirar partido das [funcionalidades avançadas](howto-mfa-mfasettings.md), deverá comprar a versão completa do Multi-Factor Authentication (MFA) do Azure.
 
 Um Azure Multi-Factor Auth Provider é utilizado para tirar partido das funcionalidades fornecidas pela Azure Multi-Factor Authentication para utilizadores que **não possuam licenças.**
 

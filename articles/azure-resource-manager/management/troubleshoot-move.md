@@ -1,14 +1,14 @@
 ---
 title: Erros de movimento de resolução de problemas
-description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
+description: Resolução de problemas de transferência de recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 60e4ffb2b79fcce85fa4b316e68e191eb14f8bf0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 41b1e2435caf9874f3582a3394664c7b7f5a8d29
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055097"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054167"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Resolver problemas de movimentação de recursos do Azure para um novo grupo de recursos ou uma nova subscrição
 

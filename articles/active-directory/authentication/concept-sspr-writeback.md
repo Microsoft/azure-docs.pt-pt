@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 690dead3cb0059dd1b20ff042a93c36d674e62d2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717443"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052686"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como funciona a redefinição da palavra-passe de autosserviço no Azure Ative Directory?
 
@@ -37,7 +37,7 @@ A writeback da palavra-passe fornece as seguintes funcionalidades:
 
 * **Execução das políticas de senha de serviços de diretório ativo (DS)** no local : Quando um utilizador reinicia a sua palavra-passe, é verificado para garantir que cumpre a sua política de DS AD no local antes de a comprometer com esse diretório. Esta análise inclui a verificação do histórico, complexidade, idade, filtros de senha e quaisquer outras restrições de senha que você define em DS AD.
 * **Feedback de atraso zero**: A gravação de palavras-passe é uma operação sincronizada. Os utilizadores são notificados imediatamente se a sua palavra-passe não cumprir a política ou não puderem ser reiniciados ou alterados por qualquer motivo.
-* **Suporta alterações de palavra-passe do painel de acesso e do Office 365**: Quando os utilizadores sincronizados de hash federados ou de palavras-passe entram em validade ou não, essas palavras-passe são escritas de volta para DS AD.
+* **Suporta alterações de palavra-passe do painel de acesso e do Microsoft 365**: Quando os utilizadores sincronizados de hash federados ou de palavras-passe entram em validade ou não, essas palavras-passe são escritas de volta para DS AD.
 * **Suporta a gravação de palavra-passe quando um administrador as reinicia a partir do portal Azure**: Quando um administrador reinicia a palavra-passe de um utilizador no [portal Azure](https://portal.azure.com), se esse utilizador for federado ou se o hash de palavra-passe estiver sincronizado, a palavra-passe é escrita de volta para o local. Esta funcionalidade não é suportada atualmente no portal de administração do Office.
 * **Não requer regras de firewall de entrada**: A writeback de palavras-passe utiliza um retransmissor Azure Service Bus como um canal de comunicação subjacente. Toda a comunicação é saída sobre o porto 443.
 
@@ -156,7 +156,7 @@ As palavras-passe não estão escritas em nenhuma das seguintes situações:
 > [!WARNING]
 > A utilização da caixa de verificação "O utilizador deve alterar a palavra-passe no próximo início de súmido" em ferramentas administrativas AD DS no local, como Utilizadores e Computadores de Diretório Ativo ou o Ative Directory Administrative Center é suportado como uma funcionalidade de pré-visualização do Azure AD Connect. Para obter mais informações, consulte [implementar a sincronização de hash de palavra-passe com a sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com a gravação da SSPR, complete o seguinte tutorial:
 

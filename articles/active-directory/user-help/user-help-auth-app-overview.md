@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799439"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055236"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
 
@@ -41,8 +41,8 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 | ----|-----------|
 | Verificação de dois fatores | Um processo de verificação que requer que você use especificamente apenas duas peças de informação de verificação, como uma senha e um PIN. A aplicação Microsoft Authenticator suporta tanto a verificação padrão de dois fatores como o sign-in sem palavras-passe. |
 | Multi-Factor Authentication (MFA) | Toda a verificação de dois fatores é a autenticação de vários fatores, obrigando-o a utilizar *pelo menos* duas peças de informação de verificação, com base nos requisitos da sua organização. |
-| Conta Microsoft (também chamada, MSA) | Cria as suas próprias contas pessoais, para ter acesso aos seus produtos e serviços na nuvem orientados para o consumidor, tais como Outlook, OneDrive, Xbox LIVE ou Office 365. A sua conta Microsoft é criada e armazenada no sistema de contas de identidade de consumo da Microsoft que é gerido pela Microsoft. |
-| Conta escolar ou profissional | A sua organização cria o seu trabalho ou conta escolar alain@contoso.com (como) para lhe permitir aceder a recursos internos e potencialmente restritos, como o Microsoft Azure, Windows Intune e Office 365. |
+| Conta Microsoft (também chamada, MSA) | Cria as suas próprias contas pessoais, para ter acesso aos seus produtos e serviços na nuvem orientados para o consumidor, tais como Outlook, OneDrive, Xbox LIVE ou Microsoft 365. A sua conta Microsoft é criada e armazenada no sistema de contas de identidade de consumo da Microsoft que é gerido pela Microsoft. |
+| Conta escolar ou profissional | A sua organização cria o seu trabalho ou conta escolar alain@contoso.com (como) para lhe permitir aceder a recursos internos e potencialmente restritos, como o Microsoft Azure, Windows Intune e Microsoft 365. |
 | Código de verificação | O código de seis dígitos que aparece na aplicação autenticadora, em cada conta adicional. O código de verificação muda a cada 30 segundos impedindo alguém de usar um código várias vezes. Isto também é conhecido como uma senha única (OTP). |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>Como a verificação de dois fatores funciona com a app

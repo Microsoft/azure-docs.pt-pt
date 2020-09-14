@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271010"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052393"
 ---
 # <a name="known-issues-application-provisioning"></a>Questões conhecidas: Provisionamento de pedidos
 Questões conhecidas a ter em conta ao trabalhar com o provisionamento de aplicações. Pode fornecer feedback sobre o serviço de fornecimento de aplicações no UserVoice, ver [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). Assistimos atentamente ao UserVoice para que possamos melhorar o serviço. 
@@ -66,7 +66,13 @@ As expressões de mapeamento de atributos podem ter um máximo de 10.000 caracte
 - O provisionamento de grupos aninhados não é apoiado. 
 - O fornecimento aos inquilinos B2C não é suportado devido ao tamanho dos inquilinos. 
 
-**O intervalo de provisionamento é fixado** O [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é atualmente configurável. 
+**O fornecimento automático não está disponível na minha aplicação baseada no OIDC**
+
+Se criar um registo de aplicações, o correspondente principal de serviço em aplicações empresariais não será habilitado para o fornecimento automático do utilizador. Será necessário solicitar que a aplicação seja adicionada à galeria, se for destinada a ser utilizada por várias organizações, ou criar uma segunda aplicação não-galeria para o provisionamento. 
+
+**O intervalo de provisionamento é fixado**
+
+O [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é atualmente configurável. 
 
 **Alterações que não se movem da app-alvo para Azure AD**
 
@@ -81,5 +87,5 @@ Ao definir o provisionamento `enabled = off` , ou bater no batente, o ciclo de p
 Quando um grupo estiver no âmbito e um membro estiver fora de alcance, o grupo será provisionado. O utilizador fora de alcance não será a provisionado. Se o membro voltar ao alcance, o serviço não detetará imediatamente a alteração. O reinício do provisionamento abordará a questão. Recomendamos reiniciar periodicamente o serviço para garantir que todos os utilizadores estão devidamente abastados.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Como funciona o aprovisionamento](how-provisioning-works.md)

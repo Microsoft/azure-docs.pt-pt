@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 08f3a3c17a5f6ea519eea04c4b8c5e7025adcbac
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116772"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052363"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -119,7 +119,7 @@ Os tokens de hardware OATH TOTP normalmente vêm com uma chave secreta, ou semen
 
 As fichas de hardware do OATH TOTP programáveis que podem ser ressequidas também podem ser configuradas com Azure AD no fluxo de configuração do token do software.
 
-As fichas de hardware da OATH são suportadas como parte de uma pré-visualização pública. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+As fichas de hardware da OATH são suportadas como parte de uma pré-visualização pública. Para obter mais informações sobre pré-visualizações, consulte  [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Upload de fichas de OATH para a lâmina de fichas de OATH do MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -212,7 +212,7 @@ As questões de segurança podem ser menos seguras do que outros métodos, porqu
 
 ### <a name="predefined-questions"></a>Perguntas predefinidas
 
-As seguintes questões de segurança predefinidas estão disponíveis para utilização como método de verificação com a SSPR. Todas estas questões de segurança são traduzidas e localizadas no conjunto completo de idiomas do Office 365 com base no local do navegador do utilizador:
+As seguintes questões de segurança predefinidas estão disponíveis para utilização como método de verificação com a SSPR. Todas estas questões de segurança são traduzidas e localizadas no conjunto completo de idiomas microsoft 365 baseados no local do navegador do utilizador:
 
 * Em que cidade conheceu o seu primeiro cônjuge/parceiro?
 * Em que cidade os seus pais se conheceram?
@@ -292,7 +292,7 @@ Se a sua organização for federada para um único sign-on (SSO) com Azure AD e 
     * Para clientes que autenticam uma infraestrutura no local, utilizaria um nome de utilizador organizacional e uma palavra-passe.
     * Para clientes que autenticam contra a Azure AD, utilizaria a palavra-passe da aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação multi-factor Azure][tutorial-azure-mfa].
 

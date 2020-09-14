@@ -3,7 +3,7 @@ title: StorSimple Políticas de backup do Gestor de Instantâneos / Microsoft Do
 description: Descreve como utilizar o snap-in do StorSimple Snapshot Manager MMC para criar e gerir as políticas de backup que controlam as cópias de segurança programadas.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 871f2313b8cd0e8b94a7daff00e5743ee5cdfd71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 745aeb9844f1abad075d34b34735563200ea618b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511524"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054947"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use storSimple Snapshot Manager para criar e gerir políticas de backup
 ## <a name="overview"></a>Descrição geral

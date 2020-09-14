@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 8ace82147f17e6ee7e888553c58f32ec6e5ba271
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4a5203a91ba528328dce7036d4690c6dea137c33
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569208"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054267"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -785,7 +785,7 @@ O tempo de resposta é uma aproximação. Uma vez que não instrumentamos o cód
 
 Esta aproximação funciona bem para protocolos que são baseados em pedidos/respostas: um único pedido sai na ligação, e uma única resposta chega. É o caso do HTTP(S) (sem canalização), mas não está satisfeito com outros protocolos.
 
-### <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>As suas limitações são se eu estiver no plano de preços gratuitos do Log Analytics?
+### <a name="are-there-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Existem limitações se eu estiver no plano de preços gratuitos do Log Analytics?
 Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics utilizando o nível de preços *gratuitos,* o Azure Monitor para o Mapa de VMs apenas irá suportar cinco máquinas ligadas ligadas ao espaço de trabalho. Se tiver cinco VM ligados a um espaço de trabalho gratuito, desligue um dos VMs e, em seguida, ligue um novo VM, o novo VM não é monitorizado e refletido na página do Mapa.  
 
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 

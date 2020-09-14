@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76a2e4cb170ca5bee41c0ae8f3e0557eab19562e
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a8d1b6d912cadb073251d72ee327f4b19950ab1b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147138"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055190"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revogar o acesso do utilizador no Azure Ative Directory
 
@@ -38,7 +38,7 @@ Os tokens de acesso e tokens de atualização são frequentemente usados com apl
 
 A Azure AD reavalia então as suas políticas de autorização. Se o utilizador ainda estiver autorizado, o Azure AD emite um novo token de acesso e atualização.
 
-Os tokens de acesso podem ser uma preocupação de segurança se o acesso tiver de ser revogado num prazo mais curto do que o tempo de vida do token, que normalmente ronda cerca de uma hora. Por esta razão, a Microsoft está a trabalhar ativamente para levar a [avaliação contínua](../conditional-access/concept-continuous-access-evaluation.md) de acesso às aplicações do Office 365, o que ajuda a garantir a invalidação de tokens de acesso em tempo real.  
+Os tokens de acesso podem ser uma preocupação de segurança se o acesso tiver de ser revogado num prazo mais curto do que o tempo de vida do token, que normalmente ronda cerca de uma hora. Por esta razão, a Microsoft está a trabalhar ativamente para levar a [avaliação contínua](../conditional-access/concept-continuous-access-evaluation.md) de acesso às aplicações da Microsoft 365, o que ajuda a garantir a invalidação de tokens de acesso em tempo real.  
 
 ## <a name="session-tokens-cookies"></a>Fichas de sessão (cookies)
 
@@ -117,7 +117,7 @@ Uma vez que os administradores tenham tomado as medidas acima, o utilizador não
 
 - Para **aplicações que utilizem fichas de sessão,** as sessões existentes terminam assim que o token expirar. Se o estado desativado do utilizador for sincronizado com a aplicação, a aplicação pode revogar automaticamente as sessões existentes do utilizador se estiver configurada para o fazer.  O tempo que demora depende da frequência de sincronização entre a aplicação e a Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Práticas de acesso seguros para administradores da AD Azure](directory-admin-roles-secure.md)
 - [Adicionar ou atualizar informações sobre o perfil do utilizador](../fundamentals/active-directory-users-profile-azure-portal.md)

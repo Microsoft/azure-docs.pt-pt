@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 52f2cc6a528e0d765178d71e8c2d196df71738d2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b0cc937cae4230d3310b682a51988243f0207fc0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537004"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Tutorial: Integração do Diretório Ativo Azure com Degreed
 
@@ -48,59 +48,42 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 * Suportados por acordo no fornecimento de utilizadores **just in time**
 
+* Uma vez configurado Degreed, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
 ## <a name="adding-degreed-from-the-gallery"></a>Adicionar Degreed da galeria
 
 Para configurar a integração de Degreed em AD Azure, você precisa adicionar Degreed da galeria à sua lista de aplicações geridas saaS.
 
-**Para adicionar Degreed da galeria, execute os seguintes passos:**
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar da secção **da galeria,** **escreva Degreed** na caixa de pesquisa.
+1. Selecione **Degreed** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
-
-    ![O botão Azure Ative Directory](common/select-azuread.png)
-
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
-
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
-
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
-
-    ![O novo botão de aplicação](common/add-new-app.png)
-
-4. Na caixa de pesquisa, **escreva Degreed**, selecione **Degreed** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
-
-     ![Acordado na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
 Nesta secção, você configura e testa Azure AD um único sign-on com Degreed com base em um utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Degreed.
 
 Para configurar e testar o Azure AD com Degreed, você precisa completar os seguintes blocos de construção:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único Acordado](#configure-degreed-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create Degreed test user](#create-degreed-test-user)** - ter uma contraparte de Britta Simon em Degreed que está ligada à representação AZure AD do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+2. **[Configure SSO acordado](#configure-degreed-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+    * **[Create Degreed test user](#create-degreed-test-user)** - ter uma contraparte de Britta Simon em Degreed que está ligada à representação AZure AD do utilizador.
+3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-Para configurar o Azure AD com Degreed, execute os seguintes passos:
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Degreed,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Degreed,** selecione **Single sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
@@ -110,8 +93,10 @@ Para configurar o Azure AD com Degreed, execute os seguintes passos:
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://degreed.com/<instancename>`
 
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://degreed.com/SAML/<instancename>`
+    
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente Degreed](mailto:admin@degreed.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, o identificador e o URL de resposta. Contacte [a equipa de suporte do Cliente Degreed](mailto:admin@degreed.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
@@ -127,60 +112,39 @@ Para configurar o Azure AD com Degreed, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-degreed-single-sign-on"></a>Configurar assinatura única acordada
-
-Para configurar um único sign-on no lado **Degreed,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a [equipa de suporte Degreed](mailto:admin@degreed.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
+Nesta secção, irá criar um utilizador de teste chamado B.Simon no portal Azure.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-  
-    b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo do portal Azure, selecione **O Diretório Ativo Azure,** selecione **Utilizadores,** e, em seguida, selecione **Todos os utilizadores**.
+1. Na parte superior do ecrã, selecione **Novo utilizador**.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome,** insira **B.Simon**.  
+   1. No campo **nome do utilizador,** insira `<username>@<companydomain>.<extension>` . Por exemplo: `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe Show** e, em seguida, tome nota do valor que é apresentado na caixa **palavra-passe.**
+   1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Degreed.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Degreed.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Degreed**.
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **Degreed**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de candidaturas, selecione **Degreed**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O link Degreed na lista de Aplicações](common/all-applications.png)
+    ![O link do utilizador adicionar](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+### <a name="configure-degreed-sso"></a>Configurar SSO acordado
 
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
+Para configurar um único sign-on no lado **Degreed,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a [equipa de suporte Degreed](mailto:admin@degreed.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-degreed-test-user"></a>Criar utilizador de teste desacordo
 
@@ -192,7 +156,7 @@ Não há nenhum item de ação para si nesta secção. Um novo utilizador é cri
 > Se precisar de criar um utilizador manualmente, tem de contactar a [equipa de suporte Degreed](mailto:admin@degreed.com).
 
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 

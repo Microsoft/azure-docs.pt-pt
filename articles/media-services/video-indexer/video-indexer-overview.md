@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318693"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052142"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Multimédia do Azure?
 
@@ -81,7 +81,7 @@ A lista a seguir mostra as informações que pode obter dos seus vídeos utiliza
 * **Processamento de dois canais**: Auto deteta transcrição separada e funde-se numa única linha temporal.
 * **Redução do ruído**: Limpa as gravações áudio ou ruidosas (com base nos filtros Skype).
 * **Personalização de transcrições** (CRIS): treina a fala personalizada para modelos de texto para criar transcrições específicas da indústria. Para obter mais informações, consulte [Personalizar um modelo de linguagem a partir do site do Indexer de Vídeo](customize-language-model-with-website.md) e [Personalizar um modelo de linguagem com as APIs do Indexante de Vídeo](customize-language-model-with-api.md).
-* **Enumeração do orador**: Mapas e compreende qual orador falou quais as palavras e quando.
+* **Enumeração do orador**: Mapas e compreende qual orador falou quais as palavras e quando. Dezasseis altifalantes podem ser detetados num único ficheiro áudio.
 * **Estatísticas dos oradores**: Fornece estatísticas para os rácios de fala dos oradores.
 * **Textual content moderation** (Moderação de conteúdo textual): deteta texto explícito na transcrição de áudio.
 * **Efeitos áudio**: Identifica efeitos áudio como palmas das mãos, fala e silêncio.

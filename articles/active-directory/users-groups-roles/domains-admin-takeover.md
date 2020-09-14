@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015889"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054709"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 
@@ -34,7 +34,7 @@ Durante o processo de obtenção do controlo administrativo, pode provar a propr
 
 ## <a name="internal-admin-takeover"></a>Aquisição de administrador interno
 
-Alguns produtos que incluem SharePoint e OneDrive, como o Office 365, não suportam aquisição externa. Se esse é o seu cenário, ou se você é um administrador e quer assumir uma organização AD AZure não gerida ou "sombra" criada por utilizadores que usaram inscrição de autosserviço, você pode fazê-lo com uma aquisição de administração interna.
+Alguns produtos que incluem SharePoint e OneDrive, como o Microsoft 365, não suportam aquisição externa. Se esse é o seu cenário, ou se você é um administrador e quer assumir uma organização AD AZure não gerida ou "sombra" criada por utilizadores que usaram inscrição de autosserviço, você pode fazê-lo com uma aquisição de administração interna.
 
 1. Crie um contexto de utilizador na organização nãogerida através da inscrição no Power BI. Por conveniência de exemplo, estes passos assumem esse caminho.
 
@@ -52,7 +52,7 @@ Alguns produtos que incluem SharePoint e OneDrive, como o Office 365, não supor
 
 Quando os registos DNS TXT forem verificados no seu registo de nomes de domínio, pode gerir a organização AD AZure.
 
-Quando completar os passos anteriores, é agora o administrador global da organização Quarto Café no Office 365. Para integrar o nome de domínio com os seus outros serviços Azure, pode removê-lo do Office 365 e adicioná-lo a uma organização gerida diferente em Azure.
+Quando completar os passos anteriores, é agora o administrador global da organização Quarto Café na Microsoft 365. Para integrar o nome de domínio com os seus outros serviços Azure, pode removê-lo da Microsoft 365 e adicioná-lo a uma organização gerida diferente em Azure.
 
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Adicionar o nome de domínio a uma organização gerida em Azure AD
 
@@ -61,9 +61,9 @@ Quando completar os passos anteriores, é agora o administrador global da organi
 3. Certifique-se de que a nova conta de utilizador tem privilégios de administração global para a organização Azure AD.
 4. Abra o **separador Domínios** no centro de administração Microsoft 365, selecione o nome de domínio e selecione **Remover**. 
   
-   ![remover o nome de domínio do Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Remova o nome de domínio da Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Se tiver algum utilizadores ou grupos no Office 365 que refiram o nome de domínio removido, devem ser renomeados para o domínio .onmicrosoft.com. Se forçar a eliminação do nome de domínio, todos os utilizadores serão automaticamente renomeados, neste exemplo para * \@ fourthcoffeexyz.onmicrosoft.com do utilizador*.
+5. Se tiver algum utilizadores ou grupos no Microsoft 365 que refiram o nome de domínio removido, devem ser renomeados para o domínio .onmicrosoft.com. Se forçar a eliminação do nome de domínio, todos os utilizadores serão automaticamente renomeados, neste exemplo para * \@ fourthcoffeexyz.onmicrosoft.com do utilizador*.
   
 6. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que é o administrador global da organização Azure AD.
   
@@ -72,11 +72,11 @@ Quando completar os passos anteriores, é agora o administrador global da organi
    ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Qualquer utilizadores do serviço Power BI ou Azure Rights Management que tenham licenças atribuídas na organização office 365 devem guardar os seus dashboards se o nome de domínio for removido. Devem iniciar sposição com um nome de utilizador como * \@ utilizador fourthcoffeexyz.onmicrosoft.com* em vez de utilizador * \@ quartocoffee.xyz*.
+> Qualquer utilizadores do serviço Power BI ou Azure Rights Management que tenham licenças atribuídas na organização Microsoft 365 devem guardar os seus dashboards se o nome de domínio for removido. Devem iniciar sposição com um nome de utilizador como * \@ utilizador fourthcoffeexyz.onmicrosoft.com* em vez de utilizador * \@ quartocoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Aquisição de administrador externo
 
-Se já gere uma organização com serviços Azure ou Office 365, não pode adicionar um nome de domínio personalizado se já estiver verificado em outra organização Azure AD. No entanto, a partir da sua organização gerida em Azure AD você pode assumir uma organização não gerida como uma aquisição de administração externa. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
+Se já gere uma organização com serviços Azure ou Microsoft 365, não pode adicionar um nome de domínio personalizado se já estiver verificado noutra organização Azure AD. No entanto, a partir da sua organização gerida em Azure AD você pode assumir uma organização não gerida como uma aquisição de administração externa. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
 
 Quando verifica a propriedade do nome de domínio, a Azure AD remove o nome de domínio da organização não gerida e transfere-o para a sua organização existente. A aquisição externa de um diretório não gerido requer o mesmo processo de validação de DNS TXT que a aquisição interna de administração. A diferença é que os seguintes também são movidos com o nome de domínio:
 
@@ -120,7 +120,7 @@ cmdlet | Utilização
 `new-msoldomain –name <domainname>` | Adiciona o nome de domínio à organização como Não verificado (ainda não foi realizada nenhuma verificação de DNS).
 `get-msoldomain` | O nome de domínio está agora incluído na lista de nomes de domínio associados à sua organização gerida, mas está listado como **Não verificado**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornece as informações para colocar em novo registo DNS TXT para o domínio (MS=xxxxx). A verificação pode não acontecer imediatamente porque leva algum tempo para que o registo TXT se propague, por isso aguarde alguns minutos antes de considerar a opção **-ForceTakeover.** 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se o seu nome de domínio ainda não estiver verificado, pode prosseguir com a opção **-ForceTakeover.** Verifica que o registo TXT foi criado e inicia o processo de aquisição.<li>A opção **-ForceTakeover** só deve ser adicionada ao cmdlet quando forçar uma aquisição de administração externa, como quando a organização não gerida tem serviços do Office 365 que bloqueiam a aquisição.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se o seu nome de domínio ainda não estiver verificado, pode prosseguir com a opção **-ForceTakeover.** Verifica que o registo TXT foi criado e inicia o processo de aquisição.<li>A opção **-ForceTakeover** só deve ser adicionada ao cmdlet quando forçar uma aquisição de administração externa, como quando a organização não gerida tem serviços microsoft 365 bloqueando a aquisição.
 `get-msoldomain` | A lista de domínios mostra agora o nome de domínio como **Verificado**.
 
 > [!NOTE]
@@ -168,7 +168,7 @@ cmdlet | Utilização
 
 Um desafio bem sucedido devolve-lhe o pedido sem um erro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/)

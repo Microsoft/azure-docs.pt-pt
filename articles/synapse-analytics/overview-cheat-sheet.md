@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3141f8044a4a257de8022ff789b12d5d3e6e7a90
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 0e4b96092107e3411f33411f1044fd7cc839f132
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807031"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052002"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de batota Azure Synapse Analytics
 
@@ -22,11 +22,14 @@ ms.locfileid: "85807031"
 
 A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos básicos do serviço e comandos importantes. Este artigo é útil tanto para os novos alunos como para aqueles que querem destaques dos tópicos essenciais do Azure Synapse.
 
-## <a name="architecture"></a>Arquitetura
+## <a name="basics"></a>Noções básicas
 
-> [!div class="mx-imgBorder"]
->![Arquitetura Sinapse](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
+Um espaço de **trabalho da Sinapse** é um limite de colaboração garantido para fazer análises empresariais baseadas na nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiro ADLS Gen2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos.
 
+Um espaço de trabalho permite-lhe realizar análises com faísca SQL e Apache. Os recursos disponíveis para análises SQL e Spark estão organizados em **piscinas.** Há três tipos de piscinas.
+* **Piscinas SQL.** Estes fornecem capacidade de análise **SQL dedicada.**
+* **Piscina a pedido SQL.** Cada espaço de trabalho tem exatamente uma piscina a pedido sql. Isto fornece capacidade de análise SQL **sem servidor** numa base de consulta.
+* **Piscinas de faíscas.** Estes fornecem capacidade de análise de faíscas.
 ## <a name="terminology"></a>Terminologia
 | Termo                         | Definição      |
 |:---                                 |:---                 |
@@ -54,7 +57,7 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 ## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma área de trabalho](quickstart-create-workspace.md)
-- [Use o Estúdio Synapse](quickstart-synapse-studio.md)
+- [Utilizar o Synapse Studio](quickstart-synapse-studio.md)
 - [Criar uma piscina SQL](quickstart-create-sql-pool-portal.md)
 - [Criar uma piscina Apache Spark](quickstart-create-apache-spark-pool-portal.md)
 - [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)

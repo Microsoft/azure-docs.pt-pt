@@ -12,18 +12,18 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b1f23d52b96e708a16adbbf6098de4b7ab0423e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069474"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052108"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
 Uma única sindução significa que um utilizador não tem de iniciar sôms em todas as aplicações que utiliza. O utilizador inicia sessão uma vez e essa credencial também é utilizada para outras aplicações.
 
-Se é um utilizador final, provavelmente não se importa muito com detalhes do SSO. Você só quer usar as aplicações que o tornam produtivo sem ter que escrever tanto a sua senha. Pode encontrar as suas aplicações em: https://myapps.microsoft.com .
+Se é um utilizador final, provavelmente não se importa muito com detalhes do SSO. Você só quer usar as aplicações que o tornam produtivo sem ter que escrever tanto a sua senha. Pode encontrar as suas aplicações em: https://myapplications.microsoft.com .
  
 Se você é um administrador, ou profissional de TI, então leia para saber mais sobre SSO e como é implementado em Azure.
 
@@ -68,6 +68,6 @@ Fundamentos de autenticação: Federação / Diretório Ativo Azure
 > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [Opções de início de sessão único](sso-options.md)

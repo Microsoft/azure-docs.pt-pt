@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4c87ee92a2bc30dc2923127241013601cf3f4419
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ea66f044664082b547d1b012d7253cd6443e8610
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519868"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052788"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutorial: Azure Ative Directory integração única (SSO) com Clever
 
@@ -40,6 +40,7 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Apoio inteligente **SP** iniciou SSO
+* Uma vez configurado Concur pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
@@ -56,7 +57,7 @@ Para configurar a integração de Clever em Azure AD, você precisa adicionar Cl
 1. Selecione **Smart** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-clever"></a>Configurar e testar Azure AD único sinal de inscrição para Clever
+## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Configure e teste Azure AD SSO para Inteligente
 
 Configure e teste Azure AD SSO com Clever usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Clever.
 
@@ -83,10 +84,12 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://clever.com/in/<companyname>`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://clever.com/oauth/saml/metadata.xml`
+    b. Na caixa de texto **identifier (Entity ID),** digite o URL: `https://clever.com/oauth/saml/metadata.xml`
 
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://clever.com/<companyname>`
+    
     > [!NOTE]
-    > O valor do sinal de URL não é real. Atualizar o valor com o sinal real no URL. Contacte [a equipa de suporte do Cliente Inteligente](https://clever.com/about/contact/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    >  Estes valores não são reais. Atualize estes valores com o URL e URL de resposta de assinatura real. Contacte [a equipa de suporte do Cliente Inteligente](https://clever.com/about/contact/) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -135,7 +138,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Na página **de Início instantâneo,** execute os seguintes passos:
  
-    ![Início de Sessão Instantâneo](./media/clever-tutorial/ic798985.png "Início de Sessão Instantâneo")
+    ![Configuração SSO na página de Login Instantâneo](./media/clever-tutorial/ic798985.png "Início de Sessão Instantâneo")
 
     a. Digite o **URL de login**.
 

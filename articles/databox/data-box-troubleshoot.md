@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200143"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053458"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Problemas relacionados com Azure Data Box e Azure Data Box Heavy
 
@@ -33,7 +33,7 @@ Os erros na Caixa de Dados e na Caixa de Dados Pesadas são resumidos da seguint
 | Dados ou tipo de ficheiro | O formato de dados ou o tipo de ficheiro não são suportados. |Descarregue as listas de erros. <br> Para bolhas de página ou discos geridos, certifique-se de que os dados são 512 bytes alinhados e copiados para as pastas pré-criadas. [Saiba mais](#data-or-file-type-errors). |
 | Erros de bolha ou ficheiro não críticos  | Os nomes de bolhas ou ficheiros não seguem as regras de nomeação Azure ou o tipo de ficheiro não é suportado. | Estas bolhas ou ficheiros podem não ser copiados ou os nomes podem ser alterados. [Saiba como corrigir estes erros.](#non-critical-blob-or-file-errors) |
 
-\*As quatro primeiras categorias de erros são erros críticos e devem ser corrigidas antes de poder proceder à preparação para o envio.
+\* As quatro primeiras categorias de erros são erros críticos e devem ser corrigidas antes de poder proceder à preparação para o envio.
 
 
 ## <a name="container-or-share-name-errors"></a>Erros de nome de contentor ou de partilha
@@ -53,7 +53,7 @@ Estes são erros relacionados com o contentor e nomes de partilha.
     - Os nomes só podem ter letras, números e hífens.
     - Os nomes não podem começar ou acabar com hífens.
     - Os nomes não podem ter hífens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exemplos de nomes válidos: `my-folder-1` , `my-really-extra-long-folder-111`
     - Exemplos de nomes que não são válidos: `my-folder_1` `my` . . `--myfolder` . `myfolder--``myfolder!`
 
     Para mais informações, consulte as convenções de nomeação do Azure para [nomes de contentores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de partilha.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)
@@ -72,7 +72,7 @@ Estes são erros relacionados com o contentor e nomes de partilha.
     - Os nomes só podem ter letras, números e hífens.
     - Os nomes não podem começar ou acabar com hífens.
     - Os nomes não podem ter hífens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exemplos de nomes válidos: `my-folder-1` , `my-really-extra-long-folder-111`
     - Exemplos de nomes que não são válidos: `my-folder_1` `my` . . `--myfolder` . `myfolder--``myfolder!`
 
     Para mais informações, consulte as convenções de nomeação do Azure para [nomes de contentores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de partilha.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)
@@ -90,7 +90,7 @@ Estes são erros relacionados com o contentor e nomes de partilha.
     - Os nomes só podem ter letras, números e hífens.
     - Os nomes não podem começar ou acabar com hífens.
     - Os nomes não podem ter hífens consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Exemplos de nomes válidos: `my-folder-1` , `my-really-extra-long-folder-111`
     - Exemplos de nomes que não são válidos: `my-folder_1` `my` . . `--myfolder` . `myfolder--``myfolder!`
 
     Para mais informações, consulte as convenções de nomeação do Azure para [nomes de contentores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [nomes de partilha.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)
@@ -112,13 +112,17 @@ Trata-se de erros relacionados com dados que excedem o tamanho dos dados permiti
 
 ### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Descrição do erro:** A ação de ficheiro Azure limita uma ação a 5 TB de dados. Este limite excedeu para algumas ações.
+**Descrição do erro:** A ação de ficheiro azure limita uma ação a 5 TiB de dados, e grandes ações de ficheiros não estão ativadas na conta de armazenamento. Este limite foi ultrapassado para algumas ações.
 
 **Resolução sugerida:** Na página **De Ligar e copiar** da UI web local, faça o download e reveja os ficheiros de erro.
 
-Identifique as pastas que têm este problema a partir dos registos de erro e certifique-se de que os ficheiros dessa pasta estão abaixo de 5 TB.
-
-
+- Identifique as pastas que têm este problema a partir dos registos de erro e certifique-se de que os ficheiros dessa pasta estão abaixo de 5 TiB.
+- O limite de 5 TiB não se aplica a uma conta de armazenamento que permita grandes ações de ficheiros. No entanto, deve ter grandes ações de ficheiros configuradas quando efente o seu pedido. 
+  - Contacte [o Microsoft Support](data-box-disk-contact-microsoft-support.md) e solicite uma nova etiqueta de envio.
+  - [Ativar grandes ações de ficheiros na conta de armazenamento.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Expandir as ações de ficheiros na conta de armazenamento](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) e definir a quota para 100 TiB.
+  
+  
 ## <a name="object-or-file-size-limit-errors"></a>Erros de limite de objeto ou tamanho de ficheiro
 
 Estes são erros relacionados com dados que excedem o tamanho máximo do objeto ou o ficheiro que é permitido no Azure. 
@@ -256,6 +260,6 @@ Para mais informações, consulte as convenções de nomeação Azure para nomes
 Para obter mais informações, consulte [Copy para discos geridos.](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os requisitos do [sistema de armazenamento de caixa de dados.](data-box-system-requirements-rest.md)

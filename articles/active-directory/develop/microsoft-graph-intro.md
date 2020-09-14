@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: fb6f5c4840f127ac174b6b60359dd52a4797b3ec
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 13cbeca909b445d75fcbcf7b3751183421479d42
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119679"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052567"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 A Microsoft Graph API é uma API web RESTful que lhe permite aceder aos recursos de serviço da Microsoft Cloud. Depois de registar a sua aplicação e obter fichas de autenticação para um utilizador ou serviço, pode escrupulesar os pedidos para a API do Gráfico da Microsoft. Para obter mais informações, consulte [a visão geral do Microsoft Graph](/graph/overview).
 
 O Microsoft Graph expõe AS APIs e bibliotecas de clientes para aceder a dados sobre os seguintes serviços Microsoft 365:
-- Serviços do Office 365: Delve, Excel, Microsoft Bookings, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner e SharePoint
+- Serviços Microsoft 365: Delve, Excel, Microsoft Bookings, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner e SharePoint
 - Serviços de Mobilidade e Segurança Empresarial: Advanced Threat Analytics, Advanced Threat Protection, Azure Ative Directory, Identity Manager e Intune
 - Serviços do Windows 10: atividades, dispositivos, notificações
 - Dynamics 365 Business Central

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213730"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054403"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Quickstart: Desconfiem dos grupos Microsoft 365 para expirar no Azure Ative Directory
 
@@ -33,7 +33,7 @@ A política de expiração é simples:
 - Um grupo Microsoft 365 eliminado pode ser restaurado dentro de 30 dias por um proprietário do grupo ou por um administrador AD AZure
 
 > [!NOTE]
-> Os grupos agora usam a inteligência AD AD do Azure para renovar automaticamente com base no facto de terem sido usados recentemente. Esta decisão de renovação baseia-se na atividade do utilizador em grupos em todos os serviços do Office 365, como Outlook, SharePoint, Teams, Yammer, entre outros.
+> Os grupos agora usam a inteligência AD AD do Azure para renovar automaticamente com base no facto de terem sido usados recentemente. Esta decisão de renovação baseia-se na atividade do utilizador em grupos em todos os serviços da Microsoft 365, como Outlook, SharePoint, Teams, Yammer, entre outros.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -82,7 +82,7 @@ Já está! Neste arranque rápido, definiu com sucesso a política de expiraçã
 1. Selecione **Azure Ative Directory**  >  **Groups**  >  **General**. 
 2. Definir **Os utilizadores podem criar grupos Microsoft 365 em portais Azure** para **No**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a expiração, incluindo instruções powerShell e restrições técnicas, consulte o seguinte artigo:
 

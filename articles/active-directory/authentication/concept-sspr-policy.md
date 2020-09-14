@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005025"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052720"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
 
@@ -108,7 +108,7 @@ Um *administrador ou* administrador de *utilizador* global pode utilizar o [Mód
 
 Também pode utilizar cmdlets PowerShell para remover a configuração de nunca expirar ou para ver quais as palavras-passe do utilizador definidas para nunca expirar.
 
-Esta orientação aplica-se a outros fornecedores, como o Intune e o Office 365, que também contam com a Azure AD para serviços de identidade e diretório. A expiração da palavra-passe é a única parte da política que pode ser alterada.
+Esta orientação aplica-se a outros fornecedores, como o Intune e o Microsoft 365, que também contam com a Azure AD para serviços de identidade e diretório. A expiração da palavra-passe é a única parte da política que pode ser alterada.
 
 > [!NOTE]
 > Apenas as palavras-passe para contas de utilizador que não sejam sincronizadas através do Azure AD Connect podem ser configuradas para não expirarem. Para obter mais informações sobre a sincronização do diretório, consulte [Connect AD com Azure AD](../hybrid/whatis-hybrid-identity.md).

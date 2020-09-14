@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797994"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053978"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar ligações de conta LinkedIn no Azure Ative Directory
 
@@ -29,7 +29,7 @@ Pode permitir que os utilizadores da sua organização acedam às suas ligaçõe
 >
 > Exceções:
 >
-> * A definição não está disponível para clientes que utilizem o Microsoft Cloud para governo dos EUA, Microsoft Cloud Germany ou Azure e Office 365 operados pela 21Vianet na China.
+> * A definição não está disponível para clientes que utilizem o Microsoft Cloud para governo dos EUA, Microsoft Cloud Germany ou Azure e Microsoft 365 operados por 21Vianet na China.
 > * A definição é cancelada por defeito para as organizações AZure AD a provisionadas na Alemanha. Note que a definição não está disponível para clientes que usam o Microsoft Cloud Germany.
 > * A definição é por defeito para as organizações a provisionadas em França.
 >
@@ -99,9 +99,9 @@ Para utilizar o grupo a partir do segundo passo como grupo selecionado nas liga�
    **Ativado** | O **Show LinkedIn apresenta-se nas aplicações do Office** a definição de opções do Office 2016. Os utilizadores da sua organização podem utilizar funcionalidades do LinkedIn nas suas aplicações Office 2016.
    **Desativado** | As **funcionalidades do Show LinkedIn na** definição de aplicações do Office 2016 São desativadas e os utilizadores finais não podem alterar esta definição. Os utilizadores da sua organização não podem utilizar funcionalidades do LinkedIn nas suas aplicações Office 2016.
 
-Esta política de grupo afeta apenas as aplicações do Office 2016 para um computador local. Se os utilizadores desativarem o LinkedIn nas suas aplicações office 2016, ainda podem ver as funcionalidades do LinkedIn no Office 365.
+Esta política de grupo afeta apenas as aplicações do Office 2016 para um computador local. Se os utilizadores desativarem o LinkedIn nas suas aplicações office 2016, ainda podem ver as funcionalidades do LinkedIn no Microsoft 365.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Consentimento do utilizador e partilha de dados para o LinkedIn](linkedin-user-consent.md)
 

@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager grupos de volume / Microsoft Docs
 description: Descreve como utilizar o snap-in StorSimple Snapshot Manager MMC para criar e gerir grupos de volume.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506264"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054777"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use storSimple Snapshot Manager para criar e gerir grupos de volume
 ## <a name="overview"></a>Descrição geral
@@ -50,7 +50,7 @@ Se clicar no nó **Grupos de Volume,** o painel **de resultados** mostra as segu
 
 | Coluna de resultados | Descrição |
 |:--- |:--- |
-| Name |A coluna **Nome** contém o nome do grupo de volume. |
+| Nome |A coluna **Nome** contém o nome do grupo de volume. |
 | Aplicação |A coluna Aplicações mostra o número de **escritores** VSS atualmente instalados e em execução no anfitrião do Windows. |
 | Selecionado |A coluna **Selecionada** mostra o número de volumes contidos no grupo de volume. Um zero (0) indica que nenhuma aplicação está associada aos volumes do grupo de volume. |
 | Importado |A coluna **importada** mostra o número de volumes importados. Quando definida para **True**, esta coluna indica que um grupo de volume foi importado do portal Azure e não foi criado no StorSimple Snapshot Manager. |

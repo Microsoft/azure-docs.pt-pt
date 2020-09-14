@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fe5072042553d676c798a32e0ca6fc28e92332d
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213741"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054471"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação em grupos Microsoft 365 no Azure Ative Directory
 
@@ -229,9 +229,9 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Experiência em aplicativos office 365
+## <a name="experience-across-microsoft-365-apps"></a>Experimente em aplicações microsoft 365
 
-Depois de definir uma política de nomeação de grupo em Azure AD, quando um utilizador cria um grupo numa aplicação do Office 365, eles vêem:
+Depois de definir uma política de nomeação de grupo em Azure AD, quando um utilizador cria um grupo numa aplicação microsoft 365, eles vêem:
 
 - Uma pré-visualização do nome de acordo com a sua política de nomeação (com prefixos e sufixos) assim que os tipos de utilizador no nome de grupo
 - Se o utilizador introduzir palavras bloqueadas, verá uma mensagem de erro para que possam remover as palavras bloqueadas.
@@ -252,14 +252,14 @@ Sincronização de dados escolares (SDS) | Os grupos criados através das SDS cu
 Outlook Customer Manager (OCM) | O Outlook Customer Manager está em conformidade com a política de nomeação, que é automaticamente aplicada ao grupo criado no Outlook Customer Manager. Se for detetada uma palavra bloqueada personalizada, a criação de grupo em OCM é bloqueada e o utilizador fica bloqueado de usar a aplicação OCM.
 Aplicativo de sala de aula | Os grupos criados na aplicação Classroom cumprem a política de nomeação, mas a política de nomeação não é aplicada automaticamente, e a pré-visualização da política de nomeação não é mostrada aos utilizadores enquanto inserimos um nome de grupo em sala de aula. Os utilizadores devem introduzir o nome de grupo de sala de aula forçado com prefixos e sufixos. Caso contrário, o grupo de aulas cria ou edita a operação falha com erros.
 Power BI | Os espaços de trabalho power BI estão em conformidade com a política de nomeação.    
-Yammer | Quando um utilizador se inscreveu na Yammer com a sua conta Azure Ative Directory cria um grupo ou edita um nome de grupo, o nome do grupo cumprirá a política de nomeação. Isto aplica-se tanto aos grupos ligados ao Office 365 como a todos os outros grupos Yammer.<br>Se um grupo ligado ao Office 365 tiver sido criado antes da política de nomeação estar em vigor, o nome do grupo não seguirá automaticamente as políticas de nomeação. Quando um utilizador edita o nome de grupo, será solicitado que adicione o prefixo e o sufixo.
+Yammer | Quando um utilizador se inscreveu na Yammer com a sua conta Azure Ative Directory cria um grupo ou edita um nome de grupo, o nome do grupo cumprirá a política de nomeação. Isto aplica-se tanto aos grupos ligados à Microsoft 365 como a todos os outros grupos Yammer.<br>Se um grupo ligado à Microsoft 365 foi criado antes da política de nomeação estar em vigor, o nome do grupo não seguirá automaticamente as políticas de nomeação. Quando um utilizador edita o nome de grupo, será solicitado que adicione o prefixo e o sufixo.
 StaffHub  | As equipas do StaffHub não seguem a política de nomeação, mas o grupo subjacente à Microsoft 365 segue. O nome da equipa do StaffHub não aplica os prefixos e sufixos e não verifica se há palavras bloqueadas personalizadas. Mas o StaffHub aplica os prefixos e sufixos e remove palavras bloqueadas do grupo Microsoft 365 subjacente.
 Bolsa powershell | Os cmdlets De Câmbio PowerShell estão em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a política de nomeação no nome do grupo e no pseudónimo do grupo (mailNickname).
 Cmdlets powershell do diretório ativo Azure | Os cmdlets powershell do Diretório Ativo Azure estão em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação em nomes de grupo e pseudónimos de grupo.
 Centro de Administração de Intercâmbio | O centro de administração de intercâmbio está em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação no nome de grupo e pseudónimos de grupo.
 Microsoft 365 admin center (Centro de administração do Microsoft 365) | O Centro de Administração Microsoft 365 está em conformidade com a política de nomeação. Quando um utilizador cria ou edita nomes de grupo, a política de nomeação é aplicada automaticamente e os utilizadores recebem erros adequados quando introduzem palavras bloqueadas personalizadas. O centro de administração microsoft 365 ainda não mostra uma pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador introduz o nome de grupo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Estes artigos fornecem informações adicionais sobre os grupos AZURE AD.
 

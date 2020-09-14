@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Ative Directy integração única (SSO) com DocuSign Microsoft Docs'
-description: Saiba como configurar um único sinal entre o Azure Ative Directory e o DocuSign.
+description: Saiba como configurar um único sign-on (SSO) entre o Azure Ative Directory e o DocuSign.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: c91f9d38922cc1bddf252fde59291c2f233e1aa2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4cea216b85e32ad9f739aff9a487909df74d14ad
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650207"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053740"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Azure Ative Directory integração única (SSO) com DocuSign
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar DocuSign com Microsoft Azure Ative
 * Use a Azure AD para controlar quem tem acesso ao DocuSign.
 * Habilita o registo automático do DocuSign para os seus utilizadores através das suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
-
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [single sign-on para aplicações em Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,13 +45,14 @@ Neste tutorial, você vai configurar e testar Azure AD SSO em um ambiente de tes
 * O DocuSign suporta o fornecimento de utilizadores **just-in-time.**
 
 * O DocuSign suporta [o fornecimento automático do utilizador.](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial)
+
 * Assim que configurar o DocuSign, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Adicionar DocuSign da galeria
 
 Para configurar a integração do DocuSign no AD Azure, deve adicionar DocuSign da galeria à sua lista de aplicações geridas para o SaaS:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola, ou utilizando uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure utilizando uma conta de trabalho ou escola, ou utilizando uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
@@ -65,7 +64,7 @@ Para configurar a integração do DocuSign no AD Azure, deve adicionar DocuSign 
 
 Configure e teste Azure AD SSO com DocuSign utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, deve estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador correspondente no DocuSign.
 
-Para configurar e testar o Azure AD SSO com o DocuSign, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com o DocuSign, execute os seguintes passos:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) para que os seus utilizadores possam utilizar esta funcionalidade.
     1. [Crie um utilizador de teste AD Azure](#create-an-azure-ad-test-user) para testar o Azure AD com B.Simon.
@@ -78,7 +77,7 @@ Para configurar e testar o Azure AD SSO com o DocuSign, complete os seguintes bl
 
 Para ativar o Azure AD SSO no portal Azure, siga estes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **DocuSign,** encontre a secção **Gerir** e, em seguida, selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **DocuSign,** encontre a secção **Gerir** e, em seguida, selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, selecione o ícone de caneta para **configuração SAML básica** para editar as definições.
 
@@ -131,15 +130,9 @@ Nesta secção, você concederá acesso a B.Simon ao DocuSign para que este util
 1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **DocuSign**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador**e, em seguida, na caixa de diálogo de atribuição de **adicionar,** selecione **Utilizadores e grupos**.
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. Na caixa de diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista **de Utilizadores** e, em seguida, prima o botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, prima o botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. Na caixa de diálogo **'Adicionar Atribuição',** selecione o botão **'Atribuir'.**
 
 ## <a name="configure-docusign-sso"></a>Configurar docusign SSO
@@ -236,21 +229,18 @@ Nesta secção, um utilizador chamado B.Simon é criado em DocuSign. O DocuSign 
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de um único sinal de acesso Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando selecionar o azulejo DocuSign no Painel de Acesso, deverá ser automaticamente inscrito na instância DocuSign para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de assinatura do DocuSign, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+2. Vá diretamente ao URL de inscrição do DocuSign e inicie o fluxo de login a partir daí.
 
-- [Tutoriais sobre como integrar apps SaaS com Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo DocuSign no Painel de Acesso, deverá ser automaticamente inscrito no DocuSign para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o acesso à aplicação e o único sind on em Azure AD? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é acesso condicional em Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Experimente docuSign com Azure AD](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+Assim que configurar o DocuSign, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

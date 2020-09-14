@@ -14,18 +14,18 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1041cb5fc4aa7503f5ae9de6ffc74ba72052b8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421404"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055457"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar as minhas funções do Microsoft Azure AD no PIM
 
-O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) simplifica a forma como as empresas gerem o acesso privilegiado a recursos em Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.  
+O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) simplifica a forma como as empresas gerem o acesso privilegiado a recursos em Azure AD e outros serviços online da Microsoft, como o Microsoft 365 ou o Microsoft Intune.  
 
-Se foi elegível para um cargo administrativo, então deve ativar a atribuição de funções quando precisar de realizar ações privilegiadas. Por exemplo, se ocasionalmente gerir funcionalidades do Office 365, os administradores privilegiados da sua organização podem não torná-lo um Administrador Global permanente, uma vez que essa função também tem impacto noutros serviços. Em vez disso, tornam-no elegível para funções de Azure AD, como o Exchange Online Administrator. Pode solicitar a ativação dessa função quando precisar dos seus privilégios, e depois terá o controlo do administrador durante um período de tempo pré-determinado.
+Se foi elegível para um cargo administrativo, então deve ativar a atribuição de funções quando precisar de realizar ações privilegiadas. Por exemplo, se ocasionalmente gere as funcionalidades do Microsoft 365, os administradores privilegiados da sua organização podem não fazer de si um Administrador Global permanente, uma vez que essa função também tem impacto noutros serviços. Em vez disso, tornam-no elegível para funções de Azure AD, como o Exchange Online Administrator. Pode solicitar a ativação dessa função quando precisar dos seus privilégios, e depois terá o controlo do administrador durante um período de tempo pré-determinado.
 
 Este artigo destina-se a administradores que necessitem de ativar o seu papel AZURE AD na Gestão de Identidade Privilegiada.
 
@@ -118,7 +118,7 @@ Quando ativar uma função na Gestão de Identidade Privilegiada, a ativação p
 
 # <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
-## <a name="activate-a-role"></a>Ativar um papel
+## <a name="activate-a-role-previous-version"></a>Ativar uma função (versão anterior)
 
 Quando você precisa assumir um papel AD Azure, você pode solicitar a ativação usando a opção de navegação **de minhas funções** em Gestão de Identidade Privilegiada.
 
@@ -168,7 +168,7 @@ Quando você precisa assumir um papel AD Azure, você pode solicitar a ativaçã
 
     Se a [função necessitar de aprovação](./azure-ad-pim-approval-workflow.md) para ser ativada, aparecerá uma notificação Azure no canto superior direito do seu navegador informando-o de que o pedido está pendente de aprovação.
 
-## <a name="view-the-status-of-your-requests"></a>Ver o estado dos seus pedidos
+## <a name="view-the-status-of-your-requests-previous-version"></a>Ver o estado dos seus pedidos (versão anterior)
 
 Pode visualizar o estado dos seus pedidos pendentes para ativar.
 
@@ -180,7 +180,7 @@ Pode visualizar o estado dos seus pedidos pendentes para ativar.
 
     ![Funções AD AD - A minha lista de pedidos](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
-## <a name="deactivate-a-role"></a>Desativá-lo
+## <a name="deactivate-a-role-previous-version"></a>Desativar um papel (versão anterior)
 
 Uma vez ativada uma função, desativa-se automaticamente quando o seu prazo (duração elegível) é atingido.
 
@@ -196,7 +196,7 @@ Se completar as suas tarefas de administrador mais cedo, também pode desativar 
 
 1. Encontre o papel que acabou de usar e, em seguida, clique em **Desativar**.
 
-## <a name="cancel-a-pending-request"></a>Cancelar um pedido pendente
+## <a name="cancel-a-pending-request-previous-version"></a>Cancelar um pedido pendente (versão anterior)
 
 Se não necessitar de ativação de uma função que exija aprovação, pode cancelar um pedido pendente a qualquer momento.
 
@@ -212,7 +212,7 @@ Se não necessitar de ativação de uma função que exija aprovação, pode can
 
    ![A minha lista de pedidos com o botão Cancelar realçado](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot-previous-version"></a>Resolução de problemas (versão anterior)
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permissões não concedidas após a ativação de uma função
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14d5b458aeccd2587f24b30548c4b5e76912bce1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6060bc286024183661024abd56567eeefed76430
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798283"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053553"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Funções de administrador para serviços Microsoft 365
 
@@ -29,10 +29,10 @@ Todos os produtos da Microsoft 365 podem ser geridos com funções administrativ
 
 Serviço Microsoft 365 | Conteúdo de função | Conteúdo da API
 ---------------------- | ------------------ | -----------------
-Funções de administração no Office 365 e Microsoft 365 planos de negócios | [Funções de administrador do Office 365](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Não disponível
+Funções de administração no Office 365 e Microsoft 365 planos de negócios | [Microsoft 365 funções de administração](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Não disponível
 Diretório Ativo Azure (Azure AD) e Proteção de Identidade AZURE AD| [Funções de administração da AD Azure](directory-assign-admin-roles.md) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Ir buscar atribuições de papéis](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Exchange Online| [Controlo de acesso baseado em funções de troca](/exchange/understanding-role-based-access-control-exchange-2013-help) |  [PowerShell para troca](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Ir buscar atribuições de papéis](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
-SharePoint Online | [Funções de administração da AD Azure](directory-assign-admin-roles.md)<br>Também [sobre o papel de administrador do SharePoint no Office 365](/sharepoint/sharepoint-admin-role) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Ir buscar atribuições de papéis](/graph/api/directoryrole-list?view=graph-rest-1.0)
+SharePoint Online | [Funções de administração da AD Azure](directory-assign-admin-roles.md)<br>Também [sobre o papel de administrador do SharePoint na Microsoft 365](/sharepoint/sharepoint-admin-role) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Ir buscar atribuições de papéis](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Equipas/Skype para Negócios | [Funções de administração da AD Azure](directory-assign-admin-roles.md) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Ir buscar atribuições de papéis](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Centro de Conformidade & de Segurança (Office 365 Advanced Threat Protection, Exchange Online Protection, Information Protection) | [Funções de administrador do Office 365](/office365/SecurityCompliance/permissions-in-the-security-and-compliance-center) | [Bolsa powershell](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Ir buscar atribuições de papéis](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
 Pontuação Segura | [Funções de administração da AD Azure](directory-assign-admin-roles.md) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Ir buscar atribuições de papéis](/graph/api/directoryrole-list?view=graph-rest-1.0)
@@ -45,7 +45,7 @@ Privileged Identity Management | [Funções de administração da AD Azure](dire
 Intune | [Controlo de acesso baseado em funções intune](/intune/role-based-access-control) | [Graph API](/graph/api/resources/intune-rbac-conceptual?view=graph-rest-beta)<br>[Ir buscar atribuições de papéis](/graph/api/intune-rbac-roledefinition-list?view=graph-rest-beta)
 Desktop gerido | [Funções de administração da AD Azure](directory-assign-admin-roles.md) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Ir buscar atribuições de papéis](/graph/api/directoryrole-list?view=graph-rest-1.0)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como atribuir ou remover funções de administrador AD da Azure](directory-manage-roles-portal.md)
 * [Referência de funções de administrador da AD Azure](directory-assign-admin-roles.md)

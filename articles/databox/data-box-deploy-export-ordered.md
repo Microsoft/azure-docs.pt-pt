@@ -2,18 +2,18 @@
 title: Tutorial para exportar dados da Caixa de Dados do Azure Microsoft Docs
 description: Conheça os pré-requisitos de implantação e como exportar dados a partir de uma Caixa de Dados Azure
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
-ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.author: alkohli
+ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783625"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053059"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Criar ordem de exportação para Azure Data Box (Pré-visualização)
 
@@ -115,9 +115,20 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 
    Para ver um exemplo da entrada xml, consulte a [entrada Sample XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. Na **seleção de Dados,** reveja as suas definições e selecione **Seguinte: Detalhes de contacto>**.
+9. Na **seleção de Dados,** reveja as suas definições e selecione **Seguinte:>** de Segurança .
 
    ![Detalhes de Contacto](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. Em **Segurança**, se pretender ativar a dupla encriptação baseada em software, selecione **Ative double encryption para a encomenda**. 
+
+   A encriptação baseada em software é realizada para além da encriptação bit AES-256 dos dados na Caixa de Dados.
+
+   > [!NOTE]
+   > Permitir esta opção poderia fazer com que o processamento de encomendas e a cópia de dados demorasse mais tempo. Não pode alterar esta opção depois de criar o seu pedido.
+
+   ![Tela de segurança para importação de caixa de dados, encriptação dupla](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   Selecione **Seguinte: Contacte os dados** para continuar.
 
 10. Nos **dados**de Contacto , selecione **+ Adicionar endereço de envio** para introduzir as suas informações de envio.
 

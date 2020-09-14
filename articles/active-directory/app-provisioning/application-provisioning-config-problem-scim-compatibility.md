@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 7f400d6959a40361ea3beff8bd21c2fa9ef2996a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065493"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052635"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Questões e resoluções conhecidas com o protocolo SCIM 2.0 cumprimento do serviço de fornecimento de utilizadores Azure AD
 
@@ -50,7 +50,7 @@ Use as bandeiras abaixo no URL do inquilino da sua aplicação para alterar o co
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Scim bandeiras para comportamento posterior.":::
 
-* Utilize o seguinte URL para atualizar o comportamento do PATCH e garantir a conformidade do SCIM (por exemplo, ativo como remoção de membros booleanos e adequados para membros do grupo). Este comportamento está atualmente disponível apenas quando se usa a bandeira, mas tornar-se-á o comportamento padrão ao longo dos próximos meses.
+* Utilize o seguinte URL para atualizar o comportamento do PATCH e garantir a conformidade do SCIM (por exemplo, ativo como remoção de membros booleanos e adequados para membros do grupo). Este comportamento está atualmente disponível apenas quando se usa a bandeira, mas tornar-se-á o comportamento padrão ao longo dos próximos meses. Note que esta bandeira de pré-visualização não funciona atualmente com o provisionamento a pedido. 
   * **URL (Conformidade COM a SCIM):** AzureAdScimPatch062020
   * **Referências SCIM RFC:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
@@ -203,5 +203,5 @@ Seguindo os passos abaixo irá eliminar o seu trabalho de aplicação personaliz
 7. Preencha a configuração de provisionamento do utilizador como normalmente faria.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Saiba mais sobre o provisionamento e desavisionamento das aplicações do SaaS](user-provisioning.md)

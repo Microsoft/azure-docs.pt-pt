@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716338"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052392"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Redefinição de senha de autosserviço frequentemente feita perguntas
 
@@ -104,7 +104,7 @@ Esta FAQ é dividida nas seguintes secções:
   > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou * \@ contoso.com do utilizador*. 
 * **P: Que línguas são suportadas por reset de palavra-passe?**
 
-  > **A:** A palavra-passe repôs uI, mensagens SMS e chamadas de voz localizadas nas mesmas línguas que são suportadas no Office 365.
+  > **A:** A palavra-passe repôs uI, mensagens SMS e chamadas de voz localizadas nos mesmos idiomas que são suportados no Microsoft 365.
   >
   >
 * **P: Que partes da experiência de reset da palavra-passe são marcadas quando eu configuo os itens de marca organizacional no separador de configuração do meu diretório?**
@@ -277,7 +277,7 @@ Esta FAQ é dividida nas seguintes secções:
   >
   >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
 * [Redefinir ou alterar a sua palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)

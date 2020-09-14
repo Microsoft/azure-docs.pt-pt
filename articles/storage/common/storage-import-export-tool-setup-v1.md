@@ -1,19 +1,19 @@
 ---
 title: Criação da Ferramenta de Importação/Exportação Azure v1 / Microsoft Docs
 description: Saiba como configurar a ferramenta de preparação e reparação de unidades para o serviço Azure Import/Export. Este artigo refere-se à versão 1 da Ferramenta de Importação/Exportação.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/15/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: f2aeb010d0c6f62284f1347bd90b952be50c665e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530805"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054080"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Criação da Ferramenta de Importação/Exportação Azure v1
 A Ferramenta de Importação/Exportação microsoft Azure é a ferramenta de preparação e reparação de unidades que pode utilizar com o serviço De importação/Exportação do Microsoft Azure. Pode utilizar a ferramenta para as seguintes funções:  
@@ -247,7 +247,7 @@ Examples:
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Pré-visualização do uso do Drive para um trabalho de exportação](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   

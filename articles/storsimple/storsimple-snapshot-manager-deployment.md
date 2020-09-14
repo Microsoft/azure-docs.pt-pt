@@ -3,7 +3,7 @@ title: Implementar StorSimple Snapshot Manager / Microsoft Docs
 description: Saiba como descarregar e instalar o StorSimple Snapshot Manager, um snap-in MMC para gerir funcionalidades de proteção de dados storSimple e backup.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75933371"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055083"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implementar o snap-in StorSimple Snapshot Manager MMC
 
@@ -160,7 +160,7 @@ Utilize os seguintes passos para desinstalar o Gestor Snapshot StorSimple.
    > Se houver algum processo MMC em segundo plano, como o StorSimple Snapshot Manager ou o Disk Management, a desinstalação falhará e receberá uma mensagem para fechar todas as instâncias de MMC antes de tentar desinstalar o programa. Selecione **automaticamente fechar as aplicações e tentar reiniciá-las após a configuração**estar concluída e, em seguida, clique em **OK**.
    > 
    > 
-5. Quando o processo de desinstalação estiver concluído, aparece uma mensagem **de sucesso de configuração.** Clique em **Fechar**.
+5. Quando o processo de desinstalação estiver concluído, aparece uma mensagem **de sucesso de configuração.** Clique em **Close** (Fechar).
 
 ### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Passo 2: Ressarça a base de dados StorSimple Snapshot Manager
 Utilize os seguintes passos para criar e guardar uma cópia da base de dados StorSimple Snapshot Manager.

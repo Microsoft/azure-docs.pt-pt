@@ -1,6 +1,6 @@
 ---
 title: Criar um grupo para atribuir funções no Azure Ative Directory Microsoft Docs
-description: Pré-visualizar funções Azure AD personalizadas para delegar a gestão de identidade. Gerir as funções Azure no portal Azure, PowerShell ou Graph API.
+description: Aprenda a criar um grupo atribuível a papéis no Azure AD. Gerir as funções Azure no portal Azure, PowerShell ou Graph API.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5efbbd5f9f5dfe701deb50b51605ab324c081a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 07dc11877b38e830d90f544f1d7524b378bf5902
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401678"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053757"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo atribuível a funções no Azure Ative Directory
 
@@ -88,7 +88,7 @@ $groupName = "Contoso_Bellevue_Admins"
 $groupDescription = "This group is assigned to Helpdesk Administrator built-in role in Azure AD."
 $mailNickname = "contosobellevueadmins"
 
-#Create new security group which is a role assignable group. For creating O365 group, set GroupTypes="Unified" and MailEnabled=$true
+#Create new security group which is a role assignable group. For creating a Microsoft 365 group, set GroupTypes="Unified" and MailEnabled=$true
 $roleAssignablegroup = New-AzureADMSGroup -DisplayName $groupName -Description $groupDescription -MailEnabled $false -MailNickname $mailNickname -SecurityEnabled $true -IsAssignableToRole $true
 
 #Get details of existing group

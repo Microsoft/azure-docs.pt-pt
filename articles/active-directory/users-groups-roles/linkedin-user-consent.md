@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 5d90391dd5512b08ee6995a32bcd0b0f111b0f2b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542366"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053941"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn liga a partilha e consentimento de dados
 
@@ -73,13 +73,13 @@ Quando liga as suas contas Microsoft e LinkedIn, permite que a Microsoft forneç
 * Dados de perfil - inclui informações como o seu primeiro nome, apelido, foto de perfil, endereço de e-mail, gestor e pessoas que gere.
 * Dados do calendário - inclui reuniões nos seus calendários, horários, locais e informações de contacto dos participantes. A informação sobre a reunião, como agenda, conteúdo ou título de reunião, não está incluída nos dados do calendário.
 * Dados de interesses - inclui os interesses associados à sua conta, com base na sua utilização de serviços da Microsoft, como cortana e Bing para negócios.
-* Dados de subscrições - inclui subscrições fornecidas pela sua organização a aplicações e serviços da Microsoft, como o Office 365.
+* Dados de subscrições - inclui subscrições fornecidas pela sua organização a aplicações e serviços da Microsoft, como o Microsoft 365.
 * Contactos dados - inclui listas de contactos em Outlook, Skype e outros serviços de conta microsoft, incluindo as informações de contacto para pessoas com quem comunica ou colabora frequentemente. Os contactos serão periodicamente importados, armazenados e utilizados pelo LinkedIn, por exemplo, para sugerir ligações, ajudar a organizar contactos e mostrar atualizações sobre contactos.
 
 Os dados acedidos a partir da Microsoft não são armazenados permanentemente com o LinkedIn, exceto para Contactos. Os Contactos Microsoft são armazenados no LinkedIn até que os utilizadores os removam. Saiba mais sobre [a eliminação dos contactos importados do LinkedIn.](https://www.linkedin.com/help/linkedin/answer/43377)
 
 Para obter mais informações sobre a utilização de dados pessoais do LinkedIn, consulte a Política de [Privacidade linkedIn](https://www.linkedin.com/legal/privacy-policy). Para os serviços linkedIn, transferência de dados e armazenamento, os dados podem fluir da União Europeia para os Estados Unidos e voltar, e a sua privacidade está protegida como descrito nas [transferências de dados da União Europeia.](https://www.linkedin.com/help/linkedin/answer/62533)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [LinkedIn nas aplicações da Microsoft com o seu trabalho ou conta escolar](https://www.linkedin.com/help/linkedin/answer/84077)

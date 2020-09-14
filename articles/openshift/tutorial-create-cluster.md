@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 1ba383b99b8265e01cf757bfb1589a86a934e0e3
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503793"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053876"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
 
@@ -104,20 +104,22 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Criar um grupo de recursos.**
+2. **Criar um grupo de recursos.**
 
-    Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o [grupo az criar](/cli/azure/group?view=azure-cli-latest#az-group-create) comando.
+Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o [grupo az criar](/cli/azure/group?view=azure-cli-latest#az-group-create) comando.
     
-> [!NOTE]
+> [!NOTE] 
 > O Azure Red Hat OpenShift não está disponível em todas as regiões onde um grupo de recursos Azure pode ser criado. Consulte [as regiões disponíveis](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) para obter informações sobre o suporte do Azure Red Hat OpenShift.
 
-    ```azurecli-interactive
-    az group create --name $RESOURCEGROUP --location $LOCATION
-    ```
+```azurecli-interactive
+az group create \
+  --name $RESOURCEGROUP \
+  --location $LOCATION
+```
 
-    The following example output shows the resource group created successfully:
+A saída de exemplo a seguir mostra o grupo de recursos criado com sucesso:
 
-    ```json
+```json
     {
     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
     "location": "eastus",
@@ -128,24 +130,24 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
     },
     "tags": null
     }
-    ```
+```
 
-2. **Criar uma rede virtual.**
+3. **Criar uma rede virtual.**
 
-    Os clusters Azure Red Hat OpenShift que executam o OpenShift 4 requerem uma rede virtual com duas sub-redes vazias, para os nós de mestre e trabalhador.
+Os clusters Azure Red Hat OpenShift que executam o OpenShift 4 requerem uma rede virtual com duas sub-redes vazias, para os nós de mestre e trabalhador.
 
-    Crie uma nova rede virtual no mesmo grupo de recursos que criou anteriormente:
+Crie uma nova rede virtual no mesmo grupo de recursos que criou anteriormente:
 
-    ```azurecli-interactive
-    az network vnet create \
-    --resource-group $RESOURCEGROUP \
-    --name aro-vnet \
-    --address-prefixes 10.0.0.0/22
-    ```
+```azurecli-interactive
+az network vnet create \
+   --resource-group $RESOURCEGROUP \
+   --name aro-vnet \
+   --address-prefixes 10.0.0.0/22
+```
 
-    A saída de exemplo a seguir mostra a rede virtual criada com sucesso:
+A saída de exemplo a seguir mostra a rede virtual criada com sucesso:
 
-    ```json
+```json
     {
     "newVNet": {
         "addressSpace": {
@@ -161,9 +163,9 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
         "type": "Microsoft.Network/virtualNetworks"
     }
     }
-    ```
+```
 
-3. **Adicione uma sub-rede vazia para os nós mestres.**
+4. **Adicione uma sub-rede vazia para os nós mestres.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -174,7 +176,7 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Adicione uma sub-rede vazia para os nós dos trabalhadores.**
+5. **Adicione uma sub-rede vazia para os nós dos trabalhadores.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -185,7 +187,7 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Desative as políticas de ponto final privado da sub-rede](../private-link/disable-private-link-service-network-policy.md) na sub-rede principal.** Isto é necessário para ser capaz de conectar e gerir o cluster.
+6. **[Desative as políticas de ponto final privado da sub-rede](../private-link/disable-private-link-service-network-policy.md) na sub-rede principal.** Isto é necessário para ser capaz de conectar e gerir o cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \

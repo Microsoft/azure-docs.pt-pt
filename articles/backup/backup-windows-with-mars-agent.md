@@ -3,12 +3,12 @@ title: Fazer o back up das máquinas Do Windows utilizando o agente MARS
 description: Utilize o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 55eb8bdf069fd1b5793468ae52f764eb4288f261
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182093"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052227"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer o back up ficheiros e pastas do Windows Server para O Azure
 
@@ -125,7 +125,7 @@ Para permitir o estrangulamento da rede:
 1. No **separador Throttling,** selecione **Ativar o estrangulamento da largura de banda da Internet para operações de backup**.
 
     ![Configurar estrangulamento de rede para operações de backup](./media/backup-configure-vault/throttling-dialog.png)
-1. Especifique a largura de banda permitida durante o horário de trabalho e horas não laborais. Os valores de largura de banda começam nos 512 Kbps e sobem para 1.023 MBps. Em seguida, selecione **OK**.
+1. Especifique a largura de banda permitida durante o horário de trabalho e horas não laborais. Os valores de largura de banda começam nos 512 Kbps e sobem para 1.023 Mbps. Em seguida, selecione **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Faça uma cópia de segurança a pedido
 
@@ -155,7 +155,7 @@ Após o acabamento inicial da cópia de segurança, o estado **preenchido do Job
 
 Para obter mais informações, consulte [Criar uma política de backup](#create-a-backup-policy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [restaurar ficheiros em Azure](backup-azure-restore-windows-server.md).
 * Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: b2ebe07f5ae2846f48bc5762a49ad018610af73a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1251813486d4b7406f89ac9c09c49f985fa205
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260615"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055287"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Descrição geral da biblioteca de executor em massa do Azure Cosmos DB
  
@@ -25,6 +25,9 @@ A biblioteca de executor em massa ajuda-o a tirar partido deste armazenamento e 
 
 > [!NOTE] 
 > Atualmente, a biblioteca de executores a granel suporta operações de importação e atualização e esta biblioteca é suportada apenas por contas API DB SQL E Gremlin.
+
+> [!IMPORTANT]
+> A biblioteca de executor a granel não é suportada atualmente em contas [sem servidor.](serverless.md) Em .NET, recomenda-se a utilização do suporte a [granel](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) disponível na versão V3 do SDK.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>Principais características da biblioteca do executor a granel  
  

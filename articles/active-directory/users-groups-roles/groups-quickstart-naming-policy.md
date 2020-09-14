@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de0212739f5cd24cec9ab58bdaf4d2b272f31200
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213670"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054369"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início rápido: Política de nomenclatura para grupos no Azure Active Directory
 
@@ -64,10 +64,10 @@ Já está! Definiu a política de nomenclatura e adicionou palavras bloqueadas p
 1. Na página de **política de naming,** selecione **Eliminar a política**.
 1. Depois de confirmar a supressão, a política de nomeação é removida, incluindo toda a política de nomeação de prefixos e quaisquer palavras bloqueadas personalizadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a definir a política de nomeação para a sua organização AZure AD através do portal Azure.
 
-Avance para o próximo artigo para mais informações, incluindo os cmdlets PowerShell para a política de nomeação, restrições técnicas, adicionando uma lista de palavras bloqueadas personalizadas, e as experiências do utilizador final em todas as aplicações do Office 365.
+Avance para o próximo artigo para mais informações, incluindo os cmdlets PowerShell para a política de nomeação, restrições técnicas, adicionando uma lista de palavras bloqueadas personalizadas e as experiências do utilizador final em aplicações da Microsoft 365.
 > [!div class="nextstepaction"]
 > [Política de nomeação PowerShell](groups-naming-policy.md)

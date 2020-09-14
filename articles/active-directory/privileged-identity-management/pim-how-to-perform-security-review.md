@@ -14,16 +14,16 @@ ms.date: 04/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4096c65fa4375152f44891d4a0a5aac4b9077cf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dd0b63e08f44167b89b6e2d491722f3708b4036
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743852"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055440"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Rever acesso a funções de Azure AD em Gestão de Identidade Privilegiada
 
-A Gestão de Identidade Privilegiada (PIM) simplifica a forma como as empresas gerem o acesso privilegiado aos recursos em Azure Ative Directory (AD) e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune. Siga os passos deste artigo para autorrever com sucesso as suas funções atribuídas.
+A Gestão de Identidade Privilegiada (PIM) simplifica a forma como as empresas gerem o acesso privilegiado a recursos em Azure Ative Directory (AD) e outros serviços online da Microsoft, como o Microsoft 365 ou o Microsoft Intune. Siga os passos deste artigo para autorrever com sucesso as suas funções atribuídas.
 
 Se for designado para um cargo administrativo, o administrador privilegiado da sua organização poderá pedir-lhe que confirme regularmente que ainda precisa desse papel para o seu trabalho. Você pode obter um e-mail que inclui um link, ou você pode ir diretamente para o [portal Azure](https://portal.azure.com) e começar.
 

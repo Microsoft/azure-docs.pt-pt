@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb637ae3da9c6a0a3ea066ad741845bad36d5d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489634"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055168"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilhar contas com a Azure AD
 
@@ -29,7 +29,7 @@ ms.locfileid: "89489634"
 Por vezes, as organizações precisam de usar um único nome de utilizador e palavra-passe para várias pessoas, o que normalmente acontece em dois casos:
 
 * Ao aceder a aplicações que requerem um sinal único e uma palavra-passe para cada utilizador, seja em aplicações no local ou serviços de nuvem de consumo (por exemplo, contas de redes sociais corporativas).
-* Ao criar ambientes multiutilizadores. Você pode ter uma única conta local que tem privilégios elevados e é usado para fazer atividades de configuração, administração e recuperação principais. Por exemplo, a conta local de "administrador global" para o Office 365 ou a conta raiz na Salesforce.
+* Ao criar ambientes multiutilizadores. Você pode ter uma única conta local que tem privilégios elevados e é usado para fazer atividades de configuração, administração e recuperação principais. Por exemplo, a conta local de "administrador global" para a Microsoft 365 ou a conta raiz na Salesforce.
 
 Tradicionalmente, estas contas são partilhadas distribuindo as credenciais (nome de utilizador e palavra-passe) para os indivíduos certos ou armazenando-as num local partilhado onde vários agentes de confiança podem aceder às suas credenciais.
 
