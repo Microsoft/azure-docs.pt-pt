@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459224"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561606"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento percorre a estrutura de um dashboard Azure, utilizando o seguinte painel de instrumentos como exemplo:
@@ -329,16 +329,16 @@ A propriedade __de posição__ contém as informações de tamanho e localizaç�
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![unidades de grelha](./media/azure-portal-dashboards-structure/grid-units.png)
+![A screenshot mostra um close-up da grelha, com uma unidade de grelha quadrada em destaque.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>O objeto de metadados
 Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedade necessária chamada __tipo__. Esta corda diz ao portal qual azulejo mostrar. O nosso painel de exemplo utiliza este tipo de azulejos:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`– Usado para mostrar métricas de monitorização
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`– Costumava mostrar com texto ou imagens com formatação básica para listas, links, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`– Costumava mostrar vídeos do YouTube, Channel9 e qualquer outro tipo de vídeo que funciona numa videovigilância HTML.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`– Costumava mostrar o nome e o estado de uma máquina virtual Azure.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Usado para mostrar métricas de monitorização
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Costumava mostrar com texto ou imagens com formatação básica para listas, links, etc.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Costumava mostrar vídeos do YouTube, Channel9 e qualquer outro tipo de vídeo que funciona numa videovigilância HTML.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Costumava mostrar o nome e o estado de uma máquina virtual Azure.
 
 Cada tipo de peça tem a sua própria configuração. As propriedades de configuração possíveis são chamadas __entradas,__ __configurações__e __ativo__. 
 

@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d8dc4a3efb034c9428de32f0f975869e1044327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613883"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561878"
 ---
 # <a name="graphics-binding"></a>Ligação gráfica
 
@@ -137,11 +137,23 @@ wmrBinding->BlitRemoteFrame();
 ### <a name="simulation"></a>Simulação
 
 `GraphicsApiType.SimD3D11` é a ligação de simulação e, se selecionada, cria a `GraphicsBindingSimD3d11` ligação gráfica. Esta interface é usada para simular o movimento da cabeça, por exemplo, numa aplicação de ambiente de trabalho e torna uma imagem monoscópica.
+
+Para implementar a ligação de simulação, é importante entender a diferença entre a câmara local e o quadro remoto, conforme descrito na página da [câmara.](../overview/features/camera.md)
+
+São necessárias duas câmaras:
+
+* **Câmara local**: Esta câmara representa a posição atual da câmara que é impulsionada pela lógica da aplicação.
+* **Proxy camera**: Esta câmara corresponde à atual *moldura remota* que foi enviada pelo servidor. Como há um atraso de tempo entre o cliente que solicita uma moldura e a sua chegada, o *Quadro Remoto* está sempre um pouco atrás do movimento da câmara local.
+
+A abordagem básica aqui é que tanto a imagem remota como o conteúdo local são transformados num alvo fora do ecrã usando a câmara proxy. A imagem proxy é então reprojectada para o espaço da câmara local, o que é explicado mais tarde na [reprojecção do estágio](../overview/features/late-stage-reprojection.md)tardio .
+
 A configuração é um pouco mais envolvida e funciona da seguinte forma:
 
 #### <a name="create-proxy-render-target"></a>Criar alvo de renderização de procuração
 
-O conteúdo remoto e local precisa de ser tornado num alvo de renderização de cor/profundidade fora do ecrã chamado 'proxy' utilizando os dados da câmara proxy fornecidos pela `GraphicsBindingSimD3d11.Update` função. O representante deve corresponder à resolução do tampão traseiro. Uma vez que uma sessão esteja pronta, `GraphicsBindingSimD3d11.InitSimulation` precisa ser chamado antes de ligar a ela:
+O conteúdo remoto e local precisa de ser tornado num alvo de renderização de cor/profundidade fora do ecrã chamado 'proxy' utilizando os dados da câmara proxy fornecidos pela `GraphicsBindingSimD3d11.Update` função.
+
+O representante deve corresponder à resolução do tampão traseiro e deve estar int no *formato DXGI_FORMAT_R8G8B8A8_UNORM* ou *DXGI_FORMAT_B8G8R8A8_UNORM.* Uma vez que uma sessão esteja pronta, `GraphicsBindingSimD3d11.InitSimulation` precisa ser chamado antes de ligar a ela:
 
 ```cs
 AzureSession currentSession = ...;
@@ -242,6 +254,8 @@ else
 * [C++ GráficasBindingWmrD3d11 classe](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingwmrd3d11)
 * [C++ GráficasBindingSimD3d11 classe](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
+* [Câmara](../overview/features/camera.md)
+* [Reprojeção da última fase](../overview/features/late-stage-reprojection.md)
 * [Tutorial: Visualização remota de modelos renderizados](../tutorials/unity/view-remote-models/view-remote-models.md)

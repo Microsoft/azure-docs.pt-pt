@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808119"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562490"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configure um gateway de aplicação com um ponto final interno de carregamento (ILB)
 
@@ -74,7 +74,7 @@ Para que o Azure comunique entre os recursos que cria, precisa de uma rede virtu
 25. Aceite os predefinidos restantes e **selecione Adicionar**.
 26. Na página De encaminhamento da regra **de encaminhamento,** selecione **Adicionar**.
 27. Selecione **Seguinte: Tags**.
-28. Selecione **Seguinte: Revisão + criar**.
+28. Selecione **Seguinte: Rever + criar**.
 29. Reveja as definições na página do resumo e, em seguida, **selecione Criar** para criar os recursos de rede e o gateway de aplicação. A criação do gateway de aplicação pode demorar vários minutos. Aguarde até que a colocação termine com sucesso antes de passar para a secção seguinte.
 
 ## <a name="add-backend-pool"></a>Adicionar piscina de backend
@@ -103,14 +103,14 @@ Para fazer isto, tu:
 8. Aceite os restantes predefinidos e selecione **Seguinte : Gestão**.
 9. Selecione **Off** para desativar os diagnósticos de arranque.
 10. Aceite os restantes predefinidos e selecione **Seguinte : Avançado**.
-11. Selecione **Seguinte : Tags**.
+11. Selecione **Seguinte: Etiquetas**.
 12. Selecione **Seguinte : Rever + criar**.
 13. Reveja as definições na página do resumo e, em seguida, **selecione Criar**. Pode levar vários minutos para criar o VM. Aguarde até que a colocação termine com sucesso antes de passar para a secção seguinte.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
 1. Abra a Cloud Shell e certifique-se de que está definida para **PowerShell**.
-    ![frontendip-3 privado](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![A screenshot mostra uma janela aberta da consola Azure Cloud Shell que utiliza o PowerShell.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Execute o comando seguinte para instalar o IIS na máquina virtual:
 
    ```azurepowershell
@@ -142,17 +142,17 @@ Para fazer isto, tu:
 
 1. Selecione **Todos os recursos**e, em seguida, selecione **myAppGateway**.
 2. Selecione **piscinas backend**. Selecione **appGatewayBackendPool**.
-3. No **tipo Alvo** selecione máquina **virtual** e em **Target,** selecione o vNIC associado ao myVM.
+3. No **tipo Alvo** selecione máquina **virtual**  e em **Target,** selecione o vNIC associado ao myVM.
 4. Repita para adicionar MyVM2.
-   ![frontendip-4 privado](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![A screenshot mostra o painel de piscina backend Edit com os tipos de destino e alvos destacados.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. **selecione Save.**
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
 1. Consulte o IP do frontend que foi atribuído clicando na página **de Configurações IP frontend** no portal.
-    ![frontendip-5 privado](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![A screenshot mostra o painel de configurações FRONTend IP com o tipo Privado realçado.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copie o endereço IP privado e, em seguida, cole-o na barra de endereços do navegador num VM no mesmo VNet ou no local que tenha conectividade com este VNet e tente aceder ao Gateway de aplicações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se quiser monitorizar a saúde do seu backend, consulte [registos de saúde e diagnóstico de back-end para o Gateway de aplicações](application-gateway-diagnostics.md).

@@ -7,15 +7,15 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: eca9596666b318b71bb1deec64e3a7d037e8fa0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654332"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563697"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
-[O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo padrão do Bloco de [Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)da indústria. Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
+[O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de [Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão da indústria e do [protocolo do Sistema de Ficheiros de Rede (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (pré-visualização). Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
 
 Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades do Azure Files, incluindo a utilização de Azure File Sync com Ficheiros Azure. Se não vir a resposta à sua pergunta, pode contactar-nos através dos seguintes canais (por ordem de escalada):
 
@@ -31,7 +31,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="file-access-options"></a>
   **Quais são as diferentes formas de aceder a ficheiros em Ficheiros Azure?**  
-    Pode montar a partilha de ficheiros na sua máquina local utilizando o protocolo SMB 3.0, ou pode utilizar ferramentas como [o Storage Explorer](https://storageexplorer.com/) para aceder a ficheiros na sua partilha de ficheiros. A partir da sua aplicação, pode utilizar bibliotecas de clientes de armazenamento, REST APIs, PowerShell ou Azure CLI para aceder aos seus ficheiros na partilha de ficheiros Azure.
+    As ações de ficheiro SMB podem ser montadas na sua máquina local utilizando o protocolo SMB 3.0, ou pode utilizar ferramentas como [o Storage Explorer](https://storageexplorer.com/) para aceder a ficheiros na sua partilha de ficheiros. As partilhas de ficheiros NFS podem ser montadas na sua máquina local copiando/colando o script fornecido pelo portal Azure. A partir da sua aplicação, pode utilizar bibliotecas de clientes de armazenamento, REST APIs, PowerShell ou Azure CLI para aceder aos seus ficheiros na partilha de ficheiros Azure.
 
 * <a id="what-is-afs"></a>
   **O que é Azure File Sync?**  
@@ -43,12 +43,12 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     
     O armazenamento Azure Blob é útil para aplicações nativas em nuvem em larga escala que precisam armazenar dados não estruturados. Para maximizar o desempenho e a escala, o armazenamento Azure Blob é uma abstração de armazenamento mais simples do que um verdadeiro sistema de ficheiros. Só pode aceder ao armazenamento do Azure Blob através de bibliotecas de clientes baseadas em REST (ou diretamente através do protocolo baseado em REST).
 
-    O Azure Files é especificamente um sistema de ficheiros. O Azure Files tem todos os resumos de ficheiros que conhece e adora de anos a trabalhar com sistemas operativos no local. Tal como o armazenamento Azure Blob, a Azure Files oferece uma interface REST e bibliotecas de clientes baseadas em REST. Ao contrário do armazenamento Azure Blob, a Azure Files oferece acesso SMB a ações de ficheiros Azure. Ao utilizar o SMB, pode montar uma partilha de ficheiros Azure diretamente no Windows, Linux ou macOS, quer no local, quer em VMs em nuvem, sem escrever nenhum código ou anexar quaisquer controladores especiais ao sistema de ficheiros. Também pode cache ações de ficheiros Azure em servidores de ficheiros no local, utilizando o Azure File Sync para acesso rápido, perto do local onde os dados são utilizados. 
+    O Azure Files é especificamente um sistema de ficheiros. O Azure Files tem todos os resumos de ficheiros que conhece e adora de anos a trabalhar com sistemas operativos no local. Tal como o armazenamento Azure Blob, a Azure Files oferece uma interface REST e bibliotecas de clientes baseadas em REST. Ao contrário do armazenamento Azure Blob, a Azure Files oferece acesso AMB ou NFS a ações de ficheiros Azure. As ações de ficheiros podem ser montadas diretamente no Windows, Linux ou macOS, quer no local, quer em VMs em nuvem, sem escrever nenhum código ou anexar quaisquer controladores especiais ao sistema de ficheiros. Também pode cache Azure SMB ações de ficheiros em servidores de ficheiros no local, utilizando o Azure File Sync para acesso rápido, perto do local onde os dados são utilizados. 
    
     Para obter uma descrição mais aprofundada das diferenças entre os Ficheiros Azure e o armazenamento Azure Blob, consulte [Introdução aos principais serviços de armazenamento Azure](../common/storage-introduction.md). Para saber mais sobre o armazenamento da Azure Blob, consulte [o armazenamento Introdução ao Blob.](../blobs/storage-blobs-introduction.md)
 
 * <a id="files-versus-disks"></a>**Por que usaria uma partilha de ficheiros Azure em vez de Discos Azure?**  
-    Um disco em Discos Azure é simplesmente um disco. Para obter valor da Azure Disks, tem de anexar um disco a uma máquina virtual que está a funcionar em Azure. Os Discos Azure podem ser utilizados para tudo o que usarias num servidor no local. Pode usá-lo como disco de sistema SO, como espaço de troca de espaço para um SISTEMA, ou como armazenamento dedicado para uma aplicação. Uma utilização interessante para discos Azure é criar um servidor de ficheiros na nuvem para usar nos mesmos locais onde poderá utilizar uma partilha de ficheiros Azure. Implementar um servidor de ficheiros em Azure Virtual Machines é uma forma de obter armazenamento de ficheiros em Azure quando necessita de opções de implementação que atualmente não são suportadas por Ficheiros Azure (como suporte a protocolo NFS ou armazenamento premium). 
+    Um disco em Discos Azure é simplesmente um disco. Para obter valor da Azure Disks, tem de anexar um disco a uma máquina virtual que está a funcionar em Azure. Os Discos Azure podem ser utilizados para tudo o que usarias num servidor no local. Pode usá-lo como disco de sistema SO, como espaço de troca de espaço para um SISTEMA, ou como armazenamento dedicado para uma aplicação. Uma utilização interessante para discos Azure é criar um servidor de ficheiros na nuvem para usar nos mesmos locais onde poderá utilizar uma partilha de ficheiros Azure. Implementar um servidor de ficheiros em Azure Virtual Machines é uma forma de obter armazenamento de ficheiros em Azure quando necessita de opções de implementação que atualmente não são suportadas por Ficheiros Azure. 
 
     No entanto, executar um servidor de ficheiros com Discos Azure como armazenamento de back-end normalmente é muito mais caro do que usar uma partilha de ficheiros Azure, por algumas razões. Em primeiro lugar, para além de pagar o armazenamento do disco, também tem de pagar as despesas de execução de um ou mais VMs Azure. Em segundo lugar, também deve gerir os VMs que são utilizados para executar o servidor de ficheiros. Por exemplo, é responsável por atualizações de SO. Finalmente, se, em última análise, necessitar de dados para serem cached no local, cabe-lhe a si configurar e gerir tecnologias de replicação, como a Replicação do Sistema de Ficheiros Distribuídos (DFSR), para que isso aconteça.
 
@@ -58,17 +58,18 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="get-started"></a>
   **Como é que começo a usar ficheiros Azure?**  
-   Começar com a Azure Files é fácil. Primeiro, [crie uma partilha de ficheiros](storage-how-to-create-file-share.md)e, em seguida, monte-a no seu sistema operativo preferido: 
+   Começar com a Azure Files é fácil. Em primeiro lugar, [ou criar uma partilha de ficheiros SMB](storage-how-to-create-file-share.md) ou uma partilha de [NFS](storage-files-how-to-create-nfs-shares.md), e depois montá-la no seu sistema operativo preferido: 
 
-  * [Monte em janelas](storage-how-to-use-files-windows.md)
-  * [Monte em Linux](storage-how-to-use-files-linux.md)
-  * [Monte em macOS](storage-how-to-use-files-mac.md)
+  * [Monte uma participação SMB no Windows](storage-how-to-use-files-windows.md)
+  * [Monte uma participação da SMB no Linux](storage-how-to-use-files-linux.md)
+  * [Monte uma participação SMB no macOS](storage-how-to-use-files-mac.md)
+  * [Monte uma partilha de ficheiros NFS](storage-files-how-to-mount-nfs-shares.md)
 
     Para obter um guia mais aprofundado sobre a implementação de uma partilha de ficheiros Azure para substituir as ações de ficheiros de produção na sua organização, consulte [Planeamento para uma implementação de Ficheiros Azure](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
   **Que opções de redundância de armazenamento são suportadas pela Azure Files?**  
-    Atualmente, a Azure Files suporta armazenamento localmente redundante (LRS), armazenamento redundante de zona (ZRS), armazenamento geo-redundante (GRS) e armazenamento de zonas geo-redundantes (GZRS). Planeamos apoiar o armazenamento geo-redundante de acesso à leitura (RA-GRS) no futuro, mas não temos prazos para partilhar neste momento.
+    Atualmente, a Azure Files suporta armazenamento localmente redundante (LRS), armazenamento redundante de zona (ZRS), armazenamento geo-redundante (GRS) e armazenamento de zonas geo-redundantes (GZRS). Atualmente, o nível premium da Azure Files apenas suporta LRS e ZRS.
 
 * <a id="tier-options"></a>
   **Que níveis de armazenamento são suportados em Ficheiros Azure?**  
@@ -283,6 +284,23 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     Sim, apoiamos AS APIs rest que obtenham, definir ou copiar ACLs NTFS para diretórios ou ficheiros quando utilizar a API REST [2019-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior) REST. Também suportamos ACLs do Windows em ferramentas baseadas em REST: [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
 
+## <a name="network-file-system"></a>Sistema de Ficheiros de Rede
+
+* <a id="when-to-use-nfs"></a>
+**Quando devo utilizar o Azure Files NFS?**
+
+    Ver [ações da NFS (pré-visualização)](storage-files-compare-protocols.md#nfs-shares-preview).
+
+* <a id="backup-nfs-data"></a>
+**Como faço os dados de backup armazenados em ações da NFS?**
+
+    O backup dos seus dados sobre ações NFS pode ser orquestrado usando ferramentas familiares como rsync ou produtos de um dos nossos parceiros de backup de terceiros. Vários parceiros de backup, incluindo [Commvault,](https://documentation.commvault.com/commvault/v11/article?p=92634.htm) [Veeam](https://www.veeam.com/blog/?p=123438)e [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) faziam parte da nossa pré-visualização inicial e alargaram as suas soluções para trabalhar com smb 3.0 e NFS 4.1 para Azure Files.
+
+* <a id="migrate-nfs-data"></a>
+**Posso migrar os dados existentes para uma parte da NFS?**
+
+    Dentro de uma região, você pode usar ferramentas padrão como scp, rsync ou SSHFS para mover dados. Uma vez que o Azure Files NFS pode ser acedido a partir de múltiplas instâncias de computação simultaneamente, pode melhorar as velocidades de cópia com uploads paralelos. Se pretender trazer dados de fora de uma região, utilize uma VPN ou uma Rota Express para montar no seu sistema de ficheiros a partir do seu centro de dados no local.
+
 ## <a name="on-premises-access"></a>Acesso no local
 
 * <a id="port-445-blocked"></a>
@@ -300,7 +318,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
     Pode montar a partilha de ficheiros utilizando o protocolo SMB se a porta 445 (saída TCP) estiver aberta e o seu cliente suportar o protocolo SMB 3.0 (por exemplo, se estiver a utilizar o Windows 10 ou o Windows Server 2016). Se a porta 445 estiver bloqueada pela política da sua organização ou pelo seu ISP, pode utilizar o Azure File Sync para aceder à sua partilha de ficheiros Azure.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Como posso apoiar a minha parte do ficheiro Azure?**  
     Pode utilizar [instantâneos periódicos](storage-snapshots-files.md) para proteção contra supressões acidentais. Também pode utilizar a AzCopy, Robocopy ou uma ferramenta de backup de terceiros que pode fazer backup de uma partilha de ficheiros montada. O Azure Backup oferece cópia de segurança dos Ficheiros Azure. Saiba mais sobre [backup ações de ficheiros Azure by Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).

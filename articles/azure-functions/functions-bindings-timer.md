@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 88160d82cb7cc0a012d63445f101a1f2a3740da0
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569289"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563092"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho temporizador para funções Azure 
 
@@ -217,7 +217,7 @@ public void keepAlive(
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `TimerTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "TimerTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "dentro". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -249,6 +249,7 @@ Quando uma função de gatilho do temporizador é invocada, um objeto temporizad
 ```
 
 A `IsPastDue` propriedade é quando a `true` invocação da função atual é mais tarde do que o programado. Por exemplo, um reinício de uma aplicação de função pode fazer com que uma invocação seja perdida.
+
 
 ## <a name="ncrontab-expressions"></a>Expressões NCRONTAB 
 
@@ -282,6 +283,8 @@ Aqui estão alguns exemplos de expressões NCRONTAB que pode usar para o gatilho
 |`"0 30 9 * * 1-5"`|às 9:30 am todos os dias da semana|
 |`"0 30 9 * Jan Mon"`|às 9:30 todas as segundas-feiras de janeiro|
 
+> [!NOTE]
+> A expressão NCRONTAB requer seis formatos **de campo.** Cinco expressões de cron de campo não são suportadas em Azure.
 
 ### <a name="ncrontab-time-zones"></a>Fusos horários NCRONTAB
 
@@ -329,7 +332,7 @@ Ao contrário do gatilho da fila, o gatilho do temporizador não se ressando dep
 
 Para obter informações sobre o que fazer quando o gatilho do temporizador não funcionar como esperado, consulte [questões de investigação e reporte com funções desacionadas de temporizador que não disparem](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Vá a um arranque rápido que usa um gatilho do temporizador](functions-create-scheduled-function.md)

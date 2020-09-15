@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: e85937103e94a0fbb8dd8be92bb22ee5078df70a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d91ae0f3db9ad3637043f9eb7472539d8aba2c8d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087325"
+ms.locfileid: "90563042"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -56,7 +56,7 @@ Neste arranque rápido, necessitará dos seguintes valores a partir de quando co
 
 ### <a name="set-adt-explorer-permissions"></a>Definir permissões do Explorador ADT
 
-Em seguida, prepare a instância Azure Digital Twins que criou para trabalhar com o explorador de ADT, que é uma aplicação web hospedada localmente. Visite a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) da App no portal Azure e selecione o nome do registo da sua aplicação na lista.
+Em seguida, prepare a instância Azure Digital Twins que criou para trabalhar com o ADT Explorer, que é uma aplicação web hospedada localmente. Visite a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) da App no portal Azure e selecione o nome do registo da sua aplicação na lista.
 
 Selecione *autenticação* no menu do registo e *acerte + Adicione uma plataforma*.
 
@@ -102,13 +102,13 @@ Se *premir* o botão Sinal na parte superior da janela para configurar o ADT Exp
 Insira as informações importantes que recolheu anteriormente na secção [Pré-Requisitos:](#prerequisites)
 * ID da Aplicação (cliente)
 * ID do Diretório (inquilino)
-* URL ADT, no formato *https://{nome do anfitrião de instância}*
+* URL de exemplo de Azure Digital Twins, no formato *https://{instance host name}*
 
 >[!NOTE]
 > Pode revisitar/editar estas informações a qualquer momento selecionando o mesmo ícone para puxar novamente a caixa 'Iniciar' Vai manter os valores que passaste.
 
 > [!TIP]
-> Se uma mensagem de erro SignalRService.subscrever for mostrada quando ligar, certifique-se de que o seu URL ADT está pré-fixado com *https://*.
+> Se for mostrada uma `SignalRService.subscribe` mensagem de erro quando ligar, certifique-se de que o URL das gémeas digitais Azure começa com *https://*.
 
 Se vir uma janela pop-up *solicitada pela Microsoft,* conceda o consentimento para esta aplicação e aceite continuar.
 

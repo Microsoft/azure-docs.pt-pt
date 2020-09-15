@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: af912838e99e7b36cb29695758108f0a9efeb8ea
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662541"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561640"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Criar metas de computação para formação de modelos e implantação com Python SDK
 
@@ -36,7 +36,11 @@ Neste artigo, use o Azure Machine Learning Python SDK para criar e gerir alvos d
 
 ## <a name="limitations"></a>Limitações
 
-Alguns dos cenários listados neste documento são marcados como __pré-visualização__. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* **Não crie anexos múltiplos e simultâneos ao mesmo cálculo** do seu espaço de trabalho. Por exemplo, anexar um cluster de serviço Azure Kubernetes a um espaço de trabalho usando dois nomes diferentes. Cada novo acessório quebrará os acessórios existentes anteriores.
+
+    Se pretender voltar a anexar um alvo de cálculo, por exemplo para alterar TLS ou outra configuração de configuração de cluster, deve primeiro remover o acessório existente.
+
+* Alguns dos cenários listados neste documento são marcados como __pré-visualização__. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>O que é um alvo computacional?
 
@@ -269,6 +273,9 @@ Utilize a Máquina Virtual Azure Data Science (DSVM) como O VM Azure de eleiçã
 
    Ou pode anexar o DSVM ao seu espaço de trabalho [utilizando o estúdio Azure Machine Learning](how-to-create-attach-compute-studio.md#attached-compute).
 
+    > [!WARNING]
+    > Não crie ligações múltiplas e simultâneas ao mesmo DSVM do seu espaço de trabalho. Cada novo acessório quebrará os acessórios existentes anteriores.
+
 1. **Configuração**: Crie uma configuração de execução para o alvo de computação DSVM. Docker e conda são usados para criar e configurar o ambiente de treino no DSVM.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
@@ -313,6 +320,9 @@ Azure HDInsight é uma plataforma popular para análise de big data. A plataform
    ```
 
    Ou pode anexar o cluster HDInsight ao seu espaço de trabalho utilizando o [estúdio Azure Machine Learning](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > Não crie múltiplos anexos simultâneos ao mesmo HDInsight do seu espaço de trabalho. Cada novo acessório quebrará os acessórios existentes anteriores.
 
 1. **Configuração**: Crie uma configuração de execução para o alvo do cálculo HDI. 
 
@@ -360,6 +370,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> Não crie ligações múltiplas e simultâneas ao mesmo Azure Batch do seu espaço de trabalho. Cada novo acessório quebrará os acessórios existentes anteriores.
 
 ### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
@@ -414,6 +427,9 @@ except ComputeTargetException:
 
 Para um exemplo mais detalhado, consulte um [caderno de exemplo](https://aka.ms/pl-databricks) no GitHub.
 
+> [!WARNING]
+> Não crie anexos múltiplos e simultâneos com as mesmas Azure Databricks do seu espaço de trabalho. Cada novo acessório quebrará os acessórios existentes anteriores.
+
 ### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics é uma plataforma de análise de dados na nuvem Azure. Pode ser usado como um alvo de computação com um pipeline Azure Machine Learning.
@@ -464,6 +480,9 @@ except ComputeTargetException:
 
 Para um exemplo mais detalhado, consulte um [caderno de exemplo](https://aka.ms/pl-adla) no GitHub.
 
+> [!WARNING]
+> Não crie múltiplos anexos simultâneos ao mesmo ADLA do seu espaço de trabalho. Cada novo acessório quebrará os acessórios existentes anteriores.
+
 > [!TIP]
 > Os oleodutos Azure Machine Learning só podem funcionar com dados armazenados na loja de dados predefinida da conta Data Lake Analytics. Se os dados com os qual precisa trabalhar estiverem numa loja não padrão, pode utilizar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) para copiar os dados antes do treino.
 
@@ -475,7 +494,7 @@ Consulte estes cadernos para exemplos de formação com vários alvos de computa
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize o recurso computacional para [submeter uma formação](how-to-set-up-training-targets.md).
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um alvo de computação gerido para treinar um modelo.

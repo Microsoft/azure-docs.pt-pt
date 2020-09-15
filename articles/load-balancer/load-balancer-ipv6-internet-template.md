@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803739"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562524"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementar uma solução de balanceador de carga virada para a Internet com o IPv6 utilizando um modelo
 
@@ -38,7 +38,7 @@ Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UD
 
 O diagrama seguinte ilustra a solução de equilíbrio de carga que está a ser implementada utilizando o modelo de exemplo descrito neste artigo.
 
-![Cenário do Balanceador de carga](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
+![O diagrama mostra um cenário de exemplo usado neste artigo, incluindo um cliente de estação de trabalho ligado a um Equilibr de Carga Azure através da Internet, ligado por sua vez a duas máquinas virtuais.](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
 Neste cenário, criará os seguintes recursos Azure:
 
@@ -55,43 +55,43 @@ Este artigo refere um modelo que é publicado na galeria [Azure Quickstart Templ
 1. Abra o portal Azure e inscreva-se com uma conta que tenha permissões para criar VMs e recursos de networking dentro de uma subscrição do Azure. Além disso, a menos que esteja a usar os recursos existentes, a conta precisa de permissão para criar um grupo de recursos e uma conta de armazenamento.
 2. Clique em "+Novo" a partir do menu e escreva "modelo" na caixa de pesquisa. Selecione "Implementação do modelo" a partir dos resultados da pesquisa.
 
-    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![A screenshot mostra o portal Azure com a implementação de Novo e Modelo selecionado.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. Na lâmina De Tudo, clique em "Implementação do Modelo".
 
-    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![Screenshot mostra implementação de modelo no Mercado.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Clique em "Criar".
 
-    ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![A screenshot mostra a descrição da implementação do modelo no Mercado.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. Clique em "Editar modelo". Elimine os conteúdos existentes e copie/cole em todo o conteúdo do ficheiro do modelo (para incluir o início e o fim { }), em seguida, clique em "Guardar".
 
     > [!NOTE]
     > Se estiver a utilizar o Microsoft Internet Explorer, quando colou recebe uma caixa de diálogo pedindo-lhe que permita o acesso à área de transferência do Windows. Clique em "Permitir o acesso".
 
-    ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![A screenshot mostra o passo mais disparado de uma implementação personalizada, que é o modelo de edição.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. Clique em "Editar parâmetros". Na lâmina parâmetros, especifique os valores por orientação na secção de parâmetros do modelo e, em seguida, clique em "Guardar" para fechar a lâmina de parâmetros. Na lâmina de implementação personalizada, selecione a sua subscrição, um grupo de recursos existente ou crie uma. Se estiver a criar um grupo de recursos, selecione uma localização para o grupo de recursos. Em seguida, clique em **Termos Legais**e, em seguida, clique em **Comprar** para os termos legais. O Azure começa a mobilizar os recursos. Leva vários minutos para mobilizar todos os recursos.
 
-    ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![A screenshot mostra os passos envolvidos na implementação personalizada, começando com a introdução dos valores dos parâmetros do modelo.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     Para obter mais informações sobre estes parâmetros, consulte a secção [de parâmetros e variáveis do modelo](#template-parameters-and-variables) mais tarde neste artigo.
 
 7. Para ver os recursos criados pelo modelo, clique em Navegar, percorra a lista até ver "Grupos de Recursos" e, em seguida, clique nele.
 
-    ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![O screenshot mostra o portal Azure com grupos de Navegação e Recursos selecionados.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. Na lâmina dos grupos de recursos, clique no nome do grupo de recursos especificado no passo 6. Vê-se uma lista de todos os recursos que foram mobilizados. Se tudo correu bem, deve dizer "Bem sucedido" em "Última implantação". Caso contrário, certifique-se de que a conta que está a usar tem permissões para criar os recursos necessários.
 
-    ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![A screenshot mostra o estado da última implementação de um grupo de recursos, neste exemplo, Conseguiu.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > Se navegar nos grupos de recursos imediatamente após completar o passo 6, "Última implementação" apresentará o estado de "Implantação" enquanto os recursos estão a ser utilizados.
 
 9. Clique em "myIPv6PublicIP" na lista de recursos. Pode ver que tem um endereço IPv6 no endereço IP, e que o seu nome DNS é o valor especificado para o parâmetro DNSNameforIPv6LbIP no passo 6. Este recurso é o endereço público IPv6 e nome de anfitrião que é acessível aos clientes da Internet.
 
-    ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![A screenshot mostra o endereço público do IPv6.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## <a name="validate-connectivity"></a>Validar conectividade
 
@@ -136,6 +136,6 @@ O modelo de exemplo utilizado neste artigo inclui as seguintes variáveis e par�
 
 As variáveis restantes no modelo contêm valores derivados que são atribuídos quando Azure cria os recursos. Não mude estas variáveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para a sintaxe JSON e propriedades de um equilibrador de carga num modelo, consulte [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

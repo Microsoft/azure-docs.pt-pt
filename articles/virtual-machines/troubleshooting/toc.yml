@@ -83,6 +83,8 @@
           href: troubleshoot-critical-service-failed-boot-error.md
         - name: Resolução de problemas com erros de arranque - Estado não encontrado
           href: boot-error-status-not-found.md
+        - name: Resolução de problemas em que o Windows não consegue concluir a configuração do sistema
+          href: windows-could-not-configure-system.md
         - name: Resolução de problemas da capacidade de instalação do Windows Update
           href: windows-update-installation-capacity.md
         - name: Não é um disco de arranque

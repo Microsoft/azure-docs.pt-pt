@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1a7ab90cccd78c3b005487938432a0f955d50738
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380866"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561436"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Dispositivos de gestão automática em Gémeos Digitais Azure utilizando o Serviço de Provisionamento de Dispositivos (DPS)
 
@@ -40,7 +40,7 @@ O simulador do dispositivo baseia-se ** emNode.js**, versão 10.0.x ou posterior
 
 A imagem abaixo ilustra a arquitetura desta solução utilizando as Gémeas Digitais Azure com o Serviço de Provisionamento de Dispositivos. Mostra tanto a provisão do dispositivo como o fluxo de aposentadoria.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Uma visão de um dispositivo e vários serviços Azure num cenário de ponta a ponta. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS. Os dados também fluem de DPS para IoT Hub, e para Azure Digital Twins através de uma função Azure com o rótulo de Atribuição. Os dados de uma ação manual de Eliminar dispositivo fluem através do IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Uma visão de um dispositivo e vários serviços Azure num cenário de ponta a ponta. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS. Os dados também fluem de DPS para IoT Hub, e para Azure Digital Twins através de uma função Azure com o rótulo de "Atribuição". Os dados de uma ação manual de "Eliminar dispositivo" fluem através do IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
 
 Este artigo é dividido em duas secções:
 * [*Dispositivo de fornecimento automático utilizando o Serviço de Provisionamento de Dispositivos*](#auto-provision-device-using-device-provisioning-service)
@@ -71,7 +71,7 @@ Crie uma instância de Serviço de Provisionamento de Dispositivos, que será ut
 
 O seguinte comando Azure CLI criará um serviço de provisionamento de dispositivos. Você precisará especificar um nome, grupo de recursos e região. O comando pode ser executado em [Cloud Shell,](https://shell.azure.com)ou localmente se tiver o CLI Azure [instalado na sua máquina](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
+```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -237,7 +237,7 @@ Em seguida, terá de definir variáveis ambientais na sua aplicação de funçã
 
 Adicione a definição com este comando Azure CLI:
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -246,7 +246,7 @@ Certifique-se de que as permissões e a atribuição de funções de identidade 
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -293,7 +293,7 @@ Deverá ver o dispositivo a ser registado e ligado ao IoT Hub e, em seguida, com
 
 Como resultado do fluxo que criou neste artigo, o dispositivo será automaticamente registado em Azure Digital Twins. Utilizando o seguinte comando [CLI das Gémeas Digitais Azure](how-to-use-cli.md) para encontrar o gémeo do dispositivo na instância Azure Digital Twins que criou.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -304,7 +304,7 @@ Deve ver o gémeo do dispositivo encontrado no caso Azure Digital Twins.
 
 Nesta secção, você vai anexar eventos de ciclo de vida IoT Hub a Azure Digital Twins para auto-aposentar dispositivos através do caminho abaixo. Este é um excerto da arquitetura completa mostrada [anteriormente.](#solution-architecture)
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Retire o fluxo do dispositivo- um excerto do diagrama de arquitetura de solução, com secções de rotulagem de números do fluxo. O dispositivo termóstato é mostrado sem ligações aos serviços Azure no diagrama. Os dados de uma ação manual de Delete Device fluem através do IoT Hub (1) > Event Hubs (2) > Funções Azure > Gémeas Digitais Azure (3).":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Retire o fluxo do dispositivo- um excerto do diagrama de arquitetura de solução, com secções de rotulagem de números do fluxo. O dispositivo termóstato é mostrado sem ligações aos serviços Azure no diagrama. Os dados de uma ação manual de "Delete Device" fluem através do IoT Hub (1) > Event Hubs (2) > Funções Azure > Gémeas Digitais Azure (3).":::
 
 Aqui está uma descrição do fluxo do processo:
 1. Um processo externo ou manual desencadeia a supressão de um dispositivo no Hub IoT.
@@ -449,13 +449,13 @@ Em seguida, terá de definir variáveis ambientais na sua app de função anteri
 
 Adicione a definição com este comando Azure CLI. O comando pode ser executado em [Cloud Shell,](https://shell.azure.com)ou localmente se tiver o CLI Azure [instalado na sua máquina](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 Em seguida, terá de configurar a variável ambiente de função para ligar ao centro de eventos recém-criado.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -486,7 +486,7 @@ O dispositivo será automaticamente removido da Azure Digital Twins.
 
 Utilize o seguinte comando [CLI dos Gémeos Digitais Azure](how-to-use-cli.md) para verificar se o gémeo do dispositivo na instância Azure Digital Twins foi eliminado.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -502,7 +502,7 @@ Utilizando o Azure Cloud Shell ou o Azure CLI local, pode eliminar todos os recu
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 <!-- 
@@ -514,7 +514,7 @@ az ad app delete --id <your-application-ID>
 
 Em seguida, elimine a pasta de amostra de projeto que descarregou da sua máquina local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os gémeos digitais criados para os dispositivos são armazenados como uma hierarquia plana em Azure Digital Twins, mas podem ser enriquecidos com informação de modelo e uma hierarquia de vários níveis para organização. Para saber mais sobre este conceito, leia:
 

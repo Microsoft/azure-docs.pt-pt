@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f68d9f620b686ab20e93584bdd7c024d8a943577
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 7e703137b7954dd152f976069770a0c8c4a0f34c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036543"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564173"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início Rápido: Criar e gerir partilhas de ficheiros do Azure com o portal do Azure 
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas no Windows, Linux e macOS. Este guia orienta-o pelas noções básicas de utilizar partilhas de ficheiros do Azure com o [Portal do Azure](https://portal.azure.com/).
@@ -36,7 +36,7 @@ Para criar uma partilha de ficheiros do Azure:
 Os nomes de partilha só podem ter letras minúsculas, números e hífenes, mas não podem começar com um hífen. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## <a name="use-your-azure-file-share"></a>Utilizar a partilha de ficheiros do Azure
-O serviço Ficheiros do Azure fornece dois métodos para utilizar ficheiros e pastas na sua partilha de ficheiros do Azure : o [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor e o [protocolo REST de Ficheiros](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+A Azure Files fornece três métodos de trabalho com ficheiros e pastas dentro da sua partilha de ficheiros Azure: o protocolo padrão [do Bloco de Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)da indústria, o protocolo sistema de ficheiros de rede (NFS) (pré-visualização) e o [protocolo Rest](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)do Ficheiro . 
 
 Para montar uma partilha de ficheiros com SMB, veja o documento seguinte com base no seu SO:
 - [Windows](storage-how-to-use-files-windows.md)
@@ -78,7 +78,7 @@ Para demonstrar o carregamento de um ficheiro, primeiro tem de criar ou selecion
 #### <a name="download-a-file"></a>Transferir um ficheiro
 Pode transferir uma cópia do ficheiro que carregou ao clicar com o botão direito do rato no ficheiro. Depois de clicar no botão de transferência, a experiência exata dependerá do sistema operativo e do browser que estiver a utilizar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes

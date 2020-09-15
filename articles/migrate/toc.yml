@@ -18,12 +18,32 @@
           href: common-questions-server-migration.md
 - name: Tutoriais
   items:
-    - name: Avaliar e migrar VMs VMware
+    - name: Detetar
       items:
-        - name: Preparar o VMware para avaliação e migração
-          href: tutorial-prepare-vmware.md
-        - name: Avaliar VMs VMware para migração
-          href: tutorial-assess-vmware.md
+        - name: Detetar VMs VMware
+          href: tutorial-discover-vmware.md
+        - name: Detetar VMs Hyper-V
+          href: tutorial-discover-hyper-v.md
+        - name: Detetar servidores físicos
+          href: tutorial-discover-physical.md
+        - name: Detetar instâncias do AWS
+          href: tutorial-discover-aws.md
+        - name: Detetar servidores importados
+          href: tutorial-discover-import.md
+    - name: Avaliação
+      items:
+        - name: Avaliar VMs VMware para migração para VMs do Azure
+          href: tutorial-assess-vmware-azure-vm.md
+        - name: Avaliar VMs VMware para migração para o AVS
+          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Avaliar VMs Hyper-V para migração para o Azure
+          href: tutorial-assess-hyper-v.md
+        - name: Avaliar servidores físicos para migração para o Azure
+          href: tutorial-assess-physical.md
+        - name: Avaliar instâncias do AWS para migração para o Azure
+          href: tutorial-assess-aws.md
+    - name: Migrate
+      items:
         - name: Migrar VMs VMware
           items:
             - name: Acerca das opções de migração para as VMs VMware
@@ -32,30 +52,12 @@
               href: tutorial-migrate-vmware.md
             - name: Migrar VMs VMware com migração sem agente
               href: tutorial-migrate-vmware-agent.md
-    - name: Avaliar e migrar VMs Hyper-V
-      items:
-        - name: Preparar o Hyper-V para avaliação e migração
-          href: tutorial-prepare-hyper-v.md
-        - name: Avaliar VMs Hyper-V para migração
-          href: tutorial-assess-hyper-v.md
         - name: Migrar VMs Hyper-V
           href: tutorial-migrate-hyper-v.md
-    - name: Avaliar e migrar servidores físicos
-      items:
-        - name: Preparar servidores físicos para avaliação e migração
-          href: tutorial-prepare-physical.md
-        - name: Avaliar servidores físicos
-          href: tutorial-assess-physical.md
         - name: Migrar servidores físicos
           href: tutorial-migrate-physical-virtual-machines.md
-    - name: Avaliar e migrar VMs do AWS
-      items:
-        - name: 'Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure'
+        - name: Migrar instâncias do AWS
           href: tutorial-migrate-aws-virtual-machines.md
-    - name: Avaliar servidores importados para migração
-      items:
-        - name: Avaliar servidores importados para migração
-          href: tutorial-assess-import.md
 - name: Conceitos
   items:
     - name: Construir plano de migração com Azure Migrate

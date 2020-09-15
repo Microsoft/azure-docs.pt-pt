@@ -7,18 +7,21 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a01d9e90e87d1c23b9aefc5f2d9ba3ba84d0f59f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e4aa0cb2cc3ff623929222d83a560f66198f13c0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904926"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564275"
 ---
-# <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemas na resolução de ficheiros Azure em Linux
+# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Problemas de resolução de ficheiros Azure em Linux (SMB)
 
 Este artigo lista problemas comuns relacionados com ficheiros Azure quando se conecta com clientes Linux. Fornece igualmente possíveis causas e resoluções para estes problemas. 
 
 Além das etapas de resolução de problemas neste artigo, pode utilizar [a AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) para garantir que o cliente Linux tem pré-requisitos corretos. A AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo. Ajuda a configurar o seu ambiente para obter um desempenho ideal. Também pode encontrar esta informação no [Azure Files partilha](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)o problema. O troubleshooter fornece medidas para ajudá-lo com problemas de ligação, mapeamento e montagem de ações do Azure Files.
+
+> [!IMPORTANT]
+> O conteúdo deste artigo aplica-se apenas às ações da SMB.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Não é possível ligar ou montar uma partilha de ficheiros Azure
 
@@ -80,7 +83,7 @@ Verifique se as regras de firewall ou de rede virtual estão configuradas corret
 
 No Linux, recebe uma mensagem de erro que se assemelha ao seguinte:
 
-**\<filename>[permissão negada] Quota de disco excedida**
+**\<filename> [permissão negada] Quota de disco excedida**
 
 ### <a name="cause"></a>Causa
 
@@ -107,7 +110,7 @@ Para fechar as pegas abertas para uma partilha de ficheiros, diretório ou fiche
     - Utilize [a AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para qualquer transferência entre duas ações de ficheiro.
     - A utilização de cp ou dd com paralelo poderia melhorar a velocidade da cópia, o número de fios depende da sua caixa de utilização e da sua carga de trabalho. Os seguintes exemplos utilizam seis: 
     - cp exemplo (cp usará o tamanho do bloco predefinido do sistema de ficheiros como o tamanho do pedaço): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
-    - dd exemplo (este comando define explicitamente o tamanho do pedaço para 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - dd exemplo (este comando define explicitamente o tamanho do pedaço para 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Ferramentas de terceiros de código aberto, tais como:
         - [Paralelo GNU.](https://www.gnu.org/software/parallel/)
         - [Fpart](https://github.com/martymac/fpart) - Classifica ficheiros e embala-os em divisórias.
@@ -115,7 +118,7 @@ Para fechar as pegas abertas para uma partilha de ficheiros, diretório ou fiche
         - [Multi](https://github.com/pkolano/mutil) - Cp multi-roscado e md5sum com base em coreutils GNU.
 - Definir o tamanho do ficheiro com antecedência, em vez de fazer cada escrita uma escrita alargada, ajuda a melhorar a velocidade da cópia em cenários onde o tamanho do ficheiro é conhecido. Se a extensão das escritas tiver de ser evitada, pode definir um tamanho de ficheiro de destino com `truncate - size <size><file>` comando. Depois disso, o `dd if=<source> of=<target> bs=1M conv=notrunc` comando copiará um ficheiro de origem sem ter de atualizar repetidamente o tamanho do ficheiro-alvo. Por exemplo, pode definir o tamanho do ficheiro de destino para cada ficheiro que pretende copiar (assuma que uma ação é montada em /mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - e, em seguida, - copiar ficheiros sem estender as escritas em paralelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - e, em seguida, - copiar ficheiros sem estender as escritas em paralelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Erro de montagem(115): Operação em curso" quando monta ficheiros Azure utilizando SMB 3.0
@@ -183,7 +186,7 @@ Em alguns cenários, a opção de montagem **de serverino** pode fazer com que o
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Também pode verificar se as opções corretas estão a ser utilizadas executando o **comando do sudo mount / grep cifs** e verificando a sua saída. Segue-se a saída de exemplo:
+Também pode verificar se as opções corretas estão a ser utilizadas executando o  **comando do sudo mount / grep cifs** e verificando a sua saída. Segue-se a saída de exemplo:
 
 ```
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)

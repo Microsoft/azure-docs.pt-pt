@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049932"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561538"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -448,7 +448,7 @@ Caso precise de reverter as suas políticas recém-implementadas, utilize uma ou
 
 Utilize as seguintes opções de Gerir e gerir as suas políticas de CA:
 
-![acesso à gestão](media/plan-conditional-access/manage-access.png)
+![O Screenshot mostra as opções DE GEST PARA as políticas C A, incluindo localizações nomeadas, controlos personalizados, Termos de utilização, conectividade V P N e as políticas clássicas selecionadas.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Localizações com nome

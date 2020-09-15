@@ -4,12 +4,12 @@ description: Crie a sua primeira aplicação de contentor do Linux no Azure Serv
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847538"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563714"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -215,7 +215,7 @@ A partir da última versão da atualização do v6.4, tem a opção de especific
 
 A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem de estar presente no dockerfile utilizado ao gerar a imagem de contentor.
 
-![HealthCheckHealthy][1]
+![A screenshot mostra detalhes do NodeServicePackage do pacote de serviço implantado.][1]
 
 ![HealthCheckUnhealthyApp][2]
 

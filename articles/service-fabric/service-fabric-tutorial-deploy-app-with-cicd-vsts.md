@@ -4,12 +4,12 @@ description: Neste tutorial, aprende-se a configurar uma integração contínua 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 992d720d86fc2e7fedd8e7fd4b559220ff3c0512
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 302ad1dcfaa93564d70fab739726787ef09c79df
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260362"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563935"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação com CI/CD num cluster do Service Fabric
 
@@ -39,7 +39,7 @@ Antes de começar este tutorial:
 * [Instale o Visual Studio 2019](https://www.visualstudio.com/) e instale as cargas de trabalho de desenvolvimento do **Azure** e **ASP.NET e desenvolvimento web.**
 * [Instalar o Service Fabric SDK](service-fabric-get-started.md)
 * Crie um cluster do Windows Service Fabric no Azure, por exemplo, [seguindo este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Crie uma [organização do Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Isto permite-lhe criar um projeto em Azure DevOps e utilizar a Azure Pipelines.
+* Criar uma [organização Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Isto permite-lhe criar um projeto em Azure DevOps e utilizar a Azure Pipelines.
 
 ## <a name="download-the-voting-sample-application"></a>Transferir a aplicação de votação de exemplo
 
@@ -139,7 +139,7 @@ Verifique se a implementação foi concluída com êxito e se a aplicação est�
 
 Para verificar se o pipeline de integração contínua está a funcionar, dê entrada de algumas alterações de código no Azure DevOps.
 
-À medida que escreve o código, as alterações são automaticamente controladas pelo Visual Studio. Para consolidar as alterações ao repositório Git local, selecione o ícone de alterações pendentes (![Pendente][pending]) na barra de estado na parte inferior direita.
+À medida que escreve o código, as alterações são automaticamente controladas pelo Visual Studio. Para consolidar as alterações ao repositório Git local, selecione o ícone de alterações pendentes (![O ícone de alterações pendentes mostra um lápis e um número.][pending]) na barra de estado na parte inferior direita.
 
 Na vista **Alterações**, no Team Explorer, adicione uma mensagem que descreva a atualização e consolide as alterações.
 

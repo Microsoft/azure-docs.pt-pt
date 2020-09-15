@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 500bfff4afaebc345d344566b02fe945edb05795
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441923"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562609"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurar o início de sessão único baseado em SAML
 
@@ -27,7 +27,7 @@ Na [série quickstart](view-applications-portal.md) sobre gestão de aplicaçõe
 
 A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e a configuração de uma única inscrição (SSO) pode ser simples ou complexa dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser criadas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para acelerar rapidamente, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar requer uma configuração personalizada para SSO baseado em SAML, então este artigo é para si.
 
-Na [série quickstart,](view-applications-portal.md)há um artigo sobre configurar um único sign-on. Nele, aprende-se a aceder à página de configuração SAML para uma aplicação. A página de configuração SAML inclui cinco secções. Estas secções são discutidas em detalhe neste artigo.
+Na [série quickstart,](add-application-portal-setup-sso.md)há um artigo sobre configurar um único sign-on. Nele, aprende-se a aceder à página de configuração SAML para uma aplicação. A página de configuração SAML inclui cinco secções. Estas secções são discutidas em detalhe neste artigo.
 
 > [!IMPORTANT] 
 > Existem alguns cenários em que a opção **de inscrição única** não estará presente na navegação para uma aplicação em **aplicações da Enterprise**. 
@@ -42,9 +42,9 @@ Na [série quickstart,](view-applications-portal.md)há um artigo sobre configur
 Deve obter os valores do vendedor de aplicações. Pode introduzir manualmente os valores ou carregar um ficheiro de metadados para extrair o valor dos campos.
 
 > [!TIP]
-> Muitas aplicações já foram pré-configuradas para trabalhar com a Azure AD. Estas aplicações estão listadas na galeria de aplicações que pode navegar quando adiciona uma aplicação ao seu inquilino AZure AD. A [série quickstart](view-applications-portal.md) acompanha-o através do processo. Para as aplicações na galeria encontrará instruções detalhadas, passo a passo, configurar. Para aceder aos passos pode clicar no link na página de configuração SAML para a aplicação descrita na série quickstart ou pode navegar numa lista de todos os tutoriais de configuração de aplicações em tutoriais de configuração de [aplicações SaaS.](../saas-apps/tutorial-list.md)
+> Muitas aplicações já foram pré-configuradas para trabalhar com a Azure AD. Estas aplicações estão listadas na galeria de aplicações que pode navegar quando adiciona uma aplicação ao seu inquilino AZure AD. A [série quickstart](add-application-portal-setup-sso.md) acompanha-o através do processo. Para as aplicações na galeria encontrará instruções detalhadas, passo a passo, configurar. Para aceder aos passos pode clicar no link na página de configuração SAML para a aplicação descrita na série quickstart ou pode navegar numa lista de todos os tutoriais de configuração de aplicações em tutoriais de configuração de [aplicações SaaS.](../saas-apps/tutorial-list.md)
 
-| Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Descrição |
+| Definição básica de configuração SAML | Iniciado pelo SP | Iniciado pelo idP | Description |
 |:--|:--|:--|:--|
 | **Identificador (ID de Entidade)** | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente a aplicação. A Azure AD envia o identificador para a aplicação como parâmetro do Público do token SAML. Espera-se que o pedido o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece. Introduza um URL que utilize o seguinte padrão: 'https:// <subdomain> .contoso.com' *Pode encontrar este valor como elemento **emitente** no **pedido AuthnRequest** (pedido SAML) enviado pela aplicação.* |
 | **URL de resposta** | Necessário | Necessário | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Pode utilizar os campos URL de resposta adicionais para especificar URLs de resposta múltipla. Por exemplo, pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para efeitos de teste, pode especificar URLs de resposta múltipla (hospedeiro local e URLs públicos) de uma só vez. |
@@ -57,7 +57,7 @@ Deve obter os valores do vendedor de aplicações. Pode introduzir manualmente o
 Quando um utilizador autentica a aplicação, a Azure AD emite a aplicação um token SAML com informações (ou reclamações) sobre o utilizador que as identifica de forma única. Por predefinição, estas informações incluem o nome de utilizador do utilizador, endereço de e-mail, primeiro nome e apelido. Poderá ser necessário personalizar estas reclamações se, por exemplo, a aplicação necessitar de valores de reclamação específicos ou de um formato **Name** que não seja o nome de utilizador. 
 
 > [!IMPORTANT]
-> Muitas aplicações já estão pré-configuradas e na galeria de aplicações e não precisa de se preocupar em configurar as reclamações do utilizador e do grupo. A [série quickstart](view-applications-portal.md) acompanha-o através da adição e configuração de apps.
+> Muitas aplicações já estão pré-configuradas e na galeria de aplicações e não precisa de se preocupar em configurar as reclamações do utilizador e do grupo. A [série quickstart](add-application-portal.md) acompanha-o através da adição e configuração de apps.
 
 
 O valor **do identificador de identificação do utilizador único (Name ID)** é uma reivindicação necessária e é importante. O valor predefinido é *user.userprincipalname*. O identificador de utilizador identifica exclusivamente cada utilizador da aplicação. Por exemplo, se o endereço de e-mail for o nome de utilizador e o identificador exclusivo, defina o valor como *user.mail*.
@@ -79,7 +79,7 @@ Pode adicionar novas reclamações, para mais detalhes ver [adicionar reclamaç�
 A Azure AD utiliza um certificado para assinar os tokens SAML que envia para o pedido. Precisa deste certificado para estabelecer a confiança entre a Azure AD e o pedido. Para mais informações sobre o formato do certificado, consulte a documentação SAML da aplicação. Para obter mais informações, consulte [Gerir os certificados para](manage-certificates-for-federated-single-sign-on.md) opções de assinatura única e de assinatura de [certificados avançados federados no token SAML](certificate-signing-options.md).
 
 > [!IMPORTANT]
-> Muitas aplicações já estão pré-configuradas e na galeria de aplicações e você não precisa mergulhar em certificados. A [série quickstart](view-applications-portal.md) acompanha-o através da adição e configuração de apps.
+> Muitas aplicações já estão pré-configuradas e na galeria de aplicações e você não precisa mergulhar em certificados. A [série quickstart](add-application-portal.md) acompanha-o através da adição e configuração de apps.
 
 A partir do Azure AD, você pode baixar o certificado ativo em formato Base64 ou Raw diretamente a partir da página principal Configurar Único Sinal com página **SAML.** Além disso, pode obter o certificado ativo descarregando o ficheiro XML de metadados de aplicação ou utilizando o URL de metadados da federação de aplicações. Para visualizar, criar ou baixar os seus certificados (ativos ou inativos), siga estes passos.
 
@@ -128,7 +128,7 @@ Se aparecer uma mensagem de erro, complete os seguintes passos:
 Para obter mais informações, consulte [o único sign-on baseado em Debug SAML para aplicações no Azure Ative Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 - [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)

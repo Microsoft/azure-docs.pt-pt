@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6afbdb6bcb067bdcb570c366f4604ea77ec4f490
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526821"
+ms.locfileid: "90561351"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO plug-in para dispositivos Apple (Preview)
 
@@ -125,7 +125,7 @@ Se estiver a construir uma aplicação para cenários de Frontline Worker, consu
 
 ## <a name="how-the-sso-plug-in-works"></a>Como funciona o plug-in SSO
 
-O plug-in Microsoft Enterprise SSO baseia-se no [quadro de sign-on único da Apple.](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc) Os fornecedores de identidade que a bordo do quadro podem intercetar o tráfego da rede para os seus domínios e melhorar ou alterar a forma como esses pedidos são tratados. Por exemplo, o plug-in SSO pode mostrar UI adicional para recolher credenciais finais de utilizador de forma segura, exigir MFA ou fornecer silenciosamente fichas à aplicação.
+O plug-in Microsoft Enterprise SSO baseia-se no [quadro de sign-on único da Apple.](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc) Os fornecedores de identidade que a bordo do quadro podem intercetar o tráfego da rede para os seus domínios e melhorar ou alterar a forma como esses pedidos são tratados. Por exemplo, o plug-in SSO pode mostrar UI adicional para recolher credenciais de utilizador final de forma segura, exigir MFA ou fornecer silenciosamente fichas à aplicação.
 
 As aplicações nativas também podem implementar operações personalizadas e falar diretamente com o plug-in SSO.
 Você pode aprender sobre o quadro de inscrição única neste [vídeo WWDC 2019 da Apple](https://developer.apple.com/videos/play/tech-talks/301/)
@@ -148,11 +148,11 @@ Não são necessárias alterações de código nessas aplicações, desde que es
 - A aplicação está a usar protocolos padrão para comunicar com a Azure AD (por exemplo, OAuth2, SAML, WS-Federation)
 - A aplicação não recolhe o nome de utilizador e a palavra-passe de texto simples na UI nativa
 
-Neste caso, o SSO é fornecido no momento em que a aplicação cria um pedido de rede e abre um navegador web para iniciar a inscrição do utilizador. Quando um utilizador é redirecionado para um URL de login Azure AD, o plug-in SSO valida o URL e verifica se existe uma credencial SSO disponível para esse URL. Se houver um, o plug-in SSO passa o credencial SSO para Azure AD, que autoriza a aplicação a completar o pedido de rede sem pedir ao utilizador final para introduzir credenciais. Além disso, se o dispositivo for conhecido do Azure AD, o plug-in SSO também passará o certificado do dispositivo para satisfazer a verificação de acesso condicional baseada no dispositivo. 
+Neste caso, o SSO é fornecido quando a aplicação cria um pedido de rede e abre um navegador web para iniciar a inscrição do utilizador. Quando um utilizador é redirecionado para um URL de login Azure AD, o plug-in SSO valida o URL e verifica se existe uma credencial SSO disponível para esse URL. Se houver um, o plug-in SSO passa o credencial SSO para Azure AD, que autoriza a aplicação a completar o pedido de rede sem pedir ao utilizador que introduza as suas credenciais. Além disso, se o dispositivo for conhecido do Azure AD, o plug-in SSO também passará o certificado do dispositivo para satisfazer a verificação de acesso condicional baseada no dispositivo. 
 
 Para suportar SSO para aplicações não MSAL, o plug-in SSO implementa um protocolo semelhante ao plug-in do navegador Windows descrito no [What is a Primary Refresh Token?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt) 
 
-Em comparação com as aplicações baseadas no MSAL, o plug-in SSO atua de forma mais transparente para aplicações não MSAL, integrando-se com a experiência de login do navegador existente que as aplicações fornecem. O utilizador final veria a sua experiência familiar com o benefício de não ter de fazer um insusimento adicional em cada uma das aplicações. Por exemplo, em vez de exibir o selecionador de contas nativo, o SSO plug-in adiciona sessões SSO à experiência de picker de conta baseada na web. 
+Em comparação com as aplicações baseadas no MSAL, o plug-in SSO atua de forma mais transparente para aplicações não MSAL, integrando-se com a experiência de login do navegador existente que as aplicações fornecem. O utilizador final veria a sua experiência familiar, com o benefício de não ter de realizar insusimentos adicionais em cada uma das aplicações. Por exemplo, em vez de exibir o selecionador de contas nativo, o plug-in SSO adiciona sessões SSO à experiência de picker de conta baseada na web. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

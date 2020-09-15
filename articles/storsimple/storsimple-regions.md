@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76275117"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564156"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o seu StorSimple
 
@@ -39,7 +39,7 @@ Define uma região ou localização quando cria pela primeira vez o serviço Sto
 
 Aqui está uma lista de regiões onde o serviço StorSimple Device Manager está disponível para a nuvem pública de Azure e pode ser implantado.
 
-![storsimple-device-manager-regiões](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![A screenshot mostra o Gestor de Dispositivos StorSimple com a lista de localização em destaque.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 Para a nuvem do Governo Azure, o serviço StorSimple Device Manager está disponível nos centros de dados do Gov Iowa e do Us Gov Virginia.
 
@@ -96,7 +96,7 @@ O 8020 utiliza armazenamento premium e _Standard_DS3_ VM para criar um aparelho 
 
 Se utilizar uma série de 1200 séries StorSimple Virtual Array, então a imagem do disco virtual é suportada em todas as regiões do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os [preços de vários modelos StorSimple](https://azure.microsoft.com/pricing/calculator/#storsimple2).
 * Saiba mais sobre [a gestão da sua conta de armazenamento StorSimple](storsimple-8000-manage-storage-accounts.md).

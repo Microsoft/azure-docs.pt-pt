@@ -3,12 +3,12 @@ title: Replicar VMs Azure Stack para Azure usando Azure Site Recovery / Microsof
 description: Saiba como configurar a recuperação de desastres para Azure Stack VMs com o serviço de Recuperação do Local Azure.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131610"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564314"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
 
@@ -36,7 +36,7 @@ Com estes passos completos, você pode então executar um fracasso completo para
 
 ## <a name="architecture"></a>Arquitetura
 
-![Arquitetura](./media/azure-stack-site-recovery/architecture.png)
+![O diagrama mostra cofres dos Serviços de Recuperação para dois inquilinos em nuvens associadas a assinaturas de inquilinos, tanto numa infraestrutura comum de Azure Stack.](./media/azure-stack-site-recovery/architecture.png)
 
 **Localização** | **Componente** |**Detalhes**
 --- | --- | ---
@@ -339,7 +339,7 @@ Nesta fase, o falhanço está completo.
 
 Neste artigo replicamos VMs Azure Stack para Azure. Com a replicação no lugar, fizemos um exercício de recuperação de desastres para garantir que o fracasso para Azure funcionou como esperado. O artigo também incluiu passos para executar um fracasso total para Azure, e falhando de volta a Azure Stack.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter falhado, pode reprotegir o VM e começar a replicá-lo ao Azure novamente Para o fazer, repita os passos deste artigo.
 

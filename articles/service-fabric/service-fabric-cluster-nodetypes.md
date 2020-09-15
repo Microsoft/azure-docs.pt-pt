@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261102"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561895"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó de nó de tecido de serviço Azure e conjuntos de escala de máquina virtual
 
@@ -32,7 +32,7 @@ Quando se escala um conjunto de escala, cria-se um novo exemplo. O nome de inst�
 
 Se implementou o seu cluster no portal Azure ou utilizou o modelo de gestor de recursos Azure, todos os recursos sob um grupo de recursos estão listados. Pode ver os balançadores de carga para cada conjunto de balanças ou tipo de nó. O nome do balançador de carga utiliza o seguinte formato: ** &lt; &gt; nome do tipo de nó LB**. Um exemplo é LB-scluster4doc-0, como mostra a seguinte figura:
 
-![Recursos][Resources]
+![O Screenshot mostra um grupo de recursos com dois equilibradores de carga em destaque.][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Extensão da máquina virtual do tecido de serviço
 

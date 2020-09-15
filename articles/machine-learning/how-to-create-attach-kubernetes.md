@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: edd4cc28c6d59f1d6e0c9cabfd5855c72bd3fe73
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cac14d5995042847bc98e47e50ea2d188382fd2a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661843"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564343"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -68,6 +68,83 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
 
     - [Dimensione manualmente a contagem de nó num cluster AKS](../aks/scale-cluster.md)
     - [Configurar o autoescalador de cluster em AKS](../aks/cluster-autoscaler.md)
+
+## <a name="azure-kubernetes-service-version"></a>Versão do Serviço Azure Kubernetes
+
+O Serviço Azure Kubernetes permite-lhe criar um cluster utilizando uma variedade de versões Kubernetes. Para obter mais informações sobre as versões disponíveis, consulte as [versões Kubernetes suportadas no Serviço Azure Kubernetes](/azure/aks/supported-kubernetes-versions).
+
+Ao **criar** um cluster de serviço Azure Kubernetes utilizando um dos seguintes métodos, *não tem escolha na versão* do cluster que é criado:
+
+* Estúdio Azure Machine Learning, ou a secção Azure Machine Learning do portal Azure.
+* Extensão de Aprendizagem automática para Azure CLI.
+* Azure Machine Learning SDK.
+
+Estes métodos de criação de um cluster AKS utilizam a versão __padrão__ do cluster. *A versão padrão muda ao longo do tempo à* medida que as novas versões Kubernetes ficam disponíveis.
+
+Ao **anexar** um cluster AKS existente, apoiamos todas as versões AKS suportadas atualmente.
+
+> [!NOTE]
+> Pode haver casos de borda em que você tem um cluster mais antigo que já não é suportado. Neste caso, a operação de anexação devolverá um erro e listará as versões atualmente suportadas.
+>
+> Pode anexar versões de **pré-visualização.** A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. O suporte para a utilização de versões de pré-visualização pode ser limitado. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### <a name="available-and-default-versions"></a>Versões disponíveis e padrão
+
+Para encontrar as versões AKS disponíveis e predefinidas, utilize as [versões get-vers do](/cli/azure/aks?view=azure-cli-latest#az_aks_get_versions)comando [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) . Por exemplo, o seguinte comando devolve as versões disponíveis na região oeste dos EUA:
+
+```azurecli-interactive
+az aks get-versions -l westus -o table
+```
+
+A saída deste comando é semelhante ao seguinte texto:
+
+```text
+KubernetesVersion    Upgrades
+-------------------  ----------------------------------------
+1.18.6(preview)      None available
+1.18.4(preview)      1.18.6(preview)
+1.17.9               1.18.4(preview), 1.18.6(preview)
+1.17.7               1.17.9, 1.18.4(preview), 1.18.6(preview)
+1.16.13              1.17.7, 1.17.9
+1.16.10              1.16.13, 1.17.7, 1.17.9
+1.15.12              1.16.10, 1.16.13
+1.15.11              1.15.12, 1.16.10, 1.16.13
+```
+
+Para encontrar a versão padrão que é usada ao **criar** um cluster através do Azure Machine Learning, pode utilizar o `--query` parâmetro para selecionar a versão predefinida:
+
+```azurecli-interactive
+az aks get-versions -l westus --query "orchestrators[?default == `true`].orchestratorVersion" -o table
+```
+
+A saída deste comando é semelhante ao seguinte texto:
+
+```text
+Result
+--------
+1.16.13
+```
+
+Se quiser verificar **programáticamente as versões disponíveis,** utilize o Cliente de Serviço de [Contentores - List Orchestrators](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. Para encontrar as versões disponíveis, veja as entradas onde `orchestratorType` está `Kubernetes` . As `orchestrationVersion` entradas associadas contêm as versões disponíveis que podem ser **anexadas** ao seu espaço de trabalho.
+
+Para encontrar a versão padrão que é usada ao **criar** um cluster através do Azure Machine Learning, encontre a entrada onde `orchestratorType` está e está `Kubernetes` `default` `true` . O valor associado `orchestratorVersion` é a versão padrão. O seguinte snippet JSON mostra uma entrada de exemplo:
+
+```json
+...
+ {
+        "orchestratorType": "Kubernetes",
+        "orchestratorVersion": "1.16.13",
+        "default": true,
+        "upgrades": [
+          {
+            "orchestratorType": "",
+            "orchestratorVersion": "1.17.7",
+            "isPreview": false
+          }
+        ]
+      },
+...
+```
 
 ## <a name="create-a-new-aks-cluster"></a>Criar um novo cluster AKS
 
@@ -203,7 +280,7 @@ Para obter informações sobre a anexação de um cluster AKS no portal, consult
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como e onde implementar um modelo](how-to-deploy-and-where.md)
 * [Implementar um modelo para um cluster de serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)

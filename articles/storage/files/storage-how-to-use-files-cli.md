@@ -8,15 +8,15 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 149481f9cae535fa53f94a876e1f52e813b3838b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9c569e65546853c4e9c8c460d29041e4bb829c09
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034588"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564207"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
-Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
+Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As ações do Azure File suportam o protocolo padrão do Bloco de Mensagens do Servidor (SMB) da indústria, o protocolo sistema de ficheiros de rede (NFS) (pré-visualização) e permite a partilha de ficheiros em várias máquinas, aplicações e instâncias. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -83,6 +83,7 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $shareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 ```
 
@@ -174,6 +175,7 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $otherShareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 
 az storage directory create \
@@ -203,7 +205,7 @@ az storage file list \
     --output table
 ```
 
-Embora o `az storage file copy start` comando seja conveniente para movimentos de ficheiros entre ações de ficheiros Azure, para migrações e movimentos de dados maiores, recomendamos no `rsync` macOS e Linux e `robocopy` no Windows. `rsync`e `robocopy` usar o SMB para executar os movimentos de dados em vez da API FileREST.
+Embora o `az storage file copy start` comando seja conveniente para movimentos de ficheiros entre ações de ficheiros Azure, para migrações e movimentos de dados maiores, recomendamos no `rsync` macOS e Linux e `robocopy` no Windows. `rsync` e `robocopy` usar o SMB para executar os movimentos de dados em vez da API FileREST.
 
 ## <a name="create-and-manage-share-snapshots"></a>Criar e gerir instantâneos de partilha
 Outra tarefa útil que pode realizar com uma partilha de ficheiros do Azure é criar instantâneos de partilha. Os instantâneos preservam uma cópia de ponto no tempo das partilhas de ficheiros do Azure. Os instantâneos de partilha são semelhantes a algumas tecnologias de sistema operativo com as quais pode já estar familiarizado:
@@ -287,7 +289,7 @@ az storage share delete \
     --output none
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando terminar, pode usar o [`az group delete`](/cli/azure/group) comando para remover o grupo de recursos e todos os recursos relacionados: 
 
 ```azurecli-interactive 

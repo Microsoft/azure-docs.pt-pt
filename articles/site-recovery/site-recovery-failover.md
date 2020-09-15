@@ -4,14 +4,14 @@ description: Como falhar sobre VMs/servidores físicos para Azure com Azure Site
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309973"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563986"
 ---
-# <a name="run-a-failover-from-on-premises-to-azure"></a>Executar um failover de no local para Azure
+# <a name="run-a-failover-from-on-premises-to-azure"></a>Executar uma ativação pós-falha de local para o Azure
 
 Este artigo descreve como falhar sobre máquinas no local para Azure na [Recuperação do Local de Azure](site-recovery-overview.md)
 
@@ -46,7 +46,7 @@ Executar o plano de recuperação falha da seguinte forma:
 1. No cofre de recuperação do local, selecione **Planos de Recuperação**  >  *recoveryplan_name*.
 2. Clique **em Failover**.
 
-    ![Ativação pós-falha](./media/site-recovery-failover/Failover.png)
+    ![A screenshot mostra o painel ADRP com Failover selecionado no menu Mais.](./media/site-recovery-failover/Failover.png)
 
 3. Na **Failover**  >  **direção Failover Failover,** deixe o padrão se estiver a replicar-se em Azure.
 4. Em **Failover**, selecione um **Ponto de Recuperação** para o qual falhar.
@@ -141,7 +141,7 @@ Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md)
 - **Endereços IP externos**: Pode reter endereços IP públicos no failover. Os VMs Azure criados como parte do processo de failover devem ser atribuídos um endereço IP público Azure disponível na região de Azure. Pode atribuir um endereço IP público manualmente ou automatizando o processo com um plano de recuperação. [Saiba mais](concepts-public-ip-address-with-site-recovery.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter falhado, precisa de ser reprotegido para começar a replicar os VMs do Azure de volta ao local. Depois de a replicação estar a funcionar, podes voltar ao local quando estiveres pronto.
 

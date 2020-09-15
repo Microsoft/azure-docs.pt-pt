@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203219"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562881"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas Azure Ative Directory B2C
 
@@ -32,6 +32,7 @@ Um perfil técnico permite este tipo de cenários:
 - [Azure Ative Directory](active-directory-technical-profile.md) - Fornece suporte para a gestão de utilizadores Azure Ative Directory B2C.
 - [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) - fornece suporte para verificar um número de telefone utilizando a autenticação multi-factor Azure (MFA). 
 - [Transformação de reclamações](claims-transformation-technical-profile.md) - A produção de chamadas reclama transformações para manipular valores de sinistros, validar reclamações ou definir valores padrão para um conjunto de reclamações de saída.
+- [Dica de id token](id-token-hint.md) - Valida `id_token_hint` a assinatura simbólica JWT, o nome do emitente e o público simbólico e extrai a reivindicação do token de entrada.
 - [Emitente JWT token](jwt-issuer-technical-profile.md) - Emite um símbolo JWT que é devolvido à aplicação do partido em gestão.
 - [OAuth1](oauth1-technical-profile.md) - Federação com qualquer provedor de identidade do protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) - Federação com qualquer provedor de identidade do protocolo OAuth 2.0.

@@ -3,12 +3,12 @@ title: Create a Service Fabric cluster in the Azure portal (Criar um cluster do 
 description: Aprenda a configurar um cluster de tecido de serviço seguro em Azure usando o portal Azure e o Cofre de Chaves Azure.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259319"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563731"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster de tecido de serviço em Azure usando o portal Azure
 > [!div class="op_single_selector"]
@@ -128,42 +128,42 @@ Siga os ecrãs para adicionar ou reutilizar um cofre de chaves existente e adici
 
 Resista à tentação de navegar para longe do ecrã até que o processo anterior esteja concluído.
 
-![CreateKeyVault]
+![A screenshot mostra a página de Segurança com Basic selecionada com o painel de abóbada chave e criar o painel do cofre da chave.][CreateKeyVault]
 
 Agora que o cofre chave foi criado, edite as políticas de acesso para o seu cofre chave. 
 
-![CreateKeyVault2]
+![O screenshot mostra o painel de cluster do Tecido de Serviço Create com a opção 3 Segurança selecionada e uma explicação de que o cofre da chave não está ativado.][CreateKeyVault2]
 
 Clique nas **políticas de acesso editar,** em seguida, mostre políticas de acesso **avançadas** e permita o acesso às Máquinas Virtuais Azure para implementação. Recomenda-se que também ative a implementação do modelo. Depois de ter feito as suas seleções, não se esqueça de clicar no botão **Guardar** e fechar o painel de **políticas de Acesso.**
 
-![CreateKeyVault3]
+![O screenshot mostra o painel de cluster do Tecido de Serviço Create com o painel de segurança aberto e o painel de políticas de acesso aberto.][CreateKeyVault3]
 
 Insira o nome do certificado e clique **em OK**.
 
-![CreateKeyVault4]
+![O screenshot mostra o painel de cluster Do Tecido de Serviço Create com segurança selecionado como antes, mas sem a explicação de que o cofre da chave não está ativado.][CreateKeyVault4]
 
 #### <a name="custom-option"></a>Opção personalizada
 Ignore esta secção, se já tiver realizado os passos na Opção **Básica.**
 
-![SegurançaCotomoption]
+![A screenshot mostra a caixa de diálogo de configuração de configuração do cluster de segurança de configuração de segurança de segurança de segurança de segurança de segurança.][SecurityCustomOption]
 
 Precisa do cofre de chave Fonte, URL de certificado e informação de impressão digital do certificado para completar a página de segurança. Se não o tiver à mão, abra outra janela do navegador e no portal Azure faça o seguinte
 
 1. Navegue para o seu serviço de cofre chave.
 2. Selecione o separador "Propriedades" e copie o 'RESOURCE ID' para "Cofre de chave de origem" na outra janela do navegador 
 
-    ![CertInfo0]
+    ![A imagem mostra a janela propriedades para o cofre da chave.][CertInfo0]
 
 3. Agora, selecione o separador "Certificados".
 4. Clique na impressão digital do certificado, que o leva à página Versões.
 5. Clique nos GUIDs que vê na versão atual.
 
-    ![CertInfo1]
+    ![Screenshot mostra a janela do certificado para o cofre da chave][CertInfo1]
 
 6. Deve estar agora no ecrã como abaixo. Copie a impressão digital hexadémica SHA-1 para "Impressão digital do certificado" na outra janela do navegador
 7. Copie o 'Identificador Secreto' para o "URL de certificado" noutra janela do navegador.
 
-    ![CertInfo2]
+    ![A screenshot mostra a caixa de diálogo da versão do certificado com a opção de copiar o identificador de certificado.][CertInfo2]
 
 Consulte a caixa **de configurações avançadas Configure** para introduzir certificados de cliente para **cliente administrativo** e **cliente apenas de leitura**. Nestes campos, introduza a impressão digital do seu certificado de cliente administrativo e a impressão digital do seu certificado de cliente de leitura, se aplicável. Quando os administradores tentam ligar-se ao cluster, só lhes é concedido acesso se tiverem um certificado com uma impressão digital que corresponda aos valores de impressão digital introduzidos aqui.  
 
@@ -173,7 +173,7 @@ Agora estás pronto para implantar o aglomerado. Antes de fazer isso, faça o do
 
 Para completar a criação do cluster, clique em **Criar**. Você pode opcionalmente baixar o modelo.
 
-![Resumo]
+![O Screenshot mostra a página de resumo do cluster Do Tecido de Serviço create com um link para visualizar e descarregar um certificado.][Summary]
 
 Pode ver o progresso da criação nas notificações. (Clique no ícone "Bell" perto da barra de estado no canto superior direito do seu ecrã.) Se clicar em **Pin to Startboard** enquanto cria o cluster, vê **o Cluster de Tecido de Serviço de Implantação** fixado na placa **Iniciar.** Este processo vai levar algum tempo. 
 
@@ -228,9 +228,9 @@ Neste momento, tem um cluster seguro usando certificados para autenticação de 
 [CertInfo0]: ./media/service-fabric-cluster-creation-via-portal/CertInfo0.PNG
 [CertInfo1]: ./media/service-fabric-cluster-creation-via-portal/CertInfo1.PNG
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
-[SegurançaCotomoption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
+[SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
-[Resumo]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

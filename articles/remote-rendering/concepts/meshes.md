@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea43f48abef5e2b258251d46eca1061a2263519
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 08d80a5ec2099147c12bcecd3b52d64429837285
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613837"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563969"
 ---
 # <a name="meshes"></a>Malhas
 
 ## <a name="mesh-resource"></a>Recurso de malha
 
-As malhas são um [recurso partilhado](../concepts/lifetime.md)imutável, que só pode ser criado através da conversão de [modelos.](../how-tos/conversion/model-conversion.md) As malhas contêm uma ou *múltiplas submechas.* Cada submesh refere um [material](materials.md) com o qual deve ser prestado por defeito. Para colocar uma malha no espaço 3D, adicione um [MeshComponent](#meshcomponent) a uma [Entidade.](entities.md)
+As malhas são um [recurso partilhado](../concepts/lifetime.md)imutável, que só pode ser criado através da conversão de [modelos.](../how-tos/conversion/model-conversion.md) As malhas contêm uma ou *múltiplas submechas* juntamente com uma representação física para [consultas de raycast](../overview/features/spatial-queries.md). Cada submesh refere um [material](materials.md) com o qual deve ser prestado por defeito. Para colocar uma malha no espaço 3D, adicione um [MeshComponent](#meshcomponent) a uma [Entidade.](entities.md)
 
 ### <a name="mesh-resource-properties"></a>Propriedades de recursos de malha
 
@@ -38,6 +38,39 @@ A `MeshComponent` classe é usada para colocar um exemplo de um recurso de malha
 
 * **Materiais Usados:** A matriz de materiais realmente usados para cada submesh. Será idêntico aos dados da matriz *de Materiais,* para valores não nulos. Caso contrário, contém o valor da matriz *de materiais* na placa de malha.
 
+### <a name="sharing-of-meshes"></a>Partilha de malhas
+
+Um `Mesh` recurso pode ser partilhado em várias instâncias de componentes de malha. Além disso, o `Mesh` recurso atribuído a um componente de malha pode ser alterado programáticamente a qualquer momento. O código abaixo demonstra como clonar uma malha:
+
+```cs
+Entity CloneEntityWithModel(RemoteManager manager, Entity sourceEntity)
+{
+    MeshComponent meshComp = sourceEntity.FindComponentOfType<MeshComponent>();
+    if (meshComp != null)
+    {
+        Entity newEntity = manager.CreateEntity();
+        MeshComponent newMeshComp = manager.CreateComponent(ObjectType.MeshComponent, newEntity) as MeshComponent;
+        newMeshComp.Mesh = meshComp.Mesh; // share the mesh
+        return newEntity;
+    }
+    return null;
+}
+```
+
+```cpp
+ApiHandle<Entity> CloneEntityWithModel(ApiHandle<RemoteManager> manager, ApiHandle<Entity> sourceEntity)
+{
+    if (ApiHandle<MeshComponent> meshComp = sourceEntity->FindComponentOfType<MeshComponent>())
+    {
+        ApiHandle<Entity> newEntity = *manager->CreateEntity();
+        ApiHandle<MeshComponent> newMeshComp = manager->CreateComponent(ObjectType::MeshComponent, newEntity)->as<RemoteRendering::MeshComponent>();
+        newMeshComp->SetMesh(meshComp->GetMesh()); // share the mesh
+        return newEntity;
+    }
+    return nullptr;
+}
+```
+
 ## <a name="api-documentation"></a>Documentação da API
 
 * [Classe C# Malha](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
@@ -45,6 +78,7 @@ A `MeshComponent` classe é usada para colocar um exemplo de um recurso de malha
 * [Classe C++ malha](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
 * [Classe C++ MeshComponent](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Materiais](materials.md)

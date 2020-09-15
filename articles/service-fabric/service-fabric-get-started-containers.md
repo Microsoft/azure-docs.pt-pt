@@ -4,12 +4,12 @@ description: Crie a sua primeira aplicação de contentor do Windows no Azure Se
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844444"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564326"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 
@@ -290,7 +290,7 @@ A partir da última versão da atualização do v6.4, tem a opção de especific
 
 A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem de estar presente no dockerfile utilizado ao gerar a imagem de contentor.
 
-![HealthCheckHealthy][3]
+![A screenshot mostra detalhes do NodeServicePackage do pacote de serviço implantado.][3]
 
 ![HealthCheckUnhealthyApp][4]
 

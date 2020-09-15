@@ -12,18 +12,18 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: b1f23d52b96e708a16adbbf6098de4b7ab0423e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052108"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561655"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
 Uma única sindução significa que um utilizador não tem de iniciar sôms em todas as aplicações que utiliza. O utilizador inicia sessão uma vez e essa credencial também é utilizada para outras aplicações.
 
-Se é um utilizador final, provavelmente não se importa muito com detalhes do SSO. Você só quer usar as aplicações que o tornam produtivo sem ter que escrever tanto a sua senha. Pode encontrar as suas aplicações em: https://myapplications.microsoft.com .
+Se é um utilizador final, provavelmente não se importa muito com detalhes do SSO. Você só quer usar as aplicações que o tornam produtivo sem ter que escrever tanto a sua senha. Pode encontrar as suas aplicações em: https://myapps.microsoft.com .
  
 Se você é um administrador, ou profissional de TI, então leia para saber mais sobre SSO e como é implementado em Azure.
 
@@ -53,7 +53,7 @@ A forma como implementa um único sign-on depende do local onde a aplicação es
 > [!TIP]
 > As aplicações hospedadas na nuvem também são chamadas de Software como aplicações de serviço (SaaS). 
 
-O único sinal de inscrição para aplicações hospedadas na nuvem é simples. Informe o fornecedor de identidade que está a ser usado para a aplicação. E depois configura a app para confiar no fornecedor de identidade. Para aprender a usar o Azure AD como fornecedor de identidade para uma aplicação, consulte a [Série Quickstart em Gestão de Aplicações.](view-applications-portal.md)
+O único sinal de inscrição para aplicações hospedadas na nuvem é simples. Informe o fornecedor de identidade que está a ser usado para a aplicação. E depois configura a app para confiar no fornecedor de identidade. Para aprender a usar o Azure AD como fornecedor de identidade para uma aplicação, consulte a [Série Quickstart em Gestão de Aplicações.](add-application-portal.md)
 
 > [!TIP]
 > Os termos cloud e Internet são frequentemente usados intercambiáveis. A razão para isto tem a ver com os diagramas de rede. É comum denotar grandes redes de computador com uma forma de nuvem num diagrama porque não é viável desenhar todos os componentes. A Internet é a rede mais conhecida e, portanto, é fácil usar os termos intercambiavelmente. No entanto, qualquer rede de computador pode ser cunhada uma nuvem.
@@ -68,6 +68,6 @@ Fundamentos de autenticação: Federação / Diretório Ativo Azure
 > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [Opções de início de sessão único](sso-options.md)

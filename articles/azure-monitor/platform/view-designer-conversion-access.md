@@ -6,12 +6,12 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7614dd1d60bad5c124269ae2af02d30a5aacfe3e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658851"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564037"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Ver designer para resumo de conversão de livros de trabalho e acesso
 [O view designer](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar visualizações personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e linhas de tempo. Estão a ser eliminados e substituídos por livros de trabalho, que fornecem funcionalidades adicionais. Este artigo detalha como pode criar um resumo geral e permissões necessárias para aceder a livros de trabalho.
@@ -21,7 +21,7 @@ Ver utilizadores de designers pode estar familiarizado com ter um azulejo geral 
 
 Pode tirar partido do alto nível de funcionalidades de personalização fornecidas com dashboards Azure, que permitem atualização automática, movimento, dimensionamento e filtragem adicional para os seus itens e visualizações fixados. 
 
-![Dashboard](media/view-designer-conversion-access/dashboard.png)
+![A screenshot mostra um dashboard Azure personalizado intitulado Workspace Summary.](media/view-designer-conversion-access/dashboard.png)
 
 Crie um novo painel de instrumentos Azure ou selecione um dashboard existente para começar a fixar itens de livros de trabalho.
 
@@ -45,6 +45,6 @@ Para que um utilizador veja um livro partilhado, deve ter acesso ao grupo de sub
 
 ![Acesso baseado em assinaturas](media/view-designer-conversion-access/subscription-access.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tarefas comuns](view-designer-conversion-tasks.md)

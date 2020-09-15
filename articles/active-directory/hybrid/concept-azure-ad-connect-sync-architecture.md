@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689219"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563867"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect sync: Understanding the architecture
 Este tópico abrange a arquitetura básica para a sincronização Azure AD Connect. Em muitos aspetos, é semelhante aos seus antecessores MIIS 2003, ILM 2007 e FIM 2010. Azure AD Connect sync é a evolução destas tecnologias. Se você está familiarizado com alguma destas tecnologias anteriores, o conteúdo deste tópico também lhe será familiar. Se és novo na sincronização, então este tópico é para ti. No entanto, não é um requisito conhecer os detalhes deste tópico para ser bem sucedido em fazer personalizações para a sincronização Azure AD Connect (chamado motor de sincronização neste tópico).
@@ -36,7 +36,7 @@ O motor de sincronização encapsula a interação com uma fonte de dados conect
 
 Os conectores fazem chamadas de API para trocar informações de identidade (tanto ler como escrever) com uma fonte de dados conectada. Também é possível adicionar um Conector personalizado utilizando a estrutura de conectividade extensível. A seguinte ilustração mostra como um Conector liga uma fonte de dados ligada ao motor de sincronização.
 
-![Arco1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
+![O diagrama mostra uma fonte de dados conectada e um motor de sincronização associado por uma linha chamada Connector.](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
 
 Os dados podem fluir em qualquer direção, mas não podem fluir em ambas as direções simultaneamente. Por outras palavras, um Conector pode ser configurado para permitir que os dados fluam da fonte de dados ligada para sincronizar o motor ou do motor de sincronização para a fonte de dados conectada, mas apenas uma dessas operações pode ocorrer a qualquer momento para um objeto e atributo. A direção pode ser diferente para diferentes objetos e para diferentes atributos.
 
@@ -62,7 +62,7 @@ O **metaverso** é uma área de armazenamento que contém a informação de iden
 
 A seguinte ilustração mostra o espaço de nome do conector e o espaço de nome metaverso dentro do motor de sincronização.
 
-![Arco2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
+![O diagrama mostra uma fonte de dados conectada e um motor de sincronização, que é separado em espaço de conector e espaços de nome metaversos, associados por uma linha chamada Connector.](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
 
 ## <a name="sync-engine-identity-objects"></a>Sync objetos de identidade do motor
 Os objetos no motor de sincronização são representações de ambos os objetos na fonte de dados ligada ou na visão integrada que o motor de sincronização tem desses objetos. Cada objeto do motor de sincronização deve ter um identificador globalmente único (GUID). Os GUIDs fornecem integridade dos dados e expressam relações entre objetos.
@@ -97,13 +97,13 @@ Um objeto de encenação pode ser um objeto de importação ou um objeto de expo
 
 A seguinte ilustração mostra um objeto de importação que representa um objeto na fonte de dados conectada.
 
-![Arco3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
+![O diagrama mostra um objeto de importação trazido da fonte de dados ligada para o espaço do conector no motor de sincronização.](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
 
 O motor de sincronização cria um objeto de exportação utilizando informações de objetos no metaverso. Os objetos de exportação são exportados para a fonte de dados conectada durante a próxima sessão de comunicação. Do ponto de vista do motor de sincronização, os objetos de exportação ainda não existem na fonte de dados ligada. Por conseguinte, o atributo de âncora para um objeto de exportação não está disponível. Depois de receber o objeto do motor de sincronização, a fonte de dados conectada cria um valor único para o atributo de âncora do objeto.
 
 A seguinte ilustração mostra como um objeto de exportação é criado usando informações de identidade no metaverso.
 
-![Arco-4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
+![O diagrama mostra um objeto de exportação trazido do metaverso para o espaço do conector e, em seguida, para a fonte de dados conectada.](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
 
 O motor de sincronização confirma a exportação do objeto reimportando o objeto a partir da fonte de dados ligada. Os objetos de exportação tornam-se objetos de importação quando o motor de sincronização os recebe durante a próxima importação dessa fonte de dados ligada.
 
@@ -132,7 +132,7 @@ Quando um objeto de encenação se torna um objeto unido durante a sincronizaç�
 
 Um único objeto espacial do conector pode ser ligado a apenas um objeto metaverso. No entanto, cada objeto metaverso pode ser ligado a múltiplos objetos espaciais de conector no mesmo ou em diferentes espaços de conector, como mostra a seguinte ilustração.
 
-![Arco](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
+![O diagrama mostra dois objetos de dados ligados associados pelos conectores a um motor de sincronização, que uniu objetos e um objeto desacoplado.](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
 
 A relação ligada entre o objeto de encenação e um objeto metaverso é persistente e só pode ser removida por regras que especifique.
 
@@ -157,7 +157,7 @@ Durante o processo de exportação, o motor de sincronização empurra para fora
 
 A seguinte ilustração mostra onde cada um dos processos ocorre à medida que a informação de identidade flui de uma fonte de dados conectada para outra.
 
-![Arco-s6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
+![O diagrama mostra o fluxo de informações de identidade de dados conectados ao espaço do conector (importação) ao metaverso ao espaço do conector (sincronização) até aos dados conectados (exportação).](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
 ### <a name="import-process"></a>Processo de importação
 Durante o processo de importação, o motor de sincronização avalia as atualizações à informação de identidade. O motor de sincronização compara as informações de identidade recebidas da fonte de dados conectada com a informação de identidade sobre um objeto de encenação e determina se o objeto de encenação requer atualizações. Se for necessário atualizar o objeto de encenação com novos dados, o objeto de encenação é sinalizado como importação pendente.
@@ -252,11 +252,11 @@ Por exemplo, um processo na fonte de dados conectada poderia alterar os atributo
 
 O motor de sincronização armazena informações sobre o estado de exportação e importação sobre cada objeto de encenação. Se os valores dos atributos especificados na lista de inclusão de atributos tiverem mudado desde a última exportação, a armazenagem do estatuto de importação e exportação permite que o motor de sincronização reaja adequadamente. O motor sync utiliza o processo de importação para confirmar valores de atributos que foram exportados para a fonte de dados conectada. Uma comparação entre as informações importadas e as exportadas, tal como demonstra a seguinte ilustração, permite que o motor de sincronização determine se a exportação foi bem sucedida ou se precisa de ser repetida.
 
-![Arco](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
+![O diagrama mostra a sincronização de um objeto entre o espaço do conector e os dados ligados sobre o conector.](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
 Por exemplo, se as exportações de motores de sincronização atribuem C, que tem um valor de 5, a uma fonte de dados ligada, armazena C=5 na sua memória de estado de exportação. Cada exportação adicional deste objeto resulta numa tentativa de exportar C=5 para a fonte de dados ligada novamente porque o motor de sincronização pressupõe que este valor não tenha sido aplicado persistentemente ao objeto (isto é, a menos que um valor diferente tenha sido importado recentemente da fonte de dados ligada). A memória de exportação é apagada quando C=5 é recebida durante uma operação de importação no objeto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

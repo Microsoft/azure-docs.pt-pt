@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510374"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563510"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Linux para uma implementação de nuvem híbrida com Azure File Sync
 
-O Azure File Sync funciona em instâncias do Windows Server com armazenamento direto anexado (DAS). Não suporta sincronização de e para o Linux ou uma partilha remota do Bloco de Mensagens do Servidor (SMB).
+O Azure File Sync funciona em instâncias do Windows Server com armazenamento direto anexado (DAS). Não suporta sincronização de e para clientes Linux, ou uma partilha remota do Bloco de Mensagens do Servidor (SMB) ou do Sistema de Ficheiros de Rede (NFS).
 
 Como resultado, transformar os seus serviços de ficheiros numa implementação híbrida torna necessária uma migração para o Windows Server. Este artigo guia-o através do planeamento e execução de tal migração.
 
@@ -201,7 +201,7 @@ Terminou de migrar uma parte ou um grupo de ações para uma raiz ou volume comu
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter transferido todos os dados do seu servidor Linux Samba para a instância do Windows Server, e a sua migração estar completa, volte a *todos os* grupos de sincronização no portal Azure. Ajuste a percentagem de espaço livre para o volume de nivelamento de nuvens para algo mais adequado para a utilização da cache, como 20 por cento. 
+> Depois de ter transferido todos os dados do seu servidor Linux Samba para a instância do Windows Server, e a sua migração estar completa, volte a *todos os*  grupos de sincronização no portal Azure. Ajuste a percentagem de espaço livre para o volume de nivelamento de nuvens para algo mais adequado para a utilização da cache, como 20 por cento. 
 
 A política de espaço livre no volume de nivelamento de nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter o espaço livre do disco a 99%. A cache local pode então não funcionar como espera. O desempenho pode ser aceitável se o seu objetivo é ter o espaço de nome para um volume que contém apenas dados de arquivo raramente acedidos, e você está reservando o resto do espaço de armazenamento para outro cenário.
 
@@ -215,7 +215,7 @@ Quando a sua instância do Windows Server tiver capacidade disponível suficient
 
 Verifique o link na secção seguinte para verificar problemas de resolução de problemas do Azure File Sync.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos contêm opções avançadas, boas práticas e ajuda na resolução de problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
 

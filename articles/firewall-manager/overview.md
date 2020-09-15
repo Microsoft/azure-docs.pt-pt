@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 6dc22086ed97a301e225518465482e9cd7300e11
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855055"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563833"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
@@ -76,7 +76,7 @@ As políticas de firewall do Azure podem ser usadas em todas as regiões. Por ex
 
 O Azure Firewall Manager tem os seguintes problemas conhecidos:
 
-|Problema  |Descrição  |Mitigação  |
+|Problema  |Description  |Mitigação  |
 |---------|---------|---------|
 |Divisão de tráfego|O escritório 365 e a divisão de tráfego do Azure Public PaaS não são suportados neste momento. Como tal, a seleção de um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Office 365 através do serviço de parceiros.|A investigar a divisão de trânsito no centro.
 |Um centro virtual seguro por região|Não se pode ter mais do que um centro virtual seguro por região.|Crie várias WANs virtuais numa região.|
@@ -87,6 +87,7 @@ O Azure Firewall Manager tem os seguintes problemas conhecidos:
 |Todos os Hubs Virtuais Seguros que partilham o mesmo WAN virtual devem estar no mesmo grupo de recursos.|Este comportamento está alinhado com os Hubs WAN Virtuais hoje em dia.|Crie várias WANs virtuais para permitir a criação de Hubs Virtuais Seguros em diferentes grupos de recursos.|
 |Falha na adição de endereço IP em massa|A firewall do hub seguro entra num estado falhado se adicionar vários endereços IP públicos.|Adicione pequenos incrementos de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
 |As regras de aplicação falham num hub seguro com DNS personalizado (pré-visualização) configurado.|O DNS personalizado (pré-visualização) não funciona em implementações seguras do hub e nas implementações de rede virtual do Hub onde está ativado o túnel forçado.|Consertar sob investigação.|
+|DDoS Protection Standard não suportado com centros virtuais seguros|A Norma de Proteção DDoS não está integrada com vWANs.|A investigar
 
 ## <a name="next-steps"></a>Passos seguintes
 

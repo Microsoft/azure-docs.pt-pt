@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: fee0837c1196adf35a956cd13df584528d46bfc0
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: dff1d8f48b275fa7e45dab93b5ce45962499b450
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183484"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563884"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Utilize os runbooks da Azure Automation para gerir dispositivos StorSimple
 
@@ -85,7 +85,7 @@ Para criar um módulo de automatização para a gestão de dispositivos da séri
 
 6. Verifique se um ficheiro zip do módulo de automatização é criado em `C:\scripts\StorSimpleSDKTools` .
 
-    ![verificar módulo de automação](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
+    ![A screenshot mostra a pasta StorSimpleSDKTools com o ficheiro zip do módulo de automatização.](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
 7. A seguinte saída é apresentada quando o módulo de automatização é criado através do Windows PowerShell.
 
@@ -184,7 +184,7 @@ Para criar um módulo de automatização para a gestão de dispositivos da séri
    5. Deixe a opção **de execução por** defeito Como a opção de conta selecionada.
    6. Verifique opcionalmente **pin para painel de instrumentos**. Clique em **Criar**.
 
-       ![criar-automatização conta](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![O Screenshot mostra o painel de conta de automação adicionar com valores para Subscrição, Criar Azure Run como conta e Criar.](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
       Depois de a conta de automação ter sido criada com sucesso, é notificado. Para obter mais informações sobre como criar uma conta Demôm automação, vá a [Criar uma conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
@@ -196,7 +196,7 @@ Para criar um módulo de automatização para a gestão de dispositivos da séri
 
 5. Na lâmina do **módulo Adicionar,** navegue até à localização do módulo com fecho e selecione e abra o módulo. Clique em **OK**.
 
-    ![módulo de adicionar](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
+    ![A screenshot mostra o painel do Módulo de Adicionar com um valor de ficheiro de upload e OK.](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
 6. Vá a **Processos de Automatização > Runbooks e clique + Adicione um runbook**. Na lâmina do **runbook Add,** clique em **Importar um livro de execução existente**. Aponte para o ficheiro de scripts Do Windows PowerShell para o **ficheiro Runbook**. O tipo de livro de execução é selecionado automaticamente. Forneça um nome e uma descrição opcional para o livro de recortes. Clique em **Criar**.
 
@@ -208,11 +208,11 @@ Para criar um módulo de automatização para a gestão de dispositivos da séri
 
 8. Edite o runbook e clique no **painel de teste**. Forneça os parâmetros como o nome do seu serviço StorSimple Device Manager, o nome do dispositivo StorSimple e a subscrição. **Começa** o teste. O relatório é gerado quando a execução está completa. Para mais informações, aceda a [como testar um livro de recortes.](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook)
 
-    ![livro de ensaios](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
+    ![A screenshot mostra a panela de teste onde pode entrar nos valores dos parâmetros e iniciar um teste.](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
 9. Inspecione a saída do livro de ensaios no painel de ensaio. Se estiver satisfeito, feche o painel. Clique **em Publicar** e quando solicitado para confirmação, confirme e publique o livro de recortes.
 
-    ![publicar livro de execução](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
+    ![A screenshot mostra o painel de runbook Dee PowerShell, que lhe leva a publicar o livro de recortes.](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

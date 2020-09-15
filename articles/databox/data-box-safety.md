@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68985950"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564428"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instale e opere com segurança a sua Caixa de Dados Azure
 ![Ícone de aviso ](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Leia todas as informações de segurança deste artigo antes de utilizar a Caixa
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Aqui estão os ícones que encontrará quando revê as precauções de segurança a observar ao configurar e executar a sua Caixa de Dados.
 
-| Ícone | Descrição |
+| Ícone | Description |
 |:--- |:--- |
 | ![Perigo de ícone ](./media/data-box-safety/warning_icon.png) **de perigo!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos graves. Esta palavra de sinal deve limitar-se às situações mais extremas. |
 | ![Aviso ícone ](./media/data-box-safety/warning_icon.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos graves. |
@@ -120,7 +120,7 @@ Este equipamento foi testado e encontra-se em conformidade com os limites para u
 
 Este dispositivo está em conformidade com a parte 15 das normas RSS isentas de licenças da FCC e da indústria do Canadá. O funcionamento está sujeito às duas condições seguintes: (1) este dispositivo não pode causar interferência prejudicial, e (2) este dispositivo deve aceitar qualquer interferência recebida, incluindo interferências que possam causar o funcionamento nãodesejável do dispositivo.
 
-![Canadá](./media/data-box-safety/canada.png)
+![A screenshot mostra uma notificação necessária para o Canadá.](./media/data-box-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
 
@@ -154,7 +154,7 @@ Número de fax: +353 1 706 4110
 
 **Japão**
 
-![Japão](./media/data-box-safety/japan.png)
+![A screenshot mostra uma notificação necessária para o Japão.](./media/data-box-safety/japan.png)
 
 <!--**South Korea**
 
@@ -170,7 +170,7 @@ Número de fax: +353 1 706 4110
 
 Depois de ter revisto estes avisos de segurança, pode configurar e telefôr o seu dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Cabo e ligue a sua Caixa de Dados](data-box-deploy-set-up.md)
 

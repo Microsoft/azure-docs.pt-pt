@@ -7,14 +7,17 @@ ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cffac114cacd05e04e149af96d1678b536db7fec
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782375"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564241"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Problemas de resolução de problemas Problemas de desempenho dos Ficheiros Azure
+# <a name="troubleshoot-azure-files-performance-issues-smb"></a>Problemas com problemas de desempenho dos Ficheiros Azure (SMB)
+
+> [!IMPORTANT]
+> O conteúdo deste artigo aplica-se apenas às ações da SMB.
 
 Este artigo enumera alguns problemas comuns relacionados com as ações de ficheiros Azure. Fornece potenciais causas e soluções quando estes problemas são encontrados.
 
@@ -200,6 +203,36 @@ Maior do que o esperado, a latência acede aos Ficheiros Azure para cargas de tr
 11. Clique **em Selecionar grupo de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 13. Clique **em Criar regra de alerta** para criar o alerta.
+
+Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-towards-being-throttled"></a>Como criar alertas se uma quota de ficheiro premium está a tendência para ser estrangulada
+
+1. Aceda à sua **conta de armazenamento** no portal **Azure.**
+2. Na secção 'Monitorização', clique em **Alertas** e clique em **+ Nova regra de alerta**.
+3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, clique em **Fazer**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/ficheiro.
+4. Clique **em Selecionar Condição** para adicionar uma condição.
+5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica **Egress.**
+
+  > [!NOTE]
+  > Tem de criar 3 alertas separados para ser alertado quando Ingress, Egress ou Transações excedem o limiar que definiu. Isto porque um alerta só é disparado quando todas as condições estão reunidas. Por isso, se colocar todas as condições num só alerta, só será alertado se Ingress, Egress e Transações excederem os seus valores-limite.
+
+6. Rola para baixo. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
+7. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
+8. Defina os **parâmetros** de alerta (valor limiar, operador, granularidade de agregação e frequência de avaliação) e clique em **Fazer**.
+
+  > [!NOTE]
+  > As métricas de Egress, Ingress e Transactions são por minuto, embora sejam saídas, entradas e IOPS por segundo. (falar de granularidade agregação -> por minuto = mais barulhento por isso escolha um difuso) Por isso, por exemplo, se a sua saída a provisionada forctária for de 90 MiB/segundo e pretender que o seu limiar seja de 80% da saída a provisionada, deve selecionar os seguintes parâmetros de alerta: 75497472 para **o valor limiar,** superior ou igual ao **operador**, e uma média para o tipo **de agregação**. Dependendo do quão barulhento quer que o seu alerta seja, pode escolher quais os valores a selecionar para a granularidade agregação e frequência de avaliação. Por exemplo, se eu quiser que o meu alerta olhe para a entrada média durante o período de uma hora e eu quero que a minha regra de alerta seja executada a cada hora, eu escolheria 1 hora para **a granularidade agregação** e 1 hora para **a frequência de avaliação.**
+
+9. Clique **em Selecionar grupo de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+10. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+11. Clique **em Criar regra de alerta** para criar o alerta.
+
+  > [!NOTE]
+  > Para ser notificado se a sua parte de ficheiro premium estiver perto de ser estrangulada devido a uma entrada prevista, siga os mesmos passos, exceto no passo 5, selecione a métrica **Ingress.**
+
+  > [!NOTE]
+  > Para ser notificado se a sua parte de ficheiro premium estiver perto de ser estrangulada devido ao IOPS provisionado, terá de efetos algumas alterações. No passo 5, selecione a métrica **de Transações.** Além disso, para o passo 10, a única opção para o **tipo de agregação** é total. Portanto, o valor limiar dependeria da granularidade de agregação selecionada. Por exemplo, se quisesse que o seu limiar fosse de 80% do IOPS de base a provisionado e selecionasse 1 hora para **a granularidade agregação,** o seu **valor-limiar** seria o seu IOPS de base (in bytes) x 0,8 x 3600. Além destas alterações, siga os mesmos passos acima indicados. 
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

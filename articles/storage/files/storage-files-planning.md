@@ -4,25 +4,32 @@ description: Compreenda o planeamento de uma implantação de Ficheiros Azure. P
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705916"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563480"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
 
-- **Montagem direta de uma partilha de ficheiros Azure**: Uma vez que os Ficheiros Azure fornecem acesso SMB, pode montar ações de ficheiros Azure no local ou na nuvem utilizando o cliente SMB padrão disponível no Windows, macOS e Linux. Como as ações de ficheiros Azure são sem servidor, a implementação para cenários de produção não requer a gestão de um servidor de ficheiros ou de um dispositivo NAS. Isto significa que não tem de aplicar patches de software ou trocar discos físicos. 
+- **Montagem direta de uma partilha de ficheiros Azure**: Uma vez que os Ficheiros Azure fornecem acesso ao Bloco de Mensagens do Servidor (SMB) ou ao Sistema de Ficheiros de Rede (NFS), pode montar ações de ficheiros Azure no local ou na nuvem utilizando os clientes padrão SMB ou NFS disponíveis no seu SO. Como as ações de ficheiros Azure são sem servidor, a implementação para cenários de produção não requer a gestão de um servidor de ficheiros ou de um dispositivo NAS. Isto significa que não tem de aplicar patches de software ou trocar discos físicos. 
 
-- **A partilha de ficheiros Cache Azure no local com o Azure File Sync**: O Azure File Sync permite centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma um Servidor Windows no local (ou nuvem) numa cache rápida da sua partilha de ficheiros Azure. 
+- **A partilha de ficheiros Cache Azure no local com o Azure File Sync**: O Azure File Sync permite centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma um Servidor Windows no local (ou nuvem) numa cache rápida da sua partilha de ficheiros Azure SMB. 
 
 Este artigo aborda principalmente considerações de implementação para a implementação de uma partilha de ficheiros Azure a ser montada diretamente por um cliente no local ou na nuvem. Para planear uma implementação de Azure File Sync, consulte [o Planeamento para uma implementação de Sincronização de Ficheiros Azure](storage-sync-files-planning.md).
+
+## <a name="available-protocols"></a>Protocolos disponíveis
+
+A Azure Files oferece dois protocolos que podem ser utilizados na montagem das suas ações de ficheiros, SMB e Sistema de Ficheiros de Rede (NFS). Para mais informações sobre estes protocolos, consulte os [protocolos de partilha de ficheiros Azure](storage-files-compare-protocols.md).
+
+> [!IMPORTANT]
+> A maior parte do conteúdo deste artigo aplica-se apenas às ações da SMB. Tudo o que se aplica às ações da NFS indicará especificamente que é aplicável.
 
 ## <a name="management-concepts"></a>Conceitos de gestão
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -54,7 +61,7 @@ Para desbloquear o acesso à sua partilha de ficheiros Azure, tem duas opções 
 
 - Aceda a ações de ficheiros Azure sobre uma ligação ExpressRoute ou VPN. Ao aceder à sua partilha de ficheiros Azure através de um túnel de rede, pode montar a sua partilha de ficheiros Azure como uma partilha de ficheiros no local, uma vez que o tráfego SMB não atravessa o seu limite organizacional.   
 
-Embora do ponto de vista técnico seja consideravelmente mais fácil montar as suas ações de ficheiros Azure através do ponto final público, esperamos que a maioria dos clientes opte por montar as suas ações de ficheiroS Azure através de uma ligação ExpressRoute ou VPN. Para isso, terá de configurar o seguinte para o seu ambiente:  
+Embora do ponto de vista técnico seja consideravelmente mais fácil montar as suas ações de ficheiros Azure através do ponto final público, esperamos que a maioria dos clientes opte por montar as suas ações de ficheiroS Azure através de uma ligação ExpressRoute ou VPN. A montagem com estas opções é possível com as ações da SMB e da NFS. Para isso, terá de configurar o seguinte para o seu ambiente:  
 
 - **Fazer túneis de rede utilizando expressRoute, Site-to-Site ou VPN ponto-a-local**: Fazer túneis numa rede virtual permite aceder a partilhas de ficheiros Azure a partir do local, mesmo que a porta 445 esteja bloqueada.
 - **Pontos finais privados**: Os pontos finais privados dão à sua conta de armazenamento um endereço IP dedicado a partir do espaço de endereço da rede virtual. Isto permite a escavação de rede sem necessidade de abrir redes no local até todas as gamas de endereços IP detidas pelos clusters de armazenamento Azure. 
@@ -66,6 +73,10 @@ Para planear a rede associada à implementação de uma partilha de ficheiros Az
 O Azure Files suporta dois tipos diferentes de encriptação: encriptação em trânsito, que se relaciona com a encriptação utilizada na montagem/acesso à partilha de ficheiros Azure, e encriptação em repouso, que se relaciona com a forma como os dados são encriptados quando são armazenados no disco. 
 
 ### <a name="encryption-in-transit"></a>Encriptação de dados em circulação
+
+> [!IMPORTANT]
+> Esta secção cobre a encriptação em detalhes de trânsito para ações SMB. Para obter detalhes sobre encriptação em trânsito com ações NFS, consulte [Segurança](storage-files-compare-protocols.md#security).
+
 Por padrão, todas as contas de armazenamento Azure têm encriptação em trânsito ativada. Isto significa que quando monta uma partilha de ficheiros sobre o SMB ou acede-lo através do protocolo FileREST (por exemplo através do portal Azure, PowerShell/CLI ou Azure SDKs), os Ficheiros Azure só permitirão a ligação se for feita com SMB 3.0+ com encriptação ou HTTPS. Os clientes que não suportam SMB 3.0 ou clientes que suportem encriptação SMB 3.0 mas não SMB não poderão montar a partilha de ficheiros Azure se a encriptação em trânsito estiver ativada. Para obter mais informações sobre quais os sistemas operativos que suportam SMB 3.0 com encriptação, consulte a nossa documentação detalhada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md)e [Linux.](storage-how-to-use-files-linux.md) Todas as versões atuais do suporte de PowerShell, CLI e SDKs HTTPS.  
 
 Pode desativar a encriptação em trânsito para uma conta de armazenamento Azure. Quando a encriptação é desativada, os Ficheiros Azure também permitirão chamadas SMB 2.1, SMB 3.0 sem encriptação e chamadas de API de ficheiros não encriptadas em HTTP. A principal razão para desativar a encriptação em trânsito é suportar uma aplicação antiga que deve ser executada num sistema operativo mais antigo, como o Windows Server 2008 R2 ou a distribuição linux mais antiga. A Azure Files só permite ligações SMB 2.1 na mesma região de Azure que a partilha de ficheiros Azure; um cliente SMB 2.1 fora da região de Azure da partilha de ficheiros Azure, como no local ou numa região de Azure diferente, não poderá aceder à partilha de ficheiros.
@@ -87,7 +98,7 @@ Recomendamos que se apale a exclusão suave para a maioria das ações de fichei
 
 Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 Pode fazer cópias do seu ficheiro Azure através [de imagens de partilha,](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)que são cópias pontuais e pontuais da sua parte. Os instantâneos são incrementais, o que significa que só contêm tantos dados como mudou desde o instantâneo anterior. Pode ter até 200 instantâneos por ação de ficheiro e retê-los até 10 anos. Pode tirar manualmente estas fotos no portal Azure, via PowerShell, ou interface de linha de comando (CLI), ou pode utilizar [a Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). As imagens instantâneas são armazenadas dentro da sua parte do ficheiro, o que significa que se eliminar a sua parte do ficheiro, as suas imagens também serão eliminadas. Para proteger as cópias de segurança instantâneas da eliminação acidental, certifique-se de que a eliminação suave está ativada para a sua parte.
 
 [A Azure Backup para ações de ficheiros Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) lida com o agendamento e retenção de instantâneos. As suas capacidades de avô-pai-filho (GFS) significam que você pode tomar fotos diárias, semanais, mensais e anualmente, cada uma com o seu próprio período de retenção distinto. O Azure Backup também orquestra a ativação de eliminação suave e recebe um bloqueio de eliminação numa conta de armazenamento assim que qualquer partilha de ficheiros dentro dela estiver configurada para cópia de segurança. Por último, o Azure Backup fornece determinadas capacidades de monitorização e alerta chave que permitem aos clientes ter uma visão consolidada do seu espólio de backup.

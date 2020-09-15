@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268813"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563901"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeie a sua implantação de dispositivos Azure Ative Directory
 
@@ -66,7 +66,7 @@ Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectati
 
 Para este plano, adicione as seguintes partes interessadas à sua lista:
 
-| Função| Descrição |
+| Função| Description |
 | - | - |
 | Administrador do dispositivo| Um representante da equipa de dispositivos que pode verificar se o plano irá satisfazer os requisitos do dispositivo da sua organização. |
 | Administrador de rede| Um representante da equipa de rede que pode certificar-se de que cumpre os requisitos da rede. |
@@ -105,24 +105,24 @@ Os dispositivos iOS e Android só podem estar registados no Azure AD. A tabela a
 | Consideração | Azure AD registado| Associação ao Azure AD| Associação ao Azure AD Híbrido |
 | - | - | - | - |
 | **Sistemas operativos do cliente**| | |  |
-| Dispositivos Windows 10| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| Dispositivos de nível inferior do Windows (Windows 8.1 ou Windows 7)| | | ![selecionar](./media/plan-device-deployment/check.png) |
+| Dispositivos Windows 10| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
+| Dispositivos de nível inferior do Windows (Windows 8.1 ou Windows 7)| | | ![Marque estes valores.](./media/plan-device-deployment/check.png) |
 |**Iniciar sinsções**| | |  |
-| Credenciais locais de utilizador final| ![selecionar](./media/plan-device-deployment/check.png)| |  |
-| Palavra-passe| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| PIN do dispositivo| ![selecionar](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![selecionar](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello para empresas| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| Chaves de segurança FIDO 2.0| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| Microsoft Authenticator App (sem palavras-passe)| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
+| Credenciais locais de utilizador final| ![Marque estes valores.](./media/plan-device-deployment/check.png)| |  |
+| Palavra-passe| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
+| PIN do dispositivo| ![Marque estes valores.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![Marque estes valores.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello para empresas| | ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
+| Chaves de segurança FIDO 2.0| | ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
+| Microsoft Authenticator App (sem palavras-passe)| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
 |**Principais capacidades**| | |  |
-| SSO para cloud resources| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| Recursos de SSO para o local| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| Acesso Condicional <br> (Exigir que os dispositivos sejam marcados como conformes) <br> (Deve ser gerido pelo MDM)| ![selecionar](./media/plan-device-deployment/check.png) | ![selecionar](./media/plan-device-deployment/check.png)|![selecionar](./media/plan-device-deployment/check.png) |
-Acesso Condicional <br>(Requera dispositivos híbridos AZure AD)| | | ![selecionar](./media/plan-device-deployment/check.png)
-| Palavra-passe de self-service reiniciada a partir do ecrã de login do Windows| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| Windows hello PIN reset| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
-| Estado empresarial roaming através de dispositivos| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
+| SSO para cloud resources| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
+| Recursos de SSO para o local| | ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
+| Acesso Condicional <br> (Exigir que os dispositivos sejam marcados como conformes) <br> (Deve ser gerido pelo MDM)| ![Marque estes valores.](./media/plan-device-deployment/check.png) | ![Marque estes valores.](./media/plan-device-deployment/check.png)|![Marque estes valores.](./media/plan-device-deployment/check.png) |
+Acesso Condicional <br>(Requera dispositivos híbridos AZure AD)| | | ![Marque estes valores.](./media/plan-device-deployment/check.png)
+| Palavra-passe de self-service reiniciada a partir do ecrã de login do Windows| | ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
+| Windows hello PIN reset| | ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
+| Estado empresarial roaming através de dispositivos| | ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png) |
 
 
 ## <a name="azure-ad-registration"></a>Registo Azure Ad 
@@ -239,9 +239,9 @@ Rever plataformas suportadas e não apoiadas para dispositivos integrados:
 
 | Ferramentas de gestão de dispositivos| Azure AD registado| Associação ao Azure AD| Associação ao Azure AD Híbrido|
 | - | - | - | - |
-| [Gestão de Dispositivos Móveis (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemplo: Microsoft Intune| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)|  |
-| [Cogestão com Microsoft Intune e Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 e mais tarde)| | ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)|  |
-| [Política de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Apenas janelas)| | | ![selecionar](./media/plan-device-deployment/check.png)|  |
+| [Gestão de Dispositivos Móveis (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemplo: Microsoft Intune| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png)|  |
+| [Cogestão com Microsoft Intune e Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 e mais tarde)| | ![Marque estes valores.](./media/plan-device-deployment/check.png)| ![Marque estes valores.](./media/plan-device-deployment/check.png)|  |
+| [Política de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Apenas janelas)| | | ![Marque estes valores.](./media/plan-device-deployment/check.png)|  |
 
 
 

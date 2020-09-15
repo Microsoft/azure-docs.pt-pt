@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38e7d349d8b77b53a19fdf360bd6db454907d4f9
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 67111ecb215f4976dd8d3bbe0b901e68c3ef10ec
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007813"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564071"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -82,6 +82,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 - Ver detalhes do registo de atividade para subscrições delegadas
 - Análise de registo: Dados de consulta de espaços de trabalho remotos em vários inquilinos
 - Crie alertas em inquilinos de clientes que desencadeiem a automação, como os runbooks da Azure Automation ou as Funções Azure, no inquilino gerente através de webhooks
+- Criar definições de diagnóstico nos inquilinos dos clientes para enviar registos de recursos para espaços de trabalho no inquilino gerente
 - Para cargas de trabalho SAP, [monitorize as métricas da SAP Solutions com uma visão agregada entre os inquilinos do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rede Azure:](../../networking/networking-overview.md)
@@ -156,7 +157,7 @@ Com todos os cenários, esteja atento às seguintes limitações atuais:
 - Enquanto você pode a bordo subscrições que usam Azure Databricks, os utilizadores no inquilino gerente não podem lançar espaços de trabalho Azure Databricks em uma subscrição delegada neste momento.
 - Embora possa embarcar subscrições e grupos de recursos que tenham bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas pelos utilizadores no inquilino gerente. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam os recursos geridos pelo sistema, como as criadas pela Azure ou pela Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem os utilizadores do inquilino gerente de agir em função desses recursos; no entanto, neste momento, os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - A bordo dos seus clientes para o Azure Lighthouse, quer [utilizando modelos de Gestor de Recursos Azure,](../how-to/onboard-customer.md) quer [publicando uma oferta de serviços geridos por empresas privadas ou públicas ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 - [Ver e gerir clientes](../how-to/view-manage-customers.md) indo para **os meus clientes** no portal Azure.

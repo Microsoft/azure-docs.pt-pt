@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298900"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563000"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -38,7 +38,7 @@ Na pasta de amostra descarregada, o script de implementação está localizado e
 
 Aqui estão os passos para executar o script de implementação em Cloud Shell.
 1. Vá a uma janela [Azure Cloud Shell](https://shell.azure.com/) no seu navegador. Inscreva-se usando este comando:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     Se o CLI conseguir abrir o seu navegador predefinido, fá-lo-á e carregará uma página de inscrição do Azure. Caso contrário, abra uma página do navegador *https://aka.ms/devicelogin* e introduza o código de autorização exibido no seu terminal.
@@ -132,7 +132,7 @@ Em primeiro lugar, verifique se as permissões das permissões Azure Digital Twi
 
 [!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI dos Gémeos Digitais Azure: 
 * [az dt referência](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447249"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561828"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -78,6 +78,7 @@ A tabela seguinte resume os cenários de autenticação de ficheiros Azure supor
 - A azure AD DS e no local a autenticação AD DS não suportam a autenticação contra contas de computador. Em vez disso, pode considerar a utilização de uma conta de início de síl em quando.
 - Nem a autenticação AZURE AD DS nem no local a autenticação AD DS é suportada contra dispositivos aderidos a AD Azure ou dispositivos registados em Ad AD.
 - As ações de ficheiros Azure apenas suportam a autenticação baseada na identidade contra um dos seguintes serviços de domínio, quer a [Azure Ative Directory Domain Services (Azure AD DS)](#azure-ad-ds) quer [nos locais Ative Directory Domain Services (AD DS)](#ad-ds).
+- Nenhum dos métodos de autenticação baseados na identidade é suportado com o Sistema de Ficheiros de Rede (NFS), que está em pré-visualização.
 
 ## <a name="advantages-of-identity-based-authentication"></a>Vantagens da autenticação baseada na identidade
 A autenticação baseada em identidade para ficheiros Azure oferece vários benefícios ao utilizar a autenticação da Chave Partilhada:

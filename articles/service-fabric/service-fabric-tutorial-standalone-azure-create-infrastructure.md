@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a configurar a infraestrutura Azure V
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75614014"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561845"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura VM Azure para acolher um cluster de tecido de serviço
 
@@ -49,7 +49,7 @@ Para concluir este tutorial, precisa de uma subscrição do Azure.  Se ainda nã
 
 8. Em seguida, coloque o **grupo de segurança da rede NIC** em **Advanced.** Criar um novo grupo de segurança, anoting seu nome, e criar as seguintes regras para permitir o tráfego TCP a partir de qualquer fonte:
 
-   ![sf-entrada][sf-inbound]
+   ![A screenshot mostra a criação de regras para permitir o tráfego de TCP de entrada.][sf-inbound]
 
    * Porta `3389` , para PDR e ICMP (conectividade básica).
    * Portas, `19000-19003` para Tecido de Serviço.
@@ -61,7 +61,7 @@ Para concluir este tutorial, precisa de uma subscrição do Azure.  Se ainda nã
 
 9. Adicione outra regra. Desa estaba este o conjunto da fonte para ser **a Tag de Serviço** e desavenda a etiqueta de serviço de origem para a **VirtualNetwork**. O Tecido de Serviço exige que as seguintes portas estejam abertas para comunicação dentro do cluster: 135.137-139.445.20001-20031.20606-20861.
 
-   ![vnet-inbound][vnet-inbound]
+   ![O Screenshot mostra a criação de regras que permitem o tráfego de TCP para um cluster.][vnet-inbound]
 
 10. As restantes opções são aceitáveis no seu estado padrão. Reveja-os se quiser e, em seguida, lance a sua máquina virtual.
 

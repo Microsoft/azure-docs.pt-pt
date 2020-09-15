@@ -4,14 +4,14 @@ description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f6fa42d6cc20c4d26caa7f571f13bb3917b2c7c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a2440379c001c0213145c1c5972cfed8799f4966
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929334"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562796"
 ---
-# <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
+# <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados no Application Insights
 
 Quando instala [o Azure Application Insights][start] SDK na sua aplicação, envia telemetria sobre a sua aplicação para a Cloud. Naturalmente, os desenvolvedores responsáveis querem saber exatamente que dados são enviados, o que acontece com os dados, e como podem manter o controlo dos mesmos. Em particular, poderiam ser enviados dados sensíveis, onde está armazenado e quão seguro é? 
 
@@ -128,7 +128,7 @@ Se um cliente precisar de configurar este diretório com requisitos de seguranç
 
 `C:\Users\username\AppData\Local\Temp` é usado para dados persistentes. Esta localização não é configurável a partir do diretório config e as permissões de acesso a esta pasta são restritas ao utilizador específico com credenciais necessárias. (Para mais informações, consulte [a implementação](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
 
-###  <a name="net"></a>.Net
+###  <a name="net"></a>.NET
 
 Por `ServerTelemetryChannel` predefinição, utiliza a pasta de dados de aplicações locais do utilizador atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%` . (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.)
 
@@ -153,7 +153,16 @@ Via código:
 
 ### <a name="netcore"></a>NetCore
 
-Por `ServerTelemetryChannel` predefinição, utiliza a pasta de dados de aplicações locais do utilizador atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%` . (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) Num ambiente Linux, o armazenamento local será desativado a menos que seja especificada uma pasta de armazenamento.
+Por `ServerTelemetryChannel` predefinição, utiliza a pasta de dados de aplicações locais do utilizador atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%` . (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) 
+
+Num ambiente Linux, o armazenamento local será desativado a menos que seja especificada uma pasta de armazenamento.
+
+> [!NOTE]
+> Com o lançamento 2.15.0-beta3 e maior armazenamento local é agora automaticamente criado para Linux, Mac e Windows. Para sistemas não Windows, o SDK criará automaticamente uma pasta de armazenamento local com base na seguinte lógica:
+> - `${TMPDIR}` - se `${TMPDIR}` a variável ambiental for definida, esta localização é utilizada.
+> - `/var/tmp` - se a localização anterior não existir, `/var/tmp` tentamos.
+> - `/tmp` - se ambas as localizações anteriores não existirem, `tmp` tentamos. 
+> - Se nenhum desses locais existir armazenamento local não é criado e a configuração manual ainda é necessária. [Para mais detalhes de implementação.](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860)
 
 O seguinte corte de código mostra como definir `ServerTelemetryChannel.StorageFolder` no método da sua `ConfigureServices()` `Startup.cs` classe:
 

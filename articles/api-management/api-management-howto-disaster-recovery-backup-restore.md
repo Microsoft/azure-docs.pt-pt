@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c0af87dc8e38c6d5184cec4614b47d2ae4a24ca
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 489a1afd8e247b69761d521f51e16310176e31f5
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458285"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564088"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure
 
@@ -185,6 +185,7 @@ A cópia de segurança é uma operação de longa duração que pode demorar mai
 -   [Configuração de identidade gerida.](api-management-howto-use-managed-service-identity.md)
 -   [Diagnóstico do Monitor Azure](api-management-howto-use-azure-monitor.md) A configuração.
 -   Protocolos e definições [de Cipher.](api-management-howto-manage-protocols-ciphers.md)
+-   [Conteúdo do portal do desenvolvedor.](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management)
 
 A frequência com que executa cópias de segurança de serviço afeta o seu objetivo de ponto de recuperação. Para minimizá-lo, recomendamos a implementação de backups regulares e a realização de backups a pedido depois de efetuar alterações no seu serviço de Gestão API.
 
@@ -228,7 +229,7 @@ Restaurar é uma operação de longa duração que pode demorar até 30 minutos 
 > [!NOTE]
 > As operações de backup e restauro também podem ser realizadas com comandos powerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) e [_Restore-AzApiManagement,_](/powershell/module/az.apimanagement/restore-azapimanagement) respectivamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Confira os seguintes recursos para diferentes passos do processo de backup/restauro.
 

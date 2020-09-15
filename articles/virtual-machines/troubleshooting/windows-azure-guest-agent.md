@@ -9,14 +9,14 @@ editor: ''
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/07/2020
+ms.date: 09/15/2020
 ms.author: genli
-ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659471"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561266"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Problemas de resolução de janelas Azure Guest Agent
 
@@ -53,7 +53,7 @@ Aceda à página de propriedades VM no portal Azure e verifique o estado do **Ag
     
     Pode executar o seguinte comando PowerShell para verificar se o Agente VM foi implantado no VM:
     
-    `Get-Az VM -ResourceGroup “RGNAME” – Name “VMNAME” -displayhint expand`
+    `Get-AzVM -ResourceGroupName "RGNAME" -Name "VMNAME" -DisplayHint expand`
     
     Na saída, localize a propriedade **ProvisionVMAgent** e verifique se o valor está definido para **True**. Se for, isto significa que o agente está instalado no VM.
     

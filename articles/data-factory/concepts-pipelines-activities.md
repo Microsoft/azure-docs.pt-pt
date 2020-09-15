@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 78007c9f153267b72a94dc4b4024155dee6beb88
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442995"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562014"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
@@ -30,7 +30,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamen
 
 As atividades num pipeline definem as ações a executar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para um Azure Blob Storage. Em seguida, utilize uma atividade de fluxo de dados ou uma atividade de Caderno databricks para processar e transformar dados do armazenamento de bolhas para um pool Azure Synapse Analytics em cima do qual são construídas soluções de relatório de inteligência empresarial.
 
-A Data Factory tem três agrupamentos de atividades: atividades de movimento de [dados,](copy-activity-overview.md) [atividades de transformação de dados](transform-data.md)e [atividades de controlo.](control-flow-web-activity.md) Uma atividade pode ter zero ou mais [conjuntos de dados](concepts-datasets-linked-services.md) de entrada e produzir um ou mais [conjuntos de dados](concepts-datasets-linked-services.md) de saída. O diagrama seguinte mostra a relação entre pipelines, atividades e conjuntos de dados no Data Factory:
+A Data Factory tem três agrupamentos de atividades: atividades de movimento de [dados,](copy-activity-overview.md) [atividades de transformação de dados](transform-data.md)e [atividades de controlo.](#control-flow-activities) Uma atividade pode ter zero ou mais [conjuntos de dados](concepts-datasets-linked-services.md) de entrada e produzir um ou mais [conjuntos de dados](concepts-datasets-linked-services.md) de saída. O diagrama seguinte mostra a relação entre pipelines, atividades e conjuntos de dados no Data Factory:
 
 ![Relação entre conjuntos de dados, atividades e pipelines](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -69,7 +69,7 @@ Para obter mais informações, veja o artigo [Data Transformation Activities](tr
 ## <a name="control-flow-activities"></a>Atividades de fluxo de controlo
 São suportadas as atividades de fluxo de controlo abaixo:
 
-Atividade de controlo | Descrição
+Atividade de controlo | Description
 ---------------- | -----------
 [Variável do apêndice](control-flow-append-variable-activity.md) | Adicione um valor a uma variável de matriz existente.
 [Executar Pipeline](control-flow-execute-pipeline-activity.md) | A atividade Executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -106,7 +106,7 @@ Eis como os pipelines são definidos no formato JSON:
 }
 ```
 
-Etiqueta | Descrição | Tipo | Necessário
+Etiqueta | Description | Tipo | Necessário
 --- | ----------- | ---- | --------
 name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" </li></ul> | String | Yes
 descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | String | No
@@ -182,7 +182,7 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
 }
 ```
 
-Nome JSON | Descrição | Valores Permitidos | Necessário
+Nome JSON | Description | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
 tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.
 retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
@@ -401,7 +401,7 @@ Por exemplo, digamos que tens um gatilho do Scheduler, "Trigger A", que eu quero
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os tutoriais seguintes para obter instruções passo a passo para criar pipelines com atividades:
 
 - [Criar um pipeline com uma atividade de cópia](quickstart-create-data-factory-powershell.md)

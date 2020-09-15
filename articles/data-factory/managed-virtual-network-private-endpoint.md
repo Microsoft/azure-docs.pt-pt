@@ -9,14 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+- seo-lt-2019
+- references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594361"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564003"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -88,7 +90,7 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Base de Dados do Azure para PostgreSQL
 - Azure Database for MariaDB
 
-### <a name="supported-regions"></a>Regiões apoiadas
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>A azure Data Factory Rede Virtual Gerida está disponível nas seguintes regiões do Azure:
 - E.U.A. Leste
 - E.U.A. Leste 2
 - E.U.A. Centro-Oeste
@@ -105,7 +107,11 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Apenas a porta 443 está aberta para comunicações de saída.
 - O Azure Storage e o Azure Data Lake Gen2 não são suportados para serem conectados através do ponto final público da ADF Managed Virtual Network.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="linked-service-creation-of-azure-key-vault"></a>Criação de serviço ligado do Cofre chave Azure 
+- Quando cria um Serviço Linked para Azure Key Vault, não existe referência de runtime de integração Azure. Então não pode criar Private Endpoint durante a criação do Azure Key Vault. Mas quando cria o Linked Service para lojas de dados que faz referência ao Azure Key Vault Linked Service e este Serviço Linked refere-se a Azure Integration Runtime com Rede Virtual Gerida ativada, então é capaz de criar um ponto final privado para o Serviço Ligado ao Cofre de Chaves Azure durante a criação. 
+- A operação de **ligação** de teste para o Serviço Ligado do Cofre de Chave Azure apenas valida o formato URL, mas não faz qualquer operação de rede.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Tutorial: [Construir um pipeline de cópias utilizando rede virtual gerida e pontos finais privados](tutorial-copy-data-portal-private.md) 
 - Tutorial: [Construa o pipeline de fluxo de dados de mapeamento utilizando rede virtual gerida e pontos finais privados](tutorial-data-flow-private.md)

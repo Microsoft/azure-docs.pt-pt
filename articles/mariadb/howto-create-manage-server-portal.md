@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 196b1dda17de1c9430ab048ac90d1d10b6a595b4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104695"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562456"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerir uma base de dados Azure para servidor MariaDB utilizando o portal Azure
 Este artigo mostra-lhe como gerir a sua Base de Dados Azure para servidores MariaDB. As tarefas de gestão incluem o dimensionamento de cálculo e armazenamento, o reset da palavra-passe de administração e a visualização de detalhes do servidor.
@@ -34,7 +34,7 @@ Pode escalar de Final geral para memória Otimizada e vice-versa. A alteração 
 
 2. Selecione **Final Geral** ou **Memória Otimizada,** dependendo do que está a escalar. 
 
-    ![nível de alteração dos preços](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![O Screenshot mostra o portal Azure com o nível de preços selecionado e um valor de Memória Otimizada selecionada.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
     > A mudança de camadas provoca o reinício do servidor.
@@ -79,7 +79,7 @@ Pode alterar a palavra-passe da função do administrador utilizando o portal Az
 
 2. Introduza uma nova senha e confirme a senha. A caixa de texto irá instruí-lo sobre os requisitos de complexidade da palavra-passe.
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![A screenshot mostra a caixa de diálogo de palavra-passe redefinir com palavra-passe e confirmar a palavra-passe.](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Selecione **OK** para guardar a nova senha.
 
@@ -94,7 +94,7 @@ Pode eliminar o seu servidor se já não precisar dele.
 
 2. Digite o nome do servidor na caixa de entrada para confirmar que este é o servidor que pretende eliminar.
 
-    ![confirmar-eliminar](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![A screenshot mostra um diálogo que verifica se pretende eliminar uma base de dados, o que é irreversível.](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
     > Apagar um servidor é irreversível.

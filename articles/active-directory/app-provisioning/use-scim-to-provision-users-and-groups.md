@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015454"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563810"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -167,6 +167,7 @@ Siga estas orientações gerais ao implementar um ponto final SCIM para garantir
 * Não exija uma correspondência sensível a elementos estruturais no SCIM, em particular `op` os valores de operação PATCH, tal como definidos em https://tools.ietf.org/html/rfc7644#section-3.5.2 . A AZure AD emite os valores de 'op' como `Add` `Replace` , e `Remove` .
 * O Microsoft Azure AD faz pedidos para obter um utilizador e grupo aleatórios para garantir que o ponto final e as credenciais são válidos. Também é feito como parte do fluxo de **ligação** de teste no [portal Azure](https://portal.azure.com). 
 * O atributo em que os recursos podem ser consultados deve ser definido como um atributo correspondente à aplicação no [portal Azure](https://portal.azure.com). Para mais informações, consulte [Personalizar a provisionamento do utilizador atribuindo mapeamentos de atributos](customize-application-attributes.md)
+* Suporte HTTPS no seu ponto final SCIM
 
 ### <a name="user-provisioning-and-deprovisioning"></a>Fornecimento e desprovisionamento dos utilizadores
 

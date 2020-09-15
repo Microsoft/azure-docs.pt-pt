@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 6c46195572fc4495b35f5ec44421440975ab9ffc
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 16a28ee01606fa9067c279183ca6c02b2857bcd7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531360"
+ms.locfileid: "90563850"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: use Video Indexer com App lógica e automatização de energia
 
@@ -58,7 +58,7 @@ Para configurar o primeiro fluxo, terá de fornecer as suas credenciais de API i
 
 Assim que conseguir ligar-se às suas contas Azure Storage e Video Indexer, dirija-se ao gatilho "Quando uma bolha é adicionada ou modificada) e selecione o recipiente onde irá colocar os seus ficheiros de vídeo. 
 
-![Recipiente de armazenamento](./media/logic-apps-connector-tutorial/container.png)
+![A screenshot mostra o Quando uma bolha é adicionada ou uma caixa de diálogo modificada onde pode selecionar um recipiente.](./media/logic-apps-connector-tutorial/container.png)
 
 Em seguida, vá à ação "Create SAS URI by path" e selecione List of Files Path a partir das opções de conteúdo dinâmico.  
 
