@@ -1,22 +1,22 @@
 ---
 title: Configuração de inteligência de ameaça Azure Firewall
-description: A filtragem baseada em inteligência de ameaça pode ser ativada para a sua firewall alertar e negar o tráfego de/para endereços e domínios IP maliciosos conhecidos.
+description: Saiba como configurar a filtragem baseada em ameaças baseada em inteligência para a sua política Azure Firewall para alertar e negar tráfego de e para endereços e domínios IP maliciosos conhecidos.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 136ceeb271bec29bdbfc4572626936ee67f05556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569059"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530646"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Configuração de inteligência de ameaça Azure Firewall
 
-A filtragem baseada em informações de ameaça pode ser configurada para a sua política de Azure Firewall alertar e negar o tráfego de e para endereços e domínios IP maliciosos conhecidos. Os endereços e domínios IP são obtidos a partir do feed de Inteligência de Ameaça da Microsoft. [O Smart Security Graph](https://www.microsoft.com/security/operations/intelligence) alimenta a inteligência de ameaça da Microsoft e é usado por vários serviços, incluindo o Azure Security Center.<br>
+A filtragem baseada em informações de ameaça pode ser configurada para a sua política de Azure Firewall alertar e negar o tráfego de e para endereços e domínios IP maliciosos conhecidos. Os domínios e endereços IP são obtidos a partir do feed das Informações sobre Ameaças da Microsoft. [O Smart Security Graph](https://www.microsoft.com/security/operations/intelligence) alimenta a inteligência de ameaça da Microsoft e é usado por vários serviços, incluindo o Azure Security Center.<br>
 
 Se configurar a filtragem baseada em informações de ameaça, as regras associadas são processadas antes de qualquer uma das regras da NAT, regras de rede ou regras de aplicação.
 
@@ -56,6 +56,6 @@ O seguinte excerto de registo mostra uma regra desencadeada:
 
 - **Testes de entrada** - Pode esperar ver alertas sobre o tráfego de entrada se as regras de ADN forem configuradas na firewall. Isto é verdade mesmo que apenas fontes específicas sejam permitidas na regra do ADN e o tráfego seja negado de outra forma. A Azure Firewall não alerta em todos os scanners de portas conhecidos; apenas em scanners que são conhecidos por também se envolver em atividades maliciosas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja o [relatório de inteligência](https://www.microsoft.com/en-us/security/operations/security-intelligence-report) da Microsoft Security

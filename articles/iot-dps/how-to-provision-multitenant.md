@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434745"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531428"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como prever a multitenância 
 
-As políticas de atribuição definidas pelo serviço de prestação de serviços suportam uma variedade de cenários de atribuição. Dois cenários comuns são:
+Este artigo demonstra como providenciar de forma segura múltiplos dispositivos chave simétricas a um grupo de Hubs IoT utilizando uma política de [atribuição](concepts-service.md#allocation-policy). As políticas de atribuição definidas pelo serviço de prestação de serviços suportam uma variedade de cenários de atribuição. Dois cenários comuns são:
 
 * **Geolocalização / GeoLatency**: À medida que um dispositivo se move entre locais, a latência da rede é melhorada com o dispositivo a provisionado ao hub IoT mais próximo de cada local. Neste cenário, um grupo de hubs IoT, que se estendem por regiões, são selecionados para inscrições. A política de atribuição **de latência mais baixa** é selecionada para estas matrículas. Esta política faz com que o Serviço de Provisionamento de Dispositivos avalie a latência do dispositivo e determine o hub IoT do armário fora do grupo de hubs IoT. 
 
@@ -83,7 +83,7 @@ Nesta secção, você usará a Azure Cloud Shell para criar dois novos centros r
 
 Nesta secção, você vai criar um novo grupo de inscrições para os dispositivos de inquilino.  
 
-Para simplificar, este artigo utiliza [a chave simétrica atestado](concepts-symmetric-key-attestation.md) com a inscrição. Para uma solução mais segura, considere usar [o atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de confiança.
+Para simplificar, este artigo utiliza [a chave simétrica atestado](concepts-symmetric-key-attestation.md) com a inscrição. Para uma solução mais segura, considere usar [o atestado de certificado X.509](concepts-x509-attestation.md) com uma cadeia de confiança.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua instância do Serviço de Provisionamento de Dispositivos.
 
@@ -398,7 +398,7 @@ O código de amostra simula uma sequência de arranque do dispositivo que envia 
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende continuar a trabalhar com os recursos criados neste artigo, pode deixá-los. Se não pretender continuar a utilizar o recurso, utilize as seguintes medidas para eliminar todos os recursos criados por este artigo para evitar encargos desnecessários.
 
@@ -418,7 +418,7 @@ Para eliminar o grupo de recursos pelo nome:
 
 4. É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos novamente para confirmar e, em seguida, clique em **Eliminar**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
 - Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md) 

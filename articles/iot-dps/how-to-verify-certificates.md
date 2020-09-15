@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74973446"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530867"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como fazer comprovativo de posse para certificados X.509 CA com o seu Serviço de Provisionamento de Dispositivos
 
@@ -23,7 +23,7 @@ A prova de posse envolve os seguintes passos:
 2. Crie um certificado de verificação X.509 com o código de verificação como sujeito e assine o certificado com a chave privada associada ao seu certificado X.509 CA.
 3. Faça o upload do certificado de verificação assinado para o serviço. O serviço valida o certificado de verificação utilizando a parte pública do certificado de AC a verificar, provando assim que está na posse da chave privada do certificado de AC.
 
-Os certificados verificados desempenham um papel importante na utilização de grupos de inscrição. A verificação da propriedade do certificado fornece uma camada de segurança adicional, garantindo que o carregador do certificado está na posse da chave privada do certificado. A verificação impede que um ator malicioso cheire o seu tráfego de extrair um certificado intermédio e usar esse certificado para criar um grupo de inscrição no seu próprio serviço de fornecimento, efetivamente sequestrando os seus dispositivos. Ao provar a propriedade da raiz ou um certificado intermédio numa cadeia de certificados, está a provar que tem permissão para gerar certificados de folha para os dispositivos que se registarão como parte desse grupo de inscrição. Por esta razão, o certificado de raiz ou intermédio configurado num grupo de matrículas deve ser um certificado verificado ou deve ser até um certificado verificado na cadeia de certificados que um dispositivo apresenta quando autentica com o serviço. Para saber mais sobre os grupos de matrículas, consulte [os certificados X.509](concepts-security.md#x509-certificates) e [o acesso ao dispositivo de controlo ao serviço de fornecimento com certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+Os certificados verificados desempenham um papel importante na utilização de grupos de inscrição. A verificação da propriedade do certificado fornece uma camada de segurança adicional, garantindo que o carregador do certificado está na posse da chave privada do certificado. A verificação impede que um ator malicioso cheire o seu tráfego de extrair um certificado intermédio e usar esse certificado para criar um grupo de inscrição no seu próprio serviço de fornecimento, efetivamente sequestrando os seus dispositivos. Ao provar a propriedade da raiz ou um certificado intermédio numa cadeia de certificados, está a provar que tem permissão para gerar certificados de folha para os dispositivos que se registarão como parte desse grupo de inscrição. Por esta razão, o certificado de raiz ou intermédio configurado num grupo de matrículas deve ser um certificado verificado ou deve ser até um certificado verificado na cadeia de certificados que um dispositivo apresenta quando autentica com o serviço. Para saber mais sobre o atestado de certificado X.509, consulte [os certificados X.509](concepts-x509-attestation.md) e [controlando o acesso ao serviço de fornecimento com certificados X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Registe a parte pública de um certificado X.509 e obtenha um código de verificação
 
@@ -63,13 +63,13 @@ Os scripts PowerShell e Bash fornecidos na documentação e os SDKs dependem [do
 
 ## <a name="upload-the-signed-verification-certificate"></a>Faça o upload do certificado de verificação assinado
 
-1. Faça o upload da assinatura resultante como certificado de verificação para o seu serviço de provisionamento no portal. Em **Dados de Certificado** no portal Azure, utilize o ícone Explorador de _Ficheiros_ ao lado do **Certificado de Verificação .pem ou campo de ficheiros .cer** para carregar o certificado de verificação assinado do seu sistema.
+1. Faça o upload da assinatura resultante como certificado de verificação para o seu serviço de provisionamento no portal. Em **Dados de Certificado** no portal Azure, utilize o ícone Explorador de  _Ficheiros_ ao lado do **Certificado de Verificação .pem ou campo de ficheiros .cer** para carregar o certificado de verificação assinado do seu sistema.
 
 2. Uma vez que o certificado seja carregado com sucesso, clique em **Verificar**. O **estado** do seu certificado altera-se a **_Verificado_** na lista do **Certificate Explorer.** Clique **em Atualizar** se não atualizar automaticamente.
 
    ![Verificação de certificado de upload](./media/how-to-verify-certificates/upload-cert-verification.png)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber como usar o portal para criar um grupo de [inscrições, consulte gestão de inscrições de dispositivos com portal Azure.](how-to-manage-enrollments.md)
 - Para saber como usar os SDKs de serviço para criar um grupo de inscrições, consulte [a Gestão de inscrições de dispositivos com SDKs de serviço.](how-to-manage-enrollments-sdks.md)

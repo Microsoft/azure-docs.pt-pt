@@ -4,12 +4,12 @@ description: Visão geral do Serviço Azure Blockchain
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 2a28baeb6de3c8ca1e8ad89e11d45b492f33588c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8364f4b8f063611df08275ba4cbb3acb4be5d196
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076946"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530034"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -45,7 +45,7 @@ Como um serviço gerido, o Azure Blockchain Service garante que os nós do seu m
 
 Além disso, o Azure Blockchain Service fornece métricas ricas através do Azure Monitor Service, fornecendo informações sobre o CPU, memória e armazenamento dos nós.  O Azure Monitor também fornece informações úteis sobre a atividade da rede blockchain, tais como transações e blocos minados, profundidade de fila de transações e conexões ativas.  As métricas podem ser personalizadas para fornecer visualizações sobre os insights que são importantes para a sua aplicação blockchain.  Além disso, os limiares podem ser definidos através de alertas que permitem aos utilizadores desencadear ações como o envio de um e-mail ou mensagem de texto, executar uma App Lógica, Função Azure ou enviar para um webhook personalizado.
 
-![Métricas](./media/overview/metrics.png)
+![A captura de ecrãs mostra monitorização, com valores para blocos, transações, transações pendentes e pedidos tratados.](./media/overview/metrics.png)
 
 Através do Azure Log Analytics, os utilizadores podem visualizar registos relacionados com o livro de contabilidade do Quorum, ou outras informações importantes, tais como tentativas de ligações aos nós de transação.
 

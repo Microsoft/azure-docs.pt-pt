@@ -7,17 +7,17 @@ author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
+ms.date: 9/14/2020
 ms.author: duau
-ms.openlocfilehash: f8eb02f4ea57988eab4e7bb5b193e81e4d9f4746
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 94770e4fcad9659594854f81732c7b4e4a97051c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399179"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530884"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>O que é o Motor das Regras para a Porta frontal Azure? 
 
@@ -54,7 +54,7 @@ Com o MOTOR DE Regras AFD, pode criar uma série de configurações do Motor de 
 - *Ação*: As ações ditam o que acontece aos seus pedidos de entrada - pedido/resposta ações de cabeçalho, encaminhamento, redirecionamento e reescritas estão disponíveis hoje. Uma regra pode conter até 5 ações; no entanto, uma regra só pode conter 1 sobreposição de configuração de rota.  Uma lista completa de ações pode ser encontrada [aqui.](front-door-rules-engine-actions.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como configurar a sua primeira [configuração do Motor de Regras](front-door-tutorial-rules-engine.md). 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

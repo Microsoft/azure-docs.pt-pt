@@ -11,18 +11,18 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 3621d0c22aa6f35fc845f449d07bce8dcf0ba1fa
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461889"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531224"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A integração contínua é a prática de testar cada alteração feita na sua base de código automaticamente e o mais cedo possível.A entrega contínua segue o teste que acontece durante a integração contínua e empurra alterações para um sistema de encenação ou produção.
 
@@ -639,7 +639,7 @@ Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver 
 
 -   **Cofre de Chaves**. Quando utiliza serviços ligados cujas informações de ligação são armazenadas no Cofre da Chave Azure, é aconselhável manter cofres-chave separados para diferentes ambientes. Também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, pode não querer que os membros da sua equipa tenham permissões para segredos de produção. Se seguir esta abordagem, recomendamos que mantenha os mesmos nomes secretos em todas as fases. Se mantiver os mesmos nomes secretos, não precisa de parametrizar cada cadeia de ligação em ambientes CI/CD porque a única coisa que muda é o nome do cofre chave, que é um parâmetro separado.
 
--  **Nomeação de recursos** Faça à restrição do modelo ARM, podem surgir problemas de implantação se os seus recursos contiverem espaços no nome. A equipa da Azure Data Factory recomenda a utilização de caracteres '_' ou '-' em vez de espaços para recursos. Por exemplo, "Pipeline_1" seria um nome preferível sobre o "Pipeline 1".
+-  **Nomeação de recursos** Devido às restrições do modelo ARM, podem surgir problemas de implantação se os seus recursos contiverem espaços no nome. A equipa da Azure Data Factory recomenda a utilização de caracteres '_' ou '-' em vez de espaços para recursos. Por exemplo, "Pipeline_1" seria um nome preferível sobre o "Pipeline 1".
 
 ## <a name="unsupported-features"></a>Funcionalidades não suportadas
 

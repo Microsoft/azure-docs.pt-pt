@@ -7,12 +7,12 @@ keywords: mudança, rastreio, rastreio de mudança, inventário, automação
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185811"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530544"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Alterações na resolução de problemas num Azure VM
 
@@ -99,7 +99,7 @@ Com o rastreio de alterações, escolhe os ficheiros e as teclas de registo para
     |---------|---------|
     |Ativado     | Determina se a definição foi aplicada        |
     |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
-    |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
+    |Group     | Um nome de grupo para agrupar ficheiros logicamente        |
     |Chave do Registo do Windows   | O caminho para verificar o ficheiro, por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Adicionar um ficheiro do Windows
@@ -112,7 +112,7 @@ Com o rastreio de alterações, escolhe os ficheiros e as teclas de registo para
     |---------|---------|
     |Ativado     | Determina se a definição foi aplicada        |
     |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
-    |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
+    |Group     | Um nome de grupo para agrupar ficheiros logicamente        |
     |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"         |
     |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
     |Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
@@ -127,7 +127,7 @@ Com o rastreio de alterações, escolhe os ficheiros e as teclas de registo para
     |---------|---------|
     |Ativado     | Determina se a definição foi aplicada        |
     |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
-    |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
+    |Group     | Um nome de grupo para agrupar ficheiros logicamente        |
     |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "/etc/*.conf"       |
     |Tipo de Caminho     | O tipo de item a controlar, em que valores possíveis são Ficheiro e Diretório        |
     |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
@@ -218,9 +218,9 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
 18. Para personalizar o assunto do e-mail de alerta, **selecione Personalize Actions**. 
 
-19. Para **criar regra**, selecione **e-mail assunto**e, em seguida, escolha Criar regra de **alerta**. O alerta informa-o quando a implementação de uma atualização for concluída com êxito e que máquinas faziam parte da execução dessa implementação de atualização. A imagem seguinte é um e-mail de exemplo recebido quando o serviço W3SVC para.
+19. Para **criar regra**, selecione **e-mail assunto**e, em seguida, escolha Criar regra de **alerta**. O alerta informa-o quando a implementação de uma atualização for concluída com êxito e que máquinas faziam parte da execução dessa implementação de atualização. A imagem a seguir é um e-mail de exemplo recebido quando o serviço W3SVC para.
 
-    ![e-mail](./media/automation-tutorial-troubleshoot-changes/email.png)
+    ![A captura do ecrã mostra uma notificação de e-mail recebida quando os serviços W 3 S V C param.](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

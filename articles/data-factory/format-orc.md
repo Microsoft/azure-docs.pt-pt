@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: f71b739242cf4f6a3549927a2a7e61400b2f987e
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061092"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531734"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC na Azure Data Factory
 
@@ -30,8 +30,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Orc**. | Sim      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Orc**. | Yes      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Yes      |
 
 Abaixo está um exemplo do conjunto de dados ORC no Armazenamento Azure Blob:
 
@@ -72,8 +72,8 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSource**. | Sim      |
-| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSource**. | Yes      |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 ### <a name="orc-as-sink"></a>ORC como pia
 
@@ -81,17 +81,17 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSink**. | Sim      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita ORC** abaixo. |    Não      |
-| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSink**. | Yes      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita ORC** abaixo. |    No      |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 As **definições** de escrita ORC suportadas em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| tipo          | O tipo de formatoStas devem ser definidas para **OrcWriteSettings**. | Sim                                                   |
-| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | Não |
-| fileNamePrefix | Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | Não |
+| tipo          | O tipo de formatoStas devem ser definidas para **OrcWriteSettings**. | Yes                                                   |
+| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | No |
+| fileNamePrefix | Aplicável quando `maxRowsPerFile` é configurado.<br> Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | No |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Utilização do tempo de execução de integração auto-hospedado
 
@@ -111,7 +111,7 @@ Para a cópia em execução em IR auto-hospedado com serialização/deserializa�
 
 Exemplo: definir variável `_JAVA_OPTIONS` com valor `-Xms256m -Xmx16g` . A bandeira `Xms` especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que jVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de quantidade de `Xmx` memória. Por predefinição, a ADF utiliza min 64 MB e máx 1G.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)

@@ -3,12 +3,12 @@ title: Azure Event Hubs - Processa eventos Apache Kafka
 description: 'Tutorial: Este artigo mostra como processar eventos kafka que são ingeridos através de centros de eventos usando Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074917"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531292"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processa Apache Kafka para eventos de Centros de Eventos usando análise de stream 
 Este artigo mostra como transmitir dados para os Centros de Eventos e processá-lo com a Azure Stream Analytics. Acompanha-o pelos seguintes passos: 
@@ -63,7 +63,7 @@ Quando cria um espaço de nome de nível **padrão,** o ponto final de Kafka par
     ```
 
     Este código envia os dados do evento no formato **JSON.** Quando configurar a entrada para um trabalho stream Analytics, especifica o JSON como o formato para os dados de entrada. 
-7. **Executar o produtor** e transmitir para o Event Hubs. Numa máquina Do Windows, quando utilizar um **pedido de comandoNode.js,** mude para a `azure-event-hubs-for-kafka/quickstart/java/producer` pasta antes de executar estes comandos. 
+7. **Executar o produtor** e transmitir para o Event Hubs. Numa máquina Do Windows, quando utilizar um ** pedido de comandoNode.js,** mude para a `azure-event-hubs-for-kafka/quickstart/java/producer` pasta antes de executar estes comandos. 
    
     ```shell
     mvn clean package
@@ -136,7 +136,7 @@ Depois de ter uma tarefa do Stream Analytics configurada para ler um fluxo de da
 3. `[YourInputAlias]`Substitua-o pelo pseudónimo de entrada que criou anteriormente. 
 4. Selecione **Guardar** na barra de ferramentas. 
 
-    ![Consulta](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![A captura do ecrã mostra a janela de consulta com valores para variáveis de entrada e saída.](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics

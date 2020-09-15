@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: d8312be1f07b8d0d0d2f142bfc0d54f84d8641ae
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 91455e4797324f28f911dd8a928410517a951728
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061008"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531751"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,9 +29,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Parquet**. | Sim      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
-| compressãoCodec | O codec de compressão para usar ao escrever para ficheiros Parquet. Ao ler os ficheiros Parquet, as Fábricas de Dados determinam automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**", "**gzip**", "**snappy**" (padrão), e "**lzo**". Nota atualmente A atividade copy não suporta LZO quando lê/escreve ficheiros Parquet. | Não       |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Parquet**. | Yes      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Yes      |
+| compressãoCodec | O codec de compressão para usar ao escrever para ficheiros Parquet. Ao ler os ficheiros Parquet, as Fábricas de Dados determinam automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**", "**gzip**", "**snappy**" (padrão), e "**lzo**". Nota atualmente A atividade copy não suporta LZO quando lê/escreve ficheiros Parquet. | No       |
 
 > [!NOTE]
 > O espaço branco no nome da coluna não é suportado para ficheiros Parquet.
@@ -70,8 +70,8 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **ParquetSource**. | Sim      |
-| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **ParquetSource**. | Yes      |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 ### <a name="parquet-as-sink"></a>Parquet como pia
 
@@ -79,17 +79,17 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **ParquetSink**. | Sim      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita Parquet** abaixo. |    Não      |
-| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **ParquetSink**. | Yes      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita Parquet** abaixo. |    No      |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 Configurações de **escrita de Parquet** suportadas em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| tipo          | O tipo de formatoStas devem ser definidas em **ParquetWriteSettings**. | Sim                                                   |
-| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | Não |
-| fileNamePrefix | Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | Não |
+| tipo          | O tipo de formatoStas devem ser definidas em **ParquetWriteSettings**. | Yes                                                   |
+| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | No |
+| fileNamePrefix | Aplicável quando `maxRowsPerFile` é configurado.<br> Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | No |
 
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
@@ -175,7 +175,7 @@ Para a cópia em execução em IR auto-hospedado com serialização/deserializa�
 
 Exemplo: definir variável `_JAVA_OPTIONS` com valor `-Xms256m -Xmx16g` . A bandeira `Xms` especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que jVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de quantidade de `Xmx` memória. Por predefinição, a ADF utiliza min 64 MB e máx 1G.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)

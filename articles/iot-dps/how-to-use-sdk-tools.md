@@ -1,21 +1,21 @@
 ---
 title: Utilize ferramentas de fornecimento de SDKs de serviço de dispositivos Azure IoT
 description: Este documento analisa as ferramentas fornecidas no Azure IoT Hub Device Provisioning Service (DPS) SDKs para desenvolvimento
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28d682a9ca698afb72d08b4d111562c725d46996
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691633"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530850"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como utilizar ferramentas fornecidas nos ODS para simplificar o desenvolvimento do provisionamento
-O Serviço de Provisionamento de Dispositivos IoT Hub simplifica o processo de provisionamento com fornecimento automático de toque zero, just-in-time [de](concepts-auto-provisioning.md) forma segura e escalável.  É necessário um atestado de segurança sob a forma de certificado X.509 ou Módulo de Plataforma Fidedigna (TPM).  A Microsoft também está em parceria com [outros parceiros de hardware](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) de segurança para melhorar a confiança na segurança da implementação de IoT. Compreender o requisito de segurança de hardware pode ser bastante desafiante para os desenvolvedores. Um conjunto de SDKs de serviço de fornecimento de IoT Azure são fornecidos para que os desenvolvedores possam usar uma camada de conveniência para escrever clientes que falem com o serviço de fornecimento. Os SDKs também fornecem amostras para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança em desenvolvimento.
+O Serviço de Provisionamento de Dispositivos IoT Hub simplifica o processo de fornecimento com [provisão](about-iot-dps.md#provisioning-process) de toque zero, just-in-time de forma segura e escalável.  É necessário um atestado de segurança sob a forma de certificado X.509 ou Módulo de Plataforma Fidedigna (TPM).  A Microsoft também está em parceria com [outros parceiros de hardware](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) de segurança para melhorar a confiança na segurança da implementação de IoT. Compreender o requisito de segurança de hardware pode ser bastante desafiante para os desenvolvedores. Um conjunto de SDKs de serviço de fornecimento de IoT Azure são fornecidos para que os desenvolvedores possam usar uma camada de conveniência para escrever clientes que falem com o serviço de fornecimento. Os SDKs também fornecem amostras para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança em desenvolvimento.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Simulador de módulo de plataforma fidedigno (TPM)
 [O TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) pode consultar uma norma para armazenar de forma segura as chaves para autenticar a plataforma, ou pode referir-se à interface de E/S utilizada para interagir com os módulos que implementam a norma. Os TPMs podem existir como hardware discreto, hardware integrado, baseado em firmware ou baseado em software.  Na produção, o TPM está localizado no dispositivo, seja como hardware discreto, hardware integrado ou baseado em firmware. Na fase de testes, um simulador de TPM baseado em software é fornecido aos desenvolvedores.  Este simulador só se encontra disponível para desenvolvimento na plataforma Windows por enquanto.
@@ -52,7 +52,7 @@ Para gerar certificado X.509 utilizando este gerador:
 2. Mude a raiz para azure-iot-sdk-java.
 3. Corra ```mvn install -DskipTests=true``` para descarregar todos os pacotes necessários e compilar o SDK
 4. Navegue até à raiz do Gerador de Certificados X.509 em ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator``` .
-5. Construir com```mvn clean install```
+5. Construir com ```mvn clean install```
 6. Execute a ferramenta com os comandos seguintes:
    ```
    cd target
@@ -65,5 +65,5 @@ Para gerar certificado X.509 utilizando este gerador:
 
 O certificado de raiz ou intermediário pode ser utilizado para criar um grupo de inscrição ou inscrição individual [programática](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) ou utilizando o [portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Desenvolver usando o [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) para Azure IoT Hub e Azure IoT Hub Device Provisioning Service

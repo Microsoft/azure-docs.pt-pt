@@ -3,12 +3,12 @@ title: Reprodução de gravações de vários dias - Azure
 description: Neste tutorial, você aprenderá a usar APIs do Azure Media Service para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649096"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530578"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reprodução de gravações de vários dias  
 
@@ -72,11 +72,11 @@ Em seguida, no código Visual Studio, aberto src/ams-asset-player. Esta pasta co
 
 No Código do Estúdio Visual, pode clicar no ícone Executar à esquerda (ou Ctrl+Shift+D) para apresentar as aplicações disponíveis para executar:
 
-![Executar](./media/playback-multi-day-recordings-tutorial/run.png)
+![A screenshot mostra um menu no Código do Estúdio Visual com o item de execução selecionado.](./media/playback-multi-day-recordings-tutorial/run.png)
  
 Selecione a aplicação AMS Asset Player a partir da caixa drop down, como mostrado abaixo, e bata em F5 para começar a depurar.
 
-![Depurar](./media/playback-multi-day-recordings-tutorial/debug.png)
+![A screenshot mostra um menu no Código do Estúdio Visual com o Ams Asset Player selecionado.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 A aplicação da amostra irá construir e lançar a sua aplicação de navegador padrão, e abrir a página AMS Asset Player.
 

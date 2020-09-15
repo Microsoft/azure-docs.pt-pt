@@ -6,29 +6,29 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/10/2020
-ms.openlocfilehash: f522812f762b55ec61794101e6cd1ec15fb171ca
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/14/2020
+ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212098"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531054"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Construa expressões no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-No fluxo de dados de mapeamento, muitas propriedades de transformação são inseridas como expressões. Estas expressões são compostas por valores de coluna, parâmetros, funções, operadores e literais que avaliam um tipo de dados Spark no tempo de execução.
+No fluxo de dados de mapeamento, muitas propriedades de transformação são inseridas como expressões. Estas expressões são compostas por valores de coluna, parâmetros, funções, operadores e literais que avaliam um tipo de dados Spark no tempo de execução. Mapear fluxos de dados tem uma experiência dedicada que o ajuda na construção destas expressões chamadas **Dedômes.** Utilizando a conclusão do código  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) para realçar, fazer verificação de sintaxe e auto-conclusão, o construtor de expressão foi concebido para facilitar os fluxos de dados de construção. Este artigo explica como usar o construtor de expressão para construir eficazmente a sua lógica de negócio.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
+![Construtor de Expressão](media/data-flow/expresion-builder.png "Construtor de Expressões")
 
 ## <a name="open-expression-builder"></a>Construtor de expressão aberta
 
-A interface de edição de expressão na experiência do utilizador da Azure Data Factory é conhecida como Expression Builder. Ao introduzir a sua lógica de expressão, a Data Factory utiliza a conclusão do código [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) para realçar, fazer verificação de sintaxe e completar automaticamente.
+Existem vários pontos de entrada para abrir o construtor de expressão. Todos estes dependem do contexto específico da transformação do fluxo de dados. O caso de uso mais comum é em transformações como [coluna derivada](data-flow-derived-column.md) e [agregado](data-flow-aggregate.md) onde os utilizadores criam ou atualizam colunas usando a linguagem de expressão de fluxo de dados. O construtor de expressão pode ser aberto selecionando O construtor de **expressão aberta** acima da lista de colunas. Também pode clicar num contexto de coluna e abrir o construtor de expressão diretamente para essa expressão.
 
-![Construtor de Expressão](media/data-flow/xpb1.png "Construtor de Expressões")
+![Open Expression Builder deriva](media/data-flow/open-expression-builder-derive.png "Open Expression Builder deriva")
 
-Em transformações como a coluna derivada e o filtro, onde as expressões são obrigatórias, abra o Expression Builder selecionando a caixa de expressão azul.
+Em algumas transformações como [o filtro,](data-flow-filter.md)clicar numa caixa de texto de expressão azul abrirá o construtor de expressão. 
 
 ![Caixa de expressão azul](media/data-flow/expressionbox.png "Construtor de Expressões")
 
@@ -40,29 +40,52 @@ Nos casos em que uma expressão ou um valor literal são entradas válidas, **se
 
 ![Adicionar opção de conteúdo dinâmico](media/data-flow/add-dynamic-content.png "Construtor de Expressões")
 
-## <a name="expression-language-reference"></a>Referência da linguagem de expressão
+## <a name="expression-elements"></a>Elementos de expressão
 
-Mapear fluxos de dados tem funções incorporadas e operadores que podem ser usados em expressões. Para obter uma lista das funções disponíveis, consulte [as funções de expressão no fluxo de dados de mapeamento](data-flow-expression-functions.md).
+No mapeamento dos fluxos de dados, as expressões podem ser compostas por valores de coluna, parâmetros, funções, variáveis locais, operadores e literais. Estas expressões devem avaliar a um tipo de dados Spark, como cordas, boolean ou inteiro.
 
-## <a name="column-names-with-special-characters"></a>Nomes de colunas com caracteres especiais
+![Elementos de expressão](media/data-flow/expression-elements.png "Elementos de expressão")
+
+### <a name="functions"></a>Funções
+
+Mapear fluxos de dados tem funções incorporadas e operadores que podem ser usados em expressões. Para obter uma lista de funções disponíveis, consulte a [referência do fluxo de dados](data-flow-expression-functions.md)de mapeamento .
+
+#### <a name="address-array-indexes"></a>Índices de matriz de endereços
+
+Ao lidar com colunas ou funções que devolvam tipos de matrizes, utilize suportes ([]) para aceder a um elemento específico. Se o índice não existir, a expressão avalia em NU.
+
+![Matriz de construtor de expressão](media/data-flow/expression-array.png "Visualização de dados de expressão")
+
+> [!IMPORTANT]
+> No mapeamento dos fluxos de dados, as matrizes são baseadas em um significado que o primeiro elemento é referenciado pelo índice um. Por exemplo, o meuArray[1] acederá ao primeiro elemento de uma matriz chamada 'myArray'.
+
+### <a name="input-schema"></a>Esquema de entrada
+
+Se o fluxo de dados utilizar um esquema definido em qualquer uma das suas fontes, pode referenciar uma coluna pelo nome em muitas expressões. Se estiver a utilizar a deriva de esquema, pode referenciar colunas explicitamente utilizando as `byName()` funções ou `byNames()` funções ou corresponder utilizando padrões de coluna.
+
+#### <a name="column-names-with-special-characters"></a>Nomes de colunas com caracteres especiais
 
 Quando tiver nomes de colunas que incluam caracteres ou espaços especiais, rodeie o nome com aparelhos encaracolados para os referenciar numa expressão.
 
 ```{[dbo].this_is my complex name$$$}```
 
+### <a name="parameters"></a>Parâmetros
+
+Os parâmetros são valores que são passados para um fluxo de dados no tempo de execução a partir de um oleoduto. Para fazer referência a um parâmetro, clique no parâmetro a partir da visualização de **elementos de expressão** ou referencia-lo com um sinal de dólar na frente do seu nome. Por exemplo, um parâmetro chamado parâmetro1 seria referenciado por `$parameter1` . Para saber mais, consulte [os fluxos de dados de mapeamento parametrizante.](parameters-data-flow.md)
+
+### <a name="locals"></a>Locais
+
+Se estiver a partilhar lógicas em várias colunas ou quiser compartimentar a sua lógica, pode criar um local dentro de uma coluna derivada\. Para fazer referência a um local, clique no local a partir da vista de **elementos de expressão** ou referencia-lo com um cólon na frente do seu nome. Por exemplo, um local chamado local1 seria referenciado por `:local1` . Saiba mais sobre os locais na [documentação da coluna derivada.](data-flow-derived-column.md#locals)
+
 ## <a name="preview-expression-results"></a>Resultados da expressão de pré-visualização
 
-Se [o modo de depuração](concepts-data-flow-debug-mode.md) estiver ligado, pode utilizar o cluster De spark ao vivo para ver uma pré-visualização em curso do que a sua expressão avalia. À medida que constrói a sua lógica, pode desormes a tua expressão em tempo real. 
+Se [o modo de depuração](concepts-data-flow-debug-mode.md) estiver ligado, pode utilizar interativamente o cluster de depuração para visualizar o que a sua expressão avalia. Selecione **Refresh** ao lado da pré-visualização de dados para atualizar os resultados da pré-visualização de dados. Pode ver a saída de cada linha dadas as colunas de entrada.
 
-![Pré-visualização em curso](media/data-flow/exp4b.png "Visualização de dados de expressão")
-
-Selecione **Refresh** para atualizar os resultados da sua expressão contra uma amostra ao vivo da sua fonte.
-
-![Botão Atualizar](media/data-flow/exp5.png "Visualização de dados de expressão")
+![Pré-visualização em curso](media/data-flow/preview-expression.png "Visualização de dados de expressão")
 
 ## <a name="string-interpolation"></a>Interpolação de cordas
 
-Utilize aspas para incluir textos de cordas literais juntamente com expressões. Pode incluir funções de expressão, colunas e parâmetros. A interpolação de cordas é útil para evitar o uso extensivo da concatenação de cordas quando os parâmetros são incluídos em cadeias de consulta. Para usar a sintaxe de expressão, enrola-a em aparelhos encaracolados,
+Ao criar cordas longas que usam elementos de expressão, use a interpolação de cordas para facilmente construir uma lógica de cordas complexa. A interpolação de cordas evita o uso extensivo da concatenação de cordas quando os parâmetros são incluídos em cadeias de consulta. Utilize aspas duplas para incluir texto de corda literal juntamente com expressões. Pode incluir funções de expressão, colunas e parâmetros. Para usar a sintaxe de expressão, enrola-a em aparelhos encaracolados,
 
 Alguns exemplos de interpolação de cordas:
 
@@ -72,7 +95,9 @@ Alguns exemplos de interpolação de cordas:
 
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
-## <a name="comment-expressions"></a>Expressões de comentário
+* ```"{:playerName} is a {:playerRating} player"```
+
+## <a name="commenting-expressions"></a>Comentando expressões
 
 Adicione comentários às suas expressões utilizando sintaxe de comentário de linha única e multiline.
 
@@ -81,11 +106,11 @@ Os seguintes exemplos são os comentários válidos:
 * ```/* This is my comment */```
 
 * ```/* This is a```
-*   ```multi-line comment */```
+* ```multi-line comment */```
 
 Se colocar um comentário no topo da sua expressão, aparece na caixa de texto de transformação para documentar as suas expressões de transformação.
 
-![Comentar na caixa de texto de transformação](media/data-flow/comments2.png "Comentários")
+![Comentar na caixa de texto de transformação](media/data-flow/comment-expression.png "Comentários")
 
 ## <a name="regular-expressions"></a>Expressões regulares
 
@@ -103,13 +128,9 @@ Um exemplo que usa duplos cortes:
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="address-array-indexes"></a>Índices de matriz de endereços
-
-Com funções de expressão que devolvem matrizes, utilize suportes ([]) para endereçar índices específicos no interior dos objetos de matriz de retorno. A matriz é baseada em umas.
-
-![Matriz de construtor de expressão](media/data-flow/expb2.png "Visualização de dados de expressão")
-
 ## <a name="keyboard-shortcuts"></a>Atalhos de teclado
+
+Abaixo estão uma lista de atalhos disponíveis no construtor de expressão. A maioria dos atalhos intellisense estão disponíveis na criação de expressões.
 
 * Ctrl+K Ctrl+C: Comentar toda a linha.
 * Ctrl+K Ctrl+U: Descomprometment.
@@ -118,7 +139,9 @@ Com funções de expressão que devolvem matrizes, utilize suportes ([]) para en
 * Tecla de seta Alt+Up: Avance a linha de corrente.
 * Ctrl+Spacebar: Mostrar ajuda ao contexto.
 
-## <a name="convert-to-dates-or-timestamps"></a>Converter em datas ou prazos
+## <a name="commonly-used-expressions"></a>Expressões comumente usadas
+
+### <a name="convert-to-dates-or-timestamps"></a>Converter em datas ou prazos
 
 Para incluir as cordas literais na sua saída de timetamp, embrulhe a sua conversão em ```toString()``` .
 
@@ -130,7 +153,7 @@ Para converter milissegundos da época para uma data ou hora marcada, utilize `t
 
 O "l" de fuga no final da expressão anterior significa conversão para um tipo longo como sintaxe inline.
 
-## <a name="find-time-from-epoch-or-unix-time"></a>Encontre tempo da época ou tempo unix
+### <a name="find-time-from-epoch-or-unix-time"></a>Encontre tempo da época ou tempo unix
 
 toLong( actualTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:mm:ss. SSS') ) * 1000l
 

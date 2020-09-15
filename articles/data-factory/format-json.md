@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 08052b255854ac9637d4f9a65dd10b63b26ba38d
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 7c1a2cf4b9b476a8f31f38fea45b2e1ef3fe4307
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061177"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531792"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Azure Data Factory
 
@@ -30,12 +30,12 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Json**. | Sim      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
-| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.| Não       |
-| compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
-| tipo<br/>*(em) `compression` * | O códice de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2**, **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **snappy,** ou **lz4**. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Nota** quando utilizar a atividade de cópia para descomprimir os ficheiros **ZipDeflate** / **TarGzip** e escrever para a loja de dados da pia baseada em ficheiros, por predefinição os ficheiros são extraídos para a pasta: , utilize na fonte de atividade de cópia para controlar se deve preservar o nome do `<path specified in dataset>/<folder named as source compressed file>/` ficheiro zip como estrutura de `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` pasta. [copy activity source](#json-as-source) | Não.  |
-| nível<br/>*(em) `compression` * | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Json**. | Yes      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Yes      |
+| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.| No       |
+| compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | No |
+| tipo<br/>*(em) `compression` * | O códice de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2**, **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **snappy,** ou **lz4**. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Nota** quando utilizar a atividade de cópia para **descomprimir**os ficheiros ZipDeflate / **TarGzip** e escrever para a loja de dados da pia baseada em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source compressed file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` [cópia](#json-as-source) para controlar se deve preservar o nome dos ficheiros(s) comprimidos como estrutura de pasta.| Não.  |
+| nível<br/>*(em) `compression` * | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | No       |
 
 Abaixo está um exemplo do conjunto de dados JSON no Azure Blob Storage:
 
@@ -75,18 +75,18 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **JSONSource**. | Sim      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de leitura JSON** abaixo. | Não       |
-| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **JSONSource**. | Yes      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de leitura JSON** abaixo. | No       |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 Configurações de **leitura JSON** suportadas em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | O tipo de formatoStais devem ser definidos para **JsonReadSettings**. | Sim      |
-| compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | Não       |
-| preservarZipFileNameAsFolder<br>*(em `compressionProperties` -> `type` `ZipDeflateReadSettings` conforme) *  | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | Não |
-| preservar CompressãoFileNameAsFolder<br>*(em `compressionProperties` -> `type` `TarGZipReadSettings` conforme) * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **TarGzip.** Indica se deve preservar o nome do ficheiro comprimido de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros descomprimidos para `<path specified in dataset>/<folder named as source compressed file>/` . <br>- Quando definido como **falso,** a Data Factory escreve ficheiros descomprimidos diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros de origem para evitar corridas ou comportamentos inesperados. | Não |
+| tipo          | O tipo de formatoStais devem ser definidos para **JsonReadSettings**. | Yes      |
+| compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | No       |
+| preservarZipFileNameAsFolder<br>*(em `compressionProperties` -> `type` `ZipDeflateReadSettings` conforme) *  | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | No |
+| preservar CompressãoFileNameAsFolder<br>*(em `compressionProperties` -> `type` `TarGZipReadSettings` conforme) * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **TarGzip.** Indica se deve preservar o nome do ficheiro comprimido de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros descomprimidos para `<path specified in dataset>/<folder named as source compressed file>/` . <br>- Quando definido como **falso,** a Data Factory escreve ficheiros descomprimidos diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros de origem para evitar corridas ou comportamentos inesperados. | No |
 
 ### <a name="json-as-sink"></a>JSON como pia
 
@@ -94,16 +94,16 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **JSONSink**. | Sim      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita JSON** abaixo. | Não       |
-| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **JSONSink**. | Yes      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita JSON** abaixo. | No       |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 Configurações de **escrita JSON** suportadas em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| tipo          | O tipo de formatoStas devem ser definidas para **JsonWriteSettings**. | Sim                                                   |
-| filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são: **setOfObjects (Linhas** JSON) e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |Não |
+| tipo          | O tipo de formatoStas devem ser definidas para **JsonWriteSettings**. | Yes                                                   |
+| filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são: **setOfObjects (Linhas** JSON) e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |No |
 
 ### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
 
@@ -312,11 +312,11 @@ Pode adicionar uma coluna complexa ao fluxo de dados através do construtor de e
 
 No painel lateral do esquema de saída, paire sobre uma coluna e clique no ícone mais. **Selecione Adicione subcolumn** para tornar a coluna um tipo complexo.
 
-![Adicionar subcolumn](media/data-flow/addsubcolumn.png "Adicionar Subcolumn")
+![Adicionar subcolumn](media/data-flow/derive-add-subcolumn.png "Adicionar Subcolumn")
 
 Pode adicionar colunas e subcolumns adicionais da mesma forma. Para cada campo não complexo, uma expressão pode ser adicionada no editor de expressão à direita.
 
-![Coluna complexa](media/data-flow/complexcolumn.png "Coluna complexa")
+![Adicionar coluna complexa](media/data-flow/derive-complex-column.png "Adicionar colunas")
 
 #### <a name="entering-the-json-structure-manually"></a>Entrando na estrutura JSON manualmente
 
@@ -370,7 +370,7 @@ Se esta expressão fosse inserida para uma coluna chamada "complexColumn", entã
 )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)

@@ -5,16 +5,16 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 09/14/2020
+ms.openlocfilehash: 3f7796dd565238eb853fcea431a6bcb7d18ee05a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242071"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530238"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões PostgreSQL na Base de Dados Azure para PostgreSQL - Servidor Único
-O PostgreSQL fornece a capacidade de alargar a funcionalidade da sua base de dados utilizando extensões. As extensões juntam vários objetos SQL relacionados num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Depois de serem carregadas na base de dados, as extensões funcionam como funcionalidades incorporadas.
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões do PostgreSQL na Base de Dados do Azure para PostgreSQL – Servidor Único
+O PostgreSQL fornece a capacidade de alargar a funcionalidade da sua base de dados utilizando extensões. As extensões agrupam múltiplos objetos SQL relacionados num pacote individual, o qual pode ser carregado ou removido a partir da base de dados com um único comando. Após ser carregado para a base de dados, as extensões funcionam como funcionalidades incorporadas.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Como utilizar extensões PostgreSQL
 As extensões PostgreSQL devem ser instaladas na sua base de dados antes de as poder utilizar. Para instalar uma extensão específica, executar o comando [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)a partir da   ferramenta PSQL para carregar os objetos embalados na sua base de dados.
@@ -228,7 +228,7 @@ Nos Postgres 11 e acima, pode configurar que o pré-encerramento acontece [autom
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB é uma base de dados de séries de tempo que é embalada como uma extensão para PostgreSQL. TimescaleDB fornece funções analíticas orientadas para o tempo, otimizações e escalas Postgres para cargas de carga de séries temporais.
 
-[Saiba mais sobre timescaleDB,](https://docs.timescale.com/latest)uma marca registada da [Timescale, Inc.](https://www.timescale.com/). A Azure Database for PostgreSQL fornece a versão de código aberto da Timescale. Para saber quais as funcionalidades de Timescale disponíveis nesta versão, consulte [a comparação do produto timescale](https://www.timescale.com/products/).
+[Saiba mais sobre timescaleDB,](https://docs.timescale.com/latest)uma marca registada da [Timescale, Inc.](https://www.timescale.com/). A Azure Database for PostgreSQL fornece a [edição TimescaleDB Apache-2](https://www.timescale.com/legal/licenses).
 
 ### <a name="installing-timescaledb"></a>Instalação de TimescaleDB
 Para instalar o TimescaleDB, tem de o incluir nas bibliotecas de pré-carregamento partilhadas do servidor. Uma alteração no parâmetro de `shared_preload_libraries` Postgres requer que um servidor **reinicie** a fazer efeito. Pode alterar parâmetros utilizando o [portal Azure](howto-configure-server-parameters-using-portal.md) ou o [Azure CLI](howto-configure-server-parameters-using-cli.md).

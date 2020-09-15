@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 034bdce96d88deb31a071682a3c02200a64699dd
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087673"
+ms.locfileid: "90530510"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Receber e responder às notificações chave do cofre com a Azure Event Grid
 
@@ -197,6 +197,6 @@ Saiba mais:
 - Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](event-grid-overview.md)
 - Como: [Receber e-mail quando um segredo de cofre chave muda](event-grid-logicapps.md)
 - [Esquema de eventos Azure Event Grid para Azure Key Vault](../../event-grid/event-schema-key-vault.md)
-- [Visão geral do cofre da chave Azure](overview.md))
+- [Visão geral do cofre da chave Azure](overview.md)
 - [Descrição geral do Azure Event Grid](../../event-grid/overview.md)
 - [Visão geral da Azure Automation](../../automation/index.yml)

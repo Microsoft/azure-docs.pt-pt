@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 558a03cee4d3183debac2492d798e40d49d58881
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 7be92289d293798393ead3562c39721d46ce561b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061636"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531853"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro na Azure Data Factory
 
@@ -30,9 +30,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Avro**. | Sim      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
-| avroCompressionCodec | O codec de compressão para usar ao escrever para ficheiros Avro. Ao ler os ficheiros avro, a Data Factory determina automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**" (padrão), "**esvaziar**", "**snappy**". Nota atualmente A atividade copy não suporta Snappy quando lê/escreve ficheiros Avro. | Não       |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Avro**. | Yes      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Yes      |
+| avroCompressionCodec | O codec de compressão para usar ao escrever para ficheiros Avro. Ao ler os ficheiros avro, a Data Factory determina automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**" (padrão), "**esvaziar**", "**snappy**". Nota atualmente A atividade copy não suporta Snappy quando lê/escreve ficheiros Avro. | No       |
 
 > [!NOTE]
 > O espaço branco no nome da coluna não é suportado para ficheiros Avro.
@@ -71,8 +71,8 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **AvroSource**. | Sim      |
-| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **AvroSource**. | Yes      |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 ### <a name="avro-as-sink"></a>Avro como pia
 
@@ -80,17 +80,17 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **AvroSink**. | Sim      |
-| formatoStas          | Um grupo de propriedades. Consulte a tabela de **definições de escrita avro** abaixo.| Não      |
-| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **AvroSink**. | Yes      |
+| formatoStas          | Um grupo de propriedades. Consulte a tabela de **definições de escrita avro** abaixo.| No      |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 Configurações de **escrita da Avro** suportadas em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| tipo          | O tipo de formatoStas devem ser definidas para **AvroWriteSettings**. | Sim                                                   |
-| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | Não |
-| fileNamePrefix | Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | Não |
+| tipo          | O tipo de formatoStas devem ser definidas para **AvroWriteSettings**. | Yes                                                   |
+| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | No |
+| fileNamePrefix | Aplicável quando `maxRowsPerFile` é configurado.<br> Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | No |
 
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
@@ -127,7 +127,7 @@ Os [tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#sch
 ### <a name="data-flows"></a>Fluxos de dados
 Ao trabalhar com ficheiros Avro em fluxos de dados, pode ler e escrever tipos de dados complexos, mas certifique-se de limpar o esquema físico do conjunto de dados primeiro. Nos fluxos de dados, pode definir a sua projeção lógica e colunas derivantes que são estruturas complexas, em seguida, mapear automaticamente esses campos para um ficheiro Avro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)

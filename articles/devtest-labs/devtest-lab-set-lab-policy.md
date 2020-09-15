@@ -3,12 +3,12 @@ title: Gerir políticas de laboratório em Azure DevTest Labs Microsoft Docs
 description: Aprenda a definir políticas de laboratório como tamanhos de VM, VMs máximos por utilizador e automatização de encerramento.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290428"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530357"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório em Azure DevTest Labs
 
@@ -105,7 +105,7 @@ A política de arranque automático permite especificar quando os VMs no laborat
 
 1. No painel de **configuração e políticas** do laboratório, selecione **Autostart**.
    
-    ![Arranque automático](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![A captura do ecrã mostra as opções de arranque automáticas para uma máquina virtual.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. Selecione **On** para ativar esta política e **desligue-a** para desativá-la.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e65fecb70b7e3adf009396c0daa00fc50b81b519
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: d921bddf90c415cb244e2cc9ad98354392a537ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604520"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530153"
 ---
 # <a name="manage-the-mobility-agent"></a>Gerir o Agente de mobilidade 
 
@@ -26,7 +26,7 @@ Configura o agente de mobilidade no seu servidor quando utiliza a Recuperação 
 ## <a name="update-mobility-service-from-azure-portal"></a>Atualizar o serviço de mobilidade a partir do portal Azure
 
 1. Antes de começar, certifique-se de que o servidor de configuração, os servidores de processo de escala e quaisquer servidores-alvo principais que fazem parte da sua implementação são atualizados antes de atualizar o Serviço de Mobilidade em máquinas protegidas.
-    1. A partir de [9.36 versão,](https://support.microsoft.com/help/4578241/) para SUSE Linux Enterprise Server 11 SP4, certifique-se de que o mais recente instalador está [disponível no servidor de configuração e servidor de processo de escala](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+    1. A partir da versão 9.36, para o SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 garantem que o mais recente instalador está [disponível no servidor de configuração e servidor de processo de escala.](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)
 1. No portal abra o cofre > **itens replicados**.
 1. Se o servidor de configuração for a versão mais recente, vê uma notificação onde se lê "A nova atualização do agente de replicação de recuperação do Site está disponível. Clique para instalar."
 

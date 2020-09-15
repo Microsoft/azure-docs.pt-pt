@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-javascript
-ms.openlocfilehash: 58adb3e8216fdda1f276760b103e02bf7de6e12e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 32a766fc1a161d87e0b42f2551eca0328006ed9b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422135"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530595"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo TPM simulado utilizando Node.js dispositivo SDK para serviço de provisionamento de dispositivos IoT Hub
 
@@ -27,7 +27,7 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Revisão dos [conceitos de provisionamento automático.](concepts-auto-provisioning.md)
+- Familiarizado com [conceitos de provisionamento.](about-iot-dps.md#provisioning-process)
 - Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [Node.js v4.0+](https://nodejs.org).
@@ -258,11 +258,11 @@ Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositiv
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
 1. Feche a janela do simulador TPM no seu computador.
-1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de Provisionamento de Dispositivos. Abra a lâmina **'Gestão de Inscrições'** para o seu serviço e, em seguida, selecione o separador **Matrículas Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* do dispositivo que inscreveu neste arranque rápido e prima o botão **Eliminar** na parte superior do painel. 
+1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de Provisionamento de Dispositivos. Abra a lâmina **'Gestão de Inscrições'** para o seu serviço e, em seguida, selecione o **separador Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* do dispositivo que inscreveu neste arranque rápido e prima o botão **Eliminar** na parte superior do painel. 
 1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra a lâmina dos **dispositivos IoT** para o seu hub, selecione a caixa de verificação ao lado do *ID* do dispositivo que registou neste arranque rápido e, em seguida, pressione o botão **Eliminar** na parte superior do painel.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um dispositivo simulado TPM na sua máquina e forte-o para o seu hub IoT utilizando o Serviço de Provisionamento de Dispositivos IoT Hub. Para aprender a inscrever o seu dispositivo TPM programáticamente, continue a iniciar rapidamente a inscrição programática de um dispositivo TPM. 
 

@@ -1,16 +1,16 @@
 ---
 title: Backup periódico/restauro em tecido de serviço autónomo Azure
-description: Utilize a funcionalidade de backup e restauro periódicos do Service Fabric para permitir a cópia de segurança periódica dos dados da sua aplicação.
+description: Utilize a cópia de segurança periódica de um Serviço autónomo e restabeleça a funcionalidade de restauro para permitir a cópia de segurança periódica dos dados da sua aplicação.
 author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 07a6260c176165af5ced5ce275b9e4b365707d77
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dd91b8eb120de24d752073fd80157e9d2a663594
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261240"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531326"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup periódico e restauro em um tecido de serviço autónomo
 > [!div class="op_single_selector"]

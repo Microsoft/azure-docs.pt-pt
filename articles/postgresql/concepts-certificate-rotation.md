@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: fcd27e84f479fa71d204e7d5a210ed16642d202b
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: a746b004060d7a2f29e03aa98d4a9ade636afecb
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057265"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531904"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Compreender as alterações na alteração Root CA para Azure Database para o servidor Single PostgreSQL
 
@@ -87,7 +87,7 @@ Não são necessárias ações se não estiver a utilizar o SSL/TLS.
 Não, não precisa de reiniciar o servidor de base de dados para começar a usar o novo certificado. Trata-se de uma alteração do lado do cliente e as ligações ao cliente que chegam precisam de utilizar o novo certificado para garantir que podem ligar-se ao servidor de base de dados.
 
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. O que acontecerá se eu não atualizar o certificado de raiz antes de 26 de outubro de 2020 (10/26/2020)?
-Se não atualizar o certificado de raiz antes de 30 de novembro de 2020, as suas aplicações que se ligam via SSL/TLS e que faz a verificação do certificado raiz não poderão comunicar ao servidor de base de dados PostgreSQL e a aplicação experimentará problemas de conectividade na base de dados do servidor PostgreSQL.
+Se não atualizar o certificado de raiz antes de 26 de outubro de 2020, as suas aplicações que se ligam via SSL/TLS e que faz a verificação do certificado raiz não poderão comunicar ao servidor de base de dados PostgreSQL e a aplicação experimentará problemas de conectividade na base de dados do servidor PostgreSQL.
 
 ### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. Preciso de planear um tempo de paragem de manutenção para esta mudança?<BR>
 Não. Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção aqui para esta mudança.
@@ -95,7 +95,7 @@ Não. Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao ser
 ### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 26 de outubro de 2020 (10/26/2020)?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.
 
-###  <a name="6-if-i-create-a-new-server-after-nov-30th-will-i-be-impacted"></a>6. Se eu criar um novo servidor depois de 30 de novembro, serei impactado?
+###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6. Se eu criar um novo servidor depois de 26 de outubro de 2020, serei impactado?
 Para servidores criados após 26 de outubro de 2020 (10/26/2020), pode utilizar o certificado recém-emitido para as suas aplicações para se conectar através do SSL.
 
 ### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. Com que frequência a Microsoft atualiza os seus certificados ou qual é a política de caducidade?

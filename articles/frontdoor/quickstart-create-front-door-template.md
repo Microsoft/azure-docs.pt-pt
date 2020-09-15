@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Criar um serviço de porta frontal Azure utilizando um modelo de Gestor de Recursos Azure (modelo ARM)'
-description: Aprenda a criar um serviço de porta frontal Azure utilizando o modelo Azure Resource Manager (modelo ARM).
+description: Este quickstart descreve como criar um serviço de porta frontal Azure usando o modelo Azure Resource Manager (modelo ARM).
 services: front-door
 documentationcenter: ''
 author: duongau
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 21bcad2c4fe65a60d2f8b3d2b04db5553db48a19
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 41ad240b7232895a83839777f9942011edfaf5f4
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020543"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529392"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Quickstart: Criar uma porta frontal usando um modelo ARM
 

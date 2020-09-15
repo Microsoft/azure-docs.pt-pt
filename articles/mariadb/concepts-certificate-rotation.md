@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: ba5a1a0eb61ca086c3cd1ea66acddc18e950871d
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3c91da6a9bfc7bfa23255dbc1c0c76d2f59818f1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057247"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530561"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Compreender as alterações na alteração do CA raiz para a Base de Dados Azure para MariaDB
 
@@ -87,7 +87,7 @@ Não são necessárias ações se não estiver a utilizar o SSL/TLS.
 Não, não precisa de reiniciar o servidor de base de dados para começar a usar o novo certificado. Trata-se de uma alteração do lado do cliente e as ligações ao cliente que chegam precisam de utilizar o novo certificado para garantir que podem ligar-se ao servidor de base de dados.
 
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. O que acontecerá se eu não atualizar o certificado de raiz antes de 26 de outubro de 2020 (10/26/2020)?
-Se não atualizar o certificado de raiz antes de 30 de novembro de 2020, as suas aplicações que se ligam via SSL/TLS e que faz a verificação do certificado raiz não poderão comunicar ao servidor de base de dados MariaDB e a aplicação experimentará problemas de conectividade com o seu servidor de base de dados MariaDB.
+Se não atualizar o certificado de raiz antes de 26 de outubro de 2020, as suas aplicações que se ligam via SSL/TLS e que faz a verificação do certificado raiz não poderão comunicar ao servidor de base de dados MariaDB e a aplicação experimentará problemas de conectividade com o seu servidor de base de dados MariaDB.
 
 ### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. Preciso de planear um tempo de paragem de manutenção para esta mudança?<BR>
 Não. Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção aqui para esta mudança.
@@ -95,7 +95,7 @@ Não. Uma vez que a mudança aqui é apenas do lado do cliente para ligar ao ser
 ### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 26 de outubro de 2020 (10/26/2020)?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.
 
-###  <a name="6-if-i-create-a-new-server-after-nov-30th-will-i-be-impacted"></a>6. Se eu criar um novo servidor depois de 30 de novembro, serei impactado?
+###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6. Se eu criar um novo servidor depois de 26 de outubro de 2020, serei impactado?
 Para servidores criados após 26 de outubro de 2020 (10/26/2020), pode utilizar o certificado recém-emitido para as suas aplicações para se conectar através do SSL.
 
 ### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. Com que frequência a Microsoft atualiza os seus certificados ou qual é a política de caducidade?

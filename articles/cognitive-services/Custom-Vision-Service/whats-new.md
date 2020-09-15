@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: a87769e1b67187a15daf3a256a2c1f4c79e10040
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 6ed8e1deba7b3b2df03fa517a922721bcb8f8ad1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055525"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531241"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novidades na Visão Personalizada
 
@@ -25,7 +25,19 @@ Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento,
 
 ### <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-A Custom Vision suporta o controlo de acesso baseado em funções Azure (Azure RBAC), um sistema de autorização para gerir o acesso individual aos recursos Azure. Para aprender a gerir o acesso aos seus projetos de Visão Personalizada, consulte o [controlo de acesso baseado em funções.](./role-based-access-control.md)
+* A Custom Vision suporta o controlo de acesso baseado em funções Azure (Azure RBAC), um sistema de autorização para gerir o acesso individual aos recursos Azure. Para aprender a gerir o acesso aos seus projetos de Visão Personalizada, consulte o [controlo de acesso baseado em funções.](./role-based-access-control.md)
+
+### <a name="subset-training"></a>Treinamento de subconjunto
+
+* Ao treinar um projeto de deteção de objetos, pode treinar opcionalmente apenas um subconjunto das suas etiquetas aplicadas. Podes querer fazer isto se ainda não aplicaste o suficiente de certas etiquetas, mas tens o suficiente de outras. Siga o arranque rápido da [biblioteca cliente](./quickstarts/object-detection.md) para C# ou Python para saber mais.
+
+### <a name="azure-storage-notifications"></a>Notificações de armazenamento Azure
+
+* Pode integrar o seu projeto Custom Vision com uma fila de armazenamento de blob Azure para obter notificações push da atividade de treino/exportação de projetos e cópias de backup de modelos publicados. Esta funcionalidade é útil para evitar que o serviço seja continuamente sondada para obter resultados quando as operações prolongadas estiverem a decorrer. Em vez disso, pode integrar as notificações da fila de armazenamento no seu fluxo de trabalho. Consulte o guia [de integração do Armazenamento](./storage-integration.md) para saber mais.
+
+### <a name="copy-and-move-projects"></a>Copiar e mover projetos
+
+* Agora pode copiar projetos de uma conta De Visão Personalizada em outras. Você pode querer mover um projeto de um ambiente de desenvolvimento para o ambiente de produção, ou apoiar um projeto para uma conta em uma região de Azure diferente para uma maior segurança de dados. Consulte o guia [de projetos Copy e move](./copy-move-projects.md) para saber mais.
 
 ## <a name="september-2019"></a>Setembro de 2019
 

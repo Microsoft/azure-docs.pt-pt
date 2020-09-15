@@ -4,12 +4,12 @@ description: Como configurar os nóns de transação do Serviço Azure Blockchai
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212569"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530391"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar os nosdes de transação do Serviço Blockchain Azure
 
@@ -35,9 +35,9 @@ Para adicionar um nó de transação:
 
     ![Adicionar nó de transação](./media/configure-transaction-nodes/add-node.png)
 
-    | Definição | Descrição |
+    | Definições | Descrição |
     |---------|-------------|
-    | Name | Nome do nó de transação. O nome é usado para criar o endereço DNS para o ponto final do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado uma vez que é criado. |
+    | Nome | Nome do nó de transação. O nome é usado para criar o endereço DNS para o ponto final do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado uma vez que é criado. |
     | Palavra-passe | Estabeleça uma senha forte. Utilize a palavra-passe para aceder ao ponto final do nó de transação com autenticação básica.
 
 1. Selecione **Criar**.
@@ -52,7 +52,7 @@ Para ver os detalhes do ponto final de um nó de transação:
 
 1. No portal Azure, navegue para um dos seus nós de transação do Azure Blockchain Service e selecione **a Visão Geral**.
 
-    ![Pontos Finais](./media/configure-transaction-nodes/endpoints.png)
+    ![A captura de ecrã mostra a visão geral dos nós de transação para um membro blockchain.](./media/configure-transaction-nodes/endpoints.png)
 
 Os pontos finais do nó de transação são seguros e requerem autenticação. Pode ligar-se a um ponto final de transação utilizando a autenticação Azure AD, a autenticação básica HTTPS e a utilização de uma chave de acesso sobre HTTPS ou Websocket sobre TLS.
 
@@ -71,7 +71,7 @@ Para conceder ao Azure AD o controlo de acesso ao seu ponto final:
     |---------|-------------|
     | Função | Selecione **Proprietário,** **Contribuinte**ou **Leitor**.
     | Atribuir acesso a | Selecione **O utilizador, grupo ou principal de serviço da Azure.**
-    | Selecionar | Procure o utilizador, grupo ou o principal de serviço que pretende adicionar.
+    | Selecione | Procure o utilizador, grupo ou o principal de serviço que pretende adicionar.
 
 1. **Selecione Guardar** para adicionar a atribuição de funções.
 
@@ -131,7 +131,7 @@ Escolha o separador Web3, Nethereum, Truffle ou Web3j para ver a amostra de cód
 
 ![Código de exemplo](./media/configure-transaction-nodes/sample-code.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar os nosdes de transação utilizando o Azure CLI](manage-cli.md)

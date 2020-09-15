@@ -1,7 +1,7 @@
 ---
 title: Como instalar e executar recipientes para a utilização da API do Detetor de Anomalias
 titleSuffix: Azure Cognitive Services
-description: Utilize os algoritmos avançados da API do Detetor de Anomalias para identificar anomalias nos dados da série de tempo.
+description: Aprenda a instalar e utilizar o recipiente para utilizar os algoritmos avançados da API do Detetor de Anomalias.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: ee742f09f3fcc1bd283efbc346fea6a040e53f48
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0ae3b66d8093c0498011d9f93cd8d869b85f9003
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548536"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530714"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalar e executar recipientes de detetor de anomalias (pré-visualização)
 

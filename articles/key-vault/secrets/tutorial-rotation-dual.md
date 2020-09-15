@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: f1a29866715c746e7a7eef82f11237bcbd159925
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 904355b28af93d4a277f2158b1548517118a67ba
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086832"
+ms.locfileid: "90529422"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
@@ -80,7 +80,7 @@ As funções de rotação da aplicação de função requerem estes componentes 
 
 1. Selecione a ligação de implementação do modelo Azure: 
 
-   [![Imagem mostrando um botão marcado "Implementar para Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+   [![Imagem mostrando um botão marcado "Implementar para Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
 1. Na lista de **grupos de recursos,** selecione **akvrotation**.
 1. No Nome da **Conta de Armazenamento,** digite o nome da conta de armazenamento com as teclas de acesso para rodar
@@ -203,7 +203,7 @@ az storage account keys list -n akvrotationstorage
 - [Conta de Armazenamento](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Cache de Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 - Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](../general/event-grid-overview.md)
 - Como: Criar a [sua primeira função no portal Azure](../../azure-functions/functions-create-first-azure-function.md)
 - Como: [Receber e-mail quando um segredo de cofre chave muda](../general/event-grid-logicapps.md)

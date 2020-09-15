@@ -8,16 +8,16 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8278d9f2129ab8b213cf1b561f4b82b56dffc8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8a31f2739e497d8e203a9806d25b21608e5701f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131044"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531479"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Criar e providenciar um dispositivo IoT Edge simulado com um TPM virtual no Windows
 
-Os dispositivos Azure IoT Edge podem ser provisões automáticas utilizando o [Serviço de Provisionamento de Dispositivos,](../iot-dps/index.yml) tal como dispositivos que não estão ativados por arestas. Se não estiver familiarizado com o processo de provisão automática, reveja os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Os dispositivos Azure IoT Edge podem ser provisões automáticas utilizando o [Serviço de Provisionamento de Dispositivos,](../iot-dps/index.yml) tal como dispositivos que não estão ativados por arestas. Se não estiver familiarizado com o processo de provisão automática, reveja a visão geral do [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
 O DPS suporta a chave simétrica para dispositivos IoT Edge tanto na inscrição individual como na inscrição em grupo. Para a inscrição em grupo, se verificar "is IoT Edge device device" para ser verdadeiro no atestado de chave simétrica, todos os dispositivos registados sob esse grupo de inscrição serão marcados como dispositivos IoT Edge.
 

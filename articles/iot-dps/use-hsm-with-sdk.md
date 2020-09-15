@@ -1,8 +1,8 @@
 ---
 title: Utilize diferentes mecanismos de atestação com o Serviço de Provisionamento de Dispositivos Azure IoT Hub SDK
 description: Azure Como - Como utilizar diferentes mecanismos de atestado com o Serviço de Provisionamento de Dispositivos (DPS) Client SDK em Azure
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -10,16 +10,16 @@ services: iot-dps
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: c110e90f26f595bcbf181b72e13f12a6de2fa8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a32e2f055b2914fa0008e043e80092ac2da0814
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687214"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531513"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Como utilizar diferentes mecanismos de atestado com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C
 
-Este artigo mostra-lhe como utilizar diferentes [mecanismos de atestado](concepts-security.md#attestation-mechanism) com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C. Pode utilizar um dispositivo físico ou um simulador. O serviço de aprovisionamento suporta a autenticação para dois tipos de mecanismos de atestação: X.509 e Trusted Platform Module (TPM).
+Este artigo mostra-lhe como utilizar diferentes [mecanismos de atestado](concepts-service.md#attestation-mechanism) com o SDK do Cliente do Serviço Aprovisionamento de Dispositivos para C. Pode utilizar um dispositivo físico ou um simulador. O serviço de aprovisionamento suporta a autenticação para dois tipos de mecanismos de atestação: X.509 e Trusted Platform Module (TPM).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,11 +29,11 @@ Prepare o seu ambiente de desenvolvimento de acordo com a secção denominada �
 
 Como fabricante de dispositivos, em primeiro lugar, tem de escolher um mecanismo de atestado baseado num dos tipos suportados. Atualmente, o [SDK do cliente do Serviço Aprovisionamento de Dispositivo para C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) tem suporte para os seguintes mecanismos de atestado: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): o TPM é uma norma estabelecida para a maioria das plataformas de dispositivos compatíveis com Windows, bem como para alguns dispositivos compatíveis com Linux/Ubuntu. Como fabricante de dispositivos, pode escolher este mecanismo de atestado se tiver algum destes SOs nos seus dispositivos e quiser utilizar uma norma estabelecida. Com os chips de TPM, só pode inscrever cada dispositivo individualmente no Serviço Aprovisionamento de Dispositivos. Para fins de desenvolvimento, pode utilizar o simulador TPM no seu computador de desenvolvimento Windows ou Linux.
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): o TPM é uma norma estabelecida para a maioria das plataformas de dispositivos compatíveis com Windows, bem como para alguns dispositivos compatíveis com Linux/Ubuntu. Como fabricante de dispositivos, pode escolher este mecanismo de atestado se tiver algum destes sistemas operativos em funcionamento nos seus dispositivos, e está à procura de um padrão estabelecido. Com os chips de TPM, só pode inscrever cada dispositivo individualmente no Serviço Aprovisionamento de Dispositivos. Para fins de desenvolvimento, pode utilizar o simulador TPM no seu computador de desenvolvimento Windows ou Linux.
 
-- [X.509](https://cryptography.io/en/latest/x509/): os certificados X.509 podem ser armazenados em circuitos integrados relativamente mais recentes chamados [Módulos de Segurança de Hardware (HSM)](concepts-security.md#hardware-security-module). A Microsoft também está atualmente a trabalhar em chips RIoT ou DICE, os quais implementam os certificados X.509. Com os chips X509, pode inscrever dispositivos em massa no portal. Também suporta determinados SOs não Windows, como o embedOS. Para fins de desenvolvimento, o SDK do Cliente do Serviço Aprovisionamento de Dispositivos suportam simuladores de dispositivos X.509. 
+- [X.509](https://cryptography.io/en/latest/x509/): os certificados X.509 podem ser armazenados em circuitos integrados relativamente mais recentes chamados [Módulos de Segurança de Hardware (HSM)](concepts-service.md#hardware-security-module). A Microsoft também está atualmente a trabalhar em chips RIoT ou DICE, os quais implementam os certificados X.509. Com os chips X509, pode inscrever dispositivos em massa no portal. Também suporta determinados SOs não Windows, como o embedOS. Para fins de desenvolvimento, o SDK do Cliente do Serviço Aprovisionamento de Dispositivos suportam simuladores de dispositivos X.509. 
 
-Para obter mais informações, veja os [conceitos de segurança](concepts-security.md) e os [conceitos de provisionamento automático](/azure/iot-dps/concepts-auto-provisioning) do Serviço Aprovisionamento de Dispositivos no Hub IoT.
+Para obter mais informações, consulte os mecanismos de [atestação](concepts-service.md#attestation-mechanism)do Serviço de Provisionamento de Dispositivos IoT Hub .
 
 ## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>Ativar a autenticação para mecanismos de atestado suportados
 

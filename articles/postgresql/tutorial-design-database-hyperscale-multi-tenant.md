@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Conceber uma base de dados multi-inquilinos - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL'
-description: Este tutorial mostra como criar, povoar e consultar tabelas distribuídas na Base de Dados Azure para a Hiperescala Pós-SQL (Citus).
+description: Este tutorial mostra como desenhar uma base de dados multi-inquilinos usando a Base de Dados Azure para a Hiperescala Pós-SQL (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: bc7891e157bbffa386396a352fd1d48e4559ecdc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b28307783957af2613152c2a8305f3650aa352ac
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386402"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530731"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: desenhe uma base de dados multi-inquilinos utilizando a Base de Dados Azure para PostgreSQL – Hyperscale (Citus)
 
@@ -271,7 +271,7 @@ SELECT id
 
 Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão *Eliminar* na página *'Vista Geral'* para o seu grupo de servidor. Quando solicitado numa página pop-up, confirme o nome do grupo de servidor e clique no botão final *eliminar.*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a providenciar um grupo de servidores Hyperscale (Citus). Ligou-se a ele com o PSQL, criou um esquema e distribuiu dados. Aprendeu a consultar dados dentro e entre inquilinos, e a personalizar o esquema por inquilino.
 

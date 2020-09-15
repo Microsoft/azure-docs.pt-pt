@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020342"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531564"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
 Este artigo descreve o processo de atestado de identidade ao utilizar chaves simétricas com o Serviço de Provisionamento de Dispositivos. 
 
-A tecla de teclas simétricas é uma abordagem simples para autenticar um dispositivo com uma instância de Serviço de Provisionamento de Dispositivos. Este método de atestado representa uma experiência "Hello world" para desenvolvedores que são novos no fornecimento de dispositivos, ou não têm requisitos de segurança rigorosos. O atestado do dispositivo utilizando um [certificado TPM](concepts-tpm-attestation.md) ou [X.509](concepts-security.md#x509-certificates) é mais seguro e deve ser utilizado para requisitos de segurança mais rigorosos.
+A tecla de teclas simétricas é uma abordagem simples para autenticar um dispositivo com uma instância de Serviço de Provisionamento de Dispositivos. Este método de atestado representa uma experiência "Hello world" para desenvolvedores que são novos no fornecimento de dispositivos, ou não têm requisitos de segurança rigorosos. O atestado do dispositivo utilizando um [certificado TPM](concepts-tpm-attestation.md) ou [X.509](concepts-x509-attestation.md) é mais seguro e deve ser utilizado para requisitos de segurança mais rigorosos.
 
 As inscrições chave simétricas também fornecem uma ótima maneira para dispositivos antigos, com funcionalidade de segurança limitada, para a bota para a nuvem via Azure IoT. Para obter mais informações sobre a teclas simétricas com dispositivos antigos, consulte [Como utilizar chaves simétricas com dispositivos legados](how-to-legacy-device-symm-key.md).
 
@@ -109,12 +109,12 @@ Considere o seguinte diagrama que mostra uma tabela de chaves do dispositivo ger
 
 A identidade de cada dispositivo é representada pela chave de identificação de registo e de dispositivo derivado que está instalada na fábrica. A chave do dispositivo nunca é copiada para outro local e a chave de grupo nunca é armazenada num dispositivo.
 
-Se as teclas do dispositivo não forem instaladas na fábrica, deve ser utilizado um [módulo de segurança de hardware HSM](concepts-security.md#hardware-security-module) para armazenar a identidade do dispositivo de forma segura.
+Se as teclas do dispositivo não forem instaladas na fábrica, deve ser utilizado um [módulo de segurança de hardware HSM](concepts-service.md#hardware-security-module) para armazenar a identidade do dispositivo de forma segura.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma compreensão do atestado de Chave Simétrica, confira os seguintes artigos para saber mais:
 
 * [Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
-* [Conheça os conceitos de auto-provisão](./concepts-auto-provisioning.md)
+* [Conheça os conceitos de provisionamento](about-iot-dps.md#provisioning-process)
 * [Começar a usar o fornecimento automático](./quick-setup-auto-provision.md) 

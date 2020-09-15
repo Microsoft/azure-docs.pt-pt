@@ -8,16 +8,16 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3bc9344459802f4bb4268093d905a051525d78dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9bd597bbff54687af1ba8536dddd6f0d8dfc621e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684461"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531496"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e providenciar um dispositivo IoT Edge com um TPM no Linux
 
-Este artigo mostra como testar o provisionamento automático num dispositivo Linux IoT Edge utilizando um Módulo de Plataforma Fidedigna (TPM). Pode automaticamente a provisionar dispositivos Azure IoT Edge com o [Serviço de Provisionamento de Dispositivos](../iot-dps/index.yml). Se não estiver familiarizado com o processo de provisão automática, reveja os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Este artigo mostra como testar o provisionamento automático num dispositivo Linux IoT Edge utilizando um Módulo de Plataforma Fidedigna (TPM). Pode automaticamente a provisionar dispositivos Azure IoT Edge com o [Serviço de Provisionamento de Dispositivos](../iot-dps/index.yml). Se não estiver familiarizado com o processo de provisão automática, reveja a visão geral do [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
 As tarefas são as seguintes:
 

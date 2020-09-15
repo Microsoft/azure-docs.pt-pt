@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: erhopf
+ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, serviço de tradutor, tradução de texto, texto transliterado, deteção de linguagem
-ms.openlocfilehash: 4cf070a0ae3de716e1b6aede0a77d781dcc6142b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1cffe99389b3e3e782c53aeae8c29fbc8f55b6a0
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90109043"
+ms.locfileid: "90530680"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Quickstart: Começa com o Tradutor
 
@@ -2441,7 +2442,7 @@ Depois de uma chamada bem sucedida, deverá ver a seguinte resposta. Para obter 
 * [Saiba como a API conta caracteres](character-counts.md)
 * [Personalizar e melhorar a tradução](customization.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Referência API tradutor v3](reference/v3-0-reference.md)
 * [Suporte de idiomas](language-support.md)

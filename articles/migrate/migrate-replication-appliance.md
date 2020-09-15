@@ -3,19 +3,19 @@ title: Aplicação de replicação do Azure Migrate
 description: Saiba mais sobre o aparelho de replicação Azure Migrate para migração VMWare baseada em agentes.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122103"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532125"
 ---
 # <a name="replication-appliance"></a>Aparelho de replicação
 
 Este artigo descreve o aparelho de replicação utilizado por [Azure Migrate: Ferramenta de migração de servidores](migrate-services-overview.md#azure-migrate-server-migration-tool) ao migrar VMware VMs, máquinas físicas e VMs de nuvem privada/pública para Azure, utilizando migração baseada em agentes. 
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O aparelho de replicação é implantado quando configura a migração baseada em agentes de VMware VMs ou servidores físicos. É implantado como uma única máquina no local, seja como um VMware VM ou um servidor físico. Corre:
 
@@ -59,7 +59,7 @@ MySQL | O MySQL deve ser instalado no aparelho.<br/> O MySQL deve ser instalado.
 Outras aplicações | Não execute outras aplicações no aparelho de replicação.
 Funções do Windows Server | Não ative estes papéis: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V
 Políticas de grupo | Não ative estas políticas de grupo: <br> - Impedir o acesso à ordem de comando. <br> - Impedir o acesso a ferramentas de edição de registo. <br> - Lógica de confiança para anexos de ficheiros. <br> - Ligue a execução do guião. <br> [Saiba mais](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
-IIS | - Nenhum website pre-existente <br> - Nenhum website/aplicação pré-existente na porta 443 <br>- Ativar a [autenticação anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Ativar a definição [fastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))
+IIS | - Nenhum website pre-existente <br> - Nenhum website/aplicação pré-existente na porta 443 <br>- Ativar a  [autenticação anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Ativar a definição [fastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))
 **Definições de rede** |
 Tipo de endereço IP | Estático
 Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados)
@@ -129,7 +129,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
     - O servidor de processo recebe dados de replicação, otimiza e encripta-os e envia-os para o armazenamento Azure sobre a porta 443 de saída.
 5. Os registos de dados de replicação aterram pela primeira vez numa conta de armazenamento de cache em Azure. Estes registos são processados e os dados são armazenados num disco gerido aZure.
 
-![Arquitetura](./media/migrate-replication-appliance/architecture.png)
+![O diagrama mostra a arquitetura do processo de replicação.](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Atualizações de aparelhos
 
@@ -139,7 +139,7 @@ O aparelho é atualizado manualmente a partir do hub Azure Migrate. Recomendamos
 2. Nos **servidores de Configuração,** aparece uma ligação na **Versão Agente** quando uma nova versão do aparelho de replicação está disponível. 
 3. Descarregue o instalador para a máquina do aparelho de replicação e instale a atualização. O instalador deteta a corrente da versão em funcionamento no aparelho.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba como](tutorial-migrate-vmware-agent.md#set-up-the-replication-appliance) configurar o aparelho de replicação para a migração VMware VMware baseada em agentes.
 - [Saiba como](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) configurar o aparelho de replicação para servidores físicos.

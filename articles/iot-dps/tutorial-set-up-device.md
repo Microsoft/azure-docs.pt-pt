@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4a017f4b71a91f580a5281468a3f2bcbf7ba31b1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84687129"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531530"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Crie um dispositivo para o fornecimento utilizando o Serviço de Provisionamento de Dispositivos Azure IoT Hub
 
-No tutorial anterior, aprendeu a configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure para aprovisionar automaticamente os seus dispositivos no seu hub IoT. Este tutorial mostra-lhe como configurar o seu dispositivo durante o processo de fabrico, permitindo que o mesmo seja aprovisionado automaticamente no hub IoT. O dispositivo é aprovisionado com base no [Mecanismo de atestação](concepts-device.md#attestation-mechanism), após o primeiro arranque e ligação ao serviço de aprovisionamento. Este tutorial abrange as seguintes tarefas:
+No tutorial anterior, aprendeu a configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure para aprovisionar automaticamente os seus dispositivos no seu hub IoT. Este tutorial mostra-lhe como configurar o seu dispositivo durante o processo de fabrico, permitindo que o mesmo seja aprovisionado automaticamente no hub IoT. O dispositivo é aprovisionado com base no [Mecanismo de atestação](concepts-service.md#attestation-mechanism), após o primeiro arranque e ligação ao serviço de aprovisionamento. Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Compilar o SDK de Cliente dos Serviços Aprovisionamento de Dispositivos para plataformas específicas
@@ -29,7 +29,7 @@ Este tutorial espera que tenha criado a instância do Serviço de Aprovisionamen
 
 Este tutorial utiliza o [repositório Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c) (SDKs e bibliotecas do Azure IoT para C), que contém o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para C. O SDK fornece atualmente suporte para TPM e X.509 para dispositivos em execução em implementações Windows ou Ubuntu. Este tutorial baseia-se no uso de um cliente de desenvolvimento do Windows, que também assume proficiência básica com o Visual Studio. 
 
-Se não estiver familiarizado com o processo de aprovisionamento automático, reveja [Auto-provisioning concepts](concepts-auto-provisioning.md) (Conceitos de aprovisionamento automático) antes de continuar. 
+Se não estiver familiarizado com o processo de provisão automática, reveja a visão geral do [provisionamento](about-iot-dps.md#provisioning-process) antes de continuar. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
 
 Os seguintes pré-requisitos são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a secção apropriada no preparar o [seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -100,9 +100,9 @@ Consoante tenha criado o SDK para utilizar um atestado para um TPM/HSM físico o
 
 - Para um dispositivo X.509, tem de obter os certificados emitidos para o(s) seu(s) dispositivo(s). O serviço de aprovisionamento expõe dois tipos de entrada de inscrição que controlam o acesso para dispositivos que utilizem o mecanismo de atestado X.509. Os certificados necessários dependem dos tipos de inscrição que irá utilizar.
 
-    - Inscrições individuais: inscrição de um único dispositivo específico. Este tipo de entrada de inscrição requer [certificados "folha" de entidade final](concepts-security.md#end-entity-leaf-certificate).
+    - Inscrições individuais: inscrição de um único dispositivo específico. Este tipo de entrada de inscrição requer [certificados "folha" de entidade final](concepts-x509-attestation.md#end-entity-leaf-certificate).
     
-    - Grupos de inscrição: este tipo de entrada de inscrição requer certificados intermediários ou de raiz. Para obter mais informações, veja [Controlar o acesso a dispositivos para o serviço de aprovisionamento com certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Grupos de inscrição: este tipo de entrada de inscrição requer certificados intermediários ou de raiz. Para obter mais informações, veja [Controlar o acesso a dispositivos para o serviço de aprovisionamento com certificados X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Dispositivos simulados
 
@@ -198,7 +198,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 
 Poderá também concluir que tem de refinar a aplicação de registo do cliente de Serviço Aprovisionamento de Dispositivos, ao utilizar um dispositivo simulado primeiro e uma configuração de serviço de teste. Assim que a aplicação estiver a funcionar no ambiente de teste, pode criá-la para o seu dispositivo específico e copiar o ficheiro executável para a imagem do dispositivo. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste momento, os serviços Aprovisionamento de Dispositivos e Hub IoT poderão estar em execução no portal. Se quiser abandonar a configuração de aprovisionamento de dispositivos e/ou retardar a conclusão desta série de tutoriais, recomendamos encerrá-los para evitar incorrer em custos desnecessários.
 

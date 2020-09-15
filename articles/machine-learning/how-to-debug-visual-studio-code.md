@@ -5,16 +5,16 @@ description: Código de aprendizagem automática Azure, oleodutos e implementaç
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 1449114ad14ebbd064f95ad2853b516893ba4b12
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 08859eb87431b59e8be68369ce8f3876aa7d9f21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661685"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530306"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuragem interativa com código de estúdio visual
 
@@ -426,7 +426,7 @@ Para parar o recipiente, utilize o seguinte comando:
 docker stop debug
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraste o Visual Studio Code Remote, podes usar uma instância de computação como computação remota do Código do Estúdio Visual para depurar interativamente o teu código. 
 

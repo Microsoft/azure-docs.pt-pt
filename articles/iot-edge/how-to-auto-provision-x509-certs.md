@@ -9,16 +9,16 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e01255a34e97f6c11e4909287b98fcd3d15fca92
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: dbd4a80c0f480e51ce7ec248c3b5d3dc523e9d74
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669054"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530748"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e providenciar um dispositivo IoT Edge utilizando certificados X.509
 
-Com o Serviço de Provisionamento de [Dispositivos Azure IoT Hub (DPS),](../iot-dps/index.yml)pode providenciar automaticamente dispositivos IoT Edge utilizando certificados X.509. Se não estiver familiarizado com o processo de provisão automática, reveja os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Com o Serviço de Provisionamento de [Dispositivos Azure IoT Hub (DPS),](../iot-dps/index.yml)pode providenciar automaticamente dispositivos IoT Edge utilizando certificados X.509. Se não estiver familiarizado com o processo de provisão automática, reveja a visão geral do [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
 Este artigo mostra-lhe como criar uma inscrição do Serviço de Provisionamento de Dispositivos utilizando certificados X.509 num dispositivo IoT Edge com os seguintes passos:
 
@@ -329,6 +329,6 @@ Listar módulos de execução.
 iotedge list
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir o ID do dispositivo e as etiquetas gémeas do dispositivo ao mesmo tempo que fornece o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos individuais ou grupos de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implementar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md).

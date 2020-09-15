@@ -3,12 +3,12 @@ title: Erros de quota
 description: Descreve como resolver erros de quota de recursos ao implementar recursos com o Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007798"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530425"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolver erros de quotas de recursos
 
@@ -95,7 +95,7 @@ Para solicitar um aumento de quota, vá ao portal e apresente um problema de sup
 
 1. Selecione **Subscrições**.
 
-   ![Subscrições](./media/error-resource-quota/subscriptions.png)
+   ![A captura de ecrã mostra o menu Azure Portal com subscrições selecionadas.](./media/error-resource-quota/subscriptions.png)
 
 2. Selecione a subscrição que precisa de uma quota maior.
 

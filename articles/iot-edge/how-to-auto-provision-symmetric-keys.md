@@ -9,16 +9,16 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6c2067526850ba972f002dc40bbd5d4cb24c9ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eb9a302c4da027d7fe00056e7d5ac0ba7fc1dd9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131020"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531462"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e providenciar um dispositivo IoT Edge utilizando atestado de chave simétrica
 
-Os dispositivos Azure IoT Edge podem ser provisões automáticas utilizando o [Serviço de Provisionamento de Dispositivos,](../iot-dps/index.yml) tal como dispositivos que não estão ativados por arestas. Se não estiver familiarizado com o processo de provisão automática, reveja os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Os dispositivos Azure IoT Edge podem ser provisões automáticas utilizando o [Serviço de Provisionamento de Dispositivos,](../iot-dps/index.yml) tal como dispositivos que não estão ativados por arestas. Se não estiver familiarizado com o processo de provisão automática, reveja a visão geral do [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
 Este artigo mostra-lhe como criar uma inscrição individual do Serviço de Provisionamento de Dispositivos utilizando o atestado de chave simétrica num dispositivo IoT Edge com os seguintes passos:
 

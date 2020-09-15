@@ -6,12 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111206"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530374"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Ligações de autocarros Azure Service para funções Azure
 
@@ -23,6 +24,9 @@ A Azure Functions integra-se com [o Azure Service Bus](https://azure.microsoft.c
 | Enviar mensagens de autocarro da Azure Service |[Ligação de saída](./functions-bindings-service-bus-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Adicione à sua aplicação Funções
+
+> [!NOTE]
+> A ligação service bus não suporta atualmente a autenticação usando uma identidade gerida. Em vez disso, utilize uma [assinatura de acesso partilhado do Service Bus.](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature)
 
 ### <a name="functions-2x-and-higher"></a>Funções 2.x e superior
 
@@ -44,7 +48,7 @@ Trabalhar com o gatilho e as ligações requer que você refira o pacote apropri
 
 As aplicações functions 1.x têm automaticamente uma referência ao pacote [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet, versão 2.x.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função quando uma fila de autocarro de serviço ou mensagem de tópico é criada (Trigger)](./functions-bindings-service-bus-trigger.md)
 - [Enviar mensagens de autocarro da Azure Service de Azure Functions (ligação de saída)](./functions-bindings-service-bus-output.md)

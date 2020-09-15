@@ -4,12 +4,12 @@ description: Aprenda a executar uma migração sem agente de VMware VMs com Azur
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: c9a7e76496c2851b90c8fd1d164645c46d02609b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376043"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530527"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMware VMs para Azure (sem agente)
 
@@ -121,7 +121,7 @@ Ative a replicação da seguinte forma:
 
 11. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Em seguida, clique em **Seguinte**.
    
-    ![Discos](./media/tutorial-migrate-vmware/disks.png)
+    ![A screenshot mostra o separador Discos da caixa de diálogo Replicate.](./media/tutorial-migrate-vmware/disks.png)
 
 12. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
 
@@ -217,6 +217,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

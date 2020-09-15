@@ -1,6 +1,6 @@
 ---
 title: Como monitorizar as aplicações da Apache Spark no Synapse Studio
-description: Utilize o Synapse Studio para monitorizar as suas aplicações Apache Spark.
+description: Aprenda a monitorizar as suas aplicações Apache Spark utilizando o Synapse Studio.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: b5ad9e6a448747ac8f33829b1137b1af434e7a9c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 2b8dbd20e79b9a6f48ca2d39079ebb452a3b46b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385590"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530816"
 ---
 # <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio (pré-visualização) para monitorizar as suas aplicações Apache Spark
 
@@ -50,7 +50,7 @@ Por exemplo, pode filtrar a vista para ver apenas as aplicações Apache Spark q
 
 Para ver os detalhes sobre uma das suas aplicações Apache Spark, selecione a aplicação Apache Spark e veja os detalhes. Se a aplicação Apache Spark ainda estiver em funcionamento, pode monitorizar o progresso. [Leia mais.](apache-spark-applications.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a monitorização do gasoduto, consulte o gasoduto Monitor que executa o artigo [do Synapse Studio.](how-to-monitor-pipeline-runs.md) 
 

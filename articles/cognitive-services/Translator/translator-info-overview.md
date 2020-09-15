@@ -10,13 +10,14 @@ ms.subservice: translator-text
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: swmachan
+ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, tradução de texto, tradução automática, serviço de tradução
-ms.openlocfilehash: a3c82546c8aa6467aee0a3e4bb59d68b0123a9c2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 32ae7f75c1b953e8af7dfef83c1971c2f78b0b62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084537"
+ms.locfileid: "90530340"
 ---
 # <a name="what-is-the-translator-service"></a>O que é o serviço de Tradutor?
 

@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12860629d78391ed271306daba29a51aeb326c1d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975283"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531598"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
 
 O IoT Hub Device Provisioning Service é um serviço de ajuda para o IoT Hub que utiliza para configurar o fornecimento de dispositivos de toque zero a um hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, pode for-se a disponibilização de milhões de dispositivos de forma segura.
 
-Este artigo descreve o processo de atestado de identidade ao utilizar um [TPM](./concepts-device.md). TPM significa Módulo de Plataforma Fidedigna e é um tipo de módulo de segurança de hardware (HSM). Este artigo pressupõe que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados por software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que os TPMs discretos, firmware ou TPMs integrados. Não recomendamos a utilização de TPMs de software em produção. Para obter mais informações sobre tipos de TPMs, consulte [Uma Breve Introdução à TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+Este artigo descreve o processo de atestado de identidade quando se utiliza um Módulo de Plataforma Fidedigna (TPM). Um TPM é um tipo de módulo de segurança de hardware (HSM). Este artigo pressupõe que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados por software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que os TPMs discretos, firmware ou TPMs integrados. Não recomendamos a utilização de TPMs de software em produção. Para obter mais informações sobre tipos de TPMs, consulte [Uma Breve Introdução à TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Este artigo só é relevante para dispositivos que utilizem TPM 2.0 com suporte de chave HMAC e respetivas chaves de apoio. Não se trata de dispositivos que utilizem certificados X.509 para autenticação. TPM é um padrão ISO em toda a indústria do Grupo de Computação Fidedigna, e você pode ler mais sobre TPM na [especificação completa de TPM 2.0](https://trustedcomputinggroup.org/tpm-library-specification/) ou na [especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também assume que você está familiarizado com os pares de chaves públicos e privados, e como eles são usados para encriptação.
 
 Os SDKs do dispositivo de fornecimento de dispositivos tratam tudo o que é descrito neste artigo para si. Não é necessário implementar algo adicional se estiver a utilizar os SDKs nos seus dispositivos. Este artigo ajuda-o a compreender conceptualmente o que se passa com o seu chip de segurança TPM quando o seu dispositivo fornece e porque é tão seguro.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os TPMs usam algo chamado chave de endosso (EK) como a raiz segura da confiança. O EK é exclusivo do TPM e mudá-lo essencialmente transforma o dispositivo num novo.
 
@@ -63,9 +63,9 @@ O dispositivo pode então assinar um token SAS utilizando o nonce desencriptado 
 
 ![Dispositivo restabelece ligação ao Serviço de Provisionamento de Dispositivos para validar a propriedade da EK](./media/concepts-tpm-attestation/step-three-validation.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, o dispositivo liga-se ao IoT Hub e mantém-se seguro, sabendo que as chaves dos seus dispositivos estão bem armazenadas. Agora que sabe como o Serviço de Provisionamento de Dispositivos verifica de forma segura a identidade de um dispositivo utilizando o TPM, consulte os seguintes artigos para saber mais:
 
-* [Conheça todos os conceitos de auto-provisão](./concepts-auto-provisioning.md)
+* [Conheça os conceitos de provisionamento](about-iot-dps.md#provisioning-process)
 * [Começa a utilizar](./quick-setup-auto-provision.md) o fornecimento automático utilizando os SDKs para cuidar do fluxo.

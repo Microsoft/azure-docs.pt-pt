@@ -3,12 +3,13 @@ title: Opções de rede das Funções do Azure
 description: Uma visão geral de todas as opções de networking disponíveis em Funções Azure.
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385947"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530098"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -71,7 +72,7 @@ Quando criar uma aplicação de função, deve criar ou ligar para uma conta de 
 
 Para saber mais, consulte os [requisitos da conta de Armazenamento.](./functions-create-function-app-portal.md#storage-account-requirements)
 
-## <a name="use-key-vault-references"></a>Use referências de Cofre de Chaves
+## <a name="use-key-vault-references"></a>Utilizar as referências do Key Vault
 
 Pode utilizar referências do Azure Key Vault para utilizar segredos do Azure Key Vault na sua aplicação Azure Functions sem exigir alterações de código. Azure Key Vault é um serviço que fornece gestão de segredos centralizados, com controlo total sobre políticas de acesso e histórico de auditoria.
 
@@ -86,7 +87,7 @@ Atualmente, pode utilizar funções de gatilho não-HTTP a partir de uma rede vi
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plano premium com gatilhos de rede virtual
 
-Quando executar um plano Premium, pode ligar funções de gatilho não-HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de gatilho de rede virtual para a sua aplicação de função. A definição **de suporte de gatilho de rede virtual** encontra-se no portal [Azure](https://portal.azure.com) nas definições de tempo de funcionamento da função **de configuração**  >  **Function runtime settings**.
+Quando executar um plano Premium, pode ligar funções de gatilho não-HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de gatilho de rede virtual para a sua aplicação de função. A definição **de monitorização da escala de tempo** de execução encontra-se no portal [Azure](https://portal.azure.com) nas definições de tempo de funcionamento da função **de configuração**  >  **Function runtime settings**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -142,7 +143,7 @@ As seguintes APIs permitem gerir programáticamente integrações de redes virtu
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre networking e Funções Azure:
 

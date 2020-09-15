@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 53590344a45990187b5ca8aba4eca18da526f308
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 6e778541023befc756e61be9b9646bf37c82c47c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872621"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530612"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo TPM simulado utilizando o dispositivo Python SDK para serviço de provisionamento de dispositivos IoT Hub
 
@@ -24,7 +24,7 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Revisão dos [conceitos de provisionamento automático.](concepts-auto-provisioning.md)
+- Familiarizado com [conceitos de provisionamento.](about-iot-dps.md#provisioning-process)
 - Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) com desenvolvimento desktop com C++.
@@ -125,7 +125,7 @@ Este artigo demonstra inscrições individuais.
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. Através do IDE Python, edite o script python com o nome **provisioning\_device\_client\_sample.py**. Modifique as variáveis *GLOBAL \_ PROV \_ URI* e *ID \_ SCOPE* para os valores anteriormente anotados. Verifique também se *SECURITY\_DEVICE\_TYPE* está definido como `ProvisioningSecurityDeviceType.TPM`
+1. Através do IDE Python, edite o script python com o nome **provisioning\_device\_client\_sample.py**. Modifique as variáveis *GLOBAL \_ PROV \_ URI* e  *ID \_ SCOPE* para os valores anteriormente anotados. Verifique também se *SECURITY\_DEVICE\_TYPE* está definido como `ProvisioningSecurityDeviceType.TPM`
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -159,7 +159,7 @@ Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositiv
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
 1. Feche a janela do simulador TPM no seu computador.
-1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de Provisionamento de Dispositivos. Abra a lâmina **'Gestão de Inscrições'** para o seu serviço e, em seguida, selecione o separador **Matrículas Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* do dispositivo que inscreveu neste arranque rápido e prima o botão **Eliminar** na parte superior do painel. 
+1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de Provisionamento de Dispositivos. Abra a lâmina **'Gestão de Inscrições'** para o seu serviço e, em seguida, selecione o **separador Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* do dispositivo que inscreveu neste arranque rápido e prima o botão **Eliminar** na parte superior do painel. 
 1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra a lâmina dos **dispositivos IoT** para o seu hub, selecione a caixa de verificação ao lado do *ID* do dispositivo que registou neste arranque rápido e, em seguida, pressione o botão **Eliminar** na parte superior do painel.
 
 ## <a name="next-steps"></a>Passos seguintes

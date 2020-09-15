@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002254"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531309"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e dimensionamento de capacidades para o tecido de serviço Azure
 
@@ -36,6 +36,9 @@ A utilização de escalas automáticas através de conjuntos de escala de máqui
 
 > [!NOTE]
 > O tecido de serviço stateful Do Tecido de Serviço:/System/InfastructureService/<NODE_TYPE_NAME> funciona em todos os tipos de nó que têm prata ou durabilidade superior. É o único serviço de sistema que é suportado para funcionar em Azure em qualquer um dos seus tipos de nó clusters.
+
+> [!IMPORTANT]
+> Suportes de autoescalagem de tecido de serviço `Default` e `NewestVM` [configurações de escala de escala de](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md)máquina virtual .
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de escala vertical
 
@@ -168,7 +171,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 > [!NOTE]
 > Quando escala num cluster, verá a instância nó/VM removida exibida num estado pouco saudável no Service Fabric Explorer. Para obter uma explicação deste comportamento, consulte [Comportamentos que possa observar no Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Pode:
-> * Ligue para o [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) com o nome de nó apropriado.
+> * Ligue para o [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) com o nome de nó apropriado.
 > * Implemente a [aplicação de ajudante de escala automática do Tecido de Serviço](https://github.com/Azure/service-fabric-autoscale-helper/) no seu cluster. Esta aplicação garante que os nós de escala são limpos do Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Níveis de fiabilidade

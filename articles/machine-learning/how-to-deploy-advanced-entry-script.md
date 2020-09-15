@@ -8,12 +8,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 95d3570d93aa4966fcf6864838ec01735b8662db
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c135d649feb42c8fa735e67ad6f3c3e51551d3e9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650283"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530289"
 ---
 # <a name="advanced-entry-script-authoring"></a>Criação de um script de entrada avançado
 
@@ -34,12 +34,16 @@ Estes tipos são atualmente suportados:
 * `pyspark`
 * Objeto Python padrão
 
-Para utilizar a geração de esquemas, inclua o pacote de código aberto `inference-schema` no seu ficheiro de dependências. Para obter mais informações sobre este pacote, [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) consulte. Defina os formatos de amostra de entrada e saída nas `input_sample` variáveis e `output_sample` variáveis, que representam os formatos de pedido e resposta para o serviço web. Utilize estas amostras nos decoradores da função de entrada e saída na `run()` função. O exemplo de aprendizagem de scikit-learn usa a geração de esquemas.
+Para utilizar a geração de esquemas, inclua a `inference-schema` versão 1.1.0 ou superior do pacote de código aberto no ficheiro de dependências. Para obter mais informações sobre este pacote, [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) consulte. Para gerar um consumo de serviço web automatizado em conformidade com swagger, a função de script de pontuação() deve ter a forma API de:
+* Um primeiro parâmetro do tipo "StandardPythonParameterType", denominado Inputs, aninhado contendo PandasDataframeParameterTypes.
+* Um segundo parâmetro opcional do tipo "StandardPythonParameterType", chamado GlobalParameter, que não está aninhado.
+* Devolva um dicionário do tipo "StandardPythonParameterType", que talvez aninhado contendo PandasDataFrameParameterTypes.
+Defina os formatos de amostra de entrada e saída nas `input_sample` variáveis e `output_sample` variáveis, que representam os formatos de pedido e resposta para o serviço web. Utilize estas amostras nos decoradores da função de entrada e saída na `run()` função. O exemplo de aprendizagem de scikit-learn usa a geração de esquemas.
 
 
 ## <a name="power-bi-compatible-endpoint"></a>Ponto final compatível com Power BI 
 
-O exemplo a seguir demonstra como definir os dados de entrada como um `<key: value>` dicionário utilizando um DataFrame. Este método é suportado para consumir o serviço web implantado a partir do Power BI. ([Saiba mais sobre como consumir o serviço web a partir do Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
+O exemplo a seguir demonstra como definir a forma da API de acordo com a instrução acima. Este método é suportado para consumir o serviço web implantado a partir do Power BI. ([Saiba mais sobre como consumir o serviço web a partir do Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
 import json
@@ -48,9 +52,10 @@ import numpy as np
 import pandas as pd
 import azureml.train.automl
 from sklearn.externals import joblib
-from azureml.core.model import Model
+from sklearn.linear_model import Ridge
 
 from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.standard_py_parameter_type import StandardPythonParameterType
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
 
@@ -58,31 +63,32 @@ from inference_schema.parameter_types.pandas_parameter_type import PandasParamet
 def init():
     global model
     # Replace filename if needed.
-    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model_file.pkl')
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
+# providing 3 sample inputs for schema generation
+numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+standard_sample_input = StandardPythonParameterType(0.0)
 
-input_sample = pd.DataFrame(data=[{
-    # This is a decimal type sample. Use the data type that reflects this column in your data.
-    "input_name_1": 5.1,
-    # This is a string type sample. Use the data type that reflects this column in your data.
-    "input_name_2": "value2",
-    # This is an integer type sample. Use the data type that reflects this column in your data.
-    "input_name_3": 3
-}])
+# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+                                            'input2': pandas_sample_input, 
+                                            'input3': standard_sample_input})
 
-# This is an integer type sample. Use the data type that reflects the expected result.
-output_sample = np.array([0])
+sample_global_parameters = StandardPythonParameterType(1.0) #this is optional
+sample_output = StandardPythonParameterType([1.0, 1.0])
 
-# To indicate that we support a variable length of data input,
-# set enforce_shape=False
-@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
-@output_schema(NumpyParameterType(output_sample))
-def run(data):
+@input_schema('inputs', sample_input)
+@input_schema('global_parameters', sample_global_parameters) #this is optional
+@output_schema(sample_output)
+def run(inputs, global_parameters):
     try:
+        data = inputs['input1']
+        # data will be convert to target format
+        assert isinstance(data, np.ndarray)
         result = model.predict(data)
-        # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
     except Exception as e:
         error = str(e)
@@ -264,7 +270,7 @@ Quando regista um modelo, fornece-se um nome modelo que é usado para gerir o mo
 
 Quando se regista um modelo, dá-se-lhe um nome. O nome corresponde ao local onde o modelo é colocado, localmente ou durante a colocação de serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)

@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294395"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531394"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desprovisionar dispositivos que foram previamente auto-aprovisionados 
 
@@ -43,7 +43,7 @@ Para desprovisionar um dispositivo que tenha uma inscrição individual:
 
 
 ## <a name="enrollment-groups"></a>Grupos de inscrição
-Com o atestado X.509, os dispositivos também podem ser a provisionados através de um grupo de inscrições. Os grupos de inscrição são configurados com um certificado de assinatura, quer um certificado de CA intermédio ou raiz, e controlam o acesso ao serviço de fornecimento de dispositivos com esse certificado na sua cadeia de certificados. Para saber mais sobre os grupos de matrícula e os certificados X.509 com o serviço de fornecimento, consulte [os certificados X.509](concepts-security.md#x509-certificates). 
+Com o atestado X.509, os dispositivos também podem ser a provisionados através de um grupo de inscrições. Os grupos de inscrição são configurados com um certificado de assinatura, quer um certificado de CA intermédio ou raiz, e controlam o acesso ao serviço de fornecimento de dispositivos com esse certificado na sua cadeia de certificados. Para saber mais sobre os grupos de matrícula e os certificados X.509 com o serviço de fornecimento, consulte o [atestado de certificado X.509](concepts-x509-attestation.md). 
 
 Para ver uma lista de dispositivos que foram a provisionados através de um grupo de inscrições, você pode ver os detalhes do grupo de inscrição. Esta é uma maneira fácil de entender a que hub IoT cada dispositivo foi a provisionado. Para ver a lista de dispositivos: 
 

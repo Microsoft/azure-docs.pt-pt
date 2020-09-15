@@ -1,14 +1,14 @@
 ---
-title: Análise de vídeo ao vivo nas quotas IoT Edge - Azure
+title: Análise de vídeo ao vivo em quotas e limitações IoT Edge - Azure
 description: Este artigo descreve live video analytics em quotas e limitações IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750223"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529235"
 ---
 # <a name="quotas-and-limitations"></a>Quotas e limitações
 
@@ -66,6 +66,10 @@ No momento do lançamento da pré-visualização, o Live Video Analytics no IoT 
 * A capacidade de utilizar mais do que uma conta de Armazenamento na conta do Media Service.
 * A capacidade de alterar a informação principal do serviço nas propriedades desejadas do módulo dinamicamente, sem um reinício.
 
+Só pode utilizar câmaras IP que suportam o protocolo RTSP. Pode encontrar câmaras IP que suportam RTSP na página de [produtos conformantes ONVIF.](https://www.onvif.org/conformant-products) Procure dispositivos em conformidade com os perfis G, S ou T.
+
+Além disso, deverá configurar estas câmaras para utilizar o vídeo H.264 e o áudio AAC. Atualmente, outros códigos não estão suportados. 
+
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral](overview.md)
+[Descrição Geral](overview.md)

@@ -1,17 +1,17 @@
 ---
 title: Ligações DB Azure Cosmos para funções 1.x
-description: Entenda como usar os gatilhos e encadernações DB do Azure Cosmos em Funções Azure.
+description: Entenda como usar os gatilhos e encadernações DB do Azure Cosmos em Azure Functions 1.x.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8ae7613eea4b952c079be90b05e615087ea80a32
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9ae3ef133fa1b246c09fe0a9aa4ec27b0f75fd19
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214148"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531581"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Ligações DB Azure Cosmos para Funções Azure 1.x
 
@@ -178,7 +178,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDBTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `cosmosDBTrigger` . |
 |**direção** | n/a | Deve ser definido para `in` . Este parâmetro é definido automaticamente quando cria o gatilho no portal Azure. |
@@ -1113,7 +1113,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `DocumentDB` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `documentdb` .        |
 |**direção**     | n/a | Deve ser definido para `in` .         |
@@ -1452,7 +1452,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `DocumentDB` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `documentdb` .        |
 |**direção**     | n/a | Deve ser definido para `out` .         |

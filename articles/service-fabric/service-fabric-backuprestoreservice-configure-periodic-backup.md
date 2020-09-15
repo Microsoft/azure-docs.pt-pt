@@ -1,16 +1,16 @@
 ---
 title: Compreender a configuração da cópia de segurança periódica
-description: Utilize a funcionalidade de backup e restauro periódicos do Service Fabric para permitir a cópia de segurança periódica dos dados da sua aplicação.
+description: Utilize a cópia de segurança periódica do Service Fabric e a funcionalidade de restauro para configurar a cópia de segurança periódica dos seus serviços estatais confiáveis ou de atores fidedignicos.
 author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53f63f341fe614f2287a09f37fafd2eedc614be7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261217"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530918"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compreensão da configuração de backup periódica no Tecido de Serviço Azure
 
@@ -119,7 +119,7 @@ Uma política de backup consiste nas seguintes configurações:
 >
 
 * **Política de Retenção**: Especifica a política de retenção de cópias de segurança no armazenamento configurado. Apenas a Política Básica de Retenção é apoiada.
-    1. **Política básica de retenção**: Esta política de retenção permite garantir uma utilização ótima do armazenamento removendo ficheiros de backup que já não são necessários. `RetentionDuration`pode ser especificado para definir o tempo para o qual as cópias de segurança são necessárias para serem mantidas no armazenamento. `MinimumNumberOfBackups`é um parâmetro opcional que pode ser especificado para garantir que o número especificado de cópias de segurança são sempre mantidos independentemente do `RetentionDuration` . Abaixo o exemplo ilustra a configuração para reter backups durante _10_ dias e não permite que o número de backups desça abaixo de _20_.
+    1. **Política básica de retenção**: Esta política de retenção permite garantir uma utilização ótima do armazenamento removendo ficheiros de backup que já não são necessários. `RetentionDuration` pode ser especificado para definir o tempo para o qual as cópias de segurança são necessárias para serem mantidas no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para garantir que o número especificado de cópias de segurança são sempre mantidos independentemente do `RetentionDuration` . Abaixo o exemplo ilustra a configuração para reter backups durante _10_ dias e não permite que o número de backups desça abaixo de _20_.
 
         ```json
         {

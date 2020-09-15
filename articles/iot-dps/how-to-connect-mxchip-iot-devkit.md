@@ -1,23 +1,23 @@
 ---
 title: Como utilizar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para registar o MXChip IoT DevKit com IoT Hub ! Microsoft Docs
 description: Como utilizar o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) para registar o MXChip IoT DevKit com ioT Hub.
-author: liydu
-ms.author: liydu
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
-ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotgra
+ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975657"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528658"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Utilize o Serviço de Provisionamento de Dispositivos Azure IoT Hub para registar o MXChip IoT DevKit com ioT Hub
 
-Este artigo descreve como utilizar o Serviço de Provisionamento automático [do](concepts-auto-provisioning.md)Dispositivo Azure IoT Hub, para registar o MXChip IoT DevKit com Azure IoT Hub. Neste tutorial, ficará a saber como:
+Este artigo descreve como usar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para [o fornecimento](about-iot-dps.md#provisioning-process) do MXChip IoT DevKit a um Hub IoT Azure. Neste tutorial, ficará a saber como:
 
 * Configure o ponto final global do serviço de provisionamento de dispositivos num dispositivo.
 * Utilize um dispositivo secreto único (UDS) para gerar um certificado X.509.
@@ -45,7 +45,7 @@ Para completar os passos neste tutorial, primeiro faça as seguintes tarefas:
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>Guarde um segredo de dispositivo único no armazenamento de segurança do dispositivo
 
-O provisionamento automático pode ser configurado num dispositivo baseado no mecanismo de [atestação](concepts-security.md#attestation-mechanism)do dispositivo . O MXChip IoT DevKit utiliza o motor de [composição](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) de identidade do dispositivo do [Grupo de Computação Fidedigna](https://trustedcomputinggroup.org). Um **exclusivo segredo de dispositivo** (UDS) guardado num chip de segurança STSAFE[(STSAFE-A100)](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)no DevKit é utilizado para gerar o certificado [X.509](concepts-security.md#x509-certificates)único do dispositivo . O certificado é usado posteriormente para o processo de inscrição no serviço de Provisionamento de Dispositivos, e durante o registo no tempo de execução.
+O provisionamento automático pode ser configurado num dispositivo baseado no mecanismo de [atestação](concepts-service.md#attestation-mechanism)do dispositivo . O MXChip IoT DevKit utiliza o motor de [composição](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) de identidade do dispositivo do [Grupo de Computação Fidedigna](https://trustedcomputinggroup.org). Um **exclusivo segredo de dispositivo** (UDS) guardado num chip de segurança STSAFE[(STSAFE-A100)](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)no DevKit é utilizado para gerar o certificado [X.509](concepts-x509-attestation.md)único do dispositivo . O certificado é usado posteriormente para o processo de inscrição no serviço de Provisionamento de Dispositivos, e durante o registo no tempo de execução.
 
 Um UDS típico é uma cadeia de 64 caracteres, como visto na seguinte amostra:
 
@@ -128,7 +128,7 @@ Se encontrar problemas, consulte as FAQs Iot DevKit ou contacte os [seguintes ca
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a inscrever um dispositivo de forma segura no Serviço de Provisionamento de Dispositivos utilizando o Motor de Composição de Identidade do Dispositivo, para que o dispositivo possa registar-se automaticamente no Azure IoT Hub. 
 

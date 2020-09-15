@@ -1,6 +1,6 @@
 ---
 title: Criar Filtros com o SDK .NET dos Serviços de Multimédia do Azure
-description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. Os Media Services criam manifestos dinâmicos para alcançar este streaming seletivo.
+description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. Media Services .NET SDK cria manifestos dinâmicos para alcançar este streaming seletivo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,12 +16,12 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: cenkdin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8db58da092858a3f18b56b82d245b04f768b2e35
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 862385d1117e0a1b5d2220c06885e0fd0ecfa4d7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268705"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531632"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Criação de Filtros com Serviços de Mídia .NET SDK
 

@@ -1,18 +1,18 @@
 ---
 title: Gerir o espaço do disco em Azure HDInsight
-description: Etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com os clusters Azure HDInsight.
+description: Etapas de resolução de problemas e possíveis resoluções para gerir problemas de espaço em disco ao interagir com clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
-ms.openlocfilehash: 577bed7ce342be14a50077a3ffd841cd901b5b31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0628033ecf6f2e51cf18f61c6e5b36042557dc7b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77473015"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530166"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Gerir o espaço do disco em Azure HDInsight
 
@@ -42,9 +42,9 @@ Reveja as seguintes configurações:
 
 * Verifique se o tamanho do cluster é apropriado para a carga de trabalho. A carga de trabalho pode ter mudado recentemente ou o cluster pode ter sido redimensionado. [Dimensione](../hdinsight-scaling-best-practices.md) o cluster para combinar com uma carga de trabalho mais alta.
 
-* `/mnt/resource`pode ser preenchido com ficheiros órfãos (como no caso do reinício do gestor de recursos). Se necessário, limpe manualmente `/mnt/resource/hadoop/yarn/log` e `/mnt/resource/hadoop/yarn/local` . .
+* `/mnt/resource` pode ser preenchido com ficheiros órfãos (como no caso do reinício do gestor de recursos). Se necessário, limpe manualmente `/mnt/resource/hadoop/yarn/log` e `/mnt/resource/hadoop/yarn/local` . .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

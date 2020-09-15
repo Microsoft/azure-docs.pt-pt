@@ -1,25 +1,27 @@
 ---
-title: Dispositivos legados que utilizem chaves simétricas - Serviço de Provisionamento de Dispositivos Azure IoT Hub
-description: Como utilizar chaves simétricas para o fornecimento de dispositivos antigos com a sua instância do Serviço de Provisionamento de Dispositivos (DPS)
+title: Dispositivos de provisão que utilizem chaves simétricas - Serviço de Provisionamento de Dispositivos Azure IoT Hub
+description: Como utilizar chaves simétricas para o fornecimento de dispositivos com a sua instância do Serviço de Provisionamento de Dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotga
+ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434718"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529405"
 ---
-# <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como providenciar dispositivos antigos utilizando chaves simétricas
+# <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Como providenciar dispositivos que utilizem grupos de inscrição chave simétricos
 
-Um problema comum com muitos dispositivos antigos é que muitas vezes têm uma identidade que é composta por uma única informação. Esta informação de identidade é geralmente um endereço MAC ou um número de série. Os dispositivos legados podem não ter um certificado, TPM ou qualquer outra funcionalidade de segurança que possa ser usada para identificar o dispositivo de forma segura. O serviço de provisionamento de dispositivos para o hub IoT inclui atestado de chave simétrica. A teta de teclas simétricas pode ser usada para identificar um dispositivo baseado em informações como o endereço MAC ou um número de série.
+Este artigo demonstra como providenciar de forma segura múltiplos dispositivos chave simétricas a um único Hub IoT utilizando um grupo de inscrição.
 
-Se conseguir instalar facilmente um [módulo de segurança de hardware (HSM)](concepts-security.md#hardware-security-module) e um certificado, então essa pode ser uma melhor abordagem para identificar e a provisionar os seus dispositivos. Uma vez que esta abordagem pode permitir-lhe contornar a atualização do código implantado em todos os seus dispositivos, e não teria uma chave secreta incorporada na imagem do seu dispositivo.
+Alguns dispositivos podem não ter um certificado, TPM ou qualquer outra funcionalidade de segurança que possa ser usada para identificar de forma segura o dispositivo. O serviço de provisionamento de dispositivos inclui a [chave simétrica.](concepts-symmetric-key-attestation.md) A teta de teclas simétricas pode ser usada para identificar um dispositivo baseado em informações únicas como o endereço MAC ou um número de série.
+
+Se conseguir instalar facilmente um [módulo de segurança de hardware (HSM)](concepts-service.md#hardware-security-module) e um certificado, então essa pode ser uma melhor abordagem para identificar e a provisionar os seus dispositivos. Uma vez que esta abordagem pode permitir-lhe contornar a atualização do código implantado em todos os seus dispositivos, e não teria uma chave secreta incorporada na imagem do seu dispositivo.
 
 Este artigo pressupõe que nem um HSM nem um certificado é uma opção viável. No entanto, presume-se que tem algum método de atualizar o código do dispositivo para utilizar o Serviço de Provisionamento de Dispositivos para o fornecimento destes dispositivos. 
 
@@ -30,7 +32,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 > [!NOTE]
 > A amostra utilizada neste artigo está escrita em C. Existe também uma [amostra de chave simétrica de dispositivo C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para utilizar esta amostra, faça o download ou clone do [repositório azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções em linha no código de amostra. Pode seguir as instruções deste artigo para criar um grupo de inscrição de chaves simétricas utilizando o portal e para encontrar o ID Scope e as chaves primárias e secundárias do grupo de inscrição necessárias para executar a amostra. Também pode criar inscrições individuais utilizando a amostra.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Será definido um ID de registo único para cada dispositivo com base em informações que identifiquem esse dispositivo. Por exemplo, o endereço MAC ou um número de série.
 
@@ -47,7 +49,7 @@ O código do dispositivo demonstrado neste artigo seguirá o mesmo padrão que o
 
 Os seguintes pré-requisitos são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a secção apropriada no preparar o [seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -73,7 +75,7 @@ O SDK inclui o código de amostra para o dispositivo simulado. Esse dispositivo 
 
     Esta operação deve demorar vários minutos a ser concluída.
 
-4. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. Executar os seguintes comandos a partir do `azure-iot-sdk-c` diretório:
+4. Crie um `cmake` subdiretório no diretório de raiz do repositório git, e navegue para essa pasta. Executar os seguintes comandos a partir do `azure-iot-sdk-c` diretório:
 
     ```cmd/sh
     mkdir cmake
@@ -147,7 +149,8 @@ Crie um ID de registo único para o seu dispositivo. Os caracteres válidos são
 
 Para gerar a chave do dispositivo, utilize a chave principal do grupo para calcular um [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registo único para o dispositivo e converter o resultado em formato Base64.
 
-Não inclua a chave principal de grupo no código do dispositivo.
+> [!WARNING]
+> O código do dispositivo deve incluir apenas a chave do dispositivo derivado para cada dispositivo. Não inclua a chave principal de grupo no código do dispositivo. Uma chave-mestre comprometida tem o potencial de comprometer a segurança de todos os dispositivos que estão a ser autenticados com ele.
 
 
 #### <a name="linux-workstations"></a>Estações de trabalho linux
@@ -283,7 +286,7 @@ Esteja ciente de que isto deixa a chave do dispositivo derivado incluída como p
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
 * [Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)

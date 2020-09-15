@@ -4,12 +4,12 @@ description: Ligue-se a uma rede de serviços Azure Blockchain usando o MetaMask
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920583"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530442"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Quickstart: Use o MetaMask para ligar e implementar um contrato inteligente
 
@@ -41,7 +41,7 @@ Precisa do endereço de ponto final do Serviço Azure Blockchain para se ligar �
 ## <a name="connect-metamask"></a>Ligar MetaMask
 
 1. Abra a extensão do navegador MetaMask e inscreva-se.
-1. No dropdown da rede, selecione **O RPC personalizado**.
+1. No dropdown da rede, selecione  **O RPC personalizado**.
 
     ![RPC personalizado](./media/connect-metamask/custom-rpc.png)
 
@@ -56,7 +56,7 @@ Precisa do endereço de ponto final do Serviço Azure Blockchain para se ligar �
 
 Remix é um ambiente de desenvolvimento de solidez baseado no navegador. Usando o MetaMask e o Remix juntos, pode implementar e tomar ações em contratos inteligentes.
 
-1. No seu browser, navegue até `https://remix.ethereum.org`.
+1. No browser, navegue até `https://remix.ethereum.org`.
 1. Selecione **novo ficheiro** no separador **'Casa'** **em 'Ficheiro'.**
 
     Diga o nome do novo `simple.sol` ficheiro.
@@ -87,9 +87,9 @@ Remix é um ambiente de desenvolvimento de solidez baseado no navegador. Usando 
     ```
 
     O **contrato simples** declara uma variável do Estado nomeada **equilíbrio.** Há duas funções definidas. A função **de adicionar** adiciona um número ao **equilíbrio**. A função **get** devolve o valor do **saldo.**
-1. Para compilar o contrato, selecione primeiro o painel de compilador solidity e, em seguida, selecione o **Compile simple.sol**.
+1. Para compilar o contrato, selecione primeiro o painel de compilador solidity e, em seguida, selecione o  **Compile simple.sol**.
 
-    ![Compilar](./media/connect-metamask/compile.png)
+    ![A captura do ecrã mostra um contrato a ser compilado.](./media/connect-metamask/compile.png)
 
 1. Selecione o **painel de execução & executar** e, em seguida, definir o **Ambiente** para **Web3 injetado** para ligar através do MetaMask ao seu membro blockchain.
 
@@ -97,7 +97,7 @@ Remix é um ambiente de desenvolvimento de solidez baseado no navegador. Usando 
 
 1. Selecione o contrato **simples** e, em seguida, **implemente**.
 
-    ![Implementar](./media/connect-metamask/deploy.png)
+    ![A captura de ecrã mostra implementar e executar transações com um contrato selecionado e implementar selecionado.](./media/connect-metamask/deploy.png)
 
 
 1. Uma notificação MetaMask alerta-o de fundos insuficientes para realizar a transação.

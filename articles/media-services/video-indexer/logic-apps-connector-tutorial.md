@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c46195572fc4495b35f5ec44421440975ab9ffc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047094"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531360"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: use Video Indexer com App lógica e automatização de energia
 
@@ -58,13 +58,13 @@ Para configurar o primeiro fluxo, terá de fornecer as suas credenciais de API i
 
 Assim que conseguir ligar-se às suas contas Azure Storage e Video Indexer, dirija-se ao gatilho "Quando uma bolha é adicionada ou modificada) e selecione o recipiente onde irá colocar os seus ficheiros de vídeo. 
 
-![Contentor](./media/logic-apps-connector-tutorial/container.png)
+![Recipiente de armazenamento](./media/logic-apps-connector-tutorial/container.png)
 
 Em seguida, vá à ação "Create SAS URI by path" e selecione List of Files Path a partir das opções de conteúdo dinâmico.  
 
 ![SAS uri por caminho](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Preencha [a sua conta Localização e ID](./video-indexer-use-apis.md#account-id)   para obter o sinal da conta do Indexer de Vídeo.
+Preencha [a localização da sua conta](regions.md) e o [ID da conta](./video-indexer-use-apis.md#account-id)para obter o   token da conta do Indexer de Vídeo.
 
 ![Obter ficha de acesso à conta](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Para configurar este fluxo, terá de fornecer novamente as suas credenciais de A
 
 Para o seu gatilho, verá um campo URL HTTP POST. O URL só será gerado depois de poupar o seu fluxo; no entanto, eventualmente vai precisar do URL. Voltaremos a isto. 
 
-Preencha [a sua conta Localização e ID](./video-indexer-use-apis.md#account-id)   para obter o sinal da conta do Indexer de Vídeo.  
+Preencha [a localização da sua conta](regions.md) e o [ID da conta](./video-indexer-use-apis.md#account-id)para obter o   token da conta do Indexer de Vídeo.  
 
 Vá à ação "Obter Índice de Vídeo" e preencha os parâmetros necessários. Para o ID de vídeo, coloque a seguinte expressão: triggerOutputs()['consultas']['id'] 
 
@@ -116,7 +116,7 @@ Certifique-se de que ambos os fluxos estão guardados, e está pronto para ir!
 
 Experimente a sua recém-criada solução Logic App ou Power Automamate adicionando um vídeo ao seu recipiente de blobs Azure e volte alguns minutos depois para ver se as informações aparecem na pasta de destino. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de terminar este tutorial, sinta-se à vontade para manter esta solução Logic App ou Power Automamate em funcionamento se precisar. No entanto, se não quiser manter isto em funcionamento e não quiser ser cobrado, desligue ambos os fluxos se estiver a utilizar o Power Automamate. Desative ambos os fluxos se estiver a utilizar as Aplicações Lógicas. 
 

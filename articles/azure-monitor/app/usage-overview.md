@@ -3,12 +3,12 @@ title: Análise de utilização com Azure Application Insights / Docs da Microso
 description: Compreenda os seus utilizadores e o que fazem com a sua aplicação.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800216"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532108"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -54,7 +54,7 @@ Descubra quando as pessoas usam a sua app, quais as páginas em que estão mais 
 
 Os relatórios de Utilizadores e Sessões filtram os seus dados por páginas ou eventos personalizados, e segmentam-nos por propriedades como localização, ambiente e página. Também pode adicionar os seus próprios filtros.
 
-![Utilizadores](./media/usage-overview/users.png)  
+![A captura de ecrã mostra a página de Visão Geral dos Utilizadores para uma empresa fictícia.](./media/usage-overview/users.png)  
 
 Insights sobre a direita apontam padrões interessantes no conjunto de dados.  
 
@@ -71,7 +71,7 @@ A retenção ajuda-o a perceber com que frequência os seus utilizadores voltam 
 - Hipóteses de formulário com base em dados reais do utilizador 
 - Determine se a retenção é um problema no seu produto 
 
-![Retenção](./media/usage-overview/retention.png) 
+![A captura do ecrã mostra a página "Retenção Geral", que exibe informações sobre a frequência com que os utilizadores voltam a utilizar a sua aplicação.](./media/usage-overview/retention.png) 
 
 Os controlos de retenção em cima permitem definir eventos específicos e intervalo de tempo para calcular a retenção. O gráfico no meio dá uma representação visual da percentagem global de retenção pelo intervalo de tempo especificado. O gráfico na parte inferior representa a retenção individual num determinado período de tempo. Este nível de detalhe permite-lhe entender o que os seus utilizadores estão a fazer e o que pode afetar o retorno dos utilizadores numa granularidade mais detalhada.  
 
@@ -110,7 +110,7 @@ Saiba mais sobre eventos e [propriedades](./api-custom-events-metrics.md#propert
 ### <a name="slice-and-dice-events"></a>Eventos de fatias e dados
 
 Nas ferramentas Utilizadores, Sessões e Eventos, pode cortar e picar eventos personalizados pelo utilizador, nome do evento e propriedades.
-![Utilizadores](./media/usage-overview/users.png)  
+![A captura de ecrã mostra a página de Visão Geral dos Utilizadores para uma empresa fictícia.](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Desenhe a telemetria com a app
 
@@ -176,7 +176,7 @@ Todos os novos TelemetriaClients adicionam automaticamente o valor da propriedad
    - [Utilizadores, Sessões, Eventos](usage-segmentation.md)
    - [Funis](usage-funnels.md)
    - [Retenção](usage-retention.md)
-   - [Fluxos de Utilizador](usage-flows.md)
+   - [Fluxos do Utilizador](usage-flows.md)
    - [Livros](../platform/workbooks-overview.md)
    - [Adicionar contexto de utilizador](usage-send-user-context.md)
 

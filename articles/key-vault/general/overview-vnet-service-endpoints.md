@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 261d85c60473749719830c380d8a4866d7561874
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438045"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530459"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para Azure Key Vault
 
@@ -85,7 +85,7 @@ Aqui está uma lista de serviços fidedignos que podem aceder a um cofre chave s
 > [!NOTE]
 > Tem de configurar as políticas de acesso ao Cofre chave relevantes para permitir que os serviços correspondentes tenham acesso ao Key Vault.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Proteja o cofre da chave)](secure-your-key-vault.md)
+* [Proteja o cofre da chave](secure-your-key-vault.md)
 * [Configurar firewalls de cofre de chaves Azure e redes virtuais](network-security.md)

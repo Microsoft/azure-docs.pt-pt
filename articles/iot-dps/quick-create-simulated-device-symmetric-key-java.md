@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 8acc8b1e32304705b4221fe5570f7445720eafed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa1354c471cf23d85b3c2b0b563ed0463f5e19b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307918"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528436"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Quickstart: Fornecimento de um dispositivo simulado ao IoT Hub com teclas simétricas
 
@@ -22,7 +22,7 @@ Neste guia de início rápido, vai aprender a criar e executar um simulador de d
 
 Embora este artigo demonstre o provisionamento com uma inscrição individual, você pode usar grupos de inscrição. Há algumas diferenças na utilização de grupos de inscrição. Por exemplo, deve utilizar uma chave de dispositivo derivada com um ID de registo único para o dispositivo. Embora os grupos de inscrições de chave simétrica não estejam limitados a dispositivos legados, o artigo [Como aprovisionar dispositivos legados com o atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo de grupo de inscrições. Para obter mais informações, veja [Inscrições em grupo para o Atestado de Chave Simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Se não estiver familiarizado com o processo de aprovisionamento automático, reveja [Conceitos de aprovisionamento automático](concepts-auto-provisioning.md). 
+Se não estiver familiarizado com o processo de provisão automática, reveja a visão geral do [provisionamento.](about-iot-dps.md#provisioning-process) 
 
 Certifique-se também de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar este início rápido. Este guia de início rápido exige que já tenha criado a instância do Serviço de Aprovisionamento de Dispositivos.
 
@@ -146,7 +146,7 @@ Nesta secção, atualizará o código de amostra do dispositivo para enviar a se
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
-1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de Provisionamento de Dispositivos. Abrir **As Inscrições** para o seu serviço e, em seguida, selecionar o separador **Matrículas Individuais.** Selecione a caixa de verificação ao lado do *ID* de registo do dispositivo que inscreveu neste arranque rápido e prima o botão **Eliminar** na parte superior do painel. 
+1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de Provisionamento de Dispositivos. Abrir **As Inscrições** para o seu serviço e, em seguida, selecionar o separador **Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* do dispositivo que inscreveu neste arranque rápido e prima o botão **Eliminar** na parte superior do painel. 
 1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra **os dispositivos IoT** para o seu hub, selecione a caixa de verificação ao lado do *ID* do dispositivo que registou neste arranque rápido e, em seguida, pressione o botão **Eliminar** na parte superior do painel.
 
 ## <a name="next-steps"></a>Passos seguintes

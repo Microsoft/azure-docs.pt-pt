@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1e4dfb399432278ee09d1c016faae8fd3b584647
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 844ef8c09f10e1df888ef4990db22be8705d5c01
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318051"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530204"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte linguístico para Visão de Computador
 
@@ -40,7 +40,7 @@ As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que
 |Grego | `el` |✔ | | |
 |Húngaro | `hu` |✔ | | |
 |Italiano | `it` |✔ |✔ |✔ |
-|Japonês | `ja` |✔ | | |
+|Japonês | `ja` |✔ | |✔ |
 |Coreano | `ko` |✔ | | |
 |Norueguês | `nb` |✔ | | |
 |Polaco | `pl` |✔ | | |
@@ -58,7 +58,7 @@ As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que
 
 Algumas ações da [Análise - API de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pode devolver resultados em outras línguas, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do que é especificado, e outras lançam uma exceção para línguas não apoiadas. As ações são especificadas com os `visualFeatures` parâmetros e `details` consultas; consulte a [Visão Geral](overview.md) para uma lista de todas as ações que pode fazer com a análise de imagem.
 
-|Linguagem | Código do idioma | Categorias | Etiquetas | Descrição | Adulto | Marcas | Color | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código do idioma | Categorias | Etiquetas | Description | Adulto | Marcas | Cor | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
@@ -66,7 +66,7 @@ Algumas ações da [Análise - API de imagem](https://westus.dev.cognitive.micro
 |Português | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Espanhol | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa a utilizar as funcionalidades de Visão de Computador mencionadas neste guia.
 

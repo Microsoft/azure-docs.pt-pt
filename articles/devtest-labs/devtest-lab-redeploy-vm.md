@@ -3,12 +3,12 @@ title: Recolocar um VM num laboratório em Azure DevTest Labs Microsoft Docs
 description: Aprenda a recolocar uma máquina virtual (passe de um nó Azure para outro) em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: da0edf13adaa0d7ecd84ee2c190f376c19b398db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a38b112165b893d877733b967c21bb62b20ca2f6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480240"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530323"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Recolocar um VM num laboratório em Azure DevTest Labs
 Se não conseguir ligar-se a uma máquina virtual (VM) num laboratório através de uma ligação remota de ambiente de trabalho, relofectu o VM e tente ligá-lo novamente. Quando se recoloca um VM, a DevTest Labs move o VM do nó em que está a correr para um novo nó dentro da infraestrutura Azure. Em seguida, inicia o VM mantendo todas as suas opções de configuração e recursos associados. Esta funcionalidade poupa-lhe o tempo gasto na resolução de problemas da sua ligação remota ao ambiente de trabalho ou acesso a VMs baseados no Windows no laboratório. 
@@ -23,12 +23,12 @@ Para recolocar um VM num laboratório em Azure DevTest Labs, tome os seguintes p
 5. Na lista de VMs, selecione um VM.
 6. Na página Máquina Virtual para o seu VM, selecione **Reposicionar-se** em **OPERAções** no menu esquerdo.
 
-    ![Voltar a implementar](media/devtest-lab-redeploy-vm/redeploy.png)
+    ![A captura do ecrã mostra a página 'Máquina Virtual' com a recolocação selecionada.](media/devtest-lab-redeploy-vm/redeploy.png)
 7. Leia as informações na página e selecione o botão **De reafectação.** 9. Verifique o estado da operação de recolocação na janela **Notificações.**
 
     ![Estado de reimplantação](media/devtest-lab-redeploy-vm/redeploy-status.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Aprenda a redimensionar um VM em Azure DevTest Labs, consulte [Redimensionar um VM](devtest-lab-resize-vm.md).
 
 
