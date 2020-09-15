@@ -80,7 +80,7 @@ Na página seguinte *de atribuição de funções Adicionar,* preencha os valore
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Preenchendo os campos listados no diálogo "Adicionar função"":::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Preenchendo os campos listados no diálogo Adicionar função":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -146,7 +146,7 @@ Também é possível verificar a ligação com a Azure Digital Twins dentro do *
 
 Para isso, *selecione Manifesto* no menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure estes campos sob `requiredResourceAccess` . Os valores devem corresponder aos da imagem abaixo:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Vista do portal do manifesto para o registo da aplicação Azure AD. Aninhado em "RequeredResourceAccess", há um valor 'resourceAppId' de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, e um valor 'resourceAccess > id' de 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Vista do portal do manifesto para o registo da aplicação Azure AD. Aninhado em RequeredResourceAccess, há um valor resourceAppId de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, e um valor resourceAccess > id de 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
 ### <a name="collect-important-values"></a>Recolher valores importantes
 
