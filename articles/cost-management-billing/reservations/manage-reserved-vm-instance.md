@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684784"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400131"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir Reservas para recursos do Azure
 
@@ -73,7 +73,7 @@ Para delegar a gestão do acesso de uma reserva:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dividir uma reserva individual em duas
 
- Depois de comprar mais do que uma instância de recursos numa reserva, poderá querer atribuir instâncias nessa reserva a subscrições diferentes. Por predefinição, todas as instâncias têm um âmbito – subscrição individual ou partilhada. Por exemplo, comprou 10 instâncias de reserva e especificou o âmbito como subscrição A. Agora, talvez queira alterar o âmbito de sete reservas para a subscrição A e as três restantes para a subscrição B. A divisão de uma reserva permite que distribua instâncias para a gestão de âmbito granular. Pode simplificar a alocação a subscrições ao escolher o âmbito partilhado. Mas, para efeitos de gestão ou de orçamento, pode alocar quantidades a subscrições específicas.
+ Depois de comprar mais do que uma instância de recursos numa reserva, poderá querer atribuir instâncias nessa reserva a subscrições diferentes. Por predefinição, todas as instâncias têm um âmbito - subscrição individual, grupo de recursos ou partilhada. Por exemplo, comprou uma reserva para 10 instâncias VM e especificou o âmbito como subscrição A. Agora, pretende alterar o âmbito para 7 instâncias VM para a subscrição A e as três restantes para a subscrição B. A divisão de uma reserva permite-lhe fazer isto. Depois de dividir uma reserva, o ReservationID original é cancelado e são criadas duas reservas novas. A divisão não afeta a encomenda de reserva - não há nenhuma transação comercial nova com divisão e as novas reservas têm a mesma data de fim da que foi dividida.
 
  Pode dividir uma reserva em duas através do PowerShell, da CLI ou da API.
 

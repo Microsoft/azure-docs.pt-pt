@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 8f3e4762b0c0286a47b407595cf73b66bef8d750
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682846"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487356"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
 Os parceiros da Microsoft fornecem serviços que ajudam os clientes a alcançar os objetivos de negócios e de missão ao utilizar os produtos da Microsoft. Ao agir em nome do cliente que gere, configura e dá suporte aos serviços do Azure, os utilizadores parceiros precisarão de aceder ao ambiente do cliente. Com a Ligação do Administrador de Parceiros (PAL), os parceiros podem associar o seu ID do Microsoft Partner Network às credenciais utilizadas para a entrega do serviço.
 
-A PAL permite à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso dos clientes do Azure. A Microsoft pode atribuir influência e receita consumida do Azure à sua organização com base nas permissões da conta (função do Azure) e no âmbito (subscrição, grupo de recursos, recurso).
+A PAL permite que a Microsoft identifique e reconheça os parceiros que impulsionam o sucesso do cliente do Azure. A Microsoft pode atribuir influência e receita consumida do Azure à sua organização com base nas permissões da conta (função do Azure) e no âmbito (subscrição, grupo de recursos, recurso).
 
 ## <a name="get-access-from-your-customer"></a>Obter acesso a partir do cliente
 
@@ -133,10 +133,11 @@ Sim. Um ID de parceiro ligado pode ser alterado, adicionado ou removido.
 
 A ligação entre o ID de parceiro e a conta é feita para cada inquilino do cliente. Ligue o ID de parceiro em cada inquilino de cliente.
 
+No entanto, se estiver a gerir recursos do cliente através do Azure Lighthouse, terá de criar a ligação no seu inquilino do fornecedor de serviços, utilizando uma conta que tenha acesso aos recursos do cliente. Para obter mais informações, veja [Ligar o seu ID de parceiro para ativar o crédito ganho de parceiro em recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
+
 **Outros parceiros ou clientes podem editar ou remover a ligação para o ID de parceiro?**
 
 A ligação é associada ao nível da conta de utilizador. Apenas o utilizador da conta pode editar ou remover a ligação para o ID do parceiro. O cliente e os outros parceiros não podem alterar a ligação para o ID de parceiro.
-
 
 **Qual ID do MPN devo utilizar se a minha empresa tiver vários?**
 
@@ -158,10 +159,11 @@ Não consegue ver o cliente nos relatórios pelos seguintes motivos
 
 Sim, pode ligar o ID de parceiro com o Azure Stack.
 
-**Como posso associar o meu ID de parceiro se a minha empresa utilizar o [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) para aceder aos recursos do cliente?**
+**Como posso associar o meu ID de parceiro se a minha empresa utilizar o [Azure Lighthouse](../../lighthouse/overview.md) para aceder aos recursos do cliente?**
 
-Se integrar clientes na gestão de recursos delegados do Azure mediante a [publicação de uma oferta de serviços geridos no Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), o seu ID do MPN é adicionado automaticamente. Se [integrar clientes através da implementação de modelos do Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), terá de associar o ID do Microsoft Partner Network (MPN) a, pelo menos, uma conta de utilizador que tenha acesso a cada subscrição integrada. Tenha em conta que terá de fazer a associação no inquilino do seu fornecedor de serviço. Por motivos de simplicidade, recomendamos criar uma conta de principal de serviço no inquilino associado ao ID do MPN e conceder acesso de Leitor à mesma para cada cliente que integrar. Neste exemplo, é utilizada a função Leitor RBAC, uma das funções que não é elegível para o Crédito Ganho pelo Parceiro. Para obter mais informações sobre funções, veja [Funções e permissões para o crédito ganho pelo parceiro](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+Se integrar clientes na gestão de recursos delegados do Azure mediante a [publicação de uma oferta de serviços geridos no Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), o seu ID do MPN é adicionado automaticamente.
 
+Se [integrar clientes através da implementação de modelos do Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), terá de associar o seu ID do MPN a, pelo menos, uma conta de utilizador que tenha acesso a cada subscrição integrada. Tenha em atenção que terá de fazer isto no inquilino do seu fornecedor de serviços, e não em cada inquilino de cliente. Para simplificar, é recomendável criar uma conta principal de serviço no seu inquilino, associando-a ao seu ID do MPN e, em seguida, concedendo-lhe acesso a todos os clientes que integrar com uma [Função incorporada do Azure, que seja elegível para crédito concedido pelo parceiro](/partner-center/azure-roles-perms-pec). Para obter mais informações, veja [Ligar o seu ID de parceiro para ativar o crédito ganho de parceiro em recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Como posso explicar o Partner Admin Link (PAL) ao meu cliente?**
 
@@ -173,4 +175,4 @@ A associação do PAL a credenciais já existentes não fornece dados novos dos 
 
 **Esta associação afeta a segurança dos ambientes do Azure dos clientes?**
 
-A associação do PAL só adiciona o ID da MPN dos parceiros à credencial já aprovisionada e não altera nenhuma outra permissão (função do Azure) nem envia dados adicionais do serviço do Azure ao parceiro ou à Microsoft. 
+A associação do PAL só adiciona o ID da MPN dos parceiros à credencial já aprovisionada e não altera nenhuma outra permissão (função do Azure) nem envia dados adicionais do serviço do Azure ao parceiro ou à Microsoft.

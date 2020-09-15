@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: 813cf91195a43a2fc68236febe114c67eb5a3378
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/02/2020
+ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684614"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398431"
 ---
 # <a name="reservation-recommendations"></a>Recomendações da reserva
 
@@ -25,6 +25,7 @@ Os passos seguintes definem como são calculadas as recomendações:
 2. Com base nos dados de utilização, o motor simula os custos com e sem reservas.
 3. Os custos são simulados para diferentes quantidades, e é recomendada a quantidade que maximiza a poupança.
 4. Se os recursos forem encerrados regularmente, a simulação não encontrará poupanças e não é fornecida nenhuma recomendação de compra.
+5. O cálculo das recomendações inclui todos os descontos especiais que possa ter nas suas taxas de utilização a pedido.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Recomendações no portal do Azure
 
@@ -52,11 +53,11 @@ Para maximizar as poupanças com as reservas, tente comprar as reservas o mais p
 
 As recomendações de compra de reservas estão disponíveis no Assistente do Azure. Tenha em consideração os seguintes pontos:
 
-- O Assistente tem apenas recomendações de âmbito de subscrição única.
-- As recomendações são calculadas ao considerar a tendência de utilização dos últimos 30 dias.
+- O Assistente tem apenas recomendações de âmbito de subscrição única. Se quiser ver as recomendações para todo o âmbito da faturação (conta de faturação ou perfil de faturação), aceda ao Portal do Azure > Reservas > Adicionar e selecione o tipo para o qual pretende as recomendações.
+- Recomendações disponíveis na tendência de utilização do assistente de supervisor após 30 dias.
 - As quantidades recomendadas e as poupanças são para reservas de 3 anos, sempre que disponíveis. Se não for vendida uma reserva de 3 anos para o serviço, a recomendação é calculada com base no preço da reserva de 1 ano.
-- As recomendações têm em conta descontos especiais que possa ter nas suas tarifas de utilização a pedido.
-- Se comprar uma reserva de âmbito partilhado, as recomendações de compra de reservas do Assistente podem demorar até 30 dias a desaparecer.
+- Os cálculos das recomendações incluem todos os descontos especiais que possa ter nas suas taxas de utilização a pedido.
+- Se comprar uma reserva de âmbito partilhado, as recomendações de compra de reservas do Assistente podem demorar até 5 dias a desaparecer.
 
 ## <a name="other-expected-api-behavior"></a>Outro comportamento esperado da API
 

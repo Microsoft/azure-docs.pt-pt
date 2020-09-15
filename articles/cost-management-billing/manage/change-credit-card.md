@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e5adf007294ea4be0f5716a4614e0639f840fa75
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c7622c4916b186a39aad9dafb54a1e2404458794
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684937"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569361"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito do Azure
 
@@ -190,7 +190,7 @@ Se [pagar por fatura](pay-by-invoice.md), envie o pagamento para a localização
 
 ### <a name="how-do-i-change-the-tax-id"></a>Como posso alterar o NIF?
 
-Para adicionar ou atualizar o NIF, atualize o seu perfil no [Centro de Contas do Azure](https://account.azure.com/Profile) e, em seguida, selecione **Registo fiscal**. O NIF é utilizado para cálculos de isenção fiscal e é apresentado na sua fatura.
+Para adicionar ou atualizar o NIF, atualize o seu perfil no [Portal do Azure](https://portal.azure.com) e, em seguida, selecione **Registo fiscal**. O NIF é utilizado para cálculos de isenção fiscal e é apresentado na sua fatura.
 
 ## <a name="check-the-type-of-your-account"></a>Verificar o tipo de conta
 
