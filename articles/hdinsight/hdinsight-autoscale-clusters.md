@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/14/2020
+ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090113"
+ms.locfileid: "90532193"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Aglomerados autoscale Azure HDInsight
 
@@ -68,16 +68,16 @@ Para uma escala para baixo, a Autoscale emite um pedido para remover um certo n�
 > [!Important]
 > A funcionalidade de Dimensionamento Automático do Azure HDInsight foi lançada para disponibilidade geral a 7 de novembro de 2019 para os clusters do Spark e do Hadoop com melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se tiver criado um cluster do Spark antes de 7 de novembro de 2019 e quiser utilizar a funcionalidade de Dimensionamento Automático no cluster, o caminho recomendado será criar um novo cluster e ativar o Dimensionamento Automático no novo cluster.
 >
-> O Dimensionamento Automático para clusters do Interactive Query (LLAP) e do HBase ainda está em pré-visualização. O Dimensionamento Automático só está disponível nos clusters do Spark, do Hadoop, do Interactive Query e do HBase.
+> A autoescala para Consulta Interativa (LLAP) foi lançada para disponibilidade geral no dia 27 de agosto de 2020. Os clusters HBase ainda estão em pré-visualização. O Dimensionamento Automático só está disponível nos clusters do Spark, do Hadoop, do Interactive Query e do HBase.
 
 A tabela seguinte descreve os tipos e versões de cluster compatíveis com a função Autoscale.
 
 | Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | No | No | No |
-| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | No | No | No |
-| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | No | No | No |
-| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | No | No | No |
+| HDInsight 3.6 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 4.0 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 3.6 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 4.0 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
 
 \* Os clusters HBase só podem ser configurados para dimensionamento baseado em horários e não à base de carga.
 

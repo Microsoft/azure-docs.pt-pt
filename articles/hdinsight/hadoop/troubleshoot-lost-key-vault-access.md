@@ -1,18 +1,18 @@
 ---
 title: Aglomerados Azure HDInsight com encriptação de disco perdem acesso ao Cofre da Chave
-description: Etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com os clusters Azure HDInsight.
+description: Etapas de resolução de problemas e possíveis resoluções para problemas de acesso ao Cofre chave ao interagir com clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461536"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532567"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Cenário: Clusters Azure HDInsight com encriptação de disco perdem acesso ao Cofre da Chave
 
@@ -32,7 +32,7 @@ Navegue até Apache Ambari UI para encontrar mais informações sobre o alerta a
 
 ### <a name="kvaad-outage"></a>Paragem KV/AAD
 
-Veja a [disponibilidade e redundância do Azure Key Vault](../../key-vault/general/disaster-recovery-guidance.md) para mais detalheshttps://status.azure.com/
+Veja a [disponibilidade e redundância do Azure Key Vault](../../key-vault/general/disaster-recovery-guidance.md) para mais detalhes https://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>Eliminação acidental do KV
 

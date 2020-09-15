@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e6ee8ce065361ac27bba0e80349eb5e1d1877526
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394759"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532295"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -24,7 +24,7 @@ O Key Vault permite-lhe aceder de forma segura a informações sensíveis a part
 - A sua aplicação pode usar chaves para a assinatura e encriptação, mas mantém a gestão da chave externa da sua aplicação, permitindo que a sua solução seja adequada como uma aplicação geograficamente distribuída.
 - Gerir os certificados do Cofre-Chave. Para mais informações, consulte [Certificados](../certificates/about-certificates.md)
 
-Para obter informações mais gerais sobre o Cofre da Chave Azure, consulte [o que é o Cofre de Chaves).](overview.md)
+Para obter informações mais gerais sobre o Cofre da Chave Azure, consulte [o que é o Cofre de Chaves](overview.md).
 
 ## <a name="public-previews"></a>Pré-visualizações públicas
 
@@ -140,7 +140,7 @@ Estes artigos são sobre outros cenários e serviços que usam ou integram com o
 
 ## <a name="key-vault-overviews-and-concepts"></a>Principais visões e conceitos do Cofre
 
-- [Key Vault soft-delete comportamento](soft-delete-overview.md)) descreve uma característica que permite a recuperação de objetos apagados, quer a eliminação tenha sido acidental ou intencional.
+- [O comportamento de eliminação suave do Key Vault](soft-delete-overview.md) descreve uma funcionalidade que permite a recuperação de objetos eliminados, quer a eliminação tenha sido acidental ou intencional.
 - [O cliente Key Vault o](overview-throttling.md) orienta para os conceitos básicos de estrangulamento e oferece uma abordagem para a sua aplicação.
 - [Os principais mundos de segurança do Cofre](overview-security-worlds.md) descrevem as relações entre regiões e áreas de segurança.
 

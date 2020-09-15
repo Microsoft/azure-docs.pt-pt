@@ -1,6 +1,6 @@
 ---
 title: Como gerar & transferir chaves protegidas pelo HSM - Cofre de Chaves Azure
-description: Use este artigo para ajudá-lo a planear, gerar e, em seguida, transferir as suas próprias chaves protegidas pelo HSM para usar com o Cofre da Chave Azure. Também conhecido como BYOK ou traga a sua própria chave.
+description: Aprenda a planear, gerar e, em seguida, transfira as suas próprias chaves protegidas pelo HSM para usar com o Azure Key Vault. Também conhecido como BYOK ou traga a sua própria chave.
 services: key-vault
 author: amitbapat
 manager: devtiw
@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 76b10dbd9b6d801d93cd5d9704531eb1a6de36a5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 33249da6772d146de3e5e7351bc82c203674ddff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585497"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532142"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 

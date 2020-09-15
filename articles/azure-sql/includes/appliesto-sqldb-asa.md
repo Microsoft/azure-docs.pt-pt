@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 81e60ce0336ca407a62b9054a97196a4f6275293
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3757a6fc4edcdf5a8d5e8c8ad8bcbda0bb8d7169
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504699"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90533347"
 ---
-<Token>**APLICA-SE A:** ![ sim ](../media/applies-to/yes.png) Azure SQL Base de ![ Dados sim ](../media/applies-to/yes.png) Azure Synapse Analytics (SQL DW)</Token> 
+<Token>**APLICA-SE A:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure SQL Database :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Synapse Analytics (SQL DW) </Token> 
 

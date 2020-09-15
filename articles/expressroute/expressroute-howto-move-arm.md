@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b88fb32fd4bc07bbaaaf8834646e8d585491dc6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395694"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532550"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Mova os circuitos ExpressRoute do modelo de implementação clássico para o gestor de recursos usando o PowerShell
 
@@ -95,14 +95,14 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
 Em modo clássico, um circuito ExpressRoute não tem o conceito de estar ligado a uma região. No entanto, no Gestor de Recursos, todos os recursos precisam de ser mapeados para uma região de Azure. A região especificada no cmdlet Move-AzExpressRouteCircuit pode ser tecnicamente qualquer região. Para fins organizacionais, pode querer escolher uma região que represente de perto a sua localização de observação.
 
 > [!NOTE]
-> Após a final da mudança, o novo nome que estiver listado no cmdlet anterior será utilizado para endereçar o recurso. O circuito será essencialmente renomeado.
-> 
+> * Depois de mover o seu circuito expressRoute clássico para o modelo de implementação do Gestor de Recursos, terá acesso aos modelos clássicos e gestores de recursos por padrão.
+> * O novo nome que estiver listado no cmdlet anterior será utilizado para endereçar o recurso. O circuito será essencialmente renomeado.
 
 ## <a name="modify-circuit-access"></a>Modificar o acesso ao circuito
 
 ### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>Para permitir o acesso ao circuito ExpressRoute para ambos os modelos de implantação
 
-Depois de mover o seu circuito ExpressRoute clássico para o modelo de implementação do Gestor de Recursos, pode permitir o acesso a ambos os modelos de implementação. Executar os seguintes cmdlets para permitir o acesso a ambos os modelos de implantação:
+Pode permitir o acesso ao modelo clássico de implementação dos circuitos ExpressRoute que foram criados no modelo de implementação do Gestor de Recursos. Executar os seguintes cmdlets para permitir o acesso a ambos os modelos de implantação:
 
 1. Pegue os detalhes do circuito.
 
@@ -155,7 +155,7 @@ Executar os seguintes cmdlets para desativar o acesso ao modelo de implementaç�
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie e modifique o encaminhamento para o seu circuito ExpressRoute](expressroute-howto-routing-arm.md)
 * [Ligue a sua rede virtual ao circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)

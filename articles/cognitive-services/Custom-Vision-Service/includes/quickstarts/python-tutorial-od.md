@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 08/17/2020
-ms.openlocfilehash: f54b5c7bec7d2b9af67b967ff34ab43bd1818a7d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 21ee22e7a493a6bbc8b5934e353db7c59b4aa17d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511326"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90533157"
 ---
 Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão Personalizada com Python para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python.
 
@@ -40,7 +40,7 @@ Crie um novo ficheiro chamado *sample.py* no seu diretório de projetos preferid
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
-Consulte o método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [do detetor).](../../get-started-build-detector.md)  
+Consulte o método **[create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [do detetor).](../../get-started-build-detector.md)  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -188,6 +188,11 @@ while (iteration.status != "Completed"):
 trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
 print ("Done!")
 ```
+
+> [!TIP]
+> Comboio com etiquetas selecionadas
+>
+> Pode treinar opcionalmente apenas um subconjunto das suas etiquetas aplicadas. Podes querer fazer isto se ainda não aplicaste o suficiente de certas etiquetas, mas tens o suficiente de outras. Na **[chamada train_project,](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** desa um parâmetro opcional *selected_tags* a uma lista das cordas de ID das etiquetas que pretende utilizar. O modelo treinará para reconhecer apenas as etiquetas dessa lista.
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto final da previsão
 

@@ -1,6 +1,6 @@
 ---
 title: Streaming Offline FairPlay para iOS com Azure Media Services v3
-description: Este tópico dá uma visão geral e mostra como usar o Azure Media Services para encriptar dinamicamente o seu conteúdo HTTP Live Streaming (HLS) com o Apple FairPlay em modo offline.
+description: Este tópico dá uma visão geral e mostra como usar o Azure Media Services v3 para encriptar dinamicamente o seu conteúdo HTTP Live Streaming (HLS) com o Apple FairPlay no modo offline.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c46fe5a4199e73cd22aeef4df62daeed4b58db06
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 886a8aa1a6f062b5fe01476e387742f34efc0c56
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291318"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532244"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming Offline FairPlay para iOS com Media Services v3
 
@@ -209,6 +209,6 @@ Com a amostra da versão 3 ou da versão 4 do FPS Server SDK, se uma lista de re
 
 Consulte [perguntas frequentes para ajudar na resolução de problemas.](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como pode [proteger com AES-128](protect-with-aes128.md)

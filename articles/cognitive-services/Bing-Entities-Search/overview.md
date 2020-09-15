@@ -1,7 +1,7 @@
 ---
 title: O que é a API de Pesquisa de Entidade Bing?
 titleSuffix: Azure Cognitive Services
-description: Utilize a API de Pesquisa de Entidade Bing para extrair e procurar entidades e locais a partir de consultas de pesquisa.
+description: Saiba mais detalhes sobre a API de Pesquisa de EntidadeS Bing e como extrair e procurar entidades e locais a partir de consultas de pesquisa.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4afb20699d52ea80d7ba6cf9760a465b61cc6d6b
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: e0402b1695e1d5f5c9f29d128f4cd405f219e724
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604816"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532499"
 ---
 # <a name="what-is-bing-entity-search-api"></a>O que é Bing Entity Search API?
 
 A API de Pesquisa de Entidades do Bing envia uma consulta de pesquisa ao Bing e obtém resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotéis ou outras empresas locais. O Bing devolve locais, se a consulta especificar o nome da empresa local ou pedir um tipo de negócio (por exemplo, restaurantes perto de mim). Bing devolve entidades se a consulta especificar pessoas, locais bem conhecidos (atrações turísticas, estados, países/regiões, etc.), ou coisas.
 
-|Funcionalidade  |Description  |
+|Funcionalidade  |Descrição  |
 |---------|---------|
 |[Sugestões de pesquisa em tempo real](concepts/search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | Forneça sugestões de pesquisa que possam ser apresentadas como uma lista de dropdown como o seu tipo de utilizadores.       | 
 | [Desambiguação de entidades](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | Obtenha várias entidades para consultas com múltiplos significados possíveis. |

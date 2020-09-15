@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7130ed2965e2df0d366635f6ce84c822c1359b59
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7f8e87b22e3d8f6e265789f910863b2790024cbf
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378173"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532414"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Quickstart: Criar uma aplicação Java no Azure App Service
 
@@ -71,7 +71,7 @@ O processo de implementação do Azure App Service utilizará automaticamente as
 Executar o comando Maven abaixo para configurar a implantação. Este comando irá ajudá-lo a configurar o sistema operativo App Service, versão Java e versão Tomcat.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -243,7 +243,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 
 Este comando pode demorar alguns minutos a ser executado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Ligue à Base de Dados Azure SQL com a Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 

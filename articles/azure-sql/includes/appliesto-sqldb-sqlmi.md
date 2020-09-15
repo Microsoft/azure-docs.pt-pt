@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a67e4237a49a32c177d4c23b7655a42c4039bb96
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 201fab00dcf1f3fede0b0acb0fa2dc5e45d0d1e0
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86504546"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90533313"
 ---
-<Token>**APLICA-SE A:** ![ sim ](../media/applies-to/yes.png) Azure SQL Base de Dados ![ sim ](../media/applies-to/yes.png) Azure SQL Gestd Instance </Token> 
+<Token>**APLICA-SE A:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure SQL Database :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure SQL Gestd Instance </Token> 
 

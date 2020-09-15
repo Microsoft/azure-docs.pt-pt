@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: abc625c27617c27a79fe284393cdf7b281973bc4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299266"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532346"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como desinsurar um dispositivo do Serviço de Provisionamento de Dispositivos Azure IoT Hub
 
 A gestão adequada das credenciais de dispositivos é crucial para sistemas de alto perfil como soluções IoT. Uma das melhores práticas para estes sistemas é ter um plano claro de como revogar o acesso aos dispositivos quando as suas credenciais, quer um token de assinaturas de acesso partilhado (SAS) ou um certificado X.509, possam ser comprometidos. 
 
-A inscrição no Serviço de Provisionamento de Dispositivos permite que um dispositivo seja [provisido automaticamente](concepts-auto-provisioning.md). Um dispositivo provisionado é aquele que foi registado no IoT Hub, permitindo-lhe receber o seu [primeiro dispositivo twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state e começar a reportar dados de telemetria. Este artigo descreve como desativar um dispositivo da sua instância de serviço de fornecimento, impedindo-o de ser novamente a provisionado no futuro.
+A inscrição no Serviço de Provisionamento de Dispositivos permite a [provisionamento de](about-iot-dps.md#provisioning-process)um dispositivo . Um dispositivo provisionado é aquele que foi registado no IoT Hub, permitindo-lhe receber o seu [primeiro dispositivo twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state e começar a reportar dados de telemetria. Este artigo descreve como desativar um dispositivo da sua instância de serviço de fornecimento, impedindo-o de ser novamente a provisionado no futuro.
 
 > [!NOTE] 
 > Esteja atento à política de retíria dos dispositivos para os quais revoga o acesso. Por exemplo, um dispositivo que tenha uma política de relagem infinita pode continuar a tentar registar-se com o serviço de fornecimento. Esta situação consome recursos de serviço e possivelmente afeta o desempenho.
@@ -108,6 +108,6 @@ Para não permitir um dispositivo individual num grupo de inscrição, siga este
 
 Quando criar com sucesso a sua inscrição, deverá ver a inscrição do dispositivo desativado listada no separador **Inscrições Individuais.** 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O desinscrição também faz parte do processo de desprovisionamento maior. A desprovisionação de um dispositivo inclui tanto o desinscrição do serviço de fornecimento como a desregistação do hub IoT. Para conhecer todo o processo, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md) 

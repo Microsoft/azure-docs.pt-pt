@@ -1,19 +1,19 @@
 ---
 title: Referência de dados de importação e exportação - QnA Maker
-description: Compreenda como os tipos de URLs são usados para importar e criar pares QnA.
+description: Utilize esta referência de importação e exportação para obter os melhores resultados para a sua base de conhecimentos de backup, armazenamento e substituição.
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: e4a423ef9478cd39181c6440801f9fe954dc896c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c77f51263206c3cc0d4b546e1728963211a186c6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804248"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532159"
 ---
-# <a name="import-and-export-data-reference"></a>Referência dos dados de importação e exportação
+# <a name="import-and-export-data-reference"></a>Referência de dados de importação e exportação
 
-Reveja esta referência de importação e exportação para obter os melhores resultados para a sua base de conhecimentos backup, armazenamento e substituição.
+Reveja esta referência de importação e exportação para obter os melhores resultados para a sua base de conhecimentos de backup, armazenamento e substituição.
 
 ## <a name="import-and-export-knowledge-base"></a>Base de conhecimentos de importação e exportação
 
-Os **ficheiros TSV e XLS,** provenientes de bases de conhecimento exportadas, só podem ser utilizados importando os ficheiros da página **Definições** no portal QnA Maker. Não podem ser utilizados como fontes de dados durante a criação da base de conhecimentos ou a partir do **ficheiro + Adicionar** ou + Adicionar a funcionalidade **URL** na página **Definições.**
+**Os ficheiros TSV e XLS**, a partir de bases de conhecimento exportadas, só podem ser utilizados importando os ficheiros da página **Definições** no portal Do Criador QnA. Não podem ser utilizados como fontes de dados durante a criação da base de conhecimento ou a partir do **ficheiro + Adicionar** ou + Adicionar a função **URL** na página **Definições.**

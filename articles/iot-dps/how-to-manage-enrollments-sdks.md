@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 4a5e8b6f430f6af49ab79ca0f8cb2253bd0f2049
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520661"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532329"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerir as inscrições de dispositivos com SDKs de serviço de fornecimento de dispositivos Azure
 Uma *inscrição de dispositivo* cria um registo de um único dispositivo ou de um grupo de dispositivos que podem em algum momento registar-se com o Serviço de Provisionamento de Dispositivos. O registo de inscrição contém a configuração inicial desejada para o(s) dispositivo(s) como parte dessa inscrição, incluindo o hub IoT desejado. Este artigo mostra-lhe como gerir as inscrições do dispositivo para o seu serviço de fornecimento programáticamente usando os SDKs do Serviço de Provisionamento Azure IoT.  Os SDKs estão disponíveis no GitHub no mesmo repositório que os SDKs Azure IoT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Obtenha a cadeia de ligação a partir da sua instância de Serviço de Provisionamento de Dispositivos.
-* Obtenha os artefactos de segurança do dispositivo para o [mecanismo de atestado](concepts-security.md#attestation-mechanism) utilizado:
+* Obtenha os artefactos de segurança do dispositivo para o [mecanismo de atestado](concepts-service.md#attestation-mechanism) utilizado:
     * [**Módulo de plataforma fidedigno (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Inscrição individual: ID de inscrição e chave de endosso TPM a partir de um dispositivo físico ou de TPM Simulator.
         * O grupo de inscrições não se aplica ao atestado de TPM.

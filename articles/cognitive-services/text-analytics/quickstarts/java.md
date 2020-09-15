@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Java para chamar a API de Sms Analytics REST'
 titleSuffix: Azure Cognitive Services
-description: Este quickstart mostra como obter informações e amostras de código para ajudá-lo a começar rapidamente a usar a API text Analytics em Azure Cognitive Services.
+description: Este quickstart mostra como usar Java para obter informações e amostras de código para ajudá-lo a começar rapidamente usando a API text Analytics em Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
-ms.openlocfilehash: f8f9d76e5f1584ce54897950d7e35e2b22ba958e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6c3c613f8733c8f786d121ab33b09afab244b09e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319784"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532278"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Quickstart: Use Java para chamar o Serviço Cognitivo Azure Text Analytics
 <a name="HOLTop"></a>
@@ -33,7 +33,7 @@ Também tem de ter a [chave de ponto final e acesso](../../cognitive-services-ap
 
 <a name="Detect"></a>
 
-## <a name="detect-language"></a>Detetar Idioma
+## <a name="detect-language"></a>Detetar idioma
 
 A API de Deteção de Idiomas deteta a linguagem de um documento de texto, utilizando o [método De deteção da linguagem.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
@@ -711,7 +711,7 @@ public class GetEntities {
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
  [Descrição geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

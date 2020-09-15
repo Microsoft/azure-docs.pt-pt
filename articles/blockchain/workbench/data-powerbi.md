@@ -4,12 +4,12 @@ description: Saiba como carregar e ver os dados da BD SQL do Azure Blockchain Wo
 ms.date: 04/22/2020
 ms.topic: how-to
 ms.reviewer: sunri
-ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0e585ce45616c2402972c725b502f4b704d1cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214235"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532380"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Utilizar dados do Azure Blockchain Workbench com o Microsoft Power BI
 
@@ -26,12 +26,12 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 1.  Abra o Power BI Desktop.
 2.  Selecione **Obter Dados**.
 
-    ![Obter dados](./media/data-powerbi/get-data.png)
+    ![Obter os dados](./media/data-powerbi/get-data.png)
 3.  Selecione **SQL Server** na lista de tipos de origens de dados.
 
 4.  Introduza o nome do servidor e da base de dados na caixa de diálogo. Especifique se pretende importar os dados ou realizar uma **DirectQuery**. Selecione **OK**.
 
-    ![Selecionar o SQL Server](./media/data-powerbi/select-sql.png)
+    ![Selecionar SQL Server](./media/data-powerbi/select-sql.png)
 
 5.  Introduza as credenciais da base de dados para aceder ao Azure Blockchain Workbench. Selecione **Base de Dados** e introduza as suas credenciais.
 
@@ -41,7 +41,7 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
 6.  Uma vez ligado à base de dados, a caixa de diálogo **Navegador** apresenta as tabelas e as vistas disponíveis na base de dados. As vistas foram concebidas para a elaboração de relatórios e têm todas o prefixo **vw**.
 
-    ![Navegador](./media/data-powerbi/navigator.png)
+    ![Captura de ecrã do ambiente de trabalho Power BI com a caixa de diálogo Navigator com vwContractAction selecionada.](./media/data-powerbi/navigator.png)
 
 7.  Selecione as vistas que pretende incluir. Para fins de demonstração, incluímos **a VWContractAction,** que fornece detalhes sobre as ações que têm ocorrido num contrato.
 
@@ -49,7 +49,7 @@ Este artigo contém instruções passo a passo sobre como ligar à Base de Dados
 
 Pode agora criar e publicar relatórios tal como faria normalmente com o Power BI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Vistas de base de dados no Azure Blockchain Workbench](database-views.md)
