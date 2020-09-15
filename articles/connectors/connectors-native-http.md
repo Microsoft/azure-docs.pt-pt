@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226434"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526756"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps
 
@@ -168,6 +168,14 @@ Aqui está o mesmo exemplo que mostra a definição JSON da ação HTTP na defin
 }
 ```
 
+## <a name="content-with-applicationx-www-form-urlencoded-type"></a>Conteúdo com aplicação/x-www-form-urlencoded type
+
+Para fornecer dados codificados por formulários no organismo para um pedido HTTP, tem de especificar que os dados têm o `application/x-www-form-urlencoded` tipo de conteúdo. No gatilho ou ação HTTP, adicione o `content-type` cabeçalho. Desa estale o valor do cabeçalho para `application/x-www-form-urlencoded` .
+
+Por exemplo, suponha que tem uma aplicação lógica que envia um pedido HTTP POST para um site, que suporta o `application/x-www-form-urlencoded` tipo. Eis o que esta ação pode parecer:
+
+![Screenshot que mostra um pedido HTTP com o cabeçalho 'tipo conteúdo' definido para 'aplicação/x-www-form-urlencoded'](./media/connectors-native-http/http-action-urlencoded.png)
+
 <a name="asynchronous-pattern"></a>
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportamento assíncronos de pedido-resposta
@@ -263,4 +271,3 @@ Para obter mais informações sobre os parâmetros de desencadeamento e ação, 
 
 * [Acesso seguro e dados - Acesso a chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 * [Conectores para as Logic Apps](../connectors/apis-list.md)
-

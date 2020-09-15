@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Pilot Azure AD Connect cloud provisioning for a existing a ad forest
-description: tutorial.
+description: Saiba como pilotar o provisionamento em nuvem para um teste ative directory forest que já está sincronizado usando a sincronização do Azure Ative Directory (Azure AD).
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86146819"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526940"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
 

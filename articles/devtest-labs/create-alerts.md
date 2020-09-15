@@ -3,12 +3,12 @@ title: Criar alertas de registo de atividades para laboratórios em Azure DevTes
 description: Este artigo fornece medidas para criar alertas de registo de atividade para laboratório em Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 6c859e70ab8a101c533e16f9cb118e26727baa52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d5886ea26ddbeb07efc23d61d3197860620eebf3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098950"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526362"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Criar alertas de registo de atividades para laboratórios em Azure DevTest Labs
 Este artigo explica como criar alertas de registo de atividade para laboratórios em Azure DevTest Labs (por exemplo: quando um VM é criado ou quando um VM é eliminado).
@@ -64,7 +64,7 @@ Neste exemplo, cria-se um alerta para todas as operações administrativas num l
 ## <a name="view-alerts"></a>Ver alertas 
 1. Verá alertas nos **Alertas** para todas as operações administrativas (neste exemplo). Os alertas podem demorar algum tempo a aparecer. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Alertas":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="A captura de ecrãs apresenta alertas no Painel de Instrumentos.":::
 1. Se selecionar o número numa coluna (por exemplo: **Alertas totais),** vê os alertas que foram levantados. 
 
     :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Todos os alertas":::
@@ -77,6 +77,6 @@ Neste exemplo, cria-se um alerta para todas as operações administrativas num l
 
 ## <a name="next-steps"></a>Passos seguintes
 - Para saber mais sobre a criação de grupos de ação utilizando diferentes tipos de ação, consulte [Criar e gerir grupos de ação no portal Azure.](../azure-monitor/platform/action-groups.md)
-- Para saber mais sobre os registos de atividades, consulte [o Registo de Atividades do Azure](../azure-monitor/platform/activity-log.md).
+- Para saber mais sobre os registos de atividades, consulte  [o Registo de Atividades do Azure](../azure-monitor/platform/activity-log.md).
 - Para saber sobre a definição de alertas nos registos de atividade, consulte [Alertas no registo de atividades](../azure-monitor/platform/activity-log-alerts.md).
 

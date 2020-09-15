@@ -3,12 +3,12 @@ title: Monitorizar as instâncias do contentor
 description: Como monitorizar o consumo de recursos computacional como CPU e memória pelos seus recipientes em Instâncias de Contentores Azure.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116372"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526702"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorizar recursos de contentores no Azure Container Instances
 
@@ -44,7 +44,7 @@ Num grupo de contentores que contém vários recipientes, utilize uma [dimensão
 1. Na página **'Visão Geral',** selecione um dos gráficos métricos, como **o CPU**. 
 1. Selecione o botão **de divisão Aplicar** e selecione Nome do **Recipiente**.
 
-![dimensão][dimension]
+![A captura do ecrã mostra as métricas de uma instância de recipiente com a divisão selecionada e o nome do recipiente selecionado.][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Obter métricas - CLI do Azure
 

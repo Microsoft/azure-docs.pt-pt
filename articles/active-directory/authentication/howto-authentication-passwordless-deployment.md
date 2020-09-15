@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717154"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527008"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Azure Ative Directory
 
@@ -82,7 +82,7 @@ Os pré-requisitos para o Windows Hello são altamente dependentes de estar a im
 
 Os utilizadores registam o seu método sem palavra-passe como parte do fluxo de registo de autenticação de vários fatores Azure. A autenticação multi-factor com um nome de utilizador e palavra-passe juntamente com outro método registado pode ser usada como um recuo no caso de não poderem usar o seu telefone ou chave de segurança em alguns cenários.
 
-### <a name="licensing"></a>Licensing 
+### <a name="licensing"></a>Licenciamento 
 Não existe um custo adicional para a autenticação sem palavra-passe, embora alguns pré-requisitos possam exigir uma subscrição premium. Para informações detalhadas sobre funcionalidades e licenciamento na página de licenciamento do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Desenvolver um plano
@@ -93,7 +93,7 @@ Considere as necessidades do seu negócio e os casos de utilização para cada m
 
 O quadro seguinte descreve os casos de utilização a implementar durante este projeto.
 
-| Área | Descrição |
+| Área | Description |
 | --- | --- |
 | **Acesso** | O sing-in sem palavra-passe está disponível a partir de um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de utilização estão disponíveis para os administradores auditar em tempo real. <br> Os dados de utilização são descarregados em sistemas corporativos pelo menos a cada 29 dias, ou a ferramenta SIEM é usada. |
@@ -160,7 +160,7 @@ Tem de ativar **as teclas de segurança FIDO2 compatíveis.** A Microsoft anunci
 -    A versão 1809 do Windows 10 suporta o acesso fido2 e pode exigir a implementação do software do fabricante da chave FIDO2. Recomendamos que utilize a versão 1903 ou mais tarde. 
 
 **Para dispositivos híbridos Azure Ative Directory Domain:** 
--    Windows 10 Insider constrói 18945 ou mais tarde
+-    Versão do Windows 10 2004 ou posterior
 -    Servidores de domínio totalmente remendados com o Windows Server 2016 ou 2019.
 -    Versão mais recente do Azure AD Connect
 
@@ -292,7 +292,7 @@ Siga os passos alinhados com o método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Papel de Azure AD | Descrição |
+| Papel de Azure AD | Description |
 | --- | --- |
 | Administrador Global|Papel menos privilegiado capaz de implementar experiência de registo combinado. |
 | Administrador de Autenticação | Papel menos privilegiado capaz de implementar e gerir métodos de autenticação. |

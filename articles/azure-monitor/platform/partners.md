@@ -4,12 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d5f239540a74c431e381c581f00514a1f7acd5e3
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: dbac5f28723b712788df61eda34a0db61b9c5652
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030386"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526481"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -140,7 +140,7 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de qualidade de monitorização de serviços, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saiba mais
+Saber mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
@@ -149,7 +149,7 @@ Saiba mais
 
 ## <a name="moogsoft"></a>Moogsoft
 
-![Moogsoft](./media/partners/moogsoft.png)
+![Logotipo moogsoft](./media/partners/moogsoft.png)
 
 Moogsoft AIOps acelera a transformação ágil do negócio.
 
@@ -278,7 +278,7 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 
 [Saiba mais.][turbonomic-doc]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Azure Monitor](../overview.md)
 - [Métricas de acesso usando a API REST](rest-api-walkthrough.md)

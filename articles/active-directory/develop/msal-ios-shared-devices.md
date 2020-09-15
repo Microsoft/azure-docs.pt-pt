@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 0354010297942c3b9e18dc6f556cb0afa075ff5f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649100"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528133"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo partilhado para dispositivos iOS
 
@@ -60,9 +60,18 @@ O seu dispositivo necessita de ser configurado para suportar o modo de dispositi
 
     - **Tipo**: Redirecionamento
     - **ID de extensão**: com.microsoft.azureauthenticator.ssoextension
-    - **ID da equipa**: SGGM6D27TK
-    - **URLs:**https://login.microsoftonline.com
-    - Dados adicionais para configurar:
+    - **Team ID**: (este campo não é necessário para iOS)
+    - **URLs:**   
+        - `https://login.microsoftonline.com`
+        - `https://login.microsoft.com`
+        - `https://sts.windows.net`
+        - `https://login.partner.microsoftonline.cn`
+        - `https://login.chinacloudapi.cn`
+        - `https://login.microsoftonline.de`
+        - `https://login.microsoftonline.us`
+        - `https://login.usgovcloudapi.net`
+        - `https://login-us.microsoftonline.com`
+    - **Dados adicionais para configurar:**
       - Chave: compartilhadoDeviceMode
       - Tipo: Boolean
       - Valor: verdadeiro
@@ -221,7 +230,7 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 }];
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver o modo de dispositivo partilhado em ação, a seguinte amostra de código no GitHub inclui um exemplo de execução de uma aplicação Firstline Worker num dispositivo iOS no modo dispositivo partilhado:
 

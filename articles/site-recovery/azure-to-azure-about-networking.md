@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 2c6d1873aadbbf19f1b7650f9b432b3b6bed2841
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068375"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527382"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre networking em Azure VM recuperação de desastres
 
@@ -35,7 +35,7 @@ Se estiver a utilizar a Azure ExpressRoute ou uma ligação VPN da sua rede no l
 
 ![ambiente cliente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Normalmente, as redes são protegidas utilizando firewalls e grupos de segurança de rede (NSGs). As firewalls utilizam a lista de internet baseada em URL ou IP para controlar a conectividade da rede. Os NSGs fornecem regras que utilizam intervalos de endereços IP para controlar a conectividade da rede.
+Normalmente, as redes são protegidas utilizando firewalls e grupos de segurança de rede (NSGs). As etiquetas de serviço devem ser utilizadas para controlar a conectividade da rede. Os NSGs devem permitir que várias tags de serviço controlem a conectividade de saída.
 
 >[!IMPORTANT]
 > A utilização de um representante autenticado para controlar a conectividade da rede não é suportada pela Recuperação do Site, e a replicação não pode ser ativada.
@@ -45,6 +45,8 @@ Normalmente, as redes são protegidas utilizando firewalls e grupos de seguranç
 
 Se estiver a utilizar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita que estes URLs de Recuperação do Site:
 
+>[!NOTE]
+> A lista de whitelisting baseada em endereços IP não deve ser realizada para controlar a conectividade de saída.
 
 **URL** | **Detalhes**
 --- | ---
@@ -63,10 +65,10 @@ Se estiver a utilizar um NSG para controlar a conectividade de saída, estas eti
     - Crie uma regra NSG baseada em [serviço de armazenamento](../virtual-network/security-overview.md#service-tags) para a região de origem.
     - Permitir estes endereços para que os dados possam ser escritos na conta de armazenamento de cache, a partir do VM.
 - Criar uma regra NSG baseada em etiquetas de [serviço Azure Ative (AAD)](../virtual-network/security-overview.md#service-tags) para permitir o acesso a todos os endereços IP correspondentes ao AAD
-- Crie uma regra NSG baseada em etiquetas de serviço Do EventsHub para a região alvo, permitindo o acesso à monitorização da Recuperação do Local.
+- Crie uma regra NSG baseada em tags do EventsHub para a região alvo, permitindo o acesso à monitorização da Recuperação do Local.
 - Crie uma regra NSG baseada em etiquetas de serviço AzureSiteRecovery para permitir o acesso ao serviço de Recuperação de Locais em qualquer região.
-- Crie uma regra NSG baseada em etiquetas de serviço AzureKeyVault. Isto é necessário apenas para permitir a replicação de máquinas virtuais ativadas por ADE via portal.
-- Crie uma regra NSG baseada em serviços GuestAndHybridManagement. Isto é necessário apenas para permitir a atualização automática do agente de mobilidade para um item replicado via portal.
+- Crie uma regra NSG baseada em etiquetas AzureKeyVault. Isto é necessário apenas para permitir a replicação de máquinas virtuais ativadas por ADE via portal.
+- Crie uma regra NSG baseada em etiquetas de serviço GuestAndHybrid. Isto é necessário apenas para permitir a atualização automática do agente de mobilidade para um item replicado via portal.
 - Recomendamos que crie as regras NSG necessárias num teste NSG e verifique se não existem problemas antes de criar as regras sobre uma NSG de produção.
 
 ## <a name="example-nsg-configuration"></a>Configuração NSG exemplo

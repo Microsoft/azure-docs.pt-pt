@@ -1,7 +1,7 @@
 ---
-title: Exportar ou eliminar os seus dados - Serviço de Visão Personalizada
+title: Ver ou apagar os seus dados - Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Mantém o controlo total sobre os seus dados. Este artigo explica como pode ver, exportar ou eliminar os seus dados no Serviço de Visão Personalizada.
+description: Mantém o controlo total sobre os seus dados. Este artigo explica como pode ver, exportar ou apagar os seus dados no Serviço de Visão Personalizada.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,28 +10,28 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 82d9f4508db376ebbe69ef772c15fb732391a31d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe17fa4349085be47201974b418493fe8d912ece
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73718963"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527399"
 ---
-# <a name="export-or-delete-user-data-in-custom-vision"></a>Exportar ou excluir dados do utilizador na Visão Personalizada
+# <a name="view-or-delete-user-data-in-custom-vision"></a>Ver ou apagar dados do utilizador em Visão Personalizada
 
-A Custom Vision recolhe dados do utilizador para operar o serviço, mas os clientes têm total controlo sobre visualização, exportação e aparas os seus dados através das [APIs](https://go.microsoft.com/fwlink/?linkid=865446)de Treino de Visão Personalizada .
+A Custom Vision recolhe dados do utilizador para operar o serviço, mas os clientes têm total controlo sobre a visualização e eliminação dos seus dados utilizando as APIs de [Formação](https://go.microsoft.com/fwlink/?linkid=865446)de Visão Personalizada .
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Para aprender a exportar e eliminar os dados dos utilizadores na Visão Personalizada, consulte a tabela seguinte.
+Para saber como visualizar e eliminar dados do utilizador em Visão Personalizada, consulte a tabela seguinte.
 
-| Dados | Operação de Exportação | Eliminar operação |
+| Dados | Ver operação | Eliminar operação |
 | ---- | ---------------- | ---------------- |
-| Informação da Conta (Chaves de Subscrição) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminar utilizando o portal Azure (Assinaturas Azure). Ou utilizar o botão "Eliminar a sua conta" na página de definições CustomVision.ai (Subscrições da Conta Microsoft) | 
-| Detalhes da iteração | [GetItitit](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteItação](https://go.microsoft.com/fwlink/?linkid=865446) |
-| Detalhes do desempenho da iteração | [GetItEraPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteItação](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Lista de iterações | [GetItas](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteItação](https://go.microsoft.com/fwlink/?linkid=865446) |
-| Projetos e detalhes do projeto | [GetProject](https://go.microsoft.com/fwlink/?linkid=865446) e [GetProjects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
+| Informações de conta (Chaves de Subscrição) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminar utilizando o portal Azure (Azure Subscriptions). Ou utilizando o botão "Eliminar a Sua Conta" na página CustomVision.ai definições (Subscrições de conta do Microsoft) | 
+| Detalhes da iteração | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
+| Detalhes do desempenho da iteração | [GetIterationPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) | 
+| Lista de iterações | [GetIterations](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
+| Projetos e detalhes do projeto | [Obter Projetos](https://go.microsoft.com/fwlink/?linkid=865446) e [Obter](https://go.microsoft.com/fwlink/?linkid=865446) | [ExcluirProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Etiquetas de imagem | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) e [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Imagens | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornece uri para download de imagem) e [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornece uri para download de imagem) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Modelos exportados | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminado após a eliminação da conta |
+| Iterações exportadas | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Suprimido após a eliminação da conta |

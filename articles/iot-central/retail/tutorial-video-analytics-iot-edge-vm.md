@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Criar uma instância de IoT Edge de análise de vídeo em Azure IoT Central (Linux VM)
-description: Este tutorial mostra como criar uma instância IoT Edge de análise de vídeo para usar com o modelo de aplicação de deteção de objetos e movimentos.
+description: Este tutorial mostra como criar uma instância IoT Edge de análise de vídeo num Linux VM para usar com o modelo de aplicação de deteção de objetos e movimentos.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 69e5b757036a2d68fa779e3fc232cc42a034e33c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038432"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526396"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Linux VM)
 
@@ -50,10 +50,10 @@ Utilize as informações na tabela seguinte para completar o **formulário de im
 | ----- | ----- |
 | Subscrição | Selecione a sua subscrição do Azure. |
 | Grupo de recursos | *Lva-rg* - o grupo de recursos que criou no tutorial anterior. |
-| Região       | *E.U.A. Leste* |
+| Region       | *E.U.A. Leste* |
 | Prefixo da etiqueta do rótulo de DNS | Escolha um prefixo DNS único para o VM. |
 | Nome de utilizador Admin | *AzureUser* |
-| Palavra-passe de Administrador | Introduza uma senha. Tome nota da palavra-passe no ficheiro *scratchpad.txt,* use-a mais tarde. |
+| Palavra-passe de Administrador | Introduza uma senha. Tome nota da palavra-passe no ficheiro *scratchpad.txt, * use-a mais tarde. |
 | ID de Âmbito | O **ID de âmbito** que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo gateway. |
 | ID do Dispositivo | *Lva-gateway-001* - o dispositivo de gateway que criou no tutorial anterior. |
 | Chave do dispositivo | A chave primária do dispositivo que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior quando adicionou o dispositivo gateway. |

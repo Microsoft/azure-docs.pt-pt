@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a6013ed47196e2300f56f0066c634da2a64fdee8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717358"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526872"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Ativar a palavra-passe de autosserviço do Azure Ative Directory reiniciada no ecrã de entrada do Windows
 
@@ -40,7 +40,7 @@ Aplicam-se as seguintes limitações à utilização de SSPR a partir do ecrã d
 - As máquinas híbridas AZURE AD devem ter linha de visão de conectividade de rede para um controlador de domínio para usar a nova palavra-passe e atualizar credenciais em cache. Isto significa que os dispositivos devem estar na rede interna da organização ou numa VPN com acesso à rede a um controlador de domínio no local.
 - Se utilizar uma imagem, antes de executar o sysprep, certifique-se de que a cache web está limpa para o administrador incorporado antes de executar o passo CopyProfile. Mais informações sobre este passo podem ser encontradas no artigo De suporte [Desempenho fraco ao utilizar o perfil de utilizador padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - As seguintes definições são conhecidas por interferir com a capacidade de utilizar e redefinir palavras-passe em dispositivos Windows 10:
-    - Se o Ctrl+Alt+Del for exigido por política nas versões do Windows 10 antes do v1809, **a palavra-passe reset** não funcionará.
+    - Se o Ctrl+Alt+Del for exigido por política nas versões do Windows 10 antes do v1909, **a palavra-passe reset** não funcionará.
     - Se as notificações do ecrã de bloqueio estiverem desligadas, **a palavra-passe reset** não funcionará.
     - *HideFastUserSwitching* está definido para ativar ou 1
     - *DontDisplayLastUserName* está definido para ativar ou 1

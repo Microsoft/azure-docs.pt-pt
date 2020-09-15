@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 676d287969933d4815260f040b164753ec5803e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: f66eaaa3be0b300f6a0aa68bd43a2c336f4b4d23
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754876"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526634"
 ---
 # <a name="what-is-azure-hdinsight"></a>O que é o Azure HDInsight?
 
@@ -27,13 +27,13 @@ Para ver os componentes da pilha tecnológica do Hadoop disponíveis no HDInsigh
 
 ## <a name="what-is-big-data"></a>O que são macrodados?
 
-Os macrodados são recolhidos em volumes cada vez maiores, a velocidades mais rápidas e numa variedade de formatos mais ampla do que nunca. Podem ser históricos (isto é, armazenados) ou em tempo real (isto é, transmitidos em fluxo a partir da origem). Veja [Scenarios for using HDInsight (Cenários para utilizar o HDInsight)](#scenarios-for-using-hdinsight) para saber mais sobre os casos de utilização mais comuns de macrodados.
+Os macrodados são recolhidos em volumes cada vez maiores, a velocidades mais rápidas e numa variedade de formatos mais ampla do que nunca. Podem ser históricos (ou seja, armazenados) ou em tempo real (ou seja, transmitidos da origem). Veja [Scenarios for using HDInsight (Cenários para utilizar o HDInsight)](#scenarios-for-using-hdinsight) para saber mais sobre os casos de utilização mais comuns de macrodados.
 
 ## <a name="why-should-i-use-azure-hdinsight"></a>Por que devo usar Azure HDInsight?
 
 Esta secção lista as capacidades do Azure HDInsight.
 
-|Funcionalidade  |Descrição  |
+|Funcionalidade  |Description  |
 |---------|---------|
 |Cloud nativa     |     O Azure HDInsight permite-lhe criar clusters otimizados para o [Hadoop](./hadoop/apache-hadoop-linux-tutorial-get-started.md), o  [Spark](./spark/apache-spark-jupyter-spark-sql.md), a  [Consulta interativa (LLAP)](./interactive-query/apache-interactive-query-get-started.md), o  [Kafka](./kafka/apache-kafka-get-started.md), o  [Storm](./storm/apache-storm-tutorial-get-started-linux.md), o  [HBase](./hbase/apache-hbase-tutorial-get-started-linux.md) e os  [Serviços ML](./r-server/r-server-overview.md) no Azure. O HDInsight também oferece um SLA de ponto a ponto em todas as suas cargas de trabalho de produção.  |
 |Baixo custo e dimensionável     | O HDInsight permite-lhe [escalar](./hdinsight-administer-use-portal-linux.md#scale-clusters)cargas de trabalho para   cima ou para baixo.Pode reduzir [custos criando clusters a pedido](./hdinsight-hadoop-create-linux-clusters-adf.md)   e pagando apenas pelo que usa. Também pode criar pipelines de dados para operacionalizar as tarefas. A computação e o armazenamento desassociados oferecem um melhor desempenho e flexibilidade. |
@@ -79,7 +79,7 @@ Pode utilizar o HDInsight para expandir a sua atual infraestrutura de macrodados
 
 O HDInsight inclui tipos de clusters específicos e capacidades de personalização de clusters, como a possibilidade de adicionar componentes, utilitários e linguagens. O HDInsight oferece os seguintes tipos de cluster:
 
-|Tipo de Cluster | Descrição |
+|Tipo de Cluster | Description |
 |---|---|
 |[Apache Hadoop](./hadoop/apache-hadoop-introduction.md)|Uma estrutura que utiliza HDFS, gestão de recursos YARN e um modelo de programação mapReduce simples para processar e analisar dados de lote em paralelo.|
 |[Apache Spark](./spark/apache-spark-overview.md)|Um quadro de processamento paralelo de código aberto que suporta o processamento na memória para aumentar o desempenho de aplicações de análise de big data. Veja [O que é o Apache Spark no HDInsight?](./spark/apache-spark-overview.md)|
@@ -128,6 +128,16 @@ As ferramentas de business intelligence (BI) familiares obtêm, analisam e repor
 * [Conecte o Excel a Apache Hadoop com a Consulta de Energia](./hadoop/apache-hadoop-connect-excel-power-query.md) (requer o Windows)
 
 * [Conecte o Excel ao Apache Hadoop com o Controlador ODBC da Microsoft (requer](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) o Windows)
+
+
+## <a name="in-region-data-residency"></a>Residência de dados na região 
+
+Spark, Hadoop, LLAP, Storm e MLService não armazenam os dados dos clientes, pelo que estes serviços satisfazem automaticamente os requisitos de residência de dados na região, incluindo os especificados no [Trust Center.](https://azuredatacentermap.azurewebsites.net/) 
+
+Kafka e HBase armazenam os dados dos clientes. Estes dados são automaticamente armazenados pela Kafka e pela HBase numa única região, pelo que este serviço satisfaz os requisitos de residência de dados na região, incluindo os especificados no [Trust Center.](https://azuredatacentermap.azurewebsites.net/) 
+
+
+Ferramentas familiares de inteligência empresarial (BI) recuperam, analisam e reportam dados que são integrados com HDInsight utilizando o add-in de Consulta de Energia ou o Controlador ODBC da Microsoft Hive.
 
 ## <a name="next-steps"></a>Passos seguintes
 

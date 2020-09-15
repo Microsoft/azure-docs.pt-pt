@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 45e1e516986c32e203837f79c83290cc99049e7a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717001"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526974"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Azure Ative Directory (pré-visualização)
 
@@ -46,7 +46,7 @@ As organizações devem completar os passos para ativar o [sinal de chave de seg
 
 As organizações também devem cumprir os seguintes requisitos de software.
 
-- Os dispositivos devem estar a executar o Windows 10 Insider Build 18945 ou mais recente.
+- Os dispositivos devem estar a executar a versão 10 do Windows 10 ou mais recente.
 - Deve ter a versão 1.4.32.0 ou mais tarde do [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Para obter mais informações sobre as opções de autenticação híbrida Azure AD disponíveis, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](../hybrid/choose-ad-authn.md) e [Selecione qual o tipo de instalação a utilizar para Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Os controladores de domínio do Windows Server devem ter as seguintes correções instaladas:

@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Utilizar o Ruby para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Este quickstart mostra como obter informações e amostras de código para ajudá-lo a começar rapidamente a usar a API text Analytics em Azure Cognitive Services.
+description: Este quickstart mostra como usar a Ruby para obter informações e amostras de código para ajudá-lo a começar rapidamente a usar a API text Analytics em Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.openlocfilehash: 92a80dc69afbda76d57a09e01efc9b91ecb286ba
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 076276068b62ed1b7b30864e9a4227cd449c680e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027914"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527229"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o Ruby para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
@@ -37,7 +37,7 @@ A API Deteção de Idioma deteta o idioma de um documento de texto através do [
 1. Crie um novo projeto Ruby no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Copie a sua chave de Análise de Texto e ponto final no código. 
-1. Execute o programa.
+1. Executar o programa.
 
 ```ruby
 # encoding: UTF-8
@@ -121,7 +121,7 @@ A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos 
 1. Crie um novo projeto Ruby no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Copie a sua chave de Análise de Texto e ponto final no código. 
-1. Execute o programa.
+1. Executar o programa.
 
 ```ruby
 # encoding: UTF-8
@@ -217,14 +217,14 @@ puts JSON::pretty_generate (JSON (response.body))
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair expressões-chave
+## <a name="extract-key-phrases"></a>Extrair Expressões-Chave
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
 1. Crie um novo projeto Ruby no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Copie a sua chave de Análise de Texto e ponto final no código.
-1. Execute o programa.
+1. Executar o programa.
 
 
 ```ruby
@@ -313,7 +313,7 @@ A API de Entidades extrai entidades num documento de texto através do [método 
 1. Crie um novo projeto Ruby no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Copie a sua chave de Análise de Texto e ponto final no código.
-1. Execute o programa.
+1. Executar o programa.
 
 ```ruby
 # encoding: UTF-8
@@ -387,5 +387,5 @@ puts JSON::pretty_generate (JSON (response.body))
 
 ## <a name="see-also"></a>Ver também 
 
- [Descrição Geral da Análise de Texto](../overview.md)  
+ [Descrição geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

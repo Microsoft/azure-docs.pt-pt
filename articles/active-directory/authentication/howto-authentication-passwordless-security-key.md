@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 09/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116602"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526957"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sing-in da chave de segurança sem palavras-passe (pré-visualização)
 
@@ -25,22 +25,22 @@ Para as empresas que hoje utilizam senhas e têm um ambiente de PC partilhado, a
 Este documento centra-se em ativar a autenticação sem palavras-passe baseada em chaves de segurança. No final deste artigo, poderá iniciar scontabilidade de aplicações baseadas na Web com a sua conta Azure AD utilizando uma chave de segurança FIDO2.
 
 > [!NOTE]
-> As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As chaves de segurança FIDO2 são uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte  [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisitos
 
 - [Multi-Factor Authentication do Azure](howto-mfa-getstarted.md)
 - Ativar a [pré-visualização do registo de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 - Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
-- WebAuthN requer versão 1809 ou superior do Windows 10**
+- WebAuthN requer versão 10 do Windows 10 ou superior**
 
 Para utilizar chaves de segurança para iniciar sessão em aplicações e serviços web, tem de ter um browser que suporte o protocolo WebAuthN. Estes incluem Microsoft Edge, Chrome, Firefox e Safari.
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para pré-visualização
 
-O Azure AD juntou-se a dispositivos com os que pilota tem de executar a versão 1809 ou superior do Windows 10. A melhor experiência está na versão 1903 do Windows 10 ou superior.
+O Azure AD juntou-se a dispositivos com os que pilota, devendo executar a versão 1909 ou superior do Windows 10. A melhor experiência está na versão 1903 do Windows 10 ou superior.
 
-Os dispositivos híbridos AZure AD devem executar o Windows 10 Insider Build 18945 ou mais recentes.
+Os dispositivos híbridos Azure AD devem executar a versão 2004 ou mais recente do Windows 10.
 
 ## <a name="enable-passwordless-authentication-method"></a>Ativar o método de autenticação sem palavras-passe
 
@@ -73,7 +73,7 @@ As funcionalidades de inscrição para métodos de autenticação sem palavras-p
 
 ## <a name="sign-in-with-passwordless-credential"></a>Iniciar sessão com credencial sem palavra-passe
 
-No exemplo abaixo, um utilizador já adpôs a sua chave de segurança FIDO2. O utilizador pode optar por iniciar seduco na web com a sua chave de segurança FIDO2 dentro de um navegador suportado na versão 1809 do Windows 10 ou superior.
+No exemplo abaixo, um utilizador já adpôs a sua chave de segurança FIDO2. O utilizador pode optar por iniciar seduco na web com a sua chave de segurança FIDO2 dentro de um navegador suportado na versão 1903 do Windows 1903 ou superior.
 
 ![Sinal de entrada de chave de segurança Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 

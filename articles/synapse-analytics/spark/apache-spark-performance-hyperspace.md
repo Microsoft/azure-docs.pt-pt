@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: e87ecc14907c6e0618de47ffdbd334d8ba03ec99
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500630"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526345"
 ---
 # <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Hiperespaço - Subsistema de indexação para Apache Spark
 
@@ -392,7 +392,8 @@ Um DataFrame de Faísca que faz referência aos dados a indexados.
 Um objeto de configuração de índice: IndexConfig, que especifica o nome do índice, indexado e incluído colunas do índice.
 Começa por criar três índices de Hiperespaço nos dados da nossa amostra: dois índices no conjunto de dados do departamento denominado "deptIndex1" e "deptIndex2", e um índice no conjunto de dados dos colaboradores denominado 'empIndex'. Para cada índice, é necessário um IndexConfig correspondente para capturar o nome juntamente com as listas de colunas para as colunas indexadas e incluídas. Correr abaixo da célula cria estes índiceConfigs e a sua saída lista-os.
 
-Nota: Uma coluna de índice é uma coluna que aparece nos filtros ou se junta condições. Uma coluna incluída é uma coluna que aparece no seu select/project.
+> [!Note]
+> Uma coluna de índice é uma coluna que aparece nos filtros ou se junta condições. Uma coluna incluída é uma coluna que aparece no seu select/project.
 
 Por exemplo, na seguinte consulta:
 
@@ -508,8 +509,9 @@ O código abaixo mostra como pode listar todos os índices disponíveis numa ins
 
 Abaixo a célula usa a ação de 'show' do DataFrame para imprimir completamente as linhas e mostrar detalhes dos nossos índices de forma tabular. Para cada índice, pode ver todas as informações que o Hyperspace armazenou sobre o mesmo nos metadados. Notará imediatamente o seguinte:
 
-"config.indexName", "config.indexedColumns", "config.includecolumns" e "status.status" são os campos a que um utilizador normalmente se refere.
-"dfSignature" é gerado automaticamente pelo Hyperspace e é único para cada índice. O hiperespaço utiliza esta assinatura internamente para manter o índice e explorá-lo no tempo de consulta.
+* "config.indexName", "config.indexedColumns", "config.includecolumns" e "status.status" são os campos a que um utilizador normalmente se refere.
+* "dfSignature" é gerado automaticamente pelo Hyperspace e é único para cada índice. O hiperespaço utiliza esta assinatura internamente para manter o índice e explorá-lo no tempo de consulta.
+
 Na produção abaixo, os três índices devem ter "ATIVE" como estado e o seu nome, colunas indexadas e colunas incluídas devem corresponder ao que definimos nas configurações de índice acima.
 
 :::zone pivot = "programming-language-scala"
@@ -839,7 +841,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 | 7876|  ADAMS|    20|
 ```
 
-&nbsp;&nbsp;apenas mostrando as cinco melhores linhas &nbsp;&nbsp;
+&nbsp;&nbsp;Isto só mostra as 5 melhores linhas &nbsp;&nbsp;
 
 ```console
 |deptId|  deptName|location|
@@ -1369,8 +1371,8 @@ Se os dados originais sobre os quais um índice foi criado mudar, então o índi
 
 As duas células abaixo mostram um exemplo para este cenário:
 
-A primeira célula adiciona mais dois departamentos aos dados originais dos departamentos. Lê e imprime lista de departamentos para verificar se novos departamentos são adicionados corretamente. A produção mostra seis departamentos no total: quatro antigos e dois novos. Invocando atualizações "refreshIndex" "deptIndex1" para que o índice capture novos departamentos.
-A segunda célula corre o nosso exemplo de consulta de seleção de alcance. Os resultados devem agora conter quatro departamentos: dois são os que foram vistos antes quando fizemos a consulta acima, e dois são os novos departamentos que acabámos de adicionar.
+* A primeira célula adiciona mais dois departamentos aos dados originais dos departamentos. Lê e imprime lista de departamentos para verificar se novos departamentos são adicionados corretamente. A produção mostra seis departamentos no total: quatro antigos e dois novos. Invocando atualizações "refreshIndex" "deptIndex1" para que o índice capture novos departamentos.
+* A segunda célula corre o nosso exemplo de consulta de seleção de alcance. Os resultados devem agora conter quatro departamentos: dois são os que foram vistos antes quando fizemos a consulta acima, e dois são os novos departamentos que acabámos de adicionar.
 
 ### <a name="specific-index-refresh"></a>Atualização específica do índice
 
@@ -1532,7 +1534,7 @@ Project [deptName#675]
    +- *(1) FileScan parquet [deptId#674,deptName#675] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Projeto Hyperspace](https://microsoft.github.io/hyperspace/)
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

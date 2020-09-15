@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Utilizar o PHP para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Este quickstart mostra como obter informações e amostras de código para ajudá-lo a começar rapidamente a usar a API text Analytics em Azure Cognitive Services.
+description: Este quickstart mostra como usar PHP para obter informações e amostras de código para ajudá-lo a começar rapidamente a usar a API text Analytics em Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: aahi
-ms.openlocfilehash: 4627cc83de70f596ae4917d0449f785a33bf720f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09901c514a1f2b94edc3e4108ec46051a284a6db
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261360"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527263"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o PHP para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como detetar a [linguagem,](#Detect) [analisar sentimento
 
 <a name="Detect"></a>
 
-## <a name="detect-language"></a>Detetar Idioma
+## <a name="detect-language"></a>Detetar idioma
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 

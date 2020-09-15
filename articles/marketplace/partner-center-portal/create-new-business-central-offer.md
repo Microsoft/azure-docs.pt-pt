@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 953d22e2dc41ca64af3793c8e0f67a203eb5ca7c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646852"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527093"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -71,9 +71,7 @@ Recolher informações de contacto com o cliente ligando o seu sistema de Gestã
 
 ### <a name="test-drive"></a>Unidade de teste
 
-Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais clientes, dando-lhes a opção de "experimentar antes de comprar", resultando numa maior conversão e na geração de leads altamente qualificados. Para saber mais, comece com [o que é test drive](../what-is-test-drive.md).
-
-Para ativar uma unidade de teste durante um período de tempo fixo, selecione a caixa de **verificação de acionamento de test drive.** Para remover o test drive da sua oferta, limpe esta caixa de verificação.
+Neste ponto, as ofertas da Dynamics 365 Business Central não suportam test drive. Para remover o test drive da sua oferta, limpe a caixa **de verificação de test drive.**
 
 ### <a name="customer-leads"></a>Ligações ao cliente
 
@@ -131,7 +129,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Descrição
+9. Description
 10. Screenshots/vídeos
 
 ### <a name="name"></a>Name
@@ -142,7 +140,7 @@ O nome que introduzir aqui será mostrado aos clientes como o título da sua lis
 
 Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descrição pode ser usada em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -315,6 +313,6 @@ Se é a sua primeira vez publicando esta oferta, você pode:
 - Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail quando estiver disponível uma versão de pré-visualização da oferta para que possa rever e aprovar. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

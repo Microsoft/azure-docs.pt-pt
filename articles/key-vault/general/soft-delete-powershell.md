@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 251159c4fcf27ceb4d8b0dddeecbe501c7346e9e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 05ff5d2f7ff87d2ce58f135330487f746cc5c1c7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073238"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528368"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
@@ -41,13 +41,13 @@ Para obter informações específicas de referência do Cofre de Chaves para Pow
 
 As operações key Vault são geridas separadamente através de permissões de controlo de acesso baseado em funções (RBAC) da seguinte forma:
 
-| Operação | Descrição | Permissão do utilizador |
+| Operação | Description | Permissão do utilizador |
 |:--|:--|:--|
 |Lista|Listas eliminadas cofres-chave.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura um cofre de chaves apagado.|Microsoft.KeyVault/vaults/write|
 |Remover|Remove permanentemente um cofre de chave apagado e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purga/ação|
 
-Para obter mais informações sobre permissões e controlo de acesso, consulte [Secure your key vault](secure-your-key-vault.md)).
+Para obter mais informações sobre permissões e controlo de acesso, consulte [Secure your key vault](secure-your-key-vault.md).
 
 ## <a name="enabling-soft-delete"></a>Permitir a eliminação suave
 
@@ -282,5 +282,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>Outros recursos
 
-- Para obter uma visão geral da função de eliminação suave do Key Vault, consulte [a visão geral do Azure Key Vault soft-delete](soft-delete-overview.md)).
-- Para uma visão geral da utilização do Cofre da Chave Azure, veja [o que é o Cofre da Chave Azure?](overview.md)
+- Para obter uma visão geral da função de eliminação suave do Key Vault, consulte [a visão geral do Azure Key Vault .](soft-delete-overview.md)
+- Para uma visão geral da utilização do Azure Key Vault, veja [o que é o Cofre da Chave Azure?](overview.md)

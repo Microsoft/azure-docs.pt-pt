@@ -1,6 +1,6 @@
 ---
 title: Serviços cognitivos para amostras de Big Data Scala
-description: Experimente amostras de Serviços Cognitivos em Python para que o Azure Databricks possa executar o seu pipeline MMLSpark para grandes dados.
+description: Utilize serviços cognitivos para a Azure Databricks para executar o seu pipeline MMLSpark para grandes dados.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 098b59b8de0d0d7e5c3929ce084276350c04810a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189819"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524968"
 ---
 # <a name="quick-examples"></a>Exemplos Rápidos
 
@@ -161,7 +161,7 @@ display(pipeline.fit(df).transform(df))
 | https://everydaypowerblog.com/wp-content/uploads/2014/01/Martin-Luther-King-Jr.-Quotes-18.jpg            |
 | https://tsal-eszuskq0bptlfh8awbb.stackpathdns.com/wp-content/uploads/2018/01/MartinLutherKingQuotes.jpg  |
 
-## <a name="speech-to-text"></a>Voz em Texto
+## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
 O [serviço Discurso-a-Texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) converte streams ou ficheiros de áudio falado para texto. Nesta amostra, transcrevemos dois ficheiros áudio. O primeiro ficheiro é fácil de entender, e o segundo é mais desafiante.
 

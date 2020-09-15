@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8ce343045f7ff124f5faf86b13210bfb5b3b5519
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386117"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527161"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementar o modelo de solução de consórcio de prova de autoridade do Ethereum no Azure
 
@@ -279,7 +279,7 @@ O portal apresentará primeiro estatísticas de rede de alto nível e uma visão
 
 ![Categorias de monitor](./media/ethereum-poa-deployment/monitor-categories.png)
 
-A seleção da **visão geral do nó** mostra estatísticas de infraestruturas por nó.
+A seleção da **visão geral do nó**  mostra estatísticas de infraestruturas por nó.
 
 ![Estatísticas de nó](./media/ethereum-poa-deployment/node-stats.png)
 
@@ -325,7 +325,7 @@ Por razões de segurança, o acesso à porta SSH é negado por padrão por uma r
 
 1. Selecione a regra **de permitir ssh.**
 
-    ![ssh-permitir](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![A captura do ecrã mostra uma janela de visão geral da ssh-allow selecionada.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Alterar **ação** para **permitir**
 
@@ -739,6 +739,6 @@ Envolva-se com engenheiros da Microsoft e especialistas da comunidade Azure Bloc
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais soluções Azure Blockchain, consulte a documentação do [Azure Blockchain.](../index.yml)

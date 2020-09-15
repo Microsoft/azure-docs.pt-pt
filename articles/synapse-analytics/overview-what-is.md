@@ -6,15 +6,15 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 04/15/2020
+ms.date: 09/12/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: b93814c69a08dd757a390232804a00b2777bc20e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052001"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524951"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>O que é Azure Synapse Analytics (pré-visualização de espaços de trabalho)?
 
@@ -22,13 +22,7 @@ ms.locfileid: "90052001"
 
 A análise empresarial deve trabalhar em grande escala em qualquer tipo de dados, sejam crus, refinados ou altamente curados. Isto exigia que as empresas juntassem grandes tecnologias de armazenamento de dados e de armazenamento de dados, como a Spark e a SQL, em ricos oleodutos de dados que funcionam em dados em lojas relacionais e lagos de dados. Soluções como esta são difíceis de construir, proteger e manter. A complexidade atrasa a entrega da perspicácia necessária.
 
-**O Azure Synapse** é um serviço de análise integrado que acelera o tempo para conhecer os armazéns de dados e os sistemas de análise de big data. No seu cerne, a Azure Synapse reúne as melhores tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** usadas para big data, e Pipelines para integração de **dados** e ETL/ELT.
-
-A Azure Synapse oferece uma experiência de **estúdio** baseada na web que proporciona um único lugar para gestão, monitorização, codificação e segurança.
-
-O Azure Synapse fornece a forma mais simples e rápida de uma empresa recolher informações sobre quaisquer dados em qualquer tamanho, utilizando as análises que mais conhecem. Integra-se profundamente com **o Power BI** permitindo aos engenheiros de dados construir soluções de análise que trabalhem de ponta a ponta para fornecer Business Intelligence.
-
-Além disso, a Azure Synapse facilita a construção de modelos preditivos e análises avançadas com machine learning através do seu suporte incorporado para **a AzureML.**
+**O Azure Synapse** é um serviço de análise integrado que acelera o tempo para conhecer os armazéns de dados e os sistemas de análise de big data. No seu cerne, a Azure Synapse reúne as melhores tecnologias **SQL** utilizadas no armazenamento de dados empresariais, tecnologias **Spark** utilizadas para big data, e Pipelines para integração de **dados** e ETL/ELT. A Synapse tem um **Estúdio** baseado na web que fornece um único lugar para gestão, monitorização, codificação e segurança. A Sinapse apresenta uma profunda integração com outros serviços Azure, tais como **PowerBI,** **CosmosDB**e **AzureML.**
 
 ## <a name="key-features--benefits"></a>Principais funcionalidades & benefícios
 
@@ -81,7 +75,7 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 * Produtividade líder na indústria para engenheiros de dados que escrevem código SQL ou Spark: autoria, depuração e otimização de desempenho
 * Integrar-se com processos ci/CD da empresa
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começa com o Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)

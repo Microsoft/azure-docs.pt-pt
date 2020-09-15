@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669228"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525002"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar máquina de origem para a instalação de push de agente de mobilidade
 
@@ -63,13 +63,13 @@ Em cada máquina Linux que pretende proteger, faça o seguinte:
 11. No **separador 'Gerir Contas',** selecione **'Adicionar'.**
 12. Adicione a conta que criou.
 13. Introduza as credenciais que utiliza para ativar a replicação para um computador.
-1. Passo adicional para atualizar ou proteger as máquinas SUSE Linux Enterprise Server 11 SP3. [Certifique-se de que a versão mais recente está disponível no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+1. Passo adicional para atualizar ou proteger as máquinas SUSE Linux Enterprise Server 11 SP3 OU RHEL 5 ou CentOS 5 ou Debian 7. [Certifique-se de que a versão mais recente está disponível no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivírus em máquinas replicadas
 
 Se as máquinas que pretende replicar tiverem um software antivírus ativo em funcionamento, certifique-se de que exclui a pasta de instalação do serviço mobility das operações antivírus *(C:\ProgramData\ASR\agent*). Isto garante que a replicação funciona como esperado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de instalado o Serviço de Mobilidade, no portal Azure, selecione **+ Replicar** para começar a proteger estes VMs. Saiba mais sobre a replicação de [VMware VMware](vmware-azure-enable-replication.md) e [servidores físicos](physical-azure-disaster-recovery.md#enable-replication).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 3854f353e4ea0b78c0162681e0b89d37419105d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80529525"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527212"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Práticas de segurança para fabricantes de dispositivos Azure IoT
 À medida que mais fabricantes libertam dispositivos IoT, é útil identificar orientações em torno de práticas comuns. Este artigo resume as práticas de segurança recomendadas a ter em conta quando fabrica dispositivos para utilização com o Serviço de Provisionamento de Dispositivos Azure IoT (DPS).  
@@ -108,7 +108,7 @@ Existem alguns fatores que impactam a decisão sobre o local onde os certificado
 
 #### <a name="connectivity-at-the-factory"></a>Conectividade na fábrica
 A conectividade na fábrica determina como e quando obterá os certificados para instalar nos dispositivos. As opções de conectividade são as seguintes:
-- A conectividade. Ter conectividade é o ideal, dinamiza o processo de geração de certificados localmente. 
+- Conectividade. Ter conectividade é o ideal, dinamiza o processo de geração de certificados localmente. 
 - Sem conectividade. Neste caso, utilize um certificado assinado de um CA para gerar certificados de dispositivo local e offline. 
 - Sem conectividade. Neste caso, pode obter certificados que foram gerados com antecedência. Ou pode usar um PKI offline para gerar certificados localmente.
 
@@ -182,7 +182,7 @@ Um dispositivo pode ficar sentado num armazém durante 6-12 meses antes de ser i
 #### <a name="step-5-device-is-installed-into-the-location"></a>Passo 5: O dispositivo está instalado no local
 Depois de o dispositivo chegar à sua localização final, passa por provisões automatizadas com DPS.
 
-Para obter mais informações, consulte [conceitos de autoprovisionamento](concepts-auto-provisioning.md) e [atestado de TPM](concepts-tpm-attestation.md). 
+Para obter mais informações, consulte [o provisionamento](about-iot-dps.md#provisioning-process) e [o atestado de TPM](concepts-tpm-attestation.md). 
 
 ## <a name="resources"></a>Recursos
 

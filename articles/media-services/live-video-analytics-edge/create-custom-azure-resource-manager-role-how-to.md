@@ -3,12 +3,12 @@ title: Crie uma função personalizada de Gestor de Recursos Azure e atribua ao 
 description: Este artigo fornece orientações sobre como criar uma função personalizada de Gestor de Recursos Azure e atribuir ao principal de serviço para Live Video Analytics em IoT Edge usando Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043178"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526583"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Crie uma função personalizada de Gestor de Recursos Azure e atribua ao diretor de serviços
 
@@ -25,7 +25,7 @@ Os pré-requisitos para este artigo são os seguintes:
 
 A forma mais fácil de verificar se a sua conta tem permissões adequadas é utilizar o portal. Veja [Permissões obrigatórias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-## <a name="overview"></a>Descrição geral  
+## <a name="overview"></a>Descrição Geral  
 
 Iremos reem pouco tempo para criar um papel personalizado e ligá-lo a um diretor de serviço na seguinte ordem:
 
@@ -43,7 +43,7 @@ Se não tiver uma conta de Media Service, use os seguintes passos para criar uma
 1. Navegue pela [Camada de Nuvem.](https://shell.azure.com/)
 1. Selecione "Bash" como o seu ambiente no drop-down no lado esquerdo da janela da concha
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![Capturas de ecrã mostram Bash selecionada a partir da janela da concha.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. Desafine a subscrição do Azure como a conta predefinida utilizando o seguinte modelo de comando:
     
     ```
@@ -179,7 +179,7 @@ az role assignment create --role “LVAEdge User” --assignee-object-id < objec
 
 Parâmetros:
 
-|Parâmetros|Descrição| 
+|Parâmetros|Description| 
 |---|---|
 |--papel |Nome de função personalizada ou ID. No nosso caso: "Utilizador LVAEdge".|
 |--assignee-object-id|ID de objeto do principal de serviço que você vai usar.|

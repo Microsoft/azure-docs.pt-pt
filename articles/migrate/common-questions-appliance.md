@@ -2,13 +2,13 @@
 title: Azure Migrate eletrodoméstico FAQ
 description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.date: 09/15/2020
+ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514548"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526566"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Questões comuns
 
@@ -76,7 +76,7 @@ Os dados recolhidos pelo aparelho Azure Migrate estão armazenados no local Azur
 Aqui estão mais informações sobre como os dados são armazenados:
 
 - Os dados recolhidos são armazenados de forma segura no CosmosDB numa subscrição da Microsoft. Os dados são eliminados quando elimina o projeto Azure Migrate. O armazenamento é manuseado pela Azure Migrate. Não é possível escolher especificamente uma conta de armazenamento para os dados recolhidos.
-- Se utilizar [a visualização de dependência,](concepts-dependency-visualization.md)os dados recolhidos são armazenados nos Estados Unidos num espaço de trabalho Azure Log Analytics criado na sua subscrição Azure. Os dados são eliminados quando elimina o espaço de trabalho Do Log Analytics na sua subscrição.
+- Se utilizar [a visualização de dependência,](concepts-dependency-visualization.md)os dados recolhidos são armazenados num espaço de trabalho Azure Log Analytics criado na sua subscrição Azure. Os dados são eliminados quando elimina o espaço de trabalho Do Log Analytics na sua subscrição. 
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>Quantos dados são carregados durante o perfil contínuo?
 
@@ -147,6 +147,6 @@ Apenas o aparelho e os agentes do aparelho são atualizados através destas atua
 
 Yes. No portal, vá à página **de saúde do Agente** para o Azure Migrate: Avaliação do Servidor ou Azure Migrate: Ferramenta de migração do servidor. Lá, pode verificar o estado de ligação entre a Azure e os agentes de descoberta e avaliação do aparelho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a visão geral do [Azure Migrate](migrate-services-overview.md).

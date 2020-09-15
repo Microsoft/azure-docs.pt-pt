@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084333"
+ms.locfileid: "90527025"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -82,11 +82,15 @@ Para começar com o início do sing-in sem palavra-passe, complete o seguinte co
 
 ## <a name="fido2-security-keys"></a>Chaves de segurança FIDO2
 
+A Fido (Fast IDentity Online) Alliance ajuda a promover padrões de autenticação aberta e a reduzir o utilizador de palavras-passe como forma de autenticação. FIDO2 é o mais recente padrão que incorpora o padrão de autenticação web (WebAuthn).
+
 As chaves de segurança FIDO2 são um método de autenticação sem palavras-passe sem padrões que pode vir em qualquer fator de forma. Fast Identity Online (FIDO) é um padrão aberto para a autenticação sem palavras-passe. O FIDO permite que os utilizadores e organizações aproveitem a norma para iniciar sedus nos seus recursos sem um nome de utilizador ou palavra-passe utilizando uma chave de segurança externa ou uma chave de plataforma incorporada num dispositivo.
 
-Os colaboradores podem usar chaves de segurança para iniciar seduca no seu AD Azure ou AZure AD híbrido que se juntou aos dispositivos windows 10 e obter um único sinal nos seus recursos na nuvem e no local. Os utilizadores também podem iniciar sedução para navegadores suportados. As chaves de segurança FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou têm cenários ou funcionários que não estão dispostos ou capazes de usar o seu telefone como um segundo fator.
+Os utilizadores podem registar-se e, em seguida, selecionar uma chave de segurança FIDO2 na interface de entrada como principal meio de autenticação. Estas teclas de segurança FIDO2 são normalmente dispositivos USB, mas também podem utilizar Bluetooth ou NFC. Com um dispositivo de hardware que trata da autenticação, a segurança de uma conta é aumentada, uma vez que não há nenhuma senha que possa ser exposta ou adivinhada.
 
-As chaves de segurança FIDO2 do Azure AD estão atualmente em pré-visualização.
+As chaves de segurança FIDO2 podem ser usadas para iniciar súbs no seu AD Azure ou no híbrido Azure AD que se uniu aos dispositivos Windows 10 e obter um único sinal sobre os seus recursos na nuvem e no local. Os utilizadores também podem iniciar sedução para navegadores suportados. As chaves de segurança FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou têm cenários ou funcionários que não estão dispostos ou capazes de usar o seu telefone como um segundo fator.
+
+As chaves de segurança FIDO2 do Azure AD estão atualmente em pré-visualização. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Inscreva-se no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -141,7 +145,6 @@ Para começar com as chaves de segurança FIDO2, complete o seguinte como:
 > [!div class="nextstepaction"]
 > [Ativar sinal sem palavra-passe usando chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md)
 
-
 ## <a name="what-scenarios-work-with-the-preview"></a>Que cenários funcionam com a pré-estreia?
 
 As funcionalidades de sing insusição sem palavras-passe Azure Estão atualmente em pré-visualização. As seguintes considerações são aplicáveis:
@@ -161,7 +164,7 @@ Aqui ficam alguns fatores a ter em conta na escolha da tecnologia sem palavras-p
 
 ||**Windows Hello para empresas**|**Iniciar sing-in sem palavra-passe com a aplicação Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
-|**Pré-requisito**| Windows 10, versão 1809 ou mais tarde<br>Azure Active Directory| Aplicação Microsoft Authenticator<br>Telefone (dispositivos iOS e Android com Android 6.0 ou superior.)|Windows 10, versão 1809 ou mais tarde<br>Azure Active Directory|
+|**Pré-requisito**| Windows 10, versão 1809 ou mais tarde<br>Azure Active Directory| Aplicação Microsoft Authenticator<br>Telefone (dispositivos iOS e Android com Android 6.0 ou superior.)|Windows 10, versão 1903 ou mais tarde<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|
 |**Sistemas e dispositivos**|PC com um módulo de plataforma fidedigna incorporado (TPM)<br>Reconhecimento pin e biométrico |Reconhecimento pin e biométrico no telefone|Dispositivos de segurança FIDO2 compatíveis com a Microsoft|
 |**Experiência do utilizador**|Inscreva-se utilizando um PIN ou reconhecimento biométrico (facial, íris ou impressão digital) com dispositivos Windows.<br>A autenticação do Windows Hello está ligada ao dispositivo; o utilizador necessita tanto do dispositivo como de um componente de inscrição, como um PIN ou um fator biométrico para aceder aos recursos corporativos.|Inscreva-se usando um telemóvel com digitalização de impressões digitais, reconhecimento facial ou íris, ou PIN.<br>Os utilizadores insinuam-se no trabalho ou na conta pessoal a partir do seu computador ou telemóvel.|Inscreva-se utilizando o dispositivo de segurança FIDO2 (biometria, PIN e NFC)<br>O utilizador pode aceder ao dispositivo com base em controlos de organização e autenticar com base em PIN, biometria utilizando dispositivos como chaves de segurança USB e smartcards, chaves ou wearables ativados pelo NFC.|

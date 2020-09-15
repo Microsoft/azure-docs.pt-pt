@@ -1,6 +1,6 @@
 ---
 title: Transforme dados usando a Colmeia na Rede Virtual Azure
-description: Este tutorial fornece instruções passo a passo para transformar dados através da atividade do Hive no Azure Data Factory.
+description: Utilize o Azure PowerShell para criar um pipeline data factory que transforma dados usando a Atividade da Colmeia num cluster HDInsight que está numa Rede Virtual Azure (VNet).
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: bf696b79215843e392fcf510e35cc410ff9902a2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d2465a475371f2cf6b9379d474ccaee324adac10
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81409209"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524760"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure com a atividade do Hive no Azure Data Factory
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 50b61ce7e2ef2a551d41dcb82d7127071005c34e
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 1a75c083015d1f10a3ed3dba15480430747756eb
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020503"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525021"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Tutorial: Construa uma aplicação de chat do Blazor Server
 
@@ -28,6 +28,8 @@ Este tutorial mostra-lhe como construir e modificar uma aplicação Do Servidor 
 * Instalar [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) (versão >= 3.0.100)
 * Instalar [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (Versão >= 16.3)
 > A versão preview do Visual Studio 2019 também funciona que está a ser lançada com o mais recente modelo de aplicação do Blazor Server direcionado para a versão mais recente do .Net Core.
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsblazor)
 
 ## <a name="build-a-local-chat-room-in-blazor-server-app"></a>Construa uma sala de chat local na aplicação Blazor Server
 
@@ -354,6 +356,8 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
 1. Clique em <kbd>F5</kbd> para executar a aplicação. Poderá conversar como abaixo.
 
    [![blazor-chat ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
+   
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsblazor)
 
 ## <a name="publish-to-azure"></a>Publicar no Azure
 
@@ -397,6 +401,8 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
    > Além disso, pode utilizar o modo de depurador de navegador com <kbd>F12</kbd> para validar o tráfego já redirecionado para o Serviço Azure SignalR.
 
    [![blazor-chat-azure ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
+   
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsblazor)
 
 ## <a name="further-topic-enable-azure-signalr-service-in-local-development"></a>Outro tópico: Ativar o Serviço Azure SignalR no desenvolvimento local
 
@@ -440,6 +446,8 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
 >        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.Azure.SignalR"
 >      }
 >    ```
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsblazor)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

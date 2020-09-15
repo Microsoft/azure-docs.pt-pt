@@ -3,15 +3,15 @@ title: O que é o Windows Virtual Desktop? - Azure
 description: Uma visão geral do Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661117"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527178"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop?
 
@@ -110,12 +110,10 @@ Os seguintes clientes de ambiente de trabalho remoto suportam o Windows Virtual 
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android](connect-android.md)
+* Cliente da Microsoft Store
 
 > [!IMPORTANT]
 > O Windows Virtual Desktop não suporta o cliente RemoteApp e Desktop Connections (RADC) ou o cliente Remote Desktop Connection (MSTSC).
-
-> [!IMPORTANT]
-> O Windows Virtual Desktop não suporta atualmente o cliente remote desktop a partir da Windows Store. O suporte a este cliente será adicionado num lançamento futuro.
 
 Para saber mais sobre URLs tem de desbloquear para utilizar os clientes, consulte a [lista de URL seguro](safe-url-list.md).
 
@@ -138,12 +136,12 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 Enterprise (multi-sessão), versão 2004|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise (multi-sessão), versão 1909|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (multi-sessão), versão 1903|Yes|Sim|No|No|
-|Windows 10 Enterprise (multi-sessão), versão 1809|Yes|Sim|No|No|
-|Windows 7 Enterprise|Yes|Sim|No|No|
-|Windows Server 2019|Yes|Sim|No|No|
+|Windows 10 Enterprise (multi-sessão), versão 1903|Yes|Yes|No|No|
+|Windows 10 Enterprise (multi-sessão), versão 1809|Yes|Yes|No|No|
+|Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2019|Yes|Yes|No|No|
 |Windows Server 2016|Yes|Yes|Yes|Yes|
-|Windows Server 2012 R2|Yes|Sim|No|Não|
+|Windows Server 2012 R2|Yes|Yes|No|Não|
 
 ## <a name="next-steps"></a>Próximos passos
 

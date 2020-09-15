@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Node.js para ligar para a API de Sms Analytics REST'
 titleSuffix: Azure Cognitive Services
-description: Este quickstart mostra como obter informações e amostras de código para ajudá-lo a começar rapidamente a usar a API text Analytics em Azure Cognitive Services.
+description: Este quickstart mostra como o uso Node.js para obter informações e amostras de código para ajudá-lo a começar rapidamente a usar a API text Analytics em Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: fe9877649d850796b03e9f1c3554a1b9aa7344c3
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ecab49ce61e17853f6f8b48d68391798a37da0fd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407749"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527280"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Use Node.js para ligar para o Serviço Cognitivo de Análise de Texto  
 <a name="HOLTop"></a>
@@ -31,7 +31,7 @@ Este artigo mostra-lhe como detetar a [linguagem,](#Detect) [analisar sentimento
 
 <a name="Detect"></a>
 
-## <a name="detect-language"></a>Detetar Idioma
+## <a name="detect-language"></a>Detetar idioma
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
@@ -459,12 +459,12 @@ get_entities(documents);
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Veja também 
+## <a name="see-also"></a>Ver também 
 
  [Descrição geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

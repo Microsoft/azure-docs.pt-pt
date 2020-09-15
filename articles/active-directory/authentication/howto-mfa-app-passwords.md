@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 12be5109f339223c11970041922ed2172f67382b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224922"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526906"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Ativar e utilizar a autenticação multi-factor Azure com aplicações antigas usando senhas de aplicação
 
-Algumas aplicações, como o Office 2010 ou mais cedo e o Apple Mail antes do iOS 11, não suportam a autenticação de vários fatores. As aplicações não estão configuradas para aceitar uma forma secundária de autenticação ou solicitação. Para utilizar estas aplicações de forma segura com a autenticação multi-factor Azure ativada para contas de utilizador, pode utilizar as palavras-passe da aplicação. Estas palavras-passe da aplicação substituíram a sua senha tradicional para permitir que uma aplicação contornasse a autenticação de vários fatores e funcionasse corretamente.
+Algumas aplicações mais antigas, não-navegadores, como o Office 2010 ou mais cedo e o Apple Mail antes do iOS 11 não entendem pausas ou quebras no processo de autenticação. Se um utilizador estiver habilitado para autenticação multi-factor Azure e tentar utilizar uma destas aplicações mais antigas e não-navegadores, não conseguirá autenticar com sucesso. Para utilizar estas aplicações de forma segura com a autenticação multi-factor Azure ativada para contas de utilizador, pode utilizar as palavras-passe da aplicação. Estas palavras-passe da aplicação substituíram a sua senha tradicional para permitir que uma aplicação contornasse a autenticação de vários fatores e funcionasse corretamente.
 
 A autenticação moderna é suportada para os clientes do Microsoft Office 2013 e mais tarde. Os clientes do Office 2013, incluindo o Outlook, suportam protocolos de autenticação modernos e podem ser habilitados a trabalhar com verificação em duas etapas. Após a ativação do cliente, as palavras-passe da aplicação não são necessárias para o cliente.
 
@@ -103,6 +103,6 @@ Quando os utilizadores completam o seu registo inicial de Autenticação Multi-F
 
 Os utilizadores também podem criar senhas de aplicação após o registo. Para obter mais informações e passos detalhados para os seus utilizadores, veja [o que são palavras-passe da aplicação na Autenticação Multi-Factor Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como permitir que os utilizadores se registem rapidamente para autenticação multi-factor Azure, consulte [a visão geral do registo de informações](concept-registration-mfa-sspr-combined.md)de segurança combinadas .

@@ -4,12 +4,12 @@ description: Escreva uma aplicação de consola Node.js para Websockets de Liga�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cf660d7a776c0dfa48b6c023fa0fa3516a3a0ea5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386304"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527416"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Começa com o Relay Hybrid Connections WebSockets em Node.js
 
@@ -52,11 +52,11 @@ Para enviar mensagens para o Reencaminhamento, escreva uma aplicação de consol
 2. Execute a aplicação de cliente: a partir de um tipo de linha de comandos `node sender.js` do Node.js e introduza algum texto.
 3. Certifique-se de que a consola da aplicação de servidor produz o texto que foi introduzido na aplicação cliente.
 
-    ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![Janelas de consola testando as aplicações do servidor e do cliente.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Parabéns, criou uma aplicação de Ligações Híbridas ponto a ponto com o Node.js!
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste quickstart, criou Node.js aplicações de clientes e servidores que utilizavam WebSockets para enviar e receber mensagens. A funcionalidade Ligações Híbridas do Azure Relay também suporta a utilização de HTTP para enviar e receber mensagens. Para aprender a utilizar HTTP com Ligações Híbridas Azure Relay, consulte o [Node.js http quickstart](relay-hybrid-connections-http-requests-node-get-started.md).
 
 Neste arranque rápido, usou Node.js para criar aplicações de clientes e servidores. Para aprender a escrever aplicações de clientes e servidores utilizando o [.NET WebSockets quickstart](relay-hybrid-connections-dotnet-get-started.md) ou o [quickstart .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

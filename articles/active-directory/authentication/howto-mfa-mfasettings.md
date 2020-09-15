@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068817"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526889"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
@@ -31,7 +31,7 @@ As seguintes definições de autenticação multi-factor Azure estão disponíve
 | [Utilizadores de bloco/desbloqueio](#block-and-unblock-users) | Impedir que utilizadores específicos possam receber pedidos de autenticação multi-factor Azure. Todas as tentativas de autenticação de utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que estão bloqueados ou desbloqueados manualmente. |
 | [Alerta de fraudes](#fraud-alert) | Configurar configurações que permitem aos utilizadores reportar pedidos de verificação fraudulentos. |
 | [Notificações](#notifications) | Ativar notificações de eventos a partir do MFA Server. |
-| [Fichas do OATH](concept-authentication-methods.md#oath-tokens) | Usado em ambientes Azure MFA baseados em nuvem para gerir tokens OATH para utilizadores. |
+| [Fichas do OATH](concept-authentication-oath-tokens.md) | Usado em ambientes Azure MFA baseados em nuvem para gerir tokens OATH para utilizadores. |
 | [Definições de chamadas telefónicas](#phone-call-settings) | Configurar configurações relacionadas com chamadas telefónicas e saudações para ambientes em nuvem e no local. |
 | Fornecedores | Isto irá mostrar quaisquer fornecedores de autenticação existentes que possa ter associado à sua conta. Novos fornecedores de autenticação não podem ser criados a partir de 1 de setembro de 2018 |
 

@@ -6,21 +6,21 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f5a8d925a9875187358dc96b1770916974d1c6bd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 572b74347194070615efadca4ed6b1329b3f89c2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007136"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526804"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Tutorial: Criar uma piscina de anfitriões para validar atualizações de serviço no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../create-validation-host-pool.md).
 
-As piscinas hospedeiras são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de inquilinos do Windows Virtual Desktop. Antes de colocar piscinas hospedeiras no seu ambiente de produção, recomendamos vivamente que crie uma piscina de anfitriões de validação. As atualizações são aplicadas primeiro aos pools de anfitriões de validação, permitindo-lhe monitorizar as atualizações de serviço antes de as lançar para o seu ambiente de produção. Sem um pool de anfitriões de validação, pode não descobrir alterações que introduzam erros, o que pode resultar em tempo de inatividade para os utilizadores no seu ambiente de produção.
+As piscinas hospedeiras são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de inquilinos do Windows Virtual Desktop. Recomendamos que crie um pool de anfitriões de validação onde as atualizações de serviço são aplicadas primeiro. Isto permite-lhe monitorizar as atualizações de serviço antes que o serviço as aplique ao seu ambiente padrão ou não de validação. Sem um pool de anfitriões de validação, pode não descobrir alterações que introduzam erros, o que pode resultar em tempo de inatividade para os utilizadores no seu ambiente de produção.
 
-Para garantir que as suas aplicações funcionam com as últimas atualizações, o pool de anfitriões de validação deve ser o mais similar aos pools de anfitriões no seu ambiente de produção. Os utilizadores devem ligar-se com tanta frequência à piscina do anfitrião de validação como fazem com a piscina de anfitriões de produção. Se tiver testes automatizados na sua piscina de anfitriões, deverá incluir testes automatizados na piscina do anfitrião de validação.
+Para garantir que as suas aplicações funcionam com as últimas atualizações, o pool de anfitriões de validação deve ser o mais similar aos pools anfitriões no seu ambiente de não validação. Os utilizadores devem ligar-se com tanta frequência à piscina do anfitrião de validação como fazem com a piscina de anfitrião padrão. Se tiver testes automatizados na sua piscina de anfitriões, deverá incluir testes automatizados na piscina do anfitrião de validação.
 
 Pode depurar problemas no pool do anfitrião de validação com [a funcionalidade de diagnóstico](diagnostics-role-service-2019.md) ou com os [artigos de resolução de problemas do Windows Virtual Desktop](troubleshoot-set-up-overview-2019.md).
 
