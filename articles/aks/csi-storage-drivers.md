@@ -1,34 +1,34 @@
 ---
 title: Ativar controladores da Interface de Armazenamento de Contentores (CSI) no Serviço Azure Kubernetes (AKS)
-description: Saiba como ativar os controladores da Interface de Armazenamento de Contentores (CSI) para ficheiros Azure Disk e Azure num cluster Azure Kubernetes Service (AKS).
+description: Saiba como ativar os controladores da Interface de Armazenamento de Contentores (CSI) para discos Azure e Ficheiros Azure num cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: bd5706d20496e1ff00843f761443d183cf7fcae3
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 54764b16ba63d5656f61152cfe40ef50475192a5
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422073"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085672"
 ---
-# <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>Ativar controladores de interface de armazenamento de contentores (CSI) para discos Azure e ficheiros Azure no Serviço Azure Kubernetes (AKS) (pré-visualização)
+# <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>Ativar os controladores da Interface de Armazenamento de Contentores (CSI) para discos Azure e Ficheiros Azure no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
-A Interface de Armazenamento de Contentores (CSI) é uma norma para expor sistemas arbitrários de blocos e ficheiros a cargas de trabalho contentorizadas em Kubernetes. Ao adotar e utilizar o CSI, o Azure Kubernetes Service (AKS) pode escrever, implementar e iterar plugins expondo novos ou melhorando os sistemas de armazenamento existentes em Kubernetes sem ter de tocar no código base de Kubernetes e esperar pelos seus ciclos de libertação.
+A Interface de Armazenamento de Contentores (CSI) é uma norma para expor sistemas arbitrários de blocos e ficheiros a cargas de trabalho contentorizadas em Kubernetes. Ao adotar e utilizar o CSI, o Serviço Azure Kubernetes (AKS) pode escrever, implementar e iterar plug-ins para expor novos ou melhorar os sistemas de armazenamento existentes em Kubernetes sem ter de tocar no código base de Kubernetes e aguardar os seus ciclos de libertação.
 
-O suporte do controlador de armazenamento CSI na AKS permite-lhe alavancar de forma nativa:
-- [*Azure Disks*](azure-disk-csi.md) - pode ser usado para criar um recurso Kubernetes *DataDisk.* Os discos podem utilizar o armazenamento Azure Premium, apoiado por SSDs de alto desempenho, ou armazenamento Azure Standard, apoiado por HDDs regulares ou SSDs standard. Para a maioria das cargas de trabalho de produção e desenvolvimento, utilize o armazenamento Premium. Os Discos Azure são montados como *ReadWriteOnce,* por isso só estão disponíveis para uma única cápsula. Para volumes de armazenamento que podem ser acedidos simultaneamente por várias cápsulas, utilize ficheiros Azure.
-- [*Os Ficheiros Azure*](azure-files-csi.md) podem ser utilizados para montar uma partilha SMB 3.0 apoiada por uma conta de Armazenamento Azure para cápsulas. Os ficheiros permitem-lhe partilhar dados através de vários nós e cápsulas. Os ficheiros podem utilizar o armazenamento Azure Standard apoiado por HDDs regulares, ou armazenamento Azure Premium, apoiado por SSDs de alto desempenho.
+O suporte do controlador de armazenamento CSI na AKS permite-lhe utilizar de forma nativa:
+- [*Discos Azure*](azure-disk-csi.md), que podem ser usados para criar um recurso Kubernetes *DataDisk.* Os discos podem utilizar o Azure Premium Storage, apoiado por SSDs de alto desempenho, ou armazenamento padrão Azure, apoiado por HDDs regulares ou SSDs Standard. Para a maioria das cargas de trabalho de produção e desenvolvimento, utilize o Premium Storage. Os discos Azure são montados como *ReadWriteOnce,* por isso só estão disponíveis para uma única cápsula. Para volumes de armazenamento que podem ser acedidos simultaneamente por várias cápsulas, utilize ficheiros Azure.
+- [*Ficheiros Azure*](azure-files-csi.md), que podem ser usados para montar uma partilha SMB 3.0 apoiada por uma conta de Armazenamento Azure para pods. Com os Ficheiros Azure, pode partilhar dados em vários nós e cápsulas. Os Ficheiros Azure podem utilizar o Azure Standard Storage apoiado por HDDs regulares ou armazenamento Azure Premium apoiado por SSDs de alto desempenho.
 
 > [!IMPORTANT]
-> A partir da versão 1.21 de Kubernetes, a Kubernetes utilizará apenas os controladores CSI e por padrão. Estes são o futuro do suporte de armazenamento em Kubernetes.
+> A partir da versão 1.21 de Kubernetes, a Kubernetes utilizará apenas os controladores CSI e por padrão. Estes condutores são o futuro do suporte de armazenamento em Kubernetes.
 >
-> *"Condutores de árvores" refere-se* aos atuais condutores de armazenamento que fazem parte do código de kubernetes de núcleo vs. os novos controladores CSI que são plugins.
+> *Os condutores de árvores referem-se* aos atuais condutores de armazenamento que fazem parte do código de Kubernetes contra os novos condutores do CSI, que são plug-ins.
 
 ## <a name="limitations"></a>Limitações
 
 - Esta funcionalidade só pode ser definida no tempo de criação do cluster.
-- A versão mínima que suporta os condutores do CSI é v1.17.
+- A versão mínima de Kubernetes menor que suporta os controladores CSI é v1.17.
 - Durante a pré-visualização, a classe de armazenamento padrão continuará a ser a [mesma classe de armazenamento na árvore](concepts-storage.md#storage-classes). Após esta funcionalidade estar geralmente disponível, a classe de armazenamento padrão será a `managed-csi` classe de armazenamento e as aulas de armazenamento na árvore serão removidas.
 - Durante a primeira fase de pré-visualização, apenas o Azure CLI é suportado.
 
@@ -36,9 +36,9 @@ O suporte do controlador de armazenamento CSI na AKS permite-lhe alavancar de fo
 
 ### <a name="register-the-enableazurediskfilecsidriver-preview-feature"></a>Registar a `EnableAzureDiskFileCSIDriver` funcionalidade de pré-visualização
 
-Para criar um cluster AKS que possa alavancar os controladores CSI para Discos Azure e Ficheiros Azure, tem de ativar a bandeira de `EnableAzureDiskFileCSIDriver` funcionalidades na sua subscrição.
+Para criar um cluster AKS que possa utilizar controladores CSI para discos Azure e Ficheiros Azure, tem de ativar a bandeira de `EnableAzureDiskFileCSIDriver` funcionalidades na sua subscrição.
 
-Registe a bandeira de `EnableAzureDiskFileCSIDriver` características utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
+Registe o `EnableAzureDiskFileCSIDriver` pavilhão de funcionalidades utilizando o comando [de registo de recursos az,][az-feature-register] como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureDiskFileCSIDriver"
@@ -60,7 +60,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
-Para criar um cluster AKS ou uma piscina de nó que possa utilizar os controladores de armazenamento CSI, você precisa da mais recente extensão CLI *de pré-visualização de aks.* Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] ou instale quaisquer atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
+Para criar um cluster AKS ou uma piscina de nó que possa utilizar os controladores de armazenamento CSI, você precisa da mais recente extensão Azure CLI *de pré-visualização aks.* Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az.][az-extension-add] Ou instale quaisquer atualizações disponíveis utilizando o comando [de atualização de extensão az.][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -71,9 +71,9 @@ az extension update --name aks-preview
 ``` 
 
 
-## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>Criar um novo cluster que possa usar os Motoristas de Armazenamento CSI
+## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>Criar um novo cluster que possa usar controladores de armazenamento CSI
 
-Crie um novo cluster que possa alavancar os controladores de armazenamento CSI para discos Azure e Ficheiros Azure utilizando os seguintes comandos CLI. Utilize a `--aks-custom-headers` bandeira para definir a `EnableAzureDiskFileCSIDriver` função.
+Crie um novo cluster que possa utilizar controladores de armazenamento CSI para discos Azure e Ficheiros Azure utilizando os seguintes comandos CLI. Utilize a `--aks-custom-headers` bandeira para definir a `EnableAzureDiskFileCSIDriver` função.
 
 Criar um grupo de recursos Azure:
 
@@ -82,14 +82,14 @@ Criar um grupo de recursos Azure:
 az group create --name myResourceGroup --location canadacentral
 ```
 
-Crie o cluster AKS com suporte para os controladores de armazenamento CSI.
+Crie o cluster AKS com suporte para os controladores de armazenamento CSI:
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure -k 1.17.9 --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
-Se pretender criar clusters em condutores de armazenamento em árvores em vez de controladores de armazenamento CSI, pode fazê-lo omitindo o `--aks-custom-headers` parâmetro personalizado.
+Se pretender criar aglomerados em condutores de armazenamento de árvores em vez de controladores de armazenamento CSI, pode fazê-lo omitindo o `--aks-custom-headers` parâmetro personalizado.
 
 
 Verifique quantos volumes baseados em disco Azure pode anexar a este nó executando:
@@ -104,11 +104,11 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 8
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Utilize a unidade CSI para discos Azure, consulte [o disco Use Azure com os controladores CSI](azure-disk-csi.md).
-- Utilize a unidade CSI para ficheiros Azure, consulte [ficheiros Use Azure com controladores CSI](azure-files-csi.md).
-- Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes (AKS)][operator-best-practices-storage]
+- Para utilizar a unidade CSI para discos Azure, consulte [discos Azure use com controladores CSI](azure-disk-csi.md).
+- Para utilizar a unidade CSI para ficheiros Azure, consulte [Use Ficheiros Azure com controladores CSI](azure-files-csi.md).
+- Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes.][operator-best-practices-storage]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -132,8 +132,8 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true

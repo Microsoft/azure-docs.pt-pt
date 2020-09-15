@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: e6d4ea19e5547adb7bee25f4bdce295eb9a76d44
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 73d875e32f4fcf22551cf6b0946e49c2f826e523
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002938"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085030"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browsers suportados por SDK web
 
-O Azure Maps Web SDK fornece uma função de ajudante chamada [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). Esta função deteta se um navegador web tem o conjunto mínimo de funcionalidades WebGL necessárias para suportar o carregamento e a prestação do controlo do mapa. Aqui está um exemplo de como usar a função:
+O Azure Maps Web SDK fornece uma função de ajudante chamada [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#issupported-boolean-). Esta função deteta se um navegador web tem o conjunto mínimo de funcionalidades WebGL necessárias para suportar o carregamento e a prestação do controlo do mapa. Aqui está um exemplo de como usar a função:
 
 ```JavaScript
 if (!atlas.isSupported()) {
@@ -40,7 +40,7 @@ O Azure Maps Web SDK suporta os seguintes navegadores de ambiente de trabalho:
 
 Consulte também [navegadores legados target](#Target-Legacy-Browsers) mais tarde neste artigo.
 
-## <a name="mobile"></a>Móvel
+## <a name="mobile"></a>Telemóvel
 
 O Azure Maps Web SDK suporta os seguintes navegadores móveis:
 

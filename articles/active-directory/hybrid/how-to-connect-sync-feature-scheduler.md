@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053053"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084741"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Scheduler
 Este tópico descreve o programador incorporado na sincronização Azure AD Connect (motor de sincronização).
@@ -79,7 +79,7 @@ Em construções anteriores de Azure AD Connect, **isStagingModeEnabled** foi ex
 A configuração do programador é armazenada em Azure AD. Se tiver um servidor de paragem, qualquer alteração no servidor primário também afeta o servidor de paragem (exceto isStagingModeEnabled).
 
 ### <a name="customizedsynccycleinterval"></a>PersonalizadoSSyncCycleInterval
-Sintaxe:`Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+Sintaxe: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - dias, HH - horas, mm - minutos, ss - segundos
 
 Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
@@ -160,12 +160,15 @@ Exemplo: Se estornou as regras de sincronização do Conector "AD Forest A" para
 ## <a name="stop-the-scheduler"></a>Pare o agendador
 Se o programador estiver atualmente a executar um ciclo de sincronização, poderá ter de o parar. Por exemplo, se iniciar o assistente de instalação e tiver este erro:
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![Os programas de screenshot não podem alterar a mensagem de erro de configuração.](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 Quando um ciclo de sincronização está em funcionamento, não é possível fazer alterações de configuração. Pode esperar até que o agendador termine o processo, mas também pode pará-lo para que possa fazer as suas alterações imediatamente. Parar o ciclo atual não é prejudicial e as alterações pendentes são processadas com o próximo passo.
 
 1. Comece por dizer ao programador para parar o seu ciclo atual com o cmdlet PowerShell `Stop-ADSyncSyncCycle` .
-2. Se utilizar uma construção antes do 1.1.281, então parar o programador não impede o conector atual da sua tarefa atual. Para forçar o Conector a parar, tome as seguintes ações: ![ StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Se utilizar uma construção antes do 1.1.281, então parar o programador não impede o conector atual da sua tarefa atual. Para forçar o Conector a parar, tome as seguintes ações:
+
+   ![O Screenshot mostra o Gestor de Serviço de Sincronização com conectores selecionados e um conector em execução destacado com a ação Stop selecionada.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
    * Inicie **o Serviço de Sincronização** a partir do menu inicial. Vá a **Connectors**, realce o Conector com o estado **running**, e selecione **Stop** from the Actions.
 
 O agendador ainda está ativo e recomeça na próxima oportunidade.

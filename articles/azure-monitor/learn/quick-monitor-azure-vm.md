@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516401"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084435"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Quickstart: Monitorize uma máquina virtual Azure com monitor Azure
 [O Azure Monitor](../overview.md) começa a recolher dados de máquinas virtuais Azure no momento em que são criados. Neste arranque rápido, você vai fazer uma breve caminhada através dos dados que são automaticamente recolhidos para um Azure VM e como vê-lo no portal Azure. Em seguida, irá ativar [o Azure Monitor para VMs](../insights/vminsights-overview.md) para o seu VM, o que permitirá aos agentes do VM recolher e analisar dados do sistema operativo convidado, incluindo processos e suas dependências.
@@ -85,15 +85,15 @@ Quando cria um novo espaço de trabalho log Analytics, tem de ser configurado pa
 
 7. Clique na sua máquina virtual e, em seguida, selecione o **separador Performance** que está em teia **de monitorização** **Insights.** Isto mostra um grupo selecionado de contadores de desempenho recolhidos do sistema operativo convidado do seu VM. Desloque-se para baixo para ver mais contadores e mova o rato sobre um gráfico para ver a média e percentais em momentos diferentes.
 
-    ![Desempenho](media/quick-monitor-azure-vm/performance.png)
+    ![A imagem mostra o painel de desempenho.](media/quick-monitor-azure-vm/performance.png)
 
 9. Selecione **Mapa** para abrir a funcionalidade de mapas que mostra os processos em execução na máquina virtual e as suas dependências. Selecione **Propriedades** para abrir o painel de propriedades se ainda não estiver aberto.
 
-    ![Mapa](media/quick-monitor-azure-vm/map.png)
+    ![A imagem mostra o painel do mapa.](media/quick-monitor-azure-vm/map.png)
 
 11. Expanda os processos para a sua máquina virtual. Selecione um dos processos para ver os seus detalhes e destacar as suas dependências.
 
-    ![Processos](media/quick-monitor-azure-vm/processes.png)
+    ![A screenshot mostra o painel do Mapa com processos para uma máquina virtual expandida.](media/quick-monitor-azure-vm/processes.png)
 
 12. Selecione a sua máquina virtual novamente e, em seguida, **selecione Eventos de Registo**. 
 
@@ -103,7 +103,7 @@ Quando cria um novo espaço de trabalho log Analytics, tem de ser configurado pa
 
     ![Log Analytics](media/quick-monitor-azure-vm/log-analytics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, permitiu que o Azure Monitor para VMs para uma máquina virtual e configurasse o espaço de trabalho log Analytics para recolher eventos para o sistema operativo convidado. Para saber como ver e analisar os dados, avance para o tutorial.
 
 > [!div class="nextstepaction"]

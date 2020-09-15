@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948934"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085914"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -117,7 +117,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
    ![Lista de drop-down de acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
 
-   | Modelo | Descrição |
+   | Modelo | Description |
    | --- | --- |
    | **Acesso a aplicativos em nuvem para todos os hóspedes** | Será criada uma política de Acesso Condicional para todos os hóspedes e aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, poderá ser obrigado a iniciar seduca e a iniciar seduca. |
    | **Acesso a aplicativos na nuvem para todos os utilizadores** | Será criada uma política de Acesso Condicional para todos os utilizadores e todas as aplicações na nuvem. Esta política tem impacto no portal Azure. Uma vez criado, terá de se inscrever e iniciar seduca. |
@@ -253,7 +253,7 @@ O **Requerer que os utilizadores consintam em todas as** definições do disposi
 Aqui está uma lista das plataformas e software suportados.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outros |
+> |  | iOS | Android | Windows 10 | Outro |
 > | --- | --- | --- | --- | --- |
 > | **Aplicação nativa** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |
@@ -264,7 +264,7 @@ Os termos de utilização por dispositivo têm os seguintes constrangimentos:
 
 - Um dispositivo só pode ser associado a um inquilino.
 - Um utilizador deve ter permissões para se juntar ao seu dispositivo.
-- A aplicação Intune Registration não é suportada.
+- A aplicação Intune Registration não é suportada. Certifique-se de que está excluído de qualquer política de acesso condicional que exija termos de utilização.
 - Os utilizadores Azure AD B2B não são suportados.
 
 Se o dispositivo do utilizador não estiver associado, receberão uma mensagem de que precisam de se juntar ao seu dispositivo. A sua experiência será dependente da plataforma e do software.

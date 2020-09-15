@@ -3,15 +3,15 @@ title: Personalize o feed para utilizadores do Windows Virtual Desktop - Azure
 description: Como personalizar o feed para utilizadores do Windows Virtual Desktop com cmdlets PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 09/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1f1779ac27c7e46aa3e608b33e3c006902df8c27
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e47486f29537cb948aaae7cf17e97bae14b60700
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009125"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084299"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personalize o feed para utilizadores do Windows Virtual Desktop
 
@@ -107,7 +107,7 @@ Pode alterar o nome de exibição para um ambiente de trabalho remoto publicado,
 
 3. Em Serviços, selecione **Windows Virtual Desktop**.
 
-4. Na página de Ambiente de Trabalho Virtual do Windows, selecione **grupos de aplicações** no lado esquerdo do ecrã e, em seguida, selecione o nome do grupo de aplicações que pretende editar.
+4. Na página de Ambiente de Trabalho Virtual do Windows, selecione **grupos de aplicações** no lado esquerdo do ecrã e, em seguida, selecione o nome do grupo de aplicações que pretende editar. (Por exemplo, se pretender editar o nome de exibição do grupo de aplicações para desktop, selecione o grupo de aplicações chamado **Desktop**.)
 
 5. Selecione **Aplicações** no menu no lado esquerdo do ecrã.
 

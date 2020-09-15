@@ -3,16 +3,16 @@ title: Backup VMware VMs com Azure Backup Server
 description: Neste artigo, aprenda a utilizar o Azure Backup Server para fazer backup vMware VMs em execução num servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017571"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069837"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMware VMs com Azure Backup Server
 
-Este artigo explica como fazer backup vMware VMware VMs em execução em VMware ESXi hosts/vCenter Server para Azure usando O Servidor de Backup Azure.
+Este artigo explica como fazer backup VMware VMs em execução em VMware ESXi hosts/vCenter Server para Azure usando O Azure Backup Server (MABS).
 
 Este artigo explica como:
 
@@ -21,6 +21,31 @@ Este artigo explica como:
 - Adicione as credenciais de conta ao Azure Backup.
 - Adicione o servidor vCenter ou ESXi ao Servidor de Backup Azure.
 - Crie um grupo de proteção que contenha os VMware VMs que pretende fazer cópias de segurança, especifique as definições de backup e agende a cópia de segurança.
+
+## <a name="supported-vmware-features"></a>Funcionalidades de VMware suportadas
+
+O MABS fornece as seguintes funcionalidades ao fazer o backup de máquinas virtuais VMware:
+
+- Cópia de segurança sem agente: O MABS não necessita de um agente para ser instalado no servidor vCenter ou ESXi, para fazer a cópia de segurança da máquina virtual. Em vez disso, basta fornecer o endereço IP ou o nome de domínio totalmente qualificado (FQDN), e credenciais de login usadas para autenticar o servidor VMware com MABS.
+- Backup Integrado na Nuvem: O MABS protege as cargas de trabalho para o disco e para a nuvem. O fluxo de trabalho de backup e recuperação do MABS ajuda-o a gerir a retenção a longo prazo e o backup fora do local.
+- Detetar e proteger VMs geridos por vCenter: O MABS deteta e protege os VM implantados num servidor VMware (servidor vCenter ou ESXi). À medida que o seu tamanho de implantação aumenta, use o vCenter para gerir o seu ambiente VMware. O MABS também deteta VMs geridos pelo vCenter, permitindo-lhe proteger grandes implementações.
+- Proteção automática ao nível da pasta: vCenter permite organizar os seus VMs em pastas VM. O MABS deteta estas pastas e permite-lhe proteger os VMs ao nível da pasta e inclui todas as subpalhos. Ao proteger as pastas, o MABS não só protege os VMs nessa pasta, como também protege os VMs adicionados mais tarde. O MABS deteta diariamente novos VMs e protege-os automaticamente. Ao organizar os seus VMs em pastas recursivas, o MABS deteta e protege automaticamente os novos VM implantados nas pastas recursivas.
+- O MABS protege os VMs armazenados num disco local, sistema de ficheiros de rede (NFS) ou armazenamento de clusters.
+- O MABS protege os VMs migrados para o equilíbrio da carga: À medida que os VM são migrados para o equilíbrio de carga, o MABS deteta e continua a proteção contra o VM.
+- O MABS pode recuperar ficheiros/pastas de um VM do Windows sem recuperar todo o VM, o que ajuda a recuperar os ficheiros necessários mais rapidamente.
+
+## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
+
+Antes de começar a fazer backup de uma máquina virtual VMware, reveja a seguinte lista de limitações e pré-requisitos.
+
+- Se tiver usado o MABS para proteger um servidor vCenter (em execução no Windows) como servidor do Windows utilizando o FQDN do servidor, não pode proteger esse servidor vCenter como um servidor VMware utilizando o FQDN do servidor.
+  - Pode utilizar o endereço IP estático do servidor vCenter como uma solução alternativa.
+  - Se pretender utilizar o FQDN, deve parar a proteção como Servidor do Windows, remover o agente de proteção e, em seguida, adicionar como um VMware Server utilizando fQDN.
+- Se utilizar o vCenter para gerir servidores ESXi no seu ambiente, adicione vCenter (e não ESXi) ao grupo de proteção MABS.
+- Não é possível fazer cópias de segurança antes da primeira cópia de segurança do MABS. Assim que o MABS completar a primeira cópia de segurança, poderá fazer cópias de segurança.
+- O MABS não pode proteger VMware VMs com discos de passagem e mapeamentos de dispositivos brutos físicos (pRDM).
+- O MABS não consegue detetar ou proteger vApps VMware.
+- O MABS não pode proteger VMware VMs com imagens existentes.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -392,7 +417,7 @@ Pode modificar o número de postos de trabalho utilizando a chave de registo com
 
 Para apoiar a vSphere 6.7, faça o seguinte:
 
-- Ativar TLS 1.2 no DPM Server
+- Ativar TLS 1.2 no Servidor MABS
 
 >[!NOTE]
 >VMWare 6.7 em diante tinha TLS ativado como protocolo de comunicação.

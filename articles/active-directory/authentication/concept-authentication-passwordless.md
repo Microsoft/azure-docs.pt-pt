@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226680"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084333"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -45,7 +45,7 @@ Os seguintes passos mostram como o processo de inscrição funciona com a Azure 
 ![Diagrama que descreve os passos envolvidos para o s-in do utilizador com o Windows Hello for Business](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
 1. Um utilizador assina no Windows utilizando gesto biométrico ou PIN. O gesto desbloqueia a chave privada Windows Hello for Business e é enviado para o fornecedor de suporte de segurança Cloud Authentication, referido como o *fornecedor Cloud AP*.
-1. O fornecedor Cloud AP solicita um nó da Azure AD.
+1. O fornecedor Cloud AP solicita um nó (um número arbitrário aleatório que pode ser usado apenas uma vez) a partir de Azure AD.
 1. A AZure AD devolve um nó válido por 5 minutos.
 1. O fornecedor Cloud AP assina o nonce usando a chave privada do utilizador e devolve o nó assinado ao Azure AD.
 1. O Azure AD valida o nó assinado utilizando a chave pública registada de forma segura do utilizador contra a assinatura nonce. Após validar a assinatura, a Azure AD valida então o nonce assinado devolvido. Quando o nonce é validado, o Azure AD cria um token de atualização primária (PRT) com chave de sessão que é encriptada para a chave de transporte do dispositivo e devolve-a ao fornecedor Cloud AP.

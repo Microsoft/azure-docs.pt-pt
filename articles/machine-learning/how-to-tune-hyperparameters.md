@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 84262427c6d5183fb803f3fc16d2e7b8021e9d5e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 52e419e970173ddaf3d4d6176f2dd26a1e8194e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651794"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084674"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Sintonize hiperparmetros para o seu modelo com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -151,11 +151,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> A amostragem bayesiana não suporta nenhuma política de rescisão antecipada (ver [especificar uma política de rescisão antecipada).](#specify-early-termination-policy) Quando utilizar a amostragem do parâmetro Bayesiano, desa parte `early_termination_policy = None` do `early_termination_policy` parâmetro.
+> A amostragem bayesiana não suporta nenhuma política de rescisão antecipada (ver [especificar uma política de rescisão antecipada).](#early-termination) Quando utilizar a amostragem do parâmetro Bayesiano, desa parte `early_termination_policy = None` do `early_termination_policy` parâmetro.
 
-<a name='specify-primary-metric-to-optimize'/>
-
-## <a name="specify-primary-metric"></a>Especificar a métrica primária
+## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> Especificar a métrica primária
 
 Especifique a [métrica primária](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) que pretende que a experiência de sintonização do hiperparímetro otimize. Cada treino é avaliado para a métrica primária. As execuções mal executadas (em que a métrica primária não satisfaz os critérios estabelecidos pela política de rescisão antecipada) serão encerradas. Além do nome métrico primário, também especifica o objetivo da otimização - seja para maximizar ou minimizar a métrica primária.
 
@@ -169,9 +167,7 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Otimize as corridas para maximizar a "precisão".  Certifique-se de registar este valor no seu script de treino.
 
-<a name='log-metrics-for-hyperparameter-tuning'/>
-
-### <a name="log-metrics-for-hyperparameter-tuning"></a>Métricas de registo para afinação de hiperparímetro
+### <a name="specify-primary-metric"></a><a name="log-metrics-for-hyperparameter-tuning"></a> Especificar a métrica primária
 
 O roteiro de treino para o seu modelo deve registar as métricas relevantes durante o treino do modelo. Ao configurar a sintonização do hiperparímetro, especifica a métrica primária a utilizar para avaliar o desempenho do funcionamento. (Ver [Especificar uma métrica primária para otimizar](#specify-primary-metric-to-optimize).)  No seu script de treino, deve registar esta métrica para que esteja disponível para o processo de afinação do hiperparímetro.
 
@@ -184,8 +180,6 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 O script de treino calcula o `val_accuracy` e regista-o como "precisão", que é usado como a métrica primária. Cada vez que a métrica é registada é recebida pelo serviço de afinação do hiperparímetro. Cabe ao desenvolvedor do modelo determinar com que frequência reportar esta métrica.
-
-<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Especificar a política de rescisão antecipada
 
@@ -403,6 +397,6 @@ Consulte os cadernos de comboio-hiperparameter-* nesta pasta:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Acompanhe uma experiência](how-to-track-experiments.md)
 * [Implementar um modelo treinado](how-to-deploy-and-where.md)

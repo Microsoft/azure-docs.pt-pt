@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531264"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069803"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorizar o seu serviço de cofre de chaves com o Azure Monitor para o Cofre de Chaves (pré-visualização)
 O Azure Monitor for Key Vault (pré-visualização) proporciona uma monitorização completa dos seus cofres chave, proporcionando uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
@@ -76,16 +76,6 @@ Existe codificação de cores condicional ou massas de calor para colunas no liv
 O livro apresenta Sucessos (códigos de estado 2xx), Erros de Autenticação (códigos de estado 401/403), Throttling (429 códigos de estado) e Outras Falhas (códigos de estado 4xx).
 
 Para melhor entender o que cada um dos códigos de estado representam, recomendamos a leitura através da documentação sobre o [estado do Cofre da Chave Azure e os códigos de resposta](../../key-vault/general/authentication-requests-and-responses.md).
-
-## <a name="operations--latency-workbook"></a>Trabalho de & de latência de operações
-
-Selecione **Operações & a Latência** no topo da página e o **separador de & de operação** de latência abre. Este separador permite-lhe embarcar nos cofres das chaves para monitorização. Para passos mais detalhados, consulte a configuração dos [seus cofres-chave para a secção de monitorização.](#configuring-your-key-vaults-for-monitoring)
-
-Pode ver quantos dos seus cofres chave estão habilitados para a exploração madeireira. Se pelo menos um cofre tiver sido configurado corretamente, então poderá ver tabelas que apresentem as operações e os códigos de estado de cada um dos seus cofres-chave. Pode clicar na secção de detalhes para obter informações adicionais sobre a operação individual.
-
-![Screenshot de operações e gráficos de latência](./media/key-vaults-insights-overview/logs.png)
-
-Se não estiver a ver nenhum dado para esta secção, consulte a secção superior sobre como ativar os registos do Cofre da Chave Azure ou consulte a secção de resolução de problemas abaixo.
 
 ## <a name="view-from-a-key-vault-resource"></a>Vista a partir de um recurso Key Vault
 
@@ -191,16 +181,6 @@ Utilizamos o grão de tempo "Auto", pelo que depende do intervalo de tempo selec
 ### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte do livro está presa
 
 O intervalo de tempo dependerá das definições do painel de instrumentos.
-
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Por que não vejo nenhum dado para o meu Cofre-Chave sob as secções de & de Latência de Operações
-
-Para visualizar os dados baseados em registos, terá de ativar registos para cada um dos cofres-chave que pretende monitorizar. Isto pode ser feito sob as definições de diagnóstico para cada cofre de teclas. Terá de enviar os seus dados para um espaço de trabalho designado log analytics.
-
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Já ativei registos para o meu Cofre-Chave, porque é que ainda não consigo ver os meus dados no âmbito das Operações & Latência.
-
-Atualmente, os registos de diagnóstico não funcionam retroativamente, pelo que os dados só começarão a aparecer depois de terem sido tomadas ações para os seus cofres-chave. Portanto, pode levar algum tempo, variando de horas a um dia, dependendo do quão ativo é o seu cofre chave.
-
-Além disso, se tiver um elevado número de cofres-chave e subscrições selecionadas, poderá não conseguir visualizar os seus dados devido a limitações de consulta. Para visualizar os seus dados, poderá ser necessário reduzir o número de subscrições selecionadas ou cofres-chave. 
 
 ### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>E se eu quiser ver outros dados ou fazer as minhas próprias visualizações? Como posso fazer alterações no Key Vault Insights
 

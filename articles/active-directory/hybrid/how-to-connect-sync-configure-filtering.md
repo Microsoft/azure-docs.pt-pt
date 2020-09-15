@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c539fd37116f8c55f336aecf1e8979355a40d61c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662551"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084843"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Diretório Ativo Azure (AD) a partir do seu diretório no local. A configuração padrão leva todos os objetos em todos os domínios nas florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam cargas de trabalho microsoft 365, como Exchange Online e Skype for Business, beneficiam de uma lista completa de endereços globais para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.
@@ -217,7 +217,7 @@ A filtragem de entrada utiliza a configuração padrão, onde os objetos que vã
 Na filtragem de entrada, utiliza-se o poder de **mira** para determinar quais os objetos que sincronizam ou não sincronizam. É aqui que faz ajustes que se adequam às exigências da sua própria organização. O módulo de âmbito tem um **grupo** e uma **cláusula** para determinar quando uma regra de sincronização está no âmbito. Um grupo contém uma ou muitas cláusulas. Há um "E" lógico entre várias cláusulas, e um "OR" lógico entre vários grupos.
 
 Vejamos um exemplo:  
-![Uma imagem mostrando um exemplo de adicionar filtros de scoping](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Uma imagem mostrando um exemplo de adicionar filtros de deteção.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Isto deve ser lido como **(departamento = TI) OU (departamento = Vendas E c = EUA)**.
 
 Nas seguintes amostras e passos, utiliza o objeto do utilizador como exemplo, mas pode usá-lo para todos os tipos de objetos.
@@ -275,7 +275,7 @@ Neste exemplo, altera-se a filtragem de modo a que apenas os utilizadores que te
 1. Inscreva-se no servidor que está a executar a sincronização do Azure AD Connect utilizando uma conta que é membro do grupo de segurança **ADSyncAdmins.**
 2. Iniciar **o Editor de Regras** de Sincronização a partir do menu **Iniciar.**
 3. De acordo com **o Tipo de Regras,** clique **em Outbound**.
-4. Dependendo da versão do Connect que utiliza, encontre a regra nomeada **out to AAD – User Join** or out to **AAD - User Join SOAInAD**, e clique em **Editar**.
+4. Dependendo da versão do Connect que utiliza, encontre a regra nomeada **out to AZure AD – User Join** or out to **Azure AD - User Join SOAInAD**, e clique em **Editar**.
 5. No pop-up, **responda Sim** para criar uma cópia da regra.
 6. Na página **Descrição,** **altere a Precedência** para um valor não reutilizado, como 50.
 7. Clique em **Filtrar** o filtro na navegação à esquerda e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **correio.** No **Operador**, selecione **ENDSWITH**. In **Value**, type ** \@ contoso.com**e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **userPrincipalName**. No **Operador**, selecione **ENDSWITH**. In **Value**, tipo ** \@ contoso.com**.
@@ -300,7 +300,7 @@ Após a sincronização, todas as alterações serão encenadas para serem expor
 
 1. Inicie um pedido de comando, e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin` .
 2. Execute `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   O nome do Conector está no Serviço de Sincronização. Tem um nome semelhante ao "contoso.com – AAD" para Azure AD.
+   O nome do Conector está no Serviço de Sincronização. Tem um nome semelhante ao "contoso.com – Azure AD" para Azure AD.
 3. Execute `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. Tem agora um ficheiro em %temperatura% nomeado export.csv que pode ser examinado no Microsoft Excel. Este ficheiro contém todas as alterações que estão prestes a ser exportadas.
 5. Faça as alterações necessárias aos dados ou configuração, e execute estes passos novamente (Importar, Sincronizar e Verificar) até que as alterações que estão prestes a ser exportadas sejam o que espera.
@@ -328,6 +328,6 @@ Ao sincronizar várias florestas de AD, pode configurar a filtragem baseada em g
 * Tem um utilizador numa floresta que tem um contacto de correio correspondente noutra floresta. Além disso, configura o Azure AD Connect para ligar o utilizador ao contacto de correio. Ambos os objetos devem estar dentro do âmbito de filtragem baseado em grupo. Caso contrário, o utilizador não será sincronizado com a Azure AD.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre a configuração [de sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 - Saiba mais sobre [a integração das suas identidades no local com a Azure AD.](whatis-hybrid-identity.md)

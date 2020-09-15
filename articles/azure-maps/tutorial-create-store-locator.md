@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 1ec4dbb1ce55919fda6c73d198100db34f5f57ea
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121260"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085319"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
 
@@ -40,7 +40,7 @@ Salte para a frente para o [exemplo do localizador](https://azuremapscodesamples
 
 Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
 
-## <a name="design"></a>Conceção
+## <a name="design"></a>Design
 
 Antes de entrar no código, é uma boa ideia começar com um desenho. O localizador da sua loja pode ser tão simples ou complexo como pretende. Neste tutorial, criamos um simples localizador de lojas. Incluímos algumas dicas ao longo do caminho para ajudá-lo a estender algumas funcionalidades se assim o desejar. Criamos um localizador de lojas para uma empresa fictícia chamada Contoso Coffee. A seguinte figura mostra uma estrutura de arame do layout geral do localizador da loja que construímos neste tutorial:
 
@@ -87,7 +87,7 @@ Existem muitas formas de expor o conjunto de dados à aplicação. Uma abordagem
 
 Outra abordagem é converter este conjunto de dados num ficheiro de texto plano que o navegador pode facilmente analisar. O ficheiro em si pode ser hospedado com o resto da aplicação. Esta opção mantém as coisas simples, mas é uma boa opção apenas para conjuntos de dados mais pequenos porque o utilizador descarrega todos os dados. Utilizamos o ficheiro de texto plano para este conjunto de dados porque o tamanho do ficheiro de dados é inferior a 1 MB.  
 
-Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As**. Na lista Desacompanhada **do tipo** Deslimited **Text (Tab delimitado)(*.txt)**. Diga o nome do *ficheiroContosoCoffee.txt*.
+Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As**. Na lista Desacompanhada **do tipo** Deslimited **Text (Tab delimitado)(*.txt)**. Diga o nome do * ficheiroContosoCoffee.txt*.
 
 ![Screenshot do Save como caixa de diálogo tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -105,7 +105,7 @@ Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.micro
 
 Para criar a interface do utilizador, adicione código a *index.html:*
 
-1. Adicione as `meta` seguintes etiquetas à `head`index.htm*l*. A `charset` etiqueta define o conjunto de caracteres (UTF-8). O valor dos `http-equiv` indicações ao Internet Explorer e Microsoft Edge para utilizarem as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
+1. Adicione as `meta` seguintes etiquetas à `head`index.htm* l*. A `charset` etiqueta define o conjunto de caracteres (UTF-8). O valor dos `http-equiv` indicações ao Internet Explorer e Microsoft Edge para utilizarem as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
 
     ```HTML
     <meta charset="utf-8">
@@ -385,7 +385,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Adicione código a *index.js*. O seguinte código rubrica o mapa. Adicionámos um [ouvinte do evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para esperar até que a página termine de carregar. Em seguida, ligamos eventos para monitorizar o carregamento do mapa, e dar funcionalidade ao botão de pesquisa e ao botão de localização.
+1. Adicione código a *index.js*. O seguinte código rubrica o mapa. Adicionámos um [ouvinte do evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) para esperar até que a página termine de carregar. Em seguida, ligamos eventos para monitorizar o carregamento do mapa, e dar funcionalidade ao botão de pesquisa e ao botão de localização.
 
    Quando o utilizador seleciona o botão de pesquisa ou escreve uma localização na caixa de pesquisa e, em seguida, pressiona a entrada, é iniciada uma pesquisa difusa contra a consulta do utilizador. Passe num conjunto de valores ISO 2 de país/região à `countrySet` opção de limitar os resultados de pesquisa a esses países/regiões. Limitar os países/regiões à procura ajuda a aumentar a precisão dos resultados que são devolvidos. 
   
@@ -910,7 +910,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     }
     ```
 
-Agora, tem um localizador de loja totalmente funcional. Num navegador web, abra o *ficheiroindex.html* para o localizador da loja. Quando os clusters aparecem no mapa, pode procurar uma localização utilizando a caixa de pesquisa, selecionando o botão 'Localização' , selecionando um cluster ou fazendo zoom no mapa para ver as localizações individuais.
+Agora, tem um localizador de loja totalmente funcional. Num navegador web, abra o * ficheiroindex.html* para o localizador da loja. Quando os clusters aparecem no mapa, pode procurar uma localização utilizando a caixa de pesquisa, selecionando o botão 'Localização' , selecionando um cluster ou fazendo zoom no mapa para ver as localizações individuais.
 
 A primeira vez que um utilizador seleciona o botão 'Localização' o navegador apresenta um aviso de segurança que pede permissão para aceder à localização do utilizador. Se o utilizador concordar em partilhar a sua localização, o mapa faz zooms na localização do utilizador e nas cafetarias próximas são mostrados.
 
@@ -935,7 +935,7 @@ Neste tutorial, aprende-se a criar um localizador de lojas básicas utilizando o
 > * Adicione a capacidade de [definir filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 > * Adicione suporte para especificar um valor inicial de pesquisa utilizando uma cadeia de consulta. Quando incluir esta opção no localizador da sua loja, os utilizadores podem marcar e partilhar pesquisas. Também fornece um método fácil para que você passe pesquisas para esta página a partir de outra página.  
 > * Implemente o localizador da sua loja como uma [Aplicação Web do Serviço de Aplicações Azure](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Guarde os seus dados numa base de dados e procure locais próximos. Para saber mais, consulte os [tipos de dados espaciais sql server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e os [dados espaciais de consulta para o vizinho mais próximo.](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)
+> * Guarde os seus dados numa base de dados e procure locais próximos. Para saber mais, consulte os [tipos de dados espaciais sql server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) e os [dados espaciais de consulta para o vizinho mais próximo.](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
 
 > [!div class="nextstepaction"]
 > [Ver código fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)

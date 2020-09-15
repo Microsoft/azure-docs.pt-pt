@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e50b4aa300c74ed5fff9a345f83d41fdda5a1054
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bbe4328d797f740e124d4944aee889d471393200
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115871"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085608"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (Preview)
 
@@ -90,8 +90,8 @@ Uma política de vida simbólica é um tipo de objeto político que contém regr
 | Atualizar tempo inativo token Max |MaxInactiveTime |Fichas de atualização |90 dias |10 minutos |90 dias |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Fichas de atualização (para qualquer utilizadores) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
 | Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Fichas de atualização (para qualquer utilizadores) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
-| Sessão de fator único Token Max Age |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não permanentes) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
-| Sessão multi-factor Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não permanentes) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
+| Sessão de fator único Token Max Age |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não permanentes) |Até revogação |10 minutos |180 dias<sup>1</sup> |
+| Sessão multi-factor Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não permanentes) |Até revogação |10 minutos |180 dias<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento explícito máximo que pode ser definido para estes atributos.
 * <sup>2</sup> Para garantir que o cliente Web da Microsoft Teams funciona, recomenda-se manter o AccessTokenLifetime a mais de 15 minutos para as Equipas microsoft.
@@ -400,7 +400,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Sequência do nome da apólice. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |Se for verdade, define a política como a política de incumprimento da organização. Se falso, não faz nada. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Tipo de política. Para vidas simbólicas, use sempre "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Opcional] |Define uma identificação alternativa para a apólice. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define uma identificação alternativa para a apólice. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -413,7 +413,7 @@ Get-AzureADPolicy
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[Opcional] |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcional] |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -441,10 +441,10 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Sequência do nome da apólice. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[Opcional] |Conjunto de JSON cordified que contém todas as regras da apólice. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[Opcional] |Se for verdade, define a política como a política de incumprimento da organização. Se falso, não faz nada. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[Opcional] |Tipo de política. Para vidas simbólicas, use sempre "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Opcional] |Define uma identificação alternativa para a apólice. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [Opcional] |Conjunto de JSON cordified que contém todas as regras da apólice. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Opcional] |Se for verdade, define a política como a política de incumprimento da organização. Se falso, não faz nada. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Opcional] |Tipo de política. Para vidas simbólicas, use sempre "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define uma identificação alternativa para a apólice. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 

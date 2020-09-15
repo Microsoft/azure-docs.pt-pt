@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 704cb43a31ff1dfcaf287f9af467f7d6e7d6c50d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e79135ccf672fa057d9e88fc91fa72b7826ba71e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282811"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085200"
 ---
 # <a name="add-a-simple-data-layer"></a>Adicionar uma camada de dados simples
 
@@ -57,7 +57,7 @@ O código a seguir torna a função ponto acima utilizando a camada de dados sim
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Utilize a camada de dados simples" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> Ver a caneta <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Utilize a camada de dados simples</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Utilize a camada de dados simples" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Ver a caneta <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Utilize a camada de dados simples</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O verdadeiro poder da camada de dados simples vem quando:
@@ -70,7 +70,7 @@ Por exemplo, ao analisar os feeds de dados XML, pode não conhecer os estilos e 
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opções simples de camada de dados" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Consulte as <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>opções de camada de dados Pen Simple</a> por Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opções simples de camada de dados" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Consulte as <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>opções de camada de dados Pen Simple</a> por Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -102,7 +102,7 @@ Se uma funcionalidade for um `Point` ou um , e a funcionalidade não tiver uma p
 | `radius` | `size`<sup>1,</sup> `marker-size` <sup>2</sup>, `scale` <sup>1</sup> | `8` |
 | `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
 
-\[1 \] Os `size` `scale` valores são considerados valores escalar, e serão multiplicados por`8`
+\[1 \] Os `size` `scale` valores são considerados valores escalar, e serão multiplicados por `8`
 
 \[2 \] Se a opção GitHub `marker-size` for especificada, os seguintes valores serão utilizados para o raio.
 
@@ -118,7 +118,7 @@ Os aglomerados também são renderizados usando a camada de bolha. Por predefini
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |
-| &lt;10     | `green`  |
+| &lt; 10     | `green`  |
 
 ### <a name="symbol-style-properties"></a>Propriedades de estilo de símbolo
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: 30eaa9b9f8700877607af047e5e64eca65471545
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: bf9cda37e0cc8186938a316c87bcc69a7a7370b8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759602"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085285"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Azure Storage Explorer suporta ciclo de vida e política
 
@@ -41,6 +41,8 @@ Esta tabela descreve a data de lançamento e a data de suporte para cada lançam
 
 | Versão do Explorador de Armazenamento  | Data da versão       | Data de fim do suporte |
 |:-------------------------:|:------------------:|:-------------------:|
+| v1.15.1                   | 2 de setembro de 2020  | 2 de setembro de 2021   |
+| v1.15.0                   | 27 de agosto de 2020    | 27 de agosto de 2021     |
 | v1.14.2                   | 16 de julho de 2020      | 16 de julho de 2021       |
 | v1.14.1                   | 14 de julho de 2020      | 14 de julho de 2021       |
 | v1.14.0                   | 24 de junho de 2020      | 14 de julho de 2021       |

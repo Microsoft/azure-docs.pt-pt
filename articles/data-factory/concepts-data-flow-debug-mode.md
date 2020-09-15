@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030605"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085098"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeamento do fluxo de dados Modo Debug
 
@@ -32,6 +32,11 @@ Assim que ligar o slider, ser-lhe-á solicitado que selecione qual a configuraç
 Quando o modo Debug estiver ligado, irás construir interativamente o teu fluxo de dados com um cluster De spark ativo. A sessão encerrará assim que desligar a depuração na Azure Data Factory. Deve estar ciente das taxas horárias incorridas pela Azure Databricks durante o tempo em que tem a sessão de depuração ligada.
 
 Na maioria dos casos, é uma boa prática construir os seus Fluxos de Dados em modo de depuração para que possa validar a sua lógica de negócio e ver as suas transformações de dados antes de publicar o seu trabalho na Azure Data Factory. Utilize o botão "Debug" no painel de gasodutos para testar o fluxo de dados num oleoduto.
+
+![Ver sessões de depurar fluxo de dados](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> Cada sessão de depuração que um utilizador começa a partir do seu UI do navegador ADF é uma nova sessão com o seu próprio cluster Spark. Pode utilizar a vista de monitorização para sessões de depurar acima para visualizar e gerir sessões de depuragem por fábrica.
 
 ## <a name="cluster-status"></a>Estado do cluster
 
@@ -91,7 +96,7 @@ Selecionar uma coluna no seu separador de pré-visualização de dados e clicar 
 
 ![Estatísticas da coluna](media/data-flow/stats.png "Estatísticas da coluna")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Assim que terminar de construir e depurar o fluxo de dados, [execute-o a partir de um oleoduto.](control-flow-execute-data-flow-activity.md)
 * Ao testar o seu pipeline com um fluxo de dados, utilize a [opção de execução de execução do pipeline Debug.](iterative-development-debugging.md)

@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060922"
+ms.locfileid: "90069582"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador ao nível do inquilino a uma aplicação
 
@@ -70,6 +70,9 @@ Para conceder o consentimento administrativo do arrendatário a partir dos regis
 5. Reveja cuidadosamente as permissões que a aplicação requer.
 6. Se concordar com as permissões que o pedido requer, conceda o consentimento. Caso contrário, clique em **Cancelar** ou feche a janela.
 
+> [!WARNING]
+> A concessão do consentimento administrativo através dos **registos da App** revogará quaisquer permissões que tivessem sido previamente concedidas a todo o inquilino. As permissões que tenham sido previamente concedidas pelos utilizadores em seu próprio nome não serão afetadas. 
+
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>Construa o URL para conceder consentimento administrativo a todo o arrendatário
 
 Ao conceder o consentimento administrativo do arrendatário utilizando qualquer método descrito acima, uma janela abre-se a partir do portal Azure para solicitar o consentimento administrativo em todo o inquilino. Se você conhece o ID do cliente (também conhecido como iD de aplicação) do pedido, você pode construir o mesmo URL para conceder consentimento administrativo ao inquilino.
@@ -90,7 +93,7 @@ Como sempre, reveja cuidadosamente as permissões que um pedido de pedido antes 
 > [!WARNING]
 > A concessão do consentimento administrativo através desta URL revogará quaisquer permissões que tivessem sido previamente concedidas a todo o inquilino. As permissões que tenham sido previamente concedidas pelos utilizadores em seu próprio nome não serão afetadas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
 

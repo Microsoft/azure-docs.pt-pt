@@ -3,15 +3,15 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: Como criar um conjunto de anfitriões virtual do Windows desktop utilizando o portal Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322590"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084367"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -189,7 +189,14 @@ Para registar o grupo de aplicações de desktop num espaço de trabalho:
 
 Depois disso, já acabou!
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Executar o modelo de Gestor de Recursos Azure para providenciar uma nova piscina de anfitriões
+
+Se preferir usar um processo automatizado, [baixe o nosso modelo de Gestor de Recursos Azure](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) para providenciar a sua nova piscina de anfitriões.
+
+>[!NOTE]
+>Se estiver a utilizar um processo automatizado para construir o seu ambiente, precisará da versão mais recente do ficheiro JSON de configuração. Pode encontrar o ficheiro JSON [aqui.](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez a sua piscina de anfitriões, pode povoá-la com programas RemoteApp. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, dirija-se ao nosso próximo tutorial:
 

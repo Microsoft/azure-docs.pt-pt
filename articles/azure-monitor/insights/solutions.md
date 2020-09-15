@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/07/2020
-ms.openlocfilehash: 013d8b77a16a4c7cd0efdadce25fd141793070be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: d509862fe4dafff174ee03c3b5cc887fa9d9ff22
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459526"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085999"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Azure Monitor
 
@@ -26,7 +26,7 @@ A página **de visão geral das** soluções no Azure Monitor exibe um azulejo p
 
 Utilize as caixas de dropdown na parte superior do ecrã para alterar o espaço de trabalho ou o intervalo de tempo utilizado para os azulejos. Clique no azulejo para obter uma solução para abrir a sua visão que inclui uma análise mais detalhada dos seus dados recolhidos.
 
-[![Descrição geral](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
+[![O Screenshot mostra o menu do portal Azure com soluções selecionadas e soluções exibidas no painel soluções.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 As soluções de monitorização podem conter vários tipos de recursos Azure, e você pode ver quaisquer recursos incluídos com uma solução como qualquer outro recurso. Por exemplo, quaisquer consultas de registo incluídas na solução estão listadas em **Consultas de Solução** no [explorador de consultas](../log-query/get-started-portal.md#load-queries) Pode utilizar essas consultas ao realizar análises ad hoc com consultas [de registo](../log-query/log-query-overview.md).
 
@@ -189,7 +189,7 @@ az monitor log-analytics solution delete --name
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha uma [lista de soluções de monitorização da Microsoft.](../monitor-reference.md)
 * Saiba como criar consultas para analisar [dados](../log-query/log-query-overview.md) recolhidos através da monitorização de soluções.

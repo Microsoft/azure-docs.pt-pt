@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 0c4178513c5a6027b3261d6d7975d4ec7cc55c6a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500424"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085795"
 ---
 # <a name="monitoring-azure-storage"></a>Monitorização do Armazenamento Azure
 
@@ -76,7 +76,11 @@ Todos os outros pedidos anónimos falhados não estão registados. Para obter um
 
 ## <a name="configuration"></a>Configuração
 
-As métricas da plataforma e o registo de Atividade são recolhidos automaticamente, mas tem de criar uma definição de diagnóstico para recolher registos de recursos ou reencaizá-los para fora do Azure Monitor. Para que o processo crie uma definição de diagnóstico utilizando o portal Azure, o Azure CLI ou PowerShell, consulte [criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../azure-monitor/platform/diagnostic-settings.md).
+As métricas da plataforma e o registo de Atividade são recolhidos automaticamente, mas tem de criar uma definição de diagnóstico para recolher registos de recursos ou reencaizá-los para fora do Azure Monitor. 
+
+Para criar uma definição de diagnóstico utilizando o portal Azure, o Azure CLI ou PowerShell, consulte [criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../azure-monitor/platform/diagnostic-settings.md). 
+
+Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 Quando criar uma definição de diagnóstico, escolha o tipo de armazenamento para o qual pretende ativar os registos, tais como uma bolha, fila, mesa ou ficheiro. Data Lake Storage Gen2 não aparece como um tipo de armazenamento. Isto porque o Data Lake Storage Gen2 é um conjunto de capacidades disponíveis para o armazenamento blob. 
 
@@ -124,7 +128,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor, que incl
 
 #### <a name="list-the-metric-definition"></a>Listar a definição métrica
 
-Pode listar a definição métrica da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o [cmdlet Get-AzMetricDefinition.](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0)
+Pode listar a definição métrica da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o [cmdlet Get-AzMetricDefinition.](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition)
 
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recurso de um serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
@@ -135,7 +139,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos
 
 #### <a name="reading-metric-values"></a>Valores métricos de leitura
 
-Pode ler os valores métricos ao nível da conta da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o [cmdlet Get-AzMetric.](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0)
+Pode ler os valores métricos ao nível da conta da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o [cmdlet Get-AzMetric.](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric)
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -146,7 +150,7 @@ Pode ler os valores métricos ao nível da conta da sua conta de armazenamento o
 
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição métrica de nível de conta
 
-Pode listar a definição métrica da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o comando [de definições de listas de métricas az monitor.](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions)
+Pode listar a definição métrica da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o comando [de definições de listas de métricas az monitor.](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions)
  
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recurso de um serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
@@ -156,7 +160,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos
 
 #### <a name="read-account-level-metric-values"></a>Leia os valores métricos ao nível da conta
 
-Pode ler os valores métricos da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o comando [da lista de métricas do monitor az.](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)
+Pode ler os valores métricos da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o comando [da lista de métricas do monitor az.](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list)
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -406,7 +410,7 @@ Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenam
 
 Não. O Azure Compute suporta as métricas nos discos. Para obter mais informações, consulte [as métricas de discos por discos geridos e não geridos.](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma referência dos registos e métricas criados pela Azure Storage, consulte [a referência de dados de monitorização do armazenamento Azure](monitor-storage-reference.md).
 - Para obter informações sobre a monitorização dos recursos do Azure, consulte [os recursos do Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).

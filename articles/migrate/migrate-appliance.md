@@ -1,14 +1,14 @@
 ---
 title: Aplicação do Azure Migrate
-description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
+description: Fornece um resumo do suporte para o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 2092b03ee95349286b9e845689b5d9d55b61c772
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060735"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084775"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -71,7 +71,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Script do PowerShell** | Consulte este [artigo.](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)<br/><br/> 
 **Software/hardware***   |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho como um VM Hiper-V, precisa de recursos suficientes no hospedeiro Hyper-V para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um interruptor externo para o VM do aparelho.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware. 
 **Requisitos de hiper-V** | Se colocar o aparelho com o modelo VHD, o aparelho VM fornecido pela Azure Migrate é a versão 5.0 do Hiper-VM.<br/><br/> O anfitrião Hyper-V deve estar a executar o Windows Server 2012 R2 ou mais tarde. 
-**Valor de haxixe VHD** | [Verifique](tutorial-assess-hyper-v.md#verify-security) os valores do hash do modelo VHD.
+**Valor de haxixe VHD** | Valores de hash do modelo VHD.
 **Roteiro hash value-PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores do hash do script PowerShell.
 
 
@@ -84,7 +84,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Implantação suportada** | Implemente como uma máquina física dedicada, ou um VM, utilizando um script de instalação PowerShell. O script está disponível para download a partir do portal.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 1000 servidores físicos.
-**Script do PowerShell** | Descarregue o script (AzureMigrateInstaller.ps1) numa pasta com fecho de correr a partir do portal ou a partir [daqui](https://go.microsoft.com/fwlink/?linkid=2140334). [Saiba mais](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance).<br/><br/> O tamanho do download é de 85 MB.
+**Script do PowerShell** | Descarregue o script (AzureMigrateInstaller.ps1) numa pasta com fecho de correr a partir do portal ou a partir [daqui](https://go.microsoft.com/fwlink/?linkid=2140334). [Saiba mais](tutorial-discover-physical.md).<br/><br/> O tamanho do download é de 85 MB.
 **Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware.<br/> A execução do aparelho numa máquina com o Windows Server 2019 não é suportada.
 **Valor de hash** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores do hash do script PowerShell.
 
@@ -522,7 +522,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho para VMware.
 - [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o aparelho para o Hyper-V.

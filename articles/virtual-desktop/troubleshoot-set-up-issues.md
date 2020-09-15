@@ -3,15 +3,15 @@ title: Windows Virtual Desktop ambiente anfitrião criação de piscina - Azure
 description: Como resolver problemas e resolver problemas de inquilinos e piscinas durante a configuração de um ambiente de desktop virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121379"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084418"
 ---
 # <a name="host-pool-creation"></a>Criação de conjuntos de anfitriões
 
@@ -46,6 +46,12 @@ Se a sua operação ultrapassar o limite de quota, pode fazer uma das seguintes 
 - Crie uma nova piscina hospedeira com os mesmos parâmetros, mas menos VMs e núcleos VM.
 
 - Abra o link que vê no campo statusMessage num browser para submeter um pedido de aumento da quota para a sua subscrição Azure para o VM SKU especificado.
+
+### <a name="error-cant-see-user-assignments-in-app-groups"></a>Erro: Não é possível ver atribuições de utilizadores em grupos de aplicações.
+
+Causa: Este erro geralmente acontece depois de ter mudado a subscrição de 1 Azure Ative Directory (AD) inquilino para outro. Se as suas antigas missões ainda estiverem ligadas ao antigo inquilino da AD Azure, o portal Azure perderá o rasto deles.
+
+Correção: Terá de reatribuir os utilizadores a grupos de aplicações.
 
 ## <a name="azure-resource-manager-template-errors"></a>Erros do modelo do Gestor de Recursos Azure
 
@@ -88,7 +94,7 @@ Para corrigir isto, faça as seguintes coisas:
 3. O menu de servidores DNS deve aparecer no lado direito do seu ecrã. Nesse menu, selecione **Custom**.
 4. Certifique-se de que os servidores DNS listados no Custom correspondem ao seu controlador de domínio ou ao domínio do Ative Directory. Se não vir o servidor DNS, pode adicioná-lo introduzindo o seu valor no campo do **servidor Add DNS.**
 
-### <a name="error-your-deployment-failedunauthorized"></a>Erro: A sua implantação falhou...\Não autorizada
+### <a name="error-your-deployment-failedunauthorized"></a>Erro: Falha na implementação...\Não autorizado
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -109,7 +115,7 @@ Para corrigir isto, faça as seguintes coisas:
 
 **Correção:** Confirme que o ambiente de ambiente de trabalho virtual do Windows é saudável ao iniciar sessão com o PowerShell. Termine manualmente o registo VM em [Criar uma piscina de anfitriões com PowerShell](create-host-pools-powershell.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O nome de utilizador do administrador especificado não é permitido
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O Nome de Utilizador do Administrador especificado não é permitido
 
 > [!div class="mx-imgBorder"]
 > ![A imagem da sua implantação falhou na qual não é permitido um administrador especificado.](media/failure-username.png)
@@ -127,7 +133,7 @@ Exemplo de erro bruto:
 
 **Correção:** Atualizar o nome de utilizador ou utilizar diferentes utilizadores.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: A VM reportou uma falha ao processar a extensão
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: A VM reportou uma falha durante o processamento da extensão
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot da operação de recursos concluída com estado de provisionamento terminal na Sua Implementação Falhou.](media/failure-processing.png)

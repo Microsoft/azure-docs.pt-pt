@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e3b0f92770b48ef5163846e67940efe80fb669a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662506"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085353"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorize os Hubs de Superfície com monitor Azure para acompanhar a sua saúde
 
@@ -60,7 +60,7 @@ Se não utilizar o Intune para gerir o seu ambiente, pode inscrever os dispositi
 3. Clique **neste dispositivo**, e no **seguinte,** clique em Configurações de Análise de **Registos configurados**.
 4. **Selecione Ativar a monitorização**.
 5. No diálogo de definições de Log Analytics, digite o **ID** do espaço de trabalho do Log Analytics e digite a **chave do espaço de trabalho**.  
-   ![definições](./media/surface-hubs/settings.png)
+   ![O Screenshot mostra as definições do Microsoft Operations Manager Suite com Enable monitoring selecionados e caixas de texto para ID de espaço de trabalho e chave workspace.](./media/surface-hubs/settings.png)
 6. Clique **em OK** para completar a configuração.
 
 Aparece uma confirmação que lhe diz se a configuração foi ou não aplicada com sucesso no dispositivo. Se foi, aparece uma mensagem indicando que o agente está ligado com sucesso ao Azure Monitor. Em seguida, o dispositivo começa a enviar dados para o Azure Monitor, onde pode visualizar e agir sobre ele.
@@ -76,6 +76,6 @@ Quando clicar no azulejo do Surface Hub, a saúde do seu dispositivo é exibida.
 
 Pode criar [alertas](../platform/alerts-overview.md) com base em pesquisas de registos existentes ou personalizadas. Utilizando os dados que o Azure Monitor recolhe dos seus Surface Hubs, pode procurar problemas e alertar sobre as condições que define para os seus dispositivos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Utilize [consultas de log no Azure Monitor](../log-query/log-query-overview.md) para visualizar dados detalhados do Surface Hub.
 * Crie [alertas](../platform/alerts-overview.md) para o notificar quando ocorrerem problemas com os seus Surface Hubs.

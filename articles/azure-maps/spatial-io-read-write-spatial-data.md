@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b094f63c075bdb8af225ff366343c60bc6818224
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 7c588e1db7cbf35d2a5192805674f88905599e8e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816767"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085147"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e escrever dados espaciais
 
@@ -41,7 +41,7 @@ Ao ler um ficheiro comprimido, seja como um fecho ou um KMZ, será desapertado e
 
 O resultado da função de leitura é um `SpatialDataSet` objeto. Este objeto estende a classe GeoJSON FeatureCollection. Pode facilmente ser passado para um `DataSource` as-é para tornar as suas características num mapa. O `SpatialDataSet` não só contém informações sobre as características, como também pode incluir sobreposições de terra KML, métricas de processamento e outros detalhes, tal como descritos no quadro seguinte.
 
-| Nome da propriedade | Tipo | Descrição | 
+| Nome da propriedade | Tipo | Description | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Caixa de limitação de todos os dados do conjunto de dados. |
 | `features` | `Feature[]` | GeoJSON possui dentro do conjunto de dados. |
@@ -174,10 +174,10 @@ Saiba mais sobre as aulas e métodos utilizados neste artigo:
 > [Estatísticas espaciais de DadosSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
 > [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader?view=azure-maps-typescript-latest)
+> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
 > [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter?view=azure-maps-typescript-latest)
+> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
 > [!div class="nextstepaction"]
 > [funções atlas.io.ogc.WKT](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)

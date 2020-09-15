@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: b3c3bed20b5fd60b9323dada617fb1302efc41d2
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006949"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085710"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marcar a sua aplicação como verificada pelo publicador
 
-Quando uma aplicação é marcada como editora verificada, significa que o editor verificou a sua identidade utilizando a sua conta Microsoft Partner Network (MPN) e associou esta conta MPN ao seu registo de candidatura. Este artigo descreve como completar o processo de verificação do [editor (pré-visualização).](publisher-verification-overview.md)
+Quando uma aplicação é marcada como editora verificada, significa que o editor verificou a sua identidade utilizando a sua conta Microsoft Partner Network (MPN) e associou esta conta MPN ao seu registo de candidatura. Este artigo descreve como completar o processo de verificação do [editor.](publisher-verification-overview.md)
 
 ## <a name="quickstart"></a>Início Rápido
 Se já está inscrito na Microsoft Partner Network (MPN) e cumpriu os [requisitos prévios,](publisher-verification-overview.md#requirements)pode começar imediatamente: 
 
-1. Navegue para o [portal de Registo de Aplicações.](https://aka.ms/PublisherVerificationPreview)
+1. Inscreva-se no [portal de Registo de Aplicações](https://aka.ms/PublisherVerificationPreview) utilizando a [autenticação de vários fatores](../fundamentals/concept-fundamentals-mfa-get-started.md)
 
 1. Escolha uma aplicação e clique em **Branding.** 
 
@@ -40,9 +40,9 @@ Para obter mais detalhes sobre benefícios específicos, requisitos e perguntas 
 ## <a name="mark-your-app-as-publisher-verified"></a>Marcar a sua aplicação como verificada pelo publicador
 Certifique-se de que cumpriu os [requisitos prévios,](publisher-verification-overview.md#requirements)em seguida, siga estes passos para marcar as suas aplicações como Editor Verificado.  
 
-1. Certifique-se de que está assinado com uma conta organizacional (Azure AD) que está autorizada a fazer alterações nas aplicações que pretende marcar como Editora Verificada e na Conta MPN no Partner Center. 
+1. Certifique-se de que está assinado na [utilização de autenticação multi-factor](../fundamentals/concept-fundamentals-mfa-get-started.md) para uma conta organizacional (Azure AD) que está autorizada a escrumar alterações nas aplicações que pretende marcar como Editora Verificada e na Conta MPN no Partner Center.
 
-    - No Azure AD este utilizador deve ser o Proprietário da app ou ter uma das seguintes funções: Administrador de Aplicação, Cloud Application Admin, Global Admin. 
+    - Em Azure AD este utilizador deve ser membro de uma das seguintes funções: Application Admin, Cloud Application Admin, Global Admin. 
 
     - No Partner Center este utilizador deve ter as seguintes funções: MPN Admin, Accounts Admin ou um Administrador Global (este é um papel partilhado dominado no Azure AD). 
 
@@ -50,11 +50,9 @@ Certifique-se de que cumpriu os [requisitos prévios,](publisher-verification-ov
 
 1. Clique numa aplicação que gostaria de marcar como Editora Verificada e abra a lâmina de marcação. 
 
-1. Certifique-se de que o Domínio de Editores da aplicação está definido de forma adequada. Este domínio deve ser: 
+1. Certifique-se de que o domínio da [editora](howto-configure-publisher-domain.md) da aplicação está definido. 
 
-    - Ser adicionado ao inquilino Azure AD como um domínio personalizado verificado pelo DNS,  
-
-    - Corresponda ao domínio do endereço de e-mail utilizado durante o processo de verificação da sua conta MPN. 
+1. Certifique-se de que o domínio do editor ou um [domínio personalizado](../fundamentals/add-custom-domain.md) verificado pelo DNS no arrendatário corresponde ao domínio do endereço de e-mail utilizado durante o processo de verificação da sua conta MPN.
 
 1. Clique **em Adicionar ID MPN para verificar o editor** perto da parte inferior da página. 
 
@@ -72,11 +70,11 @@ Certifique-se de que cumpriu os [requisitos prévios,](publisher-verification-ov
 
 1. Os utilizadores que forem solicitados a consentirem com a sua app começarão a ver o crachá logo após o processo ter passado pelo processo com sucesso, embora possa demorar algum tempo para que este se reproduza em todo o sistema. 
 
-1. Teste esta funcionalidade ao iniciar sessão na sua aplicação e certifique-se de que o crachá verificado aparece no ecrã de consentimento. Se você estiver assinado como um utilizador que já concedeu o consentimento à app, pode usar o parâmetro de consulta *de pedido de consentimento de prompt=para* forçar uma solicitação de consentimento. 
+1. Teste esta funcionalidade ao iniciar sessão na sua aplicação e certifique-se de que o crachá verificado aparece no ecrã de consentimento. Se você estiver assinado como um utilizador que já concedeu o consentimento à app, pode usar o parâmetro de consulta *de pedido de consentimento de prompt=para* forçar uma solicitação de consentimento. Este parâmetro deve ser utilizado apenas para testes e nunca codificado de forma dura nos pedidos da sua aplicação.
 
 1. Repita este processo conforme necessário para quaisquer aplicações adicionais para as quais pretende que o crachá seja exibido. Pode utilizar o Microsoft Graph para o fazer mais rapidamente a granel, e os cmdlets PowerShell estarão disponíveis em breve. Ver [Fazer gráfico aPI do Microsoft pede](troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) mais informações. 
 
 Já está! Informe-nos se tiver algum feedback sobre o processo, os resultados ou a funcionalidade em geral. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se tiver problemas, leia a [informação relativa à resolução de problemas.](troubleshoot-publisher-verification.md)
